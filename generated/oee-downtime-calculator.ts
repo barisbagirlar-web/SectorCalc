@@ -22,26 +22,22 @@ export const Oee_downtime_calculatorInputSchema = z.object({
   include_micro_stops: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Oee_downtime_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.planned_production_time * input.downtime_minutes * input.ideal_cycle_time * input.total_parts_produced; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.planned_production_time * input.downtime_minutes * input.ideal_cycle_time * input.total_parts_produced * (input.defective_parts); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.defective_parts; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.planned_production_time * input.downtime_minutes * input.ideal_cycle_time * input.total_parts_produced; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.planned_production_time * input.downtime_minutes * input.ideal_cycle_time * input.total_parts_produced * (input.defective_parts); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.defective_parts; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOee_downtime_calculator(input: Oee_downtime_calculatorInput): Oee_downtime_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateOee_downtime_calculator(input: Oee_downtime_calculatorI
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

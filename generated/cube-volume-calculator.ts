@@ -16,26 +16,22 @@ export const Cube_volume_calculatorInputSchema = z.object({
   density: z.number().default(1000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cube_volume_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sideLength ** 3 * input.quantity * (1 + input.wasteFactor / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = input.sideLength ** 3; results["singleCubeVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["singleCubeVolume"] = 0; }
-  try { const v = input.sideLength ** 3 * input.quantity * (1 + input.wasteFactor / 100) * input.density; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
+  try { const v = input.sideLength ** 3 * input.quantity * (1 + input.wasteFactor / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = input.sideLength ** 3; results["singleCubeVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["singleCubeVolume"] = Number.NaN; }
+  try { const v = input.sideLength ** 3 * input.quantity * (1 + input.wasteFactor / 100) * input.density; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCube_volume_calculator(input: Cube_volume_calculatorInput): Cube_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalVolume"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateCube_volume_calculator(input: Cube_volume_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -37,7 +37,7 @@ describe("industrial-schema-auto-fix", () => {
       ],
       formulas: {},
       outputs: {
-        primary: "v1x + v1y + v1z",
+        primary: "v1x * v1y + v1z * v1x - v1y * v1z",
         breakdown: [],
       },
     };

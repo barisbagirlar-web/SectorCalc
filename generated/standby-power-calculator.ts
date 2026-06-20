@@ -20,26 +20,22 @@ export const Standby_power_calculatorInputSchema = z.object({
   co2Factor: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Standby_power_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.deviceCount * input.standbyPower * input.hoursPerDay * input.daysPerMonth) / 1000; results["monthlyEnergyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyEnergyKwh"] = 0; }
-  try { const v = ((input.deviceCount * input.standbyPower * input.hoursPerDay * input.daysPerMonth) / 1000) * input.electricityCost; results["monthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyCost"] = 0; }
-  try { const v = ((input.deviceCount * input.standbyPower * input.hoursPerDay * input.daysPerMonth) / 1000) * input.co2Factor; results["monthlyCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyCO2"] = 0; }
+  try { const v = (input.deviceCount * input.standbyPower * input.hoursPerDay * input.daysPerMonth) / 1000; results["monthlyEnergyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyEnergyKwh"] = Number.NaN; }
+  try { const v = ((input.deviceCount * input.standbyPower * input.hoursPerDay * input.daysPerMonth) / 1000) * input.electricityCost; results["monthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyCost"] = Number.NaN; }
+  try { const v = ((input.deviceCount * input.standbyPower * input.hoursPerDay * input.daysPerMonth) / 1000) * input.co2Factor; results["monthlyCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyCO2"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStandby_power_calculator(input: Standby_power_calculatorInput): Standby_power_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthlyEnergyKwh"]));
+  const totalWasteCost = toNumericFormulaValue(values["monthlyEnergyKwh"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateStandby_power_calculator(input: Standby_power_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const _5x5_risk_calculatorInputSchema = z.object({
   impactWeight: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: _5x5_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.probability * input.probabilityWeight; results["weightedProb"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedProb"] = 0; }
-  try { const v = input.impact * input.impactWeight; results["weightedImpact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedImpact"] = 0; }
-  try { const v = (asFormulaNumber(results["weightedProb"])) * (asFormulaNumber(results["weightedImpact"])); results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskScore"] = 0; }
-  try { const v = (asFormulaNumber(results["riskScore"])) / 25 * 100; results["riskPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskPercentage"] = 0; }
+  try { const v = input.probability * input.probabilityWeight; results["weightedProb"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedProb"] = Number.NaN; }
+  try { const v = input.impact * input.impactWeight; results["weightedImpact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedImpact"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weightedProb"])) * (toNumericFormulaValue(results["weightedImpact"])); results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["riskScore"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["riskScore"])) / 25 * 100; results["riskPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["riskPercentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate_5x5_risk_calculator(input: _5x5_risk_calculatorInput): _5x5_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["riskScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["riskScore"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculate_5x5_risk_calculator(input: _5x5_risk_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

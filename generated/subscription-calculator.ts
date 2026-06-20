@@ -18,27 +18,23 @@ export const Subscription_calculatorInputSchema = z.object({
   taxPercent: z.number().default(18),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Subscription_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfUsers * input.pricePerUser * input.durationMonths; results["subtotalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotalCost"])) * (input.discountPercent / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
-  try { const v = ((asFormulaNumber(results["subtotalCost"])) - (asFormulaNumber(results["discountAmount"]))) * (input.taxPercent / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotalCost"])) - (asFormulaNumber(results["discountAmount"])) + (asFormulaNumber(results["taxAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.numberOfUsers * input.pricePerUser * input.durationMonths; results["subtotalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["subtotalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotalCost"])) * (input.discountPercent / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountAmount"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["subtotalCost"])) - (toNumericFormulaValue(results["discountAmount"]))) * (input.taxPercent / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotalCost"])) - (toNumericFormulaValue(results["discountAmount"])) + (toNumericFormulaValue(results["taxAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSubscription_calculator(input: Subscription_calculatorInput): Subscription_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSubscription_calculator(input: Subscription_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

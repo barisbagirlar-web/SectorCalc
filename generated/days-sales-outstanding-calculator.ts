@@ -16,25 +16,21 @@ export const Days_sales_outstanding_calculatorInputSchema = z.object({
   periodDays: z.number().default(365),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Days_sales_outstanding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.beginningAR + input.endingAR) / 2; results["averageAR"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageAR"] = 0; }
-  try { const v = ((input.netCreditSales !== 0 ? ((asFormulaNumber(results["averageAR"])) / input.netCreditSales * input.periodDays) : null) ? 1 : 0); results["dso"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dso"] = 0; }
+  try { const v = (input.beginningAR + input.endingAR) / 2; results["averageAR"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageAR"] = Number.NaN; }
+  try { const v = ((input.netCreditSales !== 0 ? ((toNumericFormulaValue(results["averageAR"])) / input.netCreditSales * input.periodDays) : null) ? 1 : 0); results["dso"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dso"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDays_sales_outstanding_calculator(input: Days_sales_outstanding_calculatorInput): Days_sales_outstanding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dso"]));
+  const totalWasteCost = toNumericFormulaValue(values["dso"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateDays_sales_outstanding_calculator(input: Days_sales_out
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

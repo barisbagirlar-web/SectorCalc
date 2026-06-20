@@ -18,26 +18,22 @@ export const Hydroponics_calculatorInputSchema = z.object({
   reservoirWaterVolume: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hydroponics_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.fertilizerMass * 10 * input.nutrientPercentage) / input.waterVolumeForStock; results["stockPpm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stockPpm"] = 0; }
-  try { const v = (input.targetPpm * input.reservoirWaterVolume) / (asFormulaNumber(results["stockPpm"])); results["stockVolumeL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stockVolumeL"] = 0; }
-  try { const v = (asFormulaNumber(results["stockVolumeL"])) * 1000; results["stockVolumeML"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stockVolumeML"] = 0; }
+  try { const v = (input.fertilizerMass * 10 * input.nutrientPercentage) / input.waterVolumeForStock; results["stockPpm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stockPpm"] = Number.NaN; }
+  try { const v = (input.targetPpm * input.reservoirWaterVolume) / (toNumericFormulaValue(results["stockPpm"])); results["stockVolumeL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stockVolumeL"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["stockVolumeL"])) * 1000; results["stockVolumeML"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stockVolumeML"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHydroponics_calculator(input: Hydroponics_calculatorInput): Hydroponics_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["stockVolumeML"]));
+  const totalWasteCost = toNumericFormulaValue(values["stockVolumeML"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateHydroponics_calculator(input: Hydroponics_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

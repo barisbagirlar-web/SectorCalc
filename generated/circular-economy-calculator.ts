@@ -20,31 +20,27 @@ export const Circular_economy_calculatorInputSchema = z.object({
   reused_waste: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Circular_economy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.recycled_input + input.reused_input; results["circular_input"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["circular_input"] = 0; }
-  try { const v = input.recycled_waste + input.reused_waste; results["circular_output"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["circular_output"] = 0; }
-  try { const v = input.total_waste_generated - (asFormulaNumber(results["circular_output"])); results["linear_output"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["linear_output"] = 0; }
-  try { const v = input.total_material_input + input.total_waste_generated; results["total_throughput"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_throughput"] = 0; }
-  try { const v = (((asFormulaNumber(results["circular_input"])) + (asFormulaNumber(results["circular_output"]))) / (asFormulaNumber(results["total_throughput"]))) * 100; results["circularity_index"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["circularity_index"] = 0; }
-  try { const v = ((input.reused_input + input.reused_waste) / (asFormulaNumber(results["total_throughput"]))) * 100; results["reuse_rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reuse_rate"] = 0; }
-  try { const v = ((input.recycled_input + input.recycled_waste) / (asFormulaNumber(results["total_throughput"]))) * 100; results["recycling_rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recycling_rate"] = 0; }
-  try { const v = ((input.total_waste_generated - (asFormulaNumber(results["circular_output"]))) / (asFormulaNumber(results["total_throughput"]))) * 100; results["landfill_rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["landfill_rate"] = 0; }
+  try { const v = input.recycled_input + input.reused_input; results["circular_input"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["circular_input"] = Number.NaN; }
+  try { const v = input.recycled_waste + input.reused_waste; results["circular_output"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["circular_output"] = Number.NaN; }
+  try { const v = input.total_waste_generated - (toNumericFormulaValue(results["circular_output"])); results["linear_output"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["linear_output"] = Number.NaN; }
+  try { const v = input.total_material_input + input.total_waste_generated; results["total_throughput"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_throughput"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["circular_input"])) + (toNumericFormulaValue(results["circular_output"]))) / (toNumericFormulaValue(results["total_throughput"]))) * 100; results["circularity_index"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["circularity_index"] = Number.NaN; }
+  try { const v = ((input.reused_input + input.reused_waste) / (toNumericFormulaValue(results["total_throughput"]))) * 100; results["reuse_rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["reuse_rate"] = Number.NaN; }
+  try { const v = ((input.recycled_input + input.recycled_waste) / (toNumericFormulaValue(results["total_throughput"]))) * 100; results["recycling_rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recycling_rate"] = Number.NaN; }
+  try { const v = ((input.total_waste_generated - (toNumericFormulaValue(results["circular_output"]))) / (toNumericFormulaValue(results["total_throughput"]))) * 100; results["landfill_rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["landfill_rate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCircular_economy_calculator(input: Circular_economy_calculatorInput): Circular_economy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["circularity_index"]));
+  const totalWasteCost = toNumericFormulaValue(values["circularity_index"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateCircular_economy_calculator(input: Circular_economy_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

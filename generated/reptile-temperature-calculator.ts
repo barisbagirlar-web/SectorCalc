@@ -20,27 +20,23 @@ export const Reptile_temperature_calculatorInputSchema = z.object({
   insulationFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Reptile_temperature_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (2 * (input.enclosureLength * input.enclosureWidth + input.enclosureLength * input.enclosureHeight + input.enclosureWidth * input.enclosureHeight)) / 10000; results["surfaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["surfaceArea"] = 0; }
-  try { const v = (input.enclosureLength * input.enclosureWidth * input.enclosureHeight) / 1000; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = input.desiredTemp - input.ambientTemp; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaT"] = 0; }
-  try { const v = input.insulationFactor * ((2 * (input.enclosureLength * input.enclosureWidth + input.enclosureLength * input.enclosureHeight + input.enclosureWidth * input.enclosureHeight)) / 10000) * (input.desiredTemp - input.ambientTemp); results["requiredWattage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredWattage"] = 0; }
+  try { const v = (2 * (input.enclosureLength * input.enclosureWidth + input.enclosureLength * input.enclosureHeight + input.enclosureWidth * input.enclosureHeight)) / 10000; results["surfaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["surfaceArea"] = Number.NaN; }
+  try { const v = (input.enclosureLength * input.enclosureWidth * input.enclosureHeight) / 1000; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = input.desiredTemp - input.ambientTemp; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaT"] = Number.NaN; }
+  try { const v = input.insulationFactor * ((2 * (input.enclosureLength * input.enclosureWidth + input.enclosureLength * input.enclosureHeight + input.enclosureWidth * input.enclosureHeight)) / 10000) * (input.desiredTemp - input.ambientTemp); results["requiredWattage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredWattage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateReptile_temperature_calculator(input: Reptile_temperature_calculatorInput): Reptile_temperature_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredWattage"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredWattage"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateReptile_temperature_calculator(input: Reptile_temperatu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,25 +20,21 @@ export const Home_equity_loan_calculatorInputSchema = z.object({
   maxLTV: z.number().default(80),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Home_equity_loan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.homeValue) / (input.remainingMortgage + input.desiredLoanAmount + input.interestRate + input.loanTerm + input.maxLTV) * 100; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRate"] = 0; }
-  try { const v = (input.homeValue) * (input.remainingMortgage) * (input.desiredLoanAmount); results["numPayments"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numPayments"] = 0; }
+  try { const v = (input.homeValue) / (input.remainingMortgage + input.desiredLoanAmount + input.interestRate + input.loanTerm + input.maxLTV) * 100; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyRate"] = Number.NaN; }
+  try { const v = (input.homeValue) * (input.remainingMortgage) * (input.desiredLoanAmount); results["numPayments"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numPayments"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHome_equity_loan_calculator(input: Home_equity_loan_calculatorInput): Home_equity_loan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["numPayments"]));
+  const totalWasteCost = toNumericFormulaValue(values["numPayments"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateHome_equity_loan_calculator(input: Home_equity_loan_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

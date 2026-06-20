@@ -16,26 +16,22 @@ export const Heart_rate_reserve_calculatorInputSchema = z.object({
   intensity: z.number().default(60),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heart_rate_reserve_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.maximumHeartRate > 0 ? input.maximumHeartRate : 220 - input.age; results["maxHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxHeartRate"] = 0; }
-  try { const v = (asFormulaNumber(results["maxHeartRate"])) - input.restingHeartRate; results["heartRateReserve"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
-  try { const v = (asFormulaNumber(results["heartRateReserve"])) * (input.intensity / 100) + input.restingHeartRate; results["targetHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetHeartRate"] = 0; }
+  try { const v = input.maximumHeartRate > 0 ? input.maximumHeartRate : 220 - input.age; results["maxHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxHeartRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["maxHeartRate"])) - input.restingHeartRate; results["heartRateReserve"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heartRateReserve"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["heartRateReserve"])) * (input.intensity / 100) + input.restingHeartRate; results["targetHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["targetHeartRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeart_rate_reserve_calculator(input: Heart_rate_reserve_calculatorInput): Heart_rate_reserve_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["targetHeartRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["targetHeartRate"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateHeart_rate_reserve_calculator(input: Heart_rate_reserve
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,25 +18,21 @@ export const Palliative_performance_scale_calculatorInputSchema = z.object({
   consciousnessScore: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Palliative_performance_scale_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.ambulationScore + input.activityScore + input.selfCareScore + input.intakeScore + input.consciousnessScore) / 5; results["pps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pps"] = 0; }
-  try { const v = (input.ambulationScore + input.activityScore + input.selfCareScore + input.intakeScore + input.consciousnessScore) / 5; results["pps_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pps_aux"] = 0; }
+  try { const v = (input.ambulationScore + input.activityScore + input.selfCareScore + input.intakeScore + input.consciousnessScore) / 5; results["pps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pps"] = Number.NaN; }
+  try { const v = (input.ambulationScore + input.activityScore + input.selfCareScore + input.intakeScore + input.consciousnessScore) / 5; results["pps_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pps_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePalliative_performance_scale_calculator(input: Palliative_performance_scale_calculatorInput): Palliative_performance_scale_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pps"]));
+  const totalWasteCost = toNumericFormulaValue(values["pps"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculatePalliative_performance_scale_calculator(input: Palliati
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

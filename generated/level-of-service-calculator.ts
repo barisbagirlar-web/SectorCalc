@@ -16,25 +16,21 @@ export const Level_of_service_calculatorInputSchema = z.object({
   orderQuantity: z.number().default(500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Level_of_service_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.reorderPoint - input.meanDemandDdlt) / input.stdDevDemandDdlt; results["z"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["z"] = 0; }
-  try { const v = input.reorderPoint - input.meanDemandDdlt; results["safetyStock"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safetyStock"] = 0; }
+  try { const v = (input.reorderPoint - input.meanDemandDdlt) / input.stdDevDemandDdlt; results["z"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["z"] = Number.NaN; }
+  try { const v = input.reorderPoint - input.meanDemandDdlt; results["safetyStock"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safetyStock"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLevel_of_service_calculator(input: Level_of_service_calculatorInput): Level_of_service_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["safetyStock"]));
+  const totalWasteCost = toNumericFormulaValue(values["safetyStock"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateLevel_of_service_calculator(input: Level_of_service_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

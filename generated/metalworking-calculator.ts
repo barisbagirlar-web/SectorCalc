@@ -20,26 +20,22 @@ export const Metalworking_calculatorInputSchema = z.object({
   radialWidthOfCut: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Metalworking_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * input.toolDiameter * input.spindleSpeed / 1000; results["cuttingSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cuttingSpeed"] = 0; }
-  try { const v = input.numberFlutes * input.chipLoad * input.spindleSpeed; results["feedRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["feedRate"] = 0; }
-  try { const v = input.numberFlutes * input.chipLoad * input.spindleSpeed * input.axialDepthOfCut * input.radialWidthOfCut; results["materialRemovalRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialRemovalRate"] = 0; }
+  try { const v = Math.PI * input.toolDiameter * input.spindleSpeed / 1000; results["cuttingSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cuttingSpeed"] = Number.NaN; }
+  try { const v = input.numberFlutes * input.chipLoad * input.spindleSpeed; results["feedRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["feedRate"] = Number.NaN; }
+  try { const v = input.numberFlutes * input.chipLoad * input.spindleSpeed * input.axialDepthOfCut * input.radialWidthOfCut; results["materialRemovalRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialRemovalRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMetalworking_calculator(input: Metalworking_calculatorInput): Metalworking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["materialRemovalRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["materialRemovalRate"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateMetalworking_calculator(input: Metalworking_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

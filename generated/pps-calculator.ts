@@ -18,27 +18,23 @@ export const Pps_calculatorInputSchema = z.object({
   shiftDuration: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pps_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.conveyorSpeed / input.pieceSpacing) * input.numLanes * (input.efficiency / 100); results["productionRate_pps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productionRate_pps"] = 0; }
-  try { const v = (asFormulaNumber(results["productionRate_pps"])) * 60; results["productionRate_pcsPerMinute"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productionRate_pcsPerMinute"] = 0; }
-  try { const v = (asFormulaNumber(results["productionRate_pps"])) * 3600; results["productionRate_pcsPerHour"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productionRate_pcsPerHour"] = 0; }
-  try { const v = (asFormulaNumber(results["productionRate_pps"])) * 3600 * input.shiftDuration; results["productionRate_pcsPerShift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["productionRate_pcsPerShift"] = 0; }
+  try { const v = (input.conveyorSpeed / input.pieceSpacing) * input.numLanes * (input.efficiency / 100); results["productionRate_pps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["productionRate_pps"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["productionRate_pps"])) * 60; results["productionRate_pcsPerMinute"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["productionRate_pcsPerMinute"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["productionRate_pps"])) * 3600; results["productionRate_pcsPerHour"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["productionRate_pcsPerHour"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["productionRate_pps"])) * 3600 * input.shiftDuration; results["productionRate_pcsPerShift"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["productionRate_pcsPerShift"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePps_calculator(input: Pps_calculatorInput): Pps_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["productionRate_pps"]));
+  const totalWasteCost = toNumericFormulaValue(values["productionRate_pps"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculatePps_calculator(input: Pps_calculatorInput): Pps_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

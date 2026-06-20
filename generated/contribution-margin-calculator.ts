@@ -16,27 +16,23 @@ export const Contribution_margin_calculatorInputSchema = z.object({
   fixedCosts: z.number().default(20000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Contribution_margin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.salesPricePerUnit - input.variableCostPerUnit; results["contributionMarginPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contributionMarginPerUnit"] = 0; }
-  try { const v = (input.salesPricePerUnit - input.variableCostPerUnit) * input.unitsSold; results["totalContributionMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalContributionMargin"] = 0; }
-  try { const v = (input.salesPricePerUnit - input.variableCostPerUnit) / input.salesPricePerUnit; results["contributionMarginRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contributionMarginRatio"] = 0; }
-  try { const v = (input.salesPricePerUnit - input.variableCostPerUnit) * input.unitsSold - input.fixedCosts; results["operatingProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["operatingProfit"] = 0; }
+  try { const v = input.salesPricePerUnit - input.variableCostPerUnit; results["contributionMarginPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contributionMarginPerUnit"] = Number.NaN; }
+  try { const v = (input.salesPricePerUnit - input.variableCostPerUnit) * input.unitsSold; results["totalContributionMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalContributionMargin"] = Number.NaN; }
+  try { const v = (input.salesPricePerUnit - input.variableCostPerUnit) / input.salesPricePerUnit; results["contributionMarginRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contributionMarginRatio"] = Number.NaN; }
+  try { const v = (input.salesPricePerUnit - input.variableCostPerUnit) * input.unitsSold - input.fixedCosts; results["operatingProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["operatingProfit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateContribution_margin_calculator(input: Contribution_margin_calculatorInput): Contribution_margin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalContributionMargin"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalContributionMargin"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateContribution_margin_calculator(input: Contribution_marg
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,26 +18,22 @@ export const Title_insurance_calculatorInputSchema = z.object({
   stateTaxRate: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Title_insurance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.coverageAmount * (input.ratePerThousand / 1000); results["basePremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["basePremium"] = 0; }
-  try { const v = (asFormulaNumber(results["basePremium"])) * input.stateTaxRate / 100; results["stateTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stateTax"] = 0; }
-  try { const v = (asFormulaNumber(results["basePremium"])) + input.policyFee + (asFormulaNumber(results["stateTax"])); results["totalPremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPremium"] = 0; }
+  try { const v = input.coverageAmount * (input.ratePerThousand / 1000); results["basePremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["basePremium"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["basePremium"])) * input.stateTaxRate / 100; results["stateTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stateTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["basePremium"])) + input.policyFee + (toNumericFormulaValue(results["stateTax"])); results["totalPremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPremium"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTitle_insurance_calculator(input: Title_insurance_calculatorInput): Title_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPremium"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPremium"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateTitle_insurance_calculator(input: Title_insurance_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

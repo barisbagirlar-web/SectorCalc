@@ -18,25 +18,21 @@ export const Fourier_series_calculatorInputSchema = z.object({
   numHarmonics: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fourier_series_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.offset) * (input.amplitude) * (input.period) * (input.time) * (input.numHarmonics); results["dcOffset"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcOffset"] = 0; }
-  try { const v = (input.offset) * (input.amplitude) * (input.period); results["dcOffset_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcOffset_aux"] = 0; }
+  try { const v = (input.offset) * (input.amplitude) * (input.period) * (input.time) * (input.numHarmonics); results["dcOffset"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dcOffset"] = Number.NaN; }
+  try { const v = (input.offset) * (input.amplitude) * (input.period); results["dcOffset_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dcOffset_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFourier_series_calculator(input: Fourier_series_calculatorInput): Fourier_series_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dcOffset_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["dcOffset_aux"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateFourier_series_calculator(input: Fourier_series_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Cash_on_cash_return_calculatorInputSchema = z.object({
   totalCashInvested: z.number().default(50000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cash_on_cash_return_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.annualGrossIncome - input.annualOperatingExpenses - input.annualDebtService); results["annualCashFlow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCashFlow"] = 0; }
-  try { const v = ((input.annualGrossIncome - input.annualOperatingExpenses - input.annualDebtService) / input.totalCashInvested) * 100; results["cashOnCashReturn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cashOnCashReturn"] = 0; }
+  try { const v = (input.annualGrossIncome - input.annualOperatingExpenses - input.annualDebtService); results["annualCashFlow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCashFlow"] = Number.NaN; }
+  try { const v = ((input.annualGrossIncome - input.annualOperatingExpenses - input.annualDebtService) / input.totalCashInvested) * 100; results["cashOnCashReturn"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cashOnCashReturn"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCash_on_cash_return_calculator(input: Cash_on_cash_return_calculatorInput): Cash_on_cash_return_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cashOnCashReturn"]));
+  const totalWasteCost = toNumericFormulaValue(values["cashOnCashReturn"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateCash_on_cash_return_calculator(input: Cash_on_cash_retu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

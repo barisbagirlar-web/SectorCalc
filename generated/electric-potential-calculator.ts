@@ -22,27 +22,23 @@ export const Electric_potential_calculatorInputSchema = z.object({
   r3: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Electric_potential_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.k * (input.q1 / input.r1 + input.q2 / input.r2 + input.q3 / input.r3); results["totalPotential"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPotential"] = 0; }
-  try { const v = input.k * input.q1 / input.r1; results["potential1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potential1"] = 0; }
-  try { const v = input.k * input.q2 / input.r2; results["potential2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potential2"] = 0; }
-  try { const v = input.k * input.q3 / input.r3; results["potential3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potential3"] = 0; }
+  try { const v = input.k * (input.q1 / input.r1 + input.q2 / input.r2 + input.q3 / input.r3); results["totalPotential"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPotential"] = Number.NaN; }
+  try { const v = input.k * input.q1 / input.r1; results["potential1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["potential1"] = Number.NaN; }
+  try { const v = input.k * input.q2 / input.r2; results["potential2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["potential2"] = Number.NaN; }
+  try { const v = input.k * input.q3 / input.r3; results["potential3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["potential3"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateElectric_potential_calculator(input: Electric_potential_calculatorInput): Electric_potential_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPotential"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPotential"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateElectric_potential_calculator(input: Electric_potential
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

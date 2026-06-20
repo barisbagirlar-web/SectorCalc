@@ -16,26 +16,22 @@ export const Strength_level_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Strength_level_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.yieldStrength / ((input.appliedForce / input.crossSectionArea) * input.safetyFactor)) * 100; results["strengthLevel"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["strengthLevel"] = 0; }
-  try { const v = input.appliedForce / input.crossSectionArea; results["workingStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["workingStress"] = 0; }
-  try { const v = input.yieldStrength / input.safetyFactor; results["allowableStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allowableStress"] = 0; }
+  try { const v = (input.yieldStrength / ((input.appliedForce / input.crossSectionArea) * input.safetyFactor)) * 100; results["strengthLevel"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["strengthLevel"] = Number.NaN; }
+  try { const v = input.appliedForce / input.crossSectionArea; results["workingStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["workingStress"] = Number.NaN; }
+  try { const v = input.yieldStrength / input.safetyFactor; results["allowableStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allowableStress"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStrength_level_calculator(input: Strength_level_calculatorInput): Strength_level_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["strengthLevel"]));
+  const totalWasteCost = toNumericFormulaValue(values["strengthLevel"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateStrength_level_calculator(input: Strength_level_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

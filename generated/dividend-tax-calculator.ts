@@ -18,29 +18,25 @@ export const Dividend_tax_calculatorInputSchema = z.object({
   cessRate: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dividend_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grossDividend - input.taxFreeAllowance; results["taxableDividend"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxableDividend"] = 0; }
-  try { const v = (asFormulaNumber(results["taxableDividend"])) * input.taxRate / 100; results["basicTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["basicTax"] = 0; }
-  try { const v = (asFormulaNumber(results["basicTax"])) * input.surchargeRate / 100; results["surcharge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["surcharge"] = 0; }
-  try { const v = ((asFormulaNumber(results["basicTax"])) + (asFormulaNumber(results["surcharge"]))) * input.cessRate / 100; results["cess"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cess"] = 0; }
-  try { const v = (asFormulaNumber(results["basicTax"])) + (asFormulaNumber(results["surcharge"])) + (asFormulaNumber(results["cess"])); results["totalTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTax"] = 0; }
-  try { const v = input.grossDividend - (asFormulaNumber(results["totalTax"])); results["netDividend"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netDividend"] = 0; }
+  try { const v = input.grossDividend - input.taxFreeAllowance; results["taxableDividend"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxableDividend"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxableDividend"])) * input.taxRate / 100; results["basicTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["basicTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["basicTax"])) * input.surchargeRate / 100; results["surcharge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["surcharge"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["basicTax"])) + (toNumericFormulaValue(results["surcharge"]))) * input.cessRate / 100; results["cess"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cess"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["basicTax"])) + (toNumericFormulaValue(results["surcharge"])) + (toNumericFormulaValue(results["cess"])); results["totalTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTax"] = Number.NaN; }
+  try { const v = input.grossDividend - (toNumericFormulaValue(results["totalTax"])); results["netDividend"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netDividend"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDividend_tax_calculator(input: Dividend_tax_calculatorInput): Dividend_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTax"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTax"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateDividend_tax_calculator(input: Dividend_tax_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

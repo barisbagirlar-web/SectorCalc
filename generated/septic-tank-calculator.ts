@@ -18,27 +18,23 @@ export const Septic_tank_calculatorInputSchema = z.object({
   desludgingIntervalYears: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Septic_tank_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfUsers * input.dailyFlowPerPerson * input.retentionTimeDays; results["wastewaterVolumeL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wastewaterVolumeL"] = 0; }
-  try { const v = input.sludgeAccumulationRate * input.numberOfUsers * input.desludgingIntervalYears; results["sludgeVolumeL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sludgeVolumeL"] = 0; }
-  try { const v = (asFormulaNumber(results["wastewaterVolumeL"])) + (asFormulaNumber(results["sludgeVolumeL"])); results["totalVolumeL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolumeL"] = 0; }
-  try { const v = (asFormulaNumber(results["totalVolumeL"])) / 1000; results["totalVolumeM3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolumeM3"] = 0; }
+  try { const v = input.numberOfUsers * input.dailyFlowPerPerson * input.retentionTimeDays; results["wastewaterVolumeL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wastewaterVolumeL"] = Number.NaN; }
+  try { const v = input.sludgeAccumulationRate * input.numberOfUsers * input.desludgingIntervalYears; results["sludgeVolumeL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sludgeVolumeL"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wastewaterVolumeL"])) + (toNumericFormulaValue(results["sludgeVolumeL"])); results["totalVolumeL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolumeL"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalVolumeL"])) / 1000; results["totalVolumeM3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolumeM3"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSeptic_tank_calculator(input: Septic_tank_calculatorInput): Septic_tank_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalVolumeM3"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalVolumeM3"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSeptic_tank_calculator(input: Septic_tank_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

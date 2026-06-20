@@ -18,27 +18,23 @@ export const Atomic_mass_to_kg_calculatorInputSchema = z.object({
   outputUnitMultiplier: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Atomic_mass_to_kg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.atomicMassU * input.numberOfEntities * input.conversionFactor * input.batchSize; results["mass_Kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mass_Kg"] = 0; }
-  try { const v = input.atomicMassU * input.numberOfEntities * input.conversionFactor * input.batchSize * 1000; results["mass_Grams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mass_Grams"] = 0; }
-  try { const v = input.numberOfEntities / 602214076000000000000000; results["numberOfMoles"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfMoles"] = 0; }
-  try { const v = input.atomicMassU * input.numberOfEntities * input.conversionFactor * input.batchSize * input.outputUnitMultiplier; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMass"] = 0; }
+  try { const v = input.atomicMassU * input.numberOfEntities * input.conversionFactor * input.batchSize; results["mass_Kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mass_Kg"] = Number.NaN; }
+  try { const v = input.atomicMassU * input.numberOfEntities * input.conversionFactor * input.batchSize * 1000; results["mass_Grams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mass_Grams"] = Number.NaN; }
+  try { const v = input.numberOfEntities / 602214076000000000000000; results["numberOfMoles"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numberOfMoles"] = Number.NaN; }
+  try { const v = input.atomicMassU * input.numberOfEntities * input.conversionFactor * input.batchSize * input.outputUnitMultiplier; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMass"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAtomic_mass_to_kg_calculator(input: Atomic_mass_to_kg_calculatorInput): Atomic_mass_to_kg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMass"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateAtomic_mass_to_kg_calculator(input: Atomic_mass_to_kg_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,30 +20,26 @@ export const Consulting_rate_calculatorInputSchema = z.object({
   taxRate: z.number().default(19),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Consulting_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.consultantDailyRate * input.daysWorked + input.additionalExpenses; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) * (input.overheadPercentage / 100); results["overheadAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overheadAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) + (asFormulaNumber(results["overheadAmount"])); results["costIncludingOverhead"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costIncludingOverhead"] = 0; }
-  try { const v = (asFormulaNumber(results["costIncludingOverhead"])) * (input.profitMarginPercentage / 100); results["profitAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["costIncludingOverhead"])) + (asFormulaNumber(results["profitAmount"])); results["netInvoiceAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netInvoiceAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["netInvoiceAmount"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["netInvoiceAmount"])) + (asFormulaNumber(results["taxAmount"])); results["grossInvoiceAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossInvoiceAmount"] = 0; }
+  try { const v = input.consultantDailyRate * input.daysWorked + input.additionalExpenses; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) * (input.overheadPercentage / 100); results["overheadAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overheadAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) + (toNumericFormulaValue(results["overheadAmount"])); results["costIncludingOverhead"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costIncludingOverhead"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costIncludingOverhead"])) * (input.profitMarginPercentage / 100); results["profitAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costIncludingOverhead"])) + (toNumericFormulaValue(results["profitAmount"])); results["netInvoiceAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netInvoiceAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netInvoiceAmount"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netInvoiceAmount"])) + (toNumericFormulaValue(results["taxAmount"])); results["grossInvoiceAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossInvoiceAmount"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConsulting_rate_calculator(input: Consulting_rate_calculatorInput): Consulting_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["grossInvoiceAmount"]));
+  const totalWasteCost = toNumericFormulaValue(values["grossInvoiceAmount"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateConsulting_rate_calculator(input: Consulting_rate_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

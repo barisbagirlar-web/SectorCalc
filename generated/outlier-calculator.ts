@@ -16,26 +16,22 @@ export const Outlier_calculatorInputSchema = z.object({
   multiplier: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Outlier_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.q3 - input.q1; results["iqr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["iqr"] = 0; }
-  try { const v = input.q1 - input.multiplier * (input.q3 - input.q1); results["lowerBound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lowerBound"] = 0; }
-  try { const v = input.q3 + input.multiplier * (input.q3 - input.q1); results["upperBound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upperBound"] = 0; }
+  try { const v = input.q3 - input.q1; results["iqr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["iqr"] = Number.NaN; }
+  try { const v = input.q1 - input.multiplier * (input.q3 - input.q1); results["lowerBound"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lowerBound"] = Number.NaN; }
+  try { const v = input.q3 + input.multiplier * (input.q3 - input.q1); results["upperBound"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["upperBound"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOutlier_calculator(input: Outlier_calculatorInput): Outlier_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["upperBound"]));
+  const totalWasteCost = toNumericFormulaValue(values["upperBound"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateOutlier_calculator(input: Outlier_calculatorInput): Out
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

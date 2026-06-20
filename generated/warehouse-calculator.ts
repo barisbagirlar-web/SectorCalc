@@ -24,26 +24,22 @@ export const Warehouse_calculatorInputSchema = z.object({
   variableCostPerPallet: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Warehouse_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.dailyThroughput * input.operatingDays; results["annualVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualVolume"] = 0; }
-  try { const v = (input.storageArea / input.totalArea) * 100; results["spaceUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spaceUtilization"] = 0; }
-  try { const v = (input.currentPallets / input.maxPalletPositions) * 100; results["capacityUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capacityUtilization"] = 0; }
+  try { const v = input.dailyThroughput * input.operatingDays; results["annualVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualVolume"] = Number.NaN; }
+  try { const v = (input.storageArea / input.totalArea) * 100; results["spaceUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spaceUtilization"] = Number.NaN; }
+  try { const v = (input.currentPallets / input.maxPalletPositions) * 100; results["capacityUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["capacityUtilization"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWarehouse_calculator(input: Warehouse_calculatorInput): Warehouse_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["capacityUtilization"]));
+  const totalWasteCost = toNumericFormulaValue(values["capacityUtilization"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateWarehouse_calculator(input: Warehouse_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

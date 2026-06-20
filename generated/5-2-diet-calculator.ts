@@ -16,28 +16,24 @@ export const _5_2_diet_calculatorInputSchema = z.object({
   maintenanceKcal: z.number().default(2500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: _5_2_diet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 5 * input.normalKcal + 2 * input.fastKcal; results["totalWeeklyCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeeklyCalories"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWeeklyCalories"])) / 7; results["averageDailyCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageDailyCalories"] = 0; }
-  try { const v = 7 * input.maintenanceKcal - (asFormulaNumber(results["totalWeeklyCalories"])); results["weeklyCalorieDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weeklyCalorieDeficit"] = 0; }
-  try { const v = (asFormulaNumber(results["weeklyCalorieDeficit"])) / 7700; results["weeklyWeightLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weeklyWeightLoss"] = 0; }
-  try { const v = (asFormulaNumber(results["weeklyWeightLoss"])) * input.weeks; results["estimatedTotalWeightLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedTotalWeightLoss"] = 0; }
+  try { const v = 5 * input.normalKcal + 2 * input.fastKcal; results["totalWeeklyCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeeklyCalories"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWeeklyCalories"])) / 7; results["averageDailyCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageDailyCalories"] = Number.NaN; }
+  try { const v = 7 * input.maintenanceKcal - (toNumericFormulaValue(results["totalWeeklyCalories"])); results["weeklyCalorieDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weeklyCalorieDeficit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weeklyCalorieDeficit"])) / 7700; results["weeklyWeightLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weeklyWeightLoss"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weeklyWeightLoss"])) * input.weeks; results["estimatedTotalWeightLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimatedTotalWeightLoss"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate_5_2_diet_calculator(input: _5_2_diet_calculatorInput): _5_2_diet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["estimatedTotalWeightLoss"]));
+  const totalWasteCost = toNumericFormulaValue(values["estimatedTotalWeightLoss"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculate_5_2_diet_calculator(input: _5_2_diet_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

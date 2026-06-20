@@ -18,26 +18,22 @@ export const Darcy_weisbach_calculatorInputSchema = z.object({
   flowRate: z.number().default(0.01),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Darcy_weisbach_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.flowRate / (Math.PI * (input.pipeDiameter ** 2) / 4); results["velocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["velocity"] = 0; }
-  try { const v = input.frictionFactor * (input.pipeLength / input.pipeDiameter) * 0.5 * input.fluidDensity * ((asFormulaNumber(results["velocity"])) ** 2); results["pressureLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureLoss"] = 0; }
-  try { const v = (asFormulaNumber(results["pressureLoss"])) / (input.fluidDensity * 9.81); results["headLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["headLoss"] = 0; }
+  try { const v = input.flowRate / (Math.PI * (input.pipeDiameter ** 2) / 4); results["velocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["velocity"] = Number.NaN; }
+  try { const v = input.frictionFactor * (input.pipeLength / input.pipeDiameter) * 0.5 * input.fluidDensity * ((toNumericFormulaValue(results["velocity"])) ** 2); results["pressureLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressureLoss"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pressureLoss"])) / (input.fluidDensity * 9.81); results["headLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["headLoss"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDarcy_weisbach_calculator(input: Darcy_weisbach_calculatorInput): Darcy_weisbach_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pressureLoss"]));
+  const totalWasteCost = toNumericFormulaValue(values["pressureLoss"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDarcy_weisbach_calculator(input: Darcy_weisbach_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

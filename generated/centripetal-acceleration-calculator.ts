@@ -22,26 +22,22 @@ export const Centripetal_acceleration_calculatorInputSchema = z.object({
   mass_kg: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Centripetal_acceleration_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.speed_mps + input.speed_kmh/3.6 + input.speed_mph*0.44704; results["velocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["velocity"] = 0; }
-  try { const v = input.radius_m + input.radius_cm/100 + input.radius_km*1000; results["radius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["radius"] = 0; }
-  try { const v = (asFormulaNumber(results["velocity"])) / (asFormulaNumber(results["radius"])); results["angularVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angularVelocity"] = 0; }
+  try { const v = input.speed_mps + input.speed_kmh/3.6 + input.speed_mph*0.44704; results["velocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["velocity"] = Number.NaN; }
+  try { const v = input.radius_m + input.radius_cm/100 + input.radius_km*1000; results["radius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["radius"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["velocity"])) / (toNumericFormulaValue(results["radius"])); results["angularVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["angularVelocity"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCentripetal_acceleration_calculator(input: Centripetal_acceleration_calculatorInput): Centripetal_acceleration_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["angularVelocity"]));
+  const totalWasteCost = toNumericFormulaValue(values["angularVelocity"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateCentripetal_acceleration_calculator(input: Centripetal_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

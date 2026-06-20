@@ -20,25 +20,21 @@ export const Internet_cost_calculatorInputSchema = z.object({
   taxRate: z.number().default(18),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Internet_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.monthlyBaseFee) * (input.dataCap) * (input.overageRate) * (input.usage) * (input.discountPercent) * (input.taxRate); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
-  try { const v = (input.monthlyBaseFee) * (input.dataCap) * (input.overageRate); results["discountAmount_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount_aux"] = 0; }
+  try { const v = (input.monthlyBaseFee) * (input.dataCap) * (input.overageRate) * (input.usage) * (input.discountPercent) * (input.taxRate); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountAmount"] = Number.NaN; }
+  try { const v = (input.monthlyBaseFee) * (input.dataCap) * (input.overageRate); results["discountAmount_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountAmount_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInternet_cost_calculator(input: Internet_cost_calculatorInput): Internet_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["discountAmount_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["discountAmount_aux"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateInternet_cost_calculator(input: Internet_cost_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

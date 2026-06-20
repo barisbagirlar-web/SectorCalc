@@ -18,26 +18,22 @@ export const Distillation_calculatorInputSchema = z.object({
   relativeVolatility: z.number().default(2.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Distillation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.feedFlow * (input.feedComposition - input.bottomsComposition) / (input.distillateComposition - input.bottomsComposition); results["distillateFlowRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["distillateFlowRate"] = 0; }
-  try { const v = input.feedFlow * (input.distillateComposition - input.feedComposition) / (input.distillateComposition - input.bottomsComposition); results["bottomFlowRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bottomFlowRate"] = 0; }
-  try { const v = (1 / (input.relativeVolatility - 1)) * ((input.distillateComposition / input.feedComposition) - input.relativeVolatility * (1 - input.distillateComposition) / (1 - input.feedComposition)); results["minimumRefluxRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minimumRefluxRatio"] = 0; }
+  try { const v = input.feedFlow * (input.feedComposition - input.bottomsComposition) / (input.distillateComposition - input.bottomsComposition); results["distillateFlowRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["distillateFlowRate"] = Number.NaN; }
+  try { const v = input.feedFlow * (input.distillateComposition - input.feedComposition) / (input.distillateComposition - input.bottomsComposition); results["bottomFlowRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bottomFlowRate"] = Number.NaN; }
+  try { const v = (1 / (input.relativeVolatility - 1)) * ((input.distillateComposition / input.feedComposition) - input.relativeVolatility * (1 - input.distillateComposition) / (1 - input.feedComposition)); results["minimumRefluxRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["minimumRefluxRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDistillation_calculator(input: Distillation_calculatorInput): Distillation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["distillateFlowRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["distillateFlowRate"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDistillation_calculator(input: Distillation_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

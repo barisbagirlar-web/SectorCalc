@@ -20,30 +20,26 @@ export const Rental_income_calculatorInputSchema = z.object({
   propertyTaxAnnual: z.number().default(2000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rental_income_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.monthlyRent * 12 * (input.occupancyRate / 100); results["grossAnnualIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossAnnualIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["grossAnnualIncome"])) * (input.managementFeePercent / 100); results["managementFees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["managementFees"] = 0; }
-  try { const v = input.maintenanceMonthly * 12; results["totalMaintenance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMaintenance"] = 0; }
-  try { const v = input.insuranceMonthly * 12; results["totalInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInsurance"] = 0; }
-  try { const v = (asFormulaNumber(results["managementFees"])) + (asFormulaNumber(results["totalMaintenance"])) + (asFormulaNumber(results["totalInsurance"])) + input.propertyTaxAnnual; results["totalExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalExpenses"] = 0; }
-  try { const v = (asFormulaNumber(results["grossAnnualIncome"])) - (asFormulaNumber(results["totalExpenses"])); results["netAnnualIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netAnnualIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["netAnnualIncome"])) / 12; results["netMonthlyIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netMonthlyIncome"] = 0; }
+  try { const v = input.monthlyRent * 12 * (input.occupancyRate / 100); results["grossAnnualIncome"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossAnnualIncome"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossAnnualIncome"])) * (input.managementFeePercent / 100); results["managementFees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["managementFees"] = Number.NaN; }
+  try { const v = input.maintenanceMonthly * 12; results["totalMaintenance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMaintenance"] = Number.NaN; }
+  try { const v = input.insuranceMonthly * 12; results["totalInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInsurance"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["managementFees"])) + (toNumericFormulaValue(results["totalMaintenance"])) + (toNumericFormulaValue(results["totalInsurance"])) + input.propertyTaxAnnual; results["totalExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalExpenses"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossAnnualIncome"])) - (toNumericFormulaValue(results["totalExpenses"])); results["netAnnualIncome"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netAnnualIncome"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netAnnualIncome"])) / 12; results["netMonthlyIncome"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netMonthlyIncome"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRental_income_calculator(input: Rental_income_calculatorInput): Rental_income_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netAnnualIncome"]));
+  const totalWasteCost = toNumericFormulaValue(values["netAnnualIncome"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateRental_income_calculator(input: Rental_income_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

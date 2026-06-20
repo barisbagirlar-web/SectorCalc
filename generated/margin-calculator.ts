@@ -16,28 +16,24 @@ export const Margin_calculatorInputSchema = z.object({
   discount: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Margin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sellingPrice * (1 - input.discount / 100); results["netPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netPrice"] = 0; }
-  try { const v = ((asFormulaNumber(results["netPrice"])) - input.cost) * input.quantity; results["profitAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["netPrice"])) * input.quantity; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
-  try { const v = input.cost * input.quantity; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (((asFormulaNumber(results["netPrice"])) - input.cost) / (asFormulaNumber(results["netPrice"]))) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMargin"] = 0; }
+  try { const v = input.sellingPrice * (1 - input.discount / 100); results["netPrice"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netPrice"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["netPrice"])) - input.cost) * input.quantity; results["profitAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netPrice"])) * input.quantity; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRevenue"] = Number.NaN; }
+  try { const v = input.cost * input.quantity; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["netPrice"])) - input.cost) / (toNumericFormulaValue(results["netPrice"]))) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMargin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMargin_calculator(input: Margin_calculatorInput): Margin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["profitMargin"]));
+  const totalWasteCost = toNumericFormulaValue(values["profitMargin"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateMargin_calculator(input: Margin_calculatorInput): Margi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Gym_calorie_calculatorInputSchema = z.object({
   met: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gym_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.gender === 1 ? 88.362 + (13.397 * input.weight) + (4.799 * input.height) - (5.677 * input.age) : 447.593 + (9.247 * input.weight) + (3.098 * input.height) - (4.330 * input.age); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = input.met * input.weight * (input.duration / 60); results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
-  try { const v = input.met * input.weight * (1 / 60); results["caloriesPerMinute"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesPerMinute"] = 0; }
+  try { const v = input.gender === 1 ? 88.362 + (13.397 * input.weight) + (4.799 * input.height) - (5.677 * input.age) : 447.593 + (9.247 * input.weight) + (3.098 * input.height) - (4.330 * input.age); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmr"] = Number.NaN; }
+  try { const v = input.met * input.weight * (input.duration / 60); results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caloriesBurned"] = Number.NaN; }
+  try { const v = input.met * input.weight * (1 / 60); results["caloriesPerMinute"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caloriesPerMinute"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGym_calorie_calculator(input: Gym_calorie_calculatorInput): Gym_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["caloriesBurned"]));
+  const totalWasteCost = toNumericFormulaValue(values["caloriesBurned"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateGym_calorie_calculator(input: Gym_calorie_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

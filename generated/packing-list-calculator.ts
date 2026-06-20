@@ -24,28 +24,24 @@ export const Packing_list_calculatorInputSchema = z.object({
   maxWeightPerPallet: z.number().default(500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Packing_list_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.quantityOrdered / input.unitsPerCarton) * (input.cartonLength * input.cartonWidth * input.cartonHeight) / 1000000; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = (input.quantityOrdered / input.unitsPerCarton) * input.cartonWeight; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = input.quantityOrdered / input.unitsPerCarton; results["totalCartons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCartons"] = 0; }
-  try { const v = (input.quantityOrdered / input.unitsPerCarton) / input.maxCartonsPerPallet; results["palletsByVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["palletsByVolume"] = 0; }
-  try { const v = (input.quantityOrdered / input.unitsPerCarton) * input.cartonWeight / input.maxWeightPerPallet; results["palletsByWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["palletsByWeight"] = 0; }
+  try { const v = (input.quantityOrdered / input.unitsPerCarton) * (input.cartonLength * input.cartonWidth * input.cartonHeight) / 1000000; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = (input.quantityOrdered / input.unitsPerCarton) * input.cartonWeight; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
+  try { const v = input.quantityOrdered / input.unitsPerCarton; results["totalCartons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCartons"] = Number.NaN; }
+  try { const v = (input.quantityOrdered / input.unitsPerCarton) / input.maxCartonsPerPallet; results["palletsByVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["palletsByVolume"] = Number.NaN; }
+  try { const v = (input.quantityOrdered / input.unitsPerCarton) * input.cartonWeight / input.maxWeightPerPallet; results["palletsByWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["palletsByWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePacking_list_calculator(input: Packing_list_calculatorInput): Packing_list_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalVolume"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculatePacking_list_calculator(input: Packing_list_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

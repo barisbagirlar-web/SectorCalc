@@ -18,25 +18,21 @@ export const Long_tons_to_kg_calculatorInputSchema = z.object({
   decimals: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Long_tons_to_kg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.longTons * input.conversionFactor * input.quantity; results["exactKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactKg"] = 0; }
-  try { const v = (asFormulaNumber(results["exactKg"])) * (1 + input.safetyMargin / 100); results["withSafetyKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["withSafetyKg"] = 0; }
+  try { const v = input.longTons * input.conversionFactor * input.quantity; results["exactKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exactKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["exactKg"])) * (1 + input.safetyMargin / 100); results["withSafetyKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["withSafetyKg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLong_tons_to_kg_calculator(input: Long_tons_to_kg_calculatorInput): Long_tons_to_kg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["withSafetyKg"]));
+  const totalWasteCost = toNumericFormulaValue(values["withSafetyKg"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateLong_tons_to_kg_calculator(input: Long_tons_to_kg_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

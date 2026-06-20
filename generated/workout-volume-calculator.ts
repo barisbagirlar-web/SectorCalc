@@ -16,26 +16,22 @@ export const Workout_volume_calculatorInputSchema = z.object({
   fill_factor: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Workout_volume_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * input.height; results["total_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_volume"] = 0; }
-  try { const v = (asFormulaNumber(results["total_volume"])) * (input.fill_factor / 100); results["usable_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["usable_volume"] = 0; }
-  try { const v = (asFormulaNumber(results["total_volume"])) - (asFormulaNumber(results["usable_volume"])); results["unused_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unused_volume"] = 0; }
+  try { const v = input.length * input.width * input.height; results["total_volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_volume"])) * (input.fill_factor / 100); results["usable_volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["usable_volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_volume"])) - (toNumericFormulaValue(results["usable_volume"])); results["unused_volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["unused_volume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWorkout_volume_calculator(input: Workout_volume_calculatorInput): Workout_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["usable_volume"]));
+  const totalWasteCost = toNumericFormulaValue(values["usable_volume"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateWorkout_volume_calculator(input: Workout_volume_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,31 +20,27 @@ export const Roth_ira_vs_traditional_ira_calculatorInputSchema = z.object({
   annualReturnRate: z.number().default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Roth_ira_vs_traditional_ira_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.retirementAge - input.currentAge; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["n"] = 0; }
-  try { const v = input.annualReturnRate / 100; results["r"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r"] = 0; }
-  try { const v = (1 + (asFormulaNumber(results["r"]))) ** (asFormulaNumber(results["n"])); results["fvFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fvFactor"] = 0; }
-  try { const v = input.annualContribution * (((asFormulaNumber(results["fvFactor"])) - 1) / (asFormulaNumber(results["r"]))); results["fvContributionsTraditional"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fvContributionsTraditional"] = 0; }
-  try { const v = (asFormulaNumber(results["fvContributionsTraditional"])) * (1 - input.retirementTaxRate / 100); results["traditionalAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["traditionalAfterTax"] = 0; }
-  try { const v = input.annualContribution * (1 - input.currentTaxRate / 100); results["effectiveRothContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveRothContribution"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveRothContribution"])) * (((asFormulaNumber(results["fvFactor"])) - 1) / (asFormulaNumber(results["r"]))); results["fvContributionsRoth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fvContributionsRoth"] = 0; }
-  try { const v = (asFormulaNumber(results["fvContributionsRoth"])); results["rothAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rothAfterTax"] = 0; }
+  try { const v = input.retirementAge - input.currentAge; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["n"] = Number.NaN; }
+  try { const v = input.annualReturnRate / 100; results["r"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["r"] = Number.NaN; }
+  try { const v = (1 + (toNumericFormulaValue(results["r"]))) ** (toNumericFormulaValue(results["n"])); results["fvFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fvFactor"] = Number.NaN; }
+  try { const v = input.annualContribution * (((toNumericFormulaValue(results["fvFactor"])) - 1) / (toNumericFormulaValue(results["r"]))); results["fvContributionsTraditional"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fvContributionsTraditional"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fvContributionsTraditional"])) * (1 - input.retirementTaxRate / 100); results["traditionalAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["traditionalAfterTax"] = Number.NaN; }
+  try { const v = input.annualContribution * (1 - input.currentTaxRate / 100); results["effectiveRothContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveRothContribution"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveRothContribution"])) * (((toNumericFormulaValue(results["fvFactor"])) - 1) / (toNumericFormulaValue(results["r"]))); results["fvContributionsRoth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fvContributionsRoth"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fvContributionsRoth"])); results["rothAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rothAfterTax"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRoth_ira_vs_traditional_ira_calculator(input: Roth_ira_vs_traditional_ira_calculatorInput): Roth_ira_vs_traditional_ira_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["n"]));
+  const totalWasteCost = toNumericFormulaValue(values["n"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateRoth_ira_vs_traditional_ira_calculator(input: Roth_ira_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

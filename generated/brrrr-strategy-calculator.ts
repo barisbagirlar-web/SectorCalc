@@ -24,33 +24,29 @@ export const Brrrr_strategy_calculatorInputSchema = z.object({
   loanTerm: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Brrrr_strategy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.purchasePrice + input.rehabCost; results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvestment"] = 0; }
-  try { const v = input.arv * input.refinanceLTV / 100; results["refinanceAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["refinanceAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalInvestment"])) - (asFormulaNumber(results["refinanceAmount"])); results["cashInvested"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cashInvested"] = 0; }
-  try { const v = input.refinanceRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
-  try { const v = input.loanTerm * 12; results["numberOfPayments"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfPayments"] = 0; }
-  try { const v = input.monthlyRent * input.operatingExpensePercentage / 100; results["monthlyOperatingExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyOperatingExpenses"] = 0; }
-  try { const v = input.arv - input.purchasePrice - input.rehabCost; results["equityGained"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["equityGained"] = 0; }
-  try { const v = (asFormulaNumber(results["refinanceAmount"])) * (asFormulaNumber(results["monthlyInterestRate"])) * (1 + (asFormulaNumber(results["monthlyInterestRate"])))^(asFormulaNumber(results["numberOfPayments"])) / ((1 + (asFormulaNumber(results["monthlyInterestRate"])))^(asFormulaNumber(results["numberOfPayments"])) - 1); results["monthlyPayment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyPayment"] = 0; }
-  try { const v = (input.monthlyRent - (asFormulaNumber(results["monthlyOperatingExpenses"])) - (asFormulaNumber(results["monthlyPayment"]))) * 12; results["annualCashFlow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCashFlow"] = 0; }
-  try { const v = (asFormulaNumber(results["annualCashFlow"])) / (asFormulaNumber(results["cashInvested"])) * 100; results["cashOnCashReturn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cashOnCashReturn"] = 0; }
+  try { const v = input.purchasePrice + input.rehabCost; results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInvestment"] = Number.NaN; }
+  try { const v = input.arv * input.refinanceLTV / 100; results["refinanceAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["refinanceAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalInvestment"])) - (toNumericFormulaValue(results["refinanceAmount"])); results["cashInvested"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cashInvested"] = Number.NaN; }
+  try { const v = input.refinanceRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInterestRate"] = Number.NaN; }
+  try { const v = input.loanTerm * 12; results["numberOfPayments"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numberOfPayments"] = Number.NaN; }
+  try { const v = input.monthlyRent * input.operatingExpensePercentage / 100; results["monthlyOperatingExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyOperatingExpenses"] = Number.NaN; }
+  try { const v = input.arv - input.purchasePrice - input.rehabCost; results["equityGained"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["equityGained"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["refinanceAmount"])) * (toNumericFormulaValue(results["monthlyInterestRate"])) * (1 + (toNumericFormulaValue(results["monthlyInterestRate"])))^(toNumericFormulaValue(results["numberOfPayments"])) / ((1 + (toNumericFormulaValue(results["monthlyInterestRate"])))^(toNumericFormulaValue(results["numberOfPayments"])) - 1); results["monthlyPayment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyPayment"] = Number.NaN; }
+  try { const v = (input.monthlyRent - (toNumericFormulaValue(results["monthlyOperatingExpenses"])) - (toNumericFormulaValue(results["monthlyPayment"]))) * 12; results["annualCashFlow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCashFlow"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["annualCashFlow"])) / (toNumericFormulaValue(results["cashInvested"])) * 100; results["cashOnCashReturn"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cashOnCashReturn"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBrrrr_strategy_calculator(input: Brrrr_strategy_calculatorInput): Brrrr_strategy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["equityGained"]));
+  const totalWasteCost = toNumericFormulaValue(values["equityGained"]);
   const breakdown = {
     
   };
@@ -58,7 +54,7 @@ export function calculateBrrrr_strategy_calculator(input: Brrrr_strategy_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Npr_calculatorInputSchema = z.object({
   maxResultCap: z.number().default(1000000000000000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Npr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.n * input.r * input.decimalPlaces * input.maxResultCap; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.n * input.r * input.decimalPlaces * input.maxResultCap; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.n * input.r * input.decimalPlaces * input.maxResultCap; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.n * input.r * input.decimalPlaces * input.maxResultCap; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNpr_calculator(input: Npr_calculatorInput): Npr_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateNpr_calculator(input: Npr_calculatorInput): Npr_calcula
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

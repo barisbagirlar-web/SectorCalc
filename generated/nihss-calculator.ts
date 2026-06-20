@@ -22,31 +22,27 @@ export const Nihss_calculatorInputSchema = z.object({
   language: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Nihss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.consciousness + input.gaze + input.visual + input.facial + input.motor_arm + input.motor_leg + input.language; results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
-  try { const v = input.consciousness; results["consciousness"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["consciousness"] = 0; }
-  try { const v = input.gaze; results["gaze"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gaze"] = 0; }
-  try { const v = input.visual; results["visual"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["visual"] = 0; }
-  try { const v = input.facial; results["facial"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["facial"] = 0; }
-  try { const v = input.motor_arm; results["motor_arm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["motor_arm"] = 0; }
-  try { const v = input.motor_leg; results["motor_leg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["motor_leg"] = 0; }
-  try { const v = input.language; results["language"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["language"] = 0; }
+  try { const v = input.consciousness + input.gaze + input.visual + input.facial + input.motor_arm + input.motor_leg + input.language; results["total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total"] = Number.NaN; }
+  try { const v = input.consciousness; results["consciousness"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["consciousness"] = Number.NaN; }
+  try { const v = input.gaze; results["gaze"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gaze"] = Number.NaN; }
+  try { const v = input.visual; results["visual"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["visual"] = Number.NaN; }
+  try { const v = input.facial; results["facial"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["facial"] = Number.NaN; }
+  try { const v = input.motor_arm; results["motor_arm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["motor_arm"] = Number.NaN; }
+  try { const v = input.motor_leg; results["motor_leg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["motor_leg"] = Number.NaN; }
+  try { const v = input.language; results["language"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["language"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNihss_calculator(input: Nihss_calculatorInput): Nihss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total"]));
+  const totalWasteCost = toNumericFormulaValue(values["total"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateNihss_calculator(input: Nihss_calculatorInput): Nihss_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

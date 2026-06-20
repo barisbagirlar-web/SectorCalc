@@ -16,26 +16,22 @@ export const Heart_rate_calculatorInputSchema = z.object({
   maxHR: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heart_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age; results["maxHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxHeartRate"] = 0; }
-  try { const v = (input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age) - input.restingHR; results["heartRateReserve"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
-  try { const v = ((input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age) - input.restingHR) * (input.intensity / 100) + input.restingHR; results["targetHR"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetHR"] = 0; }
+  try { const v = input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age; results["maxHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxHeartRate"] = Number.NaN; }
+  try { const v = (input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age) - input.restingHR; results["heartRateReserve"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heartRateReserve"] = Number.NaN; }
+  try { const v = ((input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age) - input.restingHR) * (input.intensity / 100) + input.restingHR; results["targetHR"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["targetHR"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeart_rate_calculator(input: Heart_rate_calculatorInput): Heart_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["targetHR"]));
+  const totalWasteCost = toNumericFormulaValue(values["targetHR"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateHeart_rate_calculator(input: Heart_rate_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,29 +24,25 @@ export const Duathlon_calculatorInputSchema = z.object({
   run2Time: z.number().default(12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Duathlon_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.run1Time + input.transition1 + input.bikeTime + input.transition2 + input.run2Time; results["totalTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTimeMinutes"] = 0; }
-  try { const v = input.run1Distance + input.bikeDistance + input.run2Distance; results["totalDistanceKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDistanceKm"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDistanceKm"])) / ((asFormulaNumber(results["totalTimeMinutes"])) / 60); results["averageSpeedKmh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageSpeedKmh"] = 0; }
-  try { const v = input.run1Time / input.run1Distance; results["run1PaceMinPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["run1PaceMinPerKm"] = 0; }
-  try { const v = input.bikeDistance / (input.bikeTime / 60); results["bikeSpeedKmh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bikeSpeedKmh"] = 0; }
-  try { const v = input.run2Time / input.run2Distance; results["run2PaceMinPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["run2PaceMinPerKm"] = 0; }
+  try { const v = input.run1Time + input.transition1 + input.bikeTime + input.transition2 + input.run2Time; results["totalTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTimeMinutes"] = Number.NaN; }
+  try { const v = input.run1Distance + input.bikeDistance + input.run2Distance; results["totalDistanceKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDistanceKm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDistanceKm"])) / ((toNumericFormulaValue(results["totalTimeMinutes"])) / 60); results["averageSpeedKmh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageSpeedKmh"] = Number.NaN; }
+  try { const v = input.run1Time / input.run1Distance; results["run1PaceMinPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["run1PaceMinPerKm"] = Number.NaN; }
+  try { const v = input.bikeDistance / (input.bikeTime / 60); results["bikeSpeedKmh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bikeSpeedKmh"] = Number.NaN; }
+  try { const v = input.run2Time / input.run2Distance; results["run2PaceMinPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["run2PaceMinPerKm"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDuathlon_calculator(input: Duathlon_calculatorInput): Duathlon_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTimeMinutes"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTimeMinutes"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateDuathlon_calculator(input: Duathlon_calculatorInput): D
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

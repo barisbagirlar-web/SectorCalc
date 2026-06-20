@@ -16,26 +16,22 @@ export const Inventory_turnover_calculatorInputSchema = z.object({
   days: z.number().default(365),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Inventory_turnover_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.beginInventory + input.endInventory) / 2; results["averageInventory"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageInventory"] = 0; }
-  try { const v = input.cogs / (asFormulaNumber(results["averageInventory"])); results["inventoryTurnover"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inventoryTurnover"] = 0; }
-  try { const v = input.days / (asFormulaNumber(results["inventoryTurnover"])); results["daysInventoryOutstanding"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysInventoryOutstanding"] = 0; }
+  try { const v = (input.beginInventory + input.endInventory) / 2; results["averageInventory"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageInventory"] = Number.NaN; }
+  try { const v = input.cogs / (toNumericFormulaValue(results["averageInventory"])); results["inventoryTurnover"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inventoryTurnover"] = Number.NaN; }
+  try { const v = input.days / (toNumericFormulaValue(results["inventoryTurnover"])); results["daysInventoryOutstanding"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["daysInventoryOutstanding"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInventory_turnover_calculator(input: Inventory_turnover_calculatorInput): Inventory_turnover_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["inventoryTurnover"]));
+  const totalWasteCost = toNumericFormulaValue(values["inventoryTurnover"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateInventory_turnover_calculator(input: Inventory_turnover
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

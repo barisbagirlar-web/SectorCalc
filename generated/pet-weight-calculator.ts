@@ -16,28 +16,24 @@ export const Pet_weight_calculatorInputSchema = z.object({
   condition_factor: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pet_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.body_length * input.chest_girth) / 200; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseWeight"] = 0; }
-  try { const v = input.age_months < 12 ? (input.age_months / 12) : 1; results["ageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ageFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["baseWeight"])) * (asFormulaNumber(results["ageFactor"])) * (input.condition_factor / 3); results["targetWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["targetWeight"])) * 0.85; results["healthyLower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["healthyLower"] = 0; }
-  try { const v = (asFormulaNumber(results["targetWeight"])) * 1.15; results["healthyUpper"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["healthyUpper"] = 0; }
+  try { const v = (input.body_length * input.chest_girth) / 200; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseWeight"] = Number.NaN; }
+  try { const v = input.age_months < 12 ? (input.age_months / 12) : 1; results["ageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ageFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseWeight"])) * (toNumericFormulaValue(results["ageFactor"])) * (input.condition_factor / 3); results["targetWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["targetWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["targetWeight"])) * 0.85; results["healthyLower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["healthyLower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["targetWeight"])) * 1.15; results["healthyUpper"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["healthyUpper"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePet_weight_calculator(input: Pet_weight_calculatorInput): Pet_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["healthyUpper"]));
+  const totalWasteCost = toNumericFormulaValue(values["healthyUpper"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePet_weight_calculator(input: Pet_weight_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

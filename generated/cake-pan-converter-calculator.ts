@@ -24,26 +24,22 @@ export const Cake_pan_converter_calculatorInputSchema = z.object({
   targetDepth: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cake_pan_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.originalShape * input.originalDim1 * input.originalDim2 * input.originalDepth; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.originalShape * input.originalDim1 * input.originalDim2 * input.originalDepth * (input.targetShape * input.targetDim1 * input.targetDim2 * input.targetDepth); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.targetShape * input.targetDim1 * input.targetDim2 * input.targetDepth; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.originalShape * input.originalDim1 * input.originalDim2 * input.originalDepth; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.originalShape * input.originalDim1 * input.originalDim2 * input.originalDepth * (input.targetShape * input.targetDim1 * input.targetDim2 * input.targetDepth); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.targetShape * input.targetDim1 * input.targetDim2 * input.targetDepth; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCake_pan_converter_calculator(input: Cake_pan_converter_calculatorInput): Cake_pan_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateCake_pan_converter_calculator(input: Cake_pan_converter
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

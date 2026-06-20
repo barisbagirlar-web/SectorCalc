@@ -20,28 +20,24 @@ export const Maximum_drawdown_calculatorInputSchema = z.object({
   recoveryTime: z.number().default(12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Maximum_drawdown_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.peakValue - input.troughValue) / input.peakValue) * 100; results["maxDrawdownPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxDrawdownPercent"] = 0; }
-  try { const v = input.peakValue - input.troughValue; results["absoluteDrawdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteDrawdown"] = 0; }
-  try { const v = ((input.initialInvestment - input.troughValue) / input.initialInvestment) * 100; results["lossFromInitialPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lossFromInitialPercent"] = 0; }
-  try { const v = (input.peakValue / input.troughValue - 1) * 100; results["requiredRecoveryGainPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredRecoveryGainPercent"] = 0; }
-  try { const v = input.recoveryValue > 0 ? ((input.recoveryValue - input.troughValue) / input.troughValue) * 100 : 0; results["actualRecoveryGainPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualRecoveryGainPercent"] = 0; }
+  try { const v = ((input.peakValue - input.troughValue) / input.peakValue) * 100; results["maxDrawdownPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxDrawdownPercent"] = Number.NaN; }
+  try { const v = input.peakValue - input.troughValue; results["absoluteDrawdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["absoluteDrawdown"] = Number.NaN; }
+  try { const v = ((input.initialInvestment - input.troughValue) / input.initialInvestment) * 100; results["lossFromInitialPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lossFromInitialPercent"] = Number.NaN; }
+  try { const v = (input.peakValue / input.troughValue - 1) * 100; results["requiredRecoveryGainPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredRecoveryGainPercent"] = Number.NaN; }
+  try { const v = input.recoveryValue > 0 ? ((input.recoveryValue - input.troughValue) / input.troughValue) * 100 : 0; results["actualRecoveryGainPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["actualRecoveryGainPercent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMaximum_drawdown_calculator(input: Maximum_drawdown_calculatorInput): Maximum_drawdown_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxDrawdownPercent"]));
+  const totalWasteCost = toNumericFormulaValue(values["maxDrawdownPercent"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateMaximum_drawdown_calculator(input: Maximum_drawdown_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

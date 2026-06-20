@@ -22,27 +22,23 @@ export const Dnd_damage_calculatorInputSchema = z.object({
   damageMultiplier: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dnd_damage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weaponDamage + input.abilityModifier + input.magicBonus + input.extraDamageDice; results["baseDamage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseDamage"] = 0; }
-  try { const v = (asFormulaNumber(results["baseDamage"])) * 2; results["criticalDamage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["criticalDamage"] = 0; }
-  try { const v = (asFormulaNumber(results["baseDamage"])) * (1 - input.criticalHitChance / 100) + (asFormulaNumber(results["criticalDamage"])) * (input.criticalHitChance / 100); results["averageDamagePerHit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageDamagePerHit"] = 0; }
-  try { const v = (asFormulaNumber(results["averageDamagePerHit"])) * input.damageMultiplier; results["finalDamage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalDamage"] = 0; }
+  try { const v = input.weaponDamage + input.abilityModifier + input.magicBonus + input.extraDamageDice; results["baseDamage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseDamage"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseDamage"])) * 2; results["criticalDamage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["criticalDamage"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseDamage"])) * (1 - input.criticalHitChance / 100) + (toNumericFormulaValue(results["criticalDamage"])) * (input.criticalHitChance / 100); results["averageDamagePerHit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageDamagePerHit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["averageDamagePerHit"])) * input.damageMultiplier; results["finalDamage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalDamage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDnd_damage_calculator(input: Dnd_damage_calculatorInput): Dnd_damage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalDamage"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalDamage"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateDnd_damage_calculator(input: Dnd_damage_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

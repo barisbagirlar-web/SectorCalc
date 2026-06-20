@@ -18,25 +18,21 @@ export const Accuracy_calculatorInputSchema = z.object({
   calibration_offset: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Accuracy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.measured_value - input.calibration_offset - input.true_value; results["absolute_error"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absolute_error"] = 0; }
-  try { const v = ((input.measured_value - input.calibration_offset - input.true_value) / input.true_value) * 100; results["relative_error_percent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["relative_error_percent"] = 0; }
+  try { const v = input.measured_value - input.calibration_offset - input.true_value; results["absolute_error"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["absolute_error"] = Number.NaN; }
+  try { const v = ((input.measured_value - input.calibration_offset - input.true_value) / input.true_value) * 100; results["relative_error_percent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["relative_error_percent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAccuracy_calculator(input: Accuracy_calculatorInput): Accuracy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["absolute_error"]));
+  const totalWasteCost = toNumericFormulaValue(values["absolute_error"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateAccuracy_calculator(input: Accuracy_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

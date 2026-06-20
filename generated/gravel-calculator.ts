@@ -20,27 +20,23 @@ export const Gravel_calculatorInputSchema = z.object({
   density: z.number().default(120),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gravel_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * (input.depth / 12); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = (asFormulaNumber(results["volume"])) * (1 + input.compactionFactor / 100) * (1 + input.wasteFactor / 100); results["adjustedVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedVolume"])) * input.density / 2000; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedVolume"])) / 27; results["cubicYards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cubicYards"] = 0; }
+  try { const v = input.length * input.width * (input.depth / 12); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume"])) * (1 + input.compactionFactor / 100) * (1 + input.wasteFactor / 100); results["adjustedVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedVolume"])) * input.density / 2000; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedVolume"])) / 27; results["cubicYards"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cubicYards"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGravel_calculator(input: Gravel_calculatorInput): Gravel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume"]));
+  const totalWasteCost = toNumericFormulaValue(values["volume"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateGravel_calculator(input: Gravel_calculatorInput): Grave
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,27 +24,23 @@ export const _401k_calculatorInputSchema = z.object({
   currentBalance: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: _401k_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentAge * input.currentSalary; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.currentAge * input.currentSalary * (1 + (input.contributionRate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.currentAge * input.currentSalary * (1 + (input.contributionRate / 100)) * (input.retirementAge); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.retirementAge; results["factor_retirementAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_retirementAge"] = 0; }
+  try { const v = input.currentAge * input.currentSalary; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.currentAge * input.currentSalary * (1 + (input.contributionRate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.currentAge * input.currentSalary * (1 + (input.contributionRate / 100)) * (input.retirementAge); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.retirementAge; results["factor_retirementAge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_retirementAge"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate_401k_calculator(input: _401k_calculatorInput): _401k_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculate_401k_calculator(input: _401k_calculatorInput): _401k_c
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

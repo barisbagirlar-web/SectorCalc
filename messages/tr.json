@@ -67597,10 +67597,13 @@
     "submitting": "Gönderiliyor…",
     "success": "Teşekkürler. Geri bildiriminiz incelenmek üzere iletildi.",
     "issueTypes": {
-      "formula-suggestion": "Formül önerisi",
-      "translation-error": "Çeviri hatası",
-      "unit-error": "Birim hatası",
-      "wrong-result": "Yanlış sonuç"
+      "wrong_result": "Yanlış sonuç",
+      "missing_input": "Eksik veya net olmayan girdi",
+      "unit_issue": "Birim veya dönüşüm sorunu",
+      "unclear_explanation": "Net olmayan açıklama",
+      "sector_assumption_issue": "Sektör varsayımı sorunu",
+      "improvement_request": "İyileştirme talebi",
+      "other": "Diğer"
     },
     "error": {
       "submitFailed": "Geri bildirim şu anda gönderilemedi. Lütfen daha sonra tekrar deneyin.",

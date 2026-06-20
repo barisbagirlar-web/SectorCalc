@@ -16,27 +16,23 @@ export const Metric_imperial_converter_calculatorInputSchema = z.object({
   celsius: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Metric_imperial_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.meters * 3.28084; results["feet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["feet"] = 0; }
-  try { const v = input.kilograms * 2.20462; results["pounds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pounds"] = 0; }
-  try { const v = input.liters * 0.264172; results["gallons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gallons"] = 0; }
-  try { const v = (input.celsius * 9/5) + 32; results["fahrenheit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fahrenheit"] = 0; }
+  try { const v = input.meters * 3.28084; results["feet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["feet"] = Number.NaN; }
+  try { const v = input.kilograms * 2.20462; results["pounds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pounds"] = Number.NaN; }
+  try { const v = input.liters * 0.264172; results["gallons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gallons"] = Number.NaN; }
+  try { const v = (input.celsius * 9/5) + 32; results["fahrenheit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fahrenheit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMetric_imperial_converter_calculator(input: Metric_imperial_converter_calculatorInput): Metric_imperial_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fahrenheit"]));
+  const totalWasteCost = toNumericFormulaValue(values["fahrenheit"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateMetric_imperial_converter_calculator(input: Metric_impe
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

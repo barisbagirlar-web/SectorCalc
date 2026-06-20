@@ -18,28 +18,24 @@ export const Storage_calculator_video_calculatorInputSchema = z.object({
   overheadPercent: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Storage_calculator_video_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.bitrate * input.recordingHours * 3600 / (8 * 1024); results["dailyGBPerCamera"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyGBPerCamera"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyGBPerCamera"])) * input.numCameras; results["dailyGBTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyGBTotal"] = 0; }
-  try { const v = input.numCameras * input.bitrate * input.recordingHours * 3600 * input.retentionDays / (8 * 1024); results["totalGB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGB"] = 0; }
-  try { const v = (asFormulaNumber(results["totalGB"])) * (1 + input.overheadPercent / 100); results["totalWithOverhead"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWithOverhead"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWithOverhead"])) / 1024; results["totalTB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTB"] = 0; }
+  try { const v = input.bitrate * input.recordingHours * 3600 / (8 * 1024); results["dailyGBPerCamera"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyGBPerCamera"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyGBPerCamera"])) * input.numCameras; results["dailyGBTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyGBTotal"] = Number.NaN; }
+  try { const v = input.numCameras * input.bitrate * input.recordingHours * 3600 * input.retentionDays / (8 * 1024); results["totalGB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGB"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalGB"])) * (1 + input.overheadPercent / 100); results["totalWithOverhead"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWithOverhead"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWithOverhead"])) / 1024; results["totalTB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTB"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStorage_calculator_video_calculator(input: Storage_calculator_video_calculatorInput): Storage_calculator_video_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTB"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTB"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateStorage_calculator_video_calculator(input: Storage_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

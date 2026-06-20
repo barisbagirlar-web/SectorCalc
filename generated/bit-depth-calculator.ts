@@ -16,25 +16,21 @@ export const Bit_depth_calculatorInputSchema = z.object({
   duration: z.number().default(300),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bit_depth_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.bitDepth * input.sampleRate * input.numChannels; results["bitRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bitRate"] = 0; }
-  try { const v = input.bitDepth * input.sampleRate * input.numChannels * input.duration / 8; results["fileSize"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fileSize"] = 0; }
+  try { const v = input.bitDepth * input.sampleRate * input.numChannels; results["bitRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bitRate"] = Number.NaN; }
+  try { const v = input.bitDepth * input.sampleRate * input.numChannels * input.duration / 8; results["fileSize"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fileSize"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBit_depth_calculator(input: Bit_depth_calculatorInput): Bit_depth_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fileSize"]));
+  const totalWasteCost = toNumericFormulaValue(values["fileSize"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateBit_depth_calculator(input: Bit_depth_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

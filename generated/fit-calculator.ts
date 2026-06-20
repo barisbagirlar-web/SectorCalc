@@ -18,30 +18,26 @@ export const Fit_calculatorInputSchema = z.object({
   shaftLowerDev: z.number().default(-0.016),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.nominalDiameter + input.holeUpperDev; results["holeMax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["holeMax"] = 0; }
-  try { const v = input.nominalDiameter + input.holeLowerDev; results["holeMin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["holeMin"] = 0; }
-  try { const v = input.nominalDiameter + input.shaftUpperDev; results["shaftMax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shaftMax"] = 0; }
-  try { const v = input.nominalDiameter + input.shaftLowerDev; results["shaftMin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shaftMin"] = 0; }
-  try { const v = (asFormulaNumber(results["holeMax"])) - (asFormulaNumber(results["shaftMin"])); results["maxClearance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxClearance"] = 0; }
-  try { const v = (asFormulaNumber(results["holeMin"])) - (asFormulaNumber(results["shaftMax"])); results["minClearance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minClearance"] = 0; }
-  try { const v = (asFormulaNumber(results["minClearance"])) > 0 ? 1 : ((asFormulaNumber(results["maxClearance"])) < 0 ? 3 : 2); results["fitTypeCode"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fitTypeCode"] = 0; }
+  try { const v = input.nominalDiameter + input.holeUpperDev; results["holeMax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["holeMax"] = Number.NaN; }
+  try { const v = input.nominalDiameter + input.holeLowerDev; results["holeMin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["holeMin"] = Number.NaN; }
+  try { const v = input.nominalDiameter + input.shaftUpperDev; results["shaftMax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shaftMax"] = Number.NaN; }
+  try { const v = input.nominalDiameter + input.shaftLowerDev; results["shaftMin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shaftMin"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["holeMax"])) - (toNumericFormulaValue(results["shaftMin"])); results["maxClearance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxClearance"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["holeMin"])) - (toNumericFormulaValue(results["shaftMax"])); results["minClearance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["minClearance"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["minClearance"])) > 0 ? 1 : ((toNumericFormulaValue(results["maxClearance"])) < 0 ? 3 : 2); results["fitTypeCode"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fitTypeCode"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFit_calculator(input: Fit_calculatorInput): Fit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxClearance"]));
+  const totalWasteCost = toNumericFormulaValue(values["maxClearance"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateFit_calculator(input: Fit_calculatorInput): Fit_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

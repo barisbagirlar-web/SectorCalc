@@ -18,27 +18,23 @@ export const Underlayment_calculatorInputSchema = z.object({
   pricePerRoll: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Underlayment_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.rollLength * input.rollWidth; results["rollArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rollArea"] = 0; }
-  try { const v = input.area * (1 + input.wasteFactor / 100); results["neededArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["neededArea"] = 0; }
-  try { const v = (asFormulaNumber(results["neededArea"])) / (asFormulaNumber(results["rollArea"])); results["exactRolls"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactRolls"] = 0; }
-  try { const v = (asFormulaNumber(results["exactRolls"])) * input.pricePerRoll; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.rollLength * input.rollWidth; results["rollArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rollArea"] = Number.NaN; }
+  try { const v = input.area * (1 + input.wasteFactor / 100); results["neededArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["neededArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["neededArea"])) / (toNumericFormulaValue(results["rollArea"])); results["exactRolls"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exactRolls"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["exactRolls"])) * input.pricePerRoll; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUnderlayment_calculator(input: Underlayment_calculatorInput): Underlayment_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateUnderlayment_calculator(input: Underlayment_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

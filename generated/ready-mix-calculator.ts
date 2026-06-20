@@ -18,27 +18,23 @@ export const Ready_mix_calculatorInputSchema = z.object({
   density: z.number().default(2400),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ready_mix_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * (input.thickness / 100); results["netVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["netVolume"])) * (input.wasteFactor / 100); results["wasteVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["netVolume"])) + (asFormulaNumber(results["wasteVolume"])); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["totalVolume"])) * input.density / 1000; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
+  try { const v = input.length * input.width * (input.thickness / 100); results["netVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netVolume"])) * (input.wasteFactor / 100); results["wasteVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netVolume"])) + (toNumericFormulaValue(results["wasteVolume"])); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalVolume"])) * input.density / 1000; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateReady_mix_calculator(input: Ready_mix_calculatorInput): Ready_mix_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalVolume"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateReady_mix_calculator(input: Ready_mix_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

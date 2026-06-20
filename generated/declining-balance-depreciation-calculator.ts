@@ -18,28 +18,24 @@ export const Declining_balance_depreciation_calculatorInputSchema = z.object({
   year: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Declining_balance_depreciation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.factor / input.life; results["rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rate"] = 0; }
-  try { const v = input.cost * (asFormulaNumber(results["rate"])) * (1 - (asFormulaNumber(results["rate"]))) ** (input.year - 1); results["depreciation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["depreciation"] = 0; }
-  try { const v = input.cost * (1 - (asFormulaNumber(results["rate"]))) ** (input.year - 1); results["bookValueBeginning"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bookValueBeginning"] = 0; }
-  try { const v = input.cost - input.cost * (1 - (asFormulaNumber(results["rate"]))) ** input.year; results["accumulatedDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["accumulatedDepreciation"] = 0; }
-  try { const v = input.cost * (1 - (asFormulaNumber(results["rate"]))) ** input.year; results["endingBookValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["endingBookValue"] = 0; }
+  try { const v = input.factor / input.life; results["rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rate"] = Number.NaN; }
+  try { const v = input.cost * (toNumericFormulaValue(results["rate"])) * (1 - (toNumericFormulaValue(results["rate"]))) ** (input.year - 1); results["depreciation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["depreciation"] = Number.NaN; }
+  try { const v = input.cost * (1 - (toNumericFormulaValue(results["rate"]))) ** (input.year - 1); results["bookValueBeginning"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bookValueBeginning"] = Number.NaN; }
+  try { const v = input.cost - input.cost * (1 - (toNumericFormulaValue(results["rate"]))) ** input.year; results["accumulatedDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["accumulatedDepreciation"] = Number.NaN; }
+  try { const v = input.cost * (1 - (toNumericFormulaValue(results["rate"]))) ** input.year; results["endingBookValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["endingBookValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDeclining_balance_depreciation_calculator(input: Declining_balance_depreciation_calculatorInput): Declining_balance_depreciation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["depreciation"]));
+  const totalWasteCost = toNumericFormulaValue(values["depreciation"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateDeclining_balance_depreciation_calculator(input: Declin
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

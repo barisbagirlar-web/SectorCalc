@@ -16,28 +16,24 @@ export const Download_time_calculatorInputSchema = z.object({
   parallelConnections: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Download_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fileSize * 8e9; results["bits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bits"] = 0; }
-  try { const v = input.downloadSpeed * (1 - input.overheadPercentage / 100) * input.parallelConnections; results["effectiveSpeedMbps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveSpeedMbps"] = 0; }
-  try { const v = (asFormulaNumber(results["bits"])) / ((asFormulaNumber(results["effectiveSpeedMbps"])) * 1e6); results["downloadTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["downloadTimeSeconds"] = 0; }
-  try { const v = (asFormulaNumber(results["downloadTimeSeconds"])) / 60; results["downloadTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["downloadTimeMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["downloadTimeMinutes"])) / 60; results["downloadTimeHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["downloadTimeHours"] = 0; }
+  try { const v = input.fileSize * 8e9; results["bits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bits"] = Number.NaN; }
+  try { const v = input.downloadSpeed * (1 - input.overheadPercentage / 100) * input.parallelConnections; results["effectiveSpeedMbps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveSpeedMbps"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bits"])) / ((toNumericFormulaValue(results["effectiveSpeedMbps"])) * 1e6); results["downloadTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["downloadTimeSeconds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["downloadTimeSeconds"])) / 60; results["downloadTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["downloadTimeMinutes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["downloadTimeMinutes"])) / 60; results["downloadTimeHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["downloadTimeHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDownload_time_calculator(input: Download_time_calculatorInput): Download_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["downloadTimeMinutes"]));
+  const totalWasteCost = toNumericFormulaValue(values["downloadTimeMinutes"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDownload_time_calculator(input: Download_time_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

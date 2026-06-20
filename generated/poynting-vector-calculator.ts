@@ -20,26 +20,22 @@ export const Poynting_vector_calculatorInputSchema = z.object({
   Hz: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Poynting_vector_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.Ey * input.Hz - input.Ez * input.Hy; results["Sx"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Sx"] = 0; }
-  try { const v = input.Ez * input.Hx - input.Ex * input.Hz; results["Sy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Sy"] = 0; }
-  try { const v = input.Ex * input.Hy - input.Ey * input.Hx; results["Sz"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Sz"] = 0; }
+  try { const v = input.Ey * input.Hz - input.Ez * input.Hy; results["Sx"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Sx"] = Number.NaN; }
+  try { const v = input.Ez * input.Hx - input.Ex * input.Hz; results["Sy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Sy"] = Number.NaN; }
+  try { const v = input.Ex * input.Hy - input.Ey * input.Hx; results["Sz"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Sz"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePoynting_vector_calculator(input: Poynting_vector_calculatorInput): Poynting_vector_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Sx"]));
+  const totalWasteCost = toNumericFormulaValue(values["Sx"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculatePoynting_vector_calculator(input: Poynting_vector_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

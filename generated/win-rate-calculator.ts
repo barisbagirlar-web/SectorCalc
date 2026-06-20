@@ -16,27 +16,23 @@ export const Win_rate_calculatorInputSchema = z.object({
   targetWinRate: z.number().default(25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Win_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.wonOpportunities / (input.totalOpportunities - input.pendingOpportunities)) * 100; results["winRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["winRate"] = 0; }
-  try { const v = input.wonOpportunities; results["winCount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["winCount"] = 0; }
-  try { const v = input.totalOpportunities - input.pendingOpportunities - input.wonOpportunities; results["lossCount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lossCount"] = 0; }
-  try { const v = (asFormulaNumber(results["winRate"])) - input.targetWinRate; results["gap"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gap"] = 0; }
+  try { const v = (input.wonOpportunities / (input.totalOpportunities - input.pendingOpportunities)) * 100; results["winRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["winRate"] = Number.NaN; }
+  try { const v = input.wonOpportunities; results["winCount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["winCount"] = Number.NaN; }
+  try { const v = input.totalOpportunities - input.pendingOpportunities - input.wonOpportunities; results["lossCount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lossCount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["winRate"])) - input.targetWinRate; results["gap"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gap"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWin_rate_calculator(input: Win_rate_calculatorInput): Win_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["winRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["winRate"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateWin_rate_calculator(input: Win_rate_calculatorInput): W
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

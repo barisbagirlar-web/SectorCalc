@@ -20,26 +20,22 @@ export const Food_cost_calculatorInputSchema = z.object({
   profitMarginPercentage: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Food_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.ingredientCost + (input.laborCostPerHour * input.preparationTimeHours) + (input.ingredientCost * input.overheadPercentage / 100); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / input.numberOfServings; results["costPerServing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerServing"] = 0; }
-  try { const v = (asFormulaNumber(results["costPerServing"])) / (1 - (input.profitMarginPercentage / 100)); results["sellingPricePerServing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellingPricePerServing"] = 0; }
+  try { const v = input.ingredientCost + (input.laborCostPerHour * input.preparationTimeHours) + (input.ingredientCost * input.overheadPercentage / 100); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / input.numberOfServings; results["costPerServing"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerServing"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costPerServing"])) / (1 - (input.profitMarginPercentage / 100)); results["sellingPricePerServing"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sellingPricePerServing"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFood_cost_calculator(input: Food_cost_calculatorInput): Food_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sellingPricePerServing"]));
+  const totalWasteCost = toNumericFormulaValue(values["sellingPricePerServing"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateFood_cost_calculator(input: Food_cost_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

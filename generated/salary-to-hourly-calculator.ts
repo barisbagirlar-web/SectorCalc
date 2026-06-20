@@ -22,26 +22,22 @@ export const Salary_to_hourly_calculatorInputSchema = z.object({
   include_productivity_factor: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Salary_to_hourly_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 * input.paid_weeks_per_year * input.work_hours_per_week * (input.benefits_percentage / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_kwh"] = 0; }
-  try { const v = 1 * input.paid_weeks_per_year * input.work_hours_per_week * (input.benefits_percentage / 100) * input.annual_salary; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = 1 * input.paid_weeks_per_year * input.work_hours_per_week * (input.benefits_percentage / 100) * input.annual_salary; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = 1 * input.paid_weeks_per_year * input.work_hours_per_week * (input.benefits_percentage / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_kwh"] = Number.NaN; }
+  try { const v = 1 * input.paid_weeks_per_year * input.work_hours_per_week * (input.benefits_percentage / 100) * input.annual_salary; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_energy_cost"] = Number.NaN; }
+  try { const v = 1 * input.paid_weeks_per_year * input.work_hours_per_week * (input.benefits_percentage / 100) * input.annual_salary; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSalary_to_hourly_calculator(input: Salary_to_hourly_calculatorInput): Salary_to_hourly_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateSalary_to_hourly_calculator(input: Salary_to_hourly_cal
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

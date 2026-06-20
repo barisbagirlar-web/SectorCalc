@@ -24,27 +24,23 @@ export const Auto_repair_quote_consistency_calculatorInputSchema = z.object({
   use_original_parts: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Auto_repair_quote_consistency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const boolVal = input.use_original_parts ? 1 : 0; const v = boolVal * input.parts_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const boolVal = input.use_original_parts ? 1 : 0; const v = boolVal * input.parts_cost * (1 + (input.labor_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const boolVal = input.use_original_parts ? 1 : 0; const v = boolVal * input.parts_cost * (1 + (input.labor_rate / 100)) * (input.labor_hours); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.labor_hours; results["factor_labor_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_labor_hours"] = 0; }
+  try { const v = input.use_original_parts * input.parts_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.use_original_parts * input.parts_cost * (1 + (input.labor_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.use_original_parts * input.parts_cost * (1 + (input.labor_rate / 100)) * (input.labor_hours); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.labor_hours; results["factor_labor_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_labor_hours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAuto_repair_quote_consistency_calculator(input: Auto_repair_quote_consistency_calculatorInput): Auto_repair_quote_consistency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateAuto_repair_quote_consistency_calculator(input: Auto_re
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,25 +20,21 @@ export const Paint_coverage_calculatorInputSchema = z.object({
   paint_price_per_liter: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Paint_coverage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.area_sqm * input.coats) / (input.coverage_per_liter / input.roughness_factor) * (1 + input.waste_factor / 100); results["paint_liters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paint_liters"] = 0; }
-  try { const v = (input.area_sqm * input.coats) / (input.coverage_per_liter / input.roughness_factor) * (1 + input.waste_factor / 100) * input.paint_price_per_liter; results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
+  try { const v = (input.area_sqm * input.coats) / (input.coverage_per_liter / input.roughness_factor) * (1 + input.waste_factor / 100); results["paint_liters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paint_liters"] = Number.NaN; }
+  try { const v = (input.area_sqm * input.coats) / (input.coverage_per_liter / input.roughness_factor) * (1 + input.waste_factor / 100) * input.paint_price_per_liter; results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_cost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePaint_coverage_calculator(input: Paint_coverage_calculatorInput): Paint_coverage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["paint_liters"]));
+  const totalWasteCost = toNumericFormulaValue(values["paint_liters"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculatePaint_coverage_calculator(input: Paint_coverage_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

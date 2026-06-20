@@ -16,26 +16,22 @@ export const Probability_gacha_calculatorInputSchema = z.object({
   guarantee: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Probability_gacha_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / input.probability; results["expectedAttempts"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedAttempts"] = 0; }
-  try { const v = (1 / input.probability) * input.cost; results["expectedCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedCost"] = 0; }
-  try { const v = input.guarantee * input.cost; results["worstCaseCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["worstCaseCost"] = 0; }
+  try { const v = 1 / input.probability; results["expectedAttempts"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedAttempts"] = Number.NaN; }
+  try { const v = (1 / input.probability) * input.cost; results["expectedCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedCost"] = Number.NaN; }
+  try { const v = input.guarantee * input.cost; results["worstCaseCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["worstCaseCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateProbability_gacha_calculator(input: Probability_gacha_calculatorInput): Probability_gacha_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["worstCaseCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["worstCaseCost"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateProbability_gacha_calculator(input: Probability_gacha_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

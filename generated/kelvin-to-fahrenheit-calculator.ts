@@ -16,26 +16,22 @@ export const Kelvin_to_fahrenheit_calculatorInputSchema = z.object({
   expectedFahrenheit: z.number().default(32),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Kelvin_to_fahrenheit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.kelvin + input.calibrationOffset; results["effectiveKelvin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveKelvin"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveKelvin"])) - 273.15; results["celsius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["celsius"] = 0; }
-  try { const v = (asFormulaNumber(results["celsius"])) * 9/5 + 32; results["fahrenheitUnrounded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fahrenheitUnrounded"] = 0; }
+  try { const v = input.kelvin + input.calibrationOffset; results["effectiveKelvin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveKelvin"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveKelvin"])) - 273.15; results["celsius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["celsius"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["celsius"])) * 9/5 + 32; results["fahrenheitUnrounded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fahrenheitUnrounded"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKelvin_to_fahrenheit_calculator(input: Kelvin_to_fahrenheit_calculatorInput): Kelvin_to_fahrenheit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fahrenheitUnrounded"]));
+  const totalWasteCost = toNumericFormulaValue(values["fahrenheitUnrounded"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateKelvin_to_fahrenheit_calculator(input: Kelvin_to_fahren
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

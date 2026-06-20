@@ -18,27 +18,23 @@ export const Fixed_annuity_calculatorInputSchema = z.object({
   paymentType: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fixed_annuity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualInterestRate / 100; results["periodicRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["periodicRate"] = 0; }
-  try { const v = input.presentValue * (asFormulaNumber(results["periodicRate"])) / (1 - (1 + (asFormulaNumber(results["periodicRate"])))^(-input.numberOfPeriods)); results["paymentAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paymentAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["paymentAmount"])) * input.numberOfPeriods; results["totalPaid"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPaid"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPaid"])) - input.presentValue; results["totalInterest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInterest"] = 0; }
+  try { const v = input.annualInterestRate / 100; results["periodicRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["periodicRate"] = Number.NaN; }
+  try { const v = input.presentValue * (toNumericFormulaValue(results["periodicRate"])) / (1 - (1 + (toNumericFormulaValue(results["periodicRate"])))^(-input.numberOfPeriods)); results["paymentAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paymentAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["paymentAmount"])) * input.numberOfPeriods; results["totalPaid"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPaid"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPaid"])) - input.presentValue; results["totalInterest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInterest"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFixed_annuity_calculator(input: Fixed_annuity_calculatorInput): Fixed_annuity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["paymentAmount"]));
+  const totalWasteCost = toNumericFormulaValue(values["paymentAmount"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateFixed_annuity_calculator(input: Fixed_annuity_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

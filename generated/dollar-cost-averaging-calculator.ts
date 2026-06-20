@@ -18,26 +18,22 @@ export const Dollar_cost_averaging_calculatorInputSchema = z.object({
   annualReturnRate: z.number().default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dollar_cost_averaging_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.years * input.periodsPerYear; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["n"] = 0; }
-  try { const v = input.annualReturnRate / 100 / input.periodsPerYear; results["r"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r"] = 0; }
-  try { const v = input.initialInvestment + input.periodicInvestment * (asFormulaNumber(results["n"])); results["totalInvested"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvested"] = 0; }
+  try { const v = input.years * input.periodsPerYear; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["n"] = Number.NaN; }
+  try { const v = input.annualReturnRate / 100 / input.periodsPerYear; results["r"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["r"] = Number.NaN; }
+  try { const v = input.initialInvestment + input.periodicInvestment * (toNumericFormulaValue(results["n"])); results["totalInvested"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInvested"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDollar_cost_averaging_calculator(input: Dollar_cost_averaging_calculatorInput): Dollar_cost_averaging_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalInvested"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalInvested"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDollar_cost_averaging_calculator(input: Dollar_cost_ave
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

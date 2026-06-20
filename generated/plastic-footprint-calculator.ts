@@ -20,27 +20,23 @@ export const Plastic_footprint_calculatorInputSchema = z.object({
   recycledEmissionReduction: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Plastic_footprint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.productionVolume * input.plasticPerUnit) / 1000; results["totalPlasticKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPlasticKg"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPlasticKg"])) * input.recycleRate / 100; results["recycledPlasticKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recycledPlasticKg"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPlasticKg"])) * input.wasteFactor / 100; results["wasteKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteKg"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPlasticKg"])) * input.carbonFactor * (1 - (input.recycleRate / 100) * (input.recycledEmissionReduction / 100)); results["totalCarbon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCarbon"] = 0; }
+  try { const v = (input.productionVolume * input.plasticPerUnit) / 1000; results["totalPlasticKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPlasticKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPlasticKg"])) * input.recycleRate / 100; results["recycledPlasticKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recycledPlasticKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPlasticKg"])) * input.wasteFactor / 100; results["wasteKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPlasticKg"])) * input.carbonFactor * (1 - (input.recycleRate / 100) * (input.recycledEmissionReduction / 100)); results["totalCarbon"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCarbon"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePlastic_footprint_calculator(input: Plastic_footprint_calculatorInput): Plastic_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCarbon"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCarbon"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculatePlastic_footprint_calculator(input: Plastic_footprint_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

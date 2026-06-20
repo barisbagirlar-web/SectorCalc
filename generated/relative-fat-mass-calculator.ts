@@ -14,27 +14,23 @@ export const Relative_fat_mass_calculatorInputSchema = z.object({
   sex: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Relative_fat_mass_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sex === 1 ? 76 - 20 * (input.height / input.waist) : 64 - 20 * (input.height / input.waist); results["RFM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["RFM"] = 0; }
-  try { const v = input.height / input.waist; results["heightToWaistRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heightToWaistRatio"] = 0; }
-  try { const v = 20 * (input.height / input.waist); results["twentyTimesRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["twentyTimesRatio"] = 0; }
-  try { const v = input.sex === 1 ? 76 : 64; results["constant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["constant"] = 0; }
+  try { const v = input.sex === 1 ? 76 - 20 * (input.height / input.waist) : 64 - 20 * (input.height / input.waist); results["RFM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["RFM"] = Number.NaN; }
+  try { const v = input.height / input.waist; results["heightToWaistRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heightToWaistRatio"] = Number.NaN; }
+  try { const v = 20 * (input.height / input.waist); results["twentyTimesRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["twentyTimesRatio"] = Number.NaN; }
+  try { const v = input.sex === 1 ? 76 : 64; results["constant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["constant"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRelative_fat_mass_calculator(input: Relative_fat_mass_calculatorInput): Relative_fat_mass_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["RFM"]));
+  const totalWasteCost = toNumericFormulaValue(values["RFM"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateRelative_fat_mass_calculator(input: Relative_fat_mass_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

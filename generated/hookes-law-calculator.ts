@@ -14,27 +14,23 @@ export const Hookes_law_calculatorInputSchema = z.object({
   displacement: z.number().default(0.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hookes_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.springConstant * input.displacement; results["force"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["force"] = 0; }
-  try { const v = input.force / input.displacement; results["springConstant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["springConstant"] = 0; }
-  try { const v = input.force / input.springConstant; results["displacement"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["displacement"] = 0; }
-  try { const v = 0.5 * input.springConstant * input.displacement * input.displacement; results["potentialEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potentialEnergy"] = 0; }
+  try { const v = input.springConstant * input.displacement; results["force"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["force"] = Number.NaN; }
+  try { const v = input.force / input.displacement; results["springConstant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["springConstant"] = Number.NaN; }
+  try { const v = input.force / input.springConstant; results["displacement"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["displacement"] = Number.NaN; }
+  try { const v = 0.5 * input.springConstant * input.displacement * input.displacement; results["potentialEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["potentialEnergy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHookes_law_calculator(input: Hookes_law_calculatorInput): Hookes_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["force"]));
+  const totalWasteCost = toNumericFormulaValue(values["force"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateHookes_law_calculator(input: Hookes_law_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

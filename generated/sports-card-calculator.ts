@@ -18,30 +18,26 @@ export const Sports_card_calculatorInputSchema = z.object({
   taxRate: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sports_card_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.purchasePrice + input.gradingCost + input.shippingCost; results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvestment"] = 0; }
-  try { const v = input.salePrice; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
-  try { const v = input.salePrice - input.purchasePrice - input.gradingCost - input.shippingCost; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = input.salePrice * input.taxRate / 100; results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["grossProfit"])) - (asFormulaNumber(results["taxAmount"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = input.salePrice !== 0 ? ((asFormulaNumber(results["netProfit"])) / input.salePrice) * 100 : 0; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMargin"] = 0; }
-  try { const v = (asFormulaNumber(results["totalInvestment"])) !== 0 ? ((asFormulaNumber(results["netProfit"])) / (asFormulaNumber(results["totalInvestment"]))) * 100 : 0; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
+  try { const v = input.purchasePrice + input.gradingCost + input.shippingCost; results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInvestment"] = Number.NaN; }
+  try { const v = input.salePrice; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRevenue"] = Number.NaN; }
+  try { const v = input.salePrice - input.purchasePrice - input.gradingCost - input.shippingCost; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossProfit"] = Number.NaN; }
+  try { const v = input.salePrice * input.taxRate / 100; results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossProfit"])) - (toNumericFormulaValue(results["taxAmount"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
+  try { const v = input.salePrice !== 0 ? ((toNumericFormulaValue(results["netProfit"])) / input.salePrice) * 100 : 0; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMargin"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalInvestment"])) !== 0 ? ((toNumericFormulaValue(results["netProfit"])) / (toNumericFormulaValue(results["totalInvestment"]))) * 100 : 0; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSports_card_calculator(input: Sports_card_calculatorInput): Sports_card_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["netProfit"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateSports_card_calculator(input: Sports_card_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,29 +22,25 @@ export const Airbnb_profit_calculatorInputSchema = z.object({
   monthlyExpenses: z.number().default(2000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Airbnb_profit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.occupancyRate / 100 * input.nightsAvailable; results["bookedNights"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bookedNights"] = 0; }
-  try { const v = (asFormulaNumber(results["bookedNights"])) / input.avgStay; results["totalBookings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBookings"] = 0; }
-  try { const v = input.nightlyRate * (asFormulaNumber(results["bookedNights"])) + input.cleaningFee * (asFormulaNumber(results["totalBookings"])); results["grossRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossRevenue"] = 0; }
-  try { const v = input.airbnbFeePercent / 100 * (asFormulaNumber(results["grossRevenue"])); results["airbnbFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["airbnbFee"] = 0; }
-  try { const v = (asFormulaNumber(results["grossRevenue"])) - (asFormulaNumber(results["airbnbFee"])); results["netRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netRevenue"] = 0; }
-  try { const v = (asFormulaNumber(results["netRevenue"])) - input.monthlyExpenses; results["monthlyProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyProfit"] = 0; }
+  try { const v = input.occupancyRate / 100 * input.nightsAvailable; results["bookedNights"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bookedNights"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bookedNights"])) / input.avgStay; results["totalBookings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBookings"] = Number.NaN; }
+  try { const v = input.nightlyRate * (toNumericFormulaValue(results["bookedNights"])) + input.cleaningFee * (toNumericFormulaValue(results["totalBookings"])); results["grossRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossRevenue"] = Number.NaN; }
+  try { const v = input.airbnbFeePercent / 100 * (toNumericFormulaValue(results["grossRevenue"])); results["airbnbFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["airbnbFee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossRevenue"])) - (toNumericFormulaValue(results["airbnbFee"])); results["netRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netRevenue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netRevenue"])) - input.monthlyExpenses; results["monthlyProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyProfit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAirbnb_profit_calculator(input: Airbnb_profit_calculatorInput): Airbnb_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bookedNights"]));
+  const totalWasteCost = toNumericFormulaValue(values["bookedNights"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateAirbnb_profit_calculator(input: Airbnb_profit_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,33 +16,29 @@ export const Chi_square_test_of_independenceInputSchema = z.object({
   observed_22: z.number().default(40),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Chi_square_test_of_independenceInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.observed_11 + input.observed_12; results["row1_total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["row1_total"] = 0; }
-  try { const v = input.observed_21 + input.observed_22; results["row2_total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["row2_total"] = 0; }
-  try { const v = input.observed_11 + input.observed_21; results["col1_total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["col1_total"] = 0; }
-  try { const v = input.observed_12 + input.observed_22; results["col2_total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["col2_total"] = 0; }
-  try { const v = input.observed_11 + input.observed_12 + input.observed_21 + input.observed_22; results["grand_total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grand_total"] = 0; }
-  try { const v = ((asFormulaNumber(results["row1_total"])) * (asFormulaNumber(results["col1_total"]))) / (asFormulaNumber(results["grand_total"])); results["expected_11"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expected_11"] = 0; }
-  try { const v = ((asFormulaNumber(results["row1_total"])) * (asFormulaNumber(results["col2_total"]))) / (asFormulaNumber(results["grand_total"])); results["expected_12"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expected_12"] = 0; }
-  try { const v = ((asFormulaNumber(results["row2_total"])) * (asFormulaNumber(results["col1_total"]))) / (asFormulaNumber(results["grand_total"])); results["expected_21"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expected_21"] = 0; }
-  try { const v = ((asFormulaNumber(results["row2_total"])) * (asFormulaNumber(results["col2_total"]))) / (asFormulaNumber(results["grand_total"])); results["expected_22"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expected_22"] = 0; }
-  try { const v = ((input.observed_11 - (asFormulaNumber(results["expected_11"]))) ** 2 / (asFormulaNumber(results["expected_11"]))) + ((input.observed_12 - (asFormulaNumber(results["expected_12"]))) ** 2 / (asFormulaNumber(results["expected_12"]))) + ((input.observed_21 - (asFormulaNumber(results["expected_21"]))) ** 2 / (asFormulaNumber(results["expected_21"]))) + ((input.observed_22 - (asFormulaNumber(results["expected_22"]))) ** 2 / (asFormulaNumber(results["expected_22"]))); results["chi_square"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["chi_square"] = 0; }
+  try { const v = input.observed_11 + input.observed_12; results["row1_total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["row1_total"] = Number.NaN; }
+  try { const v = input.observed_21 + input.observed_22; results["row2_total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["row2_total"] = Number.NaN; }
+  try { const v = input.observed_11 + input.observed_21; results["col1_total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["col1_total"] = Number.NaN; }
+  try { const v = input.observed_12 + input.observed_22; results["col2_total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["col2_total"] = Number.NaN; }
+  try { const v = input.observed_11 + input.observed_12 + input.observed_21 + input.observed_22; results["grand_total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grand_total"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["row1_total"])) * (toNumericFormulaValue(results["col1_total"]))) / (toNumericFormulaValue(results["grand_total"])); results["expected_11"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expected_11"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["row1_total"])) * (toNumericFormulaValue(results["col2_total"]))) / (toNumericFormulaValue(results["grand_total"])); results["expected_12"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expected_12"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["row2_total"])) * (toNumericFormulaValue(results["col1_total"]))) / (toNumericFormulaValue(results["grand_total"])); results["expected_21"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expected_21"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["row2_total"])) * (toNumericFormulaValue(results["col2_total"]))) / (toNumericFormulaValue(results["grand_total"])); results["expected_22"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expected_22"] = Number.NaN; }
+  try { const v = ((input.observed_11 - (toNumericFormulaValue(results["expected_11"]))) ** 2 / (toNumericFormulaValue(results["expected_11"]))) + ((input.observed_12 - (toNumericFormulaValue(results["expected_12"]))) ** 2 / (toNumericFormulaValue(results["expected_12"]))) + ((input.observed_21 - (toNumericFormulaValue(results["expected_21"]))) ** 2 / (toNumericFormulaValue(results["expected_21"]))) + ((input.observed_22 - (toNumericFormulaValue(results["expected_22"]))) ** 2 / (toNumericFormulaValue(results["expected_22"]))); results["chi_square"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["chi_square"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateChi_square_test_of_independence(input: Chi_square_test_of_independenceInput): Chi_square_test_of_independenceOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["chi_square"]));
+  const totalWasteCost = toNumericFormulaValue(values["chi_square"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateChi_square_test_of_independence(input: Chi_square_test_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Gauss_law_calculatorInputSchema = z.object({
   angle: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gauss_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.charge / input.permittivity; results["electricFlux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricFlux"] = 0; }
-  try { const v = input.charge / (4 * Math.PI * input.permittivity * input.radius * input.radius); results["electricField"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricField"] = 0; }
-  try { const v = input.charge / input.permittivity; results["electricFlux___charge___permittivity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricFlux___charge___permittivity"] = 0; }
+  try { const v = input.charge / input.permittivity; results["electricFlux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricFlux"] = Number.NaN; }
+  try { const v = input.charge / (4 * Math.PI * input.permittivity * input.radius * input.radius); results["electricField"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricField"] = Number.NaN; }
+  try { const v = input.charge / input.permittivity; results["electricFlux___charge___permittivity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricFlux___charge___permittivity"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGauss_law_calculator(input: Gauss_law_calculatorInput): Gauss_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["electricFlux"]));
+  const totalWasteCost = toNumericFormulaValue(values["electricFlux"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateGauss_law_calculator(input: Gauss_law_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

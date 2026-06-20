@@ -22,27 +22,23 @@ export const Birthday_party_cost_calculatorInputSchema = z.object({
   venueRentalCost: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Birthday_party_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numGuests * input.costPerPlate; results["totalFoodCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFoodCost"] = 0; }
-  try { const v = input.numGuests * input.numDrinksPerGuest * input.costPerDrink; results["totalDrinkCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDrinkCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalFoodCost"])) + (asFormulaNumber(results["totalDrinkCost"])) + input.cakeCost + input.decorationCost + input.venueRentalCost; results["totalPartyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPartyCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPartyCost"])) / input.numGuests; results["costPerGuest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerGuest"] = 0; }
+  try { const v = input.numGuests * input.costPerPlate; results["totalFoodCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFoodCost"] = Number.NaN; }
+  try { const v = input.numGuests * input.numDrinksPerGuest * input.costPerDrink; results["totalDrinkCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDrinkCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalFoodCost"])) + (toNumericFormulaValue(results["totalDrinkCost"])) + input.cakeCost + input.decorationCost + input.venueRentalCost; results["totalPartyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPartyCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPartyCost"])) / input.numGuests; results["costPerGuest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerGuest"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBirthday_party_cost_calculator(input: Birthday_party_cost_calculatorInput): Birthday_party_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["costPerGuest"]));
+  const totalWasteCost = toNumericFormulaValue(values["costPerGuest"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateBirthday_party_cost_calculator(input: Birthday_party_co
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

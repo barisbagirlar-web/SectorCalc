@@ -24,28 +24,24 @@ export const Taguchi_quality_loss_function_calculatorInputSchema = z.object({
   production_volume: z.number().min(1).max(100000000).default(10000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Taguchi_quality_loss_function_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.target_value * input.cost_at_limit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.target_value * input.cost_at_limit; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.target_value * input.cost_at_limit * 1 * (input.lower_spec_limit * input.upper_spec_limit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.lower_spec_limit; results["factor_lower_spec_limit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_lower_spec_limit"] = 0; }
-  try { const v = input.upper_spec_limit; results["factor_upper_spec_limit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_upper_spec_limit"] = 0; }
+  try { const v = input.target_value * input.cost_at_limit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.target_value * input.cost_at_limit; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.target_value * input.cost_at_limit * 1 * (input.lower_spec_limit * input.upper_spec_limit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.lower_spec_limit; results["factor_lower_spec_limit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_lower_spec_limit"] = Number.NaN; }
+  try { const v = input.upper_spec_limit; results["factor_upper_spec_limit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_upper_spec_limit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTaguchi_quality_loss_function_calculator(input: Taguchi_quality_loss_function_calculatorInput): Taguchi_quality_loss_function_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateTaguchi_quality_loss_function_calculator(input: Taguchi
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

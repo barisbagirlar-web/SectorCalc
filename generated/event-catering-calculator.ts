@@ -24,32 +24,28 @@ export const Event_catering_calculatorInputSchema = z.object({
   taxRatePercent: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Event_catering_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfGuests * input.costPerPlate; results["totalFoodCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFoodCost"] = 0; }
-  try { const v = input.serviceStaff * input.staffHourlyRate * input.eventDurationHours; results["totalStaffCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalStaffCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalFoodCost"])) + (asFormulaNumber(results["totalStaffCost"])); results["totalVariableCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVariableCost"] = 0; }
-  try { const v = input.overheadFixed; results["totalFixedCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFixedCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalVariableCost"])) + (asFormulaNumber(results["totalFixedCost"])); results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) * (input.taxRatePercent / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) + (asFormulaNumber(results["taxAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) * (1 + input.profitMarginPercent / 100); results["revenueRequired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["revenueRequired"] = 0; }
-  try { const v = (asFormulaNumber(results["revenueRequired"])) / input.numberOfGuests; results["pricePerPlate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pricePerPlate"] = 0; }
+  try { const v = input.numberOfGuests * input.costPerPlate; results["totalFoodCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFoodCost"] = Number.NaN; }
+  try { const v = input.serviceStaff * input.staffHourlyRate * input.eventDurationHours; results["totalStaffCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalStaffCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalFoodCost"])) + (toNumericFormulaValue(results["totalStaffCost"])); results["totalVariableCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVariableCost"] = Number.NaN; }
+  try { const v = input.overheadFixed; results["totalFixedCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFixedCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalVariableCost"])) + (toNumericFormulaValue(results["totalFixedCost"])); results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["subtotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) * (input.taxRatePercent / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) + (toNumericFormulaValue(results["taxAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) * (1 + input.profitMarginPercent / 100); results["revenueRequired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["revenueRequired"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["revenueRequired"])) / input.numberOfGuests; results["pricePerPlate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pricePerPlate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEvent_catering_calculator(input: Event_catering_calculatorInput): Event_catering_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pricePerPlate"]));
+  const totalWasteCost = toNumericFormulaValue(values["pricePerPlate"]);
   const breakdown = {
     
   };
@@ -57,7 +53,7 @@ export function calculateEvent_catering_calculator(input: Event_catering_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

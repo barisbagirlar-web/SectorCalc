@@ -20,27 +20,23 @@ export const Heisenberg_uncertainty_calculatorInputSchema = z.object({
   deltaV: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heisenberg_uncertainty_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.deltaX * input.deltaP; results["product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["product"] = 0; }
-  try { const v = input.hBar / 2 * input.tolerance; results["minProduct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minProduct"] = 0; }
-  try { const v = (asFormulaNumber(results["product"])) / (asFormulaNumber(results["minProduct"])); results["certaintyRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["certaintyRatio"] = 0; }
-  try { const v = ((input.deltaV !== 0 ? input.deltaV : input.deltaP / input.mass) ? 1 : 0); results["deltaV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaV"] = 0; }
+  try { const v = input.deltaX * input.deltaP; results["product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["product"] = Number.NaN; }
+  try { const v = input.hBar / 2 * input.tolerance; results["minProduct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["minProduct"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["product"])) / (toNumericFormulaValue(results["minProduct"])); results["certaintyRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["certaintyRatio"] = Number.NaN; }
+  try { const v = ((input.deltaV !== 0 ? input.deltaV : input.deltaP / input.mass) ? 1 : 0); results["deltaV"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaV"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeisenberg_uncertainty_calculator(input: Heisenberg_uncertainty_calculatorInput): Heisenberg_uncertainty_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["certaintyRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["certaintyRatio"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateHeisenberg_uncertainty_calculator(input: Heisenberg_unc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

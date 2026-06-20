@@ -20,25 +20,21 @@ export const Percentile_rank_calculatorInputSchema = z.object({
   value5: z.number().default(60),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Percentile_rank_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (((input.value1 < input.target ? 1 : 0) + (input.value2 < input.target ? 1 : 0) + (input.value3 < input.target ? 1 : 0) + (input.value4 < input.target ? 1 : 0) + (input.value5 < input.target ? 1 : 0) + 0.5 * ((input.value1 == input.target ? 1 : 0) + (input.value2 == input.target ? 1 : 0) + (input.value3 == input.target ? 1 : 0) + (input.value4 == input.target ? 1 : 0) + (input.value5 == input.target ? 1 : 0))) / 5 * 100); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.target; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = (((input.value1 < input.target ? 1 : 0) + (input.value2 < input.target ? 1 : 0) + (input.value3 < input.target ? 1 : 0) + (input.value4 < input.target ? 1 : 0) + (input.value5 < input.target ? 1 : 0) + 0.5 * ((input.value1 == input.target ? 1 : 0) + (input.value2 == input.target ? 1 : 0) + (input.value3 == input.target ? 1 : 0) + (input.value4 == input.target ? 1 : 0) + (input.value5 == input.target ? 1 : 0))) / 5 * 100); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = input.target; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePercentile_rank_calculator(input: Percentile_rank_calculatorInput): Percentile_rank_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculatePercentile_rank_calculator(input: Percentile_rank_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

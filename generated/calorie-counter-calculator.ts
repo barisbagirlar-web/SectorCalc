@@ -18,25 +18,21 @@ export const Calorie_counter_calculatorInputSchema = z.object({
   activity_level: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Calorie_counter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.gender * (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age + 5)) + ((1 - input.gender) * (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age - 161)); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (asFormulaNumber(results["bmr"])) * input.activity_level; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
+  try { const v = (input.gender * (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age + 5)) + ((1 - input.gender) * (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age - 161)); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmr"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bmr"])) * input.activity_level; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tdee"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCalorie_counter_calculator(input: Calorie_counter_calculatorInput): Calorie_counter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tdee"]));
+  const totalWasteCost = toNumericFormulaValue(values["tdee"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateCalorie_counter_calculator(input: Calorie_counter_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

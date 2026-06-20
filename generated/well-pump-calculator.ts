@@ -20,26 +20,22 @@ export const Well_pump_calculatorInputSchema = z.object({
   pumpEfficiency: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Well_pump_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.staticWaterLevel + input.drawdown + input.dischargeHead + input.frictionLoss; results["totalDynamicHead"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDynamicHead"] = 0; }
-  try { const v = (input.flowRate * (asFormulaNumber(results["totalDynamicHead"])) * 9.81) / 3600; results["hydraulicPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hydraulicPower"] = 0; }
-  try { const v = (asFormulaNumber(results["hydraulicPower"])) / (input.pumpEfficiency / 100); results["pumpPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pumpPower"] = 0; }
+  try { const v = input.staticWaterLevel + input.drawdown + input.dischargeHead + input.frictionLoss; results["totalDynamicHead"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDynamicHead"] = Number.NaN; }
+  try { const v = (input.flowRate * (toNumericFormulaValue(results["totalDynamicHead"])) * 9.81) / 3600; results["hydraulicPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hydraulicPower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["hydraulicPower"])) / (input.pumpEfficiency / 100); results["pumpPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pumpPower"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWell_pump_calculator(input: Well_pump_calculatorInput): Well_pump_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pumpPower"]));
+  const totalWasteCost = toNumericFormulaValue(values["pumpPower"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateWell_pump_calculator(input: Well_pump_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

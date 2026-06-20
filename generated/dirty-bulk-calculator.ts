@@ -20,28 +20,24 @@ export const Dirty_bulk_calculatorInputSchema = z.object({
   demurrageRate: z.number().default(5000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dirty_bulk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight * input.distance * input.ratePerTonKm; results["baseCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseCost"] = 0; }
-  try { const v = (asFormulaNumber(results["baseCost"])) * (input.cleaningSurchargePercent / 100); results["cleaningSurcharge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cleaningSurcharge"] = 0; }
-  try { const v = input.demurrageRiskFactor * input.demurrageRate; results["demurrageCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["demurrageCost"] = 0; }
-  try { const v = (asFormulaNumber(results["baseCost"])) + (asFormulaNumber(results["cleaningSurcharge"])) + (asFormulaNumber(results["demurrageCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / input.weight; results["costPerTon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerTon"] = 0; }
+  try { const v = input.weight * input.distance * input.ratePerTonKm; results["baseCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseCost"])) * (input.cleaningSurchargePercent / 100); results["cleaningSurcharge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cleaningSurcharge"] = Number.NaN; }
+  try { const v = input.demurrageRiskFactor * input.demurrageRate; results["demurrageCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["demurrageCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseCost"])) + (toNumericFormulaValue(results["cleaningSurcharge"])) + (toNumericFormulaValue(results["demurrageCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / input.weight; results["costPerTon"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerTon"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDirty_bulk_calculator(input: Dirty_bulk_calculatorInput): Dirty_bulk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateDirty_bulk_calculator(input: Dirty_bulk_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

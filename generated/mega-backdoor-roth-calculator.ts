@@ -20,25 +20,21 @@ export const Mega_backdoor_roth_calculatorInputSchema = z.object({
   catchUpLimit: z.number().default(7500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mega_backdoor_roth_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.overallLimit - input.preTaxDeferral - input.employerContribution; results["afterTaxSpace"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["afterTaxSpace"] = 0; }
-  try { const v = (asFormulaNumber(results["afterTaxSpace"])) + input.preTaxDeferral + input.employerContribution; results["totalPotentialContributions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPotentialContributions"] = 0; }
+  try { const v = input.overallLimit - input.preTaxDeferral - input.employerContribution; results["afterTaxSpace"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["afterTaxSpace"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["afterTaxSpace"])) + input.preTaxDeferral + input.employerContribution; results["totalPotentialContributions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPotentialContributions"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMega_backdoor_roth_calculator(input: Mega_backdoor_roth_calculatorInput): Mega_backdoor_roth_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["afterTaxSpace"]));
+  const totalWasteCost = toNumericFormulaValue(values["afterTaxSpace"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateMega_backdoor_roth_calculator(input: Mega_backdoor_roth
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

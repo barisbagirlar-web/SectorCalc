@@ -18,26 +18,22 @@ export const Ctr_calculatorInputSchema = z.object({
   ctrTarget: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ctr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalImpressions !== 0 ? (input.totalClicks / input.totalImpressions) * 100 : 0; results["ctr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ctr"] = 0; }
-  try { const v = input.totalClicks !== 0 ? (input.totalConversions / input.totalClicks) * 100 : 0; results["conversionRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionRate"] = 0; }
-  try { const v = ((input.totalClicks !== 0 ? input.totalCost / input.totalClicks : 0) ? 1 : 0); results["costPerClick"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerClick"] = 0; }
+  try { const v = input.totalImpressions !== 0 ? (input.totalClicks / input.totalImpressions) * 100 : 0; results["ctr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ctr"] = Number.NaN; }
+  try { const v = input.totalClicks !== 0 ? (input.totalConversions / input.totalClicks) * 100 : 0; results["conversionRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionRate"] = Number.NaN; }
+  try { const v = ((input.totalClicks !== 0 ? input.totalCost / input.totalClicks : 0) ? 1 : 0); results["costPerClick"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerClick"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCtr_calculator(input: Ctr_calculatorInput): Ctr_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ctr"]));
+  const totalWasteCost = toNumericFormulaValue(values["ctr"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCtr_calculator(input: Ctr_calculatorInput): Ctr_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

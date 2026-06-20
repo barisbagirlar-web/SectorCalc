@@ -24,30 +24,26 @@ export const Welding_calculatorInputSchema = z.object({
   weldingSpeed: z.number().default(300),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Welding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weldLength * input.weldThroat * input.weldThroat * 0.5; results["weldVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weldVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["weldVolume"])) * input.electrodeDensity / 1000; results["weldMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weldMass"] = 0; }
-  try { const v = (asFormulaNumber(results["weldMass"])) / (input.depositionEfficiency / 100); results["electrodeMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electrodeMass"] = 0; }
-  try { const v = (asFormulaNumber(results["electrodeMass"])) * input.electrodeCostPerKg; results["electrodeCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electrodeCost"] = 0; }
-  try { const v = input.weldLength / input.weldingSpeed; results["laborTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["laborTime"] = 0; }
-  try { const v = (asFormulaNumber(results["laborTime"])) * input.laborCostPerHour / 60; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["laborCost"] = 0; }
-  try { const v = (asFormulaNumber(results["electrodeCost"])) + (asFormulaNumber(results["laborCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.weldLength * input.weldThroat * input.weldThroat * 0.5; results["weldVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weldVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weldVolume"])) * input.electrodeDensity / 1000; results["weldMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weldMass"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weldMass"])) / (input.depositionEfficiency / 100); results["electrodeMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electrodeMass"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["electrodeMass"])) * input.electrodeCostPerKg; results["electrodeCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electrodeCost"] = Number.NaN; }
+  try { const v = input.weldLength / input.weldingSpeed; results["laborTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["laborTime"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["laborTime"])) * input.laborCostPerHour / 60; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["laborCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["electrodeCost"])) + (toNumericFormulaValue(results["laborCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWelding_calculator(input: Welding_calculatorInput): Welding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculateWelding_calculator(input: Welding_calculatorInput): Wel
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

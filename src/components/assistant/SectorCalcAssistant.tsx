@@ -152,9 +152,23 @@ export function SectorCalcAssistant() {
     setLoading(true);
 
     try {
+      // ── Unauthenticated path: try slug router (no auth required) ──
       const idToken = await getCurrentUserIdToken(true);
+
       if (!idToken) {
-        setError(true);
+        const fallbackMessage = await requestSlugRouterAssistant(message);
+        if (fallbackMessage) {
+          setMessages((prev) => [...prev, fallbackMessage]);
+          return;
+        }
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: nextId(),
+            role: "assistant",
+            text: gatewayFallbackMessage(locale),
+          },
+        ]);
         return;
       }
 

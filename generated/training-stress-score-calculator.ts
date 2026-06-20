@@ -16,26 +16,22 @@ export const Training_stress_score_calculatorInputSchema = z.object({
   normalizedPower: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Training_stress_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.hours + input.minutes / 60) * ((input.normalizedPower / input.ftp) ** 2) * 100; results["tss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tss"] = 0; }
-  try { const v = input.normalizedPower / input.ftp; results["intensityFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["intensityFactor"] = 0; }
-  try { const v = input.hours + input.minutes / 60; results["totalHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHours"] = 0; }
+  try { const v = (input.hours + input.minutes / 60) * ((input.normalizedPower / input.ftp) ** 2) * 100; results["tss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tss"] = Number.NaN; }
+  try { const v = input.normalizedPower / input.ftp; results["intensityFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["intensityFactor"] = Number.NaN; }
+  try { const v = input.hours + input.minutes / 60; results["totalHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTraining_stress_score_calculator(input: Training_stress_score_calculatorInput): Training_stress_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tss"]));
+  const totalWasteCost = toNumericFormulaValue(values["tss"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateTraining_stress_score_calculator(input: Training_stress
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

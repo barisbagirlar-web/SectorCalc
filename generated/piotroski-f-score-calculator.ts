@@ -24,32 +24,28 @@ export const Piotroski_f_score_calculatorInputSchema = z.object({
   assetTurnoverIncreased: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Piotroski_f_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.roaPositive + input.cfoPositive + input.roaIncreased + input.accrualLow + input.leverageDecreased + input.currentRatioIncreased + input.grossMarginIncreased + input.assetTurnoverIncreased; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.roaPositive; results["roaPositive"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roaPositive"] = 0; }
-  try { const v = input.cfoPositive; results["cfoPositive"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cfoPositive"] = 0; }
-  try { const v = input.roaIncreased; results["roaIncreased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roaIncreased"] = 0; }
-  try { const v = input.accrualLow; results["accrualLow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["accrualLow"] = 0; }
-  try { const v = input.leverageDecreased; results["leverageDecreased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leverageDecreased"] = 0; }
-  try { const v = input.currentRatioIncreased; results["currentRatioIncreased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["currentRatioIncreased"] = 0; }
-  try { const v = input.grossMarginIncreased; results["grossMarginIncreased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossMarginIncreased"] = 0; }
-  try { const v = input.assetTurnoverIncreased; results["assetTurnoverIncreased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["assetTurnoverIncreased"] = 0; }
+  try { const v = input.roaPositive + input.cfoPositive + input.roaIncreased + input.accrualLow + input.leverageDecreased + input.currentRatioIncreased + input.grossMarginIncreased + input.assetTurnoverIncreased; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = input.roaPositive; results["roaPositive"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roaPositive"] = Number.NaN; }
+  try { const v = input.cfoPositive; results["cfoPositive"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cfoPositive"] = Number.NaN; }
+  try { const v = input.roaIncreased; results["roaIncreased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roaIncreased"] = Number.NaN; }
+  try { const v = input.accrualLow; results["accrualLow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["accrualLow"] = Number.NaN; }
+  try { const v = input.leverageDecreased; results["leverageDecreased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["leverageDecreased"] = Number.NaN; }
+  try { const v = input.currentRatioIncreased; results["currentRatioIncreased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["currentRatioIncreased"] = Number.NaN; }
+  try { const v = input.grossMarginIncreased; results["grossMarginIncreased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossMarginIncreased"] = Number.NaN; }
+  try { const v = input.assetTurnoverIncreased; results["assetTurnoverIncreased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["assetTurnoverIncreased"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePiotroski_f_score_calculator(input: Piotroski_f_score_calculatorInput): Piotroski_f_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["assetTurnoverIncreased"]));
+  const totalWasteCost = toNumericFormulaValue(values["assetTurnoverIncreased"]);
   const breakdown = {
     
   };
@@ -57,7 +53,7 @@ export function calculatePiotroski_f_score_calculator(input: Piotroski_f_score_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

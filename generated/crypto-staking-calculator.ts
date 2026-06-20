@@ -16,26 +16,22 @@ export const Crypto_staking_calculatorInputSchema = z.object({
   compoundFrequency: z.number().default(365),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Crypto_staking_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.principal * (1 + (input.apy / 100) / input.compoundFrequency) ** (input.compoundFrequency * (input.duration / 365)); results["totalValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalValue"] = 0; }
-  try { const v = (asFormulaNumber(results["totalValue"])) - input.principal; results["earnedRewards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["earnedRewards"] = 0; }
-  try { const v = input.principal; results["initialInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["initialInvestment"] = 0; }
+  try { const v = input.principal * (1 + (input.apy / 100) / input.compoundFrequency) ** (input.compoundFrequency * (input.duration / 365)); results["totalValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalValue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalValue"])) - input.principal; results["earnedRewards"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["earnedRewards"] = Number.NaN; }
+  try { const v = input.principal; results["initialInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["initialInvestment"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCrypto_staking_calculator(input: Crypto_staking_calculatorInput): Crypto_staking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalValue"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateCrypto_staking_calculator(input: Crypto_staking_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

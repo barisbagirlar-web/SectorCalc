@@ -16,25 +16,21 @@ export const Ounce_to_tablespoon_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ounce_to_tablespoon_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fluidOunces * input.conversionFactor; results["rawTablespoons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawTablespoons"] = 0; }
-  try { const v = (asFormulaNumber(results["rawTablespoons"])) * (1 + input.safetyFactor / 100); results["adjustedTablespoons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedTablespoons"] = 0; }
+  try { const v = input.fluidOunces * input.conversionFactor; results["rawTablespoons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawTablespoons"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rawTablespoons"])) * (1 + input.safetyFactor / 100); results["adjustedTablespoons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedTablespoons"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOunce_to_tablespoon_calculator(input: Ounce_to_tablespoon_calculatorInput): Ounce_to_tablespoon_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedTablespoons"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedTablespoons"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateOunce_to_tablespoon_calculator(input: Ounce_to_tablespo
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

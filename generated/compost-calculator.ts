@@ -20,27 +20,23 @@ export const Compost_calculatorInputSchema = z.object({
   brownN: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Compost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.greenWeight * input.greenC / 100 + input.brownWeight * input.brownC / 100; results["totalCarbon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCarbon"] = 0; }
-  try { const v = input.greenWeight * input.greenN / 100 + input.brownWeight * input.brownN / 100; results["totalNitrogen"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalNitrogen"] = 0; }
-  try { const v = input.greenWeight + input.brownWeight; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCarbon"])) / (asFormulaNumber(results["totalNitrogen"])); results["resultingCNRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resultingCNRatio"] = 0; }
+  try { const v = input.greenWeight * input.greenC / 100 + input.brownWeight * input.brownC / 100; results["totalCarbon"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCarbon"] = Number.NaN; }
+  try { const v = input.greenWeight * input.greenN / 100 + input.brownWeight * input.brownN / 100; results["totalNitrogen"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalNitrogen"] = Number.NaN; }
+  try { const v = input.greenWeight + input.brownWeight; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCarbon"])) / (toNumericFormulaValue(results["totalNitrogen"])); results["resultingCNRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["resultingCNRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCompost_calculator(input: Compost_calculatorInput): Compost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["resultingCNRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["resultingCNRatio"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCompost_calculator(input: Compost_calculatorInput): Com
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

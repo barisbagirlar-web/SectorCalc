@@ -20,26 +20,22 @@ export const Powerball_calculatorInputSchema = z.object({
   motorEfficiency: z.number().default(0.95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Powerball_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.internalDiameter * input.internalLength * input.millSpeed * input.ballFillingFraction; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.internalDiameter * input.internalLength * input.millSpeed * input.ballFillingFraction * (input.ballBulkDensity * (input.motorEfficiency / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.ballBulkDensity * (input.motorEfficiency / 100); results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.internalDiameter * input.internalLength * input.millSpeed * input.ballFillingFraction; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.internalDiameter * input.internalLength * input.millSpeed * input.ballFillingFraction * (input.ballBulkDensity * (input.motorEfficiency / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.ballBulkDensity * (input.motorEfficiency / 100); results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePowerball_calculator(input: Powerball_calculatorInput): Powerball_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculatePowerball_calculator(input: Powerball_calculatorInput):
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

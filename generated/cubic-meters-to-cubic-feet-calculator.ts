@@ -18,27 +18,23 @@ export const Cubic_meters_to_cubic_feet_calculatorInputSchema = z.object({
   measurementUncertainty: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cubic_meters_to_cubic_feet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cubicMeters * input.conversionFactor * input.safetyFactor; results["cubicFeet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cubicFeet"] = 0; }
-  try { const v = (asFormulaNumber(results["cubicFeet"])) * (input.measurementUncertainty / 100); results["uncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uncertainty"] = 0; }
-  try { const v = (asFormulaNumber(results["cubicFeet"])) - (asFormulaNumber(results["uncertainty"])); results["lowerBound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lowerBound"] = 0; }
-  try { const v = (asFormulaNumber(results["cubicFeet"])) + (asFormulaNumber(results["uncertainty"])); results["upperBound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upperBound"] = 0; }
+  try { const v = input.cubicMeters * input.conversionFactor * input.safetyFactor; results["cubicFeet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cubicFeet"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cubicFeet"])) * (input.measurementUncertainty / 100); results["uncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["uncertainty"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cubicFeet"])) - (toNumericFormulaValue(results["uncertainty"])); results["lowerBound"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lowerBound"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cubicFeet"])) + (toNumericFormulaValue(results["uncertainty"])); results["upperBound"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["upperBound"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCubic_meters_to_cubic_feet_calculator(input: Cubic_meters_to_cubic_feet_calculatorInput): Cubic_meters_to_cubic_feet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["upperBound"]));
+  const totalWasteCost = toNumericFormulaValue(values["upperBound"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateCubic_meters_to_cubic_feet_calculator(input: Cubic_mete
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

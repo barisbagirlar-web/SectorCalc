@@ -20,29 +20,25 @@ export const Beehive_calculatorInputSchema = z.object({
   costPerHive: z.number().default(500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Beehive_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.hiveCount * input.framesPerHive * input.honeyPerFrame; results["grossHoney"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossHoney"] = 0; }
-  try { const v = (asFormulaNumber(results["grossHoney"])) * (1 - input.extractionLoss / 100); results["netHoney"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netHoney"] = 0; }
-  try { const v = (asFormulaNumber(results["netHoney"])) * input.pricePerKg; results["revenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["revenue"] = 0; }
-  try { const v = input.hiveCount * input.costPerHive; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["revenue"])) - (asFormulaNumber(results["totalCost"])); results["profit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profit"] = 0; }
-  try { const v = ((asFormulaNumber(results["profit"])) / (asFormulaNumber(results["revenue"]))) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMargin"] = 0; }
+  try { const v = input.hiveCount * input.framesPerHive * input.honeyPerFrame; results["grossHoney"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossHoney"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossHoney"])) * (1 - input.extractionLoss / 100); results["netHoney"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netHoney"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netHoney"])) * input.pricePerKg; results["revenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["revenue"] = Number.NaN; }
+  try { const v = input.hiveCount * input.costPerHive; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["revenue"])) - (toNumericFormulaValue(results["totalCost"])); results["profit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profit"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["profit"])) / (toNumericFormulaValue(results["revenue"]))) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMargin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBeehive_calculator(input: Beehive_calculatorInput): Beehive_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netHoney"]));
+  const totalWasteCost = toNumericFormulaValue(values["netHoney"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateBeehive_calculator(input: Beehive_calculatorInput): Bee
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,28 +16,24 @@ export const Weight_watchers_points_calculatorInputSchema = z.object({
   protein: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weight_watchers_points_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.calories * 0.0305 + input.saturatedFat * 0.275 + input.sugar * 0.12 - input.protein * 0.098; results["rawPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawPoints"] = 0; }
-  try { const v = input.calories * 0.0305; results["caloriesContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesContrib"] = 0; }
-  try { const v = input.saturatedFat * 0.275; results["saturatedFatContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["saturatedFatContrib"] = 0; }
-  try { const v = input.sugar * 0.12; results["sugarContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sugarContrib"] = 0; }
-  try { const v = input.protein * 0.098; results["proteinContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["proteinContrib"] = 0; }
+  try { const v = input.calories * 0.0305 + input.saturatedFat * 0.275 + input.sugar * 0.12 - input.protein * 0.098; results["rawPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawPoints"] = Number.NaN; }
+  try { const v = input.calories * 0.0305; results["caloriesContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caloriesContrib"] = Number.NaN; }
+  try { const v = input.saturatedFat * 0.275; results["saturatedFatContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["saturatedFatContrib"] = Number.NaN; }
+  try { const v = input.sugar * 0.12; results["sugarContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sugarContrib"] = Number.NaN; }
+  try { const v = input.protein * 0.098; results["proteinContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["proteinContrib"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeight_watchers_points_calculator(input: Weight_watchers_points_calculatorInput): Weight_watchers_points_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["proteinContrib"]));
+  const totalWasteCost = toNumericFormulaValue(values["proteinContrib"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateWeight_watchers_points_calculator(input: Weight_watcher
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

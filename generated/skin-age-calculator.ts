@@ -20,26 +20,22 @@ export const Skin_age_calculatorInputSchema = z.object({
   stressLevel: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Skin_age_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.smokingYears * 0.3; results["smokingImpact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["smokingImpact"] = 0; }
-  try { const v = (input.sleepHours < 7 ? (7 - input.sleepHours) * 0.5 : input.sleepHours > 9 ? (input.sleepHours - 9) * 0.2 : 0); results["sleepImpact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sleepImpact"] = 0; }
-  try { const v = input.stressLevel > 5 ? (input.stressLevel - 5) * 0.3 : 0; results["stressImpact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stressImpact"] = 0; }
+  try { const v = input.smokingYears * 0.3; results["smokingImpact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["smokingImpact"] = Number.NaN; }
+  try { const v = (input.sleepHours < 7 ? (7 - input.sleepHours) * 0.5 : input.sleepHours > 9 ? (input.sleepHours - 9) * 0.2 : 0); results["sleepImpact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sleepImpact"] = Number.NaN; }
+  try { const v = input.stressLevel > 5 ? (input.stressLevel - 5) * 0.3 : 0; results["stressImpact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stressImpact"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSkin_age_calculator(input: Skin_age_calculatorInput): Skin_age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["stressImpact"]));
+  const totalWasteCost = toNumericFormulaValue(values["stressImpact"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateSkin_age_calculator(input: Skin_age_calculatorInput): S
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

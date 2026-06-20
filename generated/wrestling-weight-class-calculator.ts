@@ -18,25 +18,21 @@ export const Wrestling_weight_class_calculatorInputSchema = z.object({
   bodyFat: z.number().default(15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Wrestling_weight_class_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmi"] = 0; }
-  try { const v = input.weight * (1 - input.bodyFat / 100); results["leanBodyMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leanBodyMass"] = 0; }
+  try { const v = input.weight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmi"] = Number.NaN; }
+  try { const v = input.weight * (1 - input.bodyFat / 100); results["leanBodyMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["leanBodyMass"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWrestling_weight_class_calculator(input: Wrestling_weight_class_calculatorInput): Wrestling_weight_class_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["leanBodyMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["leanBodyMass"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateWrestling_weight_class_calculator(input: Wrestling_weig
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

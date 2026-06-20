@@ -18,27 +18,23 @@ export const Mineral_calculatorInputSchema = z.object({
   processing_cost: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mineral_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.ore_tonnage * (input.ore_grade / 100) * (input.recovery_rate / 100); results["metal_tonnage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["metal_tonnage"] = 0; }
-  try { const v = (asFormulaNumber(results["metal_tonnage"])) * input.metal_price; results["revenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["revenue"] = 0; }
-  try { const v = input.ore_tonnage * input.processing_cost; results["total_processing_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_processing_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["revenue"])) - (asFormulaNumber(results["total_processing_cost"])); results["net_profit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["net_profit"] = 0; }
+  try { const v = input.ore_tonnage * (input.ore_grade / 100) * (input.recovery_rate / 100); results["metal_tonnage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["metal_tonnage"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["metal_tonnage"])) * input.metal_price; results["revenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["revenue"] = Number.NaN; }
+  try { const v = input.ore_tonnage * input.processing_cost; results["total_processing_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_processing_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["revenue"])) - (toNumericFormulaValue(results["total_processing_cost"])); results["net_profit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["net_profit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMineral_calculator(input: Mineral_calculatorInput): Mineral_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["net_profit"]));
+  const totalWasteCost = toNumericFormulaValue(values["net_profit"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateMineral_calculator(input: Mineral_calculatorInput): Min
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

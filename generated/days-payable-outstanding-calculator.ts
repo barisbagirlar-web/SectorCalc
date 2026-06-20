@@ -16,26 +16,22 @@ export const Days_payable_outstanding_calculatorInputSchema = z.object({
   days: z.number().default(365),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Days_payable_outstanding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.apBegin + input.apEnd) / 2; results["averageAP"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageAP"] = 0; }
-  try { const v = ((input.apBegin + input.apEnd) / 2) / input.cogs * input.days; results["dpo"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dpo"] = 0; }
-  try { const v = input.cogs / ((input.apBegin + input.apEnd) / 2); results["apTurnover"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["apTurnover"] = 0; }
+  try { const v = (input.apBegin + input.apEnd) / 2; results["averageAP"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageAP"] = Number.NaN; }
+  try { const v = ((input.apBegin + input.apEnd) / 2) / input.cogs * input.days; results["dpo"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dpo"] = Number.NaN; }
+  try { const v = input.cogs / ((input.apBegin + input.apEnd) / 2); results["apTurnover"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["apTurnover"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDays_payable_outstanding_calculator(input: Days_payable_outstanding_calculatorInput): Days_payable_outstanding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dpo"]));
+  const totalWasteCost = toNumericFormulaValue(values["dpo"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateDays_payable_outstanding_calculator(input: Days_payable
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

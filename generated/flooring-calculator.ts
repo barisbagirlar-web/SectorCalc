@@ -20,27 +20,23 @@ export const Flooring_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Flooring_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.roomLength * input.roomWidth; results["roomArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roomArea"] = 0; }
-  try { const v = input.tileLength * input.tileWidth; results["tileArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tileArea"] = 0; }
-  try { const v = (asFormulaNumber(results["roomArea"])) / (asFormulaNumber(results["tileArea"])); results["tilesWithoutWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tilesWithoutWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["tilesWithoutWaste"])) * (1 + input.wasteFactor / 100); results["tilesWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tilesWithWaste"] = 0; }
+  try { const v = input.roomLength * input.roomWidth; results["roomArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roomArea"] = Number.NaN; }
+  try { const v = input.tileLength * input.tileWidth; results["tileArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tileArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["roomArea"])) / (toNumericFormulaValue(results["tileArea"])); results["tilesWithoutWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tilesWithoutWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["tilesWithoutWaste"])) * (1 + input.wasteFactor / 100); results["tilesWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tilesWithWaste"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFlooring_calculator(input: Flooring_calculatorInput): Flooring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tilesWithWaste"]));
+  const totalWasteCost = toNumericFormulaValue(values["tilesWithWaste"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateFlooring_calculator(input: Flooring_calculatorInput): F
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

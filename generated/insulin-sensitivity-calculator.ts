@@ -24,33 +24,29 @@ export const Insulin_sensitivity_calculatorInputSchema = z.object({
   sensitivityOverhead: z.number().default(0.15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Insulin_sensitivity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.rawMaterialCost + input.laborCost + input.energyCost + input.overheadCost; results["totalBaseline"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBaseline"] = 0; }
-  try { const v = input.rawMaterialCost / (asFormulaNumber(results["totalBaseline"])); results["costShareRaw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costShareRaw"] = 0; }
-  try { const v = input.laborCost / (asFormulaNumber(results["totalBaseline"])); results["costShareLabor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costShareLabor"] = 0; }
-  try { const v = input.energyCost / (asFormulaNumber(results["totalBaseline"])); results["costShareEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costShareEnergy"] = 0; }
-  try { const v = input.overheadCost / (asFormulaNumber(results["totalBaseline"])); results["costShareOverhead"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costShareOverhead"] = 0; }
-  try { const v = (asFormulaNumber(results["costShareRaw"])) * input.sensitivityRaw; results["rawSensitivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawSensitivityContribution"] = 0; }
-  try { const v = (asFormulaNumber(results["costShareLabor"])) * input.sensitivityLabor; results["laborSensitivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["laborSensitivityContribution"] = 0; }
-  try { const v = (asFormulaNumber(results["costShareEnergy"])) * input.sensitivityEnergy; results["energySensitivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energySensitivityContribution"] = 0; }
-  try { const v = (asFormulaNumber(results["costShareOverhead"])) * input.sensitivityOverhead; results["overheadSensitivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overheadSensitivityContribution"] = 0; }
-  try { const v = (asFormulaNumber(results["rawSensitivityContribution"])) + (asFormulaNumber(results["laborSensitivityContribution"])) + (asFormulaNumber(results["energySensitivityContribution"])) + (asFormulaNumber(results["overheadSensitivityContribution"])); results["totalSensitivityScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSensitivityScore"] = 0; }
+  try { const v = input.rawMaterialCost + input.laborCost + input.energyCost + input.overheadCost; results["totalBaseline"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBaseline"] = Number.NaN; }
+  try { const v = input.rawMaterialCost / (toNumericFormulaValue(results["totalBaseline"])); results["costShareRaw"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costShareRaw"] = Number.NaN; }
+  try { const v = input.laborCost / (toNumericFormulaValue(results["totalBaseline"])); results["costShareLabor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costShareLabor"] = Number.NaN; }
+  try { const v = input.energyCost / (toNumericFormulaValue(results["totalBaseline"])); results["costShareEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costShareEnergy"] = Number.NaN; }
+  try { const v = input.overheadCost / (toNumericFormulaValue(results["totalBaseline"])); results["costShareOverhead"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costShareOverhead"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costShareRaw"])) * input.sensitivityRaw; results["rawSensitivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawSensitivityContribution"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costShareLabor"])) * input.sensitivityLabor; results["laborSensitivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["laborSensitivityContribution"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costShareEnergy"])) * input.sensitivityEnergy; results["energySensitivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energySensitivityContribution"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costShareOverhead"])) * input.sensitivityOverhead; results["overheadSensitivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overheadSensitivityContribution"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rawSensitivityContribution"])) + (toNumericFormulaValue(results["laborSensitivityContribution"])) + (toNumericFormulaValue(results["energySensitivityContribution"])) + (toNumericFormulaValue(results["overheadSensitivityContribution"])); results["totalSensitivityScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSensitivityScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInsulin_sensitivity_calculator(input: Insulin_sensitivity_calculatorInput): Insulin_sensitivity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalSensitivityScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalSensitivityScore"]);
   const breakdown = {
     
   };
@@ -58,7 +54,7 @@ export function calculateInsulin_sensitivity_calculator(input: Insulin_sensitivi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

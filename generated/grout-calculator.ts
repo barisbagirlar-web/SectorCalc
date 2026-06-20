@@ -22,27 +22,23 @@ export const Grout_calculatorInputSchema = z.object({
   bagYield: z.number().default(0.012),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Grout_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.totalArea * input.gapDepth * input.gapWidth * (input.tileLength + input.tileWidth)) / (1000 * input.tileLength * input.tileWidth); results["groutVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["groutVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["groutVolume"])) * input.wasteFactor / 100; results["wasteVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["groutVolume"])) * (1 + input.wasteFactor / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["totalVolume"])) / input.bagYield; results["exactBags"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactBags"] = 0; }
+  try { const v = (input.totalArea * input.gapDepth * input.gapWidth * (input.tileLength + input.tileWidth)) / (1000 * input.tileLength * input.tileWidth); results["groutVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["groutVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["groutVolume"])) * input.wasteFactor / 100; results["wasteVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["groutVolume"])) * (1 + input.wasteFactor / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalVolume"])) / input.bagYield; results["exactBags"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exactBags"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGrout_calculator(input: Grout_calculatorInput): Grout_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["exactBags"]));
+  const totalWasteCost = toNumericFormulaValue(values["exactBags"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateGrout_calculator(input: Grout_calculatorInput): Grout_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

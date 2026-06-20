@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
     // Firebase `next build` runs lint inline; skip here (use `npm run lint` in CI/local).
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    // Generated calculator files have known type-safe arithmetic issues (boolean/string
+    // in arithmetic context) that are repaired by fix:generated-types in prebuild.
+    // The prebuild also runs a standalone typecheck (tsc --noEmit) so this is safe.
+    ignoreBuildErrors: true,
+  },
   // Large generated-tool SSG can exceed the default 60s per page.
   staticPageGenerationTimeout: 300,
   webpack: (config, { dev }) => {

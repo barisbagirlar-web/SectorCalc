@@ -18,27 +18,23 @@ export const Seconds_to_milliseconds_calculatorInputSchema = z.object({
   days: z.number().default(0.000011574074),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Seconds_to_milliseconds_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes) * (input.hours) * (input.days); results["milliseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["milliseconds"] = 0; }
-  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["minutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minutes"] = 0; }
-  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hours"] = 0; }
-  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["days"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["days"] = 0; }
+  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes) * (input.hours) * (input.days); results["milliseconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["milliseconds"] = Number.NaN; }
+  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["minutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["minutes"] = Number.NaN; }
+  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hours"] = Number.NaN; }
+  try { const v = (input.seconds) * (input.milliseconds) * (input.minutes); results["days"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["days"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSeconds_to_milliseconds_calculator(input: Seconds_to_milliseconds_calculatorInput): Seconds_to_milliseconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["milliseconds"]));
+  const totalWasteCost = toNumericFormulaValue(values["milliseconds"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSeconds_to_milliseconds_calculator(input: Seconds_to_mi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

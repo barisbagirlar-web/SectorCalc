@@ -16,25 +16,21 @@ export const Rationalize_denominator_calculatorInputSchema = z.object({
   c: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rationalize_denominator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.a*input.a - input.b*input.b*input.c; results["newDenominator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newDenominator"] = 0; }
-  try { const v = input.a*input.a - input.b*input.b*input.c; results["newDenominator_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newDenominator_aux"] = 0; }
+  try { const v = input.a*input.a - input.b*input.b*input.c; results["newDenominator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newDenominator"] = Number.NaN; }
+  try { const v = input.a*input.a - input.b*input.b*input.c; results["newDenominator_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newDenominator_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRationalize_denominator_calculator(input: Rationalize_denominator_calculatorInput): Rationalize_denominator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["newDenominator_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["newDenominator_aux"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateRationalize_denominator_calculator(input: Rationalize_d
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

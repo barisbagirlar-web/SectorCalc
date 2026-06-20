@@ -20,25 +20,21 @@ export const Backpacking_weight_calculatorInputSchema = z.object({
   tripDays: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Backpacking_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.foodWeightPerDay * input.tripDays + input.waterWeightPerDay * input.tripDays + input.fuelWeight; results["consumableWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["consumableWeight"] = 0; }
-  try { const v = input.baseWeight + input.clothingWeight + (input.foodWeightPerDay + input.waterWeightPerDay) * input.tripDays + input.fuelWeight; results["totalPackWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPackWeight"] = 0; }
+  try { const v = input.foodWeightPerDay * input.tripDays + input.waterWeightPerDay * input.tripDays + input.fuelWeight; results["consumableWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["consumableWeight"] = Number.NaN; }
+  try { const v = input.baseWeight + input.clothingWeight + (input.foodWeightPerDay + input.waterWeightPerDay) * input.tripDays + input.fuelWeight; results["totalPackWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPackWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBackpacking_weight_calculator(input: Backpacking_weight_calculatorInput): Backpacking_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPackWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPackWeight"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateBackpacking_weight_calculator(input: Backpacking_weight
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Concrete_sealer_calculatorInputSchema = z.object({
   pricePerUnit: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Concrete_sealer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.coverageRate / input.porosityFactor; results["adjustedCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedCoverage"] = 0; }
-  try { const v = (input.area * input.numCoats * (1 + input.wasteFactor / 100) * input.porosityFactor) / input.coverageRate; results["totalSealer"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSealer"] = 0; }
-  try { const v = (asFormulaNumber(results["totalSealer"])) * input.pricePerUnit; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.coverageRate / input.porosityFactor; results["adjustedCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedCoverage"] = Number.NaN; }
+  try { const v = (input.area * input.numCoats * (1 + input.wasteFactor / 100) * input.porosityFactor) / input.coverageRate; results["totalSealer"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSealer"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalSealer"])) * input.pricePerUnit; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConcrete_sealer_calculator(input: Concrete_sealer_calculatorInput): Concrete_sealer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateConcrete_sealer_calculator(input: Concrete_sealer_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Mindfulness_calculatorInputSchema = z.object({
   concentrationLevel: z.number().default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mindfulness_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.meditationMinutes * input.meditationFrequency; results["totalWeeklyMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeeklyMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWeeklyMinutes"])) / 60; results["totalWeeklyHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeeklyHours"] = 0; }
-  try { const v = (10 - input.stressLevel) * 10; results["stressScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stressScore"] = 0; }
-  try { const v = input.concentrationLevel * 10; results["concentrationScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concentrationScore"] = 0; }
+  try { const v = input.meditationMinutes * input.meditationFrequency; results["totalWeeklyMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeeklyMinutes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWeeklyMinutes"])) / 60; results["totalWeeklyHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeeklyHours"] = Number.NaN; }
+  try { const v = (10 - input.stressLevel) * 10; results["stressScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stressScore"] = Number.NaN; }
+  try { const v = input.concentrationLevel * 10; results["concentrationScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["concentrationScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMindfulness_calculator(input: Mindfulness_calculatorInput): Mindfulness_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["concentrationScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["concentrationScore"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateMindfulness_calculator(input: Mindfulness_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

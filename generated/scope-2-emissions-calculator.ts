@@ -18,28 +18,24 @@ export const Scope_2_emissions_calculatorInputSchema = z.object({
   heatFactor: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Scope_2_emissions_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.electricityKwh * input.locationFactor + input.heatMwh * input.heatFactor; results["totalLocationBased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLocationBased"] = 0; }
-  try { const v = input.electricityKwh * input.marketFactor + input.heatMwh * input.heatFactor; results["totalMarketBased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMarketBased"] = 0; }
-  try { const v = input.electricityKwh * input.locationFactor; results["electricityLocationBased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricityLocationBased"] = 0; }
-  try { const v = input.electricityKwh * input.marketFactor; results["electricityMarketBased"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricityMarketBased"] = 0; }
-  try { const v = input.heatMwh * input.heatFactor; results["heatEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heatEmissions"] = 0; }
+  try { const v = input.electricityKwh * input.locationFactor + input.heatMwh * input.heatFactor; results["totalLocationBased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLocationBased"] = Number.NaN; }
+  try { const v = input.electricityKwh * input.marketFactor + input.heatMwh * input.heatFactor; results["totalMarketBased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMarketBased"] = Number.NaN; }
+  try { const v = input.electricityKwh * input.locationFactor; results["electricityLocationBased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricityLocationBased"] = Number.NaN; }
+  try { const v = input.electricityKwh * input.marketFactor; results["electricityMarketBased"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricityMarketBased"] = Number.NaN; }
+  try { const v = input.heatMwh * input.heatFactor; results["heatEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heatEmissions"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateScope_2_emissions_calculator(input: Scope_2_emissions_calculatorInput): Scope_2_emissions_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLocationBased"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalLocationBased"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateScope_2_emissions_calculator(input: Scope_2_emissions_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

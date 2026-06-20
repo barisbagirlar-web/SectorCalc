@@ -18,26 +18,22 @@ export const Weight_cutting_calculatorInputSchema = z.object({
   desiredWeight: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weight_cutting_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.initialLength - (input.desiredWeight / (input.density * input.width * input.thickness)); results["cutLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cutLength"] = 0; }
-  try { const v = input.desiredWeight; results["finalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalWeight"] = 0; }
-  try { const v = (input.density * input.initialLength * input.width * input.thickness) - input.desiredWeight; results["scrapWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scrapWeight"] = 0; }
+  try { const v = input.initialLength - (input.desiredWeight / (input.density * input.width * input.thickness)); results["cutLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cutLength"] = Number.NaN; }
+  try { const v = input.desiredWeight; results["finalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalWeight"] = Number.NaN; }
+  try { const v = (input.density * input.initialLength * input.width * input.thickness) - input.desiredWeight; results["scrapWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scrapWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeight_cutting_calculator(input: Weight_cutting_calculatorInput): Weight_cutting_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cutLength"]));
+  const totalWasteCost = toNumericFormulaValue(values["cutLength"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateWeight_cutting_calculator(input: Weight_cutting_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,27 +24,23 @@ export const Vsm_financial_converter_calculatorInputSchema = z.object({
   reworkCostPerUnit: z.number().min(0).max(1000).default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Vsm_financial_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualDemand * input.sellingPrice; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.annualDemand * input.sellingPrice * (1 + (input.defectRate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.annualDemand * input.sellingPrice * (1 + (input.defectRate / 100)) * (input.materialCostPerUnit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.materialCostPerUnit; results["factor_materialCostPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_materialCostPerUnit"] = 0; }
+  try { const v = input.annualDemand * input.sellingPrice; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.annualDemand * input.sellingPrice * (1 + (input.defectRate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.annualDemand * input.sellingPrice * (1 + (input.defectRate / 100)) * (input.materialCostPerUnit); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.materialCostPerUnit; results["factor_materialCostPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_materialCostPerUnit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVsm_financial_converter_calculator(input: Vsm_financial_converter_calculatorInput): Vsm_financial_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateVsm_financial_converter_calculator(input: Vsm_financial
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

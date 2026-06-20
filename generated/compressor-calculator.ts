@@ -20,27 +20,23 @@ export const Compressor_calculatorInputSchema = z.object({
   motorEfficiency: z.number().default(95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Compressor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.outletPressure / input.inletPressure; results["pressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureRatio"] = 0; }
-  try { const v = input.flowRate * input.inletPressure * 100 * ((asFormulaNumber(results["pressureRatio"])) ^ ((input.adiabaticIndex - 1) / input.adiabaticIndex) - 1) / (input.adiabaticIndex - 1) / 60; results["adiabaticPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adiabaticPower"] = 0; }
-  try { const v = (asFormulaNumber(results["adiabaticPower"])) / (input.compressorEfficiency / 100); results["shaftPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shaftPower"] = 0; }
-  try { const v = (asFormulaNumber(results["shaftPower"])) / (input.motorEfficiency / 100); results["motorPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["motorPower"] = 0; }
+  try { const v = input.outletPressure / input.inletPressure; results["pressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressureRatio"] = Number.NaN; }
+  try { const v = input.flowRate * input.inletPressure * 100 * ((toNumericFormulaValue(results["pressureRatio"])) ^ ((input.adiabaticIndex - 1) / input.adiabaticIndex) - 1) / (input.adiabaticIndex - 1) / 60; results["adiabaticPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adiabaticPower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adiabaticPower"])) / (input.compressorEfficiency / 100); results["shaftPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shaftPower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["shaftPower"])) / (input.motorEfficiency / 100); results["motorPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["motorPower"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCompressor_calculator(input: Compressor_calculatorInput): Compressor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pressureRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["pressureRatio"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCompressor_calculator(input: Compressor_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

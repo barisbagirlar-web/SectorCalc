@@ -20,27 +20,23 @@ export const Mega_millions_calculatorInputSchema = z.object({
   growthRate: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mega_millions_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.jackpot * (input.cashOption / 100); results["lumpSumAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lumpSumAmount"] = 0; }
-  try { const v = (input.federalTax + input.stateTax) / 100; results["totalTaxRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTaxRate"] = 0; }
-  try { const v = (asFormulaNumber(results["lumpSumAmount"])) * (1 - (asFormulaNumber(results["totalTaxRate"]))); results["lumpSumAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lumpSumAfterTax"] = 0; }
-  try { const v = input.jackpot * (1 - (asFormulaNumber(results["totalTaxRate"]))); results["totalAnnuityAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAnnuityAfterTax"] = 0; }
+  try { const v = input.jackpot * (input.cashOption / 100); results["lumpSumAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lumpSumAmount"] = Number.NaN; }
+  try { const v = (input.federalTax + input.stateTax) / 100; results["totalTaxRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTaxRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["lumpSumAmount"])) * (1 - (toNumericFormulaValue(results["totalTaxRate"]))); results["lumpSumAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lumpSumAfterTax"] = Number.NaN; }
+  try { const v = input.jackpot * (1 - (toNumericFormulaValue(results["totalTaxRate"]))); results["totalAnnuityAfterTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAnnuityAfterTax"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMega_millions_calculator(input: Mega_millions_calculatorInput): Mega_millions_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lumpSumAfterTax"]));
+  const totalWasteCost = toNumericFormulaValue(values["lumpSumAfterTax"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMega_millions_calculator(input: Mega_millions_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,26 +18,22 @@ export const Pump_calculatorInputSchema = z.object({
   motorEfficiency: z.number().default(90),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pump_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.flowRate / 3600 * input.head * input.density * 9.81 / 1000; results["hydraulicPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hydraulicPower"] = 0; }
-  try { const v = input.flowRate / 3600 * input.head * input.density * 9.81 / 1000 / (input.pumpEfficiency / 100); results["shaftPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shaftPower"] = 0; }
-  try { const v = input.flowRate / 3600 * input.head * input.density * 9.81 / 1000 / (input.pumpEfficiency / 100) / (input.motorEfficiency / 100); results["motorPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["motorPower"] = 0; }
+  try { const v = input.flowRate / 3600 * input.head * input.density * 9.81 / 1000; results["hydraulicPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hydraulicPower"] = Number.NaN; }
+  try { const v = input.flowRate / 3600 * input.head * input.density * 9.81 / 1000 / (input.pumpEfficiency / 100); results["shaftPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shaftPower"] = Number.NaN; }
+  try { const v = input.flowRate / 3600 * input.head * input.density * 9.81 / 1000 / (input.pumpEfficiency / 100) / (input.motorEfficiency / 100); results["motorPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["motorPower"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePump_calculator(input: Pump_calculatorInput): Pump_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["motorPower"]));
+  const totalWasteCost = toNumericFormulaValue(values["motorPower"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePump_calculator(input: Pump_calculatorInput): Pump_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

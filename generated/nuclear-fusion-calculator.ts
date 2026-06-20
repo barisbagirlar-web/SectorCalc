@@ -16,25 +16,21 @@ export const Nuclear_fusion_calculatorInputSchema = z.object({
   tau: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Nuclear_fusion_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.n_D + input.n_T) * input.T * input.tau; results["tripleProduct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tripleProduct"] = 0; }
-  try { const v = ((input.n_D + input.n_T) * input.T * input.tau) / 30; results["margin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["margin"] = 0; }
+  try { const v = (input.n_D + input.n_T) * input.T * input.tau; results["tripleProduct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tripleProduct"] = Number.NaN; }
+  try { const v = ((input.n_D + input.n_T) * input.T * input.tau) / 30; results["margin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["margin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNuclear_fusion_calculator(input: Nuclear_fusion_calculatorInput): Nuclear_fusion_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tripleProduct"]));
+  const totalWasteCost = toNumericFormulaValue(values["tripleProduct"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateNuclear_fusion_calculator(input: Nuclear_fusion_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

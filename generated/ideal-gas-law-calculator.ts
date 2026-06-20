@@ -16,25 +16,21 @@ export const Ideal_gas_law_calculatorInputSchema = z.object({
   gasConstant: z.number().default(0.082057),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ideal_gas_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.moles * input.gasConstant * input.temperature) / input.volume; results["pressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure"] = 0; }
-  try { const v = (input.moles * input.gasConstant * input.temperature) / input.volume; results["pressure_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure_aux"] = 0; }
+  try { const v = (input.moles * input.gasConstant * input.temperature) / input.volume; results["pressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressure"] = Number.NaN; }
+  try { const v = (input.moles * input.gasConstant * input.temperature) / input.volume; results["pressure_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressure_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateIdeal_gas_law_calculator(input: Ideal_gas_law_calculatorInput): Ideal_gas_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pressure"]));
+  const totalWasteCost = toNumericFormulaValue(values["pressure"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateIdeal_gas_law_calculator(input: Ideal_gas_law_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

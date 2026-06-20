@@ -18,27 +18,23 @@ export const Suds_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Suds_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.stormDuration / 60; results["durationHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["durationHours"] = 0; }
-  try { const v = (input.rainfallIntensity * (asFormulaNumber(results["durationHours"]))) / 1000; results["rainfallDepthM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rainfallDepthM"] = 0; }
-  try { const v = input.catchmentArea * (asFormulaNumber(results["rainfallDepthM"])) * input.runoffCoefficient; results["runoffVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["runoffVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["runoffVolume"])) * input.safetyFactor; results["requiredStorage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredStorage"] = 0; }
+  try { const v = input.stormDuration / 60; results["durationHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["durationHours"] = Number.NaN; }
+  try { const v = (input.rainfallIntensity * (toNumericFormulaValue(results["durationHours"]))) / 1000; results["rainfallDepthM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rainfallDepthM"] = Number.NaN; }
+  try { const v = input.catchmentArea * (toNumericFormulaValue(results["rainfallDepthM"])) * input.runoffCoefficient; results["runoffVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["runoffVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["runoffVolume"])) * input.safetyFactor; results["requiredStorage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredStorage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSuds_calculator(input: Suds_calculatorInput): Suds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredStorage"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredStorage"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSuds_calculator(input: Suds_calculatorInput): Suds_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

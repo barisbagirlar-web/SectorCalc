@@ -18,26 +18,22 @@ export const Unicode_calculatorInputSchema = z.object({
   costPerMB: z.number().default(0.05),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Unicode_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.charCount * (input.encoding == 1 ? 2 : input.encoding == 2 ? 2 : 4) + input.overhead * input.lineCount; results["totalBytes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBytes"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBytes"])) / (1024 * 1024); results["totalMB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMB"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMB"])) * input.costPerMB; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.charCount * (input.encoding == 1 ? 2 : input.encoding == 2 ? 2 : 4) + input.overhead * input.lineCount; results["totalBytes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBytes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBytes"])) / (1024 * 1024); results["totalMB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMB"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalMB"])) * input.costPerMB; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUnicode_calculator(input: Unicode_calculatorInput): Unicode_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateUnicode_calculator(input: Unicode_calculatorInput): Uni
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Hiking_time_calculatorInputSchema = z.object({
   terrainFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hiking_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.distance * input.pace * input.terrainFactor + input.elevationGain * 0.1 * input.terrainFactor; results["totalTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTime"] = 0; }
-  try { const v = input.distance * input.pace * input.terrainFactor; results["walkingTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["walkingTime"] = 0; }
-  try { const v = input.elevationGain * 0.1 * input.terrainFactor; results["elevationTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["elevationTime"] = 0; }
+  try { const v = input.distance * input.pace * input.terrainFactor + input.elevationGain * 0.1 * input.terrainFactor; results["totalTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTime"] = Number.NaN; }
+  try { const v = input.distance * input.pace * input.terrainFactor; results["walkingTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["walkingTime"] = Number.NaN; }
+  try { const v = input.elevationGain * 0.1 * input.terrainFactor; results["elevationTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["elevationTime"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHiking_time_calculator(input: Hiking_time_calculatorInput): Hiking_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTime"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTime"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateHiking_time_calculator(input: Hiking_time_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Trench_calculatorInputSchema = z.object({
   sideSlope: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Trench_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.trenchLength * input.depth * (input.baseWidth + input.sideSlope * input.depth); results["trenchVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trenchVolume"] = 0; }
-  try { const v = input.depth * (input.baseWidth + input.sideSlope * input.depth); results["crossSectionArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crossSectionArea"] = 0; }
-  try { const v = input.baseWidth + 2 * input.sideSlope * input.depth; results["topWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["topWidth"] = 0; }
+  try { const v = input.trenchLength * input.depth * (input.baseWidth + input.sideSlope * input.depth); results["trenchVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["trenchVolume"] = Number.NaN; }
+  try { const v = input.depth * (input.baseWidth + input.sideSlope * input.depth); results["crossSectionArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["crossSectionArea"] = Number.NaN; }
+  try { const v = input.baseWidth + 2 * input.sideSlope * input.depth; results["topWidth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["topWidth"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTrench_calculator(input: Trench_calculatorInput): Trench_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["trenchVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["trenchVolume"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateTrench_calculator(input: Trench_calculatorInput): Trenc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Gunning_fog_index_calculatorInputSchema = z.object({
   exemptWords: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gunning_fog_index_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalWords / input.totalSentences; results["avgSentenceLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["avgSentenceLength"] = 0; }
-  try { const v = ((input.complexWords - input.exemptWords) / input.totalWords) * 100; results["pctComplexWords"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pctComplexWords"] = 0; }
-  try { const v = 0.4 * ((input.totalWords / input.totalSentences) + (((input.complexWords - input.exemptWords) / input.totalWords) * 100)); results["gunningFogIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gunningFogIndex"] = 0; }
+  try { const v = input.totalWords / input.totalSentences; results["avgSentenceLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["avgSentenceLength"] = Number.NaN; }
+  try { const v = ((input.complexWords - input.exemptWords) / input.totalWords) * 100; results["pctComplexWords"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pctComplexWords"] = Number.NaN; }
+  try { const v = 0.4 * ((input.totalWords / input.totalSentences) + (((input.complexWords - input.exemptWords) / input.totalWords) * 100)); results["gunningFogIndex"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gunningFogIndex"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGunning_fog_index_calculator(input: Gunning_fog_index_calculatorInput): Gunning_fog_index_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gunningFogIndex"]));
+  const totalWasteCost = toNumericFormulaValue(values["gunningFogIndex"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateGunning_fog_index_calculator(input: Gunning_fog_index_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

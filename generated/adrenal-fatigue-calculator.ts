@@ -20,25 +20,21 @@ export const Adrenal_fatigue_calculatorInputSchema = z.object({
   load_factor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Adrenal_fatigue_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.shift_length * input.load_factor / (input.rest_between_shifts + 1) * 10; results["shift_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shift_contribution"] = 0; }
-  try { const v = input.consecutive_shifts * 2; results["cumulative_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cumulative_contribution"] = 0; }
+  try { const v = input.shift_length * input.load_factor / (input.rest_between_shifts + 1) * 10; results["shift_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shift_contribution"] = Number.NaN; }
+  try { const v = input.consecutive_shifts * 2; results["cumulative_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cumulative_contribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAdrenal_fatigue_calculator(input: Adrenal_fatigue_calculatorInput): Adrenal_fatigue_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cumulative_contribution"]));
+  const totalWasteCost = toNumericFormulaValue(values["cumulative_contribution"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateAdrenal_fatigue_calculator(input: Adrenal_fatigue_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

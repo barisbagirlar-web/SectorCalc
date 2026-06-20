@@ -20,26 +20,22 @@ export const Wallpaper_calculatorInputSchema = z.object({
   wastePercent: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Wallpaper_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wallWidth * input.wallHeight; results["wallArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallArea"] = 0; }
-  try { const v = input.rollLength - (input.patternRepeat > 0 ? (input.rollLength % input.patternRepeat) : 0); results["usableRollLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["usableRollLength"] = 0; }
-  try { const v = input.wallWidth * input.wallHeight; results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
+  try { const v = input.wallWidth * input.wallHeight; results["wallArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wallArea"] = Number.NaN; }
+  try { const v = input.rollLength - (input.patternRepeat > 0 ? (input.rollLength % input.patternRepeat) : 0); results["usableRollLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["usableRollLength"] = Number.NaN; }
+  try { const v = input.wallWidth * input.wallHeight; results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalArea"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWallpaper_calculator(input: Wallpaper_calculatorInput): Wallpaper_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalArea"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalArea"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateWallpaper_calculator(input: Wallpaper_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

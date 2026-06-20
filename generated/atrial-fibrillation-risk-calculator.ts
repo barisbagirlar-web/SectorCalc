@@ -22,30 +22,26 @@ export const Atrial_fibrillation_risk_calculatorInputSchema = z.object({
   sex: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Atrial_fibrillation_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.congestiveHeartFailure; results["chfPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["chfPoints"] = 0; }
-  try { const v = input.hypertension; results["htnPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["htnPoints"] = 0; }
-  try { const v = input.age >= 75 ? 2 : (input.age >= 65 ? 1 : 0); results["agePoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["agePoints"] = 0; }
-  try { const v = input.diabetes; results["dmPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dmPoints"] = 0; }
-  try { const v = input.priorStrokeOrTIA || input.vascularDisease ? 2 : 0; results["strokePoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["strokePoints"] = 0; }
-  try { const v = input.sex; results["sexPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sexPoints"] = 0; }
-  try { const v = (asFormulaNumber(results["chfPoints"])) + (asFormulaNumber(results["htnPoints"])) + (asFormulaNumber(results["agePoints"])) + (asFormulaNumber(results["dmPoints"])) + (asFormulaNumber(results["strokePoints"])) + (asFormulaNumber(results["sexPoints"])); results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskScore"] = 0; }
+  try { const v = input.congestiveHeartFailure; results["chfPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["chfPoints"] = Number.NaN; }
+  try { const v = input.hypertension; results["htnPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["htnPoints"] = Number.NaN; }
+  try { const v = input.age >= 75 ? 2 : (input.age >= 65 ? 1 : 0); results["agePoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["agePoints"] = Number.NaN; }
+  try { const v = input.diabetes; results["dmPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dmPoints"] = Number.NaN; }
+  try { const v = input.priorStrokeOrTIA || input.vascularDisease ? 2 : 0; results["strokePoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["strokePoints"] = Number.NaN; }
+  try { const v = input.sex; results["sexPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sexPoints"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["chfPoints"])) + (toNumericFormulaValue(results["htnPoints"])) + (toNumericFormulaValue(results["agePoints"])) + (toNumericFormulaValue(results["dmPoints"])) + (toNumericFormulaValue(results["strokePoints"])) + (toNumericFormulaValue(results["sexPoints"])); results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["riskScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAtrial_fibrillation_risk_calculator(input: Atrial_fibrillation_risk_calculatorInput): Atrial_fibrillation_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["riskScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["riskScore"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateAtrial_fibrillation_risk_calculator(input: Atrial_fibri
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

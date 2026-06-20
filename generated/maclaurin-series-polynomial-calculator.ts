@@ -22,25 +22,21 @@ export const Maclaurin_series_polynomial_calculatorInputSchema = z.object({
   a5: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Maclaurin_series_polynomial_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.a0 + input.a1*input.x + input.a2*input.x**2 + input.a3*input.x**3 + input.a4*input.x**4 + input.a5*input.x**5; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.a0 + input.a1*input.x + input.a2*input.x**2 + input.a3*input.x**3 + input.a4*input.x**4 + input.a5*input.x**5; results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_aux"] = 0; }
+  try { const v = input.a0 + input.a1*input.x + input.a2*input.x**2 + input.a3*input.x**3 + input.a4*input.x**4 + input.a5*input.x**5; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown"] = Number.NaN; }
+  try { const v = input.a0 + input.a1*input.x + input.a2*input.x**2 + input.a3*input.x**3 + input.a4*input.x**4 + input.a5*input.x**5; results["breakdown_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMaclaurin_series_polynomial_calculator(input: Maclaurin_series_polynomial_calculatorInput): Maclaurin_series_polynomial_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["breakdown_aux"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMaclaurin_series_polynomial_calculator(input: Maclaurin
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

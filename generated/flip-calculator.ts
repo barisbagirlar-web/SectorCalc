@@ -20,27 +20,23 @@ export const Flip_calculatorInputSchema = z.object({
   financingCosts: z.number().default(3000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Flip_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.purchasePrice + input.renovationCost + input.holdingCosts; results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInvestment"] = 0; }
-  try { const v = input.sellingPrice - (asFormulaNumber(results["totalInvestment"])) - input.sellingCosts - input.financingCosts; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = (asFormulaNumber(results["grossProfit"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = (asFormulaNumber(results["totalInvestment"])) !== 0 ? ((asFormulaNumber(results["netProfit"])) / (asFormulaNumber(results["totalInvestment"]))) * 100 : 0; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
+  try { const v = input.purchasePrice + input.renovationCost + input.holdingCosts; results["totalInvestment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInvestment"] = Number.NaN; }
+  try { const v = input.sellingPrice - (toNumericFormulaValue(results["totalInvestment"])) - input.sellingCosts - input.financingCosts; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossProfit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossProfit"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalInvestment"])) !== 0 ? ((toNumericFormulaValue(results["netProfit"])) / (toNumericFormulaValue(results["totalInvestment"]))) * 100 : 0; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFlip_calculator(input: Flip_calculatorInput): Flip_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["netProfit"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateFlip_calculator(input: Flip_calculatorInput): Flip_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

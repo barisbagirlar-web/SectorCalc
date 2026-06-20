@@ -16,26 +16,22 @@ export const Reactance_calculatorInputSchema = z.object({
   connectionType: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Reactance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / (2 * Math.PI * input.frequency * input.capacitance); results["Xc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Xc"] = 0; }
-  try { const v = 2 * Math.PI * input.frequency * input.inductance; results["Xl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Xl"] = 0; }
-  try { const v = ((input.connectionType === 0 ? ((asFormulaNumber(results["Xl"])) - (asFormulaNumber(results["Xc"]))) : (((asFormulaNumber(results["Xc"])) * (asFormulaNumber(results["Xl"]))) / ((asFormulaNumber(results["Xl"])) - (asFormulaNumber(results["Xc"]))))) ? 1 : 0); results["totalReactance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalReactance"] = 0; }
+  try { const v = 1 / (2 * Math.PI * input.frequency * input.capacitance); results["Xc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Xc"] = Number.NaN; }
+  try { const v = 2 * Math.PI * input.frequency * input.inductance; results["Xl"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Xl"] = Number.NaN; }
+  try { const v = ((input.connectionType === 0 ? ((toNumericFormulaValue(results["Xl"])) - (toNumericFormulaValue(results["Xc"]))) : (((toNumericFormulaValue(results["Xc"])) * (toNumericFormulaValue(results["Xl"]))) / ((toNumericFormulaValue(results["Xl"])) - (toNumericFormulaValue(results["Xc"]))))) ? 1 : 0); results["totalReactance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalReactance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateReactance_calculator(input: Reactance_calculatorInput): Reactance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalReactance"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalReactance"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateReactance_calculator(input: Reactance_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

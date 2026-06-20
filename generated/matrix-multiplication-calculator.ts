@@ -24,28 +24,24 @@ export const Matrix_multiplication_calculatorInputSchema = z.object({
   b22: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Matrix_multiplication_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.a11 * input.b11 + input.a12 * input.b21; results["c11"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c11"] = 0; }
-  try { const v = input.a11 * input.b12 + input.a12 * input.b22; results["c12"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c12"] = 0; }
-  try { const v = input.a21 * input.b11 + input.a22 * input.b21; results["c21"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c21"] = 0; }
-  try { const v = input.a21 * input.b12 + input.a22 * input.b22; results["c22"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c22"] = 0; }
-  try { const v = (asFormulaNumber(results["c11"])) * (asFormulaNumber(results["c22"])) - (asFormulaNumber(results["c12"])) * (asFormulaNumber(results["c21"])); results["determinant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["determinant"] = 0; }
+  try { const v = input.a11 * input.b11 + input.a12 * input.b21; results["c11"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c11"] = Number.NaN; }
+  try { const v = input.a11 * input.b12 + input.a12 * input.b22; results["c12"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c12"] = Number.NaN; }
+  try { const v = input.a21 * input.b11 + input.a22 * input.b21; results["c21"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c21"] = Number.NaN; }
+  try { const v = input.a21 * input.b12 + input.a22 * input.b22; results["c22"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c22"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["c11"])) * (toNumericFormulaValue(results["c22"])) - (toNumericFormulaValue(results["c12"])) * (toNumericFormulaValue(results["c21"])); results["determinant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["determinant"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMatrix_multiplication_calculator(input: Matrix_multiplication_calculatorInput): Matrix_multiplication_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["determinant"]));
+  const totalWasteCost = toNumericFormulaValue(values["determinant"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateMatrix_multiplication_calculator(input: Matrix_multipli
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

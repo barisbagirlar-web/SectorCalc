@@ -18,26 +18,22 @@ export const Flight_carbon_footprint_calculatorInputSchema = z.object({
   radiative_forcing_index: z.number().default(1.9),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Flight_carbon_footprint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.distance_km * input.fuel_burn_per_100_pkm / 100 * input.emission_factor_kg_per_liter * input.class_multiplier * input.radiative_forcing_index; results["total_kg_CO2e"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_kg_CO2e"] = 0; }
-  try { const v = input.distance_km * input.fuel_burn_per_100_pkm / 100 * input.emission_factor_kg_per_liter * input.class_multiplier; results["base_kg_CO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_kg_CO2"] = 0; }
-  try { const v = (asFormulaNumber(results["total_kg_CO2e"])) - (asFormulaNumber(results["base_kg_CO2"])); results["radiative_forcing_contribution_kg_CO2e"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["radiative_forcing_contribution_kg_CO2e"] = 0; }
+  try { const v = input.distance_km * input.fuel_burn_per_100_pkm / 100 * input.emission_factor_kg_per_liter * input.class_multiplier * input.radiative_forcing_index; results["total_kg_CO2e"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_kg_CO2e"] = Number.NaN; }
+  try { const v = input.distance_km * input.fuel_burn_per_100_pkm / 100 * input.emission_factor_kg_per_liter * input.class_multiplier; results["base_kg_CO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_kg_CO2"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_kg_CO2e"])) - (toNumericFormulaValue(results["base_kg_CO2"])); results["radiative_forcing_contribution_kg_CO2e"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["radiative_forcing_contribution_kg_CO2e"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFlight_carbon_footprint_calculator(input: Flight_carbon_footprint_calculatorInput): Flight_carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_kg_CO2e"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_kg_CO2e"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateFlight_carbon_footprint_calculator(input: Flight_carbon
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

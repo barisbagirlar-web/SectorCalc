@@ -18,25 +18,21 @@ export const Decimal_calculatorInputSchema = z.object({
   roundingMode: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Decimal_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.operation==1 ? input.operandA+input.operandB : input.operation==2 ? input.operandA-input.operandB : input.operation==3 ? input.operandA*input.operandB : input.operation==4 ? input.operandA/input.operandB : 0; results["unroundedResult"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unroundedResult"] = 0; }
-  try { const v = input.operation==1 ? input.operandA+input.operandB : input.operation==2 ? input.operandA-input.operandB : input.operation==3 ? input.operandA*input.operandB : input.operation==4 ? input.operandA/input.operandB : 0; results["unroundedResult_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unroundedResult_aux"] = 0; }
+  try { const v = input.operation==1 ? input.operandA+input.operandB : input.operation==2 ? input.operandA-input.operandB : input.operation==3 ? input.operandA*input.operandB : input.operation==4 ? input.operandA/input.operandB : 0; results["unroundedResult"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["unroundedResult"] = Number.NaN; }
+  try { const v = input.operation==1 ? input.operandA+input.operandB : input.operation==2 ? input.operandA-input.operandB : input.operation==3 ? input.operandA*input.operandB : input.operation==4 ? input.operandA/input.operandB : 0; results["unroundedResult_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["unroundedResult_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDecimal_calculator(input: Decimal_calculatorInput): Decimal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["unroundedResult_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["unroundedResult_aux"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateDecimal_calculator(input: Decimal_calculatorInput): Dec
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

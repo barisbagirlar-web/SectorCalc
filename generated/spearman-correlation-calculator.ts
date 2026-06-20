@@ -16,29 +16,25 @@ export const Spearman_correlation_calculatorInputSchema = z.object({
   tieCorrectionY: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Spearman_correlation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sampleSize; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["n"] = 0; }
-  try { const v = input.sumSquaredDifferences; results["sumd2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumd2"] = 0; }
-  try { const v = input.tieCorrectionX; results["Tx"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Tx"] = 0; }
-  try { const v = input.tieCorrectionY; results["Ty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Ty"] = 0; }
-  try { const v = ((asFormulaNumber(results["Tx"])) + (asFormulaNumber(results["Ty"]))) / 12; results["correction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correction"] = 0; }
-  try { const v = 6 * ((asFormulaNumber(results["sumd2"])) + (asFormulaNumber(results["correction"]))); results["sixTerm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sixTerm"] = 0; }
+  try { const v = input.sampleSize; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["n"] = Number.NaN; }
+  try { const v = input.sumSquaredDifferences; results["sumd2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sumd2"] = Number.NaN; }
+  try { const v = input.tieCorrectionX; results["Tx"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Tx"] = Number.NaN; }
+  try { const v = input.tieCorrectionY; results["Ty"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Ty"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["Tx"])) + (toNumericFormulaValue(results["Ty"]))) / 12; results["correction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["correction"] = Number.NaN; }
+  try { const v = 6 * ((toNumericFormulaValue(results["sumd2"])) + (toNumericFormulaValue(results["correction"]))); results["sixTerm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sixTerm"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSpearman_correlation_calculator(input: Spearman_correlation_calculatorInput): Spearman_correlation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sixTerm"]));
+  const totalWasteCost = toNumericFormulaValue(values["sixTerm"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSpearman_correlation_calculator(input: Spearman_correla
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

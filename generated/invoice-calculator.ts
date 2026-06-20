@@ -16,27 +16,23 @@ export const Invoice_calculatorInputSchema = z.object({
   shippingCost: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Invoice_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.subtotal * (1 - input.discountPercent / 100) * (1 + input.taxRate / 100) + input.shippingCost; results["Final Invoice Total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Final Invoice Total"] = 0; }
-  try { const v = input.subtotal * input.discountPercent / 100; results["Discount Amount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Discount Amount"] = 0; }
-  try { const v = input.subtotal * (1 - input.discountPercent / 100) * input.taxRate / 100; results["Tax Amount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Tax Amount"] = 0; }
-  try { const v = input.subtotal * (1 - input.discountPercent / 100); results["Subtotal After Discount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Subtotal After Discount"] = 0; }
+  try { const v = input.subtotal * (1 - input.discountPercent / 100) * (1 + input.taxRate / 100) + input.shippingCost; results["Final Invoice Total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Final Invoice Total"] = Number.NaN; }
+  try { const v = input.subtotal * input.discountPercent / 100; results["Discount Amount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Discount Amount"] = Number.NaN; }
+  try { const v = input.subtotal * (1 - input.discountPercent / 100) * input.taxRate / 100; results["Tax Amount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Tax Amount"] = Number.NaN; }
+  try { const v = input.subtotal * (1 - input.discountPercent / 100); results["Subtotal After Discount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Subtotal After Discount"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInvoice_calculator(input: Invoice_calculatorInput): Invoice_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Final"]));
+  const totalWasteCost = toNumericFormulaValue(values["Final"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateInvoice_calculator(input: Invoice_calculatorInput): Inv
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

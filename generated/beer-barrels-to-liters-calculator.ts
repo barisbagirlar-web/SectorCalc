@@ -20,27 +20,23 @@ export const Beer_barrels_to_liters_calculatorInputSchema = z.object({
   correctionFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Beer_barrels_to_liters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.barrels * input.litersPerBarrel; results["volumeAtReference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeAtReference"] = 0; }
-  try { const v = 1 + input.thermalExpansionCoefficient * (input.temperatureC - input.referenceTemperatureC); results["temperatureCorrectionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["temperatureCorrectionFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeAtReference"])) * (asFormulaNumber(results["temperatureCorrectionFactor"])); results["volumeAfterTemperatureCorrection"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeAfterTemperatureCorrection"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeAfterTemperatureCorrection"])) * input.correctionFactor; results["volumeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeLiters"] = 0; }
+  try { const v = input.barrels * input.litersPerBarrel; results["volumeAtReference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeAtReference"] = Number.NaN; }
+  try { const v = 1 + input.thermalExpansionCoefficient * (input.temperatureC - input.referenceTemperatureC); results["temperatureCorrectionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["temperatureCorrectionFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeAtReference"])) * (toNumericFormulaValue(results["temperatureCorrectionFactor"])); results["volumeAfterTemperatureCorrection"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeAfterTemperatureCorrection"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeAfterTemperatureCorrection"])) * input.correctionFactor; results["volumeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeLiters"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBeer_barrels_to_liters_calculator(input: Beer_barrels_to_liters_calculatorInput): Beer_barrels_to_liters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeLiters"]));
+  const totalWasteCost = toNumericFormulaValue(values["volumeLiters"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateBeer_barrels_to_liters_calculator(input: Beer_barrels_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

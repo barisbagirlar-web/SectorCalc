@@ -20,26 +20,22 @@ export const Stere_to_cubic_meters_calculatorInputSchema = z.object({
   roundingPrecision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Stere_to_cubic_meters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.quantity * input.conversionFactor * input.stackingFactor; results["rawVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawVolume"] = 0; }
-  try { const v = input.pricePerStere * input.quantity; results["totalCostStere"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCostStere"] = 0; }
-  try { const v = input.pricePerCubicMeter * input.quantity * input.conversionFactor * input.stackingFactor; results["totalCostCubicMeter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCostCubicMeter"] = 0; }
+  try { const v = input.quantity * input.conversionFactor * input.stackingFactor; results["rawVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawVolume"] = Number.NaN; }
+  try { const v = input.pricePerStere * input.quantity; results["totalCostStere"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCostStere"] = Number.NaN; }
+  try { const v = input.pricePerCubicMeter * input.quantity * input.conversionFactor * input.stackingFactor; results["totalCostCubicMeter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCostCubicMeter"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStere_to_cubic_meters_calculator(input: Stere_to_cubic_meters_calculatorInput): Stere_to_cubic_meters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCostCubicMeter"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCostCubicMeter"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateStere_to_cubic_meters_calculator(input: Stere_to_cubic_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

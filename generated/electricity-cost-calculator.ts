@@ -20,26 +20,22 @@ export const Electricity_cost_calculatorInputSchema = z.object({
   demandChargeRate: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Electricity_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.powerConsumption * input.operatingHoursPerDay * input.operatingDaysPerMonth * input.electricityRate; results["energyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyCost"] = 0; }
-  try { const v = input.peakDemand * input.demandChargeRate; results["demandCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["demandCost"] = 0; }
-  try { const v = (input.powerConsumption * input.operatingHoursPerDay * input.operatingDaysPerMonth * input.electricityRate) + (input.peakDemand * input.demandChargeRate); results["totalMonthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMonthlyCost"] = 0; }
+  try { const v = input.powerConsumption * input.operatingHoursPerDay * input.operatingDaysPerMonth * input.electricityRate; results["energyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyCost"] = Number.NaN; }
+  try { const v = input.peakDemand * input.demandChargeRate; results["demandCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["demandCost"] = Number.NaN; }
+  try { const v = (input.powerConsumption * input.operatingHoursPerDay * input.operatingDaysPerMonth * input.electricityRate) + (input.peakDemand * input.demandChargeRate); results["totalMonthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMonthlyCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateElectricity_cost_calculator(input: Electricity_cost_calculatorInput): Electricity_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMonthlyCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMonthlyCost"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateElectricity_cost_calculator(input: Electricity_cost_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

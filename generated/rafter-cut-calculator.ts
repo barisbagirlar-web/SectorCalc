@@ -16,27 +16,23 @@ export const Rafter_cut_calculatorInputSchema = z.object({
   rafterDepth: z.number().default(150),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rafter_cut_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.buildingWidth / 2 + input.overhang; results["totalRun"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRun"] = 0; }
-  try { const v = input.rafterDepth / 3; results["seatCutDepth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["seatCutDepth"] = 0; }
-  try { const v = input.rafterDepth * 2 / 3; results["heelHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heelHeight"] = 0; }
-  try { const v = input.roofPitch; results["plumbCutAngle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["plumbCutAngle"] = 0; }
+  try { const v = input.buildingWidth / 2 + input.overhang; results["totalRun"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRun"] = Number.NaN; }
+  try { const v = input.rafterDepth / 3; results["seatCutDepth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["seatCutDepth"] = Number.NaN; }
+  try { const v = input.rafterDepth * 2 / 3; results["heelHeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heelHeight"] = Number.NaN; }
+  try { const v = input.roofPitch; results["plumbCutAngle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["plumbCutAngle"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRafter_cut_calculator(input: Rafter_cut_calculatorInput): Rafter_cut_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["plumbCutAngle"]));
+  const totalWasteCost = toNumericFormulaValue(values["plumbCutAngle"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRafter_cut_calculator(input: Rafter_cut_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

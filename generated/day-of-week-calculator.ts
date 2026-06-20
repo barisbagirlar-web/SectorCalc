@@ -14,27 +14,23 @@ export const Day_of_week_calculatorInputSchema = z.object({
   day: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Day_of_week_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.month < 3 ? input.month + 12 : input.month; results["adjustedMonth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedMonth"] = 0; }
-  try { const v = input.month < 3 ? input.year - 1 : input.year; results["adjustedYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedYear"] = 0; }
-  try { const v = input.day; results["q"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedMonth"])); results["m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["m"] = 0; }
+  try { const v = input.month < 3 ? input.month + 12 : input.month; results["adjustedMonth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedMonth"] = Number.NaN; }
+  try { const v = input.month < 3 ? input.year - 1 : input.year; results["adjustedYear"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedYear"] = Number.NaN; }
+  try { const v = input.day; results["q"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["q"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedMonth"])); results["m"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["m"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDay_of_week_calculator(input: Day_of_week_calculatorInput): Day_of_week_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedMonth"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedMonth"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateDay_of_week_calculator(input: Day_of_week_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

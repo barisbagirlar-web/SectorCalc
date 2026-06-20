@@ -16,26 +16,22 @@ export const Periodic_table_calculatorInputSchema = z.object({
   abundance2: z.number().default(1.07),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Periodic_table_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.isotope1_mass * input.abundance1 + input.isotope2_mass * input.abundance2) / (input.abundance1 + input.abundance2); results["average_mass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["average_mass"] = 0; }
-  try { const v = input.isotope1_mass * (input.abundance1 / (input.abundance1 + input.abundance2)); results["isotope1_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isotope1_contribution"] = 0; }
-  try { const v = input.isotope2_mass * (input.abundance2 / (input.abundance1 + input.abundance2)); results["isotope2_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isotope2_contribution"] = 0; }
+  try { const v = (input.isotope1_mass * input.abundance1 + input.isotope2_mass * input.abundance2) / (input.abundance1 + input.abundance2); results["average_mass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["average_mass"] = Number.NaN; }
+  try { const v = input.isotope1_mass * (input.abundance1 / (input.abundance1 + input.abundance2)); results["isotope1_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["isotope1_contribution"] = Number.NaN; }
+  try { const v = input.isotope2_mass * (input.abundance2 / (input.abundance1 + input.abundance2)); results["isotope2_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["isotope2_contribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePeriodic_table_calculator(input: Periodic_table_calculatorInput): Periodic_table_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["average_mass"]));
+  const totalWasteCost = toNumericFormulaValue(values["average_mass"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculatePeriodic_table_calculator(input: Periodic_table_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

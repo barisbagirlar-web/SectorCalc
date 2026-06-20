@@ -14,26 +14,22 @@ export const Liters_to_gallonsInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Liters_to_gallonsInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.volume_liters * 0.264172; results["gallons_us"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gallons_us"] = 0; }
-  try { const v = input.volume_liters * 0.219969; results["gallons_uk"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gallons_uk"] = 0; }
-  try { const v = ((input.conversion_type === 1 ? (asFormulaNumber(results["gallons_us"])) : (asFormulaNumber(results["gallons_uk"]))) ? 1 : 0); results["gallons_selected"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gallons_selected"] = 0; }
+  try { const v = input.volume_liters * 0.264172; results["gallons_us"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gallons_us"] = Number.NaN; }
+  try { const v = input.volume_liters * 0.219969; results["gallons_uk"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gallons_uk"] = Number.NaN; }
+  try { const v = ((input.conversion_type === 1 ? (toNumericFormulaValue(results["gallons_us"])) : (toNumericFormulaValue(results["gallons_uk"]))) ? 1 : 0); results["gallons_selected"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gallons_selected"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLiters_to_gallons(input: Liters_to_gallonsInput): Liters_to_gallonsOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gallons_selected"]));
+  const totalWasteCost = toNumericFormulaValue(values["gallons_selected"]);
   const breakdown = {
     
   };
@@ -41,7 +37,7 @@ export function calculateLiters_to_gallons(input: Liters_to_gallonsInput): Liter
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

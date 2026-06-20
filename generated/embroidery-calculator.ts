@@ -22,29 +22,25 @@ export const Embroidery_calculatorInputSchema = z.object({
   laborHourlyRate: z.number().default(15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Embroidery_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.designWidth * input.designHeight * input.stitchDensity; results["stitchCount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stitchCount"] = 0; }
-  try { const v = (asFormulaNumber(results["stitchCount"])) * input.threadFactor / 1000; results["threadLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["threadLength"] = 0; }
-  try { const v = (asFormulaNumber(results["threadLength"])) * input.threadCostPerMeter; results["threadCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["threadCost"] = 0; }
-  try { const v = (asFormulaNumber(results["stitchCount"])) / input.machineEfficiency; results["machineTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["machineTime"] = 0; }
-  try { const v = (asFormulaNumber(results["machineTime"])) / 60 * input.laborHourlyRate; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["laborCost"] = 0; }
-  try { const v = (asFormulaNumber(results["threadCost"])) + (asFormulaNumber(results["laborCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.designWidth * input.designHeight * input.stitchDensity; results["stitchCount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stitchCount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["stitchCount"])) * input.threadFactor / 1000; results["threadLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["threadLength"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["threadLength"])) * input.threadCostPerMeter; results["threadCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["threadCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["stitchCount"])) / input.machineEfficiency; results["machineTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["machineTime"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["machineTime"])) / 60 * input.laborHourlyRate; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["laborCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["threadCost"])) + (toNumericFormulaValue(results["laborCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEmbroidery_calculator(input: Embroidery_calculatorInput): Embroidery_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateEmbroidery_calculator(input: Embroidery_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

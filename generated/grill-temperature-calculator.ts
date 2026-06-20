@@ -18,26 +18,22 @@ export const Grill_temperature_calculatorInputSchema = z.object({
   heatTransferCoeff: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Grill_temperature_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.heatInput * (input.efficiency / 100); results["effectiveHeat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveHeat"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveHeat"])) / (input.grillArea * input.heatTransferCoeff); results["temperatureRise"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["temperatureRise"] = 0; }
-  try { const v = input.ambientTemp + (asFormulaNumber(results["temperatureRise"])); results["grillTemperature"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grillTemperature"] = 0; }
+  try { const v = input.heatInput * (input.efficiency / 100); results["effectiveHeat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveHeat"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveHeat"])) / (input.grillArea * input.heatTransferCoeff); results["temperatureRise"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["temperatureRise"] = Number.NaN; }
+  try { const v = input.ambientTemp + (toNumericFormulaValue(results["temperatureRise"])); results["grillTemperature"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grillTemperature"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGrill_temperature_calculator(input: Grill_temperature_calculatorInput): Grill_temperature_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["grillTemperature"]));
+  const totalWasteCost = toNumericFormulaValue(values["grillTemperature"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateGrill_temperature_calculator(input: Grill_temperature_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

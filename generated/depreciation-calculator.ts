@@ -16,26 +16,22 @@ export const Depreciation_calculatorInputSchema = z.object({
   yearsElapsed: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Depreciation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.initialCost - input.salvageValue) / input.usefulLifeYears; results["annualDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualDepreciation"] = 0; }
-  try { const v = (input.initialCost - input.salvageValue) / input.usefulLifeYears * input.yearsElapsed; results["accumulatedDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["accumulatedDepreciation"] = 0; }
-  try { const v = input.initialCost - ((input.initialCost - input.salvageValue) / input.usefulLifeYears * input.yearsElapsed); results["bookValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bookValue"] = 0; }
+  try { const v = (input.initialCost - input.salvageValue) / input.usefulLifeYears; results["annualDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualDepreciation"] = Number.NaN; }
+  try { const v = (input.initialCost - input.salvageValue) / input.usefulLifeYears * input.yearsElapsed; results["accumulatedDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["accumulatedDepreciation"] = Number.NaN; }
+  try { const v = input.initialCost - ((input.initialCost - input.salvageValue) / input.usefulLifeYears * input.yearsElapsed); results["bookValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bookValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDepreciation_calculator(input: Depreciation_calculatorInput): Depreciation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["annualDepreciation"]));
+  const totalWasteCost = toNumericFormulaValue(values["annualDepreciation"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateDepreciation_calculator(input: Depreciation_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

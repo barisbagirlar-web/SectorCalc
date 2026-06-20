@@ -20,27 +20,23 @@ export const Pet_insurance_calculatorInputSchema = z.object({
   reimbursement: z.number().default(80),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pet_insurance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.breedRisk * (1 + input.age * 0.05); results["riskMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskMultiplier"] = 0; }
-  try { const v = input.basePremium * (asFormulaNumber(results["riskMultiplier"])) * (input.coverageLimit / 5000) * (input.reimbursement / 80); results["adjustedMonthlyPremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedMonthlyPremium"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedMonthlyPremium"])) * 12; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCost"] = 0; }
-  try { const v = input.coverageLimit - input.deductible; results["effectiveCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveCoverage"] = 0; }
+  try { const v = input.breedRisk * (1 + input.age * 0.05); results["riskMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["riskMultiplier"] = Number.NaN; }
+  try { const v = input.basePremium * (toNumericFormulaValue(results["riskMultiplier"])) * (input.coverageLimit / 5000) * (input.reimbursement / 80); results["adjustedMonthlyPremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedMonthlyPremium"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedMonthlyPremium"])) * 12; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCost"] = Number.NaN; }
+  try { const v = input.coverageLimit - input.deductible; results["effectiveCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveCoverage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePet_insurance_calculator(input: Pet_insurance_calculatorInput): Pet_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedMonthlyPremium"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedMonthlyPremium"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculatePet_insurance_calculator(input: Pet_insurance_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

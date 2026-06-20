@@ -20,26 +20,22 @@ export const Home_maintenance_calculatorInputSchema = z.object({
   yearsToProject: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Home_maintenance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.area * input.baseCostPerSqFt * (1 + input.age * input.ageMultiplier); results["currentAnnualCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["currentAnnualCost"] = 0; }
-  try { const v = input.baseCostPerSqFt * (1 + input.age * input.ageMultiplier); results["perSqFtCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perSqFtCost"] = 0; }
-  try { const v = (asFormulaNumber(results["currentAnnualCost"])) * ((1+input.inflation)**input.yearsToProject - 1) / input.inflation; results["projectedTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["projectedTotal"] = 0; }
+  try { const v = input.area * input.baseCostPerSqFt * (1 + input.age * input.ageMultiplier); results["currentAnnualCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["currentAnnualCost"] = Number.NaN; }
+  try { const v = input.baseCostPerSqFt * (1 + input.age * input.ageMultiplier); results["perSqFtCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["perSqFtCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["currentAnnualCost"])) * ((1+input.inflation)**input.yearsToProject - 1) / input.inflation; results["projectedTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["projectedTotal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHome_maintenance_calculator(input: Home_maintenance_calculatorInput): Home_maintenance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["currentAnnualCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["currentAnnualCost"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHome_maintenance_calculator(input: Home_maintenance_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

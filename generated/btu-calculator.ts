@@ -22,28 +22,24 @@ export const Btu_calculatorInputSchema = z.object({
   applianceHeat: z.number().default(1000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Btu_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.roomLength * input.roomWidth * input.ceilingHeight * 5 * input.insulationFactor + input.windowArea * 30 + input.occupants * 600 + input.applianceHeat; results["totalBTU"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBTU"] = 0; }
-  try { const v = input.roomLength * input.roomWidth * input.ceilingHeight * 5 * input.insulationFactor; results["baseBTU"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseBTU"] = 0; }
-  try { const v = input.windowArea * 30; results["windowBTU"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["windowBTU"] = 0; }
-  try { const v = input.occupants * 600; results["occupantBTU"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["occupantBTU"] = 0; }
-  try { const v = input.applianceHeat; results["applianceBTU"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["applianceBTU"] = 0; }
+  try { const v = input.roomLength * input.roomWidth * input.ceilingHeight * 5 * input.insulationFactor + input.windowArea * 30 + input.occupants * 600 + input.applianceHeat; results["totalBTU"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBTU"] = Number.NaN; }
+  try { const v = input.roomLength * input.roomWidth * input.ceilingHeight * 5 * input.insulationFactor; results["baseBTU"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseBTU"] = Number.NaN; }
+  try { const v = input.windowArea * 30; results["windowBTU"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["windowBTU"] = Number.NaN; }
+  try { const v = input.occupants * 600; results["occupantBTU"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["occupantBTU"] = Number.NaN; }
+  try { const v = input.applianceHeat; results["applianceBTU"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["applianceBTU"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBtu_calculator(input: Btu_calculatorInput): Btu_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBTU"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBTU"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateBtu_calculator(input: Btu_calculatorInput): Btu_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,26 +24,22 @@ export const Heat_exchanger_fouling_loss_calculatorInputSchema = z.object({
   operating_hours_per_year: z.number().min(100).max(8760).default(8000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heat_exchanger_fouling_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 * input.design_ua * input.operating_hours_per_year * (input.hot_flow_rate / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_kwh"] = 0; }
-  try { const v = 1 * input.design_ua * input.operating_hours_per_year * (input.hot_flow_rate / 100) * input.energy_cost; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = 1 * input.design_ua * input.operating_hours_per_year * (input.hot_flow_rate / 100) * input.energy_cost; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = 1 * input.design_ua * input.operating_hours_per_year * (input.hot_flow_rate / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_kwh"] = Number.NaN; }
+  try { const v = 1 * input.design_ua * input.operating_hours_per_year * (input.hot_flow_rate / 100) * input.energy_cost; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_energy_cost"] = Number.NaN; }
+  try { const v = 1 * input.design_ua * input.operating_hours_per_year * (input.hot_flow_rate / 100) * input.energy_cost; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exchanger_fouling_loss_calculatorInput): Heat_exchanger_fouling_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exch
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Eisenhower_matrix_calculatorInputSchema = z.object({
   weightImportance: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Eisenhower_matrix_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.urgency * input.weightUrgency; results["urgencyComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["urgencyComponent"] = 0; }
-  try { const v = input.importance * input.weightImportance; results["importanceComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["importanceComponent"] = 0; }
-  try { const v = (asFormulaNumber(results["urgencyComponent"])) + (asFormulaNumber(results["importanceComponent"])); results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
+  try { const v = input.urgency * input.weightUrgency; results["urgencyComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["urgencyComponent"] = Number.NaN; }
+  try { const v = input.importance * input.weightImportance; results["importanceComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["importanceComponent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["urgencyComponent"])) + (toNumericFormulaValue(results["importanceComponent"])); results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEisenhower_matrix_calculator(input: Eisenhower_matrix_calculatorInput): Eisenhower_matrix_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateEisenhower_matrix_calculator(input: Eisenhower_matrix_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

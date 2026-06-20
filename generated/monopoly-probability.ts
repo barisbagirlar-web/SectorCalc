@@ -20,27 +20,23 @@ export const Monopoly_probabilityInputSchema = z.object({
   turns: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Monopoly_probabilityInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numDice * (input.diceSides + 1) / 2; results["meanRoll"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanRoll"] = 0; }
-  try { const v = 1 / input.boardSpaces; results["probLandOnTargetOneTurn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["probLandOnTargetOneTurn"] = 0; }
-  try { const v = 1 - (asFormulaNumber(results["probLandOnTargetOneTurn"])); results["probNotLandOnTargetOneTurn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["probNotLandOnTargetOneTurn"] = 0; }
-  try { const v = input.turns / input.boardSpaces; results["expectedLandings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedLandings"] = 0; }
+  try { const v = input.numDice * (input.diceSides + 1) / 2; results["meanRoll"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["meanRoll"] = Number.NaN; }
+  try { const v = 1 / input.boardSpaces; results["probLandOnTargetOneTurn"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["probLandOnTargetOneTurn"] = Number.NaN; }
+  try { const v = 1 - (toNumericFormulaValue(results["probLandOnTargetOneTurn"])); results["probNotLandOnTargetOneTurn"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["probNotLandOnTargetOneTurn"] = Number.NaN; }
+  try { const v = input.turns / input.boardSpaces; results["expectedLandings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedLandings"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMonopoly_probability(input: Monopoly_probabilityInput): Monopoly_probabilityOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["meanRoll"]));
+  const totalWasteCost = toNumericFormulaValue(values["meanRoll"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMonopoly_probability(input: Monopoly_probabilityInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

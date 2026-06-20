@@ -18,26 +18,22 @@ export const Cortisol_calculatorInputSchema = z.object({
   age_factor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cortisol_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.raw_cortisol * input.unit_conversion * input.time_factor * input.stress_multiplier * input.age_factor; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.raw_cortisol * input.unit_conversion; results["base_converted"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_converted"] = 0; }
-  try { const v = (asFormulaNumber(results["base_converted"])) * input.time_factor * input.stress_multiplier; results["time_stress_adjusted"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["time_stress_adjusted"] = 0; }
+  try { const v = input.raw_cortisol * input.unit_conversion * input.time_factor * input.stress_multiplier * input.age_factor; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = input.raw_cortisol * input.unit_conversion; results["base_converted"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_converted"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["base_converted"])) * input.time_factor * input.stress_multiplier; results["time_stress_adjusted"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["time_stress_adjusted"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCortisol_calculator(input: Cortisol_calculatorInput): Cortisol_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCortisol_calculator(input: Cortisol_calculatorInput): C
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

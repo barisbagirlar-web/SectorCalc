@@ -16,25 +16,21 @@ export const Bushels_to_liters_calculatorInputSchema = z.object({
   container_size: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bushels_to_liters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.total_bushels * input.conversion_factor * input.batch_count; results["total_liters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_liters"] = 0; }
-  try { const v = input.total_bushels * input.conversion_factor * input.batch_count; results["total_liters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_liters_aux"] = 0; }
+  try { const v = input.total_bushels * input.conversion_factor * input.batch_count; results["total_liters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_liters"] = Number.NaN; }
+  try { const v = input.total_bushels * input.conversion_factor * input.batch_count; results["total_liters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_liters_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBushels_to_liters_calculator(input: Bushels_to_liters_calculatorInput): Bushels_to_liters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_liters"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_liters"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateBushels_to_liters_calculator(input: Bushels_to_liters_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

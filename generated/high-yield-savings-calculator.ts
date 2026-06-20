@@ -18,26 +18,22 @@ export const High_yield_savings_calculatorInputSchema = z.object({
   compoundFrequency: z.number().default(12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: High_yield_savings_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualInterestRate / 100 / input.compoundFrequency; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRate"] = 0; }
-  try { const v = input.years * input.compoundFrequency; results["totalPeriods"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPeriods"] = 0; }
-  try { const v = input.initialDeposit + input.monthlyContribution * (asFormulaNumber(results["totalPeriods"])); results["totalDeposits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDeposits"] = 0; }
+  try { const v = input.annualInterestRate / 100 / input.compoundFrequency; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyRate"] = Number.NaN; }
+  try { const v = input.years * input.compoundFrequency; results["totalPeriods"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPeriods"] = Number.NaN; }
+  try { const v = input.initialDeposit + input.monthlyContribution * (toNumericFormulaValue(results["totalPeriods"])); results["totalDeposits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDeposits"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHigh_yield_savings_calculator(input: High_yield_savings_calculatorInput): High_yield_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDeposits"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDeposits"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateHigh_yield_savings_calculator(input: High_yield_savings
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

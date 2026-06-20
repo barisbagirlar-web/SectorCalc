@@ -16,27 +16,23 @@ export const Hydration_calculatorInputSchema = z.object({
   average_temperature: z.number().default(25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hydration_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight * 0.033 + input.moderate_activity_hours * 0.35 + input.heavy_activity_hours * 0.7 + (input.average_temperature > 30 ? (input.average_temperature - 30) * 0.2 : 0); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
-  try { const v = input.weight * 0.033; results["base"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base"] = 0; }
-  try { const v = input.moderate_activity_hours * 0.35 + input.heavy_activity_hours * 0.7; results["activity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["activity"] = 0; }
-  try { const v = input.average_temperature > 30 ? (input.average_temperature - 30) * 0.2 : 0; results["tempAdjust"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tempAdjust"] = 0; }
+  try { const v = input.weight * 0.033 + input.moderate_activity_hours * 0.35 + input.heavy_activity_hours * 0.7 + (input.average_temperature > 30 ? (input.average_temperature - 30) * 0.2 : 0); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total"] = Number.NaN; }
+  try { const v = input.weight * 0.033; results["base"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base"] = Number.NaN; }
+  try { const v = input.moderate_activity_hours * 0.35 + input.heavy_activity_hours * 0.7; results["activity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["activity"] = Number.NaN; }
+  try { const v = input.average_temperature > 30 ? (input.average_temperature - 30) * 0.2 : 0; results["tempAdjust"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tempAdjust"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHydration_calculator(input: Hydration_calculatorInput): Hydration_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tempAdjust"]));
+  const totalWasteCost = toNumericFormulaValue(values["tempAdjust"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateHydration_calculator(input: Hydration_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

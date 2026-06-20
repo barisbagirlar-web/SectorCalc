@@ -18,26 +18,22 @@ export const Kayaking_calculatorInputSchema = z.object({
   paddlingEfficiency: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Kayaking_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.5 * input.waterDensity * input.dragCoefficient * input.crossSectionalArea * input.speed * input.speed; results["dragForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dragForce"] = 0; }
-  try { const v = (asFormulaNumber(results["dragForce"])) * input.speed; results["effectivePower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectivePower"] = 0; }
-  try { const v = (asFormulaNumber(results["effectivePower"])) / (input.paddlingEfficiency / 100); results["powerRequired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["powerRequired"] = 0; }
+  try { const v = 0.5 * input.waterDensity * input.dragCoefficient * input.crossSectionalArea * input.speed * input.speed; results["dragForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dragForce"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dragForce"])) * input.speed; results["effectivePower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectivePower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectivePower"])) / (input.paddlingEfficiency / 100); results["powerRequired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["powerRequired"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKayaking_calculator(input: Kayaking_calculatorInput): Kayaking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["powerRequired"]));
+  const totalWasteCost = toNumericFormulaValue(values["powerRequired"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateKayaking_calculator(input: Kayaking_calculatorInput): K
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,26 +24,22 @@ export const Food_waste_margin_loss_calculatorInputSchema = z.object({
   rework_hours_per_kg: z.number().min(0).max(10).default(0.05),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Food_waste_margin_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.total_production_kg * input.waste_kg * input.selling_price_per_kg * input.cost_per_kg; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.total_production_kg * input.waste_kg * input.selling_price_per_kg * input.cost_per_kg * (input.waste_disposal_cost_per_kg * (input.rework_percentage / 100) * (input.labor_hourly_rate / 100) * input.rework_hours_per_kg); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.waste_disposal_cost_per_kg * (input.rework_percentage / 100) * (input.labor_hourly_rate / 100) * input.rework_hours_per_kg; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.total_production_kg * input.waste_kg * input.selling_price_per_kg * input.cost_per_kg; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.total_production_kg * input.waste_kg * input.selling_price_per_kg * input.cost_per_kg * (input.waste_disposal_cost_per_kg * (input.rework_percentage / 100) * (input.labor_hourly_rate / 100) * input.rework_hours_per_kg); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.waste_disposal_cost_per_kg * (input.rework_percentage / 100) * (input.labor_hourly_rate / 100) * input.rework_hours_per_kg; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFood_waste_margin_loss_calculator(input: Food_waste_margin_loss_calculatorInput): Food_waste_margin_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateFood_waste_margin_loss_calculator(input: Food_waste_mar
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

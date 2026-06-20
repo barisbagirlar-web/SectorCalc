@@ -20,25 +20,21 @@ export const Disability_insurance_calculatorInputSchema = z.object({
   inflationRate: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Disability_insurance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.annualIncome * (input.replacementRatio / 100)) / 12; results["monthlyBenefit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyBenefit"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyBenefit"])) * input.benefitPeriodYears * 12; results["totalBenefitsUndiscounted"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBenefitsUndiscounted"] = 0; }
+  try { const v = (input.annualIncome * (input.replacementRatio / 100)) / 12; results["monthlyBenefit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyBenefit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["monthlyBenefit"])) * input.benefitPeriodYears * 12; results["totalBenefitsUndiscounted"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBenefitsUndiscounted"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDisability_insurance_calculator(input: Disability_insurance_calculatorInput): Disability_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBenefitsUndiscounted"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBenefitsUndiscounted"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateDisability_insurance_calculator(input: Disability_insur
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

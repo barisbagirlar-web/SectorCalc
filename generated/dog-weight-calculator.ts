@@ -16,25 +16,21 @@ export const Dog_weight_calculatorInputSchema = z.object({
   bcs: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dog_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentWeight * (1 - (input.bcs - 5) * 0.1); results["idealWeightBasedOnBCS"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["idealWeightBasedOnBCS"] = 0; }
-  try { const v = input.currentWeight * (1 - (input.bcs - 5) * 0.1); results["idealWeightBasedOnBCS_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["idealWeightBasedOnBCS_aux"] = 0; }
+  try { const v = input.currentWeight * (1 - (input.bcs - 5) * 0.1); results["idealWeightBasedOnBCS"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["idealWeightBasedOnBCS"] = Number.NaN; }
+  try { const v = input.currentWeight * (1 - (input.bcs - 5) * 0.1); results["idealWeightBasedOnBCS_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["idealWeightBasedOnBCS_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDog_weight_calculator(input: Dog_weight_calculatorInput): Dog_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["idealWeightBasedOnBCS_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["idealWeightBasedOnBCS_aux"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateDog_weight_calculator(input: Dog_weight_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

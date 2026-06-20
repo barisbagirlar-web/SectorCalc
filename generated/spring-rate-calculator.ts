@@ -16,25 +16,21 @@ export const Spring_rate_calculatorInputSchema = z.object({
   shearModulus: z.number().default(79.3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Spring_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.shearModulus * 1000 * input.wireDiameter**4) / (8 * input.meanCoilDiameter**3 * input.activeCoils); results["springRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["springRate"] = 0; }
-  try { const v = input.shearModulus * 1000; results["shearModulus___1000"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shearModulus___1000"] = 0; }
+  try { const v = (input.shearModulus * 1000 * input.wireDiameter**4) / (8 * input.meanCoilDiameter**3 * input.activeCoils); results["springRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["springRate"] = Number.NaN; }
+  try { const v = input.shearModulus * 1000; results["shearModulus___1000"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shearModulus___1000"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSpring_rate_calculator(input: Spring_rate_calculatorInput): Spring_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["springRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["springRate"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSpring_rate_calculator(input: Spring_rate_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

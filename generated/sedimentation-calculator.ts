@@ -24,27 +24,23 @@ export const Sedimentation_calculatorInputSchema = z.object({
   basinDepth: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sedimentation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((9.81) * (input.particleDensity - input.fluidDensity) * (input.particleDiameter ** 2)) / (18 * input.fluidViscosity); results["settlingVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["settlingVelocity"] = 0; }
-  try { const v = input.flowRate / (input.basinLength * input.basinWidth); results["overflowRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overflowRate"] = 0; }
-  try { const v = (input.basinLength * input.basinWidth * input.basinDepth) / input.flowRate; results["detentionTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["detentionTime"] = 0; }
-  try { const v = (input.fluidDensity * ((9.81) * (input.particleDensity - input.fluidDensity) * (input.particleDiameter ** 2)) / (18 * input.fluidViscosity) * input.particleDiameter) / input.fluidViscosity; results["reynoldsNumber"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reynoldsNumber"] = 0; }
+  try { const v = ((9.81) * (input.particleDensity - input.fluidDensity) * (input.particleDiameter ** 2)) / (18 * input.fluidViscosity); results["settlingVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["settlingVelocity"] = Number.NaN; }
+  try { const v = input.flowRate / (input.basinLength * input.basinWidth); results["overflowRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overflowRate"] = Number.NaN; }
+  try { const v = (input.basinLength * input.basinWidth * input.basinDepth) / input.flowRate; results["detentionTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["detentionTime"] = Number.NaN; }
+  try { const v = (input.fluidDensity * ((9.81) * (input.particleDensity - input.fluidDensity) * (input.particleDiameter ** 2)) / (18 * input.fluidViscosity) * input.particleDiameter) / input.fluidViscosity; results["reynoldsNumber"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["reynoldsNumber"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSedimentation_calculator(input: Sedimentation_calculatorInput): Sedimentation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overflowRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["overflowRate"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateSedimentation_calculator(input: Sedimentation_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

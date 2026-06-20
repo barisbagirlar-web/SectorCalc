@@ -16,31 +16,27 @@ export const Glasses_prescription_calculatorInputSchema = z.object({
   vertexDistance: z.number().default(12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Glasses_prescription_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.vertexDistance / 1000; results["d"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["d"] = 0; }
-  try { const v = input.sphere; results["S1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["S1"] = 0; }
-  try { const v = input.sphere + input.cylinder; results["S2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["S2"] = 0; }
-  try { const v = (asFormulaNumber(results["S1"])) / (1 - (asFormulaNumber(results["d"])) * (asFormulaNumber(results["S1"]))); results["S1_eff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["S1_eff"] = 0; }
-  try { const v = (asFormulaNumber(results["S2"])) / (1 - (asFormulaNumber(results["d"])) * (asFormulaNumber(results["S2"]))); results["S2_eff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["S2_eff"] = 0; }
-  try { const v = (asFormulaNumber(results["S1_eff"])); results["newSphere"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newSphere"] = 0; }
-  try { const v = (asFormulaNumber(results["S2_eff"])) - (asFormulaNumber(results["S1_eff"])); results["newCylinder"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newCylinder"] = 0; }
-  try { const v = input.axis; results["newAxis"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newAxis"] = 0; }
+  try { const v = input.vertexDistance / 1000; results["d"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["d"] = Number.NaN; }
+  try { const v = input.sphere; results["S1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["S1"] = Number.NaN; }
+  try { const v = input.sphere + input.cylinder; results["S2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["S2"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["S1"])) / (1 - (toNumericFormulaValue(results["d"])) * (toNumericFormulaValue(results["S1"]))); results["S1_eff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["S1_eff"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["S2"])) / (1 - (toNumericFormulaValue(results["d"])) * (toNumericFormulaValue(results["S2"]))); results["S2_eff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["S2_eff"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["S1_eff"])); results["newSphere"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newSphere"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["S2_eff"])) - (toNumericFormulaValue(results["S1_eff"])); results["newCylinder"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newCylinder"] = Number.NaN; }
+  try { const v = input.axis; results["newAxis"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newAxis"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGlasses_prescription_calculator(input: Glasses_prescription_calculatorInput): Glasses_prescription_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["newAxis"]));
+  const totalWasteCost = toNumericFormulaValue(values["newAxis"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateGlasses_prescription_calculator(input: Glasses_prescrip
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

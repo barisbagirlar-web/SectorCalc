@@ -14,25 +14,21 @@ export const Gallons_to_litersInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gallons_to_litersInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.gallons * 3.785411784; results["liters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["liters"] = 0; }
-  try { const v = input.gallons * 3.785411784; results["liters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["liters_aux"] = 0; }
+  try { const v = input.gallons * 3.785411784; results["liters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["liters"] = Number.NaN; }
+  try { const v = input.gallons * 3.785411784; results["liters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["liters_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGallons_to_liters(input: Gallons_to_litersInput): Gallons_to_litersOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["liters_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["liters_aux"]);
   const breakdown = {
     
   };
@@ -40,7 +36,7 @@ export function calculateGallons_to_liters(input: Gallons_to_litersInput): Gallo
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

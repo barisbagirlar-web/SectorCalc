@@ -16,25 +16,21 @@ export const Half_equivalence_point_calculatorInputSchema = z.object({
   acidDissociationConstant: z.number().default(0.000018),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Half_equivalence_point_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.acidConcentration * input.acidVolume) / (2 * input.titrantConcentration); results["Volume at Half Equivalence Point (mL)"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Volume at Half Equivalence Point (mL)"] = 0; }
-  try { const v = (input.acidConcentration * input.acidVolume) / input.titrantConcentration; results["Equivalence Point Volume (mL)"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Equivalence Point Volume (mL)"] = 0; }
+  try { const v = (input.acidConcentration * input.acidVolume) / (2 * input.titrantConcentration); results["Volume at Half Equivalence Point (mL)"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Volume at Half Equivalence Point (mL)"] = Number.NaN; }
+  try { const v = (input.acidConcentration * input.acidVolume) / input.titrantConcentration; results["Equivalence Point Volume (mL)"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Equivalence Point Volume (mL)"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHalf_equivalence_point_calculator(input: Half_equivalence_point_calculatorInput): Half_equivalence_point_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Equivalence"]));
+  const totalWasteCost = toNumericFormulaValue(values["Equivalence"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateHalf_equivalence_point_calculator(input: Half_equivalen
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Ratio_calculatorInputSchema = z.object({
   decimalPlaces: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.denominator !== 0 ? input.numerator / input.denominator : null) ? 1 : 0); results["rawRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawRatio"] = 0; }
-  try { const v = ((input.denominator !== 0 ? (input.numerator / input.denominator * input.multiplier) : null) ? 1 : 0); results["multipliedRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["multipliedRatio"] = 0; }
+  try { const v = ((input.denominator !== 0 ? input.numerator / input.denominator : null) ? 1 : 0); results["rawRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawRatio"] = Number.NaN; }
+  try { const v = ((input.denominator !== 0 ? (input.numerator / input.denominator * input.multiplier) : null) ? 1 : 0); results["multipliedRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["multipliedRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRatio_calculator(input: Ratio_calculatorInput): Ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["multipliedRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["multipliedRatio"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateRatio_calculator(input: Ratio_calculatorInput): Ratio_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

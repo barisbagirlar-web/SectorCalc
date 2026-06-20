@@ -24,28 +24,24 @@ export const Laser_calculatorInputSchema = z.object({
   setupTime: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Laser_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cutLength / input.cuttingSpeed + input.setupTime; results["totalCuttingTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCuttingTime"] = 0; }
-  try { const v = input.laserPower * input.materialAbsorption; results["effectivePower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectivePower"] = 0; }
-  try { const v = (asFormulaNumber(results["effectivePower"])) * ((asFormulaNumber(results["totalCuttingTime"])) / 60) / 1000; results["energy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy"] = 0; }
-  try { const v = input.kerfWidth * input.materialThickness * (input.cuttingSpeed / 60); results["materialRemovalRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialRemovalRate"] = 0; }
-  try { const v = input.operatingCost * ((asFormulaNumber(results["totalCuttingTime"])) / 60); results["cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cost"] = 0; }
+  try { const v = input.cutLength / input.cuttingSpeed + input.setupTime; results["totalCuttingTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCuttingTime"] = Number.NaN; }
+  try { const v = input.laserPower * input.materialAbsorption; results["effectivePower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectivePower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectivePower"])) * ((toNumericFormulaValue(results["totalCuttingTime"])) / 60) / 1000; results["energy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energy"] = Number.NaN; }
+  try { const v = input.kerfWidth * input.materialThickness * (input.cuttingSpeed / 60); results["materialRemovalRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialRemovalRate"] = Number.NaN; }
+  try { const v = input.operatingCost * ((toNumericFormulaValue(results["totalCuttingTime"])) / 60); results["cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLaser_calculator(input: Laser_calculatorInput): Laser_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cost"]));
+  const totalWasteCost = toNumericFormulaValue(values["cost"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateLaser_calculator(input: Laser_calculatorInput): Laser_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

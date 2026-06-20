@@ -16,26 +16,22 @@ export const Energy_density_calculatorInputSchema = z.object({
   volume: z.number().default(0.1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Energy_density_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.capacity * input.voltage; results["totalEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["totalEnergy"])) / input.mass; results["gravimetricEnergyDensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gravimetricEnergyDensity"] = 0; }
-  try { const v = (asFormulaNumber(results["totalEnergy"])) / input.volume; results["volumetricEnergyDensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumetricEnergyDensity"] = 0; }
+  try { const v = input.capacity * input.voltage; results["totalEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalEnergy"])) / input.mass; results["gravimetricEnergyDensity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gravimetricEnergyDensity"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalEnergy"])) / input.volume; results["volumetricEnergyDensity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumetricEnergyDensity"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEnergy_density_calculator(input: Energy_density_calculatorInput): Energy_density_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gravimetricEnergyDensity"]));
+  const totalWasteCost = toNumericFormulaValue(values["gravimetricEnergyDensity"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateEnergy_density_calculator(input: Energy_density_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

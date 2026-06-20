@@ -16,25 +16,21 @@ export const Metabolic_age_calculatorInputSchema = z.object({
   heightCm: z.number().default(170),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Metabolic_age_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (10 * input.weightKg + 6.25 * input.heightCm - 5 * input.chronologicalAge) + (input.gender === 0 ? 5 : -161); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (input.gender === 0 ? 1800 - 5 * input.chronologicalAge : 1600 - 5 * input.chronologicalAge); results["expectedBmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedBmr"] = 0; }
+  try { const v = (10 * input.weightKg + 6.25 * input.heightCm - 5 * input.chronologicalAge) + (input.gender === 0 ? 5 : -161); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmr"] = Number.NaN; }
+  try { const v = (input.gender === 0 ? 1800 - 5 * input.chronologicalAge : 1600 - 5 * input.chronologicalAge); results["expectedBmr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedBmr"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMetabolic_age_calculator(input: Metabolic_age_calculatorInput): Metabolic_age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["expectedBmr"]));
+  const totalWasteCost = toNumericFormulaValue(values["expectedBmr"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateMetabolic_age_calculator(input: Metabolic_age_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

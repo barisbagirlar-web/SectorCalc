@@ -16,27 +16,23 @@ export const Number_to_words_calculatorInputSchema = z.object({
   caseFormat: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Number_to_words_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.inputNumber; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.decimalPlaces; results["decimalInfo"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalInfo"] = 0; }
-  try { const v = input.languageCode; results["languageInfo"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["languageInfo"] = 0; }
-  try { const v = input.inputNumber; results["inputNumber"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputNumber"] = 0; }
+  try { const v = input.inputNumber; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.decimalPlaces; results["decimalInfo"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["decimalInfo"] = Number.NaN; }
+  try { const v = input.languageCode; results["languageInfo"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["languageInfo"] = Number.NaN; }
+  try { const v = input.inputNumber; results["inputNumber"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inputNumber"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNumber_to_words_calculator(input: Number_to_words_calculatorInput): Number_to_words_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateNumber_to_words_calculator(input: Number_to_words_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

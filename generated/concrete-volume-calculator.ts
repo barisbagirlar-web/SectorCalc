@@ -18,26 +18,22 @@ export const Concrete_volume_calculatorInputSchema = z.object({
   density: z.number().default(2400),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Concrete_volume_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * input.thickness / 100; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = (asFormulaNumber(results["volume"])) * (1 + input.wasteFactor / 100); results["volumeWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeWithWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeWithWaste"])) * input.density; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
+  try { const v = input.length * input.width * input.thickness / 100; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume"])) * (1 + input.wasteFactor / 100); results["volumeWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeWithWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeWithWaste"])) * input.density; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConcrete_volume_calculator(input: Concrete_volume_calculatorInput): Concrete_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeWithWaste"]));
+  const totalWasteCost = toNumericFormulaValue(values["volumeWithWaste"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateConcrete_volume_calculator(input: Concrete_volume_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,26 +24,22 @@ export const Fence_calculatorInputSchema = z.object({
   concreteCostPerPost: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fence_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalLength * input.fenceHeight; results["totalPanelArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPanelArea"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPanelArea"])) * input.pricePanelPerSqm; results["totalPanelCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPanelCost"] = 0; }
-  try { const v = input.numberOfGates * input.pricePerGate; results["totalGateCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGateCost"] = 0; }
+  try { const v = input.totalLength * input.fenceHeight; results["totalPanelArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPanelArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPanelArea"])) * input.pricePanelPerSqm; results["totalPanelCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPanelCost"] = Number.NaN; }
+  try { const v = input.numberOfGates * input.pricePerGate; results["totalGateCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGateCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFence_calculator(input: Fence_calculatorInput): Fence_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalGateCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalGateCost"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateFence_calculator(input: Fence_calculatorInput): Fence_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

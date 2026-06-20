@@ -20,25 +20,21 @@ export const Smed_changeover_optimizer_calculatorInputSchema = z.object({
   waste_motion_score: z.number().min(1).max(10).default(6),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Smed_changeover_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.current_changeover_time * (input.internal_operations_percentage / 100) * input.setup_team_size * input.waste_motion_score; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.current_changeover_time * (input.internal_operations_percentage / 100) * input.setup_team_size * input.waste_motion_score; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.current_changeover_time * (input.internal_operations_percentage / 100) * input.setup_team_size * input.waste_motion_score; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.current_changeover_time * (input.internal_operations_percentage / 100) * input.setup_team_size * input.waste_motion_score; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSmed_changeover_optimizer_calculator(input: Smed_changeover_optimizer_calculatorInput): Smed_changeover_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSmed_changeover_optimizer_calculator(input: Smed_change
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

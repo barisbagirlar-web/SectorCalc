@@ -16,28 +16,24 @@ export const Poisson_process_calculatorInputSchema = z.object({
   t3: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Poisson_process_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.rate * input.t1; results["mu1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mu1"] = 0; }
-  try { const v = input.rate * input.t2; results["mu2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mu2"] = 0; }
-  try { const v = input.rate * input.t3; results["mu3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mu3"] = 0; }
-  try { const v = 1 / input.rate; results["avg_wait"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["avg_wait"] = 0; }
-  try { const v = input.rate * input.t1; results["variance_example"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["variance_example"] = 0; }
+  try { const v = input.rate * input.t1; results["mu1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mu1"] = Number.NaN; }
+  try { const v = input.rate * input.t2; results["mu2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mu2"] = Number.NaN; }
+  try { const v = input.rate * input.t3; results["mu3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mu3"] = Number.NaN; }
+  try { const v = 1 / input.rate; results["avg_wait"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["avg_wait"] = Number.NaN; }
+  try { const v = input.rate * input.t1; results["variance_example"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["variance_example"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePoisson_process_calculator(input: Poisson_process_calculatorInput): Poisson_process_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mu1"]));
+  const totalWasteCost = toNumericFormulaValue(values["mu1"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePoisson_process_calculator(input: Poisson_process_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

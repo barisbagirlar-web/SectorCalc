@@ -16,28 +16,24 @@ export const Pulse_pressure_calculatorInputSchema = z.object({
   age: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pulse_pressure_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.systolicBP - input.diastolicBP; results["pulsePressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pulsePressure"] = 0; }
-  try { const v = input.diastolicBP + (asFormulaNumber(results["pulsePressure"])) / 3; results["meanArterialPressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanArterialPressure"] = 0; }
-  try { const v = input.systolicBP * input.heartRate; results["ratePressureProduct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratePressureProduct"] = 0; }
-  try { const v = 35 + 0.4 * input.age; results["expectedPulsePressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedPulsePressure"] = 0; }
-  try { const v = (asFormulaNumber(results["pulsePressure"])) - (asFormulaNumber(results["expectedPulsePressure"])); results["pulsePressureDeviation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pulsePressureDeviation"] = 0; }
+  try { const v = input.systolicBP - input.diastolicBP; results["pulsePressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pulsePressure"] = Number.NaN; }
+  try { const v = input.diastolicBP + (toNumericFormulaValue(results["pulsePressure"])) / 3; results["meanArterialPressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["meanArterialPressure"] = Number.NaN; }
+  try { const v = input.systolicBP * input.heartRate; results["ratePressureProduct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ratePressureProduct"] = Number.NaN; }
+  try { const v = 35 + 0.4 * input.age; results["expectedPulsePressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedPulsePressure"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pulsePressure"])) - (toNumericFormulaValue(results["expectedPulsePressure"])); results["pulsePressureDeviation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pulsePressureDeviation"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePulse_pressure_calculator(input: Pulse_pressure_calculatorInput): Pulse_pressure_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pulsePressure"]));
+  const totalWasteCost = toNumericFormulaValue(values["pulsePressure"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePulse_pressure_calculator(input: Pulse_pressure_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

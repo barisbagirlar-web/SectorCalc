@@ -16,26 +16,22 @@ export const Focal_length_calculatorInputSchema = z.object({
   d: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Focal_length_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / ((input.n - 1) * (1 / input.R1 - 1 / input.R2 + (input.n - 1) * input.d / (input.n * input.R1 * input.R2))); results["focalLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["focalLength"] = 0; }
-  try { const v = (asFormulaNumber(results["focalLength"])) * (1 - (input.n - 1) * input.d / (input.n * input.R1)); results["frontFocalLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["frontFocalLength"] = 0; }
-  try { const v = (asFormulaNumber(results["focalLength"])) * (1 - (input.n - 1) * input.d / (input.n * input.R2)); results["backFocalLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["backFocalLength"] = 0; }
+  try { const v = 1 / ((input.n - 1) * (1 / input.R1 - 1 / input.R2 + (input.n - 1) * input.d / (input.n * input.R1 * input.R2))); results["focalLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["focalLength"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["focalLength"])) * (1 - (input.n - 1) * input.d / (input.n * input.R1)); results["frontFocalLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["frontFocalLength"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["focalLength"])) * (1 - (input.n - 1) * input.d / (input.n * input.R2)); results["backFocalLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["backFocalLength"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFocal_length_calculator(input: Focal_length_calculatorInput): Focal_length_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["focalLength"]));
+  const totalWasteCost = toNumericFormulaValue(values["focalLength"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateFocal_length_calculator(input: Focal_length_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

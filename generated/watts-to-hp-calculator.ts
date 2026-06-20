@@ -18,27 +18,23 @@ export const Watts_to_hp_calculatorInputSchema = z.object({
   factorBoiler: z.number().default(9809.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Watts_to_hp_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.powerWatts / input.factorMechanical; results["mechanicalHp"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mechanicalHp"] = 0; }
-  try { const v = input.powerWatts / input.factorMetric; results["metricHp"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["metricHp"] = 0; }
-  try { const v = input.powerWatts / input.factorElectrical; results["electricalHp"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricalHp"] = 0; }
-  try { const v = input.powerWatts / input.factorBoiler; results["boilerHp"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["boilerHp"] = 0; }
+  try { const v = input.powerWatts / input.factorMechanical; results["mechanicalHp"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mechanicalHp"] = Number.NaN; }
+  try { const v = input.powerWatts / input.factorMetric; results["metricHp"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["metricHp"] = Number.NaN; }
+  try { const v = input.powerWatts / input.factorElectrical; results["electricalHp"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricalHp"] = Number.NaN; }
+  try { const v = input.powerWatts / input.factorBoiler; results["boilerHp"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["boilerHp"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWatts_to_hp_calculator(input: Watts_to_hp_calculatorInput): Watts_to_hp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mechanicalHp"]));
+  const totalWasteCost = toNumericFormulaValue(values["mechanicalHp"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateWatts_to_hp_calculator(input: Watts_to_hp_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

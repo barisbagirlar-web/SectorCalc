@@ -24,29 +24,25 @@ export const Weighted_grade_calculatorInputSchema = z.object({
   weight4: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weighted_grade_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.grade1 * input.weight1 + input.grade2 * input.weight2 + input.grade3 * input.weight3 + input.grade4 * input.weight4) / (input.weight1 + input.weight2 + input.weight3 + input.weight4); results["weightedGrade"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedGrade"] = 0; }
-  try { const v = input.weight1 + input.weight2 + input.weight3 + input.weight4; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = input.grade1 * input.weight1; results["contribution1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contribution1"] = 0; }
-  try { const v = input.grade2 * input.weight2; results["contribution2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contribution2"] = 0; }
-  try { const v = input.grade3 * input.weight3; results["contribution3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contribution3"] = 0; }
-  try { const v = input.grade4 * input.weight4; results["contribution4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contribution4"] = 0; }
+  try { const v = (input.grade1 * input.weight1 + input.grade2 * input.weight2 + input.grade3 * input.weight3 + input.grade4 * input.weight4) / (input.weight1 + input.weight2 + input.weight3 + input.weight4); results["weightedGrade"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedGrade"] = Number.NaN; }
+  try { const v = input.weight1 + input.weight2 + input.weight3 + input.weight4; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
+  try { const v = input.grade1 * input.weight1; results["contribution1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution1"] = Number.NaN; }
+  try { const v = input.grade2 * input.weight2; results["contribution2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution2"] = Number.NaN; }
+  try { const v = input.grade3 * input.weight3; results["contribution3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution3"] = Number.NaN; }
+  try { const v = input.grade4 * input.weight4; results["contribution4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution4"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeighted_grade_calculator(input: Weighted_grade_calculatorInput): Weighted_grade_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["weightedGrade"]));
+  const totalWasteCost = toNumericFormulaValue(values["weightedGrade"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateWeighted_grade_calculator(input: Weighted_grade_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

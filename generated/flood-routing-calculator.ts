@@ -20,27 +20,23 @@ export const Flood_routing_calculatorInputSchema = z.object({
   x: z.number().default(0.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Flood_routing_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.inflow_curr * (input.dt - 2*input.K*input.x) + input.inflow_prev * (input.dt + 2*input.K*input.x) + input.outflow_prev * (2*input.K*(1-input.x) - input.dt)) / (2*input.K*(1-input.x) + input.dt)); results["outflow_current"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outflow_current"] = 0; }
-  try { const v = (input.dt - 2*input.K*input.x) / (2*input.K*(1-input.x) + input.dt); results["coeff_C1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coeff_C1"] = 0; }
-  try { const v = (input.dt + 2*input.K*input.x) / (2*input.K*(1-input.x) + input.dt); results["coeff_C2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coeff_C2"] = 0; }
-  try { const v = (2*input.K*(1-input.x) - input.dt) / (2*input.K*(1-input.x) + input.dt); results["coeff_C3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coeff_C3"] = 0; }
+  try { const v = ((input.inflow_curr * (input.dt - 2*input.K*input.x) + input.inflow_prev * (input.dt + 2*input.K*input.x) + input.outflow_prev * (2*input.K*(1-input.x) - input.dt)) / (2*input.K*(1-input.x) + input.dt)); results["outflow_current"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["outflow_current"] = Number.NaN; }
+  try { const v = (input.dt - 2*input.K*input.x) / (2*input.K*(1-input.x) + input.dt); results["coeff_C1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coeff_C1"] = Number.NaN; }
+  try { const v = (input.dt + 2*input.K*input.x) / (2*input.K*(1-input.x) + input.dt); results["coeff_C2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coeff_C2"] = Number.NaN; }
+  try { const v = (2*input.K*(1-input.x) - input.dt) / (2*input.K*(1-input.x) + input.dt); results["coeff_C3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coeff_C3"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFlood_routing_calculator(input: Flood_routing_calculatorInput): Flood_routing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["outflow_current"]));
+  const totalWasteCost = toNumericFormulaValue(values["outflow_current"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateFlood_routing_calculator(input: Flood_routing_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,28 +20,24 @@ export const Rankine_cycle_calculatorInputSchema = z.object({
   pumpEfficiency: z.number().default(0.85),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rankine_cycle_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.turbineInletEnthalpy - input.turbineExitIsentropicEnthalpy) * input.turbineEfficiency; results["turbineWork"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["turbineWork"] = 0; }
-  try { const v = (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency; results["pumpWork"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pumpWork"] = 0; }
-  try { const v = (input.turbineInletEnthalpy - input.turbineExitIsentropicEnthalpy) * input.turbineEfficiency - (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency; results["netWork"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netWork"] = 0; }
-  try { const v = (input.turbineInletEnthalpy - input.condenserOutletEnthalpy) - (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency; results["heatAdded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heatAdded"] = 0; }
-  try { const v = ((input.turbineInletEnthalpy - input.turbineExitIsentropicEnthalpy) * input.turbineEfficiency - (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency) / ((input.turbineInletEnthalpy - input.condenserOutletEnthalpy) - (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency); results["thermalEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thermalEfficiency"] = 0; }
+  try { const v = (input.turbineInletEnthalpy - input.turbineExitIsentropicEnthalpy) * input.turbineEfficiency; results["turbineWork"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["turbineWork"] = Number.NaN; }
+  try { const v = (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency; results["pumpWork"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pumpWork"] = Number.NaN; }
+  try { const v = (input.turbineInletEnthalpy - input.turbineExitIsentropicEnthalpy) * input.turbineEfficiency - (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency; results["netWork"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netWork"] = Number.NaN; }
+  try { const v = (input.turbineInletEnthalpy - input.condenserOutletEnthalpy) - (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency; results["heatAdded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heatAdded"] = Number.NaN; }
+  try { const v = ((input.turbineInletEnthalpy - input.turbineExitIsentropicEnthalpy) * input.turbineEfficiency - (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency) / ((input.turbineInletEnthalpy - input.condenserOutletEnthalpy) - (input.pumpExitIsentropicEnthalpy - input.condenserOutletEnthalpy) / input.pumpEfficiency); results["thermalEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["thermalEfficiency"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRankine_cycle_calculator(input: Rankine_cycle_calculatorInput): Rankine_cycle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["thermalEfficiency"]));
+  const totalWasteCost = toNumericFormulaValue(values["thermalEfficiency"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateRankine_cycle_calculator(input: Rankine_cycle_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

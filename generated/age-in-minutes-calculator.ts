@@ -18,28 +18,24 @@ export const Age_in_minutes_calculatorInputSchema = z.object({
   minutes: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Age_in_minutes_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.years * 365.25 * 24 * 60; results["yearsInMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yearsInMinutes"] = 0; }
-  try { const v = input.months * 30.44 * 24 * 60; results["monthsInMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthsInMinutes"] = 0; }
-  try { const v = input.days * 24 * 60; results["daysInMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysInMinutes"] = 0; }
-  try { const v = input.hours * 60; results["hoursInMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hoursInMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["yearsInMinutes"])) + (asFormulaNumber(results["monthsInMinutes"])) + (asFormulaNumber(results["daysInMinutes"])) + (asFormulaNumber(results["hoursInMinutes"])) + input.minutes; results["totalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMinutes"] = 0; }
+  try { const v = input.years * 365.25 * 24 * 60; results["yearsInMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yearsInMinutes"] = Number.NaN; }
+  try { const v = input.months * 30.44 * 24 * 60; results["monthsInMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthsInMinutes"] = Number.NaN; }
+  try { const v = input.days * 24 * 60; results["daysInMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["daysInMinutes"] = Number.NaN; }
+  try { const v = input.hours * 60; results["hoursInMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hoursInMinutes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["yearsInMinutes"])) + (toNumericFormulaValue(results["monthsInMinutes"])) + (toNumericFormulaValue(results["daysInMinutes"])) + (toNumericFormulaValue(results["hoursInMinutes"])) + input.minutes; results["totalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMinutes"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAge_in_minutes_calculator(input: Age_in_minutes_calculatorInput): Age_in_minutes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMinutes"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMinutes"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateAge_in_minutes_calculator(input: Age_in_minutes_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

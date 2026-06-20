@@ -18,26 +18,22 @@ export const Per_diem_calculatorInputSchema = z.object({
   exchangeRate: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Per_diem_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.dailyMeal + input.dailyLodging + input.incidentals); results["dailyTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyTotal"] = 0; }
-  try { const v = (input.dailyMeal + input.dailyLodging + input.incidentals) * input.days; results["totalDaysCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDaysCost"] = 0; }
-  try { const v = (input.dailyMeal + input.dailyLodging + input.incidentals) * input.days * input.exchangeRate; results["totalAllowance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAllowance"] = 0; }
+  try { const v = (input.dailyMeal + input.dailyLodging + input.incidentals); results["dailyTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyTotal"] = Number.NaN; }
+  try { const v = (input.dailyMeal + input.dailyLodging + input.incidentals) * input.days; results["totalDaysCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDaysCost"] = Number.NaN; }
+  try { const v = (input.dailyMeal + input.dailyLodging + input.incidentals) * input.days * input.exchangeRate; results["totalAllowance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAllowance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePer_diem_calculator(input: Per_diem_calculatorInput): Per_diem_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalAllowance"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalAllowance"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePer_diem_calculator(input: Per_diem_calculatorInput): P
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

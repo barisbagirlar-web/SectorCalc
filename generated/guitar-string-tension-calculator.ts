@@ -16,25 +16,21 @@ export const Guitar_string_tension_calculatorInputSchema = z.object({
   targetFrequency: z.number().default(329.63),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Guitar_string_tension_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.materialDensity * Math.PI * (input.stringDiameter / 2000) ** 2; results["mu"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mu"] = 0; }
-  try { const v = 4 * input.scaleLength ** 2 * input.targetFrequency ** 2 * (asFormulaNumber(results["mu"])); results["tension"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tension"] = 0; }
+  try { const v = input.materialDensity * Math.PI * (input.stringDiameter / 2000) ** 2; results["mu"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mu"] = Number.NaN; }
+  try { const v = 4 * input.scaleLength ** 2 * input.targetFrequency ** 2 * (toNumericFormulaValue(results["mu"])); results["tension"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tension"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGuitar_string_tension_calculator(input: Guitar_string_tension_calculatorInput): Guitar_string_tension_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tension"]));
+  const totalWasteCost = toNumericFormulaValue(values["tension"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateGuitar_string_tension_calculator(input: Guitar_string_t
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

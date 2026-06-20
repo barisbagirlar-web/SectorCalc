@@ -20,27 +20,23 @@ export const Working_days_calculatorInputSchema = z.object({
   holidays: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Working_days_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.endDate - input.startDate + input.includeStart + input.includeEnd - 1; results["totalCalendarDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCalendarDays"] = 0; }
-  try { const v = (input.weekendDaysPerWeek / 7) * (asFormulaNumber(results["totalCalendarDays"])); results["estimatedWeekendDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedWeekendDays"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCalendarDays"])) - (asFormulaNumber(results["estimatedWeekendDays"])) - input.holidays; results["workingDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["workingDays"] = 0; }
-  try { const v = input.holidays; results["holidays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["holidays"] = 0; }
+  try { const v = input.endDate - input.startDate + input.includeStart + input.includeEnd - 1; results["totalCalendarDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCalendarDays"] = Number.NaN; }
+  try { const v = (input.weekendDaysPerWeek / 7) * (toNumericFormulaValue(results["totalCalendarDays"])); results["estimatedWeekendDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimatedWeekendDays"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCalendarDays"])) - (toNumericFormulaValue(results["estimatedWeekendDays"])) - input.holidays; results["workingDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["workingDays"] = Number.NaN; }
+  try { const v = input.holidays; results["holidays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["holidays"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWorking_days_calculator(input: Working_days_calculatorInput): Working_days_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["workingDays"]));
+  const totalWasteCost = toNumericFormulaValue(values["workingDays"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateWorking_days_calculator(input: Working_days_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

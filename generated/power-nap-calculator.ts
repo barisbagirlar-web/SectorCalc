@@ -16,27 +16,23 @@ export const Power_nap_calculatorInputSchema = z.object({
   napQualityGoal: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Power_nap_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.deadlineTimeMinutes - input.currentTimeMinutes; results["availableTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["availableTimeMinutes"] = 0; }
-  try { const v = ((((asFormulaNumber(results["availableTimeMinutes"])) >= (20 + input.sleepLatencyMinutes)) && ((asFormulaNumber(results["availableTimeMinutes"])) > 0)) ? 1 : 0); results["powerNapFeasible"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["powerNapFeasible"] = 0; }
-  try { const v = (asFormulaNumber(results["availableTimeMinutes"])) >= (90 + input.sleepLatencyMinutes); results["fullCycleFeasible"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fullCycleFeasible"] = 0; }
-  try { const v = (asFormulaNumber(results["fullCycleFeasible"])) && input.napQualityGoal >= 5 ? 90 : ((asFormulaNumber(results["powerNapFeasible"])) ? 20 : 0); results["recommendedNapDuration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recommendedNapDuration"] = 0; }
+  try { const v = input.deadlineTimeMinutes - input.currentTimeMinutes; results["availableTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["availableTimeMinutes"] = Number.NaN; }
+  try { const v = ((((toNumericFormulaValue(results["availableTimeMinutes"])) >= (20 + input.sleepLatencyMinutes)) && ((toNumericFormulaValue(results["availableTimeMinutes"])) > 0)) ? 1 : 0); results["powerNapFeasible"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["powerNapFeasible"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["availableTimeMinutes"])) >= (90 + input.sleepLatencyMinutes); results["fullCycleFeasible"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fullCycleFeasible"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fullCycleFeasible"])) && input.napQualityGoal >= 5 ? 90 : ((toNumericFormulaValue(results["powerNapFeasible"])) ? 20 : 0); results["recommendedNapDuration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recommendedNapDuration"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePower_nap_calculator(input: Power_nap_calculatorInput): Power_nap_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["recommendedNapDuration"]));
+  const totalWasteCost = toNumericFormulaValue(values["recommendedNapDuration"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculatePower_nap_calculator(input: Power_nap_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

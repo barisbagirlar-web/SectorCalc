@@ -16,26 +16,22 @@ export const Swimming_stroke_rate_calculatorInputSchema = z.object({
   poolLength: z.number().default(25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Swimming_stroke_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.strokes / input.time) * 60; results["strokeRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["strokeRate"] = 0; }
-  try { const v = input.time / input.strokes; results["strokeCycleTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["strokeCycleTime"] = 0; }
-  try { const v = (input.laps * input.poolLength) / input.time; results["speed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speed"] = 0; }
+  try { const v = (input.strokes / input.time) * 60; results["strokeRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["strokeRate"] = Number.NaN; }
+  try { const v = input.time / input.strokes; results["strokeCycleTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["strokeCycleTime"] = Number.NaN; }
+  try { const v = (input.laps * input.poolLength) / input.time; results["speed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["speed"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSwimming_stroke_rate_calculator(input: Swimming_stroke_rate_calculatorInput): Swimming_stroke_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["strokeRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["strokeRate"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateSwimming_stroke_rate_calculator(input: Swimming_stroke_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,28 +16,24 @@ export const Cubits_to_meters_calculatorInputSchema = z.object({
   roundingMethod: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cubits_to_meters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cubits * input.conversionFactor; results["rawMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMeters"] = 0; }
-  try { const v = input.cubits; results["cubits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cubits"] = 0; }
-  try { const v = input.conversionFactor; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
-  try { const v = input.decimalPlaces; results["decimalPlaces"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalPlaces"] = 0; }
-  try { const v = input.roundingMethod; results["roundingMethod"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roundingMethod"] = 0; }
+  try { const v = input.cubits * input.conversionFactor; results["rawMeters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawMeters"] = Number.NaN; }
+  try { const v = input.cubits; results["cubits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cubits"] = Number.NaN; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactor"] = Number.NaN; }
+  try { const v = input.decimalPlaces; results["decimalPlaces"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["decimalPlaces"] = Number.NaN; }
+  try { const v = input.roundingMethod; results["roundingMethod"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roundingMethod"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCubits_to_meters_calculator(input: Cubits_to_meters_calculatorInput): Cubits_to_meters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawMeters"]));
+  const totalWasteCost = toNumericFormulaValue(values["rawMeters"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCubits_to_meters_calculator(input: Cubits_to_meters_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

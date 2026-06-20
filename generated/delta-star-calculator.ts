@@ -16,26 +16,22 @@ export const Delta_star_calculatorInputSchema = z.object({
   R3: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Delta_star_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.mode === 0 ? (input.R1 * input.R3) / (input.R1 + input.R2 + input.R3) : (input.R1 + input.R2 + (input.R1 * input.R2) / input.R3); results["R_eq1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["R_eq1"] = 0; }
-  try { const v = input.mode === 0 ? (input.R1 * input.R2) / (input.R1 + input.R2 + input.R3) : (input.R2 + input.R3 + (input.R2 * input.R3) / input.R1); results["R_eq2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["R_eq2"] = 0; }
-  try { const v = input.mode === 0 ? (input.R2 * input.R3) / (input.R1 + input.R2 + input.R3) : (input.R3 + input.R1 + (input.R3 * input.R1) / input.R2); results["R_eq3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["R_eq3"] = 0; }
+  try { const v = input.mode === 0 ? (input.R1 * input.R3) / (input.R1 + input.R2 + input.R3) : (input.R1 + input.R2 + (input.R1 * input.R2) / input.R3); results["R_eq1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["R_eq1"] = Number.NaN; }
+  try { const v = input.mode === 0 ? (input.R1 * input.R2) / (input.R1 + input.R2 + input.R3) : (input.R2 + input.R3 + (input.R2 * input.R3) / input.R1); results["R_eq2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["R_eq2"] = Number.NaN; }
+  try { const v = input.mode === 0 ? (input.R2 * input.R3) / (input.R1 + input.R2 + input.R3) : (input.R3 + input.R1 + (input.R3 * input.R1) / input.R2); results["R_eq3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["R_eq3"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDelta_star_calculator(input: Delta_star_calculatorInput): Delta_star_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["R_eq3"]));
+  const totalWasteCost = toNumericFormulaValue(values["R_eq3"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateDelta_star_calculator(input: Delta_star_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

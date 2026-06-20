@@ -22,29 +22,25 @@ export const Product_carbon_footprint_calculatorInputSchema = z.object({
   endOfLife: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Product_carbon_footprint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.rawMaterial; results["rawMaterial"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMaterial"] = 0; }
-  try { const v = input.manufacturing; results["manufacturing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["manufacturing"] = 0; }
-  try { const v = input.transportDistance * input.transportFactor; results["transportFootprint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["transportFootprint"] = 0; }
-  try { const v = input.useEnergy * input.useFactor; results["useFootprint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["useFootprint"] = 0; }
-  try { const v = input.endOfLife; results["endOfLife"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["endOfLife"] = 0; }
-  try { const v = input.rawMaterial + input.manufacturing + (input.transportDistance * input.transportFactor) + (input.useEnergy * input.useFactor) + input.endOfLife; results["totalCarbonFootprint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCarbonFootprint"] = 0; }
+  try { const v = input.rawMaterial; results["rawMaterial"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawMaterial"] = Number.NaN; }
+  try { const v = input.manufacturing; results["manufacturing"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["manufacturing"] = Number.NaN; }
+  try { const v = input.transportDistance * input.transportFactor; results["transportFootprint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["transportFootprint"] = Number.NaN; }
+  try { const v = input.useEnergy * input.useFactor; results["useFootprint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["useFootprint"] = Number.NaN; }
+  try { const v = input.endOfLife; results["endOfLife"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["endOfLife"] = Number.NaN; }
+  try { const v = input.rawMaterial + input.manufacturing + (input.transportDistance * input.transportFactor) + (input.useEnergy * input.useFactor) + input.endOfLife; results["totalCarbonFootprint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCarbonFootprint"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateProduct_carbon_footprint_calculator(input: Product_carbon_footprint_calculatorInput): Product_carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCarbonFootprint"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCarbonFootprint"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateProduct_carbon_footprint_calculator(input: Product_carb
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

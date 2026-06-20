@@ -22,25 +22,21 @@ export const Moist_adiabatic_lapse_rate_calculatorInputSchema = z.object({
   epsilon: z.number().default(0.622),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Moist_adiabatic_lapse_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.temperature) * (input.pressure) * (input.g) * (input.Lv) * (input.Rd) * (input.cpd) * (input.epsilon); results["T_K"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["T_K"] = 0; }
-  try { const v = (input.temperature) * (input.pressure) * (input.g); results["p_Pa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["p_Pa"] = 0; }
+  try { const v = (input.temperature) * (input.pressure) * (input.g) * (input.Lv) * (input.Rd) * (input.cpd) * (input.epsilon); results["T_K"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["T_K"] = Number.NaN; }
+  try { const v = (input.temperature) * (input.pressure) * (input.g); results["p_Pa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["p_Pa"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMoist_adiabatic_lapse_rate_calculator(input: Moist_adiabatic_lapse_rate_calculatorInput): Moist_adiabatic_lapse_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["p_Pa"]));
+  const totalWasteCost = toNumericFormulaValue(values["p_Pa"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMoist_adiabatic_lapse_rate_calculator(input: Moist_adia
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

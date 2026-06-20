@@ -22,28 +22,24 @@ export const Wedding_alcohol_calculatorInputSchema = z.object({
   spiritsRatio: z.number().default(0.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Wedding_alcohol_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.guestCount * (input.alcoholPercentage / 100); results["drinkingGuests"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["drinkingGuests"] = 0; }
-  try { const v = (asFormulaNumber(results["drinkingGuests"])) * input.durationHours * input.drinksPerHour; results["totalDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDrinks"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.beerRatio; results["beerDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["beerDrinks"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.wineRatio; results["wineDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wineDrinks"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDrinks"])) * input.spiritsRatio; results["spiritsDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spiritsDrinks"] = 0; }
+  try { const v = input.guestCount * (input.alcoholPercentage / 100); results["drinkingGuests"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["drinkingGuests"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["drinkingGuests"])) * input.durationHours * input.drinksPerHour; results["totalDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDrinks"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDrinks"])) * input.beerRatio; results["beerDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["beerDrinks"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDrinks"])) * input.wineRatio; results["wineDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wineDrinks"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDrinks"])) * input.spiritsRatio; results["spiritsDrinks"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spiritsDrinks"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWedding_alcohol_calculator(input: Wedding_alcohol_calculatorInput): Wedding_alcohol_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["spiritsDrinks"]));
+  const totalWasteCost = toNumericFormulaValue(values["spiritsDrinks"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateWedding_alcohol_calculator(input: Wedding_alcohol_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

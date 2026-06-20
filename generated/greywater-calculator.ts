@@ -18,27 +18,23 @@ export const Greywater_calculatorInputSchema = z.object({
   waterCostPerCubicMeter: z.number().default(3.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Greywater_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfPeople * input.dailyWaterUsagePerPerson * input.greywaterFraction; results["dailyGreywaterProduction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyGreywaterProduction"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyGreywaterProduction"])) * input.systemEfficiency; results["dailyReusableWater"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyReusableWater"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyReusableWater"])) * 365 / 1000; results["annualWaterSaved"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualWaterSaved"] = 0; }
-  try { const v = (asFormulaNumber(results["annualWaterSaved"])) * input.waterCostPerCubicMeter; results["annualCostSaved"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCostSaved"] = 0; }
+  try { const v = input.numberOfPeople * input.dailyWaterUsagePerPerson * input.greywaterFraction; results["dailyGreywaterProduction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyGreywaterProduction"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyGreywaterProduction"])) * input.systemEfficiency; results["dailyReusableWater"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyReusableWater"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyReusableWater"])) * 365 / 1000; results["annualWaterSaved"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualWaterSaved"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["annualWaterSaved"])) * input.waterCostPerCubicMeter; results["annualCostSaved"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCostSaved"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGreywater_calculator(input: Greywater_calculatorInput): Greywater_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dailyReusableWater"]));
+  const totalWasteCost = toNumericFormulaValue(values["dailyReusableWater"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateGreywater_calculator(input: Greywater_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

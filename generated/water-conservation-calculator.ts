@@ -18,27 +18,23 @@ export const Water_conservation_calculatorInputSchema = z.object({
   efficiencyImprovementPercentage: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Water_conservation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentConsumption * (input.leakagePercentage / 100); results["waterWasteFromLeaks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterWasteFromLeaks"] = 0; }
-  try { const v = input.baselineConsumption * (input.efficiencyImprovementPercentage / 100); results["efficiencySavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["efficiencySavings"] = 0; }
-  try { const v = (asFormulaNumber(results["efficiencySavings"])) + (asFormulaNumber(results["waterWasteFromLeaks"])); results["totalPotentialWaterSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPotentialWaterSavings"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPotentialWaterSavings"])) * input.waterCostPerCubicMeter; results["costSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costSavings"] = 0; }
+  try { const v = input.currentConsumption * (input.leakagePercentage / 100); results["waterWasteFromLeaks"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterWasteFromLeaks"] = Number.NaN; }
+  try { const v = input.baselineConsumption * (input.efficiencyImprovementPercentage / 100); results["efficiencySavings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["efficiencySavings"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["efficiencySavings"])) + (toNumericFormulaValue(results["waterWasteFromLeaks"])); results["totalPotentialWaterSavings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPotentialWaterSavings"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPotentialWaterSavings"])) * input.waterCostPerCubicMeter; results["costSavings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costSavings"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWater_conservation_calculator(input: Water_conservation_calculatorInput): Water_conservation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPotentialWaterSavings"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPotentialWaterSavings"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateWater_conservation_calculator(input: Water_conservation
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

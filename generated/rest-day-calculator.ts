@@ -18,25 +18,21 @@ export const Rest_day_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rest_day_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.safetyFactor * input.tempCoeff * input.humidCoeff * 28 * (input.targetPercent / 100) ** 2; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.refStrength * input.targetPercent / 100; results["requiredStrength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredStrength"] = 0; }
+  try { const v = input.safetyFactor * input.tempCoeff * input.humidCoeff * 28 * (input.targetPercent / 100) ** 2; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = input.refStrength * input.targetPercent / 100; results["requiredStrength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredStrength"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRest_day_calculator(input: Rest_day_calculatorInput): Rest_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRest_day_calculator(input: Rest_day_calculatorInput): R
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

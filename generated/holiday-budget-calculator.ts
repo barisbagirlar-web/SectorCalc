@@ -20,28 +20,24 @@ export const Holiday_budget_calculatorInputSchema = z.object({
   dailyActivityBudgetPerPerson: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Holiday_budget_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.flightCostPerPerson * input.travelers; results["transportTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["transportTotal"] = 0; }
-  try { const v = input.hotelCostPerNight * input.days; results["accommodationTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["accommodationTotal"] = 0; }
-  try { const v = input.dailyFoodBudgetPerPerson * input.travelers * input.days; results["foodTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["foodTotal"] = 0; }
-  try { const v = input.dailyActivityBudgetPerPerson * input.travelers * input.days; results["activitiesTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["activitiesTotal"] = 0; }
-  try { const v = (asFormulaNumber(results["transportTotal"])) + (asFormulaNumber(results["accommodationTotal"])) + (asFormulaNumber(results["foodTotal"])) + (asFormulaNumber(results["activitiesTotal"])); results["grandTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grandTotal"] = 0; }
+  try { const v = input.flightCostPerPerson * input.travelers; results["transportTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["transportTotal"] = Number.NaN; }
+  try { const v = input.hotelCostPerNight * input.days; results["accommodationTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["accommodationTotal"] = Number.NaN; }
+  try { const v = input.dailyFoodBudgetPerPerson * input.travelers * input.days; results["foodTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["foodTotal"] = Number.NaN; }
+  try { const v = input.dailyActivityBudgetPerPerson * input.travelers * input.days; results["activitiesTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["activitiesTotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["transportTotal"])) + (toNumericFormulaValue(results["accommodationTotal"])) + (toNumericFormulaValue(results["foodTotal"])) + (toNumericFormulaValue(results["activitiesTotal"])); results["grandTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grandTotal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHoliday_budget_calculator(input: Holiday_budget_calculatorInput): Holiday_budget_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["grandTotal"]));
+  const totalWasteCost = toNumericFormulaValue(values["grandTotal"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateHoliday_budget_calculator(input: Holiday_budget_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

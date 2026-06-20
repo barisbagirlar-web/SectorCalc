@@ -18,25 +18,21 @@ export const Life_satisfaction_calculatorInputSchema = z.object({
   purpose: z.number().default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Life_satisfaction_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.income * 0.2 + input.health * 0.25 + input.workLife * 0.2 + input.social * 0.2 + input.purpose * 0.15; results["weightedTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedTotal"] = 0; }
-  try { const v = (asFormulaNumber(results["weightedTotal"])) * 10; results["lifeSatisfactionScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lifeSatisfactionScore"] = 0; }
+  try { const v = input.income * 0.2 + input.health * 0.25 + input.workLife * 0.2 + input.social * 0.2 + input.purpose * 0.15; results["weightedTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedTotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weightedTotal"])) * 10; results["lifeSatisfactionScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lifeSatisfactionScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLife_satisfaction_calculator(input: Life_satisfaction_calculatorInput): Life_satisfaction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lifeSatisfactionScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["lifeSatisfactionScore"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateLife_satisfaction_calculator(input: Life_satisfaction_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

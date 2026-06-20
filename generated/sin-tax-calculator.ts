@@ -16,27 +16,23 @@ export const Sin_tax_calculatorInputSchema = z.object({
   quantity: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sin_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100) * (1 + input.vatRate / 100); results["totalPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPrice"] = 0; }
-  try { const v = input.quantity * input.basePrice * input.sinTaxRate / 100; results["sinTaxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sinTaxAmount"] = 0; }
-  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vatAmount"] = 0; }
-  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100); results["totalBeforeVat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBeforeVat"] = 0; }
+  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100) * (1 + input.vatRate / 100); results["totalPrice"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPrice"] = Number.NaN; }
+  try { const v = input.quantity * input.basePrice * input.sinTaxRate / 100; results["sinTaxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sinTaxAmount"] = Number.NaN; }
+  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vatAmount"] = Number.NaN; }
+  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100); results["totalBeforeVat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBeforeVat"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSin_tax_calculator(input: Sin_tax_calculatorInput): Sin_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPrice"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPrice"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateSin_tax_calculator(input: Sin_tax_calculatorInput): Sin
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

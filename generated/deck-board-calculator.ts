@@ -20,27 +20,23 @@ export const Deck_board_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Deck_board_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.deckLength * input.deckWidth; results["deckArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deckArea"] = 0; }
-  try { const v = input.boardLength * ((input.boardWidth + input.gap) / 12); results["boardArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["boardArea"] = 0; }
-  try { const v = (input.deckLength * input.deckWidth) / (input.boardLength * ((input.boardWidth + input.gap) / 12)); results["rawCount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawCount"] = 0; }
-  try { const v = (input.deckLength * input.deckWidth) / (input.boardLength * ((input.boardWidth + input.gap) / 12)) * (1 + input.wasteFactor / 100); results["totalBoards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBoards"] = 0; }
+  try { const v = input.deckLength * input.deckWidth; results["deckArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deckArea"] = Number.NaN; }
+  try { const v = input.boardLength * ((input.boardWidth + input.gap) / 12); results["boardArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["boardArea"] = Number.NaN; }
+  try { const v = (input.deckLength * input.deckWidth) / (input.boardLength * ((input.boardWidth + input.gap) / 12)); results["rawCount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawCount"] = Number.NaN; }
+  try { const v = (input.deckLength * input.deckWidth) / (input.boardLength * ((input.boardWidth + input.gap) / 12)) * (1 + input.wasteFactor / 100); results["totalBoards"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBoards"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDeck_board_calculator(input: Deck_board_calculatorInput): Deck_board_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBoards"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBoards"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateDeck_board_calculator(input: Deck_board_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

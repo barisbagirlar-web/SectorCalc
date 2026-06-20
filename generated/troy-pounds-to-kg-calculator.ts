@@ -18,26 +18,22 @@ export const Troy_pounds_to_kg_calculatorInputSchema = z.object({
   measurementUncertainty: z.number().default(0.1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Troy_pounds_to_kg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.troyPounds * 0.3732417216 * input.scaleCalibrationFactor * input.batchSize; results["rawKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawKg"] = 0; }
-  try { const v = (asFormulaNumber(results["rawKg"])) * (1 - input.measurementUncertainty / 100); results["lower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lower"] = 0; }
-  try { const v = (asFormulaNumber(results["rawKg"])) * (1 + input.measurementUncertainty / 100); results["upper"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upper"] = 0; }
+  try { const v = input.troyPounds * 0.3732417216 * input.scaleCalibrationFactor * input.batchSize; results["rawKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rawKg"])) * (1 - input.measurementUncertainty / 100); results["lower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rawKg"])) * (1 + input.measurementUncertainty / 100); results["upper"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["upper"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTroy_pounds_to_kg_calculator(input: Troy_pounds_to_kg_calculatorInput): Troy_pounds_to_kg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["upper"]));
+  const totalWasteCost = toNumericFormulaValue(values["upper"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateTroy_pounds_to_kg_calculator(input: Troy_pounds_to_kg_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

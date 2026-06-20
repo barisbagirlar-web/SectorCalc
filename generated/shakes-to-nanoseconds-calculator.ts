@@ -16,25 +16,21 @@ export const Shakes_to_nanoseconds_calculatorInputSchema = z.object({
   outputScale: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Shakes_to_nanoseconds_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.shakes * input.conversionFactor; results["exactNanoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactNanoseconds"] = 0; }
-  try { const v = input.shakes * input.conversionFactor; results["exactNanoseconds_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactNanoseconds_aux"] = 0; }
+  try { const v = input.shakes * input.conversionFactor; results["exactNanoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exactNanoseconds"] = Number.NaN; }
+  try { const v = input.shakes * input.conversionFactor; results["exactNanoseconds_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exactNanoseconds_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateShakes_to_nanoseconds_calculator(input: Shakes_to_nanoseconds_calculatorInput): Shakes_to_nanoseconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["exactNanoseconds_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["exactNanoseconds_aux"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateShakes_to_nanoseconds_calculator(input: Shakes_to_nanos
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

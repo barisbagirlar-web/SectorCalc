@@ -18,27 +18,23 @@ export const Credit_card_processing_fee_calculatorInputSchema = z.object({
   numberOfTransactions: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Credit_card_processing_fee_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.transactionAmount * input.processingRate / 100 + input.perTransactionFee + input.monthlyStatementFee / input.numberOfTransactions; results["totalFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFee"] = 0; }
-  try { const v = input.transactionAmount - (asFormulaNumber(results["totalFee"])); results["netAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netAmount"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalFee"])) / input.transactionAmount) * 100; results["effectiveRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveRate"] = 0; }
-  try { const v = (asFormulaNumber(results["totalFee"])) * input.numberOfTransactions; results["monthlyTotalFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyTotalFee"] = 0; }
+  try { const v = input.transactionAmount * input.processingRate / 100 + input.perTransactionFee + input.monthlyStatementFee / input.numberOfTransactions; results["totalFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFee"] = Number.NaN; }
+  try { const v = input.transactionAmount - (toNumericFormulaValue(results["totalFee"])); results["netAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netAmount"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalFee"])) / input.transactionAmount) * 100; results["effectiveRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalFee"])) * input.numberOfTransactions; results["monthlyTotalFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyTotalFee"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCredit_card_processing_fee_calculator(input: Credit_card_processing_fee_calculatorInput): Credit_card_processing_fee_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netAmount"]));
+  const totalWasteCost = toNumericFormulaValue(values["netAmount"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateCredit_card_processing_fee_calculator(input: Credit_car
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

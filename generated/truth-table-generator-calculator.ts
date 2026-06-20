@@ -16,27 +16,23 @@ export const Truth_table_generator_calculatorInputSchema = z.object({
   varD: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Truth_table_generator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.varA * input.varB; results["andAB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["andAB"] = 0; }
-  try { const v = 1 - input.varD; results["notD"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["notD"] = 0; }
-  try { const v = input.varC * (asFormulaNumber(results["notD"])); results["andCnotD"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["andCnotD"] = 0; }
-  try { const v = (asFormulaNumber(results["andAB"])) + (asFormulaNumber(results["andCnotD"])) - (asFormulaNumber(results["andAB"])) * (asFormulaNumber(results["andCnotD"])); results["finalResult"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalResult"] = 0; }
+  try { const v = input.varA * input.varB; results["andAB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["andAB"] = Number.NaN; }
+  try { const v = 1 - input.varD; results["notD"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["notD"] = Number.NaN; }
+  try { const v = input.varC * (toNumericFormulaValue(results["notD"])); results["andCnotD"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["andCnotD"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["andAB"])) + (toNumericFormulaValue(results["andCnotD"])) - (toNumericFormulaValue(results["andAB"])) * (toNumericFormulaValue(results["andCnotD"])); results["finalResult"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalResult"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTruth_table_generator_calculator(input: Truth_table_generator_calculatorInput): Truth_table_generator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalResult"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalResult"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateTruth_table_generator_calculator(input: Truth_table_gen
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

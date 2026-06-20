@@ -18,26 +18,22 @@ export const Healthy_life_years_calculatorInputSchema = z.object({
   moderate_weight: z.number().default(0.3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Healthy_life_years_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.life_expectancy * (1 - (input.severe_prevalence * input.severe_weight + input.moderate_prevalence * input.moderate_weight)); results["healthy_life_years"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["healthy_life_years"] = 0; }
-  try { const v = input.life_expectancy; results["total_life_expectancy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_life_expectancy"] = 0; }
-  try { const v = input.life_expectancy * (input.severe_prevalence * input.severe_weight + input.moderate_prevalence * input.moderate_weight); results["unhealthy_years"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unhealthy_years"] = 0; }
+  try { const v = input.life_expectancy * (1 - (input.severe_prevalence * input.severe_weight + input.moderate_prevalence * input.moderate_weight)); results["healthy_life_years"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["healthy_life_years"] = Number.NaN; }
+  try { const v = input.life_expectancy; results["total_life_expectancy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_life_expectancy"] = Number.NaN; }
+  try { const v = input.life_expectancy * (input.severe_prevalence * input.severe_weight + input.moderate_prevalence * input.moderate_weight); results["unhealthy_years"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["unhealthy_years"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHealthy_life_years_calculator(input: Healthy_life_years_calculatorInput): Healthy_life_years_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["healthy_life_years"]));
+  const totalWasteCost = toNumericFormulaValue(values["healthy_life_years"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateHealthy_life_years_calculator(input: Healthy_life_years
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

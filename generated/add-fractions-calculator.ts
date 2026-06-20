@@ -16,26 +16,22 @@ export const Add_fractions_calculatorInputSchema = z.object({
   denominator2: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Add_fractions_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.numerator1 * input.denominator2 + input.numerator2 * input.denominator1) / (input.denominator1 * input.denominator2); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.numerator1 * input.denominator2 + input.numerator2 * input.denominator1; results["numeratorResult"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numeratorResult"] = 0; }
-  try { const v = input.denominator1 * input.denominator2; results["denominatorResult"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominatorResult"] = 0; }
+  try { const v = (input.numerator1 * input.denominator2 + input.numerator2 * input.denominator1) / (input.denominator1 * input.denominator2); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = input.numerator1 * input.denominator2 + input.numerator2 * input.denominator1; results["numeratorResult"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numeratorResult"] = Number.NaN; }
+  try { const v = input.denominator1 * input.denominator2; results["denominatorResult"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["denominatorResult"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAdd_fractions_calculator(input: Add_fractions_calculatorInput): Add_fractions_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateAdd_fractions_calculator(input: Add_fractions_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

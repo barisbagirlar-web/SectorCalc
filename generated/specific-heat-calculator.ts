@@ -16,25 +16,21 @@ export const Specific_heat_calculatorInputSchema = z.object({
   temp_final: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Specific_heat_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.temp_final - input.temp_initial; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaT"] = 0; }
-  try { const v = input.heat / (input.mass * (asFormulaNumber(results["deltaT"]))); results["specificHeat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["specificHeat"] = 0; }
+  try { const v = input.temp_final - input.temp_initial; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaT"] = Number.NaN; }
+  try { const v = input.heat / (input.mass * (toNumericFormulaValue(results["deltaT"]))); results["specificHeat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["specificHeat"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSpecific_heat_calculator(input: Specific_heat_calculatorInput): Specific_heat_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["specificHeat"]));
+  const totalWasteCost = toNumericFormulaValue(values["specificHeat"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSpecific_heat_calculator(input: Specific_heat_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

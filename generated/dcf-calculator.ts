@@ -22,33 +22,29 @@ export const Dcf_calculatorInputSchema = z.object({
   growthRate: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dcf_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.discountRate / 100; results["discount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discount"] = 0; }
-  try { const v = input.growthRate / 100; results["growth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["growth"] = 0; }
-  try { const v = input.cf1 / ((1 + (asFormulaNumber(results["discount"]))) ** 1); results["pvYear1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pvYear1"] = 0; }
-  try { const v = input.cf2 / ((1 + (asFormulaNumber(results["discount"]))) ** 2); results["pvYear2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pvYear2"] = 0; }
-  try { const v = input.cf3 / ((1 + (asFormulaNumber(results["discount"]))) ** 3); results["pvYear3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pvYear3"] = 0; }
-  try { const v = input.cf4 / ((1 + (asFormulaNumber(results["discount"]))) ** 4); results["pvYear4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pvYear4"] = 0; }
-  try { const v = input.cf5 / ((1 + (asFormulaNumber(results["discount"]))) ** 5); results["pvYear5"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pvYear5"] = 0; }
-  try { const v = (input.cf5 * (1 + (asFormulaNumber(results["growth"])))) / ((asFormulaNumber(results["discount"])) - (asFormulaNumber(results["growth"]))); results["terminalValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["terminalValue"] = 0; }
-  try { const v = (asFormulaNumber(results["terminalValue"])) / ((1 + (asFormulaNumber(results["discount"]))) ** 5); results["terminalValuePV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["terminalValuePV"] = 0; }
-  try { const v = (asFormulaNumber(results["pvYear1"])) + (asFormulaNumber(results["pvYear2"])) + (asFormulaNumber(results["pvYear3"])) + (asFormulaNumber(results["pvYear4"])) + (asFormulaNumber(results["pvYear5"])) + (asFormulaNumber(results["terminalValuePV"])); results["dcfValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcfValue"] = 0; }
+  try { const v = input.discountRate / 100; results["discount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discount"] = Number.NaN; }
+  try { const v = input.growthRate / 100; results["growth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["growth"] = Number.NaN; }
+  try { const v = input.cf1 / ((1 + (toNumericFormulaValue(results["discount"]))) ** 1); results["pvYear1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pvYear1"] = Number.NaN; }
+  try { const v = input.cf2 / ((1 + (toNumericFormulaValue(results["discount"]))) ** 2); results["pvYear2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pvYear2"] = Number.NaN; }
+  try { const v = input.cf3 / ((1 + (toNumericFormulaValue(results["discount"]))) ** 3); results["pvYear3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pvYear3"] = Number.NaN; }
+  try { const v = input.cf4 / ((1 + (toNumericFormulaValue(results["discount"]))) ** 4); results["pvYear4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pvYear4"] = Number.NaN; }
+  try { const v = input.cf5 / ((1 + (toNumericFormulaValue(results["discount"]))) ** 5); results["pvYear5"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pvYear5"] = Number.NaN; }
+  try { const v = (input.cf5 * (1 + (toNumericFormulaValue(results["growth"])))) / ((toNumericFormulaValue(results["discount"])) - (toNumericFormulaValue(results["growth"]))); results["terminalValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["terminalValue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["terminalValue"])) / ((1 + (toNumericFormulaValue(results["discount"]))) ** 5); results["terminalValuePV"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["terminalValuePV"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pvYear1"])) + (toNumericFormulaValue(results["pvYear2"])) + (toNumericFormulaValue(results["pvYear3"])) + (toNumericFormulaValue(results["pvYear4"])) + (toNumericFormulaValue(results["pvYear5"])) + (toNumericFormulaValue(results["terminalValuePV"])); results["dcfValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dcfValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDcf_calculator(input: Dcf_calculatorInput): Dcf_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dcfValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["dcfValue"]);
   const breakdown = {
     
   };
@@ -56,7 +52,7 @@ export function calculateDcf_calculator(input: Dcf_calculatorInput): Dcf_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

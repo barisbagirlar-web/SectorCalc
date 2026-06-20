@@ -22,31 +22,27 @@ export const Shopify_profit_calculatorInputSchema = z.object({
   monthlyFixedCosts: z.number().default(300),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Shopify_profit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.averageOrderValue * input.monthlyOrders; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
-  try { const v = input.costOfGoodsPerOrder * input.monthlyOrders; results["totalCOGS"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCOGS"] = 0; }
-  try { const v = input.shippingCostPerOrder * input.monthlyOrders; results["totalShipping"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalShipping"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRevenue"])) * (input.transactionFeeRate / 100); results["totalTransactionFees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTransactionFees"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRevenue"])) - (asFormulaNumber(results["totalCOGS"])); results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = (asFormulaNumber(results["totalShipping"])) + (asFormulaNumber(results["totalTransactionFees"])) + input.monthlyMarketing + input.monthlyFixedCosts; results["operatingExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["operatingExpenses"] = 0; }
-  try { const v = (asFormulaNumber(results["grossProfit"])) - (asFormulaNumber(results["operatingExpenses"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = ((asFormulaNumber(results["netProfit"])) / (asFormulaNumber(results["totalRevenue"]))) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMargin"] = 0; }
+  try { const v = input.averageOrderValue * input.monthlyOrders; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRevenue"] = Number.NaN; }
+  try { const v = input.costOfGoodsPerOrder * input.monthlyOrders; results["totalCOGS"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCOGS"] = Number.NaN; }
+  try { const v = input.shippingCostPerOrder * input.monthlyOrders; results["totalShipping"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalShipping"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRevenue"])) * (input.transactionFeeRate / 100); results["totalTransactionFees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTransactionFees"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRevenue"])) - (toNumericFormulaValue(results["totalCOGS"])); results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossProfit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalShipping"])) + (toNumericFormulaValue(results["totalTransactionFees"])) + input.monthlyMarketing + input.monthlyFixedCosts; results["operatingExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["operatingExpenses"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossProfit"])) - (toNumericFormulaValue(results["operatingExpenses"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["netProfit"])) / (toNumericFormulaValue(results["totalRevenue"]))) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMargin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateShopify_profit_calculator(input: Shopify_profit_calculatorInput): Shopify_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRevenue"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalRevenue"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateShopify_profit_calculator(input: Shopify_profit_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

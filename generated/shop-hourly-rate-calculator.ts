@@ -24,26 +24,22 @@ export const Shop_hourly_rate_calculatorInputSchema = z.object({
   shift_premium_factor: z.number().min(1).max(2).default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Shop_hourly_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annual_operating_hours_per_employee; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.num_direct_labor_employees * (input.direct_labor_hourly_rate / 100) * input.annual_operating_hours_per_employee * input.total_annual_overhead_costs; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.num_direct_labor_employees * (input.direct_labor_hourly_rate / 100) * input.annual_operating_hours_per_employee * input.total_annual_overhead_costs; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.annual_operating_hours_per_employee; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_exposure_hours"] = Number.NaN; }
+  try { const v = input.num_direct_labor_employees * (input.direct_labor_hourly_rate / 100) * input.annual_operating_hours_per_employee * input.total_annual_overhead_costs; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_labor_cost"] = Number.NaN; }
+  try { const v = input.num_direct_labor_employees * (input.direct_labor_hourly_rate / 100) * input.annual_operating_hours_per_employee * input.total_annual_overhead_costs; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateShop_hourly_rate_calculator(input: Shop_hourly_rate_calculatorInput): Shop_hourly_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateShop_hourly_rate_calculator(input: Shop_hourly_rate_cal
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

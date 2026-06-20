@@ -20,26 +20,22 @@ export const Knitting_calculatorInputSchema = z.object({
   yarnDensity: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Knitting_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fabricWidth * input.stitchGauge * input.fabricLength * input.rowGauge; results["totalStitches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalStitches"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalStitches"])) * input.yarnPerStitch) / 100; results["totalYarnLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalYarnLength"] = 0; }
-  try { const v = (asFormulaNumber(results["totalYarnLength"])) * (input.yarnDensity / 1000); results["totalYarnWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalYarnWeight"] = 0; }
+  try { const v = input.fabricWidth * input.stitchGauge * input.fabricLength * input.rowGauge; results["totalStitches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalStitches"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalStitches"])) * input.yarnPerStitch) / 100; results["totalYarnLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalYarnLength"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalYarnLength"])) * (input.yarnDensity / 1000); results["totalYarnWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalYarnWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKnitting_calculator(input: Knitting_calculatorInput): Knitting_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalYarnLength"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalYarnLength"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateKnitting_calculator(input: Knitting_calculatorInput): K
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

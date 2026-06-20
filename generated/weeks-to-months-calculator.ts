@@ -20,25 +20,21 @@ export const Weeks_to_months_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weeks_to_months_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.weeks * input.daysPerWeek) / input.daysPerMonth; results["monthsCalendar"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthsCalendar"] = 0; }
-  try { const v = (input.weeks * input.workDaysPerWeek) / input.workDaysPerMonth; results["monthsWorking"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthsWorking"] = 0; }
+  try { const v = (input.weeks * input.daysPerWeek) / input.daysPerMonth; results["monthsCalendar"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthsCalendar"] = Number.NaN; }
+  try { const v = (input.weeks * input.workDaysPerWeek) / input.workDaysPerMonth; results["monthsWorking"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthsWorking"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeeks_to_months_calculator(input: Weeks_to_months_calculatorInput): Weeks_to_months_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthsWorking"]));
+  const totalWasteCost = toNumericFormulaValue(values["monthsWorking"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateWeeks_to_months_calculator(input: Weeks_to_months_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

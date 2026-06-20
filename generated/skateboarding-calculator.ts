@@ -24,30 +24,26 @@ export const Skateboarding_calculatorInputSchema = z.object({
   skateStyle: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Skateboarding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.deckLength * input.deckWidth; results["deckArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deckArea"] = 0; }
-  try { const v = input.wheelDiameter * (100 - input.wheelHardness) / 100; results["wheelPerformance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wheelPerformance"] = 0; }
-  try { const v = input.bearingRating * 10; results["bearingSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bearingSpeed"] = 0; }
-  try { const v = input.truckWidth / input.deckWidth; results["truckStability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["truckStability"] = 0; }
-  try { const v = input.riderWeight / 150; results["weightFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightFactor"] = 0; }
-  try { const v = input.skateStyle === 1 ? 1.2 : (input.skateStyle === 2 ? 1.0 : 0.8); results["styleMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["styleMultiplier"] = 0; }
-  try { const v = ((asFormulaNumber(results["deckArea"])) * 0.2 + (asFormulaNumber(results["wheelPerformance"])) * 0.3 + (asFormulaNumber(results["bearingSpeed"])) * 0.25 + (asFormulaNumber(results["truckStability"])) * 0.15 + (asFormulaNumber(results["weightFactor"])) * 0.1) * (asFormulaNumber(results["styleMultiplier"])); results["overallScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overallScore"] = 0; }
+  try { const v = input.deckLength * input.deckWidth; results["deckArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deckArea"] = Number.NaN; }
+  try { const v = input.wheelDiameter * (100 - input.wheelHardness) / 100; results["wheelPerformance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wheelPerformance"] = Number.NaN; }
+  try { const v = input.bearingRating * 10; results["bearingSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bearingSpeed"] = Number.NaN; }
+  try { const v = input.truckWidth / input.deckWidth; results["truckStability"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["truckStability"] = Number.NaN; }
+  try { const v = input.riderWeight / 150; results["weightFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightFactor"] = Number.NaN; }
+  try { const v = input.skateStyle === 1 ? 1.2 : (input.skateStyle === 2 ? 1.0 : 0.8); results["styleMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["styleMultiplier"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["deckArea"])) * 0.2 + (toNumericFormulaValue(results["wheelPerformance"])) * 0.3 + (toNumericFormulaValue(results["bearingSpeed"])) * 0.25 + (toNumericFormulaValue(results["truckStability"])) * 0.15 + (toNumericFormulaValue(results["weightFactor"])) * 0.1) * (toNumericFormulaValue(results["styleMultiplier"])); results["overallScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overallScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSkateboarding_calculator(input: Skateboarding_calculatorInput): Skateboarding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overallScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["overallScore"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculateSkateboarding_calculator(input: Skateboarding_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

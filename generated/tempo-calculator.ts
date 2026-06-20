@@ -16,26 +16,22 @@ export const Tempo_calculatorInputSchema = z.object({
   efficiencyFactor: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Tempo_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.availableTimePerShift * input.shiftsPerDay * 3600 * input.efficiencyFactor / 100) / input.demandPerDay; results["taktTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taktTime"] = 0; }
-  try { const v = input.demandPerDay / (input.availableTimePerShift * input.shiftsPerDay * input.efficiencyFactor / 100); results["tempoHour"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tempoHour"] = 0; }
-  try { const v = input.availableTimePerShift * input.shiftsPerDay * 3600 * input.efficiencyFactor / 100; results["netTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netTimeSeconds"] = 0; }
+  try { const v = (input.availableTimePerShift * input.shiftsPerDay * 3600 * input.efficiencyFactor / 100) / input.demandPerDay; results["taktTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taktTime"] = Number.NaN; }
+  try { const v = input.demandPerDay / (input.availableTimePerShift * input.shiftsPerDay * input.efficiencyFactor / 100); results["tempoHour"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tempoHour"] = Number.NaN; }
+  try { const v = input.availableTimePerShift * input.shiftsPerDay * 3600 * input.efficiencyFactor / 100; results["netTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netTimeSeconds"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTempo_calculator(input: Tempo_calculatorInput): Tempo_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["taktTime"]));
+  const totalWasteCost = toNumericFormulaValue(values["taktTime"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateTempo_calculator(input: Tempo_calculatorInput): Tempo_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

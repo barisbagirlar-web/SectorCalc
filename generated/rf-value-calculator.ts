@@ -16,27 +16,23 @@ export const Rf_value_calculatorInputSchema = z.object({
   spotDistance3: z.number().default(4.9),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rf_value_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.spotDistance1 / input.solventDistance; results["rf1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rf1"] = 0; }
-  try { const v = input.spotDistance2 / input.solventDistance; results["rf2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rf2"] = 0; }
-  try { const v = input.spotDistance3 / input.solventDistance; results["rf3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rf3"] = 0; }
-  try { const v = (input.spotDistance1 / input.solventDistance + input.spotDistance2 / input.solventDistance + input.spotDistance3 / input.solventDistance) / 3; results["averageRf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageRf"] = 0; }
+  try { const v = input.spotDistance1 / input.solventDistance; results["rf1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rf1"] = Number.NaN; }
+  try { const v = input.spotDistance2 / input.solventDistance; results["rf2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rf2"] = Number.NaN; }
+  try { const v = input.spotDistance3 / input.solventDistance; results["rf3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rf3"] = Number.NaN; }
+  try { const v = (input.spotDistance1 / input.solventDistance + input.spotDistance2 / input.solventDistance + input.spotDistance3 / input.solventDistance) / 3; results["averageRf"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageRf"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRf_value_calculator(input: Rf_value_calculatorInput): Rf_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["averageRf"]));
+  const totalWasteCost = toNumericFormulaValue(values["averageRf"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRf_value_calculator(input: Rf_value_calculatorInput): R
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

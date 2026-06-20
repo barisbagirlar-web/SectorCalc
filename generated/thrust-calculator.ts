@@ -18,26 +18,22 @@ export const Thrust_calculatorInputSchema = z.object({
   exitArea: z.number().default(0.01),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Thrust_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.massFlowRate * input.exhaustVelocity; results["momentumThrust"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["momentumThrust"] = 0; }
-  try { const v = (input.exitPressure - input.ambientPressure) * input.exitArea; results["pressureThrust"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureThrust"] = 0; }
-  try { const v = input.massFlowRate * input.exhaustVelocity + (input.exitPressure - input.ambientPressure) * input.exitArea; results["totalThrust"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalThrust"] = 0; }
+  try { const v = input.massFlowRate * input.exhaustVelocity; results["momentumThrust"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["momentumThrust"] = Number.NaN; }
+  try { const v = (input.exitPressure - input.ambientPressure) * input.exitArea; results["pressureThrust"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressureThrust"] = Number.NaN; }
+  try { const v = input.massFlowRate * input.exhaustVelocity + (input.exitPressure - input.ambientPressure) * input.exitArea; results["totalThrust"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalThrust"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateThrust_calculator(input: Thrust_calculatorInput): Thrust_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalThrust"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalThrust"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateThrust_calculator(input: Thrust_calculatorInput): Thrus
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

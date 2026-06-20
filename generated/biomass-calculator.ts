@@ -18,27 +18,23 @@ export const Biomass_calculatorInputSchema = z.object({
   carbon_fraction: z.number().default(0.47),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Biomass_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.0673 * (input.wood_density * input.dbh_cm ** 2 * input.height_m) ** 0.976; results["biomass_per_tree_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["biomass_per_tree_kg"] = 0; }
-  try { const v = (asFormulaNumber(results["biomass_per_tree_kg"])) * input.tree_count; results["total_biomass_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_biomass_kg"] = 0; }
-  try { const v = (asFormulaNumber(results["total_biomass_kg"])) * input.carbon_fraction; results["total_carbon_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_carbon_kg"] = 0; }
-  try { const v = (asFormulaNumber(results["total_carbon_kg"])) * 44 / 12; results["total_co2e_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_co2e_kg"] = 0; }
+  try { const v = 0.0673 * (input.wood_density * input.dbh_cm ** 2 * input.height_m) ** 0.976; results["biomass_per_tree_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["biomass_per_tree_kg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["biomass_per_tree_kg"])) * input.tree_count; results["total_biomass_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_biomass_kg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_biomass_kg"])) * input.carbon_fraction; results["total_carbon_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_carbon_kg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_carbon_kg"])) * 44 / 12; results["total_co2e_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_co2e_kg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBiomass_calculator(input: Biomass_calculatorInput): Biomass_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_biomass_kg"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_biomass_kg"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateBiomass_calculator(input: Biomass_calculatorInput): Bio
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

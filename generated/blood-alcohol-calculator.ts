@@ -20,29 +20,25 @@ export const Blood_alcohol_calculatorInputSchema = z.object({
   hoursSinceFirstDrink: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Blood_alcohol_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789; results["alcoholGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["alcoholGrams"] = 0; }
-  try { const v = input.gender === 1 ? 0.68 : 0.55; results["widmarkFactorR"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["widmarkFactorR"] = 0; }
-  try { const v = (input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789 / (input.bodyWeight * 1000 * (input.gender === 1 ? 0.68 : 0.55))) * 100; results["bacBeforeElimination"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bacBeforeElimination"] = 0; }
-  try { const v = 0.015 * input.hoursSinceFirstDrink; results["eliminationEffect"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eliminationEffect"] = 0; }
-  try { const v = (input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789 / (input.bodyWeight * 1000 * (input.gender === 1 ? 0.68 : 0.55))) * 100 - 0.015 * input.hoursSinceFirstDrink; results["bacPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bacPercent"] = 0; }
-  try { const v = ((input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789 / (input.bodyWeight * 1000 * (input.gender === 1 ? 0.68 : 0.55))) * 100 - 0.015 * input.hoursSinceFirstDrink) * 10; results["bacPromille"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bacPromille"] = 0; }
+  try { const v = input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789; results["alcoholGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["alcoholGrams"] = Number.NaN; }
+  try { const v = input.gender === 1 ? 0.68 : 0.55; results["widmarkFactorR"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["widmarkFactorR"] = Number.NaN; }
+  try { const v = (input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789 / (input.bodyWeight * 1000 * (input.gender === 1 ? 0.68 : 0.55))) * 100; results["bacBeforeElimination"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bacBeforeElimination"] = Number.NaN; }
+  try { const v = 0.015 * input.hoursSinceFirstDrink; results["eliminationEffect"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eliminationEffect"] = Number.NaN; }
+  try { const v = (input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789 / (input.bodyWeight * 1000 * (input.gender === 1 ? 0.68 : 0.55))) * 100 - 0.015 * input.hoursSinceFirstDrink; results["bacPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bacPercent"] = Number.NaN; }
+  try { const v = ((input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789 / (input.bodyWeight * 1000 * (input.gender === 1 ? 0.68 : 0.55))) * 100 - 0.015 * input.hoursSinceFirstDrink) * 10; results["bacPromille"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bacPromille"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBlood_alcohol_calculator(input: Blood_alcohol_calculatorInput): Blood_alcohol_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bacPercent"]));
+  const totalWasteCost = toNumericFormulaValue(values["bacPercent"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateBlood_alcohol_calculator(input: Blood_alcohol_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Vent_size_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Vent_size_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.ach * input.volume) / 3600; results["flow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["flow"] = 0; }
-  try { const v = (asFormulaNumber(results["flow"])) / input.velocity; results["areaRaw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaRaw"] = 0; }
-  try { const v = (asFormulaNumber(results["areaRaw"])) * input.safetyFactor; results["areaFinal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaFinal"] = 0; }
+  try { const v = (input.ach * input.volume) / 3600; results["flow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["flow"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["flow"])) / input.velocity; results["areaRaw"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["areaRaw"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["areaRaw"])) * input.safetyFactor; results["areaFinal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["areaFinal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVent_size_calculator(input: Vent_size_calculatorInput): Vent_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["areaFinal"]));
+  const totalWasteCost = toNumericFormulaValue(values["areaFinal"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateVent_size_calculator(input: Vent_size_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

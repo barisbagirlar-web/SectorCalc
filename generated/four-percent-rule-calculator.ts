@@ -14,26 +14,22 @@ export const Four_percent_rule_calculatorInputSchema = z.object({
   withdrawalRate: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Four_percent_rule_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.portfolioValue * input.withdrawalRate / 100; results["safeWithdrawal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safeWithdrawal"] = 0; }
-  try { const v = input.desiredAnnualWithdrawal / (input.withdrawalRate / 100); results["neededPortfolio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["neededPortfolio"] = 0; }
-  try { const v = input.portfolioValue > 0 ? input.portfolioValue * input.withdrawalRate / 100 : (input.desiredAnnualWithdrawal > 0 ? input.desiredAnnualWithdrawal / (input.withdrawalRate / 100) : 0); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.portfolioValue * input.withdrawalRate / 100; results["safeWithdrawal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safeWithdrawal"] = Number.NaN; }
+  try { const v = input.desiredAnnualWithdrawal / (input.withdrawalRate / 100); results["neededPortfolio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["neededPortfolio"] = Number.NaN; }
+  try { const v = input.portfolioValue > 0 ? input.portfolioValue * input.withdrawalRate / 100 : (input.desiredAnnualWithdrawal > 0 ? input.desiredAnnualWithdrawal / (input.withdrawalRate / 100) : 0); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFour_percent_rule_calculator(input: Four_percent_rule_calculatorInput): Four_percent_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary"]);
   const breakdown = {
     
   };
@@ -41,7 +37,7 @@ export function calculateFour_percent_rule_calculator(input: Four_percent_rule_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

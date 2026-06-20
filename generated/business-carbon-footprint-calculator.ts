@@ -18,27 +18,23 @@ export const Business_carbon_footprint_calculatorInputSchema = z.object({
   wasteGenerated: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Business_carbon_footprint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.naturalGasUsage * 1.9 + input.vehicleFuel * 2.5; results["scope1Emissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scope1Emissions"] = 0; }
-  try { const v = input.electricityUsage * 0.5; results["scope2Emissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scope2Emissions"] = 0; }
-  try { const v = input.businessFlights * 0.15 + input.wasteGenerated * 1.0; results["scope3Emissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scope3Emissions"] = 0; }
-  try { const v = (asFormulaNumber(results["scope1Emissions"])) + (asFormulaNumber(results["scope2Emissions"])) + (asFormulaNumber(results["scope3Emissions"])); results["totalCarbonFootprint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCarbonFootprint"] = 0; }
+  try { const v = input.naturalGasUsage * 1.9 + input.vehicleFuel * 2.5; results["scope1Emissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scope1Emissions"] = Number.NaN; }
+  try { const v = input.electricityUsage * 0.5; results["scope2Emissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scope2Emissions"] = Number.NaN; }
+  try { const v = input.businessFlights * 0.15 + input.wasteGenerated * 1.0; results["scope3Emissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scope3Emissions"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["scope1Emissions"])) + (toNumericFormulaValue(results["scope2Emissions"])) + (toNumericFormulaValue(results["scope3Emissions"])); results["totalCarbonFootprint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCarbonFootprint"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBusiness_carbon_footprint_calculator(input: Business_carbon_footprint_calculatorInput): Business_carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCarbonFootprint"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCarbonFootprint"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateBusiness_carbon_footprint_calculator(input: Business_ca
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,28 +16,24 @@ export const Sustainability_calculatorInputSchema = z.object({
   waste: z.number().default(500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sustainability_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.electricity * 0.233 + input.gas * 2.02 + input.fuel * 2.31 + input.waste * 0.5; results["totalCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCO2"] = 0; }
-  try { const v = input.electricity * 0.233; results["electricityCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricityCO2"] = 0; }
-  try { const v = input.gas * 2.02; results["gasCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gasCO2"] = 0; }
-  try { const v = input.fuel * 2.31; results["fuelCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fuelCO2"] = 0; }
-  try { const v = input.waste * 0.5; results["wasteCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteCO2"] = 0; }
+  try { const v = input.electricity * 0.233 + input.gas * 2.02 + input.fuel * 2.31 + input.waste * 0.5; results["totalCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCO2"] = Number.NaN; }
+  try { const v = input.electricity * 0.233; results["electricityCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricityCO2"] = Number.NaN; }
+  try { const v = input.gas * 2.02; results["gasCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gasCO2"] = Number.NaN; }
+  try { const v = input.fuel * 2.31; results["fuelCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fuelCO2"] = Number.NaN; }
+  try { const v = input.waste * 0.5; results["wasteCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteCO2"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSustainability_calculator(input: Sustainability_calculatorInput): Sustainability_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCO2"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCO2"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateSustainability_calculator(input: Sustainability_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

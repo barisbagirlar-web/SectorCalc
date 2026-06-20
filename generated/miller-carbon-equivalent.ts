@@ -22,28 +22,24 @@ export const Miller_carbon_equivalentInputSchema = z.object({
   copper: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Miller_carbon_equivalentInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.carbon + input.manganese / 6 + (input.chromium + input.molybdenum + input.vanadium) / 5 + (input.nickel + input.copper) / 15; results["ce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ce"] = 0; }
-  try { const v = input.carbon; results["cPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cPart"] = 0; }
-  try { const v = input.manganese / 6; results["mnPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mnPart"] = 0; }
-  try { const v = (input.chromium + input.molybdenum + input.vanadium) / 5; results["crMoVPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crMoVPart"] = 0; }
-  try { const v = (input.nickel + input.copper) / 15; results["niCuPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["niCuPart"] = 0; }
+  try { const v = input.carbon + input.manganese / 6 + (input.chromium + input.molybdenum + input.vanadium) / 5 + (input.nickel + input.copper) / 15; results["ce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ce"] = Number.NaN; }
+  try { const v = input.carbon; results["cPart"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cPart"] = Number.NaN; }
+  try { const v = input.manganese / 6; results["mnPart"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mnPart"] = Number.NaN; }
+  try { const v = (input.chromium + input.molybdenum + input.vanadium) / 5; results["crMoVPart"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["crMoVPart"] = Number.NaN; }
+  try { const v = (input.nickel + input.copper) / 15; results["niCuPart"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["niCuPart"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMiller_carbon_equivalent(input: Miller_carbon_equivalentInput): Miller_carbon_equivalentOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ce"]));
+  const totalWasteCost = toNumericFormulaValue(values["ce"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateMiller_carbon_equivalent(input: Miller_carbon_equivalen
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

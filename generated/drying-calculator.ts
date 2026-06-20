@@ -20,27 +20,23 @@ export const Drying_calculatorInputSchema = z.object({
   energyCost: z.number().default(0.12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Drying_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.materialMass * (input.initialMoisture - input.finalMoisture) / 100; results["waterToRemove"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterToRemove"] = 0; }
-  try { const v = (asFormulaNumber(results["waterToRemove"])) * input.energyConsumption; results["totalEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["totalEnergy"])) * input.energyCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["waterToRemove"])) / input.dryingTime; results["dryingRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dryingRate"] = 0; }
+  try { const v = input.materialMass * (input.initialMoisture - input.finalMoisture) / 100; results["waterToRemove"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterToRemove"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["waterToRemove"])) * input.energyConsumption; results["totalEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalEnergy"])) * input.energyCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["waterToRemove"])) / input.dryingTime; results["dryingRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dryingRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDrying_calculator(input: Drying_calculatorInput): Drying_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateDrying_calculator(input: Drying_calculatorInput): Dryin
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,28 +16,24 @@ export const Treadmill_pace_calculatorInputSchema = z.object({
   seconds: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Treadmill_pace_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSeconds"] = 0; }
-  try { const v = (asFormulaNumber(results["totalSeconds"])) / input.distance; results["paceSecondsPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paceSecondsPerKm"] = 0; }
-  try { const v = (asFormulaNumber(results["paceSecondsPerKm"])) / 60; results["paceMinPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paceMinPerKm"] = 0; }
-  try { const v = (input.distance * 3600) / (asFormulaNumber(results["totalSeconds"])); results["speedKmh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speedKmh"] = 0; }
-  try { const v = (asFormulaNumber(results["paceSecondsPerKm"])) * 1.60934 / 60; results["paceMinPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paceMinPerMile"] = 0; }
+  try { const v = input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSeconds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalSeconds"])) / input.distance; results["paceSecondsPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paceSecondsPerKm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["paceSecondsPerKm"])) / 60; results["paceMinPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paceMinPerKm"] = Number.NaN; }
+  try { const v = (input.distance * 3600) / (toNumericFormulaValue(results["totalSeconds"])); results["speedKmh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["speedKmh"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["paceSecondsPerKm"])) * 1.60934 / 60; results["paceMinPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paceMinPerMile"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTreadmill_pace_calculator(input: Treadmill_pace_calculatorInput): Treadmill_pace_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["paceMinPerMile"]));
+  const totalWasteCost = toNumericFormulaValue(values["paceMinPerMile"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateTreadmill_pace_calculator(input: Treadmill_pace_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

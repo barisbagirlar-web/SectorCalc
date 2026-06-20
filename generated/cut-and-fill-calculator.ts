@@ -20,27 +20,23 @@ export const Cut_and_fill_calculatorInputSchema = z.object({
   shrinkageFactor: z.number().default(0.9),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cut_and_fill_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.cutArea1 + input.cutArea2) / 2) * input.distance; results["cutVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cutVolume"] = 0; }
-  try { const v = ((input.fillArea1 + input.fillArea2) / 2) * input.distance; results["fillVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fillVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["fillVolume"])) / input.shrinkageFactor; results["adjustedFillVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedFillVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["cutVolume"])) - (asFormulaNumber(results["adjustedFillVolume"])); results["netVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netVolume"] = 0; }
+  try { const v = ((input.cutArea1 + input.cutArea2) / 2) * input.distance; results["cutVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cutVolume"] = Number.NaN; }
+  try { const v = ((input.fillArea1 + input.fillArea2) / 2) * input.distance; results["fillVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fillVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fillVolume"])) / input.shrinkageFactor; results["adjustedFillVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedFillVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cutVolume"])) - (toNumericFormulaValue(results["adjustedFillVolume"])); results["netVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCut_and_fill_calculator(input: Cut_and_fill_calculatorInput): Cut_and_fill_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["netVolume"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCut_and_fill_calculator(input: Cut_and_fill_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

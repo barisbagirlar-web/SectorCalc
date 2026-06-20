@@ -16,26 +16,22 @@ export const Feet_to_meters_calculatorInputSchema = z.object({
   decimalPlaces: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Feet_to_meters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.feet * 12 + input.inches; results["totalInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInches"] = 0; }
-  try { const v = input.conversionType === 2 ? 0.3048006096012192 : 0.3048; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["totalInches"])) * (asFormulaNumber(results["conversionFactor"])) / 12; results["meters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meters"] = 0; }
+  try { const v = input.feet * 12 + input.inches; results["totalInches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInches"] = Number.NaN; }
+  try { const v = input.conversionType === 2 ? 0.3048006096012192 : 0.3048; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalInches"])) * (toNumericFormulaValue(results["conversionFactor"])) / 12; results["meters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["meters"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFeet_to_meters_calculator(input: Feet_to_meters_calculatorInput): Feet_to_meters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["meters"]));
+  const totalWasteCost = toNumericFormulaValue(values["meters"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateFeet_to_meters_calculator(input: Feet_to_meters_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

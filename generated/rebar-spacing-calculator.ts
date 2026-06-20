@@ -18,27 +18,23 @@ export const Rebar_spacing_calculatorInputSchema = z.object({
   numberOfBars: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rebar_spacing_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.concreteWidth - input.leftCover - input.rightCover - input.rebarDiameter) / (input.numberOfBars - 1); results["centerToCenterSpacing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["centerToCenterSpacing"] = 0; }
-  try { const v = (asFormulaNumber(results["centerToCenterSpacing"])) - input.rebarDiameter; results["clearSpacing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["clearSpacing"] = 0; }
-  try { const v = input.leftCover + input.rebarDiameter / 2; results["firstBarEdgeDistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["firstBarEdgeDistance"] = 0; }
-  try { const v = input.rightCover + input.rebarDiameter / 2; results["lastBarEdgeDistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lastBarEdgeDistance"] = 0; }
+  try { const v = (input.concreteWidth - input.leftCover - input.rightCover - input.rebarDiameter) / (input.numberOfBars - 1); results["centerToCenterSpacing"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["centerToCenterSpacing"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["centerToCenterSpacing"])) - input.rebarDiameter; results["clearSpacing"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["clearSpacing"] = Number.NaN; }
+  try { const v = input.leftCover + input.rebarDiameter / 2; results["firstBarEdgeDistance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["firstBarEdgeDistance"] = Number.NaN; }
+  try { const v = input.rightCover + input.rebarDiameter / 2; results["lastBarEdgeDistance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lastBarEdgeDistance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRebar_spacing_calculator(input: Rebar_spacing_calculatorInput): Rebar_spacing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["centerToCenterSpacing"]));
+  const totalWasteCost = toNumericFormulaValue(values["centerToCenterSpacing"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateRebar_spacing_calculator(input: Rebar_spacing_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

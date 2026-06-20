@@ -16,27 +16,23 @@ export const Reverb_calculatorInputSchema = z.object({
   alpha: z.number().default(0.3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Reverb_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * input.height; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = 2 * (input.length*input.width + input.length*input.height + input.width*input.height); results["surfaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["surfaceArea"] = 0; }
-  try { const v = (asFormulaNumber(results["surfaceArea"])) * input.alpha; results["totalAbsorption"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAbsorption"] = 0; }
-  try { const v = (asFormulaNumber(results["totalAbsorption"])) ? 0.161 * (asFormulaNumber(results["volume"])) / (asFormulaNumber(results["totalAbsorption"])) : 0; results["rt60"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rt60"] = 0; }
+  try { const v = input.length * input.width * input.height; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = 2 * (input.length*input.width + input.length*input.height + input.width*input.height); results["surfaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["surfaceArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["surfaceArea"])) * input.alpha; results["totalAbsorption"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAbsorption"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalAbsorption"])) ? 0.161 * (toNumericFormulaValue(results["volume"])) / (toNumericFormulaValue(results["totalAbsorption"])) : 0; results["rt60"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rt60"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateReverb_calculator(input: Reverb_calculatorInput): Reverb_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rt60"]));
+  const totalWasteCost = toNumericFormulaValue(values["rt60"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateReverb_calculator(input: Reverb_calculatorInput): Rever
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

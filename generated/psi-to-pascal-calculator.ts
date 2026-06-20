@@ -16,25 +16,21 @@ export const Psi_to_pascal_calculatorInputSchema = z.object({
   decimal_places: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Psi_to_pascal_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.psi_value * input.conversion_factor; results["raw_pascal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["raw_pascal"] = 0; }
-  try { const v = (asFormulaNumber(results["raw_pascal"])) + input.calibration_offset; results["pascal_with_offset"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pascal_with_offset"] = 0; }
+  try { const v = input.psi_value * input.conversion_factor; results["raw_pascal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["raw_pascal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["raw_pascal"])) + input.calibration_offset; results["pascal_with_offset"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pascal_with_offset"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePsi_to_pascal_calculator(input: Psi_to_pascal_calculatorInput): Psi_to_pascal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pascal_with_offset"]));
+  const totalWasteCost = toNumericFormulaValue(values["pascal_with_offset"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculatePsi_to_pascal_calculator(input: Psi_to_pascal_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

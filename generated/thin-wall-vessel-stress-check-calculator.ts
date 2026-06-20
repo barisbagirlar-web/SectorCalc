@@ -18,26 +18,22 @@ export const Thin_wall_vessel_stress_check_calculatorInputSchema = z.object({
   E: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Thin_wall_vessel_stress_check_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.P * input.D) / (2 * input.t * input.E); results["hoopStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hoopStress"] = 0; }
-  try { const v = (input.P * input.D) / (4 * input.t * input.E); results["longStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["longStress"] = 0; }
-  try { const v = (input.S * 2 * input.t * input.E) / (input.P * input.D); results["safetyFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safetyFactor"] = 0; }
+  try { const v = (input.P * input.D) / (2 * input.t * input.E); results["hoopStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hoopStress"] = Number.NaN; }
+  try { const v = (input.P * input.D) / (4 * input.t * input.E); results["longStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["longStress"] = Number.NaN; }
+  try { const v = (input.S * 2 * input.t * input.E) / (input.P * input.D); results["safetyFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safetyFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateThin_wall_vessel_stress_check_calculator(input: Thin_wall_vessel_stress_check_calculatorInput): Thin_wall_vessel_stress_check_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["safetyFactor"]));
+  const totalWasteCost = toNumericFormulaValue(values["safetyFactor"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateThin_wall_vessel_stress_check_calculator(input: Thin_wa
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

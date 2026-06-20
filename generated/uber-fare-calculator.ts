@@ -22,27 +22,23 @@ export const Uber_fare_calculatorInputSchema = z.object({
   bookingFee: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Uber_fare_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.baseFare + input.costPerMinute * input.durationMinutes + input.costPerMile * input.distanceMiles; results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) * (input.surgeMultiplier - 1); results["surgeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["surgeAmount"] = 0; }
-  try { const v = input.bookingFee; results["bookingFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bookingFeeAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) * input.surgeMultiplier + input.bookingFee; results["totalFare"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFare"] = 0; }
+  try { const v = input.baseFare + input.costPerMinute * input.durationMinutes + input.costPerMile * input.distanceMiles; results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["subtotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) * (input.surgeMultiplier - 1); results["surgeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["surgeAmount"] = Number.NaN; }
+  try { const v = input.bookingFee; results["bookingFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bookingFeeAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) * input.surgeMultiplier + input.bookingFee; results["totalFare"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFare"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUber_fare_calculator(input: Uber_fare_calculatorInput): Uber_fare_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFare"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalFare"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateUber_fare_calculator(input: Uber_fare_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

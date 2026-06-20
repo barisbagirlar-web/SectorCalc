@@ -20,26 +20,22 @@ export const Hrv_biofeedback_calculatorInputSchema = z.object({
   age: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hrv_biofeedback_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 220 - input.age; results["maximumHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maximumHeartRate"] = 0; }
-  try { const v = input.hrvRMSSD * 0.5 + input.hrvSDNN * 0.5; results["coherenceAmplitude"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coherenceAmplitude"] = 0; }
-  try { const v = input.sessionDuration / 10; results["sessionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sessionFactor"] = 0; }
+  try { const v = 220 - input.age; results["maximumHeartRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maximumHeartRate"] = Number.NaN; }
+  try { const v = input.hrvRMSSD * 0.5 + input.hrvSDNN * 0.5; results["coherenceAmplitude"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coherenceAmplitude"] = Number.NaN; }
+  try { const v = input.sessionDuration / 10; results["sessionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sessionFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHrv_biofeedback_calculator(input: Hrv_biofeedback_calculatorInput): Hrv_biofeedback_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maximumHeartRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["maximumHeartRate"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHrv_biofeedback_calculator(input: Hrv_biofeedback_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

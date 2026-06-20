@@ -22,27 +22,23 @@ export const Solar_payback_calculatorInputSchema = z.object({
   escalation_rate: z.number().default(0.03),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Solar_payback_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.system_cost * (1 - input.tax_credit_percent / 100); results["net_system_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["net_system_cost"] = 0; }
-  try { const v = input.annual_production_kwh * input.electricity_price_per_kwh - input.annual_maintenance_cost; results["first_year_savings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["first_year_savings"] = 0; }
-  try { const v = (asFormulaNumber(results["net_system_cost"])) / (asFormulaNumber(results["first_year_savings"])); results["simple_payback_years"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["simple_payback_years"] = 0; }
-  try { const v = ((asFormulaNumber(results["first_year_savings"])) / (asFormulaNumber(results["net_system_cost"]))) * 100; results["annual_return_percent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_return_percent"] = 0; }
+  try { const v = input.system_cost * (1 - input.tax_credit_percent / 100); results["net_system_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["net_system_cost"] = Number.NaN; }
+  try { const v = input.annual_production_kwh * input.electricity_price_per_kwh - input.annual_maintenance_cost; results["first_year_savings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["first_year_savings"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["net_system_cost"])) / (toNumericFormulaValue(results["first_year_savings"])); results["simple_payback_years"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["simple_payback_years"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["first_year_savings"])) / (toNumericFormulaValue(results["net_system_cost"]))) * 100; results["annual_return_percent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_return_percent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSolar_payback_calculator(input: Solar_payback_calculatorInput): Solar_payback_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["simple_payback_years"]));
+  const totalWasteCost = toNumericFormulaValue(values["simple_payback_years"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateSolar_payback_calculator(input: Solar_payback_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

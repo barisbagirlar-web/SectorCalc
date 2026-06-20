@@ -24,26 +24,22 @@ export const Hrv_calculatorInputSchema = z.object({
   operatingHours: z.number().default(4000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hrv_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.supplyTemp - input.outdoorTemp) / (input.indoorTemp - input.outdoorTemp); results["effectiveness"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveness"] = 0; }
-  try { const v = (input.airFlowRate * input.airDensity * input.specificHeat * (input.supplyTemp - input.outdoorTemp)) / 3600; results["heatRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heatRate"] = 0; }
-  try { const v = (asFormulaNumber(results["heatRate"])) * input.operatingHours; results["annualEnergySaved"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualEnergySaved"] = 0; }
+  try { const v = (input.supplyTemp - input.outdoorTemp) / (input.indoorTemp - input.outdoorTemp); results["effectiveness"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveness"] = Number.NaN; }
+  try { const v = (input.airFlowRate * input.airDensity * input.specificHeat * (input.supplyTemp - input.outdoorTemp)) / 3600; results["heatRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heatRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["heatRate"])) * input.operatingHours; results["annualEnergySaved"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualEnergySaved"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHrv_calculator(input: Hrv_calculatorInput): Hrv_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effectiveness"]));
+  const totalWasteCost = toNumericFormulaValue(values["effectiveness"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateHrv_calculator(input: Hrv_calculatorInput): Hrv_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

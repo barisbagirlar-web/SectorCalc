@@ -22,28 +22,24 @@ export const Carbon_intensity_calculatorInputSchema = z.object({
   dieselEmissionFactor: z.number().default(2.7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Carbon_intensity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.electricityConsumption * input.electricityEmissionFactor + input.naturalGasConsumption * input.naturalGasEmissionFactor + input.dieselConsumption * input.dieselEmissionFactor; results["totalEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEmissions"] = 0; }
-  try { const v = input.electricityConsumption * input.electricityEmissionFactor; results["electricityEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricityEmissions"] = 0; }
-  try { const v = input.naturalGasConsumption * input.naturalGasEmissionFactor; results["naturalGasEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["naturalGasEmissions"] = 0; }
-  try { const v = input.dieselConsumption * input.dieselEmissionFactor; results["dieselEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dieselEmissions"] = 0; }
-  try { const v = (asFormulaNumber(results["totalEmissions"])) / input.productionOutput; results["carbonIntensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["carbonIntensity"] = 0; }
+  try { const v = input.electricityConsumption * input.electricityEmissionFactor + input.naturalGasConsumption * input.naturalGasEmissionFactor + input.dieselConsumption * input.dieselEmissionFactor; results["totalEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEmissions"] = Number.NaN; }
+  try { const v = input.electricityConsumption * input.electricityEmissionFactor; results["electricityEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricityEmissions"] = Number.NaN; }
+  try { const v = input.naturalGasConsumption * input.naturalGasEmissionFactor; results["naturalGasEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["naturalGasEmissions"] = Number.NaN; }
+  try { const v = input.dieselConsumption * input.dieselEmissionFactor; results["dieselEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dieselEmissions"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalEmissions"])) / input.productionOutput; results["carbonIntensity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["carbonIntensity"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCarbon_intensity_calculator(input: Carbon_intensity_calculatorInput): Carbon_intensity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["carbonIntensity"]));
+  const totalWasteCost = toNumericFormulaValue(values["carbonIntensity"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateCarbon_intensity_calculator(input: Carbon_intensity_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

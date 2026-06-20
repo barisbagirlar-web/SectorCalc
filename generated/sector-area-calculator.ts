@@ -16,27 +16,23 @@ export const Sector_area_calculatorInputSchema = z.object({
   angleRadians: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sector_area_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.radius + input.diameter / 2; results["effectiveRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveRadius"] = 0; }
-  try { const v = input.angleRadians + input.angleDegrees * (Math.PI / 180); results["angleRadiansTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angleRadiansTotal"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveRadius"])) ** 2; results["radiusSquared"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["radiusSquared"] = 0; }
-  try { const v = 0.5 * (asFormulaNumber(results["radiusSquared"])) * (asFormulaNumber(results["angleRadiansTotal"])); results["sectorArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sectorArea"] = 0; }
+  try { const v = input.radius + input.diameter / 2; results["effectiveRadius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveRadius"] = Number.NaN; }
+  try { const v = input.angleRadians + input.angleDegrees * (Math.PI / 180); results["angleRadiansTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["angleRadiansTotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveRadius"])) ** 2; results["radiusSquared"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["radiusSquared"] = Number.NaN; }
+  try { const v = 0.5 * (toNumericFormulaValue(results["radiusSquared"])) * (toNumericFormulaValue(results["angleRadiansTotal"])); results["sectorArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sectorArea"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSector_area_calculator(input: Sector_area_calculatorInput): Sector_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sectorArea"]));
+  const totalWasteCost = toNumericFormulaValue(values["sectorArea"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateSector_area_calculator(input: Sector_area_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

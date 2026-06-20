@@ -16,27 +16,23 @@ export const Likelihood_ratio_calculatorInputSchema = z.object({
   trueNegatives: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Likelihood_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.truePositives + input.falseNegatives > 0 ? input.truePositives / (input.truePositives + input.falseNegatives) : 0; results["sensitivity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sensitivity"] = 0; }
-  try { const v = input.trueNegatives + input.falsePositives > 0 ? input.trueNegatives / (input.trueNegatives + input.falsePositives) : 0; results["specificity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["specificity"] = 0; }
-  try { const v = (asFormulaNumber(results["specificity"])) < 1 ? (asFormulaNumber(results["sensitivity"])) / (1 - (asFormulaNumber(results["specificity"]))) : 0; results["lrPositive"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lrPositive"] = 0; }
-  try { const v = (asFormulaNumber(results["specificity"])) > 0 ? (1 - (asFormulaNumber(results["sensitivity"]))) / (asFormulaNumber(results["specificity"])) : 0; results["lrNegative"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lrNegative"] = 0; }
+  try { const v = input.truePositives + input.falseNegatives > 0 ? input.truePositives / (input.truePositives + input.falseNegatives) : 0; results["sensitivity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sensitivity"] = Number.NaN; }
+  try { const v = input.trueNegatives + input.falsePositives > 0 ? input.trueNegatives / (input.trueNegatives + input.falsePositives) : 0; results["specificity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["specificity"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["specificity"])) < 1 ? (toNumericFormulaValue(results["sensitivity"])) / (1 - (toNumericFormulaValue(results["specificity"]))) : 0; results["lrPositive"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lrPositive"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["specificity"])) > 0 ? (1 - (toNumericFormulaValue(results["sensitivity"]))) / (toNumericFormulaValue(results["specificity"])) : 0; results["lrNegative"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lrNegative"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLikelihood_ratio_calculator(input: Likelihood_ratio_calculatorInput): Likelihood_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lrPositive"]));
+  const totalWasteCost = toNumericFormulaValue(values["lrPositive"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateLikelihood_ratio_calculator(input: Likelihood_ratio_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

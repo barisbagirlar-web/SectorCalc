@@ -16,25 +16,21 @@ export const Degree_to_radian_calculatorInputSchema = z.object({
   piValue: z.number().default(3.141592653589793),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Degree_to_radian_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.angleDegrees + input.angleOffset; results["effectiveAngle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveAngle"] = 0; }
-  try { const v = ((asFormulaNumber(results["effectiveAngle"])) * input.piValue) / 180; results["radian"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["radian"] = 0; }
+  try { const v = input.angleDegrees + input.angleOffset; results["effectiveAngle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveAngle"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["effectiveAngle"])) * input.piValue) / 180; results["radian"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["radian"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDegree_to_radian_calculator(input: Degree_to_radian_calculatorInput): Degree_to_radian_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["radian"]));
+  const totalWasteCost = toNumericFormulaValue(values["radian"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateDegree_to_radian_calculator(input: Degree_to_radian_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,27 +20,23 @@ export const Hybrid_vs_gas_calculatorInputSchema = z.object({
   fuelPricePerGallon: z.number().default(3.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hybrid_vs_gas_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.annualMiles / input.gasMpg) * input.fuelPricePerGallon; results["annualFuelCostGas"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualFuelCostGas"] = 0; }
-  try { const v = (input.annualMiles / input.hybridMpg) * input.fuelPricePerGallon; results["annualFuelCostHybrid"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualFuelCostHybrid"] = 0; }
-  try { const v = ((input.annualMiles / input.gasMpg) - (input.annualMiles / input.hybridMpg)) * input.fuelPricePerGallon; results["annualSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualSavings"] = 0; }
-  try { const v = (input.hybridVehiclePrice - input.gasVehiclePrice) / (((input.annualMiles / input.gasMpg) - (input.annualMiles / input.hybridMpg)) * input.fuelPricePerGallon); results["paybackYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paybackYears"] = 0; }
+  try { const v = (input.annualMiles / input.gasMpg) * input.fuelPricePerGallon; results["annualFuelCostGas"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualFuelCostGas"] = Number.NaN; }
+  try { const v = (input.annualMiles / input.hybridMpg) * input.fuelPricePerGallon; results["annualFuelCostHybrid"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualFuelCostHybrid"] = Number.NaN; }
+  try { const v = ((input.annualMiles / input.gasMpg) - (input.annualMiles / input.hybridMpg)) * input.fuelPricePerGallon; results["annualSavings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualSavings"] = Number.NaN; }
+  try { const v = (input.hybridVehiclePrice - input.gasVehiclePrice) / (((input.annualMiles / input.gasMpg) - (input.annualMiles / input.hybridMpg)) * input.fuelPricePerGallon); results["paybackYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paybackYears"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHybrid_vs_gas_calculator(input: Hybrid_vs_gas_calculatorInput): Hybrid_vs_gas_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["paybackYears"]));
+  const totalWasteCost = toNumericFormulaValue(values["paybackYears"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateHybrid_vs_gas_calculator(input: Hybrid_vs_gas_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

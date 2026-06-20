@@ -16,25 +16,21 @@ export const Psi_to_atm_calculatorInputSchema = z.object({
   precision: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Psi_to_atm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pressurePsi + input.offset; results["adjustedPsi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedPsi"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedPsi"])) * input.factor; results["atm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["atm"] = 0; }
+  try { const v = input.pressurePsi + input.offset; results["adjustedPsi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedPsi"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedPsi"])) * input.factor; results["atm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["atm"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePsi_to_atm_calculator(input: Psi_to_atm_calculatorInput): Psi_to_atm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["atm"]));
+  const totalWasteCost = toNumericFormulaValue(values["atm"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculatePsi_to_atm_calculator(input: Psi_to_atm_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

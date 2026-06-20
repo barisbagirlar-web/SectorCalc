@@ -16,26 +16,22 @@ export const Stronglifts_calculatorInputSchema = z.object({
   weeks: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Stronglifts_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weeks * input.sessionsPerWeek; results["totalSessions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSessions"] = 0; }
-  try { const v = input.startingWeight + (asFormulaNumber(results["totalSessions"])) * input.incrementPerSession; results["finalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["finalWeight"])) * (1 + 0.0333 * 5); results["estimated1RM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimated1RM"] = 0; }
+  try { const v = input.weeks * input.sessionsPerWeek; results["totalSessions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSessions"] = Number.NaN; }
+  try { const v = input.startingWeight + (toNumericFormulaValue(results["totalSessions"])) * input.incrementPerSession; results["finalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["finalWeight"])) * (1 + 0.0333 * 5); results["estimated1RM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimated1RM"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStronglifts_calculator(input: Stronglifts_calculatorInput): Stronglifts_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalWeight"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateStronglifts_calculator(input: Stronglifts_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

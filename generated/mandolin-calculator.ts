@@ -24,31 +24,27 @@ export const Mandolin_calculatorInputSchema = z.object({
   profit_margin: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mandolin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.mandolin_count * (input.body_wood_cost + input.neck_wood_cost + input.hardware_cost); results["total_material_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_material_cost"] = 0; }
-  try { const v = input.mandolin_count * input.labor_hours * input.labor_rate; results["total_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_labor_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_material_cost"])) + (asFormulaNumber(results["total_labor_cost"])); results["direct_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["direct_cost"])) * (input.overhead_percent / 100); results["overhead_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["direct_cost"])) + (asFormulaNumber(results["overhead_cost"])); results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_cost"])) * (1 + input.profit_margin / 100); results["selling_price"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["selling_price"] = 0; }
-  try { const v = (asFormulaNumber(results["total_cost"])) / input.mandolin_count; results["cost_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cost_per_unit"] = 0; }
-  try { const v = (asFormulaNumber(results["selling_price"])) / input.mandolin_count; results["price_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["price_per_unit"] = 0; }
+  try { const v = input.mandolin_count * (input.body_wood_cost + input.neck_wood_cost + input.hardware_cost); results["total_material_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_material_cost"] = Number.NaN; }
+  try { const v = input.mandolin_count * input.labor_hours * input.labor_rate; results["total_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_labor_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_material_cost"])) + (toNumericFormulaValue(results["total_labor_cost"])); results["direct_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["direct_cost"])) * (input.overhead_percent / 100); results["overhead_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overhead_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["direct_cost"])) + (toNumericFormulaValue(results["overhead_cost"])); results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_cost"])) * (1 + input.profit_margin / 100); results["selling_price"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["selling_price"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_cost"])) / input.mandolin_count; results["cost_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cost_per_unit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["selling_price"])) / input.mandolin_count; results["price_per_unit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["price_per_unit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMandolin_calculator(input: Mandolin_calculatorInput): Mandolin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["price_per_unit"]));
+  const totalWasteCost = toNumericFormulaValue(values["price_per_unit"]);
   const breakdown = {
     
   };
@@ -56,7 +52,7 @@ export function calculateMandolin_calculator(input: Mandolin_calculatorInput): M
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,25 +22,21 @@ export const Lally_column_calculatorInputSchema = z.object({
   youngs_modulus: z.number().default(200000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Lally_column_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (Math.PI/4 * (input.outer_diameter**2 - (input.outer_diameter - 2*input.wall_thickness)**2) * input.steel_yield_strength) / input.safety_factor / 1000; results["allowable_yield_load"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allowable_yield_load"] = 0; }
-  try { const v = (Math.PI**2 * input.youngs_modulus * (Math.PI/64 * (input.outer_diameter**4 - (input.outer_diameter - 2*input.wall_thickness)**4)) / ((input.effective_length_factor * input.column_height * 1000)**2)) / input.safety_factor / 1000; results["allowable_euler_load"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allowable_euler_load"] = 0; }
+  try { const v = (Math.PI/4 * (input.outer_diameter**2 - (input.outer_diameter - 2*input.wall_thickness)**2) * input.steel_yield_strength) / input.safety_factor / 1000; results["allowable_yield_load"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allowable_yield_load"] = Number.NaN; }
+  try { const v = (Math.PI**2 * input.youngs_modulus * (Math.PI/64 * (input.outer_diameter**4 - (input.outer_diameter - 2*input.wall_thickness)**4)) / ((input.effective_length_factor * input.column_height * 1000)**2)) / input.safety_factor / 1000; results["allowable_euler_load"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allowable_euler_load"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLally_column_calculator(input: Lally_column_calculatorInput): Lally_column_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["allowable_euler_load"]));
+  const totalWasteCost = toNumericFormulaValue(values["allowable_euler_load"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateLally_column_calculator(input: Lally_column_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

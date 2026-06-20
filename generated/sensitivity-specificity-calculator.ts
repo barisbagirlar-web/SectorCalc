@@ -16,28 +16,24 @@ export const Sensitivity_specificity_calculatorInputSchema = z.object({
   trueNegative: z.number().default(90),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sensitivity_specificity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.truePositive / (input.truePositive + input.falseNegative); results["sensitivity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sensitivity"] = 0; }
-  try { const v = input.trueNegative / (input.trueNegative + input.falsePositive); results["specificity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["specificity"] = 0; }
-  try { const v = input.truePositive / (input.truePositive + input.falsePositive); results["ppv"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ppv"] = 0; }
-  try { const v = input.trueNegative / (input.trueNegative + input.falseNegative); results["npv"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["npv"] = 0; }
-  try { const v = (input.truePositive + input.trueNegative) / (input.truePositive + input.falsePositive + input.falseNegative + input.trueNegative); results["accuracy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["accuracy"] = 0; }
+  try { const v = input.truePositive / (input.truePositive + input.falseNegative); results["sensitivity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sensitivity"] = Number.NaN; }
+  try { const v = input.trueNegative / (input.trueNegative + input.falsePositive); results["specificity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["specificity"] = Number.NaN; }
+  try { const v = input.truePositive / (input.truePositive + input.falsePositive); results["ppv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ppv"] = Number.NaN; }
+  try { const v = input.trueNegative / (input.trueNegative + input.falseNegative); results["npv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["npv"] = Number.NaN; }
+  try { const v = (input.truePositive + input.trueNegative) / (input.truePositive + input.falsePositive + input.falseNegative + input.trueNegative); results["accuracy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["accuracy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSensitivity_specificity_calculator(input: Sensitivity_specificity_calculatorInput): Sensitivity_specificity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sensitivity"]));
+  const totalWasteCost = toNumericFormulaValue(values["sensitivity"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateSensitivity_specificity_calculator(input: Sensitivity_s
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

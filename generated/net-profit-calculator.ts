@@ -18,26 +18,22 @@ export const Net_profit_calculatorInputSchema = z.object({
   taxExpense: z.number().default(10000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Net_profit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.revenue - input.cogs; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = input.operatingExpenses + input.interestExpense + input.taxExpense; results["totalExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalExpenses"] = 0; }
-  try { const v = (asFormulaNumber(results["grossProfit"])) - (asFormulaNumber(results["totalExpenses"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
+  try { const v = input.revenue - input.cogs; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossProfit"] = Number.NaN; }
+  try { const v = input.operatingExpenses + input.interestExpense + input.taxExpense; results["totalExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalExpenses"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossProfit"])) - (toNumericFormulaValue(results["totalExpenses"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNet_profit_calculator(input: Net_profit_calculatorInput): Net_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["netProfit"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateNet_profit_calculator(input: Net_profit_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

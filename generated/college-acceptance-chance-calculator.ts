@@ -18,27 +18,23 @@ export const College_acceptance_chance_calculatorInputSchema = z.object({
   interview: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: College_acceptance_chance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.2*(input.gpa/4)*100; results["gpaContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gpaContribution"] = 0; }
-  try { const v = 0.3*(input.sat/1600)*100; results["satContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["satContribution"] = 0; }
-  try { const v = 0.15*(input.essay/5)*100; results["essayContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["essayContribution"] = 0; }
-  try { const v = 0.1*(input.interview/5)*100; results["interviewContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["interviewContribution"] = 0; }
+  try { const v = 0.2*(input.gpa/4)*100; results["gpaContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gpaContribution"] = Number.NaN; }
+  try { const v = 0.3*(input.sat/1600)*100; results["satContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["satContribution"] = Number.NaN; }
+  try { const v = 0.15*(input.essay/5)*100; results["essayContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["essayContribution"] = Number.NaN; }
+  try { const v = 0.1*(input.interview/5)*100; results["interviewContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["interviewContribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCollege_acceptance_chance_calculator(input: College_acceptance_chance_calculatorInput): College_acceptance_chance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["interviewContribution"]));
+  const totalWasteCost = toNumericFormulaValue(values["interviewContribution"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateCollege_acceptance_chance_calculator(input: College_acc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

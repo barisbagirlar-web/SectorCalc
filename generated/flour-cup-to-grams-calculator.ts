@@ -18,28 +18,24 @@ export const Flour_cup_to_grams_calculatorInputSchema = z.object({
   scaleCalibration: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Flour_cup_to_grams_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cups * input.baseGramsPerCup * input.packingFactor * input.humidityFactor * input.scaleCalibration; results["totalGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGrams"] = 0; }
-  try { const v = input.cups * input.baseGramsPerCup; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseWeight"] = 0; }
-  try { const v = input.cups * input.baseGramsPerCup * (input.packingFactor - 1); results["packingAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["packingAdjustment"] = 0; }
-  try { const v = input.cups * input.baseGramsPerCup * input.packingFactor * (input.humidityFactor - 1); results["humidityAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["humidityAdjustment"] = 0; }
-  try { const v = input.cups * input.baseGramsPerCup * input.packingFactor * input.humidityFactor * (input.scaleCalibration - 1); results["scaleAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleAdjustment"] = 0; }
+  try { const v = input.cups * input.baseGramsPerCup * input.packingFactor * input.humidityFactor * input.scaleCalibration; results["totalGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGrams"] = Number.NaN; }
+  try { const v = input.cups * input.baseGramsPerCup; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseWeight"] = Number.NaN; }
+  try { const v = input.cups * input.baseGramsPerCup * (input.packingFactor - 1); results["packingAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["packingAdjustment"] = Number.NaN; }
+  try { const v = input.cups * input.baseGramsPerCup * input.packingFactor * (input.humidityFactor - 1); results["humidityAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["humidityAdjustment"] = Number.NaN; }
+  try { const v = input.cups * input.baseGramsPerCup * input.packingFactor * input.humidityFactor * (input.scaleCalibration - 1); results["scaleAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaleAdjustment"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFlour_cup_to_grams_calculator(input: Flour_cup_to_grams_calculatorInput): Flour_cup_to_grams_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalGrams"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalGrams"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateFlour_cup_to_grams_calculator(input: Flour_cup_to_grams
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,26 +18,22 @@ export const Og_fg_calculatorInputSchema = z.object({
   calibTemp: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Og_fg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.ogReading * (1.00130346 - 0.000134722124 * input.ogTemp + 0.00000204052596 * input.ogTemp**2 - 0.00000000232820948 * input.ogTemp**3) / (1.00130346 - 0.000134722124 * input.calibTemp + 0.00000204052596 * input.calibTemp**2 - 0.00000000232820948 * input.calibTemp**3); results["correctedOg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctedOg"] = 0; }
-  try { const v = input.fgReading * (1.00130346 - 0.000134722124 * input.fgTemp + 0.00000204052596 * input.fgTemp**2 - 0.00000000232820948 * input.fgTemp**3) / (1.00130346 - 0.000134722124 * input.calibTemp + 0.00000204052596 * input.calibTemp**2 - 0.00000000232820948 * input.calibTemp**3); results["correctedFg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctedFg"] = 0; }
-  try { const v = ((asFormulaNumber(results["correctedOg"])) - (asFormulaNumber(results["correctedFg"]))) * 131.25; results["abv"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["abv"] = 0; }
+  try { const v = input.ogReading * (1.00130346 - 0.000134722124 * input.ogTemp + 0.00000204052596 * input.ogTemp**2 - 0.00000000232820948 * input.ogTemp**3) / (1.00130346 - 0.000134722124 * input.calibTemp + 0.00000204052596 * input.calibTemp**2 - 0.00000000232820948 * input.calibTemp**3); results["correctedOg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["correctedOg"] = Number.NaN; }
+  try { const v = input.fgReading * (1.00130346 - 0.000134722124 * input.fgTemp + 0.00000204052596 * input.fgTemp**2 - 0.00000000232820948 * input.fgTemp**3) / (1.00130346 - 0.000134722124 * input.calibTemp + 0.00000204052596 * input.calibTemp**2 - 0.00000000232820948 * input.calibTemp**3); results["correctedFg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["correctedFg"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["correctedOg"])) - (toNumericFormulaValue(results["correctedFg"]))) * 131.25; results["abv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["abv"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOg_fg_calculator(input: Og_fg_calculatorInput): Og_fg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["correctedOg"]));
+  const totalWasteCost = toNumericFormulaValue(values["correctedOg"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateOg_fg_calculator(input: Og_fg_calculatorInput): Og_fg_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,26 +18,22 @@ export const Pediatric_dose_calculatorInputSchema = z.object({
   concentration: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pediatric_dose_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.childAge / (input.childAge + 12)) * input.adultDose; results["youngDose"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["youngDose"] = 0; }
-  try { const v = input.maxDosePerKg * input.childWeight; results["maxAllowedDose"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxAllowedDose"] = 0; }
-  try { const v = (asFormulaNumber(results["youngDose"])) / input.concentration; results["volumeYoung"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeYoung"] = 0; }
+  try { const v = (input.childAge / (input.childAge + 12)) * input.adultDose; results["youngDose"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["youngDose"] = Number.NaN; }
+  try { const v = input.maxDosePerKg * input.childWeight; results["maxAllowedDose"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxAllowedDose"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["youngDose"])) / input.concentration; results["volumeYoung"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeYoung"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePediatric_dose_calculator(input: Pediatric_dose_calculatorInput): Pediatric_dose_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["youngDose"]));
+  const totalWasteCost = toNumericFormulaValue(values["youngDose"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePediatric_dose_calculator(input: Pediatric_dose_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

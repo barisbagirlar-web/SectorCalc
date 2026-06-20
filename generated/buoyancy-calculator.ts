@@ -16,26 +16,22 @@ export const Buoyancy_calculatorInputSchema = z.object({
   gravitationalAcceleration: z.number().default(9.81),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Buoyancy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.objectMass * input.gravitationalAcceleration; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
-  try { const v = input.fluidDensity * input.objectVolume * input.gravitationalAcceleration; results["buoyantForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["buoyantForce"] = 0; }
-  try { const v = (asFormulaNumber(results["buoyantForce"])) - (asFormulaNumber(results["weight"])); results["netForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netForce"] = 0; }
+  try { const v = input.objectMass * input.gravitationalAcceleration; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight"] = Number.NaN; }
+  try { const v = input.fluidDensity * input.objectVolume * input.gravitationalAcceleration; results["buoyantForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["buoyantForce"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["buoyantForce"])) - (toNumericFormulaValue(results["weight"])); results["netForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netForce"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBuoyancy_calculator(input: Buoyancy_calculatorInput): Buoyancy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netForce"]));
+  const totalWasteCost = toNumericFormulaValue(values["netForce"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateBuoyancy_calculator(input: Buoyancy_calculatorInput): B
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

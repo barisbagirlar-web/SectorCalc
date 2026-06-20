@@ -24,26 +24,22 @@ export const Water_intake_calculatorInputSchema = z.object({
   seasonalFactor: z.number().min(0.5).max(2).default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Water_intake_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numEmployees * input.workDaysPerYear * input.avgWaterUsePerPersonPerDay * input.processWaterIntensity; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.numEmployees * input.workDaysPerYear * input.avgWaterUsePerPersonPerDay * input.processWaterIntensity * (input.annualProductionUnits * (input.leakageFactor / 100) * (input.recyclingRate / 100) * input.seasonalFactor); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.annualProductionUnits * (input.leakageFactor / 100) * (input.recyclingRate / 100) * input.seasonalFactor; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.numEmployees * input.workDaysPerYear * input.avgWaterUsePerPersonPerDay * input.processWaterIntensity; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.numEmployees * input.workDaysPerYear * input.avgWaterUsePerPersonPerDay * input.processWaterIntensity * (input.annualProductionUnits * (input.leakageFactor / 100) * (input.recyclingRate / 100) * input.seasonalFactor); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.annualProductionUnits * (input.leakageFactor / 100) * (input.recyclingRate / 100) * input.seasonalFactor; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWater_intake_calculator(input: Water_intake_calculatorInput): Water_intake_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateWater_intake_calculator(input: Water_intake_calculatorI
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

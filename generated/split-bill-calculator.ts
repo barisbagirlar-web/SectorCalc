@@ -16,26 +16,22 @@ export const Split_bill_calculatorInputSchema = z.object({
   tipPercent: z.number().default(15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Split_bill_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalBill * (1 + input.taxPercent / 100); results["totalWithTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWithTax"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWithTax"])) * (1 + input.tipPercent / 100); results["totalWithTip"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWithTip"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWithTip"])) / input.numberOfPeople; results["perPerson"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perPerson"] = 0; }
+  try { const v = input.totalBill * (1 + input.taxPercent / 100); results["totalWithTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWithTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWithTax"])) * (1 + input.tipPercent / 100); results["totalWithTip"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWithTip"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWithTip"])) / input.numberOfPeople; results["perPerson"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["perPerson"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSplit_bill_calculator(input: Split_bill_calculatorInput): Split_bill_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["perPerson"]));
+  const totalWasteCost = toNumericFormulaValue(values["perPerson"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateSplit_bill_calculator(input: Split_bill_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

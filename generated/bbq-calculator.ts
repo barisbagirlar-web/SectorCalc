@@ -18,26 +18,22 @@ export const Bbq_calculatorInputSchema = z.object({
   butcherYield: z.number().default(75),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bbq_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.guests * input.meatPerPerson / (input.butcherYield / 100) / (1 - input.cookingLoss / 100); results["totalRawMeatNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRawMeatNeeded"] = 0; }
-  try { const v = input.guests * input.meatPerPerson; results["cookedMeatWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cookedMeatWeight"] = 0; }
-  try { const v = input.guests * input.sidesPerPerson; results["totalSidesWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSidesWeight"] = 0; }
+  try { const v = input.guests * input.meatPerPerson / (input.butcherYield / 100) / (1 - input.cookingLoss / 100); results["totalRawMeatNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRawMeatNeeded"] = Number.NaN; }
+  try { const v = input.guests * input.meatPerPerson; results["cookedMeatWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cookedMeatWeight"] = Number.NaN; }
+  try { const v = input.guests * input.sidesPerPerson; results["totalSidesWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSidesWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBbq_calculator(input: Bbq_calculatorInput): Bbq_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRawMeatNeeded"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalRawMeatNeeded"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateBbq_calculator(input: Bbq_calculatorInput): Bbq_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

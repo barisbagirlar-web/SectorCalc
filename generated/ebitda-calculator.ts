@@ -18,26 +18,22 @@ export const Ebitda_calculatorInputSchema = z.object({
   amortization: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ebitda_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.revenue - input.cogs - input.opex; results["ebitda"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ebitda"] = 0; }
-  try { const v = input.revenue - input.cogs; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = input.revenue - input.cogs - input.opex - input.depreciation - input.amortization; results["ebit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ebit"] = 0; }
+  try { const v = input.revenue - input.cogs - input.opex; results["ebitda"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ebitda"] = Number.NaN; }
+  try { const v = input.revenue - input.cogs; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossProfit"] = Number.NaN; }
+  try { const v = input.revenue - input.cogs - input.opex - input.depreciation - input.amortization; results["ebit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ebit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEbitda_calculator(input: Ebitda_calculatorInput): Ebitda_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ebitda"]));
+  const totalWasteCost = toNumericFormulaValue(values["ebitda"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateEbitda_calculator(input: Ebitda_calculatorInput): Ebitd
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

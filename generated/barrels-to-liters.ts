@@ -14,26 +14,22 @@ export const Barrels_to_litersInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Barrels_to_litersInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.barrels * (input.barrelType === 1 ? 158.987294928 : input.barrelType === 2 ? 119.240471196 : 163.65924); results["liters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["liters"] = 0; }
-  try { const v = input.barrels * (input.barrelType === 1 ? 42 : input.barrelType === 2 ? 31.5 : 36); results["gallons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gallons"] = 0; }
-  try { const v = (asFormulaNumber(results["liters"])) / 1000; results["cubicMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cubicMeters"] = 0; }
+  try { const v = input.barrels * (input.barrelType === 1 ? 158.987294928 : input.barrelType === 2 ? 119.240471196 : 163.65924); results["liters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["liters"] = Number.NaN; }
+  try { const v = input.barrels * (input.barrelType === 1 ? 42 : input.barrelType === 2 ? 31.5 : 36); results["gallons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gallons"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["liters"])) / 1000; results["cubicMeters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cubicMeters"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBarrels_to_liters(input: Barrels_to_litersInput): Barrels_to_litersOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["liters"]));
+  const totalWasteCost = toNumericFormulaValue(values["liters"]);
   const breakdown = {
     
   };
@@ -41,7 +37,7 @@ export function calculateBarrels_to_liters(input: Barrels_to_litersInput): Barre
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,29 +18,25 @@ export const Omega_3_calculatorInputSchema = z.object({
   body_weight_kg: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Omega_3_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.capsule_size * input.capsules_per_day * (input.epa_percent / 100); results["total_epa_mg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_epa_mg"] = 0; }
-  try { const v = input.capsule_size * input.capsules_per_day * (input.dha_percent / 100); results["total_dha_mg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_dha_mg"] = 0; }
-  try { const v = input.capsule_size * input.capsules_per_day * ((input.epa_percent + input.dha_percent) / 100); results["combined_epa_dha_mg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["combined_epa_dha_mg"] = 0; }
-  try { const v = (input.capsule_size * input.capsules_per_day * (input.epa_percent / 100)) / input.body_weight_kg; results["epa_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["epa_per_kg"] = 0; }
-  try { const v = (input.capsule_size * input.capsules_per_day * (input.dha_percent / 100)) / input.body_weight_kg; results["dha_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dha_per_kg"] = 0; }
-  try { const v = (input.capsule_size * input.capsules_per_day * ((input.epa_percent + input.dha_percent) / 100)) / input.body_weight_kg; results["combined_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["combined_per_kg"] = 0; }
+  try { const v = input.capsule_size * input.capsules_per_day * (input.epa_percent / 100); results["total_epa_mg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_epa_mg"] = Number.NaN; }
+  try { const v = input.capsule_size * input.capsules_per_day * (input.dha_percent / 100); results["total_dha_mg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_dha_mg"] = Number.NaN; }
+  try { const v = input.capsule_size * input.capsules_per_day * ((input.epa_percent + input.dha_percent) / 100); results["combined_epa_dha_mg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["combined_epa_dha_mg"] = Number.NaN; }
+  try { const v = (input.capsule_size * input.capsules_per_day * (input.epa_percent / 100)) / input.body_weight_kg; results["epa_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["epa_per_kg"] = Number.NaN; }
+  try { const v = (input.capsule_size * input.capsules_per_day * (input.dha_percent / 100)) / input.body_weight_kg; results["dha_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dha_per_kg"] = Number.NaN; }
+  try { const v = (input.capsule_size * input.capsules_per_day * ((input.epa_percent + input.dha_percent) / 100)) / input.body_weight_kg; results["combined_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["combined_per_kg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOmega_3_calculator(input: Omega_3_calculatorInput): Omega_3_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["combined_epa_dha_mg"]));
+  const totalWasteCost = toNumericFormulaValue(values["combined_epa_dha_mg"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateOmega_3_calculator(input: Omega_3_calculatorInput): Ome
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Radioactive_decay_calculatorInputSchema = z.object({
   endTime: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Radioactive_decay_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.initialMass * (0.5 ** ((input.endTime - input.startTime) / input.halfLife)); results["remainingMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingMass"] = 0; }
-  try { const v = 0.5 ** ((input.endTime - input.startTime) / input.halfLife); results["decayFraction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decayFraction"] = 0; }
-  try { const v = (input.endTime - input.startTime) / input.halfLife; results["numberOfHalfLives"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfHalfLives"] = 0; }
+  try { const v = input.initialMass * (0.5 ** ((input.endTime - input.startTime) / input.halfLife)); results["remainingMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingMass"] = Number.NaN; }
+  try { const v = 0.5 ** ((input.endTime - input.startTime) / input.halfLife); results["decayFraction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["decayFraction"] = Number.NaN; }
+  try { const v = (input.endTime - input.startTime) / input.halfLife; results["numberOfHalfLives"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numberOfHalfLives"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRadioactive_decay_calculator(input: Radioactive_decay_calculatorInput): Radioactive_decay_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["remainingMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["remainingMass"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateRadioactive_decay_calculator(input: Radioactive_decay_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

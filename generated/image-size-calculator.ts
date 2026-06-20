@@ -18,28 +18,24 @@ export const Image_size_calculatorInputSchema = z.object({
   dpi: z.number().default(72),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Image_size_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.widthPx * input.heightPx * (input.bitDepth * input.channels) / 8; results["fileSizeBytes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fileSizeBytes"] = 0; }
-  try { const v = (input.widthPx * input.heightPx * (input.bitDepth * input.channels) / 8) / 1024; results["fileSizeKB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fileSizeKB"] = 0; }
-  try { const v = ((input.widthPx * input.heightPx * (input.bitDepth * input.channels) / 8) / 1024) / 1024; results["fileSizeMB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fileSizeMB"] = 0; }
-  try { const v = input.widthPx / input.dpi; results["printWidthInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["printWidthInches"] = 0; }
-  try { const v = input.heightPx / input.dpi; results["printHeightInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["printHeightInches"] = 0; }
+  try { const v = input.widthPx * input.heightPx * (input.bitDepth * input.channels) / 8; results["fileSizeBytes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fileSizeBytes"] = Number.NaN; }
+  try { const v = (input.widthPx * input.heightPx * (input.bitDepth * input.channels) / 8) / 1024; results["fileSizeKB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fileSizeKB"] = Number.NaN; }
+  try { const v = ((input.widthPx * input.heightPx * (input.bitDepth * input.channels) / 8) / 1024) / 1024; results["fileSizeMB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fileSizeMB"] = Number.NaN; }
+  try { const v = input.widthPx / input.dpi; results["printWidthInches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["printWidthInches"] = Number.NaN; }
+  try { const v = input.heightPx / input.dpi; results["printHeightInches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["printHeightInches"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateImage_size_calculator(input: Image_size_calculatorInput): Image_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fileSizeMB"]));
+  const totalWasteCost = toNumericFormulaValue(values["fileSizeMB"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateImage_size_calculator(input: Image_size_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

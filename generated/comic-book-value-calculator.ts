@@ -18,27 +18,23 @@ export const Comic_book_value_calculatorInputSchema = z.object({
   demandIndex: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Comic_book_value_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.conditionScore * input.initialValue; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.conditionScore * input.initialValue; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.conditionScore * input.initialValue * 1 * (input.ageYears); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.ageYears; results["factor_ageYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_ageYears"] = 0; }
+  try { const v = input.conditionScore * input.initialValue; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.conditionScore * input.initialValue; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.conditionScore * input.initialValue * 1 * (input.ageYears); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.ageYears; results["factor_ageYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_ageYears"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateComic_book_value_calculator(input: Comic_book_value_calculatorInput): Comic_book_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateComic_book_value_calculator(input: Comic_book_value_cal
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

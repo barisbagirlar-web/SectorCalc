@@ -20,28 +20,24 @@ export const Franchise_calculatorInputSchema = z.object({
   otherFeesMonthly: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Franchise_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.monthlyRevenue * input.royaltyRate / 100; results["royaltyAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["royaltyAmount"] = 0; }
-  try { const v = input.monthlyRevenue * input.marketingFeeRate / 100; results["marketingAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["marketingAmount"] = 0; }
-  try { const v = input.otherFeesMonthly + (input.monthlyRevenue * input.royaltyRate / 100) + (input.monthlyRevenue * input.marketingFeeRate / 100); results["totalFeesMonthly"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFeesMonthly"] = 0; }
-  try { const v = input.monthlyRevenue - input.operationalCosts - (input.otherFeesMonthly + input.monthlyRevenue * input.royaltyRate / 100 + input.monthlyRevenue * input.marketingFeeRate / 100); results["monthlyNetProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyNetProfit"] = 0; }
-  try { const v = input.initialInvestment / (input.monthlyRevenue - input.operationalCosts - (input.otherFeesMonthly + input.monthlyRevenue * input.royaltyRate / 100 + input.monthlyRevenue * input.marketingFeeRate / 100)); results["breakEvenMonths"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakEvenMonths"] = 0; }
+  try { const v = input.monthlyRevenue * input.royaltyRate / 100; results["royaltyAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["royaltyAmount"] = Number.NaN; }
+  try { const v = input.monthlyRevenue * input.marketingFeeRate / 100; results["marketingAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["marketingAmount"] = Number.NaN; }
+  try { const v = input.otherFeesMonthly + (input.monthlyRevenue * input.royaltyRate / 100) + (input.monthlyRevenue * input.marketingFeeRate / 100); results["totalFeesMonthly"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFeesMonthly"] = Number.NaN; }
+  try { const v = input.monthlyRevenue - input.operationalCosts - (input.otherFeesMonthly + input.monthlyRevenue * input.royaltyRate / 100 + input.monthlyRevenue * input.marketingFeeRate / 100); results["monthlyNetProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyNetProfit"] = Number.NaN; }
+  try { const v = input.initialInvestment / (input.monthlyRevenue - input.operationalCosts - (input.otherFeesMonthly + input.monthlyRevenue * input.royaltyRate / 100 + input.monthlyRevenue * input.marketingFeeRate / 100)); results["breakEvenMonths"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakEvenMonths"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFranchise_calculator(input: Franchise_calculatorInput): Franchise_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthlyNetProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["monthlyNetProfit"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateFranchise_calculator(input: Franchise_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

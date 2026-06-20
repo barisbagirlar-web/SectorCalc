@@ -16,26 +16,22 @@ export const Stretch_ira_calculatorInputSchema = z.object({
   lifeExpectancyFactor: z.number().default(36.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Stretch_ira_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.initialBalance / input.lifeExpectancyFactor; results["requiredMinimumDistribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredMinimumDistribution"] = 0; }
-  try { const v = input.initialBalance - (input.initialBalance / input.lifeExpectancyFactor); results["remainingBalance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingBalance"] = 0; }
-  try { const v = (input.initialBalance - (input.initialBalance / input.lifeExpectancyFactor)) * (1 + input.annualReturnRate / 100); results["projectedBalanceNextYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["projectedBalanceNextYear"] = 0; }
+  try { const v = input.initialBalance / input.lifeExpectancyFactor; results["requiredMinimumDistribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredMinimumDistribution"] = Number.NaN; }
+  try { const v = input.initialBalance - (input.initialBalance / input.lifeExpectancyFactor); results["remainingBalance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingBalance"] = Number.NaN; }
+  try { const v = (input.initialBalance - (input.initialBalance / input.lifeExpectancyFactor)) * (1 + input.annualReturnRate / 100); results["projectedBalanceNextYear"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["projectedBalanceNextYear"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStretch_ira_calculator(input: Stretch_ira_calculatorInput): Stretch_ira_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredMinimumDistribution"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredMinimumDistribution"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateStretch_ira_calculator(input: Stretch_ira_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

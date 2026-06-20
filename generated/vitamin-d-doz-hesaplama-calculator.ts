@@ -16,27 +16,23 @@ export const Vitamin_d_doz_hesaplama_calculatorInputSchema = z.object({
   age: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Vitamin_d_doz_hesaplama_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.targetD - input.serumD; results["increase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["increase"] = 0; }
-  try { const v = (asFormulaNumber(results["increase"])) * input.weight * 4000; results["totalLoadingIU"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLoadingIU"] = 0; }
-  try { const v = (asFormulaNumber(results["totalLoadingIU"])) / (8 * 7); results["dailyIU"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyIU"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyIU"])) * 7; results["weeklyIU"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weeklyIU"] = 0; }
+  try { const v = input.targetD - input.serumD; results["increase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["increase"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["increase"])) * input.weight * 4000; results["totalLoadingIU"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLoadingIU"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalLoadingIU"])) / (8 * 7); results["dailyIU"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyIU"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyIU"])) * 7; results["weeklyIU"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weeklyIU"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVitamin_d_doz_hesaplama_calculator(input: Vitamin_d_doz_hesaplama_calculatorInput): Vitamin_d_doz_hesaplama_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLoadingIU"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalLoadingIU"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateVitamin_d_doz_hesaplama_calculator(input: Vitamin_d_doz
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

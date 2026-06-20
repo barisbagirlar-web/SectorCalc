@@ -20,25 +20,21 @@ export const Hair_loss_calculatorInputSchema = z.object({
   hormoneIndex: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hair_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.25 * (input.age / 100) + 0.2 * (input.dailyShedding / 200) + 0.2 * (input.geneticScore / 100) + 0.15 * (input.stressLevel / 10) + 0.1 * ((100 - input.nutritionScore) / 100) + 0.1 * (input.hormoneIndex / 10); results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskScore"] = 0; }
-  try { const v = input.dailyShedding * 365; results["hairLossRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hairLossRate"] = 0; }
+  try { const v = 0.25 * (input.age / 100) + 0.2 * (input.dailyShedding / 200) + 0.2 * (input.geneticScore / 100) + 0.15 * (input.stressLevel / 10) + 0.1 * ((100 - input.nutritionScore) / 100) + 0.1 * (input.hormoneIndex / 10); results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["riskScore"] = Number.NaN; }
+  try { const v = input.dailyShedding * 365; results["hairLossRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hairLossRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHair_loss_calculator(input: Hair_loss_calculatorInput): Hair_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hairLossRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["hairLossRate"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateHair_loss_calculator(input: Hair_loss_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

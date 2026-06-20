@@ -18,29 +18,25 @@ export const Baldness_calculatorInputSchema = z.object({
   hair_density: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Baldness_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.father_baldness * 0.6; results["genetic_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["genetic_factor"] = 0; }
-  try { const v = input.stress_level * 0.05; results["stress_impact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stress_impact"] = 0; }
-  try { const v = input.age * 0.01; results["age_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["age_factor"] = 0; }
-  try { const v = input.dht_level * 0.002; results["dht_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dht_factor"] = 0; }
-  try { const v = input.hair_density * 0.001; results["density_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["density_factor"] = 0; }
-  try { const v = (asFormulaNumber(results["genetic_factor"])) + (asFormulaNumber(results["stress_impact"])) + (asFormulaNumber(results["age_factor"])) + (asFormulaNumber(results["dht_factor"])) - (asFormulaNumber(results["density_factor"])); results["baldness_probability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baldness_probability"] = 0; }
+  try { const v = input.father_baldness * 0.6; results["genetic_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["genetic_factor"] = Number.NaN; }
+  try { const v = input.stress_level * 0.05; results["stress_impact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stress_impact"] = Number.NaN; }
+  try { const v = input.age * 0.01; results["age_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["age_factor"] = Number.NaN; }
+  try { const v = input.dht_level * 0.002; results["dht_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dht_factor"] = Number.NaN; }
+  try { const v = input.hair_density * 0.001; results["density_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["density_factor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["genetic_factor"])) + (toNumericFormulaValue(results["stress_impact"])) + (toNumericFormulaValue(results["age_factor"])) + (toNumericFormulaValue(results["dht_factor"])) - (toNumericFormulaValue(results["density_factor"])); results["baldness_probability"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baldness_probability"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBaldness_calculator(input: Baldness_calculatorInput): Baldness_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["baldness_probability"]));
+  const totalWasteCost = toNumericFormulaValue(values["baldness_probability"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateBaldness_calculator(input: Baldness_calculatorInput): B
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

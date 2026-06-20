@@ -4,6 +4,7 @@ import type { RefObject } from "react";
 import { Route, Send, Sparkles, X } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { TraceLivingAvatar } from "@/components/trace/TraceLivingAvatar";
+import { SectorCalcLogo } from "@/components/ui/SectorCalcLogo";
 import type { TraceChatMessage } from "@/components/trace/trace-chat-shared";
 
 type TraceChatPanelProps = {
@@ -62,6 +63,7 @@ export function TraceChatPanel({
     <div className="sc-trace__shell">
       <header className="sc-trace__header">
         <div className="sc-trace__header-main">
+          <SectorCalcLogo width={28} height={28} inverted className="sc-trace__header-logo" />
           {mode === "pro" ? (
             <Sparkles className="sc-trace__header-icon" aria-hidden />
           ) : (

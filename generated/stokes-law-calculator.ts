@@ -18,26 +18,22 @@ export const Stokes_law_calculatorInputSchema = z.object({
   gravity: z.number().default(9.81),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Stokes_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.particleDensity - input.fluidDensity; results["densityDifference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["densityDifference"] = 0; }
-  try { const v = input.particleDiameter / 2; results["particleRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["particleRadius"] = 0; }
-  try { const v = (2/9) * (asFormulaNumber(results["densityDifference"])) * input.gravity * (asFormulaNumber(results["particleRadius"])) ** 2 / input.dynamicViscosity; results["settlingVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["settlingVelocity"] = 0; }
+  try { const v = input.particleDensity - input.fluidDensity; results["densityDifference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["densityDifference"] = Number.NaN; }
+  try { const v = input.particleDiameter / 2; results["particleRadius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["particleRadius"] = Number.NaN; }
+  try { const v = (2/9) * (toNumericFormulaValue(results["densityDifference"])) * input.gravity * (toNumericFormulaValue(results["particleRadius"])) ** 2 / input.dynamicViscosity; results["settlingVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["settlingVelocity"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStokes_law_calculator(input: Stokes_law_calculatorInput): Stokes_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["settlingVelocity"]));
+  const totalWasteCost = toNumericFormulaValue(values["settlingVelocity"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateStokes_law_calculator(input: Stokes_law_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

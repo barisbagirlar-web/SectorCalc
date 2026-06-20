@@ -22,26 +22,22 @@ export const Short_circuit_calculatorInputSchema = z.object({
   resistivity: z.number().default(0.0175),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Short_circuit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.voltage * input.voltage) / (input.transformerRating * 1000) * (input.transformerImpedancePercent / 100); results["transformerImpedance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["transformerImpedance"] = 0; }
-  try { const v = (input.resistivity * input.cableLength) / input.cableCrossSection; results["cableImpedance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cableImpedance"] = 0; }
-  try { const v = input.sourceImpedance + (asFormulaNumber(results["transformerImpedance"])) + (asFormulaNumber(results["cableImpedance"])); results["totalImpedance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalImpedance"] = 0; }
+  try { const v = (input.voltage * input.voltage) / (input.transformerRating * 1000) * (input.transformerImpedancePercent / 100); results["transformerImpedance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["transformerImpedance"] = Number.NaN; }
+  try { const v = (input.resistivity * input.cableLength) / input.cableCrossSection; results["cableImpedance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cableImpedance"] = Number.NaN; }
+  try { const v = input.sourceImpedance + (toNumericFormulaValue(results["transformerImpedance"])) + (toNumericFormulaValue(results["cableImpedance"])); results["totalImpedance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalImpedance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateShort_circuit_calculator(input: Short_circuit_calculatorInput): Short_circuit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalImpedance"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalImpedance"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateShort_circuit_calculator(input: Short_circuit_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

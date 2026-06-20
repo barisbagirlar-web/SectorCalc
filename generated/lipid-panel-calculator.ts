@@ -16,28 +16,24 @@ export const Lipid_panel_calculatorInputSchema = z.object({
   age: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Lipid_panel_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalCholesterol; results["Total Cholesterol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Total Cholesterol"] = 0; }
-  try { const v = input.hdlCholesterol; results["HDL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["HDL"] = 0; }
-  try { const v = input.triglycerides; results["Triglycerides"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Triglycerides"] = 0; }
-  try { const v = input.triglycerides / 5; results["VLDL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["VLDL"] = 0; }
-  try { const v = input.totalCholesterol - input.hdlCholesterol - (input.triglycerides / 5); results["LDL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["LDL"] = 0; }
+  try { const v = input.totalCholesterol; results["Total Cholesterol"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Total Cholesterol"] = Number.NaN; }
+  try { const v = input.hdlCholesterol; results["HDL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["HDL"] = Number.NaN; }
+  try { const v = input.triglycerides; results["Triglycerides"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Triglycerides"] = Number.NaN; }
+  try { const v = input.triglycerides / 5; results["VLDL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["VLDL"] = Number.NaN; }
+  try { const v = input.totalCholesterol - input.hdlCholesterol - (input.triglycerides / 5); results["LDL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["LDL"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLipid_panel_calculator(input: Lipid_panel_calculatorInput): Lipid_panel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["LDL"]));
+  const totalWasteCost = toNumericFormulaValue(values["LDL"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateLipid_panel_calculator(input: Lipid_panel_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

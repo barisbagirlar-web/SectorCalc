@@ -18,27 +18,23 @@ export const Protein_powder_calculatorInputSchema = z.object({
   containerPrice: z.number().default(29.99),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Protein_powder_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.proteinPerServing * input.scoopsUsed; results["totalProtein"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalProtein"] = 0; }
-  try { const v = input.containerSize / input.servingSize; results["totalServings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalServings"] = 0; }
-  try { const v = input.containerPrice / (asFormulaNumber(results["totalServings"])); results["costPerServing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerServing"] = 0; }
-  try { const v = (asFormulaNumber(results["costPerServing"])) / input.proteinPerServing; results["costPerGram"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerGram"] = 0; }
+  try { const v = input.proteinPerServing * input.scoopsUsed; results["totalProtein"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalProtein"] = Number.NaN; }
+  try { const v = input.containerSize / input.servingSize; results["totalServings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalServings"] = Number.NaN; }
+  try { const v = input.containerPrice / (toNumericFormulaValue(results["totalServings"])); results["costPerServing"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerServing"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costPerServing"])) / input.proteinPerServing; results["costPerGram"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerGram"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateProtein_powder_calculator(input: Protein_powder_calculatorInput): Protein_powder_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalProtein"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalProtein"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateProtein_powder_calculator(input: Protein_powder_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

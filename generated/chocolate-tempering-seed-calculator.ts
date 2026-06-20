@@ -16,25 +16,21 @@ export const Chocolate_tempering_seed_calculatorInputSchema = z.object({
   seedTemp: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Chocolate_tempering_seed_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.meltedMass * (input.meltedTemp - input.targetTemp) / (input.targetTemp - input.seedTemp); results["requiredSeedMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredSeedMass"] = 0; }
-  try { const v = ((input.meltedTemp - input.targetTemp) / (input.targetTemp - input.seedTemp)) * 100; results["seedRatioPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["seedRatioPercent"] = 0; }
+  try { const v = input.meltedMass * (input.meltedTemp - input.targetTemp) / (input.targetTemp - input.seedTemp); results["requiredSeedMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredSeedMass"] = Number.NaN; }
+  try { const v = ((input.meltedTemp - input.targetTemp) / (input.targetTemp - input.seedTemp)) * 100; results["seedRatioPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["seedRatioPercent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateChocolate_tempering_seed_calculator(input: Chocolate_tempering_seed_calculatorInput): Chocolate_tempering_seed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredSeedMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredSeedMass"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateChocolate_tempering_seed_calculator(input: Chocolate_te
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

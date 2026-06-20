@@ -22,25 +22,21 @@ export const Simpson_rule_calculatorInputSchema = z.object({
   y4: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Simpson_rule_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.upperLimit - input.lowerLimit) / 4; results["h"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["h"] = 0; }
-  try { const v = ((asFormulaNumber(results["h"])) / 3) * (input.y0 + 4 * input.y1 + 2 * input.y2 + 4 * input.y3 + input.y4); results["integral"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["integral"] = 0; }
+  try { const v = (input.upperLimit - input.lowerLimit) / 4; results["h"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["h"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["h"])) / 3) * (input.y0 + 4 * input.y1 + 2 * input.y2 + 4 * input.y3 + input.y4); results["integral"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["integral"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSimpson_rule_calculator(input: Simpson_rule_calculatorInput): Simpson_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["integral"]));
+  const totalWasteCost = toNumericFormulaValue(values["integral"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateSimpson_rule_calculator(input: Simpson_rule_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

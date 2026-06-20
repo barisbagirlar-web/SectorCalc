@@ -22,31 +22,27 @@ export const Mortar_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mortar_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wallLength * input.wallHeight * (input.brickWidth / 1000); results["wallVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallVolume"] = 0; }
-  try { const v = (input.brickLength / 1000) * (input.brickWidth / 1000) * (input.brickHeight / 1000); results["brickVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["brickVolume"] = 0; }
-  try { const v = ((input.brickLength + input.jointThickness) / 1000) * ((input.brickWidth + input.jointThickness) / 1000) * ((input.brickHeight + input.jointThickness) / 1000); results["brickVolumeWithJoint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["brickVolumeWithJoint"] = 0; }
-  try { const v = (asFormulaNumber(results["wallVolume"])) / (asFormulaNumber(results["brickVolumeWithJoint"])); results["totalBricks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBricks"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBricks"])) * (asFormulaNumber(results["brickVolume"])); results["solidVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["solidVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["wallVolume"])) - (asFormulaNumber(results["solidVolume"])); results["mortarVolumeBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mortarVolumeBase"] = 0; }
-  try { const v = (asFormulaNumber(results["mortarVolumeBase"])) * (input.wasteFactor / 100); results["waste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waste"] = 0; }
-  try { const v = (asFormulaNumber(results["mortarVolumeBase"])) + (asFormulaNumber(results["waste"])); results["totalMortar"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMortar"] = 0; }
+  try { const v = input.wallLength * input.wallHeight * (input.brickWidth / 1000); results["wallVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wallVolume"] = Number.NaN; }
+  try { const v = (input.brickLength / 1000) * (input.brickWidth / 1000) * (input.brickHeight / 1000); results["brickVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["brickVolume"] = Number.NaN; }
+  try { const v = ((input.brickLength + input.jointThickness) / 1000) * ((input.brickWidth + input.jointThickness) / 1000) * ((input.brickHeight + input.jointThickness) / 1000); results["brickVolumeWithJoint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["brickVolumeWithJoint"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wallVolume"])) / (toNumericFormulaValue(results["brickVolumeWithJoint"])); results["totalBricks"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBricks"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBricks"])) * (toNumericFormulaValue(results["brickVolume"])); results["solidVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["solidVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wallVolume"])) - (toNumericFormulaValue(results["solidVolume"])); results["mortarVolumeBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mortarVolumeBase"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mortarVolumeBase"])) * (input.wasteFactor / 100); results["waste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mortarVolumeBase"])) + (toNumericFormulaValue(results["waste"])); results["totalMortar"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMortar"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMortar_calculator(input: Mortar_calculatorInput): Mortar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMortar"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMortar"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateMortar_calculator(input: Mortar_calculatorInput): Morta
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

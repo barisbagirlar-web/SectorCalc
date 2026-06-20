@@ -18,30 +18,26 @@ export const Renters_insurance_calculatorInputSchema = z.object({
   securityDiscount: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Renters_insurance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.personalPropertyValue * 0.01) + (input.liabilityCoverage * 0.002); results["totalBasePremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBasePremium"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBasePremium"])) * input.locationRiskFactor; results["riskAdjustedPremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskAdjustedPremium"] = 0; }
-  try { const v = (asFormulaNumber(results["riskAdjustedPremium"])) * (input.securityDiscount / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["riskAdjustedPremium"])) - (asFormulaNumber(results["discountAmount"])); results["finalAnnualPremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalAnnualPremium"] = 0; }
-  try { const v = (asFormulaNumber(results["finalAnnualPremium"])) / 12; results["monthlyPremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyPremium"] = 0; }
-  try { const v = input.personalPropertyValue + input.liabilityCoverage; results["totalCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCoverage"] = 0; }
-  try { const v = input.deductible; results["deductible"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deductible"] = 0; }
+  try { const v = (input.personalPropertyValue * 0.01) + (input.liabilityCoverage * 0.002); results["totalBasePremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBasePremium"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBasePremium"])) * input.locationRiskFactor; results["riskAdjustedPremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["riskAdjustedPremium"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["riskAdjustedPremium"])) * (input.securityDiscount / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["riskAdjustedPremium"])) - (toNumericFormulaValue(results["discountAmount"])); results["finalAnnualPremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalAnnualPremium"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["finalAnnualPremium"])) / 12; results["monthlyPremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyPremium"] = Number.NaN; }
+  try { const v = input.personalPropertyValue + input.liabilityCoverage; results["totalCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCoverage"] = Number.NaN; }
+  try { const v = input.deductible; results["deductible"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deductible"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRenters_insurance_calculator(input: Renters_insurance_calculatorInput): Renters_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalAnnualPremium"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalAnnualPremium"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateRenters_insurance_calculator(input: Renters_insurance_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

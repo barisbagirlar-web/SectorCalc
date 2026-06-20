@@ -16,27 +16,23 @@ export const Belt_length_calculatorInputSchema = z.object({
   configuration: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Belt_length_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * input.center_distance; results["straight_length"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["straight_length"] = 0; }
-  try { const v = Math.PI * (input.large_diameter + input.small_diameter) / 2; results["arc_length"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["arc_length"] = 0; }
-  try { const v = input.configuration === 0 ? ((input.large_diameter - input.small_diameter) ** 2) / (4 * input.center_distance) : ((input.large_diameter + input.small_diameter) ** 2) / (4 * input.center_distance); results["correction_length"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correction_length"] = 0; }
-  try { const v = (asFormulaNumber(results["straight_length"])) + (asFormulaNumber(results["arc_length"])) + (asFormulaNumber(results["correction_length"])); results["belt_length"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["belt_length"] = 0; }
+  try { const v = 2 * input.center_distance; results["straight_length"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["straight_length"] = Number.NaN; }
+  try { const v = Math.PI * (input.large_diameter + input.small_diameter) / 2; results["arc_length"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["arc_length"] = Number.NaN; }
+  try { const v = input.configuration === 0 ? ((input.large_diameter - input.small_diameter) ** 2) / (4 * input.center_distance) : ((input.large_diameter + input.small_diameter) ** 2) / (4 * input.center_distance); results["correction_length"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["correction_length"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["straight_length"])) + (toNumericFormulaValue(results["arc_length"])) + (toNumericFormulaValue(results["correction_length"])); results["belt_length"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["belt_length"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBelt_length_calculator(input: Belt_length_calculatorInput): Belt_length_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["belt_length"]));
+  const totalWasteCost = toNumericFormulaValue(values["belt_length"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateBelt_length_calculator(input: Belt_length_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

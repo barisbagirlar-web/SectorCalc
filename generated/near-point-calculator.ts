@@ -16,26 +16,22 @@ export const Near_point_calculatorInputSchema = z.object({
   directAmplitude: z.number().default(2.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Near_point_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.amplitudeMethod === 0 ? input.directAmplitude : (input.amplitudeMethod === 1 ? 15 - 0.25 * input.age : (input.amplitudeMethod === 2 ? 18.5 - 0.30 * input.age : 25 - 0.40 * input.age)); results["amplitudeDiopters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["amplitudeDiopters"] = 0; }
-  try { const v = 1 / ((asFormulaNumber(results["amplitudeDiopters"])) + input.refractiveError); results["nearPointDistanceMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nearPointDistanceMeters"] = 0; }
-  try { const v = (asFormulaNumber(results["nearPointDistanceMeters"])) * 100; results["nearPointDistanceCm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nearPointDistanceCm"] = 0; }
+  try { const v = input.amplitudeMethod === 0 ? input.directAmplitude : (input.amplitudeMethod === 1 ? 15 - 0.25 * input.age : (input.amplitudeMethod === 2 ? 18.5 - 0.30 * input.age : 25 - 0.40 * input.age)); results["amplitudeDiopters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["amplitudeDiopters"] = Number.NaN; }
+  try { const v = 1 / ((toNumericFormulaValue(results["amplitudeDiopters"])) + input.refractiveError); results["nearPointDistanceMeters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nearPointDistanceMeters"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["nearPointDistanceMeters"])) * 100; results["nearPointDistanceCm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nearPointDistanceCm"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNear_point_calculator(input: Near_point_calculatorInput): Near_point_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["nearPointDistanceCm"]));
+  const totalWasteCost = toNumericFormulaValue(values["nearPointDistanceCm"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateNear_point_calculator(input: Near_point_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

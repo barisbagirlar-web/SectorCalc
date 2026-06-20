@@ -20,26 +20,22 @@ export const Class_rank_calculatorInputSchema = z.object({
   maxScore: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Class_rank_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.studentScore - input.minScore) / (input.maxScore - input.minScore); results["normalizedScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalizedScore"] = 0; }
-  try { const v = (input.lowerCount + 0.5 * input.sameCount) / input.totalStudents * 100; results["percentileRank"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentileRank"] = 0; }
-  try { const v = input.lowerCount + 1; results["rankPosition"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rankPosition"] = 0; }
+  try { const v = (input.studentScore - input.minScore) / (input.maxScore - input.minScore); results["normalizedScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalizedScore"] = Number.NaN; }
+  try { const v = (input.lowerCount + 0.5 * input.sameCount) / input.totalStudents * 100; results["percentileRank"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentileRank"] = Number.NaN; }
+  try { const v = input.lowerCount + 1; results["rankPosition"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rankPosition"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateClass_rank_calculator(input: Class_rank_calculatorInput): Class_rank_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["percentileRank"]));
+  const totalWasteCost = toNumericFormulaValue(values["percentileRank"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateClass_rank_calculator(input: Class_rank_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

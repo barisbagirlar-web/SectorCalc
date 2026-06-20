@@ -20,27 +20,23 @@ export const Calibrated_training_calculatorInputSchema = z.object({
   scrapRateAfter: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Calibrated_training_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.postScore - input.preScore) / (100 - input.preScore)) * 100; results["skillGain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["skillGain"] = 0; }
-  try { const v = ((input.scrapRateBefore - input.scrapRateAfter) / input.scrapRateBefore) * 100; results["qualityImprovement"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["qualityImprovement"] = 0; }
-  try { const v = (((input.postScore - input.preScore) / (100 - input.preScore)) * 100) / (input.trainingDuration * input.hourlyCost); results["costEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costEfficiency"] = 0; }
-  try { const v = 0.6 * (((input.postScore - input.preScore) / (100 - input.preScore)) * 100) + 0.4 * (((input.scrapRateBefore - input.scrapRateAfter) / input.scrapRateBefore) * 100); results["trainingEffectiveness"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trainingEffectiveness"] = 0; }
+  try { const v = ((input.postScore - input.preScore) / (100 - input.preScore)) * 100; results["skillGain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["skillGain"] = Number.NaN; }
+  try { const v = ((input.scrapRateBefore - input.scrapRateAfter) / input.scrapRateBefore) * 100; results["qualityImprovement"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["qualityImprovement"] = Number.NaN; }
+  try { const v = (((input.postScore - input.preScore) / (100 - input.preScore)) * 100) / (input.trainingDuration * input.hourlyCost); results["costEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costEfficiency"] = Number.NaN; }
+  try { const v = 0.6 * (((input.postScore - input.preScore) / (100 - input.preScore)) * 100) + 0.4 * (((input.scrapRateBefore - input.scrapRateAfter) / input.scrapRateBefore) * 100); results["trainingEffectiveness"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["trainingEffectiveness"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCalibrated_training_calculator(input: Calibrated_training_calculatorInput): Calibrated_training_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["trainingEffectiveness"]));
+  const totalWasteCost = toNumericFormulaValue(values["trainingEffectiveness"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCalibrated_training_calculator(input: Calibrated_traini
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

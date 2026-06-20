@@ -24,25 +24,21 @@ export const Somatotype_calculatorInputSchema = z.object({
   femur_breadth: z.number().default(9.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Somatotype_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = -0.7182 + 0.1451 * (input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) - 0.00068 * ((input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) ** 2) + 0.0000014 * ((input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) ** 3); results["endomorphy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["endomorphy"] = 0; }
-  try { const v = 0.858 * input.humerus_breadth + 0.601 * input.femur_breadth + 0.188 * (input.skinfold_triceps + input.skinfold_calf) + 0.161 * (input.skinfold_subscapular + input.skinfold_suprailiac) - 0.131 * input.height + 4.5; results["mesomorphy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mesomorphy"] = 0; }
+  try { const v = -0.7182 + 0.1451 * (input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) - 0.00068 * ((input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) ** 2) + 0.0000014 * ((input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) ** 3); results["endomorphy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["endomorphy"] = Number.NaN; }
+  try { const v = 0.858 * input.humerus_breadth + 0.601 * input.femur_breadth + 0.188 * (input.skinfold_triceps + input.skinfold_calf) + 0.161 * (input.skinfold_subscapular + input.skinfold_suprailiac) - 0.131 * input.height + 4.5; results["mesomorphy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mesomorphy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSomatotype_calculator(input: Somatotype_calculatorInput): Somatotype_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["endomorphy"]));
+  const totalWasteCost = toNumericFormulaValue(values["endomorphy"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateSomatotype_calculator(input: Somatotype_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

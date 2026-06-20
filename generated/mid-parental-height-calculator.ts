@@ -16,27 +16,23 @@ export const Mid_parental_height_calculatorInputSchema = z.object({
   resultUnit: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mid_parental_height_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.childSex === 1 ? (input.fatherHeight + input.motherHeight + 13) / 2 : (input.fatherHeight + input.motherHeight - 13) / 2; results["midHeightCm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["midHeightCm"] = 0; }
-  try { const v = input.resultUnit === 1 ? (asFormulaNumber(results["midHeightCm"])) / 2.54 : (asFormulaNumber(results["midHeightCm"])); results["outputHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outputHeight"] = 0; }
-  try { const v = 'Baba boyu: ' + input.fatherHeight + ' cm'; results["breakdownStep1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdownStep1"] = 0; }
-  try { const v = 'Anne boyu: ' + input.motherHeight + ' cm'; results["breakdownStep2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdownStep2"] = 0; }
+  try { const v = input.childSex === 1 ? (input.fatherHeight + input.motherHeight + 13) / 2 : (input.fatherHeight + input.motherHeight - 13) / 2; results["midHeightCm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["midHeightCm"] = Number.NaN; }
+  try { const v = input.resultUnit === 1 ? (toNumericFormulaValue(results["midHeightCm"])) / 2.54 : (toNumericFormulaValue(results["midHeightCm"])); results["outputHeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["outputHeight"] = Number.NaN; }
+  try { const v = 'Baba boyu: ' + input.fatherHeight + ' cm'; results["breakdownStep1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdownStep1"] = Number.NaN; }
+  try { const v = 'Anne boyu: ' + input.motherHeight + ' cm'; results["breakdownStep2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdownStep2"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMid_parental_height_calculator(input: Mid_parental_height_calculatorInput): Mid_parental_height_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["midHeightCm"]));
+  const totalWasteCost = toNumericFormulaValue(values["midHeightCm"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateMid_parental_height_calculator(input: Mid_parental_heig
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

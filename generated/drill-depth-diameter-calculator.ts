@@ -18,26 +18,22 @@ export const Drill_depth_diameter_calculatorInputSchema = z.object({
   materialFactor: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Drill_depth_diameter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.drillDepth / (input.feedRate * input.rotationSpeed); results["drillingTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["drillingTime"] = 0; }
-  try { const v = Math.PI * (input.drillDiameter / 2) ** 2 * input.feedRate * input.rotationSpeed; results["materialRemovalRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialRemovalRate"] = 0; }
-  try { const v = input.materialFactor * (Math.PI * (input.drillDiameter / 2) ** 2 * input.feedRate * input.rotationSpeed) * 0.05; results["powerRequired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["powerRequired"] = 0; }
+  try { const v = input.drillDepth / (input.feedRate * input.rotationSpeed); results["drillingTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["drillingTime"] = Number.NaN; }
+  try { const v = Math.PI * (input.drillDiameter / 2) ** 2 * input.feedRate * input.rotationSpeed; results["materialRemovalRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialRemovalRate"] = Number.NaN; }
+  try { const v = input.materialFactor * (Math.PI * (input.drillDiameter / 2) ** 2 * input.feedRate * input.rotationSpeed) * 0.05; results["powerRequired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["powerRequired"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDrill_depth_diameter_calculator(input: Drill_depth_diameter_calculatorInput): Drill_depth_diameter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["drillingTime"]));
+  const totalWasteCost = toNumericFormulaValue(values["drillingTime"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDrill_depth_diameter_calculator(input: Drill_depth_diam
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

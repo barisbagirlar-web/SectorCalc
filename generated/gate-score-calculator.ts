@@ -24,29 +24,25 @@ export const Gate_score_calculatorInputSchema = z.object({
   weightE: z.number().default(25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gate_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weightG + input.weightA + input.weightT + input.weightE; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = (input.scoreG * input.weightG + input.scoreA * input.weightA + input.scoreT * input.weightT + input.scoreE * input.weightE) / (input.weightG + input.weightA + input.weightT + input.weightE); results["overallScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overallScore"] = 0; }
-  try { const v = (input.scoreG * input.weightG) / (input.weightG + input.weightA + input.weightT + input.weightE); results["gContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gContribution"] = 0; }
-  try { const v = (input.scoreA * input.weightA) / (input.weightG + input.weightA + input.weightT + input.weightE); results["aContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aContribution"] = 0; }
-  try { const v = (input.scoreT * input.weightT) / (input.weightG + input.weightA + input.weightT + input.weightE); results["tContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tContribution"] = 0; }
-  try { const v = (input.scoreE * input.weightE) / (input.weightG + input.weightA + input.weightT + input.weightE); results["eContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eContribution"] = 0; }
+  try { const v = input.weightG + input.weightA + input.weightT + input.weightE; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
+  try { const v = (input.scoreG * input.weightG + input.scoreA * input.weightA + input.scoreT * input.weightT + input.scoreE * input.weightE) / (input.weightG + input.weightA + input.weightT + input.weightE); results["overallScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overallScore"] = Number.NaN; }
+  try { const v = (input.scoreG * input.weightG) / (input.weightG + input.weightA + input.weightT + input.weightE); results["gContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gContribution"] = Number.NaN; }
+  try { const v = (input.scoreA * input.weightA) / (input.weightG + input.weightA + input.weightT + input.weightE); results["aContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["aContribution"] = Number.NaN; }
+  try { const v = (input.scoreT * input.weightT) / (input.weightG + input.weightA + input.weightT + input.weightE); results["tContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tContribution"] = Number.NaN; }
+  try { const v = (input.scoreE * input.weightE) / (input.weightG + input.weightA + input.weightT + input.weightE); results["eContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eContribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGate_score_calculator(input: Gate_score_calculatorInput): Gate_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overallScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["overallScore"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateGate_score_calculator(input: Gate_score_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

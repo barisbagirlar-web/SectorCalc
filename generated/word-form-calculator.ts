@@ -16,28 +16,24 @@ export const Word_form_calculatorInputSchema = z.object({
   complexWords: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Word_form_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalWords / input.totalSentences; results["wordsPerSentence"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wordsPerSentence"] = 0; }
-  try { const v = input.totalSyllables / input.totalWords; results["syllablesPerWord"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["syllablesPerWord"] = 0; }
-  try { const v = 206.835 - 1.015 * (input.totalWords / input.totalSentences) - 84.6 * (input.totalSyllables / input.totalWords); results["fleschReadingEase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fleschReadingEase"] = 0; }
-  try { const v = 0.39 * (input.totalWords / input.totalSentences) + 11.8 * (input.totalSyllables / input.totalWords) - 15.59; results["fleschKincaidGrade"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fleschKincaidGrade"] = 0; }
-  try { const v = (input.complexWords / input.totalWords) * 100; results["percentComplexWords"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentComplexWords"] = 0; }
+  try { const v = input.totalWords / input.totalSentences; results["wordsPerSentence"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wordsPerSentence"] = Number.NaN; }
+  try { const v = input.totalSyllables / input.totalWords; results["syllablesPerWord"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["syllablesPerWord"] = Number.NaN; }
+  try { const v = 206.835 - 1.015 * (input.totalWords / input.totalSentences) - 84.6 * (input.totalSyllables / input.totalWords); results["fleschReadingEase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fleschReadingEase"] = Number.NaN; }
+  try { const v = 0.39 * (input.totalWords / input.totalSentences) + 11.8 * (input.totalSyllables / input.totalWords) - 15.59; results["fleschKincaidGrade"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fleschKincaidGrade"] = Number.NaN; }
+  try { const v = (input.complexWords / input.totalWords) * 100; results["percentComplexWords"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentComplexWords"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWord_form_calculator(input: Word_form_calculatorInput): Word_form_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fleschReadingEase"]));
+  const totalWasteCost = toNumericFormulaValue(values["fleschReadingEase"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateWord_form_calculator(input: Word_form_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

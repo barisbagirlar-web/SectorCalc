@@ -20,26 +20,22 @@ export const Ev_charging_calculatorInputSchema = z.object({
   efficiency: z.number().default(90),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ev_charging_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (((input.batteryCapacity * (input.desiredCharge - input.currentCharge) / 100) * (100 / input.efficiency)) / input.chargingPower); results["charging-time"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["charging-time"] = 0; }
-  try { const v = ((input.batteryCapacity * (input.desiredCharge - input.currentCharge) / 100) * (100 / input.efficiency)); results["energy-required"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy-required"] = 0; }
-  try { const v = (((input.batteryCapacity * (input.desiredCharge - input.currentCharge) / 100) * (100 / input.efficiency)) * input.electricityCost); results["total-cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total-cost"] = 0; }
+  try { const v = (((input.batteryCapacity * (input.desiredCharge - input.currentCharge) / 100) * (100 / input.efficiency)) / input.chargingPower); results["charging-time"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["charging-time"] = Number.NaN; }
+  try { const v = ((input.batteryCapacity * (input.desiredCharge - input.currentCharge) / 100) * (100 / input.efficiency)); results["energy-required"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energy-required"] = Number.NaN; }
+  try { const v = (((input.batteryCapacity * (input.desiredCharge - input.currentCharge) / 100) * (100 / input.efficiency)) * input.electricityCost); results["total-cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total-cost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEv_charging_calculator(input: Ev_charging_calculatorInput): Ev_charging_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["charging"]));
+  const totalWasteCost = toNumericFormulaValue(values["charging"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateEv_charging_calculator(input: Ev_charging_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

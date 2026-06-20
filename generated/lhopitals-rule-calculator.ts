@@ -20,26 +20,22 @@ export const Lhopitals_rule_calculatorInputSchema = z.object({
   iterations: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Lhopitals_rule_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numerator_coeff * input.numerator_power * (input.limit_point ** (input.numerator_power - 1)); results["numerator_derivative"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numerator_derivative"] = 0; }
-  try { const v = input.denominator_coeff * input.denominator_power * (input.limit_point ** (input.denominator_power - 1)); results["denominator_derivative"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominator_derivative"] = 0; }
-  try { const v = (asFormulaNumber(results["numerator_derivative"])) / (asFormulaNumber(results["denominator_derivative"])); results["limit_value"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["limit_value"] = 0; }
+  try { const v = input.numerator_coeff * input.numerator_power * (input.limit_point ** (input.numerator_power - 1)); results["numerator_derivative"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numerator_derivative"] = Number.NaN; }
+  try { const v = input.denominator_coeff * input.denominator_power * (input.limit_point ** (input.denominator_power - 1)); results["denominator_derivative"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["denominator_derivative"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["numerator_derivative"])) / (toNumericFormulaValue(results["denominator_derivative"])); results["limit_value"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["limit_value"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLhopitals_rule_calculator(input: Lhopitals_rule_calculatorInput): Lhopitals_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["limit_value"]));
+  const totalWasteCost = toNumericFormulaValue(values["limit_value"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateLhopitals_rule_calculator(input: Lhopitals_rule_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

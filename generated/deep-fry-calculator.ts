@@ -24,31 +24,27 @@ export const Deep_fry_calculatorInputSchema = z.object({
   oilLifeBatches: z.number().default(40),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Deep_fry_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.oilVolume * 0.92; results["mass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mass"] = 0; }
-  try { const v = input.fryingTemp - input.initialTemp; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaT"] = 0; }
-  try { const v = (asFormulaNumber(results["mass"])) * 1.67 * (asFormulaNumber(results["deltaT"])) / 3600; results["energyHeating"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyHeating"] = 0; }
-  try { const v = input.fryerPower * (input.fryingTime / 60); results["energyFrying"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyFrying"] = 0; }
-  try { const v = (asFormulaNumber(results["energyHeating"])) + (asFormulaNumber(results["energyFrying"])); results["totalEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["totalEnergy"])) * input.electricityCost; results["energyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyCost"] = 0; }
-  try { const v = (input.oilVolume * input.oilCostPerLiter) / input.oilLifeBatches; results["oilCostPerBatch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["oilCostPerBatch"] = 0; }
-  try { const v = (asFormulaNumber(results["energyCost"])) + (asFormulaNumber(results["oilCostPerBatch"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.oilVolume * 0.92; results["mass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mass"] = Number.NaN; }
+  try { const v = input.fryingTemp - input.initialTemp; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaT"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mass"])) * 1.67 * (toNumericFormulaValue(results["deltaT"])) / 3600; results["energyHeating"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyHeating"] = Number.NaN; }
+  try { const v = input.fryerPower * (input.fryingTime / 60); results["energyFrying"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyFrying"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energyHeating"])) + (toNumericFormulaValue(results["energyFrying"])); results["totalEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalEnergy"])) * input.electricityCost; results["energyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyCost"] = Number.NaN; }
+  try { const v = (input.oilVolume * input.oilCostPerLiter) / input.oilLifeBatches; results["oilCostPerBatch"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["oilCostPerBatch"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energyCost"])) + (toNumericFormulaValue(results["oilCostPerBatch"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDeep_fry_calculator(input: Deep_fry_calculatorInput): Deep_fry_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -56,7 +52,7 @@ export function calculateDeep_fry_calculator(input: Deep_fry_calculatorInput): D
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

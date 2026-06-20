@@ -20,26 +20,22 @@ export const Life_insurance_calculatorInputSchema = z.object({
   healthScore: z.number().default(80),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Life_insurance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.age - 20) * 0.1; results["ageLoading"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ageLoading"] = 0; }
-  try { const v = input.smokingStatus * 2; results["smokerLoading"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["smokerLoading"] = 0; }
-  try { const v = (100 - input.healthScore) * 0.05; results["healthLoading"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["healthLoading"] = 0; }
+  try { const v = (input.age - 20) * 0.1; results["ageLoading"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ageLoading"] = Number.NaN; }
+  try { const v = input.smokingStatus * 2; results["smokerLoading"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["smokerLoading"] = Number.NaN; }
+  try { const v = (100 - input.healthScore) * 0.05; results["healthLoading"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["healthLoading"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLife_insurance_calculator(input: Life_insurance_calculatorInput): Life_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["healthLoading"]));
+  const totalWasteCost = toNumericFormulaValue(values["healthLoading"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateLife_insurance_calculator(input: Life_insurance_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

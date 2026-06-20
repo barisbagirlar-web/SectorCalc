@@ -16,27 +16,23 @@ export const Burn_rate_calculatorInputSchema = z.object({
   monthlyRevenue: z.number().default(5000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Burn_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.monthlyFixedExpenses + input.monthlyVariableExpenses; results["totalExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalExpenses"] = 0; }
-  try { const v = input.monthlyFixedExpenses + input.monthlyVariableExpenses; results["grossBurnRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossBurnRate"] = 0; }
-  try { const v = input.monthlyFixedExpenses + input.monthlyVariableExpenses - input.monthlyRevenue; results["netBurnRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netBurnRate"] = 0; }
-  try { const v = (asFormulaNumber(results["netBurnRate"])) > 0 ? input.cashReserves / (asFormulaNumber(results["netBurnRate"])) : null; results["runway"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["runway"] = 0; }
+  try { const v = input.monthlyFixedExpenses + input.monthlyVariableExpenses; results["totalExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalExpenses"] = Number.NaN; }
+  try { const v = input.monthlyFixedExpenses + input.monthlyVariableExpenses; results["grossBurnRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossBurnRate"] = Number.NaN; }
+  try { const v = input.monthlyFixedExpenses + input.monthlyVariableExpenses - input.monthlyRevenue; results["netBurnRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netBurnRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netBurnRate"])) > 0 ? input.cashReserves / (toNumericFormulaValue(results["netBurnRate"])) : null; results["runway"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["runway"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBurn_rate_calculator(input: Burn_rate_calculatorInput): Burn_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["runway"]));
+  const totalWasteCost = toNumericFormulaValue(values["runway"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateBurn_rate_calculator(input: Burn_rate_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,28 +24,24 @@ export const Logistics_route_loss_calculatorInputSchema = z.object({
   vehicle_operating_cost_per_km: z.number().min(0).max(5).default(0.15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Logistics_route_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.planned_stops * input.fuel_cost_per_km; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.planned_stops * input.fuel_cost_per_km; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.planned_stops * input.fuel_cost_per_km * 1 * (input.route_distance_km * input.average_speed_kmh); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.route_distance_km; results["factor_route_distance_km"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_route_distance_km"] = 0; }
-  try { const v = input.average_speed_kmh; results["factor_average_speed_kmh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_average_speed_kmh"] = 0; }
+  try { const v = input.planned_stops * input.fuel_cost_per_km; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.planned_stops * input.fuel_cost_per_km; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.planned_stops * input.fuel_cost_per_km * 1 * (input.route_distance_km * input.average_speed_kmh); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.route_distance_km; results["factor_route_distance_km"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_route_distance_km"] = Number.NaN; }
+  try { const v = input.average_speed_kmh; results["factor_average_speed_kmh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_average_speed_kmh"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLogistics_route_loss_calculator(input: Logistics_route_loss_calculatorInput): Logistics_route_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateLogistics_route_loss_calculator(input: Logistics_route_
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

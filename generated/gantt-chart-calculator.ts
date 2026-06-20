@@ -16,26 +16,22 @@ export const Gantt_chart_calculatorInputSchema = z.object({
   startDelay: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gantt_chart_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.startDelay + input.numTasks * input.taskDuration - (input.numTasks - 1) * input.taskDuration * (input.overlap / 100); results["totalDuration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDuration"] = 0; }
-  try { const v = input.numTasks * input.taskDuration; results["totalWork"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWork"] = 0; }
-  try { const v = (input.numTasks - 1) * input.taskDuration * (input.overlap / 100); results["overlapTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overlapTime"] = 0; }
+  try { const v = input.startDelay + input.numTasks * input.taskDuration - (input.numTasks - 1) * input.taskDuration * (input.overlap / 100); results["totalDuration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDuration"] = Number.NaN; }
+  try { const v = input.numTasks * input.taskDuration; results["totalWork"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWork"] = Number.NaN; }
+  try { const v = (input.numTasks - 1) * input.taskDuration * (input.overlap / 100); results["overlapTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overlapTime"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGantt_chart_calculator(input: Gantt_chart_calculatorInput): Gantt_chart_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDuration"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDuration"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateGantt_chart_calculator(input: Gantt_chart_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

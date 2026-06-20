@@ -20,31 +20,27 @@ export const Meal_plan_calculatorInputSchema = z.object({
   wastePercent: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Meal_plan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.laborCostPerHour * (input.prepTimePerMeal / 60); results["laborCostPerMeal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["laborCostPerMeal"] = 0; }
-  try { const v = input.ingredientCostPerMeal * input.mealsPerDay; results["totalIngredientCostNoWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalIngredientCostNoWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["totalIngredientCostNoWaste"])) * (input.wastePercent / 100); results["wasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalIngredientCostNoWaste"])) + (asFormulaNumber(results["wasteCost"])); results["totalIngredientCostWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalIngredientCostWithWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["laborCostPerMeal"])) * input.mealsPerDay; results["totalLaborCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLaborCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalIngredientCostWithWaste"])) + (asFormulaNumber(results["totalLaborCost"])); results["directCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["directCost"] = 0; }
-  try { const v = (asFormulaNumber(results["directCost"])) * (input.overheadPercent / 100); results["overheadCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overheadCost"] = 0; }
-  try { const v = (asFormulaNumber(results["directCost"])) + (asFormulaNumber(results["overheadCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.laborCostPerHour * (input.prepTimePerMeal / 60); results["laborCostPerMeal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["laborCostPerMeal"] = Number.NaN; }
+  try { const v = input.ingredientCostPerMeal * input.mealsPerDay; results["totalIngredientCostNoWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalIngredientCostNoWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalIngredientCostNoWaste"])) * (input.wastePercent / 100); results["wasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalIngredientCostNoWaste"])) + (toNumericFormulaValue(results["wasteCost"])); results["totalIngredientCostWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalIngredientCostWithWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["laborCostPerMeal"])) * input.mealsPerDay; results["totalLaborCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLaborCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalIngredientCostWithWaste"])) + (toNumericFormulaValue(results["totalLaborCost"])); results["directCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["directCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["directCost"])) * (input.overheadPercent / 100); results["overheadCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overheadCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["directCost"])) + (toNumericFormulaValue(results["overheadCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMeal_plan_calculator(input: Meal_plan_calculatorInput): Meal_plan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateMeal_plan_calculator(input: Meal_plan_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

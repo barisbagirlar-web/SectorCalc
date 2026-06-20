@@ -18,27 +18,23 @@ export const Sewing_thread_calculatorInputSchema = z.object({
   wastePercentage: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sewing_thread_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.seamLength * input.stitchesPerCm * input.threadConsumptionPerStitch; results["totalThreadPerGarment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalThreadPerGarment"] = 0; }
-  try { const v = (asFormulaNumber(results["totalThreadPerGarment"])) * input.numberOfGarments; results["totalWithoutWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWithoutWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWithoutWaste"])) * input.wastePercentage / 100; results["wasteAddition"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteAddition"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWithoutWaste"])) + (asFormulaNumber(results["wasteAddition"])); results["totalThreadWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalThreadWithWaste"] = 0; }
+  try { const v = input.seamLength * input.stitchesPerCm * input.threadConsumptionPerStitch; results["totalThreadPerGarment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalThreadPerGarment"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalThreadPerGarment"])) * input.numberOfGarments; results["totalWithoutWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWithoutWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWithoutWaste"])) * input.wastePercentage / 100; results["wasteAddition"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteAddition"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWithoutWaste"])) + (toNumericFormulaValue(results["wasteAddition"])); results["totalThreadWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalThreadWithWaste"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSewing_thread_calculator(input: Sewing_thread_calculatorInput): Sewing_thread_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalThreadWithWaste"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalThreadWithWaste"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSewing_thread_calculator(input: Sewing_thread_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

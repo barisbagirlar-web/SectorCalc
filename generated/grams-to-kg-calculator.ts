@@ -16,27 +16,23 @@ export const Grams_to_kg_calculatorInputSchema = z.object({
   roundingMode: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Grams_to_kg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grossWeightGrams - input.tareWeightGrams; results["netGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netGrams"] = 0; }
-  try { const v = (asFormulaNumber(results["netGrams"])) / 1000; results["kgUnrounded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kgUnrounded"] = 0; }
-  try { const v = (asFormulaNumber(results["netGrams"])); results["netWeightGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netWeightGrams"] = 0; }
-  try { const v = input.grossWeightGrams / 1000; results["grossWeightKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossWeightKg"] = 0; }
+  try { const v = input.grossWeightGrams - input.tareWeightGrams; results["netGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netGrams"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netGrams"])) / 1000; results["kgUnrounded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kgUnrounded"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netGrams"])); results["netWeightGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netWeightGrams"] = Number.NaN; }
+  try { const v = input.grossWeightGrams / 1000; results["grossWeightKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossWeightKg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGrams_to_kg_calculator(input: Grams_to_kg_calculatorInput): Grams_to_kg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["grossWeightKg"]));
+  const totalWasteCost = toNumericFormulaValue(values["grossWeightKg"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateGrams_to_kg_calculator(input: Grams_to_kg_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

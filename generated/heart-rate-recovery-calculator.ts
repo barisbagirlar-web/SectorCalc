@@ -16,26 +16,22 @@ export const Heart_rate_recovery_calculatorInputSchema = z.object({
   restingHR: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heart_rate_recovery_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.peakHR - input.hr1min; results["recovery1min"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recovery1min"] = 0; }
-  try { const v = input.peakHR - input.hr2min; results["recovery2min"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recovery2min"] = 0; }
-  try { const v = ((asFormulaNumber(results["recovery1min"])) + (asFormulaNumber(results["recovery2min"]))) / 2; results["averageRecovery"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageRecovery"] = 0; }
+  try { const v = input.peakHR - input.hr1min; results["recovery1min"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recovery1min"] = Number.NaN; }
+  try { const v = input.peakHR - input.hr2min; results["recovery2min"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recovery2min"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["recovery1min"])) + (toNumericFormulaValue(results["recovery2min"]))) / 2; results["averageRecovery"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageRecovery"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeart_rate_recovery_calculator(input: Heart_rate_recovery_calculatorInput): Heart_rate_recovery_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["recovery1min"]));
+  const totalWasteCost = toNumericFormulaValue(values["recovery1min"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateHeart_rate_recovery_calculator(input: Heart_rate_recove
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,25 +18,21 @@ export const Mm_to_micrometers_calculatorInputSchema = z.object({
   coverageFactor: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mm_to_micrometers_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.mmValue * input.calibration * input.scaleFactor * 1000; results["micrometer"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["micrometer"] = 0; }
-  try { const v = input.uncertaintyMm * input.coverageFactor * 1000; results["expandedUncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expandedUncertainty"] = 0; }
+  try { const v = input.mmValue * input.calibration * input.scaleFactor * 1000; results["micrometer"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["micrometer"] = Number.NaN; }
+  try { const v = input.uncertaintyMm * input.coverageFactor * 1000; results["expandedUncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expandedUncertainty"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMm_to_micrometers_calculator(input: Mm_to_micrometers_calculatorInput): Mm_to_micrometers_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["micrometer"]));
+  const totalWasteCost = toNumericFormulaValue(values["micrometer"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateMm_to_micrometers_calculator(input: Mm_to_micrometers_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

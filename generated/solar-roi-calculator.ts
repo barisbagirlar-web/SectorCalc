@@ -18,29 +18,25 @@ export const Solar_roi_calculatorInputSchema = z.object({
   tesvikOrani: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Solar_roi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.systemCost * (1 - input.tesvikOrani / 100); results["netMaliyet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netMaliyet"] = 0; }
-  try { const v = input.yillikUretim * input.elektrikFiyati; results["yillikTasarruf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yillikTasarruf"] = 0; }
-  try { const v = (asFormulaNumber(results["yillikTasarruf"])) * input.sistemOmru; results["toplamTasarruf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toplamTasarruf"] = 0; }
-  try { const v = (asFormulaNumber(results["toplamTasarruf"])) - (asFormulaNumber(results["netMaliyet"])); results["netKar"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netKar"] = 0; }
-  try { const v = (asFormulaNumber(results["netMaliyet"])) / (asFormulaNumber(results["yillikTasarruf"])); results["geriOdemeSuresi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["geriOdemeSuresi"] = 0; }
-  try { const v = ((asFormulaNumber(results["netKar"])) / (asFormulaNumber(results["netMaliyet"]))) * 100; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
+  try { const v = input.systemCost * (1 - input.tesvikOrani / 100); results["netMaliyet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netMaliyet"] = Number.NaN; }
+  try { const v = input.yillikUretim * input.elektrikFiyati; results["yillikTasarruf"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yillikTasarruf"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["yillikTasarruf"])) * input.sistemOmru; results["toplamTasarruf"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["toplamTasarruf"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["toplamTasarruf"])) - (toNumericFormulaValue(results["netMaliyet"])); results["netKar"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netKar"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netMaliyet"])) / (toNumericFormulaValue(results["yillikTasarruf"])); results["geriOdemeSuresi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["geriOdemeSuresi"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["netKar"])) / (toNumericFormulaValue(results["netMaliyet"]))) * 100; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSolar_roi_calculator(input: Solar_roi_calculatorInput): Solar_roi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["roi"]));
+  const totalWasteCost = toNumericFormulaValue(values["roi"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateSolar_roi_calculator(input: Solar_roi_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

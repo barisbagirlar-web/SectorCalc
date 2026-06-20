@@ -18,27 +18,23 @@ export const Bearing_life_calculatorInputSchema = z.object({
   a1: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bearing_life_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.C / input.P; results["cToPRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cToPRatio"] = 0; }
-  try { const v = (input.C / input.P) ** input.p; results["basicL10RevMillions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["basicL10RevMillions"] = 0; }
-  try { const v = ((input.C / input.P) ** input.p * 1e6) / (60 * input.n); results["basicL10h"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["basicL10h"] = 0; }
-  try { const v = input.a1 * ((input.C / input.P) ** input.p * 1e6) / (60 * input.n); results["adjustedL10h"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedL10h"] = 0; }
+  try { const v = input.C / input.P; results["cToPRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cToPRatio"] = Number.NaN; }
+  try { const v = (input.C / input.P) ** input.p; results["basicL10RevMillions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["basicL10RevMillions"] = Number.NaN; }
+  try { const v = ((input.C / input.P) ** input.p * 1e6) / (60 * input.n); results["basicL10h"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["basicL10h"] = Number.NaN; }
+  try { const v = input.a1 * ((input.C / input.P) ** input.p * 1e6) / (60 * input.n); results["adjustedL10h"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedL10h"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBearing_life_calculator(input: Bearing_life_calculatorInput): Bearing_life_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedL10h"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedL10h"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateBearing_life_calculator(input: Bearing_life_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

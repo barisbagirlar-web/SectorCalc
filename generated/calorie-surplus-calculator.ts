@@ -18,26 +18,22 @@ export const Calorie_surplus_calculatorInputSchema = z.object({
   auxConsumption: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Calorie_surplus_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalGenerated - input.totalConsumed; results["grossSurplus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossSurplus"] = 0; }
-  try { const v = (asFormulaNumber(results["grossSurplus"])) * (1 - input.lossPercent / 100) * (input.storageEfficiency / 100) - input.auxConsumption; results["netSurplus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netSurplus"] = 0; }
-  try { const v = (asFormulaNumber(results["grossSurplus"])) - (asFormulaNumber(results["netSurplus"])); results["totalLosses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLosses"] = 0; }
+  try { const v = input.totalGenerated - input.totalConsumed; results["grossSurplus"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossSurplus"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossSurplus"])) * (1 - input.lossPercent / 100) * (input.storageEfficiency / 100) - input.auxConsumption; results["netSurplus"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netSurplus"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossSurplus"])) - (toNumericFormulaValue(results["netSurplus"])); results["totalLosses"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLosses"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCalorie_surplus_calculator(input: Calorie_surplus_calculatorInput): Calorie_surplus_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netSurplus"]));
+  const totalWasteCost = toNumericFormulaValue(values["netSurplus"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCalorie_surplus_calculator(input: Calorie_surplus_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

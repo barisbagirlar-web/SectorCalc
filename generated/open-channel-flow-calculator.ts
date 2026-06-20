@@ -20,26 +20,22 @@ export const Open_channel_flow_calculatorInputSchema = z.object({
   gravity: z.number().default(9.81),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Open_channel_flow_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.bottomWidth + input.sideSlope * input.depth) * input.depth; results["A"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["A"] = 0; }
-  try { const v = input.bottomWidth + 2 * input.sideSlope * input.depth; results["TopWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["TopWidth"] = 0; }
-  try { const v = (asFormulaNumber(results["A"])) / (asFormulaNumber(results["TopWidth"])); results["HydraulicDepth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["HydraulicDepth"] = 0; }
+  try { const v = (input.bottomWidth + input.sideSlope * input.depth) * input.depth; results["A"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["A"] = Number.NaN; }
+  try { const v = input.bottomWidth + 2 * input.sideSlope * input.depth; results["TopWidth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["TopWidth"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["A"])) / (toNumericFormulaValue(results["TopWidth"])); results["HydraulicDepth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["HydraulicDepth"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOpen_channel_flow_calculator(input: Open_channel_flow_calculatorInput): Open_channel_flow_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["HydraulicDepth"]));
+  const totalWasteCost = toNumericFormulaValue(values["HydraulicDepth"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateOpen_channel_flow_calculator(input: Open_channel_flow_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,29 +18,25 @@ export const Life_cycle_assessment_calculatorInputSchema = z.object({
   endOfLifeEmissions: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Life_cycle_assessment_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.rawMaterialEmissions + input.manufacturingEmissions + input.transportEmissions + input.usePhaseEmissions + input.endOfLifeEmissions; results["totalCO2Eq"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCO2Eq"] = 0; }
-  try { const v = input.rawMaterialEmissions; results["rawMaterial"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMaterial"] = 0; }
-  try { const v = input.manufacturingEmissions; results["manufacturing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["manufacturing"] = 0; }
-  try { const v = input.transportEmissions; results["transport"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["transport"] = 0; }
-  try { const v = input.usePhaseEmissions; results["usePhase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["usePhase"] = 0; }
-  try { const v = input.endOfLifeEmissions; results["endOfLife"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["endOfLife"] = 0; }
+  try { const v = input.rawMaterialEmissions + input.manufacturingEmissions + input.transportEmissions + input.usePhaseEmissions + input.endOfLifeEmissions; results["totalCO2Eq"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCO2Eq"] = Number.NaN; }
+  try { const v = input.rawMaterialEmissions; results["rawMaterial"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawMaterial"] = Number.NaN; }
+  try { const v = input.manufacturingEmissions; results["manufacturing"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["manufacturing"] = Number.NaN; }
+  try { const v = input.transportEmissions; results["transport"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["transport"] = Number.NaN; }
+  try { const v = input.usePhaseEmissions; results["usePhase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["usePhase"] = Number.NaN; }
+  try { const v = input.endOfLifeEmissions; results["endOfLife"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["endOfLife"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLife_cycle_assessment_calculator(input: Life_cycle_assessment_calculatorInput): Life_cycle_assessment_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCO2Eq"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCO2Eq"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateLife_cycle_assessment_calculator(input: Life_cycle_asse
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,27 +20,23 @@ export const Ghg_protocol_calculatorInputSchema = z.object({
   fuelFactor: z.number().default(2.3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ghg_protocol_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.electricityKwh * input.electricityFactor; results["electricityEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricityEmissions"] = 0; }
-  try { const v = input.naturalGasM3 * input.naturalGasFactor; results["naturalGasEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["naturalGasEmissions"] = 0; }
-  try { const v = input.fuelLiters * input.fuelFactor; results["fuelEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fuelEmissions"] = 0; }
-  try { const v = (asFormulaNumber(results["electricityEmissions"])) + (asFormulaNumber(results["naturalGasEmissions"])) + (asFormulaNumber(results["fuelEmissions"])); results["totalEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEmissions"] = 0; }
+  try { const v = input.electricityKwh * input.electricityFactor; results["electricityEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricityEmissions"] = Number.NaN; }
+  try { const v = input.naturalGasM3 * input.naturalGasFactor; results["naturalGasEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["naturalGasEmissions"] = Number.NaN; }
+  try { const v = input.fuelLiters * input.fuelFactor; results["fuelEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fuelEmissions"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["electricityEmissions"])) + (toNumericFormulaValue(results["naturalGasEmissions"])) + (toNumericFormulaValue(results["fuelEmissions"])); results["totalEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEmissions"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGhg_protocol_calculator(input: Ghg_protocol_calculatorInput): Ghg_protocol_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalEmissions"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalEmissions"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateGhg_protocol_calculator(input: Ghg_protocol_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

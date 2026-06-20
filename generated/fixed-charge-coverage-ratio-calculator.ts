@@ -16,26 +16,22 @@ export const Fixed_charge_coverage_ratio_calculatorInputSchema = z.object({
   leasePayments: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fixed_charge_coverage_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.interestExpense + input.currentMaturities + input.leasePayments; results["totalFixedCharges"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFixedCharges"] = 0; }
-  try { const v = input.ebitda; results["ebitdaOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ebitdaOut"] = 0; }
-  try { const v = input.ebitda / (input.interestExpense + input.currentMaturities + input.leasePayments); results["fccr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fccr"] = 0; }
+  try { const v = input.interestExpense + input.currentMaturities + input.leasePayments; results["totalFixedCharges"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFixedCharges"] = Number.NaN; }
+  try { const v = input.ebitda; results["ebitdaOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ebitdaOut"] = Number.NaN; }
+  try { const v = input.ebitda / (input.interestExpense + input.currentMaturities + input.leasePayments); results["fccr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fccr"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFixed_charge_coverage_ratio_calculator(input: Fixed_charge_coverage_ratio_calculatorInput): Fixed_charge_coverage_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fccr"]));
+  const totalWasteCost = toNumericFormulaValue(values["fccr"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateFixed_charge_coverage_ratio_calculator(input: Fixed_cha
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

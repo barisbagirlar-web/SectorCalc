@@ -16,28 +16,24 @@ export const Diagnostic_test_calculatorInputSchema = z.object({
   falseNegatives: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Diagnostic_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.truePositives / (input.truePositives + input.falseNegatives); results["sensitivity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sensitivity"] = 0; }
-  try { const v = input.trueNegatives / (input.trueNegatives + input.falsePositives); results["specificity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["specificity"] = 0; }
-  try { const v = (input.truePositives + input.trueNegatives) / (input.truePositives + input.falsePositives + input.trueNegatives + input.falseNegatives); results["accuracy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["accuracy"] = 0; }
-  try { const v = input.truePositives / (input.truePositives + input.falsePositives); results["ppv"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ppv"] = 0; }
-  try { const v = input.trueNegatives / (input.trueNegatives + input.falseNegatives); results["npv"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["npv"] = 0; }
+  try { const v = input.truePositives / (input.truePositives + input.falseNegatives); results["sensitivity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sensitivity"] = Number.NaN; }
+  try { const v = input.trueNegatives / (input.trueNegatives + input.falsePositives); results["specificity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["specificity"] = Number.NaN; }
+  try { const v = (input.truePositives + input.trueNegatives) / (input.truePositives + input.falsePositives + input.trueNegatives + input.falseNegatives); results["accuracy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["accuracy"] = Number.NaN; }
+  try { const v = input.truePositives / (input.truePositives + input.falsePositives); results["ppv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ppv"] = Number.NaN; }
+  try { const v = input.trueNegatives / (input.trueNegatives + input.falseNegatives); results["npv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["npv"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDiagnostic_test_calculator(input: Diagnostic_test_calculatorInput): Diagnostic_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["accuracy"]));
+  const totalWasteCost = toNumericFormulaValue(values["accuracy"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDiagnostic_test_calculator(input: Diagnostic_test_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

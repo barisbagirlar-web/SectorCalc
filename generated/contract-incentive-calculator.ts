@@ -24,27 +24,23 @@ export const Contract_incentive_calculatorInputSchema = z.object({
   quality_threshold_ppm: z.number().min(0).max(1000000).default(10000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Contract_incentive_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.actual_throughput * input.cost_per_unit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.actual_throughput * input.cost_per_unit * (1 + (input.defect_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.actual_throughput * input.cost_per_unit * (1 + (input.defect_rate / 100)) * (input.target_throughput); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.target_throughput; results["factor_target_throughput"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_target_throughput"] = 0; }
+  try { const v = input.actual_throughput * input.cost_per_unit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.actual_throughput * input.cost_per_unit * (1 + (input.defect_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.actual_throughput * input.cost_per_unit * (1 + (input.defect_rate / 100)) * (input.target_throughput); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.target_throughput; results["factor_target_throughput"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_target_throughput"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateContract_incentive_calculator(input: Contract_incentive_calculatorInput): Contract_incentive_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateContract_incentive_calculator(input: Contract_incentive
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

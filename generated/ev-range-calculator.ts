@@ -20,26 +20,22 @@ export const Ev_range_calculatorInputSchema = z.object({
   average_speed: z.number().default(60),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ev_range_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.base_consumption * input.temperature_factor * input.driving_style_factor + (input.auxiliary_power / input.average_speed); results["effective_consumption"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effective_consumption"] = 0; }
-  try { const v = (input.battery_capacity * 1000) / input.base_consumption; results["optimal_range_km"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["optimal_range_km"] = 0; }
-  try { const v = (input.battery_capacity * 1000) / (input.base_consumption * input.temperature_factor * input.driving_style_factor + (input.auxiliary_power / input.average_speed)); results["estimated_range_km"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimated_range_km"] = 0; }
+  try { const v = input.base_consumption * input.temperature_factor * input.driving_style_factor + (input.auxiliary_power / input.average_speed); results["effective_consumption"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effective_consumption"] = Number.NaN; }
+  try { const v = (input.battery_capacity * 1000) / input.base_consumption; results["optimal_range_km"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["optimal_range_km"] = Number.NaN; }
+  try { const v = (input.battery_capacity * 1000) / (input.base_consumption * input.temperature_factor * input.driving_style_factor + (input.auxiliary_power / input.average_speed)); results["estimated_range_km"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimated_range_km"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEv_range_calculator(input: Ev_range_calculatorInput): Ev_range_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effective_consumption"]));
+  const totalWasteCost = toNumericFormulaValue(values["effective_consumption"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateEv_range_calculator(input: Ev_range_calculatorInput): E
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

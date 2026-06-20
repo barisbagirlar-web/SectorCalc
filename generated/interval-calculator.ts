@@ -16,27 +16,23 @@ export const Interval_calculatorInputSchema = z.object({
   scaleFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Interval_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.scaleFactor * (input.nominal + input.plusTol); results["upper_limit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upper_limit"] = 0; }
-  try { const v = input.scaleFactor * (input.nominal - input.minusTol); results["lower_limit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lower_limit"] = 0; }
-  try { const v = input.scaleFactor * (input.plusTol + input.minusTol); results["tolerance_range"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tolerance_range"] = 0; }
-  try { const v = input.scaleFactor * (input.nominal + (input.plusTol - input.minusTol) / 2); results["midpoint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["midpoint"] = 0; }
+  try { const v = input.scaleFactor * (input.nominal + input.plusTol); results["upper_limit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["upper_limit"] = Number.NaN; }
+  try { const v = input.scaleFactor * (input.nominal - input.minusTol); results["lower_limit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lower_limit"] = Number.NaN; }
+  try { const v = input.scaleFactor * (input.plusTol + input.minusTol); results["tolerance_range"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tolerance_range"] = Number.NaN; }
+  try { const v = input.scaleFactor * (input.nominal + (input.plusTol - input.minusTol) / 2); results["midpoint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["midpoint"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInterval_calculator(input: Interval_calculatorInput): Interval_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tolerance_range"]));
+  const totalWasteCost = toNumericFormulaValue(values["tolerance_range"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateInterval_calculator(input: Interval_calculatorInput): I
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,27 +18,23 @@ export const Creatine_calculatorInputSchema = z.object({
   costPerKg: z.number().default(500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Creatine_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.dosagePerUnit / (input.purity / 100); results["netDosagePerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netDosagePerUnit"] = 0; }
-  try { const v = (input.totalUnits * (asFormulaNumber(results["netDosagePerUnit"]))) / 1000; results["totalTheoreticalKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTheoreticalKg"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTheoreticalKg"])) / (1 - input.lossRate / 100); results["totalNeededKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalNeededKg"] = 0; }
-  try { const v = (asFormulaNumber(results["totalNeededKg"])) * input.costPerKg; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.dosagePerUnit / (input.purity / 100); results["netDosagePerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netDosagePerUnit"] = Number.NaN; }
+  try { const v = (input.totalUnits * (toNumericFormulaValue(results["netDosagePerUnit"]))) / 1000; results["totalTheoreticalKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTheoreticalKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTheoreticalKg"])) / (1 - input.lossRate / 100); results["totalNeededKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalNeededKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalNeededKg"])) * input.costPerKg; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCreatine_calculator(input: Creatine_calculatorInput): Creatine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netDosagePerUnit"]));
+  const totalWasteCost = toNumericFormulaValue(values["netDosagePerUnit"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateCreatine_calculator(input: Creatine_calculatorInput): C
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

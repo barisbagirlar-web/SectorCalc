@@ -24,30 +24,26 @@ export const Pay_period_calculatorInputSchema = z.object({
   otherWithholdings: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pay_period_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualSalary / input.payPeriodsPerYear; results["regularPay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["regularPay"] = 0; }
-  try { const v = (asFormulaNumber(results["regularPay"])) / input.hoursPerPeriod; results["hourlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hourlyRate"] = 0; }
-  try { const v = input.overtimeHours * (asFormulaNumber(results["hourlyRate"])) * input.overtimeRateMultiplier; results["overtimePay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overtimePay"] = 0; }
-  try { const v = (asFormulaNumber(results["regularPay"])) + (asFormulaNumber(results["overtimePay"])); results["grossPayPerPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossPayPerPeriod"] = 0; }
-  try { const v = (asFormulaNumber(results["grossPayPerPeriod"])) - input.deductions; results["taxableIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxableIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["taxableIncome"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["taxableIncome"])) - (asFormulaNumber(results["taxAmount"])) - input.otherWithholdings; results["netPayPerPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netPayPerPeriod"] = 0; }
+  try { const v = input.annualSalary / input.payPeriodsPerYear; results["regularPay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["regularPay"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["regularPay"])) / input.hoursPerPeriod; results["hourlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hourlyRate"] = Number.NaN; }
+  try { const v = input.overtimeHours * (toNumericFormulaValue(results["hourlyRate"])) * input.overtimeRateMultiplier; results["overtimePay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overtimePay"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["regularPay"])) + (toNumericFormulaValue(results["overtimePay"])); results["grossPayPerPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossPayPerPeriod"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossPayPerPeriod"])) - input.deductions; results["taxableIncome"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxableIncome"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxableIncome"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxableIncome"])) - (toNumericFormulaValue(results["taxAmount"])) - input.otherWithholdings; results["netPayPerPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netPayPerPeriod"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePay_period_calculator(input: Pay_period_calculatorInput): Pay_period_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netPayPerPeriod"]));
+  const totalWasteCost = toNumericFormulaValue(values["netPayPerPeriod"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculatePay_period_calculator(input: Pay_period_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

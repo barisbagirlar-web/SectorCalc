@@ -16,25 +16,21 @@ export const Markov_chain_calculatorInputSchema = z.object({
   steps: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Markov_chain_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pBA / (input.pAB + input.pBA); results["steadyStateA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateA"] = 0; }
-  try { const v = input.pAB / (input.pAB + input.pBA); results["steadyStateB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steadyStateB"] = 0; }
+  try { const v = input.pBA / (input.pAB + input.pBA); results["steadyStateA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["steadyStateA"] = Number.NaN; }
+  try { const v = input.pAB / (input.pAB + input.pBA); results["steadyStateB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["steadyStateB"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMarkov_chain_calculator(input: Markov_chain_calculatorInput): Markov_chain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["steadyStateB"]));
+  const totalWasteCost = toNumericFormulaValue(values["steadyStateB"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateMarkov_chain_calculator(input: Markov_chain_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

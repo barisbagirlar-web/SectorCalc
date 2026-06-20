@@ -16,27 +16,23 @@ export const Blood_sugar_calculatorInputSchema = z.object({
   a1c: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Blood_sugar_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.fasting_bs + input.postprandial_bs + input.random_bs) / 3; results["avg_bs_mgdl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["avg_bs_mgdl"] = 0; }
-  try { const v = (asFormulaNumber(results["avg_bs_mgdl"])) / 18.0182; results["avg_bs_mmol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["avg_bs_mmol"] = 0; }
-  try { const v = ((asFormulaNumber(results["avg_bs_mgdl"])) + 46.7) / 28.7; results["estimated_a1c"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimated_a1c"] = 0; }
-  try { const v = 28.7 * input.a1c - 46.7; results["eag_from_a1c"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eag_from_a1c"] = 0; }
+  try { const v = (input.fasting_bs + input.postprandial_bs + input.random_bs) / 3; results["avg_bs_mgdl"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["avg_bs_mgdl"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["avg_bs_mgdl"])) / 18.0182; results["avg_bs_mmol"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["avg_bs_mmol"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["avg_bs_mgdl"])) + 46.7) / 28.7; results["estimated_a1c"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimated_a1c"] = Number.NaN; }
+  try { const v = 28.7 * input.a1c - 46.7; results["eag_from_a1c"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eag_from_a1c"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBlood_sugar_calculator(input: Blood_sugar_calculatorInput): Blood_sugar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["eag_from_a1c"]));
+  const totalWasteCost = toNumericFormulaValue(values["eag_from_a1c"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateBlood_sugar_calculator(input: Blood_sugar_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

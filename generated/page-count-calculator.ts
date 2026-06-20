@@ -20,27 +20,23 @@ export const Page_count_calculatorInputSchema = z.object({
   tablesHalfPage: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Page_count_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalWords / input.wordsPerPage; results["textPages"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["textPages"] = 0; }
-  try { const v = input.imagesFullPage + 0.5 * input.imagesHalfPage; results["imagePages"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["imagePages"] = 0; }
-  try { const v = input.tablesFullPage + 0.5 * input.tablesHalfPage; results["tablePages"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tablePages"] = 0; }
-  try { const v = (asFormulaNumber(results["textPages"])) + (asFormulaNumber(results["imagePages"])) + (asFormulaNumber(results["tablePages"])); results["totalEstimatedPages"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEstimatedPages"] = 0; }
+  try { const v = input.totalWords / input.wordsPerPage; results["textPages"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["textPages"] = Number.NaN; }
+  try { const v = input.imagesFullPage + 0.5 * input.imagesHalfPage; results["imagePages"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["imagePages"] = Number.NaN; }
+  try { const v = input.tablesFullPage + 0.5 * input.tablesHalfPage; results["tablePages"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tablePages"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["textPages"])) + (toNumericFormulaValue(results["imagePages"])) + (toNumericFormulaValue(results["tablePages"])); results["totalEstimatedPages"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEstimatedPages"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePage_count_calculator(input: Page_count_calculatorInput): Page_count_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalEstimatedPages"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalEstimatedPages"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculatePage_count_calculator(input: Page_count_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

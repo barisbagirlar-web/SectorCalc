@@ -18,28 +18,24 @@ export const Benefit_cost_ratio_calculatorInputSchema = z.object({
   discountRate: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Benefit_cost_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.discountRate / 100; results["r"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r"] = 0; }
-  try { const v = input.annualBenefits * (1 - (1 + (asFormulaNumber(results["r"])))^(-input.projectLife)) / (asFormulaNumber(results["r"])); results["pvBenefits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pvBenefits"] = 0; }
-  try { const v = input.annualCosts * (1 - (1 + (asFormulaNumber(results["r"])))^(-input.projectLife)) / (asFormulaNumber(results["r"])); results["pvCosts"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pvCosts"] = 0; }
-  try { const v = input.initialCost + (asFormulaNumber(results["pvCosts"])); results["totalPVcosts"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPVcosts"] = 0; }
-  try { const v = (asFormulaNumber(results["pvBenefits"])) / (asFormulaNumber(results["totalPVcosts"])); results["benefitCostRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["benefitCostRatio"] = 0; }
+  try { const v = input.discountRate / 100; results["r"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["r"] = Number.NaN; }
+  try { const v = input.annualBenefits * (1 - (1 + (toNumericFormulaValue(results["r"])))^(-input.projectLife)) / (toNumericFormulaValue(results["r"])); results["pvBenefits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pvBenefits"] = Number.NaN; }
+  try { const v = input.annualCosts * (1 - (1 + (toNumericFormulaValue(results["r"])))^(-input.projectLife)) / (toNumericFormulaValue(results["r"])); results["pvCosts"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pvCosts"] = Number.NaN; }
+  try { const v = input.initialCost + (toNumericFormulaValue(results["pvCosts"])); results["totalPVcosts"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPVcosts"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pvBenefits"])) / (toNumericFormulaValue(results["totalPVcosts"])); results["benefitCostRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["benefitCostRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBenefit_cost_ratio_calculator(input: Benefit_cost_ratio_calculatorInput): Benefit_cost_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["benefitCostRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["benefitCostRatio"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateBenefit_cost_ratio_calculator(input: Benefit_cost_ratio
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

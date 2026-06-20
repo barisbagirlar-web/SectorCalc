@@ -16,27 +16,23 @@ export const Leap_year_calculatorInputSchema = z.object({
   divisor400: z.number().default(400),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Leap_year_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (((input.year % input.divisor4 === 0 && input.year % input.divisor100 !== 0) || (input.year % input.divisor400 === 0)) ? 1 : 0); results["isLeapYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isLeapYear"] = 0; }
-  try { const v = ((input.year % input.divisor4 === 0) ? 1 : 0); results["divBy4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["divBy4"] = 0; }
-  try { const v = ((input.year % input.divisor100 === 0) ? 1 : 0); results["divBy100"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["divBy100"] = 0; }
-  try { const v = ((input.year % input.divisor400 === 0) ? 1 : 0); results["divBy400"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["divBy400"] = 0; }
+  try { const v = (((input.year % input.divisor4 === 0 && input.year % input.divisor100 !== 0) || (input.year % input.divisor400 === 0)) ? 1 : 0); results["isLeapYear"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["isLeapYear"] = Number.NaN; }
+  try { const v = ((input.year % input.divisor4 === 0) ? 1 : 0); results["divBy4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["divBy4"] = Number.NaN; }
+  try { const v = ((input.year % input.divisor100 === 0) ? 1 : 0); results["divBy100"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["divBy100"] = Number.NaN; }
+  try { const v = ((input.year % input.divisor400 === 0) ? 1 : 0); results["divBy400"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["divBy400"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLeap_year_calculator(input: Leap_year_calculatorInput): Leap_year_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["isLeapYear"]));
+  const totalWasteCost = toNumericFormulaValue(values["isLeapYear"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateLeap_year_calculator(input: Leap_year_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

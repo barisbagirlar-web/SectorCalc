@@ -18,27 +18,23 @@ export const Startup_valuation_calculatorInputSchema = z.object({
   investmentAmount: z.number().default(1000000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Startup_valuation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.projectedRevenue * (input.netProfitMargin / 100) * input.peRatio; results["exitValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exitValue"] = 0; }
-  try { const v = (asFormulaNumber(results["exitValue"])) / input.requiredROI; results["postMoney"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["postMoney"] = 0; }
-  try { const v = (asFormulaNumber(results["postMoney"])) - input.investmentAmount; results["preMoney"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["preMoney"] = 0; }
-  try { const v = (input.investmentAmount / (asFormulaNumber(results["postMoney"]))) * 100; results["ownershipPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ownershipPercent"] = 0; }
+  try { const v = input.projectedRevenue * (input.netProfitMargin / 100) * input.peRatio; results["exitValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exitValue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["exitValue"])) / input.requiredROI; results["postMoney"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["postMoney"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["postMoney"])) - input.investmentAmount; results["preMoney"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["preMoney"] = Number.NaN; }
+  try { const v = (input.investmentAmount / (toNumericFormulaValue(results["postMoney"]))) * 100; results["ownershipPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ownershipPercent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStartup_valuation_calculator(input: Startup_valuation_calculatorInput): Startup_valuation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ownershipPercent"]));
+  const totalWasteCost = toNumericFormulaValue(values["ownershipPercent"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateStartup_valuation_calculator(input: Startup_valuation_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

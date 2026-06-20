@@ -16,26 +16,22 @@ export const Runoff_calculatorInputSchema = z.object({
   safetyFactor: z.number(),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Runoff_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.runoffCoefficient * input.rainfallIntensity * input.catchmentArea / 3600; results["runoffBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["runoffBase"] = 0; }
-  try { const v = (asFormulaNumber(results["runoffBase"])) * input.safetyFactor; results["runoffLps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["runoffLps"] = 0; }
-  try { const v = (asFormulaNumber(results["runoffLps"])) / 1000; results["runoffM3s"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["runoffM3s"] = 0; }
+  try { const v = input.runoffCoefficient * input.rainfallIntensity * input.catchmentArea / 3600; results["runoffBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["runoffBase"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["runoffBase"])) * input.safetyFactor; results["runoffLps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["runoffLps"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["runoffLps"])) / 1000; results["runoffM3s"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["runoffM3s"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRunoff_calculator(input: Runoff_calculatorInput): Runoff_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["runoffLps"]));
+  const totalWasteCost = toNumericFormulaValue(values["runoffLps"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateRunoff_calculator(input: Runoff_calculatorInput): Runof
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

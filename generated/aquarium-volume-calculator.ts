@@ -20,29 +20,25 @@ export const Aquarium_volume_calculatorInputSchema = z.object({
   glassThickness: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Aquarium_volume_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length - 2 * (input.glassThickness / 10); results["interiorLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["interiorLength"] = 0; }
-  try { const v = input.width - 2 * (input.glassThickness / 10); results["interiorWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["interiorWidth"] = 0; }
-  try { const v = input.waterFillDepth - input.substrateDepth; results["effectiveWaterDepth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveWaterDepth"] = 0; }
-  try { const v = (asFormulaNumber(results["interiorLength"])) * (asFormulaNumber(results["interiorWidth"])) * (asFormulaNumber(results["effectiveWaterDepth"])); results["volume_cm3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume_cm3"] = 0; }
-  try { const v = (asFormulaNumber(results["volume_cm3"])) / 1000; results["waterVolume_L"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterVolume_L"] = 0; }
-  try { const v = (asFormulaNumber(results["waterVolume_L"])) * 0.264172; results["waterVolume_gal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterVolume_gal"] = 0; }
+  try { const v = input.length - 2 * (input.glassThickness / 10); results["interiorLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["interiorLength"] = Number.NaN; }
+  try { const v = input.width - 2 * (input.glassThickness / 10); results["interiorWidth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["interiorWidth"] = Number.NaN; }
+  try { const v = input.waterFillDepth - input.substrateDepth; results["effectiveWaterDepth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveWaterDepth"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["interiorLength"])) * (toNumericFormulaValue(results["interiorWidth"])) * (toNumericFormulaValue(results["effectiveWaterDepth"])); results["volume_cm3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume_cm3"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume_cm3"])) / 1000; results["waterVolume_L"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterVolume_L"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["waterVolume_L"])) * 0.264172; results["waterVolume_gal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterVolume_gal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAquarium_volume_calculator(input: Aquarium_volume_calculatorInput): Aquarium_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["waterVolume_gal"]));
+  const totalWasteCost = toNumericFormulaValue(values["waterVolume_gal"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateAquarium_volume_calculator(input: Aquarium_volume_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

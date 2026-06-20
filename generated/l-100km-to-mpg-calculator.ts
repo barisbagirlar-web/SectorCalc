@@ -24,25 +24,21 @@ export const L_100km_to_mpg_calculatorInputSchema = z.object({
   route_type: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: L_100km_to_mpg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.l_per_100km) * (input.gallon_type) * (input.decimal_places) * (input.rounding_method) * (input.measurement_standard) * (input.fuel_type) * (input.vehicle_class) * (input.route_type); results["conversion_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversion_factor"] = 0; }
-  try { const v = (input.l_per_100km) * (input.gallon_type) * (input.decimal_places); results["base_mpg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_mpg"] = 0; }
+  try { const v = (input.l_per_100km) * (input.gallon_type) * (input.decimal_places) * (input.rounding_method) * (input.measurement_standard) * (input.fuel_type) * (input.vehicle_class) * (input.route_type); results["conversion_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversion_factor"] = Number.NaN; }
+  try { const v = (input.l_per_100km) * (input.gallon_type) * (input.decimal_places); results["base_mpg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_mpg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateL_100km_to_mpg_calculator(input: L_100km_to_mpg_calculatorInput): L_100km_to_mpg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["base_mpg"]));
+  const totalWasteCost = toNumericFormulaValue(values["base_mpg"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateL_100km_to_mpg_calculator(input: L_100km_to_mpg_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,27 +20,23 @@ export const Carpet_calculatorInputSchema = z.object({
   installationCostPerSqm: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Carpet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.roomLength * input.roomWidth * (1 + input.wasteFactor / 100); results["totalCarpetArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCarpetArea"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCarpetArea"])) * input.carpetPricePerSqm; results["materialCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialCost"] = 0; }
-  try { const v = input.roomLength * input.roomWidth * input.installationCostPerSqm; results["installationCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["installationCost"] = 0; }
-  try { const v = (asFormulaNumber(results["materialCost"])) + (asFormulaNumber(results["installationCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.roomLength * input.roomWidth * (1 + input.wasteFactor / 100); results["totalCarpetArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCarpetArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCarpetArea"])) * input.carpetPricePerSqm; results["materialCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialCost"] = Number.NaN; }
+  try { const v = input.roomLength * input.roomWidth * input.installationCostPerSqm; results["installationCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["installationCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["materialCost"])) + (toNumericFormulaValue(results["installationCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCarpet_calculator(input: Carpet_calculatorInput): Carpet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCarpet_calculator(input: Carpet_calculatorInput): Carpe
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,31 +20,27 @@ export const Gasket_calculatorInputSchema = z.object({
   boltCount: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gasket_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.designPressure * 0.1; results["pressureMPa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureMPa"] = 0; }
-  try { const v = (input.innerDiameter + input.outerDiameter) / 2; results["meanDiam"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanDiam"] = 0; }
-  try { const v = (input.outerDiameter - input.innerDiameter) / 2; results["effWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effWidth"] = 0; }
-  try { const v = (Math.PI * (asFormulaNumber(results["meanDiam"]))**2 * (asFormulaNumber(results["pressureMPa"])) / 4) + (2 * (asFormulaNumber(results["effWidth"])) * Math.PI * (asFormulaNumber(results["meanDiam"])) * input.gasketFactor * (asFormulaNumber(results["pressureMPa"]))); results["operatingForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["operatingForce"] = 0; }
-  try { const v = Math.PI * (asFormulaNumber(results["effWidth"])) * (asFormulaNumber(results["meanDiam"])) * input.seatingStress; results["seatingForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["seatingForce"] = 0; }
-  try { const v = (asFormulaNumber(results["operatingForce"])) / input.boltCount; results["operatingForcePerBolt"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["operatingForcePerBolt"] = 0; }
-  try { const v = (asFormulaNumber(results["seatingForce"])) / input.boltCount; results["seatingForcePerBolt"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["seatingForcePerBolt"] = 0; }
-  try { const v = Math.PI / 4 * (input.outerDiameter**2 - input.innerDiameter**2); results["effectiveArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveArea"] = 0; }
+  try { const v = input.designPressure * 0.1; results["pressureMPa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressureMPa"] = Number.NaN; }
+  try { const v = (input.innerDiameter + input.outerDiameter) / 2; results["meanDiam"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["meanDiam"] = Number.NaN; }
+  try { const v = (input.outerDiameter - input.innerDiameter) / 2; results["effWidth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effWidth"] = Number.NaN; }
+  try { const v = (Math.PI * (toNumericFormulaValue(results["meanDiam"]))**2 * (toNumericFormulaValue(results["pressureMPa"])) / 4) + (2 * (toNumericFormulaValue(results["effWidth"])) * Math.PI * (toNumericFormulaValue(results["meanDiam"])) * input.gasketFactor * (toNumericFormulaValue(results["pressureMPa"]))); results["operatingForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["operatingForce"] = Number.NaN; }
+  try { const v = Math.PI * (toNumericFormulaValue(results["effWidth"])) * (toNumericFormulaValue(results["meanDiam"])) * input.seatingStress; results["seatingForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["seatingForce"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["operatingForce"])) / input.boltCount; results["operatingForcePerBolt"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["operatingForcePerBolt"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["seatingForce"])) / input.boltCount; results["seatingForcePerBolt"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["seatingForcePerBolt"] = Number.NaN; }
+  try { const v = Math.PI / 4 * (input.outerDiameter**2 - input.innerDiameter**2); results["effectiveArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveArea"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGasket_calculator(input: Gasket_calculatorInput): Gasket_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effectiveArea"]));
+  const totalWasteCost = toNumericFormulaValue(values["effectiveArea"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateGasket_calculator(input: Gasket_calculatorInput): Gaske
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

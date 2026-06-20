@@ -16,28 +16,24 @@ export const Breast_milk_calculatorInputSchema = z.object({
   milkPerSession: z.number().default(90),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Breast_milk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.babyWeight * input.dailyMilkPerKg; results["dailyNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyNeeded"] = 0; }
-  try { const v = input.milkPerSession * input.feedingsPerDay; results["dailySupplied"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailySupplied"] = 0; }
-  try { const v = (asFormulaNumber(results["dailySupplied"])) - (asFormulaNumber(results["dailyNeeded"])); results["deficit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deficit"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyNeeded"])) / input.feedingsPerDay; results["perFeedingNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perFeedingNeeded"] = 0; }
-  try { const v = input.milkPerSession; results["perFeedingSupplied"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perFeedingSupplied"] = 0; }
+  try { const v = input.babyWeight * input.dailyMilkPerKg; results["dailyNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyNeeded"] = Number.NaN; }
+  try { const v = input.milkPerSession * input.feedingsPerDay; results["dailySupplied"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailySupplied"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailySupplied"])) - (toNumericFormulaValue(results["dailyNeeded"])); results["deficit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deficit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyNeeded"])) / input.feedingsPerDay; results["perFeedingNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["perFeedingNeeded"] = Number.NaN; }
+  try { const v = input.milkPerSession; results["perFeedingSupplied"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["perFeedingSupplied"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBreast_milk_calculator(input: Breast_milk_calculatorInput): Breast_milk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deficit"]));
+  const totalWasteCost = toNumericFormulaValue(values["deficit"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateBreast_milk_calculator(input: Breast_milk_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

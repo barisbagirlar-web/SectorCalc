@@ -24,27 +24,23 @@ export const Lightweight_cost_savings_calculatorInputSchema = z.object({
   labor_rate_per_hour: z.number().min(0).max(500).default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Lightweight_cost_savings_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annual_volume_units * input.material_cost_per_kg; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.annual_volume_units * input.material_cost_per_kg * (1 + (input.waste_rate_percent / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.annual_volume_units * input.material_cost_per_kg * (1 + (input.waste_rate_percent / 100)) * (input.current_weight_kg); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.current_weight_kg; results["factor_current_weight_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_current_weight_kg"] = 0; }
+  try { const v = input.annual_volume_units * input.material_cost_per_kg; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.annual_volume_units * input.material_cost_per_kg * (1 + (input.waste_rate_percent / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.annual_volume_units * input.material_cost_per_kg * (1 + (input.waste_rate_percent / 100)) * (input.current_weight_kg); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.current_weight_kg; results["factor_current_weight_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_current_weight_kg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLightweight_cost_savings_calculator(input: Lightweight_cost_savings_calculatorInput): Lightweight_cost_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateLightweight_cost_savings_calculator(input: Lightweight_
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

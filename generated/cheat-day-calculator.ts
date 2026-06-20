@@ -16,28 +16,24 @@ export const Cheat_day_calculatorInputSchema = z.object({
   totalDays: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cheat_day_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.normalDailyOutput * (input.totalDays - input.numCheatDays); results["normalContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalContribution"] = 0; }
-  try { const v = input.normalDailyOutput * (input.cheatDayOutputPercent / 100) * input.numCheatDays; results["cheatContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cheatContribution"] = 0; }
-  try { const v = input.normalDailyOutput * (input.totalDays - input.numCheatDays) + input.normalDailyOutput * (input.cheatDayOutputPercent / 100) * input.numCheatDays; results["effectiveOutput"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveOutput"] = 0; }
-  try { const v = input.normalDailyOutput * input.totalDays; results["potentialFullOutput"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potentialFullOutput"] = 0; }
-  try { const v = input.normalDailyOutput * input.totalDays - (input.normalDailyOutput * (input.totalDays - input.numCheatDays) + input.normalDailyOutput * (input.cheatDayOutputPercent / 100) * input.numCheatDays); results["loss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loss"] = 0; }
+  try { const v = input.normalDailyOutput * (input.totalDays - input.numCheatDays); results["normalContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalContribution"] = Number.NaN; }
+  try { const v = input.normalDailyOutput * (input.cheatDayOutputPercent / 100) * input.numCheatDays; results["cheatContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cheatContribution"] = Number.NaN; }
+  try { const v = input.normalDailyOutput * (input.totalDays - input.numCheatDays) + input.normalDailyOutput * (input.cheatDayOutputPercent / 100) * input.numCheatDays; results["effectiveOutput"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveOutput"] = Number.NaN; }
+  try { const v = input.normalDailyOutput * input.totalDays; results["potentialFullOutput"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["potentialFullOutput"] = Number.NaN; }
+  try { const v = input.normalDailyOutput * input.totalDays - (input.normalDailyOutput * (input.totalDays - input.numCheatDays) + input.normalDailyOutput * (input.cheatDayOutputPercent / 100) * input.numCheatDays); results["loss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loss"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCheat_day_calculator(input: Cheat_day_calculatorInput): Cheat_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effectiveOutput"]));
+  const totalWasteCost = toNumericFormulaValue(values["effectiveOutput"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCheat_day_calculator(input: Cheat_day_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

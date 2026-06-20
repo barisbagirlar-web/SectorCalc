@@ -24,27 +24,23 @@ export const Quote_risk_analyzer_calculatorInputSchema = z.object({
   customer_credit_rating: z.enum(['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'D']).default('BBB'),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Quote_risk_analyzer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.order_volume * input.unit_price; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.order_volume * input.unit_price * (1 + (input.material_cost_variability / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.order_volume * input.unit_price * (1 + (input.material_cost_variability / 100)) * (input.production_lead_time_days); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.production_lead_time_days; results["factor_production_lead_time_days"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_production_lead_time_days"] = 0; }
+  try { const v = input.order_volume * input.unit_price; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.order_volume * input.unit_price * (1 + (input.material_cost_variability / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.order_volume * input.unit_price * (1 + (input.material_cost_variability / 100)) * (input.production_lead_time_days); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.production_lead_time_days; results["factor_production_lead_time_days"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_production_lead_time_days"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateQuote_risk_analyzer_calculator(input: Quote_risk_analyzer_calculatorInput): Quote_risk_analyzer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateQuote_risk_analyzer_calculator(input: Quote_risk_analyz
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Ear_calculatorInputSchema = z.object({
   principal: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ear_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.nominalRate / 100 / input.compoundingPeriods; results["periodicRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["periodicRate"] = 0; }
-  try { const v = ((1 + (asFormulaNumber(results["periodicRate"]))) ** input.compoundingPeriods - 1) * 100; results["effectiveAnnualRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveAnnualRate"] = 0; }
-  try { const v = ((1 + (asFormulaNumber(results["periodicRate"]))) ** (input.compoundingPeriods * input.years)); results["growthFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["growthFactor"] = 0; }
-  try { const v = input.principal * (asFormulaNumber(results["growthFactor"])); results["futureValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["futureValue"] = 0; }
+  try { const v = input.nominalRate / 100 / input.compoundingPeriods; results["periodicRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["periodicRate"] = Number.NaN; }
+  try { const v = ((1 + (toNumericFormulaValue(results["periodicRate"]))) ** input.compoundingPeriods - 1) * 100; results["effectiveAnnualRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveAnnualRate"] = Number.NaN; }
+  try { const v = ((1 + (toNumericFormulaValue(results["periodicRate"]))) ** (input.compoundingPeriods * input.years)); results["growthFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["growthFactor"] = Number.NaN; }
+  try { const v = input.principal * (toNumericFormulaValue(results["growthFactor"])); results["futureValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["futureValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEar_calculator(input: Ear_calculatorInput): Ear_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["effectiveAnnualRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["effectiveAnnualRate"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateEar_calculator(input: Ear_calculatorInput): Ear_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

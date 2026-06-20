@@ -20,26 +20,22 @@ export const Vector_subtraction_calculatorInputSchema = z.object({
   b_z: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Vector_subtraction_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.a_x - input.b_x; results["result_x"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result_x"] = 0; }
-  try { const v = input.a_y - input.b_y; results["result_y"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result_y"] = 0; }
-  try { const v = input.a_z - input.b_z; results["result_z"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result_z"] = 0; }
+  try { const v = input.a_x - input.b_x; results["result_x"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result_x"] = Number.NaN; }
+  try { const v = input.a_y - input.b_y; results["result_y"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result_y"] = Number.NaN; }
+  try { const v = input.a_z - input.b_z; results["result_z"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result_z"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVector_subtraction_calculator(input: Vector_subtraction_calculatorInput): Vector_subtraction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result_x"]));
+  const totalWasteCost = toNumericFormulaValue(values["result_x"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateVector_subtraction_calculator(input: Vector_subtraction
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

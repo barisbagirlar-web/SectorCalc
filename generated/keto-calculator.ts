@@ -18,29 +18,25 @@ export const Keto_calculatorInputSchema = z.object({
   deficitPercent: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Keto_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight * (1 - input.bodyFat / 100); results["leanBodyMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leanBodyMass"] = 0; }
-  try { const v = 370 + 21.6 * (asFormulaNumber(results["leanBodyMass"])); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (asFormulaNumber(results["bmr"])) * input.activityLevel; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (asFormulaNumber(results["tdee"])) * (1 - input.deficitPercent / 100); results["dailyCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyCalories"] = 0; }
-  try { const v = (asFormulaNumber(results["leanBodyMass"])) * 1.6; results["proteinGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["proteinGrams"] = 0; }
-  try { const v = (asFormulaNumber(results["proteinGrams"])) * 4; results["proteinCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["proteinCalories"] = 0; }
+  try { const v = input.weight * (1 - input.bodyFat / 100); results["leanBodyMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["leanBodyMass"] = Number.NaN; }
+  try { const v = 370 + 21.6 * (toNumericFormulaValue(results["leanBodyMass"])); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmr"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bmr"])) * input.activityLevel; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tdee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["tdee"])) * (1 - input.deficitPercent / 100); results["dailyCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyCalories"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["leanBodyMass"])) * 1.6; results["proteinGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["proteinGrams"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["proteinGrams"])) * 4; results["proteinCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["proteinCalories"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKeto_calculator(input: Keto_calculatorInput): Keto_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dailyCalories"]));
+  const totalWasteCost = toNumericFormulaValue(values["dailyCalories"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateKeto_calculator(input: Keto_calculatorInput): Keto_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

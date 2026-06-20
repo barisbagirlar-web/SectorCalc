@@ -16,25 +16,21 @@ export const Kg_to_tons_calculatorInputSchema = z.object({
   decimal_places: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Kg_to_tons_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.gross_kg - input.tare_kg) * input.batch_count; results["net_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["net_kg"] = 0; }
-  try { const v = (input.gross_kg * input.batch_count) / 1000; results["gross_tons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gross_tons"] = 0; }
+  try { const v = (input.gross_kg - input.tare_kg) * input.batch_count; results["net_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["net_kg"] = Number.NaN; }
+  try { const v = (input.gross_kg * input.batch_count) / 1000; results["gross_tons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gross_tons"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKg_to_tons_calculator(input: Kg_to_tons_calculatorInput): Kg_to_tons_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gross_tons"]));
+  const totalWasteCost = toNumericFormulaValue(values["gross_tons"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateKg_to_tons_calculator(input: Kg_to_tons_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

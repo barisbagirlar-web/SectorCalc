@@ -16,26 +16,22 @@ export const Iron_intake_calculatorInputSchema = z.object({
   recoveryRate: z.number().default(95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Iron_intake_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.oreMass * (1 - input.moistureContent / 100); results["dryMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dryMass"] = 0; }
-  try { const v = (asFormulaNumber(results["dryMass"])) * (input.ironConcentration / 100); results["ironMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ironMass"] = 0; }
-  try { const v = (asFormulaNumber(results["ironMass"])) * (input.recoveryRate / 100); results["netIron"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netIron"] = 0; }
+  try { const v = input.oreMass * (1 - input.moistureContent / 100); results["dryMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dryMass"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dryMass"])) * (input.ironConcentration / 100); results["ironMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ironMass"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ironMass"])) * (input.recoveryRate / 100); results["netIron"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netIron"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateIron_intake_calculator(input: Iron_intake_calculatorInput): Iron_intake_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netIron"]));
+  const totalWasteCost = toNumericFormulaValue(values["netIron"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateIron_intake_calculator(input: Iron_intake_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

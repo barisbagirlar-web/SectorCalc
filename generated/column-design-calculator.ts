@@ -22,25 +22,21 @@ export const Column_design_calculatorInputSchema = z.object({
   SF: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Column_design_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI ** 2 * input.E * input.I / (100 * input.L ** 2); results["Math_PI____2___E___I____100___L____2_"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Math_PI____2___E___I____100___L____2_"] = 0; }
-  try { const v = input.A * input.Fy / (10 * input.SF); results["A___Fy____10___SF_"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["A___Fy____10___SF_"] = 0; }
+  try { const v = Math.PI ** 2 * input.E * input.I / (100 * input.L ** 2); results["Math_PI____2___E___I____100___L____2_"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Math_PI____2___E___I____100___L____2_"] = Number.NaN; }
+  try { const v = input.A * input.Fy / (10 * input.SF); results["A___Fy____10___SF_"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["A___Fy____10___SF_"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateColumn_design_calculator(input: Column_design_calculatorInput): Column_design_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["A___Fy____10___SF_"]));
+  const totalWasteCost = toNumericFormulaValue(values["A___Fy____10___SF_"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateColumn_design_calculator(input: Column_design_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

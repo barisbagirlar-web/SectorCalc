@@ -16,27 +16,23 @@ export const Bpm_calculatorInputSchema = z.object({
   division: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bpm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.beats / input.bpm) * 60; results["totalTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTimeSeconds"] = 0; }
-  try { const v = ((input.beats / input.bpm) * 60) * input.sampleRate; results["totalTimeSamples"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTimeSamples"] = 0; }
-  try { const v = (60 / input.bpm) * 1000; results["timePerBeatMs"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["timePerBeatMs"] = 0; }
-  try { const v = ((60 / input.bpm) * input.sampleRate); results["timePerBeatSamples"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["timePerBeatSamples"] = 0; }
+  try { const v = (input.beats / input.bpm) * 60; results["totalTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTimeSeconds"] = Number.NaN; }
+  try { const v = ((input.beats / input.bpm) * 60) * input.sampleRate; results["totalTimeSamples"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTimeSamples"] = Number.NaN; }
+  try { const v = (60 / input.bpm) * 1000; results["timePerBeatMs"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["timePerBeatMs"] = Number.NaN; }
+  try { const v = ((60 / input.bpm) * input.sampleRate); results["timePerBeatSamples"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["timePerBeatSamples"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBpm_calculator(input: Bpm_calculatorInput): Bpm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTimeSeconds"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTimeSeconds"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateBpm_calculator(input: Bpm_calculatorInput): Bpm_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

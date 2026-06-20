@@ -22,30 +22,26 @@ export const Orchard_calculatorInputSchema = z.object({
   initialInvestment: z.number().default(50000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Orchard_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 10000 / (input.rowSpacing * input.treeSpacing); results["treesPerHa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["treesPerHa"] = 0; }
-  try { const v = input.area * (asFormulaNumber(results["treesPerHa"])); results["totalTrees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTrees"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTrees"])) * input.yieldPerTree; results["totalYield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalYield"] = 0; }
-  try { const v = (asFormulaNumber(results["totalYield"])) * input.pricePerKg; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTrees"])) * input.annualCostPerTree; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRevenue"])) - (asFormulaNumber(results["annualCost"])); results["annualProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualProfit"] = 0; }
-  try { const v = input.initialInvestment / (asFormulaNumber(results["annualProfit"])); results["paybackPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paybackPeriod"] = 0; }
+  try { const v = 10000 / (input.rowSpacing * input.treeSpacing); results["treesPerHa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["treesPerHa"] = Number.NaN; }
+  try { const v = input.area * (toNumericFormulaValue(results["treesPerHa"])); results["totalTrees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTrees"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTrees"])) * input.yieldPerTree; results["totalYield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalYield"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalYield"])) * input.pricePerKg; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRevenue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTrees"])) * input.annualCostPerTree; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRevenue"])) - (toNumericFormulaValue(results["annualCost"])); results["annualProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualProfit"] = Number.NaN; }
+  try { const v = input.initialInvestment / (toNumericFormulaValue(results["annualProfit"])); results["paybackPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paybackPeriod"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOrchard_calculator(input: Orchard_calculatorInput): Orchard_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["annualProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["annualProfit"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateOrchard_calculator(input: Orchard_calculatorInput): Orc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

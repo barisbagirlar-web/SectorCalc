@@ -20,26 +20,22 @@ export const Hp_to_kwInputSchema = z.object({
   phases: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hp_to_kwInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor) * (input.voltage) * (input.current) * (input.phases); results["mechanicalPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mechanicalPowerKW"] = 0; }
-  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor); results["outputPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outputPowerKW"] = 0; }
-  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor); results["lossesKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lossesKW"] = 0; }
+  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor) * (input.voltage) * (input.current) * (input.phases); results["mechanicalPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mechanicalPowerKW"] = Number.NaN; }
+  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor); results["outputPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["outputPowerKW"] = Number.NaN; }
+  try { const v = (input.horsepower) * (input.efficiency) * (input.powerFactor); results["lossesKW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lossesKW"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHp_to_kw(input: Hp_to_kwInput): Hp_to_kwOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["outputPowerKW"]));
+  const totalWasteCost = toNumericFormulaValue(values["outputPowerKW"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHp_to_kw(input: Hp_to_kwInput): Hp_to_kwOutput {
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

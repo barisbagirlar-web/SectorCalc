@@ -16,28 +16,24 @@ export const Pond_calculatorInputSchema = z.object({
   linerOverlap: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pond_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pondLength * input.pondWidth * input.pondDepth; results["volumeM3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeM3"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeM3"])) * 1000; results["volumeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeLiters"] = 0; }
-  try { const v = input.pondLength + 2 * input.pondDepth + 2 * input.linerOverlap; results["linerLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["linerLength"] = 0; }
-  try { const v = input.pondWidth + 2 * input.pondDepth + 2 * input.linerOverlap; results["linerWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["linerWidth"] = 0; }
-  try { const v = (asFormulaNumber(results["linerLength"])) * (asFormulaNumber(results["linerWidth"])); results["linerArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["linerArea"] = 0; }
+  try { const v = input.pondLength * input.pondWidth * input.pondDepth; results["volumeM3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeM3"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeM3"])) * 1000; results["volumeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeLiters"] = Number.NaN; }
+  try { const v = input.pondLength + 2 * input.pondDepth + 2 * input.linerOverlap; results["linerLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["linerLength"] = Number.NaN; }
+  try { const v = input.pondWidth + 2 * input.pondDepth + 2 * input.linerOverlap; results["linerWidth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["linerWidth"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["linerLength"])) * (toNumericFormulaValue(results["linerWidth"])); results["linerArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["linerArea"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePond_calculator(input: Pond_calculatorInput): Pond_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeLiters"]));
+  const totalWasteCost = toNumericFormulaValue(values["volumeLiters"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePond_calculator(input: Pond_calculatorInput): Pond_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

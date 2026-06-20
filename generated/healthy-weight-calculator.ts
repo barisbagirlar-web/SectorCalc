@@ -18,28 +18,24 @@ export const Healthy_weight_calculatorInputSchema = z.object({
   hip: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Healthy_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmi"] = 0; }
-  try { const v = input.waist / input.height; results["whtr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["whtr"] = 0; }
-  try { const v = input.waist / input.hip; results["whr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["whr"] = 0; }
-  try { const v = 18.5 * ((input.height / 100) ** 2); results["ideal_min"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ideal_min"] = 0; }
-  try { const v = 24.9 * ((input.height / 100) ** 2); results["ideal_max"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ideal_max"] = 0; }
+  try { const v = input.weight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmi"] = Number.NaN; }
+  try { const v = input.waist / input.height; results["whtr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["whtr"] = Number.NaN; }
+  try { const v = input.waist / input.hip; results["whr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["whr"] = Number.NaN; }
+  try { const v = 18.5 * ((input.height / 100) ** 2); results["ideal_min"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ideal_min"] = Number.NaN; }
+  try { const v = 24.9 * ((input.height / 100) ** 2); results["ideal_max"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ideal_max"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHealthy_weight_calculator(input: Healthy_weight_calculatorInput): Healthy_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bmi"]));
+  const totalWasteCost = toNumericFormulaValue(values["bmi"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHealthy_weight_calculator(input: Healthy_weight_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,26 +24,22 @@ export const Textile_waste_risk_calculatorInputSchema = z.object({
   recycling_capability: z.enum(['none', 'low', 'medium', 'high']).default('low'),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Textile_waste_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.production_volume_meters * (input.waste_percentage / 100) * (input.rework_rate / 100) * input.defect_density; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.production_volume_meters * (input.waste_percentage / 100) * (input.rework_rate / 100) * input.defect_density * (input.energy_cost_per_kwh * input.labor_cost_per_hour); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.energy_cost_per_kwh * input.labor_cost_per_hour; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.production_volume_meters * (input.waste_percentage / 100) * (input.rework_rate / 100) * input.defect_density; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.production_volume_meters * (input.waste_percentage / 100) * (input.rework_rate / 100) * input.defect_density * (input.energy_cost_per_kwh * input.labor_cost_per_hour); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.energy_cost_per_kwh * input.labor_cost_per_hour; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTextile_waste_risk_calculator(input: Textile_waste_risk_calculatorInput): Textile_waste_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateTextile_waste_risk_calculator(input: Textile_waste_risk
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

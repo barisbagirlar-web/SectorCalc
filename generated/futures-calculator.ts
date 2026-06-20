@@ -20,27 +20,23 @@ export const Futures_calculatorInputSchema = z.object({
   commission: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Futures_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.sellPrice - input.buyPrice) * input.contractSize * input.contracts; results["grossPL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossPL"] = 0; }
-  try { const v = input.commission * input.contracts * 2; results["totalCommission"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCommission"] = 0; }
-  try { const v = (asFormulaNumber(results["grossPL"])) - (asFormulaNumber(results["totalCommission"])); results["netPL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netPL"] = 0; }
-  try { const v = input.buyPrice * input.contractSize * input.contracts * (input.marginRate / 100); results["requiredMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredMargin"] = 0; }
+  try { const v = (input.sellPrice - input.buyPrice) * input.contractSize * input.contracts; results["grossPL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossPL"] = Number.NaN; }
+  try { const v = input.commission * input.contracts * 2; results["totalCommission"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCommission"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossPL"])) - (toNumericFormulaValue(results["totalCommission"])); results["netPL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netPL"] = Number.NaN; }
+  try { const v = input.buyPrice * input.contractSize * input.contracts * (input.marginRate / 100); results["requiredMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredMargin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFutures_calculator(input: Futures_calculatorInput): Futures_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netPL"]));
+  const totalWasteCost = toNumericFormulaValue(values["netPL"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateFutures_calculator(input: Futures_calculatorInput): Fut
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,27 +20,23 @@ export const Factor_of_safety_calculatorInputSchema = z.object({
   stressConcentrationFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Factor_of_safety_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.appliedForce / input.crossSectionArea * input.stressConcentrationFactor; results["workingStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["workingStress"] = 0; }
-  try { const v = input.yieldStrength / (asFormulaNumber(results["workingStress"])); results["fosYield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fosYield"] = 0; }
-  try { const v = input.ultimateTensileStrength / (asFormulaNumber(results["workingStress"])); results["fosUltimate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fosUltimate"] = 0; }
-  try { const v = (asFormulaNumber(results["fosYield"])) - 1; results["marginYield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["marginYield"] = 0; }
+  try { const v = input.appliedForce / input.crossSectionArea * input.stressConcentrationFactor; results["workingStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["workingStress"] = Number.NaN; }
+  try { const v = input.yieldStrength / (toNumericFormulaValue(results["workingStress"])); results["fosYield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fosYield"] = Number.NaN; }
+  try { const v = input.ultimateTensileStrength / (toNumericFormulaValue(results["workingStress"])); results["fosUltimate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fosUltimate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fosYield"])) - 1; results["marginYield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["marginYield"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFactor_of_safety_calculator(input: Factor_of_safety_calculatorInput): Factor_of_safety_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["marginYield"]));
+  const totalWasteCost = toNumericFormulaValue(values["marginYield"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateFactor_of_safety_calculator(input: Factor_of_safety_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

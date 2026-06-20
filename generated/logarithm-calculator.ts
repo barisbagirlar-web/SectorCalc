@@ -18,25 +18,21 @@ export const Logarithm_calculatorInputSchema = z.object({
   enable_threshold_alerts: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Logarithm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.value_x) / (input.base + input.unit_type + input.reference_value) * 100; results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio"] = 0; }
-  try { const v = (input.value_x) / (input.base + input.unit_type) * 100; results["ratio_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio_aux"] = 0; }
+  try { const v = (input.value_x) / (input.base + input.unit_type + input.reference_value) * 100; results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ratio"] = Number.NaN; }
+  try { const v = (input.value_x) / (input.base + input.unit_type) * 100; results["ratio_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ratio_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLogarithm_calculator(input: Logarithm_calculatorInput): Logarithm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ratio_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["ratio_aux"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateLogarithm_calculator(input: Logarithm_calculatorInput):
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

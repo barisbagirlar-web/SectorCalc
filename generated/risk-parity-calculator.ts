@@ -16,29 +16,25 @@ export const Risk_parity_calculatorInputSchema = z.object({
   vol4: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Risk_parity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / input.vol1 + 1 / input.vol2 + 1 / input.vol3 + 1 / input.vol4; results["invVolSum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["invVolSum"] = 0; }
-  try { const v = (1 / input.vol1) / (asFormulaNumber(results["invVolSum"])) * 100; results["weight1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight1"] = 0; }
-  try { const v = (1 / input.vol2) / (asFormulaNumber(results["invVolSum"])) * 100; results["weight2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight2"] = 0; }
-  try { const v = (1 / input.vol3) / (asFormulaNumber(results["invVolSum"])) * 100; results["weight3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight3"] = 0; }
-  try { const v = (1 / input.vol4) / (asFormulaNumber(results["invVolSum"])) * 100; results["weight4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight4"] = 0; }
-  try { const v = (asFormulaNumber(results["weight1"])) + (asFormulaNumber(results["weight2"])) + (asFormulaNumber(results["weight3"])) + (asFormulaNumber(results["weight4"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
+  try { const v = 1 / input.vol1 + 1 / input.vol2 + 1 / input.vol3 + 1 / input.vol4; results["invVolSum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["invVolSum"] = Number.NaN; }
+  try { const v = (1 / input.vol1) / (toNumericFormulaValue(results["invVolSum"])) * 100; results["weight1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight1"] = Number.NaN; }
+  try { const v = (1 / input.vol2) / (toNumericFormulaValue(results["invVolSum"])) * 100; results["weight2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight2"] = Number.NaN; }
+  try { const v = (1 / input.vol3) / (toNumericFormulaValue(results["invVolSum"])) * 100; results["weight3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight3"] = Number.NaN; }
+  try { const v = (1 / input.vol4) / (toNumericFormulaValue(results["invVolSum"])) * 100; results["weight4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight4"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weight1"])) + (toNumericFormulaValue(results["weight2"])) + (toNumericFormulaValue(results["weight3"])) + (toNumericFormulaValue(results["weight4"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRisk_parity_calculator(input: Risk_parity_calculatorInput): Risk_parity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalWeight"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateRisk_parity_calculator(input: Risk_parity_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

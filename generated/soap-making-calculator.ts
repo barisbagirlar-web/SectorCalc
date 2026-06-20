@@ -16,26 +16,22 @@ export const Soap_making_calculatorInputSchema = z.object({
   waterPercent: z.number().default(38),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Soap_making_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.oilWeight * input.sapValue / 1000) * (1 - input.superfat / 100); results["lyeWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lyeWeight"] = 0; }
-  try { const v = input.oilWeight * (input.waterPercent / 100); results["waterWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterWeight"] = 0; }
-  try { const v = input.oilWeight + (asFormulaNumber(results["lyeWeight"])) + (asFormulaNumber(results["waterWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
+  try { const v = (input.oilWeight * input.sapValue / 1000) * (1 - input.superfat / 100); results["lyeWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lyeWeight"] = Number.NaN; }
+  try { const v = input.oilWeight * (input.waterPercent / 100); results["waterWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterWeight"] = Number.NaN; }
+  try { const v = input.oilWeight + (toNumericFormulaValue(results["lyeWeight"])) + (toNumericFormulaValue(results["waterWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSoap_making_calculator(input: Soap_making_calculatorInput): Soap_making_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lyeWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["lyeWeight"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateSoap_making_calculator(input: Soap_making_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

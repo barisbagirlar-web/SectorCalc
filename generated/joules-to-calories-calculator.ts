@@ -16,25 +16,21 @@ export const Joules_to_calories_calculatorInputSchema = z.object({
   round_method: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Joules_to_calories_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.calorie_type == 1 ? 4.184 : (input.calorie_type == 2 ? 4.204 : (input.calorie_type == 3 ? 4.1855 : (input.calorie_type == 4 ? 4.1868 : 4.190))); results["conversion_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversion_factor"] = 0; }
-  try { const v = input.joules / (asFormulaNumber(results["conversion_factor"])); results["calories_precise"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calories_precise"] = 0; }
+  try { const v = input.calorie_type == 1 ? 4.184 : (input.calorie_type == 2 ? 4.204 : (input.calorie_type == 3 ? 4.1855 : (input.calorie_type == 4 ? 4.1868 : 4.190))); results["conversion_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversion_factor"] = Number.NaN; }
+  try { const v = input.joules / (toNumericFormulaValue(results["conversion_factor"])); results["calories_precise"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["calories_precise"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateJoules_to_calories_calculator(input: Joules_to_calories_calculatorInput): Joules_to_calories_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["calories_precise"]));
+  const totalWasteCost = toNumericFormulaValue(values["calories_precise"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateJoules_to_calories_calculator(input: Joules_to_calories
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

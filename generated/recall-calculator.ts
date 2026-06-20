@@ -20,29 +20,25 @@ export const Recall_calculatorInputSchema = z.object({
   replacementCostPerUnit: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Recall_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalUnitsProduced * (input.defectRate / 100); results["defectiveUnits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["defectiveUnits"] = 0; }
-  try { const v = (asFormulaNumber(results["defectiveUnits"])) * (input.recallEffectiveness / 100); results["recalledUnits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recalledUnits"] = 0; }
-  try { const v = (asFormulaNumber(results["recalledUnits"])) * input.costPerRecallUnit; results["variableRecallCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["variableRecallCost"] = 0; }
-  try { const v = (asFormulaNumber(results["recalledUnits"])) * input.replacementCostPerUnit; results["totalReplacementCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalReplacementCost"] = 0; }
-  try { const v = input.fixedRecallCost; results["fixedCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fixedCost"] = 0; }
-  try { const v = (asFormulaNumber(results["fixedCost"])) + (asFormulaNumber(results["variableRecallCost"])) + (asFormulaNumber(results["totalReplacementCost"])); results["totalRecallCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRecallCost"] = 0; }
+  try { const v = input.totalUnitsProduced * (input.defectRate / 100); results["defectiveUnits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["defectiveUnits"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["defectiveUnits"])) * (input.recallEffectiveness / 100); results["recalledUnits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recalledUnits"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["recalledUnits"])) * input.costPerRecallUnit; results["variableRecallCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["variableRecallCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["recalledUnits"])) * input.replacementCostPerUnit; results["totalReplacementCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalReplacementCost"] = Number.NaN; }
+  try { const v = input.fixedRecallCost; results["fixedCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fixedCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fixedCost"])) + (toNumericFormulaValue(results["variableRecallCost"])) + (toNumericFormulaValue(results["totalReplacementCost"])); results["totalRecallCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRecallCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRecall_calculator(input: Recall_calculatorInput): Recall_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRecallCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalRecallCost"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateRecall_calculator(input: Recall_calculatorInput): Recal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

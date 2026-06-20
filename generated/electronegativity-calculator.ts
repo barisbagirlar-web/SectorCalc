@@ -16,26 +16,22 @@ export const Electronegativity_calculatorInputSchema = z.object({
   covalentRadius: z.number().default(0.37),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Electronegativity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.ionizationEnergy + input.electronAffinity) / 2; results["mulliken"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mulliken"] = 0; }
-  try { const v = 0.336 * ((asFormulaNumber(results["mulliken"])) - 0.615); results["paulingFromMulliken"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paulingFromMulliken"] = 0; }
-  try { const v = 0.359 * input.effectiveNuclearCharge / (input.covalentRadius ** 2) + 0.744; results["allredRochow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allredRochow"] = 0; }
+  try { const v = (input.ionizationEnergy + input.electronAffinity) / 2; results["mulliken"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mulliken"] = Number.NaN; }
+  try { const v = 0.336 * ((toNumericFormulaValue(results["mulliken"])) - 0.615); results["paulingFromMulliken"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paulingFromMulliken"] = Number.NaN; }
+  try { const v = 0.359 * input.effectiveNuclearCharge / (input.covalentRadius ** 2) + 0.744; results["allredRochow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allredRochow"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateElectronegativity_calculator(input: Electronegativity_calculatorInput): Electronegativity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mulliken"]));
+  const totalWasteCost = toNumericFormulaValue(values["mulliken"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateElectronegativity_calculator(input: Electronegativity_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

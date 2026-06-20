@@ -20,26 +20,22 @@ export const Peaking_calculatorInputSchema = z.object({
   offPeakRate: z.number().default(0.05),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Peaking_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.peakDemand * input.peakHours * input.peakRate; results["peakEnergyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["peakEnergyCost"] = 0; }
-  try { const v = input.offPeakDemand * input.offPeakHours * input.offPeakRate; results["offPeakEnergyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["offPeakEnergyCost"] = 0; }
-  try { const v = (asFormulaNumber(results["peakEnergyCost"])) + (asFormulaNumber(results["offPeakEnergyCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.peakDemand * input.peakHours * input.peakRate; results["peakEnergyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["peakEnergyCost"] = Number.NaN; }
+  try { const v = input.offPeakDemand * input.offPeakHours * input.offPeakRate; results["offPeakEnergyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["offPeakEnergyCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["peakEnergyCost"])) + (toNumericFormulaValue(results["offPeakEnergyCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePeaking_calculator(input: Peaking_calculatorInput): Peaking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculatePeaking_calculator(input: Peaking_calculatorInput): Pea
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

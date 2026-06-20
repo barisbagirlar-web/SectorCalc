@@ -16,28 +16,24 @@ export const Relation_calculatorInputSchema = z.object({
   factor2: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Relation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.factor1 * input.value1) / (input.factor2 * input.value2); results["weightedRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedRatio"] = 0; }
-  try { const v = input.factor1 * input.value1 * input.factor2 * input.value2; results["weightedProduct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedProduct"] = 0; }
-  try { const v = input.factor1 * input.value1 + input.factor2 * input.value2; results["weightedSum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedSum"] = 0; }
-  try { const v = input.factor1 * input.value1 - input.factor2 * input.value2; results["weightedDifference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedDifference"] = 0; }
-  try { const v = ((input.factor1 * input.value1 - input.factor2 * input.value2) / (input.factor2 * input.value2)) * 100; results["percentageDifference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentageDifference"] = 0; }
+  try { const v = (input.factor1 * input.value1) / (input.factor2 * input.value2); results["weightedRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedRatio"] = Number.NaN; }
+  try { const v = input.factor1 * input.value1 * input.factor2 * input.value2; results["weightedProduct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedProduct"] = Number.NaN; }
+  try { const v = input.factor1 * input.value1 + input.factor2 * input.value2; results["weightedSum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedSum"] = Number.NaN; }
+  try { const v = input.factor1 * input.value1 - input.factor2 * input.value2; results["weightedDifference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedDifference"] = Number.NaN; }
+  try { const v = ((input.factor1 * input.value1 - input.factor2 * input.value2) / (input.factor2 * input.value2)) * 100; results["percentageDifference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentageDifference"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRelation_calculator(input: Relation_calculatorInput): Relation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["weightedRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["weightedRatio"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateRelation_calculator(input: Relation_calculatorInput): R
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

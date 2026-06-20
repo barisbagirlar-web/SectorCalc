@@ -16,26 +16,22 @@ export const Highway_design_calculatorInputSchema = z.object({
   desiredRadius: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Highway_design_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.designSpeed ** 2 / (127 * (input.superelevation / 100 + input.frictionFactor)); results["minRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minRadius"] = 0; }
-  try { const v = input.desiredRadius > 0 ? (input.designSpeed ** 2 / (127 * input.desiredRadius) - input.superelevation / 100) : 0; results["frictionDemand"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["frictionDemand"] = 0; }
-  try { const v = input.desiredRadius > 0 && input.desiredRadius >= (input.designSpeed ** 2 / (127 * (input.superelevation / 100 + input.frictionFactor))) ? 1 : (input.desiredRadius > 0 ? 0 : 0); results["isRadiusAdequate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isRadiusAdequate"] = 0; }
+  try { const v = input.designSpeed ** 2 / (127 * (input.superelevation / 100 + input.frictionFactor)); results["minRadius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["minRadius"] = Number.NaN; }
+  try { const v = input.desiredRadius > 0 ? (input.designSpeed ** 2 / (127 * input.desiredRadius) - input.superelevation / 100) : 0; results["frictionDemand"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["frictionDemand"] = Number.NaN; }
+  try { const v = input.desiredRadius > 0 && input.desiredRadius >= (input.designSpeed ** 2 / (127 * (input.superelevation / 100 + input.frictionFactor))) ? 1 : (input.desiredRadius > 0 ? 0 : 0); results["isRadiusAdequate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["isRadiusAdequate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHighway_design_calculator(input: Highway_design_calculatorInput): Highway_design_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["minRadius"]));
+  const totalWasteCost = toNumericFormulaValue(values["minRadius"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateHighway_design_calculator(input: Highway_design_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,28 +18,24 @@ export const Spur_gear_calculatorInputSchema = z.object({
   dedendumCoeff: z.number().default(1.25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Spur_gear_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.module * input.teeth; results["pitchDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pitchDiameter"] = 0; }
-  try { const v = input.module * (input.teeth + 2 * input.addendumCoeff); results["outsideDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outsideDiameter"] = 0; }
-  try { const v = input.module * (input.teeth - 2 * input.dedendumCoeff); results["rootDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rootDiameter"] = 0; }
-  try { const v = Math.PI * input.module; results["circularPitch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["circularPitch"] = 0; }
-  try { const v = (Math.PI * input.module) / 2; results["toothThickness"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toothThickness"] = 0; }
+  try { const v = input.module * input.teeth; results["pitchDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pitchDiameter"] = Number.NaN; }
+  try { const v = input.module * (input.teeth + 2 * input.addendumCoeff); results["outsideDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["outsideDiameter"] = Number.NaN; }
+  try { const v = input.module * (input.teeth - 2 * input.dedendumCoeff); results["rootDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rootDiameter"] = Number.NaN; }
+  try { const v = Math.PI * input.module; results["circularPitch"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["circularPitch"] = Number.NaN; }
+  try { const v = (Math.PI * input.module) / 2; results["toothThickness"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["toothThickness"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSpur_gear_calculator(input: Spur_gear_calculatorInput): Spur_gear_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pitchDiameter"]));
+  const totalWasteCost = toNumericFormulaValue(values["pitchDiameter"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateSpur_gear_calculator(input: Spur_gear_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

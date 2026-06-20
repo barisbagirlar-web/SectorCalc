@@ -18,26 +18,22 @@ export const Stain_calculatorInputSchema = z.object({
   numberOfCoats: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Stain_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.coverageRate * (input.efficiency / 100); results["effectiveCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveCoverage"] = 0; }
-  try { const v = (input.surfaceArea * input.numberOfCoats * (input.stainIntensity / 100)) / input.coverageRate; results["rawRequiredVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawRequiredVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["rawRequiredVolume"])) * (100 / input.efficiency); results["totalRequiredVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRequiredVolume"] = 0; }
+  try { const v = input.coverageRate * (input.efficiency / 100); results["effectiveCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveCoverage"] = Number.NaN; }
+  try { const v = (input.surfaceArea * input.numberOfCoats * (input.stainIntensity / 100)) / input.coverageRate; results["rawRequiredVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawRequiredVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rawRequiredVolume"])) * (100 / input.efficiency); results["totalRequiredVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRequiredVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStain_calculator(input: Stain_calculatorInput): Stain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRequiredVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalRequiredVolume"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateStain_calculator(input: Stain_calculatorInput): Stain_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

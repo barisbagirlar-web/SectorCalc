@@ -18,27 +18,23 @@ export const Opportunity_zone_calculatorInputSchema = z.object({
   annualAppreciation: z.number().default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Opportunity_zone_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.federalTaxRate + input.stateTaxRate) / 100; results["combinedTaxRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["combinedTaxRate"] = 0; }
-  try { const v = input.initialCapitalGain * (asFormulaNumber(results["combinedTaxRate"])); results["originalTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["originalTax"] = 0; }
-  try { const v = input.holdingYears >= 7 ? 0.15 : (input.holdingYears >= 5 ? 0.10 : 0); results["stepUpRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stepUpRatio"] = 0; }
-  try { const v = (asFormulaNumber(results["stepUpRatio"])) * input.initialCapitalGain * (asFormulaNumber(results["combinedTaxRate"])); results["stepUpSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stepUpSavings"] = 0; }
+  try { const v = (input.federalTaxRate + input.stateTaxRate) / 100; results["combinedTaxRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["combinedTaxRate"] = Number.NaN; }
+  try { const v = input.initialCapitalGain * (toNumericFormulaValue(results["combinedTaxRate"])); results["originalTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["originalTax"] = Number.NaN; }
+  try { const v = input.holdingYears >= 7 ? 0.15 : (input.holdingYears >= 5 ? 0.10 : 0); results["stepUpRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stepUpRatio"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["stepUpRatio"])) * input.initialCapitalGain * (toNumericFormulaValue(results["combinedTaxRate"])); results["stepUpSavings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stepUpSavings"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOpportunity_zone_calculator(input: Opportunity_zone_calculatorInput): Opportunity_zone_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["combinedTaxRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["combinedTaxRate"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateOpportunity_zone_calculator(input: Opportunity_zone_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

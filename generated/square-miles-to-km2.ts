@@ -14,25 +14,21 @@ export const Square_miles_to_km2InputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Square_miles_to_km2Input): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.square_miles * 2.589988110336; results["km2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["km2"] = 0; }
-  try { const v = input.square_miles * 2.589988110336; results["km2_copy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["km2_copy"] = 0; }
+  try { const v = input.square_miles * 2.589988110336; results["km2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["km2"] = Number.NaN; }
+  try { const v = input.square_miles * 2.589988110336; results["km2_copy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["km2_copy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSquare_miles_to_km2(input: Square_miles_to_km2Input): Square_miles_to_km2Output {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["km2"]));
+  const totalWasteCost = toNumericFormulaValue(values["km2"]);
   const breakdown = {
     
   };
@@ -40,7 +36,7 @@ export function calculateSquare_miles_to_km2(input: Square_miles_to_km2Input): S
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,29 +20,25 @@ export const Drip_irrigation_calculatorInputSchema = z.object({
   systemEfficiency: z.number().default(90),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Drip_irrigation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / (input.emitterSpacing * input.lateralSpacing); results["emittersPerSquareMeter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["emittersPerSquareMeter"] = 0; }
-  try { const v = input.area * (asFormulaNumber(results["emittersPerSquareMeter"])); results["totalEmitters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEmitters"] = 0; }
-  try { const v = (asFormulaNumber(results["totalEmitters"])) * input.emitterFlowRate; results["totalFlowRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFlowRate"] = 0; }
-  try { const v = input.irrigationDepth * input.area; results["netVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["netVolume"])) / (input.systemEfficiency / 100); results["grossVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["grossVolume"])) / (asFormulaNumber(results["totalFlowRate"])); results["irrigationTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["irrigationTime"] = 0; }
+  try { const v = 1 / (input.emitterSpacing * input.lateralSpacing); results["emittersPerSquareMeter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["emittersPerSquareMeter"] = Number.NaN; }
+  try { const v = input.area * (toNumericFormulaValue(results["emittersPerSquareMeter"])); results["totalEmitters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEmitters"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalEmitters"])) * input.emitterFlowRate; results["totalFlowRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFlowRate"] = Number.NaN; }
+  try { const v = input.irrigationDepth * input.area; results["netVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netVolume"])) / (input.systemEfficiency / 100); results["grossVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossVolume"])) / (toNumericFormulaValue(results["totalFlowRate"])); results["irrigationTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["irrigationTime"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDrip_irrigation_calculator(input: Drip_irrigation_calculatorInput): Drip_irrigation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["irrigationTime"]));
+  const totalWasteCost = toNumericFormulaValue(values["irrigationTime"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateDrip_irrigation_calculator(input: Drip_irrigation_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

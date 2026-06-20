@@ -18,27 +18,23 @@ export const Ev_cost_calculatorInputSchema = z.object({
   maintenance_cost_per_km: z.number().default(0.05),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ev_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.daily_distance / 100 * input.vehicle_efficiency * (100 / input.charging_efficiency); results["energy_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy_per_day"] = 0; }
-  try { const v = (asFormulaNumber(results["energy_per_day"])) * input.electricity_price; results["energy_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy_cost_per_day"] = 0; }
-  try { const v = input.daily_distance * input.maintenance_cost_per_km; results["maintenance_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maintenance_cost_per_day"] = 0; }
-  try { const v = (asFormulaNumber(results["energy_cost_per_day"])) + (asFormulaNumber(results["maintenance_cost_per_day"])); results["total_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_day"] = 0; }
+  try { const v = input.daily_distance / 100 * input.vehicle_efficiency * (100 / input.charging_efficiency); results["energy_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energy_per_day"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energy_per_day"])) * input.electricity_price; results["energy_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energy_cost_per_day"] = Number.NaN; }
+  try { const v = input.daily_distance * input.maintenance_cost_per_km; results["maintenance_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maintenance_cost_per_day"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energy_cost_per_day"])) + (toNumericFormulaValue(results["maintenance_cost_per_day"])); results["total_cost_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_cost_per_day"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEv_cost_calculator(input: Ev_cost_calculatorInput): Ev_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_cost_per_day"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_cost_per_day"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateEv_cost_calculator(input: Ev_cost_calculatorInput): Ev_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

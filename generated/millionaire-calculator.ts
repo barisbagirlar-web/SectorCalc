@@ -16,26 +16,22 @@ export const Millionaire_calculatorInputSchema = z.object({
   years: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Millionaire_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.years * 12; results["totalMonths"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMonths"] = 0; }
-  try { const v = input.annualInterestRate / 100 / 12; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRate"] = 0; }
-  try { const v = input.initialInvestment + input.monthlyContribution * (asFormulaNumber(results["totalMonths"])); results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalContributions"] = 0; }
+  try { const v = input.years * 12; results["totalMonths"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMonths"] = Number.NaN; }
+  try { const v = input.annualInterestRate / 100 / 12; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyRate"] = Number.NaN; }
+  try { const v = input.initialInvestment + input.monthlyContribution * (toNumericFormulaValue(results["totalMonths"])); results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalContributions"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMillionaire_calculator(input: Millionaire_calculatorInput): Millionaire_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalContributions"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalContributions"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateMillionaire_calculator(input: Millionaire_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

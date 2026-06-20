@@ -18,29 +18,25 @@ export const Cap_table_calculatorInputSchema = z.object({
   preMoneyValuation: z.number().default(10000000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cap_table_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sharesOutstanding + input.optionPoolSize; results["fullyDilutedPre"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fullyDilutedPre"] = 0; }
-  try { const v = input.preMoneyValuation / (asFormulaNumber(results["fullyDilutedPre"])); results["pricePerShare"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pricePerShare"] = 0; }
-  try { const v = input.newInvestment / (asFormulaNumber(results["pricePerShare"])); results["newSharesIssued"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newSharesIssued"] = 0; }
-  try { const v = input.preMoneyValuation + input.newInvestment; results["postMoneyValuation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["postMoneyValuation"] = 0; }
-  try { const v = (asFormulaNumber(results["fullyDilutedPre"])) + (asFormulaNumber(results["newSharesIssued"])); results["totalPostShares"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPostShares"] = 0; }
-  try { const v = ((asFormulaNumber(results["newSharesIssued"])) / (asFormulaNumber(results["totalPostShares"]))) * 100; results["investorOwnershipPct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["investorOwnershipPct"] = 0; }
+  try { const v = input.sharesOutstanding + input.optionPoolSize; results["fullyDilutedPre"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fullyDilutedPre"] = Number.NaN; }
+  try { const v = input.preMoneyValuation / (toNumericFormulaValue(results["fullyDilutedPre"])); results["pricePerShare"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pricePerShare"] = Number.NaN; }
+  try { const v = input.newInvestment / (toNumericFormulaValue(results["pricePerShare"])); results["newSharesIssued"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newSharesIssued"] = Number.NaN; }
+  try { const v = input.preMoneyValuation + input.newInvestment; results["postMoneyValuation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["postMoneyValuation"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fullyDilutedPre"])) + (toNumericFormulaValue(results["newSharesIssued"])); results["totalPostShares"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPostShares"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["newSharesIssued"])) / (toNumericFormulaValue(results["totalPostShares"]))) * 100; results["investorOwnershipPct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["investorOwnershipPct"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCap_table_calculator(input: Cap_table_calculatorInput): Cap_table_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["investorOwnershipPct"]));
+  const totalWasteCost = toNumericFormulaValue(values["investorOwnershipPct"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCap_table_calculator(input: Cap_table_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

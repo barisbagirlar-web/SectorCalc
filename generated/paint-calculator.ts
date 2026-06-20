@@ -16,26 +16,22 @@ export const Paint_calculatorInputSchema = z.object({
   wastage: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Paint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.area * input.coats) / input.coverage; results["netPaint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netPaint"] = 0; }
-  try { const v = (asFormulaNumber(results["netPaint"])) * (input.wastage / 100); results["wastagePaint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wastagePaint"] = 0; }
-  try { const v = (asFormulaNumber(results["netPaint"])) + (asFormulaNumber(results["wastagePaint"])); results["totalPaint"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPaint"] = 0; }
+  try { const v = (input.area * input.coats) / input.coverage; results["netPaint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netPaint"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netPaint"])) * (input.wastage / 100); results["wastagePaint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wastagePaint"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netPaint"])) + (toNumericFormulaValue(results["wastagePaint"])); results["totalPaint"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPaint"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePaint_calculator(input: Paint_calculatorInput): Paint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPaint"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPaint"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculatePaint_calculator(input: Paint_calculatorInput): Paint_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Column_buckling_calculatorInputSchema = z.object({
   appliedLoad: z.number().default(50000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Column_buckling_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI ** 2 * input.elasticModulus * input.momentInertia / ( (input.effectiveLengthFactor * input.length) ** 2 ); results["criticalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["criticalLoad"] = 0; }
-  try { const v = (asFormulaNumber(results["criticalLoad"])) / input.area; results["criticalStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["criticalStress"] = 0; }
-  try { const v = (asFormulaNumber(results["criticalLoad"])) / input.appliedLoad; results["safetyFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safetyFactor"] = 0; }
+  try { const v = Math.PI ** 2 * input.elasticModulus * input.momentInertia / ( (input.effectiveLengthFactor * input.length) ** 2 ); results["criticalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["criticalLoad"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["criticalLoad"])) / input.area; results["criticalStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["criticalStress"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["criticalLoad"])) / input.appliedLoad; results["safetyFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safetyFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateColumn_buckling_calculator(input: Column_buckling_calculatorInput): Column_buckling_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["criticalLoad"]));
+  const totalWasteCost = toNumericFormulaValue(values["criticalLoad"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateColumn_buckling_calculator(input: Column_buckling_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

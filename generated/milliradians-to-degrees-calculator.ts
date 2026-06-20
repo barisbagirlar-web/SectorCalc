@@ -16,26 +16,22 @@ export const Milliradians_to_degrees_calculatorInputSchema = z.object({
   angleOffset: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Milliradians_to_degrees_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.milliradians * input.conversionFactor + input.angleOffset; results["degrees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["degrees"] = 0; }
-  try { const v = input.milliradians; results["milliradians"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["milliradians"] = 0; }
-  try { const v = input.conversionFactor; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
+  try { const v = input.milliradians * input.conversionFactor + input.angleOffset; results["degrees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["degrees"] = Number.NaN; }
+  try { const v = input.milliradians; results["milliradians"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["milliradians"] = Number.NaN; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMilliradians_to_degrees_calculator(input: Milliradians_to_degrees_calculatorInput): Milliradians_to_degrees_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["degrees"]));
+  const totalWasteCost = toNumericFormulaValue(values["degrees"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateMilliradians_to_degrees_calculator(input: Milliradians_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

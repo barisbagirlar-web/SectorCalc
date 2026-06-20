@@ -16,28 +16,24 @@ export const Swell_factor_calculatorInputSchema = z.object({
   truckCapacity: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Swell_factor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.bankVolume * (1 + input.swellFactorPercent/100) * (1 + input.wasteFactorPercent/100); results["totalLooseVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLooseVolume"] = 0; }
-  try { const v = input.swellFactorPercent / 100; results["swellRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["swellRatio"] = 0; }
-  try { const v = input.bankVolume * (input.swellFactorPercent / 100); results["volumeIncrease"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeIncrease"] = 0; }
-  try { const v = (input.bankVolume * (1 + input.swellFactorPercent/100) * (1 + input.wasteFactorPercent/100)) - input.bankVolume; results["adjustedVolumeIncrease"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedVolumeIncrease"] = 0; }
-  try { const v = (input.bankVolume * (1 + input.swellFactorPercent/100) * (1 + input.wasteFactorPercent/100)) / input.truckCapacity; results["loadsRequired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loadsRequired"] = 0; }
+  try { const v = input.bankVolume * (1 + input.swellFactorPercent/100) * (1 + input.wasteFactorPercent/100); results["totalLooseVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLooseVolume"] = Number.NaN; }
+  try { const v = input.swellFactorPercent / 100; results["swellRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["swellRatio"] = Number.NaN; }
+  try { const v = input.bankVolume * (input.swellFactorPercent / 100); results["volumeIncrease"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeIncrease"] = Number.NaN; }
+  try { const v = (input.bankVolume * (1 + input.swellFactorPercent/100) * (1 + input.wasteFactorPercent/100)) - input.bankVolume; results["adjustedVolumeIncrease"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedVolumeIncrease"] = Number.NaN; }
+  try { const v = (input.bankVolume * (1 + input.swellFactorPercent/100) * (1 + input.wasteFactorPercent/100)) / input.truckCapacity; results["loadsRequired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loadsRequired"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSwell_factor_calculator(input: Swell_factor_calculatorInput): Swell_factor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLooseVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalLooseVolume"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateSwell_factor_calculator(input: Swell_factor_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

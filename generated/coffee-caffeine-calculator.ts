@@ -18,27 +18,23 @@ export const Coffee_caffeine_calculatorInputSchema = z.object({
   isDecaf: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Coffee_caffeine_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor; results["caffeinePerCupMg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caffeinePerCupMg"] = 0; }
-  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups; results["totalBeforeDecaf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBeforeDecaf"] = 0; }
-  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups * (input.isDecaf * 0.97); results["decafReductionMg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decafReductionMg"] = 0; }
-  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups * (1 - input.isDecaf * 0.97); results["totalCaffeineMg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCaffeineMg"] = 0; }
+  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor; results["caffeinePerCupMg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caffeinePerCupMg"] = Number.NaN; }
+  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups; results["totalBeforeDecaf"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBeforeDecaf"] = Number.NaN; }
+  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups * (input.isDecaf * 0.97); results["decafReductionMg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["decafReductionMg"] = Number.NaN; }
+  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups * (1 - input.isDecaf * 0.97); results["totalCaffeineMg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCaffeineMg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCoffee_caffeine_calculator(input: Coffee_caffeine_calculatorInput): Coffee_caffeine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCaffeineMg"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCaffeineMg"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateCoffee_caffeine_calculator(input: Coffee_caffeine_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

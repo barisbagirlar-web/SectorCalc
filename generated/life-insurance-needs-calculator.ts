@@ -20,26 +20,22 @@ export const Life_insurance_needs_calculatorInputSchema = z.object({
   final_expenses: z.number().default(20000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Life_insurance_needs_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annual_income * input.years_needed; results["income_replacement"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["income_replacement"] = 0; }
-  try { const v = (asFormulaNumber(results["income_replacement"])) + input.outstanding_debts + input.education_expenses + input.final_expenses; results["total_needs"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_needs"] = 0; }
-  try { const v = (asFormulaNumber(results["total_needs"])) - input.current_savings; results["recommended_coverage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recommended_coverage"] = 0; }
+  try { const v = input.annual_income * input.years_needed; results["income_replacement"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["income_replacement"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["income_replacement"])) + input.outstanding_debts + input.education_expenses + input.final_expenses; results["total_needs"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_needs"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_needs"])) - input.current_savings; results["recommended_coverage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recommended_coverage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLife_insurance_needs_calculator(input: Life_insurance_needs_calculatorInput): Life_insurance_needs_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["recommended_coverage"]));
+  const totalWasteCost = toNumericFormulaValue(values["recommended_coverage"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateLife_insurance_needs_calculator(input: Life_insurance_n
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

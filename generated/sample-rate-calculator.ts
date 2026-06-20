@@ -16,25 +16,21 @@ export const Sample_rate_calculatorInputSchema = z.object({
   estimatedProportion: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sample_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.zScore**2 * input.estimatedProportion * (1 - input.estimatedProportion) / ((input.marginOfError / 100) ** 2); results["n0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["n0"] = 0; }
-  try { const v = (asFormulaNumber(results["n0"])) / (1 + ((asFormulaNumber(results["n0"])) - 1) / input.populationSize); results["sampleSize"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sampleSize"] = 0; }
+  try { const v = input.zScore**2 * input.estimatedProportion * (1 - input.estimatedProportion) / ((input.marginOfError / 100) ** 2); results["n0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["n0"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["n0"])) / (1 + ((toNumericFormulaValue(results["n0"])) - 1) / input.populationSize); results["sampleSize"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sampleSize"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSample_rate_calculator(input: Sample_rate_calculatorInput): Sample_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sampleSize"]));
+  const totalWasteCost = toNumericFormulaValue(values["sampleSize"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSample_rate_calculator(input: Sample_rate_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

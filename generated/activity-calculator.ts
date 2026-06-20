@@ -18,29 +18,25 @@ export const Activity_calculatorInputSchema = z.object({
   cycleTime: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Activity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.availableTime - input.downtime; results["actualProductionTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualProductionTime"] = 0; }
-  try { const v = input.actualOutput / (asFormulaNumber(results["actualProductionTime"])); results["activityRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["activityRate"] = 0; }
-  try { const v = input.actualOutput / input.plannedOutput; results["efficiency"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["efficiency"] = 0; }
-  try { const v = (asFormulaNumber(results["actualProductionTime"])) / input.availableTime; results["utilization"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["utilization"] = 0; }
-  try { const v = (input.availableTime * 3600) / input.cycleTime; results["theoreticalMaxOutput"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["theoreticalMaxOutput"] = 0; }
-  try { const v = input.actualOutput / (asFormulaNumber(results["theoreticalMaxOutput"])); results["performance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["performance"] = 0; }
+  try { const v = input.availableTime - input.downtime; results["actualProductionTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["actualProductionTime"] = Number.NaN; }
+  try { const v = input.actualOutput / (toNumericFormulaValue(results["actualProductionTime"])); results["activityRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["activityRate"] = Number.NaN; }
+  try { const v = input.actualOutput / input.plannedOutput; results["efficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["efficiency"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["actualProductionTime"])) / input.availableTime; results["utilization"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["utilization"] = Number.NaN; }
+  try { const v = (input.availableTime * 3600) / input.cycleTime; results["theoreticalMaxOutput"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["theoreticalMaxOutput"] = Number.NaN; }
+  try { const v = input.actualOutput / (toNumericFormulaValue(results["theoreticalMaxOutput"])); results["performance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["performance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateActivity_calculator(input: Activity_calculatorInput): Activity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["activityRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["activityRate"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateActivity_calculator(input: Activity_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

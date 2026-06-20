@@ -18,26 +18,22 @@ export const Diabetic_calculatorInputSchema = z.object({
   insulinSensitivity: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Diabetic_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.carbs / input.insulinToCarbRatio; results["carbInsulin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["carbInsulin"] = 0; }
-  try { const v = (input.currentBG - input.targetBG) / input.insulinSensitivity; results["correctionInsulin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctionInsulin"] = 0; }
-  try { const v = (asFormulaNumber(results["carbInsulin"])) + (asFormulaNumber(results["correctionInsulin"])); results["totalInsulin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInsulin"] = 0; }
+  try { const v = input.carbs / input.insulinToCarbRatio; results["carbInsulin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["carbInsulin"] = Number.NaN; }
+  try { const v = (input.currentBG - input.targetBG) / input.insulinSensitivity; results["correctionInsulin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["correctionInsulin"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["carbInsulin"])) + (toNumericFormulaValue(results["correctionInsulin"])); results["totalInsulin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInsulin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDiabetic_calculator(input: Diabetic_calculatorInput): Diabetic_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalInsulin"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalInsulin"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDiabetic_calculator(input: Diabetic_calculatorInput): D
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

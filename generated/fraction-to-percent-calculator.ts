@@ -18,25 +18,21 @@ export const Fraction_to_percent_calculatorInputSchema = z.object({
   roundingMode: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fraction_to_percent_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wholeNumber + input.numerator / input.denominator; results["decimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimal"] = 0; }
-  try { const v = (asFormulaNumber(results["decimal"])) * 100; results["rawPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawPercent"] = 0; }
+  try { const v = input.wholeNumber + input.numerator / input.denominator; results["decimal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["decimal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["decimal"])) * 100; results["rawPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawPercent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFraction_to_percent_calculator(input: Fraction_to_percent_calculatorInput): Fraction_to_percent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawPercent"]));
+  const totalWasteCost = toNumericFormulaValue(values["rawPercent"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateFraction_to_percent_calculator(input: Fraction_to_perce
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

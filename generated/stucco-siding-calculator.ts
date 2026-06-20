@@ -24,35 +24,31 @@ export const Stucco_siding_calculatorInputSchema = z.object({
   sandCostPerTon: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Stucco_siding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wallArea * (input.thickness / 12); results["volumeCuft"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeCuft"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeCuft"])) / 27; results["volumeCuyd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeCuyd"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeCuyd"])) * input.cementBagsPerCubicYard; results["cementBags"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cementBags"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeCuyd"])) * 0.75; results["sandVolumeCuyd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sandVolumeCuyd"] = 0; }
-  try { const v = 1 + input.wasteFactor / 100; results["wasteMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteMultiplier"] = 0; }
-  try { const v = (asFormulaNumber(results["cementBags"])) * (asFormulaNumber(results["wasteMultiplier"])); results["cementBagsWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cementBagsWithWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["sandVolumeCuyd"])) * 1.3 * (asFormulaNumber(results["wasteMultiplier"])); results["sandWeightTonsWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sandWeightTonsWithWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["cementBagsWithWaste"])) * input.cementCostPerBag; results["cementCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cementCost"] = 0; }
-  try { const v = (asFormulaNumber(results["sandWeightTonsWithWaste"])) * input.sandCostPerTon; results["sandCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sandCost"] = 0; }
-  try { const v = (input.wallArea / input.productivity) * input.laborRate; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["laborCost"] = 0; }
-  try { const v = (asFormulaNumber(results["cementCost"])) + (asFormulaNumber(results["sandCost"])) + (asFormulaNumber(results["laborCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["cementCost"])) + (asFormulaNumber(results["sandCost"])) - ((asFormulaNumber(results["cementBags"])) * input.cementCostPerBag + (asFormulaNumber(results["sandVolumeCuyd"])) * 1.3 * input.sandCostPerTon); results["wasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteCost"] = 0; }
+  try { const v = input.wallArea * (input.thickness / 12); results["volumeCuft"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeCuft"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeCuft"])) / 27; results["volumeCuyd"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeCuyd"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeCuyd"])) * input.cementBagsPerCubicYard; results["cementBags"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cementBags"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeCuyd"])) * 0.75; results["sandVolumeCuyd"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sandVolumeCuyd"] = Number.NaN; }
+  try { const v = 1 + input.wasteFactor / 100; results["wasteMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteMultiplier"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cementBags"])) * (toNumericFormulaValue(results["wasteMultiplier"])); results["cementBagsWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cementBagsWithWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["sandVolumeCuyd"])) * 1.3 * (toNumericFormulaValue(results["wasteMultiplier"])); results["sandWeightTonsWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sandWeightTonsWithWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cementBagsWithWaste"])) * input.cementCostPerBag; results["cementCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cementCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["sandWeightTonsWithWaste"])) * input.sandCostPerTon; results["sandCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sandCost"] = Number.NaN; }
+  try { const v = (input.wallArea / input.productivity) * input.laborRate; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["laborCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cementCost"])) + (toNumericFormulaValue(results["sandCost"])) + (toNumericFormulaValue(results["laborCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cementCost"])) + (toNumericFormulaValue(results["sandCost"])) - ((toNumericFormulaValue(results["cementBags"])) * input.cementCostPerBag + (toNumericFormulaValue(results["sandVolumeCuyd"])) * 1.3 * input.sandCostPerTon); results["wasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStucco_siding_calculator(input: Stucco_siding_calculatorInput): Stucco_siding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -60,7 +56,7 @@ export function calculateStucco_siding_calculator(input: Stucco_siding_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Pregnancy_trimester_calculatorInputSchema = z.object({
   currentYear: z.number().default(2024),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pregnancy_trimester_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.currentYear - input.lmpYear)*365 + (input.currentMonth - input.lmpMonth)*30 + (input.currentDay - input.lmpDay); results["totalDaysDifference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDaysDifference"] = 0; }
-  try { const v = input.lmpYear*365 + input.lmpMonth*30 + input.lmpDay; results["lmpTotalDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lmpTotalDays"] = 0; }
-  try { const v = (asFormulaNumber(results["lmpTotalDays"])) + 280; results["dueTotalDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dueTotalDays"] = 0; }
+  try { const v = (input.currentYear - input.lmpYear)*365 + (input.currentMonth - input.lmpMonth)*30 + (input.currentDay - input.lmpDay); results["totalDaysDifference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDaysDifference"] = Number.NaN; }
+  try { const v = input.lmpYear*365 + input.lmpMonth*30 + input.lmpDay; results["lmpTotalDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lmpTotalDays"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["lmpTotalDays"])) + 280; results["dueTotalDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dueTotalDays"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePregnancy_trimester_calculator(input: Pregnancy_trimester_calculatorInput): Pregnancy_trimester_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dueTotalDays"]));
+  const totalWasteCost = toNumericFormulaValue(values["dueTotalDays"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculatePregnancy_trimester_calculator(input: Pregnancy_trimest
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

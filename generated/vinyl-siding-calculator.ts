@@ -18,28 +18,24 @@ export const Vinyl_siding_calculatorInputSchema = z.object({
   wastePercentage: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Vinyl_siding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalWallArea - input.doorWindowArea; results["netArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netArea"] = 0; }
-  try { const v = 1 + (input.wastePercentage / 100); results["wasteFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteFactor"] = 0; }
-  try { const v = ((asFormulaNumber(results["netArea"])) * (asFormulaNumber(results["wasteFactor"]))) / input.panelCoverage; results["panelsNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["panelsNeeded"] = 0; }
-  try { const v = (asFormulaNumber(results["netArea"])) * (input.wastePercentage / 100); results["wasteArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteArea"] = 0; }
-  try { const v = (asFormulaNumber(results["panelsNeeded"])) * input.pricePerPanel; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.totalWallArea - input.doorWindowArea; results["netArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netArea"] = Number.NaN; }
+  try { const v = 1 + (input.wastePercentage / 100); results["wasteFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteFactor"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["netArea"])) * (toNumericFormulaValue(results["wasteFactor"]))) / input.panelCoverage; results["panelsNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["panelsNeeded"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netArea"])) * (input.wastePercentage / 100); results["wasteArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["panelsNeeded"])) * input.pricePerPanel; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVinyl_siding_calculator(input: Vinyl_siding_calculatorInput): Vinyl_siding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateVinyl_siding_calculator(input: Vinyl_siding_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

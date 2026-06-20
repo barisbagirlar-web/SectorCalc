@@ -18,25 +18,21 @@ export const Barbell_row_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Barbell_row_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.loadWeight * 9.81 * input.barbellLength) / 4; results["bendingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bendingMoment"] = 0; }
-  try { const v = input.yieldStrength / input.safetyFactor; results["allowableStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allowableStress"] = 0; }
+  try { const v = (input.loadWeight * 9.81 * input.barbellLength) / 4; results["bendingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bendingMoment"] = Number.NaN; }
+  try { const v = input.yieldStrength / input.safetyFactor; results["allowableStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allowableStress"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBarbell_row_calculator(input: Barbell_row_calculatorInput): Barbell_row_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["allowableStress"]));
+  const totalWasteCost = toNumericFormulaValue(values["allowableStress"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateBarbell_row_calculator(input: Barbell_row_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

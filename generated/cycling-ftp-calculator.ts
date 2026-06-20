@@ -20,25 +20,21 @@ export const Cycling_ftp_calculatorInputSchema = z.object({
   temperature: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cycling_ftp_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.averagePower * input.factor; results["ftp"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ftp"] = 0; }
-  try { const v = (asFormulaNumber(results["ftp"])) / input.bodyWeight; results["powerToWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["powerToWeight"] = 0; }
+  try { const v = input.averagePower * input.factor; results["ftp"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ftp"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ftp"])) / input.bodyWeight; results["powerToWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["powerToWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCycling_ftp_calculator(input: Cycling_ftp_calculatorInput): Cycling_ftp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ftp"]));
+  const totalWasteCost = toNumericFormulaValue(values["ftp"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateCycling_ftp_calculator(input: Cycling_ftp_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

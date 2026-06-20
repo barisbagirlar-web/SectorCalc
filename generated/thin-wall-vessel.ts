@@ -20,28 +20,24 @@ export const Thin_wall_vesselInputSchema = z.object({
   corrosionAllowance: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Thin_wall_vesselInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.internalPressure * (input.innerRadius + input.wallThickness/2) / input.wallThickness; results["hoopStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hoopStress"] = 0; }
-  try { const v = input.internalPressure * (input.innerRadius + input.wallThickness/2) / (2 * input.wallThickness); results["longitudinalStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["longitudinalStress"] = 0; }
-  try { const v = (input.internalPressure * input.innerRadius) / (input.allowableStress * input.jointEfficiency - 0.6 * input.internalPressure) + input.corrosionAllowance; results["requiredThickness"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredThickness"] = 0; }
-  try { const v = input.allowableStress / (asFormulaNumber(results["hoopStress"])); results["safetyFactorHoop"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safetyFactorHoop"] = 0; }
-  try { const v = input.allowableStress / (asFormulaNumber(results["longitudinalStress"])); results["safetyFactorLong"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safetyFactorLong"] = 0; }
+  try { const v = input.internalPressure * (input.innerRadius + input.wallThickness/2) / input.wallThickness; results["hoopStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hoopStress"] = Number.NaN; }
+  try { const v = input.internalPressure * (input.innerRadius + input.wallThickness/2) / (2 * input.wallThickness); results["longitudinalStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["longitudinalStress"] = Number.NaN; }
+  try { const v = (input.internalPressure * input.innerRadius) / (input.allowableStress * input.jointEfficiency - 0.6 * input.internalPressure) + input.corrosionAllowance; results["requiredThickness"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredThickness"] = Number.NaN; }
+  try { const v = input.allowableStress / (toNumericFormulaValue(results["hoopStress"])); results["safetyFactorHoop"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safetyFactorHoop"] = Number.NaN; }
+  try { const v = input.allowableStress / (toNumericFormulaValue(results["longitudinalStress"])); results["safetyFactorLong"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safetyFactorLong"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateThin_wall_vessel(input: Thin_wall_vesselInput): Thin_wall_vesselOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hoopStress"]));
+  const totalWasteCost = toNumericFormulaValue(values["hoopStress"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateThin_wall_vessel(input: Thin_wall_vesselInput): Thin_wa
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

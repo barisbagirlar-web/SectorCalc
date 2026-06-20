@@ -20,28 +20,24 @@ export const Steel_beam_calculatorInputSchema = z.object({
   sectionModulus: z.number().default(10000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Steel_beam_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.udl * input.spanLength**2 / 8 * 1e-6; results["maxBendingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxBendingMoment"] = 0; }
-  try { const v = input.udl * input.spanLength / 2 * 1e-3; results["maxShearForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxShearForce"] = 0; }
-  try { const v = 5 * input.udl * input.spanLength**4 / (384 * input.elasticModulus * input.momentInertia); results["maxDeflection"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxDeflection"] = 0; }
-  try { const v = (input.udl * input.spanLength**2 / 8) / input.sectionModulus; results["bendingStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bendingStress"] = 0; }
-  try { const v = input.yieldStrength / ((input.udl * input.spanLength**2 / 8) / input.sectionModulus); results["safetyFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safetyFactor"] = 0; }
+  try { const v = input.udl * input.spanLength**2 / 8 * 1e-6; results["maxBendingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxBendingMoment"] = Number.NaN; }
+  try { const v = input.udl * input.spanLength / 2 * 1e-3; results["maxShearForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxShearForce"] = Number.NaN; }
+  try { const v = 5 * input.udl * input.spanLength**4 / (384 * input.elasticModulus * input.momentInertia); results["maxDeflection"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxDeflection"] = Number.NaN; }
+  try { const v = (input.udl * input.spanLength**2 / 8) / input.sectionModulus; results["bendingStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bendingStress"] = Number.NaN; }
+  try { const v = input.yieldStrength / ((input.udl * input.spanLength**2 / 8) / input.sectionModulus); results["safetyFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safetyFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSteel_beam_calculator(input: Steel_beam_calculatorInput): Steel_beam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxDeflection"]));
+  const totalWasteCost = toNumericFormulaValue(values["maxDeflection"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateSteel_beam_calculator(input: Steel_beam_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

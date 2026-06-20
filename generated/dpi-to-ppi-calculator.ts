@@ -18,25 +18,21 @@ export const Dpi_to_ppi_calculatorInputSchema = z.object({
   displayHeight: z.number().default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dpi_to_ppi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.dpi * input.originalWidth) / input.displayWidth; results["horizontalPPI"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["horizontalPPI"] = 0; }
-  try { const v = (input.dpi * input.originalHeight) / input.displayHeight; results["verticalPPI"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["verticalPPI"] = 0; }
+  try { const v = (input.dpi * input.originalWidth) / input.displayWidth; results["horizontalPPI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["horizontalPPI"] = Number.NaN; }
+  try { const v = (input.dpi * input.originalHeight) / input.displayHeight; results["verticalPPI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["verticalPPI"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDpi_to_ppi_calculator(input: Dpi_to_ppi_calculatorInput): Dpi_to_ppi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["verticalPPI"]));
+  const totalWasteCost = toNumericFormulaValue(values["verticalPPI"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateDpi_to_ppi_calculator(input: Dpi_to_ppi_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

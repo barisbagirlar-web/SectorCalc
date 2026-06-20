@@ -20,26 +20,22 @@ export const Coin_value_calculatorInputSchema = z.object({
   dollarCoinCount: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Coin_value_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pennyCount*1 + input.nickelCount*5 + input.dimeCount*10 + input.quarterCount*25 + input.halfDollarCount*50 + input.dollarCoinCount*100; results["totalCents"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCents"] = 0; }
-  try { const v = input.pennyCount + input.nickelCount + input.dimeCount + input.quarterCount + input.halfDollarCount + input.dollarCoinCount; results["totalCoins"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCoins"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCents"])) / 100; results["totalDollars"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDollars"] = 0; }
+  try { const v = input.pennyCount*1 + input.nickelCount*5 + input.dimeCount*10 + input.quarterCount*25 + input.halfDollarCount*50 + input.dollarCoinCount*100; results["totalCents"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCents"] = Number.NaN; }
+  try { const v = input.pennyCount + input.nickelCount + input.dimeCount + input.quarterCount + input.halfDollarCount + input.dollarCoinCount; results["totalCoins"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCoins"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCents"])) / 100; results["totalDollars"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDollars"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCoin_value_calculator(input: Coin_value_calculatorInput): Coin_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDollars"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDollars"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateCoin_value_calculator(input: Coin_value_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

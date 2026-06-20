@@ -18,32 +18,28 @@ export const Growing_zone_calculatorInputSchema = z.object({
   edgeOffset: z.number().default(15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Growing_zone_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.plantSpacing / 100; results["plantSpacingM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["plantSpacingM"] = 0; }
-  try { const v = input.rowSpacing / 100; results["rowSpacingM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rowSpacingM"] = 0; }
-  try { const v = input.edgeOffset / 100; results["edgeOffsetM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["edgeOffsetM"] = 0; }
-  try { const v = input.length - 2 * (asFormulaNumber(results["edgeOffsetM"])); results["effectiveLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveLength"] = 0; }
-  try { const v = input.width - 2 * (asFormulaNumber(results["edgeOffsetM"])); results["effectiveWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveWidth"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveLength"])) / (asFormulaNumber(results["plantSpacingM"])); results["columns"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["columns"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveWidth"])) / (asFormulaNumber(results["rowSpacingM"])); results["rows"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rows"] = 0; }
-  try { const v = (asFormulaNumber(results["columns"])) * (asFormulaNumber(results["rows"])); results["totalPlants"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPlants"] = 0; }
-  try { const v = input.length * input.width; results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
+  try { const v = input.plantSpacing / 100; results["plantSpacingM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["plantSpacingM"] = Number.NaN; }
+  try { const v = input.rowSpacing / 100; results["rowSpacingM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rowSpacingM"] = Number.NaN; }
+  try { const v = input.edgeOffset / 100; results["edgeOffsetM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["edgeOffsetM"] = Number.NaN; }
+  try { const v = input.length - 2 * (toNumericFormulaValue(results["edgeOffsetM"])); results["effectiveLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveLength"] = Number.NaN; }
+  try { const v = input.width - 2 * (toNumericFormulaValue(results["edgeOffsetM"])); results["effectiveWidth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveWidth"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveLength"])) / (toNumericFormulaValue(results["plantSpacingM"])); results["columns"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["columns"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveWidth"])) / (toNumericFormulaValue(results["rowSpacingM"])); results["rows"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rows"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["columns"])) * (toNumericFormulaValue(results["rows"])); results["totalPlants"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPlants"] = Number.NaN; }
+  try { const v = input.length * input.width; results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalArea"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGrowing_zone_calculator(input: Growing_zone_calculatorInput): Growing_zone_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPlants"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPlants"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateGrowing_zone_calculator(input: Growing_zone_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Bps_to_kbps_calculatorInputSchema = z.object({
   confirmationBit: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bps_to_kbps_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.bps * input.conversionFactor; results["raw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["raw"] = 0; }
-  try { const v = input.bps * input.conversionFactor; results["raw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["raw_aux"] = 0; }
+  try { const v = input.bps * input.conversionFactor; results["raw"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["raw"] = Number.NaN; }
+  try { const v = input.bps * input.conversionFactor; results["raw_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["raw_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBps_to_kbps_calculator(input: Bps_to_kbps_calculatorInput): Bps_to_kbps_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["raw_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["raw_aux"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateBps_to_kbps_calculator(input: Bps_to_kbps_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

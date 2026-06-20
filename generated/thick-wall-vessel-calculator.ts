@@ -18,28 +18,24 @@ export const Thick_wall_vessel_calculatorInputSchema = z.object({
   yieldStrength: z.number().default(250),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Thick_wall_vessel_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.insideDiameter / 2; results["ri"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ri"] = 0; }
-  try { const v = input.outsideDiameter / 2; results["ro"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ro"] = 0; }
-  try { const v = ((input.internalPressure * (asFormulaNumber(results["ri"])) ** 2 - input.externalPressure * (asFormulaNumber(results["ro"])) ** 2) / ((asFormulaNumber(results["ro"])) ** 2 - (asFormulaNumber(results["ri"])) ** 2)) + ((input.internalPressure - input.externalPressure) * (asFormulaNumber(results["ro"])) ** 2 / ((asFormulaNumber(results["ro"])) ** 2 - (asFormulaNumber(results["ri"])) ** 2)); results["hoopStressInner"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hoopStressInner"] = 0; }
-  try { const v = -input.internalPressure; results["radialStressInner"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["radialStressInner"] = 0; }
-  try { const v = (input.internalPressure * (asFormulaNumber(results["ri"])) ** 2 - input.externalPressure * (asFormulaNumber(results["ro"])) ** 2) / ((asFormulaNumber(results["ro"])) ** 2 - (asFormulaNumber(results["ri"])) ** 2); results["longitudinalStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["longitudinalStress"] = 0; }
+  try { const v = input.insideDiameter / 2; results["ri"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ri"] = Number.NaN; }
+  try { const v = input.outsideDiameter / 2; results["ro"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ro"] = Number.NaN; }
+  try { const v = ((input.internalPressure * (toNumericFormulaValue(results["ri"])) ** 2 - input.externalPressure * (toNumericFormulaValue(results["ro"])) ** 2) / ((toNumericFormulaValue(results["ro"])) ** 2 - (toNumericFormulaValue(results["ri"])) ** 2)) + ((input.internalPressure - input.externalPressure) * (toNumericFormulaValue(results["ro"])) ** 2 / ((toNumericFormulaValue(results["ro"])) ** 2 - (toNumericFormulaValue(results["ri"])) ** 2)); results["hoopStressInner"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hoopStressInner"] = Number.NaN; }
+  try { const v = -input.internalPressure; results["radialStressInner"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["radialStressInner"] = Number.NaN; }
+  try { const v = (input.internalPressure * (toNumericFormulaValue(results["ri"])) ** 2 - input.externalPressure * (toNumericFormulaValue(results["ro"])) ** 2) / ((toNumericFormulaValue(results["ro"])) ** 2 - (toNumericFormulaValue(results["ri"])) ** 2); results["longitudinalStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["longitudinalStress"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateThick_wall_vessel_calculator(input: Thick_wall_vessel_calculatorInput): Thick_wall_vessel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hoopStressInner"]));
+  const totalWasteCost = toNumericFormulaValue(values["hoopStressInner"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateThick_wall_vessel_calculator(input: Thick_wall_vessel_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

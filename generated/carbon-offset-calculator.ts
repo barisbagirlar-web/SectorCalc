@@ -20,30 +20,26 @@ export const Carbon_offset_calculatorInputSchema = z.object({
   waterUsage: z.number().default(50000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Carbon_offset_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.electricityUsage * 0.000233; results["electricity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricity"] = 0; }
-  try { const v = input.naturalGasUsage * 0.0053; results["naturalGas"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["naturalGas"] = 0; }
-  try { const v = input.vehicleMiles * 0.000411; results["vehicle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vehicle"] = 0; }
-  try { const v = input.flightMiles * 0.00024; results["flights"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["flights"] = 0; }
-  try { const v = input.wasteGeneration * 0.00025; results["waste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waste"] = 0; }
-  try { const v = input.waterUsage * 0.000001; results["water"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["water"] = 0; }
-  try { const v = (asFormulaNumber(results["electricity"])) + (asFormulaNumber(results["naturalGas"])) + (asFormulaNumber(results["vehicle"])) + (asFormulaNumber(results["flights"])) + (asFormulaNumber(results["waste"])) + (asFormulaNumber(results["water"])); results["totalEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEmissions"] = 0; }
+  try { const v = input.electricityUsage * 0.000233; results["electricity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricity"] = Number.NaN; }
+  try { const v = input.naturalGasUsage * 0.0053; results["naturalGas"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["naturalGas"] = Number.NaN; }
+  try { const v = input.vehicleMiles * 0.000411; results["vehicle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vehicle"] = Number.NaN; }
+  try { const v = input.flightMiles * 0.00024; results["flights"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["flights"] = Number.NaN; }
+  try { const v = input.wasteGeneration * 0.00025; results["waste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waste"] = Number.NaN; }
+  try { const v = input.waterUsage * 0.000001; results["water"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["water"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["electricity"])) + (toNumericFormulaValue(results["naturalGas"])) + (toNumericFormulaValue(results["vehicle"])) + (toNumericFormulaValue(results["flights"])) + (toNumericFormulaValue(results["waste"])) + (toNumericFormulaValue(results["water"])); results["totalEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEmissions"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCarbon_offset_calculator(input: Carbon_offset_calculatorInput): Carbon_offset_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalEmissions"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalEmissions"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateCarbon_offset_calculator(input: Carbon_offset_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -14,25 +14,21 @@ export const Planarity_test_calculatorInputSchema = z.object({
   isBipartite: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Planarity_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.vertices < 3 ? 1 : (input.isBipartite ? (input.edges <= 2*input.vertices - 4 ? 1 : 0) : (input.edges <= 3*input.vertices - 6 ? 1 : 0)); results["planarityScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["planarityScore"] = 0; }
-  try { const v = input.vertices < 3 ? 1 : (input.isBipartite ? (input.edges <= 2*input.vertices - 4 ? 1 : 0) : (input.edges <= 3*input.vertices - 6 ? 1 : 0)); results["planarityScore_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["planarityScore_aux"] = 0; }
+  try { const v = input.vertices < 3 ? 1 : (input.isBipartite ? (input.edges <= 2*input.vertices - 4 ? 1 : 0) : (input.edges <= 3*input.vertices - 6 ? 1 : 0)); results["planarityScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["planarityScore"] = Number.NaN; }
+  try { const v = input.vertices < 3 ? 1 : (input.isBipartite ? (input.edges <= 2*input.vertices - 4 ? 1 : 0) : (input.edges <= 3*input.vertices - 6 ? 1 : 0)); results["planarityScore_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["planarityScore_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePlanarity_test_calculator(input: Planarity_test_calculatorInput): Planarity_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["planarityScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["planarityScore"]);
   const breakdown = {
     
   };
@@ -40,7 +36,7 @@ export function calculatePlanarity_test_calculator(input: Planarity_test_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,28 +16,24 @@ export const Partial_derivative_calculatorInputSchema = z.object({
   h: z.number().default(0.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Partial_derivative_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 6 * input.F * input.L / (input.b * input.h**2); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = 6 * input.L / (input.b * input.h**2); results["breakdown0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown0"] = 0; }
-  try { const v = 6 * input.F / (input.b * input.h**2); results["breakdown1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown1"] = 0; }
-  try { const v = -6 * input.F * input.L / (input.b**2 * input.h**2); results["breakdown2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown2"] = 0; }
-  try { const v = -12 * input.F * input.L / (input.b * input.h**3); results["breakdown3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown3"] = 0; }
+  try { const v = 6 * input.F * input.L / (input.b * input.h**2); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = 6 * input.L / (input.b * input.h**2); results["breakdown0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown0"] = Number.NaN; }
+  try { const v = 6 * input.F / (input.b * input.h**2); results["breakdown1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown1"] = Number.NaN; }
+  try { const v = -6 * input.F * input.L / (input.b**2 * input.h**2); results["breakdown2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown2"] = Number.NaN; }
+  try { const v = -12 * input.F * input.L / (input.b * input.h**3); results["breakdown3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown3"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePartial_derivative_calculator(input: Partial_derivative_calculatorInput): Partial_derivative_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown3"]));
+  const totalWasteCost = toNumericFormulaValue(values["breakdown3"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePartial_derivative_calculator(input: Partial_derivative
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

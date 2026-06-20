@@ -16,27 +16,23 @@ export const Bounce_rate_calculatorInputSchema = z.object({
   days: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bounce_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.singlePageVisitors / input.totalVisitors) * 100; results["bounceRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bounceRate"] = 0; }
-  try { const v = input.singlePageVisitors / input.days; results["dailyBounces"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyBounces"] = 0; }
-  try { const v = input.totalVisitors / input.days; results["dailyVisitors"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyVisitors"] = 0; }
-  try { const v = input.targetBounceRate - ((input.singlePageVisitors / input.totalVisitors) * 100); results["bounceRateGap"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bounceRateGap"] = 0; }
+  try { const v = (input.singlePageVisitors / input.totalVisitors) * 100; results["bounceRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bounceRate"] = Number.NaN; }
+  try { const v = input.singlePageVisitors / input.days; results["dailyBounces"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyBounces"] = Number.NaN; }
+  try { const v = input.totalVisitors / input.days; results["dailyVisitors"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyVisitors"] = Number.NaN; }
+  try { const v = input.targetBounceRate - ((input.singlePageVisitors / input.totalVisitors) * 100); results["bounceRateGap"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bounceRateGap"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBounce_rate_calculator(input: Bounce_rate_calculatorInput): Bounce_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bounceRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["bounceRate"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateBounce_rate_calculator(input: Bounce_rate_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

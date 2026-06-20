@@ -22,28 +22,24 @@ export const _401k_growth_calculatorInputSchema = z.object({
   annualReturn: z.number().default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: _401k_growth_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.retirementAge - input.currentAge; results["yearsToRetire"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yearsToRetire"] = 0; }
-  try { const v = input.salary * input.employerMatch / 100; results["matchAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["matchAmount"] = 0; }
-  try { const v = input.annualContribution + (asFormulaNumber(results["matchAmount"])); results["totalAnnualAddition"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAnnualAddition"] = 0; }
-  try { const v = input.annualContribution * (asFormulaNumber(results["yearsToRetire"])); results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalContributions"] = 0; }
-  try { const v = (asFormulaNumber(results["matchAmount"])) * (asFormulaNumber(results["yearsToRetire"])); results["totalEmployerMatch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEmployerMatch"] = 0; }
+  try { const v = input.retirementAge - input.currentAge; results["yearsToRetire"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yearsToRetire"] = Number.NaN; }
+  try { const v = input.salary * input.employerMatch / 100; results["matchAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["matchAmount"] = Number.NaN; }
+  try { const v = input.annualContribution + (toNumericFormulaValue(results["matchAmount"])); results["totalAnnualAddition"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAnnualAddition"] = Number.NaN; }
+  try { const v = input.annualContribution * (toNumericFormulaValue(results["yearsToRetire"])); results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalContributions"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["matchAmount"])) * (toNumericFormulaValue(results["yearsToRetire"])); results["totalEmployerMatch"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEmployerMatch"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate_401k_growth_calculator(input: _401k_growth_calculatorInput): _401k_growth_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalEmployerMatch"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalEmployerMatch"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculate_401k_growth_calculator(input: _401k_growth_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Aspect_ratio_calculatorInputSchema = z.object({
   targetRatioH: z.number().default(9),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Aspect_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.width / input.height; results["aspectDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aspectDecimal"] = 0; }
-  try { const v = input.targetRatioW / input.targetRatioH; results["targetDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetDecimal"] = 0; }
-  try { const v = input.width; results["width"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["width"] = 0; }
-  try { const v = input.height; results["height"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["height"] = 0; }
+  try { const v = input.width / input.height; results["aspectDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["aspectDecimal"] = Number.NaN; }
+  try { const v = input.targetRatioW / input.targetRatioH; results["targetDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["targetDecimal"] = Number.NaN; }
+  try { const v = input.width; results["width"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["width"] = Number.NaN; }
+  try { const v = input.height; results["height"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["height"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAspect_ratio_calculator(input: Aspect_ratio_calculatorInput): Aspect_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["aspectDecimal"]));
+  const totalWasteCost = toNumericFormulaValue(values["aspectDecimal"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateAspect_ratio_calculator(input: Aspect_ratio_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

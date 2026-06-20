@@ -18,26 +18,22 @@ export const Compression_spring_calculatorInputSchema = z.object({
   F: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Compression_spring_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.D / input.d; results["C"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["C"] = 0; }
-  try { const v = (4 * (asFormulaNumber(results["C"])) - 1) / (4 * (asFormulaNumber(results["C"])) - 4) + 0.615 / (asFormulaNumber(results["C"])); results["K"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["K"] = 0; }
-  try { const v = input.n * input.d; results["solid_height"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["solid_height"] = 0; }
+  try { const v = input.D / input.d; results["C"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["C"] = Number.NaN; }
+  try { const v = (4 * (toNumericFormulaValue(results["C"])) - 1) / (4 * (toNumericFormulaValue(results["C"])) - 4) + 0.615 / (toNumericFormulaValue(results["C"])); results["K"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["K"] = Number.NaN; }
+  try { const v = input.n * input.d; results["solid_height"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["solid_height"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCompression_spring_calculator(input: Compression_spring_calculatorInput): Compression_spring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["solid_height"]));
+  const totalWasteCost = toNumericFormulaValue(values["solid_height"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCompression_spring_calculator(input: Compression_spring
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

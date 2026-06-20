@@ -20,30 +20,26 @@ export const Happiness_calculatorInputSchema = z.object({
   environment: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Happiness_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.health*0.25 + input.wealth*0.2 + input.relationships*0.2 + input.career*0.15 + input.leisure*0.1 + input.environment*0.1; results["happinessScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["happinessScore"] = 0; }
-  try { const v = input.health * 0.25; results["healthContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["healthContribution"] = 0; }
-  try { const v = input.wealth * 0.2; results["wealthContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wealthContribution"] = 0; }
-  try { const v = input.relationships * 0.2; results["relationshipsContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["relationshipsContribution"] = 0; }
-  try { const v = input.career * 0.15; results["careerContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["careerContribution"] = 0; }
-  try { const v = input.leisure * 0.1; results["leisureContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leisureContribution"] = 0; }
-  try { const v = input.environment * 0.1; results["environmentContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["environmentContribution"] = 0; }
+  try { const v = input.health*0.25 + input.wealth*0.2 + input.relationships*0.2 + input.career*0.15 + input.leisure*0.1 + input.environment*0.1; results["happinessScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["happinessScore"] = Number.NaN; }
+  try { const v = input.health * 0.25; results["healthContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["healthContribution"] = Number.NaN; }
+  try { const v = input.wealth * 0.2; results["wealthContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wealthContribution"] = Number.NaN; }
+  try { const v = input.relationships * 0.2; results["relationshipsContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["relationshipsContribution"] = Number.NaN; }
+  try { const v = input.career * 0.15; results["careerContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["careerContribution"] = Number.NaN; }
+  try { const v = input.leisure * 0.1; results["leisureContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["leisureContribution"] = Number.NaN; }
+  try { const v = input.environment * 0.1; results["environmentContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["environmentContribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHappiness_calculator(input: Happiness_calculatorInput): Happiness_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["happinessScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["happinessScore"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateHappiness_calculator(input: Happiness_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

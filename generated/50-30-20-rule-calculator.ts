@@ -16,26 +16,22 @@ export const _50_30_20_rule_calculatorInputSchema = z.object({
   savingsPercentage: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: _50_30_20_rule_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.monthlyIncome * input.needsPercentage / 100; results["needsAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["needsAmount"] = 0; }
-  try { const v = input.monthlyIncome * input.wantsPercentage / 100; results["wantsAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wantsAmount"] = 0; }
-  try { const v = input.monthlyIncome * input.savingsPercentage / 100; results["savingsAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["savingsAmount"] = 0; }
+  try { const v = input.monthlyIncome * input.needsPercentage / 100; results["needsAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["needsAmount"] = Number.NaN; }
+  try { const v = input.monthlyIncome * input.wantsPercentage / 100; results["wantsAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wantsAmount"] = Number.NaN; }
+  try { const v = input.monthlyIncome * input.savingsPercentage / 100; results["savingsAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["savingsAmount"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate_50_30_20_rule_calculator(input: _50_30_20_rule_calculatorInput): _50_30_20_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["savingsAmount"]));
+  const totalWasteCost = toNumericFormulaValue(values["savingsAmount"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculate_50_30_20_rule_calculator(input: _50_30_20_rule_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

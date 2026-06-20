@@ -20,27 +20,23 @@ export const Gauss_jordan_elimination_calculatorInputSchema = z.object({
   b2: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gauss_jordan_elimination_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.a11 * input.a22 - input.a12 * input.a21; results["det"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["det"] = 0; }
-  try { const v = (input.b1 * input.a22 - input.b2 * input.a12) / (asFormulaNumber(results["det"])); results["x"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["x"] = 0; }
-  try { const v = (input.a11 * input.b2 - input.a21 * input.b1) / (asFormulaNumber(results["det"])); results["y"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["y"] = 0; }
-  try { const v = '(asFormulaNumber(results["x"])) = ' + (asFormulaNumber(results["x"])) + ', (asFormulaNumber(results["y"])) = ' + (asFormulaNumber(results["y"])); results["solutionString"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["solutionString"] = 0; }
+  try { const v = input.a11 * input.a22 - input.a12 * input.a21; results["det"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["det"] = Number.NaN; }
+  try { const v = (input.b1 * input.a22 - input.b2 * input.a12) / (toNumericFormulaValue(results["det"])); results["x"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["x"] = Number.NaN; }
+  try { const v = (input.a11 * input.b2 - input.a21 * input.b1) / (toNumericFormulaValue(results["det"])); results["y"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["y"] = Number.NaN; }
+  try { const v = '(toNumericFormulaValue(results["x"])) = ' + (toNumericFormulaValue(results["x"])) + ', (toNumericFormulaValue(results["y"])) = ' + (toNumericFormulaValue(results["y"])); results["solutionString"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["solutionString"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGauss_jordan_elimination_calculator(input: Gauss_jordan_elimination_calculatorInput): Gauss_jordan_elimination_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["solutionString"]));
+  const totalWasteCost = toNumericFormulaValue(values["solutionString"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateGauss_jordan_elimination_calculator(input: Gauss_jordan
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

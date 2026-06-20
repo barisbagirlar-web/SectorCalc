@@ -24,27 +24,23 @@ export const Vehicle_depreciation_calculatorInputSchema = z.object({
   fuel_price_per_gallon: z.number().min(0.5).max(10).default(3.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Vehicle_depreciation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.holding_period_years * input.purchase_price; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.holding_period_years * input.purchase_price * (1 + (input.fuel_efficiency_mpg / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.holding_period_years * input.purchase_price * (1 + (input.fuel_efficiency_mpg / 100)) * (input.residual_value); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.residual_value; results["factor_residual_value"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_residual_value"] = 0; }
+  try { const v = input.holding_period_years * input.purchase_price; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.holding_period_years * input.purchase_price * (1 + (input.fuel_efficiency_mpg / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.holding_period_years * input.purchase_price * (1 + (input.fuel_efficiency_mpg / 100)) * (input.residual_value); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.residual_value; results["factor_residual_value"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_residual_value"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVehicle_depreciation_calculator(input: Vehicle_depreciation_calculatorInput): Vehicle_depreciation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateVehicle_depreciation_calculator(input: Vehicle_deprecia
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

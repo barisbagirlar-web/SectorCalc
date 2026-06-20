@@ -20,27 +20,23 @@ export const Concrete_curbs_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Concrete_curbs_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.curbLength * input.curbWidth * input.curbHeight; results["volumePerCurb"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumePerCurb"] = 0; }
-  try { const v = input.curbLength * input.curbWidth * input.curbHeight * input.curbCount * (1 + input.wasteFactor / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = input.curbLength * input.curbWidth * input.curbHeight * input.curbCount * (1 + input.wasteFactor / 100) * input.concreteDensity; results["totalWeightKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeightKg"] = 0; }
-  try { const v = input.curbLength * input.curbWidth * input.curbHeight * input.curbCount * (1 + input.wasteFactor / 100) * input.concreteDensity / 1000; results["totalWeightTon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeightTon"] = 0; }
+  try { const v = input.curbLength * input.curbWidth * input.curbHeight; results["volumePerCurb"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumePerCurb"] = Number.NaN; }
+  try { const v = input.curbLength * input.curbWidth * input.curbHeight * input.curbCount * (1 + input.wasteFactor / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = input.curbLength * input.curbWidth * input.curbHeight * input.curbCount * (1 + input.wasteFactor / 100) * input.concreteDensity; results["totalWeightKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeightKg"] = Number.NaN; }
+  try { const v = input.curbLength * input.curbWidth * input.curbHeight * input.curbCount * (1 + input.wasteFactor / 100) * input.concreteDensity / 1000; results["totalWeightTon"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeightTon"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConcrete_curbs_calculator(input: Concrete_curbs_calculatorInput): Concrete_curbs_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalWeightTon"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalWeightTon"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateConcrete_curbs_calculator(input: Concrete_curbs_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

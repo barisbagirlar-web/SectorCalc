@@ -20,27 +20,23 @@ export const Mile_calculatorInputSchema = z.object({
   annualMiles: z.number().default(12000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mile_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fuelPrice / input.fuelEfficiency; results["fuelCostPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fuelCostPerMile"] = 0; }
-  try { const v = input.maintenanceCost; results["maintenanceCostPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maintenanceCostPerMile"] = 0; }
-  try { const v = input.otherFixedCosts / input.annualMiles; results["fixedCostPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fixedCostPerMile"] = 0; }
-  try { const v = input.fuelPrice / input.fuelEfficiency + input.maintenanceCost + input.otherFixedCosts / input.annualMiles; results["totalCostPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCostPerMile"] = 0; }
+  try { const v = input.fuelPrice / input.fuelEfficiency; results["fuelCostPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fuelCostPerMile"] = Number.NaN; }
+  try { const v = input.maintenanceCost; results["maintenanceCostPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maintenanceCostPerMile"] = Number.NaN; }
+  try { const v = input.otherFixedCosts / input.annualMiles; results["fixedCostPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fixedCostPerMile"] = Number.NaN; }
+  try { const v = input.fuelPrice / input.fuelEfficiency + input.maintenanceCost + input.otherFixedCosts / input.annualMiles; results["totalCostPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCostPerMile"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMile_calculator(input: Mile_calculatorInput): Mile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCostPerMile"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCostPerMile"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMile_calculator(input: Mile_calculatorInput): Mile_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

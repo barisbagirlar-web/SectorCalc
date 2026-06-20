@@ -16,27 +16,23 @@ export const K_d_ratio_calculatorInputSchema = z.object({
   total_inspected: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: K_d_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.defective_parts === 0 ? 0 : input.accepted_parts / input.defective_parts; results["kd_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kd_ratio"] = 0; }
-  try { const v = input.total_inspected === 0 ? 0 : input.defective_parts / input.total_inspected; results["defect_rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["defect_rate"] = 0; }
-  try { const v = input.total_inspected === 0 ? 0 : input.accepted_parts / input.total_inspected; results["quality_yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["quality_yield"] = 0; }
-  try { const v = input.total_inspected === 0 ? 0 : input.reworked_parts / input.total_inspected; results["rework_rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rework_rate"] = 0; }
+  try { const v = input.defective_parts === 0 ? 0 : input.accepted_parts / input.defective_parts; results["kd_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kd_ratio"] = Number.NaN; }
+  try { const v = input.total_inspected === 0 ? 0 : input.defective_parts / input.total_inspected; results["defect_rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["defect_rate"] = Number.NaN; }
+  try { const v = input.total_inspected === 0 ? 0 : input.accepted_parts / input.total_inspected; results["quality_yield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["quality_yield"] = Number.NaN; }
+  try { const v = input.total_inspected === 0 ? 0 : input.reworked_parts / input.total_inspected; results["rework_rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rework_rate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateK_d_ratio_calculator(input: K_d_ratio_calculatorInput): K_d_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["kd_ratio"]));
+  const totalWasteCost = toNumericFormulaValue(values["kd_ratio"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateK_d_ratio_calculator(input: K_d_ratio_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

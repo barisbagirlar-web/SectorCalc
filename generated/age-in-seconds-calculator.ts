@@ -20,25 +20,21 @@ export const Age_in_seconds_calculatorInputSchema = z.object({
   currentDay: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Age_in_seconds_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.currentYear - input.birthYear) * 365.25 + (input.currentMonth - input.birthMonth) * 30.4375 + (input.currentDay - input.birthDay); results["totalDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDays"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDays"])) * 86400; results["ageInSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ageInSeconds"] = 0; }
+  try { const v = (input.currentYear - input.birthYear) * 365.25 + (input.currentMonth - input.birthMonth) * 30.4375 + (input.currentDay - input.birthDay); results["totalDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDays"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDays"])) * 86400; results["ageInSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ageInSeconds"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAge_in_seconds_calculator(input: Age_in_seconds_calculatorInput): Age_in_seconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDays"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDays"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateAge_in_seconds_calculator(input: Age_in_seconds_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

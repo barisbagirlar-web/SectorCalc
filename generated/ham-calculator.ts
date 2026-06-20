@@ -24,27 +24,23 @@ export const Ham_calculatorInputSchema = z.object({
   overhead_percentage: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ham_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.raw_material_cost + (input.processing_time * input.labor_cost_per_hour) + (input.energy_consumption_per_kg * input.energy_cost_per_kwh) + input.packaging_cost_per_kg; results["total_direct_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_direct_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_direct_cost"])) / (input.yield_percentage / 100); results["adjusted_cost_for_yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost_for_yield"] = 0; }
-  try { const v = (asFormulaNumber(results["adjusted_cost_for_yield"])) * (input.overhead_percentage / 100); results["overhead_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["adjusted_cost_for_yield"])) + (asFormulaNumber(results["overhead_cost"])); results["total_cost_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_kg"] = 0; }
+  try { const v = input.raw_material_cost + (input.processing_time * input.labor_cost_per_hour) + (input.energy_consumption_per_kg * input.energy_cost_per_kwh) + input.packaging_cost_per_kg; results["total_direct_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_direct_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_direct_cost"])) / (input.yield_percentage / 100); results["adjusted_cost_for_yield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost_for_yield"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjusted_cost_for_yield"])) * (input.overhead_percentage / 100); results["overhead_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overhead_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjusted_cost_for_yield"])) + (toNumericFormulaValue(results["overhead_cost"])); results["total_cost_per_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_cost_per_kg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHam_calculator(input: Ham_calculatorInput): Ham_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_direct_cost"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_direct_cost"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateHam_calculator(input: Ham_calculatorInput): Ham_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

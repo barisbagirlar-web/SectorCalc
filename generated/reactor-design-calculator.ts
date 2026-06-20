@@ -20,25 +20,21 @@ export const Reactor_design_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Reactor_design_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.inletConcentration * (1 - input.conversion); results["outletConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outletConcentration"] = 0; }
-  try { const v = input.volumetricFlowRate * input.safetyFactor / (input.rateConstant * input.inletConcentration ** (input.reactionOrder - 1) * (1 - input.conversion)); results["residenceTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["residenceTime"] = 0; }
+  try { const v = input.inletConcentration * (1 - input.conversion); results["outletConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["outletConcentration"] = Number.NaN; }
+  try { const v = input.volumetricFlowRate * input.safetyFactor / (input.rateConstant * input.inletConcentration ** (input.reactionOrder - 1) * (1 - input.conversion)); results["residenceTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["residenceTime"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateReactor_design_calculator(input: Reactor_design_calculatorInput): Reactor_design_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["outletConcentration"]));
+  const totalWasteCost = toNumericFormulaValue(values["outletConcentration"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateReactor_design_calculator(input: Reactor_design_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

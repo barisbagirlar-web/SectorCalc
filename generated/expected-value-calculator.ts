@@ -24,28 +24,24 @@ export const Expected_value_calculatorInputSchema = z.object({
   outcome4_value: z.number().default(400),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Expected_value_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.outcome1_probability * input.outcome1_value) + (input.outcome2_probability * input.outcome2_value) + (input.outcome3_probability * input.outcome3_value) + (input.outcome4_probability * input.outcome4_value); results["EV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["EV"] = 0; }
-  try { const v = input.outcome1_probability * input.outcome1_value; results["Outcome1_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Outcome1_Contribution"] = 0; }
-  try { const v = input.outcome2_probability * input.outcome2_value; results["Outcome2_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Outcome2_Contribution"] = 0; }
-  try { const v = input.outcome3_probability * input.outcome3_value; results["Outcome3_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Outcome3_Contribution"] = 0; }
-  try { const v = input.outcome4_probability * input.outcome4_value; results["Outcome4_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Outcome4_Contribution"] = 0; }
+  try { const v = (input.outcome1_probability * input.outcome1_value) + (input.outcome2_probability * input.outcome2_value) + (input.outcome3_probability * input.outcome3_value) + (input.outcome4_probability * input.outcome4_value); results["EV"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["EV"] = Number.NaN; }
+  try { const v = input.outcome1_probability * input.outcome1_value; results["Outcome1_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Outcome1_Contribution"] = Number.NaN; }
+  try { const v = input.outcome2_probability * input.outcome2_value; results["Outcome2_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Outcome2_Contribution"] = Number.NaN; }
+  try { const v = input.outcome3_probability * input.outcome3_value; results["Outcome3_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Outcome3_Contribution"] = Number.NaN; }
+  try { const v = input.outcome4_probability * input.outcome4_value; results["Outcome4_Contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Outcome4_Contribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateExpected_value_calculator(input: Expected_value_calculatorInput): Expected_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["EV"]));
+  const totalWasteCost = toNumericFormulaValue(values["EV"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateExpected_value_calculator(input: Expected_value_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

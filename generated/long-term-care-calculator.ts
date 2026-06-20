@@ -22,28 +22,24 @@ export const Long_term_care_calculatorInputSchema = z.object({
   otherIncome: z.number().default(20000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Long_term_care_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentAge * input.dailyCareCost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.currentAge * input.dailyCareCost; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.currentAge * input.dailyCareCost * 1 * (input.retirementAge * input.expectedLongTermCareYears); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.retirementAge; results["factor_retirementAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_retirementAge"] = 0; }
-  try { const v = input.expectedLongTermCareYears; results["factor_expectedLongTermCareYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_expectedLongTermCareYears"] = 0; }
+  try { const v = input.currentAge * input.dailyCareCost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.currentAge * input.dailyCareCost; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.currentAge * input.dailyCareCost * 1 * (input.retirementAge * input.expectedLongTermCareYears); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.retirementAge; results["factor_retirementAge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_retirementAge"] = Number.NaN; }
+  try { const v = input.expectedLongTermCareYears; results["factor_expectedLongTermCareYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_expectedLongTermCareYears"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLong_term_care_calculator(input: Long_term_care_calculatorInput): Long_term_care_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateLong_term_care_calculator(input: Long_term_care_calcula
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

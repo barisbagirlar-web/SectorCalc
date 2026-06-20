@@ -18,28 +18,24 @@ export const Ph_calculatorInputSchema = z.object({
   Kw: z.number().default(1e-14),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ph_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.volAcid + input.volBase; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = input.volAcid * input.concAcid; results["molesAcid"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesAcid"] = 0; }
-  try { const v = input.volBase * input.concBase; results["molesBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesBase"] = 0; }
-  try { const v = (asFormulaNumber(results["molesAcid"])) - (asFormulaNumber(results["molesBase"])); results["excessH"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["excessH"] = 0; }
-  try { const v = (asFormulaNumber(results["excessH"])) >= 0 ? (asFormulaNumber(results["excessH"])) / (asFormulaNumber(results["totalVolume"])) : input.Kw / (-(asFormulaNumber(results["excessH"])) / (asFormulaNumber(results["totalVolume"]))); results["Hplus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Hplus"] = 0; }
+  try { const v = input.volAcid + input.volBase; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = input.volAcid * input.concAcid; results["molesAcid"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molesAcid"] = Number.NaN; }
+  try { const v = input.volBase * input.concBase; results["molesBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molesBase"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["molesAcid"])) - (toNumericFormulaValue(results["molesBase"])); results["excessH"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["excessH"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["excessH"])) >= 0 ? (toNumericFormulaValue(results["excessH"])) / (toNumericFormulaValue(results["totalVolume"])) : input.Kw / (-(toNumericFormulaValue(results["excessH"])) / (toNumericFormulaValue(results["totalVolume"]))); results["Hplus"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Hplus"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePh_calculator(input: Ph_calculatorInput): Ph_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Hplus"]));
+  const totalWasteCost = toNumericFormulaValue(values["Hplus"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculatePh_calculator(input: Ph_calculatorInput): Ph_calculator
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

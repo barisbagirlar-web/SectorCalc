@@ -24,26 +24,22 @@ export const Hcg_level_calculatorInputSchema = z.object({
   x4: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hcg_level_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.mass1 + input.mass2 + input.mass3 + input.mass4; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMass"] = 0; }
-  try { const v = input.mass1 * input.x1 + input.mass2 * input.x2 + input.mass3 * input.x3 + input.mass4 * input.x4; results["totalMoment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMoment"] = 0; }
-  try { const v = (input.mass1 * input.x1 + input.mass2 * input.x2 + input.mass3 * input.x3 + input.mass4 * input.x4) / (input.mass1 + input.mass2 + input.mass3 + input.mass4); results["hcg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hcg"] = 0; }
+  try { const v = input.mass1 + input.mass2 + input.mass3 + input.mass4; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMass"] = Number.NaN; }
+  try { const v = input.mass1 * input.x1 + input.mass2 * input.x2 + input.mass3 * input.x3 + input.mass4 * input.x4; results["totalMoment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMoment"] = Number.NaN; }
+  try { const v = (input.mass1 * input.x1 + input.mass2 * input.x2 + input.mass3 * input.x3 + input.mass4 * input.x4) / (input.mass1 + input.mass2 + input.mass3 + input.mass4); results["hcg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hcg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHcg_level_calculator(input: Hcg_level_calculatorInput): Hcg_level_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMass"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateHcg_level_calculator(input: Hcg_level_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,27 +20,23 @@ export const Circuit_load_calculatorInputSchema = z.object({
   breakerRating: z.number().default(16),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Circuit_load_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfDevices * input.currentPerDevice * input.safetyFactor; results["totalCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCurrent"] = 0; }
-  try { const v = input.voltage * (asFormulaNumber(results["totalCurrent"])); results["totalApparentPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalApparentPower"] = 0; }
-  try { const v = (asFormulaNumber(results["totalApparentPower"])) * input.powerFactor; results["totalRealPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRealPower"] = 0; }
-  try { const v = input.breakerRating > 0 ? ((asFormulaNumber(results["totalCurrent"])) / input.breakerRating * 100) : null; results["loadPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loadPercentage"] = 0; }
+  try { const v = input.numberOfDevices * input.currentPerDevice * input.safetyFactor; results["totalCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCurrent"] = Number.NaN; }
+  try { const v = input.voltage * (toNumericFormulaValue(results["totalCurrent"])); results["totalApparentPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalApparentPower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalApparentPower"])) * input.powerFactor; results["totalRealPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRealPower"] = Number.NaN; }
+  try { const v = input.breakerRating > 0 ? ((toNumericFormulaValue(results["totalCurrent"])) / input.breakerRating * 100) : null; results["loadPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loadPercentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCircuit_load_calculator(input: Circuit_load_calculatorInput): Circuit_load_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRealPower"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalRealPower"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCircuit_load_calculator(input: Circuit_load_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

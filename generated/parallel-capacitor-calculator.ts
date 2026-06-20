@@ -18,30 +18,26 @@ export const Parallel_capacitor_calculatorInputSchema = z.object({
   c5: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Parallel_capacitor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.c1 + input.c2 + input.c3 + input.c4 + input.c5; results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
-  try { const v = "C1 = " + input.c1 + " μF"; results["c1_str"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c1_str"] = 0; }
-  try { const v = "C2 = " + input.c2 + " μF"; results["c2_str"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c2_str"] = 0; }
-  try { const v = "C3 = " + input.c3 + " μF"; results["c3_str"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c3_str"] = 0; }
-  try { const v = "C4 = " + input.c4 + " μF"; results["c4_str"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c4_str"] = 0; }
-  try { const v = "C5 = " + input.c5 + " μF"; results["c5_str"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c5_str"] = 0; }
-  try { const v = "Total (Ceq) = " + (input.c1 + input.c2 + input.c3 + input.c4 + input.c5) + " μF"; results["total_str"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_str"] = 0; }
+  try { const v = input.c1 + input.c2 + input.c3 + input.c4 + input.c5; results["total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total"] = Number.NaN; }
+  try { const v = "C1 = " + input.c1 + " μF"; results["c1_str"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c1_str"] = Number.NaN; }
+  try { const v = "C2 = " + input.c2 + " μF"; results["c2_str"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c2_str"] = Number.NaN; }
+  try { const v = "C3 = " + input.c3 + " μF"; results["c3_str"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c3_str"] = Number.NaN; }
+  try { const v = "C4 = " + input.c4 + " μF"; results["c4_str"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c4_str"] = Number.NaN; }
+  try { const v = "C5 = " + input.c5 + " μF"; results["c5_str"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c5_str"] = Number.NaN; }
+  try { const v = "Total (Ceq) = " + (input.c1 + input.c2 + input.c3 + input.c4 + input.c5) + " μF"; results["total_str"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_str"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateParallel_capacitor_calculator(input: Parallel_capacitor_calculatorInput): Parallel_capacitor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total"]));
+  const totalWasteCost = toNumericFormulaValue(values["total"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateParallel_capacitor_calculator(input: Parallel_capacitor
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

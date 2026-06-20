@@ -18,26 +18,22 @@ export const Parts_per_billion_calculatorInputSchema = z.object({
   total_gas_volume_L: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Parts_per_billion_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.solute_mass_mg * input.solution_volume_L * input.solution_density_kg_per_L * input.gas_solute_volume_mL; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.solute_mass_mg * input.solution_volume_L * input.solution_density_kg_per_L * input.gas_solute_volume_mL * (input.total_gas_volume_L); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.total_gas_volume_L; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.solute_mass_mg * input.solution_volume_L * input.solution_density_kg_per_L * input.gas_solute_volume_mL; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.solute_mass_mg * input.solution_volume_L * input.solution_density_kg_per_L * input.gas_solute_volume_mL * (input.total_gas_volume_L); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.total_gas_volume_L; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateParts_per_billion_calculator(input: Parts_per_billion_calculatorInput): Parts_per_billion_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateParts_per_billion_calculator(input: Parts_per_billion_c
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,26 +18,22 @@ export const Ionization_energy_calculatorInputSchema = z.object({
   conversionFactor: z.number().default(96.485),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ionization_energy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.atomicNumber - input.screeningConstant; results["effectiveNuclearCharge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveNuclearCharge"] = 0; }
-  try { const v = input.rydbergEnergy * ((asFormulaNumber(results["effectiveNuclearCharge"])) ** 2) / (input.principalQuantumNumber ** 2); results["ionizationEnergy_eV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ionizationEnergy_eV"] = 0; }
-  try { const v = (asFormulaNumber(results["ionizationEnergy_eV"])) * input.conversionFactor; results["ionizationEnergy_kJ_per_mol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ionizationEnergy_kJ_per_mol"] = 0; }
+  try { const v = input.atomicNumber - input.screeningConstant; results["effectiveNuclearCharge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveNuclearCharge"] = Number.NaN; }
+  try { const v = input.rydbergEnergy * ((toNumericFormulaValue(results["effectiveNuclearCharge"])) ** 2) / (input.principalQuantumNumber ** 2); results["ionizationEnergy_eV"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ionizationEnergy_eV"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ionizationEnergy_eV"])) * input.conversionFactor; results["ionizationEnergy_kJ_per_mol"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ionizationEnergy_kJ_per_mol"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateIonization_energy_calculator(input: Ionization_energy_calculatorInput): Ionization_energy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ionizationEnergy_eV"]));
+  const totalWasteCost = toNumericFormulaValue(values["ionizationEnergy_eV"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateIonization_energy_calculator(input: Ionization_energy_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,26 +18,22 @@ export const Superelevation_calculatorInputSchema = z.object({
   gravity: z.number().default(9.81),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Superelevation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.designSpeed / 3.6; results["V_ms"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["V_ms"] = 0; }
-  try { const v = (((asFormulaNumber(results["V_ms"]))**2 / (input.gravity * input.curveRadius)) - input.frictionCoeff) * 100; results["requiredE_percent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredE_percent"] = 0; }
-  try { const v = (asFormulaNumber(results["requiredE_percent"])); results["calculatedSuperelevation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calculatedSuperelevation"] = 0; }
+  try { const v = input.designSpeed / 3.6; results["V_ms"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["V_ms"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["V_ms"]))**2 / (input.gravity * input.curveRadius)) - input.frictionCoeff) * 100; results["requiredE_percent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredE_percent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["requiredE_percent"])); results["calculatedSuperelevation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["calculatedSuperelevation"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSuperelevation_calculator(input: Superelevation_calculatorInput): Superelevation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["calculatedSuperelevation"]));
+  const totalWasteCost = toNumericFormulaValue(values["calculatedSuperelevation"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateSuperelevation_calculator(input: Superelevation_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

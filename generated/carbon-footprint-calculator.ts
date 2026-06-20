@@ -18,29 +18,25 @@ export const Carbon_footprint_calculatorInputSchema = z.object({
   water_m3: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Carbon_footprint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.electricity_kwh * 0.5 + input.natural_gas_m3 * 2 + input.fuel_liters * 2.3 + input.waste_kg * 0.5 + input.water_m3 * 0.3; results["totalCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCO2"] = 0; }
-  try { const v = input.electricity_kwh * 0.5; results["electricityCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricityCO2"] = 0; }
-  try { const v = input.natural_gas_m3 * 2; results["naturalGasCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["naturalGasCO2"] = 0; }
-  try { const v = input.fuel_liters * 2.3; results["fuelCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fuelCO2"] = 0; }
-  try { const v = input.waste_kg * 0.5; results["wasteCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteCO2"] = 0; }
-  try { const v = input.water_m3 * 0.3; results["waterCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterCO2"] = 0; }
+  try { const v = input.electricity_kwh * 0.5 + input.natural_gas_m3 * 2 + input.fuel_liters * 2.3 + input.waste_kg * 0.5 + input.water_m3 * 0.3; results["totalCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCO2"] = Number.NaN; }
+  try { const v = input.electricity_kwh * 0.5; results["electricityCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricityCO2"] = Number.NaN; }
+  try { const v = input.natural_gas_m3 * 2; results["naturalGasCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["naturalGasCO2"] = Number.NaN; }
+  try { const v = input.fuel_liters * 2.3; results["fuelCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fuelCO2"] = Number.NaN; }
+  try { const v = input.waste_kg * 0.5; results["wasteCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteCO2"] = Number.NaN; }
+  try { const v = input.water_m3 * 0.3; results["waterCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterCO2"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCarbon_footprint_calculator(input: Carbon_footprint_calculatorInput): Carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["waterCO2"]));
+  const totalWasteCost = toNumericFormulaValue(values["waterCO2"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCarbon_footprint_calculator(input: Carbon_footprint_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

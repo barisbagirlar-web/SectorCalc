@@ -22,29 +22,25 @@ export const Ups_calculatorInputSchema = z.object({
   numberOfBatteries: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ups_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalLoad / input.powerFactor; results["totalVA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVA"] = 0; }
-  try { const v = (input.totalLoad / input.powerFactor) / input.batteryVoltage; results["loadCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loadCurrent"] = 0; }
-  try { const v = (input.totalLoad * input.requiredRuntime) / 60; results["batteryWattHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["batteryWattHours"] = 0; }
-  try { const v = (input.totalLoad * input.requiredRuntime) / 60 / (input.inverterEfficiency / 100) / (input.depthOfDischarge / 100); results["adjustedWattHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedWattHours"] = 0; }
-  try { const v = (((input.totalLoad * input.requiredRuntime) / 60) / ((input.inverterEfficiency / 100) * (input.depthOfDischarge / 100))) / input.batteryVoltage; results["totalRequiredAh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRequiredAh"] = 0; }
-  try { const v = (((input.totalLoad * input.requiredRuntime) / 60) / ((input.inverterEfficiency / 100) * (input.depthOfDischarge / 100)) / input.batteryVoltage) / input.numberOfBatteries; results["perBatteryCapacityAh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perBatteryCapacityAh"] = 0; }
+  try { const v = input.totalLoad / input.powerFactor; results["totalVA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVA"] = Number.NaN; }
+  try { const v = (input.totalLoad / input.powerFactor) / input.batteryVoltage; results["loadCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loadCurrent"] = Number.NaN; }
+  try { const v = (input.totalLoad * input.requiredRuntime) / 60; results["batteryWattHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["batteryWattHours"] = Number.NaN; }
+  try { const v = (input.totalLoad * input.requiredRuntime) / 60 / (input.inverterEfficiency / 100) / (input.depthOfDischarge / 100); results["adjustedWattHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedWattHours"] = Number.NaN; }
+  try { const v = (((input.totalLoad * input.requiredRuntime) / 60) / ((input.inverterEfficiency / 100) * (input.depthOfDischarge / 100))) / input.batteryVoltage; results["totalRequiredAh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRequiredAh"] = Number.NaN; }
+  try { const v = (((input.totalLoad * input.requiredRuntime) / 60) / ((input.inverterEfficiency / 100) * (input.depthOfDischarge / 100)) / input.batteryVoltage) / input.numberOfBatteries; results["perBatteryCapacityAh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["perBatteryCapacityAh"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUps_calculator(input: Ups_calculatorInput): Ups_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["perBatteryCapacityAh"]));
+  const totalWasteCost = toNumericFormulaValue(values["perBatteryCapacityAh"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateUps_calculator(input: Ups_calculatorInput): Ups_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

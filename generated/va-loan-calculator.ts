@@ -20,29 +20,25 @@ export const Va_loan_calculatorInputSchema = z.object({
   homeInsuranceAnnual: z.number().default(1200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Va_loan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.loanAmount * (1 + input.fundingFeeRate / 100); results["totalLoan"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLoan"] = 0; }
-  try { const v = input.interestRate / 12 / 100; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
-  try { const v = input.loanTerm * 12; results["numberOfPayments"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfPayments"] = 0; }
-  try { const v = (input.loanAmount * input.propertyTaxRate / 100) / 12; results["monthlyTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyTax"] = 0; }
-  try { const v = input.homeInsuranceAnnual / 12; results["monthlyInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInsurance"] = 0; }
-  try { const v = input.loanAmount * input.fundingFeeRate / 100; results["totalFundingFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFundingFee"] = 0; }
+  try { const v = input.loanAmount * (1 + input.fundingFeeRate / 100); results["totalLoan"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLoan"] = Number.NaN; }
+  try { const v = input.interestRate / 12 / 100; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInterestRate"] = Number.NaN; }
+  try { const v = input.loanTerm * 12; results["numberOfPayments"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numberOfPayments"] = Number.NaN; }
+  try { const v = (input.loanAmount * input.propertyTaxRate / 100) / 12; results["monthlyTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyTax"] = Number.NaN; }
+  try { const v = input.homeInsuranceAnnual / 12; results["monthlyInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInsurance"] = Number.NaN; }
+  try { const v = input.loanAmount * input.fundingFeeRate / 100; results["totalFundingFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFundingFee"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVa_loan_calculator(input: Va_loan_calculatorInput): Va_loan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFundingFee"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalFundingFee"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateVa_loan_calculator(input: Va_loan_calculatorInput): Va_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

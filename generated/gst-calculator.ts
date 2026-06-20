@@ -14,28 +14,24 @@ export const Gst_calculatorInputSchema = z.object({
   country: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gst_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.amount * input.gstRate / 100; results["gstAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gstAmount"] = 0; }
-  try { const v = input.amount + (asFormulaNumber(results["gstAmount"])); results["totalInclGst"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInclGst"] = 0; }
-  try { const v = input.gstRate / 100; results["gstRateDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gstRateDecimal"] = 0; }
-  try { const v = input.amount; results["amountExclGst"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["amountExclGst"] = 0; }
-  try { const v = input.country === 1 ? 0.1 : input.country === 2 ? 0.05 : 0.18; results["effectiveRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveRate"] = 0; }
+  try { const v = input.amount * input.gstRate / 100; results["gstAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gstAmount"] = Number.NaN; }
+  try { const v = input.amount + (toNumericFormulaValue(results["gstAmount"])); results["totalInclGst"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInclGst"] = Number.NaN; }
+  try { const v = input.gstRate / 100; results["gstRateDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gstRateDecimal"] = Number.NaN; }
+  try { const v = input.amount; results["amountExclGst"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["amountExclGst"] = Number.NaN; }
+  try { const v = input.country === 1 ? 0.1 : input.country === 2 ? 0.05 : 0.18; results["effectiveRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGst_calculator(input: Gst_calculatorInput): Gst_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalInclGst"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalInclGst"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateGst_calculator(input: Gst_calculatorInput): Gst_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

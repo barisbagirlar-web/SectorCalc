@@ -24,27 +24,23 @@ export const Price_elasticity_simulator_calculatorInputSchema = z.object({
   confidence_level: z.enum(['low', 'medium', 'high']).default('medium'),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Price_elasticity_simulator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.current_quantity * (input.price_change_percent / 100) * 1 * input.current_price * (input.elasticity_coefficient); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.elasticity_coefficient; results["factor_elasticity_coefficient"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_elasticity_coefficient"] = 0; }
+  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_exposure_hours"] = Number.NaN; }
+  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_labor_cost"] = Number.NaN; }
+  try { const v = input.current_quantity * (input.price_change_percent / 100) * 1 * input.current_price * (input.elasticity_coefficient); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.elasticity_coefficient; results["factor_elasticity_coefficient"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_elasticity_coefficient"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePrice_elasticity_simulator_calculator(input: Price_elasticity_simulator_calculatorInput): Price_elasticity_simulator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculatePrice_elasticity_simulator_calculator(input: Price_elas
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

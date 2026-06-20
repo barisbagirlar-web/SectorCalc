@@ -24,27 +24,23 @@ export const Cpm_calculatorInputSchema = z.object({
   otherCosts: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cpm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.fuelConsumption / 100) * input.fuelPrice; results["fuelCostPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fuelCostPerKm"] = 0; }
-  try { const v = input.driverWagePerHour / input.averageSpeed; results["driverCostPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["driverCostPerKm"] = 0; }
-  try { const v = (asFormulaNumber(results["fuelCostPerKm"])) + input.maintenanceCostPerKm + (asFormulaNumber(results["driverCostPerKm"])); results["totalCostPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCostPerKm"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCostPerKm"])) * input.distance + input.tollCost + input.otherCosts; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (input.fuelConsumption / 100) * input.fuelPrice; results["fuelCostPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fuelCostPerKm"] = Number.NaN; }
+  try { const v = input.driverWagePerHour / input.averageSpeed; results["driverCostPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["driverCostPerKm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fuelCostPerKm"])) + input.maintenanceCostPerKm + (toNumericFormulaValue(results["driverCostPerKm"])); results["totalCostPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCostPerKm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCostPerKm"])) * input.distance + input.tollCost + input.otherCosts; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCpm_calculator(input: Cpm_calculatorInput): Cpm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCostPerKm"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCostPerKm"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateCpm_calculator(input: Cpm_calculatorInput): Cpm_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,27 +18,23 @@ export const Extension_spring_calculatorInputSchema = z.object({
   allowableStress: z.number().default(600),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Extension_spring_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.outerDiameter - input.wireDiameter; results["meanDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanDiameter"] = 0; }
-  try { const v = (asFormulaNumber(results["meanDiameter"])) / input.wireDiameter; results["springIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["springIndex"] = 0; }
-  try { const v = input.totalCoils - 2; results["activeCoils"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["activeCoils"] = 0; }
-  try { const v = (4*(asFormulaNumber(results["springIndex"])) - 1) / (4*(asFormulaNumber(results["springIndex"])) - 4) + 0.615 / (asFormulaNumber(results["springIndex"])); results["wahlFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wahlFactor"] = 0; }
+  try { const v = input.outerDiameter - input.wireDiameter; results["meanDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["meanDiameter"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["meanDiameter"])) / input.wireDiameter; results["springIndex"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["springIndex"] = Number.NaN; }
+  try { const v = input.totalCoils - 2; results["activeCoils"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["activeCoils"] = Number.NaN; }
+  try { const v = (4*(toNumericFormulaValue(results["springIndex"])) - 1) / (4*(toNumericFormulaValue(results["springIndex"])) - 4) + 0.615 / (toNumericFormulaValue(results["springIndex"])); results["wahlFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wahlFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateExtension_spring_calculator(input: Extension_spring_calculatorInput): Extension_spring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["wahlFactor"]));
+  const totalWasteCost = toNumericFormulaValue(values["wahlFactor"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateExtension_spring_calculator(input: Extension_spring_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

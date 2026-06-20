@@ -18,26 +18,22 @@ export const Survival_analysis_calculatorInputSchema = z.object({
   totalTestTime: z.number().default(1000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Survival_analysis_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.failureRate) / (input.time + input.targetSurvivalProb + input.observedFailures + input.totalTestTime) * 100; results["hazardRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hazardRate"] = 0; }
-  try { const v = (input.failureRate) * (input.time) * (input.targetSurvivalProb); results["cumulativeHazard"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cumulativeHazard"] = 0; }
-  try { const v = ((input.failureRate) + (input.time) + (input.targetSurvivalProb)) / 3; results["meanTimeToFailure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meanTimeToFailure"] = 0; }
+  try { const v = (input.failureRate) / (input.time + input.targetSurvivalProb + input.observedFailures + input.totalTestTime) * 100; results["hazardRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hazardRate"] = Number.NaN; }
+  try { const v = (input.failureRate) * (input.time) * (input.targetSurvivalProb); results["cumulativeHazard"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cumulativeHazard"] = Number.NaN; }
+  try { const v = ((input.failureRate) + (input.time) + (input.targetSurvivalProb)) / 3; results["meanTimeToFailure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["meanTimeToFailure"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSurvival_analysis_calculator(input: Survival_analysis_calculatorInput): Survival_analysis_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["meanTimeToFailure"]));
+  const totalWasteCost = toNumericFormulaValue(values["meanTimeToFailure"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateSurvival_analysis_calculator(input: Survival_analysis_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

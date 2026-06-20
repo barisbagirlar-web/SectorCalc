@@ -16,26 +16,22 @@ export const Le_chatelier_denge_kaymasi_calculatorInputSchema = z.object({
   deltaA: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Le_chatelier_denge_kaymasi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.Kc * (input.initA + input.deltaA) - input.initB) / (1 + input.Kc); results["x"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["x"] = 0; }
-  try { const v = (input.initA + input.deltaA) - (asFormulaNumber(results["x"])); results["newA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newA"] = 0; }
-  try { const v = input.initB + (asFormulaNumber(results["x"])); results["newB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newB"] = 0; }
+  try { const v = (input.Kc * (input.initA + input.deltaA) - input.initB) / (1 + input.Kc); results["x"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["x"] = Number.NaN; }
+  try { const v = (input.initA + input.deltaA) - (toNumericFormulaValue(results["x"])); results["newA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newA"] = Number.NaN; }
+  try { const v = input.initB + (toNumericFormulaValue(results["x"])); results["newB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newB"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLe_chatelier_denge_kaymasi_calculator(input: Le_chatelier_denge_kaymasi_calculatorInput): Le_chatelier_denge_kaymasi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["x"]));
+  const totalWasteCost = toNumericFormulaValue(values["x"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateLe_chatelier_denge_kaymasi_calculator(input: Le_chateli
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,27 +22,23 @@ export const Loadout_calculatorInputSchema = z.object({
   numberOfAxles: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Loadout_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.cargoWeight + input.palletCount * input.palletWeight) * input.safetyFactor; results["totalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLoad"] = 0; }
-  try { const v = ((input.cargoWeight + input.palletCount * input.palletWeight) * input.safetyFactor / input.vehicleCapacity) * 100; results["loadUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loadUtilization"] = 0; }
-  try { const v = input.vehicleCapacity - (input.cargoWeight + input.palletCount * input.palletWeight) * input.safetyFactor; results["remainingCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingCapacity"] = 0; }
-  try { const v = ((input.cargoWeight + input.palletCount * input.palletWeight) * input.safetyFactor) / input.numberOfAxles; results["axleLoadPerAxle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["axleLoadPerAxle"] = 0; }
+  try { const v = (input.cargoWeight + input.palletCount * input.palletWeight) * input.safetyFactor; results["totalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLoad"] = Number.NaN; }
+  try { const v = ((input.cargoWeight + input.palletCount * input.palletWeight) * input.safetyFactor / input.vehicleCapacity) * 100; results["loadUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loadUtilization"] = Number.NaN; }
+  try { const v = input.vehicleCapacity - (input.cargoWeight + input.palletCount * input.palletWeight) * input.safetyFactor; results["remainingCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingCapacity"] = Number.NaN; }
+  try { const v = ((input.cargoWeight + input.palletCount * input.palletWeight) * input.safetyFactor) / input.numberOfAxles; results["axleLoadPerAxle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["axleLoadPerAxle"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLoadout_calculator(input: Loadout_calculatorInput): Loadout_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["loadUtilization"]));
+  const totalWasteCost = toNumericFormulaValue(values["loadUtilization"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateLoadout_calculator(input: Loadout_calculatorInput): Loa
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

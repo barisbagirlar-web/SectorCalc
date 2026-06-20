@@ -238,7 +238,7 @@ function transformBracePlaceholders(
       return options.inputToAccess(key);
     }
     if (options.formulaKeys.includes(key)) {
-      return `(asFormulaNumber(results[${JSON.stringify(key)}]))`;
+      return `(toNumericFormulaValue(results[${JSON.stringify(key)}]))`;
     }
     return _match;
   });
@@ -273,11 +273,11 @@ function substituteFormulaReferences(
     }
     result = result.replace(
       new RegExp(`\\bformulas\\.${escapeRegExp(key)}\\b`, "g"),
-      `(asFormulaNumber(results[${JSON.stringify(key)}]))`,
+      `(toNumericFormulaValue(results[${JSON.stringify(key)}]))`,
     );
     result = result.replace(
       new RegExp(`\\b${escapeRegExp(key)}\\s*\\(\\s*\\)`, "g"),
-      `(asFormulaNumber(results[${JSON.stringify(key)}]))`,
+      `(toNumericFormulaValue(results[${JSON.stringify(key)}]))`,
     );
   }
   return result;
@@ -327,7 +327,7 @@ function mapInvokeArgument(arg: string, options: ScriptCompileOptions): string {
     return options.inputToAccess(trimmed);
   }
   if (options.formulaKeys.includes(trimmed)) {
-    return `(asFormulaNumber(results[${JSON.stringify(trimmed)}]))`;
+    return `(toNumericFormulaValue(results[${JSON.stringify(trimmed)}]))`;
   }
   return trimmed;
 }
@@ -375,7 +375,7 @@ function unwrapLeadingArrowFunction(
         return options.inputToAccess(inputId);
       }
       if (options.formulaKeys.includes(param)) {
-        return `(asFormulaNumber(results[${JSON.stringify(param)}]))`;
+        return `(toNumericFormulaValue(results[${JSON.stringify(param)}]))`;
       }
       return param;
     });

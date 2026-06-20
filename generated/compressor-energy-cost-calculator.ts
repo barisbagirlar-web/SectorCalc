@@ -24,26 +24,22 @@ export const Compressor_energy_cost_calculatorInputSchema = z.object({
   pressure_setpoint: z.number().min(2).max(15).default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Compressor_energy_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_kwh"] = 0; }
-  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_kwh"] = Number.NaN; }
+  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_energy_cost"] = Number.NaN; }
+  try { const v = 1 * input.compressor_power_rating * input.operating_hours_per_year * (input.motor_efficiency / 100) * input.electricity_cost_per_kwh; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCompressor_energy_cost_calculator(input: Compressor_energy_cost_calculatorInput): Compressor_energy_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateCompressor_energy_cost_calculator(input: Compressor_ene
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

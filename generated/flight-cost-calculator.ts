@@ -22,28 +22,24 @@ export const Flight_cost_calculatorInputSchema = z.object({
   maintenanceCostPerHour: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Flight_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.distance / input.avgSpeed; results["flightHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["flightHours"] = 0; }
-  try { const v = input.distance * input.fuelConsumptionRate * input.fuelPrice; results["fuelCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fuelCost"] = 0; }
-  try { const v = (asFormulaNumber(results["flightHours"])) * input.crewCostPerHour; results["crewCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crewCost"] = 0; }
-  try { const v = (asFormulaNumber(results["flightHours"])) * input.maintenanceCostPerHour; results["maintenanceCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maintenanceCost"] = 0; }
-  try { const v = (asFormulaNumber(results["fuelCost"])) + (asFormulaNumber(results["crewCost"])) + input.landingFee + (asFormulaNumber(results["maintenanceCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.distance / input.avgSpeed; results["flightHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["flightHours"] = Number.NaN; }
+  try { const v = input.distance * input.fuelConsumptionRate * input.fuelPrice; results["fuelCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fuelCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["flightHours"])) * input.crewCostPerHour; results["crewCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["crewCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["flightHours"])) * input.maintenanceCostPerHour; results["maintenanceCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maintenanceCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fuelCost"])) + (toNumericFormulaValue(results["crewCost"])) + input.landingFee + (toNumericFormulaValue(results["maintenanceCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFlight_cost_calculator(input: Flight_cost_calculatorInput): Flight_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateFlight_cost_calculator(input: Flight_cost_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,25 +18,21 @@ export const Pound_to_ounce_calculatorInputSchema = z.object({
   decimalPlaces: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pound_to_ounce_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.unitWeightLb * input.quantity - input.tareWeightLb; results["totalPounds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPounds"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPounds"])) * input.conversionFactor; results["preciseOunces"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["preciseOunces"] = 0; }
+  try { const v = input.unitWeightLb * input.quantity - input.tareWeightLb; results["totalPounds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPounds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPounds"])) * input.conversionFactor; results["preciseOunces"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["preciseOunces"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePound_to_ounce_calculator(input: Pound_to_ounce_calculatorInput): Pound_to_ounce_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["preciseOunces"]));
+  const totalWasteCost = toNumericFormulaValue(values["preciseOunces"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculatePound_to_ounce_calculator(input: Pound_to_ounce_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

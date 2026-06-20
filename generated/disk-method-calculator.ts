@@ -18,26 +18,22 @@ export const Disk_method_calculatorInputSchema = z.object({
   coeffC: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Disk_method_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.coeffA**2*(input.upperBound**5 - input.lowerBound**5)/5 + 2*input.coeffA*input.coeffB*(input.upperBound**4 - input.lowerBound**4)/4 + (2*input.coeffA*input.coeffC + input.coeffB**2)*(input.upperBound**3 - input.lowerBound**3)/3 + 2*input.coeffB*input.coeffC*(input.upperBound**2 - input.lowerBound**2)/2 + input.coeffC**2*(input.upperBound - input.lowerBound); results["integral"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["integral"] = 0; }
-  try { const v = Math.PI * (asFormulaNumber(results["integral"])); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = input.coeffA*((input.lowerBound+input.upperBound)/2)**2 + input.coeffB*(input.lowerBound+input.upperBound)/2 + input.coeffC; results["midRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["midRadius"] = 0; }
+  try { const v = input.coeffA**2*(input.upperBound**5 - input.lowerBound**5)/5 + 2*input.coeffA*input.coeffB*(input.upperBound**4 - input.lowerBound**4)/4 + (2*input.coeffA*input.coeffC + input.coeffB**2)*(input.upperBound**3 - input.lowerBound**3)/3 + 2*input.coeffB*input.coeffC*(input.upperBound**2 - input.lowerBound**2)/2 + input.coeffC**2*(input.upperBound - input.lowerBound); results["integral"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["integral"] = Number.NaN; }
+  try { const v = Math.PI * (toNumericFormulaValue(results["integral"])); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = input.coeffA*((input.lowerBound+input.upperBound)/2)**2 + input.coeffB*(input.lowerBound+input.upperBound)/2 + input.coeffC; results["midRadius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["midRadius"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDisk_method_calculator(input: Disk_method_calculatorInput): Disk_method_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume"]));
+  const totalWasteCost = toNumericFormulaValue(values["volume"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDisk_method_calculator(input: Disk_method_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

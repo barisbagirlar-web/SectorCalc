@@ -18,26 +18,22 @@ export const Term_life_insurance_calculatorInputSchema = z.object({
   interestRate: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Term_life_insurance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.001 * (input.age - 20) * (1 + 0.5 * input.isSmoker); results["mortalityProbability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mortalityProbability"] = 0; }
-  try { const v = 1 / (1 + input.interestRate / 100) ^ input.termYears; results["discountFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountFactor"] = 0; }
-  try { const v = input.coverageAmount * (asFormulaNumber(results["mortalityProbability"])) * (asFormulaNumber(results["discountFactor"])); results["presentValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["presentValue"] = 0; }
+  try { const v = 0.001 * (input.age - 20) * (1 + 0.5 * input.isSmoker); results["mortalityProbability"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mortalityProbability"] = Number.NaN; }
+  try { const v = 1 / (1 + input.interestRate / 100) ^ input.termYears; results["discountFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountFactor"] = Number.NaN; }
+  try { const v = input.coverageAmount * (toNumericFormulaValue(results["mortalityProbability"])) * (toNumericFormulaValue(results["discountFactor"])); results["presentValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["presentValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTerm_life_insurance_calculator(input: Term_life_insurance_calculatorInput): Term_life_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["presentValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["presentValue"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateTerm_life_insurance_calculator(input: Term_life_insuran
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

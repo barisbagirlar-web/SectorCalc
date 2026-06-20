@@ -22,29 +22,25 @@ export const Anova_calculatorInputSchema = z.object({
   confidenceLevel: z.number().default(0.95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Anova_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.group1_n + input.group2_n; results["total_n"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_n"] = 0; }
-  try { const v = (input.group1_n * input.group1_mean + input.group2_n * input.group2_mean) / (asFormulaNumber(results["total_n"])); results["grand_mean"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grand_mean"] = 0; }
-  try { const v = input.group1_n * (input.group1_mean - (asFormulaNumber(results["grand_mean"])))**2 + input.group2_n * (input.group2_mean - (asFormulaNumber(results["grand_mean"])))**2; results["SSB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["SSB"] = 0; }
-  try { const v = (input.group1_n - 1) * input.group1_sd**2 + (input.group2_n - 1) * input.group2_sd**2; results["SSW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["SSW"] = 0; }
-  try { const v = (asFormulaNumber(results["total_n"])) - 2; results["dfW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dfW"] = 0; }
-  try { const v = (asFormulaNumber(results["SSW"])) / (asFormulaNumber(results["dfW"])); results["MSW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["MSW"] = 0; }
+  try { const v = input.group1_n + input.group2_n; results["total_n"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_n"] = Number.NaN; }
+  try { const v = (input.group1_n * input.group1_mean + input.group2_n * input.group2_mean) / (toNumericFormulaValue(results["total_n"])); results["grand_mean"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grand_mean"] = Number.NaN; }
+  try { const v = input.group1_n * (input.group1_mean - (toNumericFormulaValue(results["grand_mean"])))**2 + input.group2_n * (input.group2_mean - (toNumericFormulaValue(results["grand_mean"])))**2; results["SSB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["SSB"] = Number.NaN; }
+  try { const v = (input.group1_n - 1) * input.group1_sd**2 + (input.group2_n - 1) * input.group2_sd**2; results["SSW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["SSW"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_n"])) - 2; results["dfW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dfW"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["SSW"])) / (toNumericFormulaValue(results["dfW"])); results["MSW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["MSW"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAnova_calculator(input: Anova_calculatorInput): Anova_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["MSW"]));
+  const totalWasteCost = toNumericFormulaValue(values["MSW"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateAnova_calculator(input: Anova_calculatorInput): Anova_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

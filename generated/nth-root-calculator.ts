@@ -18,27 +18,23 @@ export const Nth_root_calculatorInputSchema = z.object({
   initialGuess: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Nth_root_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.radicand) * (input.index) * (input.precision) * (input.tolerance) * (input.initialGuess); results["nthRoot"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nthRoot"] = 0; }
-  try { const v = (input.radicand) * (input.index) * (input.precision); results["inputRadicand"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputRadicand"] = 0; }
-  try { const v = (input.radicand) * (input.index) * (input.precision); results["inputIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inputIndex"] = 0; }
-  try { const v = (input.radicand) * (input.index) * (input.precision); results["rootVerification"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rootVerification"] = 0; }
+  try { const v = (input.radicand) * (input.index) * (input.precision) * (input.tolerance) * (input.initialGuess); results["nthRoot"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nthRoot"] = Number.NaN; }
+  try { const v = (input.radicand) * (input.index) * (input.precision); results["inputRadicand"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inputRadicand"] = Number.NaN; }
+  try { const v = (input.radicand) * (input.index) * (input.precision); results["inputIndex"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inputIndex"] = Number.NaN; }
+  try { const v = (input.radicand) * (input.index) * (input.precision); results["rootVerification"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rootVerification"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNth_root_calculator(input: Nth_root_calculatorInput): Nth_root_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["nthRoot"]));
+  const totalWasteCost = toNumericFormulaValue(values["nthRoot"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateNth_root_calculator(input: Nth_root_calculatorInput): N
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

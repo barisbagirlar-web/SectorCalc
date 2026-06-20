@@ -18,27 +18,23 @@ export const Inverter_calculatorInputSchema = z.object({
   powerFactor: z.number().default(0.8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Inverter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.outputPowerKW / (input.efficiency / 100); results["dcPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcPowerKW"] = 0; }
-  try { const v = (input.outputPowerKW / (input.efficiency / 100)) * 1000 / input.inputDcVoltage; results["dcCurrentA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dcCurrentA"] = 0; }
-  try { const v = input.outputPowerKW / input.powerFactor; results["apparentPowerKVA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["apparentPowerKVA"] = 0; }
-  try { const v = (input.outputPowerKW / input.powerFactor) * 1000 / input.outputAcVoltage; results["acCurrentA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["acCurrentA"] = 0; }
+  try { const v = input.outputPowerKW / (input.efficiency / 100); results["dcPowerKW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dcPowerKW"] = Number.NaN; }
+  try { const v = (input.outputPowerKW / (input.efficiency / 100)) * 1000 / input.inputDcVoltage; results["dcCurrentA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dcCurrentA"] = Number.NaN; }
+  try { const v = input.outputPowerKW / input.powerFactor; results["apparentPowerKVA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["apparentPowerKVA"] = Number.NaN; }
+  try { const v = (input.outputPowerKW / input.powerFactor) * 1000 / input.outputAcVoltage; results["acCurrentA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["acCurrentA"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInverter_calculator(input: Inverter_calculatorInput): Inverter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dcPowerKW"]));
+  const totalWasteCost = toNumericFormulaValue(values["dcPowerKW"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateInverter_calculator(input: Inverter_calculatorInput): I
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

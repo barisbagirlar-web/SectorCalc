@@ -20,27 +20,23 @@ export const Battery_calculatorInputSchema = z.object({
   numberOfBatteries: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Battery_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.capacity * input.voltage * input.numberOfBatteries; results["totalWh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWh"] = 0; }
-  try { const v = input.capacity * input.voltage * input.numberOfBatteries * (input.dod / 100) * (input.efficiency / 100); results["usableWh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["usableWh"] = 0; }
-  try { const v = input.capacity * input.numberOfBatteries; results["totalAh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAh"] = 0; }
-  try { const v = (asFormulaNumber(results["usableWh"])) / input.loadPower; results["runtimeHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["runtimeHours"] = 0; }
+  try { const v = input.capacity * input.voltage * input.numberOfBatteries; results["totalWh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWh"] = Number.NaN; }
+  try { const v = input.capacity * input.voltage * input.numberOfBatteries * (input.dod / 100) * (input.efficiency / 100); results["usableWh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["usableWh"] = Number.NaN; }
+  try { const v = input.capacity * input.numberOfBatteries; results["totalAh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAh"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["usableWh"])) / input.loadPower; results["runtimeHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["runtimeHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBattery_calculator(input: Battery_calculatorInput): Battery_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["runtimeHours"]));
+  const totalWasteCost = toNumericFormulaValue(values["runtimeHours"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateBattery_calculator(input: Battery_calculatorInput): Bat
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

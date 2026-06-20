@@ -16,28 +16,24 @@ export const Confusion_matrix_calculatorInputSchema = z.object({
   false_negatives: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Confusion_matrix_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (((input.true_positives + input.false_positives + input.true_negatives + input.false_negatives) !== 0 ? (input.true_positives + input.true_negatives) / (input.true_positives + input.false_positives + input.true_negatives + input.false_negatives) : 0) ? 1 : 0); results["accuracy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["accuracy"] = 0; }
-  try { const v = (((input.true_positives + input.false_positives) !== 0 ? input.true_positives / (input.true_positives + input.false_positives) : 0) ? 1 : 0); results["precision"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["precision"] = 0; }
-  try { const v = (((input.true_positives + input.false_negatives) !== 0 ? input.true_positives / (input.true_positives + input.false_negatives) : 0) ? 1 : 0); results["recall"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recall"] = 0; }
-  try { const v = (((input.true_negatives + input.false_positives) !== 0 ? input.true_negatives / (input.true_negatives + input.false_positives) : 0) ? 1 : 0); results["specificity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["specificity"] = 0; }
-  try { const v = ((input.true_positives + input.false_positives) !== 0 && (input.true_positives + input.false_negatives) !== 0) ? (2 * (input.true_positives / (input.true_positives + input.false_positives)) * (input.true_positives / (input.true_positives + input.false_negatives))) / ((input.true_positives / (input.true_positives + input.false_positives)) + (input.true_positives / (input.true_positives + input.false_negatives))) : 0; results["f1_score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["f1_score"] = 0; }
+  try { const v = (((input.true_positives + input.false_positives + input.true_negatives + input.false_negatives) !== 0 ? (input.true_positives + input.true_negatives) / (input.true_positives + input.false_positives + input.true_negatives + input.false_negatives) : 0) ? 1 : 0); results["accuracy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["accuracy"] = Number.NaN; }
+  try { const v = (((input.true_positives + input.false_positives) !== 0 ? input.true_positives / (input.true_positives + input.false_positives) : 0) ? 1 : 0); results["precision"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["precision"] = Number.NaN; }
+  try { const v = (((input.true_positives + input.false_negatives) !== 0 ? input.true_positives / (input.true_positives + input.false_negatives) : 0) ? 1 : 0); results["recall"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recall"] = Number.NaN; }
+  try { const v = (((input.true_negatives + input.false_positives) !== 0 ? input.true_negatives / (input.true_negatives + input.false_positives) : 0) ? 1 : 0); results["specificity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["specificity"] = Number.NaN; }
+  try { const v = ((input.true_positives + input.false_positives) !== 0 && (input.true_positives + input.false_negatives) !== 0) ? (2 * (input.true_positives / (input.true_positives + input.false_positives)) * (input.true_positives / (input.true_positives + input.false_negatives))) / ((input.true_positives / (input.true_positives + input.false_positives)) + (input.true_positives / (input.true_positives + input.false_negatives))) : 0; results["f1_score"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["f1_score"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConfusion_matrix_calculator(input: Confusion_matrix_calculatorInput): Confusion_matrix_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["f1_score"]));
+  const totalWasteCost = toNumericFormulaValue(values["f1_score"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateConfusion_matrix_calculator(input: Confusion_matrix_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

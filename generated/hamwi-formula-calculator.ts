@@ -16,27 +16,23 @@ export const Hamwi_formula_calculatorInputSchema = z.object({
   outputUnit: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hamwi_formula_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.heightFeet * 12 + input.heightInches; results["totalHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHeight"] = 0; }
-  try { const v = input.gender === 1 ? 106 + 6 * ((asFormulaNumber(results["totalHeight"])) - 60) : 100 + 5 * ((asFormulaNumber(results["totalHeight"])) - 60); results["idealWeightLbs"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["idealWeightLbs"] = 0; }
-  try { const v = (asFormulaNumber(results["idealWeightLbs"])) * 0.453592; results["idealWeightKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["idealWeightKg"] = 0; }
-  try { const v = ((input.outputUnit === 0 ? (asFormulaNumber(results["idealWeightLbs"])) : (asFormulaNumber(results["idealWeightKg"]))) ? 1 : 0); results["idealWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["idealWeight"] = 0; }
+  try { const v = input.heightFeet * 12 + input.heightInches; results["totalHeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalHeight"] = Number.NaN; }
+  try { const v = input.gender === 1 ? 106 + 6 * ((toNumericFormulaValue(results["totalHeight"])) - 60) : 100 + 5 * ((toNumericFormulaValue(results["totalHeight"])) - 60); results["idealWeightLbs"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["idealWeightLbs"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["idealWeightLbs"])) * 0.453592; results["idealWeightKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["idealWeightKg"] = Number.NaN; }
+  try { const v = ((input.outputUnit === 0 ? (toNumericFormulaValue(results["idealWeightLbs"])) : (toNumericFormulaValue(results["idealWeightKg"]))) ? 1 : 0); results["idealWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["idealWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHamwi_formula_calculator(input: Hamwi_formula_calculatorInput): Hamwi_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["idealWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["idealWeight"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateHamwi_formula_calculator(input: Hamwi_formula_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

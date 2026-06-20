@@ -4289,7 +4289,7 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "weibull-analysis-calculator": "WARN",
   "weight-converter": "QUARANTINE",
   "weight-cutting-calculator": "WARN",
-  "weight-cycling-calculator": "PASS",
+  "weight-cycling-calculator": "WARN",
   "weight-distribution": "WARN",
   "weight-gain-calculator": "WARN",
   "weight-loss-calculator": "WARN",

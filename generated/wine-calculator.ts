@@ -20,27 +20,23 @@ export const Wine_calculatorInputSchema = z.object({
   bottleVolume: z.number().default(0.75),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Wine_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grapeWeight * input.yieldPercent / 100; results["mustVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mustVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["mustVolume"])) * input.sugarContent; results["totalSugar"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSugar"] = 0; }
-  try { const v = (asFormulaNumber(results["totalSugar"])) * input.alcoholConversion / 10; results["alcoholPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["alcoholPercent"] = 0; }
-  try { const v = (asFormulaNumber(results["mustVolume"])) * (1 - input.fermentationLoss / 100); results["finalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalVolume"] = 0; }
+  try { const v = input.grapeWeight * input.yieldPercent / 100; results["mustVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mustVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mustVolume"])) * input.sugarContent; results["totalSugar"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSugar"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalSugar"])) * input.alcoholConversion / 10; results["alcoholPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["alcoholPercent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mustVolume"])) * (1 - input.fermentationLoss / 100); results["finalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWine_calculator(input: Wine_calculatorInput): Wine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mustVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["mustVolume"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateWine_calculator(input: Wine_calculatorInput): Wine_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

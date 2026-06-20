@@ -20,25 +20,21 @@ export const Hangover_calculatorInputSchema = z.object({
   hydration: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hangover_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.alcohol_grams) / (input.body_weight + input.hours + input.gender + input.food_intake + input.hydration) * 100; results["dehydration_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dehydration_factor"] = 0; }
-  try { const v = (input.alcohol_grams) * (input.body_weight) * (input.hours); results["food_impact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["food_impact"] = 0; }
+  try { const v = (input.alcohol_grams) / (input.body_weight + input.hours + input.gender + input.food_intake + input.hydration) * 100; results["dehydration_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dehydration_factor"] = Number.NaN; }
+  try { const v = (input.alcohol_grams) * (input.body_weight) * (input.hours); results["food_impact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["food_impact"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHangover_calculator(input: Hangover_calculatorInput): Hangover_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["food_impact"]));
+  const totalWasteCost = toNumericFormulaValue(values["food_impact"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateHangover_calculator(input: Hangover_calculatorInput): H
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

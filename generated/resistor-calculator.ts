@@ -18,26 +18,22 @@ export const Resistor_calculatorInputSchema = z.object({
   connection: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Resistor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.r1 + input.r2 + input.r3 + input.r4; results["seriesEquivalent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["seriesEquivalent"] = 0; }
-  try { const v = (input.r1 === 0 || input.r2 === 0 || input.r3 === 0 || input.r4 === 0) ? 0 : 1 / (1/input.r1 + 1/input.r2 + 1/input.r3 + 1/input.r4); results["parallelEquivalent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["parallelEquivalent"] = 0; }
-  try { const v = input.connection === 1 ? input.r1 + input.r2 + input.r3 + input.r4 : ((input.r1 === 0 || input.r2 === 0 || input.r3 === 0 || input.r4 === 0) ? 0 : 1 / (1/input.r1 + 1/input.r2 + 1/input.r3 + 1/input.r4)); results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalResistance"] = 0; }
+  try { const v = input.r1 + input.r2 + input.r3 + input.r4; results["seriesEquivalent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["seriesEquivalent"] = Number.NaN; }
+  try { const v = (input.r1 === 0 || input.r2 === 0 || input.r3 === 0 || input.r4 === 0) ? 0 : 1 / (1/input.r1 + 1/input.r2 + 1/input.r3 + 1/input.r4); results["parallelEquivalent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["parallelEquivalent"] = Number.NaN; }
+  try { const v = input.connection === 1 ? input.r1 + input.r2 + input.r3 + input.r4 : ((input.r1 === 0 || input.r2 === 0 || input.r3 === 0 || input.r4 === 0) ? 0 : 1 / (1/input.r1 + 1/input.r2 + 1/input.r3 + 1/input.r4)); results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalResistance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateResistor_calculator(input: Resistor_calculatorInput): Resistor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalResistance"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalResistance"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateResistor_calculator(input: Resistor_calculatorInput): R
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

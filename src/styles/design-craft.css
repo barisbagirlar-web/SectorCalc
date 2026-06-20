@@ -6973,6 +6973,12 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 .sc-trace__header-avatar {
   flex-shrink: 0;
 }
+.sc-trace__header-logo {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-flex;
+  align-items: center;
+}
 .sc-trace__header-copy {
   display: flex;
   flex-wrap: wrap;

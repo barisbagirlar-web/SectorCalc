@@ -20,27 +20,23 @@ export const Trapezoidal_rule_calculatorInputSchema = z.object({
   sumMid: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Trapezoidal_rule_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.upperLimit - input.lowerLimit) / input.intervals) / 2 * (input.fa + 2 * input.sumMid + input.fb); results["integralValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["integralValue"] = 0; }
-  try { const v = (input.upperLimit - input.lowerLimit) / input.intervals; results["stepSize"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stepSize"] = 0; }
-  try { const v = input.fa + input.fb; results["sumOfEnds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumOfEnds"] = 0; }
-  try { const v = 2 * input.sumMid; results["sumOfInterior"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumOfInterior"] = 0; }
+  try { const v = ((input.upperLimit - input.lowerLimit) / input.intervals) / 2 * (input.fa + 2 * input.sumMid + input.fb); results["integralValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["integralValue"] = Number.NaN; }
+  try { const v = (input.upperLimit - input.lowerLimit) / input.intervals; results["stepSize"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stepSize"] = Number.NaN; }
+  try { const v = input.fa + input.fb; results["sumOfEnds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sumOfEnds"] = Number.NaN; }
+  try { const v = 2 * input.sumMid; results["sumOfInterior"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sumOfInterior"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTrapezoidal_rule_calculator(input: Trapezoidal_rule_calculatorInput): Trapezoidal_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["integralValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["integralValue"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateTrapezoidal_rule_calculator(input: Trapezoidal_rule_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

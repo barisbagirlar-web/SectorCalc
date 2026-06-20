@@ -20,27 +20,23 @@ export const Appliance_energy_calculatorInputSchema = z.object({
   standbyPower: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Appliance_energy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.powerRating * input.usageHoursPerDay + input.standbyPower * (24 - input.usageHoursPerDay)) * input.applianceCount / 1000; results["dailyEnergyKWh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyEnergyKWh"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyEnergyKWh"])) * input.daysPerMonth; results["monthlyEnergyKWh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyEnergyKWh"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyEnergyKWh"])) * input.electricityCost; results["monthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyCost"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyCost"])) * 12; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCost"] = 0; }
+  try { const v = (input.powerRating * input.usageHoursPerDay + input.standbyPower * (24 - input.usageHoursPerDay)) * input.applianceCount / 1000; results["dailyEnergyKWh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyEnergyKWh"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyEnergyKWh"])) * input.daysPerMonth; results["monthlyEnergyKWh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyEnergyKWh"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["monthlyEnergyKWh"])) * input.electricityCost; results["monthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["monthlyCost"])) * 12; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAppliance_energy_calculator(input: Appliance_energy_calculatorInput): Appliance_energy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthlyCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["monthlyCost"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateAppliance_energy_calculator(input: Appliance_energy_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

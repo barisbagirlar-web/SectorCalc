@@ -16,29 +16,25 @@ export const Operating_lease_calculatorInputSchema = z.object({
   interestRate: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Operating_lease_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.interestRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
-  try { const v = input.assetCost - input.residualValue; results["depreciableBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["depreciableBase"] = 0; }
-  try { const v = (asFormulaNumber(results["depreciableBase"])) / input.leaseTerm; results["monthlyDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyDepreciation"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyDepreciation"])) + ((asFormulaNumber(results["depreciableBase"])) * (asFormulaNumber(results["monthlyInterestRate"]))); results["monthlyLeasePayment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyLeasePayment"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyLeasePayment"])) * input.leaseTerm; results["totalLeaseCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLeaseCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalLeaseCost"])) - (asFormulaNumber(results["depreciableBase"])); results["totalInterest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInterest"] = 0; }
+  try { const v = input.interestRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInterestRate"] = Number.NaN; }
+  try { const v = input.assetCost - input.residualValue; results["depreciableBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["depreciableBase"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["depreciableBase"])) / input.leaseTerm; results["monthlyDepreciation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyDepreciation"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["monthlyDepreciation"])) + ((toNumericFormulaValue(results["depreciableBase"])) * (toNumericFormulaValue(results["monthlyInterestRate"]))); results["monthlyLeasePayment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyLeasePayment"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["monthlyLeasePayment"])) * input.leaseTerm; results["totalLeaseCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLeaseCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalLeaseCost"])) - (toNumericFormulaValue(results["depreciableBase"])); results["totalInterest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInterest"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOperating_lease_calculator(input: Operating_lease_calculatorInput): Operating_lease_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthlyLeasePayment"]));
+  const totalWasteCost = toNumericFormulaValue(values["monthlyLeasePayment"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateOperating_lease_calculator(input: Operating_lease_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

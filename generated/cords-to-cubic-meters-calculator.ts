@@ -18,26 +18,22 @@ export const Cords_to_cubic_meters_calculatorInputSchema = z.object({
   waste_percent: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cords_to_cubic_meters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length_ft * input.width_ft * input.height_ft * input.stack_count * (1 + input.waste_percent / 100); results["total_cuft"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cuft"] = 0; }
-  try { const v = (input.length_ft * input.width_ft * input.height_ft * input.stack_count * (1 + input.waste_percent / 100)) / 128; results["cords"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cords"] = 0; }
-  try { const v = ((input.length_ft * input.width_ft * input.height_ft * input.stack_count * (1 + input.waste_percent / 100)) / 128) * 3.624556; results["cubic_meters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cubic_meters"] = 0; }
+  try { const v = input.length_ft * input.width_ft * input.height_ft * input.stack_count * (1 + input.waste_percent / 100); results["total_cuft"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_cuft"] = Number.NaN; }
+  try { const v = (input.length_ft * input.width_ft * input.height_ft * input.stack_count * (1 + input.waste_percent / 100)) / 128; results["cords"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cords"] = Number.NaN; }
+  try { const v = ((input.length_ft * input.width_ft * input.height_ft * input.stack_count * (1 + input.waste_percent / 100)) / 128) * 3.624556; results["cubic_meters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cubic_meters"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCords_to_cubic_meters_calculator(input: Cords_to_cubic_meters_calculatorInput): Cords_to_cubic_meters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cubic_meters"]));
+  const totalWasteCost = toNumericFormulaValue(values["cubic_meters"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCords_to_cubic_meters_calculator(input: Cords_to_cubic_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

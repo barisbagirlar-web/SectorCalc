@@ -18,25 +18,21 @@ export const Abc_analysis_calculatorInputSchema = z.object({
   bClassThreshold: z.number().default(90),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Abc_analysis_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualDemand * input.unitCost; results["itemUsageValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["itemUsageValue"] = 0; }
-  try { const v = ((asFormulaNumber(results["itemUsageValue"])) / input.totalUsageValue) * 100; results["percentageOfTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentageOfTotal"] = 0; }
+  try { const v = input.annualDemand * input.unitCost; results["itemUsageValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["itemUsageValue"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["itemUsageValue"])) / input.totalUsageValue) * 100; results["percentageOfTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentageOfTotal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAbc_analysis_calculator(input: Abc_analysis_calculatorInput): Abc_analysis_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["itemUsageValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["itemUsageValue"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateAbc_analysis_calculator(input: Abc_analysis_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

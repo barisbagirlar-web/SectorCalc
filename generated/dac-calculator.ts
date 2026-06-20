@@ -20,26 +20,22 @@ export const Dac_calculatorInputSchema = z.object({
   electricityPrice: z.number().default(0.1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dac_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.airFlow * input.co2Concentration * input.captureEfficiency * input.operatingHours * 1.964e-11; results["annualCO2Captured"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCO2Captured"] = 0; }
-  try { const v = input.airFlow * input.co2Concentration * input.captureEfficiency * input.operatingHours * 1.964e-11 * input.energyPerTon; results["annualEnergyConsumption"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualEnergyConsumption"] = 0; }
-  try { const v = input.airFlow * input.co2Concentration * input.captureEfficiency * input.operatingHours * 1.964e-11 * input.energyPerTon * input.electricityPrice; results["annualElectricityCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualElectricityCost"] = 0; }
+  try { const v = input.airFlow * input.co2Concentration * input.captureEfficiency * input.operatingHours * 1.964e-11; results["annualCO2Captured"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCO2Captured"] = Number.NaN; }
+  try { const v = input.airFlow * input.co2Concentration * input.captureEfficiency * input.operatingHours * 1.964e-11 * input.energyPerTon; results["annualEnergyConsumption"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualEnergyConsumption"] = Number.NaN; }
+  try { const v = input.airFlow * input.co2Concentration * input.captureEfficiency * input.operatingHours * 1.964e-11 * input.energyPerTon * input.electricityPrice; results["annualElectricityCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualElectricityCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDac_calculator(input: Dac_calculatorInput): Dac_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["annualCO2Captured"]));
+  const totalWasteCost = toNumericFormulaValue(values["annualCO2Captured"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateDac_calculator(input: Dac_calculatorInput): Dac_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

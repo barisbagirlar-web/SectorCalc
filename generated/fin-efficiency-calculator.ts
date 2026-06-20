@@ -18,26 +18,22 @@ export const Fin_efficiency_calculatorInputSchema = z.object({
   thermalConductivity: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fin_efficiency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.finLength + input.finThickness / 2; results["correctedLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctedLength"] = 0; }
-  try { const v = input.finWidth * input.finThickness; results["crossSectionArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crossSectionArea"] = 0; }
-  try { const v = 2 * (input.finWidth + input.finThickness); results["perimeter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["perimeter"] = 0; }
+  try { const v = input.finLength + input.finThickness / 2; results["correctedLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["correctedLength"] = Number.NaN; }
+  try { const v = input.finWidth * input.finThickness; results["crossSectionArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["crossSectionArea"] = Number.NaN; }
+  try { const v = 2 * (input.finWidth + input.finThickness); results["perimeter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["perimeter"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFin_efficiency_calculator(input: Fin_efficiency_calculatorInput): Fin_efficiency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["perimeter"]));
+  const totalWasteCost = toNumericFormulaValue(values["perimeter"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateFin_efficiency_calculator(input: Fin_efficiency_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

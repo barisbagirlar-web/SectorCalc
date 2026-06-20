@@ -22,32 +22,28 @@ export const Makeup_calculatorInputSchema = z.object({
   desiredMarginPercentage: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Makeup_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.batchSize / input.unitWeight; results["totalUnits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalUnits"] = 0; }
-  try { const v = input.batchSize * input.materialCostPerGram; results["totalMaterialCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMaterialCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalUnits"])) * input.containerCostPerUnit; results["totalContainerCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalContainerCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalUnits"])) * input.laborCostPerUnit; results["totalLaborCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLaborCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMaterialCost"])) + (asFormulaNumber(results["totalContainerCost"])) + (asFormulaNumber(results["totalLaborCost"])); results["totalDirectCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDirectCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDirectCost"])) * (input.overheadPercentage / 100); results["overheadCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overheadCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDirectCost"])) + (asFormulaNumber(results["overheadCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / (asFormulaNumber(results["totalUnits"])); results["costPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerUnit"] = 0; }
-  try { const v = (asFormulaNumber(results["costPerUnit"])) * (1 + input.desiredMarginPercentage / 100); results["sellingPricePerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellingPricePerUnit"] = 0; }
+  try { const v = input.batchSize / input.unitWeight; results["totalUnits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalUnits"] = Number.NaN; }
+  try { const v = input.batchSize * input.materialCostPerGram; results["totalMaterialCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMaterialCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalUnits"])) * input.containerCostPerUnit; results["totalContainerCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalContainerCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalUnits"])) * input.laborCostPerUnit; results["totalLaborCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLaborCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalMaterialCost"])) + (toNumericFormulaValue(results["totalContainerCost"])) + (toNumericFormulaValue(results["totalLaborCost"])); results["totalDirectCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDirectCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDirectCost"])) * (input.overheadPercentage / 100); results["overheadCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overheadCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDirectCost"])) + (toNumericFormulaValue(results["overheadCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / (toNumericFormulaValue(results["totalUnits"])); results["costPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerUnit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["costPerUnit"])) * (1 + input.desiredMarginPercentage / 100); results["sellingPricePerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sellingPricePerUnit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMakeup_calculator(input: Makeup_calculatorInput): Makeup_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sellingPricePerUnit"]));
+  const totalWasteCost = toNumericFormulaValue(values["sellingPricePerUnit"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculateMakeup_calculator(input: Makeup_calculatorInput): Makeu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

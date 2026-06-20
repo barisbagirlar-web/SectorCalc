@@ -16,25 +16,21 @@ export const Pounds_to_stones_calculatorInputSchema = z.object({
   stoneWeight: z.number().default(14),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pounds_to_stones_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pounds + (input.ounces / 16); results["totalPounds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPounds"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPounds"])) / input.stoneWeight; results["decimalStones"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalStones"] = 0; }
+  try { const v = input.pounds + (input.ounces / 16); results["totalPounds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPounds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPounds"])) / input.stoneWeight; results["decimalStones"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["decimalStones"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePounds_to_stones_calculator(input: Pounds_to_stones_calculatorInput): Pounds_to_stones_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["decimalStones"]));
+  const totalWasteCost = toNumericFormulaValue(values["decimalStones"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculatePounds_to_stones_calculator(input: Pounds_to_stones_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

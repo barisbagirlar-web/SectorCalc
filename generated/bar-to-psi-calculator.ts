@@ -20,25 +20,21 @@ export const Bar_to_psi_calculatorInputSchema = z.object({
   tempC: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bar_to_psi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (((input.refType === 1 ? (input.pressureBar + input.atmBar) : input.pressureBar)) ? 1 : 0); results["absoluteBar"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteBar"] = 0; }
-  try { const v = (asFormulaNumber(results["absoluteBar"])) * input.conversionFactor; results["exactPsi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactPsi"] = 0; }
+  try { const v = (((input.refType === 1 ? (input.pressureBar + input.atmBar) : input.pressureBar)) ? 1 : 0); results["absoluteBar"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["absoluteBar"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["absoluteBar"])) * input.conversionFactor; results["exactPsi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exactPsi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBar_to_psi_calculator(input: Bar_to_psi_calculatorInput): Bar_to_psi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["exactPsi"]));
+  const totalWasteCost = toNumericFormulaValue(values["exactPsi"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateBar_to_psi_calculator(input: Bar_to_psi_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

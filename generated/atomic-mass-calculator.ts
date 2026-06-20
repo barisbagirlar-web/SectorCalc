@@ -22,26 +22,22 @@ export const Atomic_mass_calculatorInputSchema = z.object({
   bindingEnergy: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Atomic_mass_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.protonCount * input.protonMass + input.neutronCount * input.neutronMass + input.electronCount * input.electronMass) - (input.bindingEnergy * 0.001073544); results["atomicMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["atomicMass"] = 0; }
-  try { const v = input.protonCount + input.neutronCount; results["massNumber"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massNumber"] = 0; }
-  try { const v = (input.protonCount * input.protonMass + input.neutronCount * input.neutronMass) - ((asFormulaNumber(results["atomicMass"])) - input.electronCount * input.electronMass); results["massDefect"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massDefect"] = 0; }
+  try { const v = (input.protonCount * input.protonMass + input.neutronCount * input.neutronMass + input.electronCount * input.electronMass) - (input.bindingEnergy * 0.001073544); results["atomicMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["atomicMass"] = Number.NaN; }
+  try { const v = input.protonCount + input.neutronCount; results["massNumber"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["massNumber"] = Number.NaN; }
+  try { const v = (input.protonCount * input.protonMass + input.neutronCount * input.neutronMass) - ((toNumericFormulaValue(results["atomicMass"])) - input.electronCount * input.electronMass); results["massDefect"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["massDefect"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAtomic_mass_calculator(input: Atomic_mass_calculatorInput): Atomic_mass_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["atomicMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["atomicMass"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateAtomic_mass_calculator(input: Atomic_mass_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

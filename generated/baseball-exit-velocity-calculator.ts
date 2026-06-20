@@ -18,26 +18,22 @@ export const Baseball_exit_velocity_calculatorInputSchema = z.object({
   cor: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Baseball_exit_velocity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.ballMass - input.cor*input.batMass) / (input.ballMass + input.batMass)) * (-input.pitchSpeed) + ((1+input.cor)*input.batMass / (input.ballMass + input.batMass)) * input.batSpeed; results["exitVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exitVelocity"] = 0; }
-  try { const v = ((1+input.cor)*input.batMass / (input.ballMass + input.batMass)) * input.batSpeed; results["batContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["batContribution"] = 0; }
-  try { const v = ((input.ballMass - input.cor*input.batMass) / (input.ballMass + input.batMass)) * (-input.pitchSpeed); results["pitchContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pitchContribution"] = 0; }
+  try { const v = ((input.ballMass - input.cor*input.batMass) / (input.ballMass + input.batMass)) * (-input.pitchSpeed) + ((1+input.cor)*input.batMass / (input.ballMass + input.batMass)) * input.batSpeed; results["exitVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exitVelocity"] = Number.NaN; }
+  try { const v = ((1+input.cor)*input.batMass / (input.ballMass + input.batMass)) * input.batSpeed; results["batContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["batContribution"] = Number.NaN; }
+  try { const v = ((input.ballMass - input.cor*input.batMass) / (input.ballMass + input.batMass)) * (-input.pitchSpeed); results["pitchContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pitchContribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBaseball_exit_velocity_calculator(input: Baseball_exit_velocity_calculatorInput): Baseball_exit_velocity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["exitVelocity"]));
+  const totalWasteCost = toNumericFormulaValue(values["exitVelocity"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateBaseball_exit_velocity_calculator(input: Baseball_exit_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

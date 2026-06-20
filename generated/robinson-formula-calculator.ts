@@ -18,26 +18,22 @@ export const Robinson_formula_calculatorInputSchema = z.object({
   rework: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Robinson_formula_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.goodParts * input.unitWeight / input.totalMaterial; results["yieldRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldRate"] = 0; }
-  try { const v = input.scrap / input.totalMaterial; results["scrapRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scrapRate"] = 0; }
-  try { const v = input.rework * input.unitWeight / input.totalMaterial; results["reworkRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reworkRate"] = 0; }
+  try { const v = input.goodParts * input.unitWeight / input.totalMaterial; results["yieldRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yieldRate"] = Number.NaN; }
+  try { const v = input.scrap / input.totalMaterial; results["scrapRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scrapRate"] = Number.NaN; }
+  try { const v = input.rework * input.unitWeight / input.totalMaterial; results["reworkRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["reworkRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRobinson_formula_calculator(input: Robinson_formula_calculatorInput): Robinson_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["yieldRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["yieldRate"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateRobinson_formula_calculator(input: Robinson_formula_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

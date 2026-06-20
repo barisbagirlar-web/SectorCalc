@@ -22,25 +22,21 @@ export const Top_speed_calculatorInputSchema = z.object({
   drivetrainEfficiency: z.number().default(85),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Top_speed_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.5 * input.airDensity * input.dragCoefficient * input.frontalArea; results["a"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["a"] = 0; }
-  try { const v = input.enginePower * (input.drivetrainEfficiency / 100); results["availablePower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["availablePower"] = 0; }
+  try { const v = 0.5 * input.airDensity * input.dragCoefficient * input.frontalArea; results["a"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["a"] = Number.NaN; }
+  try { const v = input.enginePower * (input.drivetrainEfficiency / 100); results["availablePower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["availablePower"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTop_speed_calculator(input: Top_speed_calculatorInput): Top_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["availablePower"]));
+  const totalWasteCost = toNumericFormulaValue(values["availablePower"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateTop_speed_calculator(input: Top_speed_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

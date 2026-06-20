@@ -20,26 +20,22 @@ export const Hrv_recovery_calculatorInputSchema = z.object({
   specificHeat: z.number().default(1.005),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hrv_recovery_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.supplyTemp - input.outdoorTemp) / (input.exhaustTemp - input.outdoorTemp)) * 100; results["efficiency"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["efficiency"] = 0; }
-  try { const v = input.supplyTemp - input.outdoorTemp; results["temperatureGain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["temperatureGain"] = 0; }
-  try { const v = (input.airflow / 3600) * input.airDensity * input.specificHeat * (input.supplyTemp - input.outdoorTemp); results["heatRecoveryRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heatRecoveryRate"] = 0; }
+  try { const v = ((input.supplyTemp - input.outdoorTemp) / (input.exhaustTemp - input.outdoorTemp)) * 100; results["efficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["efficiency"] = Number.NaN; }
+  try { const v = input.supplyTemp - input.outdoorTemp; results["temperatureGain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["temperatureGain"] = Number.NaN; }
+  try { const v = (input.airflow / 3600) * input.airDensity * input.specificHeat * (input.supplyTemp - input.outdoorTemp); results["heatRecoveryRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heatRecoveryRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHrv_recovery_calculator(input: Hrv_recovery_calculatorInput): Hrv_recovery_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["efficiency"]));
+  const totalWasteCost = toNumericFormulaValue(values["efficiency"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHrv_recovery_calculator(input: Hrv_recovery_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

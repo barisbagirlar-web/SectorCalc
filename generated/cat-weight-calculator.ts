@@ -16,27 +16,23 @@ export const Cat_weight_calculatorInputSchema = z.object({
   sexFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cat_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.girth * input.girth; results["girthSquared"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["girthSquared"] = 0; }
-  try { const v = (asFormulaNumber(results["girthSquared"])) * input.length; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = (asFormulaNumber(results["volume"])) / 11800; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["baseWeight"])) * input.breedFactor * input.sexFactor; results["adjustedWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedWeight"] = 0; }
+  try { const v = input.girth * input.girth; results["girthSquared"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["girthSquared"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["girthSquared"])) * input.length; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume"])) / 11800; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseWeight"])) * input.breedFactor * input.sexFactor; results["adjustedWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCat_weight_calculator(input: Cat_weight_calculatorInput): Cat_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedWeight"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateCat_weight_calculator(input: Cat_weight_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

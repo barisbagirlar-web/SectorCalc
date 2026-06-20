@@ -16,28 +16,24 @@ export const Load_combination_calculatorInputSchema = z.object({
   snowLoad: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Load_combination_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1.35 * input.deadLoad + 1.5 * input.liveLoad + 0.7 * 1.5 * input.windLoad + 0.7 * 1.5 * input.snowLoad; results["combined"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["combined"] = 0; }
-  try { const v = 1.35 * input.deadLoad; results["deadComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deadComponent"] = 0; }
-  try { const v = 1.5 * input.liveLoad; results["liveComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["liveComponent"] = 0; }
-  try { const v = 0.7 * 1.5 * input.windLoad; results["windComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["windComponent"] = 0; }
-  try { const v = 0.7 * 1.5 * input.snowLoad; results["snowComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["snowComponent"] = 0; }
+  try { const v = 1.35 * input.deadLoad + 1.5 * input.liveLoad + 0.7 * 1.5 * input.windLoad + 0.7 * 1.5 * input.snowLoad; results["combined"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["combined"] = Number.NaN; }
+  try { const v = 1.35 * input.deadLoad; results["deadComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deadComponent"] = Number.NaN; }
+  try { const v = 1.5 * input.liveLoad; results["liveComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["liveComponent"] = Number.NaN; }
+  try { const v = 0.7 * 1.5 * input.windLoad; results["windComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["windComponent"] = Number.NaN; }
+  try { const v = 0.7 * 1.5 * input.snowLoad; results["snowComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["snowComponent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLoad_combination_calculator(input: Load_combination_calculatorInput): Load_combination_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["combined"]));
+  const totalWasteCost = toNumericFormulaValue(values["combined"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateLoad_combination_calculator(input: Load_combination_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

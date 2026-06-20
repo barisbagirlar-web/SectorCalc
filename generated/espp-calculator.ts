@@ -20,30 +20,26 @@ export const Espp_calculatorInputSchema = z.object({
   capitalGainsTaxRate: z.number().default(15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Espp_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fmv * (1 - input.discountRate / 100); results["purchasePricePerShare"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["purchasePricePerShare"] = 0; }
-  try { const v = (asFormulaNumber(results["purchasePricePerShare"])) * input.numberOfShares; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.fmv * input.numberOfShares; results["immediateMarketValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["immediateMarketValue"] = 0; }
-  try { const v = (asFormulaNumber(results["immediateMarketValue"])) - (asFormulaNumber(results["totalCost"])); results["immediateGain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["immediateGain"] = 0; }
-  try { const v = (((asFormulaNumber(results["immediateGain"])) * (input.holdingPeriodMonths === 0 ? input.ordinaryIncomeTaxRate : input.capitalGainsTaxRate) / 100) ? 1 : 0); results["taxIfSoldImmediately"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxIfSoldImmediately"] = 0; }
-  try { const v = (asFormulaNumber(results["immediateGain"])) - (asFormulaNumber(results["taxIfSoldImmediately"])); results["afterTaxGain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["afterTaxGain"] = 0; }
-  try { const v = ((asFormulaNumber(results["immediateGain"])) / (asFormulaNumber(results["totalCost"]))) * 100; results["effectiveDiscount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveDiscount"] = 0; }
+  try { const v = input.fmv * (1 - input.discountRate / 100); results["purchasePricePerShare"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["purchasePricePerShare"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["purchasePricePerShare"])) * input.numberOfShares; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = input.fmv * input.numberOfShares; results["immediateMarketValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["immediateMarketValue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["immediateMarketValue"])) - (toNumericFormulaValue(results["totalCost"])); results["immediateGain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["immediateGain"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["immediateGain"])) * (input.holdingPeriodMonths === 0 ? input.ordinaryIncomeTaxRate : input.capitalGainsTaxRate) / 100) ? 1 : 0); results["taxIfSoldImmediately"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxIfSoldImmediately"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["immediateGain"])) - (toNumericFormulaValue(results["taxIfSoldImmediately"])); results["afterTaxGain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["afterTaxGain"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["immediateGain"])) / (toNumericFormulaValue(results["totalCost"]))) * 100; results["effectiveDiscount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveDiscount"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEspp_calculator(input: Espp_calculatorInput): Espp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["afterTaxGain"]));
+  const totalWasteCost = toNumericFormulaValue(values["afterTaxGain"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateEspp_calculator(input: Espp_calculatorInput): Espp_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

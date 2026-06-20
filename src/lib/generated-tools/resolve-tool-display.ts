@@ -10,6 +10,9 @@ import {
   resolveGeneratedToolDisplayDescription,
 } from "@/lib/i18n/generated-tool-display-i18n";
 
+/**
+ * Humanize a kebab-case slug into readable form, stripping "-calculator" suffix.
+ */
 function humanizeSlug(slug: string): string {
   return slug
     .replace(/-calculator$/i, "")
@@ -17,25 +20,44 @@ function humanizeSlug(slug: string): string {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+/**
+ * Quadruple-layer locale-aware tool title resolution.
+ *
+ * Layer 1 — Premium schema i18n override (industry analyzer titles).
+ * Layer 2 — i18n titles bundle (generated-tool-titles-i18n.generated.json).
+ * Layer 3 — schema.toolName humanized + glossary-translated for the locale.
+ * Layer 4 — Raw slug humanized + glossary-translated (guaranteed never empty).
+ */
 export function resolveGeneratedToolTitle(
   slug: string,
   schema: GeneratedToolSchema,
   locale: string,
 ): string {
+  // Layer 1: Premium schema i18n override
   const premiumName = resolvePremiumSchemaDisplayName(slug, schema.toolName, locale);
   if (premiumName !== schema.toolName) {
     return premiumName;
   }
 
+  // Layer 2: Generated titles i18n bundle
   const localizedTitle = resolveGeneratedToolDisplayTitle(slug, schema.toolName, locale);
   if (localizedTitle.trim() && localizedTitle !== schema.toolName) {
     return localizedTitle;
   }
 
-  if (schema.toolName.trim()) {
-    return schema.toolName;
+  // Layer 3: Humanized + locale-glossary-translated schema.toolName
+  // This catches tools without bundle entries or whose bundle entry
+  // resolves to the raw kebab-case schema.toolName.
+  const humanizedToolName = humanizeSlug(slug);
+  if (locale !== "en") {
+    const translated = translateCalculatorPhrase(humanizedToolName, locale);
+    if (translated.trim() && translated !== humanizedToolName) {
+      return translated;
+    }
   }
-  return humanizeSlug(slug);
+
+  // Layer 4: Ultimate fallback — humanized slug
+  return humanizedToolName;
 }
 
 export function resolveGeneratedToolDescription(

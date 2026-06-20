@@ -16,27 +16,23 @@ export const Devine_formula_calculatorInputSchema = z.object({
   currentWeight: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Devine_formula_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.height / 2.54; results["heightInInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heightInInches"] = 0; }
-  try { const v = input.sex == 1 ? 50 : 45.5; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseWeight"] = 0; }
-  try { const v = 2.3 * ((asFormulaNumber(results["heightInInches"])) - 60); results["addition"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["addition"] = 0; }
-  try { const v = (asFormulaNumber(results["baseWeight"])) + (asFormulaNumber(results["addition"])); results["idealWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["idealWeight"] = 0; }
+  try { const v = input.height / 2.54; results["heightInInches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heightInInches"] = Number.NaN; }
+  try { const v = input.sex == 1 ? 50 : 45.5; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseWeight"] = Number.NaN; }
+  try { const v = 2.3 * ((toNumericFormulaValue(results["heightInInches"])) - 60); results["addition"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["addition"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseWeight"])) + (toNumericFormulaValue(results["addition"])); results["idealWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["idealWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDevine_formula_calculator(input: Devine_formula_calculatorInput): Devine_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["idealWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["idealWeight"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateDevine_formula_calculator(input: Devine_formula_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

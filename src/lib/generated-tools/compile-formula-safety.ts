@@ -41,7 +41,7 @@ function containsUnresolvedBareIdentifiers(expression: string): boolean {
     "const",
     "var",
     "return",
-    "asFormulaNumber",
+    "toNumericFormulaValue",
   ]);
   for (const match of withoutMemberAccess.matchAll(tokenPattern)) {
     if (!allowed.has(match[1])) {
@@ -53,17 +53,21 @@ function containsUnresolvedBareIdentifiers(expression: string): boolean {
 
 function containsUnresolvedFunctionCalls(expression: string): boolean {
   const withoutStrings = expression.replace(/'[^']*'|"[^"]*"|`[^`]*`/g, "0");
+  // Strip known-safe member access so Math.pow() → 0() → ignored (0 is not identifier)
+  const withoutSafeMemberAccess = withoutStrings
+    .replace(/\b(Math|Number|input|results)\.[A-Za-z_$][\w$]*/g, "0")
+    .replace(/results\[[^\]]+\]/g, "0");
   const callPattern = /\b([A-Za-z_][A-Za-z0-9_]*)\s*\(/g;
   const allowed = new Set([
-    "Math",
-    "Number",
+    "isFinite",
+    "isNaN",
     "parseFloat",
     "parseInt",
-    "isFinite",
     "erf",
-    "asFormulaNumber",
+    "toNumericFormulaValue",
+    "Number",
   ]);
-  for (const match of withoutStrings.matchAll(callPattern)) {
+  for (const match of withoutSafeMemberAccess.matchAll(callPattern)) {
     if (!allowed.has(match[1])) {
       return true;
     }

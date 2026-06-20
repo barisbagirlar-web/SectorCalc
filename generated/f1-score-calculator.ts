@@ -16,26 +16,22 @@ export const F1_score_calculatorInputSchema = z.object({
   trueNegatives: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: F1_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.truePositives / (input.truePositives + input.falsePositives); results["precision"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["precision"] = 0; }
-  try { const v = input.truePositives / (input.truePositives + input.falseNegatives); results["recall"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recall"] = 0; }
-  try { const v = 2 * input.truePositives / (2 * input.truePositives + input.falsePositives + input.falseNegatives); results["f1Score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["f1Score"] = 0; }
+  try { const v = input.truePositives / (input.truePositives + input.falsePositives); results["precision"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["precision"] = Number.NaN; }
+  try { const v = input.truePositives / (input.truePositives + input.falseNegatives); results["recall"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recall"] = Number.NaN; }
+  try { const v = 2 * input.truePositives / (2 * input.truePositives + input.falsePositives + input.falseNegatives); results["f1Score"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["f1Score"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateF1_score_calculator(input: F1_score_calculatorInput): F1_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["f1Score"]));
+  const totalWasteCost = toNumericFormulaValue(values["f1Score"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateF1_score_calculator(input: F1_score_calculatorInput): F
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

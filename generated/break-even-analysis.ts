@@ -16,28 +16,24 @@ export const Break_even_analysisInputSchema = z.object({
   expectedSalesVolume: z.number().default(3000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Break_even_analysisInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fixedCosts / (input.sellingPricePerUnit - input.variableCostPerUnit); results["breakEvenUnits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakEvenUnits"] = 0; }
-  try { const v = (asFormulaNumber(results["breakEvenUnits"])) * input.sellingPricePerUnit; results["breakEvenRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakEvenRevenue"] = 0; }
-  try { const v = (input.sellingPricePerUnit - input.variableCostPerUnit) * input.expectedSalesVolume - input.fixedCosts; results["profit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profit"] = 0; }
-  try { const v = input.sellingPricePerUnit - input.variableCostPerUnit; results["contributionMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contributionMargin"] = 0; }
-  try { const v = (asFormulaNumber(results["contributionMargin"])) / input.sellingPricePerUnit; results["marginRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["marginRatio"] = 0; }
+  try { const v = input.fixedCosts / (input.sellingPricePerUnit - input.variableCostPerUnit); results["breakEvenUnits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakEvenUnits"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["breakEvenUnits"])) * input.sellingPricePerUnit; results["breakEvenRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakEvenRevenue"] = Number.NaN; }
+  try { const v = (input.sellingPricePerUnit - input.variableCostPerUnit) * input.expectedSalesVolume - input.fixedCosts; results["profit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profit"] = Number.NaN; }
+  try { const v = input.sellingPricePerUnit - input.variableCostPerUnit; results["contributionMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contributionMargin"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["contributionMargin"])) / input.sellingPricePerUnit; results["marginRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["marginRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBreak_even_analysis(input: Break_even_analysisInput): Break_even_analysisOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakEvenUnits"]));
+  const totalWasteCost = toNumericFormulaValue(values["breakEvenUnits"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateBreak_even_analysis(input: Break_even_analysisInput): B
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

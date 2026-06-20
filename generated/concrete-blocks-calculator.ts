@@ -20,27 +20,23 @@ export const Concrete_blocks_calculatorInputSchema = z.object({
   wastage: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Concrete_blocks_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wallLength * 100 * input.wallHeight * 100; results["wallArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallArea"] = 0; }
-  try { const v = (input.blockLength + input.mortarThickness) * (input.blockHeight + input.mortarThickness); results["blockFaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["blockFaceArea"] = 0; }
-  try { const v = (asFormulaNumber(results["wallArea"])) / (asFormulaNumber(results["blockFaceArea"])); results["blocksExact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["blocksExact"] = 0; }
-  try { const v = (asFormulaNumber(results["blocksExact"])) * (1 + input.wastage / 100); results["totalBlocks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBlocks"] = 0; }
+  try { const v = input.wallLength * 100 * input.wallHeight * 100; results["wallArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wallArea"] = Number.NaN; }
+  try { const v = (input.blockLength + input.mortarThickness) * (input.blockHeight + input.mortarThickness); results["blockFaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["blockFaceArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wallArea"])) / (toNumericFormulaValue(results["blockFaceArea"])); results["blocksExact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["blocksExact"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["blocksExact"])) * (1 + input.wastage / 100); results["totalBlocks"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBlocks"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConcrete_blocks_calculator(input: Concrete_blocks_calculatorInput): Concrete_blocks_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBlocks"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBlocks"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateConcrete_blocks_calculator(input: Concrete_blocks_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

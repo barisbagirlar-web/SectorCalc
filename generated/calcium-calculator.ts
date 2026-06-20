@@ -14,27 +14,23 @@ export const Calcium_calculatorInputSchema = z.object({
   hardnessFactor: z.number().default(2.497),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Calcium_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.volume * input.caConcentration; results["calciumMassMg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calciumMassMg"] = 0; }
-  try { const v = input.volume * input.caConcentration * input.hardnessFactor; results["hardnessCaCO3MassMg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hardnessCaCO3MassMg"] = 0; }
-  try { const v = (asFormulaNumber(results["calciumMassMg"])) / 1000; results["calciumMassG"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calciumMassG"] = 0; }
-  try { const v = (asFormulaNumber(results["hardnessCaCO3MassMg"])) / 1000; results["hardnessCaCO3MassG"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hardnessCaCO3MassG"] = 0; }
+  try { const v = input.volume * input.caConcentration; results["calciumMassMg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["calciumMassMg"] = Number.NaN; }
+  try { const v = input.volume * input.caConcentration * input.hardnessFactor; results["hardnessCaCO3MassMg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hardnessCaCO3MassMg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["calciumMassMg"])) / 1000; results["calciumMassG"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["calciumMassG"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["hardnessCaCO3MassMg"])) / 1000; results["hardnessCaCO3MassG"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hardnessCaCO3MassG"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCalcium_calculator(input: Calcium_calculatorInput): Calcium_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hardnessCaCO3MassMg"]));
+  const totalWasteCost = toNumericFormulaValue(values["hardnessCaCO3MassMg"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateCalcium_calculator(input: Calcium_calculatorInput): Cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

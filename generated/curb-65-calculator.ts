@@ -20,29 +20,25 @@ export const Curb_65_calculatorInputSchema = z.object({
   diastolicBP: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Curb_65_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (asFormulaNumber(results["ageScore"])) + (asFormulaNumber(results["confusionScore"])) + (asFormulaNumber(results["ureaScore"])) + (asFormulaNumber(results["respiratoryScore"])) + (asFormulaNumber(results["bpScore"])); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
-  try { const v = (input.age >= 65) ? 1 : 0; results["ageScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ageScore"] = 0; }
-  try { const v = (input.confusion === 1) ? 1 : 0; results["confusionScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["confusionScore"] = 0; }
-  try { const v = (input.urea > 7) ? 1 : 0; results["ureaScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ureaScore"] = 0; }
-  try { const v = (input.respiratoryRate >= 30) ? 1 : 0; results["respiratoryScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["respiratoryScore"] = 0; }
-  try { const v = (input.systolicBP < 90 || input.diastolicBP <= 60) ? 1 : 0; results["bpScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bpScore"] = 0; }
+  try { const v = (toNumericFormulaValue(results["ageScore"])) + (toNumericFormulaValue(results["confusionScore"])) + (toNumericFormulaValue(results["ureaScore"])) + (toNumericFormulaValue(results["respiratoryScore"])) + (toNumericFormulaValue(results["bpScore"])); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["score"] = Number.NaN; }
+  try { const v = (input.age >= 65) ? 1 : 0; results["ageScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ageScore"] = Number.NaN; }
+  try { const v = (input.confusion === 1) ? 1 : 0; results["confusionScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["confusionScore"] = Number.NaN; }
+  try { const v = (input.urea > 7) ? 1 : 0; results["ureaScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ureaScore"] = Number.NaN; }
+  try { const v = (input.respiratoryRate >= 30) ? 1 : 0; results["respiratoryScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["respiratoryScore"] = Number.NaN; }
+  try { const v = (input.systolicBP < 90 || input.diastolicBP <= 60) ? 1 : 0; results["bpScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bpScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCurb_65_calculator(input: Curb_65_calculatorInput): Curb_65_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["score"]));
+  const totalWasteCost = toNumericFormulaValue(values["score"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateCurb_65_calculator(input: Curb_65_calculatorInput): Cur
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Everyman_sleep_calculatorInputSchema = z.object({
   napDuration: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Everyman_sleep_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.coreHours * 60 + input.coreMinutes; results["totalCoreMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCoreMinutes"] = 0; }
-  try { const v = input.napCount * input.napDuration; results["totalNapMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalNapMinutes"] = 0; }
-  try { const v = input.coreHours * 60 + input.coreMinutes + input.napCount * input.napDuration; results["totalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMinutes"] = 0; }
-  try { const v = (input.coreHours * 60 + input.coreMinutes + input.napCount * input.napDuration) / 60; results["totalHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHours"] = 0; }
+  try { const v = input.coreHours * 60 + input.coreMinutes; results["totalCoreMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCoreMinutes"] = Number.NaN; }
+  try { const v = input.napCount * input.napDuration; results["totalNapMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalNapMinutes"] = Number.NaN; }
+  try { const v = input.coreHours * 60 + input.coreMinutes + input.napCount * input.napDuration; results["totalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMinutes"] = Number.NaN; }
+  try { const v = (input.coreHours * 60 + input.coreMinutes + input.napCount * input.napDuration) / 60; results["totalHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEveryman_sleep_calculator(input: Everyman_sleep_calculatorInput): Everyman_sleep_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCoreMinutes"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCoreMinutes"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateEveryman_sleep_calculator(input: Everyman_sleep_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

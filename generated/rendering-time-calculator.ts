@@ -22,29 +22,25 @@ export const Rendering_time_calculatorInputSchema = z.object({
   maxBounces: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rendering_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.resolutionWidth * input.resolutionHeight; results["totalPixels"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPixels"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPixels"])) * input.samplesPerPixel * input.maxBounces * input.complexityFactor; results["totalRaysPerFrame"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRaysPerFrame"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRaysPerFrame"])) * input.frameCount; results["totalRays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRays"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRays"])) / input.renderEngineSpeed; results["renderTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["renderTimeSeconds"] = 0; }
-  try { const v = (asFormulaNumber(results["renderTimeSeconds"])) / 60; results["renderTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["renderTimeMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["renderTimeMinutes"])) / 60; results["renderTimeHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["renderTimeHours"] = 0; }
+  try { const v = input.resolutionWidth * input.resolutionHeight; results["totalPixels"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPixels"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPixels"])) * input.samplesPerPixel * input.maxBounces * input.complexityFactor; results["totalRaysPerFrame"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRaysPerFrame"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRaysPerFrame"])) * input.frameCount; results["totalRays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRays"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRays"])) / input.renderEngineSpeed; results["renderTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["renderTimeSeconds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["renderTimeSeconds"])) / 60; results["renderTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["renderTimeMinutes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["renderTimeMinutes"])) / 60; results["renderTimeHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["renderTimeHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRendering_time_calculator(input: Rendering_time_calculatorInput): Rendering_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["renderTimeHours"]));
+  const totalWasteCost = toNumericFormulaValue(values["renderTimeHours"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateRendering_time_calculator(input: Rendering_time_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Characteristic_impedance_calculatorInputSchema = z.object({
   d: z.number().default(2.8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Characteristic_impedance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 8.854187817e-12; results["epsilon0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["epsilon0"] = 0; }
-  try { const v = 4 * Math.PI * 1e-7; results["mu0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mu0"] = 0; }
-  try { const v = (asFormulaNumber(results["epsilon0"])) * input.epsilon_r; results["epsilon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["epsilon"] = 0; }
-  try { const v = (asFormulaNumber(results["mu0"])) * input.mu_r; results["mu"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mu"] = 0; }
+  try { const v = 8.854187817e-12; results["epsilon0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["epsilon0"] = Number.NaN; }
+  try { const v = 4 * Math.PI * 1e-7; results["mu0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mu0"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["epsilon0"])) * input.epsilon_r; results["epsilon"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["epsilon"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mu0"])) * input.mu_r; results["mu"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mu"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCharacteristic_impedance_calculator(input: Characteristic_impedance_calculatorInput): Characteristic_impedance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mu"]));
+  const totalWasteCost = toNumericFormulaValue(values["mu"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateCharacteristic_impedance_calculator(input: Characterist
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

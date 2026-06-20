@@ -24,28 +24,24 @@ export const U_value_calculatorInputSchema = z.object({
   rse: z.number().default(0.04),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: U_value_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.thickness1 / input.conductivity1; results["r1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r1"] = 0; }
-  try { const v = input.thickness2 / input.conductivity2; results["r2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r2"] = 0; }
-  try { const v = input.thickness3 / input.conductivity3; results["r3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["r3"] = 0; }
-  try { const v = input.rsi + (asFormulaNumber(results["r1"])) + (asFormulaNumber(results["r2"])) + (asFormulaNumber(results["r3"])) + input.rse; results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalResistance"] = 0; }
-  try { const v = 1 / (asFormulaNumber(results["totalResistance"])); results["uValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uValue"] = 0; }
+  try { const v = input.thickness1 / input.conductivity1; results["r1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["r1"] = Number.NaN; }
+  try { const v = input.thickness2 / input.conductivity2; results["r2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["r2"] = Number.NaN; }
+  try { const v = input.thickness3 / input.conductivity3; results["r3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["r3"] = Number.NaN; }
+  try { const v = input.rsi + (toNumericFormulaValue(results["r1"])) + (toNumericFormulaValue(results["r2"])) + (toNumericFormulaValue(results["r3"])) + input.rse; results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalResistance"] = Number.NaN; }
+  try { const v = 1 / (toNumericFormulaValue(results["totalResistance"])); results["uValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["uValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateU_value_calculator(input: U_value_calculatorInput): U_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["r1"]));
+  const totalWasteCost = toNumericFormulaValue(values["r1"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateU_value_calculator(input: U_value_calculatorInput): U_v
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

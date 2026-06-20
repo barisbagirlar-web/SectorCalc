@@ -20,26 +20,22 @@ export const Capacity_analysis_calculatorInputSchema = z.object({
   cycleTime: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Capacity_analysis_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numMachines * input.hoursPerDay * 60 * input.daysPerMonth * (input.efficiency / 100) / input.cycleTime; results["availableCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["availableCapacity"] = 0; }
-  try { const v = input.productDemand; results["requiredCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredCapacity"] = 0; }
-  try { const v = input.productDemand / (input.numMachines * input.hoursPerDay * 60 * input.daysPerMonth * (input.efficiency / 100) / input.cycleTime) * 100; results["capacityUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capacityUtilization"] = 0; }
+  try { const v = input.numMachines * input.hoursPerDay * 60 * input.daysPerMonth * (input.efficiency / 100) / input.cycleTime; results["availableCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["availableCapacity"] = Number.NaN; }
+  try { const v = input.productDemand; results["requiredCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredCapacity"] = Number.NaN; }
+  try { const v = input.productDemand / (input.numMachines * input.hoursPerDay * 60 * input.daysPerMonth * (input.efficiency / 100) / input.cycleTime) * 100; results["capacityUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["capacityUtilization"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCapacity_analysis_calculator(input: Capacity_analysis_calculatorInput): Capacity_analysis_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["capacityUtilization"]));
+  const totalWasteCost = toNumericFormulaValue(values["capacityUtilization"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateCapacity_analysis_calculator(input: Capacity_analysis_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

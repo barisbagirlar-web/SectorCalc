@@ -18,26 +18,22 @@ export const Mrs_calculatorInputSchema = z.object({
   materialCostPerKg: z.number().default(12.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mrs_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.orderQuantity * input.unitWeight * (1 + input.scrapRate / 100); results["totalMaterialWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMaterialWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMaterialWeight"])) / (input.machineEfficiency / 100); results["effectiveMaterialWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveMaterialWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveMaterialWeight"])) * input.materialCostPerKg; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.orderQuantity * input.unitWeight * (1 + input.scrapRate / 100); results["totalMaterialWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMaterialWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalMaterialWeight"])) / (input.machineEfficiency / 100); results["effectiveMaterialWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveMaterialWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveMaterialWeight"])) * input.materialCostPerKg; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMrs_calculator(input: Mrs_calculatorInput): Mrs_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateMrs_calculator(input: Mrs_calculatorInput): Mrs_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

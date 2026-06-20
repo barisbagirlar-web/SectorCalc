@@ -18,25 +18,21 @@ export const Townships_to_sq_miles_calculatorInputSchema = z.object({
   decimal_places: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Townships_to_sq_miles_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.township_a + input.township_b + input.township_c + input.township_d; results["total_townships"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_townships"] = 0; }
-  try { const v = (asFormulaNumber(results["total_townships"])) * 36; results["total_sq_miles"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_sq_miles"] = 0; }
+  try { const v = input.township_a + input.township_b + input.township_c + input.township_d; results["total_townships"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_townships"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_townships"])) * 36; results["total_sq_miles"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_sq_miles"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTownships_to_sq_miles_calculator(input: Townships_to_sq_miles_calculatorInput): Townships_to_sq_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_sq_miles"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_sq_miles"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateTownships_to_sq_miles_calculator(input: Townships_to_sq
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

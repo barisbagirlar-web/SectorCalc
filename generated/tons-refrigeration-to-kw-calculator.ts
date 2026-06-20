@@ -16,25 +16,21 @@ export const Tons_refrigeration_to_kw_calculatorInputSchema = z.object({
   decimals: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Tons_refrigeration_to_kw_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.tons * input.conversionFactor; results["baseKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseKW"] = 0; }
-  try { const v = (asFormulaNumber(results["baseKW"])) * input.safetyFactor; results["withSafety"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["withSafety"] = 0; }
+  try { const v = input.tons * input.conversionFactor; results["baseKW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseKW"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseKW"])) * input.safetyFactor; results["withSafety"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["withSafety"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTons_refrigeration_to_kw_calculator(input: Tons_refrigeration_to_kw_calculatorInput): Tons_refrigeration_to_kw_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["withSafety"]));
+  const totalWasteCost = toNumericFormulaValue(values["withSafety"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateTons_refrigeration_to_kw_calculator(input: Tons_refrige
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,29 +18,25 @@ export const Recovery_time_calculatorInputSchema = z.object({
   verificationTime: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Recovery_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.detectionTime + input.responseTime + input.repairTime + input.restartTime + input.verificationTime; results["totalRecoveryTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRecoveryTime"] = 0; }
-  try { const v = (input.detectionTime / (asFormulaNumber(results["totalRecoveryTime"]))) * 100; results["detectionPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["detectionPercentage"] = 0; }
-  try { const v = (input.responseTime / (asFormulaNumber(results["totalRecoveryTime"]))) * 100; results["responsePercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["responsePercentage"] = 0; }
-  try { const v = (input.repairTime / (asFormulaNumber(results["totalRecoveryTime"]))) * 100; results["repairPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["repairPercentage"] = 0; }
-  try { const v = (input.restartTime / (asFormulaNumber(results["totalRecoveryTime"]))) * 100; results["restartPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["restartPercentage"] = 0; }
-  try { const v = (input.verificationTime / (asFormulaNumber(results["totalRecoveryTime"]))) * 100; results["verificationPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["verificationPercentage"] = 0; }
+  try { const v = input.detectionTime + input.responseTime + input.repairTime + input.restartTime + input.verificationTime; results["totalRecoveryTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRecoveryTime"] = Number.NaN; }
+  try { const v = (input.detectionTime / (toNumericFormulaValue(results["totalRecoveryTime"]))) * 100; results["detectionPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["detectionPercentage"] = Number.NaN; }
+  try { const v = (input.responseTime / (toNumericFormulaValue(results["totalRecoveryTime"]))) * 100; results["responsePercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["responsePercentage"] = Number.NaN; }
+  try { const v = (input.repairTime / (toNumericFormulaValue(results["totalRecoveryTime"]))) * 100; results["repairPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["repairPercentage"] = Number.NaN; }
+  try { const v = (input.restartTime / (toNumericFormulaValue(results["totalRecoveryTime"]))) * 100; results["restartPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["restartPercentage"] = Number.NaN; }
+  try { const v = (input.verificationTime / (toNumericFormulaValue(results["totalRecoveryTime"]))) * 100; results["verificationPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["verificationPercentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRecovery_time_calculator(input: Recovery_time_calculatorInput): Recovery_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRecoveryTime"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalRecoveryTime"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateRecovery_time_calculator(input: Recovery_time_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

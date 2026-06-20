@@ -20,28 +20,24 @@ export const Sheet_pile_calculatorInputSchema = z.object({
   installationCostPerPile: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sheet_pile_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pileLength * input.pileWidth * input.numberOfPiles * 0.01; results["totalSteelVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSteelVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["totalSteelVolume"])) * input.steelDensity; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWeight"])) * input.unitCost; results["materialCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialCost"] = 0; }
-  try { const v = input.numberOfPiles * input.installationCostPerPile; results["installationCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["installationCost"] = 0; }
-  try { const v = (asFormulaNumber(results["materialCost"])) + (asFormulaNumber(results["installationCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.pileLength * input.pileWidth * input.numberOfPiles * 0.01; results["totalSteelVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSteelVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalSteelVolume"])) * input.steelDensity; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWeight"])) * input.unitCost; results["materialCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialCost"] = Number.NaN; }
+  try { const v = input.numberOfPiles * input.installationCostPerPile; results["installationCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["installationCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["materialCost"])) + (toNumericFormulaValue(results["installationCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSheet_pile_calculator(input: Sheet_pile_calculatorInput): Sheet_pile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateSheet_pile_calculator(input: Sheet_pile_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

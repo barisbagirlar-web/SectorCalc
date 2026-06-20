@@ -16,27 +16,23 @@ export const Crypto_converter_calculatorInputSchema = z.object({
   spread: z.number().default(0.1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Crypto_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.exchangeRate * (1 + input.spread/100); results["rateAfterSpread"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rateAfterSpread"] = 0; }
-  try { const v = input.amount * (asFormulaNumber(results["rateAfterSpread"])); results["convertedAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["convertedAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["convertedAmount"])) * (input.feePercent/100); results["feeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["feeAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["convertedAmount"])) - (asFormulaNumber(results["feeAmount"])); results["finalAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalAmount"] = 0; }
+  try { const v = input.exchangeRate * (1 + input.spread/100); results["rateAfterSpread"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rateAfterSpread"] = Number.NaN; }
+  try { const v = input.amount * (toNumericFormulaValue(results["rateAfterSpread"])); results["convertedAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["convertedAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["convertedAmount"])) * (input.feePercent/100); results["feeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["feeAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["convertedAmount"])) - (toNumericFormulaValue(results["feeAmount"])); results["finalAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalAmount"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCrypto_converter_calculator(input: Crypto_converter_calculatorInput): Crypto_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalAmount"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalAmount"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateCrypto_converter_calculator(input: Crypto_converter_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Cosmological_redshift_calculatorInputSchema = z.object({
   hubbleConstant: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cosmological_redshift_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.observedWavelength - input.emittedWavelength) / input.emittedWavelength; results["z"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["z"] = 0; }
-  try { const v = (asFormulaNumber(results["z"])) * input.speedOfLight; results["velocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["velocity"] = 0; }
-  try { const v = (asFormulaNumber(results["velocity"])) / input.hubbleConstant; results["distance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["distance"] = 0; }
+  try { const v = (input.observedWavelength - input.emittedWavelength) / input.emittedWavelength; results["z"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["z"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["z"])) * input.speedOfLight; results["velocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["velocity"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["velocity"])) / input.hubbleConstant; results["distance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["distance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCosmological_redshift_calculator(input: Cosmological_redshift_calculatorInput): Cosmological_redshift_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["z"]));
+  const totalWasteCost = toNumericFormulaValue(values["z"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateCosmological_redshift_calculator(input: Cosmological_re
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

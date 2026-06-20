@@ -20,26 +20,22 @@ export const Habit_tracker_calculatorInputSchema = z.object({
   bestStreak: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Habit_tracker_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.successfulDays / input.totalDays) * 100; results["compliancePercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["compliancePercentage"] = 0; }
-  try { const v = input.daysTracked / input.totalDays; results["trackingRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trackingRatio"] = 0; }
-  try { const v = input.bestStreak === 0 ? 0 : input.currentStreak / input.bestStreak; results["streakRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["streakRatio"] = 0; }
+  try { const v = (input.successfulDays / input.totalDays) * 100; results["compliancePercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["compliancePercentage"] = Number.NaN; }
+  try { const v = input.daysTracked / input.totalDays; results["trackingRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["trackingRatio"] = Number.NaN; }
+  try { const v = input.bestStreak === 0 ? 0 : input.currentStreak / input.bestStreak; results["streakRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["streakRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHabit_tracker_calculator(input: Habit_tracker_calculatorInput): Habit_tracker_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["compliancePercentage"]));
+  const totalWasteCost = toNumericFormulaValue(values["compliancePercentage"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHabit_tracker_calculator(input: Habit_tracker_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

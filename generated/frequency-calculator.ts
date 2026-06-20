@@ -22,26 +22,22 @@ export const Frequency_calculatorInputSchema = z.object({
   rpm: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Frequency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.period !== 0 ? 1 / input.period : (input.cycles !== 0 && input.time !== 0 ? input.cycles / input.time : (input.velocity !== 0 && input.wavelength !== 0 ? input.velocity / input.wavelength : (input.angularFrequency !== 0 ? input.angularFrequency / (2 * Math.PI) : (input.rpm !== 0 ? input.rpm / 60 : 0)))); results["frequency"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["frequency"] = 0; }
-  try { const v = (asFormulaNumber(results["frequency"])) * 2 * Math.PI; results["angularFrequencyOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["angularFrequencyOut"] = 0; }
-  try { const v = (asFormulaNumber(results["frequency"])) * 60; results["rpmOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rpmOut"] = 0; }
+  try { const v = input.period !== 0 ? 1 / input.period : (input.cycles !== 0 && input.time !== 0 ? input.cycles / input.time : (input.velocity !== 0 && input.wavelength !== 0 ? input.velocity / input.wavelength : (input.angularFrequency !== 0 ? input.angularFrequency / (2 * Math.PI) : (input.rpm !== 0 ? input.rpm / 60 : 0)))); results["frequency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["frequency"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["frequency"])) * 2 * Math.PI; results["angularFrequencyOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["angularFrequencyOut"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["frequency"])) * 60; results["rpmOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rpmOut"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFrequency_calculator(input: Frequency_calculatorInput): Frequency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["frequency"]));
+  const totalWasteCost = toNumericFormulaValue(values["frequency"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateFrequency_calculator(input: Frequency_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

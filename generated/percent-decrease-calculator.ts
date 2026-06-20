@@ -18,26 +18,22 @@ export const Percent_decrease_calculatorInputSchema = z.object({
   targetDecreasePercent: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Percent_decrease_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.initialValue - input.finalValue; results["absoluteDecrease"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteDecrease"] = 0; }
-  try { const v = ((input.initialValue * input.adjustmentFactor - input.finalValue) / (input.initialValue * input.adjustmentFactor)) * 100; results["adjustedPercentDecrease"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedPercentDecrease"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedPercentDecrease"])) - input.targetDecreasePercent; results["targetVariance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetVariance"] = 0; }
+  try { const v = input.initialValue - input.finalValue; results["absoluteDecrease"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["absoluteDecrease"] = Number.NaN; }
+  try { const v = ((input.initialValue * input.adjustmentFactor - input.finalValue) / (input.initialValue * input.adjustmentFactor)) * 100; results["adjustedPercentDecrease"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedPercentDecrease"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedPercentDecrease"])) - input.targetDecreasePercent; results["targetVariance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["targetVariance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePercent_decrease_calculator(input: Percent_decrease_calculatorInput): Percent_decrease_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["targetVariance"]));
+  const totalWasteCost = toNumericFormulaValue(values["targetVariance"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePercent_decrease_calculator(input: Percent_decrease_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

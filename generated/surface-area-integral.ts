@@ -22,26 +22,22 @@ export const Surface_area_integralInputSchema = z.object({
   phi_max: z.number().default(6.283185307179586),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Surface_area_integralInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.radius * input.radius * (input.theta_max - input.theta_min) * (input.phi_max - input.phi_min); results["sphereArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sphereArea"] = 0; }
-  try { const v = 2 * Math.PI * input.radius * input.height; results["cylinderLateralArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cylinderLateralArea"] = 0; }
-  try { const v = ((input.shape === 0 ? (asFormulaNumber(results["sphereArea"])) : (asFormulaNumber(results["cylinderLateralArea"]))) ? 1 : 0); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
+  try { const v = input.radius * input.radius * (input.theta_max - input.theta_min) * (input.phi_max - input.phi_min); results["sphereArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sphereArea"] = Number.NaN; }
+  try { const v = 2 * Math.PI * input.radius * input.height; results["cylinderLateralArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cylinderLateralArea"] = Number.NaN; }
+  try { const v = ((input.shape === 0 ? (toNumericFormulaValue(results["sphereArea"])) : (toNumericFormulaValue(results["cylinderLateralArea"]))) ? 1 : 0); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalArea"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSurface_area_integral(input: Surface_area_integralInput): Surface_area_integralOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalArea"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalArea"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateSurface_area_integral(input: Surface_area_integralInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

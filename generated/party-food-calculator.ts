@@ -16,29 +16,25 @@ export const Party_food_calculatorInputSchema = z.object({
   veggieRatio: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Party_food_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.adults + input.children; results["totalGuests"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGuests"] = 0; }
-  try { const v = input.adults * 0.4 + input.children * 0.2; results["mainCourse"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mainCourse"] = 0; }
-  try { const v = (asFormulaNumber(results["totalGuests"])) * 0.3; results["sideDish"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sideDish"] = 0; }
-  try { const v = (asFormulaNumber(results["totalGuests"])) * 0.2; results["dessert"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dessert"] = 0; }
-  try { const v = (asFormulaNumber(results["totalGuests"])) * input.hours * 0.15; results["drinks"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["drinks"] = 0; }
-  try { const v = (asFormulaNumber(results["mainCourse"])) + (asFormulaNumber(results["sideDish"])) + (asFormulaNumber(results["dessert"])) + (asFormulaNumber(results["drinks"])); results["totalFoodUnits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFoodUnits"] = 0; }
+  try { const v = input.adults + input.children; results["totalGuests"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGuests"] = Number.NaN; }
+  try { const v = input.adults * 0.4 + input.children * 0.2; results["mainCourse"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mainCourse"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalGuests"])) * 0.3; results["sideDish"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sideDish"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalGuests"])) * 0.2; results["dessert"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dessert"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalGuests"])) * input.hours * 0.15; results["drinks"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["drinks"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mainCourse"])) + (toNumericFormulaValue(results["sideDish"])) + (toNumericFormulaValue(results["dessert"])) + (toNumericFormulaValue(results["drinks"])); results["totalFoodUnits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFoodUnits"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateParty_food_calculator(input: Party_food_calculatorInput): Party_food_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFoodUnits"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalFoodUnits"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateParty_food_calculator(input: Party_food_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

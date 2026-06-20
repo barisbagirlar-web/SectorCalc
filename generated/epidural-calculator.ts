@@ -20,28 +20,24 @@ export const Epidural_calculatorInputSchema = z.object({
   volumeOnHand: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Epidural_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.desiredDose * input.patientWeight; results["totalDoseRequired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDoseRequired"] = 0; }
-  try { const v = (input.desiredDose * input.patientWeight) / (input.drugConcentration * 10); results["volumeToInject"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeToInject"] = 0; }
-  try { const v = input.maxDoseLimit * (1 + 0.75 * input.epinephrineAdded); results["maxDoseAdjusted"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxDoseAdjusted"] = 0; }
-  try { const v = input.desiredDose * input.patientWeight <= input.maxDoseLimit * (1 + 0.75 * input.epinephrineAdded) ? 1 : 0; results["maxSafeDoseCheck"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxSafeDoseCheck"] = 0; }
-  try { const v = input.volumeOnHand - (input.desiredDose * input.patientWeight) / (input.drugConcentration * 10); results["remainingVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingVolume"] = 0; }
+  try { const v = input.desiredDose * input.patientWeight; results["totalDoseRequired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDoseRequired"] = Number.NaN; }
+  try { const v = (input.desiredDose * input.patientWeight) / (input.drugConcentration * 10); results["volumeToInject"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeToInject"] = Number.NaN; }
+  try { const v = input.maxDoseLimit * (1 + 0.75 * input.epinephrineAdded); results["maxDoseAdjusted"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxDoseAdjusted"] = Number.NaN; }
+  try { const v = input.desiredDose * input.patientWeight <= input.maxDoseLimit * (1 + 0.75 * input.epinephrineAdded) ? 1 : 0; results["maxSafeDoseCheck"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxSafeDoseCheck"] = Number.NaN; }
+  try { const v = input.volumeOnHand - (input.desiredDose * input.patientWeight) / (input.drugConcentration * 10); results["remainingVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEpidural_calculator(input: Epidural_calculatorInput): Epidural_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeToInject"]));
+  const totalWasteCost = toNumericFormulaValue(values["volumeToInject"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateEpidural_calculator(input: Epidural_calculatorInput): E
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,29 +22,25 @@ export const Multivariate_test_calculatorInputSchema = z.object({
   sd3: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Multivariate_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.mean1 + input.mean2 + input.mean3) / 3; results["grandMean"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grandMean"] = 0; }
-  try { const v = input.n * ((input.mean1 - (asFormulaNumber(results["grandMean"]))) ** 2 + (input.mean2 - (asFormulaNumber(results["grandMean"]))) ** 2 + (input.mean3 - (asFormulaNumber(results["grandMean"]))) ** 2); results["ssb"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ssb"] = 0; }
-  try { const v = (input.n - 1) * input.sd1 ** 2 + (input.n - 1) * input.sd2 ** 2 + (input.n - 1) * input.sd3 ** 2; results["ssw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ssw"] = 0; }
-  try { const v = (asFormulaNumber(results["ssb"])) / 2; results["msb"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["msb"] = 0; }
-  try { const v = (asFormulaNumber(results["ssw"])) / (3 * (input.n - 1)); results["msw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["msw"] = 0; }
-  try { const v = (asFormulaNumber(results["msb"])) / (asFormulaNumber(results["msw"])); results["f"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["f"] = 0; }
+  try { const v = (input.mean1 + input.mean2 + input.mean3) / 3; results["grandMean"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grandMean"] = Number.NaN; }
+  try { const v = input.n * ((input.mean1 - (toNumericFormulaValue(results["grandMean"]))) ** 2 + (input.mean2 - (toNumericFormulaValue(results["grandMean"]))) ** 2 + (input.mean3 - (toNumericFormulaValue(results["grandMean"]))) ** 2); results["ssb"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ssb"] = Number.NaN; }
+  try { const v = (input.n - 1) * input.sd1 ** 2 + (input.n - 1) * input.sd2 ** 2 + (input.n - 1) * input.sd3 ** 2; results["ssw"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ssw"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ssb"])) / 2; results["msb"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["msb"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ssw"])) / (3 * (input.n - 1)); results["msw"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["msw"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["msb"])) / (toNumericFormulaValue(results["msw"])); results["f"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["f"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMultivariate_test_calculator(input: Multivariate_test_calculatorInput): Multivariate_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["f"]));
+  const totalWasteCost = toNumericFormulaValue(values["f"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateMultivariate_test_calculator(input: Multivariate_test_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

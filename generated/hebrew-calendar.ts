@@ -20,26 +20,22 @@ export const Hebrew_calendarInputSchema = z.object({
   hebrewDay: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hebrew_calendarInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay) * (input.hebrewYear) * (input.hebrewMonth) * (input.hebrewDay); results["gregorianYearFromHebrew"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gregorianYearFromHebrew"] = 0; }
-  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay); results["daysInHebrewYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysInHebrewYear"] = 0; }
-  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay); results["isLeapYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isLeapYear"] = 0; }
+  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay) * (input.hebrewYear) * (input.hebrewMonth) * (input.hebrewDay); results["gregorianYearFromHebrew"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gregorianYearFromHebrew"] = Number.NaN; }
+  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay); results["daysInHebrewYear"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["daysInHebrewYear"] = Number.NaN; }
+  try { const v = (input.gregorianYear) * (input.gregorianMonth) * (input.gregorianDay); results["isLeapYear"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["isLeapYear"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHebrew_calendar(input: Hebrew_calendarInput): Hebrew_calendarOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["isLeapYear"]));
+  const totalWasteCost = toNumericFormulaValue(values["isLeapYear"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHebrew_calendar(input: Hebrew_calendarInput): Hebrew_ca
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

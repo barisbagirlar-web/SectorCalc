@@ -20,30 +20,26 @@ export const Skill_point_calculatorInputSchema = z.object({
   errorRate: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Skill_point_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentSkillLevel; results["baseSkill"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseSkill"] = 0; }
-  try { const v = input.trainingHours * 0.1; results["trainingImpact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trainingImpact"] = 0; }
-  try { const v = input.experienceYears * 5; results["experienceImpact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["experienceImpact"] = 0; }
-  try { const v = input.certifications * 3; results["certificationImpact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["certificationImpact"] = 0; }
-  try { const v = input.errorRate * 2; results["errorPenalty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["errorPenalty"] = 0; }
-  try { const v = input.taskComplexity / 10; results["complexityFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["complexityFactor"] = 0; }
-  try { const v = (input.currentSkillLevel + (input.trainingHours * 0.1) + (input.experienceYears * 5) + (input.certifications * 3) - (input.errorRate * 2)) * (input.taskComplexity / 10); results["skillPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["skillPoints"] = 0; }
+  try { const v = input.currentSkillLevel; results["baseSkill"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseSkill"] = Number.NaN; }
+  try { const v = input.trainingHours * 0.1; results["trainingImpact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["trainingImpact"] = Number.NaN; }
+  try { const v = input.experienceYears * 5; results["experienceImpact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["experienceImpact"] = Number.NaN; }
+  try { const v = input.certifications * 3; results["certificationImpact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["certificationImpact"] = Number.NaN; }
+  try { const v = input.errorRate * 2; results["errorPenalty"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["errorPenalty"] = Number.NaN; }
+  try { const v = input.taskComplexity / 10; results["complexityFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["complexityFactor"] = Number.NaN; }
+  try { const v = (input.currentSkillLevel + (input.trainingHours * 0.1) + (input.experienceYears * 5) + (input.certifications * 3) - (input.errorRate * 2)) * (input.taskComplexity / 10); results["skillPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["skillPoints"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSkill_point_calculator(input: Skill_point_calculatorInput): Skill_point_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["skillPoints"]));
+  const totalWasteCost = toNumericFormulaValue(values["skillPoints"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateSkill_point_calculator(input: Skill_point_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

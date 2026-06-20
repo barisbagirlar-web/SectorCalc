@@ -20,26 +20,22 @@ export const Parlay_calculatorInputSchema = z.object({
   odds5: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Parlay_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.stake * input.odds1 * input.odds2 * input.odds3 * input.odds4 * input.odds5; results["totalPayout"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPayout"] = 0; }
-  try { const v = input.odds1 * input.odds2 * input.odds3 * input.odds4 * input.odds5; results["totalOdds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalOdds"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPayout"])) - input.stake; results["potentialProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["potentialProfit"] = 0; }
+  try { const v = input.stake * input.odds1 * input.odds2 * input.odds3 * input.odds4 * input.odds5; results["totalPayout"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPayout"] = Number.NaN; }
+  try { const v = input.odds1 * input.odds2 * input.odds3 * input.odds4 * input.odds5; results["totalOdds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalOdds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPayout"])) - input.stake; results["potentialProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["potentialProfit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateParlay_calculator(input: Parlay_calculatorInput): Parlay_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPayout"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPayout"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateParlay_calculator(input: Parlay_calculatorInput): Parla
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

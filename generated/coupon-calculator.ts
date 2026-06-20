@@ -16,26 +16,22 @@ export const Coupon_calculatorInputSchema = z.object({
   yearsToMaturity: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Coupon_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.faceValue * (input.couponRate / 100)) / input.frequency; results["periodicCoupon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["periodicCoupon"] = 0; }
-  try { const v = input.faceValue * (input.couponRate / 100); results["annualCoupon"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCoupon"] = 0; }
-  try { const v = input.faceValue * (input.couponRate / 100) * input.yearsToMaturity; results["totalCoupons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCoupons"] = 0; }
+  try { const v = (input.faceValue * (input.couponRate / 100)) / input.frequency; results["periodicCoupon"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["periodicCoupon"] = Number.NaN; }
+  try { const v = input.faceValue * (input.couponRate / 100); results["annualCoupon"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCoupon"] = Number.NaN; }
+  try { const v = input.faceValue * (input.couponRate / 100) * input.yearsToMaturity; results["totalCoupons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCoupons"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCoupon_calculator(input: Coupon_calculatorInput): Coupon_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["periodicCoupon"]));
+  const totalWasteCost = toNumericFormulaValue(values["periodicCoupon"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateCoupon_calculator(input: Coupon_calculatorInput): Coupo
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Unit_hydrograph_calculatorInputSchema = z.object({
   rainfallDuration: z.number().default(0.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Unit_hydrograph_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.peakFactor * input.drainageArea) / ((input.rainfallDuration / 2) + (0.6 * input.timeConcentration)); results["peakDischarge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["peakDischarge"] = 0; }
-  try { const v = (input.rainfallDuration / 2) + (0.6 * input.timeConcentration); results["timeToPeak"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["timeToPeak"] = 0; }
-  try { const v = 2.67 * ((input.rainfallDuration / 2) + (0.6 * input.timeConcentration)); results["timeBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["timeBase"] = 0; }
+  try { const v = (input.peakFactor * input.drainageArea) / ((input.rainfallDuration / 2) + (0.6 * input.timeConcentration)); results["peakDischarge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["peakDischarge"] = Number.NaN; }
+  try { const v = (input.rainfallDuration / 2) + (0.6 * input.timeConcentration); results["timeToPeak"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["timeToPeak"] = Number.NaN; }
+  try { const v = 2.67 * ((input.rainfallDuration / 2) + (0.6 * input.timeConcentration)); results["timeBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["timeBase"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUnit_hydrograph_calculator(input: Unit_hydrograph_calculatorInput): Unit_hydrograph_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["peakDischarge"]));
+  const totalWasteCost = toNumericFormulaValue(values["peakDischarge"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateUnit_hydrograph_calculator(input: Unit_hydrograph_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Nanoseconds_to_picoseconds_calculatorInputSchema = z.object({
   scientificNotation: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Nanoseconds_to_picoseconds_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.nanoseconds * input.conversionFactor; results["rawPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawPicoseconds"] = 0; }
-  try { const v = (asFormulaNumber(results["rawPicoseconds"])) * input.scale; results["scaledPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledPicoseconds"] = 0; }
-  try { const v = (asFormulaNumber(results["scaledPicoseconds"])) + input.offset; results["finalPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalPicoseconds"] = 0; }
+  try { const v = input.nanoseconds * input.conversionFactor; results["rawPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawPicoseconds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rawPicoseconds"])) * input.scale; results["scaledPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaledPicoseconds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["scaledPicoseconds"])) + input.offset; results["finalPicoseconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalPicoseconds"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNanoseconds_to_picoseconds_calculator(input: Nanoseconds_to_picoseconds_calculatorInput): Nanoseconds_to_picoseconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalPicoseconds"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalPicoseconds"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateNanoseconds_to_picoseconds_calculator(input: Nanosecond
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

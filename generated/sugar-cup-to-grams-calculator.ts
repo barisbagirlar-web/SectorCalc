@@ -16,25 +16,21 @@ export const Sugar_cup_to_grams_calculatorInputSchema = z.object({
   sugarType: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sugar_cup_to_grams_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cups * 236.588 + input.tablespoons * 14.7868 + input.teaspoons * 4.92892; results["volumeML"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeML"] = 0; }
-  try { const v = input.cups * 236.588 + input.tablespoons * 14.7868 + input.teaspoons * 4.92892; results["volumeML_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeML_aux"] = 0; }
+  try { const v = input.cups * 236.588 + input.tablespoons * 14.7868 + input.teaspoons * 4.92892; results["volumeML"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeML"] = Number.NaN; }
+  try { const v = input.cups * 236.588 + input.tablespoons * 14.7868 + input.teaspoons * 4.92892; results["volumeML_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeML_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSugar_cup_to_grams_calculator(input: Sugar_cup_to_grams_calculatorInput): Sugar_cup_to_grams_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeML_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["volumeML_aux"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSugar_cup_to_grams_calculator(input: Sugar_cup_to_grams
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

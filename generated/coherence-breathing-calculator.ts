@@ -16,27 +16,23 @@ export const Coherence_breathing_calculatorInputSchema = z.object({
   restingRate: z.number().default(12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Coherence_breathing_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 60 / input.breathingRate; results["breathCycle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breathCycle"] = 0; }
-  try { const v = (asFormulaNumber(results["breathCycle"])) * input.ratio / (1 + input.ratio); results["inhaleDuration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inhaleDuration"] = 0; }
-  try { const v = (asFormulaNumber(results["breathCycle"])) / (1 + input.ratio); results["exhaleDuration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exhaleDuration"] = 0; }
-  try { const v = input.duration * input.breathingRate; results["totalCycles"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCycles"] = 0; }
+  try { const v = 60 / input.breathingRate; results["breathCycle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breathCycle"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["breathCycle"])) * input.ratio / (1 + input.ratio); results["inhaleDuration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inhaleDuration"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["breathCycle"])) / (1 + input.ratio); results["exhaleDuration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exhaleDuration"] = Number.NaN; }
+  try { const v = input.duration * input.breathingRate; results["totalCycles"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCycles"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCoherence_breathing_calculator(input: Coherence_breathing_calculatorInput): Coherence_breathing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breathCycle"]));
+  const totalWasteCost = toNumericFormulaValue(values["breathCycle"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateCoherence_breathing_calculator(input: Coherence_breathi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

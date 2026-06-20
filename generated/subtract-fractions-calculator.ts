@@ -20,29 +20,25 @@ export const Subtract_fractions_calculatorInputSchema = z.object({
   decimalPrecision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Subtract_fractions_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.denominator1 * input.denominator2; results["commonDen"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["commonDen"] = 0; }
-  try { const v = input.numerator1 * input.denominator2; results["num1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["num1"] = 0; }
-  try { const v = input.numerator2 * input.denominator1; results["num2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["num2"] = 0; }
-  try { const v = (asFormulaNumber(results["num1"])) - (asFormulaNumber(results["num2"])); results["resultNum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resultNum"] = 0; }
-  try { const v = (asFormulaNumber(results["commonDen"])); results["resultDen"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resultDen"] = 0; }
-  try { const v = (((input.denominator1 == 0 || input.denominator2 == 0) ? true : false) ? 1 : 0); results["error"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["error"] = 0; }
+  try { const v = input.denominator1 * input.denominator2; results["commonDen"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["commonDen"] = Number.NaN; }
+  try { const v = input.numerator1 * input.denominator2; results["num1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["num1"] = Number.NaN; }
+  try { const v = input.numerator2 * input.denominator1; results["num2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["num2"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["num1"])) - (toNumericFormulaValue(results["num2"])); results["resultNum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["resultNum"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["commonDen"])); results["resultDen"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["resultDen"] = Number.NaN; }
+  try { const v = (((input.denominator1 == 0 || input.denominator2 == 0) ? true : false) ? 1 : 0); results["error"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["error"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSubtract_fractions_calculator(input: Subtract_fractions_calculatorInput): Subtract_fractions_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["error"]));
+  const totalWasteCost = toNumericFormulaValue(values["error"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateSubtract_fractions_calculator(input: Subtract_fractions
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Ergs_to_joules_calculatorInputSchema = z.object({
   operatorID: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ergs_to_joules_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.ergs * input.conversionFactor; results["joules"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["joules"] = 0; }
-  try { const v = (asFormulaNumber(results["joules"])) * (1 - input.uncertaintyPercent / 100); results["minEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["joules"])) * (1 + input.uncertaintyPercent / 100); results["maxEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxEnergy"] = 0; }
+  try { const v = input.ergs * input.conversionFactor; results["joules"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["joules"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["joules"])) * (1 - input.uncertaintyPercent / 100); results["minEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["minEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["joules"])) * (1 + input.uncertaintyPercent / 100); results["maxEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxEnergy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateErgs_to_joules_calculator(input: Ergs_to_joules_calculatorInput): Ergs_to_joules_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxEnergy"]));
+  const totalWasteCost = toNumericFormulaValue(values["maxEnergy"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateErgs_to_joules_calculator(input: Ergs_to_joules_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

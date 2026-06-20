@@ -16,25 +16,21 @@ export const Sidereal_day_to_hours_calculatorInputSchema = z.object({
   seconds: z.number().default(4.0916),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sidereal_day_to_hours_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.siderealDays * (input.hours + input.minutes/60 + input.seconds/3600); results["totalHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHours"] = 0; }
-  try { const v = input.hours + input.minutes/60 + input.seconds/3600; results["siderealDayLengthHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["siderealDayLengthHours"] = 0; }
+  try { const v = input.siderealDays * (input.hours + input.minutes/60 + input.seconds/3600); results["totalHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalHours"] = Number.NaN; }
+  try { const v = input.hours + input.minutes/60 + input.seconds/3600; results["siderealDayLengthHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["siderealDayLengthHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSidereal_day_to_hours_calculator(input: Sidereal_day_to_hours_calculatorInput): Sidereal_day_to_hours_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalHours"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalHours"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSidereal_day_to_hours_calculator(input: Sidereal_day_to
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

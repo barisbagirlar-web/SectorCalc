@@ -16,25 +16,21 @@ export const Miles_to_meters_calculatorInputSchema = z.object({
   rounding_mode: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Miles_to_meters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.miles * input.conversion_factor; results["raw_meters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["raw_meters"] = 0; }
-  try { const v = input.miles * input.conversion_factor; results["raw_meters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["raw_meters_aux"] = 0; }
+  try { const v = input.miles * input.conversion_factor; results["raw_meters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["raw_meters"] = Number.NaN; }
+  try { const v = input.miles * input.conversion_factor; results["raw_meters_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["raw_meters_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMiles_to_meters_calculator(input: Miles_to_meters_calculatorInput): Miles_to_meters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["raw_meters_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["raw_meters_aux"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateMiles_to_meters_calculator(input: Miles_to_meters_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

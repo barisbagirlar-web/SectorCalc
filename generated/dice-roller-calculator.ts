@@ -16,28 +16,24 @@ export const Dice_roller_calculatorInputSchema = z.object({
   modifier: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dice_roller_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.diceCount * (1 + input.sides) / 2 + input.modifier; results["expectedSum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedSum"] = 0; }
-  try { const v = (1 + input.sides) / 2; results["averagePerDie"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averagePerDie"] = 0; }
-  try { const v = ((input.sides - input.target + 1) / input.sides) ** input.diceCount; results["successProbability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["successProbability"] = 0; }
-  try { const v = 1 - ((input.sides - input.target + 1) / input.sides) ** input.diceCount; results["failureProbability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["failureProbability"] = 0; }
-  try { const v = input.diceCount * (input.sides - input.target + 1) / input.sides; results["expectedSuccesses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedSuccesses"] = 0; }
+  try { const v = input.diceCount * (1 + input.sides) / 2 + input.modifier; results["expectedSum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedSum"] = Number.NaN; }
+  try { const v = (1 + input.sides) / 2; results["averagePerDie"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averagePerDie"] = Number.NaN; }
+  try { const v = ((input.sides - input.target + 1) / input.sides) ** input.diceCount; results["successProbability"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["successProbability"] = Number.NaN; }
+  try { const v = 1 - ((input.sides - input.target + 1) / input.sides) ** input.diceCount; results["failureProbability"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["failureProbability"] = Number.NaN; }
+  try { const v = input.diceCount * (input.sides - input.target + 1) / input.sides; results["expectedSuccesses"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedSuccesses"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDice_roller_calculator(input: Dice_roller_calculatorInput): Dice_roller_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["expectedSum"]));
+  const totalWasteCost = toNumericFormulaValue(values["expectedSum"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDice_roller_calculator(input: Dice_roller_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

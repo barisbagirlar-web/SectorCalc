@@ -20,25 +20,21 @@ export const Original_price_calculatorInputSchema = z.object({
   vatPercentage: z.number().default(18),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Original_price_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.finalPrice / ((1 + input.vatPercentage / 100) * (1 + input.profitMarginPercentage / 100)); results["basePriceBeforeOverhead"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["basePriceBeforeOverhead"] = 0; }
-  try { const v = (asFormulaNumber(results["basePriceBeforeOverhead"])) / (1 + input.overheadPercentage / 100) - input.rawMaterialSurcharge - input.laborSurcharge; results["originalBaseCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["originalBaseCost"] = 0; }
+  try { const v = input.finalPrice / ((1 + input.vatPercentage / 100) * (1 + input.profitMarginPercentage / 100)); results["basePriceBeforeOverhead"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["basePriceBeforeOverhead"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["basePriceBeforeOverhead"])) / (1 + input.overheadPercentage / 100) - input.rawMaterialSurcharge - input.laborSurcharge; results["originalBaseCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["originalBaseCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOriginal_price_calculator(input: Original_price_calculatorInput): Original_price_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["originalBaseCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["originalBaseCost"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateOriginal_price_calculator(input: Original_price_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

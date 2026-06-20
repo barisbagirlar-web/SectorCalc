@@ -16,27 +16,23 @@ export const Roas_calculatorInputSchema = z.object({
   revenueB: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Roas_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.spendA + input.spendB; results["totalSpend"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSpend"] = 0; }
-  try { const v = input.revenueA + input.revenueB; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRevenue"])) / (asFormulaNumber(results["totalSpend"])); results["roas"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roas"] = 0; }
-  try { const v = (asFormulaNumber(results["roas"])) * 100; results["roasPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roasPercentage"] = 0; }
+  try { const v = input.spendA + input.spendB; results["totalSpend"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSpend"] = Number.NaN; }
+  try { const v = input.revenueA + input.revenueB; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRevenue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRevenue"])) / (toNumericFormulaValue(results["totalSpend"])); results["roas"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roas"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["roas"])) * 100; results["roasPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roasPercentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRoas_calculator(input: Roas_calculatorInput): Roas_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["roas"]));
+  const totalWasteCost = toNumericFormulaValue(values["roas"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRoas_calculator(input: Roas_calculatorInput): Roas_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

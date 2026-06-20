@@ -16,26 +16,22 @@ export const Lean_body_mass_calculatorInputSchema = z.object({
   gender: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Lean_body_mass_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight * 0.732 + input.height * 0.203 - input.age * 0.002 - input.gender * 0.016 + 14.0; results["lbm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lbm"] = 0; }
-  try { const v = input.weight - (asFormulaNumber(results["lbm"])); results["bodyFatMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bodyFatMass"] = 0; }
-  try { const v = ((asFormulaNumber(results["bodyFatMass"])) / input.weight) * 100; results["bodyFatPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bodyFatPercentage"] = 0; }
+  try { const v = input.weight * 0.732 + input.height * 0.203 - input.age * 0.002 - input.gender * 0.016 + 14.0; results["lbm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lbm"] = Number.NaN; }
+  try { const v = input.weight - (toNumericFormulaValue(results["lbm"])); results["bodyFatMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bodyFatMass"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["bodyFatMass"])) / input.weight) * 100; results["bodyFatPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bodyFatPercentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLean_body_mass_calculator(input: Lean_body_mass_calculatorInput): Lean_body_mass_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lbm"]));
+  const totalWasteCost = toNumericFormulaValue(values["lbm"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateLean_body_mass_calculator(input: Lean_body_mass_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

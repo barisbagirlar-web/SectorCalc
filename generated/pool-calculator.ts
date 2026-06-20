@@ -16,28 +16,24 @@ export const Pool_calculatorInputSchema = z.object({
   deepDepth: z.number().default(2.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pool_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.shallowDepth + input.deepDepth) / 2; results["averageDepth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageDepth"] = 0; }
-  try { const v = input.length * input.width; results["surfaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["surfaceArea"] = 0; }
-  try { const v = (asFormulaNumber(results["surfaceArea"])) * (asFormulaNumber(results["averageDepth"])); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = (asFormulaNumber(results["volume"])) * 1000; results["volumeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeLiters"] = 0; }
-  try { const v = (asFormulaNumber(results["volume"])) * 264.172; results["volumeGallons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeGallons"] = 0; }
+  try { const v = (input.shallowDepth + input.deepDepth) / 2; results["averageDepth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageDepth"] = Number.NaN; }
+  try { const v = input.length * input.width; results["surfaceArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["surfaceArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["surfaceArea"])) * (toNumericFormulaValue(results["averageDepth"])); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume"])) * 1000; results["volumeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeLiters"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume"])) * 264.172; results["volumeGallons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeGallons"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePool_calculator(input: Pool_calculatorInput): Pool_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume"]));
+  const totalWasteCost = toNumericFormulaValue(values["volume"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePool_calculator(input: Pool_calculatorInput): Pool_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,25 +20,21 @@ export const Lifting_calculatorInputSchema = z.object({
   loadDistributionFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Lifting_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.loadWeight * input.safetyFactor * input.dynamicFactor * input.loadDistributionFactor; results["verticalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["verticalLoad"] = 0; }
-  try { const v = input.loadWeight * input.safetyFactor * input.dynamicFactor * input.loadDistributionFactor; results["requiredCraneCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredCraneCapacity"] = 0; }
+  try { const v = input.loadWeight * input.safetyFactor * input.dynamicFactor * input.loadDistributionFactor; results["verticalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["verticalLoad"] = Number.NaN; }
+  try { const v = input.loadWeight * input.safetyFactor * input.dynamicFactor * input.loadDistributionFactor; results["requiredCraneCapacity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredCraneCapacity"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLifting_calculator(input: Lifting_calculatorInput): Lifting_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredCraneCapacity"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredCraneCapacity"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateLifting_calculator(input: Lifting_calculatorInput): Lif
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

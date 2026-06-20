@@ -18,27 +18,23 @@ export const Medicaid_calculatorInputSchema = z.object({
   thresholdPercent: z.number().default(138),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Medicaid_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grossIncome + input.otherIncome - input.deductions; results["netIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netIncome"] = 0; }
-  try { const v = 15060 + (input.dependents - 1) * 5380; results["fpl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fpl"] = 0; }
-  try { const v = ((asFormulaNumber(results["netIncome"])) / (asFormulaNumber(results["fpl"]))) * 100; results["incomePercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["incomePercent"] = 0; }
-  try { const v = (asFormulaNumber(results["incomePercent"])) <= input.thresholdPercent ? 1 : 0; results["eligible"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eligible"] = 0; }
+  try { const v = input.grossIncome + input.otherIncome - input.deductions; results["netIncome"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netIncome"] = Number.NaN; }
+  try { const v = 15060 + (input.dependents - 1) * 5380; results["fpl"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fpl"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["netIncome"])) / (toNumericFormulaValue(results["fpl"]))) * 100; results["incomePercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["incomePercent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["incomePercent"])) <= input.thresholdPercent ? 1 : 0; results["eligible"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eligible"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMedicaid_calculator(input: Medicaid_calculatorInput): Medicaid_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["eligible"]));
+  const totalWasteCost = toNumericFormulaValue(values["eligible"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateMedicaid_calculator(input: Medicaid_calculatorInput): M
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

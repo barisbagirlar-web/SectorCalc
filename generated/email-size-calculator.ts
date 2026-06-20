@@ -20,30 +20,26 @@ export const Email_size_calculatorInputSchema = z.object({
   metadataSize: z.number().default(1024),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Email_size_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.textCharacters + (input.attachmentCount * input.avgAttachmentSize * 1024) + (input.embeddedImageCount * input.avgImageSize * 1024) + input.metadataSize; results["totalBytes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBytes"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBytes"])) / 1024; results["totalKB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalKB"] = 0; }
-  try { const v = (asFormulaNumber(results["totalKB"])) / 1024; results["totalMB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMB"] = 0; }
-  try { const v = input.textCharacters / 1024; results["textKB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["textKB"] = 0; }
-  try { const v = input.attachmentCount * input.avgAttachmentSize; results["attachmentsKB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["attachmentsKB"] = 0; }
-  try { const v = input.embeddedImageCount * input.avgImageSize; results["imagesKB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["imagesKB"] = 0; }
-  try { const v = input.metadataSize / 1024; results["metadataKB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["metadataKB"] = 0; }
+  try { const v = input.textCharacters + (input.attachmentCount * input.avgAttachmentSize * 1024) + (input.embeddedImageCount * input.avgImageSize * 1024) + input.metadataSize; results["totalBytes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBytes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBytes"])) / 1024; results["totalKB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalKB"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalKB"])) / 1024; results["totalMB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMB"] = Number.NaN; }
+  try { const v = input.textCharacters / 1024; results["textKB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["textKB"] = Number.NaN; }
+  try { const v = input.attachmentCount * input.avgAttachmentSize; results["attachmentsKB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["attachmentsKB"] = Number.NaN; }
+  try { const v = input.embeddedImageCount * input.avgImageSize; results["imagesKB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["imagesKB"] = Number.NaN; }
+  try { const v = input.metadataSize / 1024; results["metadataKB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["metadataKB"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEmail_size_calculator(input: Email_size_calculatorInput): Email_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalKB"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalKB"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateEmail_size_calculator(input: Email_size_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

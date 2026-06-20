@@ -20,26 +20,22 @@ export const Whitening_calculatorInputSchema = z.object({
   finalb: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Whitening_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.finalL - input.initialL; results["lightnessShift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lightnessShift"] = 0; }
-  try { const v = input.finala - input.initiala; results["redGreenShift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["redGreenShift"] = 0; }
-  try { const v = input.finalb - input.initialb; results["yellowBlueShift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yellowBlueShift"] = 0; }
+  try { const v = input.finalL - input.initialL; results["lightnessShift"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lightnessShift"] = Number.NaN; }
+  try { const v = input.finala - input.initiala; results["redGreenShift"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["redGreenShift"] = Number.NaN; }
+  try { const v = input.finalb - input.initialb; results["yellowBlueShift"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yellowBlueShift"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWhitening_calculator(input: Whitening_calculatorInput): Whitening_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["yellowBlueShift"]));
+  const totalWasteCost = toNumericFormulaValue(values["yellowBlueShift"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateWhitening_calculator(input: Whitening_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

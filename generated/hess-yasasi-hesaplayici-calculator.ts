@@ -18,28 +18,24 @@ export const Hess_yasasi_hesaplayici_calculatorInputSchema = z.object({
   step4_dH: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hess_yasasi_hesaplayici_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.step1_dH * (input.number_of_steps >= 1 ? 1 : 0); results["step1_eff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["step1_eff"] = 0; }
-  try { const v = input.step2_dH * (input.number_of_steps >= 2 ? 1 : 0); results["step2_eff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["step2_eff"] = 0; }
-  try { const v = input.step3_dH * (input.number_of_steps >= 3 ? 1 : 0); results["step3_eff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["step3_eff"] = 0; }
-  try { const v = input.step4_dH * (input.number_of_steps >= 4 ? 1 : 0); results["step4_eff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["step4_eff"] = 0; }
-  try { const v = (asFormulaNumber(results["step1_eff"])) + (asFormulaNumber(results["step2_eff"])) + (asFormulaNumber(results["step3_eff"])) + (asFormulaNumber(results["step4_eff"])); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
+  try { const v = input.step1_dH * (input.number_of_steps >= 1 ? 1 : 0); results["step1_eff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["step1_eff"] = Number.NaN; }
+  try { const v = input.step2_dH * (input.number_of_steps >= 2 ? 1 : 0); results["step2_eff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["step2_eff"] = Number.NaN; }
+  try { const v = input.step3_dH * (input.number_of_steps >= 3 ? 1 : 0); results["step3_eff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["step3_eff"] = Number.NaN; }
+  try { const v = input.step4_dH * (input.number_of_steps >= 4 ? 1 : 0); results["step4_eff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["step4_eff"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["step1_eff"])) + (toNumericFormulaValue(results["step2_eff"])) + (toNumericFormulaValue(results["step3_eff"])) + (toNumericFormulaValue(results["step4_eff"])); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHess_yasasi_hesaplayici_calculator(input: Hess_yasasi_hesaplayici_calculatorInput): Hess_yasasi_hesaplayici_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total"]));
+  const totalWasteCost = toNumericFormulaValue(values["total"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHess_yasasi_hesaplayici_calculator(input: Hess_yasasi_h
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,27 +18,23 @@ export const Arbitrage_calculatorInputSchema = z.object({
   sellFee: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Arbitrage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.sellPrice - input.buyPrice) * input.quantity; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = input.buyFee + input.sellFee; results["totalCosts"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCosts"] = 0; }
-  try { const v = (input.sellPrice - input.buyPrice) * input.quantity - input.buyFee - input.sellFee; results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = (input.buyFee + input.sellFee) / (input.sellPrice - input.buyPrice); results["breakEvenVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakEvenVolume"] = 0; }
+  try { const v = (input.sellPrice - input.buyPrice) * input.quantity; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossProfit"] = Number.NaN; }
+  try { const v = input.buyFee + input.sellFee; results["totalCosts"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCosts"] = Number.NaN; }
+  try { const v = (input.sellPrice - input.buyPrice) * input.quantity - input.buyFee - input.sellFee; results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
+  try { const v = (input.buyFee + input.sellFee) / (input.sellPrice - input.buyPrice); results["breakEvenVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakEvenVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateArbitrage_calculator(input: Arbitrage_calculatorInput): Arbitrage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["netProfit"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateArbitrage_calculator(input: Arbitrage_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,29 +22,25 @@ export const _5k_calculatorInputSchema = z.object({
   sellingPricePerUnit: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: _5k_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.machineCostPerHour * input.machineHoursPerUnit * input.productionQuantity; results["totalMachineCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMachineCost"] = 0; }
-  try { const v = (input.materialCostPerUnit + input.laborCostPerUnit) * input.productionQuantity; results["totalVariableCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVariableCost"] = 0; }
-  try { const v = input.fixedCosts + (asFormulaNumber(results["totalVariableCost"])) + (asFormulaNumber(results["totalMachineCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.sellingPricePerUnit * input.productionQuantity; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRevenue"])) - (asFormulaNumber(results["totalCost"])); results["profit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profit"] = 0; }
-  try { const v = (asFormulaNumber(results["profit"])) / (asFormulaNumber(results["totalRevenue"])); results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMargin"] = 0; }
+  try { const v = input.machineCostPerHour * input.machineHoursPerUnit * input.productionQuantity; results["totalMachineCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMachineCost"] = Number.NaN; }
+  try { const v = (input.materialCostPerUnit + input.laborCostPerUnit) * input.productionQuantity; results["totalVariableCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVariableCost"] = Number.NaN; }
+  try { const v = input.fixedCosts + (toNumericFormulaValue(results["totalVariableCost"])) + (toNumericFormulaValue(results["totalMachineCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = input.sellingPricePerUnit * input.productionQuantity; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRevenue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRevenue"])) - (toNumericFormulaValue(results["totalCost"])); results["profit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["profit"])) / (toNumericFormulaValue(results["totalRevenue"])); results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMargin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate_5k_calculator(input: _5k_calculatorInput): _5k_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["profitMargin"]));
+  const totalWasteCost = toNumericFormulaValue(values["profitMargin"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculate_5k_calculator(input: _5k_calculatorInput): _5k_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

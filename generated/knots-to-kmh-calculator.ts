@@ -16,27 +16,23 @@ export const Knots_to_kmh_calculatorInputSchema = z.object({
   roundingMode: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Knots_to_kmh_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.knots * input.conversionFactor; results["rawKmh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawKmh"] = 0; }
-  try { const v = input.conversionFactor; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
-  try { const v = input.decimalPlaces; results["decimalPlaces"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["decimalPlaces"] = 0; }
-  try { const v = input.roundingMode; results["roundingMode"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roundingMode"] = 0; }
+  try { const v = input.knots * input.conversionFactor; results["rawKmh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawKmh"] = Number.NaN; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactor"] = Number.NaN; }
+  try { const v = input.decimalPlaces; results["decimalPlaces"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["decimalPlaces"] = Number.NaN; }
+  try { const v = input.roundingMode; results["roundingMode"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roundingMode"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKnots_to_kmh_calculator(input: Knots_to_kmh_calculatorInput): Knots_to_kmh_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["roundingMode"]));
+  const totalWasteCost = toNumericFormulaValue(values["roundingMode"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateKnots_to_kmh_calculator(input: Knots_to_kmh_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

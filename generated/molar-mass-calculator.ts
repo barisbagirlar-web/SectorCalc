@@ -24,28 +24,24 @@ export const Molar_mass_calculatorInputSchema = z.object({
   element4Mass: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Molar_mass_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.element1Count * input.element1Mass; results["contribution1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contribution1"] = 0; }
-  try { const v = input.element2Count * input.element2Mass; results["contribution2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contribution2"] = 0; }
-  try { const v = input.element3Count * input.element3Mass; results["contribution3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contribution3"] = 0; }
-  try { const v = input.element4Count * input.element4Mass; results["contribution4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contribution4"] = 0; }
-  try { const v = (asFormulaNumber(results["contribution1"])) + (asFormulaNumber(results["contribution2"])) + (asFormulaNumber(results["contribution3"])) + (asFormulaNumber(results["contribution4"])); results["molarMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molarMass"] = 0; }
+  try { const v = input.element1Count * input.element1Mass; results["contribution1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution1"] = Number.NaN; }
+  try { const v = input.element2Count * input.element2Mass; results["contribution2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution2"] = Number.NaN; }
+  try { const v = input.element3Count * input.element3Mass; results["contribution3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution3"] = Number.NaN; }
+  try { const v = input.element4Count * input.element4Mass; results["contribution4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contribution4"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["contribution1"])) + (toNumericFormulaValue(results["contribution2"])) + (toNumericFormulaValue(results["contribution3"])) + (toNumericFormulaValue(results["contribution4"])); results["molarMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molarMass"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMolar_mass_calculator(input: Molar_mass_calculatorInput): Molar_mass_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["molarMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["molarMass"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateMolar_mass_calculator(input: Molar_mass_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

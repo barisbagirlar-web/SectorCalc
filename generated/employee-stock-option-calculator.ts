@@ -16,25 +16,21 @@ export const Employee_stock_option_calculatorInputSchema = z.object({
   vestedOptions: z.number().default(500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Employee_stock_option_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.vestedOptions * input.strikePrice; results["exerciseCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exerciseCost"] = 0; }
-  try { const v = input.vestedOptions * input.currentPrice; results["marketValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["marketValue"] = 0; }
+  try { const v = input.vestedOptions * input.strikePrice; results["exerciseCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exerciseCost"] = Number.NaN; }
+  try { const v = input.vestedOptions * input.currentPrice; results["marketValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["marketValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEmployee_stock_option_calculator(input: Employee_stock_option_calculatorInput): Employee_stock_option_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["marketValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["marketValue"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateEmployee_stock_option_calculator(input: Employee_stock_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

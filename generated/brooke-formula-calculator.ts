@@ -18,28 +18,24 @@ export const Brooke_formula_calculatorInputSchema = z.object({
   secondPeriodHours: z.number().default(16),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Brooke_formula_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fluidFactor * input.weight * input.tbsa; results["totalFluid"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFluid"] = 0; }
-  try { const v = (asFormulaNumber(results["totalFluid"])) / 2; results["firstHalf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["firstHalf"] = 0; }
-  try { const v = (asFormulaNumber(results["totalFluid"])) / 2; results["secondHalf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["secondHalf"] = 0; }
-  try { const v = (asFormulaNumber(results["firstHalf"])) / input.firstPeriodHours; results["firstHourlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["firstHourlyRate"] = 0; }
-  try { const v = (asFormulaNumber(results["secondHalf"])) / input.secondPeriodHours; results["secondHourlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["secondHourlyRate"] = 0; }
+  try { const v = input.fluidFactor * input.weight * input.tbsa; results["totalFluid"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFluid"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalFluid"])) / 2; results["firstHalf"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["firstHalf"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalFluid"])) / 2; results["secondHalf"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["secondHalf"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["firstHalf"])) / input.firstPeriodHours; results["firstHourlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["firstHourlyRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["secondHalf"])) / input.secondPeriodHours; results["secondHourlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["secondHourlyRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBrooke_formula_calculator(input: Brooke_formula_calculatorInput): Brooke_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFluid"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalFluid"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateBrooke_formula_calculator(input: Brooke_formula_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

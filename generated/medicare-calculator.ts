@@ -14,25 +14,21 @@ export const Medicare_calculatorInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Medicare_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.filingStatus === 0 ? 200000 : 250000); results["threshold"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["threshold"] = 0; }
-  try { const v = (input.filingStatus === 0 ? 200000 : 250000); results["threshold_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["threshold_aux"] = 0; }
+  try { const v = (input.filingStatus === 0 ? 200000 : 250000); results["threshold"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["threshold"] = Number.NaN; }
+  try { const v = (input.filingStatus === 0 ? 200000 : 250000); results["threshold_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["threshold_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMedicare_calculator(input: Medicare_calculatorInput): Medicare_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["threshold_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["threshold_aux"]);
   const breakdown = {
     
   };
@@ -40,7 +36,7 @@ export function calculateMedicare_calculator(input: Medicare_calculatorInput): M
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

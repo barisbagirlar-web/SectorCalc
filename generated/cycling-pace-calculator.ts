@@ -16,27 +16,23 @@ export const Cycling_pace_calculatorInputSchema = z.object({
   seconds: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cycling_pace_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalTimeSec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTimeSec"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTimeSec"])) / 60; results["totalTimeMin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTimeMin"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTimeMin"])) / input.distance; results["pace"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pace"] = 0; }
-  try { const v = input.distance / ((asFormulaNumber(results["totalTimeSec"])) / 3600); results["speed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speed"] = 0; }
+  try { const v = input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalTimeSec"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTimeSec"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTimeSec"])) / 60; results["totalTimeMin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTimeMin"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTimeMin"])) / input.distance; results["pace"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pace"] = Number.NaN; }
+  try { const v = input.distance / ((toNumericFormulaValue(results["totalTimeSec"])) / 3600); results["speed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["speed"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCycling_pace_calculator(input: Cycling_pace_calculatorInput): Cycling_pace_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pace"]));
+  const totalWasteCost = toNumericFormulaValue(values["pace"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateCycling_pace_calculator(input: Cycling_pace_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,29 +18,25 @@ export const Ranson_criteria_calculatorInputSchema = z.object({
   ast: z.number().default(250),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ranson_criteria_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.age > 55 ? 1 : 0; results["ageCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ageCriteria"] = 0; }
-  try { const v = input.wbc > 16000 ? 1 : 0; results["wbcCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wbcCriteria"] = 0; }
-  try { const v = input.glucose > 200 ? 1 : 0; results["glucoseCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["glucoseCriteria"] = 0; }
-  try { const v = input.ldh > 350 ? 1 : 0; results["ldhCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ldhCriteria"] = 0; }
-  try { const v = input.ast > 250 ? 1 : 0; results["astCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["astCriteria"] = 0; }
-  try { const v = (asFormulaNumber(results["ageCriteria"])) + (asFormulaNumber(results["wbcCriteria"])) + (asFormulaNumber(results["glucoseCriteria"])) + (asFormulaNumber(results["ldhCriteria"])) + (asFormulaNumber(results["astCriteria"])); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
+  try { const v = input.age > 55 ? 1 : 0; results["ageCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ageCriteria"] = Number.NaN; }
+  try { const v = input.wbc > 16000 ? 1 : 0; results["wbcCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wbcCriteria"] = Number.NaN; }
+  try { const v = input.glucose > 200 ? 1 : 0; results["glucoseCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["glucoseCriteria"] = Number.NaN; }
+  try { const v = input.ldh > 350 ? 1 : 0; results["ldhCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ldhCriteria"] = Number.NaN; }
+  try { const v = input.ast > 250 ? 1 : 0; results["astCriteria"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["astCriteria"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ageCriteria"])) + (toNumericFormulaValue(results["wbcCriteria"])) + (toNumericFormulaValue(results["glucoseCriteria"])) + (toNumericFormulaValue(results["ldhCriteria"])) + (toNumericFormulaValue(results["astCriteria"])); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["score"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRanson_criteria_calculator(input: Ranson_criteria_calculatorInput): Ranson_criteria_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["score"]));
+  const totalWasteCost = toNumericFormulaValue(values["score"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateRanson_criteria_calculator(input: Ranson_criteria_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

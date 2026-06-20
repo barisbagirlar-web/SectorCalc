@@ -16,25 +16,21 @@ export const Blood_pressure_calculatorInputSchema = z.object({
   age: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Blood_pressure_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.diastolic + (input.systolic - input.diastolic) / 3; results["map"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["map"] = 0; }
-  try { const v = input.systolic - input.diastolic; results["pulsePressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pulsePressure"] = 0; }
+  try { const v = input.diastolic + (input.systolic - input.diastolic) / 3; results["map"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["map"] = Number.NaN; }
+  try { const v = input.systolic - input.diastolic; results["pulsePressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pulsePressure"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBlood_pressure_calculator(input: Blood_pressure_calculatorInput): Blood_pressure_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pulsePressure"]));
+  const totalWasteCost = toNumericFormulaValue(values["pulsePressure"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateBlood_pressure_calculator(input: Blood_pressure_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

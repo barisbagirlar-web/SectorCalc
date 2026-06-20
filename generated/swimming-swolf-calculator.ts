@@ -16,27 +16,23 @@ export const Swimming_swolf_calculatorInputSchema = z.object({
   numberOfLengths: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Swimming_swolf_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.timeMinutes*60 + input.timeSeconds)/input.numberOfLengths + input.totalStrokes/input.numberOfLengths; results["swolf"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["swolf"] = 0; }
-  try { const v = (input.timeMinutes*60 + input.timeSeconds)/input.numberOfLengths; results["timePerLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["timePerLength"] = 0; }
-  try { const v = input.totalStrokes/input.numberOfLengths; results["strokesPerLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["strokesPerLength"] = 0; }
-  try { const v = input.timeMinutes*60 + input.timeSeconds; results["totalTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTimeSeconds"] = 0; }
+  try { const v = (input.timeMinutes*60 + input.timeSeconds)/input.numberOfLengths + input.totalStrokes/input.numberOfLengths; results["swolf"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["swolf"] = Number.NaN; }
+  try { const v = (input.timeMinutes*60 + input.timeSeconds)/input.numberOfLengths; results["timePerLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["timePerLength"] = Number.NaN; }
+  try { const v = input.totalStrokes/input.numberOfLengths; results["strokesPerLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["strokesPerLength"] = Number.NaN; }
+  try { const v = input.timeMinutes*60 + input.timeSeconds; results["totalTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTimeSeconds"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSwimming_swolf_calculator(input: Swimming_swolf_calculatorInput): Swimming_swolf_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["swolf"]));
+  const totalWasteCost = toNumericFormulaValue(values["swolf"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateSwimming_swolf_calculator(input: Swimming_swolf_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,26 +22,22 @@ export const Induction_calculatorInputSchema = z.object({
   powerFactor: z.number().default(0.85),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Induction_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 120 * input.frequency / input.poles; results["synchronousSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["synchronousSpeed"] = 0; }
-  try { const v = (asFormulaNumber(results["synchronousSpeed"])) * (1 - input.slip / 100); results["rotorSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rotorSpeed"] = 0; }
-  try { const v = (input.outputPower * 9550) / (asFormulaNumber(results["rotorSpeed"])); results["torque"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["torque"] = 0; }
+  try { const v = 120 * input.frequency / input.poles; results["synchronousSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["synchronousSpeed"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["synchronousSpeed"])) * (1 - input.slip / 100); results["rotorSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rotorSpeed"] = Number.NaN; }
+  try { const v = (input.outputPower * 9550) / (toNumericFormulaValue(results["rotorSpeed"])); results["torque"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["torque"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInduction_calculator(input: Induction_calculatorInput): Induction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["torque"]));
+  const totalWasteCost = toNumericFormulaValue(values["torque"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateInduction_calculator(input: Induction_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

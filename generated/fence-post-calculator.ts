@@ -20,25 +20,21 @@ export const Fence_post_calculatorInputSchema = z.object({
   postDepth: z.number().default(0.6),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fence_post_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.fenceLength) * (input.postSpacing) * (input.numberOfCorners) * (input.numberOfGateOpenings) * (input.postDiameter) * (input.postDepth); results["concretePerPost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerPost"] = 0; }
-  try { const v = (input.fenceLength) * (input.postSpacing) * (input.numberOfCorners); results["concretePerPost_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerPost_aux"] = 0; }
+  try { const v = (input.fenceLength) * (input.postSpacing) * (input.numberOfCorners) * (input.numberOfGateOpenings) * (input.postDiameter) * (input.postDepth); results["concretePerPost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["concretePerPost"] = Number.NaN; }
+  try { const v = (input.fenceLength) * (input.postSpacing) * (input.numberOfCorners); results["concretePerPost_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["concretePerPost_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFence_post_calculator(input: Fence_post_calculatorInput): Fence_post_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["concretePerPost_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["concretePerPost_aux"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateFence_post_calculator(input: Fence_post_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

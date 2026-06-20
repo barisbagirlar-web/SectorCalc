@@ -18,26 +18,22 @@ export const Watt_hour_calculatorInputSchema = z.object({
   efficiency: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Watt_hour_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.voltage * input.current * input.powerFactor * (input.efficiency / 100); results["powerW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["powerW"] = 0; }
-  try { const v = (asFormulaNumber(results["powerW"])) * input.time; results["energyWh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyWh"] = 0; }
-  try { const v = (asFormulaNumber(results["energyWh"])) / 1000; results["energyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyKwh"] = 0; }
+  try { const v = input.voltage * input.current * input.powerFactor * (input.efficiency / 100); results["powerW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["powerW"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["powerW"])) * input.time; results["energyWh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyWh"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energyWh"])) / 1000; results["energyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyKwh"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWatt_hour_calculator(input: Watt_hour_calculatorInput): Watt_hour_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["energyWh"]));
+  const totalWasteCost = toNumericFormulaValue(values["energyWh"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateWatt_hour_calculator(input: Watt_hour_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

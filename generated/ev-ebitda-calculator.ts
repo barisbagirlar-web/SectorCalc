@@ -20,25 +20,21 @@ export const Ev_ebitda_calculatorInputSchema = z.object({
   ebitda: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ev_ebitda_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.market_cap + input.total_debt + input.minority_interest + input.preferred_stock - input.cash_equivalents; results["enterprise_value"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["enterprise_value"] = 0; }
-  try { const v = (asFormulaNumber(results["enterprise_value"])) / input.ebitda; results["ev_ebitda_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ev_ebitda_ratio"] = 0; }
+  try { const v = input.market_cap + input.total_debt + input.minority_interest + input.preferred_stock - input.cash_equivalents; results["enterprise_value"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["enterprise_value"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["enterprise_value"])) / input.ebitda; results["ev_ebitda_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ev_ebitda_ratio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEv_ebitda_calculator(input: Ev_ebitda_calculatorInput): Ev_ebitda_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ev_ebitda_ratio"]));
+  const totalWasteCost = toNumericFormulaValue(values["ev_ebitda_ratio"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateEv_ebitda_calculator(input: Ev_ebitda_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Parallel_resistor_calculatorInputSchema = z.object({
   resistor4: z.number().default(4000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Parallel_resistor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / (1/input.resistor1 + 1/input.resistor2 + 1/input.resistor3 + 1/input.resistor4); results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalResistance"] = 0; }
-  try { const v = 1/input.resistor1 + 1/input.resistor2 + 1/input.resistor3 + 1/input.resistor4; results["conductanceSum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conductanceSum"] = 0; }
+  try { const v = 1 / (1/input.resistor1 + 1/input.resistor2 + 1/input.resistor3 + 1/input.resistor4); results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalResistance"] = Number.NaN; }
+  try { const v = 1/input.resistor1 + 1/input.resistor2 + 1/input.resistor3 + 1/input.resistor4; results["conductanceSum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conductanceSum"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateParallel_resistor_calculator(input: Parallel_resistor_calculatorInput): Parallel_resistor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalResistance"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalResistance"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateParallel_resistor_calculator(input: Parallel_resistor_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

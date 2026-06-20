@@ -18,25 +18,21 @@ export const Km2_to_square_miles_calculatorInputSchema = z.object({
   threshold: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Km2_to_square_miles_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.areaKm2 * input.factor * input.multiplier; results["raw_sqmi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["raw_sqmi"] = 0; }
-  try { const v = input.factor; results["factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor"] = 0; }
+  try { const v = input.areaKm2 * input.factor * input.multiplier; results["raw_sqmi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["raw_sqmi"] = Number.NaN; }
+  try { const v = input.factor; results["factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKm2_to_square_miles_calculator(input: Km2_to_square_miles_calculatorInput): Km2_to_square_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["factor"]));
+  const totalWasteCost = toNumericFormulaValue(values["factor"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateKm2_to_square_miles_calculator(input: Km2_to_square_mil
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

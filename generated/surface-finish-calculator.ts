@@ -18,26 +18,22 @@ export const Surface_finish_calculatorInputSchema = z.object({
   desiredRa: z.number().default(3.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Surface_finish_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 31.25 * input.feedRate * input.feedRate / input.noseRadius; results["actualRa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualRa"] = 0; }
-  try { const v = 31.25 * input.feedRate * input.feedRate / input.desiredRa; results["recommendedNoseRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recommendedNoseRadius"] = 0; }
-  try { const v = 125 * input.feedRate * input.feedRate / input.noseRadius; results["actualRz"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualRz"] = 0; }
+  try { const v = 31.25 * input.feedRate * input.feedRate / input.noseRadius; results["actualRa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["actualRa"] = Number.NaN; }
+  try { const v = 31.25 * input.feedRate * input.feedRate / input.desiredRa; results["recommendedNoseRadius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recommendedNoseRadius"] = Number.NaN; }
+  try { const v = 125 * input.feedRate * input.feedRate / input.noseRadius; results["actualRz"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["actualRz"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSurface_finish_calculator(input: Surface_finish_calculatorInput): Surface_finish_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["actualRa"]));
+  const totalWasteCost = toNumericFormulaValue(values["actualRa"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateSurface_finish_calculator(input: Surface_finish_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

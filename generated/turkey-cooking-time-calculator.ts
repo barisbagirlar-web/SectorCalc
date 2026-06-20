@@ -16,32 +16,28 @@ export const Turkey_cooking_time_calculatorInputSchema = z.object({
   startTempC: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Turkey_cooking_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weightKg * 2.20462; results["weightLbs"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightLbs"] = 0; }
-  try { const v = input.ovenTempC * 9/5 + 32; results["ovenTempF"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ovenTempF"] = 0; }
-  try { const v = input.isStuffed * 5; results["stuffingRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stuffingRate"] = 0; }
-  try { const v = 17.5 + (asFormulaNumber(results["stuffingRate"])); results["baseRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseRate"] = 0; }
-  try { const v = (asFormulaNumber(results["weightLbs"])) * (asFormulaNumber(results["baseRate"])); results["baseTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseTime"] = 0; }
-  try { const v = (asFormulaNumber(results["baseTime"])) * (325 / (asFormulaNumber(results["ovenTempF"]))); results["adjustedTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedTime"] = 0; }
-  try { const v = (74 - input.startTempC) / 70; results["startFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["startFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedTime"])) * (asFormulaNumber(results["startFactor"])); results["finalTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalTimeMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["finalTimeMinutes"])) / 60; results["finalTimeHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalTimeHours"] = 0; }
+  try { const v = input.weightKg * 2.20462; results["weightLbs"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightLbs"] = Number.NaN; }
+  try { const v = input.ovenTempC * 9/5 + 32; results["ovenTempF"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ovenTempF"] = Number.NaN; }
+  try { const v = input.isStuffed * 5; results["stuffingRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stuffingRate"] = Number.NaN; }
+  try { const v = 17.5 + (toNumericFormulaValue(results["stuffingRate"])); results["baseRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weightLbs"])) * (toNumericFormulaValue(results["baseRate"])); results["baseTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseTime"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseTime"])) * (325 / (toNumericFormulaValue(results["ovenTempF"]))); results["adjustedTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedTime"] = Number.NaN; }
+  try { const v = (74 - input.startTempC) / 70; results["startFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["startFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedTime"])) * (toNumericFormulaValue(results["startFactor"])); results["finalTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalTimeMinutes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["finalTimeMinutes"])) / 60; results["finalTimeHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalTimeHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTurkey_cooking_time_calculator(input: Turkey_cooking_time_calculatorInput): Turkey_cooking_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalTimeMinutes"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalTimeMinutes"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateTurkey_cooking_time_calculator(input: Turkey_cooking_ti
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

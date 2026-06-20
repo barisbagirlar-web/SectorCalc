@@ -66288,17 +66288,13 @@
     "submitting": "جارٍ الإرسال…",
     "success": "Thank you — your note was queued for review.",
     "issueTypes": {
-      "wrong-result": "Incorrect result",
-      "formula-suggestion": "اقتراح صيغة",
-      "unit-error": "خطأ في الوحدة",
-      "translation-error": "خطأ في الترجمة",
-      "other": "Other",
       "wrong_result": "نتيجة خاطئة",
-      "missing_input": "مدخلات ناقصة",
-      "unit_issue": "مشكلة في الوحدة",
+      "missing_input": "مدخلات ناقصة أو غير واضحة",
+      "unit_issue": "مشكلة في الوحدة أو التحويل",
       "unclear_explanation": "شرح غير واضح",
       "sector_assumption_issue": "مشكلة في افتراض القطاع",
-      "improvement_request": "طلب تحسين"
+      "improvement_request": "طلب تحسين",
+      "other": "أخرى"
     },
     "error": {
       "submitFailed": "Could not send feedback. Try again shortly.",

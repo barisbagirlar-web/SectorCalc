@@ -116,8 +116,8 @@ function generateFormulaEvaluator(
   const formulaEntries = Object.entries(schema.formulas);
   if (formulaEntries.length === 0) {
     return {
-      code: `function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+      code: `function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number> {
@@ -144,13 +144,13 @@ function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number>
 
     if (!compiled || !isSafeCompiledFormulaExpression(compiled)) {
       compileFailures += 1;
-      lines.push(`results[${JSON.stringify(key)}] = 0;`);
+      lines.push(`results[${JSON.stringify(key)}] = Number.NaN;`);
       continue;
     }
 
     const tsExpr = toTypeScriptNumericExpression(compiled);
     lines.push(
-      `try { const v = ${tsExpr}; results[${JSON.stringify(key)}] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results[${JSON.stringify(key)}] = 0; }`,
+      `try { const v = ${tsExpr}; results[${JSON.stringify(key)}] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results[${JSON.stringify(key)}] = Number.NaN; }`,
     );
   }
 
@@ -158,8 +158,8 @@ function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number>
 
   return {
     compileFailures,
-    code: `function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+    code: `function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: ${exportBase}Input): Record<string, number> {
@@ -210,13 +210,9 @@ function generateCalculateFunction(
     : `toNumericFormulaValue(values[${JSON.stringify(primaryKey)}])`;
 
   return `
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}Output {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, ${resolvedPrimaryExpr});
+  const totalWasteCost = ${resolvedPrimaryExpr};
   const breakdown = {
     ${breakdownKeys
       .map((key) => {
@@ -231,7 +227,7 @@ export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}
   const suggestedActions: string[] = ${JSON.stringify(schema.outputs.suggestedActions)};
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

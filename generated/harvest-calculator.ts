@@ -16,27 +16,23 @@ export const Harvest_calculatorInputSchema = z.object({
   storageLossPercent: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Harvest_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fieldArea * input.cropYieldPerHectare; results["grossHarvest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossHarvest"] = 0; }
-  try { const v = (asFormulaNumber(results["grossHarvest"])) * (input.fieldLossPercent / 100); results["fieldLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fieldLoss"] = 0; }
-  try { const v = ((asFormulaNumber(results["grossHarvest"])) - (asFormulaNumber(results["fieldLoss"]))) * (input.storageLossPercent / 100); results["storageLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["storageLoss"] = 0; }
-  try { const v = (asFormulaNumber(results["grossHarvest"])) - (asFormulaNumber(results["fieldLoss"])) - (asFormulaNumber(results["storageLoss"])); results["netHarvest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netHarvest"] = 0; }
+  try { const v = input.fieldArea * input.cropYieldPerHectare; results["grossHarvest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossHarvest"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossHarvest"])) * (input.fieldLossPercent / 100); results["fieldLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fieldLoss"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["grossHarvest"])) - (toNumericFormulaValue(results["fieldLoss"]))) * (input.storageLossPercent / 100); results["storageLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["storageLoss"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossHarvest"])) - (toNumericFormulaValue(results["fieldLoss"])) - (toNumericFormulaValue(results["storageLoss"])); results["netHarvest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netHarvest"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHarvest_calculator(input: Harvest_calculatorInput): Harvest_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netHarvest"]));
+  const totalWasteCost = toNumericFormulaValue(values["netHarvest"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateHarvest_calculator(input: Harvest_calculatorInput): Har
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

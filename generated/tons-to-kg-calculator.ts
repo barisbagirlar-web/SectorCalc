@@ -16,28 +16,24 @@ export const Tons_to_kg_calculatorInputSchema = z.object({
   knownKilograms: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Tons_to_kg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.metricTons * 1000) + (input.shortTons * 907.18474) + (input.longTons * 1016.0469088); results["totalKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalKg"] = 0; }
-  try { const v = input.metricTons * 1000; results["metricKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["metricKg"] = 0; }
-  try { const v = input.shortTons * 907.18474; results["shortKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shortKg"] = 0; }
-  try { const v = input.longTons * 1016.0469088; results["longKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["longKg"] = 0; }
-  try { const v = input.knownKilograms - ((input.metricTons * 1000) + (input.shortTons * 907.18474) + (input.longTons * 1016.0469088)); results["difference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["difference"] = 0; }
+  try { const v = (input.metricTons * 1000) + (input.shortTons * 907.18474) + (input.longTons * 1016.0469088); results["totalKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalKg"] = Number.NaN; }
+  try { const v = input.metricTons * 1000; results["metricKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["metricKg"] = Number.NaN; }
+  try { const v = input.shortTons * 907.18474; results["shortKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shortKg"] = Number.NaN; }
+  try { const v = input.longTons * 1016.0469088; results["longKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["longKg"] = Number.NaN; }
+  try { const v = input.knownKilograms - ((input.metricTons * 1000) + (input.shortTons * 907.18474) + (input.longTons * 1016.0469088)); results["difference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["difference"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTons_to_kg_calculator(input: Tons_to_kg_calculatorInput): Tons_to_kg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalKg"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalKg"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateTons_to_kg_calculator(input: Tons_to_kg_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,30 +20,26 @@ export const Diabetes_risk_calculatorInputSchema = z.object({
   physicalActivity: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Diabetes_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.1 * input.age; results["ageContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ageContribution"] = 0; }
-  try { const v = 0.5 * input.bmi; results["bmiContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmiContribution"] = 0; }
-  try { const v = 0.3 * input.fastingGlucose; results["fastingGlucoseContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fastingGlucoseContribution"] = 0; }
-  try { const v = 1.5 * input.hba1c; results["hba1cContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hba1cContribution"] = 0; }
-  try { const v = 2 * input.familyHistory; results["familyHistoryContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["familyHistoryContribution"] = 0; }
-  try { const v = -1 * input.physicalActivity; results["physicalActivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["physicalActivityContribution"] = 0; }
-  try { const v = 0.1 * input.age + 0.5 * input.bmi + 0.3 * input.fastingGlucose + 1.5 * input.hba1c + 2 * input.familyHistory - 1 * input.physicalActivity; results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["riskScore"] = 0; }
+  try { const v = 0.1 * input.age; results["ageContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ageContribution"] = Number.NaN; }
+  try { const v = 0.5 * input.bmi; results["bmiContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmiContribution"] = Number.NaN; }
+  try { const v = 0.3 * input.fastingGlucose; results["fastingGlucoseContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fastingGlucoseContribution"] = Number.NaN; }
+  try { const v = 1.5 * input.hba1c; results["hba1cContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hba1cContribution"] = Number.NaN; }
+  try { const v = 2 * input.familyHistory; results["familyHistoryContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["familyHistoryContribution"] = Number.NaN; }
+  try { const v = -1 * input.physicalActivity; results["physicalActivityContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["physicalActivityContribution"] = Number.NaN; }
+  try { const v = 0.1 * input.age + 0.5 * input.bmi + 0.3 * input.fastingGlucose + 1.5 * input.hba1c + 2 * input.familyHistory - 1 * input.physicalActivity; results["riskScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["riskScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDiabetes_risk_calculator(input: Diabetes_risk_calculatorInput): Diabetes_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["riskScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["riskScore"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateDiabetes_risk_calculator(input: Diabetes_risk_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

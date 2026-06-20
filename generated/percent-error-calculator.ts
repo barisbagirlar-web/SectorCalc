@@ -18,25 +18,21 @@ export const Percent_error_calculatorInputSchema = z.object({
   coverageFactor: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Percent_error_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.measuredValue - input.trueValue; results["error"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["error"] = 0; }
-  try { const v = input.coverageFactor * input.measurementUncertainty; results["expandedUncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expandedUncertainty"] = 0; }
+  try { const v = input.measuredValue - input.trueValue; results["error"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["error"] = Number.NaN; }
+  try { const v = input.coverageFactor * input.measurementUncertainty; results["expandedUncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expandedUncertainty"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePercent_error_calculator(input: Percent_error_calculatorInput): Percent_error_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["expandedUncertainty"]));
+  const totalWasteCost = toNumericFormulaValue(values["expandedUncertainty"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculatePercent_error_calculator(input: Percent_error_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

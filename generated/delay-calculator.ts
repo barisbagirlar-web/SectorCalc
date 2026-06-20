@@ -18,29 +18,25 @@ export const Delay_calculatorInputSchema = z.object({
   unplannedDelay: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Delay_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.setupDelay + input.queueDelay + input.processDelay + input.transportDelay + input.unplannedDelay; results["totalDelay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDelay"] = 0; }
-  try { const v = input.setupDelay; results["setupDelay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["setupDelay"] = 0; }
-  try { const v = input.queueDelay; results["queueDelay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["queueDelay"] = 0; }
-  try { const v = input.processDelay; results["processDelay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["processDelay"] = 0; }
-  try { const v = input.transportDelay; results["transportDelay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["transportDelay"] = 0; }
-  try { const v = input.unplannedDelay; results["unplannedDelay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unplannedDelay"] = 0; }
+  try { const v = input.setupDelay + input.queueDelay + input.processDelay + input.transportDelay + input.unplannedDelay; results["totalDelay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDelay"] = Number.NaN; }
+  try { const v = input.setupDelay; results["setupDelay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["setupDelay"] = Number.NaN; }
+  try { const v = input.queueDelay; results["queueDelay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["queueDelay"] = Number.NaN; }
+  try { const v = input.processDelay; results["processDelay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["processDelay"] = Number.NaN; }
+  try { const v = input.transportDelay; results["transportDelay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["transportDelay"] = Number.NaN; }
+  try { const v = input.unplannedDelay; results["unplannedDelay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["unplannedDelay"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDelay_calculator(input: Delay_calculatorInput): Delay_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDelay"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDelay"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateDelay_calculator(input: Delay_calculatorInput): Delay_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

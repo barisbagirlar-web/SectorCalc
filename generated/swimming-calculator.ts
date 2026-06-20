@@ -18,28 +18,24 @@ export const Swimming_calculatorInputSchema = z.object({
   poolLength: z.number().default(25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Swimming_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.time / (input.distance / 100); results["averagePacePer100m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averagePacePer100m"] = 0; }
-  try { const v = input.time * input.laps + input.restTime * (input.laps - 1); results["totalTimeWithRest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTimeWithRest"] = 0; }
-  try { const v = input.distance * input.laps; results["totalDistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDistance"] = 0; }
-  try { const v = input.distance / input.poolLength; results["lapsPerPool"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lapsPerPool"] = 0; }
-  try { const v = input.distance / input.time; results["speedMetersPerSecond"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speedMetersPerSecond"] = 0; }
+  try { const v = input.time / (input.distance / 100); results["averagePacePer100m"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averagePacePer100m"] = Number.NaN; }
+  try { const v = input.time * input.laps + input.restTime * (input.laps - 1); results["totalTimeWithRest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTimeWithRest"] = Number.NaN; }
+  try { const v = input.distance * input.laps; results["totalDistance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDistance"] = Number.NaN; }
+  try { const v = input.distance / input.poolLength; results["lapsPerPool"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lapsPerPool"] = Number.NaN; }
+  try { const v = input.distance / input.time; results["speedMetersPerSecond"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["speedMetersPerSecond"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSwimming_calculator(input: Swimming_calculatorInput): Swimming_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["averagePacePer100m"]));
+  const totalWasteCost = toNumericFormulaValue(values["averagePacePer100m"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateSwimming_calculator(input: Swimming_calculatorInput): S
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

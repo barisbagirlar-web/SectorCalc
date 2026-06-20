@@ -22,26 +22,22 @@ export const Skincare_calculatorInputSchema = z.object({
   profitMarginPercent: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Skincare_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.ingredientCostPerKg * input.ingredientUsageGramsPerUnit / 1000) + input.packagingCostPerUnit + ((input.laborCostPerBatch + input.overheadCostPerBatch) / input.batchSize)); results["costPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerUnit"] = 0; }
-  try { const v = ((input.ingredientCostPerKg * input.ingredientUsageGramsPerUnit / 1000) + input.packagingCostPerUnit + ((input.laborCostPerBatch + input.overheadCostPerBatch) / input.batchSize)) / (1 - input.profitMarginPercent / 100); results["sellingPricePerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellingPricePerUnit"] = 0; }
-  try { const v = (((input.ingredientCostPerKg * input.ingredientUsageGramsPerUnit / 1000) + input.packagingCostPerUnit + ((input.laborCostPerBatch + input.overheadCostPerBatch) / input.batchSize)) / (1 - input.profitMarginPercent / 100)) - ((input.ingredientCostPerKg * input.ingredientUsageGramsPerUnit / 1000) + input.packagingCostPerUnit + ((input.laborCostPerBatch + input.overheadCostPerBatch) / input.batchSize)); results["profitPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitPerUnit"] = 0; }
+  try { const v = ((input.ingredientCostPerKg * input.ingredientUsageGramsPerUnit / 1000) + input.packagingCostPerUnit + ((input.laborCostPerBatch + input.overheadCostPerBatch) / input.batchSize)); results["costPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerUnit"] = Number.NaN; }
+  try { const v = ((input.ingredientCostPerKg * input.ingredientUsageGramsPerUnit / 1000) + input.packagingCostPerUnit + ((input.laborCostPerBatch + input.overheadCostPerBatch) / input.batchSize)) / (1 - input.profitMarginPercent / 100); results["sellingPricePerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sellingPricePerUnit"] = Number.NaN; }
+  try { const v = (((input.ingredientCostPerKg * input.ingredientUsageGramsPerUnit / 1000) + input.packagingCostPerUnit + ((input.laborCostPerBatch + input.overheadCostPerBatch) / input.batchSize)) / (1 - input.profitMarginPercent / 100)) - ((input.ingredientCostPerKg * input.ingredientUsageGramsPerUnit / 1000) + input.packagingCostPerUnit + ((input.laborCostPerBatch + input.overheadCostPerBatch) / input.batchSize)); results["profitPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitPerUnit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSkincare_calculator(input: Skincare_calculatorInput): Skincare_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sellingPricePerUnit"]));
+  const totalWasteCost = toNumericFormulaValue(values["sellingPricePerUnit"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateSkincare_calculator(input: Skincare_calculatorInput): S
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

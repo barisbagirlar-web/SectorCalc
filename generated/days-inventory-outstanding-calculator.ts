@@ -16,25 +16,21 @@ export const Days_inventory_outstanding_calculatorInputSchema = z.object({
   inventoryTurnover: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Days_inventory_outstanding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (((input.inventoryTurnover > 0) ? (input.periodDays / input.inventoryTurnover) : ((input.averageInventory > 0 && input.costOfGoodsSold > 0) ? (input.periodDays * input.averageInventory / input.costOfGoodsSold) : 0)) ? 1 : 0); results["daysInventoryOutstanding"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysInventoryOutstanding"] = 0; }
-  try { const v = (((input.inventoryTurnover > 0) ? input.inventoryTurnover : ((input.averageInventory > 0 && input.costOfGoodsSold > 0) ? (input.costOfGoodsSold / input.averageInventory) : 0)) ? 1 : 0); results["inventoryTurnoverRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inventoryTurnoverRatio"] = 0; }
+  try { const v = (((input.inventoryTurnover > 0) ? (input.periodDays / input.inventoryTurnover) : ((input.averageInventory > 0 && input.costOfGoodsSold > 0) ? (input.periodDays * input.averageInventory / input.costOfGoodsSold) : 0)) ? 1 : 0); results["daysInventoryOutstanding"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["daysInventoryOutstanding"] = Number.NaN; }
+  try { const v = (((input.inventoryTurnover > 0) ? input.inventoryTurnover : ((input.averageInventory > 0 && input.costOfGoodsSold > 0) ? (input.costOfGoodsSold / input.averageInventory) : 0)) ? 1 : 0); results["inventoryTurnoverRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inventoryTurnoverRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDays_inventory_outstanding_calculator(input: Days_inventory_outstanding_calculatorInput): Days_inventory_outstanding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["daysInventoryOutstanding"]));
+  const totalWasteCost = toNumericFormulaValue(values["daysInventoryOutstanding"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateDays_inventory_outstanding_calculator(input: Days_inven
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

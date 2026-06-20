@@ -16,28 +16,24 @@ export const Take_home_pay_calculatorInputSchema = z.object({
   otherDeductions: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Take_home_pay_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grossSalary * (input.incomeTaxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = input.grossSalary * (input.socialSecurityRate / 100); results["socialSecurityAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["socialSecurityAmount"] = 0; }
-  try { const v = input.otherDeductions; results["otherDeductionsAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["otherDeductionsAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["taxAmount"])) + (asFormulaNumber(results["socialSecurityAmount"])) + input.otherDeductions; results["totalDeductions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDeductions"] = 0; }
-  try { const v = input.grossSalary - (asFormulaNumber(results["totalDeductions"])); results["netPay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netPay"] = 0; }
+  try { const v = input.grossSalary * (input.incomeTaxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = input.grossSalary * (input.socialSecurityRate / 100); results["socialSecurityAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["socialSecurityAmount"] = Number.NaN; }
+  try { const v = input.otherDeductions; results["otherDeductionsAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["otherDeductionsAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxAmount"])) + (toNumericFormulaValue(results["socialSecurityAmount"])) + input.otherDeductions; results["totalDeductions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDeductions"] = Number.NaN; }
+  try { const v = input.grossSalary - (toNumericFormulaValue(results["totalDeductions"])); results["netPay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netPay"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTake_home_pay_calculator(input: Take_home_pay_calculatorInput): Take_home_pay_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netPay"]));
+  const totalWasteCost = toNumericFormulaValue(values["netPay"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateTake_home_pay_calculator(input: Take_home_pay_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

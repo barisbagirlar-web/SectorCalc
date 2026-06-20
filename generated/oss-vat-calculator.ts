@@ -18,27 +18,23 @@ export const Oss_vat_calculatorInputSchema = z.object({
   additionalCost: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Oss_vat_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.netAmount * (1 - input.discount / 100); results["discountedNet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountedNet"] = 0; }
-  try { const v = (asFormulaNumber(results["discountedNet"])) * input.quantity + input.additionalCost; results["totalNet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalNet"] = 0; }
-  try { const v = (asFormulaNumber(results["totalNet"])) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vatAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalNet"])) + (asFormulaNumber(results["vatAmount"])); results["grossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossTotal"] = 0; }
+  try { const v = input.netAmount * (1 - input.discount / 100); results["discountedNet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountedNet"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["discountedNet"])) * input.quantity + input.additionalCost; results["totalNet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalNet"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalNet"])) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vatAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalNet"])) + (toNumericFormulaValue(results["vatAmount"])); results["grossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossTotal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOss_vat_calculator(input: Oss_vat_calculatorInput): Oss_vat_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["grossTotal"]));
+  const totalWasteCost = toNumericFormulaValue(values["grossTotal"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateOss_vat_calculator(input: Oss_vat_calculatorInput): Oss
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

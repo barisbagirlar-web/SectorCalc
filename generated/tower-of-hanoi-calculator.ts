@@ -16,28 +16,24 @@ export const Tower_of_hanoi_calculatorInputSchema = z.object({
   mod: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Tower_of_hanoi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 ** input.diskSayisi - 1; results["moves"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moves"] = 0; }
-  try { const v = (asFormulaNumber(results["moves"])) * input.manuelSure; results["manuelToplamSure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["manuelToplamSure"] = 0; }
-  try { const v = (asFormulaNumber(results["moves"])) * input.otomatikSure; results["otomatikToplamSure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["otomatikToplamSure"] = 0; }
-  try { const v = (asFormulaNumber(results["manuelToplamSure"])) * (1 - input.mod) + (asFormulaNumber(results["otomatikToplamSure"])) * input.mod; results["totalSure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSure"] = 0; }
-  try { const v = (asFormulaNumber(results["totalSure"])) / 60; results["totalSureMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSureMinutes"] = 0; }
+  try { const v = 2 ** input.diskSayisi - 1; results["moves"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["moves"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["moves"])) * input.manuelSure; results["manuelToplamSure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["manuelToplamSure"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["moves"])) * input.otomatikSure; results["otomatikToplamSure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["otomatikToplamSure"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["manuelToplamSure"])) * (1 - input.mod) + (toNumericFormulaValue(results["otomatikToplamSure"])) * input.mod; results["totalSure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSure"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalSure"])) / 60; results["totalSureMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSureMinutes"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTower_of_hanoi_calculator(input: Tower_of_hanoi_calculatorInput): Tower_of_hanoi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["moves"]));
+  const totalWasteCost = toNumericFormulaValue(values["moves"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateTower_of_hanoi_calculator(input: Tower_of_hanoi_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

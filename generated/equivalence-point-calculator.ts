@@ -18,26 +18,22 @@ export const Equivalence_point_calculatorInputSchema = z.object({
   mole_ratio_titrant: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Equivalence_point_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.c_analyte * input.v_analyte * input.mole_ratio_titrant) / (input.c_titrant * input.mole_ratio_analyte); results["v_titrant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["v_titrant"] = 0; }
-  try { const v = input.c_analyte * input.v_analyte / 1000; results["moles_analyte"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moles_analyte"] = 0; }
-  try { const v = (input.c_analyte * input.v_analyte / 1000) * (input.mole_ratio_titrant / input.mole_ratio_analyte); results["moles_titrant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moles_titrant"] = 0; }
+  try { const v = (input.c_analyte * input.v_analyte * input.mole_ratio_titrant) / (input.c_titrant * input.mole_ratio_analyte); results["v_titrant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["v_titrant"] = Number.NaN; }
+  try { const v = input.c_analyte * input.v_analyte / 1000; results["moles_analyte"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["moles_analyte"] = Number.NaN; }
+  try { const v = (input.c_analyte * input.v_analyte / 1000) * (input.mole_ratio_titrant / input.mole_ratio_analyte); results["moles_titrant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["moles_titrant"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEquivalence_point_calculator(input: Equivalence_point_calculatorInput): Equivalence_point_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["v_titrant"]));
+  const totalWasteCost = toNumericFormulaValue(values["v_titrant"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateEquivalence_point_calculator(input: Equivalence_point_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

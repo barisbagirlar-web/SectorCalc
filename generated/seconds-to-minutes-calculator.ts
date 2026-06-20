@@ -24,25 +24,21 @@ export const Seconds_to_minutes_calculatorInputSchema = z.object({
   humidityPercent: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Seconds_to_minutes_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.seconds * input.scaleFactor + input.offsetSeconds + input.temperatureCelsius * input.tempCoefficient; results["effectiveSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveSeconds"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveSeconds"])) / 60; results["rawMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMinutes"] = 0; }
+  try { const v = input.seconds * input.scaleFactor + input.offsetSeconds + input.temperatureCelsius * input.tempCoefficient; results["effectiveSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveSeconds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveSeconds"])) / 60; results["rawMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawMinutes"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSeconds_to_minutes_calculator(input: Seconds_to_minutes_calculatorInput): Seconds_to_minutes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawMinutes"]));
+  const totalWasteCost = toNumericFormulaValue(values["rawMinutes"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateSeconds_to_minutes_calculator(input: Seconds_to_minutes
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Millibar_to_psi_calculatorInputSchema = z.object({
   temperatureCorrection: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Millibar_to_psi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.millibarValue * input.conversionFactor; results["rawConversionPsi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawConversionPsi"] = 0; }
-  try { const v = (asFormulaNumber(results["rawConversionPsi"])) + input.calibrationOffset; results["calibrationAppliedPsi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calibrationAppliedPsi"] = 0; }
-  try { const v = (asFormulaNumber(results["calibrationAppliedPsi"])) * input.temperatureCorrection; results["finalPressurePsi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalPressurePsi"] = 0; }
+  try { const v = input.millibarValue * input.conversionFactor; results["rawConversionPsi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawConversionPsi"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rawConversionPsi"])) + input.calibrationOffset; results["calibrationAppliedPsi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["calibrationAppliedPsi"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["calibrationAppliedPsi"])) * input.temperatureCorrection; results["finalPressurePsi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalPressurePsi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMillibar_to_psi_calculator(input: Millibar_to_psi_calculatorInput): Millibar_to_psi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalPressurePsi"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalPressurePsi"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateMillibar_to_psi_calculator(input: Millibar_to_psi_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

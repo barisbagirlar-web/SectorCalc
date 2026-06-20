@@ -18,29 +18,25 @@ export const Mcisaac_score_calculatorInputSchema = z.object({
   cough: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mcisaac_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (asFormulaNumber(results["agePoints"])) + (asFormulaNumber(results["exudatePoints"])) + (asFormulaNumber(results["tenderLymphPoints"])) + (asFormulaNumber(results["feverPoints"])) + (asFormulaNumber(results["coughPoints"])); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
-  try { const v = (input.age >= 3 && input.age <= 14) ? 1 : 0; results["agePoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["agePoints"] = 0; }
-  try { const v = input.exudate; results["exudatePoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exudatePoints"] = 0; }
-  try { const v = input.tenderLymph; results["tenderLymphPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tenderLymphPoints"] = 0; }
-  try { const v = input.feverTemp > 38 ? 1 : 0; results["feverPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["feverPoints"] = 0; }
-  try { const v = input.cough ? 0 : 1; results["coughPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coughPoints"] = 0; }
+  try { const v = (toNumericFormulaValue(results["agePoints"])) + (toNumericFormulaValue(results["exudatePoints"])) + (toNumericFormulaValue(results["tenderLymphPoints"])) + (toNumericFormulaValue(results["feverPoints"])) + (toNumericFormulaValue(results["coughPoints"])); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["score"] = Number.NaN; }
+  try { const v = (input.age >= 3 && input.age <= 14) ? 1 : 0; results["agePoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["agePoints"] = Number.NaN; }
+  try { const v = input.exudate; results["exudatePoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exudatePoints"] = Number.NaN; }
+  try { const v = input.tenderLymph; results["tenderLymphPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tenderLymphPoints"] = Number.NaN; }
+  try { const v = input.feverTemp > 38 ? 1 : 0; results["feverPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["feverPoints"] = Number.NaN; }
+  try { const v = input.cough ? 0 : 1; results["coughPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coughPoints"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMcisaac_score_calculator(input: Mcisaac_score_calculatorInput): Mcisaac_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["score"]));
+  const totalWasteCost = toNumericFormulaValue(values["score"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMcisaac_score_calculator(input: Mcisaac_score_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

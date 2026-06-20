@@ -16,27 +16,23 @@ export const Modular_arithmetic_calculatorInputSchema = z.object({
   exponent: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Modular_arithmetic_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.a + input.b) % input.modulus + input.modulus) % input.modulus; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum"] = 0; }
-  try { const v = ((input.a - input.b) % input.modulus + input.modulus) % input.modulus; results["difference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["difference"] = 0; }
-  try { const v = ((input.a * input.b) % input.modulus + input.modulus) % input.modulus; results["product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["product"] = 0; }
-  try { const v = ((input.a ** input.exponent) % input.modulus + input.modulus) % input.modulus; results["power"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["power"] = 0; }
+  try { const v = ((input.a + input.b) % input.modulus + input.modulus) % input.modulus; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sum"] = Number.NaN; }
+  try { const v = ((input.a - input.b) % input.modulus + input.modulus) % input.modulus; results["difference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["difference"] = Number.NaN; }
+  try { const v = ((input.a * input.b) % input.modulus + input.modulus) % input.modulus; results["product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["product"] = Number.NaN; }
+  try { const v = ((input.a ** input.exponent) % input.modulus + input.modulus) % input.modulus; results["power"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["power"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateModular_arithmetic_calculator(input: Modular_arithmetic_calculatorInput): Modular_arithmetic_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sum"]));
+  const totalWasteCost = toNumericFormulaValue(values["sum"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateModular_arithmetic_calculator(input: Modular_arithmetic
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

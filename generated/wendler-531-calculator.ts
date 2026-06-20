@@ -20,27 +20,23 @@ export const Wendler_531_calculatorInputSchema = z.object({
   set3Percent: z.number().default(85),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Wendler_531_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.oneRepMax * input.trainingMaxPercent / 100; results["trainingMax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trainingMax"] = 0; }
-  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set1Percent / 100; results["set1Weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set1Weight"] = 0; }
-  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set2Percent / 100; results["set2Weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set2Weight"] = 0; }
-  try { const v = (asFormulaNumber(results["trainingMax"])) * input.set3Percent / 100; results["set3Weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["set3Weight"] = 0; }
+  try { const v = input.oneRepMax * input.trainingMaxPercent / 100; results["trainingMax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["trainingMax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["trainingMax"])) * input.set1Percent / 100; results["set1Weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["set1Weight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["trainingMax"])) * input.set2Percent / 100; results["set2Weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["set2Weight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["trainingMax"])) * input.set3Percent / 100; results["set3Weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["set3Weight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWendler_531_calculator(input: Wendler_531_calculatorInput): Wendler_531_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["set3Weight"]));
+  const totalWasteCost = toNumericFormulaValue(values["set3Weight"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateWendler_531_calculator(input: Wendler_531_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,27 +18,23 @@ export const Snowboarding_calorie_calculatorInputSchema = z.object({
   correctionFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Snowboarding_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 4.0 + input.intensity * 0.4; results["met"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["met"] = 0; }
-  try { const v = 1 + input.altitude * 0.00002; results["altFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["altFactor"] = 0; }
-  try { const v = input.weight * (asFormulaNumber(results["met"])) * (input.duration / 60); results["baseCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseCalories"] = 0; }
-  try { const v = (asFormulaNumber(results["baseCalories"])) * (asFormulaNumber(results["altFactor"])) * input.correctionFactor; results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
+  try { const v = 4.0 + input.intensity * 0.4; results["met"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["met"] = Number.NaN; }
+  try { const v = 1 + input.altitude * 0.00002; results["altFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["altFactor"] = Number.NaN; }
+  try { const v = input.weight * (toNumericFormulaValue(results["met"])) * (input.duration / 60); results["baseCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseCalories"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseCalories"])) * (toNumericFormulaValue(results["altFactor"])) * input.correctionFactor; results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caloriesBurned"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSnowboarding_calorie_calculator(input: Snowboarding_calorie_calculatorInput): Snowboarding_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["caloriesBurned"]));
+  const totalWasteCost = toNumericFormulaValue(values["caloriesBurned"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSnowboarding_calorie_calculator(input: Snowboarding_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

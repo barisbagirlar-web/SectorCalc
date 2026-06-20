@@ -16,26 +16,22 @@ export const Bus_fare_calculatorInputSchema = z.object({
   discountPercent: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bus_fare_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.baseFarePerKm * input.distanceKm * input.numberOfPassengers; results["totalBeforeDiscount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBeforeDiscount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBeforeDiscount"])) * (input.discountPercent / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBeforeDiscount"])) - (asFormulaNumber(results["discountAmount"])); results["totalFare"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFare"] = 0; }
+  try { const v = input.baseFarePerKm * input.distanceKm * input.numberOfPassengers; results["totalBeforeDiscount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBeforeDiscount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBeforeDiscount"])) * (input.discountPercent / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBeforeDiscount"])) - (toNumericFormulaValue(results["discountAmount"])); results["totalFare"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFare"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBus_fare_calculator(input: Bus_fare_calculatorInput): Bus_fare_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFare"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalFare"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateBus_fare_calculator(input: Bus_fare_calculatorInput): B
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

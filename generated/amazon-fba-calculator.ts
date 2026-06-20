@@ -22,27 +22,23 @@ export const Amazon_fba_calculatorInputSchema = z.object({
   storageCost: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Amazon_fba_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.sellingPrice * input.referralFeePercentage) / 100; results["referralFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["referralFeeAmount"] = 0; }
-  try { const v = input.productCost + ((input.sellingPrice * input.referralFeePercentage) / 100) + input.fbaFulfillmentFee + input.shippingToAmazon + input.advertisingCost + input.storageCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.sellingPrice - (input.productCost + ((input.sellingPrice * input.referralFeePercentage) / 100) + input.fbaFulfillmentFee + input.shippingToAmazon + input.advertisingCost + input.storageCost); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = ((input.sellingPrice - (input.productCost + ((input.sellingPrice * input.referralFeePercentage) / 100) + input.fbaFulfillmentFee + input.shippingToAmazon + input.advertisingCost + input.storageCost)) / input.sellingPrice) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMargin"] = 0; }
+  try { const v = (input.sellingPrice * input.referralFeePercentage) / 100; results["referralFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["referralFeeAmount"] = Number.NaN; }
+  try { const v = input.productCost + ((input.sellingPrice * input.referralFeePercentage) / 100) + input.fbaFulfillmentFee + input.shippingToAmazon + input.advertisingCost + input.storageCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = input.sellingPrice - (input.productCost + ((input.sellingPrice * input.referralFeePercentage) / 100) + input.fbaFulfillmentFee + input.shippingToAmazon + input.advertisingCost + input.storageCost); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
+  try { const v = ((input.sellingPrice - (input.productCost + ((input.sellingPrice * input.referralFeePercentage) / 100) + input.fbaFulfillmentFee + input.shippingToAmazon + input.advertisingCost + input.storageCost)) / input.sellingPrice) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMargin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAmazon_fba_calculator(input: Amazon_fba_calculatorInput): Amazon_fba_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["netProfit"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateAmazon_fba_calculator(input: Amazon_fba_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

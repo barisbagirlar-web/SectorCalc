@@ -18,28 +18,24 @@ export const Short_tons_to_kg_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Short_tons_to_kg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.item1_tons * 907.18474; results["item1_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["item1_kg"] = 0; }
-  try { const v = input.item2_tons * 907.18474; results["item2_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["item2_kg"] = 0; }
-  try { const v = input.item3_tons * 907.18474; results["item3_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["item3_kg"] = 0; }
-  try { const v = input.item4_tons * 907.18474; results["item4_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["item4_kg"] = 0; }
-  try { const v = (asFormulaNumber(results["item1_kg"])) + (asFormulaNumber(results["item2_kg"])) + (asFormulaNumber(results["item3_kg"])) + (asFormulaNumber(results["item4_kg"])); results["total_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_kg"] = 0; }
+  try { const v = input.item1_tons * 907.18474; results["item1_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["item1_kg"] = Number.NaN; }
+  try { const v = input.item2_tons * 907.18474; results["item2_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["item2_kg"] = Number.NaN; }
+  try { const v = input.item3_tons * 907.18474; results["item3_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["item3_kg"] = Number.NaN; }
+  try { const v = input.item4_tons * 907.18474; results["item4_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["item4_kg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["item1_kg"])) + (toNumericFormulaValue(results["item2_kg"])) + (toNumericFormulaValue(results["item3_kg"])) + (toNumericFormulaValue(results["item4_kg"])); results["total_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_kg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateShort_tons_to_kg_calculator(input: Short_tons_to_kg_calculatorInput): Short_tons_to_kg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_kg"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_kg"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateShort_tons_to_kg_calculator(input: Short_tons_to_kg_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

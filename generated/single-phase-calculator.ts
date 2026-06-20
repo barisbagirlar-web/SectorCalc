@@ -16,26 +16,22 @@ export const Single_phase_calculatorInputSchema = z.object({
   time: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Single_phase_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.voltage * input.current * input.powerFactor; results["power"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["power"] = 0; }
-  try { const v = input.voltage * input.current; results["apparentPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["apparentPower"] = 0; }
-  try { const v = input.voltage * input.current * input.powerFactor * input.time / 1000; results["energy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy"] = 0; }
+  try { const v = input.voltage * input.current * input.powerFactor; results["power"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["power"] = Number.NaN; }
+  try { const v = input.voltage * input.current; results["apparentPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["apparentPower"] = Number.NaN; }
+  try { const v = input.voltage * input.current * input.powerFactor * input.time / 1000; results["energy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSingle_phase_calculator(input: Single_phase_calculatorInput): Single_phase_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["power"]));
+  const totalWasteCost = toNumericFormulaValue(values["power"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateSingle_phase_calculator(input: Single_phase_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

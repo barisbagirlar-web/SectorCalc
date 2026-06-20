@@ -20,25 +20,21 @@ export const Credit_card_minimum_payment_calculatorInputSchema = z.object({
   overLimitAmount: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Credit_card_minimum_payment_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.outstandingBalance) * (input.annualInterestRate) * (input.minPaymentPercent) * (input.fixedMinAmount) * (input.pastDueAmount) * (input.overLimitAmount); results["monthlyInterest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterest"] = 0; }
-  try { const v = (input.outstandingBalance) * (input.annualInterestRate) * (input.minPaymentPercent); results["totalBalance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBalance"] = 0; }
+  try { const v = (input.outstandingBalance) * (input.annualInterestRate) * (input.minPaymentPercent) * (input.fixedMinAmount) * (input.pastDueAmount) * (input.overLimitAmount); results["monthlyInterest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInterest"] = Number.NaN; }
+  try { const v = (input.outstandingBalance) * (input.annualInterestRate) * (input.minPaymentPercent); results["totalBalance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBalance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCredit_card_minimum_payment_calculator(input: Credit_card_minimum_payment_calculatorInput): Credit_card_minimum_payment_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBalance"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBalance"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateCredit_card_minimum_payment_calculator(input: Credit_ca
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

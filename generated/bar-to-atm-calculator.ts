@@ -16,28 +16,24 @@ export const Bar_to_atm_calculatorInputSchema = z.object({
   decimal_places: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bar_to_atm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pressure_bar + input.calibration_offset_bar; results["adjusted_pressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_pressure"] = 0; }
-  try { const v = (asFormulaNumber(results["adjusted_pressure"])) * 0.986923; results["pressure_atm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure_atm"] = 0; }
-  try { const v = (asFormulaNumber(results["pressure_atm"])) * input.uncertainty_percent / 100; results["uncertainty_atm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uncertainty_atm"] = 0; }
-  try { const v = (asFormulaNumber(results["pressure_atm"])) - (asFormulaNumber(results["uncertainty_atm"])); results["result_min"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result_min"] = 0; }
-  try { const v = (asFormulaNumber(results["pressure_atm"])) + (asFormulaNumber(results["uncertainty_atm"])); results["result_max"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result_max"] = 0; }
+  try { const v = input.pressure_bar + input.calibration_offset_bar; results["adjusted_pressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_pressure"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjusted_pressure"])) * 0.986923; results["pressure_atm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressure_atm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pressure_atm"])) * input.uncertainty_percent / 100; results["uncertainty_atm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["uncertainty_atm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pressure_atm"])) - (toNumericFormulaValue(results["uncertainty_atm"])); results["result_min"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result_min"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pressure_atm"])) + (toNumericFormulaValue(results["uncertainty_atm"])); results["result_max"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result_max"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBar_to_atm_calculator(input: Bar_to_atm_calculatorInput): Bar_to_atm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pressure_atm"]));
+  const totalWasteCost = toNumericFormulaValue(values["pressure_atm"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateBar_to_atm_calculator(input: Bar_to_atm_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

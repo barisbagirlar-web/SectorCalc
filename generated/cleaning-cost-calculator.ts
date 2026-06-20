@@ -22,29 +22,25 @@ export const Cleaning_cost_calculatorInputSchema = z.object({
   overheadMargin: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cleaning_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.area * input.frequency * input.laborTime * input.laborRate; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["laborCost"] = 0; }
-  try { const v = input.area * input.frequency * input.materialCost; results["materialCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialCost"] = 0; }
-  try { const v = input.equipmentCost; results["equipmentCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["equipmentCost"] = 0; }
-  try { const v = (asFormulaNumber(results["laborCost"])) + input.materialCost + input.equipmentCost; results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) * (input.overheadMargin / 100); results["overheadAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overheadAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) + (asFormulaNumber(results["overheadAmount"])); results["totalMonthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMonthlyCost"] = 0; }
+  try { const v = input.area * input.frequency * input.laborTime * input.laborRate; results["laborCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["laborCost"] = Number.NaN; }
+  try { const v = input.area * input.frequency * input.materialCost; results["materialCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialCost"] = Number.NaN; }
+  try { const v = input.equipmentCost; results["equipmentCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["equipmentCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["laborCost"])) + input.materialCost + input.equipmentCost; results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["subtotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) * (input.overheadMargin / 100); results["overheadAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overheadAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) + (toNumericFormulaValue(results["overheadAmount"])); results["totalMonthlyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMonthlyCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCleaning_cost_calculator(input: Cleaning_cost_calculatorInput): Cleaning_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMonthlyCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMonthlyCost"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateCleaning_cost_calculator(input: Cleaning_cost_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

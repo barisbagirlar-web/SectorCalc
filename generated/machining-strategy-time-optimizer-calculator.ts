@@ -24,26 +24,22 @@ export const Machining_strategy_time_optimizer_calculatorInputSchema = z.object(
   number_of_passes: z.number().min(1).max(10).default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Machining_strategy_time_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cutting_speed * (input.feed_rate / 100) * input.depth_of_cut * input.part_length; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.cutting_speed * (input.feed_rate / 100) * input.depth_of_cut * input.part_length * (input.part_diameter * input.tool_change_time * input.tool_life_minutes * input.number_of_passes); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.part_diameter * input.tool_change_time * input.tool_life_minutes * input.number_of_passes; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.cutting_speed * (input.feed_rate / 100) * input.depth_of_cut * input.part_length; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.cutting_speed * (input.feed_rate / 100) * input.depth_of_cut * input.part_length * (input.part_diameter * input.tool_change_time * input.tool_life_minutes * input.number_of_passes); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.part_diameter * input.tool_change_time * input.tool_life_minutes * input.number_of_passes; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMachining_strategy_time_optimizer_calculator(input: Machining_strategy_time_optimizer_calculatorInput): Machining_strategy_time_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateMachining_strategy_time_optimizer_calculator(input: Mac
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

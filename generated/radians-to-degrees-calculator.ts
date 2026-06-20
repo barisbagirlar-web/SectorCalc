@@ -18,25 +18,21 @@ export const Radians_to_degrees_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Radians_to_degrees_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.customPi; results["pi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pi"] = 0; }
-  try { const v = input.radians * (180 / (asFormulaNumber(results["pi"]))) * input.scaleFactor + input.offset; results["radiansToRawDegrees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["radiansToRawDegrees"] = 0; }
+  try { const v = input.customPi; results["pi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pi"] = Number.NaN; }
+  try { const v = input.radians * (180 / (toNumericFormulaValue(results["pi"]))) * input.scaleFactor + input.offset; results["radiansToRawDegrees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["radiansToRawDegrees"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRadians_to_degrees_calculator(input: Radians_to_degrees_calculatorInput): Radians_to_degrees_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["radiansToRawDegrees"]));
+  const totalWasteCost = toNumericFormulaValue(values["radiansToRawDegrees"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRadians_to_degrees_calculator(input: Radians_to_degrees
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

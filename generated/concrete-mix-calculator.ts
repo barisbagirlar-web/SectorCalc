@@ -22,39 +22,35 @@ export const Concrete_mix_calculatorInputSchema = z.object({
   wastagePercent: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Concrete_mix_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cementRatio + input.sandRatio + input.aggregateRatio; results["sumRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumRatio"] = 0; }
-  try { const v = input.concreteVolume * input.dryFactor; results["dryVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dryVolume"] = 0; }
-  try { const v = (input.cementRatio / (asFormulaNumber(results["sumRatio"]))) * (asFormulaNumber(results["dryVolume"])); results["cementVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cementVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["cementVolume"])) * 1440; results["cementWeightBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cementWeightBase"] = 0; }
-  try { const v = (input.sandRatio / (asFormulaNumber(results["sumRatio"]))) * (asFormulaNumber(results["dryVolume"])); results["sandVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sandVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["sandVolume"])) * 1600; results["sandWeightBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sandWeightBase"] = 0; }
-  try { const v = (input.aggregateRatio / (asFormulaNumber(results["sumRatio"]))) * (asFormulaNumber(results["dryVolume"])); results["aggregateVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aggregateVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["aggregateVolume"])) * 1500; results["aggregateWeightBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aggregateWeightBase"] = 0; }
-  try { const v = (asFormulaNumber(results["cementWeightBase"])) * input.waterCementRatio; results["waterWeightBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterWeightBase"] = 0; }
-  try { const v = 1 + input.wastagePercent / 100; results["wastageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wastageFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["cementWeightBase"])) * (asFormulaNumber(results["wastageFactor"])); results["cementWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cementWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["sandWeightBase"])) * (asFormulaNumber(results["wastageFactor"])); results["sandWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sandWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["aggregateWeightBase"])) * (asFormulaNumber(results["wastageFactor"])); results["aggregateWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aggregateWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["waterWeightBase"])) * (asFormulaNumber(results["wastageFactor"])); results["waterWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["cementWeight"])) + (asFormulaNumber(results["sandWeight"])) + (asFormulaNumber(results["aggregateWeight"])); results["totalDryWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDryWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDryWeight"])) + (asFormulaNumber(results["waterWeight"])); results["totalMixWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMixWeight"] = 0; }
+  try { const v = input.cementRatio + input.sandRatio + input.aggregateRatio; results["sumRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sumRatio"] = Number.NaN; }
+  try { const v = input.concreteVolume * input.dryFactor; results["dryVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dryVolume"] = Number.NaN; }
+  try { const v = (input.cementRatio / (toNumericFormulaValue(results["sumRatio"]))) * (toNumericFormulaValue(results["dryVolume"])); results["cementVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cementVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cementVolume"])) * 1440; results["cementWeightBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cementWeightBase"] = Number.NaN; }
+  try { const v = (input.sandRatio / (toNumericFormulaValue(results["sumRatio"]))) * (toNumericFormulaValue(results["dryVolume"])); results["sandVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sandVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["sandVolume"])) * 1600; results["sandWeightBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sandWeightBase"] = Number.NaN; }
+  try { const v = (input.aggregateRatio / (toNumericFormulaValue(results["sumRatio"]))) * (toNumericFormulaValue(results["dryVolume"])); results["aggregateVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["aggregateVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["aggregateVolume"])) * 1500; results["aggregateWeightBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["aggregateWeightBase"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cementWeightBase"])) * input.waterCementRatio; results["waterWeightBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterWeightBase"] = Number.NaN; }
+  try { const v = 1 + input.wastagePercent / 100; results["wastageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wastageFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cementWeightBase"])) * (toNumericFormulaValue(results["wastageFactor"])); results["cementWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cementWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["sandWeightBase"])) * (toNumericFormulaValue(results["wastageFactor"])); results["sandWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sandWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["aggregateWeightBase"])) * (toNumericFormulaValue(results["wastageFactor"])); results["aggregateWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["aggregateWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["waterWeightBase"])) * (toNumericFormulaValue(results["wastageFactor"])); results["waterWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["cementWeight"])) + (toNumericFormulaValue(results["sandWeight"])) + (toNumericFormulaValue(results["aggregateWeight"])); results["totalDryWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDryWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDryWeight"])) + (toNumericFormulaValue(results["waterWeight"])); results["totalMixWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMixWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConcrete_mix_calculator(input: Concrete_mix_calculatorInput): Concrete_mix_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMixWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMixWeight"]);
   const breakdown = {
     
   };
@@ -62,7 +58,7 @@ export function calculateConcrete_mix_calculator(input: Concrete_mix_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

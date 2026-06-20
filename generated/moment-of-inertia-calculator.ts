@@ -18,27 +18,23 @@ export const Moment_of_inertia_calculatorInputSchema = z.object({
   dim4: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Moment_of_inertia_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.shape==1 ? (input.dim1 * input.dim2**3)/12 : null; results["I_x_rectangle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I_x_rectangle"] = 0; }
-  try { const v = input.shape==1 ? (input.dim2 * input.dim1**3)/12 : null; results["I_y_rectangle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I_y_rectangle"] = 0; }
-  try { const v = input.shape==4 ? (input.dim1 * input.dim2**3 - (input.dim1 - input.dim4) * (input.dim2 - 2*input.dim3)**3)/12 : null; results["I_x_Ibeam"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I_x_Ibeam"] = 0; }
-  try { const v = input.shape==4 ? (2*input.dim3 * input.dim1**3 + (input.dim2 - 2*input.dim3) * input.dim4**3)/12 : null; results["I_y_Ibeam"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I_y_Ibeam"] = 0; }
+  try { const v = input.shape==1 ? (input.dim1 * input.dim2**3)/12 : null; results["I_x_rectangle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["I_x_rectangle"] = Number.NaN; }
+  try { const v = input.shape==1 ? (input.dim2 * input.dim1**3)/12 : null; results["I_y_rectangle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["I_y_rectangle"] = Number.NaN; }
+  try { const v = input.shape==4 ? (input.dim1 * input.dim2**3 - (input.dim1 - input.dim4) * (input.dim2 - 2*input.dim3)**3)/12 : null; results["I_x_Ibeam"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["I_x_Ibeam"] = Number.NaN; }
+  try { const v = input.shape==4 ? (2*input.dim3 * input.dim1**3 + (input.dim2 - 2*input.dim3) * input.dim4**3)/12 : null; results["I_y_Ibeam"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["I_y_Ibeam"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMoment_of_inertia_calculator(input: Moment_of_inertia_calculatorInput): Moment_of_inertia_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["I_x_rectangle"]));
+  const totalWasteCost = toNumericFormulaValue(values["I_x_rectangle"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateMoment_of_inertia_calculator(input: Moment_of_inertia_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

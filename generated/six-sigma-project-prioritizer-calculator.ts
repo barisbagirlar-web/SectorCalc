@@ -24,27 +24,23 @@ export const Six_sigma_project_prioritizer_calculatorInputSchema = z.object({
   customer_impact: z.number().min(1).max(10).default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Six_sigma_project_prioritizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annual_volume * input.cost_per_defect; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.annual_volume * input.cost_per_defect * (1 + (input.defect_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.annual_volume * input.cost_per_defect * (1 + (input.defect_rate / 100)) * (input.process_sigma); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.process_sigma; results["factor_process_sigma"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_process_sigma"] = 0; }
+  try { const v = input.annual_volume * input.cost_per_defect; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.annual_volume * input.cost_per_defect * (1 + (input.defect_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.annual_volume * input.cost_per_defect * (1 + (input.defect_rate / 100)) * (input.process_sigma); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.process_sigma; results["factor_process_sigma"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_process_sigma"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSix_sigma_project_prioritizer_calculator(input: Six_sigma_project_prioritizer_calculatorInput): Six_sigma_project_prioritizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateSix_sigma_project_prioritizer_calculator(input: Six_sig
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

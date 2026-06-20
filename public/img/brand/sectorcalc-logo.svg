@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 512 512"
-  width="512"
-  height="512"
+  viewBox="0 0 120 120"
+  width="120"
+  height="120"
   role="img"
-  aria-labelledby="sectorcalcLogoTitle"
+  aria-labelledby="sectorcalcLogoT"
 >
-  <title id="sectorcalcLogoTitle">SectorCalc Symbol Logo</title>
-
-  <g fill="#000000">
-    <rect x="101" y="209" width="58" height="20" rx="0" />
-    <rect x="355" y="209" width="58" height="20" rx="0" />
-    <path d="M254 111H197V91H276V340H254V111Z" />
-    <rect x="196" y="374" width="119" height="20" rx="0" />
+  <title id="sectorcalcLogoT">SectorCalc Symbol Logo</title>
+  <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round">
+    <!-- Center vertical spine -->
+    <line x1="60" y1="35" x2="60" y2="85" />
+    <!-- Top horizontal bracket -->
+    <line x1="50" y1="35" x2="60" y2="35" />
+    <!-- Left dash -->
+    <line x1="25" y1="60" x2="45" y2="60" />
+    <!-- Right dash -->
+    <line x1="75" y1="60" x2="95" y2="60" />
+    <!-- Bottom horizontal -->
+    <line x1="50" y1="85" x2="70" y2="85" />
   </g>
 </svg>

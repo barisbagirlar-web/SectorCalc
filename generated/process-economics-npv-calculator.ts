@@ -16,26 +16,22 @@ export const Process_economics_npv_calculatorInputSchema = z.object({
   discountRate: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Process_economics_npv_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualCostSavings * ((1 - (1 + input.discountRate/100) ** (-input.projectLife)) / (input.discountRate/100)) - input.initialInvestment; results["netPresentValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netPresentValue"] = 0; }
-  try { const v = input.initialInvestment / input.annualCostSavings; results["paybackPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paybackPeriod"] = 0; }
-  try { const v = (input.annualCostSavings / input.initialInvestment) * 100; results["annualROI"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualROI"] = 0; }
+  try { const v = input.annualCostSavings * ((1 - (1 + input.discountRate/100) ** (-input.projectLife)) / (input.discountRate/100)) - input.initialInvestment; results["netPresentValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netPresentValue"] = Number.NaN; }
+  try { const v = input.initialInvestment / input.annualCostSavings; results["paybackPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paybackPeriod"] = Number.NaN; }
+  try { const v = (input.annualCostSavings / input.initialInvestment) * 100; results["annualROI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualROI"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateProcess_economics_npv_calculator(input: Process_economics_npv_calculatorInput): Process_economics_npv_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netPresentValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["netPresentValue"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateProcess_economics_npv_calculator(input: Process_economi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

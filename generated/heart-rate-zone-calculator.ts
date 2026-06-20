@@ -16,28 +16,24 @@ export const Heart_rate_zone_calculatorInputSchema = z.object({
   upperIntensity: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heart_rate_zone_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 220 - input.age; results["maxHR"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxHR"] = 0; }
-  try { const v = (asFormulaNumber(results["maxHR"])) - input.restingHeartRate; results["heartRateReserve"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
-  try { const v = input.restingHeartRate + ((asFormulaNumber(results["heartRateReserve"])) * (input.lowerIntensity / 100)); results["lowerTarget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lowerTarget"] = 0; }
-  try { const v = input.restingHeartRate + ((asFormulaNumber(results["heartRateReserve"])) * (input.upperIntensity / 100)); results["upperTarget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upperTarget"] = 0; }
-  try { const v = ((asFormulaNumber(results["lowerTarget"])) + (asFormulaNumber(results["upperTarget"]))) / 2; results["midTarget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["midTarget"] = 0; }
+  try { const v = 220 - input.age; results["maxHR"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxHR"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["maxHR"])) - input.restingHeartRate; results["heartRateReserve"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heartRateReserve"] = Number.NaN; }
+  try { const v = input.restingHeartRate + ((toNumericFormulaValue(results["heartRateReserve"])) * (input.lowerIntensity / 100)); results["lowerTarget"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lowerTarget"] = Number.NaN; }
+  try { const v = input.restingHeartRate + ((toNumericFormulaValue(results["heartRateReserve"])) * (input.upperIntensity / 100)); results["upperTarget"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["upperTarget"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["lowerTarget"])) + (toNumericFormulaValue(results["upperTarget"]))) / 2; results["midTarget"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["midTarget"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeart_rate_zone_calculator(input: Heart_rate_zone_calculatorInput): Heart_rate_zone_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["midTarget"]));
+  const totalWasteCost = toNumericFormulaValue(values["midTarget"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateHeart_rate_zone_calculator(input: Heart_rate_zone_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,27 +24,23 @@ export const Auc_calculatorInputSchema = z.object({
   y4: z.number().default(6),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Auc_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.x2 - input.x1) * (input.y1 + input.y2) / 2; results["area1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area1"] = 0; }
-  try { const v = (input.x3 - input.x2) * (input.y2 + input.y3) / 2; results["area2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area2"] = 0; }
-  try { const v = (input.x4 - input.x3) * (input.y3 + input.y4) / 2; results["area3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area3"] = 0; }
-  try { const v = (asFormulaNumber(results["area1"])) + (asFormulaNumber(results["area2"])) + (asFormulaNumber(results["area3"])); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
+  try { const v = (input.x2 - input.x1) * (input.y1 + input.y2) / 2; results["area1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["area1"] = Number.NaN; }
+  try { const v = (input.x3 - input.x2) * (input.y2 + input.y3) / 2; results["area2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["area2"] = Number.NaN; }
+  try { const v = (input.x4 - input.x3) * (input.y3 + input.y4) / 2; results["area3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["area3"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["area1"])) + (toNumericFormulaValue(results["area2"])) + (toNumericFormulaValue(results["area3"])); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalArea"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAuc_calculator(input: Auc_calculatorInput): Auc_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalArea"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalArea"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateAuc_calculator(input: Auc_calculatorInput): Auc_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

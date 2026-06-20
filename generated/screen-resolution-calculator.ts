@@ -18,26 +18,22 @@ export const Screen_resolution_calculatorInputSchema = z.object({
   aspectRatioY: z.number().default(9),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Screen_resolution_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal) * (input.aspectRatioX) * (input.aspectRatioY); results["totalPixels"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPixels"] = 0; }
-  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal); results["totalPixelsMP"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPixelsMP"] = 0; }
-  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal); results["aspectDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["aspectDecimal"] = 0; }
+  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal) * (input.aspectRatioX) * (input.aspectRatioY); results["totalPixels"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPixels"] = Number.NaN; }
+  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal); results["totalPixelsMP"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPixelsMP"] = Number.NaN; }
+  try { const v = (input.screenWidth) * (input.screenHeight) * (input.screenDiagonal); results["aspectDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["aspectDecimal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateScreen_resolution_calculator(input: Screen_resolution_calculatorInput): Screen_resolution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPixels"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPixels"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateScreen_resolution_calculator(input: Screen_resolution_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

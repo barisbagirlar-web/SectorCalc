@@ -16,26 +16,22 @@ export const Coleman_liau_index_calculatorInputSchema = z.object({
   normalizationWordCount: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Coleman_liau_index_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.totalLetters / input.totalWords) * input.normalizationWordCount; results["L"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["L"] = 0; }
-  try { const v = (input.totalSentences / input.totalWords) * input.normalizationWordCount; results["S"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["S"] = 0; }
-  try { const v = 0.0588 * (asFormulaNumber(results["L"])) - 0.296 * (asFormulaNumber(results["S"])) - 15.8; results["CLI"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["CLI"] = 0; }
+  try { const v = (input.totalLetters / input.totalWords) * input.normalizationWordCount; results["L"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["L"] = Number.NaN; }
+  try { const v = (input.totalSentences / input.totalWords) * input.normalizationWordCount; results["S"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["S"] = Number.NaN; }
+  try { const v = 0.0588 * (toNumericFormulaValue(results["L"])) - 0.296 * (toNumericFormulaValue(results["S"])) - 15.8; results["CLI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["CLI"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateColeman_liau_index_calculator(input: Coleman_liau_index_calculatorInput): Coleman_liau_index_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["CLI"]));
+  const totalWasteCost = toNumericFormulaValue(values["CLI"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateColeman_liau_index_calculator(input: Coleman_liau_index
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

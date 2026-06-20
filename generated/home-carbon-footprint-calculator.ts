@@ -16,28 +16,24 @@ export const Home_carbon_footprint_calculatorInputSchema = z.object({
   airTravelAnnual: z.number().default(5000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Home_carbon_footprint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.electricityAnnual * 0.92; results["electricityEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["electricityEmissions"] = 0; }
-  try { const v = input.gasAnnual * 5.3; results["gasEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gasEmissions"] = 0; }
-  try { const v = input.carMilesAnnual * 0.355; results["carEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["carEmissions"] = 0; }
-  try { const v = input.airTravelAnnual * 0.115; results["airEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["airEmissions"] = 0; }
-  try { const v = (asFormulaNumber(results["electricityEmissions"])) + (asFormulaNumber(results["gasEmissions"])) + (asFormulaNumber(results["carEmissions"])) + (asFormulaNumber(results["airEmissions"])); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
+  try { const v = input.electricityAnnual * 0.92; results["electricityEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["electricityEmissions"] = Number.NaN; }
+  try { const v = input.gasAnnual * 5.3; results["gasEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gasEmissions"] = Number.NaN; }
+  try { const v = input.carMilesAnnual * 0.355; results["carEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["carEmissions"] = Number.NaN; }
+  try { const v = input.airTravelAnnual * 0.115; results["airEmissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["airEmissions"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["electricityEmissions"])) + (toNumericFormulaValue(results["gasEmissions"])) + (toNumericFormulaValue(results["carEmissions"])) + (toNumericFormulaValue(results["airEmissions"])); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHome_carbon_footprint_calculator(input: Home_carbon_footprint_calculatorInput): Home_carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total"]));
+  const totalWasteCost = toNumericFormulaValue(values["total"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateHome_carbon_footprint_calculator(input: Home_carbon_foo
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

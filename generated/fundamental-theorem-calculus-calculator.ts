@@ -20,26 +20,22 @@ export const Fundamental_theorem_calculus_calculatorInputSchema = z.object({
   c3: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fundamental_theorem_calculus_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.c0*input.b + input.c1*(input.b**2)/2 + input.c2*(input.b**3)/3 + input.c3*(input.b**4)/4; results["Fb"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Fb"] = 0; }
-  try { const v = input.c0*input.a + input.c1*(input.a**2)/2 + input.c2*(input.a**3)/3 + input.c3*(input.a**4)/4; results["Fa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Fa"] = 0; }
-  try { const v = (asFormulaNumber(results["Fb"])) - (asFormulaNumber(results["Fa"])); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.c0*input.b + input.c1*(input.b**2)/2 + input.c2*(input.b**3)/3 + input.c3*(input.b**4)/4; results["Fb"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Fb"] = Number.NaN; }
+  try { const v = input.c0*input.a + input.c1*(input.a**2)/2 + input.c2*(input.a**3)/3 + input.c3*(input.a**4)/4; results["Fa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Fa"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["Fb"])) - (toNumericFormulaValue(results["Fa"])); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFundamental_theorem_calculus_calculator(input: Fundamental_theorem_calculus_calculatorInput): Fundamental_theorem_calculus_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateFundamental_theorem_calculus_calculator(input: Fundamen
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,27 +24,23 @@ export const Cat_percentile_calculatorInputSchema = z.object({
   lrdi_total: z.number().default(200000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cat_percentile_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (1 - (input.overall_rank / input.total_candidates)) * 100; results["overall_percentile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overall_percentile"] = 0; }
-  try { const v = (1 - (input.qa_rank / input.qa_total)) * 100; results["qa_percentile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["qa_percentile"] = 0; }
-  try { const v = (1 - (input.varc_rank / input.varc_total)) * 100; results["varc_percentile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["varc_percentile"] = 0; }
-  try { const v = (1 - (input.lrdi_rank / input.lrdi_total)) * 100; results["lrdi_percentile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lrdi_percentile"] = 0; }
+  try { const v = (1 - (input.overall_rank / input.total_candidates)) * 100; results["overall_percentile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overall_percentile"] = Number.NaN; }
+  try { const v = (1 - (input.qa_rank / input.qa_total)) * 100; results["qa_percentile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["qa_percentile"] = Number.NaN; }
+  try { const v = (1 - (input.varc_rank / input.varc_total)) * 100; results["varc_percentile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["varc_percentile"] = Number.NaN; }
+  try { const v = (1 - (input.lrdi_rank / input.lrdi_total)) * 100; results["lrdi_percentile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lrdi_percentile"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCat_percentile_calculator(input: Cat_percentile_calculatorInput): Cat_percentile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lrdi_percentile"]));
+  const totalWasteCost = toNumericFormulaValue(values["lrdi_percentile"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateCat_percentile_calculator(input: Cat_percentile_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

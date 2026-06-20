@@ -20,26 +20,22 @@ export const Pavement_design_calculatorInputSchema = z.object({
   reliabilityFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pavement_design_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.axleLoad / input.standardLoad) ** 4; results["esalPerVehicle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["esalPerVehicle"] = 0; }
-  try { const v = input.trafficCount * (asFormulaNumber(results["esalPerVehicle"])); results["dailyESAL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyESAL"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyESAL"])) * 365 * input.designLife; results["designESAL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["designESAL"] = 0; }
+  try { const v = (input.axleLoad / input.standardLoad) ** 4; results["esalPerVehicle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["esalPerVehicle"] = Number.NaN; }
+  try { const v = input.trafficCount * (toNumericFormulaValue(results["esalPerVehicle"])); results["dailyESAL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyESAL"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyESAL"])) * 365 * input.designLife; results["designESAL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["designESAL"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePavement_design_calculator(input: Pavement_design_calculatorInput): Pavement_design_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["designESAL"]));
+  const totalWasteCost = toNumericFormulaValue(values["designESAL"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculatePavement_design_calculator(input: Pavement_design_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Sitting_height_ratio_calculatorInputSchema = z.object({
   standingHeightMm: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sitting_height_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sittingHeightCm + input.sittingHeightMm / 10; results["totalSittingHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSittingHeight"] = 0; }
-  try { const v = input.standingHeightCm + input.standingHeightMm / 10; results["totalStandingHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalStandingHeight"] = 0; }
-  try { const v = (asFormulaNumber(results["totalSittingHeight"])) / (asFormulaNumber(results["totalStandingHeight"])); results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio"] = 0; }
-  try { const v = (asFormulaNumber(results["ratio"])) * 100; results["percentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentage"] = 0; }
+  try { const v = input.sittingHeightCm + input.sittingHeightMm / 10; results["totalSittingHeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSittingHeight"] = Number.NaN; }
+  try { const v = input.standingHeightCm + input.standingHeightMm / 10; results["totalStandingHeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalStandingHeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalSittingHeight"])) / (toNumericFormulaValue(results["totalStandingHeight"])); results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ratio"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ratio"])) * 100; results["percentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSitting_height_ratio_calculator(input: Sitting_height_ratio_calculatorInput): Sitting_height_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ratio"]));
+  const totalWasteCost = toNumericFormulaValue(values["ratio"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateSitting_height_ratio_calculator(input: Sitting_height_r
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,25 +22,21 @@ export const Quintile_calculatorInputSchema = z.object({
   value: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Quintile_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.value <= input.p20 ? 1 : input.value <= input.p40 ? 2 : input.value <= input.p60 ? 3 : input.value <= input.p80 ? 4 : 5; results["q"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["q"] = 0; }
-  try { const v = (asFormulaNumber(results["q"])) === 1 ? (input.value - input.min) / (input.p20 - input.min) : (asFormulaNumber(results["q"])) === 2 ? (input.value - input.p20) / (input.p40 - input.p20) : (asFormulaNumber(results["q"])) === 3 ? (input.value - input.p40) / (input.p60 - input.p40) : (asFormulaNumber(results["q"])) === 4 ? (input.value - input.p60) / (input.p80 - input.p60) : (input.value - input.p80) / (input.max - input.p80); results["within"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["within"] = 0; }
+  try { const v = input.value <= input.p20 ? 1 : input.value <= input.p40 ? 2 : input.value <= input.p60 ? 3 : input.value <= input.p80 ? 4 : 5; results["q"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["q"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["q"])) === 1 ? (input.value - input.min) / (input.p20 - input.min) : (toNumericFormulaValue(results["q"])) === 2 ? (input.value - input.p20) / (input.p40 - input.p20) : (toNumericFormulaValue(results["q"])) === 3 ? (input.value - input.p40) / (input.p60 - input.p40) : (toNumericFormulaValue(results["q"])) === 4 ? (input.value - input.p60) / (input.p80 - input.p60) : (input.value - input.p80) / (input.max - input.p80); results["within"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["within"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateQuintile_calculator(input: Quintile_calculatorInput): Quintile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["within"]));
+  const totalWasteCost = toNumericFormulaValue(values["within"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateQuintile_calculator(input: Quintile_calculatorInput): Q
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

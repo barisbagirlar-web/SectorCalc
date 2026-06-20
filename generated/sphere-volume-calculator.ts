@@ -22,27 +22,23 @@ export const Sphere_volume_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sphere_volume_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.radius1 * input.unitMultiplier; results["convertedRadius1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["convertedRadius1"] = 0; }
-  try { const v = input.radius2 * input.unitMultiplier; results["convertedRadius2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["convertedRadius2"] = 0; }
-  try { const v = input.radius3 * input.unitMultiplier; results["convertedRadius3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["convertedRadius3"] = 0; }
-  try { const v = input.radius4 * input.unitMultiplier; results["convertedRadius4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["convertedRadius4"] = 0; }
+  try { const v = input.radius1 * input.unitMultiplier; results["convertedRadius1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["convertedRadius1"] = Number.NaN; }
+  try { const v = input.radius2 * input.unitMultiplier; results["convertedRadius2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["convertedRadius2"] = Number.NaN; }
+  try { const v = input.radius3 * input.unitMultiplier; results["convertedRadius3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["convertedRadius3"] = Number.NaN; }
+  try { const v = input.radius4 * input.unitMultiplier; results["convertedRadius4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["convertedRadius4"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSphere_volume_calculator(input: Sphere_volume_calculatorInput): Sphere_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["convertedRadius1"]));
+  const totalWasteCost = toNumericFormulaValue(values["convertedRadius1"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateSphere_volume_calculator(input: Sphere_volume_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

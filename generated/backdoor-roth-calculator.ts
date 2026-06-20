@@ -16,28 +16,24 @@ export const Backdoor_roth_calculatorInputSchema = z.object({
   taxRate: z.number().default(0.24),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Backdoor_roth_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalIraBalance > 0 ? input.afterTaxBasis / input.totalIraBalance : 0; results["nonTaxableRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nonTaxableRatio"] = 0; }
-  try { const v = input.conversionAmount * (asFormulaNumber(results["nonTaxableRatio"])); results["nonTaxableAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nonTaxableAmount"] = 0; }
-  try { const v = input.conversionAmount - (asFormulaNumber(results["nonTaxableAmount"])); results["taxableAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxableAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["taxableAmount"])) * input.taxRate; results["taxDue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxDue"] = 0; }
-  try { const v = input.conversionAmount; results["rothAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rothAmount"] = 0; }
+  try { const v = input.totalIraBalance > 0 ? input.afterTaxBasis / input.totalIraBalance : 0; results["nonTaxableRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nonTaxableRatio"] = Number.NaN; }
+  try { const v = input.conversionAmount * (toNumericFormulaValue(results["nonTaxableRatio"])); results["nonTaxableAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nonTaxableAmount"] = Number.NaN; }
+  try { const v = input.conversionAmount - (toNumericFormulaValue(results["nonTaxableAmount"])); results["taxableAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxableAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxableAmount"])) * input.taxRate; results["taxDue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxDue"] = Number.NaN; }
+  try { const v = input.conversionAmount; results["rothAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rothAmount"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBackdoor_roth_calculator(input: Backdoor_roth_calculatorInput): Backdoor_roth_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["taxDue"]));
+  const totalWasteCost = toNumericFormulaValue(values["taxDue"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateBackdoor_roth_calculator(input: Backdoor_roth_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

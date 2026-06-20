@@ -20,28 +20,24 @@ export const Recipe_converter_calculatorInputSchema = z.object({
   ingredientFourAmount: z.number().default(25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Recipe_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.newServings / input.originalServings; results["scalingFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scalingFactor"] = 0; }
-  try { const v = input.ingredientOneAmount * (input.newServings / input.originalServings); results["newIngredientOneAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newIngredientOneAmount"] = 0; }
-  try { const v = input.ingredientTwoAmount * (input.newServings / input.originalServings); results["newIngredientTwoAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newIngredientTwoAmount"] = 0; }
-  try { const v = input.ingredientThreeAmount * (input.newServings / input.originalServings); results["newIngredientThreeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newIngredientThreeAmount"] = 0; }
-  try { const v = input.ingredientFourAmount * (input.newServings / input.originalServings); results["newIngredientFourAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newIngredientFourAmount"] = 0; }
+  try { const v = input.newServings / input.originalServings; results["scalingFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scalingFactor"] = Number.NaN; }
+  try { const v = input.ingredientOneAmount * (input.newServings / input.originalServings); results["newIngredientOneAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newIngredientOneAmount"] = Number.NaN; }
+  try { const v = input.ingredientTwoAmount * (input.newServings / input.originalServings); results["newIngredientTwoAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newIngredientTwoAmount"] = Number.NaN; }
+  try { const v = input.ingredientThreeAmount * (input.newServings / input.originalServings); results["newIngredientThreeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newIngredientThreeAmount"] = Number.NaN; }
+  try { const v = input.ingredientFourAmount * (input.newServings / input.originalServings); results["newIngredientFourAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newIngredientFourAmount"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRecipe_converter_calculator(input: Recipe_converter_calculatorInput): Recipe_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["scalingFactor"]));
+  const totalWasteCost = toNumericFormulaValue(values["scalingFactor"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateRecipe_converter_calculator(input: Recipe_converter_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

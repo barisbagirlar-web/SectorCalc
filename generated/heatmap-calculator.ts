@@ -22,26 +22,22 @@ export const Heatmap_calculatorInputSchema = z.object({
   residualWeight: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heatmap_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.likelihood * input.impact; results["inherentScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inherentScore"] = 0; }
-  try { const v = input.residualLikelihood * input.residualImpact * (1 - input.controlEffectiveness / 100); results["residualScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["residualScore"] = 0; }
-  try { const v = (asFormulaNumber(results["inherentScore"])) * input.inherentWeight + (asFormulaNumber(results["residualScore"])) * input.residualWeight; results["overallScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overallScore"] = 0; }
+  try { const v = input.likelihood * input.impact; results["inherentScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inherentScore"] = Number.NaN; }
+  try { const v = input.residualLikelihood * input.residualImpact * (1 - input.controlEffectiveness / 100); results["residualScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["residualScore"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["inherentScore"])) * input.inherentWeight + (toNumericFormulaValue(results["residualScore"])) * input.residualWeight; results["overallScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overallScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeatmap_calculator(input: Heatmap_calculatorInput): Heatmap_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overallScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["overallScore"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateHeatmap_calculator(input: Heatmap_calculatorInput): Hea
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

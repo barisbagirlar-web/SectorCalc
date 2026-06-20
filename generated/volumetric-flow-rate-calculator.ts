@@ -18,25 +18,21 @@ export const Volumetric_flow_rate_calculatorInputSchema = z.object({
   massFlowRate: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Volumetric_flow_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.velocity * (input.crossSectionArea > 0 ? input.crossSectionArea : (input.innerDiameter > 0 ? Math.PI * (input.innerDiameter / 2000) ** 2 : 0)); results["flowRateFromAreaVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["flowRateFromAreaVelocity"] = 0; }
-  try { const v = input.fluidDensity > 0 ? input.massFlowRate / input.fluidDensity : 0; results["flowRateFromMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["flowRateFromMass"] = 0; }
+  try { const v = input.velocity * (input.crossSectionArea > 0 ? input.crossSectionArea : (input.innerDiameter > 0 ? Math.PI * (input.innerDiameter / 2000) ** 2 : 0)); results["flowRateFromAreaVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["flowRateFromAreaVelocity"] = Number.NaN; }
+  try { const v = input.fluidDensity > 0 ? input.massFlowRate / input.fluidDensity : 0; results["flowRateFromMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["flowRateFromMass"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVolumetric_flow_rate_calculator(input: Volumetric_flow_rate_calculatorInput): Volumetric_flow_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["flowRateFromAreaVelocity"]));
+  const totalWasteCost = toNumericFormulaValue(values["flowRateFromAreaVelocity"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateVolumetric_flow_rate_calculator(input: Volumetric_flow_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

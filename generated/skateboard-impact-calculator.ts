@@ -16,25 +16,21 @@ export const Skateboard_impact_calculatorInputSchema = z.object({
   stoppingDistance: z.number().default(0.05),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Skateboard_impact_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.riderMass + input.boardMass) * 9.81 * input.dropHeight) / input.stoppingDistance; results["impactForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["impactForce"] = 0; }
-  try { const v = (input.riderMass + input.boardMass) * 9.81 * input.dropHeight; results["kineticEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kineticEnergy"] = 0; }
+  try { const v = ((input.riderMass + input.boardMass) * 9.81 * input.dropHeight) / input.stoppingDistance; results["impactForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["impactForce"] = Number.NaN; }
+  try { const v = (input.riderMass + input.boardMass) * 9.81 * input.dropHeight; results["kineticEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kineticEnergy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSkateboard_impact_calculator(input: Skateboard_impact_calculatorInput): Skateboard_impact_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["impactForce"]));
+  const totalWasteCost = toNumericFormulaValue(values["impactForce"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSkateboard_impact_calculator(input: Skateboard_impact_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

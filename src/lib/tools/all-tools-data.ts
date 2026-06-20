@@ -9,6 +9,7 @@ import {
   resolveGeneratedToolTitle,
   resolveGeneratedToolDescription,
 } from "@/lib/generated-tools/resolve-tool-display";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 import { resolveGeneratedToolPath } from "@/lib/tools/paths";
 import {
@@ -93,12 +94,21 @@ function resolveToolTitle(
     return resolveGeneratedToolTitle(slug, normalized, locale);
   }
 
-  return (
+  const rawTitle =
     asString(raw.title) ||
     asString(raw.name) ||
     asString(raw.toolName) ||
-    humanizeSlug(slug)
-  );
+    humanizeSlug(slug);
+
+  // Apply locale glossary translation to fallback title
+  if (locale !== "en" && rawTitle.trim()) {
+    const translated = translateCalculatorPhrase(rawTitle, locale);
+    if (translated.trim() && translated !== rawTitle) {
+      return translated;
+    }
+  }
+
+  return rawTitle;
 }
 
 function resolveCategorySlugFallback(

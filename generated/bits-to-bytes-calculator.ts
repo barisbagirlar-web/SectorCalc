@@ -18,28 +18,24 @@ export const Bits_to_bytes_calculatorInputSchema = z.object({
   terabits: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bits_to_bytes_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8; results["bytes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bytes"] = 0; }
-  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8 / 1000; results["kilobytes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kilobytes"] = 0; }
-  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8 / 1000000; results["megabytes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["megabytes"] = 0; }
-  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8 / 1000000000; results["gigabytes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gigabytes"] = 0; }
-  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8 / 1000000000000; results["terabytes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["terabytes"] = 0; }
+  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8; results["bytes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bytes"] = Number.NaN; }
+  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8 / 1000; results["kilobytes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kilobytes"] = Number.NaN; }
+  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8 / 1000000; results["megabytes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["megabytes"] = Number.NaN; }
+  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8 / 1000000000; results["gigabytes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gigabytes"] = Number.NaN; }
+  try { const v = (input.bits + input.kilobits*1000 + input.megabits*1000000 + input.gigabits*1000000000 + input.terabits*1000000000000) / 8 / 1000000000000; results["terabytes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["terabytes"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBits_to_bytes_calculator(input: Bits_to_bytes_calculatorInput): Bits_to_bytes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bytes"]));
+  const totalWasteCost = toNumericFormulaValue(values["bytes"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateBits_to_bytes_calculator(input: Bits_to_bytes_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

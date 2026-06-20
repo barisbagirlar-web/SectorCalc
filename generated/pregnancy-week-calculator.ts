@@ -18,27 +18,23 @@ export const Pregnancy_week_calculatorInputSchema = z.object({
   height: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pregnancy_week_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 280 - input.daysSinceLMP; results["daysUntilDue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysUntilDue"] = 0; }
-  try { const v = input.daysSinceLMP - input.cycleLength + 14; results["estimatedConceptionDay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedConceptionDay"] = 0; }
-  try { const v = input.daysSinceLMP; results["gestationalAgeInDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gestationalAgeInDays"] = 0; }
-  try { const v = input.currentWeight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmi"] = 0; }
+  try { const v = 280 - input.daysSinceLMP; results["daysUntilDue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["daysUntilDue"] = Number.NaN; }
+  try { const v = input.daysSinceLMP - input.cycleLength + 14; results["estimatedConceptionDay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimatedConceptionDay"] = Number.NaN; }
+  try { const v = input.daysSinceLMP; results["gestationalAgeInDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gestationalAgeInDays"] = Number.NaN; }
+  try { const v = input.currentWeight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePregnancy_week_calculator(input: Pregnancy_week_calculatorInput): Pregnancy_week_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bmi"]));
+  const totalWasteCost = toNumericFormulaValue(values["bmi"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculatePregnancy_week_calculator(input: Pregnancy_week_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

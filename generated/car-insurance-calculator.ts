@@ -24,30 +24,26 @@ export const Car_insurance_calculatorInputSchema = z.object({
   vehicleAge: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Car_insurance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.carValue * 0.03; results["basePremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["basePremium"] = 0; }
-  try { const v = input.driverAge < 25 ? 1.8 : (input.driverAge <= 60 ? 1.0 : 1.3); results["ageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ageFactor"] = 0; }
-  try { const v = input.drivingExperience < 2 ? 2.0 : (input.drivingExperience <= 5 ? 1.5 : 1.0); results["experienceFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["experienceFactor"] = 0; }
-  try { const v = input.annualMileage <= 10000 ? 0.9 : (input.annualMileage <= 20000 ? 1.0 : 1.2); results["mileageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mileageFactor"] = 0; }
-  try { const v = input.coverageLevel === 1 ? 0.7 : (input.coverageLevel === 2 ? 0.85 : 1.0); results["coverageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coverageFactor"] = 0; }
-  try { const v = 1 + (input.regionRisk - 5) * 0.02; results["regionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["regionFactor"] = 0; }
-  try { const v = input.vehicleAge <= 5 ? 1.0 : (input.vehicleAge <= 10 ? 0.95 : 1.1); results["vehicleAgeFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vehicleAgeFactor"] = 0; }
+  try { const v = input.carValue * 0.03; results["basePremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["basePremium"] = Number.NaN; }
+  try { const v = input.driverAge < 25 ? 1.8 : (input.driverAge <= 60 ? 1.0 : 1.3); results["ageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ageFactor"] = Number.NaN; }
+  try { const v = input.drivingExperience < 2 ? 2.0 : (input.drivingExperience <= 5 ? 1.5 : 1.0); results["experienceFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["experienceFactor"] = Number.NaN; }
+  try { const v = input.annualMileage <= 10000 ? 0.9 : (input.annualMileage <= 20000 ? 1.0 : 1.2); results["mileageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mileageFactor"] = Number.NaN; }
+  try { const v = input.coverageLevel === 1 ? 0.7 : (input.coverageLevel === 2 ? 0.85 : 1.0); results["coverageFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coverageFactor"] = Number.NaN; }
+  try { const v = 1 + (input.regionRisk - 5) * 0.02; results["regionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["regionFactor"] = Number.NaN; }
+  try { const v = input.vehicleAge <= 5 ? 1.0 : (input.vehicleAge <= 10 ? 0.95 : 1.1); results["vehicleAgeFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vehicleAgeFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCar_insurance_calculator(input: Car_insurance_calculatorInput): Car_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["vehicleAgeFactor"]));
+  const totalWasteCost = toNumericFormulaValue(values["vehicleAgeFactor"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculateCar_insurance_calculator(input: Car_insurance_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,26 +22,22 @@ export const Fish_tank_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(0.8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fish_tank_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.tankLength * input.tankWidth * input.waterDepth; results["waterVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["waterVolume"])) * 1000; results["waterWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waterWeight"] = 0; }
-  try { const v = input.stockingDensity * (asFormulaNumber(results["waterVolume"])); results["maxBiomass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxBiomass"] = 0; }
+  try { const v = input.tankLength * input.tankWidth * input.waterDepth; results["waterVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["waterVolume"])) * 1000; results["waterWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waterWeight"] = Number.NaN; }
+  try { const v = input.stockingDensity * (toNumericFormulaValue(results["waterVolume"])); results["maxBiomass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxBiomass"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFish_tank_calculator(input: Fish_tank_calculatorInput): Fish_tank_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxBiomass"]));
+  const totalWasteCost = toNumericFormulaValue(values["maxBiomass"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateFish_tank_calculator(input: Fish_tank_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

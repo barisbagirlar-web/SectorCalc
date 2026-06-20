@@ -16,26 +16,22 @@ export const Dps_calculatorInputSchema = z.object({
   payoutRatio: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dps_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.sharesOutstanding !== 0 ? input.dividendsTotal / input.sharesOutstanding : 0) ? 1 : 0); results["dps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dps"] = 0; }
-  try { const v = input.netIncome !== 0 ? (input.dividendsTotal / input.netIncome) * 100 : 0; results["payoutRatioCalculated"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["payoutRatioCalculated"] = 0; }
-  try { const v = input.sharesOutstanding !== 0 ? (input.netIncome * (input.payoutRatio / 100)) / input.sharesOutstanding : 0; results["dpsFromPayout"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dpsFromPayout"] = 0; }
+  try { const v = ((input.sharesOutstanding !== 0 ? input.dividendsTotal / input.sharesOutstanding : 0) ? 1 : 0); results["dps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dps"] = Number.NaN; }
+  try { const v = input.netIncome !== 0 ? (input.dividendsTotal / input.netIncome) * 100 : 0; results["payoutRatioCalculated"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["payoutRatioCalculated"] = Number.NaN; }
+  try { const v = input.sharesOutstanding !== 0 ? (input.netIncome * (input.payoutRatio / 100)) / input.sharesOutstanding : 0; results["dpsFromPayout"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dpsFromPayout"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDps_calculator(input: Dps_calculatorInput): Dps_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dps"]));
+  const totalWasteCost = toNumericFormulaValue(values["dps"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateDps_calculator(input: Dps_calculatorInput): Dps_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

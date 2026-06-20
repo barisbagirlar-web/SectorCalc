@@ -16,26 +16,22 @@ export const Waist_to_height_ratio_calculatorInputSchema = z.object({
   heightUnit: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Waist_to_height_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.waistUnit == 1 ? input.waist * 2.54 : input.waist; results["waistCm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waistCm"] = 0; }
-  try { const v = input.heightUnit == 1 ? input.height * 2.54 : input.height; results["heightCm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heightCm"] = 0; }
-  try { const v = (asFormulaNumber(results["waistCm"])) / (asFormulaNumber(results["heightCm"])); results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio"] = 0; }
+  try { const v = input.waistUnit == 1 ? input.waist * 2.54 : input.waist; results["waistCm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waistCm"] = Number.NaN; }
+  try { const v = input.heightUnit == 1 ? input.height * 2.54 : input.height; results["heightCm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heightCm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["waistCm"])) / (toNumericFormulaValue(results["heightCm"])); results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ratio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWaist_to_height_ratio_calculator(input: Waist_to_height_ratio_calculatorInput): Waist_to_height_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ratio"]));
+  const totalWasteCost = toNumericFormulaValue(values["ratio"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateWaist_to_height_ratio_calculator(input: Waist_to_height
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

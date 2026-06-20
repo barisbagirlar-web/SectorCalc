@@ -20,25 +20,21 @@ export const Diesel_cycle_calculatorInputSchema = z.object({
   cv: z.number().default(718),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Diesel_cycle_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cv * (input.k - 1); results["R"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["R"] = 0; }
-  try { const v = (asFormulaNumber(results["R"])) * input.T1 / input.p1; results["v1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["v1"] = 0; }
+  try { const v = input.cv * (input.k - 1); results["R"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["R"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["R"])) * input.T1 / input.p1; results["v1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["v1"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDiesel_cycle_calculator(input: Diesel_cycle_calculatorInput): Diesel_cycle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["v1"]));
+  const totalWasteCost = toNumericFormulaValue(values["v1"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateDiesel_cycle_calculator(input: Diesel_cycle_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

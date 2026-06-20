@@ -16,27 +16,23 @@ export const Roe_calculatorInputSchema = z.object({
   shareholdersEquity: z.number().default(4000000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Roe_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.netIncome / input.revenue) * 100; results["netProfitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfitMargin"] = 0; }
-  try { const v = input.revenue / input.totalAssets; results["assetTurnover"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["assetTurnover"] = 0; }
-  try { const v = input.totalAssets / input.shareholdersEquity; results["equityMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["equityMultiplier"] = 0; }
-  try { const v = (input.netIncome / input.shareholdersEquity) * 100; results["roe"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roe"] = 0; }
+  try { const v = (input.netIncome / input.revenue) * 100; results["netProfitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfitMargin"] = Number.NaN; }
+  try { const v = input.revenue / input.totalAssets; results["assetTurnover"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["assetTurnover"] = Number.NaN; }
+  try { const v = input.totalAssets / input.shareholdersEquity; results["equityMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["equityMultiplier"] = Number.NaN; }
+  try { const v = (input.netIncome / input.shareholdersEquity) * 100; results["roe"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roe"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRoe_calculator(input: Roe_calculatorInput): Roe_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["roe"]));
+  const totalWasteCost = toNumericFormulaValue(values["roe"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRoe_calculator(input: Roe_calculatorInput): Roe_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

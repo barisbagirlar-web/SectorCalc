@@ -20,27 +20,23 @@ export const Pecks_to_liters_calculatorInputSchema = z.object({
   temperature: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pecks_to_liters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.peckType == 0 ? 8.80977 : 9.09218; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
-  try { const v = input.peckQuantity * (asFormulaNumber(results["conversionFactor"])); results["liters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["liters"] = 0; }
-  try { const v = (asFormulaNumber(results["liters"])) * input.uncertaintyMargin / 100; results["uncertaintyAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uncertaintyAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["liters"])) + (asFormulaNumber(results["uncertaintyAmount"])); results["litersWithUncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["litersWithUncertainty"] = 0; }
+  try { const v = input.peckType == 0 ? 8.80977 : 9.09218; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactor"] = Number.NaN; }
+  try { const v = input.peckQuantity * (toNumericFormulaValue(results["conversionFactor"])); results["liters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["liters"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["liters"])) * input.uncertaintyMargin / 100; results["uncertaintyAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["uncertaintyAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["liters"])) + (toNumericFormulaValue(results["uncertaintyAmount"])); results["litersWithUncertainty"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["litersWithUncertainty"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePecks_to_liters_calculator(input: Pecks_to_liters_calculatorInput): Pecks_to_liters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["litersWithUncertainty"]));
+  const totalWasteCost = toNumericFormulaValue(values["litersWithUncertainty"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculatePecks_to_liters_calculator(input: Pecks_to_liters_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

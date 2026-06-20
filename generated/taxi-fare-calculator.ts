@@ -20,28 +20,24 @@ export const Taxi_fare_calculatorInputSchema = z.object({
   surcharge: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Taxi_fare_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.distance * input.costPerKm; results["distanceCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["distanceCost"] = 0; }
-  try { const v = input.time * input.costPerMinute; results["timeCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["timeCost"] = 0; }
-  try { const v = input.baseFare; results["baseFare"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseFare"] = 0; }
-  try { const v = input.surcharge; results["surcharge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["surcharge"] = 0; }
-  try { const v = input.baseFare + input.distance * input.costPerKm + input.time * input.costPerMinute + input.surcharge; results["totalFare"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFare"] = 0; }
+  try { const v = input.distance * input.costPerKm; results["distanceCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["distanceCost"] = Number.NaN; }
+  try { const v = input.time * input.costPerMinute; results["timeCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["timeCost"] = Number.NaN; }
+  try { const v = input.baseFare; results["baseFare"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseFare"] = Number.NaN; }
+  try { const v = input.surcharge; results["surcharge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["surcharge"] = Number.NaN; }
+  try { const v = input.baseFare + input.distance * input.costPerKm + input.time * input.costPerMinute + input.surcharge; results["totalFare"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFare"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTaxi_fare_calculator(input: Taxi_fare_calculatorInput): Taxi_fare_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFare"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalFare"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateTaxi_fare_calculator(input: Taxi_fare_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

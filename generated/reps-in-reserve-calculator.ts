@@ -18,26 +18,22 @@ export const Reps_in_reserve_calculatorInputSchema = z.object({
   plannedProduction: z.number().default(5000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Reps_in_reserve_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalLifespan * (1 - input.safetyFactor / 100) - input.currentUsage; results["remainingReps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingReps"] = 0; }
-  try { const v = (input.totalLifespan * (1 - input.safetyFactor / 100) - input.currentUsage) / input.dailyUsageRate; results["daysRemaining"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysRemaining"] = 0; }
-  try { const v = input.currentUsage / (input.totalLifespan * (1 - input.safetyFactor / 100)) * 100; results["utilizationPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["utilizationPercentage"] = 0; }
+  try { const v = input.totalLifespan * (1 - input.safetyFactor / 100) - input.currentUsage; results["remainingReps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingReps"] = Number.NaN; }
+  try { const v = (input.totalLifespan * (1 - input.safetyFactor / 100) - input.currentUsage) / input.dailyUsageRate; results["daysRemaining"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["daysRemaining"] = Number.NaN; }
+  try { const v = input.currentUsage / (input.totalLifespan * (1 - input.safetyFactor / 100)) * 100; results["utilizationPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["utilizationPercentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateReps_in_reserve_calculator(input: Reps_in_reserve_calculatorInput): Reps_in_reserve_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["remainingReps"]));
+  const totalWasteCost = toNumericFormulaValue(values["remainingReps"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateReps_in_reserve_calculator(input: Reps_in_reserve_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

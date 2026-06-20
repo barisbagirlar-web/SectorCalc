@@ -16,26 +16,22 @@ export const Caffeine_half_life_calculatorInputSchema = z.object({
   bodyWeight: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Caffeine_half_life_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.initialDose * (0.5 ^ (input.elapsedTime / input.halfLife)); results["remainingCaffeine"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingCaffeine"] = 0; }
-  try { const v = (asFormulaNumber(results["remainingCaffeine"])) / input.bodyWeight; results["remainingCaffeinePerKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingCaffeinePerKg"] = 0; }
-  try { const v = input.elapsedTime / input.halfLife; results["halfLivesElapsed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halfLivesElapsed"] = 0; }
+  try { const v = input.initialDose * (0.5 ^ (input.elapsedTime / input.halfLife)); results["remainingCaffeine"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingCaffeine"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["remainingCaffeine"])) / input.bodyWeight; results["remainingCaffeinePerKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingCaffeinePerKg"] = Number.NaN; }
+  try { const v = input.elapsedTime / input.halfLife; results["halfLivesElapsed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["halfLivesElapsed"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCaffeine_half_life_calculator(input: Caffeine_half_life_calculatorInput): Caffeine_half_life_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["remainingCaffeine"]));
+  const totalWasteCost = toNumericFormulaValue(values["remainingCaffeine"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateCaffeine_half_life_calculator(input: Caffeine_half_life
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

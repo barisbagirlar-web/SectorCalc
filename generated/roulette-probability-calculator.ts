@@ -18,26 +18,22 @@ export const Roulette_probability_calculatorInputSchema = z.object({
   totalNumbers: z.number().default(37),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Roulette_probability_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfSpins * input.numbersCovered / input.totalNumbers; results["expectedWins"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedWins"] = 0; }
-  try { const v = input.numberOfSpins * input.betAmount; results["totalBetAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBetAmount"] = 0; }
-  try { const v = input.numberOfSpins * (input.betAmount * ( (input.numbersCovered / input.totalNumbers) * input.payoutMultiplier - (1 - input.numbersCovered / input.totalNumbers) )); results["expectedNetReturn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["expectedNetReturn"] = 0; }
+  try { const v = input.numberOfSpins * input.numbersCovered / input.totalNumbers; results["expectedWins"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedWins"] = Number.NaN; }
+  try { const v = input.numberOfSpins * input.betAmount; results["totalBetAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBetAmount"] = Number.NaN; }
+  try { const v = input.numberOfSpins * (input.betAmount * ( (input.numbersCovered / input.totalNumbers) * input.payoutMultiplier - (1 - input.numbersCovered / input.totalNumbers) )); results["expectedNetReturn"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["expectedNetReturn"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRoulette_probability_calculator(input: Roulette_probability_calculatorInput): Roulette_probability_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["expectedNetReturn"]));
+  const totalWasteCost = toNumericFormulaValue(values["expectedNetReturn"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateRoulette_probability_calculator(input: Roulette_probabi
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

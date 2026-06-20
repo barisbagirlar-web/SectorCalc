@@ -18,27 +18,23 @@ export const Scale_calculatorInputSchema = z.object({
   scaleDenominator: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Scale_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.realLength * input.scaleNumerator / input.scaleDenominator; results["modelLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["modelLength"] = 0; }
-  try { const v = input.realWidth * input.scaleNumerator / input.scaleDenominator; results["modelWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["modelWidth"] = 0; }
-  try { const v = input.realHeight * input.scaleNumerator / input.scaleDenominator; results["modelHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["modelHeight"] = 0; }
-  try { const v = input.scaleNumerator + ':' + input.scaleDenominator; results["scaleRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleRatio"] = 0; }
+  try { const v = input.realLength * input.scaleNumerator / input.scaleDenominator; results["modelLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["modelLength"] = Number.NaN; }
+  try { const v = input.realWidth * input.scaleNumerator / input.scaleDenominator; results["modelWidth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["modelWidth"] = Number.NaN; }
+  try { const v = input.realHeight * input.scaleNumerator / input.scaleDenominator; results["modelHeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["modelHeight"] = Number.NaN; }
+  try { const v = input.scaleNumerator + ':' + input.scaleDenominator; results["scaleRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaleRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateScale_calculator(input: Scale_calculatorInput): Scale_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["modelLength"]));
+  const totalWasteCost = toNumericFormulaValue(values["modelLength"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateScale_calculator(input: Scale_calculatorInput): Scale_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

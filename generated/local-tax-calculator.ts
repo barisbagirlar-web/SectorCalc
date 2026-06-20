@@ -20,27 +20,23 @@ export const Local_tax_calculatorInputSchema = z.object({
   incomeTaxRate: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Local_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.propertyValue * input.propertyTaxRate / 100; results["propertyTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["propertyTax"] = 0; }
-  try { const v = input.salesAmount * input.salesTaxRate / 100; results["salesTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["salesTax"] = 0; }
-  try { const v = input.incomeAmount * input.incomeTaxRate / 100; results["incomeTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["incomeTax"] = 0; }
-  try { const v = (asFormulaNumber(results["propertyTax"])) + (asFormulaNumber(results["salesTax"])) + (asFormulaNumber(results["incomeTax"])); results["totalLocalTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLocalTax"] = 0; }
+  try { const v = input.propertyValue * input.propertyTaxRate / 100; results["propertyTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["propertyTax"] = Number.NaN; }
+  try { const v = input.salesAmount * input.salesTaxRate / 100; results["salesTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["salesTax"] = Number.NaN; }
+  try { const v = input.incomeAmount * input.incomeTaxRate / 100; results["incomeTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["incomeTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["propertyTax"])) + (toNumericFormulaValue(results["salesTax"])) + (toNumericFormulaValue(results["incomeTax"])); results["totalLocalTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLocalTax"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLocal_tax_calculator(input: Local_tax_calculatorInput): Local_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLocalTax"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalLocalTax"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateLocal_tax_calculator(input: Local_tax_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

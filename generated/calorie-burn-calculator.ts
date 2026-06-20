@@ -14,26 +14,22 @@ export const Calorie_burn_calculatorInputSchema = z.object({
   met: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Calorie_burn_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.met * input.weight * (input.duration / 60); results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
-  try { const v = input.met * input.duration; results["metMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["metMinutes"] = 0; }
-  try { const v = input.duration / 60; results["durationHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["durationHours"] = 0; }
+  try { const v = input.met * input.weight * (input.duration / 60); results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caloriesBurned"] = Number.NaN; }
+  try { const v = input.met * input.duration; results["metMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["metMinutes"] = Number.NaN; }
+  try { const v = input.duration / 60; results["durationHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["durationHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCalorie_burn_calculator(input: Calorie_burn_calculatorInput): Calorie_burn_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["caloriesBurned"]));
+  const totalWasteCost = toNumericFormulaValue(values["caloriesBurned"]);
   const breakdown = {
     
   };
@@ -41,7 +37,7 @@ export function calculateCalorie_burn_calculator(input: Calorie_burn_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

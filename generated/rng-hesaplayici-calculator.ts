@@ -20,26 +20,22 @@ export const Rng_hesaplayici_calculatorInputSchema = z.object({
   outputMax: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rng_hesaplayici_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.multiplier * input.seed + input.increment) % input.modulus; results["generatedNumber"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["generatedNumber"] = 0; }
-  try { const v = (asFormulaNumber(results["generatedNumber"])) / input.modulus; results["normalized"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized"] = 0; }
-  try { const v = input.outputMin + (asFormulaNumber(results["normalized"])) * (input.outputMax - input.outputMin); results["scaledValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledValue"] = 0; }
+  try { const v = (input.multiplier * input.seed + input.increment) % input.modulus; results["generatedNumber"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["generatedNumber"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["generatedNumber"])) / input.modulus; results["normalized"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized"] = Number.NaN; }
+  try { const v = input.outputMin + (toNumericFormulaValue(results["normalized"])) * (input.outputMax - input.outputMin); results["scaledValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaledValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRng_hesaplayici_calculator(input: Rng_hesaplayici_calculatorInput): Rng_hesaplayici_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["scaledValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["scaledValue"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateRng_hesaplayici_calculator(input: Rng_hesaplayici_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Asphalt_thickness_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Asphalt_thickness_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.mass / (1 + input.wasteFactor / 100)) / (input.density * input.area) * 1000; results["asphaltThickness"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["asphaltThickness"] = 0; }
-  try { const v = (input.mass / (1 + input.wasteFactor / 100)) / (input.density * input.area) * 100; results["thicknessInCm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thicknessInCm"] = 0; }
-  try { const v = (input.mass / (1 + input.wasteFactor / 100)) / input.density; results["volumeInCubicMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeInCubicMeters"] = 0; }
-  try { const v = input.mass / (1 + input.wasteFactor / 100); results["effectiveMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveMass"] = 0; }
+  try { const v = (input.mass / (1 + input.wasteFactor / 100)) / (input.density * input.area) * 1000; results["asphaltThickness"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["asphaltThickness"] = Number.NaN; }
+  try { const v = (input.mass / (1 + input.wasteFactor / 100)) / (input.density * input.area) * 100; results["thicknessInCm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["thicknessInCm"] = Number.NaN; }
+  try { const v = (input.mass / (1 + input.wasteFactor / 100)) / input.density; results["volumeInCubicMeters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeInCubicMeters"] = Number.NaN; }
+  try { const v = input.mass / (1 + input.wasteFactor / 100); results["effectiveMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveMass"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAsphalt_thickness_calculator(input: Asphalt_thickness_calculatorInput): Asphalt_thickness_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["asphaltThickness"]));
+  const totalWasteCost = toNumericFormulaValue(values["asphaltThickness"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateAsphalt_thickness_calculator(input: Asphalt_thickness_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Diophantine_equationInputSchema = z.object({
   k: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Diophantine_equationInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.x0 + input.b * input.k; results["generalX"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["generalX"] = 0; }
-  try { const v = input.y0 - input.a * input.k; results["generalY"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["generalY"] = 0; }
-  try { const v = (asFormulaNumber(results["generalX"])) + (asFormulaNumber(results["generalY"])); results["solutionSum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["solutionSum"] = 0; }
+  try { const v = input.x0 + input.b * input.k; results["generalX"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["generalX"] = Number.NaN; }
+  try { const v = input.y0 - input.a * input.k; results["generalY"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["generalY"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["generalX"])) + (toNumericFormulaValue(results["generalY"])); results["solutionSum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["solutionSum"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDiophantine_equation(input: Diophantine_equationInput): Diophantine_equationOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["solutionSum"]));
+  const totalWasteCost = toNumericFormulaValue(values["solutionSum"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateDiophantine_equation(input: Diophantine_equationInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,34 +24,30 @@ export const Limit_calculatorInputSchema = z.object({
   epsilon: z.number().default(0.0001),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Limit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.approachPoint - input.epsilon; results["xLeft"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["xLeft"] = 0; }
-  try { const v = input.approachPoint + input.epsilon; results["xRight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["xRight"] = 0; }
-  try { const v = input.numCoeff0 + input.numCoeff1 * (asFormulaNumber(results["xLeft"])) + input.numCoeff2 * (asFormulaNumber(results["xLeft"])) ** 2; results["leftNumerator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leftNumerator"] = 0; }
-  try { const v = input.denCoeff0 + input.denCoeff1 * (asFormulaNumber(results["xLeft"])) + input.denCoeff2 * (asFormulaNumber(results["xLeft"])) ** 2; results["leftDenominator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leftDenominator"] = 0; }
-  try { const v = (asFormulaNumber(results["leftNumerator"])) / (asFormulaNumber(results["leftDenominator"])); results["leftLimit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leftLimit"] = 0; }
-  try { const v = input.numCoeff0 + input.numCoeff1 * (asFormulaNumber(results["xRight"])) + input.numCoeff2 * (asFormulaNumber(results["xRight"])) ** 2; results["rightNumerator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rightNumerator"] = 0; }
-  try { const v = input.denCoeff0 + input.denCoeff1 * (asFormulaNumber(results["xRight"])) + input.denCoeff2 * (asFormulaNumber(results["xRight"])) ** 2; results["rightDenominator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rightDenominator"] = 0; }
-  try { const v = (asFormulaNumber(results["rightNumerator"])) / (asFormulaNumber(results["rightDenominator"])); results["rightLimit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rightLimit"] = 0; }
-  try { const v = ((asFormulaNumber(results["leftLimit"])) + (asFormulaNumber(results["rightLimit"]))) / 2; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = (asFormulaNumber(results["leftLimit"])); results["breakdown_0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_0"] = 0; }
-  try { const v = (asFormulaNumber(results["rightLimit"])); results["breakdown_1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown_1"] = 0; }
+  try { const v = input.approachPoint - input.epsilon; results["xLeft"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["xLeft"] = Number.NaN; }
+  try { const v = input.approachPoint + input.epsilon; results["xRight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["xRight"] = Number.NaN; }
+  try { const v = input.numCoeff0 + input.numCoeff1 * (toNumericFormulaValue(results["xLeft"])) + input.numCoeff2 * (toNumericFormulaValue(results["xLeft"])) ** 2; results["leftNumerator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["leftNumerator"] = Number.NaN; }
+  try { const v = input.denCoeff0 + input.denCoeff1 * (toNumericFormulaValue(results["xLeft"])) + input.denCoeff2 * (toNumericFormulaValue(results["xLeft"])) ** 2; results["leftDenominator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["leftDenominator"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["leftNumerator"])) / (toNumericFormulaValue(results["leftDenominator"])); results["leftLimit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["leftLimit"] = Number.NaN; }
+  try { const v = input.numCoeff0 + input.numCoeff1 * (toNumericFormulaValue(results["xRight"])) + input.numCoeff2 * (toNumericFormulaValue(results["xRight"])) ** 2; results["rightNumerator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rightNumerator"] = Number.NaN; }
+  try { const v = input.denCoeff0 + input.denCoeff1 * (toNumericFormulaValue(results["xRight"])) + input.denCoeff2 * (toNumericFormulaValue(results["xRight"])) ** 2; results["rightDenominator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rightDenominator"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rightNumerator"])) / (toNumericFormulaValue(results["rightDenominator"])); results["rightLimit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rightLimit"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["leftLimit"])) + (toNumericFormulaValue(results["rightLimit"]))) / 2; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["leftLimit"])); results["breakdown_0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown_0"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rightLimit"])); results["breakdown_1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown_1"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLimit_calculator(input: Limit_calculatorInput): Limit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["breakdown_1"]));
+  const totalWasteCost = toNumericFormulaValue(values["breakdown_1"]);
   const breakdown = {
     
   };
@@ -59,7 +55,7 @@ export function calculateLimit_calculator(input: Limit_calculatorInput): Limit_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

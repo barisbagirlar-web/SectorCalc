@@ -16,26 +16,22 @@ export const Mpg_calculatorInputSchema = z.object({
   numberOfTrips: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mpg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.distanceTraveled / input.fuelUsed; results["mpg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mpg"] = 0; }
-  try { const v = input.fuelUsed * input.fuelCostPerGallon; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (input.fuelUsed * input.fuelCostPerGallon) / input.distanceTraveled; results["costPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerMile"] = 0; }
+  try { const v = input.distanceTraveled / input.fuelUsed; results["mpg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mpg"] = Number.NaN; }
+  try { const v = input.fuelUsed * input.fuelCostPerGallon; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (input.fuelUsed * input.fuelCostPerGallon) / input.distanceTraveled; results["costPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerMile"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMpg_calculator(input: Mpg_calculatorInput): Mpg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mpg"]));
+  const totalWasteCost = toNumericFormulaValue(values["mpg"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateMpg_calculator(input: Mpg_calculatorInput): Mpg_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

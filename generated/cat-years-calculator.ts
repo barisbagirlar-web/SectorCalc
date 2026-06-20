@@ -16,28 +16,24 @@ export const Cat_years_calculatorInputSchema = z.object({
   indoor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cat_years_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.catAgeYears + input.catAgeMonths / 12; results["totalAgeYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAgeYears"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalAgeYears"])) <= 1) ? 15 * (asFormulaNumber(results["totalAgeYears"])) : ((asFormulaNumber(results["totalAgeYears"])) <= 2) ? 15 + 9 * ((asFormulaNumber(results["totalAgeYears"])) - 1) : 24 + 4 * ((asFormulaNumber(results["totalAgeYears"])) - 2); results["baseHuman"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseHuman"] = 0; }
-  try { const v = 1 + 0.02 * (input.catWeightKg - 4.5); results["weightFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightFactor"] = 0; }
-  try { const v = input.indoor === 0 ? 1.1 : 1.0; results["indoorFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["indoorFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["baseHuman"])) * (asFormulaNumber(results["weightFactor"])) * (asFormulaNumber(results["indoorFactor"])); results["finalHumanYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalHumanYears"] = 0; }
+  try { const v = input.catAgeYears + input.catAgeMonths / 12; results["totalAgeYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAgeYears"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalAgeYears"])) <= 1) ? 15 * (toNumericFormulaValue(results["totalAgeYears"])) : ((toNumericFormulaValue(results["totalAgeYears"])) <= 2) ? 15 + 9 * ((toNumericFormulaValue(results["totalAgeYears"])) - 1) : 24 + 4 * ((toNumericFormulaValue(results["totalAgeYears"])) - 2); results["baseHuman"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseHuman"] = Number.NaN; }
+  try { const v = 1 + 0.02 * (input.catWeightKg - 4.5); results["weightFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightFactor"] = Number.NaN; }
+  try { const v = input.indoor === 0 ? 1.1 : 1.0; results["indoorFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["indoorFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseHuman"])) * (toNumericFormulaValue(results["weightFactor"])) * (toNumericFormulaValue(results["indoorFactor"])); results["finalHumanYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalHumanYears"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCat_years_calculator(input: Cat_years_calculatorInput): Cat_years_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalHumanYears"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalHumanYears"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCat_years_calculator(input: Cat_years_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

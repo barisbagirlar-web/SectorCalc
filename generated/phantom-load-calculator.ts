@@ -20,27 +20,23 @@ export const Phantom_load_calculatorInputSchema = z.object({
   operatingDaysPerYear: z.number().default(365),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Phantom_load_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.standbyWatt * input.numberOfDevices * input.standbyHoursPerDay) / 1000; results["dailyEnergyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyEnergyKwh"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyEnergyKwh"])) * input.operatingDaysPerYear; results["annualEnergyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualEnergyKwh"] = 0; }
-  try { const v = (asFormulaNumber(results["annualEnergyKwh"])) * input.electricityCost; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCost"] = 0; }
-  try { const v = (asFormulaNumber(results["annualEnergyKwh"])) * input.carbonFactor; results["annualCarbonKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualCarbonKg"] = 0; }
+  try { const v = (input.standbyWatt * input.numberOfDevices * input.standbyHoursPerDay) / 1000; results["dailyEnergyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyEnergyKwh"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyEnergyKwh"])) * input.operatingDaysPerYear; results["annualEnergyKwh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualEnergyKwh"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["annualEnergyKwh"])) * input.electricityCost; results["annualCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["annualEnergyKwh"])) * input.carbonFactor; results["annualCarbonKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualCarbonKg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePhantom_load_calculator(input: Phantom_load_calculatorInput): Phantom_load_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["annualCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["annualCost"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculatePhantom_load_calculator(input: Phantom_load_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

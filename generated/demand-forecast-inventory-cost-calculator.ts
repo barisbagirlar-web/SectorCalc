@@ -24,27 +24,23 @@ export const Demand_forecast_inventory_cost_calculatorInputSchema = z.object({
   stockout_cost_per_unit: z.number().min(0).max(100000).default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Demand_forecast_inventory_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.historical_demand_mean * input.unit_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.historical_demand_mean * input.unit_cost * (1 + (input.holding_cost_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.historical_demand_mean * input.unit_cost * (1 + (input.holding_cost_rate / 100)) * (input.demand_std_dev); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.demand_std_dev; results["factor_demand_std_dev"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_demand_std_dev"] = 0; }
+  try { const v = input.historical_demand_mean * input.unit_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.historical_demand_mean * input.unit_cost * (1 + (input.holding_cost_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.historical_demand_mean * input.unit_cost * (1 + (input.holding_cost_rate / 100)) * (input.demand_std_dev); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.demand_std_dev; results["factor_demand_std_dev"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_demand_std_dev"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDemand_forecast_inventory_cost_calculator(input: Demand_forecast_inventory_cost_calculatorInput): Demand_forecast_inventory_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateDemand_forecast_inventory_cost_calculator(input: Demand
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

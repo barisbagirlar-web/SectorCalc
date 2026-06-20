@@ -24,26 +24,22 @@ export const Cleaning_bid_optimizer_calculatorInputSchema = z.object({
   overhead_percent: z.number().min(0).max(50).default(15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cleaning_bid_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_kwh"] = 0; }
-  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100) * input.material_cost_per_sqft; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100) * input.material_cost_per_sqft; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100); results["annual_kwh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_kwh"] = Number.NaN; }
+  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100) * input.material_cost_per_sqft; results["annual_energy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_energy_cost"] = Number.NaN; }
+  try { const v = 1 * input.cleaning_frequency * input.productivity_sqft_per_hour * (input.labor_rate_per_hour / 100) * input.material_cost_per_sqft; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_optimizer_calculatorInput): Cleaning_bid_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_o
   const suggestedActions: string[] = ["Meter validate kWh per shift","Prioritize top leak sources"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

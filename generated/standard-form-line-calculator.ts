@@ -16,27 +16,23 @@ export const Standard_form_line_calculatorInputSchema = z.object({
   x: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Standard_form_line_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.C - input.A * input.x) / input.B; results["y"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["y"] = 0; }
-  try { const v = -input.A / input.B; results["slope"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["slope"] = 0; }
-  try { const v = input.C / input.A; results["x_intercept"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["x_intercept"] = 0; }
-  try { const v = input.C / input.B; results["y_intercept"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["y_intercept"] = 0; }
+  try { const v = (input.C - input.A * input.x) / input.B; results["y"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["y"] = Number.NaN; }
+  try { const v = -input.A / input.B; results["slope"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["slope"] = Number.NaN; }
+  try { const v = input.C / input.A; results["x_intercept"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["x_intercept"] = Number.NaN; }
+  try { const v = input.C / input.B; results["y_intercept"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["y_intercept"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStandard_form_line_calculator(input: Standard_form_line_calculatorInput): Standard_form_line_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["y"]));
+  const totalWasteCost = toNumericFormulaValue(values["y"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateStandard_form_line_calculator(input: Standard_form_line
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

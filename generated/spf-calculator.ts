@@ -16,25 +16,21 @@ export const Spf_calculatorInputSchema = z.object({
   oxidationFactor: z.number().default(0.99),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Spf_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fuelMassFlow * 1000 / input.powerOutput; results["sfc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sfc"] = 0; }
-  try { const v = input.fuelMassFlow * input.carbonContent * input.oxidationFactor * (44/12); results["co2Emissions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["co2Emissions"] = 0; }
+  try { const v = input.fuelMassFlow * 1000 / input.powerOutput; results["sfc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sfc"] = Number.NaN; }
+  try { const v = input.fuelMassFlow * input.carbonContent * input.oxidationFactor * (44/12); results["co2Emissions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["co2Emissions"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSpf_calculator(input: Spf_calculatorInput): Spf_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sfc"]));
+  const totalWasteCost = toNumericFormulaValue(values["sfc"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSpf_calculator(input: Spf_calculatorInput): Spf_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,29 +20,25 @@ export const Dropshipping_profit_calculatorInputSchema = z.object({
   feePercentage: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dropshipping_profit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sellingPrice * input.orderVolume; results["revenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["revenue"] = 0; }
-  try { const v = (input.costPrice + input.shippingCost) * input.orderVolume; results["totalCOGS"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCOGS"] = 0; }
-  try { const v = input.sellingPrice * (input.feePercentage / 100) * input.orderVolume; results["totalFees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFees"] = 0; }
-  try { const v = (asFormulaNumber(results["revenue"])) - (asFormulaNumber(results["totalCOGS"])); results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = (asFormulaNumber(results["grossProfit"])) - (asFormulaNumber(results["totalFees"])) - input.fixedCosts; results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = ((asFormulaNumber(results["netProfit"])) / (asFormulaNumber(results["revenue"]))) * 100; results["netProfitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfitMargin"] = 0; }
+  try { const v = input.sellingPrice * input.orderVolume; results["revenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["revenue"] = Number.NaN; }
+  try { const v = (input.costPrice + input.shippingCost) * input.orderVolume; results["totalCOGS"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCOGS"] = Number.NaN; }
+  try { const v = input.sellingPrice * (input.feePercentage / 100) * input.orderVolume; results["totalFees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFees"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["revenue"])) - (toNumericFormulaValue(results["totalCOGS"])); results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossProfit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossProfit"])) - (toNumericFormulaValue(results["totalFees"])) - input.fixedCosts; results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["netProfit"])) / (toNumericFormulaValue(results["revenue"]))) * 100; results["netProfitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfitMargin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDropshipping_profit_calculator(input: Dropshipping_profit_calculatorInput): Dropshipping_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["netProfit"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateDropshipping_profit_calculator(input: Dropshipping_prof
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

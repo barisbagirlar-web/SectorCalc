@@ -18,26 +18,22 @@ export const Day_rate_calculatorInputSchema = z.object({
   billableHoursPerDay: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Day_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.annualSalary * (1 + input.overheadPercentage / 100) * (1 + input.profitMarginPercentage / 100)) / input.workingDaysPerYear; results["dayRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dayRate"] = 0; }
-  try { const v = (asFormulaNumber(results["dayRate"])) / input.billableHoursPerDay; results["hourlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hourlyRate"] = 0; }
-  try { const v = input.annualSalary * (1 + input.overheadPercentage / 100); results["totalAnnualCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAnnualCost"] = 0; }
+  try { const v = (input.annualSalary * (1 + input.overheadPercentage / 100) * (1 + input.profitMarginPercentage / 100)) / input.workingDaysPerYear; results["dayRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dayRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dayRate"])) / input.billableHoursPerDay; results["hourlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hourlyRate"] = Number.NaN; }
+  try { const v = input.annualSalary * (1 + input.overheadPercentage / 100); results["totalAnnualCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAnnualCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDay_rate_calculator(input: Day_rate_calculatorInput): Day_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dayRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["dayRate"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDay_rate_calculator(input: Day_rate_calculatorInput): D
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

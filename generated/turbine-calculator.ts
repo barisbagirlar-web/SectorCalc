@@ -16,26 +16,22 @@ export const Turbine_calculatorInputSchema = z.object({
   efficiency: z.number().default(40),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Turbine_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * (input.rotorDiameter / 2) ** 2; results["sweptArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sweptArea"] = 0; }
-  try { const v = 0.5 * input.airDensity * (asFormulaNumber(results["sweptArea"])) * input.windSpeed ** 3; results["rawPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawPower"] = 0; }
-  try { const v = (asFormulaNumber(results["rawPower"])) * (input.efficiency / 100); results["power"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["power"] = 0; }
+  try { const v = Math.PI * (input.rotorDiameter / 2) ** 2; results["sweptArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sweptArea"] = Number.NaN; }
+  try { const v = 0.5 * input.airDensity * (toNumericFormulaValue(results["sweptArea"])) * input.windSpeed ** 3; results["rawPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawPower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["rawPower"])) * (input.efficiency / 100); results["power"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["power"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTurbine_calculator(input: Turbine_calculatorInput): Turbine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["power"]));
+  const totalWasteCost = toNumericFormulaValue(values["power"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateTurbine_calculator(input: Turbine_calculatorInput): Tur
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

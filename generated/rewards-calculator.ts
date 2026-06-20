@@ -20,27 +20,23 @@ export const Rewards_calculatorInputSchema = z.object({
   safetyRating: z.number().default(95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rewards_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.baseSalary + (asFormulaNumber(results["bonus"])) + (asFormulaNumber(results["loyalty"])) + (asFormulaNumber(results["safety"])); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
-  try { const v = input.baseSalary * (input.bonusPercent / 100) * (input.performanceScore / 100) * input.teamMultiplier; results["bonus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bonus"] = 0; }
-  try { const v = input.baseSalary * 0.01 * input.tenureYears; results["loyalty"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loyalty"] = 0; }
-  try { const v = input.baseSalary * (input.safetyRating / 100) * 0.05; results["safety"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safety"] = 0; }
+  try { const v = input.baseSalary + (toNumericFormulaValue(results["bonus"])) + (toNumericFormulaValue(results["loyalty"])) + (toNumericFormulaValue(results["safety"])); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total"] = Number.NaN; }
+  try { const v = input.baseSalary * (input.bonusPercent / 100) * (input.performanceScore / 100) * input.teamMultiplier; results["bonus"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bonus"] = Number.NaN; }
+  try { const v = input.baseSalary * 0.01 * input.tenureYears; results["loyalty"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loyalty"] = Number.NaN; }
+  try { const v = input.baseSalary * (input.safetyRating / 100) * 0.05; results["safety"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safety"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRewards_calculator(input: Rewards_calculatorInput): Rewards_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total"]));
+  const totalWasteCost = toNumericFormulaValue(values["total"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateRewards_calculator(input: Rewards_calculatorInput): Rew
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

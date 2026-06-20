@@ -20,29 +20,25 @@ export const Keto_macro_calculatorInputSchema = z.object({
   calorieAdjustment: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Keto_macro_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 10*input.weight + 6.25*input.height - 5*input.age + (input.gender === 0 ? -161 : 5); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (asFormulaNumber(results["bmr"])) * input.activityFactor; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (asFormulaNumber(results["tdee"])) + input.calorieAdjustment; results["adjustedCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedCalories"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedCalories"])) * 0.7 / 9; results["fat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fat"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedCalories"])) * 0.25 / 4; results["protein"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["protein"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedCalories"])) * 0.05 / 4; results["carbs"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["carbs"] = 0; }
+  try { const v = 10*input.weight + 6.25*input.height - 5*input.age + (input.gender === 0 ? -161 : 5); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmr"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bmr"])) * input.activityFactor; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tdee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["tdee"])) + input.calorieAdjustment; results["adjustedCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedCalories"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedCalories"])) * 0.7 / 9; results["fat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fat"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedCalories"])) * 0.25 / 4; results["protein"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["protein"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedCalories"])) * 0.05 / 4; results["carbs"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["carbs"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKeto_macro_calculator(input: Keto_macro_calculatorInput): Keto_macro_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedCalories"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedCalories"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateKeto_macro_calculator(input: Keto_macro_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

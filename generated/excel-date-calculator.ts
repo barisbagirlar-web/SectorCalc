@@ -16,26 +16,22 @@ export const Excel_date_calculatorInputSchema = z.object({
   adjustStart: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Excel_date_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.endSerial - input.startSerial + input.adjustStart; results["daysDifference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysDifference"] = 0; }
-  try { const v = input.startSerial + input.daysOffset; results["projectedDateSerial"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["projectedDateSerial"] = 0; }
-  try { const v = input.endSerial - input.startSerial; results["rawDifference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawDifference"] = 0; }
+  try { const v = input.endSerial - input.startSerial + input.adjustStart; results["daysDifference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["daysDifference"] = Number.NaN; }
+  try { const v = input.startSerial + input.daysOffset; results["projectedDateSerial"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["projectedDateSerial"] = Number.NaN; }
+  try { const v = input.endSerial - input.startSerial; results["rawDifference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawDifference"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateExcel_date_calculator(input: Excel_date_calculatorInput): Excel_date_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["daysDifference"]));
+  const totalWasteCost = toNumericFormulaValue(values["daysDifference"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateExcel_date_calculator(input: Excel_date_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Feet_to_yards_calculatorInputSchema = z.object({
   decimal_places: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Feet_to_yards_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length_feet / 3; results["raw_yards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["raw_yards"] = 0; }
-  try { const v = (asFormulaNumber(results["raw_yards"])) * input.waste_percent / 100; results["waste_yards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["waste_yards"] = 0; }
-  try { const v = (asFormulaNumber(results["raw_yards"])) * input.safety_margin_percent / 100; results["safety_yards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safety_yards"] = 0; }
+  try { const v = input.length_feet / 3; results["raw_yards"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["raw_yards"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["raw_yards"])) * input.waste_percent / 100; results["waste_yards"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["waste_yards"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["raw_yards"])) * input.safety_margin_percent / 100; results["safety_yards"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safety_yards"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFeet_to_yards_calculator(input: Feet_to_yards_calculatorInput): Feet_to_yards_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["safety_yards"]));
+  const totalWasteCost = toNumericFormulaValue(values["safety_yards"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateFeet_to_yards_calculator(input: Feet_to_yards_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

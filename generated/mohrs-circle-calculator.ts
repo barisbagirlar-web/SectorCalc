@@ -14,25 +14,21 @@ export const Mohrs_circle_calculatorInputSchema = z.object({
   tau_xy: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mohrs_circle_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.sigma_x + input.sigma_y) / 2; results["sigma_avg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sigma_avg"] = 0; }
-  try { const v = (input.sigma_x + input.sigma_y) / 2; results["sigma_avg_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sigma_avg_aux"] = 0; }
+  try { const v = (input.sigma_x + input.sigma_y) / 2; results["sigma_avg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sigma_avg"] = Number.NaN; }
+  try { const v = (input.sigma_x + input.sigma_y) / 2; results["sigma_avg_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sigma_avg_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMohrs_circle_calculator(input: Mohrs_circle_calculatorInput): Mohrs_circle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sigma_avg"]));
+  const totalWasteCost = toNumericFormulaValue(values["sigma_avg"]);
   const breakdown = {
     
   };
@@ -40,7 +36,7 @@ export function calculateMohrs_circle_calculator(input: Mohrs_circle_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

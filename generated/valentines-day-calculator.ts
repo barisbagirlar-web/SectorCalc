@@ -20,27 +20,23 @@ export const Valentines_day_calculatorInputSchema = z.object({
   otherCost: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Valentines_day_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.giftCost + input.dinnerCost + input.flowerCost + input.otherCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.budget - (asFormulaNumber(results["totalCost"])); results["remainingBudget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingBudget"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / input.numPeople; results["costPerPerson"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerPerson"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalCost"])) / input.budget) * 100; results["budgetUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["budgetUtilization"] = 0; }
+  try { const v = input.giftCost + input.dinnerCost + input.flowerCost + input.otherCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = input.budget - (toNumericFormulaValue(results["totalCost"])); results["remainingBudget"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingBudget"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / input.numPeople; results["costPerPerson"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerPerson"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalCost"])) / input.budget) * 100; results["budgetUtilization"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["budgetUtilization"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateValentines_day_calculator(input: Valentines_day_calculatorInput): Valentines_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateValentines_day_calculator(input: Valentines_day_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

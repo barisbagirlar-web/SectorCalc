@@ -24,28 +24,24 @@ export const Expected_family_contribution_calculatorInputSchema = z.object({
   age_older_parent: z.number().default(45),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Expected_family_contribution_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.age_older_parent < 26 ? 0 : (input.age_older_parent >= 65 ? 100000 : (input.age_older_parent - 25) * 2500); results["apa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["apa"] = 0; }
-  try { const v = input.parent_agi * 0.15; results["federal_tax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["federal_tax"] = 0; }
-  try { const v = input.parent_agi * (input.state_tax_rate / 100); results["state_tax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["state_tax"] = 0; }
-  try { const v = input.parent_agi * 0.0765; results["fica"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fica"] = 0; }
-  try { const v = input.student_assets * 0.2; results["student_asset_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["student_asset_contribution"] = 0; }
+  try { const v = input.age_older_parent < 26 ? 0 : (input.age_older_parent >= 65 ? 100000 : (input.age_older_parent - 25) * 2500); results["apa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["apa"] = Number.NaN; }
+  try { const v = input.parent_agi * 0.15; results["federal_tax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["federal_tax"] = Number.NaN; }
+  try { const v = input.parent_agi * (input.state_tax_rate / 100); results["state_tax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["state_tax"] = Number.NaN; }
+  try { const v = input.parent_agi * 0.0765; results["fica"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fica"] = Number.NaN; }
+  try { const v = input.student_assets * 0.2; results["student_asset_contribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["student_asset_contribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateExpected_family_contribution_calculator(input: Expected_family_contribution_calculatorInput): Expected_family_contribution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["student_asset_contribution"]));
+  const totalWasteCost = toNumericFormulaValue(values["student_asset_contribution"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateExpected_family_contribution_calculator(input: Expected
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

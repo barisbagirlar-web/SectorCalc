@@ -16,25 +16,21 @@ export const Torque_calculatorInputSchema = z.object({
   safety_factor: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Torque_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.coefficient_c * input.diameter_mm * input.tension_kn * input.safety_factor; results["torque_nm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["torque_nm"] = 0; }
-  try { const v = input.coefficient_c * input.diameter_mm * input.tension_kn; results["torque_without_safety"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["torque_without_safety"] = 0; }
+  try { const v = input.coefficient_c * input.diameter_mm * input.tension_kn * input.safety_factor; results["torque_nm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["torque_nm"] = Number.NaN; }
+  try { const v = input.coefficient_c * input.diameter_mm * input.tension_kn; results["torque_without_safety"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["torque_without_safety"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTorque_calculator(input: Torque_calculatorInput): Torque_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["torque_nm"]));
+  const totalWasteCost = toNumericFormulaValue(values["torque_nm"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateTorque_calculator(input: Torque_calculatorInput): Torqu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

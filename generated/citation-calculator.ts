@@ -18,28 +18,24 @@ export const Citation_calculatorInputSchema = z.object({
   earlyPaymentDiscount: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Citation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numCitations * input.finePerCitation * input.severityMultiplier; results["totalFine"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFine"] = 0; }
-  try { const v = input.numCitations * input.processingFeePerCitation; results["totalProcessing"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalProcessing"] = 0; }
-  try { const v = (asFormulaNumber(results["totalFine"])) + (asFormulaNumber(results["totalProcessing"])); results["grossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossTotal"] = 0; }
-  try { const v = (asFormulaNumber(results["grossTotal"])) * (input.earlyPaymentDiscount / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["grossTotal"])) - (asFormulaNumber(results["discountAmount"])); results["netTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netTotal"] = 0; }
+  try { const v = input.numCitations * input.finePerCitation * input.severityMultiplier; results["totalFine"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFine"] = Number.NaN; }
+  try { const v = input.numCitations * input.processingFeePerCitation; results["totalProcessing"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalProcessing"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalFine"])) + (toNumericFormulaValue(results["totalProcessing"])); results["grossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossTotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossTotal"])) * (input.earlyPaymentDiscount / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossTotal"])) - (toNumericFormulaValue(results["discountAmount"])); results["netTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netTotal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCitation_calculator(input: Citation_calculatorInput): Citation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netTotal"]));
+  const totalWasteCost = toNumericFormulaValue(values["netTotal"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateCitation_calculator(input: Citation_calculatorInput): C
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

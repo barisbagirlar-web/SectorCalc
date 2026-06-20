@@ -16,26 +16,22 @@ export const Sweat_equity_calculatorInputSchema = z.object({
   hourlyRate: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sweat_equity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.hoursWorked * input.hourlyRate; results["sweatValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sweatValue"] = 0; }
-  try { const v = input.preMoneyValuation + input.cashInvestment + (asFormulaNumber(results["sweatValue"])); results["postMoneyValuation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["postMoneyValuation"] = 0; }
-  try { const v = ((asFormulaNumber(results["sweatValue"])) / (asFormulaNumber(results["postMoneyValuation"]))) * 100; results["equityPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["equityPercentage"] = 0; }
+  try { const v = input.hoursWorked * input.hourlyRate; results["sweatValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sweatValue"] = Number.NaN; }
+  try { const v = input.preMoneyValuation + input.cashInvestment + (toNumericFormulaValue(results["sweatValue"])); results["postMoneyValuation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["postMoneyValuation"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["sweatValue"])) / (toNumericFormulaValue(results["postMoneyValuation"]))) * 100; results["equityPercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["equityPercentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSweat_equity_calculator(input: Sweat_equity_calculatorInput): Sweat_equity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["equityPercentage"]));
+  const totalWasteCost = toNumericFormulaValue(values["equityPercentage"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateSweat_equity_calculator(input: Sweat_equity_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

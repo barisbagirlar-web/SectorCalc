@@ -24,28 +24,24 @@ export const Msa_gage_rr_cost_calculatorInputSchema = z.object({
   cost_per_escaped_defect: z.number().min(0).max(1000000).default(500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Msa_gage_rr_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.num_parts * 1 * 1 * input.cost_per_defect * (input.num_appraisers * input.num_trials); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.num_appraisers; results["factor_num_appraisers"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_num_appraisers"] = 0; }
-  try { const v = input.num_trials; results["factor_num_trials"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_num_trials"] = 0; }
+  try { const v = 1; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_exposure_hours"] = Number.NaN; }
+  try { const v = 0; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_labor_cost"] = Number.NaN; }
+  try { const v = input.num_parts * 1 * 1 * input.cost_per_defect * (input.num_appraisers * input.num_trials); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.num_appraisers; results["factor_num_appraisers"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_num_appraisers"] = Number.NaN; }
+  try { const v = input.num_trials; results["factor_num_trials"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_num_trials"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_calculatorInput): Msa_gage_rr_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_cal
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

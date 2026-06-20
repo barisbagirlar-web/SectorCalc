@@ -20,30 +20,26 @@ export const Level_up_calculatorInputSchema = z.object({
   additionalFixedCost: z.number().default(30000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Level_up_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentProduction * input.sellingPrice - input.currentProduction * input.variableCost - input.fixedCosts; results["currentProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["currentProfit"] = 0; }
-  try { const v = input.currentProduction * (1 + input.levelUpPercent / 100); results["newProduction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newProduction"] = 0; }
-  try { const v = (asFormulaNumber(results["newProduction"])) * input.sellingPrice - (asFormulaNumber(results["newProduction"])) * input.variableCost - (input.fixedCosts + input.additionalFixedCost); results["newProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newProfit"] = 0; }
-  try { const v = (asFormulaNumber(results["newProfit"])) - (input.currentProduction * input.sellingPrice - input.currentProduction * input.variableCost - input.fixedCosts); results["monthlyProfitIncrease"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyProfitIncrease"] = 0; }
-  try { const v = ((asFormulaNumber(results["currentProfit"])) / (input.currentProduction * input.sellingPrice)) * 100; results["profitMarginCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMarginCurrent"] = 0; }
-  try { const v = ((asFormulaNumber(results["newProfit"])) / ((asFormulaNumber(results["newProduction"])) * input.sellingPrice)) * 100; results["profitMarginNew"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMarginNew"] = 0; }
-  try { const v = input.additionalFixedCost > 0 ? ((asFormulaNumber(results["monthlyProfitIncrease"])) / input.additionalFixedCost) * 100 : 0; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
+  try { const v = input.currentProduction * input.sellingPrice - input.currentProduction * input.variableCost - input.fixedCosts; results["currentProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["currentProfit"] = Number.NaN; }
+  try { const v = input.currentProduction * (1 + input.levelUpPercent / 100); results["newProduction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newProduction"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["newProduction"])) * input.sellingPrice - (toNumericFormulaValue(results["newProduction"])) * input.variableCost - (input.fixedCosts + input.additionalFixedCost); results["newProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newProfit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["newProfit"])) - (input.currentProduction * input.sellingPrice - input.currentProduction * input.variableCost - input.fixedCosts); results["monthlyProfitIncrease"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyProfitIncrease"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["currentProfit"])) / (input.currentProduction * input.sellingPrice)) * 100; results["profitMarginCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMarginCurrent"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["newProfit"])) / ((toNumericFormulaValue(results["newProduction"])) * input.sellingPrice)) * 100; results["profitMarginNew"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMarginNew"] = Number.NaN; }
+  try { const v = input.additionalFixedCost > 0 ? ((toNumericFormulaValue(results["monthlyProfitIncrease"])) / input.additionalFixedCost) * 100 : 0; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLevel_up_calculator(input: Level_up_calculatorInput): Level_up_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthlyProfitIncrease"]));
+  const totalWasteCost = toNumericFormulaValue(values["monthlyProfitIncrease"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateLevel_up_calculator(input: Level_up_calculatorInput): L
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Square_yards_to_sqm_calculatorInputSchema = z.object({
   conversionFactor: z.number().default(0.83612736),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Square_yards_to_sqm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.lengthYards * input.widthYards) * input.conversionFactor; results["areaSqm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaSqm"] = 0; }
-  try { const v = input.lengthYards * input.widthYards; results["areaSqYards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaSqYards"] = 0; }
-  try { const v = input.conversionFactor; results["conversionFactorUsed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactorUsed"] = 0; }
+  try { const v = (input.lengthYards * input.widthYards) * input.conversionFactor; results["areaSqm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["areaSqm"] = Number.NaN; }
+  try { const v = input.lengthYards * input.widthYards; results["areaSqYards"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["areaSqYards"] = Number.NaN; }
+  try { const v = input.conversionFactor; results["conversionFactorUsed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactorUsed"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSquare_yards_to_sqm_calculator(input: Square_yards_to_sqm_calculatorInput): Square_yards_to_sqm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["areaSqm"]));
+  const totalWasteCost = toNumericFormulaValue(values["areaSqm"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateSquare_yards_to_sqm_calculator(input: Square_yards_to_s
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

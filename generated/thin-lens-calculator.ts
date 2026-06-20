@@ -16,26 +16,22 @@ export const Thin_lens_calculatorInputSchema = z.object({
   u: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Thin_lens_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / ((input.n - 1) * (1/input.R1 - 1/input.R2)); results["focalLength_mm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["focalLength_mm"] = 0; }
-  try { const v = 1 / (1/(asFormulaNumber(results["focalLength_mm"])) - 1/input.u); results["imageDistance_mm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["imageDistance_mm"] = 0; }
-  try { const v = -(asFormulaNumber(results["imageDistance_mm"])) / input.u; results["magnification"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["magnification"] = 0; }
+  try { const v = 1 / ((input.n - 1) * (1/input.R1 - 1/input.R2)); results["focalLength_mm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["focalLength_mm"] = Number.NaN; }
+  try { const v = 1 / (1/(toNumericFormulaValue(results["focalLength_mm"])) - 1/input.u); results["imageDistance_mm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["imageDistance_mm"] = Number.NaN; }
+  try { const v = -(toNumericFormulaValue(results["imageDistance_mm"])) / input.u; results["magnification"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["magnification"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateThin_lens_calculator(input: Thin_lens_calculatorInput): Thin_lens_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["focalLength_mm"]));
+  const totalWasteCost = toNumericFormulaValue(values["focalLength_mm"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateThin_lens_calculator(input: Thin_lens_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

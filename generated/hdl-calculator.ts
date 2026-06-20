@@ -16,30 +16,26 @@ export const Hdl_calculatorInputSchema = z.object({
   triglycerides: z.number().default(150),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hdl_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalCholesterol - input.hdlCholesterol; results["nonHDL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nonHDL"] = 0; }
-  try { const v = input.totalCholesterol / input.hdlCholesterol; results["cholHDLratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cholHDLratio"] = 0; }
-  try { const v = input.ldlCholesterol / input.hdlCholesterol; results["ldlHDLratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ldlHDLratio"] = 0; }
-  try { const v = input.triglycerides / input.hdlCholesterol; results["trigsHDLratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["trigsHDLratio"] = 0; }
-  try { const v = input.triglycerides / 5; results["vldl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vldl"] = 0; }
-  try { const v = input.totalCholesterol - input.hdlCholesterol - (input.triglycerides / 5); results["calculatedLdl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calculatedLdl"] = 0; }
-  try { const v = input.ldlCholesterol - (input.totalCholesterol - input.hdlCholesterol - (input.triglycerides / 5)); results["ldlDifference"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ldlDifference"] = 0; }
+  try { const v = input.totalCholesterol - input.hdlCholesterol; results["nonHDL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nonHDL"] = Number.NaN; }
+  try { const v = input.totalCholesterol / input.hdlCholesterol; results["cholHDLratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cholHDLratio"] = Number.NaN; }
+  try { const v = input.ldlCholesterol / input.hdlCholesterol; results["ldlHDLratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ldlHDLratio"] = Number.NaN; }
+  try { const v = input.triglycerides / input.hdlCholesterol; results["trigsHDLratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["trigsHDLratio"] = Number.NaN; }
+  try { const v = input.triglycerides / 5; results["vldl"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vldl"] = Number.NaN; }
+  try { const v = input.totalCholesterol - input.hdlCholesterol - (input.triglycerides / 5); results["calculatedLdl"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["calculatedLdl"] = Number.NaN; }
+  try { const v = input.ldlCholesterol - (input.totalCholesterol - input.hdlCholesterol - (input.triglycerides / 5)); results["ldlDifference"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ldlDifference"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHdl_calculator(input: Hdl_calculatorInput): Hdl_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cholHDLratio"]));
+  const totalWasteCost = toNumericFormulaValue(values["cholHDLratio"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHdl_calculator(input: Hdl_calculatorInput): Hdl_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

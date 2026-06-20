@@ -18,29 +18,25 @@ export const _1099_tax_calculatorInputSchema = z.object({
   selfEmploymentTaxRate: z.number().default(15.3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: _1099_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grossIncome - input.businessExpenses; results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = (asFormulaNumber(results["netProfit"])) * 0.9235 * (input.selfEmploymentTaxRate / 100); results["seTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["seTax"] = 0; }
-  try { const v = (asFormulaNumber(results["netProfit"])) - ((asFormulaNumber(results["seTax"])) / 2); results["adjustedNet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedNet"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedNet"])) * (input.federalTaxRate / 100); results["federalTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["federalTax"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedNet"])) * (input.stateTaxRate / 100); results["stateTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stateTax"] = 0; }
-  try { const v = (asFormulaNumber(results["federalTax"])) + (asFormulaNumber(results["stateTax"])) + (asFormulaNumber(results["seTax"])); results["totalTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTax"] = 0; }
+  try { const v = input.grossIncome - input.businessExpenses; results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netProfit"])) * 0.9235 * (input.selfEmploymentTaxRate / 100); results["seTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["seTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netProfit"])) - ((toNumericFormulaValue(results["seTax"])) / 2); results["adjustedNet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedNet"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedNet"])) * (input.federalTaxRate / 100); results["federalTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["federalTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedNet"])) * (input.stateTaxRate / 100); results["stateTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stateTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["federalTax"])) + (toNumericFormulaValue(results["stateTax"])) + (toNumericFormulaValue(results["seTax"])); results["totalTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTax"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate_1099_tax_calculator(input: _1099_tax_calculatorInput): _1099_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTax"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTax"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculate_1099_tax_calculator(input: _1099_tax_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

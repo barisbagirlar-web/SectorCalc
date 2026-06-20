@@ -20,26 +20,22 @@ export const Unit_vector_calculatorInputSchema = z.object({
   endZ: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Unit_vector_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.endX - input.startX; results["deltaX"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaX"] = 0; }
-  try { const v = input.endY - input.startY; results["deltaY"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaY"] = 0; }
-  try { const v = input.endZ - input.startZ; results["deltaZ"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaZ"] = 0; }
+  try { const v = input.endX - input.startX; results["deltaX"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaX"] = Number.NaN; }
+  try { const v = input.endY - input.startY; results["deltaY"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaY"] = Number.NaN; }
+  try { const v = input.endZ - input.startZ; results["deltaZ"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaZ"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUnit_vector_calculator(input: Unit_vector_calculatorInput): Unit_vector_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deltaZ"]));
+  const totalWasteCost = toNumericFormulaValue(values["deltaZ"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateUnit_vector_calculator(input: Unit_vector_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

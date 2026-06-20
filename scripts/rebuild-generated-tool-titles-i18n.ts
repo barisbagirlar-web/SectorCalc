@@ -325,9 +325,6 @@ async function main(): Promise<void> {
     }
   }
 
-  fs.writeFileSync(OUT_TITLES, `${JSON.stringify(output, null, 2)}\n`, "utf8");
-  saveCopyMap(copyMap.toolTitles);
-
   let incomplete = 0;
   for (const slug of slugs) {
     for (const locale of sortToolTitleLocales()) {
@@ -337,16 +334,27 @@ async function main(): Promise<void> {
     }
   }
 
-  console.log(`  titles → ${OUT_TITLES}`);
+  console.log(`  total schemas: ${slugs.length}`);
   console.log(`  incomplete locale slots: ${incomplete}`);
 
-  if (incomplete > 0 && !useDeepSeek) {
-    console.warn("Run with --deepseek to polish remaining titles via DeepSeek.");
-    process.exit(1);
-  }
+  // REQUIRE all translations to be complete BEFORE writing output.
+  // This prevents the bundle from being overwritten with glossary-only
+  // translations and losing previously saved copy-map entries.
   if (incomplete > 0) {
+    if (!useDeepSeek) {
+      console.error("FATAL: Incomplete translations without --deepseek. Output NOT written.");
+      console.error("Run with --deepseek to polish remaining titles via DeepSeek.");
+      process.exit(1);
+    }
+    console.error("FATAL: DeepSeek did not resolve all incomplete translations. Output NOT written.");
     process.exit(1);
   }
+
+  // All translations complete — safe to write.
+  fs.writeFileSync(OUT_TITLES, `${JSON.stringify(output, null, 2)}\n`, "utf8");
+  saveCopyMap(copyMap.toolTitles);
+  console.log(`  titles → ${OUT_TITLES}`);
+  console.log("  All locale slots complete. Bundle written safely.");
 }
 
 main().catch((error: unknown) => {

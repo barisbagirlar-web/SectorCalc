@@ -20,28 +20,24 @@ export const Halloween_calculatorInputSchema = z.object({
   pumpkin_cost: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Halloween_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.num_children * input.candy_per_child; results["total_candy_needed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_candy_needed"] = 0; }
-  try { const v = (asFormulaNumber(results["total_candy_needed"])) * input.cost_per_candy; results["candy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["candy_cost"] = 0; }
-  try { const v = input.pumpkin_count * input.pumpkin_cost; results["pumpkin_total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pumpkin_total_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["candy_cost"])) + input.decor_budget + (asFormulaNumber(results["pumpkin_total_cost"])); results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_cost"])) / input.num_children; results["cost_per_child"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cost_per_child"] = 0; }
+  try { const v = input.num_children * input.candy_per_child; results["total_candy_needed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_candy_needed"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_candy_needed"])) * input.cost_per_candy; results["candy_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["candy_cost"] = Number.NaN; }
+  try { const v = input.pumpkin_count * input.pumpkin_cost; results["pumpkin_total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pumpkin_total_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["candy_cost"])) + input.decor_budget + (toNumericFormulaValue(results["pumpkin_total_cost"])); results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_cost"])) / input.num_children; results["cost_per_child"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cost_per_child"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHalloween_calculator(input: Halloween_calculatorInput): Halloween_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_cost"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_cost"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateHalloween_calculator(input: Halloween_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Lexile_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Lexile_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.thickness * input.width; results["stressArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stressArea"] = 0; }
-  try { const v = input.tensileStrength * (asFormulaNumber(results["stressArea"])); results["nominalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nominalLoad"] = 0; }
-  try { const v = (asFormulaNumber(results["nominalLoad"])) / input.safetyFactor; results["allowableLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allowableLoad"] = 0; }
-  try { const v = (asFormulaNumber(results["allowableLoad"])) / 1000; results["lexileIndex"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lexileIndex"] = 0; }
+  try { const v = input.thickness * input.width; results["stressArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stressArea"] = Number.NaN; }
+  try { const v = input.tensileStrength * (toNumericFormulaValue(results["stressArea"])); results["nominalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nominalLoad"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["nominalLoad"])) / input.safetyFactor; results["allowableLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allowableLoad"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["allowableLoad"])) / 1000; results["lexileIndex"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lexileIndex"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLexile_calculator(input: Lexile_calculatorInput): Lexile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lexileIndex"]));
+  const totalWasteCost = toNumericFormulaValue(values["lexileIndex"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateLexile_calculator(input: Lexile_calculatorInput): Lexil
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Healthspan_calculatorInputSchema = z.object({
   alcoholUnitsPerWeek: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Healthspan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 80 - input.currentAge; results["baseRemainingYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseRemainingYears"] = 0; }
-  try { const v = (input.dietQualityScore - 50) / 10; results["dietGain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dietGain"] = 0; }
-  try { const v = input.alcoholUnitsPerWeek * 0.5; results["alcoholLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["alcoholLoss"] = 0; }
+  try { const v = 80 - input.currentAge; results["baseRemainingYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseRemainingYears"] = Number.NaN; }
+  try { const v = (input.dietQualityScore - 50) / 10; results["dietGain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dietGain"] = Number.NaN; }
+  try { const v = input.alcoholUnitsPerWeek * 0.5; results["alcoholLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["alcoholLoss"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHealthspan_calculator(input: Healthspan_calculatorInput): Healthspan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["alcoholLoss"]));
+  const totalWasteCost = toNumericFormulaValue(values["alcoholLoss"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateHealthspan_calculator(input: Healthspan_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

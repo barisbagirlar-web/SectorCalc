@@ -16,26 +16,22 @@ export const Annuity_calculatorInputSchema = z.object({
   compounding: z.number().default(12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Annuity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.payment * ((1 - (1 + (input.annualRate/100/input.compounding)) ** -(input.years*input.compounding)) / (input.annualRate/100/input.compounding)); results["presentValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["presentValue"] = 0; }
-  try { const v = input.payment * (((1 + (input.annualRate/100/input.compounding)) ** (input.years*input.compounding) - 1) / (input.annualRate/100/input.compounding)); results["futureValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["futureValue"] = 0; }
-  try { const v = input.payment * input.years * input.compounding; results["totalPayments"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPayments"] = 0; }
+  try { const v = input.payment * ((1 - (1 + (input.annualRate/100/input.compounding)) ** -(input.years*input.compounding)) / (input.annualRate/100/input.compounding)); results["presentValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["presentValue"] = Number.NaN; }
+  try { const v = input.payment * (((1 + (input.annualRate/100/input.compounding)) ** (input.years*input.compounding) - 1) / (input.annualRate/100/input.compounding)); results["futureValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["futureValue"] = Number.NaN; }
+  try { const v = input.payment * input.years * input.compounding; results["totalPayments"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPayments"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAnnuity_calculator(input: Annuity_calculatorInput): Annuity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["presentValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["presentValue"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateAnnuity_calculator(input: Annuity_calculatorInput): Ann
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,27 +20,23 @@ export const Bac_calculatorInputSchema = z.object({
   volumePerDrink: z.number().default(355),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bac_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789; results["totalAlcoholGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAlcoholGrams"] = 0; }
-  try { const v = input.gender === 0 ? 0.68 : 0.55; results["bodyWaterConstant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bodyWaterConstant"] = 0; }
-  try { const v = (asFormulaNumber(results["totalAlcoholGrams"])) / (input.weight * (asFormulaNumber(results["bodyWaterConstant"])) * 10); results["bacRaw"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bacRaw"] = 0; }
-  try { const v = input.hours * 0.015; results["bacMetabolized"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bacMetabolized"] = 0; }
+  try { const v = input.drinks * input.volumePerDrink * (input.alcoholPercentage / 100) * 0.789; results["totalAlcoholGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAlcoholGrams"] = Number.NaN; }
+  try { const v = input.gender === 0 ? 0.68 : 0.55; results["bodyWaterConstant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bodyWaterConstant"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalAlcoholGrams"])) / (input.weight * (toNumericFormulaValue(results["bodyWaterConstant"])) * 10); results["bacRaw"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bacRaw"] = Number.NaN; }
+  try { const v = input.hours * 0.015; results["bacMetabolized"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bacMetabolized"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBac_calculator(input: Bac_calculatorInput): Bac_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["bacMetabolized"]));
+  const totalWasteCost = toNumericFormulaValue(values["bacMetabolized"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateBac_calculator(input: Bac_calculatorInput): Bac_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

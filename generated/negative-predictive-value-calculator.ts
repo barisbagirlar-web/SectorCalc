@@ -16,28 +16,24 @@ export const Negative_predictive_value_calculatorInputSchema = z.object({
   fp: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Negative_predictive_value_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : 0; results["npv"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["npv"] = 0; }
-  try { const v = input.tn; results["tn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tn"] = 0; }
-  try { const v = input.fn; results["fn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fn"] = 0; }
-  try { const v = input.tn + input.fn; results["tn___fn"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tn___fn"] = 0; }
-  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : 0; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : 0; results["npv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["npv"] = Number.NaN; }
+  try { const v = input.tn; results["tn"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tn"] = Number.NaN; }
+  try { const v = input.fn; results["fn"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fn"] = Number.NaN; }
+  try { const v = input.tn + input.fn; results["tn___fn"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tn___fn"] = Number.NaN; }
+  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : 0; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNegative_predictive_value_calculator(input: Negative_predictive_value_calculatorInput): Negative_predictive_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateNegative_predictive_value_calculator(input: Negative_pr
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

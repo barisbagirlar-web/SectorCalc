@@ -18,28 +18,24 @@ export const Dielectric_calculatorInputSchema = z.object({
   loss_tangent: z.number().default(0.001),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dielectric_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 8.854e-12; results["epsilon0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["epsilon0"] = 0; }
-  try { const v = (asFormulaNumber(results["epsilon0"])) * input.relative_permittivity * input.plate_area / input.plate_distance; results["capacitance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capacitance"] = 0; }
-  try { const v = 1 / (2 * Math.PI * input.frequency * (asFormulaNumber(results["capacitance"]))); results["impedance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["impedance"] = 0; }
-  try { const v = 1 / input.loss_tangent; results["quality_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["quality_factor"] = 0; }
-  try { const v = input.loss_tangent; results["loss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loss"] = 0; }
+  try { const v = 8.854e-12; results["epsilon0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["epsilon0"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["epsilon0"])) * input.relative_permittivity * input.plate_area / input.plate_distance; results["capacitance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["capacitance"] = Number.NaN; }
+  try { const v = 1 / (2 * Math.PI * input.frequency * (toNumericFormulaValue(results["capacitance"]))); results["impedance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["impedance"] = Number.NaN; }
+  try { const v = 1 / input.loss_tangent; results["quality_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["quality_factor"] = Number.NaN; }
+  try { const v = input.loss_tangent; results["loss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loss"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDielectric_calculator(input: Dielectric_calculatorInput): Dielectric_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["capacitance"]));
+  const totalWasteCost = toNumericFormulaValue(values["capacitance"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateDielectric_calculator(input: Dielectric_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

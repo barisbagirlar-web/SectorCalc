@@ -16,29 +16,25 @@ export const Engine_displacement_calculatorInputSchema = z.object({
   outputUnit: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Engine_displacement_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (Math.PI/4) * input.bore * input.bore * input.stroke; results["volumePerCylinderMM3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumePerCylinderMM3"] = 0; }
-  try { const v = (asFormulaNumber(results["volumePerCylinderMM3"])) * input.cylinders; results["totalDisplacementMM3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDisplacementMM3"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDisplacementMM3"])) / 1000; results["totalDisplacementCC"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDisplacementCC"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDisplacementCC"])) / 1000; results["totalDisplacementL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDisplacementL"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDisplacementMM3"])) / 16387.064; results["totalDisplacementCI"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDisplacementCI"] = 0; }
-  try { const v = ((input.outputUnit === 1 ? (asFormulaNumber(results["totalDisplacementCC"])) : input.outputUnit === 2 ? (asFormulaNumber(results["totalDisplacementL"])) : (asFormulaNumber(results["totalDisplacementCI"]))) ? 1 : 0); results["primaryDisplacement"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primaryDisplacement"] = 0; }
+  try { const v = (Math.PI/4) * input.bore * input.bore * input.stroke; results["volumePerCylinderMM3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumePerCylinderMM3"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumePerCylinderMM3"])) * input.cylinders; results["totalDisplacementMM3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDisplacementMM3"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDisplacementMM3"])) / 1000; results["totalDisplacementCC"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDisplacementCC"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDisplacementCC"])) / 1000; results["totalDisplacementL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDisplacementL"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDisplacementMM3"])) / 16387.064; results["totalDisplacementCI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDisplacementCI"] = Number.NaN; }
+  try { const v = ((input.outputUnit === 1 ? (toNumericFormulaValue(results["totalDisplacementCC"])) : input.outputUnit === 2 ? (toNumericFormulaValue(results["totalDisplacementL"])) : (toNumericFormulaValue(results["totalDisplacementCI"]))) ? 1 : 0); results["primaryDisplacement"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primaryDisplacement"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEngine_displacement_calculator(input: Engine_displacement_calculatorInput): Engine_displacement_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primaryDisplacement"]));
+  const totalWasteCost = toNumericFormulaValue(values["primaryDisplacement"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateEngine_displacement_calculator(input: Engine_displaceme
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const World_clock_calculatorInputSchema = z.object({
   targetUTCOffset: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: World_clock_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.localHour * 60 + input.localMinute; results["totalLocalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLocalMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["totalLocalMinutes"])) - input.sourceUTCOffset * 60; results["totalUTCMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalUTCMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["totalUTCMinutes"])) + input.targetUTCOffset * 60; results["totalTargetMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTargetMinutes"] = 0; }
-  try { const v = (((asFormulaNumber(results["totalTargetMinutes"])) % 1440) + 1440) % 1440; results["targetTotalMinutesMod"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["targetTotalMinutesMod"] = 0; }
+  try { const v = input.localHour * 60 + input.localMinute; results["totalLocalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLocalMinutes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalLocalMinutes"])) - input.sourceUTCOffset * 60; results["totalUTCMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalUTCMinutes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalUTCMinutes"])) + input.targetUTCOffset * 60; results["totalTargetMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTargetMinutes"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["totalTargetMinutes"])) % 1440) + 1440) % 1440; results["targetTotalMinutesMod"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["targetTotalMinutesMod"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWorld_clock_calculator(input: World_clock_calculatorInput): World_clock_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["targetTotalMinutesMod"]));
+  const totalWasteCost = toNumericFormulaValue(values["targetTotalMinutesMod"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateWorld_clock_calculator(input: World_clock_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

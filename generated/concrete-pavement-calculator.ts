@@ -20,28 +20,24 @@ export const Concrete_pavement_calculatorInputSchema = z.object({
   costPerCubicMeter: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Concrete_pavement_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * input.thickness; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = input.length * input.width * input.thickness * input.wasteFactor / 100; results["wasteVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteVolume"] = 0; }
-  try { const v = input.length * input.width * input.thickness * (1 + input.wasteFactor / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = input.length * input.width * input.thickness * (1 + input.wasteFactor / 100) * input.costPerCubicMeter; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.length * input.width * input.thickness * (1 + input.wasteFactor / 100) * input.concreteDensity; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
+  try { const v = input.length * input.width * input.thickness; results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = input.length * input.width * input.thickness * input.wasteFactor / 100; results["wasteVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteVolume"] = Number.NaN; }
+  try { const v = input.length * input.width * input.thickness * (1 + input.wasteFactor / 100); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = input.length * input.width * input.thickness * (1 + input.wasteFactor / 100) * input.costPerCubicMeter; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = input.length * input.width * input.thickness * (1 + input.wasteFactor / 100) * input.concreteDensity; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConcrete_pavement_calculator(input: Concrete_pavement_calculatorInput): Concrete_pavement_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateConcrete_pavement_calculator(input: Concrete_pavement_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

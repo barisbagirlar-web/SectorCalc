@@ -24,25 +24,21 @@ export const Flourishing_scale_calculatorInputSchema = z.object({
   item8: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Flourishing_scale_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8; results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
-  try { const v = (input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8) / 8; results["averageScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageScore"] = 0; }
+  try { const v = input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8; results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalScore"] = Number.NaN; }
+  try { const v = (input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8) / 8; results["averageScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFlourishing_scale_calculator(input: Flourishing_scale_calculatorInput): Flourishing_scale_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateFlourishing_scale_calculator(input: Flourishing_scale_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

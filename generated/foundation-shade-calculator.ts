@@ -16,26 +16,22 @@ export const Foundation_shade_calculatorInputSchema = z.object({
   lightingCondition: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Foundation_shade_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.skinDepth * 10 + input.skinUndertone; results["baseShade"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseShade"] = 0; }
-  try { const v = ((input.coveragePreference - 5) / 10) * 2; results["coverageAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coverageAdjustment"] = 0; }
-  try { const v = ((input.lightingCondition - 5) / 10) * 2; results["lightingAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lightingAdjustment"] = 0; }
+  try { const v = input.skinDepth * 10 + input.skinUndertone; results["baseShade"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseShade"] = Number.NaN; }
+  try { const v = ((input.coveragePreference - 5) / 10) * 2; results["coverageAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coverageAdjustment"] = Number.NaN; }
+  try { const v = ((input.lightingCondition - 5) / 10) * 2; results["lightingAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lightingAdjustment"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFoundation_shade_calculator(input: Foundation_shade_calculatorInput): Foundation_shade_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["lightingAdjustment"]));
+  const totalWasteCost = toNumericFormulaValue(values["lightingAdjustment"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateFoundation_shade_calculator(input: Foundation_shade_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

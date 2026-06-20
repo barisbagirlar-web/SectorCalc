@@ -20,25 +20,21 @@ export const Tile_calculatorInputSchema = z.object({
   pricePerTile: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Tile_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
-  try { const v = (input.tileLength / 100) * (input.tileWidth / 100); results["tileArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tileArea"] = 0; }
+  try { const v = input.length * input.width; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["area"] = Number.NaN; }
+  try { const v = (input.tileLength / 100) * (input.tileWidth / 100); results["tileArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tileArea"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTile_calculator(input: Tile_calculatorInput): Tile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tileArea"]));
+  const totalWasteCost = toNumericFormulaValue(values["tileArea"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateTile_calculator(input: Tile_calculatorInput): Tile_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

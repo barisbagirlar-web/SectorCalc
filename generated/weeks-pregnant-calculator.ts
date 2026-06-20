@@ -22,28 +22,24 @@ export const Weeks_pregnant_calculatorInputSchema = z.object({
   cycleLength: z.number().default(28),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weeks_pregnant_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.currentYear - 1) * 365.25 + (input.currentMonth - 1) * 30.4375 + input.currentDay; results["currentDateDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["currentDateDays"] = 0; }
-  try { const v = (input.lmpYear - 1) * 365.25 + (input.lmpMonth - 1) * 30.4375 + input.lmpDay; results["lmpDateDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lmpDateDays"] = 0; }
-  try { const v = input.cycleLength - 28; results["cycleAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cycleAdjustment"] = 0; }
-  try { const v = (asFormulaNumber(results["currentDateDays"])) - (asFormulaNumber(results["lmpDateDays"])) + (asFormulaNumber(results["cycleAdjustment"])); results["totalDaysPregnant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDaysPregnant"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDaysPregnant"])) / 7; results["weeksPregnant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weeksPregnant"] = 0; }
+  try { const v = (input.currentYear - 1) * 365.25 + (input.currentMonth - 1) * 30.4375 + input.currentDay; results["currentDateDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["currentDateDays"] = Number.NaN; }
+  try { const v = (input.lmpYear - 1) * 365.25 + (input.lmpMonth - 1) * 30.4375 + input.lmpDay; results["lmpDateDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lmpDateDays"] = Number.NaN; }
+  try { const v = input.cycleLength - 28; results["cycleAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cycleAdjustment"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["currentDateDays"])) - (toNumericFormulaValue(results["lmpDateDays"])) + (toNumericFormulaValue(results["cycleAdjustment"])); results["totalDaysPregnant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDaysPregnant"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDaysPregnant"])) / 7; results["weeksPregnant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weeksPregnant"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeeks_pregnant_calculator(input: Weeks_pregnant_calculatorInput): Weeks_pregnant_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["weeksPregnant"]));
+  const totalWasteCost = toNumericFormulaValue(values["weeksPregnant"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateWeeks_pregnant_calculator(input: Weeks_pregnant_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

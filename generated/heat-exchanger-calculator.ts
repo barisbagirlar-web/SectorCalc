@@ -24,25 +24,21 @@ export const Heat_exchanger_calculatorInputSchema = z.object({
   overallHeatTransferCoeff: z.number().default(500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heat_exchanger_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.massFlowHot * input.cpHot * (input.tempHotIn - input.tempHotOut) * 1000; results["heatTransferRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heatTransferRate"] = 0; }
-  try { const v = input.tempColdIn + ((asFormulaNumber(results["heatTransferRate"])) / (input.massFlowCold * input.cpCold * 1000)); results["tempColdOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tempColdOut"] = 0; }
+  try { const v = input.massFlowHot * input.cpHot * (input.tempHotIn - input.tempHotOut) * 1000; results["heatTransferRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heatTransferRate"] = Number.NaN; }
+  try { const v = input.tempColdIn + ((toNumericFormulaValue(results["heatTransferRate"])) / (input.massFlowCold * input.cpCold * 1000)); results["tempColdOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tempColdOut"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeat_exchanger_calculator(input: Heat_exchanger_calculatorInput): Heat_exchanger_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["heatTransferRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["heatTransferRate"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateHeat_exchanger_calculator(input: Heat_exchanger_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

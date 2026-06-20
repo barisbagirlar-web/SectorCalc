@@ -20,25 +20,21 @@ export const Definite_integral_calculatorInputSchema = z.object({
   upperLimit: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Definite_integral_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.coeffA/4)*input.upperLimit**4 + (input.coeffB/3)*input.upperLimit**3 + (input.coeffC/2)*input.upperLimit**2 + input.coeffD*input.upperLimit - ((input.coeffA/4)*input.lowerLimit**4 + (input.coeffB/3)*input.lowerLimit**3 + (input.coeffC/2)*input.lowerLimit**2 + input.coeffD*input.lowerLimit); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.coeffA; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = (input.coeffA/4)*input.upperLimit**4 + (input.coeffB/3)*input.upperLimit**3 + (input.coeffC/2)*input.upperLimit**2 + input.coeffD*input.upperLimit - ((input.coeffA/4)*input.lowerLimit**4 + (input.coeffB/3)*input.lowerLimit**3 + (input.coeffC/2)*input.lowerLimit**2 + input.coeffD*input.lowerLimit); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = input.coeffA; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDefinite_integral_calculator(input: Definite_integral_calculatorInput): Definite_integral_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateDefinite_integral_calculator(input: Definite_integral_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

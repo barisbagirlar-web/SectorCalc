@@ -18,25 +18,21 @@ export const Kendall_tau_calculatorInputSchema = z.object({
   U: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Kendall_tau_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.n) * (input.P) * (input.Q) * (input.T) * (input.U); results["numerator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numerator"] = 0; }
-  try { const v = (input.n) * (input.P) * (input.Q); results["numerator_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numerator_aux"] = 0; }
+  try { const v = (input.n) * (input.P) * (input.Q) * (input.T) * (input.U); results["numerator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numerator"] = Number.NaN; }
+  try { const v = (input.n) * (input.P) * (input.Q); results["numerator_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numerator_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKendall_tau_calculator(input: Kendall_tau_calculatorInput): Kendall_tau_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["numerator_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["numerator_aux"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateKendall_tau_calculator(input: Kendall_tau_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

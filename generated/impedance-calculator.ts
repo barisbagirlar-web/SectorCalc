@@ -16,25 +16,21 @@ export const Impedance_calculatorInputSchema = z.object({
   f: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Impedance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * Math.PI * input.f * input.L; results["xl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["xl"] = 0; }
-  try { const v = 1 / (2 * Math.PI * input.f * input.C); results["xc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["xc"] = 0; }
+  try { const v = 2 * Math.PI * input.f * input.L; results["xl"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["xl"] = Number.NaN; }
+  try { const v = 1 / (2 * Math.PI * input.f * input.C); results["xc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["xc"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateImpedance_calculator(input: Impedance_calculatorInput): Impedance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["xc"]));
+  const totalWasteCost = toNumericFormulaValue(values["xc"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateImpedance_calculator(input: Impedance_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

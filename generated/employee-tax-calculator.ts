@@ -16,26 +16,22 @@ export const Employee_tax_calculatorInputSchema = z.object({
   incomeTaxRate: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Employee_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grossSalary - (input.grossSalary - input.taxAllowance) * (input.incomeTaxRate / 100) - input.grossSalary * (input.socialSecurityRate / 100); results["netSalary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netSalary"] = 0; }
-  try { const v = (input.grossSalary - input.taxAllowance) * (input.incomeTaxRate / 100); results["incomeTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["incomeTax"] = 0; }
-  try { const v = input.grossSalary * (input.socialSecurityRate / 100); results["socialSecurity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["socialSecurity"] = 0; }
+  try { const v = input.grossSalary - (input.grossSalary - input.taxAllowance) * (input.incomeTaxRate / 100) - input.grossSalary * (input.socialSecurityRate / 100); results["netSalary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netSalary"] = Number.NaN; }
+  try { const v = (input.grossSalary - input.taxAllowance) * (input.incomeTaxRate / 100); results["incomeTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["incomeTax"] = Number.NaN; }
+  try { const v = input.grossSalary * (input.socialSecurityRate / 100); results["socialSecurity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["socialSecurity"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEmployee_tax_calculator(input: Employee_tax_calculatorInput): Employee_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netSalary"]));
+  const totalWasteCost = toNumericFormulaValue(values["netSalary"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateEmployee_tax_calculator(input: Employee_tax_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

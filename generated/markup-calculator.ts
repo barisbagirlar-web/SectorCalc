@@ -16,27 +16,23 @@ export const Markup_calculatorInputSchema = z.object({
   additionalCostPerUnit: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Markup_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit; results["sellingPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellingPrice"] = 0; }
-  try { const v = (input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit) * input.quantity; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
-  try { const v = (input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit) * input.quantity - (input.costPrice + input.additionalCostPerUnit) * input.quantity; results["totalProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalProfit"] = 0; }
-  try { const v = (((input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit) * input.quantity - (input.costPrice + input.additionalCostPerUnit) * input.quantity) / ((input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit) * input.quantity)) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitMargin"] = 0; }
+  try { const v = input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit; results["sellingPrice"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sellingPrice"] = Number.NaN; }
+  try { const v = (input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit) * input.quantity; results["totalRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRevenue"] = Number.NaN; }
+  try { const v = (input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit) * input.quantity - (input.costPrice + input.additionalCostPerUnit) * input.quantity; results["totalProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalProfit"] = Number.NaN; }
+  try { const v = (((input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit) * input.quantity - (input.costPrice + input.additionalCostPerUnit) * input.quantity) / ((input.costPrice + input.costPrice * input.markupPercent / 100 + input.additionalCostPerUnit) * input.quantity)) * 100; results["profitMargin"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitMargin"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMarkup_calculator(input: Markup_calculatorInput): Markup_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sellingPrice"]));
+  const totalWasteCost = toNumericFormulaValue(values["sellingPrice"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateMarkup_calculator(input: Markup_calculatorInput): Marku
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

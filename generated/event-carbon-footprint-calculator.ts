@@ -22,28 +22,24 @@ export const Event_carbon_footprint_calculatorInputSchema = z.object({
   accommodationNights: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Event_carbon_footprint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.attendees * input.travelDistance * 2 * input.travelEmissionFactor; results["travelCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["travelCO2"] = 0; }
-  try { const v = input.venueEnergy * input.eventDays * 0.5; results["venueCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["venueCO2"] = 0; }
-  try { const v = input.attendees * input.eventDays * input.wastePerAttendee * 0.5; results["wasteCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteCO2"] = 0; }
-  try { const v = input.attendees * input.accommodationNights * 10; results["accommodationCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["accommodationCO2"] = 0; }
-  try { const v = (asFormulaNumber(results["travelCO2"])) + (asFormulaNumber(results["venueCO2"])) + (asFormulaNumber(results["wasteCO2"])) + (asFormulaNumber(results["accommodationCO2"])); results["totalCO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCO2"] = 0; }
+  try { const v = input.attendees * input.travelDistance * 2 * input.travelEmissionFactor; results["travelCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["travelCO2"] = Number.NaN; }
+  try { const v = input.venueEnergy * input.eventDays * 0.5; results["venueCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["venueCO2"] = Number.NaN; }
+  try { const v = input.attendees * input.eventDays * input.wastePerAttendee * 0.5; results["wasteCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteCO2"] = Number.NaN; }
+  try { const v = input.attendees * input.accommodationNights * 10; results["accommodationCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["accommodationCO2"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["travelCO2"])) + (toNumericFormulaValue(results["venueCO2"])) + (toNumericFormulaValue(results["wasteCO2"])) + (toNumericFormulaValue(results["accommodationCO2"])); results["totalCO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCO2"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEvent_carbon_footprint_calculator(input: Event_carbon_footprint_calculatorInput): Event_carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCO2"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCO2"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateEvent_carbon_footprint_calculator(input: Event_carbon_f
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

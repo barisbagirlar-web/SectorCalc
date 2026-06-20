@@ -20,27 +20,23 @@ export const Multiple_calculatorInputSchema = z.object({
   taxRatePercent: z.number().default(18),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Multiple_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.materialCostPerUnit + input.laborCostPerUnit) * input.quantity + input.overheadFixed; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = ((input.materialCostPerUnit + input.laborCostPerUnit) * input.quantity + input.overheadFixed) / input.quantity; results["costPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerUnit"] = 0; }
-  try { const v = ((input.materialCostPerUnit + input.laborCostPerUnit) * input.quantity + input.overheadFixed) / input.quantity * (1 + input.profitMarginPercent / 100) * (1 + input.taxRatePercent / 100); results["sellingPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellingPrice"] = 0; }
-  try { const v = ((input.materialCostPerUnit + input.laborCostPerUnit) * input.quantity + input.overheadFixed) / input.quantity * (input.profitMarginPercent / 100); results["profitPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitPerUnit"] = 0; }
+  try { const v = (input.materialCostPerUnit + input.laborCostPerUnit) * input.quantity + input.overheadFixed; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = ((input.materialCostPerUnit + input.laborCostPerUnit) * input.quantity + input.overheadFixed) / input.quantity; results["costPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerUnit"] = Number.NaN; }
+  try { const v = ((input.materialCostPerUnit + input.laborCostPerUnit) * input.quantity + input.overheadFixed) / input.quantity * (1 + input.profitMarginPercent / 100) * (1 + input.taxRatePercent / 100); results["sellingPrice"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sellingPrice"] = Number.NaN; }
+  try { const v = ((input.materialCostPerUnit + input.laborCostPerUnit) * input.quantity + input.overheadFixed) / input.quantity * (input.profitMarginPercent / 100); results["profitPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitPerUnit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMultiple_calculator(input: Multiple_calculatorInput): Multiple_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["costPerUnit"]));
+  const totalWasteCost = toNumericFormulaValue(values["costPerUnit"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMultiple_calculator(input: Multiple_calculatorInput): M
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

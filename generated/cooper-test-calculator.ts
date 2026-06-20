@@ -16,25 +16,21 @@ export const Cooper_test_calculatorInputSchema = z.object({
   weight_kg: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cooper_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.distance_m - 504.9) / 44.73; results["vo2max"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vo2max"] = 0; }
-  try { const v = input.weight_kg * (input.distance_m / 1000) * 0.97; results["calories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calories"] = 0; }
+  try { const v = (input.distance_m - 504.9) / 44.73; results["vo2max"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vo2max"] = Number.NaN; }
+  try { const v = input.weight_kg * (input.distance_m / 1000) * 0.97; results["calories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["calories"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCooper_test_calculator(input: Cooper_test_calculatorInput): Cooper_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["vo2max"]));
+  const totalWasteCost = toNumericFormulaValue(values["vo2max"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateCooper_test_calculator(input: Cooper_test_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

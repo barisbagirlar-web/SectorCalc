@@ -16,25 +16,21 @@ export const Meters_per_sec_to_mph_calculatorInputSchema = z.object({
   decimal_places: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Meters_per_sec_to_mph_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.speed_ms * input.factor_m_to_mi; results["speed_mps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speed_mps"] = 0; }
-  try { const v = input.speed_ms * input.factor_m_to_mi * input.factor_s_to_h; results["speed_mph_unrounded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["speed_mph_unrounded"] = 0; }
+  try { const v = input.speed_ms * input.factor_m_to_mi; results["speed_mps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["speed_mps"] = Number.NaN; }
+  try { const v = input.speed_ms * input.factor_m_to_mi * input.factor_s_to_h; results["speed_mph_unrounded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["speed_mph_unrounded"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMeters_per_sec_to_mph_calculator(input: Meters_per_sec_to_mph_calculatorInput): Meters_per_sec_to_mph_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["speed_mph_unrounded"]));
+  const totalWasteCost = toNumericFormulaValue(values["speed_mph_unrounded"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateMeters_per_sec_to_mph_calculator(input: Meters_per_sec_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,26 +16,22 @@ export const Child_dose_calculatorInputSchema = z.object({
   childHeight: z.number().default(110),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Child_dose_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.childWeight / 70) * input.adultDose; results["recommendedChildDose"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recommendedChildDose"] = 0; }
-  try { const v = (input.childAge / (input.childAge + 12)) * input.adultDose; results["methodYoung"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["methodYoung"] = 0; }
-  try { const v = ((input.childAge * 12) / 150) * input.adultDose; results["methodFried"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["methodFried"] = 0; }
+  try { const v = (input.childWeight / 70) * input.adultDose; results["recommendedChildDose"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recommendedChildDose"] = Number.NaN; }
+  try { const v = (input.childAge / (input.childAge + 12)) * input.adultDose; results["methodYoung"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["methodYoung"] = Number.NaN; }
+  try { const v = ((input.childAge * 12) / 150) * input.adultDose; results["methodFried"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["methodFried"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateChild_dose_calculator(input: Child_dose_calculatorInput): Child_dose_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["recommendedChildDose"]));
+  const totalWasteCost = toNumericFormulaValue(values["recommendedChildDose"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateChild_dose_calculator(input: Child_dose_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,26 +18,22 @@ export const Asphalt_calculatorInputSchema = z.object({
   compactionFactor: z.number().default(95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Asphalt_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * (input.thickness / 100); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = (asFormulaNumber(results["volume"])) / (input.compactionFactor / 100); results["looseVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["looseVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["volume"])) * input.density; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
+  try { const v = input.length * input.width * (input.thickness / 100); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume"])) / (input.compactionFactor / 100); results["looseVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["looseVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volume"])) * input.density; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAsphalt_calculator(input: Asphalt_calculatorInput): Asphalt_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["weight"]));
+  const totalWasteCost = toNumericFormulaValue(values["weight"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateAsphalt_calculator(input: Asphalt_calculatorInput): Asp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

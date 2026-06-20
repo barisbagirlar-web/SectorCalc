@@ -18,29 +18,25 @@ export const Bishop_score_for_labor_calculatorInputSchema = z.object({
   positionScore: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bishop_score_for_labor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.dilationScore + input.effacementScore + input.stationScore + input.consistencyScore + input.positionScore; results["totalBishopScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBishopScore"] = 0; }
-  try { const v = input.dilationScore; results["dilationScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dilationScore"] = 0; }
-  try { const v = input.effacementScore; results["effacementScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effacementScore"] = 0; }
-  try { const v = input.stationScore; results["stationScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stationScore"] = 0; }
-  try { const v = input.consistencyScore; results["consistencyScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["consistencyScore"] = 0; }
-  try { const v = input.positionScore; results["positionScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["positionScore"] = 0; }
+  try { const v = input.dilationScore + input.effacementScore + input.stationScore + input.consistencyScore + input.positionScore; results["totalBishopScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBishopScore"] = Number.NaN; }
+  try { const v = input.dilationScore; results["dilationScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dilationScore"] = Number.NaN; }
+  try { const v = input.effacementScore; results["effacementScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effacementScore"] = Number.NaN; }
+  try { const v = input.stationScore; results["stationScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stationScore"] = Number.NaN; }
+  try { const v = input.consistencyScore; results["consistencyScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["consistencyScore"] = Number.NaN; }
+  try { const v = input.positionScore; results["positionScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["positionScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBishop_score_for_labor_calculator(input: Bishop_score_for_labor_calculatorInput): Bishop_score_for_labor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBishopScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBishopScore"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateBishop_score_for_labor_calculator(input: Bishop_score_f
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

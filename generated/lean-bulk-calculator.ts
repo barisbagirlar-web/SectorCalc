@@ -20,26 +20,22 @@ export const Lean_bulk_calculatorInputSchema = z.object({
   reorderPointMultiplier: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Lean_bulk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.dailyProduction * input.materialPerUnit; results["totalDailyMaterial"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDailyMaterial"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDailyMaterial"])) * (input.leadTimeDays + input.safetyStockDays) * input.reorderPointMultiplier; results["totalBulkRequired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBulkRequired"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDailyMaterial"])) / input.containerCapacity; results["avgDailyContainers"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["avgDailyContainers"] = 0; }
+  try { const v = input.dailyProduction * input.materialPerUnit; results["totalDailyMaterial"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDailyMaterial"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDailyMaterial"])) * (input.leadTimeDays + input.safetyStockDays) * input.reorderPointMultiplier; results["totalBulkRequired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBulkRequired"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDailyMaterial"])) / input.containerCapacity; results["avgDailyContainers"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["avgDailyContainers"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLean_bulk_calculator(input: Lean_bulk_calculatorInput): Lean_bulk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDailyMaterial"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDailyMaterial"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateLean_bulk_calculator(input: Lean_bulk_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

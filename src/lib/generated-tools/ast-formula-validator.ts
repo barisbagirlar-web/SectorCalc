@@ -72,7 +72,7 @@ const ALLOWED_IDENTIFIERS = new Set([
   "undefined",
   "NaN",
   "Infinity",
-  "asFormulaNumber",
+  "toNumericFormulaValue",
   "erf",
   "parseFloat",
   "parseInt",
@@ -210,7 +210,7 @@ export function validateFormulaAst(
     if (name === undefined) continue;
     if (name === "Math") continue;
     if (name === "erf") continue;
-    if (name === "asFormulaNumber") continue;
+    if (name === "toNumericFormulaValue") continue;
 
     // Check if this call is already properly prefixed with Math.
     const charBefore = trimmed[Math.max(0, funcMatch.index - 5)];

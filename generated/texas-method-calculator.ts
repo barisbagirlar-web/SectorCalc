@@ -18,27 +18,23 @@ export const Texas_method_calculatorInputSchema = z.object({
   intensityDayIncrement: z.number().default(2.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Texas_method_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.oneRepMax * (input.fiveRepMaxPercentage / 100); results["fiveRM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fiveRM"] = 0; }
-  try { const v = (asFormulaNumber(results["fiveRM"])) * (input.volumeDayPercentage / 100); results["volumeDayWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeDayWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeDayWeight"])) * (input.lightDayPercentage / 100); results["lightDayWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lightDayWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["fiveRM"])) + input.intensityDayIncrement; results["intensityDayWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["intensityDayWeight"] = 0; }
+  try { const v = input.oneRepMax * (input.fiveRepMaxPercentage / 100); results["fiveRM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fiveRM"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fiveRM"])) * (input.volumeDayPercentage / 100); results["volumeDayWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeDayWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeDayWeight"])) * (input.lightDayPercentage / 100); results["lightDayWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lightDayWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fiveRM"])) + input.intensityDayIncrement; results["intensityDayWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["intensityDayWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTexas_method_calculator(input: Texas_method_calculatorInput): Texas_method_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volumeDayWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["volumeDayWeight"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateTexas_method_calculator(input: Texas_method_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

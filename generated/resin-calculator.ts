@@ -22,29 +22,25 @@ export const Resin_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Resin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.area * input.thickness; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalVolume"])) / ((input.resinRatio / input.hardenerRatio) / input.resinDensity + 1 / input.hardenerDensity)) * (input.resinRatio / input.hardenerRatio) * (1 + input.wasteFactor / 100); results["resinWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resinWeight"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalVolume"])) / ((input.resinRatio / input.hardenerRatio) / input.resinDensity + 1 / input.hardenerDensity)) * (1 + input.wasteFactor / 100); results["hardenerWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hardenerWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["resinWeight"])) / input.resinDensity; results["resinVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resinVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["hardenerWeight"])) / input.hardenerDensity; results["hardenerVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hardenerVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["resinWeight"])) + (asFormulaNumber(results["hardenerWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
+  try { const v = input.area * input.thickness; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalVolume"])) / ((input.resinRatio / input.hardenerRatio) / input.resinDensity + 1 / input.hardenerDensity)) * (input.resinRatio / input.hardenerRatio) * (1 + input.wasteFactor / 100); results["resinWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["resinWeight"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalVolume"])) / ((input.resinRatio / input.hardenerRatio) / input.resinDensity + 1 / input.hardenerDensity)) * (1 + input.wasteFactor / 100); results["hardenerWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hardenerWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["resinWeight"])) / input.resinDensity; results["resinVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["resinVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["hardenerWeight"])) / input.hardenerDensity; results["hardenerVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hardenerVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["resinWeight"])) + (toNumericFormulaValue(results["hardenerWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateResin_calculator(input: Resin_calculatorInput): Resin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalWeight"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateResin_calculator(input: Resin_calculatorInput): Resin_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

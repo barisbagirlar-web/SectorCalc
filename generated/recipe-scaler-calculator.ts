@@ -24,30 +24,26 @@ export const Recipe_scaler_calculatorInputSchema = z.object({
   ingredient6Amount: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Recipe_scaler_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.desiredServings / input.originalServings; results["scaleFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleFactor"] = 0; }
-  try { const v = input.ingredient1Amount * (asFormulaNumber(results["scaleFactor"])); results["scaledIngredient1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledIngredient1"] = 0; }
-  try { const v = input.ingredient2Amount * (asFormulaNumber(results["scaleFactor"])); results["scaledIngredient2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledIngredient2"] = 0; }
-  try { const v = input.ingredient3Amount * (asFormulaNumber(results["scaleFactor"])); results["scaledIngredient3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledIngredient3"] = 0; }
-  try { const v = input.ingredient4Amount * (asFormulaNumber(results["scaleFactor"])); results["scaledIngredient4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledIngredient4"] = 0; }
-  try { const v = input.ingredient5Amount * (asFormulaNumber(results["scaleFactor"])); results["scaledIngredient5"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledIngredient5"] = 0; }
-  try { const v = input.ingredient6Amount * (asFormulaNumber(results["scaleFactor"])); results["scaledIngredient6"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaledIngredient6"] = 0; }
+  try { const v = input.desiredServings / input.originalServings; results["scaleFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaleFactor"] = Number.NaN; }
+  try { const v = input.ingredient1Amount * (toNumericFormulaValue(results["scaleFactor"])); results["scaledIngredient1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaledIngredient1"] = Number.NaN; }
+  try { const v = input.ingredient2Amount * (toNumericFormulaValue(results["scaleFactor"])); results["scaledIngredient2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaledIngredient2"] = Number.NaN; }
+  try { const v = input.ingredient3Amount * (toNumericFormulaValue(results["scaleFactor"])); results["scaledIngredient3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaledIngredient3"] = Number.NaN; }
+  try { const v = input.ingredient4Amount * (toNumericFormulaValue(results["scaleFactor"])); results["scaledIngredient4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaledIngredient4"] = Number.NaN; }
+  try { const v = input.ingredient5Amount * (toNumericFormulaValue(results["scaleFactor"])); results["scaledIngredient5"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaledIngredient5"] = Number.NaN; }
+  try { const v = input.ingredient6Amount * (toNumericFormulaValue(results["scaleFactor"])); results["scaledIngredient6"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaledIngredient6"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRecipe_scaler_calculator(input: Recipe_scaler_calculatorInput): Recipe_scaler_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["scaleFactor"]));
+  const totalWasteCost = toNumericFormulaValue(values["scaleFactor"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculateRecipe_scaler_calculator(input: Recipe_scaler_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

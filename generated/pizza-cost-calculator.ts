@@ -22,27 +22,23 @@ export const Pizza_cost_calculatorInputSchema = z.object({
   marginPercent: z.number().default(40),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pizza_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.doughCost + input.sauceCost + input.cheeseCost + input.toppingsCost; results["totalIngredientCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalIngredientCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalIngredientCost"])) + input.laborCost + input.overheadCost; results["totalCostPerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCostPerPizza"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCostPerPizza"])) / (1 - input.marginPercent/100); results["sellingPricePerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellingPricePerPizza"] = 0; }
-  try { const v = (asFormulaNumber(results["sellingPricePerPizza"])) - (asFormulaNumber(results["totalCostPerPizza"])); results["profitPerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["profitPerPizza"] = 0; }
+  try { const v = input.doughCost + input.sauceCost + input.cheeseCost + input.toppingsCost; results["totalIngredientCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalIngredientCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalIngredientCost"])) + input.laborCost + input.overheadCost; results["totalCostPerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCostPerPizza"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCostPerPizza"])) / (1 - input.marginPercent/100); results["sellingPricePerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sellingPricePerPizza"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["sellingPricePerPizza"])) - (toNumericFormulaValue(results["totalCostPerPizza"])); results["profitPerPizza"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["profitPerPizza"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePizza_cost_calculator(input: Pizza_cost_calculatorInput): Pizza_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sellingPricePerPizza"]));
+  const totalWasteCost = toNumericFormulaValue(values["sellingPricePerPizza"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculatePizza_cost_calculator(input: Pizza_cost_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

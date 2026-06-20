@@ -16,26 +16,22 @@ export const Root_canal_calculatorInputSchema = z.object({
   desiredOrificeDiameter: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Root_canal_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.d16Diameter - input.apicalDiameter) / 16; results["taper"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taper"] = 0; }
-  try { const v = input.apicalDiameter + (asFormulaNumber(results["taper"])) * input.workingLength; results["actualOrificeDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualOrificeDiameter"] = 0; }
-  try { const v = (input.desiredOrificeDiameter - input.apicalDiameter) / input.workingLength; results["requiredTaper"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredTaper"] = 0; }
+  try { const v = (input.d16Diameter - input.apicalDiameter) / 16; results["taper"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taper"] = Number.NaN; }
+  try { const v = input.apicalDiameter + (toNumericFormulaValue(results["taper"])) * input.workingLength; results["actualOrificeDiameter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["actualOrificeDiameter"] = Number.NaN; }
+  try { const v = (input.desiredOrificeDiameter - input.apicalDiameter) / input.workingLength; results["requiredTaper"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredTaper"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRoot_canal_calculator(input: Root_canal_calculatorInput): Root_canal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["actualOrificeDiameter"]));
+  const totalWasteCost = toNumericFormulaValue(values["actualOrificeDiameter"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateRoot_canal_calculator(input: Root_canal_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

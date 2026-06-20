@@ -16,28 +16,24 @@ export const Kw_to_hp_calculatorInputSchema = z.object({
   customFactor: z.number().default(1.34102),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Kw_to_hp_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.kW * (input.efficiency / 100) * (input.loadFactor / 100); results["effectiveKW"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveKW"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveKW"])) * 1.34102; results["hp_mechanical"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hp_mechanical"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveKW"])) * 1.35962; results["hp_metric"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hp_metric"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveKW"])) * 1.34048; results["hp_electrical"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hp_electrical"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveKW"])) * input.customFactor; results["hp_custom"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hp_custom"] = 0; }
+  try { const v = input.kW * (input.efficiency / 100) * (input.loadFactor / 100); results["effectiveKW"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveKW"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveKW"])) * 1.34102; results["hp_mechanical"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hp_mechanical"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveKW"])) * 1.35962; results["hp_metric"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hp_metric"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveKW"])) * 1.34048; results["hp_electrical"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hp_electrical"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveKW"])) * input.customFactor; results["hp_custom"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hp_custom"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKw_to_hp_calculator(input: Kw_to_hp_calculatorInput): Kw_to_hp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hp_custom"]));
+  const totalWasteCost = toNumericFormulaValue(values["hp_custom"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateKw_to_hp_calculator(input: Kw_to_hp_calculatorInput): K
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

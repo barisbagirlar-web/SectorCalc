@@ -22,27 +22,23 @@ export const Fiber_calculatorInputSchema = z.object({
   margin: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fiber_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.attenuation + input.connectors * input.connectorLoss + input.splices * input.spliceLoss + input.margin; results["totalLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLoss"] = 0; }
-  try { const v = input.length * input.attenuation; results["fiberLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fiberLoss"] = 0; }
-  try { const v = input.connectors * input.connectorLoss; results["connectorLossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["connectorLossTotal"] = 0; }
-  try { const v = input.splices * input.spliceLoss; results["spliceLossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spliceLossTotal"] = 0; }
+  try { const v = input.length * input.attenuation + input.connectors * input.connectorLoss + input.splices * input.spliceLoss + input.margin; results["totalLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLoss"] = Number.NaN; }
+  try { const v = input.length * input.attenuation; results["fiberLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fiberLoss"] = Number.NaN; }
+  try { const v = input.connectors * input.connectorLoss; results["connectorLossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["connectorLossTotal"] = Number.NaN; }
+  try { const v = input.splices * input.spliceLoss; results["spliceLossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spliceLossTotal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFiber_calculator(input: Fiber_calculatorInput): Fiber_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLoss"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalLoss"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateFiber_calculator(input: Fiber_calculatorInput): Fiber_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

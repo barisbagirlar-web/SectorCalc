@@ -18,27 +18,23 @@ export const Deck_stain_calculatorInputSchema = z.object({
   waste: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Deck_stain_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width; results["deckArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deckArea"] = 0; }
-  try { const v = (asFormulaNumber(results["deckArea"])) * input.coats; results["totalAreaToCover"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAreaToCover"] = 0; }
-  try { const v = (asFormulaNumber(results["totalAreaToCover"])) * (1 + input.waste / 100); results["adjustedArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedArea"] = 0; }
-  try { const v = (asFormulaNumber(results["adjustedArea"])) / input.coverage; results["totalGallons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGallons"] = 0; }
+  try { const v = input.length * input.width; results["deckArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deckArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["deckArea"])) * input.coats; results["totalAreaToCover"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAreaToCover"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalAreaToCover"])) * (1 + input.waste / 100); results["adjustedArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["adjustedArea"])) / input.coverage; results["totalGallons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGallons"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDeck_stain_calculator(input: Deck_stain_calculatorInput): Deck_stain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalGallons"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalGallons"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateDeck_stain_calculator(input: Deck_stain_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

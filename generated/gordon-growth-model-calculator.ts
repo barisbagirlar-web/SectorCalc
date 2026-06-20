@@ -16,26 +16,22 @@ export const Gordon_growth_model_calculatorInputSchema = z.object({
   marketPrice: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gordon_growth_model_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentDividend * (1 + input.growthRate/100) / (input.requiredReturn/100 - input.growthRate/100); results["intrinsicValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["intrinsicValue"] = 0; }
-  try { const v = (input.currentDividend / input.marketPrice) * 100; results["dividendYield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dividendYield"] = 0; }
-  try { const v = (((asFormulaNumber(results["intrinsicValue"])) - input.marketPrice) / (asFormulaNumber(results["intrinsicValue"]))) * 100; results["marginOfSafety"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["marginOfSafety"] = 0; }
+  try { const v = input.currentDividend * (1 + input.growthRate/100) / (input.requiredReturn/100 - input.growthRate/100); results["intrinsicValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["intrinsicValue"] = Number.NaN; }
+  try { const v = (input.currentDividend / input.marketPrice) * 100; results["dividendYield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dividendYield"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["intrinsicValue"])) - input.marketPrice) / (toNumericFormulaValue(results["intrinsicValue"]))) * 100; results["marginOfSafety"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["marginOfSafety"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGordon_growth_model_calculator(input: Gordon_growth_model_calculatorInput): Gordon_growth_model_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["intrinsicValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["intrinsicValue"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateGordon_growth_model_calculator(input: Gordon_growth_mod
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,26 +18,22 @@ export const Cap_rate_calculatorInputSchema = z.object({
   otherAnnualIncome: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cap_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualGrossIncome * (1 - input.vacancyRate / 100) + input.otherAnnualIncome; results["effectiveGrossIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveGrossIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveGrossIncome"])) - input.annualOperatingExpenses; results["netOperatingIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netOperatingIncome"] = 0; }
-  try { const v = (asFormulaNumber(results["netOperatingIncome"])) / input.propertyValue * 100; results["capRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capRate"] = 0; }
+  try { const v = input.annualGrossIncome * (1 - input.vacancyRate / 100) + input.otherAnnualIncome; results["effectiveGrossIncome"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveGrossIncome"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveGrossIncome"])) - input.annualOperatingExpenses; results["netOperatingIncome"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netOperatingIncome"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netOperatingIncome"])) / input.propertyValue * 100; results["capRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["capRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCap_rate_calculator(input: Cap_rate_calculatorInput): Cap_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["capRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["capRate"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCap_rate_calculator(input: Cap_rate_calculatorInput): C
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

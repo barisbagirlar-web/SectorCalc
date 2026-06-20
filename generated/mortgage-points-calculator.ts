@@ -18,27 +18,23 @@ export const Mortgage_points_calculatorInputSchema = z.object({
   loanTermYears: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mortgage_points_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.baseInterestRate / 100 / 12; results["monthlyRateBase"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRateBase"] = 0; }
-  try { const v = (input.baseInterestRate - input.pointsPurchased * input.rateReductionPerPoint) / 100 / 12; results["monthlyRateWithPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRateWithPoints"] = 0; }
-  try { const v = input.loanTermYears * 12; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["n"] = 0; }
-  try { const v = input.loanAmount * input.pointsPurchased * 0.01; results["upfrontCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upfrontCost"] = 0; }
+  try { const v = input.baseInterestRate / 100 / 12; results["monthlyRateBase"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyRateBase"] = Number.NaN; }
+  try { const v = (input.baseInterestRate - input.pointsPurchased * input.rateReductionPerPoint) / 100 / 12; results["monthlyRateWithPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyRateWithPoints"] = Number.NaN; }
+  try { const v = input.loanTermYears * 12; results["n"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["n"] = Number.NaN; }
+  try { const v = input.loanAmount * input.pointsPurchased * 0.01; results["upfrontCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["upfrontCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMortgage_points_calculator(input: Mortgage_points_calculatorInput): Mortgage_points_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["upfrontCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["upfrontCost"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateMortgage_points_calculator(input: Mortgage_points_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

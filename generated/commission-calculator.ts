@@ -16,26 +16,22 @@ export const Commission_calculatorInputSchema = z.object({
   highTierRate: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Commission_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalSales <= input.highTierThreshold ? input.totalSales * input.baseCommissionRate / 100 : input.highTierThreshold * input.baseCommissionRate / 100; results["tier1Commission"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tier1Commission"] = 0; }
-  try { const v = input.totalSales > input.highTierThreshold ? (input.totalSales - input.highTierThreshold) * input.highTierRate / 100 : 0; results["tier2Commission"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tier2Commission"] = 0; }
-  try { const v = (asFormulaNumber(results["tier1Commission"])) + (asFormulaNumber(results["tier2Commission"])); results["totalCommission"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCommission"] = 0; }
+  try { const v = input.totalSales <= input.highTierThreshold ? input.totalSales * input.baseCommissionRate / 100 : input.highTierThreshold * input.baseCommissionRate / 100; results["tier1Commission"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tier1Commission"] = Number.NaN; }
+  try { const v = input.totalSales > input.highTierThreshold ? (input.totalSales - input.highTierThreshold) * input.highTierRate / 100 : 0; results["tier2Commission"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tier2Commission"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["tier1Commission"])) + (toNumericFormulaValue(results["tier2Commission"])); results["totalCommission"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCommission"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCommission_calculator(input: Commission_calculatorInput): Commission_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCommission"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCommission"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateCommission_calculator(input: Commission_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

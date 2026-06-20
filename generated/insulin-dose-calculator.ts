@@ -18,26 +18,22 @@ export const Insulin_dose_calculatorInputSchema = z.object({
   isf: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Insulin_dose_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.carbGrams / input.carbRatio; results["mealDose"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mealDose"] = 0; }
-  try { const v = (input.currentBG - input.targetBG) > 0 ? (input.currentBG - input.targetBG) / input.isf : 0; results["correctionDose"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctionDose"] = 0; }
-  try { const v = (asFormulaNumber(results["mealDose"])) + (asFormulaNumber(results["correctionDose"])); results["totalDose"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDose"] = 0; }
+  try { const v = input.carbGrams / input.carbRatio; results["mealDose"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mealDose"] = Number.NaN; }
+  try { const v = (input.currentBG - input.targetBG) > 0 ? (input.currentBG - input.targetBG) / input.isf : 0; results["correctionDose"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["correctionDose"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mealDose"])) + (toNumericFormulaValue(results["correctionDose"])); results["totalDose"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDose"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInsulin_dose_calculator(input: Insulin_dose_calculatorInput): Insulin_dose_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDose"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDose"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateInsulin_dose_calculator(input: Insulin_dose_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

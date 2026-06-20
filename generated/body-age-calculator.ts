@@ -20,25 +20,21 @@ export const Body_age_calculatorInputSchema = z.object({
   diastolicBP: z.number().default(80),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Body_age_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.chronologicalAge + 0.2 * (input.restingHeartRate - 70) + 0.3 * (input.waistCircumference - 80) - 0.5 * (input.exerciseDaysPerWeek - 3) + 0.1 * (input.systolicBP - 120) + 0.1 * (input.diastolicBP - 80); results["biologicalAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["biologicalAge"] = 0; }
-  try { const v = input.chronologicalAge; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = input.chronologicalAge + 0.2 * (input.restingHeartRate - 70) + 0.3 * (input.waistCircumference - 80) - 0.5 * (input.exerciseDaysPerWeek - 3) + 0.1 * (input.systolicBP - 120) + 0.1 * (input.diastolicBP - 80); results["biologicalAge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["biologicalAge"] = Number.NaN; }
+  try { const v = input.chronologicalAge; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBody_age_calculator(input: Body_age_calculatorInput): Body_age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["biologicalAge"]));
+  const totalWasteCost = toNumericFormulaValue(values["biologicalAge"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateBody_age_calculator(input: Body_age_calculatorInput): B
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

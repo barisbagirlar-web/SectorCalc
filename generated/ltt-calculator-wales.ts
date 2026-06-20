@@ -22,29 +22,25 @@ export const Ltt_calculator_walesInputSchema = z.object({
   co2_emission_factor_kg_per_l: z.number().default(2.68),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ltt_calculator_walesInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.distance_km * (input.fuel_consumption_l_per_100km / 100) * input.fuel_price_gbp_per_l; results["total_fuel_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_fuel_cost"] = 0; }
-  try { const v = input.distance_km / input.average_speed_kmh; results["travel_time_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["travel_time_hours"] = 0; }
-  try { const v = (asFormulaNumber(results["travel_time_hours"])) * input.driver_wage_gbp_per_hour; results["driver_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["driver_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_fuel_cost"])) + (asFormulaNumber(results["driver_cost"])); results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
-  try { const v = (asFormulaNumber(results["total_cost"])) / (input.distance_km * input.load_tonnes); results["cost_per_tonne_km"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cost_per_tonne_km"] = 0; }
-  try { const v = input.distance_km * (input.fuel_consumption_l_per_100km / 100) * input.co2_emission_factor_kg_per_l; results["total_co2_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_co2_kg"] = 0; }
+  try { const v = input.distance_km * (input.fuel_consumption_l_per_100km / 100) * input.fuel_price_gbp_per_l; results["total_fuel_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_fuel_cost"] = Number.NaN; }
+  try { const v = input.distance_km / input.average_speed_kmh; results["travel_time_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["travel_time_hours"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["travel_time_hours"])) * input.driver_wage_gbp_per_hour; results["driver_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["driver_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_fuel_cost"])) + (toNumericFormulaValue(results["driver_cost"])); results["total_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_cost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_cost"])) / (input.distance_km * input.load_tonnes); results["cost_per_tonne_km"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cost_per_tonne_km"] = Number.NaN; }
+  try { const v = input.distance_km * (input.fuel_consumption_l_per_100km / 100) * input.co2_emission_factor_kg_per_l; results["total_co2_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_co2_kg"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLtt_calculator_wales(input: Ltt_calculator_walesInput): Ltt_calculator_walesOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_cost"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_cost"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateLtt_calculator_wales(input: Ltt_calculator_walesInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

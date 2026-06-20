@@ -14,25 +14,21 @@ export const Mpg_to_l_per_100kmInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mpg_to_l_per_100kmInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 235.214583 / (input.mpg * input.fuelType); results["litersPer100km"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["litersPer100km"] = 0; }
-  try { const v = 235.214583 / (input.mpg * input.fuelType); results["litersPer100km___235_214583____mpg___fue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["litersPer100km___235_214583____mpg___fue"] = 0; }
+  try { const v = 235.214583 / (input.mpg * input.fuelType); results["litersPer100km"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["litersPer100km"] = Number.NaN; }
+  try { const v = 235.214583 / (input.mpg * input.fuelType); results["litersPer100km___235_214583____mpg___fue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["litersPer100km___235_214583____mpg___fue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMpg_to_l_per_100km(input: Mpg_to_l_per_100kmInput): Mpg_to_l_per_100kmOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["litersPer100km"]));
+  const totalWasteCost = toNumericFormulaValue(values["litersPer100km"]);
   const breakdown = {
     
   };
@@ -40,7 +36,7 @@ export function calculateMpg_to_l_per_100km(input: Mpg_to_l_per_100kmInput): Mpg
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

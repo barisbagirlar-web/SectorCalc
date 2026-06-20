@@ -18,30 +18,26 @@ export const Font_size_converter_calculatorInputSchema = z.object({
   customScale: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Font_size_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fontSizePt * input.ppi / 72; results["px"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["px"] = 0; }
-  try { const v = (asFormulaNumber(results["px"])) / input.baseFontSizePx; results["em"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["em"] = 0; }
-  try { const v = (asFormulaNumber(results["px"])) / input.rootFontSizePx; results["rem"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rem"] = 0; }
-  try { const v = ((asFormulaNumber(results["px"])) / input.baseFontSizePx) * 100; results["percentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentage"] = 0; }
-  try { const v = input.fontSizePt * 0.3528; results["mm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mm"] = 0; }
-  try { const v = input.fontSizePt / 72; results["inches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inches"] = 0; }
-  try { const v = (asFormulaNumber(results["px"])) * input.customScale; results["customPx"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["customPx"] = 0; }
+  try { const v = input.fontSizePt * input.ppi / 72; results["px"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["px"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["px"])) / input.baseFontSizePx; results["em"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["em"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["px"])) / input.rootFontSizePx; results["rem"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rem"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["px"])) / input.baseFontSizePx) * 100; results["percentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentage"] = Number.NaN; }
+  try { const v = input.fontSizePt * 0.3528; results["mm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mm"] = Number.NaN; }
+  try { const v = input.fontSizePt / 72; results["inches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inches"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["px"])) * input.customScale; results["customPx"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["customPx"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFont_size_converter_calculator(input: Font_size_converter_calculatorInput): Font_size_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["px"]));
+  const totalWasteCost = toNumericFormulaValue(values["px"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateFont_size_converter_calculator(input: Font_size_convert
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

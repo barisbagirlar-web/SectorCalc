@@ -16,26 +16,22 @@ export const Band_stop_filter_calculatorInputSchema = z.object({
   evaluationFrequency: z.number().default(800),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Band_stop_filter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.centerFrequency / (input.upperCutoffFrequency - input.lowerCutoffFrequency); results["qFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["qFactor"] = 0; }
-  try { const v = 2 * Math.PI * input.centerFrequency; results["w0"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["w0"] = 0; }
-  try { const v = 2 * Math.PI * input.evaluationFrequency; results["w"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["w"] = 0; }
+  try { const v = input.centerFrequency / (input.upperCutoffFrequency - input.lowerCutoffFrequency); results["qFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["qFactor"] = Number.NaN; }
+  try { const v = 2 * Math.PI * input.centerFrequency; results["w0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["w0"] = Number.NaN; }
+  try { const v = 2 * Math.PI * input.evaluationFrequency; results["w"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["w"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBand_stop_filter_calculator(input: Band_stop_filter_calculatorInput): Band_stop_filter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["w"]));
+  const totalWasteCost = toNumericFormulaValue(values["w"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateBand_stop_filter_calculator(input: Band_stop_filter_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

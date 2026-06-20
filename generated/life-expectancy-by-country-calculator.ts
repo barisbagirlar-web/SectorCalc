@@ -16,27 +16,23 @@ export const Life_expectancy_by_country_calculatorInputSchema = z.object({
   healthFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Life_expectancy_by_country_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.countryLifeExpectancy - input.currentAge; results["adjustedLifeExpectancy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedLifeExpectancy"] = 0; }
-  try { const v = input.gender === 1 ? 5 : 0; results["genderAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["genderAdjustment"] = 0; }
-  try { const v = input.healthFactor; results["healthMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["healthMultiplier"] = 0; }
-  try { const v = ((asFormulaNumber(results["adjustedLifeExpectancy"])) + (asFormulaNumber(results["genderAdjustment"]))) * (asFormulaNumber(results["healthMultiplier"])); results["remainingLifeExpectancy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingLifeExpectancy"] = 0; }
+  try { const v = input.countryLifeExpectancy - input.currentAge; results["adjustedLifeExpectancy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedLifeExpectancy"] = Number.NaN; }
+  try { const v = input.gender === 1 ? 5 : 0; results["genderAdjustment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["genderAdjustment"] = Number.NaN; }
+  try { const v = input.healthFactor; results["healthMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["healthMultiplier"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["adjustedLifeExpectancy"])) + (toNumericFormulaValue(results["genderAdjustment"]))) * (toNumericFormulaValue(results["healthMultiplier"])); results["remainingLifeExpectancy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingLifeExpectancy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLife_expectancy_by_country_calculator(input: Life_expectancy_by_country_calculatorInput): Life_expectancy_by_country_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["remainingLifeExpectancy"]));
+  const totalWasteCost = toNumericFormulaValue(values["remainingLifeExpectancy"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateLife_expectancy_by_country_calculator(input: Life_expec
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,29 +22,25 @@ export const Selectivity_calculatorInputSchema = z.object({
   molarMassUndesired: z.number().default(60),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Selectivity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.massReactantFed / input.molarMassReactant; results["molesReactantFed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesReactantFed"] = 0; }
-  try { const v = (asFormulaNumber(results["molesReactantFed"])) * input.conversion; results["molesReactantConsumed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesReactantConsumed"] = 0; }
-  try { const v = input.massDesired / input.molarMassDesired; results["molesDesired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesDesired"] = 0; }
-  try { const v = input.massUndesired / input.molarMassUndesired; results["molesUndesired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesUndesired"] = 0; }
-  try { const v = (asFormulaNumber(results["molesDesired"])) / (asFormulaNumber(results["molesUndesired"])); results["selectivity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["selectivity"] = 0; }
-  try { const v = (asFormulaNumber(results["molesDesired"])) / (asFormulaNumber(results["molesReactantFed"])); results["yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yield"] = 0; }
+  try { const v = input.massReactantFed / input.molarMassReactant; results["molesReactantFed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molesReactantFed"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["molesReactantFed"])) * input.conversion; results["molesReactantConsumed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molesReactantConsumed"] = Number.NaN; }
+  try { const v = input.massDesired / input.molarMassDesired; results["molesDesired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molesDesired"] = Number.NaN; }
+  try { const v = input.massUndesired / input.molarMassUndesired; results["molesUndesired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molesUndesired"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["molesDesired"])) / (toNumericFormulaValue(results["molesUndesired"])); results["selectivity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["selectivity"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["molesDesired"])) / (toNumericFormulaValue(results["molesReactantFed"])); results["yield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yield"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSelectivity_calculator(input: Selectivity_calculatorInput): Selectivity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["selectivity"]));
+  const totalWasteCost = toNumericFormulaValue(values["selectivity"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateSelectivity_calculator(input: Selectivity_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

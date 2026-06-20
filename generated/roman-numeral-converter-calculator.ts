@@ -24,25 +24,21 @@ export const Roman_numeral_converter_calculatorInputSchema = z.object({
   s8: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Roman_numeral_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.s1 < input.s2 ? -input.s1 : input.s1) + (input.s2 < input.s3 ? -input.s2 : input.s2) + (input.s3 < input.s4 ? -input.s3 : input.s3) + (input.s4 < input.s5 ? -input.s4 : input.s4) + (input.s5 < input.s6 ? -input.s5 : input.s5) + (input.s6 < input.s7 ? -input.s6 : input.s6) + (input.s7 < input.s8 ? -input.s7 : input.s7) + input.s8); results["arabic"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["arabic"] = 0; }
-  try { const v = ((input.s1 < input.s2 ? -input.s1 : input.s1) + (input.s2 < input.s3 ? -input.s2 : input.s2) + (input.s3 < input.s4 ? -input.s3 : input.s3) + (input.s4 < input.s5 ? -input.s4 : input.s4) + (input.s5 < input.s6 ? -input.s5 : input.s5) + (input.s6 < input.s7 ? -input.s6 : input.s6) + (input.s7 < input.s8 ? -input.s7 : input.s7) + input.s8); results["arabic_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["arabic_aux"] = 0; }
+  try { const v = ((input.s1 < input.s2 ? -input.s1 : input.s1) + (input.s2 < input.s3 ? -input.s2 : input.s2) + (input.s3 < input.s4 ? -input.s3 : input.s3) + (input.s4 < input.s5 ? -input.s4 : input.s4) + (input.s5 < input.s6 ? -input.s5 : input.s5) + (input.s6 < input.s7 ? -input.s6 : input.s6) + (input.s7 < input.s8 ? -input.s7 : input.s7) + input.s8); results["arabic"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["arabic"] = Number.NaN; }
+  try { const v = ((input.s1 < input.s2 ? -input.s1 : input.s1) + (input.s2 < input.s3 ? -input.s2 : input.s2) + (input.s3 < input.s4 ? -input.s3 : input.s3) + (input.s4 < input.s5 ? -input.s4 : input.s4) + (input.s5 < input.s6 ? -input.s5 : input.s5) + (input.s6 < input.s7 ? -input.s6 : input.s6) + (input.s7 < input.s8 ? -input.s7 : input.s7) + input.s8); results["arabic_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["arabic_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRoman_numeral_converter_calculator(input: Roman_numeral_converter_calculatorInput): Roman_numeral_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["arabic"]));
+  const totalWasteCost = toNumericFormulaValue(values["arabic"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateRoman_numeral_converter_calculator(input: Roman_numeral
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

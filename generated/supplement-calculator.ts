@@ -16,26 +16,22 @@ export const Supplement_calculatorInputSchema = z.object({
   suppConc: z.number().default(90),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Supplement_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.baseWeight * (input.desiredConc - input.baseConc) / (input.suppConc - input.desiredConc); results["supplementWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["supplementWeight"] = 0; }
-  try { const v = input.baseWeight + (asFormulaNumber(results["supplementWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = (input.baseWeight * input.baseConc + (asFormulaNumber(results["supplementWeight"])) * input.suppConc) / (asFormulaNumber(results["totalWeight"])); results["finalConc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalConc"] = 0; }
+  try { const v = input.baseWeight * (input.desiredConc - input.baseConc) / (input.suppConc - input.desiredConc); results["supplementWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["supplementWeight"] = Number.NaN; }
+  try { const v = input.baseWeight + (toNumericFormulaValue(results["supplementWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
+  try { const v = (input.baseWeight * input.baseConc + (toNumericFormulaValue(results["supplementWeight"])) * input.suppConc) / (toNumericFormulaValue(results["totalWeight"])); results["finalConc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalConc"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSupplement_calculator(input: Supplement_calculatorInput): Supplement_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["supplementWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["supplementWeight"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateSupplement_calculator(input: Supplement_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

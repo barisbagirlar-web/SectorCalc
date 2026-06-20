@@ -20,27 +20,23 @@ export const Mountaineering_calculatorInputSchema = z.object({
   safetyMarginPercent: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mountaineering_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.distance / input.flatSpeed; results["flatTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["flatTime"] = 0; }
-  try { const v = input.elevationGain / input.ascentPace; results["ascentTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ascentTime"] = 0; }
-  try { const v = (asFormulaNumber(results["flatTime"])) + (asFormulaNumber(results["ascentTime"])); results["baseTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseTime"] = 0; }
-  try { const v = (asFormulaNumber(results["baseTime"])) * input.difficultyMultiplier * (1 + input.safetyMarginPercent / 100); results["totalTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTime"] = 0; }
+  try { const v = input.distance / input.flatSpeed; results["flatTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["flatTime"] = Number.NaN; }
+  try { const v = input.elevationGain / input.ascentPace; results["ascentTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ascentTime"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["flatTime"])) + (toNumericFormulaValue(results["ascentTime"])); results["baseTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseTime"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseTime"])) * input.difficultyMultiplier * (1 + input.safetyMarginPercent / 100); results["totalTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTime"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMountaineering_calculator(input: Mountaineering_calculatorInput): Mountaineering_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTime"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTime"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMountaineering_calculator(input: Mountaineering_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

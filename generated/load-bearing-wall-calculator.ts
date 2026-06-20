@@ -18,26 +18,22 @@ export const Load_bearing_wall_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Load_bearing_wall_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wallThickness / 1000 * input.wallLength; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
-  try { const v = input.compressiveStrength / input.safetyFactor; results["axialStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["axialStress"] = 0; }
-  try { const v = (asFormulaNumber(results["area"])) * input.compressiveStrength * 1000 / input.safetyFactor; results["maxLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxLoad"] = 0; }
+  try { const v = input.wallThickness / 1000 * input.wallLength; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["area"] = Number.NaN; }
+  try { const v = input.compressiveStrength / input.safetyFactor; results["axialStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["axialStress"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["area"])) * input.compressiveStrength * 1000 / input.safetyFactor; results["maxLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxLoad"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLoad_bearing_wall_calculator(input: Load_bearing_wall_calculatorInput): Load_bearing_wall_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["maxLoad"]));
+  const totalWasteCost = toNumericFormulaValue(values["maxLoad"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateLoad_bearing_wall_calculator(input: Load_bearing_wall_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,31 +20,27 @@ export const Journaling_calculatorInputSchema = z.object({
   radialClearance: z.number().default(0.05),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Journaling_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.shaftDiameter / 2; results["shaftRadius_mm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shaftRadius_mm"] = 0; }
-  try { const v = (asFormulaNumber(results["shaftRadius_mm"])) / 1000; results["shaftRadius_m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shaftRadius_m"] = 0; }
-  try { const v = input.bearingLength / 1000; results["bearingLength_m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bearingLength_m"] = 0; }
-  try { const v = input.radialClearance / 1000; results["radialClearance_m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["radialClearance_m"] = 0; }
-  try { const v = input.oilViscosity * 0.001; results["oilViscosity_Pas"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["oilViscosity_Pas"] = 0; }
-  try { const v = input.rotationalSpeed / 60; results["rotationalSpeed_rps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rotationalSpeed_rps"] = 0; }
-  try { const v = (input.radialLoad * 1e6) / (input.shaftDiameter * input.bearingLength); results["unitLoadPressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unitLoadPressure"] = 0; }
-  try { const v = (asFormulaNumber(results["radialClearance_m"])) / (asFormulaNumber(results["shaftRadius_m"])); results["clearanceRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["clearanceRatio"] = 0; }
+  try { const v = input.shaftDiameter / 2; results["shaftRadius_mm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shaftRadius_mm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["shaftRadius_mm"])) / 1000; results["shaftRadius_m"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shaftRadius_m"] = Number.NaN; }
+  try { const v = input.bearingLength / 1000; results["bearingLength_m"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bearingLength_m"] = Number.NaN; }
+  try { const v = input.radialClearance / 1000; results["radialClearance_m"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["radialClearance_m"] = Number.NaN; }
+  try { const v = input.oilViscosity * 0.001; results["oilViscosity_Pas"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["oilViscosity_Pas"] = Number.NaN; }
+  try { const v = input.rotationalSpeed / 60; results["rotationalSpeed_rps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rotationalSpeed_rps"] = Number.NaN; }
+  try { const v = (input.radialLoad * 1e6) / (input.shaftDiameter * input.bearingLength); results["unitLoadPressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["unitLoadPressure"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["radialClearance_m"])) / (toNumericFormulaValue(results["shaftRadius_m"])); results["clearanceRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["clearanceRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateJournaling_calculator(input: Journaling_calculatorInput): Journaling_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["clearanceRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["clearanceRatio"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateJournaling_calculator(input: Journaling_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

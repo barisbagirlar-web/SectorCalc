@@ -22,30 +22,26 @@ export const Magic_card_calculatorInputSchema = z.object({
   batchSize: z.number().default(1000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Magic_card_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.cardLength * input.cardWidth) / 100; results["areaCm2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["areaCm2"] = 0; }
-  try { const v = (asFormulaNumber(results["areaCm2"])) * (input.cardThickness / 10); results["volumeCm3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeCm3"] = 0; }
-  try { const v = ((asFormulaNumber(results["volumeCm3"])) * input.materialDensity) / 1000; results["massKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massKg"] = 0; }
-  try { const v = (asFormulaNumber(results["massKg"])) * input.materialCostPerKg; results["materialCostPerCard"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialCostPerCard"] = 0; }
-  try { const v = (asFormulaNumber(results["materialCostPerCard"])) * (1 + (input.wasteFactor / 100)); results["effectiveCostPerCard"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveCostPerCard"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveCostPerCard"])) - (asFormulaNumber(results["materialCostPerCard"])); results["wasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteCost"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveCostPerCard"])) * input.batchSize; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (input.cardLength * input.cardWidth) / 100; results["areaCm2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["areaCm2"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["areaCm2"])) * (input.cardThickness / 10); results["volumeCm3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeCm3"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["volumeCm3"])) * input.materialDensity) / 1000; results["massKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["massKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["massKg"])) * input.materialCostPerKg; results["materialCostPerCard"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialCostPerCard"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["materialCostPerCard"])) * (1 + (input.wasteFactor / 100)); results["effectiveCostPerCard"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveCostPerCard"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveCostPerCard"])) - (toNumericFormulaValue(results["materialCostPerCard"])); results["wasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveCostPerCard"])) * input.batchSize; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMagic_card_calculator(input: Magic_card_calculatorInput): Magic_card_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateMagic_card_calculator(input: Magic_card_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,31 +22,27 @@ export const Ybocs_calculatorInputSchema = z.object({
   defectRate: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ybocs_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.productionVolume * (1 - input.defectRate / 100); results["goodUnits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goodUnits"] = 0; }
-  try { const v = input.rawMaterialCostPerUnit * input.productionVolume; results["totalMaterialCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMaterialCost"] = 0; }
-  try { const v = input.energyCostPerUnit * (asFormulaNumber(results["goodUnits"])); results["totalEnergyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEnergyCost"] = 0; }
-  try { const v = input.laborCostPerUnit * (asFormulaNumber(results["goodUnits"])); results["totalLaborCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLaborCost"] = 0; }
-  try { const v = input.overheadCostPerUnit * (asFormulaNumber(results["goodUnits"])); results["totalOverheadCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalOverheadCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMaterialCost"])) + (asFormulaNumber(results["totalEnergyCost"])) + (asFormulaNumber(results["totalLaborCost"])) + (asFormulaNumber(results["totalOverheadCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / (asFormulaNumber(results["goodUnits"])); results["totalCostPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCostPerUnit"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMaterialCost"])) / (input.productionVolume * (input.yieldPercent / 100)) + (input.energyCostPerUnit + input.laborCostPerUnit + input.overheadCostPerUnit); results["yieldAdjustedCostPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldAdjustedCostPerUnit"] = 0; }
+  try { const v = input.productionVolume * (1 - input.defectRate / 100); results["goodUnits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["goodUnits"] = Number.NaN; }
+  try { const v = input.rawMaterialCostPerUnit * input.productionVolume; results["totalMaterialCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMaterialCost"] = Number.NaN; }
+  try { const v = input.energyCostPerUnit * (toNumericFormulaValue(results["goodUnits"])); results["totalEnergyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEnergyCost"] = Number.NaN; }
+  try { const v = input.laborCostPerUnit * (toNumericFormulaValue(results["goodUnits"])); results["totalLaborCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLaborCost"] = Number.NaN; }
+  try { const v = input.overheadCostPerUnit * (toNumericFormulaValue(results["goodUnits"])); results["totalOverheadCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalOverheadCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalMaterialCost"])) + (toNumericFormulaValue(results["totalEnergyCost"])) + (toNumericFormulaValue(results["totalLaborCost"])) + (toNumericFormulaValue(results["totalOverheadCost"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / (toNumericFormulaValue(results["goodUnits"])); results["totalCostPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCostPerUnit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalMaterialCost"])) / (input.productionVolume * (input.yieldPercent / 100)) + (input.energyCostPerUnit + input.laborCostPerUnit + input.overheadCostPerUnit); results["yieldAdjustedCostPerUnit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yieldAdjustedCostPerUnit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateYbocs_calculator(input: Ybocs_calculatorInput): Ybocs_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCostPerUnit"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCostPerUnit"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateYbocs_calculator(input: Ybocs_calculatorInput): Ybocs_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

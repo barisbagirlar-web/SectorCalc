@@ -18,26 +18,22 @@ export const Cup_to_gram_calculatorInputSchema = z.object({
   densityCorrectionFactor: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cup_to_gram_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.density * (1 + input.densityCorrectionFactor * (input.temperature - 20)); results["correctedDensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["correctedDensity"] = 0; }
-  try { const v = input.cups * input.cupVolume; results["volumeInML"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeInML"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeInML"])) * (asFormulaNumber(results["correctedDensity"])); results["massInGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massInGrams"] = 0; }
+  try { const v = input.density * (1 + input.densityCorrectionFactor * (input.temperature - 20)); results["correctedDensity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["correctedDensity"] = Number.NaN; }
+  try { const v = input.cups * input.cupVolume; results["volumeInML"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeInML"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeInML"])) * (toNumericFormulaValue(results["correctedDensity"])); results["massInGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["massInGrams"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCup_to_gram_calculator(input: Cup_to_gram_calculatorInput): Cup_to_gram_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["massInGrams"]));
+  const totalWasteCost = toNumericFormulaValue(values["massInGrams"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCup_to_gram_calculator(input: Cup_to_gram_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

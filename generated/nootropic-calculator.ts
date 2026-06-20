@@ -20,28 +20,24 @@ export const Nootropic_calculatorInputSchema = z.object({
   tolerance: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Nootropic_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.caffeine*0.5 + input.ltheanine*0.3 + input.piracetam*0.2 + input.alphagpc*0.4) / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
-  try { const v = input.caffeine*0.5 / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["caffeineContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caffeineContrib"] = 0; }
-  try { const v = input.ltheanine*0.3 / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["ltheanineContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ltheanineContrib"] = 0; }
-  try { const v = input.piracetam*0.2 / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["piracetamContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["piracetamContrib"] = 0; }
-  try { const v = input.alphagpc*0.4 / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["alphagpcContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["alphagpcContrib"] = 0; }
+  try { const v = (input.caffeine*0.5 + input.ltheanine*0.3 + input.piracetam*0.2 + input.alphagpc*0.4) / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["score"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["score"] = Number.NaN; }
+  try { const v = input.caffeine*0.5 / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["caffeineContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caffeineContrib"] = Number.NaN; }
+  try { const v = input.ltheanine*0.3 / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["ltheanineContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ltheanineContrib"] = Number.NaN; }
+  try { const v = input.piracetam*0.2 / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["piracetamContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["piracetamContrib"] = Number.NaN; }
+  try { const v = input.alphagpc*0.4 / (input.bodyWeight * (1 + input.tolerance * 0.1)); results["alphagpcContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["alphagpcContrib"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNootropic_calculator(input: Nootropic_calculatorInput): Nootropic_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["score"]));
+  const totalWasteCost = toNumericFormulaValue(values["score"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateNootropic_calculator(input: Nootropic_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

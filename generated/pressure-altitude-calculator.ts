@@ -18,27 +18,23 @@ export const Pressure_altitude_calculatorInputSchema = z.object({
   standardPressure: z.number().default(29.92),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pressure_altitude_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fieldElevation > 0 ? input.fieldElevation : (input.fieldElevationMeters > 0 ? input.fieldElevationMeters * 3.28084 : 0); results["eleFt"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eleFt"] = 0; }
-  try { const v = input.altimeterSetting > 0 ? input.altimeterSetting : (input.qnhHpa > 0 ? input.qnhHpa * 0.02953 : 29.92); results["pressInHg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressInHg"] = 0; }
-  try { const v = (asFormulaNumber(results["eleFt"])) + (input.standardPressure - (asFormulaNumber(results["pressInHg"]))) * 1000; results["pressureAltitudeFt"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureAltitudeFt"] = 0; }
-  try { const v = (asFormulaNumber(results["pressureAltitudeFt"])) * 0.3048; results["pressureAltitudeM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureAltitudeM"] = 0; }
+  try { const v = input.fieldElevation > 0 ? input.fieldElevation : (input.fieldElevationMeters > 0 ? input.fieldElevationMeters * 3.28084 : 0); results["eleFt"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eleFt"] = Number.NaN; }
+  try { const v = input.altimeterSetting > 0 ? input.altimeterSetting : (input.qnhHpa > 0 ? input.qnhHpa * 0.02953 : 29.92); results["pressInHg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressInHg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["eleFt"])) + (input.standardPressure - (toNumericFormulaValue(results["pressInHg"]))) * 1000; results["pressureAltitudeFt"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressureAltitudeFt"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pressureAltitudeFt"])) * 0.3048; results["pressureAltitudeM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressureAltitudeM"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePressure_altitude_calculator(input: Pressure_altitude_calculatorInput): Pressure_altitude_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pressureAltitudeFt"]));
+  const totalWasteCost = toNumericFormulaValue(values["pressureAltitudeFt"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculatePressure_altitude_calculator(input: Pressure_altitude_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

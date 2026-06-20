@@ -16,25 +16,21 @@ export const Julia_set_calculatorInputSchema = z.object({
   zy: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Julia_set_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.zx * input.zx - input.zy * input.zy + input.cx; results["nextReal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nextReal"] = 0; }
-  try { const v = 2 * input.zx * input.zy + input.cy; results["nextImag"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nextImag"] = 0; }
+  try { const v = input.zx * input.zx - input.zy * input.zy + input.cx; results["nextReal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nextReal"] = Number.NaN; }
+  try { const v = 2 * input.zx * input.zy + input.cy; results["nextImag"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nextImag"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateJulia_set_calculator(input: Julia_set_calculatorInput): Julia_set_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["nextImag"]));
+  const totalWasteCost = toNumericFormulaValue(values["nextImag"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateJulia_set_calculator(input: Julia_set_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

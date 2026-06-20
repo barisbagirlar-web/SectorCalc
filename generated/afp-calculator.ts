@@ -22,26 +22,22 @@ export const Afp_calculatorInputSchema = z.object({
   otherCost: z.number().default(1000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Afp_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fuelPrice * (input.annualDistance / 100) * input.fuelConsumption + input.maintenanceCost + input.insuranceCost + input.taxCost + input.otherCost; results["totalAnnualCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAnnualCost"] = 0; }
-  try { const v = input.fuelPrice * (input.annualDistance / 100) * input.fuelConsumption; results["fuelCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fuelCost"] = 0; }
-  try { const v = input.maintenanceCost + input.insuranceCost + input.taxCost + input.otherCost; results["otherAnnualCosts"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["otherAnnualCosts"] = 0; }
+  try { const v = input.fuelPrice * (input.annualDistance / 100) * input.fuelConsumption + input.maintenanceCost + input.insuranceCost + input.taxCost + input.otherCost; results["totalAnnualCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAnnualCost"] = Number.NaN; }
+  try { const v = input.fuelPrice * (input.annualDistance / 100) * input.fuelConsumption; results["fuelCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fuelCost"] = Number.NaN; }
+  try { const v = input.maintenanceCost + input.insuranceCost + input.taxCost + input.otherCost; results["otherAnnualCosts"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["otherAnnualCosts"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAfp_calculator(input: Afp_calculatorInput): Afp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalAnnualCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalAnnualCost"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateAfp_calculator(input: Afp_calculatorInput): Afp_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

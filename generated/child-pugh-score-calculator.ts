@@ -18,29 +18,25 @@ export const Child_pugh_score_calculatorInputSchema = z.object({
   encephalopathy: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Child_pugh_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalBilirubin < 2 ? 1 : (input.totalBilirubin <= 3 ? 2 : 3); results["bilirubinPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bilirubinPoints"] = 0; }
-  try { const v = input.serumAlbumin > 3.5 ? 1 : (input.serumAlbumin >= 2.8 ? 2 : 3); results["albuminPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["albuminPoints"] = 0; }
-  try { const v = input.inr < 1.7 ? 1 : (input.inr <= 2.3 ? 2 : 3); results["inrPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inrPoints"] = 0; }
-  try { const v = input.ascites == 0 ? 1 : (input.ascites == 1 ? 2 : 3); results["ascitesPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ascitesPoints"] = 0; }
-  try { const v = input.encephalopathy == 0 ? 1 : (input.encephalopathy == 1 ? 2 : 3); results["encephalopathyPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["encephalopathyPoints"] = 0; }
-  try { const v = (asFormulaNumber(results["bilirubinPoints"])) + (asFormulaNumber(results["albuminPoints"])) + (asFormulaNumber(results["inrPoints"])) + (asFormulaNumber(results["ascitesPoints"])) + (asFormulaNumber(results["encephalopathyPoints"])); results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
+  try { const v = input.totalBilirubin < 2 ? 1 : (input.totalBilirubin <= 3 ? 2 : 3); results["bilirubinPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bilirubinPoints"] = Number.NaN; }
+  try { const v = input.serumAlbumin > 3.5 ? 1 : (input.serumAlbumin >= 2.8 ? 2 : 3); results["albuminPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["albuminPoints"] = Number.NaN; }
+  try { const v = input.inr < 1.7 ? 1 : (input.inr <= 2.3 ? 2 : 3); results["inrPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inrPoints"] = Number.NaN; }
+  try { const v = input.ascites == 0 ? 1 : (input.ascites == 1 ? 2 : 3); results["ascitesPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ascitesPoints"] = Number.NaN; }
+  try { const v = input.encephalopathy == 0 ? 1 : (input.encephalopathy == 1 ? 2 : 3); results["encephalopathyPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["encephalopathyPoints"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bilirubinPoints"])) + (toNumericFormulaValue(results["albuminPoints"])) + (toNumericFormulaValue(results["inrPoints"])) + (toNumericFormulaValue(results["ascitesPoints"])) + (toNumericFormulaValue(results["encephalopathyPoints"])); results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateChild_pugh_score_calculator(input: Child_pugh_score_calculatorInput): Child_pugh_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateChild_pugh_score_calculator(input: Child_pugh_score_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

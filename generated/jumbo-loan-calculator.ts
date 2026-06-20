@@ -20,29 +20,25 @@ export const Jumbo_loan_calculatorInputSchema = z.object({
   annualHomeInsurance: z.number().default(1500),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Jumbo_loan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.loanAmount / (1 - input.downPaymentPercent / 100); results["purchasePrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["purchasePrice"] = 0; }
-  try { const v = input.annualInterestRate / 100 / 12; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyRate"] = 0; }
-  try { const v = input.loanTermYears * 12; results["numberOfPayments"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfPayments"] = 0; }
-  try { const v = (asFormulaNumber(results["purchasePrice"])) * (input.propertyTaxRate / 100) / 12; results["monthlyPropertyTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyPropertyTax"] = 0; }
-  try { const v = input.annualHomeInsurance / 12; results["monthlyInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInsurance"] = 0; }
-  try { const v = (input.loanAmount / (asFormulaNumber(results["purchasePrice"]))) * 100; results["loanToValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loanToValue"] = 0; }
+  try { const v = input.loanAmount / (1 - input.downPaymentPercent / 100); results["purchasePrice"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["purchasePrice"] = Number.NaN; }
+  try { const v = input.annualInterestRate / 100 / 12; results["monthlyRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyRate"] = Number.NaN; }
+  try { const v = input.loanTermYears * 12; results["numberOfPayments"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numberOfPayments"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["purchasePrice"])) * (input.propertyTaxRate / 100) / 12; results["monthlyPropertyTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyPropertyTax"] = Number.NaN; }
+  try { const v = input.annualHomeInsurance / 12; results["monthlyInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInsurance"] = Number.NaN; }
+  try { const v = (input.loanAmount / (toNumericFormulaValue(results["purchasePrice"]))) * 100; results["loanToValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loanToValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateJumbo_loan_calculator(input: Jumbo_loan_calculatorInput): Jumbo_loan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["loanToValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["loanToValue"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateJumbo_loan_calculator(input: Jumbo_loan_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

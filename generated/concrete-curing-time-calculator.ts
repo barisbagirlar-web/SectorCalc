@@ -16,26 +16,22 @@ export const Concrete_curing_time_calculatorInputSchema = z.object({
   baseDays: z.number().default(7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Concrete_curing_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 100/input.humidity; results["humidityFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["humidityFactor"] = 0; }
-  try { const v = input.cementType; results["cementAdjust"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cementAdjust"] = 0; }
-  try { const v = input.baseDays; results["baseDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseDays"] = 0; }
+  try { const v = 100/input.humidity; results["humidityFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["humidityFactor"] = Number.NaN; }
+  try { const v = input.cementType; results["cementAdjust"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cementAdjust"] = Number.NaN; }
+  try { const v = input.baseDays; results["baseDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseDays"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConcrete_curing_time_calculator(input: Concrete_curing_time_calculatorInput): Concrete_curing_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["baseDays"]));
+  const totalWasteCost = toNumericFormulaValue(values["baseDays"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateConcrete_curing_time_calculator(input: Concrete_curing_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

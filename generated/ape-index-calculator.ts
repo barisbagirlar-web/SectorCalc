@@ -16,27 +16,23 @@ export const Ape_index_calculatorInputSchema = z.object({
   armspanIn: z.number().default(9),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ape_index_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.heightFt * 12 + input.heightIn; results["totalHeightInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHeightInches"] = 0; }
-  try { const v = input.armspanFt * 12 + input.armspanIn; results["totalArmspanInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArmspanInches"] = 0; }
-  try { const v = (asFormulaNumber(results["totalArmspanInches"])) / (asFormulaNumber(results["totalHeightInches"])); results["apeIndexRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["apeIndexRatio"] = 0; }
-  try { const v = (asFormulaNumber(results["totalArmspanInches"])) - (asFormulaNumber(results["totalHeightInches"])); results["apeIndexDiff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["apeIndexDiff"] = 0; }
+  try { const v = input.heightFt * 12 + input.heightIn; results["totalHeightInches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalHeightInches"] = Number.NaN; }
+  try { const v = input.armspanFt * 12 + input.armspanIn; results["totalArmspanInches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalArmspanInches"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalArmspanInches"])) / (toNumericFormulaValue(results["totalHeightInches"])); results["apeIndexRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["apeIndexRatio"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalArmspanInches"])) - (toNumericFormulaValue(results["totalHeightInches"])); results["apeIndexDiff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["apeIndexDiff"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateApe_index_calculator(input: Ape_index_calculatorInput): Ape_index_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalHeightInches"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalHeightInches"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateApe_index_calculator(input: Ape_index_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

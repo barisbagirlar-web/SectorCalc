@@ -24,27 +24,23 @@ export const Cloud_api_overrun_cost_calculatorInputSchema = z.object({
   egress_cost_per_gb: z.number().min(0.01).max(0.5).default(0.09),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cloud_api_overrun_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.api_call_volume * input.cost_per_call; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.api_call_volume * input.cost_per_call * (1 + (input.overrun_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.api_call_volume * input.cost_per_call * (1 + (input.overrun_rate / 100)) * (input.avg_overrun_duration); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.avg_overrun_duration; results["factor_avg_overrun_duration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_avg_overrun_duration"] = 0; }
+  try { const v = input.api_call_volume * input.cost_per_call; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.api_call_volume * input.cost_per_call * (1 + (input.overrun_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.api_call_volume * input.cost_per_call * (1 + (input.overrun_rate / 100)) * (input.avg_overrun_duration); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.avg_overrun_duration; results["factor_avg_overrun_duration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_avg_overrun_duration"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCloud_api_overrun_cost_calculator(input: Cloud_api_overrun_cost_calculatorInput): Cloud_api_overrun_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateCloud_api_overrun_cost_calculator(input: Cloud_api_over
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

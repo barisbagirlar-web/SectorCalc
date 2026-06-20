@@ -18,27 +18,23 @@ export const Steps_to_miles_calculatorInputSchema = z.object({
   terrainFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Steps_to_miles_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.stepLength > 0 ? input.stepLength : (input.strideLength > 0 ? input.strideLength / 2 : (input.height > 0 ? input.height * 0.415 : 78))) * input.terrainFactor; results["effectiveStepLengthCm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveStepLengthCm"] = 0; }
-  try { const v = (input.steps * (asFormulaNumber(results["effectiveStepLengthCm"]))) / 100000; results["distanceKm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["distanceKm"] = 0; }
-  try { const v = (asFormulaNumber(results["distanceKm"])) * 0.621371; results["distanceMiles"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["distanceMiles"] = 0; }
-  try { const v = 160934.4 / (asFormulaNumber(results["effectiveStepLengthCm"])); results["stepsPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stepsPerMile"] = 0; }
+  try { const v = (input.stepLength > 0 ? input.stepLength : (input.strideLength > 0 ? input.strideLength / 2 : (input.height > 0 ? input.height * 0.415 : 78))) * input.terrainFactor; results["effectiveStepLengthCm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveStepLengthCm"] = Number.NaN; }
+  try { const v = (input.steps * (toNumericFormulaValue(results["effectiveStepLengthCm"]))) / 100000; results["distanceKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["distanceKm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["distanceKm"])) * 0.621371; results["distanceMiles"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["distanceMiles"] = Number.NaN; }
+  try { const v = 160934.4 / (toNumericFormulaValue(results["effectiveStepLengthCm"])); results["stepsPerMile"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stepsPerMile"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSteps_to_miles_calculator(input: Steps_to_miles_calculatorInput): Steps_to_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["distanceMiles"]));
+  const totalWasteCost = toNumericFormulaValue(values["distanceMiles"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSteps_to_miles_calculator(input: Steps_to_miles_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

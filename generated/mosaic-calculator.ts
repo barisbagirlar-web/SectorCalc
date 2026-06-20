@@ -18,27 +18,23 @@ export const Mosaic_calculatorInputSchema = z.object({
   costPerTile: z.number().default(0.1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mosaic_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.area / ((input.tileLength / 100) * (input.tileWidth / 100)); results["totalTilesWithoutWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTilesWithoutWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTilesWithoutWaste"])) * (1 + input.wasteFactor / 100); results["totalTilesWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTilesWithWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTilesWithWaste"])) - (asFormulaNumber(results["totalTilesWithoutWaste"])); results["wasteTiles"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteTiles"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTilesWithWaste"])) * input.costPerTile; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.area / ((input.tileLength / 100) * (input.tileWidth / 100)); results["totalTilesWithoutWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTilesWithoutWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTilesWithoutWaste"])) * (1 + input.wasteFactor / 100); results["totalTilesWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTilesWithWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTilesWithWaste"])) - (toNumericFormulaValue(results["totalTilesWithoutWaste"])); results["wasteTiles"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteTiles"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTilesWithWaste"])) * input.costPerTile; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMosaic_calculator(input: Mosaic_calculatorInput): Mosaic_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTilesWithWaste"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTilesWithWaste"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateMosaic_calculator(input: Mosaic_calculatorInput): Mosai
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

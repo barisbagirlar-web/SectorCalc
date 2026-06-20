@@ -16,29 +16,25 @@ export const Hba1c_calculatorInputSchema = z.object({
   measurementUncertainty: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hba1c_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.unit == 0 ? input.glucose : input.glucose * 18.0182; results["eAG_mgdl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eAG_mgdl"] = 0; }
-  try { const v = input.unit == 0 ? input.glucose / 18.0182 : input.glucose; results["eAG_mmol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eAG_mmol"] = 0; }
-  try { const v = ((asFormulaNumber(results["eAG_mgdl"])) + 46.7) / 28.7; results["hba1cPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hba1cPercent"] = 0; }
-  try { const v = 10.93 * (asFormulaNumber(results["eAG_mmol"])) - 23.5; results["hba1cMmolMol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hba1cMmolMol"] = 0; }
-  try { const v = (asFormulaNumber(results["hba1cPercent"])) * (1 - input.measurementUncertainty / 100); results["rangeLow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rangeLow"] = 0; }
-  try { const v = (asFormulaNumber(results["hba1cPercent"])) * (1 + input.measurementUncertainty / 100); results["rangeHigh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rangeHigh"] = 0; }
+  try { const v = input.unit == 0 ? input.glucose : input.glucose * 18.0182; results["eAG_mgdl"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eAG_mgdl"] = Number.NaN; }
+  try { const v = input.unit == 0 ? input.glucose / 18.0182 : input.glucose; results["eAG_mmol"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eAG_mmol"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["eAG_mgdl"])) + 46.7) / 28.7; results["hba1cPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hba1cPercent"] = Number.NaN; }
+  try { const v = 10.93 * (toNumericFormulaValue(results["eAG_mmol"])) - 23.5; results["hba1cMmolMol"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hba1cMmolMol"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["hba1cPercent"])) * (1 - input.measurementUncertainty / 100); results["rangeLow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rangeLow"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["hba1cPercent"])) * (1 + input.measurementUncertainty / 100); results["rangeHigh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rangeHigh"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHba1c_calculator(input: Hba1c_calculatorInput): Hba1c_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hba1cPercent"]));
+  const totalWasteCost = toNumericFormulaValue(values["hba1cPercent"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateHba1c_calculator(input: Hba1c_calculatorInput): Hba1c_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Pack_year_calculatorInputSchema = z.object({
   cigarettes_per_pack: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pack_year_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.end_age - input.start_age; results["years_smoked"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["years_smoked"] = 0; }
-  try { const v = (input.cigarettes_per_day / input.cigarettes_per_pack) * (asFormulaNumber(results["years_smoked"])); results["pack_years"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pack_years"] = 0; }
+  try { const v = input.end_age - input.start_age; results["years_smoked"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["years_smoked"] = Number.NaN; }
+  try { const v = (input.cigarettes_per_day / input.cigarettes_per_pack) * (toNumericFormulaValue(results["years_smoked"])); results["pack_years"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pack_years"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePack_year_calculator(input: Pack_year_calculatorInput): Pack_year_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pack_years"]));
+  const totalWasteCost = toNumericFormulaValue(values["pack_years"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculatePack_year_calculator(input: Pack_year_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

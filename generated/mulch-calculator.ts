@@ -16,27 +16,23 @@ export const Mulch_calculatorInputSchema = z.object({
   bagVolume: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mulch_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width; results["squareFeet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["squareFeet"] = 0; }
-  try { const v = input.length * input.width * (input.depth / 12); results["cubicFeet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cubicFeet"] = 0; }
-  try { const v = (input.length * input.width * (input.depth / 12)) / 27; results["cubicYards"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cubicYards"] = 0; }
-  try { const v = (input.length * input.width * (input.depth / 12)) / input.bagVolume; results["bags"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bags"] = 0; }
+  try { const v = input.length * input.width; results["squareFeet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["squareFeet"] = Number.NaN; }
+  try { const v = input.length * input.width * (input.depth / 12); results["cubicFeet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cubicFeet"] = Number.NaN; }
+  try { const v = (input.length * input.width * (input.depth / 12)) / 27; results["cubicYards"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cubicYards"] = Number.NaN; }
+  try { const v = (input.length * input.width * (input.depth / 12)) / input.bagVolume; results["bags"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bags"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMulch_calculator(input: Mulch_calculatorInput): Mulch_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cubicYards"]));
+  const totalWasteCost = toNumericFormulaValue(values["cubicYards"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateMulch_calculator(input: Mulch_calculatorInput): Mulch_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Stone_calculatorInputSchema = z.object({
   wastagePercent: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Stone_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * input.depth / 100 * (1 + input.wastagePercent / 100); results["volumeM3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volumeM3"] = 0; }
-  try { const v = (asFormulaNumber(results["volumeM3"])) * input.density / 1000; results["weightTons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightTons"] = 0; }
-  try { const v = (asFormulaNumber(results["weightTons"])) * input.costPerTon; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.length * input.width * input.depth / 100 * (1 + input.wastagePercent / 100); results["volumeM3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volumeM3"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["volumeM3"])) * input.density / 1000; results["weightTons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightTons"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weightTons"])) * input.costPerTon; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStone_calculator(input: Stone_calculatorInput): Stone_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateStone_calculator(input: Stone_calculatorInput): Stone_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

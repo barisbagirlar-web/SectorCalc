@@ -20,27 +20,23 @@ export const Fence_stain_calculatorInputSchema = z.object({
   numberOfCoats: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fence_stain_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * input.fenceLength * input.fenceHeight * input.picketWidth / (input.picketWidth + input.picketSpacing); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
-  try { const v = (asFormulaNumber(results["totalArea"])) / input.coveragePerGallon; results["stainNeededWithoutCoats"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stainNeededWithoutCoats"] = 0; }
-  try { const v = input.fenceLength / (input.picketWidth + input.picketSpacing); results["numberOfPickets"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfPickets"] = 0; }
-  try { const v = (asFormulaNumber(results["stainNeededWithoutCoats"])) * input.numberOfCoats; results["totalStain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalStain"] = 0; }
+  try { const v = 2 * input.fenceLength * input.fenceHeight * input.picketWidth / (input.picketWidth + input.picketSpacing); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalArea"])) / input.coveragePerGallon; results["stainNeededWithoutCoats"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stainNeededWithoutCoats"] = Number.NaN; }
+  try { const v = input.fenceLength / (input.picketWidth + input.picketSpacing); results["numberOfPickets"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numberOfPickets"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["stainNeededWithoutCoats"])) * input.numberOfCoats; results["totalStain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalStain"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFence_stain_calculator(input: Fence_stain_calculatorInput): Fence_stain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalStain"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalStain"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateFence_stain_calculator(input: Fence_stain_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -32,6 +32,7 @@ type AssistantChatRequestBody = {
   readonly messages?: unknown;
   readonly role?: unknown;
   readonly locale?: unknown;
+  readonly isTrace?: unknown;
 };
 
 function parseRole(value: unknown): AssistantChatRole {
@@ -83,29 +84,43 @@ function getDeepSeekClient(): OpenAI {
 
 export async function POST(req: Request) {
   try {
-    const idToken = parseBearerToken(req);
-    if (!idToken) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const signedInUser = await verifySignedInUser(idToken);
-    if (!signedInUser) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const rateLimit = checkAssistantRateLimit(`chat:${signedInUser.uid}`);
-    if (!rateLimit.ok) {
-      return NextResponse.json(
-        { error: "Too many requests. Please wait and try again." },
-        { status: 429 },
-      );
-    }
-
     let body: AssistantChatRequestBody;
     try {
       body = (await req.json()) as AssistantChatRequestBody;
     } catch {
       return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
+    }
+
+    // ── Trace/public bypass: isTrace=true → skip Firebase auth ──
+    const isTrace = body.isTrace === true;
+    let signedInUser: { uid: string } | null = null;
+
+    if (isTrace) {
+      if (!process.env.DEEPSEEK_API_KEY?.trim()) {
+        return NextResponse.json(
+          { reply: "System is currently busy; please describe your calculation need." },
+          { status: 200 },
+        );
+      }
+    } else {
+      const idToken = parseBearerToken(req);
+      if (!idToken) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      }
+      signedInUser = await verifySignedInUser(idToken);
+      if (!signedInUser) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      }
+    }
+
+    if (!isTrace && signedInUser) {
+      const rateLimit = checkAssistantRateLimit(`chat:${(signedInUser as { uid: string }).uid}`);
+      if (!rateLimit.ok) {
+        return NextResponse.json(
+          { error: "Too many requests. Please wait and try again." },
+          { status: 429 },
+        );
+      }
     }
 
     const messages = parseMessages(body.messages);

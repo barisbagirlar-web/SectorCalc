@@ -22,32 +22,28 @@ export const Usda_loan_calculatorInputSchema = z.object({
   annualHomeInsurance: z.number().default(1200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Usda_loan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.baseLoanAmount * input.upfrontFeePercent / 100; results["upfrontFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["upfrontFeeAmount"] = 0; }
-  try { const v = input.baseLoanAmount + (asFormulaNumber(results["upfrontFeeAmount"])); results["totalLoanAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLoanAmount"] = 0; }
-  try { const v = (input.interestRate / 100) / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
-  try { const v = input.loanTermYears * 12; results["numberOfPayments"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfPayments"] = 0; }
-  try { const v = (asFormulaNumber(results["totalLoanAmount"])) * (asFormulaNumber(results["monthlyInterestRate"])) * (1 + (asFormulaNumber(results["monthlyInterestRate"]))) ** (asFormulaNumber(results["numberOfPayments"])) / ((1 + (asFormulaNumber(results["monthlyInterestRate"]))) ** (asFormulaNumber(results["numberOfPayments"])) - 1); results["monthlyPI"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyPI"] = 0; }
-  try { const v = input.annualPropertyTax / 12; results["monthlyTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyTax"] = 0; }
-  try { const v = input.annualHomeInsurance / 12; results["monthlyInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInsurance"] = 0; }
-  try { const v = (input.baseLoanAmount * input.annualFeePercent / 100) / 12; results["monthlyAnnualFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyAnnualFee"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyPI"])) + (asFormulaNumber(results["monthlyTax"])) + (asFormulaNumber(results["monthlyInsurance"])) + (asFormulaNumber(results["monthlyAnnualFee"])); results["totalMonthlyPayment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMonthlyPayment"] = 0; }
+  try { const v = input.baseLoanAmount * input.upfrontFeePercent / 100; results["upfrontFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["upfrontFeeAmount"] = Number.NaN; }
+  try { const v = input.baseLoanAmount + (toNumericFormulaValue(results["upfrontFeeAmount"])); results["totalLoanAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLoanAmount"] = Number.NaN; }
+  try { const v = (input.interestRate / 100) / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInterestRate"] = Number.NaN; }
+  try { const v = input.loanTermYears * 12; results["numberOfPayments"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numberOfPayments"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalLoanAmount"])) * (toNumericFormulaValue(results["monthlyInterestRate"])) * (1 + (toNumericFormulaValue(results["monthlyInterestRate"]))) ** (toNumericFormulaValue(results["numberOfPayments"])) / ((1 + (toNumericFormulaValue(results["monthlyInterestRate"]))) ** (toNumericFormulaValue(results["numberOfPayments"])) - 1); results["monthlyPI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyPI"] = Number.NaN; }
+  try { const v = input.annualPropertyTax / 12; results["monthlyTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyTax"] = Number.NaN; }
+  try { const v = input.annualHomeInsurance / 12; results["monthlyInsurance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInsurance"] = Number.NaN; }
+  try { const v = (input.baseLoanAmount * input.annualFeePercent / 100) / 12; results["monthlyAnnualFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyAnnualFee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["monthlyPI"])) + (toNumericFormulaValue(results["monthlyTax"])) + (toNumericFormulaValue(results["monthlyInsurance"])) + (toNumericFormulaValue(results["monthlyAnnualFee"])); results["totalMonthlyPayment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMonthlyPayment"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUsda_loan_calculator(input: Usda_loan_calculatorInput): Usda_loan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMonthlyPayment"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMonthlyPayment"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculateUsda_loan_calculator(input: Usda_loan_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Mass_volume_percent_calculatorInputSchema = z.object({
   volumeSolution_L: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mass_volume_percent_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.massSolute_g + input.massSolute_kg * 1000; results["totalMass_g"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMass_g"] = 0; }
-  try { const v = input.volumeSolution_mL + input.volumeSolution_L * 1000; results["totalVolume_mL"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume_mL"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMass_g"])) / (asFormulaNumber(results["totalVolume_mL"])) * 100; results["percent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percent"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMass_g"])) / (asFormulaNumber(results["totalVolume_mL"])); results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio"] = 0; }
+  try { const v = input.massSolute_g + input.massSolute_kg * 1000; results["totalMass_g"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMass_g"] = Number.NaN; }
+  try { const v = input.volumeSolution_mL + input.volumeSolution_L * 1000; results["totalVolume_mL"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume_mL"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalMass_g"])) / (toNumericFormulaValue(results["totalVolume_mL"])) * 100; results["percent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalMass_g"])) / (toNumericFormulaValue(results["totalVolume_mL"])); results["ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ratio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMass_volume_percent_calculator(input: Mass_volume_percent_calculatorInput): Mass_volume_percent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["percent"]));
+  const totalWasteCost = toNumericFormulaValue(values["percent"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateMass_volume_percent_calculator(input: Mass_volume_perce
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

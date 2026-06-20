@@ -18,29 +18,25 @@ export const Attribution_calculatorInputSchema = z.object({
   factor4: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Attribution_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.factor1 + input.factor2 + input.factor3 + input.factor4; results["sumFactors"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumFactors"] = 0; }
-  try { const v = (input.factor1 / (asFormulaNumber(results["sumFactors"]))) * input.totalValue; results["attributed1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["attributed1"] = 0; }
-  try { const v = (input.factor2 / (asFormulaNumber(results["sumFactors"]))) * input.totalValue; results["attributed2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["attributed2"] = 0; }
-  try { const v = (input.factor3 / (asFormulaNumber(results["sumFactors"]))) * input.totalValue; results["attributed3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["attributed3"] = 0; }
-  try { const v = (input.factor4 / (asFormulaNumber(results["sumFactors"]))) * input.totalValue; results["attributed4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["attributed4"] = 0; }
-  try { const v = (asFormulaNumber(results["attributed1"])) + (asFormulaNumber(results["attributed2"])) + (asFormulaNumber(results["attributed3"])) + (asFormulaNumber(results["attributed4"])); results["totalAttributed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAttributed"] = 0; }
+  try { const v = input.factor1 + input.factor2 + input.factor3 + input.factor4; results["sumFactors"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sumFactors"] = Number.NaN; }
+  try { const v = (input.factor1 / (toNumericFormulaValue(results["sumFactors"]))) * input.totalValue; results["attributed1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["attributed1"] = Number.NaN; }
+  try { const v = (input.factor2 / (toNumericFormulaValue(results["sumFactors"]))) * input.totalValue; results["attributed2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["attributed2"] = Number.NaN; }
+  try { const v = (input.factor3 / (toNumericFormulaValue(results["sumFactors"]))) * input.totalValue; results["attributed3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["attributed3"] = Number.NaN; }
+  try { const v = (input.factor4 / (toNumericFormulaValue(results["sumFactors"]))) * input.totalValue; results["attributed4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["attributed4"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["attributed1"])) + (toNumericFormulaValue(results["attributed2"])) + (toNumericFormulaValue(results["attributed3"])) + (toNumericFormulaValue(results["attributed4"])); results["totalAttributed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAttributed"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAttribution_calculator(input: Attribution_calculatorInput): Attribution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalAttributed"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalAttributed"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateAttribution_calculator(input: Attribution_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

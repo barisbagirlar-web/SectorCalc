@@ -20,31 +20,27 @@ export const Wood_beam_calculatorInputSchema = z.object({
   allowableStress: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Wood_beam_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.load * (input.span * 1000) ** 2 / 8; results["M"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["M"] = 0; }
-  try { const v = input.width * input.depth ** 2 / 6; results["S"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["S"] = 0; }
-  try { const v = (asFormulaNumber(results["M"])) / (asFormulaNumber(results["S"])); results["bendingStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bendingStress"] = 0; }
-  try { const v = input.width * input.depth ** 3 / 12; results["I"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["I"] = 0; }
-  try { const v = (5 * input.load * (input.span * 1000) ** 4) / (384 * input.modulusElasticity * (asFormulaNumber(results["I"]))); results["deflection"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deflection"] = 0; }
-  try { const v = (input.span * 1000) / 360; results["allowableDeflection"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allowableDeflection"] = 0; }
-  try { const v = (asFormulaNumber(results["bendingStress"])) / input.allowableStress; results["stressRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stressRatio"] = 0; }
-  try { const v = (asFormulaNumber(results["deflection"])) / (asFormulaNumber(results["allowableDeflection"])); results["deflectionRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deflectionRatio"] = 0; }
+  try { const v = input.load * (input.span * 1000) ** 2 / 8; results["M"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["M"] = Number.NaN; }
+  try { const v = input.width * input.depth ** 2 / 6; results["S"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["S"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["M"])) / (toNumericFormulaValue(results["S"])); results["bendingStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bendingStress"] = Number.NaN; }
+  try { const v = input.width * input.depth ** 3 / 12; results["I"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["I"] = Number.NaN; }
+  try { const v = (5 * input.load * (input.span * 1000) ** 4) / (384 * input.modulusElasticity * (toNumericFormulaValue(results["I"]))); results["deflection"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deflection"] = Number.NaN; }
+  try { const v = (input.span * 1000) / 360; results["allowableDeflection"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allowableDeflection"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bendingStress"])) / input.allowableStress; results["stressRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stressRatio"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["deflection"])) / (toNumericFormulaValue(results["allowableDeflection"])); results["deflectionRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deflectionRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWood_beam_calculator(input: Wood_beam_calculatorInput): Wood_beam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["deflectionRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["deflectionRatio"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateWood_beam_calculator(input: Wood_beam_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

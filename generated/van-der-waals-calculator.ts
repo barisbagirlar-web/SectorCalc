@@ -20,26 +20,22 @@ export const Van_der_waals_calculatorInputSchema = z.object({
   R: z.number().default(0.082057),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Van_der_waals_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.moles * input.R * input.temperature) / (input.volume - input.moles * input.b); results["repulsiveTerm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["repulsiveTerm"] = 0; }
-  try { const v = (input.a * input.moles**2) / (input.volume**2); results["attractiveTerm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["attractiveTerm"] = 0; }
-  try { const v = (asFormulaNumber(results["repulsiveTerm"])) - (asFormulaNumber(results["attractiveTerm"])); results["pressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressure"] = 0; }
+  try { const v = (input.moles * input.R * input.temperature) / (input.volume - input.moles * input.b); results["repulsiveTerm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["repulsiveTerm"] = Number.NaN; }
+  try { const v = (input.a * input.moles**2) / (input.volume**2); results["attractiveTerm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["attractiveTerm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["repulsiveTerm"])) - (toNumericFormulaValue(results["attractiveTerm"])); results["pressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressure"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVan_der_waals_calculator(input: Van_der_waals_calculatorInput): Van_der_waals_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["pressure"]));
+  const totalWasteCost = toNumericFormulaValue(values["pressure"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateVan_der_waals_calculator(input: Van_der_waals_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

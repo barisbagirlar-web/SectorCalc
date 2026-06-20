@@ -18,28 +18,24 @@ export const Crypto_mining_calculatorInputSchema = z.object({
   dailyRevenuePerTH: z.number().default(0.06),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Crypto_mining_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.hashRate * input.dailyRevenuePerTH; results["dailyGrossRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyGrossRevenue"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyGrossRevenue"])) * (input.poolFee / 100); results["dailyPoolFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyPoolFee"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyGrossRevenue"])) - (asFormulaNumber(results["dailyPoolFee"])); results["dailyNetRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyNetRevenue"] = 0; }
-  try { const v = (input.powerConsumption / 1000) * 24 * input.electricityCost; results["dailyElectricityCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyElectricityCost"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyNetRevenue"])) - (asFormulaNumber(results["dailyElectricityCost"])); results["dailyProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyProfit"] = 0; }
+  try { const v = input.hashRate * input.dailyRevenuePerTH; results["dailyGrossRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyGrossRevenue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyGrossRevenue"])) * (input.poolFee / 100); results["dailyPoolFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyPoolFee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyGrossRevenue"])) - (toNumericFormulaValue(results["dailyPoolFee"])); results["dailyNetRevenue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyNetRevenue"] = Number.NaN; }
+  try { const v = (input.powerConsumption / 1000) * 24 * input.electricityCost; results["dailyElectricityCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyElectricityCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyNetRevenue"])) - (toNumericFormulaValue(results["dailyElectricityCost"])); results["dailyProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyProfit"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCrypto_mining_calculator(input: Crypto_mining_calculatorInput): Crypto_mining_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dailyProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["dailyProfit"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateCrypto_mining_calculator(input: Crypto_mining_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

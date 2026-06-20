@@ -16,26 +16,22 @@ export const Ketogenic_diet_calculatorInputSchema = z.object({
   carbPercentage: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ketogenic_diet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.totalCalories * input.fatPercentage / 100) / 9; results["fatGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fatGrams"] = 0; }
-  try { const v = (input.totalCalories * input.proteinPercentage / 100) / 4; results["proteinGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["proteinGrams"] = 0; }
-  try { const v = (input.totalCalories * input.carbPercentage / 100) / 4; results["carbGrams"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["carbGrams"] = 0; }
+  try { const v = (input.totalCalories * input.fatPercentage / 100) / 9; results["fatGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fatGrams"] = Number.NaN; }
+  try { const v = (input.totalCalories * input.proteinPercentage / 100) / 4; results["proteinGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["proteinGrams"] = Number.NaN; }
+  try { const v = (input.totalCalories * input.carbPercentage / 100) / 4; results["carbGrams"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["carbGrams"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKetogenic_diet_calculator(input: Ketogenic_diet_calculatorInput): Ketogenic_diet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fatGrams"]));
+  const totalWasteCost = toNumericFormulaValue(values["fatGrams"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateKetogenic_diet_calculator(input: Ketogenic_diet_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

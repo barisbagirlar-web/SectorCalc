@@ -24,26 +24,22 @@ export const Pallet_rack_optimizer_calculatorInputSchema = z.object({
   rack_length_mm: z.number().min(1800).max(3600).default(2700),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pallet_rack_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.rack_height_mm * input.pallet_depth_mm * input.pallet_width_mm * input.pallet_height_mm; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.rack_height_mm * input.pallet_depth_mm * input.pallet_width_mm * input.pallet_height_mm * (input.beam_thickness_mm * input.clearance_vertical_mm * input.aisle_width_mm * input.rack_length_mm); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.beam_thickness_mm * input.clearance_vertical_mm * input.aisle_width_mm * input.rack_length_mm; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.rack_height_mm * input.pallet_depth_mm * input.pallet_width_mm * input.pallet_height_mm; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.rack_height_mm * input.pallet_depth_mm * input.pallet_width_mm * input.pallet_height_mm * (input.beam_thickness_mm * input.clearance_vertical_mm * input.aisle_width_mm * input.rack_length_mm); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.beam_thickness_mm * input.clearance_vertical_mm * input.aisle_width_mm * input.rack_length_mm; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePallet_rack_optimizer_calculator(input: Pallet_rack_optimizer_calculatorInput): Pallet_rack_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculatePallet_rack_optimizer_calculator(input: Pallet_rack_opt
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

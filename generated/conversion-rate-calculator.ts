@@ -16,27 +16,23 @@ export const Conversion_rate_calculatorInputSchema = z.object({
   scrap: z.number().default(50),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Conversion_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.finishedProductOutput + input.reworkOutput) / input.rawMaterialInput) * 100; results["overallConversionRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overallConversionRate"] = 0; }
-  try { const v = (input.finishedProductOutput / input.rawMaterialInput) * 100; results["yield"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yield"] = 0; }
-  try { const v = (input.reworkOutput / input.rawMaterialInput) * 100; results["reworkRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reworkRate"] = 0; }
-  try { const v = (input.scrap / input.rawMaterialInput) * 100; results["scrapRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scrapRate"] = 0; }
+  try { const v = ((input.finishedProductOutput + input.reworkOutput) / input.rawMaterialInput) * 100; results["overallConversionRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overallConversionRate"] = Number.NaN; }
+  try { const v = (input.finishedProductOutput / input.rawMaterialInput) * 100; results["yield"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yield"] = Number.NaN; }
+  try { const v = (input.reworkOutput / input.rawMaterialInput) * 100; results["reworkRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["reworkRate"] = Number.NaN; }
+  try { const v = (input.scrap / input.rawMaterialInput) * 100; results["scrapRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scrapRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConversion_rate_calculator(input: Conversion_rate_calculatorInput): Conversion_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overallConversionRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["overallConversionRate"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateConversion_rate_calculator(input: Conversion_rate_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

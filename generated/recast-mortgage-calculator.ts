@@ -18,25 +18,21 @@ export const Recast_mortgage_calculatorInputSchema = z.object({
   recastFee: z.number().default(250),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Recast_mortgage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualInterestRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
-  try { const v = input.currentBalance - input.lumpSumPayment; results["newBalance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newBalance"] = 0; }
+  try { const v = input.annualInterestRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInterestRate"] = Number.NaN; }
+  try { const v = input.currentBalance - input.lumpSumPayment; results["newBalance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newBalance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRecast_mortgage_calculator(input: Recast_mortgage_calculatorInput): Recast_mortgage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["newBalance"]));
+  const totalWasteCost = toNumericFormulaValue(values["newBalance"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRecast_mortgage_calculator(input: Recast_mortgage_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

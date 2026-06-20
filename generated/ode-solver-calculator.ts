@@ -20,25 +20,21 @@ export const Ode_solver_calculatorInputSchema = z.object({
   n: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ode_solver_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.t0 + input.n * input.h; results["t_final"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["t_final"] = 0; }
-  try { const v = input.y0 + input.b / input.a; results["constant_C"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["constant_C"] = 0; }
+  try { const v = input.t0 + input.n * input.h; results["t_final"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["t_final"] = Number.NaN; }
+  try { const v = input.y0 + input.b / input.a; results["constant_C"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["constant_C"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOde_solver_calculator(input: Ode_solver_calculatorInput): Ode_solver_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["constant_C"]));
+  const totalWasteCost = toNumericFormulaValue(values["constant_C"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateOde_solver_calculator(input: Ode_solver_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

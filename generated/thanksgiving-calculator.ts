@@ -18,26 +18,22 @@ export const Thanksgiving_calculatorInputSchema = z.object({
   childWeight: z.number().default(0.75),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Thanksgiving_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.adults * input.adultWeight + input.children * input.childWeight) * (1 + input.leftoverDays * 0.25); results["totalTurkeyWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTurkeyWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["totalTurkeyWeight"])) * 15; results["cookingTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cookingTimeMinutes"] = 0; }
-  try { const v = (input.adults + input.children) * (1 + input.leftoverDays * 0.5); results["estimatedServings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedServings"] = 0; }
+  try { const v = (input.adults * input.adultWeight + input.children * input.childWeight) * (1 + input.leftoverDays * 0.25); results["totalTurkeyWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTurkeyWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalTurkeyWeight"])) * 15; results["cookingTimeMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cookingTimeMinutes"] = Number.NaN; }
+  try { const v = (input.adults + input.children) * (1 + input.leftoverDays * 0.5); results["estimatedServings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimatedServings"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateThanksgiving_calculator(input: Thanksgiving_calculatorInput): Thanksgiving_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTurkeyWeight"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTurkeyWeight"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateThanksgiving_calculator(input: Thanksgiving_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

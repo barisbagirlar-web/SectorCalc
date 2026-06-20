@@ -24,28 +24,24 @@ export const College_savings_calculatorInputSchema = z.object({
   collegeYears: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: College_savings_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentSavings + input.annualContribution * input.yearsToCollege; results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalContributions"] = 0; }
-  try { const v = input.currentSavings * (1 + input.expectedReturn/100)^input.yearsToCollege + input.annualContribution * (((1 + input.expectedReturn/100)^input.yearsToCollege - 1) / (input.expectedReturn/100)); results["totalSavings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSavings"] = 0; }
-  try { const v = input.annualCollegeCost * (1 + input.inflationRate/100)^input.yearsToCollege * input.collegeYears; results["inflationAdjustedCollegeCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inflationAdjustedCollegeCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalSavings"])) - (asFormulaNumber(results["totalContributions"])); results["totalInterestEarned"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInterestEarned"] = 0; }
-  try { const v = (asFormulaNumber(results["inflationAdjustedCollegeCost"])) - (asFormulaNumber(results["totalSavings"])); results["shortfall"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shortfall"] = 0; }
+  try { const v = input.currentSavings + input.annualContribution * input.yearsToCollege; results["totalContributions"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalContributions"] = Number.NaN; }
+  try { const v = input.currentSavings * (1 + input.expectedReturn/100)^input.yearsToCollege + input.annualContribution * (((1 + input.expectedReturn/100)^input.yearsToCollege - 1) / (input.expectedReturn/100)); results["totalSavings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSavings"] = Number.NaN; }
+  try { const v = input.annualCollegeCost * (1 + input.inflationRate/100)^input.yearsToCollege * input.collegeYears; results["inflationAdjustedCollegeCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inflationAdjustedCollegeCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalSavings"])) - (toNumericFormulaValue(results["totalContributions"])); results["totalInterestEarned"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInterestEarned"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["inflationAdjustedCollegeCost"])) - (toNumericFormulaValue(results["totalSavings"])); results["shortfall"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shortfall"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCollege_savings_calculator(input: College_savings_calculatorInput): College_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["shortfall"]));
+  const totalWasteCost = toNumericFormulaValue(values["shortfall"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateCollege_savings_calculator(input: College_savings_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

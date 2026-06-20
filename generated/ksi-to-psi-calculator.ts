@@ -18,26 +18,22 @@ export const Ksi_to_psi_calculatorInputSchema = z.object({
   allowable_stress_ksi: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ksi_to_psi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.nominal_pressure_ksi * 1000 * input.safety_factor * input.temperature_derating; results["total_pressure_psi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_pressure_psi"] = 0; }
-  try { const v = (asFormulaNumber(results["total_pressure_psi"])) - input.ambient_pressure_psi; results["design_pressure_psi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["design_pressure_psi"] = 0; }
-  try { const v = ((asFormulaNumber(results["design_pressure_psi"])) / 1000) / input.allowable_stress_ksi; results["utilization_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["utilization_ratio"] = 0; }
+  try { const v = input.nominal_pressure_ksi * 1000 * input.safety_factor * input.temperature_derating; results["total_pressure_psi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_pressure_psi"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_pressure_psi"])) - input.ambient_pressure_psi; results["design_pressure_psi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["design_pressure_psi"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["design_pressure_psi"])) / 1000) / input.allowable_stress_ksi; results["utilization_ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["utilization_ratio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKsi_to_psi_calculator(input: Ksi_to_psi_calculatorInput): Ksi_to_psi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["design_pressure_psi"]));
+  const totalWasteCost = toNumericFormulaValue(values["design_pressure_psi"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateKsi_to_psi_calculator(input: Ksi_to_psi_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

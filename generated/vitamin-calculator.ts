@@ -22,26 +22,22 @@ export const Vitamin_calculatorInputSchema = z.object({
   food3VitPerServing: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Vitamin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.food1Servings * input.food1VitPerServing + input.food2Servings * input.food2VitPerServing + input.food3Servings * input.food3VitPerServing; results["totalVitaminIntake"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVitaminIntake"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalVitaminIntake"])) / input.rda) * 100; results["percentRDA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentRDA"] = 0; }
-  try { const v = input.rda - (asFormulaNumber(results["totalVitaminIntake"])); results["shortfallValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shortfallValue"] = 0; }
+  try { const v = input.food1Servings * input.food1VitPerServing + input.food2Servings * input.food2VitPerServing + input.food3Servings * input.food3VitPerServing; results["totalVitaminIntake"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVitaminIntake"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalVitaminIntake"])) / input.rda) * 100; results["percentRDA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentRDA"] = Number.NaN; }
+  try { const v = input.rda - (toNumericFormulaValue(results["totalVitaminIntake"])); results["shortfallValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shortfallValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVitamin_calculator(input: Vitamin_calculatorInput): Vitamin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalVitaminIntake"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalVitaminIntake"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateVitamin_calculator(input: Vitamin_calculatorInput): Vit
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

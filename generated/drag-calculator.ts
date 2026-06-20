@@ -16,25 +16,21 @@ export const Drag_calculatorInputSchema = z.object({
   reference_area: z.number().default(0.1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Drag_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.5 * input.fluid_density * input.flow_velocity ** 2 * input.drag_coefficient * input.reference_area; results["drag_force"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["drag_force"] = 0; }
-  try { const v = 0.5 * input.fluid_density * input.flow_velocity ** 2; results["dynamic_pressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dynamic_pressure"] = 0; }
+  try { const v = 0.5 * input.fluid_density * input.flow_velocity ** 2 * input.drag_coefficient * input.reference_area; results["drag_force"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["drag_force"] = Number.NaN; }
+  try { const v = 0.5 * input.fluid_density * input.flow_velocity ** 2; results["dynamic_pressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dynamic_pressure"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDrag_calculator(input: Drag_calculatorInput): Drag_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["drag_force"]));
+  const totalWasteCost = toNumericFormulaValue(values["drag_force"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateDrag_calculator(input: Drag_calculatorInput): Drag_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

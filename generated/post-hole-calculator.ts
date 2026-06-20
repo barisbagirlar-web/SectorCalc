@@ -18,29 +18,25 @@ export const Post_hole_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Post_hole_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * (input.holeDiameter / 2) ** 2 * input.holeDepth; results["holeVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["holeVolume"] = 0; }
-  try { const v = input.postSide ** 2 * input.holeDepth; results["postVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["postVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["holeVolume"])) - (asFormulaNumber(results["postVolume"])); results["concretePerHole"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concretePerHole"] = 0; }
-  try { const v = (asFormulaNumber(results["concretePerHole"])) * input.numberOfPosts; results["totalConcrete"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalConcrete"] = 0; }
-  try { const v = (asFormulaNumber(results["totalConcrete"])) * (1 + input.wasteFactor / 100); results["totalWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWithWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWithWaste"])) / 1000000; results["totalCubicMeters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCubicMeters"] = 0; }
+  try { const v = Math.PI * (input.holeDiameter / 2) ** 2 * input.holeDepth; results["holeVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["holeVolume"] = Number.NaN; }
+  try { const v = input.postSide ** 2 * input.holeDepth; results["postVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["postVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["holeVolume"])) - (toNumericFormulaValue(results["postVolume"])); results["concretePerHole"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["concretePerHole"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["concretePerHole"])) * input.numberOfPosts; results["totalConcrete"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalConcrete"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalConcrete"])) * (1 + input.wasteFactor / 100); results["totalWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWithWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWithWaste"])) / 1000000; results["totalCubicMeters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCubicMeters"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePost_hole_calculator(input: Post_hole_calculatorInput): Post_hole_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCubicMeters"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCubicMeters"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculatePost_hole_calculator(input: Post_hole_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

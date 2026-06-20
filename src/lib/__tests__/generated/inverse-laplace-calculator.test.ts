@@ -10,7 +10,7 @@ describe("inverse-laplace-calculator", () => {
     const input = {
     "F_s": 1,
     "numerator_order": 0,
-    "denominator_coeffs": 1,
+    "denominator_coeffs": "1,2,1",
     "denominator_order": 1,
     "time_value": 1,
     "damping_ratio": 0.5,

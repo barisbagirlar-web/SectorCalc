@@ -18,27 +18,23 @@ export const Vitamin_d_from_sun_calculatorInputSchema = z.object({
   cloud_cover_percent: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Vitamin_d_from_sun_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2.2 - 0.3 * input.skin_type; results["skin_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["skin_factor"] = 0; }
-  try { const v = 1 - (input.cloud_cover_percent / 100) * 0.5; results["cloud_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cloud_factor"] = 0; }
-  try { const v = input.uv_index * (asFormulaNumber(results["cloud_factor"])); results["effective_uv_index"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effective_uv_index"] = 0; }
-  try { const v = (asFormulaNumber(results["effective_uv_index"])) * input.exposure_time_minutes * 50 * input.body_area_percent / 100 * (asFormulaNumber(results["skin_factor"])); results["estimated_vitamin_d_iu"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimated_vitamin_d_iu"] = 0; }
+  try { const v = 2.2 - 0.3 * input.skin_type; results["skin_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["skin_factor"] = Number.NaN; }
+  try { const v = 1 - (input.cloud_cover_percent / 100) * 0.5; results["cloud_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cloud_factor"] = Number.NaN; }
+  try { const v = input.uv_index * (toNumericFormulaValue(results["cloud_factor"])); results["effective_uv_index"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effective_uv_index"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effective_uv_index"])) * input.exposure_time_minutes * 50 * input.body_area_percent / 100 * (toNumericFormulaValue(results["skin_factor"])); results["estimated_vitamin_d_iu"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimated_vitamin_d_iu"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateVitamin_d_from_sun_calculator(input: Vitamin_d_from_sun_calculatorInput): Vitamin_d_from_sun_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["estimated_vitamin_d_iu"]));
+  const totalWasteCost = toNumericFormulaValue(values["estimated_vitamin_d_iu"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateVitamin_d_from_sun_calculator(input: Vitamin_d_from_sun
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

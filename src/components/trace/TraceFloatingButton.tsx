@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { FreeTraceChat } from "@/components/trace/FreeTraceChat";
 import { ProTraceChat } from "@/components/trace/ProTraceChat";
+import { SectorCalcLogo } from "@/components/ui/SectorCalcLogo";
 
 const BUBBLE_AUTO_HIDE_MS = 16_000;
 
@@ -194,17 +195,8 @@ export function TraceFloatingButton() {
         {/* Online badge */}
         <span className="sc-trace__fab-online-badge" aria-hidden="true" />
 
-        {/* Simple white icon */}
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-          className="sc-trace__fab-icon"
-        >
-          <rect x="7" y="8" width="10" height="1.5" rx="0.75" fill="white" />
-          <rect x="10.25" y="9.5" width="2" height="6" rx="1" fill="white" />
-          <circle cx="12" cy="17.5" r="1.2" fill="rgba(255,255,255,0.7)" />
-        </svg>
+        {/* SectorCalc brand logo */}
+        <SectorCalcLogo width={26} height={26} inverted className="sc-trace__fab-icon" />
 
         {open ? <X className="sc-trace__fab-close-icon" aria-hidden="true" /> : null}
       </button>

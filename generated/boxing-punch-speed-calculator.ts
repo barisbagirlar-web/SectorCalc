@@ -18,27 +18,23 @@ export const Boxing_punch_speed_calculatorInputSchema = z.object({
   punch_time: z.number().default(0.15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Boxing_punch_speed_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.arm_length * ((input.arm_angle + input.hip_angle) * Math.PI / 180) + input.step_length) / input.punch_time; results["Punch Speed (m/s)"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Punch Speed (m/s)"] = 0; }
-  try { const v = ((input.arm_length * ((input.arm_angle + input.hip_angle) * Math.PI / 180) + input.step_length) / input.punch_time) * 2.23694; results["Punch Speed (mph)"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Punch Speed (mph)"] = 0; }
-  try { const v = input.arm_length * ((input.arm_angle + input.hip_angle) * Math.PI / 180); results["Angular Distance (m)"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Angular Distance (m)"] = 0; }
-  try { const v = input.arm_length * ((input.arm_angle + input.hip_angle) * Math.PI / 180) + input.step_length; results["Total Distance (m)"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Total Distance (m)"] = 0; }
+  try { const v = (input.arm_length * ((input.arm_angle + input.hip_angle) * Math.PI / 180) + input.step_length) / input.punch_time; results["Punch Speed (m/s)"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Punch Speed (m/s)"] = Number.NaN; }
+  try { const v = ((input.arm_length * ((input.arm_angle + input.hip_angle) * Math.PI / 180) + input.step_length) / input.punch_time) * 2.23694; results["Punch Speed (mph)"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Punch Speed (mph)"] = Number.NaN; }
+  try { const v = input.arm_length * ((input.arm_angle + input.hip_angle) * Math.PI / 180); results["Angular Distance (m)"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Angular Distance (m)"] = Number.NaN; }
+  try { const v = input.arm_length * ((input.arm_angle + input.hip_angle) * Math.PI / 180) + input.step_length; results["Total Distance (m)"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Total Distance (m)"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBoxing_punch_speed_calculator(input: Boxing_punch_speed_calculatorInput): Boxing_punch_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Punch"]));
+  const totalWasteCost = toNumericFormulaValue(values["Punch"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateBoxing_punch_speed_calculator(input: Boxing_punch_speed
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

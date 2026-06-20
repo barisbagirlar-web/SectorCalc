@@ -18,26 +18,22 @@ export const Heat_of_fusion_calculatorInputSchema = z.object({
   latentHeatOfFusion: z.number().default(334000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heat_of_fusion_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.mass * input.specificHeat * (input.meltingTemperature - input.initialTemperature); results["sensibleHeat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sensibleHeat"] = 0; }
-  try { const v = input.mass * input.latentHeatOfFusion; results["latentHeat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["latentHeat"] = 0; }
-  try { const v = (asFormulaNumber(results["sensibleHeat"])) + (asFormulaNumber(results["latentHeat"])); results["totalHeat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHeat"] = 0; }
+  try { const v = input.mass * input.specificHeat * (input.meltingTemperature - input.initialTemperature); results["sensibleHeat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sensibleHeat"] = Number.NaN; }
+  try { const v = input.mass * input.latentHeatOfFusion; results["latentHeat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["latentHeat"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["sensibleHeat"])) + (toNumericFormulaValue(results["latentHeat"])); results["totalHeat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalHeat"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeat_of_fusion_calculator(input: Heat_of_fusion_calculatorInput): Heat_of_fusion_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalHeat"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalHeat"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateHeat_of_fusion_calculator(input: Heat_of_fusion_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,30 +24,26 @@ export const Two_way_anova_calculatorInputSchema = z.object({
   dfE: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Two_way_anova_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.SSA / input.dfA; results["MSA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["MSA"] = 0; }
-  try { const v = input.SSB / input.dfB; results["MSB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["MSB"] = 0; }
-  try { const v = input.SSAB / input.dfAB; results["MSAB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["MSAB"] = 0; }
-  try { const v = input.SSE / input.dfE; results["MSE"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["MSE"] = 0; }
-  try { const v = (asFormulaNumber(results["MSA"])) / (asFormulaNumber(results["MSE"])); results["FA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["FA"] = 0; }
-  try { const v = (asFormulaNumber(results["MSB"])) / (asFormulaNumber(results["MSE"])); results["FB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["FB"] = 0; }
-  try { const v = (asFormulaNumber(results["MSAB"])) / (asFormulaNumber(results["MSE"])); results["FAB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["FAB"] = 0; }
+  try { const v = input.SSA / input.dfA; results["MSA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["MSA"] = Number.NaN; }
+  try { const v = input.SSB / input.dfB; results["MSB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["MSB"] = Number.NaN; }
+  try { const v = input.SSAB / input.dfAB; results["MSAB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["MSAB"] = Number.NaN; }
+  try { const v = input.SSE / input.dfE; results["MSE"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["MSE"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["MSA"])) / (toNumericFormulaValue(results["MSE"])); results["FA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["FA"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["MSB"])) / (toNumericFormulaValue(results["MSE"])); results["FB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["FB"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["MSAB"])) / (toNumericFormulaValue(results["MSE"])); results["FAB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["FAB"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTwo_way_anova_calculator(input: Two_way_anova_calculatorInput): Two_way_anova_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["FAB"]));
+  const totalWasteCost = toNumericFormulaValue(values["FAB"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculateTwo_way_anova_calculator(input: Two_way_anova_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

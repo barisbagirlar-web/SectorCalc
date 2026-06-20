@@ -16,27 +16,23 @@ export const Divide_fractions_calculatorInputSchema = z.object({
   denominator2: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Divide_fractions_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numerator1 * input.denominator2; results["resultNumerator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resultNumerator"] = 0; }
-  try { const v = input.denominator1 * input.numerator2; results["resultDenominator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resultDenominator"] = 0; }
-  try { const v = (asFormulaNumber(results["resultNumerator"])) / (asFormulaNumber(results["resultDenominator"])); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (asFormulaNumber(results["resultNumerator"])) / (asFormulaNumber(results["resultDenominator"])); results["primary_result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
+  try { const v = input.numerator1 * input.denominator2; results["resultNumerator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["resultNumerator"] = Number.NaN; }
+  try { const v = input.denominator1 * input.numerator2; results["resultDenominator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["resultDenominator"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["resultNumerator"])) / (toNumericFormulaValue(results["resultDenominator"])); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["resultNumerator"])) / (toNumericFormulaValue(results["resultDenominator"])); results["primary_result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary_result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDivide_fractions_calculator(input: Divide_fractions_calculatorInput): Divide_fractions_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary_result"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary_result"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateDivide_fractions_calculator(input: Divide_fractions_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

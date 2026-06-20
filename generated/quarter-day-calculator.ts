@@ -16,25 +16,21 @@ export const Quarter_day_calculatorInputSchema = z.object({
   seconds: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Quarter_day_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.days * 86400 + input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSeconds"] = 0; }
-  try { const v = (asFormulaNumber(results["totalSeconds"])) / 21600; results["quarterDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["quarterDays"] = 0; }
+  try { const v = input.days * 86400 + input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSeconds"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalSeconds"])) / 21600; results["quarterDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["quarterDays"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateQuarter_day_calculator(input: Quarter_day_calculatorInput): Quarter_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["quarterDays"]));
+  const totalWasteCost = toNumericFormulaValue(values["quarterDays"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateQuarter_day_calculator(input: Quarter_day_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

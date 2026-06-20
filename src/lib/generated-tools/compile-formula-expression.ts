@@ -112,6 +112,44 @@ function transformIfFunction(expression: string): string {
   });
 }
 
+/**
+ * Converts Python-style inline IF: "if X: Y; else: Z" → "((X) ? (Y) : (Z))"
+ */
+function transformPythonIfElseInline(expression: string): string {
+  const trimmed = expression.trim();
+  const match = trimmed.match(
+    /^if\s+(.+?)\s*:\s*(.+?)\s*;\s*else\s*:\s*(.+)$/i,
+  );
+  if (!match) return expression;
+  const [, cond, thenVal, elseVal] = match;
+  return `((${cond.trim()}) ? (${thenVal.trim()}) : (${elseVal.trim()}))`;
+}
+
+/**
+ * Converts invoked arrow function formulas:
+ *   "((params) => { return expr; })(args)" → simplified expression
+ */
+function transformInvokedArrowFunction(expression: string): string {
+  const trimmed = expression.trim();
+  const iiafMatch = trimmed.match(
+    /^\(?\s*\(([^)]*)\)\s*=>\s*\{\s*return\s+(.+?)\s*;\s*\}\s*\)?\s*\(([^)]*)\)\s*$/,
+  );
+  if (!iiafMatch) return expression;
+  const params = (iiafMatch[1] ?? "").split(",").map((p) => p.trim()).filter(Boolean);
+  const rawBody = (iiafMatch[2] ?? "").trim();
+  const args = (iiafMatch[3] ?? "").split(",").map((a) => a.trim()).filter(Boolean);
+  let simplified = rawBody;
+  for (let i = 0; i < params.length && i < args.length; i++) {
+    const paramName = params[i]!;
+    const argExpr = args[i]!;
+    simplified = simplified.replace(
+      new RegExp(`\\b${escapeRegExp(paramName)}\\b`, "g"),
+      argExpr,
+    );
+  }
+  return simplified;
+}
+
 function stripBracketCitations(expression: string): string {
   // e.g. "... [ISO 2859-1 Table]" or "... [CBAM Exposition]"
   // Keep bracketed math out by requiring at least one ASCII letter inside.
@@ -497,6 +535,12 @@ export function compileFormulaExpression(
   },
 ): string | null {
   let expression = rawExpression.trim();
+
+  // Transform arrow functions and python-style IF before semicolon extraction,
+  // because those use ; as part of their syntax (not statement separators).
+  expression = transformInvokedArrowFunction(expression);
+  expression = transformPythonIfElseInline(expression);
+
   expression = extractSemicolonEquation(expression, options.selfKey);
   expression = stripAssignmentPrefix(expression);
   expression = stripFormulaProse(expression);
@@ -555,7 +599,7 @@ export function compileFormulaExpression(
     expression = replaceIdentifierExpression(
       expression,
       formulaKey,
-      `(asFormulaNumber(results[${JSON.stringify(formulaKey)}]))`,
+      `(toNumericFormulaValue(results[${JSON.stringify(formulaKey)}]))`,
     );
   }
 

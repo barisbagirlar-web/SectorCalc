@@ -22,33 +22,29 @@ export const Pottery_calculatorInputSchema = z.object({
   overheadPercentage: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pottery_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.numberOfPieces * input.clayWeightPerPiece) / 1000; results["totalClayKg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalClayKg"] = 0; }
-  try { const v = (asFormulaNumber(results["totalClayKg"])) * input.clayCostPerKg; results["totalClayCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalClayCost"] = 0; }
-  try { const v = (input.numberOfPieces * input.glazeUsagePerPiece) / 1000; results["totalGlazeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGlazeLiters"] = 0; }
-  try { const v = (asFormulaNumber(results["totalGlazeLiters"])) * input.glazeCostPerLiter; results["totalGlazeCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGlazeCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalClayCost"])) + (asFormulaNumber(results["totalGlazeCost"])); results["materialCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialCost"] = 0; }
-  try { const v = input.numberOfPieces * input.firingCostPerPiece; results["firingCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["firingCost"] = 0; }
-  try { const v = (asFormulaNumber(results["materialCost"])) + (asFormulaNumber(results["firingCost"])); results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
-  try { const v = 1 + (input.overheadPercentage / 100); results["overheadMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overheadMultiplier"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) * (asFormulaNumber(results["overheadMultiplier"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / input.numberOfPieces; results["costPerPiece"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerPiece"] = 0; }
+  try { const v = (input.numberOfPieces * input.clayWeightPerPiece) / 1000; results["totalClayKg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalClayKg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalClayKg"])) * input.clayCostPerKg; results["totalClayCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalClayCost"] = Number.NaN; }
+  try { const v = (input.numberOfPieces * input.glazeUsagePerPiece) / 1000; results["totalGlazeLiters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGlazeLiters"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalGlazeLiters"])) * input.glazeCostPerLiter; results["totalGlazeCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGlazeCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalClayCost"])) + (toNumericFormulaValue(results["totalGlazeCost"])); results["materialCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialCost"] = Number.NaN; }
+  try { const v = input.numberOfPieces * input.firingCostPerPiece; results["firingCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["firingCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["materialCost"])) + (toNumericFormulaValue(results["firingCost"])); results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["subtotal"] = Number.NaN; }
+  try { const v = 1 + (input.overheadPercentage / 100); results["overheadMultiplier"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overheadMultiplier"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) * (toNumericFormulaValue(results["overheadMultiplier"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / input.numberOfPieces; results["costPerPiece"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerPiece"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePottery_calculator(input: Pottery_calculatorInput): Pottery_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["costPerPiece"]));
+  const totalWasteCost = toNumericFormulaValue(values["costPerPiece"]);
   const breakdown = {
     
   };
@@ -56,7 +52,7 @@ export function calculatePottery_calculator(input: Pottery_calculatorInput): Pot
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

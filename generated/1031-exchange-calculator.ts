@@ -20,25 +20,21 @@ export const _1031_exchange_calculatorInputSchema = z.object({
   buyingCosts: z.number().default(15000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: _1031_exchange_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.salePrice - input.mortgagePayoff - input.sellingCosts; results["netProceeds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProceeds"] = 0; }
-  try { const v = input.purchasePrice - input.newMortgage + input.buyingCosts; results["cashRequired"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cashRequired"] = 0; }
+  try { const v = input.salePrice - input.mortgagePayoff - input.sellingCosts; results["netProceeds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProceeds"] = Number.NaN; }
+  try { const v = input.purchasePrice - input.newMortgage + input.buyingCosts; results["cashRequired"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cashRequired"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculate_1031_exchange_calculator(input: _1031_exchange_calculatorInput): _1031_exchange_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cashRequired"]));
+  const totalWasteCost = toNumericFormulaValue(values["cashRequired"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculate_1031_exchange_calculator(input: _1031_exchange_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,25 +18,21 @@ export const Gestational_diabetes_glucose_monitoring_calculatorInputSchema = z.o
   targetHigh: z.number().default(140),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gestational_diabetes_glucose_monitoring_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.bloodGlucose - input.targetLow) / (input.targetHigh - input.targetLow); results["glucoseScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["glucoseScore"] = 0; }
-  try { const v = input.bloodGlucose * input.conversionFactor; results["glucoseMmol"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["glucoseMmol"] = 0; }
+  try { const v = (input.bloodGlucose - input.targetLow) / (input.targetHigh - input.targetLow); results["glucoseScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["glucoseScore"] = Number.NaN; }
+  try { const v = input.bloodGlucose * input.conversionFactor; results["glucoseMmol"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["glucoseMmol"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGestational_diabetes_glucose_monitoring_calculator(input: Gestational_diabetes_glucose_monitoring_calculatorInput): Gestational_diabetes_glucose_monitoring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["glucoseScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["glucoseScore"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateGestational_diabetes_glucose_monitoring_calculator(inpu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

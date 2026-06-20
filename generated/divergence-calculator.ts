@@ -20,27 +20,23 @@ export const Divergence_calculatorInputSchema = z.object({
   z: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Divergence_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.dFx_dx + input.dFy_dy + input.dFz_dz; results["divergence"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["divergence"] = 0; }
-  try { const v = input.dFx_dx; results["contributionX"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contributionX"] = 0; }
-  try { const v = input.dFy_dy; results["contributionY"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contributionY"] = 0; }
-  try { const v = input.dFz_dz; results["contributionZ"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contributionZ"] = 0; }
+  try { const v = input.dFx_dx + input.dFy_dy + input.dFz_dz; results["divergence"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["divergence"] = Number.NaN; }
+  try { const v = input.dFx_dx; results["contributionX"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contributionX"] = Number.NaN; }
+  try { const v = input.dFy_dy; results["contributionY"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contributionY"] = Number.NaN; }
+  try { const v = input.dFz_dz; results["contributionZ"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contributionZ"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDivergence_calculator(input: Divergence_calculatorInput): Divergence_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["divergence"]));
+  const totalWasteCost = toNumericFormulaValue(values["divergence"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateDivergence_calculator(input: Divergence_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

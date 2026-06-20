@@ -16,26 +16,22 @@ export const Relative_risk_calculatorInputSchema = z.object({
   control_total: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Relative_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.exposed_events / input.exposed_total; results["risk_exposed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["risk_exposed"] = 0; }
-  try { const v = input.control_events / input.control_total; results["risk_unexposed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["risk_unexposed"] = 0; }
-  try { const v = (input.exposed_events / input.exposed_total) / (input.control_events / input.control_total); results["relative_risk"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["relative_risk"] = 0; }
+  try { const v = input.exposed_events / input.exposed_total; results["risk_exposed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["risk_exposed"] = Number.NaN; }
+  try { const v = input.control_events / input.control_total; results["risk_unexposed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["risk_unexposed"] = Number.NaN; }
+  try { const v = (input.exposed_events / input.exposed_total) / (input.control_events / input.control_total); results["relative_risk"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["relative_risk"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRelative_risk_calculator(input: Relative_risk_calculatorInput): Relative_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["relative_risk"]));
+  const totalWasteCost = toNumericFormulaValue(values["relative_risk"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateRelative_risk_calculator(input: Relative_risk_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

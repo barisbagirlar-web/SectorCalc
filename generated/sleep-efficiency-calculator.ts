@@ -16,26 +16,22 @@ export const Sleep_efficiency_calculatorInputSchema = z.object({
   awakenings: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sleep_efficiency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.timeInBed - input.sleepLatency - input.waso; results["totalSleepTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSleepTime"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalSleepTime"])) / input.timeInBed) * 100; results["sleepEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sleepEfficiency"] = 0; }
-  try { const v = (asFormulaNumber(results["sleepEfficiency"])) - input.awakenings * 2; results["qualityScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["qualityScore"] = 0; }
+  try { const v = input.timeInBed - input.sleepLatency - input.waso; results["totalSleepTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSleepTime"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalSleepTime"])) / input.timeInBed) * 100; results["sleepEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sleepEfficiency"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["sleepEfficiency"])) - input.awakenings * 2; results["qualityScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["qualityScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSleep_efficiency_calculator(input: Sleep_efficiency_calculatorInput): Sleep_efficiency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sleepEfficiency"]));
+  const totalWasteCost = toNumericFormulaValue(values["sleepEfficiency"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateSleep_efficiency_calculator(input: Sleep_efficiency_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

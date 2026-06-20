@@ -18,25 +18,21 @@ export const Shell_method_calculatorInputSchema = z.object({
   c: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Shell_method_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.a/4)*(input.upper**4 - input.lower**4) + (input.b/3)*(input.upper**3 - input.lower**3) + (input.c/2)*(input.upper**2 - input.lower**2); results["integral"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["integral"] = 0; }
-  try { const v = 2 * Math.PI * (asFormulaNumber(results["integral"])); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
+  try { const v = (input.a/4)*(input.upper**4 - input.lower**4) + (input.b/3)*(input.upper**3 - input.lower**3) + (input.c/2)*(input.upper**2 - input.lower**2); results["integral"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["integral"] = Number.NaN; }
+  try { const v = 2 * Math.PI * (toNumericFormulaValue(results["integral"])); results["volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateShell_method_calculator(input: Shell_method_calculatorInput): Shell_method_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume"]));
+  const totalWasteCost = toNumericFormulaValue(values["volume"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateShell_method_calculator(input: Shell_method_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

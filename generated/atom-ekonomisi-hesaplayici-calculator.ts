@@ -20,26 +20,22 @@ export const Atom_ekonomisi_hesaplayici_calculatorInputSchema = z.object({
   reactantMW5: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Atom_ekonomisi_hesaplayici_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.reactantMW1 + input.reactantMW2 + input.reactantMW3 + input.reactantMW4 + input.reactantMW5; results["toplamReaktanAgirlik"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toplamReaktanAgirlik"] = 0; }
-  try { const v = input.productMW; results["urunAgirlik"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["urunAgirlik"] = 0; }
-  try { const v = input.productMW / (input.reactantMW1 + input.reactantMW2 + input.reactantMW3 + input.reactantMW4 + input.reactantMW5) * 100; results["atomEkonomisi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["atomEkonomisi"] = 0; }
+  try { const v = input.reactantMW1 + input.reactantMW2 + input.reactantMW3 + input.reactantMW4 + input.reactantMW5; results["toplamReaktanAgirlik"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["toplamReaktanAgirlik"] = Number.NaN; }
+  try { const v = input.productMW; results["urunAgirlik"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["urunAgirlik"] = Number.NaN; }
+  try { const v = input.productMW / (input.reactantMW1 + input.reactantMW2 + input.reactantMW3 + input.reactantMW4 + input.reactantMW5) * 100; results["atomEkonomisi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["atomEkonomisi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAtom_ekonomisi_hesaplayici_calculator(input: Atom_ekonomisi_hesaplayici_calculatorInput): Atom_ekonomisi_hesaplayici_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["atomEkonomisi"]));
+  const totalWasteCost = toNumericFormulaValue(values["atomEkonomisi"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateAtom_ekonomisi_hesaplayici_calculator(input: Atom_ekono
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

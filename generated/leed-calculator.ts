@@ -18,29 +18,25 @@ export const Leed_calculatorInputSchema = z.object({
   eq: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Leed_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.ss + input.we + input.ea + input.mr + input.eq; results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
-  try { const v = 'Sustainable Sites: ' + input.ss + ' points'; results["ssBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ssBreakdown"] = 0; }
-  try { const v = 'Water Efficiency: ' + input.we + ' points'; results["weBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weBreakdown"] = 0; }
-  try { const v = 'Energy & Atmosphere: ' + input.ea + ' points'; results["eaBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eaBreakdown"] = 0; }
-  try { const v = 'Materials & Resources: ' + input.mr + ' points'; results["mrBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mrBreakdown"] = 0; }
-  try { const v = 'Indoor Environmental Quality: ' + input.eq + ' points'; results["eqBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eqBreakdown"] = 0; }
+  try { const v = input.ss + input.we + input.ea + input.mr + input.eq; results["total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total"] = Number.NaN; }
+  try { const v = 'Sustainable Sites: ' + input.ss + ' points'; results["ssBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ssBreakdown"] = Number.NaN; }
+  try { const v = 'Water Efficiency: ' + input.we + ' points'; results["weBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weBreakdown"] = Number.NaN; }
+  try { const v = 'Energy & Atmosphere: ' + input.ea + ' points'; results["eaBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eaBreakdown"] = Number.NaN; }
+  try { const v = 'Materials & Resources: ' + input.mr + ' points'; results["mrBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mrBreakdown"] = Number.NaN; }
+  try { const v = 'Indoor Environmental Quality: ' + input.eq + ' points'; results["eqBreakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eqBreakdown"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLeed_calculator(input: Leed_calculatorInput): Leed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["eqBreakdown"]));
+  const totalWasteCost = toNumericFormulaValue(values["eqBreakdown"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateLeed_calculator(input: Leed_calculatorInput): Leed_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

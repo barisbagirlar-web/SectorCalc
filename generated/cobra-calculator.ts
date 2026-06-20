@@ -18,28 +18,24 @@ export const Cobra_calculatorInputSchema = z.object({
   employerContributionRate: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cobra_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.monthlyPremium * input.beneficiaries * input.coverageMonths; results["totalPremium"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPremium"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPremium"])) * input.adminFeeRate / 100; results["adminFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adminFeeAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPremium"])) + (asFormulaNumber(results["adminFeeAmount"])); results["totalCostWithoutContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCostWithoutContribution"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCostWithoutContribution"])) * input.employerContributionRate / 100; results["employerContributionAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["employerContributionAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCostWithoutContribution"])) - (asFormulaNumber(results["employerContributionAmount"])); results["totalEmployeeCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEmployeeCost"] = 0; }
+  try { const v = input.monthlyPremium * input.beneficiaries * input.coverageMonths; results["totalPremium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPremium"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPremium"])) * input.adminFeeRate / 100; results["adminFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adminFeeAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPremium"])) + (toNumericFormulaValue(results["adminFeeAmount"])); results["totalCostWithoutContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCostWithoutContribution"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCostWithoutContribution"])) * input.employerContributionRate / 100; results["employerContributionAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["employerContributionAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCostWithoutContribution"])) - (toNumericFormulaValue(results["employerContributionAmount"])); results["totalEmployeeCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEmployeeCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCobra_calculator(input: Cobra_calculatorInput): Cobra_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalEmployeeCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalEmployeeCost"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateCobra_calculator(input: Cobra_calculatorInput): Cobra_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

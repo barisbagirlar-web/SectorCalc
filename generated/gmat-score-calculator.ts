@@ -16,28 +16,24 @@ export const Gmat_score_calculatorInputSchema = z.object({
   analyticalWriting: z.number().default(4.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gmat_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.quantScaled; results["quantitativeScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["quantitativeScore"] = 0; }
-  try { const v = input.verbalScaled; results["verbalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["verbalScore"] = 0; }
-  try { const v = 200 + (input.quantScaled + input.verbalScaled) * 5; results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
-  try { const v = input.integratedReasoning; results["irScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["irScore"] = 0; }
-  try { const v = input.analyticalWriting; results["awaScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["awaScore"] = 0; }
+  try { const v = input.quantScaled; results["quantitativeScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["quantitativeScore"] = Number.NaN; }
+  try { const v = input.verbalScaled; results["verbalScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["verbalScore"] = Number.NaN; }
+  try { const v = 200 + (input.quantScaled + input.verbalScaled) * 5; results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalScore"] = Number.NaN; }
+  try { const v = input.integratedReasoning; results["irScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["irScore"] = Number.NaN; }
+  try { const v = input.analyticalWriting; results["awaScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["awaScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGmat_score_calculator(input: Gmat_score_calculatorInput): Gmat_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateGmat_score_calculator(input: Gmat_score_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

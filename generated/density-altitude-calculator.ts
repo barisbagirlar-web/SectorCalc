@@ -16,25 +16,21 @@ export const Density_altitude_calculatorInputSchema = z.object({
   dewPoint: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Density_altitude_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fieldElevation + (29.92 - input.altimeterSetting) * 1000; results["pressureAltitude"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureAltitude"] = 0; }
-  try { const v = 15 - 0.0019812 * (asFormulaNumber(results["pressureAltitude"])); results["isaTemperature"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isaTemperature"] = 0; }
+  try { const v = input.fieldElevation + (29.92 - input.altimeterSetting) * 1000; results["pressureAltitude"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressureAltitude"] = Number.NaN; }
+  try { const v = 15 - 0.0019812 * (toNumericFormulaValue(results["pressureAltitude"])); results["isaTemperature"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["isaTemperature"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDensity_altitude_calculator(input: Density_altitude_calculatorInput): Density_altitude_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["isaTemperature"]));
+  const totalWasteCost = toNumericFormulaValue(values["isaTemperature"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateDensity_altitude_calculator(input: Density_altitude_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

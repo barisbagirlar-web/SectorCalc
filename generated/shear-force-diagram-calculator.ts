@@ -16,26 +16,22 @@ export const Shear_force_diagram_calculatorInputSchema = z.object({
   calculationPoint: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Shear_force_diagram_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.loadMagnitude * (input.beamLength - input.loadDistanceFromLeft)) / input.beamLength; results["leftReaction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["leftReaction"] = 0; }
-  try { const v = (input.loadMagnitude * input.loadDistanceFromLeft) / input.beamLength; results["rightReaction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rightReaction"] = 0; }
-  try { const v = input.calculationPoint <= input.loadDistanceFromLeft ? (input.loadMagnitude * (input.beamLength - input.loadDistanceFromLeft)) / input.beamLength : -(input.loadMagnitude * input.loadDistanceFromLeft) / input.beamLength; results["shearForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shearForce"] = 0; }
+  try { const v = (input.loadMagnitude * (input.beamLength - input.loadDistanceFromLeft)) / input.beamLength; results["leftReaction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["leftReaction"] = Number.NaN; }
+  try { const v = (input.loadMagnitude * input.loadDistanceFromLeft) / input.beamLength; results["rightReaction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rightReaction"] = Number.NaN; }
+  try { const v = input.calculationPoint <= input.loadDistanceFromLeft ? (input.loadMagnitude * (input.beamLength - input.loadDistanceFromLeft)) / input.beamLength : -(input.loadMagnitude * input.loadDistanceFromLeft) / input.beamLength; results["shearForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shearForce"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateShear_force_diagram_calculator(input: Shear_force_diagram_calculatorInput): Shear_force_diagram_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["shearForce"]));
+  const totalWasteCost = toNumericFormulaValue(values["shearForce"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateShear_force_diagram_calculator(input: Shear_force_diagr
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

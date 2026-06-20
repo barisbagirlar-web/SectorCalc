@@ -22,29 +22,25 @@ export const Drywall_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Drywall_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (2 * (input.roomLength + input.roomWidth)) * input.roomHeight; results["totalWallArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWallArea"] = 0; }
-  try { const v = input.numberOfDoors * 2 + input.numberOfWindows * 1.5; results["totalOpenings"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalOpenings"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWallArea"])) - (asFormulaNumber(results["totalOpenings"])); results["netArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netArea"] = 0; }
-  try { const v = (asFormulaNumber(results["netArea"])) * (1 + input.wasteFactor / 100); results["totalAreaWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalAreaWithWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["totalAreaWithWaste"])) * 0.4; results["compound_kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["compound_kg"] = 0; }
-  try { const v = (asFormulaNumber(results["totalAreaWithWaste"])) * 1.5; results["tape_m"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tape_m"] = 0; }
+  try { const v = (2 * (input.roomLength + input.roomWidth)) * input.roomHeight; results["totalWallArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWallArea"] = Number.NaN; }
+  try { const v = input.numberOfDoors * 2 + input.numberOfWindows * 1.5; results["totalOpenings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalOpenings"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWallArea"])) - (toNumericFormulaValue(results["totalOpenings"])); results["netArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netArea"])) * (1 + input.wasteFactor / 100); results["totalAreaWithWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalAreaWithWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalAreaWithWaste"])) * 0.4; results["compound_kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["compound_kg"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalAreaWithWaste"])) * 1.5; results["tape_m"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tape_m"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDrywall_calculator(input: Drywall_calculatorInput): Drywall_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["tape_m"]));
+  const totalWasteCost = toNumericFormulaValue(values["tape_m"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateDrywall_calculator(input: Drywall_calculatorInput): Dry
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

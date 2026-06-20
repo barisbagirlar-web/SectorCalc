@@ -16,25 +16,21 @@ export const Square_rods_to_sqm_calculatorInputSchema = z.object({
   areaAdjustment: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Square_rods_to_sqm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.squareRods * input.conversionFactor; results["baseSqm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseSqm"] = 0; }
-  try { const v = (asFormulaNumber(results["baseSqm"])) * (1 + input.areaAdjustment / 100); results["adjustedSqm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedSqm"] = 0; }
+  try { const v = input.squareRods * input.conversionFactor; results["baseSqm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseSqm"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseSqm"])) * (1 + input.areaAdjustment / 100); results["adjustedSqm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedSqm"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSquare_rods_to_sqm_calculator(input: Square_rods_to_sqm_calculatorInput): Square_rods_to_sqm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedSqm"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedSqm"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSquare_rods_to_sqm_calculator(input: Square_rods_to_sqm
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

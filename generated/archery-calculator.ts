@@ -16,26 +16,22 @@ export const Archery_calculatorInputSchema = z.object({
   arrowWeight: z.number().default(350),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Archery_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.bowIboSpeed + (input.drawWeight - 70) * 1.5 - (30 - input.drawLength) * 10 - (input.arrowWeight - 350) / 3; results["velocityFtPerSec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["velocityFtPerSec"] = 0; }
-  try { const v = (input.arrowWeight * (asFormulaNumber(results["velocityFtPerSec"])) ** 2) / 450240; results["kineticEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kineticEnergy"] = 0; }
-  try { const v = input.arrowWeight * (asFormulaNumber(results["velocityFtPerSec"])) / 225400; results["momentum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["momentum"] = 0; }
+  try { const v = input.bowIboSpeed + (input.drawWeight - 70) * 1.5 - (30 - input.drawLength) * 10 - (input.arrowWeight - 350) / 3; results["velocityFtPerSec"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["velocityFtPerSec"] = Number.NaN; }
+  try { const v = (input.arrowWeight * (toNumericFormulaValue(results["velocityFtPerSec"])) ** 2) / 450240; results["kineticEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kineticEnergy"] = Number.NaN; }
+  try { const v = input.arrowWeight * (toNumericFormulaValue(results["velocityFtPerSec"])) / 225400; results["momentum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["momentum"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateArchery_calculator(input: Archery_calculatorInput): Archery_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["velocityFtPerSec"]));
+  const totalWasteCost = toNumericFormulaValue(values["velocityFtPerSec"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateArchery_calculator(input: Archery_calculatorInput): Arc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

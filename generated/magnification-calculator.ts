@@ -18,29 +18,25 @@ export const Magnification_calculatorInputSchema = z.object({
   imageHeight: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Magnification_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.imageDistance / input.objectDistance; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = input.objectDistance; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
-  try { const v = input.imageHeight / input.objectHeight; results["imageHeight___objectHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["imageHeight___objectHeight"] = 0; }
-  try { const v = input.focalLength / (input.objectDistance - input.focalLength); results["focalLength____objectDistance___focalLen"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["focalLength____objectDistance___focalLen"] = 0; }
-  try { const v = (input.imageDistance - input.focalLength) / input.focalLength; results["_imageDistance___focalLength____focalLen"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["_imageDistance___focalLength____focalLen"] = 0; }
-  try { const v = input.imageDistance / input.objectDistance; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.imageDistance / input.objectDistance; results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = input.objectDistance; results["breakdown"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakdown"] = Number.NaN; }
+  try { const v = input.imageHeight / input.objectHeight; results["imageHeight___objectHeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["imageHeight___objectHeight"] = Number.NaN; }
+  try { const v = input.focalLength / (input.objectDistance - input.focalLength); results["focalLength____objectDistance___focalLen"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["focalLength____objectDistance___focalLen"] = Number.NaN; }
+  try { const v = (input.imageDistance - input.focalLength) / input.focalLength; results["_imageDistance___focalLength____focalLen"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["_imageDistance___focalLength____focalLen"] = Number.NaN; }
+  try { const v = input.imageDistance / input.objectDistance; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMagnification_calculator(input: Magnification_calculatorInput): Magnification_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateMagnification_calculator(input: Magnification_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

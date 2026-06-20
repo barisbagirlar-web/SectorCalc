@@ -20,28 +20,24 @@ export const Ethereum_converter_calculatorInputSchema = z.object({
   conversionFeePercent: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ethereum_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.gasLimit * input.maxFeePerGas * input.networkMultiplier * 1e-9; results["totalGasETH"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGasETH"] = 0; }
-  try { const v = input.ethAmount - (asFormulaNumber(results["totalGasETH"])); results["netETH"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netETH"] = 0; }
-  try { const v = (asFormulaNumber(results["netETH"])) * input.ethPriceUSD; results["grossUSD"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossUSD"] = 0; }
-  try { const v = (asFormulaNumber(results["grossUSD"])) * (input.conversionFeePercent / 100); results["conversionFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFeeAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["grossUSD"])) - (asFormulaNumber(results["conversionFeeAmount"])); results["netUSD"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netUSD"] = 0; }
+  try { const v = input.gasLimit * input.maxFeePerGas * input.networkMultiplier * 1e-9; results["totalGasETH"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGasETH"] = Number.NaN; }
+  try { const v = input.ethAmount - (toNumericFormulaValue(results["totalGasETH"])); results["netETH"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netETH"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netETH"])) * input.ethPriceUSD; results["grossUSD"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossUSD"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossUSD"])) * (input.conversionFeePercent / 100); results["conversionFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFeeAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossUSD"])) - (toNumericFormulaValue(results["conversionFeeAmount"])); results["netUSD"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netUSD"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEthereum_converter_calculator(input: Ethereum_converter_calculatorInput): Ethereum_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netUSD"]));
+  const totalWasteCost = toNumericFormulaValue(values["netUSD"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateEthereum_converter_calculator(input: Ethereum_converter
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

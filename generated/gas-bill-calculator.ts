@@ -18,28 +18,24 @@ export const Gas_bill_calculatorInputSchema = z.object({
   vatRate: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gas_bill_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.consumption * input.calorificValue; results["energyConsumed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyConsumed"] = 0; }
-  try { const v = (asFormulaNumber(results["energyConsumed"])) * input.unitRate; results["energyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyCost"] = 0; }
-  try { const v = (asFormulaNumber(results["energyCost"])) + input.standingCharge; results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vatAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) + (asFormulaNumber(results["vatAmount"])); results["totalBill"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBill"] = 0; }
+  try { const v = input.consumption * input.calorificValue; results["energyConsumed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyConsumed"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energyConsumed"])) * input.unitRate; results["energyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energyCost"])) + input.standingCharge; results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["subtotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vatAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) + (toNumericFormulaValue(results["vatAmount"])); results["totalBill"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBill"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGas_bill_calculator(input: Gas_bill_calculatorInput): Gas_bill_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBill"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBill"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateGas_bill_calculator(input: Gas_bill_calculatorInput): G
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

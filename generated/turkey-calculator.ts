@@ -18,28 +18,24 @@ export const Turkey_calculatorInputSchema = z.object({
   altitude: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Turkey_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight * 40 + input.stuffing * 20; results["baseTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseTime"] = 0; }
-  try { const v = 1 - (input.cookingTemp - 180) * 0.002; results["tempFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tempFactor"] = 0; }
-  try { const v = input.thawed === 1 ? 1 : 1.5; results["thawFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thawFactor"] = 0; }
-  try { const v = 1 + input.altitude * 0.0001; results["altFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["altFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["baseTime"])) * (asFormulaNumber(results["tempFactor"])) * (asFormulaNumber(results["thawFactor"])) * (asFormulaNumber(results["altFactor"])); results["totalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMinutes"] = 0; }
+  try { const v = input.weight * 40 + input.stuffing * 20; results["baseTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseTime"] = Number.NaN; }
+  try { const v = 1 - (input.cookingTemp - 180) * 0.002; results["tempFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tempFactor"] = Number.NaN; }
+  try { const v = input.thawed === 1 ? 1 : 1.5; results["thawFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["thawFactor"] = Number.NaN; }
+  try { const v = 1 + input.altitude * 0.0001; results["altFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["altFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseTime"])) * (toNumericFormulaValue(results["tempFactor"])) * (toNumericFormulaValue(results["thawFactor"])) * (toNumericFormulaValue(results["altFactor"])); results["totalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMinutes"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTurkey_calculator(input: Turkey_calculatorInput): Turkey_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalMinutes"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalMinutes"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateTurkey_calculator(input: Turkey_calculatorInput): Turke
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

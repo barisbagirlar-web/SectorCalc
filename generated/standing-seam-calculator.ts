@@ -18,25 +18,21 @@ export const Standing_seam_calculatorInputSchema = z.object({
   clipSpacing: z.number().default(24),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Standing_seam_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.roofLength + (input.overhang / 12); results["panelLengthActual"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["panelLengthActual"] = 0; }
-  try { const v = input.roofWidth * (input.roofLength + input.overhang / 12); results["totalLinearFeet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLinearFeet"] = 0; }
+  try { const v = input.roofLength + (input.overhang / 12); results["panelLengthActual"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["panelLengthActual"] = Number.NaN; }
+  try { const v = input.roofWidth * (input.roofLength + input.overhang / 12); results["totalLinearFeet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLinearFeet"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStanding_seam_calculator(input: Standing_seam_calculatorInput): Standing_seam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["panelLengthActual"]));
+  const totalWasteCost = toNumericFormulaValue(values["panelLengthActual"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateStanding_seam_calculator(input: Standing_seam_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

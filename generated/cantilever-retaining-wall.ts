@@ -24,29 +24,25 @@ export const Cantilever_retaining_wallInputSchema = z.object({
   frictionAngle: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cantilever_retaining_wallInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.stemThickness * input.height * 25; results["wallWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallWeight"] = 0; }
-  try { const v = input.baseWidth * input.baseThickness * 25; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseWeight"] = 0; }
-  try { const v = input.heelLength * input.baseThickness * 25; results["heelWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heelWeight"] = 0; }
-  try { const v = input.toeLength * input.baseThickness * 25; results["toeWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["toeWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["wallWeight"])) + (asFormulaNumber(results["baseWeight"])) + (asFormulaNumber(results["heelWeight"])) + (asFormulaNumber(results["toeWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWeight"])) * input.baseWidth / 2; results["resistingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["resistingMoment"] = 0; }
+  try { const v = input.stemThickness * input.height * 25; results["wallWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wallWeight"] = Number.NaN; }
+  try { const v = input.baseWidth * input.baseThickness * 25; results["baseWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseWeight"] = Number.NaN; }
+  try { const v = input.heelLength * input.baseThickness * 25; results["heelWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heelWeight"] = Number.NaN; }
+  try { const v = input.toeLength * input.baseThickness * 25; results["toeWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["toeWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wallWeight"])) + (toNumericFormulaValue(results["baseWeight"])) + (toNumericFormulaValue(results["heelWeight"])) + (toNumericFormulaValue(results["toeWeight"])); results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWeight"])) * input.baseWidth / 2; results["resistingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["resistingMoment"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCantilever_retaining_wall(input: Cantilever_retaining_wallInput): Cantilever_retaining_wallOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["resistingMoment"]));
+  const totalWasteCost = toNumericFormulaValue(values["resistingMoment"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateCantilever_retaining_wall(input: Cantilever_retaining_w
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

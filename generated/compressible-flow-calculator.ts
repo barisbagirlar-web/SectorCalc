@@ -22,25 +22,21 @@ export const Compressible_flow_calculatorInputSchema = z.object({
   dischargeCoefficient: z.number().default(0.85),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Compressible_flow_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.upstreamPressure) / (input.downstreamPressure + input.temperature + input.gasConstant + input.specificHeatRatio + input.orificeDiameter + input.dischargeCoefficient) * 100; results["pressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pressureRatio"] = 0; }
-  try { const v = (input.upstreamPressure) / (input.downstreamPressure + input.temperature) * 100; results["criticalPressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["criticalPressureRatio"] = 0; }
+  try { const v = (input.upstreamPressure) / (input.downstreamPressure + input.temperature + input.gasConstant + input.specificHeatRatio + input.orificeDiameter + input.dischargeCoefficient) * 100; results["pressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pressureRatio"] = Number.NaN; }
+  try { const v = (input.upstreamPressure) / (input.downstreamPressure + input.temperature) * 100; results["criticalPressureRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["criticalPressureRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCompressible_flow_calculator(input: Compressible_flow_calculatorInput): Compressible_flow_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["criticalPressureRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["criticalPressureRatio"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCompressible_flow_calculator(input: Compressible_flow_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

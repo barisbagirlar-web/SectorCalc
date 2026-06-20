@@ -18,26 +18,22 @@ export const Muscle_recovery_calculatorInputSchema = z.object({
   restTime: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Muscle_recovery_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.restTime / (input.workoutDuration * input.intensity)) * (1 - input.age * 0.01) * (input.bodyWeight / 70) * 100; results["recoveryScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recoveryScore"] = 0; }
-  try { const v = input.workoutDuration * input.intensity / 10; results["muscleStrain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["muscleStrain"] = 0; }
-  try { const v = (input.workoutDuration * input.intensity / 10) * (input.age / 30); results["fatigueLevel"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fatigueLevel"] = 0; }
+  try { const v = (input.restTime / (input.workoutDuration * input.intensity)) * (1 - input.age * 0.01) * (input.bodyWeight / 70) * 100; results["recoveryScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recoveryScore"] = Number.NaN; }
+  try { const v = input.workoutDuration * input.intensity / 10; results["muscleStrain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["muscleStrain"] = Number.NaN; }
+  try { const v = (input.workoutDuration * input.intensity / 10) * (input.age / 30); results["fatigueLevel"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fatigueLevel"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMuscle_recovery_calculator(input: Muscle_recovery_calculatorInput): Muscle_recovery_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["recoveryScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["recoveryScore"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateMuscle_recovery_calculator(input: Muscle_recovery_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

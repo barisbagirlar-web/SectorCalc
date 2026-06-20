@@ -18,26 +18,22 @@ export const Second_derivative_calculatorInputSchema = z.object({
   x: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Second_derivative_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 6*input.a*input.x + 2*input.b; results["secondDerivative"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["secondDerivative"] = 0; }
-  try { const v = 3*input.a*input.x*input.x + 2*input.b*input.x + input.c; results["firstDerivative"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["firstDerivative"] = 0; }
-  try { const v = input.a*input.x*input.x*input.x + input.b*input.x*input.x + input.c*input.x + input.d; results["functionValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["functionValue"] = 0; }
+  try { const v = 6*input.a*input.x + 2*input.b; results["secondDerivative"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["secondDerivative"] = Number.NaN; }
+  try { const v = 3*input.a*input.x*input.x + 2*input.b*input.x + input.c; results["firstDerivative"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["firstDerivative"] = Number.NaN; }
+  try { const v = input.a*input.x*input.x*input.x + input.b*input.x*input.x + input.c*input.x + input.d; results["functionValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["functionValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSecond_derivative_calculator(input: Second_derivative_calculatorInput): Second_derivative_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["secondDerivative"]));
+  const totalWasteCost = toNumericFormulaValue(values["secondDerivative"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateSecond_derivative_calculator(input: Second_derivative_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

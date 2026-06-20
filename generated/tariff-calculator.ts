@@ -22,31 +22,27 @@ export const Tariff_calculatorInputSchema = z.object({
   taxRate: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Tariff_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.peakUsage / 100; results["peakEnergyFraction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["peakEnergyFraction"] = 0; }
-  try { const v = input.consumption * (asFormulaNumber(results["peakEnergyFraction"])); results["peakEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["peakEnergy"] = 0; }
-  try { const v = input.consumption - (asFormulaNumber(results["peakEnergy"])); results["offPeakEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["offPeakEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["peakEnergy"])) * input.peakRate + (asFormulaNumber(results["offPeakEnergy"])) * input.offPeakRate; results["energyCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyCost"] = 0; }
-  try { const v = input.standingCharge * input.days; results["standingCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["standingCost"] = 0; }
-  try { const v = (asFormulaNumber(results["energyCost"])) + (asFormulaNumber(results["standingCost"])); results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) + (asFormulaNumber(results["taxAmount"])); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
+  try { const v = input.peakUsage / 100; results["peakEnergyFraction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["peakEnergyFraction"] = Number.NaN; }
+  try { const v = input.consumption * (toNumericFormulaValue(results["peakEnergyFraction"])); results["peakEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["peakEnergy"] = Number.NaN; }
+  try { const v = input.consumption - (toNumericFormulaValue(results["peakEnergy"])); results["offPeakEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["offPeakEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["peakEnergy"])) * input.peakRate + (toNumericFormulaValue(results["offPeakEnergy"])) * input.offPeakRate; results["energyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyCost"] = Number.NaN; }
+  try { const v = input.standingCharge * input.days; results["standingCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["standingCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energyCost"])) + (toNumericFormulaValue(results["standingCost"])); results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["subtotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) + (toNumericFormulaValue(results["taxAmount"])); results["total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTariff_calculator(input: Tariff_calculatorInput): Tariff_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total"]));
+  const totalWasteCost = toNumericFormulaValue(values["total"]);
   const breakdown = {
     
   };
@@ -54,7 +50,7 @@ export function calculateTariff_calculator(input: Tariff_calculatorInput): Tarif
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

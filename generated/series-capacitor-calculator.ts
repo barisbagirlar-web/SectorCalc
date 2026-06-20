@@ -16,29 +16,25 @@ export const Series_capacitor_calculatorInputSchema = z.object({
   C4: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Series_capacitor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / input.C1; results["recC1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recC1"] = 0; }
-  try { const v = 1 / input.C2; results["recC2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recC2"] = 0; }
-  try { const v = 1 / input.C3; results["recC3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recC3"] = 0; }
-  try { const v = 1 / input.C4; results["recC4"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recC4"] = 0; }
-  try { const v = (asFormulaNumber(results["recC1"])) + (asFormulaNumber(results["recC2"])) + (asFormulaNumber(results["recC3"])) + (asFormulaNumber(results["recC4"])); results["recSum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recSum"] = 0; }
-  try { const v = 1 / (asFormulaNumber(results["recSum"])); results["C_total"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["C_total"] = 0; }
+  try { const v = 1 / input.C1; results["recC1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recC1"] = Number.NaN; }
+  try { const v = 1 / input.C2; results["recC2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recC2"] = Number.NaN; }
+  try { const v = 1 / input.C3; results["recC3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recC3"] = Number.NaN; }
+  try { const v = 1 / input.C4; results["recC4"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recC4"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["recC1"])) + (toNumericFormulaValue(results["recC2"])) + (toNumericFormulaValue(results["recC3"])) + (toNumericFormulaValue(results["recC4"])); results["recSum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recSum"] = Number.NaN; }
+  try { const v = 1 / (toNumericFormulaValue(results["recSum"])); results["C_total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["C_total"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSeries_capacitor_calculator(input: Series_capacitor_calculatorInput): Series_capacitor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["C_total"]));
+  const totalWasteCost = toNumericFormulaValue(values["C_total"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSeries_capacitor_calculator(input: Series_capacitor_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

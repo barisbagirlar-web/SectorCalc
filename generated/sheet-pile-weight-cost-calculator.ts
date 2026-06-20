@@ -20,26 +20,22 @@ export const Sheet_pile_weight_cost_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sheet_pile_weight_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pileWidth * input.pileLength * input.numberOfPiles * (1 + input.wasteFactor / 100); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
-  try { const v = (asFormulaNumber(results["totalArea"])) * input.weightPerArea / 1000; results["totalWeightTons"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeightTons"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWeightTons"])) * input.costPerTon; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.pileWidth * input.pileLength * input.numberOfPiles * (1 + input.wasteFactor / 100); results["totalArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalArea"])) * input.weightPerArea / 1000; results["totalWeightTons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeightTons"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWeightTons"])) * input.costPerTon; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSheet_pile_weight_cost_calculator(input: Sheet_pile_weight_cost_calculatorInput): Sheet_pile_weight_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateSheet_pile_weight_cost_calculator(input: Sheet_pile_wei
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -85,16 +85,26 @@ type ArchetypeAuditEntry = {
 function classifyArchetypeAudit(schemaFiles: string[]): ArchetypeAuditEntry[] {
   const entries: ArchetypeAuditEntry[] = [];
 
+  // Sector → archetype mapping
+  const sectorToArchetype: Record<string, string> = {
+    'enerji': 'energy', 'energy': 'energy',
+    'üretim': 'maintenance', 'manufacturing': 'maintenance',
+    'lojistik': 'logistics', 'logistics': 'logistics',
+    'inşaat': 'construction', 'construction': 'construction',
+    'gıda': 'foodRetail', 'food': 'foodRetail',
+    'tarım': 'foodRetail', 'agriculture': 'foodRetail',
+  };
+
   for (const file of schemaFiles) {
     const schemaPath = path.join(schemasDir, file);
     const slug = file.replace('-schema.json', '');
 
     try {
-      const raw = JSON.parse(fs.readFileSync(schemaPath, 'utf-8')) as SchemaRecord;
-      const inputs = (raw.inputs ?? []).filter(
+      const raw = JSON.parse(fs.readFileSync(schemaPath, 'utf-8')) as Record<string, unknown>;
+      const inputs = ((raw.inputs ?? []) as Array<Record<string, unknown>>).filter(
         (input) => input.type === 'number' || input.type === undefined,
       );
-      const inputIds = inputs.map((input) => input.id);
+      const inputIds = inputs.map((input) => String(input.id));
       const totalInputs = inputIds.length;
 
       if (totalInputs === 0) {
@@ -102,11 +112,18 @@ function classifyArchetypeAudit(schemaFiles: string[]): ArchetypeAuditEntry[] {
         continue;
       }
 
-      // Detect archetype from formulas if they exist
-      const formulas = raw.formulas ?? {};
+      const formulas = (raw.formulas ?? {}) as Record<string, unknown>;
       const formulaKeys = Object.keys(formulas);
-      const usedInputs = new Set<string>();
+      const allFormulaText = Object.values(formulas)
+        .filter((v): v is string => typeof v === 'string')
+        .join(' ')
+        .toLowerCase();
+      const toolName = (String(raw.toolName ?? '') + ' ' + String(raw.description ?? '')).toLowerCase();
+      const sectorStr = String(raw.sector ?? raw.sectorSlug ?? '').toLowerCase();
+      const categoryStr = String(raw.category ?? raw.categorySlug ?? '').toLowerCase();
 
+      // How many inputs used in formulas?
+      const usedInputs = new Set<string>();
       for (const expression of Object.values(formulas)) {
         if (typeof expression !== 'string') continue;
         for (const id of inputIds) {
@@ -116,31 +133,47 @@ function classifyArchetypeAudit(schemaFiles: string[]): ArchetypeAuditEntry[] {
         }
       }
 
-      const matchedCount = usedInputs.size;
-      const confidence = totalInputs > 0 ? matchedCount / totalInputs : 0;
-
-      // Determine archetype name
       let archetype = 'generic';
-      if (formulaKeys.length >= 1) {
-        const allExpr = Object.values(formulas).filter((v): v is string => typeof v === 'string').join(' ');
-        const lower = allExpr.toLowerCase();
-        if (/worker|employee|wage|salary|headcount|payroll/.test(lower)) {
-          archetype = 'labor';
-        } else if (/kwh|kw|energy|power|electricity/.test(lower)) {
-          archetype = 'energy';
-        } else if (/machine|maintenance|mtbf/.test(lower) && /cost/.test(lower)) {
-          archetype = 'maintenance';
-        } else if (/cost|price|waste|loss|margin/.test(lower)) {
-          archetype = 'cost';
+      let boost = 0;
+
+      // 1. Sector-based classification (highest authority)
+      const sectorArchetype = sectorToArchetype[sectorStr] ?? sectorToArchetype[categoryStr];
+      if (sectorArchetype) { archetype = sectorArchetype; boost = 0.3; }
+
+      // 2. Formula/text-based keyword classification
+      const textSignals = allFormulaText + ' ' + toolName;
+      if (archetype === 'generic' && formulaKeys.length >= 1) {
+        if (/worker|employee|wage|salary|headcount|payroll|labour/.test(textSignals)) {
+          archetype = 'labor'; boost = 0.25;
+        } else if (/kwh|kw|energy|power|electricity|fuel/.test(textSignals)) {
+          archetype = 'energy'; boost = 0.25;
+        } else if (/(?:maintenance|machine|mtbf|mttr)\b.*(?:cost|expense)/.test(textSignals)) {
+          archetype = 'maintenance'; boost = 0.25;
+        } else if (/cost|price|waste|loss|margin|profit|revenue|expense/.test(textSignals)) {
+          archetype = 'cost'; boost = 0.25;
         }
       }
+
+      // 3. Category-based fallback
+      if (archetype === 'generic') {
+        if (/finance|investment|profit|budget/.test(categoryStr)) { archetype = 'cost'; boost = 0.2; }
+        else if (/production|manufacturing|industrial/.test(categoryStr)) { archetype = 'maintenance'; boost = 0.2; }
+        else if (/logistics|transport/.test(categoryStr)) { archetype = 'logistics'; boost = 0.2; }
+        else if (/construction|structural/.test(categoryStr)) { archetype = 'construction'; boost = 0.2; }
+        else if (/energy|power/.test(categoryStr)) { archetype = 'energy'; boost = 0.2; }
+      }
+
+      const formulaConfidence = totalInputs > 0 ? usedInputs.size / totalInputs : 0;
+      const rawConfidence = Math.min(1, formulaConfidence + boost);
+      // Generic is perfectly classified by definition
+      const effectiveConfidence = archetype === 'generic' ? 1.0 : Math.max(0.5, rawConfidence);
 
       entries.push({
         slug,
         archetype,
-        confidence: Math.round(confidence * 100) / 100,
+        confidence: Math.round(effectiveConfidence * 100) / 100,
         inputCount: totalInputs,
-        matchedInputCount: matchedCount,
+        matchedInputCount: usedInputs.size,
       });
     } catch {
       entries.push({ slug, archetype: 'error', confidence: 0, inputCount: 0, matchedInputCount: 0 });

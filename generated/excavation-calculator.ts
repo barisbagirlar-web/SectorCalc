@@ -18,26 +18,22 @@ export const Excavation_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Excavation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * input.depth; results["originalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["originalVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["originalVolume"])) * (1 + input.swellFactor/100); results["swellVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["swellVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["swellVolume"])) * (1 + input.wasteFactor/100); results["totalExcavationVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalExcavationVolume"] = 0; }
+  try { const v = input.length * input.width * input.depth; results["originalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["originalVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["originalVolume"])) * (1 + input.swellFactor/100); results["swellVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["swellVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["swellVolume"])) * (1 + input.wasteFactor/100); results["totalExcavationVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalExcavationVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateExcavation_calculator(input: Excavation_calculatorInput): Excavation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["originalVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["originalVolume"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateExcavation_calculator(input: Excavation_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

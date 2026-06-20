@@ -24,26 +24,22 @@ export const Kaizen_savings_tracker_calculatorInputSchema = z.object({
   annual_production_volume: z.number().min(1000).max(10000000).default(100000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Kaizen_savings_tracker_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.labor_rate / 100) * input.operators_affected * input.time_saved_per_operator * input.shifts_per_day; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = (input.labor_rate / 100) * input.operators_affected * input.time_saved_per_operator * input.shifts_per_day * (input.operating_days_per_year * (input.defect_rate_before / 100) * (input.defect_rate_after / 100) * input.annual_production_volume); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.operating_days_per_year * (input.defect_rate_before / 100) * (input.defect_rate_after / 100) * input.annual_production_volume; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = (input.labor_rate / 100) * input.operators_affected * input.time_saved_per_operator * input.shifts_per_day; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = (input.labor_rate / 100) * input.operators_affected * input.time_saved_per_operator * input.shifts_per_day * (input.operating_days_per_year * (input.defect_rate_before / 100) * (input.defect_rate_after / 100) * input.annual_production_volume); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.operating_days_per_year * (input.defect_rate_before / 100) * (input.defect_rate_after / 100) * input.annual_production_volume; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKaizen_savings_tracker_calculator(input: Kaizen_savings_tracker_calculatorInput): Kaizen_savings_tracker_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateKaizen_savings_tracker_calculator(input: Kaizen_savings
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,30 +20,26 @@ export const Timi_score_calculatorInputSchema = z.object({
   safetyScore: z.number().default(95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Timi_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.inventoryTurnover * 2.5; results["inventoryComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inventoryComponent"] = 0; }
-  try { const v = input.machineUtilization * 0.25; results["machineComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["machineComponent"] = 0; }
-  try { const v = input.orderAccuracy * 0.2; results["orderComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["orderComponent"] = 0; }
-  try { const v = -input.defectRate * 0.25; results["defectComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["defectComponent"] = 0; }
-  try { const v = input.maintenanceCompliance * 0.1; results["maintenanceComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maintenanceComponent"] = 0; }
-  try { const v = input.safetyScore * 0.1; results["safetyComponent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safetyComponent"] = 0; }
-  try { const v = (asFormulaNumber(results["inventoryComponent"])) + (asFormulaNumber(results["machineComponent"])) + (asFormulaNumber(results["orderComponent"])) + (asFormulaNumber(results["defectComponent"])) + (asFormulaNumber(results["maintenanceComponent"])) + (asFormulaNumber(results["safetyComponent"])); results["timiScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["timiScore"] = 0; }
+  try { const v = input.inventoryTurnover * 2.5; results["inventoryComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inventoryComponent"] = Number.NaN; }
+  try { const v = input.machineUtilization * 0.25; results["machineComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["machineComponent"] = Number.NaN; }
+  try { const v = input.orderAccuracy * 0.2; results["orderComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["orderComponent"] = Number.NaN; }
+  try { const v = -input.defectRate * 0.25; results["defectComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["defectComponent"] = Number.NaN; }
+  try { const v = input.maintenanceCompliance * 0.1; results["maintenanceComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maintenanceComponent"] = Number.NaN; }
+  try { const v = input.safetyScore * 0.1; results["safetyComponent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safetyComponent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["inventoryComponent"])) + (toNumericFormulaValue(results["machineComponent"])) + (toNumericFormulaValue(results["orderComponent"])) + (toNumericFormulaValue(results["defectComponent"])) + (toNumericFormulaValue(results["maintenanceComponent"])) + (toNumericFormulaValue(results["safetyComponent"])); results["timiScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["timiScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTimi_score_calculator(input: Timi_score_calculatorInput): Timi_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["timiScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["timiScore"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateTimi_score_calculator(input: Timi_score_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

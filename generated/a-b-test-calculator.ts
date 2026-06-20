@@ -18,28 +18,24 @@ export const A_b_test_calculatorInputSchema = z.object({
   confidence: z.number().default(95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: A_b_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.conversionsA / input.sampleSizeA; results["pA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pA"] = 0; }
-  try { const v = input.conversionsB / input.sampleSizeB; results["pB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pB"] = 0; }
-  try { const v = (input.conversionsA + input.conversionsB) / (input.sampleSizeA + input.sampleSizeB); results["pPool"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pPool"] = 0; }
-  try { const v = input.conversionsA / input.sampleSizeA; results["conversionRateA"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionRateA"] = 0; }
-  try { const v = input.conversionsB / input.sampleSizeB; results["conversionRateB"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionRateB"] = 0; }
+  try { const v = input.conversionsA / input.sampleSizeA; results["pA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pA"] = Number.NaN; }
+  try { const v = input.conversionsB / input.sampleSizeB; results["pB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pB"] = Number.NaN; }
+  try { const v = (input.conversionsA + input.conversionsB) / (input.sampleSizeA + input.sampleSizeB); results["pPool"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pPool"] = Number.NaN; }
+  try { const v = input.conversionsA / input.sampleSizeA; results["conversionRateA"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionRateA"] = Number.NaN; }
+  try { const v = input.conversionsB / input.sampleSizeB; results["conversionRateB"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionRateB"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateA_b_test_calculator(input: A_b_test_calculatorInput): A_b_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conversionRateB"]));
+  const totalWasteCost = toNumericFormulaValue(values["conversionRateB"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateA_b_test_calculator(input: A_b_test_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

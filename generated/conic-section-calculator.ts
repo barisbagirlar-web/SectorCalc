@@ -20,25 +20,21 @@ export const Conic_section_calculatorInputSchema = z.object({
   F: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Conic_section_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.B**2 - 4*input.A*input.C; results["discriminant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discriminant"] = 0; }
-  try { const v = (input.B === 0 && input.A === input.C) ? 0 : (input.B**2 - 4*input.A*input.C < 0 ? 1 : (input.B**2 - 4*input.A*input.C === 0 ? 2 : 3)); results["conicType"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conicType"] = 0; }
+  try { const v = input.B**2 - 4*input.A*input.C; results["discriminant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discriminant"] = Number.NaN; }
+  try { const v = (input.B === 0 && input.A === input.C) ? 0 : (input.B**2 - 4*input.A*input.C < 0 ? 1 : (input.B**2 - 4*input.A*input.C === 0 ? 2 : 3)); results["conicType"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conicType"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConic_section_calculator(input: Conic_section_calculatorInput): Conic_section_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conicType"]));
+  const totalWasteCost = toNumericFormulaValue(values["conicType"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateConic_section_calculator(input: Conic_section_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

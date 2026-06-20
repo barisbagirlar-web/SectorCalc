@@ -24,26 +24,22 @@ export const Calibration_drift_risk_calculatorInputSchema = z.object({
   data_confidence_score: z.number().min(0).max(100).default(85),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Calibration_drift_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.calibration_interval_days * input.days_since_last_calibration * (input.measurement_tolerance_pct / 100) * (input.observed_drift_pct / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.calibration_interval_days * input.days_since_last_calibration * (input.measurement_tolerance_pct / 100) * (input.observed_drift_pct / 100) * ((input.historical_failure_rate / 100) * input.data_confidence_score); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.historical_failure_rate / 100) * input.data_confidence_score; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.calibration_interval_days * input.days_since_last_calibration * (input.measurement_tolerance_pct / 100) * (input.observed_drift_pct / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.calibration_interval_days * input.days_since_last_calibration * (input.measurement_tolerance_pct / 100) * (input.observed_drift_pct / 100) * ((input.historical_failure_rate / 100) * input.data_confidence_score); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = (input.historical_failure_rate / 100) * input.data_confidence_score; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCalibration_drift_risk_calculator(input: Calibration_drift_risk_calculatorInput): Calibration_drift_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateCalibration_drift_risk_calculator(input: Calibration_dr
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -22,26 +22,22 @@ export const Hedge_calculatorInputSchema = z.object({
   contractSize: z.number().default(5000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hedge_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.correlation * (input.spotVol / input.futuresVol); results["optimalHedgeRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["optimalHedgeRatio"] = 0; }
-  try { const v = (asFormulaNumber(results["optimalHedgeRatio"])) * input.exposureUnits; results["totalHedgeUnits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHedgeUnits"] = 0; }
-  try { const v = (asFormulaNumber(results["totalHedgeUnits"])) / input.contractSize; results["numberOfContracts"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numberOfContracts"] = 0; }
+  try { const v = input.correlation * (input.spotVol / input.futuresVol); results["optimalHedgeRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["optimalHedgeRatio"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["optimalHedgeRatio"])) * input.exposureUnits; results["totalHedgeUnits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalHedgeUnits"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalHedgeUnits"])) / input.contractSize; results["numberOfContracts"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numberOfContracts"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHedge_calculator(input: Hedge_calculatorInput): Hedge_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["numberOfContracts"]));
+  const totalWasteCost = toNumericFormulaValue(values["numberOfContracts"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateHedge_calculator(input: Hedge_calculatorInput): Hedge_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -14,25 +14,21 @@ export const Atomic_mass_units_to_kgInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Atomic_mass_units_to_kgInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.amu * 1.66053906660e-27; results["kg"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kg"] = 0; }
-  try { const v = input.amu * 1.66053906660e-27; results["kg_copy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kg_copy"] = 0; }
+  try { const v = input.amu * 1.66053906660e-27; results["kg"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kg"] = Number.NaN; }
+  try { const v = input.amu * 1.66053906660e-27; results["kg_copy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kg_copy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAtomic_mass_units_to_kg(input: Atomic_mass_units_to_kgInput): Atomic_mass_units_to_kgOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["kg"]));
+  const totalWasteCost = toNumericFormulaValue(values["kg"]);
   const breakdown = {
     
   };
@@ -40,7 +36,7 @@ export function calculateAtomic_mass_units_to_kg(input: Atomic_mass_units_to_kgI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

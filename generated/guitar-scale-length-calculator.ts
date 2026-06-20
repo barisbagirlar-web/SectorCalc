@@ -18,25 +18,21 @@ export const Guitar_scale_length_calculatorInputSchema = z.object({
   tuningFrequency: z.number().default(329.63),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Guitar_scale_length_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.scaleLength) * (input.numberOfFrets) * (input.fretNumber) * (input.stringGauge) * (input.tuningFrequency); results["scaleLengthInches"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleLengthInches"] = 0; }
-  try { const v = (input.scaleLength) * (input.numberOfFrets) * (input.fretNumber); results["scaleLengthInches_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scaleLengthInches_aux"] = 0; }
+  try { const v = (input.scaleLength) * (input.numberOfFrets) * (input.fretNumber) * (input.stringGauge) * (input.tuningFrequency); results["scaleLengthInches"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaleLengthInches"] = Number.NaN; }
+  try { const v = (input.scaleLength) * (input.numberOfFrets) * (input.fretNumber); results["scaleLengthInches_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scaleLengthInches_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGuitar_scale_length_calculator(input: Guitar_scale_length_calculatorInput): Guitar_scale_length_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["scaleLengthInches_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["scaleLengthInches_aux"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateGuitar_scale_length_calculator(input: Guitar_scale_leng
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

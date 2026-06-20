@@ -16,28 +16,24 @@ export const Bayes_theorem_calculatorInputSchema = z.object({
   testResult: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bayes_theorem_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 - input.specificity; results["falsePositiveRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["falsePositiveRate"] = 0; }
-  try { const v = 1 - input.sensitivity; results["falseNegativeRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["falseNegativeRate"] = 0; }
-  try { const v = input.testResult == 1 ? input.sensitivity * input.prior : (asFormulaNumber(results["falseNegativeRate"])) * input.prior; results["numerator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["numerator"] = 0; }
-  try { const v = input.testResult == 1 ? (input.sensitivity * input.prior + (asFormulaNumber(results["falsePositiveRate"])) * (1 - input.prior)) : ((asFormulaNumber(results["falseNegativeRate"])) * input.prior + input.specificity * (1 - input.prior)); results["denominator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["denominator"] = 0; }
-  try { const v = input.testResult == 1 ? (input.sensitivity * input.prior) / (input.sensitivity * input.prior + (asFormulaNumber(results["falsePositiveRate"])) * (1 - input.prior)) : ((asFormulaNumber(results["falseNegativeRate"])) * input.prior) / ((asFormulaNumber(results["falseNegativeRate"])) * input.prior + input.specificity * (1 - input.prior)); results["posterior"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["posterior"] = 0; }
+  try { const v = 1 - input.specificity; results["falsePositiveRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["falsePositiveRate"] = Number.NaN; }
+  try { const v = 1 - input.sensitivity; results["falseNegativeRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["falseNegativeRate"] = Number.NaN; }
+  try { const v = input.testResult == 1 ? input.sensitivity * input.prior : (toNumericFormulaValue(results["falseNegativeRate"])) * input.prior; results["numerator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["numerator"] = Number.NaN; }
+  try { const v = input.testResult == 1 ? (input.sensitivity * input.prior + (toNumericFormulaValue(results["falsePositiveRate"])) * (1 - input.prior)) : ((toNumericFormulaValue(results["falseNegativeRate"])) * input.prior + input.specificity * (1 - input.prior)); results["denominator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["denominator"] = Number.NaN; }
+  try { const v = input.testResult == 1 ? (input.sensitivity * input.prior) / (input.sensitivity * input.prior + (toNumericFormulaValue(results["falsePositiveRate"])) * (1 - input.prior)) : ((toNumericFormulaValue(results["falseNegativeRate"])) * input.prior) / ((toNumericFormulaValue(results["falseNegativeRate"])) * input.prior + input.specificity * (1 - input.prior)); results["posterior"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["posterior"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBayes_theorem_calculator(input: Bayes_theorem_calculatorInput): Bayes_theorem_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["posterior"]));
+  const totalWasteCost = toNumericFormulaValue(values["posterior"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateBayes_theorem_calculator(input: Bayes_theorem_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

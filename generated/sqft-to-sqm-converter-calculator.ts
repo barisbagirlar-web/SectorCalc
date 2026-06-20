@@ -16,25 +16,21 @@ export const Sqft_to_sqm_converter_calculatorInputSchema = z.object({
   include_tolerance: z.boolean().default(false),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sqft_to_sqm_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.area_sqft) * (input.measurement_accuracy) * (input.rounding_precision); results["area_sqm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_sqm"] = 0; }
-  try { const v = (input.area_sqft) * (input.measurement_accuracy) * (input.rounding_precision); results["area_sqm_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area_sqm_aux"] = 0; }
+  try { const v = (input.area_sqft) * (input.measurement_accuracy) * (input.rounding_precision); results["area_sqm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["area_sqm"] = Number.NaN; }
+  try { const v = (input.area_sqft) * (input.measurement_accuracy) * (input.rounding_precision); results["area_sqm_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["area_sqm_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSqft_to_sqm_converter_calculator(input: Sqft_to_sqm_converter_calculatorInput): Sqft_to_sqm_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["area_sqm_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["area_sqm_aux"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSqft_to_sqm_converter_calculator(input: Sqft_to_sqm_con
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -24,28 +24,24 @@ export const Scrap_rate_optimizer_calculatorInputSchema = z.object({
   defect_type: z.enum(['dimensional', 'surface', 'material', 'assembly', 'functional', 'cosmetic']).default('dimensional'),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Scrap_rate_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.total_units_produced * input.material_cost_per_unit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.total_units_produced * input.material_cost_per_unit; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.total_units_produced * input.material_cost_per_unit * 1 * (input.defective_units * input.rework_units); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.defective_units; results["factor_defective_units"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_defective_units"] = 0; }
-  try { const v = input.rework_units; results["factor_rework_units"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_rework_units"] = 0; }
+  try { const v = input.total_units_produced * input.material_cost_per_unit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.total_units_produced * input.material_cost_per_unit; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.total_units_produced * input.material_cost_per_unit * 1 * (input.defective_units * input.rework_units); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.defective_units; results["factor_defective_units"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_defective_units"] = Number.NaN; }
+  try { const v = input.rework_units; results["factor_rework_units"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_rework_units"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateScrap_rate_optimizer_calculator(input: Scrap_rate_optimizer_calculatorInput): Scrap_rate_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateScrap_rate_optimizer_calculator(input: Scrap_rate_optim
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Date_difference_calculatorInputSchema = z.object({
   endDay: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Date_difference_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.endYear * 365 + input.endMonth * 30 + input.endDay - (input.startYear * 365 + input.startMonth * 30 + input.startDay); results["diffDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["diffDays"] = 0; }
-  try { const v = (input.endYear * 365 + input.endMonth * 30 + input.endDay - (input.startYear * 365 + input.startMonth * 30 + input.startDay)) / 365; results["diffYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["diffYears"] = 0; }
-  try { const v = (input.endYear * 365 + input.endMonth * 30 + input.endDay - (input.startYear * 365 + input.startMonth * 30 + input.startDay)) / 30; results["diffMonths"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["diffMonths"] = 0; }
+  try { const v = input.endYear * 365 + input.endMonth * 30 + input.endDay - (input.startYear * 365 + input.startMonth * 30 + input.startDay); results["diffDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["diffDays"] = Number.NaN; }
+  try { const v = (input.endYear * 365 + input.endMonth * 30 + input.endDay - (input.startYear * 365 + input.startMonth * 30 + input.startDay)) / 365; results["diffYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["diffYears"] = Number.NaN; }
+  try { const v = (input.endYear * 365 + input.endMonth * 30 + input.endDay - (input.startYear * 365 + input.startMonth * 30 + input.startDay)) / 30; results["diffMonths"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["diffMonths"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDate_difference_calculator(input: Date_difference_calculatorInput): Date_difference_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["diffDays"]));
+  const totalWasteCost = toNumericFormulaValue(values["diffDays"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateDate_difference_calculator(input: Date_difference_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

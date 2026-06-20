@@ -16,25 +16,21 @@ export const I_bond_calculatorInputSchema = z.object({
   years: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: I_bond_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.fixedRate/100) + 2*(input.inflationRate/100) + (input.fixedRate/100)*(input.inflationRate/100); results["compositeRateDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["compositeRateDecimal"] = 0; }
-  try { const v = (asFormulaNumber(results["compositeRateDecimal"])) * 100; results["compositeRatePercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["compositeRatePercent"] = 0; }
+  try { const v = (input.fixedRate/100) + 2*(input.inflationRate/100) + (input.fixedRate/100)*(input.inflationRate/100); results["compositeRateDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["compositeRateDecimal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["compositeRateDecimal"])) * 100; results["compositeRatePercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["compositeRatePercent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateI_bond_calculator(input: I_bond_calculatorInput): I_bond_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["compositeRatePercent"]));
+  const totalWasteCost = toNumericFormulaValue(values["compositeRatePercent"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateI_bond_calculator(input: I_bond_calculatorInput): I_bon
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

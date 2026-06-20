@@ -20,26 +20,22 @@ export const Slump_test_calculatorInputSchema = z.object({
   specMax: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Slump_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.topDiameter / 2; results["topRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["topRadius"] = 0; }
-  try { const v = input.bottomDiameter / 2; results["bottomRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bottomRadius"] = 0; }
-  try { const v = input.moldHeight - input.measuredHeight; results["slump"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["slump"] = 0; }
+  try { const v = input.topDiameter / 2; results["topRadius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["topRadius"] = Number.NaN; }
+  try { const v = input.bottomDiameter / 2; results["bottomRadius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bottomRadius"] = Number.NaN; }
+  try { const v = input.moldHeight - input.measuredHeight; results["slump"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["slump"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSlump_test_calculator(input: Slump_test_calculatorInput): Slump_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["slump"]));
+  const totalWasteCost = toNumericFormulaValue(values["slump"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateSlump_test_calculator(input: Slump_test_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

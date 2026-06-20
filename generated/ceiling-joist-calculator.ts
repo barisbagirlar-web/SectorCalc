@@ -20,27 +20,23 @@ export const Ceiling_joist_calculatorInputSchema = z.object({
   iValue: z.number().default(47.6),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ceiling_joist_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.liveLoad + input.deadLoad; results["totalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLoad"] = 0; }
-  try { const v = (input.liveLoad + input.deadLoad) * input.spacing / 144; results["uniformLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uniformLoad"] = 0; }
-  try { const v = input.span * 12 / 240; results["allowableDeflection"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allowableDeflection"] = 0; }
-  try { const v = (5 * (asFormulaNumber(results["uniformLoad"])) * (input.span * 12)**4) / (384 * input.eModulus * input.iValue); results["actualDeflection"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["actualDeflection"] = 0; }
+  try { const v = input.liveLoad + input.deadLoad; results["totalLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLoad"] = Number.NaN; }
+  try { const v = (input.liveLoad + input.deadLoad) * input.spacing / 144; results["uniformLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["uniformLoad"] = Number.NaN; }
+  try { const v = input.span * 12 / 240; results["allowableDeflection"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allowableDeflection"] = Number.NaN; }
+  try { const v = (5 * (toNumericFormulaValue(results["uniformLoad"])) * (input.span * 12)**4) / (384 * input.eModulus * input.iValue); results["actualDeflection"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["actualDeflection"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCeiling_joist_calculator(input: Ceiling_joist_calculatorInput): Ceiling_joist_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["allowableDeflection"]));
+  const totalWasteCost = toNumericFormulaValue(values["allowableDeflection"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateCeiling_joist_calculator(input: Ceiling_joist_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

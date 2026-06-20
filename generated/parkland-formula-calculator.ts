@@ -18,26 +18,22 @@ export const Parkland_formula_calculatorInputSchema = z.object({
   second_half_hours: z.number().default(16),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Parkland_formula_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight_kg * input.tbsa_percent * input.fluid_factor; results["total_volume_24h"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_volume_24h"] = 0; }
-  try { const v = (asFormulaNumber(results["total_volume_24h"])) * input.first_half_hours / (input.first_half_hours + input.second_half_hours); results["volume_first_half"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume_first_half"] = 0; }
-  try { const v = (asFormulaNumber(results["total_volume_24h"])) * input.second_half_hours / (input.first_half_hours + input.second_half_hours); results["volume_second_half"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume_second_half"] = 0; }
+  try { const v = input.weight_kg * input.tbsa_percent * input.fluid_factor; results["total_volume_24h"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_volume_24h"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_volume_24h"])) * input.first_half_hours / (input.first_half_hours + input.second_half_hours); results["volume_first_half"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume_first_half"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_volume_24h"])) * input.second_half_hours / (input.first_half_hours + input.second_half_hours); results["volume_second_half"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume_second_half"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateParkland_formula_calculator(input: Parkland_formula_calculatorInput): Parkland_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_volume_24h"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_volume_24h"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateParkland_formula_calculator(input: Parkland_formula_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

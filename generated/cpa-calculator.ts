@@ -18,25 +18,21 @@ export const Cpa_calculatorInputSchema = z.object({
   acquiredCustomers: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cpa_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.marketingCost + input.salesCost + input.overheadCost + input.otherCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.acquiredCustomers === 0 ? 0 : ((asFormulaNumber(results["totalCost"])) / input.acquiredCustomers); results["cpa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cpa"] = 0; }
+  try { const v = input.marketingCost + input.salesCost + input.overheadCost + input.otherCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = input.acquiredCustomers === 0 ? 0 : ((toNumericFormulaValue(results["totalCost"])) / input.acquiredCustomers); results["cpa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cpa"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCpa_calculator(input: Cpa_calculatorInput): Cpa_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cpa"]));
+  const totalWasteCost = toNumericFormulaValue(values["cpa"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateCpa_calculator(input: Cpa_calculatorInput): Cpa_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

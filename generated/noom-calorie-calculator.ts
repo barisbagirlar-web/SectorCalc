@@ -20,27 +20,23 @@ export const Noom_calorie_calculatorInputSchema = z.object({
   deficitPercent: z.number().default(15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Noom_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sex ? (10 * input.weight + 6.25 * input.height - 5 * input.age + 5) : (10 * input.weight + 6.25 * input.height - 5 * input.age - 161); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (asFormulaNumber(results["bmr"])) * input.activityFactor; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (asFormulaNumber(results["tdee"])) * (input.deficitPercent / 100); results["deficit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deficit"] = 0; }
-  try { const v = (asFormulaNumber(results["tdee"])) - (asFormulaNumber(results["deficit"])); results["dailyCalorieBudget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyCalorieBudget"] = 0; }
+  try { const v = input.sex ? (10 * input.weight + 6.25 * input.height - 5 * input.age + 5) : (10 * input.weight + 6.25 * input.height - 5 * input.age - 161); results["bmr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bmr"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bmr"])) * input.activityFactor; results["tdee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tdee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["tdee"])) * (input.deficitPercent / 100); results["deficit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deficit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["tdee"])) - (toNumericFormulaValue(results["deficit"])); results["dailyCalorieBudget"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyCalorieBudget"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNoom_calorie_calculator(input: Noom_calorie_calculatorInput): Noom_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dailyCalorieBudget"]));
+  const totalWasteCost = toNumericFormulaValue(values["dailyCalorieBudget"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateNoom_calorie_calculator(input: Noom_calorie_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

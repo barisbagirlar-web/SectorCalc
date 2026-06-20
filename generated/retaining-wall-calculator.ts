@@ -22,29 +22,25 @@ export const Retaining_wall_calculatorInputSchema = z.object({
   frictionAngle: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Retaining_wall_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wallHeight * input.wallThickness * input.concreteDensity; results["W1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["W1"] = 0; }
-  try { const v = input.baseWidth * input.baseThickness * input.concreteDensity; results["W2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["W2"] = 0; }
-  try { const v = input.baseWidth - input.wallThickness; results["heel_length"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["heel_length"] = 0; }
-  try { const v = input.soilDensity * input.wallHeight * (asFormulaNumber(results["heel_length"])); results["W3"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["W3"] = 0; }
-  try { const v = (asFormulaNumber(results["W1"])) + (asFormulaNumber(results["W2"])) + (asFormulaNumber(results["W3"])); results["R"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["R"] = 0; }
-  try { const v = (asFormulaNumber(results["W1"])) * (input.wallThickness / 2) + (asFormulaNumber(results["W2"])) * (input.baseWidth / 2) + (asFormulaNumber(results["W3"])) * ((input.baseWidth + input.wallThickness) / 2); results["Mr"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Mr"] = 0; }
+  try { const v = input.wallHeight * input.wallThickness * input.concreteDensity; results["W1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["W1"] = Number.NaN; }
+  try { const v = input.baseWidth * input.baseThickness * input.concreteDensity; results["W2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["W2"] = Number.NaN; }
+  try { const v = input.baseWidth - input.wallThickness; results["heel_length"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["heel_length"] = Number.NaN; }
+  try { const v = input.soilDensity * input.wallHeight * (toNumericFormulaValue(results["heel_length"])); results["W3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["W3"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["W1"])) + (toNumericFormulaValue(results["W2"])) + (toNumericFormulaValue(results["W3"])); results["R"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["R"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["W1"])) * (input.wallThickness / 2) + (toNumericFormulaValue(results["W2"])) * (input.baseWidth / 2) + (toNumericFormulaValue(results["W3"])) * ((input.baseWidth + input.wallThickness) / 2); results["Mr"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Mr"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRetaining_wall_calculator(input: Retaining_wall_calculatorInput): Retaining_wall_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Mr"]));
+  const totalWasteCost = toNumericFormulaValue(values["Mr"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateRetaining_wall_calculator(input: Retaining_wall_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

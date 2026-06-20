@@ -16,26 +16,22 @@ export const Weight_loss_goal_calculatorInputSchema = z.object({
   caloriePerKg: z.number().default(7700),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weight_loss_goal_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.currentWeight - input.targetWeight) * input.caloriePerKg; results["totalDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDeficit"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDeficit"])) / input.dailyDeficit; results["daysToTarget"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["daysToTarget"] = 0; }
-  try { const v = (input.dailyDeficit * 7) / input.caloriePerKg; results["weeklyLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weeklyLoss"] = 0; }
+  try { const v = (input.currentWeight - input.targetWeight) * input.caloriePerKg; results["totalDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDeficit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDeficit"])) / input.dailyDeficit; results["daysToTarget"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["daysToTarget"] = Number.NaN; }
+  try { const v = (input.dailyDeficit * 7) / input.caloriePerKg; results["weeklyLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weeklyLoss"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeight_loss_goal_calculator(input: Weight_loss_goal_calculatorInput): Weight_loss_goal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDeficit"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDeficit"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateWeight_loss_goal_calculator(input: Weight_loss_goal_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

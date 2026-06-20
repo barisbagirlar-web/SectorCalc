@@ -18,26 +18,22 @@ export const Thrust_to_weight_ratio_calculatorInputSchema = z.object({
   gravity: z.number().default(9.81),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Thrust_to_weight_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.emptyMass + input.fuelMass + input.payloadMass; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMass"] = 0; }
-  try { const v = (asFormulaNumber(results["totalMass"])) * input.gravity; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
-  try { const v = input.thrust / (asFormulaNumber(results["weight"])); results["thrustToWeightRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thrustToWeightRatio"] = 0; }
+  try { const v = input.emptyMass + input.fuelMass + input.payloadMass; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMass"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalMass"])) * input.gravity; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight"] = Number.NaN; }
+  try { const v = input.thrust / (toNumericFormulaValue(results["weight"])); results["thrustToWeightRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["thrustToWeightRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateThrust_to_weight_ratio_calculator(input: Thrust_to_weight_ratio_calculatorInput): Thrust_to_weight_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["thrustToWeightRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["thrustToWeightRatio"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateThrust_to_weight_ratio_calculator(input: Thrust_to_weig
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

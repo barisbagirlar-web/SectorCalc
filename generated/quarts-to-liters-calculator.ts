@@ -16,28 +16,24 @@ export const Quarts_to_liters_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Quarts_to_liters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.quartsPerContainer * input.numberOfContainers; results["totalQuarts"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalQuarts"] = 0; }
-  try { const v = input.quartType === 0 ? 0.946352946 : 1.1365225; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["totalQuarts"])) * (asFormulaNumber(results["conversionFactor"])); results["baseLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseLiters"] = 0; }
-  try { const v = (asFormulaNumber(results["baseLiters"])) * input.wasteFactor / 100; results["wasteLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteLiters"] = 0; }
-  try { const v = (asFormulaNumber(results["baseLiters"])) + (asFormulaNumber(results["wasteLiters"])); results["totalLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalLiters"] = 0; }
+  try { const v = input.quartsPerContainer * input.numberOfContainers; results["totalQuarts"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalQuarts"] = Number.NaN; }
+  try { const v = input.quartType === 0 ? 0.946352946 : 1.1365225; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalQuarts"])) * (toNumericFormulaValue(results["conversionFactor"])); results["baseLiters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseLiters"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseLiters"])) * input.wasteFactor / 100; results["wasteLiters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteLiters"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseLiters"])) + (toNumericFormulaValue(results["wasteLiters"])); results["totalLiters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalLiters"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateQuarts_to_liters_calculator(input: Quarts_to_liters_calculatorInput): Quarts_to_liters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalLiters"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalLiters"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateQuarts_to_liters_calculator(input: Quarts_to_liters_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Fcff_calculatorInputSchema = z.object({
   changeInWorkingCapital: z.number().default(50000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fcff_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.revenue - input.operatingExpenses; results["ebit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ebit"] = 0; }
-  try { const v = (asFormulaNumber(results["ebit"])) * (1 - input.taxRate); results["nopat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nopat"] = 0; }
-  try { const v = (asFormulaNumber(results["nopat"])) + input.depreciation - input.capitalExpenditures - input.changeInWorkingCapital; results["fcff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fcff"] = 0; }
+  try { const v = input.revenue - input.operatingExpenses; results["ebit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ebit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ebit"])) * (1 - input.taxRate); results["nopat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nopat"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["nopat"])) + input.depreciation - input.capitalExpenditures - input.changeInWorkingCapital; results["fcff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fcff"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFcff_calculator(input: Fcff_calculatorInput): Fcff_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fcff"]));
+  const totalWasteCost = toNumericFormulaValue(values["fcff"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateFcff_calculator(input: Fcff_calculatorInput): Fcff_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

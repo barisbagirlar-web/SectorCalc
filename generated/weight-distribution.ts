@@ -16,27 +16,23 @@ export const Weight_distributionInputSchema = z.object({
   wheelbase: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weight_distributionInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalWeight * (input.rearAxleDist / input.wheelbase); results["frontAxleLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["frontAxleLoad"] = 0; }
-  try { const v = input.totalWeight * (input.frontAxleDist / input.wheelbase); results["rearAxleLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rearAxleLoad"] = 0; }
-  try { const v = ((asFormulaNumber(results["frontAxleLoad"])) / input.totalWeight) * 100; results["frontAxlePercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["frontAxlePercent"] = 0; }
-  try { const v = ((asFormulaNumber(results["rearAxleLoad"])) / input.totalWeight) * 100; results["rearAxlePercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rearAxlePercent"] = 0; }
+  try { const v = input.totalWeight * (input.rearAxleDist / input.wheelbase); results["frontAxleLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["frontAxleLoad"] = Number.NaN; }
+  try { const v = input.totalWeight * (input.frontAxleDist / input.wheelbase); results["rearAxleLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rearAxleLoad"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["frontAxleLoad"])) / input.totalWeight) * 100; results["frontAxlePercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["frontAxlePercent"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["rearAxleLoad"])) / input.totalWeight) * 100; results["rearAxlePercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rearAxlePercent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeight_distribution(input: Weight_distributionInput): Weight_distributionOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["frontAxleLoad"]));
+  const totalWasteCost = toNumericFormulaValue(values["frontAxleLoad"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateWeight_distribution(input: Weight_distributionInput): W
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

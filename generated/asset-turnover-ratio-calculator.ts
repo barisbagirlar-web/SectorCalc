@@ -16,26 +16,22 @@ export const Asset_turnover_ratio_calculatorInputSchema = z.object({
   industryAverage: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Asset_turnover_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.totalAssetsBeginning + input.totalAssetsEnding) / 2; results["averageTotalAssets"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageTotalAssets"] = 0; }
-  try { const v = input.netSales / ((input.totalAssetsBeginning + input.totalAssetsEnding) / 2); results["assetTurnoverRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["assetTurnoverRatio"] = 0; }
-  try { const v = input.netSales; results["netSales"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netSales"] = 0; }
+  try { const v = (input.totalAssetsBeginning + input.totalAssetsEnding) / 2; results["averageTotalAssets"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageTotalAssets"] = Number.NaN; }
+  try { const v = input.netSales / ((input.totalAssetsBeginning + input.totalAssetsEnding) / 2); results["assetTurnoverRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["assetTurnoverRatio"] = Number.NaN; }
+  try { const v = input.netSales; results["netSales"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netSales"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAsset_turnover_ratio_calculator(input: Asset_turnover_ratio_calculatorInput): Asset_turnover_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["assetTurnoverRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["assetTurnoverRatio"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateAsset_turnover_ratio_calculator(input: Asset_turnover_r
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

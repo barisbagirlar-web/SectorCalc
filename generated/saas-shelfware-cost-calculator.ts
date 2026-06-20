@@ -22,27 +22,23 @@ export const Saas_shelfware_cost_calculatorInputSchema = z.object({
   utilization_threshold: z.number().min(0).max(100).default(80),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Saas_shelfware_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.total_licenses * input.license_cost_per_month; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.total_licenses * input.license_cost_per_month * (1 + (input.utilization_threshold / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.total_licenses * input.license_cost_per_month * (1 + (input.utilization_threshold / 100)) * (input.active_users); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.active_users; results["factor_active_users"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_active_users"] = 0; }
+  try { const v = input.total_licenses * input.license_cost_per_month; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.total_licenses * input.license_cost_per_month * (1 + (input.utilization_threshold / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.total_licenses * input.license_cost_per_month * (1 + (input.utilization_threshold / 100)) * (input.active_users); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.active_users; results["factor_active_users"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_active_users"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSaas_shelfware_cost_calculator(input: Saas_shelfware_cost_calculatorInput): Saas_shelfware_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateSaas_shelfware_cost_calculator(input: Saas_shelfware_co
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

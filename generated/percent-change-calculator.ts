@@ -16,25 +16,21 @@ export const Percent_change_calculatorInputSchema = z.object({
   multiplier: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Percent_change_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.finalValue - input.initialValue; results["absoluteChange"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["absoluteChange"] = 0; }
-  try { const v = (input.finalValue - input.initialValue) / input.initialValue; results["relativeChange"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["relativeChange"] = 0; }
+  try { const v = input.finalValue - input.initialValue; results["absoluteChange"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["absoluteChange"] = Number.NaN; }
+  try { const v = (input.finalValue - input.initialValue) / input.initialValue; results["relativeChange"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["relativeChange"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePercent_change_calculator(input: Percent_change_calculatorInput): Percent_change_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["relativeChange"]));
+  const totalWasteCost = toNumericFormulaValue(values["relativeChange"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculatePercent_change_calculator(input: Percent_change_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

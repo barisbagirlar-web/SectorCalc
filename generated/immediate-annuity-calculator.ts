@@ -16,25 +16,21 @@ export const Immediate_annuity_calculatorInputSchema = z.object({
   years: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Immediate_annuity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annualInterestRate / 100 / input.paymentPeriodsPerYear; results["periodRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["periodRate"] = 0; }
-  try { const v = input.years * input.paymentPeriodsPerYear; results["totalPeriods"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPeriods"] = 0; }
+  try { const v = input.annualInterestRate / 100 / input.paymentPeriodsPerYear; results["periodRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["periodRate"] = Number.NaN; }
+  try { const v = input.years * input.paymentPeriodsPerYear; results["totalPeriods"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPeriods"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateImmediate_annuity_calculator(input: Immediate_annuity_calculatorInput): Immediate_annuity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPeriods"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPeriods"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateImmediate_annuity_calculator(input: Immediate_annuity_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

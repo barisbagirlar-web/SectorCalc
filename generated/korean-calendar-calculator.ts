@@ -20,26 +20,22 @@ export const Korean_calendar_calculatorInputSchema = z.object({
   currentDay: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Korean_calendar_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentYear - input.birthYear + 1; results["koreanAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["koreanAge"] = 0; }
-  try { const v = (input.currentYear - input.birthYear) - ( (input.currentMonth < input.birthMonth || (input.currentMonth == input.birthMonth && input.currentDay < input.birthDay)) ? 1 : 0 ); results["internationalAge"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["internationalAge"] = 0; }
-  try { const v = input.currentYear + 2333; results["dangiYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dangiYear"] = 0; }
+  try { const v = input.currentYear - input.birthYear + 1; results["koreanAge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["koreanAge"] = Number.NaN; }
+  try { const v = (input.currentYear - input.birthYear) - ( (input.currentMonth < input.birthMonth || (input.currentMonth == input.birthMonth && input.currentDay < input.birthDay)) ? 1 : 0 ); results["internationalAge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["internationalAge"] = Number.NaN; }
+  try { const v = input.currentYear + 2333; results["dangiYear"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dangiYear"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateKorean_calendar_calculator(input: Korean_calendar_calculatorInput): Korean_calendar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["koreanAge"]));
+  const totalWasteCost = toNumericFormulaValue(values["koreanAge"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateKorean_calendar_calculator(input: Korean_calendar_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

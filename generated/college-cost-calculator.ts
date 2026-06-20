@@ -20,28 +20,24 @@ export const College_cost_calculatorInputSchema = z.object({
   scholarship: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: College_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.tuition + input.living + input.books; results["grossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossTotal"] = 0; }
-  try { const v = (asFormulaNumber(results["grossTotal"])) * input.years; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.scholarship * input.years; results["totalScholarship"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalScholarship"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) - (asFormulaNumber(results["totalScholarship"])); results["netCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) * (1 + input.inflation/100); results["inflatedCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inflatedCost"] = 0; }
+  try { const v = input.tuition + input.living + input.books; results["grossTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossTotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossTotal"])) * input.years; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = input.scholarship * input.years; results["totalScholarship"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalScholarship"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) - (toNumericFormulaValue(results["totalScholarship"])); results["netCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) * (1 + input.inflation/100); results["inflatedCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inflatedCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCollege_cost_calculator(input: College_cost_calculatorInput): College_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["netCost"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateCollege_cost_calculator(input: College_cost_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

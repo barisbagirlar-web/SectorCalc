@@ -20,26 +20,22 @@ export const Mla_citation_generator_calculatorInputSchema = z.object({
   bibliographyEntries: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mla_citation_generator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.pages * input.inTextFrequency; results["totalInText"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInText"] = 0; }
-  try { const v = input.bibliographyEntries * (1 + input.authorsPerCitation * 0.1); results["totalBibliographyWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBibliographyWeight"] = 0; }
-  try { const v = input.wordCount / (input.pages * input.sourcesPerPage + 1); results["wordsPerCitation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wordsPerCitation"] = 0; }
+  try { const v = input.pages * input.inTextFrequency; results["totalInText"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInText"] = Number.NaN; }
+  try { const v = input.bibliographyEntries * (1 + input.authorsPerCitation * 0.1); results["totalBibliographyWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBibliographyWeight"] = Number.NaN; }
+  try { const v = input.wordCount / (input.pages * input.sourcesPerPage + 1); results["wordsPerCitation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wordsPerCitation"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMla_citation_generator_calculator(input: Mla_citation_generator_calculatorInput): Mla_citation_generator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalInText"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalInText"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateMla_citation_generator_calculator(input: Mla_citation_g
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

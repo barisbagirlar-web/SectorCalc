@@ -18,28 +18,24 @@ export const Nap_calculatorInputSchema = z.object({
   maxNapMinutes: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Nap_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.wakeUpTimeHours - input.currentTimeHours) * 60; results["availableMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["availableMinutes"] = 0; }
-  try { const v = ((asFormulaNumber(results["availableMinutes"])) >= input.sleepCycleMinutes) ? input.sleepCycleMinutes : (((asFormulaNumber(results["availableMinutes"])) >= input.minNapMinutes) ? input.minNapMinutes : 0); results["recommendedNapMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recommendedNapMinutes"] = 0; }
-  try { const v = input.currentTimeHours + input.sleepCycleMinutes/60; results["cycleNapWakeTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cycleNapWakeTime"] = 0; }
-  try { const v = input.currentTimeHours + input.minNapMinutes/60; results["shortNapWakeTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["shortNapWakeTime"] = 0; }
-  try { const v = input.currentTimeHours + input.maxNapMinutes/60; results["maxNapWakeTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxNapWakeTime"] = 0; }
+  try { const v = (input.wakeUpTimeHours - input.currentTimeHours) * 60; results["availableMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["availableMinutes"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["availableMinutes"])) >= input.sleepCycleMinutes) ? input.sleepCycleMinutes : (((toNumericFormulaValue(results["availableMinutes"])) >= input.minNapMinutes) ? input.minNapMinutes : 0); results["recommendedNapMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recommendedNapMinutes"] = Number.NaN; }
+  try { const v = input.currentTimeHours + input.sleepCycleMinutes/60; results["cycleNapWakeTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cycleNapWakeTime"] = Number.NaN; }
+  try { const v = input.currentTimeHours + input.minNapMinutes/60; results["shortNapWakeTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["shortNapWakeTime"] = Number.NaN; }
+  try { const v = input.currentTimeHours + input.maxNapMinutes/60; results["maxNapWakeTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxNapWakeTime"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNap_calculator(input: Nap_calculatorInput): Nap_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["availableMinutes"]));
+  const totalWasteCost = toNumericFormulaValue(values["availableMinutes"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateNap_calculator(input: Nap_calculatorInput): Nap_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

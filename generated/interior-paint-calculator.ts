@@ -24,31 +24,27 @@ export const Interior_paint_calculatorInputSchema = z.object({
   ceilingIncluded: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Interior_paint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * (input.length + input.width); results["wallPerimeter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallPerimeter"] = 0; }
-  try { const v = (asFormulaNumber(results["wallPerimeter"])) * input.height; results["wallArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallArea"] = 0; }
-  try { const v = input.numberDoors * 2; results["doorDeduction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["doorDeduction"] = 0; }
-  try { const v = input.numberWindows * 1.5; results["windowDeduction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["windowDeduction"] = 0; }
-  try { const v = (asFormulaNumber(results["doorDeduction"])) + (asFormulaNumber(results["windowDeduction"])); results["deductionArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deductionArea"] = 0; }
-  try { const v = input.ceilingIncluded * input.length * input.width; results["ceilingArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ceilingArea"] = 0; }
-  try { const v = (asFormulaNumber(results["wallArea"])) - (asFormulaNumber(results["deductionArea"])) + (asFormulaNumber(results["ceilingArea"])); results["totalPaintableArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPaintableArea"] = 0; }
-  try { const v = ((asFormulaNumber(results["totalPaintableArea"])) * input.coats) / input.paintCoverage; results["paintLiters"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["paintLiters"] = 0; }
+  try { const v = 2 * (input.length + input.width); results["wallPerimeter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wallPerimeter"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wallPerimeter"])) * input.height; results["wallArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wallArea"] = Number.NaN; }
+  try { const v = input.numberDoors * 2; results["doorDeduction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["doorDeduction"] = Number.NaN; }
+  try { const v = input.numberWindows * 1.5; results["windowDeduction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["windowDeduction"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["doorDeduction"])) + (toNumericFormulaValue(results["windowDeduction"])); results["deductionArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deductionArea"] = Number.NaN; }
+  try { const v = input.ceilingIncluded * input.length * input.width; results["ceilingArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ceilingArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wallArea"])) - (toNumericFormulaValue(results["deductionArea"])) + (toNumericFormulaValue(results["ceilingArea"])); results["totalPaintableArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPaintableArea"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["totalPaintableArea"])) * input.coats) / input.paintCoverage; results["paintLiters"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paintLiters"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInterior_paint_calculator(input: Interior_paint_calculatorInput): Interior_paint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["paintLiters"]));
+  const totalWasteCost = toNumericFormulaValue(values["paintLiters"]);
   const breakdown = {
     
   };
@@ -56,7 +52,7 @@ export function calculateInterior_paint_calculator(input: Interior_paint_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

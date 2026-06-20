@@ -18,26 +18,22 @@ export const Electrolyte_calculatorInputSchema = z.object({
   hydrationNumber: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Electrolyte_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.molecularWeight + input.hydrationNumber * 18.015; results["effectiveMolecularWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveMolecularWeight"] = 0; }
-  try { const v = input.desiredMolarity * input.solutionVolume * (asFormulaNumber(results["effectiveMolecularWeight"])); results["pureMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pureMass"] = 0; }
-  try { const v = (asFormulaNumber(results["pureMass"])) / (input.solutePurity / 100); results["rawMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawMass"] = 0; }
+  try { const v = input.molecularWeight + input.hydrationNumber * 18.015; results["effectiveMolecularWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveMolecularWeight"] = Number.NaN; }
+  try { const v = input.desiredMolarity * input.solutionVolume * (toNumericFormulaValue(results["effectiveMolecularWeight"])); results["pureMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pureMass"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pureMass"])) / (input.solutePurity / 100); results["rawMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawMass"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateElectrolyte_calculator(input: Electrolyte_calculatorInput): Electrolyte_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["rawMass"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateElectrolyte_calculator(input: Electrolyte_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

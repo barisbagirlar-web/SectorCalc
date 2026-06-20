@@ -20,27 +20,23 @@ export const Forklift_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Forklift_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.standardLoadCenter / input.actualLoadCenter; results["loadCenterDeratingFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loadCenterDeratingFactor"] = 0; }
-  try { const v = input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter); results["capacityAtLoadCenter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capacityAtLoadCenter"] = 0; }
-  try { const v = (input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter)) * ((input.liftHeight > 0.8 * input.maxLiftHeight) ? (1 - ((input.liftHeight - 0.8 * input.maxLiftHeight) / (0.2 * input.maxLiftHeight)) * 0.3) : 1); results["capacityAtLiftHeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capacityAtLiftHeight"] = 0; }
-  try { const v = ((input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter)) * ((input.liftHeight > 0.8 * input.maxLiftHeight) ? (1 - ((input.liftHeight - 0.8 * input.maxLiftHeight) / (0.2 * input.maxLiftHeight)) * 0.3) : 1)) / input.safetyFactor; results["finalSafeLoad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalSafeLoad"] = 0; }
+  try { const v = input.standardLoadCenter / input.actualLoadCenter; results["loadCenterDeratingFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loadCenterDeratingFactor"] = Number.NaN; }
+  try { const v = input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter); results["capacityAtLoadCenter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["capacityAtLoadCenter"] = Number.NaN; }
+  try { const v = (input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter)) * ((input.liftHeight > 0.8 * input.maxLiftHeight) ? (1 - ((input.liftHeight - 0.8 * input.maxLiftHeight) / (0.2 * input.maxLiftHeight)) * 0.3) : 1); results["capacityAtLiftHeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["capacityAtLiftHeight"] = Number.NaN; }
+  try { const v = ((input.ratedCapacity * (input.standardLoadCenter / input.actualLoadCenter)) * ((input.liftHeight > 0.8 * input.maxLiftHeight) ? (1 - ((input.liftHeight - 0.8 * input.maxLiftHeight) / (0.2 * input.maxLiftHeight)) * 0.3) : 1)) / input.safetyFactor; results["finalSafeLoad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalSafeLoad"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateForklift_calculator(input: Forklift_calculatorInput): Forklift_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalSafeLoad"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalSafeLoad"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateForklift_calculator(input: Forklift_calculatorInput): F
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

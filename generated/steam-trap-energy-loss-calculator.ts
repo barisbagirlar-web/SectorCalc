@@ -22,28 +22,24 @@ export const Steam_trap_energy_loss_calculatorInputSchema = z.object({
   condensate_recovery: z.boolean().default(true),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Steam_trap_energy_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.steam_pressure * input.steam_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.steam_pressure * input.steam_cost; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.steam_pressure * input.steam_cost * 1 * (input.orifice_diameter * input.operating_hours_per_year); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.orifice_diameter; results["factor_orifice_diameter"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_orifice_diameter"] = 0; }
-  try { const v = input.operating_hours_per_year; results["factor_operating_hours_per_year"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_operating_hours_per_year"] = 0; }
+  try { const v = input.steam_pressure * input.steam_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.steam_pressure * input.steam_cost; results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.steam_pressure * input.steam_cost * 1 * (input.orifice_diameter * input.operating_hours_per_year); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.orifice_diameter; results["factor_orifice_diameter"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_orifice_diameter"] = Number.NaN; }
+  try { const v = input.operating_hours_per_year; results["factor_operating_hours_per_year"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_operating_hours_per_year"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSteam_trap_energy_loss_calculator(input: Steam_trap_energy_loss_calculatorInput): Steam_trap_energy_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateSteam_trap_energy_loss_calculator(input: Steam_trap_ene
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

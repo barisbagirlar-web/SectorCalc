@@ -16,25 +16,21 @@ export const Segment_area_calculatorInputSchema = z.object({
   numberOfSegments: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Segment_area_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.centralAngle * Math.PI / 180; results["thetaRad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thetaRad"] = 0; }
-  try { const v = input.radius * (asFormulaNumber(results["thetaRad"])); results["arcLength"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["arcLength"] = 0; }
+  try { const v = input.centralAngle * Math.PI / 180; results["thetaRad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["thetaRad"] = Number.NaN; }
+  try { const v = input.radius * (toNumericFormulaValue(results["thetaRad"])); results["arcLength"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["arcLength"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSegment_area_calculator(input: Segment_area_calculatorInput): Segment_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["arcLength"]));
+  const totalWasteCost = toNumericFormulaValue(values["arcLength"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSegment_area_calculator(input: Segment_area_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

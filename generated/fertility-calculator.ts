@@ -16,27 +16,23 @@ export const Fertility_calculatorInputSchema = z.object({
   monthsTrying: z.number().default(12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Fertility_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cycleLength - input.lutealPhase; results["ovulationDay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ovulationDay"] = 0; }
-  try { const v = (asFormulaNumber(results["ovulationDay"])) - 5; results["fertileStartDay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fertileStartDay"] = 0; }
-  try { const v = (asFormulaNumber(results["ovulationDay"])) + 1; results["fertileEndDay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fertileEndDay"] = 0; }
-  try { const v = (input.cycleLength >= 26 && input.cycleLength <= 32) ? 1 : 0.8; results["cycleFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["cycleFactor"] = 0; }
+  try { const v = input.cycleLength - input.lutealPhase; results["ovulationDay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ovulationDay"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ovulationDay"])) - 5; results["fertileStartDay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fertileStartDay"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["ovulationDay"])) + 1; results["fertileEndDay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fertileEndDay"] = Number.NaN; }
+  try { const v = (input.cycleLength >= 26 && input.cycleLength <= 32) ? 1 : 0.8; results["cycleFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["cycleFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFertility_calculator(input: Fertility_calculatorInput): Fertility_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["cycleFactor"]));
+  const totalWasteCost = toNumericFormulaValue(values["cycleFactor"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateFertility_calculator(input: Fertility_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Ltv_cac_ratio_calculatorInputSchema = z.object({
   newCustomers: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ltv_cac_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.arpu * input.grossMargin / 100) * (1 / (input.churn / 100)) * (1 / (1 + input.discount / 100)); results["LTV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["LTV"] = 0; }
-  try { const v = input.totalCacSpend / input.newCustomers; results["CAC"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["CAC"] = 0; }
-  try { const v = (asFormulaNumber(results["LTV"])) / (asFormulaNumber(results["CAC"])); results["LTV_CAC_Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["LTV_CAC_Ratio"] = 0; }
+  try { const v = (input.arpu * input.grossMargin / 100) * (1 / (input.churn / 100)) * (1 / (1 + input.discount / 100)); results["LTV"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["LTV"] = Number.NaN; }
+  try { const v = input.totalCacSpend / input.newCustomers; results["CAC"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["CAC"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["LTV"])) / (toNumericFormulaValue(results["CAC"])); results["LTV_CAC_Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["LTV_CAC_Ratio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLtv_cac_ratio_calculator(input: Ltv_cac_ratio_calculatorInput): Ltv_cac_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["LTV_CAC_Ratio"]));
+  const totalWasteCost = toNumericFormulaValue(values["LTV_CAC_Ratio"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateLtv_cac_ratio_calculator(input: Ltv_cac_ratio_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

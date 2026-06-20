@@ -22,26 +22,22 @@ export const Camping_calculatorInputSchema = z.object({
   safetyMargin: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Camping_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfCampers * input.waterPerPerson * input.numberOfNights * (1 + input.temperatureAdjust) * (1 + input.safetyMargin/100); results["totalWater"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWater"] = 0; }
-  try { const v = input.numberOfCampers * input.foodPerPerson * input.numberOfNights * (1 + input.safetyMargin/100); results["totalFood"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFood"] = 0; }
-  try { const v = input.firewoodPerNight * input.numberOfNights * (1 + input.safetyMargin/100); results["totalFirewood"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFirewood"] = 0; }
+  try { const v = input.numberOfCampers * input.waterPerPerson * input.numberOfNights * (1 + input.temperatureAdjust) * (1 + input.safetyMargin/100); results["totalWater"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWater"] = Number.NaN; }
+  try { const v = input.numberOfCampers * input.foodPerPerson * input.numberOfNights * (1 + input.safetyMargin/100); results["totalFood"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFood"] = Number.NaN; }
+  try { const v = input.firewoodPerNight * input.numberOfNights * (1 + input.safetyMargin/100); results["totalFirewood"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFirewood"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCamping_calculator(input: Camping_calculatorInput): Camping_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalWater"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalWater"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateCamping_calculator(input: Camping_calculatorInput): Cam
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

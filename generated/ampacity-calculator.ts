@@ -18,26 +18,22 @@ export const Ampacity_calculatorInputSchema = z.object({
   bundlingFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ampacity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.area * 1.5; results["baseAmpacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseAmpacity"] = 0; }
-  try { const v = 1 - (input.ambientTemp - 30) * 0.005; results["tempFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tempFactor"] = 0; }
-  try { const v = (asFormulaNumber(results["baseAmpacity"])) * (asFormulaNumber(results["tempFactor"])) * input.bundlingFactor * input.materialFactor; results["finalAmpacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalAmpacity"] = 0; }
+  try { const v = input.area * 1.5; results["baseAmpacity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseAmpacity"] = Number.NaN; }
+  try { const v = 1 - (input.ambientTemp - 30) * 0.005; results["tempFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tempFactor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["baseAmpacity"])) * (toNumericFormulaValue(results["tempFactor"])) * input.bundlingFactor * input.materialFactor; results["finalAmpacity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalAmpacity"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAmpacity_calculator(input: Ampacity_calculatorInput): Ampacity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["finalAmpacity"]));
+  const totalWasteCost = toNumericFormulaValue(values["finalAmpacity"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateAmpacity_calculator(input: Ampacity_calculatorInput): A
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

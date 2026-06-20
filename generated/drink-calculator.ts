@@ -20,27 +20,23 @@ export const Drink_calculatorInputSchema = z.object({
   marginPercent: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Drink_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.spiritVol + input.mixerVol; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = (input.spiritVol / 1000) * input.spiritCostPerL + (input.mixerVol / 1000) * input.mixerCostPerL + input.otherCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / (1 - input.marginPercent / 100); results["sellingPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellingPrice"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / (asFormulaNumber(results["totalVolume"])); results["costPerMl"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerMl"] = 0; }
+  try { const v = input.spiritVol + input.mixerVol; results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = (input.spiritVol / 1000) * input.spiritCostPerL + (input.mixerVol / 1000) * input.mixerCostPerL + input.otherCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / (1 - input.marginPercent / 100); results["sellingPrice"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sellingPrice"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / (toNumericFormulaValue(results["totalVolume"])); results["costPerMl"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerMl"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDrink_calculator(input: Drink_calculatorInput): Drink_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateDrink_calculator(input: Drink_calculatorInput): Drink_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

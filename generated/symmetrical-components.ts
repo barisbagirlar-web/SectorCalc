@@ -20,26 +20,22 @@ export const Symmetrical_componentsInputSchema = z.object({
   angle_c: z.number().default(120),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Symmetrical_componentsInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.angle_a * Math.PI / 180; results["a_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["a_rad"] = 0; }
-  try { const v = input.angle_b * Math.PI / 180; results["b_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["b_rad"] = 0; }
-  try { const v = input.angle_c * Math.PI / 180; results["c_rad"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["c_rad"] = 0; }
+  try { const v = input.angle_a * Math.PI / 180; results["a_rad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["a_rad"] = Number.NaN; }
+  try { const v = input.angle_b * Math.PI / 180; results["b_rad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["b_rad"] = Number.NaN; }
+  try { const v = input.angle_c * Math.PI / 180; results["c_rad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["c_rad"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSymmetrical_components(input: Symmetrical_componentsInput): Symmetrical_componentsOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["c_rad"]));
+  const totalWasteCost = toNumericFormulaValue(values["c_rad"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateSymmetrical_components(input: Symmetrical_componentsInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

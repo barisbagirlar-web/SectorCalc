@@ -18,26 +18,22 @@ export const Filtration_calculatorInputSchema = z.object({
   cakeResistance: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Filtration_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.membraneResistance + input.cakeResistance; results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalResistance"] = 0; }
-  try { const v = (input.flowRate * input.viscosity * (asFormulaNumber(results["totalResistance"]))) / input.pressureDrop; results["requiredFilterArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredFilterArea"] = 0; }
-  try { const v = input.flowRate / (asFormulaNumber(results["requiredFilterArea"])); results["flux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["flux"] = 0; }
+  try { const v = input.membraneResistance + input.cakeResistance; results["totalResistance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalResistance"] = Number.NaN; }
+  try { const v = (input.flowRate * input.viscosity * (toNumericFormulaValue(results["totalResistance"]))) / input.pressureDrop; results["requiredFilterArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredFilterArea"] = Number.NaN; }
+  try { const v = input.flowRate / (toNumericFormulaValue(results["requiredFilterArea"])); results["flux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["flux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFiltration_calculator(input: Filtration_calculatorInput): Filtration_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredFilterArea"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredFilterArea"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateFiltration_calculator(input: Filtration_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

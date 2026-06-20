@@ -20,27 +20,23 @@ export const Insan_hayati_degeri_hesaplayiciInputSchema = z.object({
   incomeGrowthRate: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Insan_hayati_degeri_hesaplayiciInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.retirementAge - input.currentAge; results["remainingYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remainingYears"] = 0; }
-  try { const v = input.annualIncome * (1 - input.personalExpenseRate / 100); results["netAnnualContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netAnnualContribution"] = 0; }
-  try { const v = input.incomeGrowthRate / 100; results["growthFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["growthFactor"] = 0; }
-  try { const v = input.discountRate / 100; results["discountFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountFactor"] = 0; }
+  try { const v = input.retirementAge - input.currentAge; results["remainingYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remainingYears"] = Number.NaN; }
+  try { const v = input.annualIncome * (1 - input.personalExpenseRate / 100); results["netAnnualContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netAnnualContribution"] = Number.NaN; }
+  try { const v = input.incomeGrowthRate / 100; results["growthFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["growthFactor"] = Number.NaN; }
+  try { const v = input.discountRate / 100; results["discountFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInsan_hayati_degeri_hesaplayici(input: Insan_hayati_degeri_hesaplayiciInput): Insan_hayati_degeri_hesaplayiciOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["discountFactor"]));
+  const totalWasteCost = toNumericFormulaValue(values["discountFactor"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateInsan_hayati_degeri_hesaplayici(input: Insan_hayati_deg
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,27 +18,23 @@ export const Dental_age_calculatorInputSchema = z.object({
   eruptedTeeth: z.number().default(12),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dental_age_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.25 * input.mesiodistalWidth; results["mesiodistalContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mesiodistalContribution"] = 0; }
-  try { const v = 0.15 * input.buccolingualWidth; results["buccolingualContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["buccolingualContribution"] = 0; }
-  try { const v = 0.2 * input.crownLength; results["crownContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["crownContribution"] = 0; }
-  try { const v = 0.1 * input.rootLength; results["rootContribution"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rootContribution"] = 0; }
+  try { const v = 0.25 * input.mesiodistalWidth; results["mesiodistalContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mesiodistalContribution"] = Number.NaN; }
+  try { const v = 0.15 * input.buccolingualWidth; results["buccolingualContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["buccolingualContribution"] = Number.NaN; }
+  try { const v = 0.2 * input.crownLength; results["crownContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["crownContribution"] = Number.NaN; }
+  try { const v = 0.1 * input.rootLength; results["rootContribution"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rootContribution"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDental_age_calculator(input: Dental_age_calculatorInput): Dental_age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rootContribution"]));
+  const totalWasteCost = toNumericFormulaValue(values["rootContribution"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateDental_age_calculator(input: Dental_age_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

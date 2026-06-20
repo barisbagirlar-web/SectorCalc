@@ -18,25 +18,21 @@ export const Spray_paint_calculatorInputSchema = z.object({
   canVolume: z.number().default(0.4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Spray_paint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.coverage * (1 - input.wasteFactor / 100); results["effectiveCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveCoverage"] = 0; }
-  try { const v = (input.area * input.coats) / (asFormulaNumber(results["effectiveCoverage"])); results["totalPaintVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPaintVolume"] = 0; }
+  try { const v = input.coverage * (1 - input.wasteFactor / 100); results["effectiveCoverage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveCoverage"] = Number.NaN; }
+  try { const v = (input.area * input.coats) / (toNumericFormulaValue(results["effectiveCoverage"])); results["totalPaintVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPaintVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSpray_paint_calculator(input: Spray_paint_calculatorInput): Spray_paint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPaintVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPaintVolume"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateSpray_paint_calculator(input: Spray_paint_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

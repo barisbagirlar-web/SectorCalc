@@ -18,26 +18,22 @@ export const Instrumentation_amplifier_calculatorInputSchema = z.object({
   vref: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Instrumentation_amplifier_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 + 2 * input.r2 / input.r1; results["gain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gain"] = 0; }
-  try { const v = input.vinPlus - input.vinMinus; results["vd"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vd"] = 0; }
-  try { const v = (1 + 2 * input.r2 / input.r1) * (input.vinPlus - input.vinMinus) + input.vref; results["vout"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vout"] = 0; }
+  try { const v = 1 + 2 * input.r2 / input.r1; results["gain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gain"] = Number.NaN; }
+  try { const v = input.vinPlus - input.vinMinus; results["vd"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vd"] = Number.NaN; }
+  try { const v = (1 + 2 * input.r2 / input.r1) * (input.vinPlus - input.vinMinus) + input.vref; results["vout"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vout"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInstrumentation_amplifier_calculator(input: Instrumentation_amplifier_calculatorInput): Instrumentation_amplifier_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["vout"]));
+  const totalWasteCost = toNumericFormulaValue(values["vout"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateInstrumentation_amplifier_calculator(input: Instrumenta
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

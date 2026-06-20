@@ -24,26 +24,22 @@ export const Roi_calculatorInputSchema = z.object({
   annual_energy_cost: z.number().min(0).max(100000000).default(500000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Roi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.annual_revenue * (input.operating_margin / 100) * input.total_inventory_value * (input.inventory_carrying_cost_percent / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.annual_revenue * (input.operating_margin / 100) * input.total_inventory_value * (input.inventory_carrying_cost_percent / 100) * (input.annual_labor_cost * (input.defect_rate_percent / 100) * input.cost_per_defect * input.annual_energy_cost); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.annual_labor_cost * (input.defect_rate_percent / 100) * input.cost_per_defect * input.annual_energy_cost; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.annual_revenue * (input.operating_margin / 100) * input.total_inventory_value * (input.inventory_carrying_cost_percent / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.annual_revenue * (input.operating_margin / 100) * input.total_inventory_value * (input.inventory_carrying_cost_percent / 100) * (input.annual_labor_cost * (input.defect_rate_percent / 100) * input.cost_per_defect * input.annual_energy_cost); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.annual_labor_cost * (input.defect_rate_percent / 100) * input.cost_per_defect * input.annual_energy_cost; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRoi_calculator(input: Roi_calculatorInput): Roi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateRoi_calculator(input: Roi_calculatorInput): Roi_calcula
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Slope_calculatorInputSchema = z.object({
   y2: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Slope_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.y2 - input.y1; results["rise"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rise"] = 0; }
-  try { const v = input.x2 - input.x1; results["run"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["run"] = 0; }
-  try { const v = (((asFormulaNumber(results["run"])) !== 0 ? ((asFormulaNumber(results["rise"])) / (asFormulaNumber(results["run"]))) : null) ? 1 : 0); results["slopeRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["slopeRatio"] = 0; }
-  try { const v = (asFormulaNumber(results["run"])) !== 0 ? ((asFormulaNumber(results["rise"])) / (asFormulaNumber(results["run"]))) * 100 : null; results["slopePercentage"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["slopePercentage"] = 0; }
+  try { const v = input.y2 - input.y1; results["rise"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rise"] = Number.NaN; }
+  try { const v = input.x2 - input.x1; results["run"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["run"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["run"])) !== 0 ? ((toNumericFormulaValue(results["rise"])) / (toNumericFormulaValue(results["run"]))) : null) ? 1 : 0); results["slopeRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["slopeRatio"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["run"])) !== 0 ? ((toNumericFormulaValue(results["rise"])) / (toNumericFormulaValue(results["run"]))) * 100 : null; results["slopePercentage"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["slopePercentage"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSlope_calculator(input: Slope_calculatorInput): Slope_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["slopePercentage"]));
+  const totalWasteCost = toNumericFormulaValue(values["slopePercentage"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateSlope_calculator(input: Slope_calculatorInput): Slope_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

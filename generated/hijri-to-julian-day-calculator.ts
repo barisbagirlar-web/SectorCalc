@@ -16,25 +16,21 @@ export const Hijri_to_julian_day_calculatorInputSchema = z.object({
   jd_epoch: z.number().default(1948439.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hijri_to_julian_day_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.hijri_year - 1) * 354.367 + (input.hijri_month - 1) * 29.530588 + (input.hijri_day - 1); results["days_from_epoch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["days_from_epoch"] = 0; }
-  try { const v = input.jd_epoch + (asFormulaNumber(results["days_from_epoch"])); results["julian_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["julian_day"] = 0; }
+  try { const v = (input.hijri_year - 1) * 354.367 + (input.hijri_month - 1) * 29.530588 + (input.hijri_day - 1); results["days_from_epoch"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["days_from_epoch"] = Number.NaN; }
+  try { const v = input.jd_epoch + (toNumericFormulaValue(results["days_from_epoch"])); results["julian_day"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["julian_day"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHijri_to_julian_day_calculator(input: Hijri_to_julian_day_calculatorInput): Hijri_to_julian_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["julian_day"]));
+  const totalWasteCost = toNumericFormulaValue(values["julian_day"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateHijri_to_julian_day_calculator(input: Hijri_to_julian_d
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

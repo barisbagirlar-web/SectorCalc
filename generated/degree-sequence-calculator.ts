@@ -20,26 +20,22 @@ export const Degree_sequence_calculatorInputSchema = z.object({
   d6: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Degree_sequence_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.d1 + input.d2 + input.d3 + input.d4 + input.d5 + input.d6; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum"] = 0; }
-  try { const v = (input.d1 + input.d2 + input.d3 + input.d4 + input.d5 + input.d6) / 6; results["averageDegree"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["averageDegree"] = 0; }
-  try { const v = (input.d1 + input.d2 + input.d3 + input.d4 + input.d5 + input.d6) / 2; results["edges"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["edges"] = 0; }
+  try { const v = input.d1 + input.d2 + input.d3 + input.d4 + input.d5 + input.d6; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sum"] = Number.NaN; }
+  try { const v = (input.d1 + input.d2 + input.d3 + input.d4 + input.d5 + input.d6) / 6; results["averageDegree"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["averageDegree"] = Number.NaN; }
+  try { const v = (input.d1 + input.d2 + input.d3 + input.d4 + input.d5 + input.d6) / 2; results["edges"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["edges"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDegree_sequence_calculator(input: Degree_sequence_calculatorInput): Degree_sequence_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sum"]));
+  const totalWasteCost = toNumericFormulaValue(values["sum"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateDegree_sequence_calculator(input: Degree_sequence_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

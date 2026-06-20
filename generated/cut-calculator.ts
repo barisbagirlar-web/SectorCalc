@@ -20,26 +20,22 @@ export const Cut_calculatorInputSchema = z.object({
   widthOfCut: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cut_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.cuttingSpeed * 1000) / (Math.PI * input.toolDiameter); results["spindleSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spindleSpeed"] = 0; }
-  try { const v = input.feedPerTooth * input.numberOfTeeth * (asFormulaNumber(results["spindleSpeed"])); results["feedRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["feedRate"] = 0; }
-  try { const v = (input.depthOfCut * input.widthOfCut * (asFormulaNumber(results["feedRate"]))) / 1000; results["materialRemovalRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["materialRemovalRate"] = 0; }
+  try { const v = (input.cuttingSpeed * 1000) / (Math.PI * input.toolDiameter); results["spindleSpeed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spindleSpeed"] = Number.NaN; }
+  try { const v = input.feedPerTooth * input.numberOfTeeth * (toNumericFormulaValue(results["spindleSpeed"])); results["feedRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["feedRate"] = Number.NaN; }
+  try { const v = (input.depthOfCut * input.widthOfCut * (toNumericFormulaValue(results["feedRate"]))) / 1000; results["materialRemovalRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["materialRemovalRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCut_calculator(input: Cut_calculatorInput): Cut_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["materialRemovalRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["materialRemovalRate"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateCut_calculator(input: Cut_calculatorInput): Cut_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

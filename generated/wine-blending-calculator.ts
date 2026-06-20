@@ -16,26 +16,22 @@ export const Wine_blending_calculatorInputSchema = z.object({
   targetABV: z.number().default(13),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Wine_blending_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.volume1 * (input.abv1 - input.targetABV) / (input.targetABV - input.abv2); results["volume2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volume2"] = 0; }
-  try { const v = input.volume1 + (asFormulaNumber(results["volume2"])); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = (input.volume1 * input.abv1 + (asFormulaNumber(results["volume2"])) * input.abv2) / (asFormulaNumber(results["totalVolume"])); results["finalABV"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["finalABV"] = 0; }
+  try { const v = input.volume1 * (input.abv1 - input.targetABV) / (input.targetABV - input.abv2); results["volume2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volume2"] = Number.NaN; }
+  try { const v = input.volume1 + (toNumericFormulaValue(results["volume2"])); results["totalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalVolume"] = Number.NaN; }
+  try { const v = (input.volume1 * input.abv1 + (toNumericFormulaValue(results["volume2"])) * input.abv2) / (toNumericFormulaValue(results["totalVolume"])); results["finalABV"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["finalABV"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWine_blending_calculator(input: Wine_blending_calculatorInput): Wine_blending_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volume2"]));
+  const totalWasteCost = toNumericFormulaValue(values["volume2"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateWine_blending_calculator(input: Wine_blending_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

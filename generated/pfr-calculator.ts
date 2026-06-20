@@ -18,27 +18,23 @@ export const Pfr_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pfr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.Ca0 * (1 - input.conversion); results["outletConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["outletConcentration"] = 0; }
-  try { const v = input.v0 * input.conversion / (input.k * input.Ca0 * (1 - input.conversion)); results["theoreticalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["theoreticalVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["theoreticalVolume"])) / input.v0; results["spaceTime"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spaceTime"] = 0; }
-  try { const v = (asFormulaNumber(results["theoreticalVolume"])) * input.safetyFactor; results["designVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["designVolume"] = 0; }
+  try { const v = input.Ca0 * (1 - input.conversion); results["outletConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["outletConcentration"] = Number.NaN; }
+  try { const v = input.v0 * input.conversion / (input.k * input.Ca0 * (1 - input.conversion)); results["theoreticalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["theoreticalVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["theoreticalVolume"])) / input.v0; results["spaceTime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spaceTime"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["theoreticalVolume"])) * input.safetyFactor; results["designVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["designVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePfr_calculator(input: Pfr_calculatorInput): Pfr_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["designVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["designVolume"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculatePfr_calculator(input: Pfr_calculatorInput): Pfr_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

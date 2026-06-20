@@ -18,28 +18,24 @@ export const Paypal_fee_calculatorInputSchema = z.object({
   internationalFeePercentage: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Paypal_fee_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.transactionAmount * input.feePercentage / 100 + input.fixedFee) + (input.isInternational === 1 ? input.transactionAmount * input.internationalFeePercentage / 100 : 0); results["totalFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFee"] = 0; }
-  try { const v = input.transactionAmount - ((input.transactionAmount * input.feePercentage / 100 + input.fixedFee) + (input.isInternational === 1 ? input.transactionAmount * input.internationalFeePercentage / 100 : 0)); results["netAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netAmount"] = 0; }
-  try { const v = input.transactionAmount * input.feePercentage / 100; results["percentageFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentageFee"] = 0; }
-  try { const v = input.fixedFee; results["fixedFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fixedFeeAmount"] = 0; }
-  try { const v = input.isInternational === 1 ? input.transactionAmount * input.internationalFeePercentage / 100 : 0; results["internationalFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["internationalFeeAmount"] = 0; }
+  try { const v = (input.transactionAmount * input.feePercentage / 100 + input.fixedFee) + (input.isInternational === 1 ? input.transactionAmount * input.internationalFeePercentage / 100 : 0); results["totalFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFee"] = Number.NaN; }
+  try { const v = input.transactionAmount - ((input.transactionAmount * input.feePercentage / 100 + input.fixedFee) + (input.isInternational === 1 ? input.transactionAmount * input.internationalFeePercentage / 100 : 0)); results["netAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netAmount"] = Number.NaN; }
+  try { const v = input.transactionAmount * input.feePercentage / 100; results["percentageFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentageFee"] = Number.NaN; }
+  try { const v = input.fixedFee; results["fixedFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fixedFeeAmount"] = Number.NaN; }
+  try { const v = input.isInternational === 1 ? input.transactionAmount * input.internationalFeePercentage / 100 : 0; results["internationalFeeAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["internationalFeeAmount"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePaypal_fee_calculator(input: Paypal_fee_calculatorInput): Paypal_fee_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netAmount"]));
+  const totalWasteCost = toNumericFormulaValue(values["netAmount"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculatePaypal_fee_calculator(input: Paypal_fee_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Steam_move_calculatorInputSchema = z.object({
   temperature: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Steam_move_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.pressure * 1e5) / (461.5 * (input.temperature + 273.15)); results["steamDensity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steamDensity"] = 0; }
-  try { const v = (input.massFlow / 3600) / (asFormulaNumber(results["steamDensity"])); results["volFlow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["volFlow"] = 0; }
+  try { const v = (input.pressure * 1e5) / (461.5 * (input.temperature + 273.15)); results["steamDensity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["steamDensity"] = Number.NaN; }
+  try { const v = (input.massFlow / 3600) / (toNumericFormulaValue(results["steamDensity"])); results["volFlow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["volFlow"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSteam_move_calculator(input: Steam_move_calculatorInput): Steam_move_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["volFlow"]));
+  const totalWasteCost = toNumericFormulaValue(values["volFlow"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateSteam_move_calculator(input: Steam_move_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,26 +20,22 @@ export const Differential_amplifier_calculatorInputSchema = z.object({
   R4: z.number().default(10000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Differential_amplifier_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.V2 * (input.R4 / (input.R3 + input.R4)) * (1 + input.R2 / input.R1) - input.V1 * (input.R2 / input.R1); results["Vout"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Vout"] = 0; }
-  try { const v = input.R2 / input.R1; results["gain_inv"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gain_inv"] = 0; }
-  try { const v = (input.R4 / (input.R3 + input.R4)) * (1 + input.R2 / input.R1); results["gain_noninv"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gain_noninv"] = 0; }
+  try { const v = input.V2 * (input.R4 / (input.R3 + input.R4)) * (1 + input.R2 / input.R1) - input.V1 * (input.R2 / input.R1); results["Vout"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Vout"] = Number.NaN; }
+  try { const v = input.R2 / input.R1; results["gain_inv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gain_inv"] = Number.NaN; }
+  try { const v = (input.R4 / (input.R3 + input.R4)) * (1 + input.R2 / input.R1); results["gain_noninv"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gain_noninv"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDifferential_amplifier_calculator(input: Differential_amplifier_calculatorInput): Differential_amplifier_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["Vout"]));
+  const totalWasteCost = toNumericFormulaValue(values["Vout"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateDifferential_amplifier_calculator(input: Differential_a
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

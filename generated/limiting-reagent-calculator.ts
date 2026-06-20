@@ -24,27 +24,23 @@ export const Limiting_reagent_calculatorInputSchema = z.object({
   productMolarMass: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Limiting_reagent_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.reactant1Mass / input.reactant1MolarMass; results["moles1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moles1"] = 0; }
-  try { const v = input.reactant2Mass / input.reactant2MolarMass; results["moles2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moles2"] = 0; }
-  try { const v = (asFormulaNumber(results["moles1"])) / input.reactant1Coefficient; results["ratio1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio1"] = 0; }
-  try { const v = (asFormulaNumber(results["moles2"])) / input.reactant2Coefficient; results["ratio2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["ratio2"] = 0; }
+  try { const v = input.reactant1Mass / input.reactant1MolarMass; results["moles1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["moles1"] = Number.NaN; }
+  try { const v = input.reactant2Mass / input.reactant2MolarMass; results["moles2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["moles2"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["moles1"])) / input.reactant1Coefficient; results["ratio1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ratio1"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["moles2"])) / input.reactant2Coefficient; results["ratio2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ratio2"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateLimiting_reagent_calculator(input: Limiting_reagent_calculatorInput): Limiting_reagent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["ratio2"]));
+  const totalWasteCost = toNumericFormulaValue(values["ratio2"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateLimiting_reagent_calculator(input: Limiting_reagent_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

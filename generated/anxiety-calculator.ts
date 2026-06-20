@@ -20,28 +20,24 @@ export const Anxiety_calculatorInputSchema = z.object({
   noise_level: z.number().default(75),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Anxiety_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.operator_error_rate * 0.5; results["human_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["human_factor"] = 0; }
-  try { const v = input.machine_downtime * 100 * 0.3; results["machine_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["machine_factor"] = 0; }
-  try { const v = input.measurement_variance * 10; results["measurement_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["measurement_factor"] = 0; }
-  try { const v = (input.process_temperature_variance * 0.2) + (input.noise_level / 100); results["environmental_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["environmental_factor"] = 0; }
-  try { const v = (asFormulaNumber(results["human_factor"])) + (asFormulaNumber(results["machine_factor"])) + (asFormulaNumber(results["measurement_factor"])) + (asFormulaNumber(results["environmental_factor"])); results["anxiety_index"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["anxiety_index"] = 0; }
+  try { const v = input.operator_error_rate * 0.5; results["human_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["human_factor"] = Number.NaN; }
+  try { const v = input.machine_downtime * 100 * 0.3; results["machine_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["machine_factor"] = Number.NaN; }
+  try { const v = input.measurement_variance * 10; results["measurement_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["measurement_factor"] = Number.NaN; }
+  try { const v = (input.process_temperature_variance * 0.2) + (input.noise_level / 100); results["environmental_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["environmental_factor"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["human_factor"])) + (toNumericFormulaValue(results["machine_factor"])) + (toNumericFormulaValue(results["measurement_factor"])) + (toNumericFormulaValue(results["environmental_factor"])); results["anxiety_index"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["anxiety_index"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAnxiety_calculator(input: Anxiety_calculatorInput): Anxiety_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["anxiety_index"]));
+  const totalWasteCost = toNumericFormulaValue(values["anxiety_index"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateAnxiety_calculator(input: Anxiety_calculatorInput): Anx
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

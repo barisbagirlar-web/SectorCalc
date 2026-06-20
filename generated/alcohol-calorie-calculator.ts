@@ -20,26 +20,22 @@ export const Alcohol_calorie_calculatorInputSchema = z.object({
   quantity: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Alcohol_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.volume * (input.abv / 100) * 0.789 * 7; results["alcoholCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["alcoholCalories"] = 0; }
-  try { const v = input.carbs * 4 + input.protein * 4 + input.fat * 9; results["otherCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["otherCalories"] = 0; }
-  try { const v = ((asFormulaNumber(results["alcoholCalories"])) + (asFormulaNumber(results["otherCalories"]))) * input.quantity; results["totalCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = input.volume * (input.abv / 100) * 0.789 * 7; results["alcoholCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["alcoholCalories"] = Number.NaN; }
+  try { const v = input.carbs * 4 + input.protein * 4 + input.fat * 9; results["otherCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["otherCalories"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["alcoholCalories"])) + (toNumericFormulaValue(results["otherCalories"]))) * input.quantity; results["totalCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCalories"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAlcohol_calorie_calculator(input: Alcohol_calorie_calculatorInput): Alcohol_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCalories"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCalories"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateAlcohol_calorie_calculator(input: Alcohol_calorie_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

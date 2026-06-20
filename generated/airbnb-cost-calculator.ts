@@ -24,32 +24,28 @@ export const Airbnb_cost_calculatorInputSchema = z.object({
   discountRate: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Airbnb_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.nightlyRate * input.numNights; results["nightlyTotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nightlyTotal"] = 0; }
-  try { const v = input.extraGuestFee * input.extraGuests * input.numNights; results["extraGuestCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["extraGuestCost"] = 0; }
-  try { const v = (asFormulaNumber(results["nightlyTotal"])) + input.cleaningFee + (asFormulaNumber(results["extraGuestCost"])); results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) * (input.serviceFeeRate / 100); results["serviceFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["serviceFee"] = 0; }
-  try { const v = (asFormulaNumber(results["subtotal"])) + (asFormulaNumber(results["serviceFee"])); results["taxableAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxableAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["taxableAmount"])) * (input.occupancyTaxRate / 100); results["tax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tax"] = 0; }
-  try { const v = (asFormulaNumber(results["taxableAmount"])) + (asFormulaNumber(results["tax"])); results["totalBeforeDiscount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBeforeDiscount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBeforeDiscount"])) * (input.discountRate / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBeforeDiscount"])) - (asFormulaNumber(results["discountAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.nightlyRate * input.numNights; results["nightlyTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nightlyTotal"] = Number.NaN; }
+  try { const v = input.extraGuestFee * input.extraGuests * input.numNights; results["extraGuestCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["extraGuestCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["nightlyTotal"])) + input.cleaningFee + (toNumericFormulaValue(results["extraGuestCost"])); results["subtotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["subtotal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) * (input.serviceFeeRate / 100); results["serviceFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["serviceFee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["subtotal"])) + (toNumericFormulaValue(results["serviceFee"])); results["taxableAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxableAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxableAmount"])) * (input.occupancyTaxRate / 100); results["tax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxableAmount"])) + (toNumericFormulaValue(results["tax"])); results["totalBeforeDiscount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBeforeDiscount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBeforeDiscount"])) * (input.discountRate / 100); results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBeforeDiscount"])) - (toNumericFormulaValue(results["discountAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAirbnb_cost_calculator(input: Airbnb_cost_calculatorInput): Airbnb_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
@@ -57,7 +53,7 @@ export function calculateAirbnb_cost_calculator(input: Airbnb_cost_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Cables_to_nautical_miles_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cables_to_nautical_miles_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cables * input.conversionFactor; results["exactNM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exactNM"] = 0; }
-  try { const v = input.uncertainty * input.conversionFactor; results["uncertaintyNM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uncertaintyNM"] = 0; }
+  try { const v = input.cables * input.conversionFactor; results["exactNM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exactNM"] = Number.NaN; }
+  try { const v = input.uncertainty * input.conversionFactor; results["uncertaintyNM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["uncertaintyNM"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCables_to_nautical_miles_calculator(input: Cables_to_nautical_miles_calculatorInput): Cables_to_nautical_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["uncertaintyNM"]));
+  const totalWasteCost = toNumericFormulaValue(values["uncertaintyNM"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateCables_to_nautical_miles_calculator(input: Cables_to_na
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

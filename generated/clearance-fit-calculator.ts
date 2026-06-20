@@ -16,26 +16,22 @@ export const Clearance_fit_calculatorInputSchema = z.object({
   shaftMin: z.number().default(19.95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Clearance_fit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.holeMin - input.shaftMax; results["minClearance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["minClearance"] = 0; }
-  try { const v = input.holeMax - input.shaftMin; results["maxClearance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maxClearance"] = 0; }
-  try { const v = ((asFormulaNumber(results["minClearance"])) + (asFormulaNumber(results["maxClearance"]))) / 2; results["avgClearance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["avgClearance"] = 0; }
+  try { const v = input.holeMin - input.shaftMax; results["minClearance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["minClearance"] = Number.NaN; }
+  try { const v = input.holeMax - input.shaftMin; results["maxClearance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maxClearance"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["minClearance"])) + (toNumericFormulaValue(results["maxClearance"]))) / 2; results["avgClearance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["avgClearance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateClearance_fit_calculator(input: Clearance_fit_calculatorInput): Clearance_fit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["avgClearance"]));
+  const totalWasteCost = toNumericFormulaValue(values["avgClearance"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateClearance_fit_calculator(input: Clearance_fit_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

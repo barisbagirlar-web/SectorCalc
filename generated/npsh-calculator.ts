@@ -20,26 +20,22 @@ export const Npsh_calculatorInputSchema = z.object({
   velocityHead: z.number().default(0.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Npsh_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.atmosphericPressure * 100000) / (input.liquidDensity * 9.80665); results["atmHead"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["atmHead"] = 0; }
-  try { const v = (input.vaporPressure * 100000) / (input.liquidDensity * 9.80665); results["vaporHead"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vaporHead"] = 0; }
-  try { const v = (asFormulaNumber(results["atmHead"])) - (asFormulaNumber(results["vaporHead"])) + input.staticSuctionHead + input.velocityHead - input.frictionHeadLoss; results["npsha"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["npsha"] = 0; }
+  try { const v = (input.atmosphericPressure * 100000) / (input.liquidDensity * 9.80665); results["atmHead"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["atmHead"] = Number.NaN; }
+  try { const v = (input.vaporPressure * 100000) / (input.liquidDensity * 9.80665); results["vaporHead"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vaporHead"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["atmHead"])) - (toNumericFormulaValue(results["vaporHead"])) + input.staticSuctionHead + input.velocityHead - input.frictionHeadLoss; results["npsha"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["npsha"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNpsh_calculator(input: Npsh_calculatorInput): Npsh_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["npsha"]));
+  const totalWasteCost = toNumericFormulaValue(values["npsha"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateNpsh_calculator(input: Npsh_calculatorInput): Npsh_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

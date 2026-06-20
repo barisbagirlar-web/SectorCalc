@@ -16,26 +16,22 @@ export const Add_decimals_calculatorInputSchema = z.object({
   dec4: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Add_decimals_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.dec1 + input.dec2 + input.dec3 + input.dec4; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum"] = 0; }
-  try { const v = input.dec1 + input.dec2; results["sum12"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum12"] = 0; }
-  try { const v = (asFormulaNumber(results["sum12"])) + input.dec3; results["sum123"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum123"] = 0; }
+  try { const v = input.dec1 + input.dec2 + input.dec3 + input.dec4; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sum"] = Number.NaN; }
+  try { const v = input.dec1 + input.dec2; results["sum12"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sum12"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["sum12"])) + input.dec3; results["sum123"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sum123"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAdd_decimals_calculator(input: Add_decimals_calculatorInput): Add_decimals_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sum"]));
+  const totalWasteCost = toNumericFormulaValue(values["sum"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateAdd_decimals_calculator(input: Add_decimals_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

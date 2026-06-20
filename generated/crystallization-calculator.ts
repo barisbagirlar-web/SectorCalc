@@ -18,26 +18,22 @@ export const Crystallization_calculatorInputSchema = z.object({
   temperatureFinal: z.number().default(25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Crystallization_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.massSolvent * input.solubilityInitial / 100; results["massInitialSolute"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massInitialSolute"] = 0; }
-  try { const v = input.massSolvent * (input.solubilityInitial - input.solubilityFinal) / 100; results["massCrystal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massCrystal"] = 0; }
-  try { const v = ((asFormulaNumber(results["massCrystal"])) / (asFormulaNumber(results["massInitialSolute"]))) * 100; results["yieldPercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yieldPercent"] = 0; }
+  try { const v = input.massSolvent * input.solubilityInitial / 100; results["massInitialSolute"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["massInitialSolute"] = Number.NaN; }
+  try { const v = input.massSolvent * (input.solubilityInitial - input.solubilityFinal) / 100; results["massCrystal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["massCrystal"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["massCrystal"])) / (toNumericFormulaValue(results["massInitialSolute"]))) * 100; results["yieldPercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yieldPercent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCrystallization_calculator(input: Crystallization_calculatorInput): Crystallization_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["massInitialSolute"]));
+  const totalWasteCost = toNumericFormulaValue(values["massInitialSolute"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateCrystallization_calculator(input: Crystallization_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

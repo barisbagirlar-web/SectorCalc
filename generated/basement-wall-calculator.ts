@@ -20,30 +20,26 @@ export const Basement_wall_calculatorInputSchema = z.object({
   soil_pressure: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Basement_wall_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wall_length * input.wall_height * input.wall_thickness; results["wall_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wall_volume"] = 0; }
-  try { const v = (asFormulaNumber(results["wall_volume"])) * (1 - input.steel_ratio / 100); results["concrete_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["concrete_volume"] = 0; }
-  try { const v = (asFormulaNumber(results["wall_volume"])) * (input.steel_ratio / 100); results["steel_volume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steel_volume"] = 0; }
-  try { const v = (asFormulaNumber(results["steel_volume"])) * 7850; results["steel_weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["steel_weight"] = 0; }
-  try { const v = input.concrete_strength * input.wall_thickness * input.wall_thickness / 6; results["moment_capacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["moment_capacity"] = 0; }
-  try { const v = input.soil_pressure * input.wall_height * input.wall_length / 2; results["lateral_load"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lateral_load"] = 0; }
-  try { const v = (asFormulaNumber(results["moment_capacity"])) / ((asFormulaNumber(results["lateral_load"])) * input.wall_height / 3); results["safety_factor_moment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safety_factor_moment"] = 0; }
+  try { const v = input.wall_length * input.wall_height * input.wall_thickness; results["wall_volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wall_volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wall_volume"])) * (1 - input.steel_ratio / 100); results["concrete_volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["concrete_volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wall_volume"])) * (input.steel_ratio / 100); results["steel_volume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["steel_volume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["steel_volume"])) * 7850; results["steel_weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["steel_weight"] = Number.NaN; }
+  try { const v = input.concrete_strength * input.wall_thickness * input.wall_thickness / 6; results["moment_capacity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["moment_capacity"] = Number.NaN; }
+  try { const v = input.soil_pressure * input.wall_height * input.wall_length / 2; results["lateral_load"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lateral_load"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["moment_capacity"])) / ((toNumericFormulaValue(results["lateral_load"])) * input.wall_height / 3); results["safety_factor_moment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safety_factor_moment"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBasement_wall_calculator(input: Basement_wall_calculatorInput): Basement_wall_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["wall_volume"]));
+  const totalWasteCost = toNumericFormulaValue(values["wall_volume"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateBasement_wall_calculator(input: Basement_wall_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

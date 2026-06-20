@@ -20,26 +20,22 @@ export const Joint_compound_calculatorInputSchema = z.object({
   coverageFactor: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Joint_compound_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numSheets * input.jointLength * (input.jointWidth / 1000) * input.numCoats; results["totalJointArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalJointArea"] = 0; }
-  try { const v = input.thickness * input.numCoats; results["totalThickness"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalThickness"] = 0; }
-  try { const v = (input.numSheets * input.jointLength * (input.jointWidth / 1000) * input.thickness * input.numCoats) / input.coverageFactor; results["totalCompound"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCompound"] = 0; }
+  try { const v = input.numSheets * input.jointLength * (input.jointWidth / 1000) * input.numCoats; results["totalJointArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalJointArea"] = Number.NaN; }
+  try { const v = input.thickness * input.numCoats; results["totalThickness"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalThickness"] = Number.NaN; }
+  try { const v = (input.numSheets * input.jointLength * (input.jointWidth / 1000) * input.thickness * input.numCoats) / input.coverageFactor; results["totalCompound"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCompound"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateJoint_compound_calculator(input: Joint_compound_calculatorInput): Joint_compound_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCompound"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCompound"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateJoint_compound_calculator(input: Joint_compound_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

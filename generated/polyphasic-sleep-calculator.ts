@@ -16,26 +16,22 @@ export const Polyphasic_sleep_calculatorInputSchema = z.object({
   sleepGoal: z.number().default(8),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Polyphasic_sleep_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.coreSleepDuration; results["coreSleepDuration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["coreSleepDuration"] = 0; }
-  try { const v = (input.numberOfNaps * input.napDuration) / 60; results["napSleepHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["napSleepHours"] = 0; }
-  try { const v = input.coreSleepDuration + ((input.numberOfNaps * input.napDuration) / 60); results["totalSleepHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalSleepHours"] = 0; }
+  try { const v = input.coreSleepDuration; results["coreSleepDuration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["coreSleepDuration"] = Number.NaN; }
+  try { const v = (input.numberOfNaps * input.napDuration) / 60; results["napSleepHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["napSleepHours"] = Number.NaN; }
+  try { const v = input.coreSleepDuration + ((input.numberOfNaps * input.napDuration) / 60); results["totalSleepHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalSleepHours"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePolyphasic_sleep_calculator(input: Polyphasic_sleep_calculatorInput): Polyphasic_sleep_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalSleepHours"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalSleepHours"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculatePolyphasic_sleep_calculator(input: Polyphasic_sleep_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

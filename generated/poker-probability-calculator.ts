@@ -16,28 +16,24 @@ export const Poker_probability_calculatorInputSchema = z.object({
   draws: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Poker_probability_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.deckSize - input.knownCards; results["remaining"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["remaining"] = 0; }
-  try { const v = (((asFormulaNumber(results["remaining"])) - input.outs) / (asFormulaNumber(results["remaining"]))) ** input.draws; results["missProb"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["missProb"] = 0; }
-  try { const v = (1 - (asFormulaNumber(results["missProb"]))) * 100; results["winProbability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["winProbability"] = 0; }
-  try { const v = (asFormulaNumber(results["missProb"])) * 100; results["lossProbability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["lossProbability"] = 0; }
-  try { const v = (asFormulaNumber(results["missProb"])) / (1 - (asFormulaNumber(results["missProb"]))); results["oddsAgainst"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["oddsAgainst"] = 0; }
+  try { const v = input.deckSize - input.knownCards; results["remaining"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["remaining"] = Number.NaN; }
+  try { const v = (((toNumericFormulaValue(results["remaining"])) - input.outs) / (toNumericFormulaValue(results["remaining"]))) ** input.draws; results["missProb"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["missProb"] = Number.NaN; }
+  try { const v = (1 - (toNumericFormulaValue(results["missProb"]))) * 100; results["winProbability"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["winProbability"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["missProb"])) * 100; results["lossProbability"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["lossProbability"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["missProb"])) / (1 - (toNumericFormulaValue(results["missProb"]))); results["oddsAgainst"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["oddsAgainst"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePoker_probability_calculator(input: Poker_probability_calculatorInput): Poker_probability_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["winProbability"]));
+  const totalWasteCost = toNumericFormulaValue(values["winProbability"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculatePoker_probability_calculator(input: Poker_probability_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

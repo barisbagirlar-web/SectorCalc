@@ -24,25 +24,21 @@ export const Irregular_polygon_area_calculatorInputSchema = z.object({
   y4: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Irregular_polygon_area_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.x1*input.y2 + input.x2*input.y3 + input.x3*input.y4 + input.x4*input.y1; results["sum1"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum1"] = 0; }
-  try { const v = input.y1*input.x2 + input.y2*input.x3 + input.y3*input.x4 + input.y4*input.x1; results["sum2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum2"] = 0; }
+  try { const v = input.x1*input.y2 + input.x2*input.y3 + input.x3*input.y4 + input.x4*input.y1; results["sum1"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sum1"] = Number.NaN; }
+  try { const v = input.y1*input.x2 + input.y2*input.x3 + input.y3*input.x4 + input.y4*input.x1; results["sum2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sum2"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateIrregular_polygon_area_calculator(input: Irregular_polygon_area_calculatorInput): Irregular_polygon_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sum2"]));
+  const totalWasteCost = toNumericFormulaValue(values["sum2"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateIrregular_polygon_area_calculator(input: Irregular_poly
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

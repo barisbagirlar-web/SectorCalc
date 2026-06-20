@@ -20,30 +20,26 @@ export const Catering_calculatorInputSchema = z.object({
   vatRate: z.number().default(18),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Catering_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.numberOfGuests * input.costPerMeal * input.numberOfCourses; results["totalRawCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalRawCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRawCost"])) * (input.wasteFactor / 100); results["wasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wasteCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRawCost"])) * (input.serviceChargePercent / 100); results["serviceCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["serviceCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalRawCost"])) + (asFormulaNumber(results["wasteCost"])) + (asFormulaNumber(results["serviceCost"])); results["taxableAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxableAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["taxableAmount"])) * (input.vatRate / 100); results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vatAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["taxableAmount"])) + (asFormulaNumber(results["vatAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = (asFormulaNumber(results["totalCost"])) / input.numberOfGuests; results["costPerGuest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["costPerGuest"] = 0; }
+  try { const v = input.numberOfGuests * input.costPerMeal * input.numberOfCourses; results["totalRawCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalRawCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRawCost"])) * (input.wasteFactor / 100); results["wasteCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wasteCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRawCost"])) * (input.serviceChargePercent / 100); results["serviceCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["serviceCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalRawCost"])) + (toNumericFormulaValue(results["wasteCost"])) + (toNumericFormulaValue(results["serviceCost"])); results["taxableAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxableAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxableAmount"])) * (input.vatRate / 100); results["vatAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vatAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["taxableAmount"])) + (toNumericFormulaValue(results["vatAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalCost"])) / input.numberOfGuests; results["costPerGuest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["costPerGuest"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCatering_calculator(input: Catering_calculatorInput): Catering_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalRawCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalRawCost"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateCatering_calculator(input: Catering_calculatorInput): C
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,27 +20,23 @@ export const Retaining_wall_drainage_calculatorInputSchema = z.object({
   manningN: z.number().default(0.013),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Retaining_wall_drainage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.soilPermeability * input.wallHeight * input.wallLength; results["inflowRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inflowRate"] = 0; }
-  try { const v = input.pipeDiameter / 1000; results["pipeDiameterM"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pipeDiameterM"] = 0; }
-  try { const v = input.pipeSlope / 100; results["pipeSlopeDec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["pipeSlopeDec"] = 0; }
-  try { const v = (asFormulaNumber(results["pipeDiameterM"])) / 4; results["hydraulicRadius"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["hydraulicRadius"] = 0; }
+  try { const v = input.soilPermeability * input.wallHeight * input.wallLength; results["inflowRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inflowRate"] = Number.NaN; }
+  try { const v = input.pipeDiameter / 1000; results["pipeDiameterM"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pipeDiameterM"] = Number.NaN; }
+  try { const v = input.pipeSlope / 100; results["pipeSlopeDec"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pipeSlopeDec"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["pipeDiameterM"])) / 4; results["hydraulicRadius"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hydraulicRadius"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRetaining_wall_drainage_calculator(input: Retaining_wall_drainage_calculatorInput): Retaining_wall_drainage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["hydraulicRadius"]));
+  const totalWasteCost = toNumericFormulaValue(values["hydraulicRadius"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateRetaining_wall_drainage_calculator(input: Retaining_wal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

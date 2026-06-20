@@ -24,26 +24,22 @@ export const Scaffolding_rental_optimizer_calculatorInputSchema = z.object({
   dismantle_hours_per_sqm: z.number().min(0.05).max(0.8).default(0.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Scaffolding_rental_optimizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.erection_hours_per_sqm * input.total_scaffold_area_sqm) + (input.dismantle_hours_per_sqm * input.total_scaffold_area_sqm); results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annual_exposure_hours"] = 0; }
-  try { const v = input.number_of_trips * (input.rental_rate_per_sqm_per_day / 100) * (input.labor_cost_per_hour * input.project_duration_days) * input.transport_cost_per_trip; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.number_of_trips * (input.rental_rate_per_sqm_per_day / 100) * (input.labor_cost_per_hour * input.project_duration_days) * input.transport_cost_per_trip; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (input.erection_hours_per_sqm * input.total_scaffold_area_sqm) + (input.dismantle_hours_per_sqm * input.total_scaffold_area_sqm); results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_exposure_hours"] = Number.NaN; }
+  try { const v = input.number_of_trips * (input.rental_rate_per_sqm_per_day / 100) * (input.labor_cost_per_hour * input.project_duration_days) * input.transport_cost_per_trip; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_labor_cost"] = Number.NaN; }
+  try { const v = input.number_of_trips * (input.rental_rate_per_sqm_per_day / 100) * (input.labor_cost_per_hour * input.project_duration_days) * input.transport_cost_per_trip; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateScaffolding_rental_optimizer_calculator(input: Scaffolding_rental_optimizer_calculatorInput): Scaffolding_rental_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateScaffolding_rental_optimizer_calculator(input: Scaffold
   const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,25 +16,21 @@ export const Pediatric_bmi_calculatorInputSchema = z.object({
   height: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pediatric_bmi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
-  try { const v = input.height; results["height"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["height"] = 0; }
+  try { const v = input.weight; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight"] = Number.NaN; }
+  try { const v = input.height; results["height"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["height"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePediatric_bmi_calculator(input: Pediatric_bmi_calculatorInput): Pediatric_bmi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["height"]));
+  const totalWasteCost = toNumericFormulaValue(values["height"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculatePediatric_bmi_calculator(input: Pediatric_bmi_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

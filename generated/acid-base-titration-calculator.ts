@@ -18,26 +18,22 @@ export const Acid_base_titration_calculatorInputSchema = z.object({
   analyteProticity: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Acid_base_titration_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.titrantConcentration * input.titrantVolume * input.titrantProticity) / (input.analyteVolume * input.analyteProticity); results["analyteConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["analyteConcentration"] = 0; }
-  try { const v = (input.titrantVolume / 1000) * input.titrantConcentration * input.titrantProticity; results["molesTitrant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesTitrant"] = 0; }
-  try { const v = (input.titrantVolume / 1000) * input.titrantConcentration * input.titrantProticity; results["molesAnalyteEquivalent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["molesAnalyteEquivalent"] = 0; }
+  try { const v = (input.titrantConcentration * input.titrantVolume * input.titrantProticity) / (input.analyteVolume * input.analyteProticity); results["analyteConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["analyteConcentration"] = Number.NaN; }
+  try { const v = (input.titrantVolume / 1000) * input.titrantConcentration * input.titrantProticity; results["molesTitrant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molesTitrant"] = Number.NaN; }
+  try { const v = (input.titrantVolume / 1000) * input.titrantConcentration * input.titrantProticity; results["molesAnalyteEquivalent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["molesAnalyteEquivalent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAcid_base_titration_calculator(input: Acid_base_titration_calculatorInput): Acid_base_titration_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["analyteConcentration"]));
+  const totalWasteCost = toNumericFormulaValue(values["analyteConcentration"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateAcid_base_titration_calculator(input: Acid_base_titrati
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

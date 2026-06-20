@@ -16,26 +16,22 @@ export const Power_to_weight_ratio_calculatorInputSchema = z.object({
   payloadKg: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Power_to_weight_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.enginePowerkW * (input.drivetrainEfficiencyPercent / 100); results["effectivePower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectivePower"] = 0; }
-  try { const v = input.vehicleMassKg + input.payloadKg; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMass"] = 0; }
-  try { const v = (input.enginePowerkW * (input.drivetrainEfficiencyPercent / 100)) / (input.vehicleMassKg + input.payloadKg); results["powerToWeightRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["powerToWeightRatio"] = 0; }
+  try { const v = input.enginePowerkW * (input.drivetrainEfficiencyPercent / 100); results["effectivePower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectivePower"] = Number.NaN; }
+  try { const v = input.vehicleMassKg + input.payloadKg; results["totalMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMass"] = Number.NaN; }
+  try { const v = (input.enginePowerkW * (input.drivetrainEfficiencyPercent / 100)) / (input.vehicleMassKg + input.payloadKg); results["powerToWeightRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["powerToWeightRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePower_to_weight_ratio_calculator(input: Power_to_weight_ratio_calculatorInput): Power_to_weight_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["powerToWeightRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["powerToWeightRatio"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculatePower_to_weight_ratio_calculator(input: Power_to_weight
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

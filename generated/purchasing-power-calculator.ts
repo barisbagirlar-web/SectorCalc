@@ -18,29 +18,25 @@ export const Purchasing_power_calculatorInputSchema = z.object({
   compoundFrequency: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Purchasing_power_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.toYear - input.fromYear; results["nYears"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nYears"] = 0; }
-  try { const v = input.inflationRate / 100 / input.compoundFrequency; results["periodRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["periodRate"] = 0; }
-  try { const v = input.compoundFrequency * (input.toYear - input.fromYear); results["totalPeriods"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPeriods"] = 0; }
-  try { const v = (1 + input.inflationRate / 100 / input.compoundFrequency) ** (input.compoundFrequency * (input.toYear - input.fromYear)); results["inflationFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["inflationFactor"] = 0; }
-  try { const v = input.initialIncome / ((1 + input.inflationRate / 100 / input.compoundFrequency) ** (input.compoundFrequency * (input.toYear - input.fromYear))); results["adjustedPurchasingPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedPurchasingPower"] = 0; }
-  try { const v = input.initialIncome - (input.initialIncome / ((1 + input.inflationRate / 100 / input.compoundFrequency) ** (input.compoundFrequency * (input.toYear - input.fromYear)))); results["purchasingPowerLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["purchasingPowerLoss"] = 0; }
+  try { const v = input.toYear - input.fromYear; results["nYears"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nYears"] = Number.NaN; }
+  try { const v = input.inflationRate / 100 / input.compoundFrequency; results["periodRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["periodRate"] = Number.NaN; }
+  try { const v = input.compoundFrequency * (input.toYear - input.fromYear); results["totalPeriods"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPeriods"] = Number.NaN; }
+  try { const v = (1 + input.inflationRate / 100 / input.compoundFrequency) ** (input.compoundFrequency * (input.toYear - input.fromYear)); results["inflationFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["inflationFactor"] = Number.NaN; }
+  try { const v = input.initialIncome / ((1 + input.inflationRate / 100 / input.compoundFrequency) ** (input.compoundFrequency * (input.toYear - input.fromYear))); results["adjustedPurchasingPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedPurchasingPower"] = Number.NaN; }
+  try { const v = input.initialIncome - (input.initialIncome / ((1 + input.inflationRate / 100 / input.compoundFrequency) ** (input.compoundFrequency * (input.toYear - input.fromYear)))); results["purchasingPowerLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["purchasingPowerLoss"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePurchasing_power_calculator(input: Purchasing_power_calculatorInput): Purchasing_power_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedPurchasingPower"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedPurchasingPower"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculatePurchasing_power_calculator(input: Purchasing_power_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

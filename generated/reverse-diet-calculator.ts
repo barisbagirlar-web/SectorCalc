@@ -16,27 +16,23 @@ export const Reverse_diet_calculatorInputSchema = z.object({
   activityLevel: z.number().default(1.2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Reverse_diet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.currentWeight - input.goalWeight) * 7700; results["totalDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDeficit"] = 0; }
-  try { const v = (asFormulaNumber(results["totalDeficit"])) / (input.weeks * 7); results["dailyDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyDeficit"] = 0; }
-  try { const v = input.currentWeight * 22 * input.activityLevel; results["maintenanceCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["maintenanceCalories"] = 0; }
-  try { const v = (asFormulaNumber(results["maintenanceCalories"])) - (asFormulaNumber(results["dailyDeficit"])); results["dailyIntake"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyIntake"] = 0; }
+  try { const v = (input.currentWeight - input.goalWeight) * 7700; results["totalDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDeficit"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalDeficit"])) / (input.weeks * 7); results["dailyDeficit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyDeficit"] = Number.NaN; }
+  try { const v = input.currentWeight * 22 * input.activityLevel; results["maintenanceCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["maintenanceCalories"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["maintenanceCalories"])) - (toNumericFormulaValue(results["dailyDeficit"])); results["dailyIntake"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyIntake"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateReverse_diet_calculator(input: Reverse_diet_calculatorInput): Reverse_diet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dailyIntake"]));
+  const totalWasteCost = toNumericFormulaValue(values["dailyIntake"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateReverse_diet_calculator(input: Reverse_diet_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

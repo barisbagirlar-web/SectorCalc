@@ -16,26 +16,22 @@ export const Rocket_equation_calculatorInputSchema = z.object({
   gravity: z.number().default(9.81),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rocket_equation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.specificImpulse * input.gravity; results["exhaustVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["exhaustVelocity"] = 0; }
-  try { const v = input.initialMass / input.finalMass; results["massRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massRatio"] = 0; }
-  try { const v = input.initialMass - input.finalMass; results["propellantMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["propellantMass"] = 0; }
+  try { const v = input.specificImpulse * input.gravity; results["exhaustVelocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["exhaustVelocity"] = Number.NaN; }
+  try { const v = input.initialMass / input.finalMass; results["massRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["massRatio"] = Number.NaN; }
+  try { const v = input.initialMass - input.finalMass; results["propellantMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["propellantMass"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRocket_equation_calculator(input: Rocket_equation_calculatorInput): Rocket_equation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["propellantMass"]));
+  const totalWasteCost = toNumericFormulaValue(values["propellantMass"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateRocket_equation_calculator(input: Rocket_equation_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

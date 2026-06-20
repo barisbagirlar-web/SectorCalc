@@ -16,26 +16,22 @@ export const Effective_interest_rate_calculatorInputSchema = z.object({
   decimalPlaces: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Effective_interest_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (1 + input.nominalRate / 100 / input.compoundingPeriodsPerYear) ** (input.compoundingPeriodsPerYear * input.timePeriodYears) - 1; results["effectiveRateDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveRateDecimal"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveRateDecimal"])) * 100; results["effectiveRatePercent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveRatePercent"] = 0; }
-  try { const v = input.compoundingPeriodsPerYear * input.timePeriodYears; results["totalPeriods"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPeriods"] = 0; }
+  try { const v = (1 + input.nominalRate / 100 / input.compoundingPeriodsPerYear) ** (input.compoundingPeriodsPerYear * input.timePeriodYears) - 1; results["effectiveRateDecimal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveRateDecimal"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveRateDecimal"])) * 100; results["effectiveRatePercent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveRatePercent"] = Number.NaN; }
+  try { const v = input.compoundingPeriodsPerYear * input.timePeriodYears; results["totalPeriods"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPeriods"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEffective_interest_rate_calculator(input: Effective_interest_rate_calculatorInput): Effective_interest_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalPeriods"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalPeriods"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateEffective_interest_rate_calculator(input: Effective_int
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

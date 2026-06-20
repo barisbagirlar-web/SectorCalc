@@ -18,26 +18,22 @@ export const Nicotine_calculatorInputSchema = z.object({
   desiredVG: z.number().default(70),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Nicotine_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.targetNicotine * input.finalVolume) / input.baseNicotine; results["requiredBaseVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredBaseVolume"] = 0; }
-  try { const v = (input.finalVolume * (100 - input.desiredVG) / 100) - (((input.targetNicotine * input.finalVolume) / input.baseNicotine) * (100 - input.baseVG) / 100); results["additionalPG"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["additionalPG"] = 0; }
-  try { const v = (input.finalVolume * input.desiredVG / 100) - (((input.targetNicotine * input.finalVolume) / input.baseNicotine) * input.baseVG / 100); results["additionalVG"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["additionalVG"] = 0; }
+  try { const v = (input.targetNicotine * input.finalVolume) / input.baseNicotine; results["requiredBaseVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredBaseVolume"] = Number.NaN; }
+  try { const v = (input.finalVolume * (100 - input.desiredVG) / 100) - (((input.targetNicotine * input.finalVolume) / input.baseNicotine) * (100 - input.baseVG) / 100); results["additionalPG"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["additionalPG"] = Number.NaN; }
+  try { const v = (input.finalVolume * input.desiredVG / 100) - (((input.targetNicotine * input.finalVolume) / input.baseNicotine) * input.baseVG / 100); results["additionalVG"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["additionalVG"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNicotine_calculator(input: Nicotine_calculatorInput): Nicotine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredBaseVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredBaseVolume"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateNicotine_calculator(input: Nicotine_calculatorInput): N
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

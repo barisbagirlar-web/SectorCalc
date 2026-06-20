@@ -20,28 +20,24 @@ export const Non_inverting_amplifier_calculatorInputSchema = z.object({
   headroom: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Non_inverting_amplifier_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 + input.r2 / input.r1; results["gain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gain"] = 0; }
-  try { const v = input.vin * (1 + input.r2 / input.r1); results["vout_ideal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vout_ideal"] = 0; }
-  try { const v = input.vcc - input.headroom; results["vhigh"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vhigh"] = 0; }
-  try { const v = input.vee + input.headroom; results["vlow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vlow"] = 0; }
-  try { const v = ((asFormulaNumber(results["vout_ideal"])) > (asFormulaNumber(results["vhigh"])) || (asFormulaNumber(results["vout_ideal"])) < (asFormulaNumber(results["vlow"]))) ? 1 : 0; results["is_clipping"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["is_clipping"] = 0; }
+  try { const v = 1 + input.r2 / input.r1; results["gain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gain"] = Number.NaN; }
+  try { const v = input.vin * (1 + input.r2 / input.r1); results["vout_ideal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vout_ideal"] = Number.NaN; }
+  try { const v = input.vcc - input.headroom; results["vhigh"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vhigh"] = Number.NaN; }
+  try { const v = input.vee + input.headroom; results["vlow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vlow"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["vout_ideal"])) > (toNumericFormulaValue(results["vhigh"])) || (toNumericFormulaValue(results["vout_ideal"])) < (toNumericFormulaValue(results["vlow"]))) ? 1 : 0; results["is_clipping"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["is_clipping"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateNon_inverting_amplifier_calculator(input: Non_inverting_amplifier_calculatorInput): Non_inverting_amplifier_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["is_clipping"]));
+  const totalWasteCost = toNumericFormulaValue(values["is_clipping"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateNon_inverting_amplifier_calculator(input: Non_inverting
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

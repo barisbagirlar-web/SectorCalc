@@ -20,25 +20,21 @@ export const Gratitude_calculatorInputSchema = z.object({
   baseline_happiness: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gratitude_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.daily_acts * input.days_practiced * (input.intensity_factor / 10); results["gratitude_score"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gratitude_score"] = 0; }
-  try { const v = input.social_shares * input.days_practiced * 0.5; results["social_impact"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["social_impact"] = 0; }
+  try { const v = input.daily_acts * input.days_practiced * (input.intensity_factor / 10); results["gratitude_score"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gratitude_score"] = Number.NaN; }
+  try { const v = input.social_shares * input.days_practiced * 0.5; results["social_impact"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["social_impact"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGratitude_calculator(input: Gratitude_calculatorInput): Gratitude_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["social_impact"]));
+  const totalWasteCost = toNumericFormulaValue(values["social_impact"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateGratitude_calculator(input: Gratitude_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

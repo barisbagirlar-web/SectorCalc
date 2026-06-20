@@ -18,31 +18,27 @@ export const Crypto_profit_calculatorInputSchema = z.object({
   taxPercent: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Crypto_profit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.investment / input.buyPrice; results["amount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["amount"] = 0; }
-  try { const v = (asFormulaNumber(results["amount"])) * input.sellPrice - input.investment; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossProfit"] = 0; }
-  try { const v = input.investment * input.feePercent / 100; results["buyFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["buyFee"] = 0; }
-  try { const v = (asFormulaNumber(results["amount"])) * input.sellPrice * input.feePercent / 100; results["sellFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sellFee"] = 0; }
-  try { const v = (asFormulaNumber(results["grossProfit"])) - (asFormulaNumber(results["buyFee"])) - (asFormulaNumber(results["sellFee"])); results["netProfitBeforeTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfitBeforeTax"] = 0; }
-  try { const v = (asFormulaNumber(results["netProfitBeforeTax"])) * input.taxPercent / 100; results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["netProfitBeforeTax"])) - (asFormulaNumber(results["taxAmount"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = ((asFormulaNumber(results["netProfit"])) / input.investment) * 100; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
+  try { const v = input.investment / input.buyPrice; results["amount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["amount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["amount"])) * input.sellPrice - input.investment; results["grossProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossProfit"] = Number.NaN; }
+  try { const v = input.investment * input.feePercent / 100; results["buyFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["buyFee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["amount"])) * input.sellPrice * input.feePercent / 100; results["sellFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sellFee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossProfit"])) - (toNumericFormulaValue(results["buyFee"])) - (toNumericFormulaValue(results["sellFee"])); results["netProfitBeforeTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfitBeforeTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netProfitBeforeTax"])) * input.taxPercent / 100; results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netProfitBeforeTax"])) - (toNumericFormulaValue(results["taxAmount"])); results["netProfit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netProfit"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["netProfit"])) / input.investment) * 100; results["roi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCrypto_profit_calculator(input: Crypto_profit_calculatorInput): Crypto_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netProfit"]));
+  const totalWasteCost = toNumericFormulaValue(values["netProfit"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateCrypto_profit_calculator(input: Crypto_profit_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

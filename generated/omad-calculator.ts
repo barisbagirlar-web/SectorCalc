@@ -18,27 +18,23 @@ export const Omad_calculatorInputSchema = z.object({
   defectiveUnits: z.number().default(40),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Omad_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.plannedTime - input.unplannedDowntime) / input.plannedTime; results["availability"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["availability"] = 0; }
-  try { const v = (input.idealCycleTime * input.totalUnits) / (input.plannedTime - input.unplannedDowntime); results["performance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["performance"] = 0; }
-  try { const v = (input.totalUnits - input.defectiveUnits) / input.totalUnits; results["quality"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["quality"] = 0; }
-  try { const v = ((input.plannedTime - input.unplannedDowntime) / input.plannedTime) * ((input.idealCycleTime * input.totalUnits) / (input.plannedTime - input.unplannedDowntime)) * ((input.totalUnits - input.defectiveUnits) / input.totalUnits); results["oee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["oee"] = 0; }
+  try { const v = (input.plannedTime - input.unplannedDowntime) / input.plannedTime; results["availability"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["availability"] = Number.NaN; }
+  try { const v = (input.idealCycleTime * input.totalUnits) / (input.plannedTime - input.unplannedDowntime); results["performance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["performance"] = Number.NaN; }
+  try { const v = (input.totalUnits - input.defectiveUnits) / input.totalUnits; results["quality"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["quality"] = Number.NaN; }
+  try { const v = ((input.plannedTime - input.unplannedDowntime) / input.plannedTime) * ((input.idealCycleTime * input.totalUnits) / (input.plannedTime - input.unplannedDowntime)) * ((input.totalUnits - input.defectiveUnits) / input.totalUnits); results["oee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["oee"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOmad_calculator(input: Omad_calculatorInput): Omad_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["oee"]));
+  const totalWasteCost = toNumericFormulaValue(values["oee"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateOmad_calculator(input: Omad_calculatorInput): Omad_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

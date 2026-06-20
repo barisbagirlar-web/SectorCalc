@@ -20,27 +20,23 @@ export const Divisor_calculatorInputSchema = z.object({
   gear6Teeth: z.number().default(80),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Divisor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.gear2Teeth * input.gear4Teeth * input.gear6Teeth) / (input.gear1Teeth * input.gear3Teeth * input.gear5Teeth); results["overallGearRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overallGearRatio"] = 0; }
-  try { const v = input.gear2Teeth / input.gear1Teeth; results["stage1Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stage1Ratio"] = 0; }
-  try { const v = input.gear4Teeth / input.gear3Teeth; results["stage2Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stage2Ratio"] = 0; }
-  try { const v = input.gear6Teeth / input.gear5Teeth; results["stage3Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stage3Ratio"] = 0; }
+  try { const v = (input.gear2Teeth * input.gear4Teeth * input.gear6Teeth) / (input.gear1Teeth * input.gear3Teeth * input.gear5Teeth); results["overallGearRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overallGearRatio"] = Number.NaN; }
+  try { const v = input.gear2Teeth / input.gear1Teeth; results["stage1Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stage1Ratio"] = Number.NaN; }
+  try { const v = input.gear4Teeth / input.gear3Teeth; results["stage2Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stage2Ratio"] = Number.NaN; }
+  try { const v = input.gear6Teeth / input.gear5Teeth; results["stage3Ratio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stage3Ratio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDivisor_calculator(input: Divisor_calculatorInput): Divisor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["overallGearRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["overallGearRatio"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateDivisor_calculator(input: Divisor_calculatorInput): Div
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

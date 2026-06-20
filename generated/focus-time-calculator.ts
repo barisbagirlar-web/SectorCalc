@@ -18,28 +18,24 @@ export const Focus_time_calculatorInputSchema = z.object({
   avgInterruptionDuration: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Focus_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.breakHours; results["breakOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["breakOut"] = 0; }
-  try { const v = input.meetingHours; results["meetingOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["meetingOut"] = 0; }
-  try { const v = input.interruptionCount * input.avgInterruptionDuration / 60; results["interruptionOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["interruptionOut"] = 0; }
-  try { const v = (asFormulaNumber(results["breakOut"])) + (asFormulaNumber(results["meetingOut"])) + (asFormulaNumber(results["interruptionOut"])); results["nonFocusOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["nonFocusOut"] = 0; }
-  try { const v = input.totalWorkHours - (asFormulaNumber(results["nonFocusOut"])); results["focusOut"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["focusOut"] = 0; }
+  try { const v = input.breakHours; results["breakOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakOut"] = Number.NaN; }
+  try { const v = input.meetingHours; results["meetingOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["meetingOut"] = Number.NaN; }
+  try { const v = input.interruptionCount * input.avgInterruptionDuration / 60; results["interruptionOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["interruptionOut"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["breakOut"])) + (toNumericFormulaValue(results["meetingOut"])) + (toNumericFormulaValue(results["interruptionOut"])); results["nonFocusOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["nonFocusOut"] = Number.NaN; }
+  try { const v = input.totalWorkHours - (toNumericFormulaValue(results["nonFocusOut"])); results["focusOut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["focusOut"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFocus_time_calculator(input: Focus_time_calculatorInput): Focus_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["focusOut"]));
+  const totalWasteCost = toNumericFormulaValue(values["focusOut"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateFocus_time_calculator(input: Focus_time_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

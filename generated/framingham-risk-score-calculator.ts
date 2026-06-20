@@ -20,25 +20,21 @@ export const Framingham_risk_score_calculatorInputSchema = z.object({
   bloodPressureTreatment: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Framingham_risk_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.1 * input.age + 0.02 * input.systolicPressure + 0.01 * input.cholesterol - 0.02 * input.hdlCholesterol + 0.3 * input.smokingStatus + 0.2 * input.bloodPressureTreatment; results["points"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["points"] = 0; }
-  try { const v = 0.1 * input.age + 0.02 * input.systolicPressure + 0.01 * input.cholesterol - 0.02 * input.hdlCholesterol + 0.3 * input.smokingStatus + 0.2 * input.bloodPressureTreatment; results["points_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["points_aux"] = 0; }
+  try { const v = 0.1 * input.age + 0.02 * input.systolicPressure + 0.01 * input.cholesterol - 0.02 * input.hdlCholesterol + 0.3 * input.smokingStatus + 0.2 * input.bloodPressureTreatment; results["points"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["points"] = Number.NaN; }
+  try { const v = 0.1 * input.age + 0.02 * input.systolicPressure + 0.01 * input.cholesterol - 0.02 * input.hdlCholesterol + 0.3 * input.smokingStatus + 0.2 * input.bloodPressureTreatment; results["points_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["points_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateFramingham_risk_score_calculator(input: Framingham_risk_score_calculatorInput): Framingham_risk_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["points_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["points_aux"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateFramingham_risk_score_calculator(input: Framingham_risk
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

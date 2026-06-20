@@ -14,25 +14,21 @@ export const Celsius_to_fahrenheitInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Celsius_to_fahrenheitInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fahrenheit"] = 0; }
-  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit___celsius___9___5___32"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fahrenheit___celsius___9___5___32"] = 0; }
+  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fahrenheit"] = Number.NaN; }
+  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit___celsius___9___5___32"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fahrenheit___celsius___9___5___32"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCelsius_to_fahrenheit(input: Celsius_to_fahrenheitInput): Celsius_to_fahrenheitOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["fahrenheit___celsius___9___5___32"]));
+  const totalWasteCost = toNumericFormulaValue(values["fahrenheit___celsius___9___5___32"]);
   const breakdown = {
     
   };
@@ -40,7 +36,7 @@ export function calculateCelsius_to_fahrenheit(input: Celsius_to_fahrenheitInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

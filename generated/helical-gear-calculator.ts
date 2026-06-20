@@ -20,25 +20,21 @@ export const Helical_gear_calculatorInputSchema = z.object({
   c: z.number().default(0.25),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Helical_gear_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.mn) * (input.z) * (input.beta) * (input.alpha) * (input.ha) * (input.c); results["normalCircularPitch"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalCircularPitch"] = 0; }
-  try { const v = (input.mn) * (input.z) * (input.beta); results["normalCircularPitch_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalCircularPitch_aux"] = 0; }
+  try { const v = (input.mn) * (input.z) * (input.beta) * (input.alpha) * (input.ha) * (input.c); results["normalCircularPitch"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalCircularPitch"] = Number.NaN; }
+  try { const v = (input.mn) * (input.z) * (input.beta); results["normalCircularPitch_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalCircularPitch_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHelical_gear_calculator(input: Helical_gear_calculatorInput): Helical_gear_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["normalCircularPitch_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["normalCircularPitch_aux"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateHelical_gear_calculator(input: Helical_gear_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

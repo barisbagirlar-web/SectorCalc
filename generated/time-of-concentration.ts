@@ -20,28 +20,24 @@ export const Time_of_concentrationInputSchema = z.object({
   percentImpervious: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Time_of_concentrationInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.01947 * (input.flowLength ** 0.77) * (input.slope ** -0.385); results["kirpichTc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["kirpichTc"] = 0; }
-  try { const v = (0.938 / input.manningN) * (input.flowLength ** 0.6) * (input.slope ** -0.3); results["manningTc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["manningTc"] = 0; }
-  try { const v = (input.flowLength ** 0.8) * ((1000 / (25.4 * (input.rainfallIntensity / 1000) * 1000 / 25.4 + 1)) ** 0.7) / (440 * (input.slope ** 0.5)); results["scsLag"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["scsLag"] = 0; }
-  try { const v = 0.5 * (asFormulaNumber(results["kirpichTc"])) + 0.3 * (asFormulaNumber(results["manningTc"])) + 0.2 * (asFormulaNumber(results["scsLag"])); results["weightedTc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weightedTc"] = 0; }
-  try { const v = (asFormulaNumber(results["weightedTc"])) * (1 + 0.2 * (input.percentImpervious / 100)); results["adjustedTc"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedTc"] = 0; }
+  try { const v = 0.01947 * (input.flowLength ** 0.77) * (input.slope ** -0.385); results["kirpichTc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kirpichTc"] = Number.NaN; }
+  try { const v = (0.938 / input.manningN) * (input.flowLength ** 0.6) * (input.slope ** -0.3); results["manningTc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["manningTc"] = Number.NaN; }
+  try { const v = (input.flowLength ** 0.8) * ((1000 / (25.4 * (input.rainfallIntensity / 1000) * 1000 / 25.4 + 1)) ** 0.7) / (440 * (input.slope ** 0.5)); results["scsLag"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["scsLag"] = Number.NaN; }
+  try { const v = 0.5 * (toNumericFormulaValue(results["kirpichTc"])) + 0.3 * (toNumericFormulaValue(results["manningTc"])) + 0.2 * (toNumericFormulaValue(results["scsLag"])); results["weightedTc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weightedTc"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["weightedTc"])) * (1 + 0.2 * (input.percentImpervious / 100)); results["adjustedTc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedTc"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTime_of_concentration(input: Time_of_concentrationInput): Time_of_concentrationOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["adjustedTc"]));
+  const totalWasteCost = toNumericFormulaValue(values["adjustedTc"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateTime_of_concentration(input: Time_of_concentrationInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

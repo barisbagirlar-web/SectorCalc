@@ -16,27 +16,23 @@ export const Gradians_to_degrees_calculatorInputSchema = z.object({
   roundingDecimals: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gradians_to_degrees_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.gradians * 0.9; results["standardConversion"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["standardConversion"] = 0; }
-  try { const v = input.instrumentGain; results["appliedGain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["appliedGain"] = 0; }
-  try { const v = input.instrumentOffset; results["appliedOffset"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["appliedOffset"] = 0; }
-  try { const v = input.gradians * input.instrumentGain + input.instrumentOffset; results["rawDegrees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawDegrees"] = 0; }
+  try { const v = input.gradians * 0.9; results["standardConversion"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["standardConversion"] = Number.NaN; }
+  try { const v = input.instrumentGain; results["appliedGain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["appliedGain"] = Number.NaN; }
+  try { const v = input.instrumentOffset; results["appliedOffset"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["appliedOffset"] = Number.NaN; }
+  try { const v = input.gradians * input.instrumentGain + input.instrumentOffset; results["rawDegrees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawDegrees"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGradians_to_degrees_calculator(input: Gradians_to_degrees_calculatorInput): Gradians_to_degrees_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["rawDegrees"]));
+  const totalWasteCost = toNumericFormulaValue(values["rawDegrees"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateGradians_to_degrees_calculator(input: Gradians_to_degre
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

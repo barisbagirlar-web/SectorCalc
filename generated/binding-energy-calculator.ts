@@ -20,25 +20,21 @@ export const Binding_energy_calculatorInputSchema = z.object({
   conversionFactor: z.number().default(931.49410242),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Binding_energy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.protons * input.protonMass + input.neutrons * input.neutronMass - input.nucleusMass) * input.conversionFactor; results["totalBindingEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBindingEnergy"] = 0; }
-  try { const v = (input.protons * input.protonMass + input.neutrons * input.neutronMass - input.nucleusMass); results["massDefect"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["massDefect"] = 0; }
+  try { const v = (input.protons * input.protonMass + input.neutrons * input.neutronMass - input.nucleusMass) * input.conversionFactor; results["totalBindingEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBindingEnergy"] = Number.NaN; }
+  try { const v = (input.protons * input.protonMass + input.neutrons * input.neutronMass - input.nucleusMass); results["massDefect"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["massDefect"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBinding_energy_calculator(input: Binding_energy_calculatorInput): Binding_energy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBindingEnergy"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBindingEnergy"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateBinding_energy_calculator(input: Binding_energy_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

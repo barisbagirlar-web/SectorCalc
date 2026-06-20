@@ -20,27 +20,23 @@ export const Dot_product_calculatorInputSchema = z.object({
   b_z: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dot_product_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.a_x * input.b_x + input.a_y * input.b_y + input.a_z * input.b_z; results["dotProduct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dotProduct"] = 0; }
-  try { const v = input.a_x * input.b_x; results["product_x"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["product_x"] = 0; }
-  try { const v = input.a_y * input.b_y; results["product_y"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["product_y"] = 0; }
-  try { const v = input.a_z * input.b_z; results["product_z"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["product_z"] = 0; }
+  try { const v = input.a_x * input.b_x + input.a_y * input.b_y + input.a_z * input.b_z; results["dotProduct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dotProduct"] = Number.NaN; }
+  try { const v = input.a_x * input.b_x; results["product_x"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["product_x"] = Number.NaN; }
+  try { const v = input.a_y * input.b_y; results["product_y"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["product_y"] = Number.NaN; }
+  try { const v = input.a_z * input.b_z; results["product_z"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["product_z"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDot_product_calculator(input: Dot_product_calculatorInput): Dot_product_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["dotProduct"]));
+  const totalWasteCost = toNumericFormulaValue(values["dotProduct"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateDot_product_calculator(input: Dot_product_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

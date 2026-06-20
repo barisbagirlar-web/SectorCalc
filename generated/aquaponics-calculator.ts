@@ -20,28 +20,24 @@ export const Aquaponics_calculatorInputSchema = z.object({
   fishDensity: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Aquaponics_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.fishCount * input.fishWeight * input.feedRate / 100; results["dailyFeed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyFeed"] = 0; }
-  try { const v = (asFormulaNumber(results["dailyFeed"])) * input.feedProtein; results["tanProduction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["tanProduction"] = 0; }
-  try { const v = (asFormulaNumber(results["tanProduction"])) / input.plantNitrogenUptake; results["requiredPlantArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredPlantArea"] = 0; }
-  try { const v = input.fishCount / input.fishDensity * 1000; results["fishTankVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fishTankVolume"] = 0; }
-  try { const v = (asFormulaNumber(results["fishTankVolume"])) / 60; results["recirculationFlow"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["recirculationFlow"] = 0; }
+  try { const v = input.fishCount * input.fishWeight * input.feedRate / 100; results["dailyFeed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyFeed"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dailyFeed"])) * input.feedProtein; results["tanProduction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["tanProduction"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["tanProduction"])) / input.plantNitrogenUptake; results["requiredPlantArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredPlantArea"] = Number.NaN; }
+  try { const v = input.fishCount / input.fishDensity * 1000; results["fishTankVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fishTankVolume"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["fishTankVolume"])) / 60; results["recirculationFlow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["recirculationFlow"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAquaponics_calculator(input: Aquaponics_calculatorInput): Aquaponics_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredPlantArea"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredPlantArea"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateAquaponics_calculator(input: Aquaponics_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

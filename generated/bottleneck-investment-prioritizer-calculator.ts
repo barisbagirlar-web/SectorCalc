@@ -24,27 +24,23 @@ export const Bottleneck_investment_prioritizer_calculatorInputSchema = z.object(
   quality_yield: z.number().min(0).max(100).default(95),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bottleneck_investment_prioritizer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.profit_margin_per_unit * input.investment_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["base_cost"] = 0; }
-  try { const v = input.profit_margin_per_unit * input.investment_cost * (1 + (input.bottleneck_utilization / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost"] = 0; }
-  try { const v = input.profit_margin_per_unit * input.investment_cost * (1 + (input.bottleneck_utilization / 100)) * ((input.demand_rate / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = (input.demand_rate / 100); results["factor_demand_rate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["factor_demand_rate"] = 0; }
+  try { const v = input.profit_margin_per_unit * input.investment_cost; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
+  try { const v = input.profit_margin_per_unit * input.investment_cost * (1 + (input.bottleneck_utilization / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
+  try { const v = input.profit_margin_per_unit * input.investment_cost * (1 + (input.bottleneck_utilization / 100)) * ((input.demand_rate / 100)); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = (input.demand_rate / 100); results["factor_demand_rate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_demand_rate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBottleneck_investment_prioritizer_calculator(input: Bottleneck_investment_prioritizer_calculatorInput): Bottleneck_investment_prioritizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateBottleneck_investment_prioritizer_calculator(input: Bot
   const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

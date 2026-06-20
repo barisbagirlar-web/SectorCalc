@@ -16,27 +16,23 @@ export const Rsu_calculatorInputSchema = z.object({
   taxRate: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rsu_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalRSUs * (input.vestedPercentage / 100); results["vestedShares"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vestedShares"] = 0; }
-  try { const v = (asFormulaNumber(results["vestedShares"])) * input.sharePrice; results["preTaxValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["preTaxValue"] = 0; }
-  try { const v = (asFormulaNumber(results["preTaxValue"])) * (input.taxRate / 100); results["estimatedTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["estimatedTax"] = 0; }
-  try { const v = (asFormulaNumber(results["preTaxValue"])) - (asFormulaNumber(results["estimatedTax"])); results["netValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netValue"] = 0; }
+  try { const v = input.totalRSUs * (input.vestedPercentage / 100); results["vestedShares"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vestedShares"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["vestedShares"])) * input.sharePrice; results["preTaxValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["preTaxValue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["preTaxValue"])) * (input.taxRate / 100); results["estimatedTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["estimatedTax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["preTaxValue"])) - (toNumericFormulaValue(results["estimatedTax"])); results["netValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netValue"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRsu_calculator(input: Rsu_calculatorInput): Rsu_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["netValue"]));
+  const totalWasteCost = toNumericFormulaValue(values["netValue"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRsu_calculator(input: Rsu_calculatorInput): Rsu_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

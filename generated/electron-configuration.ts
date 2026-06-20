@@ -18,26 +18,22 @@ export const Electron_configurationInputSchema = z.object({
   rydberg: z.number().default(13.6),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Electron_configurationInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.atomicNumber - input.screening; results["z_eff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["z_eff"] = 0; }
-  try { const v = 1 / input.n1**2 - 1 / input.n2**2; results["invDiff"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["invDiff"] = 0; }
-  try { const v = input.rydberg * (asFormulaNumber(results["z_eff"]))**2 * (asFormulaNumber(results["invDiff"])); results["energy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energy"] = 0; }
+  try { const v = input.atomicNumber - input.screening; results["z_eff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["z_eff"] = Number.NaN; }
+  try { const v = 1 / input.n1**2 - 1 / input.n2**2; results["invDiff"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["invDiff"] = Number.NaN; }
+  try { const v = input.rydberg * (toNumericFormulaValue(results["z_eff"]))**2 * (toNumericFormulaValue(results["invDiff"])); results["energy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energy"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateElectron_configuration(input: Electron_configurationInput): Electron_configurationOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["z_eff"]));
+  const totalWasteCost = toNumericFormulaValue(values["z_eff"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateElectron_configuration(input: Electron_configurationInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

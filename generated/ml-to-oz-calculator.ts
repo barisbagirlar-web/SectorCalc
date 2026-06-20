@@ -16,25 +16,21 @@ export const Ml_to_oz_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ml_to_oz_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.volume_ml * input.factor_us; results["us_oz"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["us_oz"] = 0; }
-  try { const v = input.volume_ml * input.factor_uk; results["uk_oz"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uk_oz"] = 0; }
+  try { const v = input.volume_ml * input.factor_us; results["us_oz"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["us_oz"] = Number.NaN; }
+  try { const v = input.volume_ml * input.factor_uk; results["uk_oz"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["uk_oz"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMl_to_oz_calculator(input: Ml_to_oz_calculatorInput): Ml_to_oz_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["uk_oz"]));
+  const totalWasteCost = toNumericFormulaValue(values["uk_oz"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateMl_to_oz_calculator(input: Ml_to_oz_calculatorInput): M
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -20,27 +20,23 @@ export const Weight_cycling_calculatorInputSchema = z.object({
   energyCost: z.number().min(0.001).max(1000).default(0.15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weight_cycling_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.mass * 9.81 * input.height) / (3.6e6) / (input.efficiency / 100); results["energyPerCycle"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["energyPerCycle"] = 0; }
-  try { const v = input.cyclesPerDay * input.operatingDays; results["totalCycles"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCycles"] = 0; }
-  try { const v = (asFormulaNumber(results["energyPerCycle"])) * (asFormulaNumber(results["totalCycles"])); results["totalEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["totalEnergy"])) * input.energyCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (input.mass * 9.81 * input.height) / (3.6e6) / (input.efficiency / 100); results["energyPerCycle"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["energyPerCycle"] = Number.NaN; }
+  try { const v = input.cyclesPerDay * input.operatingDays; results["totalCycles"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCycles"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["energyPerCycle"])) * (toNumericFormulaValue(results["totalCycles"])); results["totalEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalEnergy"])) * input.energyCost; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeight_cycling_calculator(input: Weight_cycling_calculatorInput): Weight_cycling_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCost"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     energyPerCycle: toNumericFormulaValue(values["energyPerCycle"]),
     totalEnergy: toNumericFormulaValue(values["totalEnergy"]),
@@ -50,7 +46,7 @@ export function calculateWeight_cycling_calculator(input: Weight_cycling_calcula
   const suggestedActions: string[] = ["Improve system efficiency with regular lubrication and motor maintenance.","Optimize lifting height where possible to reduce energy consumption per cycle.","Schedule heavy cycling during off-peak energy hours to reduce electricity costs."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

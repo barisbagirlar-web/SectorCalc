@@ -20,27 +20,23 @@ export const Sober_date_calculatorInputSchema = z.object({
   endYear: z.number().default(2025),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sober_date_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.endYear - input.startYear) * 365 + (input.endMonth - input.startMonth) * 30 + (input.endDay - input.startDay); results["totalDays"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDays"] = 0; }
-  try { const v = (input.endYear - input.startYear) * 365; results["yearPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yearPart"] = 0; }
-  try { const v = (input.endMonth - input.startMonth) * 30; results["monthPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthPart"] = 0; }
-  try { const v = (input.endDay - input.startDay); results["dayPart"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dayPart"] = 0; }
+  try { const v = (input.endYear - input.startYear) * 365 + (input.endMonth - input.startMonth) * 30 + (input.endDay - input.startDay); results["totalDays"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDays"] = Number.NaN; }
+  try { const v = (input.endYear - input.startYear) * 365; results["yearPart"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yearPart"] = Number.NaN; }
+  try { const v = (input.endMonth - input.startMonth) * 30; results["monthPart"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthPart"] = Number.NaN; }
+  try { const v = (input.endDay - input.startDay); results["dayPart"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dayPart"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSober_date_calculator(input: Sober_date_calculatorInput): Sober_date_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDays"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDays"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateSober_date_calculator(input: Sober_date_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

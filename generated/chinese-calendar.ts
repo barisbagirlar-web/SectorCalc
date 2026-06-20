@@ -16,26 +16,22 @@ export const Chinese_calendarInputSchema = z.object({
   leapMonth: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Chinese_calendarInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.year - 2697; results["chineseYear"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["chineseYear"] = 0; }
-  try { const v = ((input.month + 9) % 12) + 1; results["chineseMonth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["chineseMonth"] = 0; }
-  try { const v = input.day; results["chineseDay"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["chineseDay"] = 0; }
+  try { const v = input.year - 2697; results["chineseYear"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["chineseYear"] = Number.NaN; }
+  try { const v = ((input.month + 9) % 12) + 1; results["chineseMonth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["chineseMonth"] = Number.NaN; }
+  try { const v = input.day; results["chineseDay"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["chineseDay"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateChinese_calendar(input: Chinese_calendarInput): Chinese_calendarOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["chineseYear"]));
+  const totalWasteCost = toNumericFormulaValue(values["chineseYear"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateChinese_calendar(input: Chinese_calendarInput): Chinese
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

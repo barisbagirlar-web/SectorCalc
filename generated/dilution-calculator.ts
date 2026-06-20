@@ -18,26 +18,22 @@ export const Dilution_calculatorInputSchema = z.object({
   unitConversionFactor: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Dilution_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.stockConcentration * input.unitConversionFactor; results["effectiveStockConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveStockConcentration"] = 0; }
-  try { const v = input.finalVolume * (1 + input.overagePercent / 100); results["adjustedFinalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustedFinalVolume"] = 0; }
-  try { const v = (input.desiredConcentration * (asFormulaNumber(results["adjustedFinalVolume"]))) / (asFormulaNumber(results["effectiveStockConcentration"])); results["requiredStockVolume"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["requiredStockVolume"] = 0; }
+  try { const v = input.stockConcentration * input.unitConversionFactor; results["effectiveStockConcentration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveStockConcentration"] = Number.NaN; }
+  try { const v = input.finalVolume * (1 + input.overagePercent / 100); results["adjustedFinalVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustedFinalVolume"] = Number.NaN; }
+  try { const v = (input.desiredConcentration * (toNumericFormulaValue(results["adjustedFinalVolume"]))) / (toNumericFormulaValue(results["effectiveStockConcentration"])); results["requiredStockVolume"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["requiredStockVolume"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDilution_calculator(input: Dilution_calculatorInput): Dilution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["requiredStockVolume"]));
+  const totalWasteCost = toNumericFormulaValue(values["requiredStockVolume"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateDilution_calculator(input: Dilution_calculatorInput): D
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

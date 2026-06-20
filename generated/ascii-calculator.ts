@@ -16,26 +16,22 @@ export const Ascii_calculatorInputSchema = z.object({
   char4: z.number().default(68),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ascii_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.char1 + input.char2 + input.char3 + input.char4; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sum"] = 0; }
-  try { const v = (input.char1 + input.char2 + input.char3 + input.char4) / 4; results["average"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["average"] = 0; }
-  try { const v = input.char1 * input.char2 * input.char3 * input.char4; results["product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["product"] = 0; }
+  try { const v = input.char1 + input.char2 + input.char3 + input.char4; results["sum"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sum"] = Number.NaN; }
+  try { const v = (input.char1 + input.char2 + input.char3 + input.char4) / 4; results["average"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["average"] = Number.NaN; }
+  try { const v = input.char1 * input.char2 * input.char3 * input.char4; results["product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["product"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAscii_calculator(input: Ascii_calculatorInput): Ascii_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["sum"]));
+  const totalWasteCost = toNumericFormulaValue(values["sum"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateAscii_calculator(input: Ascii_calculatorInput): Ascii_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

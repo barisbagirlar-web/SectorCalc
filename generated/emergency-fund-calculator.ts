@@ -16,26 +16,22 @@ export const Emergency_fund_calculatorInputSchema = z.object({
   safetyMargin: z.number().default(10),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Emergency_fund_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.monthlyExpenses * input.coverageMonths * (1 + input.safetyMargin / 100); results["totalEmergencyFund"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalEmergencyFund"] = 0; }
-  try { const v = input.monthlyExpenses * input.coverageMonths * (input.safetyMargin / 100); results["safetyMarginAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["safetyMarginAmount"] = 0; }
-  try { const v = input.monthlyExpenses !== 0 ? input.currentSavings / (input.monthlyExpenses * (1 + input.safetyMargin / 100)) : 0; results["monthsCoveredByCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthsCoveredByCurrent"] = 0; }
+  try { const v = input.monthlyExpenses * input.coverageMonths * (1 + input.safetyMargin / 100); results["totalEmergencyFund"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalEmergencyFund"] = Number.NaN; }
+  try { const v = input.monthlyExpenses * input.coverageMonths * (input.safetyMargin / 100); results["safetyMarginAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["safetyMarginAmount"] = Number.NaN; }
+  try { const v = input.monthlyExpenses !== 0 ? input.currentSavings / (input.monthlyExpenses * (1 + input.safetyMargin / 100)) : 0; results["monthsCoveredByCurrent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthsCoveredByCurrent"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEmergency_fund_calculator(input: Emergency_fund_calculatorInput): Emergency_fund_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthsCoveredByCurrent"]));
+  const totalWasteCost = toNumericFormulaValue(values["monthsCoveredByCurrent"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateEmergency_fund_calculator(input: Emergency_fund_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

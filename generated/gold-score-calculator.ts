@@ -18,28 +18,24 @@ export const Gold_score_calculatorInputSchema = z.object({
   taxRatePercent: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Gold_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight * (input.purity / 24) * input.marketPrice; results["goldContentValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldContentValue"] = 0; }
-  try { const v = (asFormulaNumber(results["goldContentValue"])) * (input.makingChargePercent / 100); results["makingCharges"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["makingCharges"] = 0; }
-  try { const v = ((asFormulaNumber(results["goldContentValue"])) + (asFormulaNumber(results["makingCharges"]))) * (input.taxRatePercent / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["goldContentValue"])) + (asFormulaNumber(results["makingCharges"])) + (asFormulaNumber(results["taxAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = ((asFormulaNumber(results["goldContentValue"])) / (asFormulaNumber(results["totalCost"]))) * 100; results["goldScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["goldScore"] = 0; }
+  try { const v = input.weight * (input.purity / 24) * input.marketPrice; results["goldContentValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["goldContentValue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["goldContentValue"])) * (input.makingChargePercent / 100); results["makingCharges"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["makingCharges"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["goldContentValue"])) + (toNumericFormulaValue(results["makingCharges"]))) * (input.taxRatePercent / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["goldContentValue"])) + (toNumericFormulaValue(results["makingCharges"])) + (toNumericFormulaValue(results["taxAmount"])); results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["goldContentValue"])) / (toNumericFormulaValue(results["totalCost"]))) * 100; results["goldScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["goldScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGold_score_calculator(input: Gold_score_calculatorInput): Gold_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["goldScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["goldScore"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateGold_score_calculator(input: Gold_score_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

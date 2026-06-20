@@ -20,27 +20,23 @@ export const Hours_to_days_calculatorInputSchema = z.object({
   setup_time: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Hours_to_days_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.total_hours / input.efficiency_factor) + input.setup_time; results["required_hours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["required_hours"] = 0; }
-  try { const v = input.daily_shift_hours - input.break_hours_per_shift; results["effective_hours_per_shift"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effective_hours_per_shift"] = 0; }
-  try { const v = (asFormulaNumber(results["effective_hours_per_shift"])) * input.shifts_per_day; results["effective_hours_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effective_hours_per_day"] = 0; }
-  try { const v = (asFormulaNumber(results["required_hours"])) / (asFormulaNumber(results["effective_hours_per_day"])); results["days"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["days"] = 0; }
+  try { const v = (input.total_hours / input.efficiency_factor) + input.setup_time; results["required_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["required_hours"] = Number.NaN; }
+  try { const v = input.daily_shift_hours - input.break_hours_per_shift; results["effective_hours_per_shift"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effective_hours_per_shift"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effective_hours_per_shift"])) * input.shifts_per_day; results["effective_hours_per_day"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effective_hours_per_day"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["required_hours"])) / (toNumericFormulaValue(results["effective_hours_per_day"])); results["days"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["days"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHours_to_days_calculator(input: Hours_to_days_calculatorInput): Hours_to_days_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["days"]));
+  const totalWasteCost = toNumericFormulaValue(values["days"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateHours_to_days_calculator(input: Hours_to_days_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

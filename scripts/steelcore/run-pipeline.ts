@@ -18,6 +18,7 @@ function main(): void {
   const withBuild = process.argv.includes("--with-build");
   const withTests = !process.argv.includes("--skip-tests");
   const strict = process.argv.includes("--strict");
+  const enforceBoundaries = process.argv.includes("--enforce-boundaries");
   const useAi = process.argv.includes("--ai");
 
   console.log(`SectorCalc SteelCore Engine v${STEELCORE_VERSION}`);
@@ -37,6 +38,9 @@ function main(): void {
   }
   run(`npx tsx scripts/steelcore/self-heal.ts${useAi ? " --ai" : ""}`);
   if (withBuild) run("npm run build:next");
+  if (enforceBoundaries) {
+    run("node scripts/steelcore/enforce-boundaries.mjs");
+  }
 
   writeHealthLog({ validation: validateAllSchemas(), fallback: measureFallbackRate() });
   console.log(`Pipeline complete. Health: ${path.relative(process.cwd(), STEELCORE_HEALTH_LOG)}`);

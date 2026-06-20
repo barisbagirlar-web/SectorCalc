@@ -18,28 +18,24 @@ export const Sound_level_calculatorInputSchema = z.object({
   spl5: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sound_level_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = "SPL 1: " + input.spl1 + " dB"; results["spl1Result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spl1Result"] = 0; }
-  try { const v = "SPL 2: " + input.spl2 + " dB"; results["spl2Result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spl2Result"] = 0; }
-  try { const v = "SPL 3: " + input.spl3 + " dB"; results["spl3Result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spl3Result"] = 0; }
-  try { const v = "SPL 4: " + input.spl4 + " dB"; results["spl4Result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spl4Result"] = 0; }
-  try { const v = "SPL 5: " + input.spl5 + " dB"; results["spl5Result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["spl5Result"] = 0; }
+  try { const v = "SPL 1: " + input.spl1 + " dB"; results["spl1Result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spl1Result"] = Number.NaN; }
+  try { const v = "SPL 2: " + input.spl2 + " dB"; results["spl2Result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spl2Result"] = Number.NaN; }
+  try { const v = "SPL 3: " + input.spl3 + " dB"; results["spl3Result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spl3Result"] = Number.NaN; }
+  try { const v = "SPL 4: " + input.spl4 + " dB"; results["spl4Result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spl4Result"] = Number.NaN; }
+  try { const v = "SPL 5: " + input.spl5 + " dB"; results["spl5Result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["spl5Result"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSound_level_calculator(input: Sound_level_calculatorInput): Sound_level_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["spl5Result"]));
+  const totalWasteCost = toNumericFormulaValue(values["spl5Result"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateSound_level_calculator(input: Sound_level_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

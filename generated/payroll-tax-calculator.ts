@@ -20,28 +20,24 @@ export const Payroll_tax_calculatorInputSchema = z.object({
   bracket2Limit: z.number().default(50000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Payroll_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grossSalary <= input.bracket1Limit ? input.grossSalary * input.taxRate1 / 100 : input.bracket1Limit * input.taxRate1 / 100; results["bracket1Tax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bracket1Tax"] = 0; }
-  try { const v = input.grossSalary <= input.bracket1Limit ? 0 : input.grossSalary <= input.bracket2Limit ? (input.grossSalary - input.bracket1Limit) * input.taxRate2 / 100 : (input.bracket2Limit - input.bracket1Limit) * input.taxRate2 / 100; results["bracket2Tax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bracket2Tax"] = 0; }
-  try { const v = input.grossSalary <= input.bracket2Limit ? 0 : (input.grossSalary - input.bracket2Limit) * input.taxRate3 / 100; results["bracket3Tax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bracket3Tax"] = 0; }
-  try { const v = (asFormulaNumber(results["bracket1Tax"])) + (asFormulaNumber(results["bracket2Tax"])) + (asFormulaNumber(results["bracket3Tax"])); results["totalTax"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTax"] = 0; }
-  try { const v = input.grossSalary - (asFormulaNumber(results["totalTax"])); results["netSalary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netSalary"] = 0; }
+  try { const v = input.grossSalary <= input.bracket1Limit ? input.grossSalary * input.taxRate1 / 100 : input.bracket1Limit * input.taxRate1 / 100; results["bracket1Tax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bracket1Tax"] = Number.NaN; }
+  try { const v = input.grossSalary <= input.bracket1Limit ? 0 : input.grossSalary <= input.bracket2Limit ? (input.grossSalary - input.bracket1Limit) * input.taxRate2 / 100 : (input.bracket2Limit - input.bracket1Limit) * input.taxRate2 / 100; results["bracket2Tax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bracket2Tax"] = Number.NaN; }
+  try { const v = input.grossSalary <= input.bracket2Limit ? 0 : (input.grossSalary - input.bracket2Limit) * input.taxRate3 / 100; results["bracket3Tax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bracket3Tax"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bracket1Tax"])) + (toNumericFormulaValue(results["bracket2Tax"])) + (toNumericFormulaValue(results["bracket3Tax"])); results["totalTax"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTax"] = Number.NaN; }
+  try { const v = input.grossSalary - (toNumericFormulaValue(results["totalTax"])); results["netSalary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netSalary"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePayroll_tax_calculator(input: Payroll_tax_calculatorInput): Payroll_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalTax"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalTax"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculatePayroll_tax_calculator(input: Payroll_tax_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

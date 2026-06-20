@@ -16,25 +16,21 @@ export const Polynomial_solver_calculatorInputSchema = z.object({
   x: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Polynomial_solver_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.b*input.b - 4*input.a*input.c; results["discriminant"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discriminant"] = 0; }
-  try { const v = input.a*input.x*input.x + input.b*input.x + input.c; results["evaluated"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["evaluated"] = 0; }
+  try { const v = input.b*input.b - 4*input.a*input.c; results["discriminant"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discriminant"] = Number.NaN; }
+  try { const v = input.a*input.x*input.x + input.b*input.x + input.c; results["evaluated"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["evaluated"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePolynomial_solver_calculator(input: Polynomial_solver_calculatorInput): Polynomial_solver_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["evaluated"]));
+  const totalWasteCost = toNumericFormulaValue(values["evaluated"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculatePolynomial_solver_calculator(input: Polynomial_solver_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

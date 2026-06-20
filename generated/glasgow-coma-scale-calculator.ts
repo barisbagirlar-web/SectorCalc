@@ -16,28 +16,24 @@ export const Glasgow_coma_scale_calculatorInputSchema = z.object({
   modifier: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Glasgow_coma_scale_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.eye + input.verbal + input.motor + input.modifier; results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
-  try { const v = input.eye; results["eyeScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["eyeScore"] = 0; }
-  try { const v = input.verbal; results["verbalScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["verbalScore"] = 0; }
-  try { const v = input.motor; results["motorScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["motorScore"] = 0; }
-  try { const v = input.modifier; results["modifierScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["modifierScore"] = 0; }
+  try { const v = input.eye + input.verbal + input.motor + input.modifier; results["totalScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalScore"] = Number.NaN; }
+  try { const v = input.eye; results["eyeScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["eyeScore"] = Number.NaN; }
+  try { const v = input.verbal; results["verbalScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["verbalScore"] = Number.NaN; }
+  try { const v = input.motor; results["motorScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["motorScore"] = Number.NaN; }
+  try { const v = input.modifier; results["modifierScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["modifierScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGlasgow_coma_scale_calculator(input: Glasgow_coma_scale_calculatorInput): Glasgow_coma_scale_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateGlasgow_coma_scale_calculator(input: Glasgow_coma_scale
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

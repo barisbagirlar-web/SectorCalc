@@ -20,25 +20,21 @@ export const Atm_to_bar_calculatorInputSchema = z.object({
   measurement_uncertainty: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Atm_to_bar_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.pressure_atm) * (input.conversion_factor) * (input.precision) * (input.temperature_celsius) * (input.altitude_meters) * (input.measurement_uncertainty); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
-  try { const v = (input.pressure_atm) * (input.conversion_factor) * (input.precision); results["primary_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["primary_aux"] = 0; }
+  try { const v = (input.pressure_atm) * (input.conversion_factor) * (input.precision) * (input.temperature_celsius) * (input.altitude_meters) * (input.measurement_uncertainty); results["primary"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary"] = Number.NaN; }
+  try { const v = (input.pressure_atm) * (input.conversion_factor) * (input.precision); results["primary_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["primary_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAtm_to_bar_calculator(input: Atm_to_bar_calculatorInput): Atm_to_bar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["primary_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["primary_aux"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateAtm_to_bar_calculator(input: Atm_to_bar_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

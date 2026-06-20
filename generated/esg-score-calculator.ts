@@ -20,28 +20,24 @@ export const Esg_score_calculatorInputSchema = z.object({
   weightG: z.number().default(0.34),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Esg_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weightE + input.weightS + input.weightG; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = (input.environScore * input.weightE) / (asFormulaNumber(results["totalWeight"])); results["environContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["environContrib"] = 0; }
-  try { const v = (input.socialScore * input.weightS) / (asFormulaNumber(results["totalWeight"])); results["socialContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["socialContrib"] = 0; }
-  try { const v = (input.governScore * input.weightG) / (asFormulaNumber(results["totalWeight"])); results["governContrib"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["governContrib"] = 0; }
-  try { const v = (asFormulaNumber(results["environContrib"])) + (asFormulaNumber(results["socialContrib"])) + (asFormulaNumber(results["governContrib"])); results["esgScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["esgScore"] = 0; }
+  try { const v = input.weightE + input.weightS + input.weightG; results["totalWeight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWeight"] = Number.NaN; }
+  try { const v = (input.environScore * input.weightE) / (toNumericFormulaValue(results["totalWeight"])); results["environContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["environContrib"] = Number.NaN; }
+  try { const v = (input.socialScore * input.weightS) / (toNumericFormulaValue(results["totalWeight"])); results["socialContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["socialContrib"] = Number.NaN; }
+  try { const v = (input.governScore * input.weightG) / (toNumericFormulaValue(results["totalWeight"])); results["governContrib"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["governContrib"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["environContrib"])) + (toNumericFormulaValue(results["socialContrib"])) + (toNumericFormulaValue(results["governContrib"])); results["esgScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["esgScore"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateEsg_score_calculator(input: Esg_score_calculatorInput): Esg_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["esgScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["esgScore"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateEsg_score_calculator(input: Esg_score_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

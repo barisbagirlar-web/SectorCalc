@@ -99,7 +99,12 @@
     }
   ],
   "formulas": {
-    "hypotenuse": "legA * legA + legB * legB"
+    "hypotenuse": "legA * legA + legB * legB",
+    "hypotenuse_aux": "legA * legA + legB * legB",
+    "legA___legA": "legA * legA",
+    "legB___legB": "legB * legB",
+    "legA___legA___legB___legB": "legA * legA + legB * legB",
+    "SQRT_legA___legA___legB___legB_": "SQRT(legA * legA + legB * legB)"
   },
   "outputs": {
     "primary": "hypotenuse",

@@ -18,25 +18,21 @@ export const Tennis_racquet_calculatorInputSchema = z.object({
   addedPosition: z.number().default(68.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Tennis_racquet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.racquetMass + input.addedMass; results["newMass"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newMass"] = 0; }
-  try { const v = (input.racquetMass * input.racquetBalance + input.addedMass * input.addedPosition) / (input.racquetMass + input.addedMass); results["newBalance"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["newBalance"] = 0; }
+  try { const v = input.racquetMass + input.addedMass; results["newMass"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newMass"] = Number.NaN; }
+  try { const v = (input.racquetMass * input.racquetBalance + input.addedMass * input.addedPosition) / (input.racquetMass + input.addedMass); results["newBalance"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newBalance"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTennis_racquet_calculator(input: Tennis_racquet_calculatorInput): Tennis_racquet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["newBalance"]));
+  const totalWasteCost = toNumericFormulaValue(values["newBalance"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateTennis_racquet_calculator(input: Tennis_racquet_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

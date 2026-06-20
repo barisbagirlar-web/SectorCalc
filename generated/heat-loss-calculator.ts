@@ -24,28 +24,24 @@ export const Heat_loss_calculatorInputSchema = z.object({
   outdoorTemp: z.number().default(-5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Heat_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.indoorTemp - input.outdoorTemp; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaT"] = 0; }
-  try { const v = input.uWall * input.wallArea * (asFormulaNumber(results["deltaT"])); results["wallLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wallLoss"] = 0; }
-  try { const v = input.uWindow * input.windowArea * (asFormulaNumber(results["deltaT"])); results["windowLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["windowLoss"] = 0; }
-  try { const v = input.uRoof * input.roofArea * (asFormulaNumber(results["deltaT"])); results["roofLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["roofLoss"] = 0; }
-  try { const v = (asFormulaNumber(results["wallLoss"])) + (asFormulaNumber(results["windowLoss"])) + (asFormulaNumber(results["roofLoss"])); results["totalHeatLoss"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalHeatLoss"] = 0; }
+  try { const v = input.indoorTemp - input.outdoorTemp; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaT"] = Number.NaN; }
+  try { const v = input.uWall * input.wallArea * (toNumericFormulaValue(results["deltaT"])); results["wallLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wallLoss"] = Number.NaN; }
+  try { const v = input.uWindow * input.windowArea * (toNumericFormulaValue(results["deltaT"])); results["windowLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["windowLoss"] = Number.NaN; }
+  try { const v = input.uRoof * input.roofArea * (toNumericFormulaValue(results["deltaT"])); results["roofLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["roofLoss"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["wallLoss"])) + (toNumericFormulaValue(results["windowLoss"])) + (toNumericFormulaValue(results["roofLoss"])); results["totalHeatLoss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalHeatLoss"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHeat_loss_calculator(input: Heat_loss_calculatorInput): Heat_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalHeatLoss"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalHeatLoss"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateHeat_loss_calculator(input: Heat_loss_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

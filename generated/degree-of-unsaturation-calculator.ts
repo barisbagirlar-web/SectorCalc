@@ -16,26 +16,22 @@ export const Degree_of_unsaturation_calculatorInputSchema = z.object({
   halogenCount: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Degree_of_unsaturation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * input.carbonCount + 2 + input.nitrogenCount; results["sumC2N"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumC2N"] = 0; }
-  try { const v = input.hydrogenCount + input.halogenCount; results["sumHX"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sumHX"] = 0; }
-  try { const v = (2 * input.carbonCount + 2 + input.nitrogenCount - input.hydrogenCount - input.halogenCount) / 2; results["du"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["du"] = 0; }
+  try { const v = 2 * input.carbonCount + 2 + input.nitrogenCount; results["sumC2N"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sumC2N"] = Number.NaN; }
+  try { const v = input.hydrogenCount + input.halogenCount; results["sumHX"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sumHX"] = Number.NaN; }
+  try { const v = (2 * input.carbonCount + 2 + input.nitrogenCount - input.hydrogenCount - input.halogenCount) / 2; results["du"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["du"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateDegree_of_unsaturation_calculator(input: Degree_of_unsaturation_calculatorInput): Degree_of_unsaturation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["du"]));
+  const totalWasteCost = toNumericFormulaValue(values["du"]);
   const breakdown = {
     
   };
@@ -43,7 +39,7 @@ export function calculateDegree_of_unsaturation_calculator(input: Degree_of_unsa
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

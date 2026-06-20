@@ -24,26 +24,22 @@ export const Semester_gpa_calculatorInputSchema = z.object({
   course4Grade: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Semester_gpa_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.course1Credit * input.course1Grade + input.course2Credit * input.course2Grade + input.course3Credit * input.course3Grade + input.course4Credit * input.course4Grade; results["totalGradePoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalGradePoints"] = 0; }
-  try { const v = input.course1Credit + input.course2Credit + input.course3Credit + input.course4Credit; results["totalCredits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCredits"] = 0; }
-  try { const v = (asFormulaNumber(results["totalGradePoints"])) / (asFormulaNumber(results["totalCredits"])); results["gpa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gpa"] = 0; }
+  try { const v = input.course1Credit * input.course1Grade + input.course2Credit * input.course2Grade + input.course3Credit * input.course3Grade + input.course4Credit * input.course4Grade; results["totalGradePoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalGradePoints"] = Number.NaN; }
+  try { const v = input.course1Credit + input.course2Credit + input.course3Credit + input.course4Credit; results["totalCredits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCredits"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalGradePoints"])) / (toNumericFormulaValue(results["totalCredits"])); results["gpa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gpa"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSemester_gpa_calculator(input: Semester_gpa_calculatorInput): Semester_gpa_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gpa"]));
+  const totalWasteCost = toNumericFormulaValue(values["gpa"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateSemester_gpa_calculator(input: Semester_gpa_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

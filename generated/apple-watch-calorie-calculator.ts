@@ -20,27 +20,23 @@ export const Apple_watch_calorie_calculatorInputSchema = z.object({
   durationMinutes: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Apple_watch_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.met * input.weight * 3.5 / 200) * input.durationMinutes; results["totalCalories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = input.met; results["met"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["met"] = 0; }
-  try { const v = input.weight; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
-  try { const v = input.durationMinutes; results["durationMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["durationMinutes"] = 0; }
+  try { const v = (input.met * input.weight * 3.5 / 200) * input.durationMinutes; results["totalCalories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCalories"] = Number.NaN; }
+  try { const v = input.met; results["met"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["met"] = Number.NaN; }
+  try { const v = input.weight; results["weight"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["weight"] = Number.NaN; }
+  try { const v = input.durationMinutes; results["durationMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["durationMinutes"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateApple_watch_calorie_calculator(input: Apple_watch_calorie_calculatorInput): Apple_watch_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalCalories"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalCalories"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateApple_watch_calorie_calculator(input: Apple_watch_calor
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

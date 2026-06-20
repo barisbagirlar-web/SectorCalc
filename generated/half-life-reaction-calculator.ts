@@ -16,25 +16,21 @@ export const Half_life_reaction_calculatorInputSchema = z.object({
   elapsedTime: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Half_life_reaction_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.elapsedTime / input.halfLife; results["halflives"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halflives"] = 0; }
-  try { const v = input.elapsedTime / input.halfLife; results["halflives_aux"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["halflives_aux"] = 0; }
+  try { const v = input.elapsedTime / input.halfLife; results["halflives"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["halflives"] = Number.NaN; }
+  try { const v = input.elapsedTime / input.halfLife; results["halflives_aux"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["halflives_aux"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateHalf_life_reaction_calculator(input: Half_life_reaction_calculatorInput): Half_life_reaction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["halflives_aux"]));
+  const totalWasteCost = toNumericFormulaValue(values["halflives_aux"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateHalf_life_reaction_calculator(input: Half_life_reaction
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

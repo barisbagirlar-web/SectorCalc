@@ -22,33 +22,29 @@ export const Rental_property_calculatorInputSchema = z.object({
   vacancyRate: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rental_property_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.monthlyRent; results["monthlyGrossRent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyGrossRent"] = 0; }
-  try { const v = input.monthlyRent * 12; results["annualGrossRent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualGrossRent"] = 0; }
-  try { const v = (asFormulaNumber(results["annualGrossRent"])) * (1 - input.vacancyRate/100); results["effectiveAnnualRent"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveAnnualRent"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveAnnualRent"])) * input.annualExpensePercent/100; results["annualExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualExpenses"] = 0; }
-  try { const v = (asFormulaNumber(results["effectiveAnnualRent"])) - (asFormulaNumber(results["annualExpenses"])); results["netOperatingIncome"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netOperatingIncome"] = 0; }
-  try { const v = input.purchasePrice * (1 - input.downPaymentPercent/100); results["loanAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loanAmount"] = 0; }
-  try { const v = input.interestRate/100/12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
-  try { const v = input.loanTermYears * 12; results["loanTermMonths"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["loanTermMonths"] = 0; }
-  try { const v = input.purchasePrice * input.downPaymentPercent/100; results["totalCashInvested"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCashInvested"] = 0; }
-  try { const v = ((asFormulaNumber(results["netOperatingIncome"])) / input.purchasePrice) * 100; results["capRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["capRate"] = 0; }
+  try { const v = input.monthlyRent; results["monthlyGrossRent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyGrossRent"] = Number.NaN; }
+  try { const v = input.monthlyRent * 12; results["annualGrossRent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualGrossRent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["annualGrossRent"])) * (1 - input.vacancyRate/100); results["effectiveAnnualRent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveAnnualRent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveAnnualRent"])) * input.annualExpensePercent/100; results["annualExpenses"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualExpenses"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["effectiveAnnualRent"])) - (toNumericFormulaValue(results["annualExpenses"])); results["netOperatingIncome"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netOperatingIncome"] = Number.NaN; }
+  try { const v = input.purchasePrice * (1 - input.downPaymentPercent/100); results["loanAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loanAmount"] = Number.NaN; }
+  try { const v = input.interestRate/100/12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInterestRate"] = Number.NaN; }
+  try { const v = input.loanTermYears * 12; results["loanTermMonths"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["loanTermMonths"] = Number.NaN; }
+  try { const v = input.purchasePrice * input.downPaymentPercent/100; results["totalCashInvested"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCashInvested"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["netOperatingIncome"])) / input.purchasePrice) * 100; results["capRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["capRate"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRental_property_calculator(input: Rental_property_calculatorInput): Rental_property_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["capRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["capRate"]);
   const breakdown = {
     
   };
@@ -56,7 +52,7 @@ export function calculateRental_property_calculator(input: Rental_property_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

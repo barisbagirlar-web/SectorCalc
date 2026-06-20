@@ -20,26 +20,22 @@ export const Pd_calculatorInputSchema = z.object({
   roughness: z.number().default(0.000046),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Pd_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.PI * input.diameter * input.diameter / 4; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
-  try { const v = input.flowRate / (asFormulaNumber(results["area"])); results["velocity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["velocity"] = 0; }
-  try { const v = (input.density * (asFormulaNumber(results["velocity"])) * input.diameter) / input.viscosity; results["reynoldsNumber"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["reynoldsNumber"] = 0; }
+  try { const v = Math.PI * input.diameter * input.diameter / 4; results["area"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["area"] = Number.NaN; }
+  try { const v = input.flowRate / (toNumericFormulaValue(results["area"])); results["velocity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["velocity"] = Number.NaN; }
+  try { const v = (input.density * (toNumericFormulaValue(results["velocity"])) * input.diameter) / input.viscosity; results["reynoldsNumber"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["reynoldsNumber"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculatePd_calculator(input: Pd_calculatorInput): Pd_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["reynoldsNumber"]));
+  const totalWasteCost = toNumericFormulaValue(values["reynoldsNumber"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculatePd_calculator(input: Pd_calculatorInput): Pd_calculator
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

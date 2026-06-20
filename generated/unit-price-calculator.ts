@@ -18,26 +18,22 @@ export const Unit_price_calculatorInputSchema = z.object({
   taxRate: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Unit_price_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalCost * input.discountPercent / 100; results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["discountAmount"] = 0; }
-  try { const v = (input.totalCost + input.additionalCosts - (input.totalCost * input.discountPercent / 100)) / input.quantity; results["netUnitPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netUnitPrice"] = 0; }
-  try { const v = ((input.totalCost + input.additionalCosts - (input.totalCost * input.discountPercent / 100)) / input.quantity) * (1 + input.taxRate / 100); results["unitPrice"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["unitPrice"] = 0; }
+  try { const v = input.totalCost * input.discountPercent / 100; results["discountAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["discountAmount"] = Number.NaN; }
+  try { const v = (input.totalCost + input.additionalCosts - (input.totalCost * input.discountPercent / 100)) / input.quantity; results["netUnitPrice"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netUnitPrice"] = Number.NaN; }
+  try { const v = ((input.totalCost + input.additionalCosts - (input.totalCost * input.discountPercent / 100)) / input.quantity) * (1 + input.taxRate / 100); results["unitPrice"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["unitPrice"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUnit_price_calculator(input: Unit_price_calculatorInput): Unit_price_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["unitPrice"]));
+  const totalWasteCost = toNumericFormulaValue(values["unitPrice"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateUnit_price_calculator(input: Unit_price_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,27 +18,23 @@ export const Strain_calculatorInputSchema = z.object({
   elastic_modulus: z.number().default(200),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Strain_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.final_length - input.initial_length) / input.initial_length) * 100; results["mechStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mechStrainPct"] = 0; }
-  try { const v = input.cte * input.temperature_change * 100; results["thermStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["thermStrainPct"] = 0; }
-  try { const v = (((input.final_length - input.initial_length) / input.initial_length) + input.cte * input.temperature_change) * 100; results["totalStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalStrainPct"] = 0; }
-  try { const v = input.elastic_modulus > 0 ? (((input.final_length - input.initial_length) / input.initial_length) + input.cte * input.temperature_change) * input.elastic_modulus * 1000 : 0; results["stressMpa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stressMpa"] = 0; }
+  try { const v = ((input.final_length - input.initial_length) / input.initial_length) * 100; results["mechStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mechStrainPct"] = Number.NaN; }
+  try { const v = input.cte * input.temperature_change * 100; results["thermStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["thermStrainPct"] = Number.NaN; }
+  try { const v = (((input.final_length - input.initial_length) / input.initial_length) + input.cte * input.temperature_change) * 100; results["totalStrainPct"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalStrainPct"] = Number.NaN; }
+  try { const v = input.elastic_modulus > 0 ? (((input.final_length - input.initial_length) / input.initial_length) + input.cte * input.temperature_change) * input.elastic_modulus * 1000 : 0; results["stressMpa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stressMpa"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateStrain_calculator(input: Strain_calculatorInput): Strain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalStrainPct"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalStrainPct"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateStrain_calculator(input: Strain_calculatorInput): Strai
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

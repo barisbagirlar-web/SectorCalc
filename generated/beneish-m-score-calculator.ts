@@ -24,26 +24,22 @@ export const Beneish_m_score_calculatorInputSchema = z.object({
   tata: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Beneish_m_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = -4.84 + 0.92 * input.dsri + 0.528 * input.gmi + 0.404 * input.aqi + 0.892 * input.sgi + 0.115 * input.depi - 0.172 * input.sgai - 0.327 * input.lvgi + 4.679 * input.tata; results["mScore"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["mScore"] = 0; }
-  try { const v = -2.22; results["threshold"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["threshold"] = 0; }
-  try { const v = (asFormulaNumber(results["mScore"])) > (asFormulaNumber(results["threshold"])) ? 1 : 0; results["manipulationIndicator"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["manipulationIndicator"] = 0; }
+  try { const v = -4.84 + 0.92 * input.dsri + 0.528 * input.gmi + 0.404 * input.aqi + 0.892 * input.sgi + 0.115 * input.depi - 0.172 * input.sgai - 0.327 * input.lvgi + 4.679 * input.tata; results["mScore"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["mScore"] = Number.NaN; }
+  try { const v = -2.22; results["threshold"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["threshold"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["mScore"])) > (toNumericFormulaValue(results["threshold"])) ? 1 : 0; results["manipulationIndicator"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["manipulationIndicator"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBeneish_m_score_calculator(input: Beneish_m_score_calculatorInput): Beneish_m_score_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["mScore"]));
+  const totalWasteCost = toNumericFormulaValue(values["mScore"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateBeneish_m_score_calculator(input: Beneish_m_score_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

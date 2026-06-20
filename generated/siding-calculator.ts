@@ -24,30 +24,26 @@ export const Siding_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(0.1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Siding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.wallLength * input.wallHeight; results["totalWallArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalWallArea"] = 0; }
-  try { const v = input.windowCount * input.windowArea; results["windowOpeningsArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["windowOpeningsArea"] = 0; }
-  try { const v = input.doorCount * input.doorArea; results["doorOpeningsArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["doorOpeningsArea"] = 0; }
-  try { const v = (asFormulaNumber(results["totalWallArea"])) - ((asFormulaNumber(results["windowOpeningsArea"])) + (asFormulaNumber(results["doorOpeningsArea"]))); results["netWallArea"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["netWallArea"] = 0; }
-  try { const v = (asFormulaNumber(results["netWallArea"])) / input.sidingCoverage; results["panelsWithoutWaste"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["panelsWithoutWaste"] = 0; }
-  try { const v = (asFormulaNumber(results["panelsWithoutWaste"])) * input.wasteFactor; results["wastePanels"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["wastePanels"] = 0; }
-  try { const v = (asFormulaNumber(results["panelsWithoutWaste"])) + (asFormulaNumber(results["wastePanels"])); results["panelsNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["panelsNeeded"] = 0; }
+  try { const v = input.wallLength * input.wallHeight; results["totalWallArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalWallArea"] = Number.NaN; }
+  try { const v = input.windowCount * input.windowArea; results["windowOpeningsArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["windowOpeningsArea"] = Number.NaN; }
+  try { const v = input.doorCount * input.doorArea; results["doorOpeningsArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["doorOpeningsArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalWallArea"])) - ((toNumericFormulaValue(results["windowOpeningsArea"])) + (toNumericFormulaValue(results["doorOpeningsArea"]))); results["netWallArea"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netWallArea"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["netWallArea"])) / input.sidingCoverage; results["panelsWithoutWaste"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["panelsWithoutWaste"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["panelsWithoutWaste"])) * input.wasteFactor; results["wastePanels"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["wastePanels"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["panelsWithoutWaste"])) + (toNumericFormulaValue(results["wastePanels"])); results["panelsNeeded"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["panelsNeeded"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSiding_calculator(input: Siding_calculatorInput): Siding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["panelsNeeded"]));
+  const totalWasteCost = toNumericFormulaValue(values["panelsNeeded"]);
   const breakdown = {
     
   };
@@ -55,7 +51,7 @@ export function calculateSiding_calculator(input: Siding_calculatorInput): Sidin
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

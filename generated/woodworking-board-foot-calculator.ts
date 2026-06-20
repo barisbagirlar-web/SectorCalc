@@ -20,26 +20,22 @@ export const Woodworking_board_foot_calculatorInputSchema = z.object({
   price: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Woodworking_board_foot_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.length * input.width * input.thickness / 144; results["boardFeetPerPiece"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["boardFeetPerPiece"] = 0; }
-  try { const v = (asFormulaNumber(results["boardFeetPerPiece"])) * input.quantity * (1 + input.waste / 100); results["totalBoardFeet"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalBoardFeet"] = 0; }
-  try { const v = (asFormulaNumber(results["totalBoardFeet"])) * input.price; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.length * input.width * input.thickness / 144; results["boardFeetPerPiece"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["boardFeetPerPiece"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["boardFeetPerPiece"])) * input.quantity * (1 + input.waste / 100); results["totalBoardFeet"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalBoardFeet"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalBoardFeet"])) * input.price; results["totalCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWoodworking_board_foot_calculator(input: Woodworking_board_foot_calculatorInput): Woodworking_board_foot_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalBoardFeet"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalBoardFeet"]);
   const breakdown = {
     
   };
@@ -47,7 +43,7 @@ export function calculateWoodworking_board_foot_calculator(input: Woodworking_bo
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

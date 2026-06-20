@@ -24,26 +24,22 @@ export const Cnc_cycle_time_calculatorInputSchema = z.object({
   number_of_tool_changes: z.number().min(0).max(50).default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Cnc_cycle_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.cutting_length * (input.feed_rate / 100) * input.spindle_speed * input.number_of_passes; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["normalized_product"] = 0; }
-  try { const v = input.cutting_length * (input.feed_rate / 100) * input.spindle_speed * input.number_of_passes * (input.rapid_traverse_distance * (input.rapid_traverse_rate / 100) * input.tool_change_time * input.number_of_tool_changes); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
-  try { const v = input.rapid_traverse_distance * (input.rapid_traverse_rate / 100) * input.tool_change_time * input.number_of_tool_changes; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["adjustment_factor"] = 0; }
+  try { const v = input.cutting_length * (input.feed_rate / 100) * input.spindle_speed * input.number_of_passes; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.cutting_length * (input.feed_rate / 100) * input.spindle_speed * input.number_of_passes * (input.rapid_traverse_distance * (input.rapid_traverse_rate / 100) * input.tool_change_time * input.number_of_tool_changes); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.rapid_traverse_distance * (input.rapid_traverse_rate / 100) * input.tool_change_time * input.number_of_tool_changes; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateCnc_cycle_time_calculator(input: Cnc_cycle_time_calculatorInput): Cnc_cycle_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["result"]));
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateCnc_cycle_time_calculator(input: Cnc_cycle_time_calcula
   const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

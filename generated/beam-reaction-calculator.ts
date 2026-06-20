@@ -22,25 +22,21 @@ export const Beam_reaction_calculatorInputSchema = z.object({
   pos3: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Beam_reaction_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.load1*(input.beamLength-input.pos1) + input.load2*(input.beamLength-input.pos2) + input.load3*(input.beamLength-input.pos3)) / input.beamLength; results["solMesnetTepkisi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["solMesnetTepkisi"] = 0; }
-  try { const v = (input.load1*input.pos1 + input.load2*input.pos2 + input.load3*input.pos3) / input.beamLength; results["sagMesnetTepkisi"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sagMesnetTepkisi"] = 0; }
+  try { const v = (input.load1*(input.beamLength-input.pos1) + input.load2*(input.beamLength-input.pos2) + input.load3*(input.beamLength-input.pos3)) / input.beamLength; results["solMesnetTepkisi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["solMesnetTepkisi"] = Number.NaN; }
+  try { const v = (input.load1*input.pos1 + input.load2*input.pos2 + input.load3*input.pos3) / input.beamLength; results["sagMesnetTepkisi"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sagMesnetTepkisi"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBeam_reaction_calculator(input: Beam_reaction_calculatorInput): Beam_reaction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["solMesnetTepkisi"]));
+  const totalWasteCost = toNumericFormulaValue(values["solMesnetTepkisi"]);
   const breakdown = {
     
   };
@@ -48,7 +44,7 @@ export function calculateBeam_reaction_calculator(input: Beam_reaction_calculato
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

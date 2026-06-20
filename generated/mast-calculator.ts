@@ -18,31 +18,27 @@ export const Mast_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mast_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 0.5 * 1.225 * input.windSpeed ** 2; results["windPressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["windPressure"] = 0; }
-  try { const v = 0.7 * (asFormulaNumber(results["windPressure"])) * (input.mastDiameter * input.mastHeight); results["dragForce"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dragForce"] = 0; }
-  try { const v = (asFormulaNumber(results["dragForce"])) * (input.mastHeight / 2); results["bendingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bendingMoment"] = 0; }
-  try { const v = Math.PI * input.mastDiameter ** 3 / 32; results["sectionModulus"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sectionModulus"] = 0; }
-  try { const v = (asFormulaNumber(results["bendingMoment"])) / (asFormulaNumber(results["sectionModulus"])); results["bendingStressPa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bendingStressPa"] = 0; }
-  try { const v = (asFormulaNumber(results["bendingStressPa"])) / 1e6; results["bendingStressMPa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["bendingStressMPa"] = 0; }
-  try { const v = input.materialYieldStrength / input.safetyFactor; results["allowableStress"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["allowableStress"] = 0; }
-  try { const v = (asFormulaNumber(results["bendingStressMPa"])) / (asFormulaNumber(results["allowableStress"])); results["utilizationRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["utilizationRatio"] = 0; }
+  try { const v = 0.5 * 1.225 * input.windSpeed ** 2; results["windPressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["windPressure"] = Number.NaN; }
+  try { const v = 0.7 * (toNumericFormulaValue(results["windPressure"])) * (input.mastDiameter * input.mastHeight); results["dragForce"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dragForce"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["dragForce"])) * (input.mastHeight / 2); results["bendingMoment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bendingMoment"] = Number.NaN; }
+  try { const v = Math.PI * input.mastDiameter ** 3 / 32; results["sectionModulus"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sectionModulus"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bendingMoment"])) / (toNumericFormulaValue(results["sectionModulus"])); results["bendingStressPa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bendingStressPa"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bendingStressPa"])) / 1e6; results["bendingStressMPa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["bendingStressMPa"] = Number.NaN; }
+  try { const v = input.materialYieldStrength / input.safetyFactor; results["allowableStress"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["allowableStress"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["bendingStressMPa"])) / (toNumericFormulaValue(results["allowableStress"])); results["utilizationRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["utilizationRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMast_calculator(input: Mast_calculatorInput): Mast_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["utilizationRatio"]));
+  const totalWasteCost = toNumericFormulaValue(values["utilizationRatio"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateMast_calculator(input: Mast_calculatorInput): Mast_calc
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

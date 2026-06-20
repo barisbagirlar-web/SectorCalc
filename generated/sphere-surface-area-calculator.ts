@@ -20,25 +20,21 @@ export const Sphere_surface_area_calculatorInputSchema = z.object({
   wasteFactor: z.number().default(5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sphere_surface_area_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.inputType === 0 ? input.radius : input.diameter / 2) ? 1 : 0); results["radiusUsed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["radiusUsed"] = 0; }
-  try { const v = input.outputUnit === 0 ? 1 : input.outputUnit === 1 ? 10000 : input.outputUnit === 2 ? 1000000 : input.outputUnit === 3 ? 10.7639 : 1; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
+  try { const v = ((input.inputType === 0 ? input.radius : input.diameter / 2) ? 1 : 0); results["radiusUsed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["radiusUsed"] = Number.NaN; }
+  try { const v = input.outputUnit === 0 ? 1 : input.outputUnit === 1 ? 10000 : input.outputUnit === 2 ? 1000000 : input.outputUnit === 3 ? 10.7639 : 1; results["conversionFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactor"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSphere_surface_area_calculator(input: Sphere_surface_area_calculatorInput): Sphere_surface_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conversionFactor"]));
+  const totalWasteCost = toNumericFormulaValue(values["conversionFactor"]);
   const breakdown = {
     
   };
@@ -46,7 +42,7 @@ export function calculateSphere_surface_area_calculator(input: Sphere_surface_ar
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -18,25 +18,21 @@ export const Op_amp_calculatorInputSchema = z.object({
   vee: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Op_amp_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 + (input.rf / input.rin); results["gain"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gain"] = 0; }
-  try { const v = input.vin * (1 + (input.rf / input.rin)); results["vout_ideal"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["vout_ideal"] = 0; }
+  try { const v = 1 + (input.rf / input.rin); results["gain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gain"] = Number.NaN; }
+  try { const v = input.vin * (1 + (input.rf / input.rin)); results["vout_ideal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["vout_ideal"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateOp_amp_calculator(input: Op_amp_calculatorInput): Op_amp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["vout_ideal"]));
+  const totalWasteCost = toNumericFormulaValue(values["vout_ideal"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateOp_amp_calculator(input: Op_amp_calculatorInput): Op_am
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

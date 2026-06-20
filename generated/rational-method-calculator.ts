@@ -16,25 +16,21 @@ export const Rational_method_calculatorInputSchema = z.object({
   sf: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Rational_method_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sf * input.c * input.i * input.a / 0.36; results["peakDischargeLps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["peakDischargeLps"] = 0; }
-  try { const v = input.sf * input.c * input.i * input.a / 360; results["peakDischargeCumecs"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["peakDischargeCumecs"] = 0; }
+  try { const v = input.sf * input.c * input.i * input.a / 0.36; results["peakDischargeLps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["peakDischargeLps"] = Number.NaN; }
+  try { const v = input.sf * input.c * input.i * input.a / 360; results["peakDischargeCumecs"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["peakDischargeCumecs"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRational_method_calculator(input: Rational_method_calculatorInput): Rational_method_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["peakDischargeLps"]));
+  const totalWasteCost = toNumericFormulaValue(values["peakDischargeLps"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateRational_method_calculator(input: Rational_method_calcu
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

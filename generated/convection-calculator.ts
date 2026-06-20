@@ -22,27 +22,23 @@ export const Convection_calculatorInputSchema = z.object({
   Pr: z.number().default(0.7),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Convection_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.Ts - input.Tinf; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaT"] = 0; }
-  try { const v = input.Tinf + 273.15; results["Tf_K"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["Tf_K"] = 0; }
-  try { const v = 1 / (asFormulaNumber(results["Tf_K"])); results["beta"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["beta"] = 0; }
-  try { const v = input.L * input.W; results["A"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["A"] = 0; }
+  try { const v = input.Ts - input.Tinf; results["deltaT"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaT"] = Number.NaN; }
+  try { const v = input.Tinf + 273.15; results["Tf_K"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Tf_K"] = Number.NaN; }
+  try { const v = 1 / (toNumericFormulaValue(results["Tf_K"])); results["beta"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["beta"] = Number.NaN; }
+  try { const v = input.L * input.W; results["A"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["A"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateConvection_calculator(input: Convection_calculatorInput): Convection_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["A"]));
+  const totalWasteCost = toNumericFormulaValue(values["A"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateConvection_calculator(input: Convection_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

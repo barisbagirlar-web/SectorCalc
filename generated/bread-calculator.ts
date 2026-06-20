@@ -20,29 +20,25 @@ export const Bread_calculatorInputSchema = z.object({
   fat: z.number().default(2),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Bread_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.flourWeight * (1 + (input.hydration + input.yeast + input.salt + input.sugar + input.fat) / 100); results["totalDough"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDough"] = 0; }
-  try { const v = input.flourWeight * input.hydration / 100; results["water"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["water"] = 0; }
-  try { const v = input.flourWeight * input.yeast / 100; results["yeast"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["yeast"] = 0; }
-  try { const v = input.flourWeight * input.salt / 100; results["salt"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["salt"] = 0; }
-  try { const v = input.flourWeight * input.sugar / 100; results["sugar"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["sugar"] = 0; }
-  try { const v = input.flourWeight * input.fat / 100; results["fat"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["fat"] = 0; }
+  try { const v = input.flourWeight * (1 + (input.hydration + input.yeast + input.salt + input.sugar + input.fat) / 100); results["totalDough"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDough"] = Number.NaN; }
+  try { const v = input.flourWeight * input.hydration / 100; results["water"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["water"] = Number.NaN; }
+  try { const v = input.flourWeight * input.yeast / 100; results["yeast"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["yeast"] = Number.NaN; }
+  try { const v = input.flourWeight * input.salt / 100; results["salt"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["salt"] = Number.NaN; }
+  try { const v = input.flourWeight * input.sugar / 100; results["sugar"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sugar"] = Number.NaN; }
+  try { const v = input.flourWeight * input.fat / 100; results["fat"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["fat"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateBread_calculator(input: Bread_calculatorInput): Bread_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalDough"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalDough"]);
   const breakdown = {
     
   };
@@ -50,7 +46,7 @@ export function calculateBread_calculator(input: Bread_calculatorInput): Bread_c
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

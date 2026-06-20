@@ -24,28 +24,24 @@ export const Solar_panel_calculatorInputSchema = z.object({
   annualSunHours: z.number().default(2000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Solar_panel_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.panelArea * input.panelEfficiency / 100; results["peakPower"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["peakPower"] = 0; }
-  try { const v = (asFormulaNumber(results["peakPower"])) * input.annualSunHours * (1 - input.systemLosses / 100); results["annualEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["annualEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["annualEnergy"])) / 365; results["dailyEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["dailyEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["annualEnergy"])) / 12; results["monthlyEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyEnergy"] = 0; }
-  try { const v = (asFormulaNumber(results["annualEnergy"])) * 0.5; results["co2Reduction"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["co2Reduction"] = 0; }
+  try { const v = input.panelArea * input.panelEfficiency / 100; results["peakPower"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["peakPower"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["peakPower"])) * input.annualSunHours * (1 - input.systemLosses / 100); results["annualEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["annualEnergy"])) / 365; results["dailyEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["dailyEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["annualEnergy"])) / 12; results["monthlyEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["annualEnergy"])) * 0.5; results["co2Reduction"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["co2Reduction"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSolar_panel_calculator(input: Solar_panel_calculatorInput): Solar_panel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["peakPower"]));
+  const totalWasteCost = toNumericFormulaValue(values["peakPower"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateSolar_panel_calculator(input: Solar_panel_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

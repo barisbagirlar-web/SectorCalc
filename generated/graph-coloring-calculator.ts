@@ -18,30 +18,26 @@ export const Graph_coloring_calculatorInputSchema = z.object({
   warningFraction: z.number().default(0.5),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Graph_coloring_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.upperSpec - input.lowerSpec) / 2; results["specHalfRange"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["specHalfRange"] = 0; }
-  try { const v = (asFormulaNumber(results["specHalfRange"])) * input.warningFraction; results["warningHalfWidth"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["warningHalfWidth"] = 0; }
-  try { const v = (input.measurement >= input.lowerSpec && input.measurement <= input.upperSpec) ? 1 : 0; results["isWithinSpec"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isWithinSpec"] = 0; }
-  try { const v = (input.measurement >= input.target - (asFormulaNumber(results["warningHalfWidth"])) && input.measurement <= input.target + (asFormulaNumber(results["warningHalfWidth"]))) ? 1 : 0; results["isGood"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["isGood"] = 0; }
-  try { const v = (asFormulaNumber(results["isWithinSpec"])) ? ((asFormulaNumber(results["isGood"])) ? 2 : 1) : 0; results["colorCode"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["colorCode"] = 0; }
-  try { const v = input.measurement - input.target; results["deviation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deviation"] = 0; }
-  try { const v = ((input.measurement - input.target) / (asFormulaNumber(results["specHalfRange"]))) * 100; results["percentDeviation"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["percentDeviation"] = 0; }
+  try { const v = (input.upperSpec - input.lowerSpec) / 2; results["specHalfRange"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["specHalfRange"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["specHalfRange"])) * input.warningFraction; results["warningHalfWidth"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["warningHalfWidth"] = Number.NaN; }
+  try { const v = (input.measurement >= input.lowerSpec && input.measurement <= input.upperSpec) ? 1 : 0; results["isWithinSpec"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["isWithinSpec"] = Number.NaN; }
+  try { const v = (input.measurement >= input.target - (toNumericFormulaValue(results["warningHalfWidth"])) && input.measurement <= input.target + (toNumericFormulaValue(results["warningHalfWidth"]))) ? 1 : 0; results["isGood"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["isGood"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["isWithinSpec"])) ? ((toNumericFormulaValue(results["isGood"])) ? 2 : 1) : 0; results["colorCode"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["colorCode"] = Number.NaN; }
+  try { const v = input.measurement - input.target; results["deviation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deviation"] = Number.NaN; }
+  try { const v = ((input.measurement - input.target) / (toNumericFormulaValue(results["specHalfRange"]))) * 100; results["percentDeviation"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["percentDeviation"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateGraph_coloring_calculator(input: Graph_coloring_calculatorInput): Graph_coloring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["colorCode"]));
+  const totalWasteCost = toNumericFormulaValue(values["colorCode"]);
   const breakdown = {
     
   };
@@ -49,7 +45,7 @@ export function calculateGraph_coloring_calculator(input: Graph_coloring_calcula
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

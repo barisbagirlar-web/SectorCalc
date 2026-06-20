@@ -20,32 +20,28 @@ export const Sba_7a_calculatorInputSchema = z.object({
   annualRevenue: z.number().default(2000000),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Sba_7a_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.interestRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
-  try { const v = input.loanAmount * ((asFormulaNumber(results["monthlyInterestRate"])) * (1 + (asFormulaNumber(results["monthlyInterestRate"]))) ** input.loanTermMonths) / ((1 + (asFormulaNumber(results["monthlyInterestRate"]))) ** input.loanTermMonths - 1); results["monthlyPayment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["monthlyPayment"] = 0; }
-  try { const v = (asFormulaNumber(results["monthlyPayment"])) * input.loanTermMonths; results["totalPayment"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPayment"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPayment"])) - input.loanAmount; results["totalInterest"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalInterest"] = 0; }
-  try { const v = input.loanAmount * (input.guaranteeFeeRate / 100); results["guaranteeFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["guaranteeFee"] = 0; }
-  try { const v = input.loanAmount * (input.originationFeeRate / 100); results["originationFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["originationFee"] = 0; }
-  try { const v = (asFormulaNumber(results["guaranteeFee"])) + (asFormulaNumber(results["originationFee"])); results["totalFees"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFees"] = 0; }
-  try { const v = (asFormulaNumber(results["totalInterest"])) + (asFormulaNumber(results["totalFees"])); results["effectiveLoanCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveLoanCost"] = 0; }
-  try { const v = input.annualRevenue / ((asFormulaNumber(results["monthlyPayment"])) * 12); results["debtServiceCoverageRatio"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["debtServiceCoverageRatio"] = 0; }
+  try { const v = input.interestRate / 100 / 12; results["monthlyInterestRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyInterestRate"] = Number.NaN; }
+  try { const v = input.loanAmount * ((toNumericFormulaValue(results["monthlyInterestRate"])) * (1 + (toNumericFormulaValue(results["monthlyInterestRate"]))) ** input.loanTermMonths) / ((1 + (toNumericFormulaValue(results["monthlyInterestRate"]))) ** input.loanTermMonths - 1); results["monthlyPayment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["monthlyPayment"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["monthlyPayment"])) * input.loanTermMonths; results["totalPayment"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPayment"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPayment"])) - input.loanAmount; results["totalInterest"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalInterest"] = Number.NaN; }
+  try { const v = input.loanAmount * (input.guaranteeFeeRate / 100); results["guaranteeFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["guaranteeFee"] = Number.NaN; }
+  try { const v = input.loanAmount * (input.originationFeeRate / 100); results["originationFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["originationFee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["guaranteeFee"])) + (toNumericFormulaValue(results["originationFee"])); results["totalFees"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFees"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalInterest"])) + (toNumericFormulaValue(results["totalFees"])); results["effectiveLoanCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveLoanCost"] = Number.NaN; }
+  try { const v = input.annualRevenue / ((toNumericFormulaValue(results["monthlyPayment"])) * 12); results["debtServiceCoverageRatio"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["debtServiceCoverageRatio"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSba_7a_calculator(input: Sba_7a_calculatorInput): Sba_7a_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["monthlyPayment"]));
+  const totalWasteCost = toNumericFormulaValue(values["monthlyPayment"]);
   const breakdown = {
     
   };
@@ -53,7 +49,7 @@ export function calculateSba_7a_calculator(input: Sba_7a_calculatorInput): Sba_7
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

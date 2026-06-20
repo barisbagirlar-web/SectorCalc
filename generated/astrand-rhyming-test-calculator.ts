@@ -18,26 +18,22 @@ export const Astrand_rhyming_test_calculatorInputSchema = z.object({
   heartRate: z.number().default(140),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Astrand_rhyming_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.workRate * 6.118; results["workRateKgm"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["workRateKgm"] = 0; }
-  try { const v = input.sex == 1 ? 1 : 0.85; results["genderFactor"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["genderFactor"] = 0; }
-  try { const v = (1.8 * (asFormulaNumber(results["workRateKgm"]))) / (input.heartRate - 60); results["baseVO2"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["baseVO2"] = 0; }
+  try { const v = input.workRate * 6.118; results["workRateKgm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["workRateKgm"] = Number.NaN; }
+  try { const v = input.sex == 1 ? 1 : 0.85; results["genderFactor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["genderFactor"] = Number.NaN; }
+  try { const v = (1.8 * (toNumericFormulaValue(results["workRateKgm"]))) / (input.heartRate - 60); results["baseVO2"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["baseVO2"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateAstrand_rhyming_test_calculator(input: Astrand_rhyming_test_calculatorInput): Astrand_rhyming_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["baseVO2"]));
+  const totalWasteCost = toNumericFormulaValue(values["baseVO2"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateAstrand_rhyming_test_calculator(input: Astrand_rhyming_
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

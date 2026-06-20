@@ -24,27 +24,23 @@ export const Interference_fit_calculatorInputSchema = z.object({
   friction_coefficient: z.number().default(0.15),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Interference_fit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.interference / ( (input.shaft_diameter/2) * ( (1/input.young_modulus_shaft) * (1 - input.poisson_shaft) + (1/input.young_modulus_hub) * ( (input.hub_diameter**2 + input.shaft_diameter**2) / (input.hub_diameter**2 - input.shaft_diameter**2) + input.poisson_hub ) ) ); results["contact_pressure"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["contact_pressure"] = 0; }
-  try { const v = Math.PI * input.shaft_diameter * 1000 * (asFormulaNumber(results["contact_pressure"])) * input.friction_coefficient * (input.shaft_diameter/2); results["axial_force"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["axial_force"] = 0; }
-  try { const v = Math.PI * input.shaft_diameter * 1000 * (asFormulaNumber(results["contact_pressure"])) * input.friction_coefficient * (input.shaft_diameter/2) * (input.shaft_diameter/2); results["torque_capacity"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["torque_capacity"] = 0; }
-  try { const v = (asFormulaNumber(results["contact_pressure"])) * ( (input.hub_diameter**2 + input.shaft_diameter**2) / (input.hub_diameter**2 - input.shaft_diameter**2) ); results["von_mises_stress_hub"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["von_mises_stress_hub"] = 0; }
+  try { const v = input.interference / ( (input.shaft_diameter/2) * ( (1/input.young_modulus_shaft) * (1 - input.poisson_shaft) + (1/input.young_modulus_hub) * ( (input.hub_diameter**2 + input.shaft_diameter**2) / (input.hub_diameter**2 - input.shaft_diameter**2) + input.poisson_hub ) ) ); results["contact_pressure"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["contact_pressure"] = Number.NaN; }
+  try { const v = Math.PI * input.shaft_diameter * 1000 * (toNumericFormulaValue(results["contact_pressure"])) * input.friction_coefficient * (input.shaft_diameter/2); results["axial_force"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["axial_force"] = Number.NaN; }
+  try { const v = Math.PI * input.shaft_diameter * 1000 * (toNumericFormulaValue(results["contact_pressure"])) * input.friction_coefficient * (input.shaft_diameter/2) * (input.shaft_diameter/2); results["torque_capacity"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["torque_capacity"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["contact_pressure"])) * ( (input.hub_diameter**2 + input.shaft_diameter**2) / (input.hub_diameter**2 - input.shaft_diameter**2) ); results["von_mises_stress_hub"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["von_mises_stress_hub"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateInterference_fit_calculator(input: Interference_fit_calculatorInput): Interference_fit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["contact_pressure"]));
+  const totalWasteCost = toNumericFormulaValue(values["contact_pressure"]);
   const breakdown = {
     
   };
@@ -52,7 +48,7 @@ export function calculateInterference_fit_calculator(input: Interference_fit_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -16,27 +16,23 @@ export const Weight_training_calorie_calculatorInputSchema = z.object({
   metValue: z.number().default(4),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Weight_training_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.durationHours + input.durationMinutes / 60; results["totalDurationHours"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalDurationHours"] = 0; }
-  try { const v = input.metValue * input.bodyWeight * (asFormulaNumber(results["totalDurationHours"])); results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
-  try { const v = input.durationHours * 60 + input.durationMinutes; results["totalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalMinutes"] = 0; }
-  try { const v = (asFormulaNumber(results["caloriesBurned"])) / (asFormulaNumber(results["totalMinutes"])); results["caloriesPerMinute"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["caloriesPerMinute"] = 0; }
+  try { const v = input.durationHours + input.durationMinutes / 60; results["totalDurationHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalDurationHours"] = Number.NaN; }
+  try { const v = input.metValue * input.bodyWeight * (toNumericFormulaValue(results["totalDurationHours"])); results["caloriesBurned"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caloriesBurned"] = Number.NaN; }
+  try { const v = input.durationHours * 60 + input.durationMinutes; results["totalMinutes"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalMinutes"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["caloriesBurned"])) / (toNumericFormulaValue(results["totalMinutes"])); results["caloriesPerMinute"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["caloriesPerMinute"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateWeight_training_calorie_calculator(input: Weight_training_calorie_calculatorInput): Weight_training_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["caloriesBurned"]));
+  const totalWasteCost = toNumericFormulaValue(values["caloriesBurned"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateWeight_training_calorie_calculator(input: Weight_traini
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

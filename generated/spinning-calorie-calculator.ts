@@ -18,26 +18,22 @@ export const Spinning_calorie_calculatorInputSchema = z.object({
   age_years: z.number().default(30),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Spinning_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 3.5 + (input.speed_kmh * 0.2) + (input.resistance_level * 0.5); results["met_value"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["met_value"] = 0; }
-  try { const v = (asFormulaNumber(results["met_value"])) * input.weight_kg * (input.duration_min / 60); results["total_calories"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["total_calories"] = 0; }
-  try { const v = (asFormulaNumber(results["total_calories"])) / input.duration_min; results["calories_per_minute"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["calories_per_minute"] = 0; }
+  try { const v = 3.5 + (input.speed_kmh * 0.2) + (input.resistance_level * 0.5); results["met_value"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["met_value"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["met_value"])) * input.weight_kg * (input.duration_min / 60); results["total_calories"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_calories"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_calories"])) / input.duration_min; results["calories_per_minute"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["calories_per_minute"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateSpinning_calorie_calculator(input: Spinning_calorie_calculatorInput): Spinning_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["total_calories"]));
+  const totalWasteCost = toNumericFormulaValue(values["total_calories"]);
   const breakdown = {
     
   };
@@ -45,7 +41,7 @@ export function calculateSpinning_calorie_calculator(input: Spinning_calorie_cal
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

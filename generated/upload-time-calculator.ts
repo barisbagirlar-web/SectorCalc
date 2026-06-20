@@ -16,27 +16,23 @@ export const Upload_time_calculatorInputSchema = z.object({
   numConnections: z.number().default(1),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Upload_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.fileSize * 8) / input.uploadSpeed; results["rawTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawTimeSeconds"] = 0; }
-  try { const v = (input.fileSize * 8 * input.overheadFactor) / (input.uploadSpeed * input.numConnections); results["uploadTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["uploadTimeSeconds"] = 0; }
-  try { const v = (input.fileSize * 8 * (input.overheadFactor - 1)) / (input.uploadSpeed * input.numConnections); results["overheadTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["overheadTimeSeconds"] = 0; }
-  try { const v = (input.uploadSpeed * input.numConnections) / input.overheadFactor; results["effectiveSpeedMbps"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["effectiveSpeedMbps"] = 0; }
+  try { const v = (input.fileSize * 8) / input.uploadSpeed; results["rawTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawTimeSeconds"] = Number.NaN; }
+  try { const v = (input.fileSize * 8 * input.overheadFactor) / (input.uploadSpeed * input.numConnections); results["uploadTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["uploadTimeSeconds"] = Number.NaN; }
+  try { const v = (input.fileSize * 8 * (input.overheadFactor - 1)) / (input.uploadSpeed * input.numConnections); results["overheadTimeSeconds"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overheadTimeSeconds"] = Number.NaN; }
+  try { const v = (input.uploadSpeed * input.numConnections) / input.overheadFactor; results["effectiveSpeedMbps"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["effectiveSpeedMbps"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateUpload_time_calculator(input: Upload_time_calculatorInput): Upload_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["uploadTimeSeconds"]));
+  const totalWasteCost = toNumericFormulaValue(values["uploadTimeSeconds"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateUpload_time_calculator(input: Upload_time_calculatorInp
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

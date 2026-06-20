@@ -24,26 +24,22 @@ export const Transcript_calculatorInputSchema = z.object({
   credit4: z.number().default(3),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Transcript_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.grade1*input.credit1 + input.grade2*input.credit2 + input.grade3*input.credit3 + input.grade4*input.credit4; results["totalPoints"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalPoints"] = 0; }
-  try { const v = input.credit1 + input.credit2 + input.credit3 + input.credit4; results["totalCredits"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalCredits"] = 0; }
-  try { const v = (asFormulaNumber(results["totalPoints"])) / (asFormulaNumber(results["totalCredits"])); results["gpa"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["gpa"] = 0; }
+  try { const v = input.grade1*input.credit1 + input.grade2*input.credit2 + input.grade3*input.credit3 + input.grade4*input.credit4; results["totalPoints"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalPoints"] = Number.NaN; }
+  try { const v = input.credit1 + input.credit2 + input.credit3 + input.credit4; results["totalCredits"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalCredits"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["totalPoints"])) / (toNumericFormulaValue(results["totalCredits"])); results["gpa"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["gpa"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateTranscript_calculator(input: Transcript_calculatorInput): Transcript_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["gpa"]));
+  const totalWasteCost = toNumericFormulaValue(values["gpa"]);
   const breakdown = {
     
   };
@@ -51,7 +47,7 @@ export function calculateTranscript_calculator(input: Transcript_calculatorInput
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

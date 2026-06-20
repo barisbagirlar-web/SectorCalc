@@ -16,27 +16,23 @@ export const Ramp_test_calculatorInputSchema = z.object({
   numSteps: z.number().default(100),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Ramp_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.endValue - input.startValue; results["deltaValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["deltaValue"] = 0; }
-  try { const v = (asFormulaNumber(results["deltaValue"])) / input.rampTime; results["slewRate"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["slewRate"] = 0; }
-  try { const v = (asFormulaNumber(results["deltaValue"])) / input.numSteps; results["stepSize"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stepSize"] = 0; }
-  try { const v = input.rampTime / input.numSteps; results["stepDuration"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["stepDuration"] = 0; }
+  try { const v = input.endValue - input.startValue; results["deltaValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["deltaValue"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["deltaValue"])) / input.rampTime; results["slewRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["slewRate"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["deltaValue"])) / input.numSteps; results["stepSize"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stepSize"] = Number.NaN; }
+  try { const v = input.rampTime / input.numSteps; results["stepDuration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["stepDuration"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateRamp_test_calculator(input: Ramp_test_calculatorInput): Ramp_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["slewRate"]));
+  const totalWasteCost = toNumericFormulaValue(values["slewRate"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateRamp_test_calculator(input: Ramp_test_calculatorInput):
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

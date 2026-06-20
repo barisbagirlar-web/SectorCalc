@@ -16,25 +16,21 @@ export const Mph_to_kmh_converter_calculatorInputSchema = z.object({
   roundingMode: z.number().default(0),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Mph_to_kmh_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.mphValue * (input.outputUnit === 0 ? 1.609344 : input.outputUnit === 1 ? 0.44704 : 0.868976); results["rawValue"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["rawValue"] = 0; }
-  try { const v = input.outputUnit === 0 ? 1.609344 : input.outputUnit === 1 ? 0.44704 : 0.868976; results["conversionFactorUsed"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["conversionFactorUsed"] = 0; }
+  try { const v = input.mphValue * (input.outputUnit === 0 ? 1.609344 : input.outputUnit === 1 ? 0.44704 : 0.868976); results["rawValue"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rawValue"] = Number.NaN; }
+  try { const v = input.outputUnit === 0 ? 1.609344 : input.outputUnit === 1 ? 0.44704 : 0.868976; results["conversionFactorUsed"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["conversionFactorUsed"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMph_to_kmh_converter_calculator(input: Mph_to_kmh_converter_calculatorInput): Mph_to_kmh_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["conversionFactorUsed"]));
+  const totalWasteCost = toNumericFormulaValue(values["conversionFactorUsed"]);
   const breakdown = {
     
   };
@@ -42,7 +38,7 @@ export function calculateMph_to_kmh_converter_calculator(input: Mph_to_kmh_conve
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

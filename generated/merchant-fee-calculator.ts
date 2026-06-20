@@ -16,27 +16,23 @@ export const Merchant_fee_calculatorInputSchema = z.object({
   taxRate: z.number().default(20),
 });
 
-function asFormulaNumber(value: number): number {
-  return Number.isFinite(value) ? value : 0;
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
 }
 
 function evaluateAllFormulas(input: Merchant_fee_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.transactionAmount * (input.feePercentage / 100) + input.fixedFee; results["grossFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["grossFee"] = 0; }
-  try { const v = (asFormulaNumber(results["grossFee"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (asFormulaNumber(results["grossFee"])) + (asFormulaNumber(results["taxAmount"])); results["totalFee"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalFee"] = 0; }
-  try { const v = input.transactionAmount + (asFormulaNumber(results["totalFee"])); results["totalTransactionCost"] = typeof v === "number" && Number.isFinite(v) ? v : 0; } catch { results["totalTransactionCost"] = 0; }
+  try { const v = input.transactionAmount * (input.feePercentage / 100) + input.fixedFee; results["grossFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["grossFee"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossFee"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["taxAmount"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["grossFee"])) + (toNumericFormulaValue(results["taxAmount"])); results["totalFee"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalFee"] = Number.NaN; }
+  try { const v = input.transactionAmount + (toNumericFormulaValue(results["totalFee"])); results["totalTransactionCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["totalTransactionCost"] = Number.NaN; }
   return results;
 }
 
 
-function toNumericFormulaValue(value: number): number {
-  return Number.isFinite(value) ? value : 0;
-}
-
 export function calculateMerchant_fee_calculator(input: Merchant_fee_calculatorInput): Merchant_fee_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = Math.max(0, toNumericFormulaValue(values["totalFee"]));
+  const totalWasteCost = toNumericFormulaValue(values["totalFee"]);
   const breakdown = {
     
   };
@@ -44,7 +40,7 @@ export function calculateMerchant_fee_calculator(input: Merchant_fee_calculatorI
   const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
-      ? Math.max(0, totalWasteCost * (input.dataConfidence / 100))
+      ? totalWasteCost * (input.dataConfidence / 100)
       : totalWasteCost;
   return {
     totalWasteCost,
