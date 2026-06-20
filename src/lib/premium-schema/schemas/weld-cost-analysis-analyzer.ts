@@ -1,0 +1,35 @@
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+export const WELD_COST_ANALYSIS_SCHEMA: PremiumCalculatorSchema = {
+  id: "weld-cost-analysis-analyzer", legacyPaidSlug: "weld-cost-analysis-analyzer",
+  name: "Kaynak Maliyeti Detay Analizi", sectorSlug: "cnc-manufacturing", category: "cost",
+  painStatement: "Kaynak maliyetinin metraj bazlı analizi yapılmazsa, birim fiyat ve proses verimliliği izlenemez.",
+  inputs: [
+    { id: "weldLength", label: "Toplam Kaynak Metresi", type: "number", unit: "m", required: true, smartDefault: 100, validation: { min: 1 }, helper: "", expertMeaning: "Total weld meters" },
+    { id: "totalShiftTime", label: "Vardiya Süresi", type: "number", unit: "saat", required: false, smartDefault: 8, validation: { min: 1 }, helper: "", expertMeaning: "Shift duration" },
+    { id: "travelSpeed", label: "İlerleme Hızı", type: "number", unit: "cm/dk", required: true, smartDefault: 30, validation: { min: 0.1 }, helper: "", expertMeaning: "Travel speed" },
+    { id: "arcTime", label: "Ark Süresi", type: "number", unit: "saat", required: true, smartDefault: 6, validation: { min: 0.1 }, helper: "", expertMeaning: "Arc-on time" },
+    { id: "laborRate", label: "İşçilik Saat Ücreti", type: "number", unit: "USD/saat", required: true, smartDefault: 35, validation: { min: 0 }, helper: "", expertMeaning: "Labor rate" },
+    { id: "overheadRate", label: "Genel Gider", type: "number", unit: "USD/saat", required: false, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Overhead rate" },
+    { id: "fillerCost", label: "Dolgu Maliyeti", type: "number", unit: "USD", required: true, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Total filler cost" },
+    { id: "gasCost", label: "Gaz Maliyeti", type: "number", unit: "USD", required: false, smartDefault: 80, validation: { min: 0 }, helper: "", expertMeaning: "Gas cost" },
+    { id: "powerCost", label: "Enerji Maliyeti", type: "number", unit: "USD", required: false, smartDefault: 50, validation: { min: 0 }, helper: "", expertMeaning: "Power cost" },
+    { id: "depositedWeight", label: "Biriktirilen Ağırlık", type: "number", unit: "kg", required: false, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Deposited weld metal" },
+  ],
+  outputs: [
+    { id: "opFactor", label: "Çalışma Faktörü", unit: "", format: "percentage" },
+    { id: "depositionRate", label: "Biriktirme Hızı", unit: "kg/saat", format: "number" },
+    { id: "jointCost", label: "Toplam Birleştirme Maliyeti", unit: "USD", format: "currency", isBigNumber: true },
+    { id: "costPerMeter", label: "Metre Başına Maliyet", unit: "USD/m", format: "currency" },
+    { id: "consumablePct", label: "Sarf Malzeme Oranı", unit: "%", format: "percentage" },
+  ],
+  thresholds: [{ fieldId: "costPerMeter", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "m² maliyet > $50 — proses verimliliği düşük.", criticalMessage: "m² maliyet > $100 — kaynak yöntemi değişmeli." }],
+  formulaPipeline: [
+    { formulaId: "measurement.weld_op_factor", inputMap: { arcTime: "arcTime", totalShiftTime: "totalShiftTime" }, outputId: "opFactor" },
+    { formulaId: "measurement.weld_deposition_rate", inputMap: { depositedWeight: "depositedWeight", arcTime: "arcTime" }, outputId: "depositionRate" },
+    { formulaId: "cost.weld_joint_cost", inputMap: { weldLength: "weldLength", travelSpeed: "travelSpeed", laborRate: "laborRate", overheadRate: "overheadRate", opFactor: "opFactor", fillerCost: "fillerCost", gasCost: "gasCost", powerCost: "powerCost" }, outputId: "jointCost" },
+    { formulaId: "cost.weld_cost_per_meter", inputMap: { jointCost: "jointCost", weldLength: "weldLength" }, outputId: "costPerMeter" },
+    { formulaId: "cost.weld_consumable_pct", inputMap: { fillerCost: "fillerCost", jointCost: "jointCost" }, outputId: "consumablePct" },
+  ],
+  reportTemplate: { title: "Kaynak Maliyet Analizi", sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Çalışma faktörü = Ark süresi / Vardiya süresi.", "Toplam maliyet = (Uzunluk/Hız)×(İşçilik+Overhead)/Faktör + Sarf.", "Sarf oranı = Dolgu / Toplam."] },
+};

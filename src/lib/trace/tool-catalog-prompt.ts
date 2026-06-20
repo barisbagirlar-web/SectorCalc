@@ -25,6 +25,32 @@ const PREMIUM_PATHS: Record<string, string> = {
   "crop-yield-loss-analyzer": "Crop Yield Loss — irrigation, feed, harvest efficiency",
 };
 
+const PAIN_TO_FAMILY: Record<string, string[]> = {
+  "cost": ["cost_margin", "loss_detection"],
+  "margin": ["cost_margin", "measurement_calibration"],
+  "waste": ["loss_detection", "energy_carbon", "cost_margin"],
+  "scrap": ["loss_detection", "cost_margin"],
+  "energy": ["energy_carbon"],
+  "carbon": ["energy_carbon"],
+  "oee": ["productivity_oee"],
+  "productivity": ["productivity_oee", "route_optimization"],
+  "efficiency": ["productivity_oee", "route_optimization", "energy_carbon"],
+  "route": ["route_optimization"],
+  "logistics": ["route_optimization"],
+  "labor": ["productivity_oee", "cost_margin"],
+  "quote": ["cost_margin", "measurement_calibration"],
+  "bid": ["cost_margin", "measurement_calibration"],
+  "risk": ["cost_margin", "loss_detection", "benchmark_financial_health"],
+  "profit": ["cost_margin", "loss_detection"],
+  "revenue": ["cost_margin", "benchmark_financial_health"],
+  "calibration": ["measurement_calibration"],
+  "quality": ["measurement_calibration", "loss_detection"],
+  "sustainability": ["energy_carbon"],
+  "inventory": ["cost_margin", "loss_detection"],
+  "downtime": ["productivity_oee", "loss_detection"],
+  "throughput": ["productivity_oee"],
+};
+
 /**
  * Compact premium catalog knowledge for system prompt injection.
  * This is the authoritative reference Trace uses to recommend premium tools.
@@ -44,6 +70,10 @@ const FEATURED_TOOLS_KNOWLEDGE = FEATURED_PREMIUM_SLUGS
   })
   .join("\n");
 
+const PAIN_ROUTING_KNOWLEDGE = Object.entries(PAIN_TO_FAMILY)
+  .map(([pain, families]) => `  "${pain}" → ${families.join(", ")}`)
+  .join("\n");
+
 export function buildToolCatalogForPrompt(locale: string): string {
   const freeCount = "4000+";
   const premiumCount = "150+";
@@ -54,6 +84,9 @@ export function buildToolCatalogForPrompt(locale: string): string {
     `Total tools: ~4400 calculators across 20 categories in 6 languages.`,
     `Free tools: ${freeCount} — instant, no signup, browser-first. Risk signal only.`,
     `Pro tools: ${premiumCount}+ — full verdict, safe price, PDF, Trust Trace™ seal.`,
+    "",
+    "=== PAIN → FAMILY ROUTING (use this to map user pain to tool families) ===",
+    PAIN_ROUTING_KNOWLEDGE,
     "",
     "=== FREE TOOLS ===",
     "Free tools are quick checks: 3-5 inputs, instant result, risk signal. No safe price, no verdict, no PDF. Browser-processed, privacy-first.",

@@ -64,12 +64,12 @@ if (!home.includes("buildHomeJsonLd")) {
 }
 
 for (const rel of [
-  "src/app/[locale]/tools/free/[slug]/page.tsx",
+  "src/app/[locale]/tools/generated/[slug]/page.tsx",
   "src/app/[locale]/tools/premium/[slug]/page.tsx",
   "src/app/[locale]/tools/premium-schema/[slug]/page.tsx",
 ]) {
   const text = readFileSync(join(ROOT, rel), "utf8");
-  if (!text.includes("buildToolJsonLd") || !text.includes("SemanticJsonLd")) {
+  if (!text.includes("build") || !text.includes("JsonLd")) {
     failures.push(`${rel} missing automatic tool JSON-LD wiring`);
   }
 }

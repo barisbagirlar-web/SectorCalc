@@ -43,6 +43,9 @@ export interface PremiumInputSchema {
   readonly unit: string;
   readonly required: boolean;
   readonly smartDefault?: number | string | boolean;
+  readonly array?: boolean;
+  readonly matrix?: boolean;
+  readonly enumValues?: readonly string[];
   readonly validation?: {
     readonly min?: number;
     readonly max?: number;

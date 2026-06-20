@@ -14,10 +14,10 @@ import { findBestTools } from "@/lib/trace/tool-recommendation";
 import { routeAssistantSlug } from "@/lib/assistant/slug-router";
 import type { TraceFreeRequest, TraceFreeResponse } from "@/lib/trace/types";
 
-const MAX_REPLY_LENGTH = 1200;
+const MAX_REPLY_LENGTH = 1500;
 
 function getFlashModel(): string {
-  return process.env.AI_TRACE_FLASH_MODEL?.trim() || process.env.AI_CUSTOMER_FLASH_MODEL?.trim() || "deepseek-v4-flash";
+  return process.env.AI_TRACE_FLASH_MODEL?.trim() || process.env.AI_CUSTOMER_FLASH_MODEL?.trim() || "deepseek-chat";
 }
 
 function getDeepSeekClient(): OpenAI | null {
@@ -29,6 +29,8 @@ function getDeepSeekClient(): OpenAI | null {
   return new OpenAI({
     apiKey,
     baseURL: "https://api.deepseek.com",
+    maxRetries: 2,
+    timeout: 15000,
   });
 }
 
@@ -88,8 +90,11 @@ async function generateFlashReply(
         })),
         { role: "user", content: userContent },
       ],
-      temperature: 0.5,
-      max_tokens: 400,
+      temperature: 0.7,
+      max_tokens: 500,
+      top_p: 0.9,
+      frequency_penalty: 0.3,
+      presence_penalty: 0.2,
     });
 
     const reply = response.choices[0]?.message?.content?.trim();

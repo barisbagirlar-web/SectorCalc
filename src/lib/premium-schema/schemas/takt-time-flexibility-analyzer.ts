@@ -1,0 +1,31 @@
+/**
+ * Tool #16 — Takt Süre Flexibility
+ */
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+export const TAKT_TIME_FLEXIBILITY_SCHEMA: PremiumCalculatorSchema = {
+  id: "takt-time-flexibility-analyzer", legacyPaidSlug: "takt-time-flexibility-analyzer",
+  name: "Takt Süre Esneklik Analizi", sectorSlug: "cnc-manufacturing", category: "cost",
+  painStatement: "Takt süresi ile çevrim süresi arasındaki uyumsuzluk gizli kapasite kaybına ve işçilik fazlasına yol açar.",
+  inputs: [
+    { id: "availableTime", label: "Kullanılabilir Süre (Günlük)", type: "number", unit: "dk/gün", required: true, smartDefault: 480, validation: { min: 1 }, helper: "", expertMeaning: "Daily available production time" },
+    { id: "customerDemand", label: "Müşteri Talebi (Günlük)", type: "number", unit: "adet/gün", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Daily customer demand" },
+    { id: "cycleTime", label: "Çevrim Süresi", type: "number", unit: "dk/adet", required: true, smartDefault: 1.2, validation: { min: 0.01 }, helper: "", expertMeaning: "Current cycle time per unit" },
+    { id: "numOperators", label: "Operatör Sayısı", type: "number", unit: "kişi", required: true, smartDefault: 3, validation: { min: 1 }, helper: "", expertMeaning: "Number of operators on line" },
+    { id: "targetEfficiency", label: "Hedef Verimlilik", type: "number", unit: "%", required: false, smartDefault: 85, validation: { min: 1, max: 100 }, helper: "", expertMeaning: "Target line efficiency" },
+  ],
+  outputs: [
+    { id: "taktTime", label: "Takt Süresi", unit: "dk/adet", format: "number" },
+    { id: "cycleFlexibility", label: "Çevrim Esneklik Oranı", unit: "%", format: "percentage" },
+    { id: "balanceLoss", label: "Denge Kaybı", unit: "USD/gün", format: "currency" },
+    { id: "flexibilityPremium", label: "Esneklik Primi", unit: "USD/gün", format: "currency" },
+  ],
+  thresholds: [{ fieldId: "cycleFlexibility", warning: 15, critical: 30, direction: "higher_is_bad", warningMessage: "Esneklik farkı > %15 — hat dengeleme önerilir.", criticalMessage: "Esneklik farkı > %30 — takt süresi revize edilmeli." }],
+  formulaPipeline: [
+    { formulaId: "measurement.takt_time", inputMap: { availableTime: "availableTime", customerDemand: "customerDemand" }, outputId: "taktTime" },
+    { formulaId: "measurement.cycle_flexibility", inputMap: { cycleTime: "cycleTime", taktTime: "taktTime" }, outputId: "cycleFlexibility" },
+    { formulaId: "cost.balance_loss", inputMap: { cycleTime: "cycleTime", taktTime: "taktTime", numOperators: "numOperators" }, outputId: "balanceLoss" },
+    { formulaId: "cost.flexibility_premium", inputMap: { cycleFlexibility: "cycleFlexibility", targetEfficiency: "targetEfficiency", balanceLoss: "balanceLoss" }, outputId: "flexibilityPremium" },
+  ],
+  reportTemplate: { title: "Takt Time Flexibility Report", sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 5, targetMarginPercent: 15, assumptionNotes: ["Takt = Available / Demand.", "Flexibility = |Cycle − Takt| / Takt × 100.", "Balance loss = operator × cost variance."] },
+};

@@ -7424,6 +7424,161 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   text-align: center;
 }
 
+/* ═══════════════════════════════════════════════════════════ *
+ *  Enterprise-grade Trace enhancements                       *
+ *  Panel wrap for enter/exit animation                       *
+ *  Loading skeleton, Error Boundary, a11y improvements       *
+ * ═══════════════════════════════════════════════════════════ */
+
+/* Panel wrapper — enables exit animation before unmount */
+.sc-trace__panel-wrap {
+  pointer-events: auto;
+  width: min(380px, calc(100vw - 2rem));
+}
+.sc-trace__panel-wrap--open {
+  animation: sc-trace-panel-enter 0.28s ease-out both;
+}
+.sc-trace__panel-wrap--closing {
+  animation: sc-trace-panel-exit 0.24s ease-in both;
+}
+@keyframes sc-trace-panel-enter {
+  from { opacity: 0; transform: translateY(0.75rem) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes sc-trace-panel-exit {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(0.5rem) scale(0.96); }
+}
+
+/* Loading skeleton for lazy-loaded chat panel */
+.sc-trace__skeleton {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+.sc-trace__skeleton-header {
+  height: 3rem;
+  background: #f1f5f9;
+}
+.sc-trace__skeleton-body {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.sc-trace__skeleton-line {
+  height: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: sc-trace-skeleton-shimmer 1.5s ease-in-out infinite;
+}
+.sc-trace__skeleton-line--short { width: 40%; }
+.sc-trace__skeleton-line--medium { width: 65%; }
+.sc-trace__skeleton-line--long { width: 85%; }
+.sc-trace__skeleton-footer {
+  height: 3.5rem;
+  background: #f8fafc;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+@keyframes sc-trace-skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Error boundary — crash recovery */
+.sc-trace__error-boundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: #64748b;
+  height: 100%;
+  background: #ffffff;
+}
+.sc-trace__error-boundary svg {
+  color: #b91c1c;
+  opacity: 0.7;
+}
+.sc-trace__error-boundary-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+.sc-trace__error-boundary-desc {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+.sc-trace__error-boundary-btn {
+  margin-top: 0.5rem;
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.sc-trace__error-boundary-btn:hover {
+  background: #f1f5f9;
+  border-color: rgba(212, 175, 55, 0.4);
+}
+.sc-trace__error-boundary-btn:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.5);
+  outline-offset: 2px;
+}
+
+/* Quick actions group */
+.sc-trace__quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Message row pop-in animation */
+.sc-trace__msg-row {
+  animation: sc-trace-msg-in 0.3s ease both;
+}
+@keyframes sc-trace-msg-in {
+  from { opacity: 0; transform: translateY(0.4rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* a11y: focus-visible for all interactive elements */
+.sc-trace__quick-btn:focus-visible,
+.sc-trace__suggestion:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.5);
+  outline-offset: 2px;
+}
+
+/* Reduced motion — disable all Trace animations */
+@media (prefers-reduced-motion: reduce) {
+  .sc-trace__panel-wrap--open,
+  .sc-trace__panel-wrap--closing {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .sc-trace__msg-row {
+    animation: none !important;
+  }
+  .sc-trace__skeleton-line {
+    animation: none !important;
+  }
+  .sc-trace__typing-dot {
+    animation: none !important;
+  }
+}
+
 /* Trace homepage intro — hero-aligned premium light card */
 .sc-trace-intro {
   padding-block: clamp(1.25rem, 3vw, 2rem);

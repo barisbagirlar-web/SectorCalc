@@ -1,0 +1,37 @@
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+export const COMPRESSED_AIR_LEAK_SCHEMA: PremiumCalculatorSchema = {
+  id: "compressed-air-leak-analyzer", legacyPaidSlug: "compressed-air-leak-analyzer",
+  name: "Kompresör Kaçağı Maliyet", sectorSlug: "cnc-manufacturing", category: "energy",
+  painStatement: "Basınçlı hava kaçakları tespit edilmezse enerji maliyeti gizlice artar ve karbon emisyonu yükselir.",
+  inputs: [
+    { id: "leakDiameter", label: "Kaçak Çapı", type: "number", unit: "mm", required: true, smartDefault: 2, validation: { min: 0.1 }, helper: "", expertMeaning: "Orifice diameter" },
+    { id: "linePressure", label: "Hat Basıncı", type: "number", unit: "bar", required: true, smartDefault: 7, validation: { min: 1 }, helper: "", expertMeaning: "Line pressure" },
+    { id: "leakCount", label: "Kaçak Sayısı", type: "number", unit: "", required: true, smartDefault: 5, validation: { min: 1 }, helper: "", expertMeaning: "Number of leaks" },
+    { id: "compressorEff", label: "Kompresör Verimi", type: "number", unit: "", required: false, smartDefault: 0.85, validation: { min: 0, max: 1 }, helper: "", expertMeaning: "Compressor efficiency" },
+    { id: "operatingHours", label: "Yıllık Çalışma Saati", type: "number", unit: "saat", required: true, smartDefault: 8000, validation: { min: 1 }, helper: "", expertMeaning: "Annual operating hours" },
+    { id: "elecRate", label: "Elektrik Tarifesi", type: "number", unit: "USD/kWh", required: true, smartDefault: 0.12, validation: { min: 0 }, helper: "", expertMeaning: "Electricity rate" },
+    { id: "gridEF", label: "Emisyon Faktörü", type: "number", unit: "tCO2e/MWh", required: false, smartDefault: 0.45, validation: { min: 0 }, helper: "", expertMeaning: "Grid emission factor" },
+    { id: "repairCost", label: "Tamir Maliyeti", type: "number", unit: "USD", required: false, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Repair cost per leak" },
+  ],
+  outputs: [
+    { id: "leakFlow", label: "Kaçak Debisi", unit: "CFM", format: "number" },
+    { id: "powerLoss", label: "Güç Kaybı", unit: "kW", format: "number" },
+    { id: "annualEnergyLoss", label: "Yıllık Enerji Kaybı", unit: "kWh", format: "number" },
+    { id: "costPerLeak", label: "Kaçak Başı Maliyet", unit: "USD/yıl", format: "currency" },
+    { id: "totalLeakCost", label: "Toplam Kaçak Maliyeti", unit: "USD/yıl", format: "currency", isBigNumber: true },
+    { id: "carbonEmissions", label: "Karbon Emisyonu", unit: "tCO2e", format: "number" },
+    { id: "paybackMonths", label: "Tamir Geri Ödeme", unit: "ay", format: "duration" },
+  ],
+  thresholds: [{ fieldId: "totalLeakCost", warning: 5000, critical: 20000, direction: "higher_is_bad", warningMessage: "Kaçak maliyeti > $5K/yıl — onarım programı başlatılmalı.", criticalMessage: "Kaçak maliyeti > $20K/yıl — acil müdahale gerekli." }],
+  formulaPipeline: [
+    { formulaId: "measurement.leak_flow_cfm", inputMap: { leakDiameter: "leakDiameter", linePressure: "linePressure" }, outputId: "leakFlow" },
+    { formulaId: "measurement.leak_power_loss", inputMap: { leakFlow: "leakFlow", linePressure: "linePressure", compressorEff: "compressorEff" }, outputId: "powerLoss" },
+    { formulaId: "measurement.leak_annual_energy", inputMap: { powerLoss: "powerLoss", operatingHours: "operatingHours" }, outputId: "annualEnergyLoss" },
+    { formulaId: "cost.leak_cost", inputMap: { annualEnergyLoss: "annualEnergyLoss", elecRate: "elecRate", leakCount: "leakCount" }, outputId: "costPerLeak" },
+    { formulaId: "cost.leak_total_cost", inputMap: { costPerLeak: "costPerLeak", leakCount: "leakCount" }, outputId: "totalLeakCost" },
+    { formulaId: "measurement.leak_carbon", inputMap: { annualEnergyLoss: "annualEnergyLoss", gridEF: "gridEF" }, outputId: "carbonEmissions" },
+    { formulaId: "cost.leak_payback", inputMap: { repairCost: "repairCost", costPerLeak: "costPerLeak" }, outputId: "paybackMonths" },
+  ],
+  reportTemplate: { title: "Kompresör Kaçak Raporu", sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kaçak debisi = 22.4×d²×P/√T.", "Güç kaybı = Q×P×144/(33000×Verim).", "Geri ödeme = Tamir / Yıllık maliyet."] },
+};

@@ -23,6 +23,7 @@ import { absoluteLocalizedUrl } from "@/lib/semantic/site-url";
 import { savePrintData } from "@/lib/reports/generated-tool-print-data";
 import { PremiumResultSummary } from "@/components/reports/PremiumResultSummary";
 import { resolvePrimaryPrintValue } from "@/lib/reports/resolve-print-values";
+import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
 
 export type GeneratedToolFormViewProps = {
   readonly slug: string;
@@ -158,6 +159,19 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           onSubmit={handleCalculate}
         />
       )}
+
+      {result ? (
+        <VerificationQueueButton
+          toolSlug={slug}
+          locale={locale}
+          tier={isPremium ? "premium" : "free"}
+          pageUrl={pageUrl}
+          inputSnapshot={lastInputs ? (lastInputs as Record<string, string | number | boolean>) : undefined}
+          resultSnapshot={result ? (Object.fromEntries(
+            Object.entries(result).filter(([k]) => typeof result[k] === "number" || typeof result[k] === "string" || typeof result[k] === "boolean")
+          ) as Record<string, string | number | boolean>) : undefined}
+        />
+      ) : null}
 
       {isPremium && result ? (
         <PremiumResultSummary

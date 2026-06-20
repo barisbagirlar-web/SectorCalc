@@ -80,19 +80,41 @@ function generateTypeInterface(schema: GeneratedToolSchema, exportBase: string):
   return `export interface ${exportBase}Input {\n${fields.join("\n")}\n}`;
 }
 
-function generateOutputType(schema: GeneratedToolSchema, exportBase: string): string {
+/** Check if a string is a valid TypeScript identifier. */
+function isValidTSIdentifier(key: string): boolean {
+  return /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key);
+}
+
+/** Format a breakdown key as a TypeScript property name (quoted if not a valid identifier). */
+function formatBreakdownKey(key: string): string {
+  return isValidTSIdentifier(key) ? key : JSON.stringify(key);
+}
+
+function generateOutputType(
+  schema: GeneratedToolSchema,
+  exportBase: string,
+  primaryKey: string,
+): string {
   const breakdownKeys = Object.keys(schema.outputs.breakdown);
+  const outputUnit = schema.outputs.unit ?? "";
   return `
 export interface ${exportBase}Output {
   totalWasteCost: number;
-  breakdown: { ${breakdownKeys.map((key) => `${key}: number`).join("; ")} };
+  unit: string;
+  breakdown: { ${breakdownKeys.map((key) => `${formatBreakdownKey(key)}: number`).join("; ")} };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-}`;
-}
+};
+
+export const ${exportBase}OutputMeta = {
+  primaryKey: ${JSON.stringify(primaryKey)},
+  unit: ${JSON.stringify(outputUnit)},
+  breakdownKeys: ${JSON.stringify(breakdownKeys)},
+} as const;
+`}
 
 function toTypeScriptNumericExpression(compiled: string): string {
   let expr = compiled.trim();
@@ -204,24 +226,26 @@ function generateCalculateFunction(
   const breakdownKeys = Object.keys(schema.outputs.breakdown);
   const { primary: primaryFallbackByKey, breakdown: breakdownFallbackByKey } =
     resolveOutputFormulaFallbacks(schema);
+  const outputUnit = schema.outputs.unit ?? "";
 
   const resolvedPrimaryExpr = primaryFallbackByKey[primaryKey]
     ? `toNumericFormulaValue(values[${JSON.stringify(primaryKey)}] ?? values[${JSON.stringify(primaryFallbackByKey[primaryKey])}])`
     : `toNumericFormulaValue(values[${JSON.stringify(primaryKey)}])`;
+
+  const breakdownEntries = breakdownKeys.map((key) => {
+    const fallback = breakdownFallbackByKey[key];
+    const expr = fallback
+      ? `toNumericFormulaValue(values[${JSON.stringify(key)}] ?? values[${JSON.stringify(fallback)}])`
+      : `toNumericFormulaValue(values[${JSON.stringify(key)}])`;
+    return `    ${formatBreakdownKey(key)}: ${expr}`;
+  });
 
   return `
 export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}Output {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = ${resolvedPrimaryExpr};
   const breakdown = {
-    ${breakdownKeys
-      .map((key) => {
-        const fallback = breakdownFallbackByKey[key];
-        return fallback
-          ? `${key}: toNumericFormulaValue(values[${JSON.stringify(key)}] ?? values[${JSON.stringify(fallback)}])`
-          : `${key}: toNumericFormulaValue(values[${JSON.stringify(key)}])`;
-      })
-      .join(",\n    ")}
+${breakdownEntries.join(",\n")}
   };
   const hiddenLossDrivers: string[] = ${JSON.stringify(schema.outputs.hiddenLossDrivers)};
   const suggestedActions: string[] = ${JSON.stringify(schema.outputs.suggestedActions)};
@@ -235,6 +259,7 @@ export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
+    unit: ${JSON.stringify(outputUnit)},
     premiumRequired: ${schema.premiumRequired === true},
     premiumFeatures: ${JSON.stringify(schema.premiumFeatures)},
   };
@@ -267,7 +292,7 @@ ${formulaEvaluator}
 
 ${generateCalculateFunction(schema, exportBase)}
 
-${generateOutputType(schema, exportBase)}
+${generateOutputType(schema, exportBase, schema.outputs.primary)}
 `;
 
   fs.writeFileSync(outPath, content);

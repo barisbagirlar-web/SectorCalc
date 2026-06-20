@@ -19,7 +19,7 @@ import {
   resolvePremiumToolPath,
 } from "@/lib/tools/paths";
 import { absoluteLocalizedUrl } from "@/lib/semantic/site-url";
-import { shouldOfferToolEmbed } from "@/lib/tools/embed-policy";
+import { shouldOfferToolEmbed, buildEmbedUrl } from "@/lib/tools/embed-policy";
 
 export type ToolOmniMetaSectionProps = {
   readonly toolName: string;
@@ -142,7 +142,7 @@ export function ToolOmniMetaSection({
             excerpt={shareExcerpt}
             siteName="SectorCalc"
             url={shareUrl}
-            embedUrl={showEmbed ? shareUrl : undefined}
+            embedUrl={showEmbed ? buildEmbedUrl(shareUrl, locale, slug) : undefined}
             showEmbed={showEmbed}
             onLike={handleLike}
             onDislike={handleDislike}

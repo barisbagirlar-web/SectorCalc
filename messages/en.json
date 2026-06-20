@@ -68826,5 +68826,30 @@
       "title": "Recipe Cost Check",
       "description": "Calculate and analyze recipe cost check calculator metrics."
     }
+  },
+  "verificationQueue": {
+    "reportIssue": "Report incorrect result",
+    "title": "Report an issue",
+    "description": "Let us know if the calculation result looks wrong or something is missing.",
+    "issueTypeLabel": "Issue type",
+    "messageLabel": "Description",
+    "messagePlaceholder": "What looks incorrect? (min. 10 characters)",
+    "emailLabel": "Email (optional)",
+    "emailPlaceholder": "your@email.com",
+    "cancel": "Cancel",
+    "send": "Send report",
+    "submitting": "Sending…",
+    "submitted": "Thank you. Your report has been submitted.",
+    "rateLimited": "Too many requests. Please wait a moment and try again.",
+    "submitError": "Could not submit. Please try again.",
+    "type": {
+      "wrong_result": "Wrong result",
+      "missing_input": "Missing input",
+      "unit_issue": "Unit issue",
+      "unclear_explanation": "Unclear explanation",
+      "sector_assumption_issue": "Sector assumption issue",
+      "improvement_request": "Improvement suggestion",
+      "other": "Other"
+    }
   }
 }

@@ -68830,5 +68830,30 @@
     "card1.description": "Tiempo de configuración, desperdicio, mano de obra, capacidad y riesgo de margen.",
     "card2.title": "Informes rápidos, menores gastos generales",
     "card2.description": "Obtenga soporte práctico para decisiones sin software pesado."
+  },
+  "verificationQueue": {
+    "reportIssue": "Informar resultado incorrecto",
+    "title": "Informar un problema",
+    "description": "Háganos saber si el resultado es incorrecto o falta algo.",
+    "issueTypeLabel": "Tipo de problema",
+    "messageLabel": "Descripción",
+    "messagePlaceholder": "¿Qué parece incorrecto? (mín. 10 caracteres)",
+    "emailLabel": "Correo electrónico (opcional)",
+    "emailPlaceholder": "tu@email.com",
+    "cancel": "Cancelar",
+    "send": "Enviar",
+    "submitting": "Enviando…",
+    "submitted": "Gracias. Su informe ha sido enviado.",
+    "rateLimited": "Demasiadas solicitudes. Espere un momento.",
+    "submitError": "No se pudo enviar. Intente de nuevo.",
+    "type": {
+      "wrong_result": "Resultado incorrecto",
+      "missing_input": "Entrada faltante",
+      "unit_issue": "Problema de unidad",
+      "unclear_explanation": "Explicación poco clara",
+      "sector_assumption_issue": "Problema de suposición del sector",
+      "improvement_request": "Sugerencia de mejora",
+      "other": "Otro"
+    }
   }
 }

@@ -68826,5 +68826,30 @@
     "card1.description": "وقت الإعداد، الهدر، العمالة، السعة ومخاطر الهامش.",
     "card2.title": "تقارير سريعة، تكاليف عامة أقل",
     "card2.description": "احصل على دعم عملي لاتخاذ القرارات دون برامج ثقيلة."
+  },
+  "verificationQueue": {
+    "reportIssue": "الإبلاغ عن نتيجة غير صحيحة",
+    "title": "الإبلاغ عن مشكلة",
+    "description": "أخبرنا إذا كانت نتيجة الحساب خاطئة أو كان هناك شيء مفقود.",
+    "issueTypeLabel": "نوع المشكلة",
+    "messageLabel": "الوصف",
+    "messagePlaceholder": "ما الخطأ؟ (10 أحرف على الأقل)",
+    "emailLabel": "البريد الإلكتروني (اختياري)",
+    "emailPlaceholder": "بريدك@email.com",
+    "cancel": "إلغاء",
+    "send": "إرسال",
+    "submitting": "جارٍ الإرسال…",
+    "submitted": "شكراً. تم إرسال تقريرك.",
+    "rateLimited": "طلبات كثيرة جداً. يرجى الانتظار.",
+    "submitError": "تعذر الإرسال. حاول مرة أخرى.",
+    "type": {
+      "wrong_result": "نتيجة خاطئة",
+      "missing_input": "إدخال مفقود",
+      "unit_issue": "مشكلة في الوحدة",
+      "unclear_explanation": "شرح غير واضح",
+      "sector_assumption_issue": "مشكلة افتراض القطاع",
+      "improvement_request": "اقتراح تحسين",
+      "other": "آخر"
+    }
   }
 }

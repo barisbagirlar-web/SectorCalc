@@ -68850,5 +68850,30 @@
     "card1.description": "Rüstzeit, Ausschuss, Arbeit, Kapazität und Margenrisiko.",
     "card2.title": "Schnelle Berichte, geringere Gemeinkosten",
     "card2.description": "Erhalten Sie praktische Entscheidungsunterstützung ohne schwere Software."
+  },
+  "verificationQueue": {
+    "reportIssue": "Falsches Ergebnis melden",
+    "title": "Problem melden",
+    "description": "Teilen Sie uns mit, wenn das Ergebnis falsch ist oder etwas fehlt.",
+    "issueTypeLabel": "Problemtyp",
+    "messageLabel": "Beschreibung",
+    "messagePlaceholder": "Was ist falsch? (min. 10 Zeichen)",
+    "emailLabel": "E-Mail (optional)",
+    "emailPlaceholder": "ihre@email.de",
+    "cancel": "Abbrechen",
+    "send": "Senden",
+    "submitting": "Sende…",
+    "submitted": "Danke. Ihr Bericht wurde übermittelt.",
+    "rateLimited": "Zu viele Anfragen. Bitte warten.",
+    "submitError": "Senden fehlgeschlagen. Bitte erneut versuchen.",
+    "type": {
+      "wrong_result": "Falsches Ergebnis",
+      "missing_input": "Fehlende Eingabe",
+      "unit_issue": "Einheitenproblem",
+      "unclear_explanation": "Unklare Erklärung",
+      "sector_assumption_issue": "Branchenannahmeproblem",
+      "improvement_request": "Verbesserungsvorschlag",
+      "other": "Sonstiges"
+    }
   }
 }

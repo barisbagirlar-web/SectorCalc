@@ -1,0 +1,37 @@
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+export const CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
+  id: "currency-risk-analyzer", legacyPaidSlug: "currency-risk-analyzer",
+  name: "Kur Riski Analizi", sectorSlug: "financial-planning", category: "cost",
+  painStatement: "Kur riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar.",
+  inputs: [
+    { id: "fxRevenue", label: "Döviz Gelir", type: "number", unit: "USD", required: true, smartDefault: 1000000, validation: { min: 0 }, helper: "", expertMeaning: "FX revenue" },
+    { id: "fxCost", label: "Döviz Gider", type: "number", unit: "USD", required: true, smartDefault: 600000, validation: { min: 0 }, helper: "", expertMeaning: "FX cost" },
+    { id: "fxPair", label: "Döviz Çifti", type: "select", unit: "", enumValues: ["USD/TRY", "EUR/USD", "EUR/TRY", "GBP/USD", "USD/JPY"], required: true, smartDefault: "USD/TRY", helper: "", expertMeaning: "Currency pair" },
+    { id: "volatility", label: "Volatilite", type: "number", unit: "%", required: true, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Annual volatility" },
+    { id: "timeHorizon", label: "Zaman Ufku", type: "number", unit: "gün", required: true, smartDefault: 90, validation: { min: 1 }, helper: "", expertMeaning: "Risk horizon" },
+    { id: "zScore", label: "Z-Skoru", type: "number", unit: "", required: false, smartDefault: 1.65, validation: { min: 0, max: 4 }, helper: "", expertMeaning: "Confidence level z-score" },
+    { id: "hedgeRatio", label: "Hedge Oranı", type: "number", unit: "", required: false, smartDefault: 0.5, validation: { min: 0, max: 1 }, helper: "", expertMeaning: "Hedge ratio" },
+    { id: "forwardPoints", label: "Forward Puanı", type: "number", unit: "", required: false, smartDefault: 0.02, validation: { min: 0 }, helper: "", expertMeaning: "Forward premium/discount" },
+    { id: "spotRate", label: "Spot Kur", type: "number", unit: "", required: true, smartDefault: 30, validation: { min: 0.01 }, helper: "", expertMeaning: "Current spot rate" },
+    { id: "forwardRate", label: "Forward Kur", type: "number", unit: "", required: false, smartDefault: 32, validation: { min: 0.01 }, helper: "", expertMeaning: "Forward rate" },
+  ],
+  outputs: [
+    { id: "fxExposure", label: "Net Döviz Pozisyonu", unit: "USD", format: "currency" },
+    { id: "varHistorical", label: "Tarihsel VaR", unit: "USD", format: "currency" },
+    { id: "varParametric", label: "Parametrik VaR", unit: "USD", format: "currency" },
+    { id: "unhedgedVaR", label: "Hedge Edilmemiş VaR", unit: "USD", format: "currency" },
+    { id: "costOfHedge", label: "Hedge Maliyeti", unit: "USD", format: "currency" },
+    { id: "netImpact", label: "Net Kur Etkisi", unit: "USD", format: "currency" },
+  ],
+  thresholds: [{ fieldId: "unhedgedVaR", warning: 50000, critical: 200000, direction: "higher_is_bad", warningMessage: "Açık VaR > $50K — hedge oranı artırılmalı.", criticalMessage: "Açık VaR > $200K — acil hedge işlemi gerekli." }],
+  formulaPipeline: [
+    { formulaId: "cost.fx_exposure", inputMap: { fxRevenue: "fxRevenue", fxCost: "fxCost" }, outputId: "fxExposure" },
+    { formulaId: "cost.fx_var_historical", inputMap: { fxExposure: "fxExposure", volatility: "volatility", zScore: "zScore" }, outputId: "varHistorical" },
+    { formulaId: "cost.fx_var_parametric", inputMap: { fxExposure: "fxExposure", volatility: "volatility", timeHorizon: "timeHorizon" }, outputId: "varParametric" },
+    { formulaId: "cost.fx_unhedged_var", inputMap: { varHistorical: "varHistorical", hedgeRatio: "hedgeRatio" }, outputId: "unhedgedVaR" },
+    { formulaId: "cost.fx_hedge_cost", inputMap: { fxExposure: "fxExposure", forwardPoints: "forwardPoints" }, outputId: "costOfHedge" },
+    { formulaId: "cost.fx_net_impact", inputMap: { spotRate: "spotRate", forwardRate: "forwardRate", fxExposure: "fxExposure", hedgeRatio: "hedgeRatio" }, outputId: "netImpact" },
+  ],
+  reportTemplate: { title: "Kur Riski Raporu", sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 15, targetMarginPercent: 10, assumptionNotes: ["VaR = Pozisyon × Volatilite × Z × √T.", "Hedge maliyeti = Notional × Forward puan.", "Net etki = (Spot - Forward) × Hedge edilen."] },
+};

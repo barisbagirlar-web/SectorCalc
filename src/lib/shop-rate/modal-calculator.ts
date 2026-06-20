@@ -95,6 +95,7 @@ export function calculateShopRateHourlyCostCalculator(
     dataConfidenceAdjusted: computed.dataConfidenceAdjusted,
     premiumRequired: true,
     premiumFeatures: ["PDF Export", "CSV Export", "Trend Analysis", "Benchmark Comparison"],
+    unit: "USD",
   };
 }
 

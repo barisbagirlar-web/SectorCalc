@@ -1,0 +1,38 @@
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
+  id: "kwh-cost-analyzer", legacyPaidSlug: "kwh-cost-analyzer",
+  name: "KWh Maliyet Analizi", sectorSlug: "energy-consumption", category: "cost",
+  painStatement: "Birim kWh maliyeti ve güç faktörü cezası hesaplanmazsa, enerji faturasının gerçek kaynağı anlaşılamaz.",
+  inputs: [
+    { id: "activeEnergy", label: "Aktif Tüketim", type: "number", unit: "kWh", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Active energy consumption" },
+    { id: "energyRate", label: "Enerji Birim Fiyatı", type: "number", unit: "USD/kWh", required: true, smartDefault: 0.10, validation: { min: 0 }, helper: "", expertMeaning: "Energy rate" },
+    { id: "peakDemand", label: "Çekilen Güç", type: "number", unit: "kW", required: true, smartDefault: 800, validation: { min: 0 }, helper: "", expertMeaning: "Peak demand" },
+    { id: "demandRate", label: "Güç Bedeli", type: "number", unit: "USD/kW", required: true, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Demand rate" },
+    { id: "powerFactor", label: "Güç Faktörü", type: "number", unit: "", required: false, smartDefault: 0.88, validation: { min: 0, max: 1 }, helper: "", expertMeaning: "Power factor" },
+    { id: "pfThreshold", label: "Ceza Eşiği", type: "number", unit: "", required: false, smartDefault: 0.9, validation: { min: 0, max: 1 }, helper: "", expertMeaning: "Min acceptable PF" },
+    { id: "reactiveEnergy", label: "Reaktif Tüketim", type: "number", unit: "kVArh", required: false, smartDefault: 200000, validation: { min: 0 }, helper: "", expertMeaning: "Reactive energy" },
+    { id: "penaltyRate", label: "Reaktif Ceza Oranı", type: "number", unit: "USD/kVArh", required: false, smartDefault: 0.02, validation: { min: 0 }, helper: "", expertMeaning: "Reactive penalty rate" },
+    { id: "taxRate", label: "Vergi/Fon Oranı", type: "number", unit: "%", required: false, smartDefault: 18, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Tax rate" },
+    { id: "oldPeak", label: "Eski Tepe Gücü", type: "number", unit: "kW", required: false, smartDefault: 900, validation: { min: 0 }, helper: "", expertMeaning: "Previous peak demand" },
+    { id: "newPeak", label: "Yeni Tepe Gücü", type: "number", unit: "kW", required: false, smartDefault: 800, validation: { min: 0 }, helper: "", expertMeaning: "New peak demand" },
+  ],
+  outputs: [
+    { id: "energyCharge", label: "Enerji Bedeli", unit: "USD", format: "currency" },
+    { id: "demandCharge", label: "Güç Bedeli", unit: "USD", format: "currency" },
+    { id: "reactivePenalty", label: "Reaktif Ceza", unit: "USD", format: "currency" },
+    { id: "totalBill", label: "Toplam Fatura", unit: "USD", format: "currency", isBigNumber: true },
+    { id: "unitCostKwh", label: "Birim kWh Maliyeti", unit: "USD/kWh", format: "currency" },
+    { id: "peakShavingSavings", label: "Tepe Traşlama Kazancı", unit: "USD", format: "currency" },
+  ],
+  thresholds: [{ fieldId: "unitCostKwh", warning: 0.15, critical: 0.25, direction: "higher_is_bad", warningMessage: "Birim > $0.15/kWh — enerji verimliliği değerlendirilmeli.", criticalMessage: "Birim > $0.25/kWh — acil enerji tasarrufu programı." }],
+  formulaPipeline: [
+    { formulaId: "cost.energy_charge", inputMap: { activeEnergy: "activeEnergy", energyRate: "energyRate" }, outputId: "energyCharge" },
+    { formulaId: "cost.demand_charge", inputMap: { peakDemand: "peakDemand", demandRate: "demandRate" }, outputId: "demandCharge" },
+    { formulaId: "cost.reactive_penalty_kwh", inputMap: { powerFactor: "powerFactor", pfThreshold: "pfThreshold", reactiveEnergy: "reactiveEnergy", penaltyRate: "penaltyRate" }, outputId: "reactivePenalty" },
+    { formulaId: "cost.total_bill_kwh", inputMap: { energyCharge: "energyCharge", demandCharge: "demandCharge", reactivePenalty: "reactivePenalty", taxRate: "taxRate" }, outputId: "totalBill" },
+    { formulaId: "cost.unit_cost_kwh", inputMap: { totalBill: "totalBill", activeEnergy: "activeEnergy" }, outputId: "unitCostKwh" },
+    { formulaId: "cost.peak_shaving_savings", inputMap: { oldPeak: "oldPeak", newPeak: "newPeak", demandRate: "demandRate" }, outputId: "peakShavingSavings" },
+  ],
+  reportTemplate: { title: "KWh Maliyet Raporu", sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Reaktif ceza = PF < eşik ise reaktif × ceza oranı.", "Birim maliyet = Toplam / Aktif tüketim.", "Tepe traşlama = (Eski - Yeni) × Güç bedeli."] },
+};

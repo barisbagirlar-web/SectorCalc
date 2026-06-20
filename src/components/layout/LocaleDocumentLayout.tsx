@@ -91,6 +91,11 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         <meta name="msvalidate.01" content="C97289CA0F699D6B9053113A5E8FAD2A" />
 
         {/* === MOBILE & APP METADATA === */}
+        <link
+          rel="apple-touch-icon"
+          href="/img/brand/sectorcalc-favicon.svg"
+          sizes="any"
+        />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="SectorCalc" />

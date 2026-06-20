@@ -97,6 +97,7 @@ function calculatePressureVesselThickness(
       "Multi-user collaboration",
       "API access",
     ],
+    unit: "mm",
   };
 }
 
@@ -212,6 +213,7 @@ function calculateBoltTorque(input: Record<string, unknown>): GeneratedToolResul
       "Friction coefficient sensitivity analysis",
       "API integration for CMMS",
     ],
+    unit: "Nm",
   };
 }
 

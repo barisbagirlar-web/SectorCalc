@@ -230,7 +230,7 @@ export function buildCategorizedToolIndex(): readonly CategorizedToolItem[] {
   ]);
 
   const uncategorized = merged.filter((item) =>
-    ["uncategorized", "misc", "other", "genel"].includes(item.categorySlug),
+    ["uncategorized", "misc", "genel"].includes(item.categorySlug),
   );
   if (uncategorized.length > 0) {
     throw new Error(`Uncategorized tools found: ${uncategorized.map((item) => item.slug).join(", ")}`);

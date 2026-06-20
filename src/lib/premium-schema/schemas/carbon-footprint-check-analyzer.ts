@@ -1,0 +1,38 @@
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+export const CARBON_FOOTPRINT_CHECK_SCHEMA: PremiumCalculatorSchema = {
+  id: "carbon-footprint-check-analyzer", legacyPaidSlug: "carbon-footprint-check-analyzer",
+  name: "Karbon Ayak İzi Check", sectorSlug: "energy-carbon", category: "measurement",
+  painStatement: "Karbon ayak izi hesaplanmazsa ihracatçı firmalar CBAM ve karbon vergisi karşısında finansal risk altındadır.",
+  inputs: [
+    { id: "fuelConsumption", label: "Yakıt Tüketimi (MWh)", type: "number", unit: "MWh", required: false, smartDefault: 500, validation: { min: 0 }, helper: "", expertMeaning: "Total fuel energy consumption" },
+    { id: "fuelEF", label: "Yakıt Emisyon Faktörü", type: "number", unit: "tCO2e/MWh", required: false, smartDefault: 0.27, validation: { min: 0 }, helper: "", expertMeaning: "Emission factor per MWh" },
+    { id: "fugitive", label: "Kaçak Emisyon", type: "number", unit: "tCO2e", required: false, smartDefault: 0, validation: { min: 0 }, helper: "", expertMeaning: "Fugitive emissions" },
+    { id: "electricity", label: "Elektrik Tüketimi", type: "number", unit: "MWh", required: true, smartDefault: 1000, validation: { min: 0 }, helper: "", expertMeaning: "Grid electricity consumption" },
+    { id: "gridEF", label: "Şebeke Emisyon Faktörü", type: "number", unit: "tCO2e/MWh", required: true, smartDefault: 0.45, validation: { min: 0 }, helper: "", expertMeaning: "Grid emission factor" },
+    { id: "recFactor", label: "YEK Sertifika Faktörü", type: "number", unit: "tCO2e/MWh", required: false, smartDefault: 0, validation: { min: 0 }, helper: "", expertMeaning: "REC offset factor" },
+    { id: "material", label: "Malzeme Tüketimi", type: "number", unit: "ton", required: false, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Raw material consumption" },
+    { id: "materialEF", label: "Malzeme Emisyon Faktörü", type: "number", unit: "tCO2e/ton", required: false, smartDefault: 1.5, validation: { min: 0 }, helper: "", expertMeaning: "Material emission factor" },
+    { id: "logisticsEF", label: "Lojistik Emisyon", type: "number", unit: "tCO2e", required: false, smartDefault: 50, validation: { min: 0 }, helper: "", expertMeaning: "Logistics emissions total" },
+    { id: "productionVolume", label: "Üretim Hacmi", type: "number", unit: "ton", required: true, smartDefault: 5000, validation: { min: 1 }, helper: "", expertMeaning: "Total production volume" },
+    { id: "carbonPrice", label: "Gelecek Karbon Fiyatı", type: "number", unit: "USD/ton", required: true, smartDefault: 80, validation: { min: 0 }, helper: "", expertMeaning: "Forecast carbon price" },
+  ],
+  outputs: [
+    { id: "scope1", label: "Scope 1 Emisyon", unit: "tCO2e", format: "number" },
+    { id: "scope2Market", label: "Scope 2 Piyasa Bazlı", unit: "tCO2e", format: "number" },
+    { id: "scope3", label: "Scope 3 Yukarı Akış", unit: "tCO2e", format: "number" },
+    { id: "totalCarbon", label: "Toplam Karbon Ayak İzi", unit: "tCO2e", format: "number", isBigNumber: true },
+    { id: "carbonIntensity", label: "Karbon Yoğunluğu", unit: "tCO2e/ton", format: "number" },
+    { id: "financialRisk", label: "Finansal Risk (Karbon)", unit: "USD", format: "currency" },
+  ],
+  thresholds: [{ fieldId: "carbonIntensity", warning: 1, critical: 2.5, direction: "higher_is_bad", warningMessage: "Karbon yoğunluğu > 1 — sektör ortalamasının üstünde.", criticalMessage: "Karbon yoğunluğu > 2.5 — CBAM riski yüksek." }],
+  formulaPipeline: [
+    { formulaId: "measurement.carbon_scope1", inputMap: { fuelConsumption: "fuelConsumption", fuelEF: "fuelEF", fugitive: "fugitive" }, outputId: "scope1" },
+    { formulaId: "measurement.carbon_scope2_market", inputMap: { electricity: "electricity", gridEF: "gridEF", recFactor: "recFactor" }, outputId: "scope2Market" },
+    { formulaId: "measurement.carbon_scope3_upstream", inputMap: { material: "material", materialEF: "materialEF", logisticsEF: "logisticsEF" }, outputId: "scope3" },
+    { formulaId: "measurement.carbon_total", inputMap: { scope1: "scope1", scope2Market: "scope2Market", scope3: "scope3" }, outputId: "totalCarbon" },
+    { formulaId: "measurement.carbon_intensity", inputMap: { totalCarbon: "totalCarbon", productionVolume: "productionVolume" }, outputId: "carbonIntensity" },
+    { formulaId: "cost.carbon_financial_risk", inputMap: { totalCarbon: "totalCarbon", carbonPrice: "carbonPrice" }, outputId: "financialRisk" },
+  ],
+  reportTemplate: { title: "Karbon Ayak İzi Raporu", sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Scope 2 market-based = electricity × (gridEF - REC).", "CBAM 2026 sonrası karbon fiyatı ~80 EUR/ton.", "Karbon yoğunluğu = toplam / üretim hacmi."] },
+};

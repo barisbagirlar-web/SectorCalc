@@ -120,12 +120,24 @@ function normalizeBreakdownMap(
   raw: unknown,
   formulaNames: Readonly<Record<string, string>> = {},
 ): Readonly<Record<string, string>> {
+  const breakdown: Record<string, string> = {};
+
+  // Handle array-format breakdown: ["formulaKey1", "formulaKey2", ...]
+  if (Array.isArray(raw)) {
+    for (const item of raw) {
+      if (typeof item === "string" && item.trim()) {
+        const label = formulaNames[item] || item;
+        breakdown[item] = label;
+      }
+    }
+    return breakdown;
+  }
+
   const record = asRecord(raw);
   if (!record) {
     return {};
   }
 
-  const breakdown: Record<string, string> = {};
   for (const [key, value] of Object.entries(record)) {
     if (typeof value === "string" && value.trim()) {
       breakdown[key] = value.trim();

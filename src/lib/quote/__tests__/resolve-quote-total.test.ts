@@ -14,6 +14,7 @@ describe("quote totals", () => {
       suggestedActions: [],
       dataConfidenceAdjusted: 43000,
       premiumRequired: true,
+      unit: "",
       premiumFeatures: [],
     } satisfies GeneratedToolResult;
 

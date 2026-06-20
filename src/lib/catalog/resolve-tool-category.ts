@@ -19,7 +19,7 @@ export type ToolCategoryResolutionInput = {
   readonly premiumSchemaCategory?: string;
 };
 
-const FORBIDDEN_CATEGORY_SLUGS = new Set(["uncategorized", "misc", "other", "genel"]);
+const FORBIDDEN_CATEGORY_SLUGS = new Set(["uncategorized", "misc", "genel"]);
 
 export const MANUAL_CATEGORY_OVERRIDES: Readonly<Record<string, GlobalToolCategorySlug>> = {
   "cnc-oee-loss": "cnc-additive-manufacturing",
@@ -90,19 +90,19 @@ export const FREE_TRAFFIC_CATEGORY_TO_GLOBAL: Readonly<
   "energy-carbon": "sustainability-resource-esg",
   "logistics-travel": "procurement-supply-chain",
   "agriculture-food": "food-cold-chain-hygiene",
-  "everyday-life": "packaging-local-business",
-  "math-statistics": "technology-ai-cloud-cyber",
-  conversion: "technology-ai-cloud-cyber",
-  "health-body": "hse-ergonomics",
-  "physics-science": "technology-ai-cloud-cyber",
+  "everyday-life": "health-fitness-daily-life",
+  "math-statistics": "mathematics-statistics",
+  conversion: "conversion-measurement",
+  "health-body": "health-fitness-daily-life",
+  "physics-science": "mathematics-statistics",
   "chemistry-science": "process-chemical",
   "engineering-science": "cnc-additive-manufacturing",
   "food-cooking": "food-cold-chain-hygiene",
-  "date-time": "technology-ai-cloud-cyber",
-  "education-academic": "technology-ai-cloud-cyber",
+  "date-time": "health-fitness-daily-life",
+  "education-academic": "education-academic",
   "ecology-environment": "sustainability-resource-esg",
-  "gaming-entertainment": "packaging-local-business",
-  "hobbies-diy": "packaging-local-business",
+  "gaming-entertainment": "technology-ai-cloud-cyber",
+  "hobbies-diy": "health-fitness-daily-life",
 };
 
 const PREMIUM_SCHEMA_CATEGORY_TO_GLOBAL: Readonly<Record<string, GlobalToolCategorySlug>> = {
@@ -122,26 +122,78 @@ const KEYWORD_CATEGORY_RULES: ReadonlyArray<{
   readonly categorySlug: GlobalToolCategorySlug;
   readonly keywords: readonly string[];
 }> = [
-  { categorySlug: "lean-production", keywords: ["smed", "kanban", "vsm", "kaizen", "andon", "oee", "takt", "heijunka", "poka", "muda"] },
-  { categorySlug: "quality-six-sigma", keywords: ["cpk", "ppk", "spc", "msa", "sigma", "aql", "fty", "rty", "taguchi", "fmea", "htea"] },
-  { categorySlug: "process-chemical", keywords: ["reaktor", "pompa", "harman", "kutle", "ventil", "kimya", "proses", "chemical", "fluid"] },
-  { categorySlug: "cnc-additive-manufacturing", keywords: ["cnc", "3b", "3d", "takim", "tool", "filament", "baski", "machining", "tezgah"] },
-  { categorySlug: "metal-plastics-forming", keywords: ["sac", "dokum", "enjeksiyon", "pres", "bukum", "metal", "sheet", "forming", "scrap"] },
-  { categorySlug: "project-construction-management", keywords: ["evm", "cpm", "santiye", "insaat", "construction", "hakedis", "sozlesme", "concrete", "paint"] },
-  { categorySlug: "digital-factory-automation", keywords: ["iot", "cobot", "agv", "dijital", "otomasyon", "digital", "automation"] },
-  { categorySlug: "maintenance-reliability", keywords: ["mtbf", "mttr", "bakim", "ariza", "maintenance", "reliability", "rca"] },
-  { categorySlug: "hse-ergonomics", keywords: ["isg", "ergonomi", "kaza", "gurultu", "hse", "safety", "health"] },
-  { categorySlug: "procurement-supply-chain", keywords: ["tedarik", "tco", "moq", "lojistik", "supply", "procurement", "route", "fuel", "transport"] },
-  { categorySlug: "workforce-hr", keywords: ["vardiya", "turnover", "egitim", "mesai", "workforce", "hr", "employee", "labor"] },
-  { categorySlug: "finance-sales-working-capital", keywords: ["finans", "clv", "cac", "marj", "margin", "finance", "profit", "price", "quote", "rent", "loan"] },
-  { categorySlug: "sustainability-resource-esg", keywords: ["karbon", "scope", "cbam", "esg", "surdur", "carbon", "emission", "energy"] },
-  { categorySlug: "food-cold-chain-hygiene", keywords: ["gida", "soguk", "hygiene", "food", "menu", "restaurant", "agriculture"] },
-  { categorySlug: "textile-print-lab", keywords: ["tekstil", "baski", "print", "textile", "fabric"] },
-  { categorySlug: "electrical-power-systems", keywords: ["elektrik", "panel", "power", "voltage", "current", "electrical"] },
-  { categorySlug: "mechanical-hvac-energy-loss", keywords: ["hvac", "kompresor", "compressor", "pompa", "mechanical", "leak", "pressure"] },
-  { categorySlug: "packaging-local-business", keywords: ["paket", "local", "cleaning", "daily", "packaging", "retail"] },
-  { categorySlug: "global-compliance-trade", keywords: ["compliance", "trade", "customs", "ihracat", "import", "regulation"] },
-  { categorySlug: "technology-ai-cloud-cyber", keywords: ["cloud", "api", "ai", "siber", "cyber", "software", "math", "statistics", "conversion"] },
+  // ── Industrial / Manufacturing ──────────────────────────────
+  { categorySlug: "lean-production", keywords: ["smed", "kanban", "vsm", "kaizen", "andon", "oee", "takt", "heijunka", "poka", "muda", "yoke", "israf", "5s", "gemba", "six sigma", "value stream"] },
+  { categorySlug: "quality-six-sigma", keywords: ["cpk", "ppk", "spc", "msa", "sigma", "aql", "fty", "rty", "taguchi", "fmea", "htea", "capability", "control chart", "defect", "paf", "quality cost", "calibration"] },
+  { categorySlug: "process-chemical", keywords: ["reaktor", "pompa", "harman", "kutle", "ventil", "kimya", "proses", "chemical", "fluid", "reaction", "molar", "titration", "stoichiometry", "concentration", "ph", "acid", "base", "distillation", "chromatography", "activity coefficient", "electronegativity", "hess"] },
+  { categorySlug: "cnc-additive-manufacturing", keywords: ["cnc", "3b", "3d", "takim", "tool", "filament", "baski", "machining", "tezgah", "lathe", "milling", "drilling", "grinding", "edm", "laser", "plasma", "waterjet", "spindle", "rpm", "feed", "insert", "carbide", "hss", "coating", "tool wear"] },
+  { categorySlug: "metal-plastics-forming", keywords: ["sac", "dokum", "enjeksiyon", "pres", "bukum", "metal", "sheet", "forming", "scrap", "casting", "forging", "extrusion", "stamping", "rolling", "welding", "weld", "solder", "brazing", "annealing", "tempering", "hardness", "hrc", "hb", "hv", "penetration", "shrinkage", "distortion", "preheat"] },
+  { categorySlug: "digital-factory-automation", keywords: ["iot", "cobot", "agv", "dijital", "otomasyon", "digital", "automation", "scada", "plc", "robot", "twin", "industry 4", "sensor", "actuator"] },
+  { categorySlug: "maintenance-reliability", keywords: ["mtbf", "mttr", "bakim", "ariza", "maintenance", "reliability", "rca", "preventive", "spare part", "uptime", "availability", "oee", "failure"] },
+  { categorySlug: "mechanical-hvac-energy-loss", keywords: ["hvac", "kompresor", "compressor", "pompa", "mechanical", "leak", "pressure", "pipe", "piping", "steam", "insulation", "heat loss", "boiler", "chiller", "duct", "ventilation", "cfm", "btu", "load calculation", "pump"] },
+
+  // ── Construction / Project ──────────────────────────────────
+  { categorySlug: "project-construction-management", keywords: ["evm", "cpm", "santiye", "insaat", "construction", "hakedis", "sozlesme", "concrete", "paint", "drywall", "roofing", "stucco", "gambrel", "scaffold", "formwork", "masonry", "brick", "foundation", "excavation", "structural", "rebar", "beam", "column", "slab", "footing"] },
+  { categorySlug: "electrical-power-systems", keywords: ["elektrik", "panel", "power", "voltage", "current", "electrical", "kwh", "kw", "transformer", "generator", "motor", "grid", "substation", "power factor", "cable", "ampere", "ohm", "circuit breaker", "switchgear"] },
+
+  // ── Supply Chain / HR / Finance ─────────────────────────────
+  { categorySlug: "procurement-supply-chain", keywords: ["tedarik", "tco", "moq", "lojistik", "supply", "procurement", "route", "fuel", "transport", "eoq", "inventory", "warehouse", "stock", "reorder", "safety stock", "abc analysis", "customs", "incoterm", "import", "export", "demurrage"] },
+  { categorySlug: "workforce-hr", keywords: ["vardiya", "turnover", "egitim", "mesai", "workforce", "hr", "employee", "labor", "labour", "shift", "overtime", "salary", "payroll", "absenteeism", "headcount", "competence"] },
+  { categorySlug: "finance-sales-working-capital", keywords: ["finans", "clv", "cac", "marj", "margin", "finance", "profit", "price", "quote", "rent", "loan", "mortgage", "interest", "npv", "irr", "payback", "investment", "credit", "tax", "depreciation", "amortization", "roi", "dividend", "crypto", "bitcoin", "forex", "valuation", "startup", "runway", "equity", "etf", "ira", "annuity", "insurance", "budget", "cash flow", "breakeven", "cost benefit", "cost estimation", "cost of living", "savings", "bond", "roth", "sba", "rmd", "wire transfer", "debt payoff", "affordability", "net operating", "noi"] },
+
+  // ── Sustainability / Food / Textile ─────────────────────────
+  { categorySlug: "sustainability-resource-esg", keywords: ["karbon", "scope", "cbam", "esg", "surdur", "carbon", "emission", "energy", "recycle", "waste", "water", "green", "footprint", "climate", "co2", "greenhouse", "smog"] },
+  { categorySlug: "food-cold-chain-hygiene", keywords: ["gida", "soguk", "hygiene", "food", "menu", "restaurant", "agriculture", "recipe", "baking", "cooking", "calorie", "nutrition", "shelf life", "haccp", "brew", "beer", "wine", "abv", "sourdough", "yogurt", "kombucha", "espresso", "pizza", "paleo", "sugar"] },
+  { categorySlug: "textile-print-lab", keywords: ["tekstil", "baski", "print", "textile", "fabric", "sewing", "knitting", "weaving", "dye", "yarn", "garment", "apparel", "lab", "laboratory"] },
+  { categorySlug: "packaging-local-business", keywords: ["paket", "local", "cleaning", "daily", "packaging", "retail", "box", "carton", "pallet", "barcode", "label", "paper", "page count", "printing"] },
+
+  // ── Global Trade ────────────────────────────────────────────
+  { categorySlug: "global-compliance-trade", keywords: ["compliance", "trade", "customs", "ihracat", "import", "regulation", "incoterm", "tariff", "vat", "transfer pricing", "ifrs", "aml"] },
+
+  // ── Technology ──────────────────────────────────────────────
+  { categorySlug: "technology-ai-cloud-cyber", keywords: ["cloud", "api", "ai", "siber", "cyber", "software", "algorithm", "database", "encryption", "hash", "password", "regex", "json", "unicode", "binary", "hex", "octal", "ascii", "base64", "token", "nft", "jwt", "oauth", "subnet", "ip", "dns", "vpn", "bandwidth", "latency", "server", "cpu", "gpu", "memory", "storage", "checksum", "tree", "markdown", "morse"] },
+
+  // ── Mathematics & Statistics ────────────────────────────────
+  { categorySlug: "mathematics-statistics", keywords: ["algebra", "calculus", "derivative", "integral", "matrix", "vector", "equation", "polynomial", "fraction", "decimal", "percent", "ratio", "proportion", "geometry", "trigonometry", "angle", "triangle", "circle", "logarithm", "exponential", "prime", "factorial", "modulo", "gcd", "lcm", "fibonacci", "permutation", "combination", "absolute", "complex", "quaternion", "radical", "roman", "stirling", "ncr", "hanoi", "disk", "partition", "predicate", "conic", "polar", "gradient", "divergence", "decomposition", "set theory", "statistics", "probability", "regression", "anova", "percentile", "correlation", "mean", "median", "mode", "variance", "standard deviation", "confidence", "zscore", "t test", "chi square", "normal distribution", "binomial", "poisson", "bayes", "dice", "odds", "dijkstra", "kendall", "dbscan", "clustering", "roc", "auc", "iqr", "coefficient", "midpoint", "average"] },
+
+  // ── Health & Daily Life ─────────────────────────────────────
+  { categorySlug: "health-fitness-daily-life", keywords: ["bmi", "bmr", "calorie", "body", "weight", "heart", "blood", "sleep", "pregnancy", "ovulation", "baby", "infant", "fasting", "breathing", "metabolic", "cholesterol", "fitness", "workout", "muscle", "vo2", "1rm", "running", "pace", "marathon", "cycling", "swimming", "hiking", "training", "diet", "nutrition", "mindfulness", "smoking", "teeth", "age", "date", "calendar", "birthday", "deadline", "moon", "grade", "gpa", "midpoint", "distance", "velocity", "acceleration", "force", "erectile", "estrogen", "testosterone", "kidney", "liver", "thyroid", "diabetes", "glucose", "cancer", "tumor", "ecog", "mrs", "whitening", "thermogenesis", "wim", "hof", "lose", "noom", "pcos", "bradford"] },
+
+  // ── Conversion & Measurement ────────────────────────────────
+  { categorySlug: "conversion-measurement", keywords: ["converter", "conversion", "convert", "unit", "metric", "imperial", "feet", "inches", "yards", "miles", "kilometer", "centimeter", "millimeter", "micrometer", "nanometer", "liter", "gallon", "ounce", "pound", "kilogram", "gram", "ton", "tonne", "celsius", "fahrenheit", "kelvin", "acres", "hectares", "psi", "bar", "atm", "pascal", "mph", "kmh", "knot", "radians", "degrees", "horsepower", "btu", "joule", "calorie", "watt", "ampere", "volt", "stone", "decades", "centuries", "kb", "mb", "gb", "pixel", "dpi", "paper size"] },
+
+  // ── Automotive & Transport ──────────────────────────────────
+  { categorySlug: "automotive-transport", keywords: ["car", "vehicle", "auto", "truck", "bus", "engine", "tire", "tyre", "brake", "fuel", "mpg", "odometer", "ev", "electric vehicle", "battery", "hybrid", "transmission", "chassis", "suspension", "fleet", "horsepower", "torque"] },
+
+  // ── Maritime & Shipping ─────────────────────────────────────
+  { categorySlug: "maritime-shipping", keywords: ["ship", "vessel", "boat", "maritime", "marine", "naval", "port", "harbor", "harbour", "cargo", "container", "draft", "displacement", "buoyancy", "anchor", "hull", "propeller", "nautical", "anchor", "mooring", "ballast", "trim", "stability", "scantling", "bunker", "demurrage"] },
+
+  // ── Mining & Geology ────────────────────────────────────────
+  { categorySlug: "mining-geology", keywords: ["mine", "mining", "ore", "mineral", "coal", "gold", "silver", "copper", "drill", "excavation", "geology", "geological", "seismic", "reservoir", "rock", "quarry", "blasting"] },
+
+  // ── Furniture & Woodworking ─────────────────────────────────
+  { categorySlug: "furniture-woodworking", keywords: ["furniture", "wood", "woodworking", "lumber", "timber", "carpentry", "cabinet", "veneer", "plywood", "hardwood", "softwood", "sawmill", "board foot", "millwork"] },
+
+  // ── Cleaning & Facility ─────────────────────────────────────
+  { categorySlug: "cleaning-facility", keywords: ["cleaning", "hygiene", "sanitize", "sanitation", "detergent", "disinfect", "janitor", "custodial", "dilution", "dosage"] },
+
+  // ── Water & Wastewater ──────────────────────────────────────
+  { categorySlug: "water-wastewater", keywords: ["water", "wastewater", "sewage", "treatment", "filtration", "chlorination", "pool", "aquarium", "pond", "ntu", "flow", "irrigation", "drainage"] },
+
+  // ── Tourism & Hospitality ───────────────────────────────────
+  { categorySlug: "tourism-hospitality", keywords: ["hotel", "tourism", "travel", "hospitality", "resort", "booking", "reservation", "flight", "vacation", "tourist", "occupancy", "revpar", "adr", "restaurant", "menu", "food cost", "catering"] },
+
+  // ── Education & Academic ────────────────────────────────────
+  { categorySlug: "education-academic", keywords: ["grade", "gpa", "exam", "test", "score", "college", "university", "scholarship", "tuition", "semester", "credit", "degree", "student", "classroom", "curriculum", "gpat", "mcat", "citation", "plagiarism", "transcript", "pathfinder"] },
+
+  // ── Real Estate & Property ──────────────────────────────────
+  { categorySlug: "real-estate-property", keywords: ["real estate", "property", "mortgage", "rent", "rental", "lease", "landlord", "tenant", "housing", "appraisal", "valuation", "down payment", "closing", "hoa", "cap rate", "flip", "refinance", "home", "affordability"] },
+
+  // ── Aerospace & Aviation ────────────────────────────────────
+  { categorySlug: "aerospace-aviation", keywords: ["aircraft", "airplane", "plane", "aviation", "aerospace", "jet", "turbine", "wing", "fuselage", "aerodynamic", "lift", "drag", "altitude", "runway", "pilot", "flight", "rocket", "orbital", "satellite", "spacecraft", "propulsion"] },
+
+  // ── HSE & Risk ──────────────────────────────────────────────
+  { categorySlug: "hse-ergonomics", keywords: ["isg", "ergonomi", "kaza", "gurultu", "hse", "safety", "occupational", "ppe", "exposure", "noise", "vibration", "hazard", "risk assessment", "ergonomics", "accident", "incident"] },
 ];
 
 function normalizeMatchText(input: ToolCategoryResolutionInput): string {
@@ -199,5 +251,12 @@ export function resolveToolCategory(input: ToolCategoryResolutionInput): GlobalT
     return input.seedCategorySlug as GlobalToolCategorySlug;
   }
 
-  return "finance-sales-working-capital";
+  // If nothing matched, try keyword matching one more time with the raw slug only
+  // before falling back to "other".
+  const lastResort = resolveByKeywords({ slug: input.slug });
+  if (lastResort) {
+    return lastResort;
+  }
+
+  return "other";
 }

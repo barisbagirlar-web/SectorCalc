@@ -46,6 +46,19 @@ function nonNegative(value: number): number {
   return assertFinite(Math.max(0, value));
 }
 
+/**
+ * Standard normal CDF approximation (Abramowitz & Stegun 26.2.17).
+ * Returns P(Z ≤ x) for Z ~ N(0,1), accurate to ~1.5e-7.
+ */
+function normStd(x: number): number {
+  const b0 = 0.2316419, b1 = 0.319381530, b2 = -0.356563782;
+  const b3 = 1.781477937, b4 = -1.821255978, b5 = 1.330274429;
+  const t = 1 / (1 + b0 * Math.abs(x));
+  const poly = t * (b1 + t * (b2 + t * (b3 + t * (b4 + t * b5))));
+  const cdf = 1 - poly * Math.exp(-x * x / 2);
+  return x >= 0 ? cdf : 1 - cdf;
+}
+
 // ---------------------------------------------------------------------------
 // Definitions (family → tested function)
 // ---------------------------------------------------------------------------
@@ -914,6 +927,847 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   // ═══════════════════════════════════════════════════════════════════════════
   // END TOOLS 1-20 FORMULAS
   // ═══════════════════════════════════════════════════════════════════════════
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOLS 21-60 FORMULAS
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Batch 2: CLV / CAC
+  { id: "cost.clv", family: "cost", label: "Customer lifetime value", fn: (i) => num(i,"avgOrderValue") * num(i,"purchaseFreq") * num(i,"lifespan") },
+  { id: "cost.gross_margin_clv", family: "cost", label: "Gross margin CLV", fn: (i) => num(i,"clv") * num(i,"grossMarginPct") },
+  { id: "cost.discounted_clv", family: "cost", label: "Discounted cumulative CLV", fn: (i) => { const r = num(i,"retention"), d = num(i,"discountRate"), g = num(i,"clv"); let s = 0; for(let t=1;t<=5;t++) s += (g * Math.pow(r, t)) / Math.pow(1 + d, t); return s; } },
+  { id: "cost.cac", family: "cost", label: "Customer acquisition cost", fn: (i) => (num(i,"salesMarketing") + num(i,"salaries") + num(i,"overhead")) / num(i,"newCustomers") },
+  { id: "cost.cac_payback", family: "cost", label: "CAC payback period", fn: (i) => num(i,"cac") / (num(i,"avgOrderValue") * num(i,"purchaseFreq") * num(i,"grossMarginPct") / 12) },
+  { id: "cost.ltv_cac_ratio", family: "cost", label: "LTV / CAC ratio", fn: (i) => num(i,"discountedClv") / num(i,"cac") },
+
+  // CNC çevrim süresi
+  { id: "measurement.cnc_rpm", family: "measurement", label: "CNC spindle RPM", fn: (i) => (1000 * num(i,"cuttingSpeed")) / (Math.PI * num(i,"toolDiameter")) },
+  { id: "measurement.cnc_feed_speed", family: "measurement", label: "CNC feed speed", fn: (i) => num(i,"feedPerTooth") * num(i,"teeth") * num(i,"rpm") },
+  { id: "measurement.cnc_cut_time", family: "measurement", label: "CNC cut time", fn: (i) => (num(i,"length") * num(i,"depth")) / (num(i,"feedSpeed") * num(i,"axialDepth")) },
+  { id: "measurement.cnc_rapid_time", family: "measurement", label: "CNC rapid traverse time", fn: (i) => num(i,"rapidDistance") / num(i,"rapidSpeed") },
+  { id: "measurement.cnc_toolchange_time", family: "measurement", label: "CNC tool change time", fn: (i) => num(i,"changeCount") * num(i,"timePerChange") },
+  { id: "measurement.cnc_total_time", family: "measurement", label: "CNC total cycle time", fn: (i) => num(i,"cutTime") + num(i,"rapidTime") + num(i,"toolChangeTime") + num(i,"nonCuttingTime") + num(i,"loadUnloadTime") },
+
+  // CNC işleme maliyeti
+  { id: "cost.cnc_material", family: "cost", label: "CNC raw material cost per unit", fn: (i) => num(i,"rawVolume") * num(i,"density") * num(i,"pricePerKg") * (1 + num(i,"scrapRate")) },
+  { id: "cost.cnc_machining", family: "cost", label: "CNC machining cost per unit", fn: (i) => num(i,"totalCycleTime") * num(i,"machineRate") },
+  { id: "cost.cnc_tooling", family: "cost", label: "CNC tooling cost per unit", fn: (i) => (num(i,"cutTime") / num(i,"toolLife")) * num(i,"toolCost") },
+  { id: "cost.cnc_energy", family: "cost", label: "CNC energy cost per unit", fn: (i) => num(i,"power") * num(i,"totalCycleTime") * num(i,"elecRate") },
+  { id: "cost.cnc_overhead", family: "cost", label: "CNC overhead cost per unit", fn: (i) => num(i,"totalCycleTime") * num(i,"overheadRate") },
+  { id: "cost.cnc_total_unit", family: "cost", label: "CNC total unit cost", fn: (i) => num(i,"materialCost") + num(i,"machiningCost") + num(i,"toolingCost") + num(i,"energyCost") + num(i,"overheadCost") + num(i,"qualityCost") },
+
+  // CPK → PPM
+  { id: "measurement.cpk_z_usl", family: "measurement", label: "Z score for USL", fn: (i) => (num(i,"usl") - num(i,"mean")) / num(i,"stdDev") },
+  { id: "measurement.cpk_z_lsl", family: "measurement", label: "Z score for LSL", fn: (i) => (num(i,"mean") - num(i,"lsl")) / num(i,"stdDev") },
+  { id: "measurement.cpk_index", family: "measurement", label: "Cpk index", fn: (i) => Math.min(num(i,"zUsl"), num(i,"zLsl")) / 3 },
+  { id: "measurement.cpk_p_usl", family: "measurement", label: "Probability above USL", fn: (i) => { const x=num(i,"zUsl"); const t=1/(1+0.2316419*Math.abs(x)); const p=t*(0.319381530+t*(-0.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429)))); return x>=0?1-p:p; } },
+  { id: "measurement.cpk_p_lsl", family: "measurement", label: "Probability below LSL", fn: (i) => { const x=-num(i,"zLsl"); const t=1/(1+0.2316419*Math.abs(x)); const p=t*(0.319381530+t*(-0.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429)))); return x>=0?1-p:p; } },
+  { id: "measurement.cpk_p_total", family: "measurement", label: "Total out-of-spec probability", fn: (i) => num(i,"pUsl") + num(i,"pLsl") },
+  { id: "measurement.cpk_ppm", family: "measurement", label: "PPM out-of-spec", fn: (i) => num(i,"pTotal") * 1000000 },
+  { id: "measurement.cpk_yield", family: "measurement", label: "Process yield", fn: (i) => 1 - num(i,"pTotal") },
+  { id: "measurement.cpk_sigma_st", family: "measurement", label: "Short-term sigma level", fn: (i) => (num(i,"cpk") * 3) + 1.5 },
+
+  // CPM gecikme cezası
+  { id: "measurement.cpm_total_float", family: "measurement", label: "Total float", fn: (i) => num(i,"lateStart") - num(i,"earlyStart") },
+  { id: "measurement.cpm_critical_delay", family: "measurement", label: "Critical path delay", fn: (i) => Math.max(0, num(i,"actualDuration") - num(i,"plannedDuration") - num(i,"totalFloat")) },
+  { id: "measurement.cpm_non_excusable", family: "measurement", label: "Non-excusable delay days", fn: (i) => Math.max(0, num(i,"criticalDelay") - num(i,"excusableDelay")) },
+  { id: "cost.cpm_liquidated_damages", family: "cost", label: "Liquidated damages cost", fn: (i) => num(i,"nonExcusable") * num(i,"dailyPenalty") },
+  { id: "cost.cpm_acceleration", family: "cost", label: "Acceleration cost", fn: (i) => num(i,"crashingCost") * num(i,"daysAccelerated") },
+  { id: "cost.cpm_net_penalty", family: "cost", label: "Net penalty after acceleration", fn: (i) => num(i,"liquidatedDamages") - num(i,"accelerationCost") },
+  { id: "cost.cpm_eot_claim", family: "cost", label: "EOT claim days", fn: (i) => num(i,"excusableDelay") * (1 - num(i,"effFactor")) },
+
+  // Çatı alanı
+  { id: "measurement.roof_footprint", family: "measurement", label: "Roof footprint area", fn: (i) => num(i,"buildingLength") * num(i,"buildingWidth") },
+  { id: "measurement.roof_gable_area", family: "measurement", label: "Roof gable area", fn: (i) => num(i,"footprint") / Math.cos(num(i,"pitchAngle") * Math.PI / 180) },
+  { id: "measurement.roof_overhang_area", family: "measurement", label: "Roof overhang area", fn: (i) => (2 * (num(i,"buildingLength") + num(i,"buildingWidth"))) * num(i,"overhangWidth") },
+  { id: "measurement.roof_material_area", family: "measurement", label: "Total material area needed", fn: (i) => num(i,"gableArea") * (1 + num(i,"wasteFactor")) },
+  { id: "measurement.roof_ridge_length", family: "measurement", label: "Ridge length", fn: (i) => num(i,"buildingLength") - num(i,"buildingWidth") + (num(i,"buildingWidth") * Math.SQRT2) },
+
+  // Darboğaz yatırım
+  { id: "measurement.bottleneck_util", family: "measurement", label: "Bottleneck utilization", fn: (i) => num(i,"actualOutput") / num(i,"designCapacity") },
+  { id: "measurement.bottleneck_throughput", family: "measurement", label: "Effective throughput", fn: (i) => num(i,"demand") * (1 - num(i,"defectRate")) },
+  { id: "measurement.bottleneck_takt_time", family: "measurement", label: "Takt time", fn: (i) => num(i,"availableTime") / num(i,"demand") },
+  { id: "measurement.bottleneck_cycle_gap", family: "measurement", label: "Cycle time gap", fn: (i) => Math.max(0, num(i,"bottleneckCycle") - num(i,"taktTime")) },
+  { id: "cost.bottleneck_cost", family: "cost", label: "Cost of constraint per unit", fn: (i) => num(i,"cycleGap") * num(i,"demand") * num(i,"unitMargin") },
+  { id: "cost.bottleneck_roi", family: "cost", label: "Bottleneck upgrade ROI", fn: (i) => (num(i,"throughputIncrease") * num(i,"margin") * num(i,"days")) / num(i,"upgradeCost") },
+  { id: "cost.bottleneck_payback", family: "cost", label: "Bottleneck upgrade payback (months)", fn: (i) => num(i,"upgradeCost") / num(i,"monthlyGain") },
+
+  // SMED değişim matrisi
+  { id: "measurement.smed_setup_total", family: "measurement", label: "Total setup time", fn: (i) => num(i,"internalSetup") + num(i,"externalSetup") },
+  { id: "measurement.smed_target_time", family: "measurement", label: "Target setup time after SMED", fn: (i) => num(i,"internalSetup") * (1 - num(i,"conversionRate")) + num(i,"externalSetup") },
+  { id: "measurement.smed_ebq", family: "measurement", label: "Economic batch quantity", fn: (i) => Math.sqrt((2 * num(i,"demand") * num(i,"setupCost")) / num(i,"holdingCost")) },
+  { id: "cost.smed_setup_cost", family: "cost", label: "Setup cost", fn: (i) => num(i,"totalSetup") * num(i,"machineRate") + num(i,"labor") },
+  { id: "cost.smed_annual_savings", family: "cost", label: "Annual savings from SMED", fn: (i) => (num(i,"totalSetup") - num(i,"targetTime")) * num(i,"changeoverFreq") * num(i,"machineRate") },
+
+  // Depo yerleşimi
+  { id: "measurement.warehouse_storage_area", family: "measurement", label: "Available storage area", fn: (i) => num(i,"footprint") * num(i,"utilRate") },
+  { id: "measurement.warehouse_pallet_positions", family: "measurement", label: "Pallet positions", fn: (i) => num(i,"storageArea") / (num(i,"palletFootprint") * num(i,"aisleFactor")) },
+  { id: "measurement.warehouse_vertical_cap", family: "measurement", label: "Vertical storage capacity", fn: (i) => num(i,"palletPositions") * num(i,"rackLevels") },
+  { id: "measurement.warehouse_door_throughput", family: "measurement", label: "Door throughput capacity", fn: (i) => num(i,"doors") / (num(i,"turnaroundLoad") + num(i,"turnaroundUnload")) },
+  { id: "cost.warehouse_cost_per_pos", family: "cost", label: "Cost per pallet position", fn: (i) => num(i,"facilityCost") / num(i,"palletPositions") },
+
+  // Devamsızlık maliyeti
+  { id: "cost.absenteeism_direct", family: "cost", label: "Direct absenteeism cost", fn: (i) => num(i,"absentHours") * num(i,"hourlyRate") * (1 + num(i,"burden")) },
+  { id: "cost.absenteeism_ot", family: "cost", label: "Overtime premium cost", fn: (i) => num(i,"replaceOT") * (num(i,"otRate") - num(i,"regRate")) },
+  { id: "cost.absenteeism_temp", family: "cost", label: "Temporary worker cost", fn: (i) => num(i,"tempHours") * num(i,"tempRate") * (1 + num(i,"markup")) },
+  { id: "cost.absenteeism_prod", family: "cost", label: "Production loss from absenteeism", fn: (i) => num(i,"absentHours") * num(i,"outputPerHour") * num(i,"margin") * (1 - num(i,"effDrop")) / 100 },
+  { id: "cost.absenteeism_admin", family: "cost", label: "Admin cost per event", fn: (i) => num(i,"events") * num(i,"hrTime") * num(i,"hrRate") },
+  { id: "cost.absenteeism_bradford", family: "cost", label: "Bradford factor score", fn: (i) => Math.pow(num(i,"events"), 2) * num(i,"days") },
+  { id: "cost.absenteeism_total", family: "cost", label: "Total absenteeism cost", fn: (i) => num(i,"directCost") + num(i,"otPremium") + num(i,"tempCost") + num(i,"prodLoss") + num(i,"adminCost") },
+
+  // Digital twin maliyet
+  { id: "cost.digital_twin_cost_trad", family: "cost", label: "Traditional approach cost", fn: (i) => num(i,"prototyping") + num(i,"fieldTest") + num(i,"downtime") + num(i,"travel") },
+  { id: "cost.digital_twin_cost_dt", family: "cost", label: "Digital twin approach cost", fn: (i) => num(i,"license") + num(i,"compute") + num(i,"sensor") + num(i,"modeling") },
+  { id: "cost.digital_twin_time_gain", family: "cost", label: "Time gain from digital twin", fn: (i) => (num(i,"physCycle") - num(i,"digCycle")) * num(i,"iterations") },
+  { id: "cost.digital_twin_roi", family: "cost", label: "Digital twin ROI", fn: (i) => (num(i,"costTrad") - num(i,"costDt") + num(i,"revenueGain") + num(i,"qualitySavings")) / num(i,"costDt") },
+
+  // Dikiş hattı dengeleme
+  { id: "measurement.sewing_takt_time", family: "measurement", label: "Sewing line takt time", fn: (i) => num(i,"availableTime") / num(i,"demand") },
+  { id: "measurement.sewing_theo_op", family: "measurement", label: "Theoretical operators needed", fn: (i) => num(i,"cycleTotal") / num(i,"taktTime") },
+  { id: "measurement.sewing_line_eff", family: "measurement", label: "Line efficiency", fn: (i) => (num(i,"cycleTotal") / (num(i,"actOperators") * num(i,"taktTime"))) * 100 },
+  { id: "measurement.sewing_balance_delay", family: "measurement", label: "Balance delay", fn: (i) => 100 - num(i,"lineEff") },
+  { id: "measurement.sewing_smoothness", family: "measurement", label: "Smoothness index", fn: (i) => 0 }, // requires array data
+
+  // Dye reçete maliyeti
+  { id: "cost.dye_batch", family: "cost", label: "Dye batch total cost", fn: (i) => num(i,"dyeCost") + num(i,"chemCost") + num(i,"waterCost") + num(i,"energyCost") + num(i,"wasteCost") },
+  { id: "cost.dye_rft_savings", family: "cost", label: "RFT rework savings", fn: (i) => num(i,"rework") * (1 - num(i,"rft")) },
+  { id: "cost.dye_cost_per_kg", family: "cost", label: "Cost per kg fabric", fn: (i) => (num(i,"totalBatch") + num(i,"rftSavings")) / num(i,"fabricWeight") },
+
+  // Enerji tüketim raporu
+  { id: "energy.power_factor", family: "energy", label: "Power factor", fn: (i) => num(i,"active") / Math.sqrt(Math.pow(num(i,"active"), 2) + Math.pow(num(i,"reactive"), 2)) },
+  { id: "energy.reactive_penalty", family: "energy", label: "Reactive power penalty", fn: (i) => num(i,"pf") < num(i,"pfThresh") ? (num(i,"reactive") - num(i,"active") * Math.tan(Math.acos(num(i,"pfThresh")))) * num(i,"tariff") : 0 },
+  { id: "energy.demand_charge", family: "energy", label: "Demand charge", fn: (i) => num(i,"peakKw") * num(i,"demandRate") },
+  { id: "energy.carbon_energy", family: "energy", label: "Carbon cost from energy", fn: (i) => num(i,"active") * num(i,"emisFactor") * num(i,"carbonPrice") },
+
+  // Enflasyon eskalasyon
+  { id: "cost.escalation_material", family: "cost", label: "Material cost escalation factor", fn: (i) => Math.pow(1 + num(i,"inflMat"), num(i,"years")) },
+  { id: "cost.escalation_labor", family: "cost", label: "Labor cost escalation factor", fn: (i) => Math.pow(1 + num(i,"inflLab"), num(i,"years")) },
+  { id: "cost.real_discount", family: "cost", label: "Real discount rate", fn: (i) => ((1 + num(i,"nominal")) / (1 + num(i,"infl"))) - 1 },
+
+  // Environmental fire
+  { id: "cost.env_fire_disposal", family: "cost", label: "Disposal cost", fn: (i) => num(i,"waste") * num(i,"dispFee") },
+  { id: "cost.env_fire_haz", family: "cost", label: "Hazardous waste cost", fn: (i) => num(i,"hazMass") * (num(i,"hazFee") + num(i,"surcharge")) },
+  { id: "cost.env_fire_recycle", family: "cost", label: "Recycling net cost", fn: (i) => num(i,"recycMass") * (num(i,"sortCost") - num(i,"scrapRev")) },
+  { id: "cost.env_fire_emis", family: "cost", label: "Emission cost", fn: (i) => num(i,"air") * num(i,"carbonPrice") + num(i,"water") * num(i,"treatCost") },
+  { id: "cost.env_fire_penalty_risk", family: "cost", label: "Penalty risk", fn: (i) => num(i,"probViolation") * num(i,"fine") },
+  { id: "cost.env_fire_total", family: "cost", label: "Total environmental waste cost", fn: (i) => num(i,"disposalCost") + num(i,"hazCost") + num(i,"recycleCost") + num(i,"emisCost") + num(i,"penaltyRisk") },
+
+  // EOQ envanter
+  { id: "cost.eoq", family: "cost", label: "Economic order quantity", fn: (i) => Math.sqrt((2 * num(i,"annualDemand") * num(i,"orderCost")) / num(i,"holdingCost")) },
+  { id: "measurement.eoq_rop", family: "measurement", label: "Reorder point", fn: (i) => (num(i,"leadTime") * num(i,"dailyDemand")) + num(i,"safetyStock") },
+  { id: "measurement.eoq_safety_stock", family: "measurement", label: "Safety stock", fn: (i) => num(i,"zScore") * num(i,"stdDev") * Math.sqrt(num(i,"leadTime")) },
+  { id: "cost.eoq_total_inv", family: "cost", label: "Total inventory cost", fn: (i) => (num(i,"annualDemand") / num(i,"eoq")) * num(i,"orderCost") + (num(i,"eoq") / 2 + num(i,"safetyStock")) * num(i,"holdingCost") },
+
+  // EVM forecast
+  { id: "cost.evm_sv", family: "cost", label: "Schedule variance", fn: (i) => num(i,"ev") - num(i,"pv") },
+  { id: "cost.evm_cv", family: "cost", label: "Cost variance", fn: (i) => num(i,"ev") - num(i,"ac") },
+  { id: "cost.evm_spi", family: "cost", label: "Schedule performance index", fn: (i) => num(i,"ev") / num(i,"pv") },
+  { id: "cost.evm_cpi", family: "cost", label: "Cost performance index", fn: (i) => num(i,"ev") / num(i,"ac") },
+  { id: "cost.evm_eac_cpi", family: "cost", label: "EAC using CPI", fn: (i) => num(i,"bac") / num(i,"cpi") },
+  { id: "cost.evm_eac_cpi_spi", family: "cost", label: "EAC using CPI×SPI", fn: (i) => num(i,"ac") + ((num(i,"bac") - num(i,"ev")) / (num(i,"cpi") * num(i,"spi"))) },
+  { id: "cost.evm_vac", family: "cost", label: "Variance at completion", fn: (i) => num(i,"bac") - num(i,"eac") },
+
+  // Fabrika yerleşim
+  { id: "measurement.layout_flow_cost", family: "measurement", label: "Flow distance cost", fn: (i) => 0 }, // requires matrix data
+
+  // Faiz oranı riski
+  { id: "cost.ir_exposure", family: "cost", label: "Interest rate exposure", fn: (i) => num(i,"floatingDebt") * (1 - num(i,"hedgeRatio")) },
+  { id: "cost.ir_shock_impact", family: "cost", label: "Shock impact on exposure", fn: (i) => num(i,"exposure") * num(i,"bpsChange") / 10000 },
+  { id: "cost.ir_dur_gap", family: "cost", label: "Duration gap", fn: (i) => num(i,"assetDur") - num(i,"liabDur") },
+  { id: "cost.ir_eve_change", family: "cost", label: "EVE change", fn: (i) => -num(i,"durGap") * num(i,"assetVal") * num(i,"rateChange") },
+
+  // Filament recycling
+  { id: "cost.filament_virgin", family: "cost", label: "Virgin filament cost", fn: (i) => num(i,"priceV") * (1 + num(i,"scrapV")) + num(i,"transpV") },
+  { id: "cost.filament_recycle", family: "cost", label: "Recycled filament cost", fn: (i) => (num(i,"collect") + num(i,"sort") + num(i,"pellet")) / num(i,"yield") },
+  { id: "cost.filament_total_r", family: "cost", label: "Total recycled cost after adjustments", fn: (i) => num(i,"costRecyc") + num(i,"qualPenalty") - num(i,"energySav") - num(i,"carbonCred") },
+  { id: "cost.filament_roi", family: "cost", label: "Recycling ROI", fn: (i) => (num(i,"costV") - num(i,"totalR")) * num(i,"volume") / num(i,"capex") },
+
+  // Fiyat esnekliği
+  { id: "measurement.price_elasticity", family: "measurement", label: "Price elasticity of demand", fn: (i) => num(i,"pctChangeDem") / num(i,"pctChangePrice") },
+  { id: "cost.price_elast_new_rev", family: "cost", label: "New revenue after price change", fn: (i) => num(i,"newPrice") * num(i,"newDem") },
+  { id: "cost.price_elast_new_margin", family: "cost", label: "New margin after price change", fn: (i) => (num(i,"newPrice") - num(i,"varCost")) * num(i,"newDem") - num(i,"fixed") },
+
+  // Flexible manufacturing ROI
+  { id: "cost.flex_mfg_cost_ded", family: "cost", label: "Dedicated line cost", fn: (i) => num(i,"machDed") + num(i,"setupDed") * num(i,"changeovers") + num(i,"invHigh") },
+  { id: "cost.flex_mfg_cost_fms", family: "cost", label: "FMS line cost", fn: (i) => num(i,"machFms") + num(i,"toolFms") + num(i,"prog") + num(i,"maint") },
+  { id: "cost.flex_mfg_flex_val", family: "cost", label: "Flexibility value", fn: (i) => (num(i,"ttmRed") * num(i,"revGain")) + (num(i,"custPrem") * num(i,"volume")) },
+  { id: "cost.flex_mfg_roi", family: "cost", label: "Flexible mfg ROI", fn: (i) => (num(i,"costDed") - num(i,"costFms") + num(i,"flexVal") + num(i,"invSav") + num(i,"scrapRed")) / num(i,"capex") },
+
+  // Gage R&R
+  { id: "measurement.grr_combined", family: "measurement", label: "GRR combined %", fn: (i) => 0 }, // requires matrix data
+  { id: "cost.grr_error_cost", family: "cost", label: "Gage error cost impact", fn: (i) => num(i,"falseAcc") * num(i,"escapeCost") + num(i,"falseRej") * num(i,"scrapCost") },
+
+  // Gıda fire marj
+  { id: "measurement.food_yield", family: "measurement", label: "Food yield ratio", fn: (i) => num(i,"finished") / num(i,"raw") },
+  { id: "cost.food_shrink_cost", family: "cost", label: "Shrinkage cost", fn: (i) => (num(i,"raw") - num(i,"finished")) * num(i,"rawCost") },
+  { id: "cost.food_spoil_cost", family: "cost", label: "Spoilage cost", fn: (i) => num(i,"spoiled") * num(i,"prodCost") },
+  { id: "cost.food_margin_leak", family: "cost", label: "Total food margin leak", fn: (i) => num(i,"shrinkCost") + num(i,"spoilCost") + num(i,"overCost") },
+
+  // Gübre dozaj
+  { id: "measurement.fertilizer_need", family: "measurement", label: "Fertilizer need (kg nutrient)", fn: (i) => (num(i,"nutReq") - num(i,"soilSupp")) / num(i,"eff") },
+  { id: "cost.fertilizer_cost", family: "cost", label: "Fertilizer cost per area", fn: (i) => num(i,"appRate") * num(i,"area") * num(i,"price") },
+  { id: "cost.fertilizer_roi", family: "cost", label: "Fertilizer ROI", fn: (i) => (num(i,"yieldInc") * num(i,"cropPrice") - num(i,"cost")) / num(i,"cost") },
+
+  // HACCP deviation
+  { id: "cost.haccp_hold", family: "cost", label: "Hold cost", fn: (i) => num(i,"quarVol") * num(i,"holdCost") * num(i,"days") },
+  { id: "cost.haccp_test", family: "cost", label: "Test cost", fn: (i) => num(i,"samples") * num(i,"labCost") },
+  { id: "cost.haccp_rework", family: "cost", label: "Rework cost", fn: (i) => num(i,"devVol") * num(i,"reworkCost") },
+  { id: "cost.haccp_disp", family: "cost", label: "Disposal cost", fn: (i) => num(i,"condVol") * num(i,"dispCost") + num(i,"lostMat") },
+  { id: "cost.haccp_recall", family: "cost", label: "Recall cost", fn: (i) => num(i,"notif") + num(i,"logRev") + num(i,"retailPen") + num(i,"brand") },
+  { id: "cost.haccp_fine", family: "cost", label: "Regulatory fine risk", fn: (i) => num(i,"probDet") * num(i,"fineAmt") },
+  { id: "cost.haccp_total", family: "cost", label: "Total HACCP deviation cost", fn: (i) => num(i,"holdCost") + num(i,"testCost") + num(i,"reworkCost") + num(i,"dispCost") + num(i,"recallCost") + num(i,"fineRisk") },
+
+  // Hacimsel ağırlık
+  { id: "measurement.volumetric_weight_air", family: "measurement", label: "Volumetric weight for air", fn: (i) => (num(i,"length") * num(i,"width") * num(i,"height")) / 6000 },
+  { id: "measurement.volumetric_weight_road", family: "measurement", label: "Volumetric weight for road", fn: (i) => (num(i,"length") * num(i,"width") * num(i,"height")) / 5000 },
+  { id: "measurement.volumetric_weight_sea", family: "measurement", label: "Volumetric weight for sea", fn: (i) => (num(i,"length") * num(i,"width") * num(i,"height")) / 1000 },
+  { id: "cost.volumetric_freight", family: "cost", label: "Freight cost (chargeable)", fn: (i) => Math.max(num(i,"gross"), num(i,"volWeight")) * num(i,"rate") },
+
+  // Hafiflik maliyet tasarrufu
+  { id: "measurement.lightweight_weight_red", family: "measurement", label: "Weight reduction", fn: (i) => num(i,"massOrig") - num(i,"massLw") },
+  { id: "cost.lightweight_annual_fuel_sav", family: "cost", label: "Annual fuel savings", fn: (i) => num(i,"weightRed") * num(i,"fuelFactor") * num(i,"distance") * num(i,"fuelPrice") },
+  { id: "cost.lightweight_net_sav", family: "cost", label: "Net lifecycle savings", fn: (i) => (num(i,"fuelSav") + num(i,"payloadGain")) * num(i,"life") - num(i,"matPrem") - num(i,"toolDelta") },
+
+  // Hurda oranı optimizasyon
+  { id: "cost.scrap_optimize_total", family: "cost", label: "Total scrap cost", fn: (i) => num(i,"scrapMat") + num(i,"scrapLab") + num(i,"scrapOh") + num(i,"oppCost") - num(i,"salvage") },
+
+  // HVAC kapasite
+  { id: "measurement.hvac_sensible", family: "measurement", label: "Sensible heat load", fn: (i) => 1.08 * num(i,"cfm") * num(i,"deltaT") },
+  { id: "measurement.hvac_latent", family: "measurement", label: "Latent heat load", fn: (i) => 0.68 * num(i,"cfm") * num(i,"deltaW") },
+  { id: "measurement.hvac_total_load", family: "measurement", label: "Total cooling load BTU/h", fn: (i) => num(i,"sensible") + num(i,"latent") },
+  { id: "measurement.hvac_tons", family: "measurement", label: "Cooling tons", fn: (i) => num(i,"totalLoad") / 12000 },
+
+  // Hydraulic system kayıp
+  { id: "energy.hydraulic_heat_loss", family: "energy", label: "Hydraulic heat loss", fn: (i) => num(i,"qLeak") * num(i,"p") + num(i,"deltaPPipe") * num(i,"qFlow") + num(i,"deltaPValve") * num(i,"qFlow") },
+  { id: "cost.hydraulic_loss_cost", family: "cost", label: "Hydraulic loss energy cost", fn: (i) => num(i,"heat") * num(i,"hours") * num(i,"elecRate") },
+
+  // Isı exchanger fouling
+  { id: "energy.fouling_resistance", family: "energy", label: "Fouling resistance", fn: (i) => (1 / num(i,"uDirty")) - (1 / num(i,"uClean")) },
+  { id: "energy.heat_exchanger_loss", family: "energy", label: "Heat loss from fouling", fn: (i) => num(i,"area") * num(i,"uClean") * num(i,"lmtd") - num(i,"area") * num(i,"uDirty") * num(i,"lmtd") },
+  { id: "cost.fouling_energy_penalty", family: "cost", label: "Energy penalty cost from fouling", fn: (i) => num(i,"heatLoss") * num(i,"hours") / num(i,"boilEff") * num(i,"fuelCost") },
+
+  // ISO 50001 baseline
+  { id: "energy.enpi", family: "energy", label: "Energy performance indicator", fn: (i) => num(i,"energy") / num(i,"volume") },
+  { id: "energy.enpi_cusum", family: "energy", label: "CUSUM energy savings", fn: (i) => num(i,"predicted") - num(i,"actual") },
+
+  // IRR
+  { id: "cost.irr_simple", family: "cost", label: "Net present value", fn: (i) => { const cfs = (i as any).cashFlows as number[]; const r = num(i,"discountRate"); if(!Array.isArray(cfs)) return 0; let npv = 0; for(let t=0;t<cfs.length;t++) npv += cfs[t] / Math.pow(1+r, t+1); return npv - num(i,"initialInv"); } },
+  // Simple IRR approximation
+  { id: "cost.irr_approx", family: "cost", label: "IRR approximation", fn: (i) => { const cfs = (i as any).cashFlows as number[]; const init = num(i,"initialInv"); if(!Array.isArray(cfs) || cfs.length === 0) return 0; const total = cfs.reduce((a,b) => a+b, 0); const avg = total / cfs.length; return avg / init; } },
+
+  // Yem maliyeti
+  { id: "cost.feed_base_cost", family: "cost", label: "Base feed cost per ton", fn: (i) => { const rates = i.inclRates; const prices = i.prices; if(!Array.isArray(rates) || !Array.isArray(prices)) return 0; return rates.reduce((s,r,idx) => s + r * (prices[idx] || 0), 0); } },
+  { id: "cost.feed_cost_per_kg_live", family: "cost", label: "Feed cost per kg live weight", fn: (i) => (num(i,"baseCost") + num(i,"procCost") + num(i,"addCost") + num(i,"baseCost") * num(i,"shrinkRate")) * num(i,"fcr") },
+
+  // İskele kiralama
+  { id: "measurement.scaffold_area", family: "measurement", label: "Scaffold surface area", fn: (i) => num(i,"perimeter") * num(i,"height") },
+  { id: "cost.scaffold_total", family: "cost", label: "Total scaffold cost", fn: (i) => num(i,"area") * num(i,"rate") * num(i,"duration") + num(i,"area") * num(i,"erectRate") + num(i,"area") * num(i,"dismRate") + num(i,"trips") * num(i,"truckRate") },
+
+  // SPC limit
+  { id: "measurement.spc_x_bar_avg", family: "measurement", label: "Average of subgroup means", fn: (i) => { const data = i.data; if(!Array.isArray(data) || data.length === 0) return 0; return data.reduce((s,r) => s + r, 0) / data.length; } },
+  { id: "measurement.spc_r_bar", family: "measurement", label: "Average range", fn: (i) => { const data = i.data; if(!Array.isArray(data) || data.length === 0) return 0; const max = Math.max(...data), min = Math.min(...data); return max - min; } },
+
+  // İşleme stratejisi
+  { id: "measurement.machining_mrr", family: "measurement", label: "Material removal rate", fn: (i) => num(i,"vc") * num(i,"feed") * num(i,"ap") },
+  { id: "measurement.machining_power", family: "measurement", label: "Machining power required", fn: (i) => num(i,"mrr") * num(i,"specEnergy") },
+
+  // Kaizen tasarruf
+  { id: "cost.kaizen_hard_savings", family: "cost", label: "Hard savings from kaizen", fn: (i) => (num(i,"baseline") - num(i,"actual")) * num(i,"volume") },
+  { id: "cost.kaizen_soft_savings", family: "cost", label: "Soft savings from kaizen", fn: (i) => num(i,"timeSaved") * num(i,"labRate") * num(i,"conv") },
+  { id: "cost.kaizen_roi", family: "cost", label: "Kaizen project ROI", fn: (i) => (num(i,"hardSav") + num(i,"softSav") - num(i,"impCost")) / num(i,"impCost") },
+
+  // ── Missing formula stubs for schema pipeline alignment ──
+  { id: "cost.absenteeism_prod_loss", family: "cost", label: "Absenteeism production loss cost", fn: (i) => num(i,"absentHours") * num(i,"outputPerHour") * num(i,"margin") * (1 - num(i,"effDrop")) / 100 },
+  { id: "cost.digital_twin_revenue_gain", family: "cost", label: "Digital twin revenue gain", fn: (i) => num(i,"timeGain") * num(i,"dailyRev") },
+  { id: "cost.digital_twin_quality_savings", family: "cost", label: "Digital twin quality savings", fn: (i) => num(i,"defectReduction") * num(i,"warrantyCost") * num(i,"volume") },
+  { id: "cost.digital_twin_total_savings", family: "cost", label: "Digital twin total savings", fn: (i) => num(i,"revenueGain") + num(i,"qualitySavings") },
+  { id: "cost.env_fire_emissions", family: "cost", label: "Environmental waste emission cost", fn: (i) => num(i,"air") * num(i,"carbonPrice") + num(i,"water") * num(i,"treatCost") },
+  { id: "cost.env_fire_recycling", family: "cost", label: "Recycling cost net recovery", fn: (i) => num(i,"recycMass") * (num(i,"sortCost") - num(i,"scrapRev")) },
+  { id: "cost.eoq_total_cost", family: "cost", label: "Total EOQ inventory cost", fn: (i) => (num(i,"annualDemand") / num(i,"eoq")) * num(i,"orderCost") + (num(i,"eoq") / 2 + num(i,"safetyStock")) * num(i,"holdingCost") },
+  { id: "cost.escalation_contingency", family: "cost", label: "Escalation contingency", fn: (i) => num(i,"baseAdj") * num(i,"confFactor") },
+  { id: "cost.escalation_real_discount", family: "cost", label: "Real discount rate", fn: (i) => ((1 + num(i,"nominal")) / (1 + num(i,"infl"))) - 1 },
+  { id: "cost.feed_cost_per_kg", family: "cost", label: "Feed cost per kg live weight", fn: (i) => (num(i,"baseCost") + num(i,"procCost") + num(i,"addCost") + num(i,"baseCost") * num(i,"shrinkRate")) * num(i,"fcr") },
+  { id: "cost.filament_recycled", family: "cost", label: "Recycled filament cost per unit", fn: (i) => (num(i,"collect") + num(i,"sort") + num(i,"pellet")) / num(i,"yield") },
+  { id: "cost.grr_cost_error", family: "cost", label: "Gage error cost impact", fn: (i) => num(i,"falseAcc") * num(i,"escapeCost") + num(i,"falseRej") * num(i,"scrapCost") },
+  { id: "cost.haccp_disposal", family: "cost", label: "HACCP disposal cost", fn: (i) => num(i,"condVol") * num(i,"dispCost") + num(i,"lostMat") },
+  { id: "cost.hvac_annual_cost", family: "cost", label: "HVAC annual operating cost", fn: (i) => (num(i,"totalLoad") / num(i,"eer")) * num(i,"hours") * num(i,"elecRate") },
+  { id: "cost.ir_var", family: "cost", label: "Interest rate VaR", fn: (i) => num(i,"portVal") * num(i,"volatility") * num(i,"zScore") },
+  { id: "cost.kaizen_payback", family: "cost", label: "Kaizen payback months", fn: (i) => num(i,"impCost") / num(i,"monthSav") },
+  { id: "cost.kaizen_sustainability", family: "cost", label: "Kaizen sustainability ratio", fn: (i) => num(i,"savM6") / num(i,"savM1") },
+  { id: "cost.layout_total_cost", family: "cost", label: "Total layout cost", fn: (i) => num(i,"matHandCost") + num(i,"spaceUtil") * num(i,"spaceCost") + num(i,"congestion") * num(i,"congCost") },
+  { id: "cost.lightweight_fuel_savings", family: "cost", label: "Weight reduction fuel savings", fn: (i) => num(i,"weightRed") * num(i,"fuelFactor") * num(i,"distance") * num(i,"fuelPrice") },
+  { id: "cost.lightweight_net_savings", family: "cost", label: "Net weight reduction savings", fn: (i) => (num(i,"fuelSav") + num(i,"payloadGain")) * num(i,"life") - num(i,"matPrem") - num(i,"toolDelta") },
+  { id: "cost.lightweight_payload_gain", family: "cost", label: "Payload gain value", fn: (i) => num(i,"weightRed") * num(i,"revPerKg") },
+  { id: "cost.ltv_cac", family: "cost", label: "LTV / CAC ratio", fn: (i) => num(i,"discountedClv") / num(i,"cac") },
+  { id: "cost.npv", family: "cost", label: "Net present value", fn: (i) => { const cfs = (i as any).cashFlows as number[]; const r = num(i,"discountRate"); if(!Array.isArray(cfs)) return 0; let npv = 0; for(let t=0;t<cfs.length;t++) npv += cfs[t] / Math.pow(1+r, t+1); return npv - num(i,"initialInv"); } },
+  { id: "cost.payback", family: "cost", label: "CAC payback months", fn: (i) => num(i,"cac") / (num(i,"avgOrderValue") * num(i,"purchaseFreq") * num(i,"grossMarginPct") / 12) },
+  { id: "cost.payback_period", family: "cost", label: "Payback period years", fn: (i) => num(i,"yearBefore") + (num(i,"unrecovered") / num(i,"cashRec")) },
+  { id: "cost.price_optimal_markup", family: "cost", label: "Optimal markup from elasticity", fn: (i) => -1 / (num(i,"elasticity") + 1) },
+  { id: "cost.profitability_index", family: "cost", label: "Profitability index", fn: (i) => { const cfs = (i as any).cashFlows as number[]; const r = num(i,"discountRate"); if(!Array.isArray(cfs)) return 0; let pv = 0; for(let t=0;t<cfs.length;t++) pv += cfs[t] / Math.pow(1+r, t+1); return pv / num(i,"initialInv"); } },
+  { id: "cost.scaffold_rental", family: "cost", label: "Scaffold rental cost", fn: (i) => num(i,"area") * num(i,"rate") * num(i,"duration") },
+  { id: "cost.scaffold_labor", family: "cost", label: "Scaffold labor cost", fn: (i) => num(i,"area") * (num(i,"erectRate") + num(i,"dismRate")) },
+  { id: "energy.cusum", family: "energy", label: "CUSUM energy savings", fn: (i) => num(i,"predicted") - num(i,"actual") },
+  { id: "energy.energy_carbon_footprint", family: "energy", label: "Energy carbon footprint", fn: (i) => num(i,"active") * num(i,"emisFactor") },
+  { id: "energy.energy_savings", family: "energy", label: "Energy savings", fn: (i) => num(i,"predicted") - num(i,"actual") },
+  { id: "energy.energy_total_bill", family: "energy", label: "Total energy bill", fn: (i) => num(i,"baseCharge") + num(i,"touCharge") + num(i,"demandCharge") + num(i,"reactivePenalty") + num(i,"tax") },
+  { id: "energy.fouling_cost", family: "energy", label: "Fouling energy penalty cost", fn: (i) => num(i,"heatLoss") * num(i,"hours") / num(i,"boilEff") * num(i,"fuelCost") },
+  { id: "energy.fouling_roi", family: "energy", label: "Fouling cleaning ROI", fn: (i) => num(i,"totalCost") / num(i,"cleanCost") },
+  { id: "energy.hydraulic_cost", family: "energy", label: "Hydraulic loss energy cost", fn: (i) => num(i,"heat") * num(i,"hours") * num(i,"elecRate") },
+  { id: "energy.hydraulic_eff", family: "energy", label: "Hydraulic system efficiency", fn: (i) => (num(i,"pOut") / num(i,"pIn")) * 100 },
+  { id: "measurement.cnc_oee_availability", family: "measurement", label: "CNC OEE availability", fn: (i) => num(i,"plannedTime") / (num(i,"plannedTime") + num(i,"downtime")) },
+  { id: "measurement.cnc_tool_change_time", family: "measurement", label: "CNC tool change time", fn: (i) => num(i,"changeCount") * num(i,"timePerChange") },
+  { id: "measurement.cpk_ppm_total", family: "measurement", label: "Total PPM out-of-spec", fn: (i) => num(i,"pTotal") * 1000000 },
+  { id: "measurement.cpk_sigma_short", family: "measurement", label: "Short-term sigma level", fn: (i) => (num(i,"cpk") * 3) + 1.5 },
+  { id: "measurement.cpm_eot_claim", family: "measurement", label: "EOT claim days", fn: (i) => num(i,"excusableDelay") * (1 - num(i,"effFactor")) },
+  { id: "measurement.eoq_turnover", family: "measurement", label: "Inventory turnover", fn: (i) => num(i,"annualDemand") / num(i,"avgInv") },
+  { id: "measurement.feed_fcr", family: "measurement", label: "Feed conversion ratio", fn: (i) => num(i,"feedCons") / num(i,"weightGain") },
+  { id: "measurement.fertilizer_application", family: "measurement", label: "Fertilizer application rate", fn: (i) => num(i,"fertNeed") / num(i,"contentPct") },
+  { id: "measurement.grr_pct", family: "measurement", label: "GRR percentage of total variation", fn: (i) => (num(i,"grr") / num(i,"tv")) * 100 },
+  { id: "measurement.hvac_total_btu", family: "measurement", label: "Total HVAC load BTU/h", fn: (i) => num(i,"sensible") + num(i,"latent") },
+  { id: "measurement.layout_space_util", family: "measurement", label: "Factory space utilization", fn: (i) => num(i,"equipArea") / num(i,"facArea") },
+  { id: "measurement.machining_strategy_check", family: "measurement", label: "Machining strategy feasibility", fn: (i) => (num(i,"power") < num(i,"maxPower") && num(i,"ra") < num(i,"tol")) ? 1 : 0 },
+  { id: "measurement.machining_tool_life", family: "measurement", label: "Taylor tool life", fn: (i) => num(i,"cTaylor") / (Math.pow(num(i,"vc"), num(i,"nTaylor")) * Math.pow(num(i,"feed"), num(i,"mTaylor"))) },
+  { id: "measurement.sewing_line_efficiency", family: "measurement", label: "Sewing line efficiency", fn: (i) => (num(i,"cycleTotal") / (num(i,"actOperators") * num(i,"taktTime"))) * 100 },
+  { id: "measurement.smed_capacity_gain", family: "measurement", label: "SMED capacity gain", fn: (i) => (num(i,"totalSetup") - num(i,"targetTime")) * num(i,"changeoverFreq") / num(i,"availableTime") },
+  { id: "measurement.spc_cp", family: "measurement", label: "Process capability Cp", fn: (i) => (num(i,"usl") - num(i,"lsl")) / (6 * num(i,"sigma")) },
+  { id: "measurement.spc_lcl_x", family: "measurement", label: "X-bar LCL", fn: (i) => num(i,"xBarBar") - (num(i,"a2") * num(i,"rBar")) },
+  { id: "measurement.spc_sigma_estimate", family: "measurement", label: "Sigma estimate from R-bar", fn: (i) => num(i,"rBar") / num(i,"d2") },
+  { id: "measurement.spc_ucl_x", family: "measurement", label: "X-bar UCL", fn: (i) => num(i,"xBarBar") + (num(i,"a2") * num(i,"rBar")) },
+  { id: "measurement.volumetric_chargeable", family: "measurement", label: "Chargeable volumetric weight", fn: (i) => { const mode = String((i as any).mode || 'sea'); const vol = (num(i,"length") * num(i,"width") * num(i,"height")) / (mode === 'air' ? 6000 : mode === 'road' ? 5000 : 1000); return Math.max(num(i,"gross"), vol); } },
+  { id: "measurement.warehouse_pick_efficiency", family: "measurement", label: "Warehouse pick efficiency", fn: (i) => num(i,"lines") / num(i,"travelTime") },
+  { id: "measurement.warehouse_throughput_cap", family: "measurement", label: "Warehouse door throughput", fn: (i) => num(i,"doors") / (num(i,"turnaroundLoad") + num(i,"turnaroundUnload")) },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // END TOOLS 21-60 FORMULAS
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOLS 61-100 FORMULAS
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // Kalite PAF
+  { id: "cost.paf_prevention", family: "cost", label: "PAF prevention cost", fn: (i) => num(i,"training") + num(i,"qualityPlanning") + num(i,"supplierEvaluation") + num(i,"designReview") },
+  { id: "cost.paf_appraisal", family: "cost", label: "PAF appraisal cost", fn: (i) => num(i,"inspection") + num(i,"testing") + num(i,"calibration") + num(i,"audit") },
+  { id: "cost.paf_internal_failure", family: "cost", label: "PAF internal failure cost", fn: (i) => num(i,"scrap") + num(i,"rework") + num(i,"reinspection") + num(i,"downtime") },
+  { id: "cost.paf_external_failure", family: "cost", label: "PAF external failure cost", fn: (i) => num(i,"warranty") + num(i,"returns") + num(i,"recall") + num(i,"liability") + num(i,"lostSales") },
+  { id: "cost.paf_total", family: "cost", label: "Total COQ", fn: (i) => num(i,"prevention") + num(i,"appraisal") + num(i,"internalFailure") + num(i,"externalFailure") },
+  { id: "cost.paf_ratio", family: "cost", label: "COQ ratio", fn: (i) => safeDivide(num(i,"totalCoq"), num(i,"totalRevenue")) },
+  { id: "cost.paf_p_ratio", family: "cost", label: "Prevention ratio", fn: (i) => safeDivide(num(i,"prevention"), num(i,"totalCoq")) },
+
+  // Carbon
+  { id: "measurement.carbon_scope1", family: "measurement", label: "Scope 1", fn: (i) => num(i,"fuelConsumption") * num(i,"fuelEF") + num(i,"fugitive") },
+  { id: "measurement.carbon_scope2_market", family: "measurement", label: "Scope 2 market", fn: (i) => num(i,"electricity") * (num(i,"gridEF") - num(i,"recFactor")) },
+  { id: "measurement.carbon_scope3_upstream", family: "measurement", label: "Scope 3 upstream", fn: (i) => num(i,"material") * num(i,"materialEF") + num(i,"logisticsEF") },
+  { id: "measurement.carbon_total", family: "measurement", label: "Total carbon", fn: (i) => num(i,"scope1") + num(i,"scope2Market") + num(i,"scope3") },
+  { id: "measurement.carbon_intensity", family: "measurement", label: "Carbon intensity", fn: (i) => safeDivide(num(i,"totalCarbon"), num(i,"productionVolume")) },
+  { id: "cost.carbon_financial_risk", family: "cost", label: "Carbon financial risk", fn: (i) => num(i,"totalCarbon") * num(i,"carbonPrice") },
+
+  // Weld volume/cost
+  { id: "measurement.weld_area", family: "measurement", label: "Weld area", fn: (i) => Math.pow(num(i,"leg"), 2) / 2 },
+  { id: "measurement.weld_volume", family: "measurement", label: "Weld volume", fn: (i) => num(i,"weldArea") * num(i,"weldLength") },
+  { id: "measurement.weld_deposited_weight", family: "measurement", label: "Deposited weight", fn: (i) => num(i,"weldVolume") * num(i,"density") },
+  { id: "measurement.weld_electrode_weight", family: "measurement", label: "Electrode weight", fn: (i) => safeDivide(num(i,"depositedWeight"), num(i,"depEff")) },
+  { id: "cost.weld_filler_cost", family: "cost", label: "Filler cost", fn: (i) => num(i,"electrodeWeight") * num(i,"pricePerKg") },
+  { id: "cost.weld_gas_cost", family: "cost", label: "Gas cost", fn: (i) => num(i,"gasFlowRate") * num(i,"arcTime") * num(i,"gasPrice") },
+  { id: "cost.weld_power_cost", family: "cost", label: "Weld power cost", fn: (i) => (num(i,"voltage") * num(i,"current") * num(i,"arcTime")) / (1000 * num(i,"machineEff")) * num(i,"elecRate") },
+  { id: "cost.weld_total_cost", family: "cost", label: "Total weld cost", fn: (i) => num(i,"fillerCost") + num(i,"gasCost") + num(i,"powerCost") + (safeDivide(num(i,"arcTime"), num(i,"depRate")) * num(i,"laborRate")) },
+  { id: "measurement.weld_op_factor", family: "measurement", label: "Operating factor", fn: (i) => safeDivide(num(i,"arcTime"), num(i,"totalShiftTime")) },
+  { id: "measurement.weld_deposition_rate", family: "measurement", label: "Deposition rate", fn: (i) => safeDivide(num(i,"depositedWeight"), num(i,"arcTime")) },
+  { id: "cost.weld_joint_cost", family: "cost", label: "Joint cost", fn: (i) => (safeDivide(num(i,"weldLength"), num(i,"travelSpeed") / 100 * 60) * (num(i,"laborRate") + num(i,"overheadRate")) / num(i,"opFactor") + num(i,"fillerCost") + num(i,"gasCost") + num(i,"powerCost")) },
+  { id: "cost.weld_cost_per_meter", family: "cost", label: "Cost per meter", fn: (i) => safeDivide(num(i,"jointCost"), num(i,"weldLength")) },
+  { id: "cost.weld_consumable_pct", family: "cost", label: "Consumable %", fn: (i) => safeDivide(num(i,"fillerCost"), num(i,"jointCost")) },
+  { id: "measurement.weld_throat", family: "measurement", label: "Throat thickness", fn: (i) => num(i,"leg") * Math.cos(45 * Math.PI / 180) },
+  { id: "measurement.weld_shear_area", family: "measurement", label: "Shear area", fn: (i) => num(i,"throat") * num(i,"weldLength") },
+  { id: "measurement.weld_allowable_stress", family: "measurement", label: "Allowable stress", fn: (i) => 0.3 * num(i,"tensileStrength") },
+  { id: "measurement.weld_max_shear_load", family: "measurement", label: "Max shear load", fn: (i) => num(i,"shearArea") * num(i,"allowableStress") },
+  { id: "measurement.weld_safety_factor", family: "measurement", label: "Safety factor", fn: (i) => safeDivide(num(i,"maxShearLoad"), num(i,"appliedLoad")) },
+
+  // Beam material
+  { id: "cost.beam_material", family: "cost", label: "Beam material cost", fn: (i) => num(i,"beamLength") * num(i,"beamWeightPerM") * num(i,"materialPricePerKg") },
+
+  // Cut/fill earthwork
+  { id: "measurement.cut_fill_net", family: "measurement", label: "Net cut/fill", fn: (i) => num(i,"cutVolume") - num(i,"fillVolume") },
+  { id: "measurement.cut_fill_borrow", family: "measurement", label: "Borrow volume", fn: (i) => Math.max(0, num(i,"fillVolume") - num(i,"cutVolume")) },
+  { id: "measurement.cut_fill_waste", family: "measurement", label: "Waste volume", fn: (i) => Math.max(0, num(i,"cutVolume") - num(i,"fillVolume")) },
+  { id: "cost.cut_fill_haul", family: "cost", label: "Haul cost", fn: (i) => (num(i,"cutVolume") + num(i,"fillVolume")) * num(i,"haulRate") },
+
+  // Leak detection
+  { id: "measurement.leak_flow_cfm", family: "measurement", label: "Leak flow CFM", fn: (i) => num(i,"leakArea") * num(i,"pressure") * 0.5 },
+  { id: "measurement.leak_power_loss", family: "measurement", label: "Leak power loss", fn: (i) => num(i,"leakFlowCfm") * num(i,"pressure") / 229 },
+  { id: "measurement.leak_annual_energy", family: "measurement", label: "Leak annual energy", fn: (i) => num(i,"leakPowerLoss") * num(i,"runningHours") },
+  { id: "cost.leak_cost", family: "cost", label: "Leak energy cost", fn: (i) => num(i,"leakAnnualEnergy") * num(i,"energyRate") },
+  { id: "cost.leak_total_cost", family: "cost", label: "Total leak cost", fn: (i) => num(i,"leakCost") * num(i,"leakCount") },
+  { id: "measurement.leak_carbon", family: "measurement", label: "Leak carbon footprint", fn: (i) => num(i,"leakAnnualEnergy") * num(i,"gridCarbonFactor") },
+  { id: "cost.leak_payback", family: "cost", label: "Leak repair payback", fn: (i) => safeDivide(num(i,"repairCost"), num(i,"leakCost")) },
+
+  // Tank sizing
+  { id: "measurement.tank_required_vol", family: "measurement", label: "Required tank volume", fn: (i) => num(i,"demand") * num(i,"reserveDays") },
+  { id: "measurement.tank_cycle_time", family: "measurement", label: "Tank cycle time", fn: (i) => safeDivide(num(i,"tankCapacity"), num(i,"feedRate")) },
+  { id: "measurement.tank_cycles_per_hour", family: "measurement", label: "Cycles per hour", fn: (i) => safeDivide(60, num(i,"cycleTime")) },
+  { id: "measurement.tank_motor_check", family: "measurement", label: "Motor sizing check", fn: (i) => safeDivide(num(i,"requiredPower"), num(i,"motorPower")) },
+  { id: "cost.tank_cost", family: "cost", label: "Tank cost estimate", fn: (i) => num(i,"tankCapacity") * num(i,"costPerUnitVol") },
+
+  // Container utilization
+  { id: "measurement.container_vol_util", family: "measurement", label: "Volume utilization", fn: (i) => safeDivide(num(i,"cargoVol"), num(i,"containerVol")) },
+  { id: "measurement.container_weight_util", family: "measurement", label: "Weight utilization", fn: (i) => safeDivide(num(i,"cargoWeight"), num(i,"maxPayload")) },
+  { id: "measurement.container_efficiency", family: "measurement", label: "Container efficiency", fn: (i) => num(i,"volUtil") * num(i,"weightUtil") },
+  { id: "cost.container_waste_cost", family: "cost", label: "Container waste cost", fn: (i) => (1 - num(i,"volUtil")) * num(i,"containerCost") },
+
+  // Fabric utilization
+  { id: "measurement.fabric_marker_eff", family: "measurement", label: "Marker efficiency", fn: (i) => safeDivide(num(i,"netArea"), num(i,"grossArea")) },
+  { id: "measurement.fabric_required", family: "measurement", label: "Fabric required", fn: (i) => safeDivide(num(i,"netArea"), num(i,"markerEff")) },
+  { id: "cost.fabric_cost", family: "cost", label: "Fabric cost", fn: (i) => num(i,"fabricRequired") * num(i,"pricePerUnit") },
+  { id: "cost.fabric_util_gain", family: "cost", label: "Utilization gain savings", fn: (i) => (num(i,"oldWaste") - num(i,"newWaste")) * num(i,"pricePerUnit") * num(i,"totalYards") },
+  { id: "measurement.fabric_total_yardage", family: "measurement", label: "Total yardage", fn: (i) => num(i,"pieces") * num(i,"fabricRequired") },
+
+  // FX exposure
+  { id: "cost.fx_exposure", family: "cost", label: "FX exposure", fn: (i) => num(i,"fxAmount") * num(i,"spotRate") },
+  { id: "cost.fx_var_historical", family: "cost", label: "Historical VaR", fn: (i) => num(i,"fxExposure") * num(i,"historicalVol") * 1.65 },
+  { id: "cost.fx_var_parametric", family: "cost", label: "Parametric VaR", fn: (i) => num(i,"fxExposure") * num(i,"stdDev") * 1.65 },
+  { id: "cost.fx_unhedged_var", family: "cost", label: "Unhedged VaR", fn: (i) => num(i,"fxExposure") * num(i,"expectedMove") },
+  { id: "cost.fx_hedge_cost", family: "cost", label: "Hedge cost", fn: (i) => num(i,"fxExposure") * num(i,"hedgePremiumPct") / 100 },
+  { id: "cost.fx_net_impact", family: "cost", label: "Net FX impact", fn: (i) => num(i,"unhedgedVar") - num(i,"hedgeCost") },
+
+  // Energy bill
+  { id: "cost.energy_charge", family: "cost", label: "Energy charge", fn: (i) => num(i,"consumptionKwh") * num(i,"ratePerKwh") },
+  { id: "cost.reactive_penalty_kwh", family: "cost", label: "Reactive penalty", fn: (i) => Math.max(0, num(i,"reactivePower") - num(i,"reactiveAllowance")) * num(i,"penaltyRate") },
+  { id: "cost.total_bill_kwh", family: "cost", label: "Total energy bill", fn: (i) => num(i,"energyCharge") + num(i,"fixedCharge") + num(i,"reactivePenalty") + num(i,"tax") },
+  { id: "cost.unit_cost_kwh", family: "cost", label: "Unit cost per kWh", fn: (i) => safeDivide(num(i,"totalBill"), num(i,"totalConsumption")) },
+  { id: "cost.peak_shaving_savings", family: "cost", label: "Peak shaving savings", fn: (i) => (num(i,"peakDemand") - num(i,"shavedDemand")) * num(i,"demandCharge") },
+
+  // Route optimization
+  { id: "measurement.route_drift_pct", family: "measurement", label: "Route drift %", fn: (i) => safeDivide(num(i,"actualKm") - num(i,"plannedKm"), num(i,"plannedKm")) * 100 },
+  { id: "cost.route_fuel_waste", family: "cost", label: "Route fuel waste cost", fn: (i) => (num(i,"actualKm") - num(i,"plannedKm")) * num(i,"fuelPerKm") * num(i,"fuelPrice") },
+  { id: "cost.route_time_waste", family: "cost", label: "Route time waste cost", fn: (i) => (num(i,"actualTime") - num(i,"plannedTime")) * num(i,"costPerHour") },
+  { id: "measurement.route_efficiency", family: "measurement", label: "Route efficiency", fn: (i) => safeDivide(num(i,"plannedKm"), num(i,"actualKm")) },
+  { id: "cost.route_total_loss", family: "cost", label: "Total route loss", fn: (i) => num(i,"routeFuelWaste") + num(i,"routeTimeWaste") },
+
+  // Shop labor
+  { id: "cost.shop_direct_labor", family: "cost", label: "Direct labor cost", fn: (i) => num(i,"directHours") * num(i,"directRate") },
+  { id: "cost.shop_indirect_labor", family: "cost", label: "Indirect labor cost", fn: (i) => num(i,"indirectHours") * num(i,"indirectRate") },
+  { id: "cost.shop_overhead", family: "cost", label: "Shop overhead", fn: (i) => (num(i,"directLabor") + num(i,"indirectLabor")) * num(i,"overheadPct") / 100 },
+  { id: "cost.shop_total_cost", family: "cost", label: "Total shop cost", fn: (i) => num(i,"directLabor") + num(i,"indirectLabor") + num(i,"shopOverhead") },
+  { id: "cost.shop_billable_hours", family: "cost", label: "Billable hours", fn: (i) => num(i,"totalHours") * num(i,"chargeablePct") / 100 },
+  { id: "cost.shop_effective_margin", family: "cost", label: "Effective margin", fn: (i) => safeDivide(num(i,"shopRevenue") - num(i,"shopTotalCost"), num(i,"shopRevenue")) * 100 },
+
+  // Crop yield
+  { id: "measurement.crop_potential_yield", family: "measurement", label: "Potential yield", fn: (i) => num(i,"area") * num(i,"potentialPerHa") },
+  { id: "measurement.crop_actual_yield", family: "measurement", label: "Actual yield", fn: (i) => num(i,"area") * num(i,"actualPerHa") },
+  { id: "measurement.crop_yield_gap", family: "measurement", label: "Yield gap", fn: (i) => num(i,"potentialYield") - num(i,"actualYield") },
+  { id: "cost.crop_financial_loss", family: "cost", label: "Financial loss", fn: (i) => num(i,"yieldGap") * num(i,"pricePerTon") },
+  { id: "cost.crop_roi_intervention", family: "cost", label: "Intervention ROI", fn: (i) => safeDivide(num(i,"financialLoss") - num(i,"interventionCost"), num(i,"interventionCost")) * 100 },
+
+  // Machine EUAC
+  { id: "cost.machine_euac_capital", family: "cost", label: "EUAC capital", fn: (i) => num(i,"purchasePrice") * (num(i,"interestRate") / 100) / (1 - Math.pow(1 + num(i,"interestRate") / 100, -num(i,"lifeYears"))) },
+  { id: "cost.machine_euac_operating", family: "cost", label: "EUAC operating", fn: (i) => num(i,"annualOperating") + num(i,"annualMaintenance") + num(i,"annualEnergy") },
+  { id: "cost.machine_total_euac", family: "cost", label: "Total EUAC", fn: (i) => num(i,"euacCapital") + num(i,"euacOperating") },
+
+  // TCO comparison
+  { id: "cost.tco_current", family: "cost", label: "Current TCO", fn: (i) => num(i,"currentPurchase") + num(i,"currentOperating") + num(i,"currentMaintenance") + num(i,"currentDisposal") },
+  { id: "cost.tco_alternative", family: "cost", label: "Alternative TCO", fn: (i) => num(i,"altPurchase") + num(i,"altOperating") + num(i,"altMaintenance") + num(i,"altDisposal") },
+  { id: "cost.tco_weight_savings", family: "cost", label: "Weighted TCO savings", fn: (i) => (num(i,"tcoCurrent") - num(i,"tcoAlternative")) * num(i,"unitQuantity") },
+  { id: "cost.tco_net_benefit", family: "cost", label: "Net TCO benefit", fn: (i) => num(i,"tcoCurrent") - num(i,"tcoAlternative") },
+  { id: "measurement.tco_payback", family: "measurement", label: "TCO payback", fn: (i) => safeDivide(num(i,"altPremium"), num(i,"tcoNetBenefit")) },
+
+  // MOQ / EOQ
+  { id: "cost.eoq_moq_penalty", family: "cost", label: "MOQ penalty", fn: (i) => Math.max(0, num(i,"moq") - num(i,"eopQty")) * num(i,"holdingCostPerUnit") },
+  { id: "cost.moq_price_break_savings", family: "cost", label: "Price break savings", fn: (i) => num(i,"eopQty") * (num(i,"standardPrice") - num(i,"discountPrice")) },
+  { id: "cost.moq_net_benefit", family: "cost", label: "MOQ net benefit", fn: (i) => num(i,"priceBreakSavings") - num(i,"moqPenalty") },
+  { id: "measurement.moq_optimal_qty", family: "measurement", label: "Optimal order qty", fn: (i) => Math.max(num(i,"eopQty"), num(i,"moq")) },
+
+  // Reliability / MTBF
+  { id: "measurement.availability_mtbf", family: "measurement", label: "Availability from MTBF", fn: (i) => safeDivide(num(i,"mtbf"), num(i,"mtbf") + num(i,"mttr")) },
+  { id: "measurement.expected_downtime", family: "measurement", label: "Expected downtime", fn: (i) => (1 - num(i,"availability")) * num(i,"operatingHours") },
+  { id: "cost.downtime_cost_mtbf", family: "cost", label: "Downtime cost", fn: (i) => num(i,"expectedDowntime") * num(i,"costPerDowntimeHour") },
+  { id: "cost.reliability_total_cost", family: "cost", label: "Reliability total cost", fn: (i) => num(i,"downtimeCost") + num(i,"repairCost") + num(i,"lostProduction") },
+  { id: "cost.reliability_roi", family: "cost", label: "Reliability improvement ROI", fn: (i) => safeDivide(num(i,"currentCost") - num(i,"improvedCost"), num(i,"improvementInvestment")) * 100 },
+
+  // Muda (7 wastes)
+  { id: "cost.muda_overproduction", family: "cost", label: "Overproduction waste", fn: (i) => num(i,"overproducedQty") * num(i,"unitCost") },
+  { id: "cost.muda_waiting", family: "cost", label: "Waiting waste", fn: (i) => num(i,"waitingHours") * num(i,"laborRate") },
+  { id: "cost.muda_transport", family: "cost", label: "Transport waste", fn: (i) => num(i,"excessDist") * num(i,"costPerKm") },
+  { id: "cost.muda_overprocessing", family: "cost", label: "Overprocessing waste", fn: (i) => num(i,"extraProcessHours") * num(i,"processRate") },
+  { id: "cost.muda_inventory", family: "cost", label: "Inventory waste", fn: (i) => num(i,"excessInventory") * num(i,"holdingCostPerUnit") },
+  { id: "cost.muda_motion", family: "cost", label: "Motion waste", fn: (i) => num(i,"excessMotionHours") * num(i,"laborRate") },
+  { id: "cost.muda_defects", family: "cost", label: "Defects waste", fn: (i) => num(i,"defectQty") * num(i,"reworkCostPerUnit") },
+  { id: "cost.muda_total", family: "cost", label: "Total muda cost", fn: (i) => num(i,"mudaOverproduction") + num(i,"mudaWaiting") + num(i,"mudaTransport") + num(i,"mudaOverprocessing") + num(i,"mudaInventory") + num(i,"mudaMotion") + num(i,"mudaDefects") },
+
+  // Cash flow
+  { id: "measurement.cash_inflow", family: "measurement", label: "Cash inflow", fn: (i) => num(i,"salesRevenue") + num(i,"receivablesCollected") + num(i,"otherIncome") },
+  { id: "measurement.cash_outflow", family: "measurement", label: "Cash outflow", fn: (i) => num(i,"supplierPayments") + num(i,"payroll") + num(i,"operatingExpenses") + num(i,"taxPayment") },
+  { id: "measurement.net_cash_flow", family: "measurement", label: "Net cash flow", fn: (i) => num(i,"cashInflow") - num(i,"cashOutflow") },
+  { id: "measurement.cumulative_cash", family: "measurement", label: "Cumulative cash", fn: (i) => num(i,"openingBalance") + num(i,"netCashFlow") },
+  { id: "measurement.cash_gap", family: "measurement", label: "Cash gap", fn: (i) => Math.max(0, -num(i,"netCashFlow")) },
+  { id: "measurement.cash_conversion_cycle", family: "measurement", label: "Cash conversion cycle", fn: (i) => num(i,"dso") + num(i,"dio") - num(i,"dpo") },
+
+  // Freight
+  { id: "measurement.chargeable_weight", family: "measurement", label: "Chargeable weight", fn: (i) => Math.max(num(i,"actualWeight"), num(i,"volumetricWeight")) },
+  { id: "cost.base_freight", family: "cost", label: "Base freight cost", fn: (i) => num(i,"chargeableWeight") * num(i,"ratePerKg") },
+  { id: "cost.bunker_surcharge", family: "cost", label: "Bunker surcharge", fn: (i) => num(i,"baseFreight") * num(i,"bunkerPct") / 100 },
+  { id: "cost.terminal_handling", family: "cost", label: "Terminal handling", fn: (i) => num(i,"chargeableWeight") * num(i,"handlingRate") },
+  { id: "cost.customs_clearance", family: "cost", label: "Customs clearance", fn: (i) => num(i,"declaredValue") * num(i,"customsRate") / 100 },
+  { id: "cost.total_freight_cost", family: "cost", label: "Total freight cost", fn: (i) => num(i,"baseFreight") + num(i,"bunkerSurcharge") + num(i,"terminalHandling") + num(i,"customsClearance") + num(i,"insurance") },
+  { id: "measurement.freight_cost_per_unit", family: "measurement", label: "Freight cost per unit", fn: (i) => safeDivide(num(i,"totalFreightCost"), num(i,"unitCount")) },
+
+  // Noise / vibration
+  { id: "measurement.noise_exposure", family: "measurement", label: "Noise exposure dose", fn: (i) => safeDivide(num(i,"noiseLevel"), num(i,"noiseLimit")) * 100 },
+  { id: "measurement.vibration_rms", family: "measurement", label: "Vibration RMS", fn: (i) => num(i,"vibrationLevel") * num(i,"exposureTime") },
+  { id: "cost.noise_health_cost", family: "cost", label: "Noise health cost", fn: (i) => num(i,"affectedWorkers") * num(i,"healthCostPerWorker") },
+  { id: "cost.noise_productivity_loss", family: "cost", label: "Noise productivity loss", fn: (i) => num(i,"noiseExposure") / 100 * num(i,"annualProdValue") * num(i,"productivityLossPct") / 100 },
+  { id: "cost.noise_rework_cost", family: "cost", label: "Noise-related rework", fn: (i) => num(i,"reworkHours") * num(i,"reworkRate") },
+  { id: "cost.noise_mitigation_roi", family: "cost", label: "Noise mitigation ROI", fn: (i) => safeDivide(num(i,"healthCost") + num(i,"productivityLoss") + num(i,"reworkCost") - num(i,"mitigationCost"), num(i,"mitigationCost")) * 100 },
+
+  // OEE
+  { id: "measurement.oee_availability", family: "measurement", label: "OEE availability", fn: (i) => safeDivide(num(i,"operatingTime"), num(i,"plannedProdTime")) },
+  { id: "measurement.oee_performance", family: "measurement", label: "OEE performance", fn: (i) => safeDivide(num(i,"idealCycleTime") * num(i,"totalParts"), num(i,"operatingTime")) },
+  { id: "measurement.oee_quality", family: "measurement", label: "OEE quality", fn: (i) => safeDivide(num(i,"goodParts"), num(i,"totalParts")) },
+  { id: "measurement.oee_score", family: "measurement", label: "OEE score", fn: (i) => num(i,"oeeAvailability") * num(i,"oeePerformance") * num(i,"oeeQuality") * 100 },
+  { id: "measurement.teep_score", family: "measurement", label: "TEEP score", fn: (i) => safeDivide(num(i,"operatingTime"), num(i,"totalCalendarTime")) * num(i,"oeePerformance") * num(i,"oeeQuality") * 100 },
+  { id: "cost.oee_downtime_cost", family: "cost", label: "OEE downtime cost", fn: (i) => (num(i,"plannedProdTime") - num(i,"operatingTime")) * num(i,"costPerHour") },
+  { id: "cost.oee_speed_loss", family: "cost", label: "OEE speed loss cost", fn: (i) => (num(i,"operatingTime") - num(i,"idealCycleTime") * num(i,"totalParts")) * num(i,"costPerHour") },
+  { id: "cost.oee_quality_loss", family: "cost", label: "OEE quality loss cost", fn: (i) => (num(i,"totalParts") - num(i,"goodParts")) * num(i,"costPerPart") },
+
+  // Office inventory
+  { id: "cost.office_consumption_rate", family: "cost", label: "Consumption rate", fn: (i) => safeDivide(num(i,"annualUsage"), 12) },
+  { id: "cost.office_annual_cost", family: "cost", label: "Annual ordering cost", fn: (i) => safeDivide(num(i,"annualDemand"), num(i,"orderQty")) * num(i,"orderCost") },
+  { id: "cost.office_carrying_cost", family: "cost", label: "Carrying cost", fn: (i) => safeDivide(num(i,"orderQty"), 2) * num(i,"holdingCostPerUnit") },
+  { id: "cost.office_stockout_cost", family: "cost", label: "Stockout cost", fn: (i) => num(i,"stockoutUnits") * num(i,"lostMarginPerUnit") },
+  { id: "cost.office_eoq", family: "cost", label: "Office EOQ", fn: (i) => Math.sqrt(2 * num(i,"annualDemand") * num(i,"orderCost") / num(i,"holdingCostPerUnit")) },
+  { id: "cost.office_waste_pct", family: "cost", label: "Office waste %", fn: (i) => safeDivide(num(i,"wasteUnits"), num(i,"totalOrdered")) * 100 },
+  { id: "cost.office_optimization_savings", family: "cost", label: "Optimization savings", fn: (i) => (num(i,"currentTotalCost") - num(i,"optimalTotalCost")) },
+
+  // Overtime / hiring
+  { id: "cost.ot_cost_hour", family: "cost", label: "OT cost per hour", fn: (i) => num(i,"baseRate") * num(i,"otMultiplier") },
+  { id: "cost.hiring_total_cost", family: "cost", label: "Hiring total cost", fn: (i) => num(i,"advertising") + num(i,"recruiting") + num(i,"training") + num(i,"onboarding") },
+  { id: "cost.annual_new_hire_cost", family: "cost", label: "Annual new hire cost", fn: (i) => num(i,"hiringTotalCost") + num(i,"salary") + num(i,"benefits") },
+  { id: "measurement.breakeven_hours_base", family: "measurement", label: "Breakeven hours", fn: (i) => safeDivide(num(i,"annualNewHireCost"), num(i,"otCostHour")) },
+  { id: "measurement.ot_hire_decision", family: "measurement", label: "OT vs hire decision", fn: (i) => num(i,"annualOtHours") > num(i,"breakevenHours") ? 1 : 0 },
+  { id: "cost.ot_quality_cost", family: "cost", label: "OT quality cost", fn: (i) => num(i,"annualOtHours") * num(i,"defectRate") * num(i,"reworkCost") },
+
+  // DSO / payment terms
+  { id: "measurement.dso_base", family: "measurement", label: "DSO base", fn: (i) => safeDivide(num(i,"accountsReceivable"), num(i,"avgDailySales")) },
+  { id: "cost.carrying_cost_ar", family: "cost", label: "AR carrying cost", fn: (i) => num(i,"accountsReceivable") * num(i,"costOfCapital") / 100 },
+  { id: "cost.bad_debt_expense", family: "cost", label: "Bad debt expense", fn: (i) => num(i,"creditSales") * num(i,"badDebtRate") / 100 },
+  { id: "cost.discount_cost", family: "cost", label: "Discount cost", fn: (i) => num(i,"discountEligibleSales") * num(i,"discountRate") / 100 },
+  { id: "measurement.cash_flow_impact_terms", family: "measurement", label: "Terms cash flow impact", fn: (i) => (num(i,"newDso") - num(i,"currentDso")) * num(i,"avgDailySales") },
+  { id: "cost.npv_terms", family: "cost", label: "NPV of terms change", fn: (i) => num(i,"cashFlowImpact") / Math.pow(1 + num(i,"discountRate") / 100, 1) - num(i,"discountCost") },
+
+  // Learning curve
+  { id: "measurement.learning_rate", family: "measurement", label: "Learning rate", fn: (i) => 1 - Math.pow(2, Math.log(num(i,"pctOfPrevious")) / Math.log(2)) },
+  { id: "measurement.learning_slope", family: "measurement", label: "Learning slope", fn: (i) => Math.log(num(i,"learningRate")) / Math.log(2) },
+  { id: "measurement.time_n", family: "measurement", label: "Time for unit n", fn: (i) => num(i,"firstUnitTime") * Math.pow(num(i,"cumulativeUnits"), num(i,"learningSlope")) },
+  { id: "measurement.cumulative_time_n", family: "measurement", label: "Cumulative time for n", fn: (i) => num(i,"firstUnitTime") * (Math.pow(num(i,"cumulativeUnits") + 0.5, 1 + num(i,"learningSlope")) / (1 + num(i,"learningSlope"))) },
+  { id: "measurement.average_time_n", family: "measurement", label: "Average time per unit", fn: (i) => safeDivide(num(i,"cumulativeTime"), num(i,"cumulativeUnits")) },
+  { id: "cost.learning_cost_n", family: "cost", label: "Labor cost for unit n", fn: (i) => num(i,"timeN") * num(i,"laborRate") },
+  { id: "measurement.breakeven_unit_learning", family: "measurement", label: "Learning breakeven unit", fn: (i) => Math.pow(safeDivide(num(i,"targetCost"), num(i,"firstUnitCost")), 1 / num(i,"learningSlope")) },
+
+  // Sample size
+  { id: "measurement.sample_infinite", family: "measurement", label: "Sample size infinite", fn: (i) => Math.pow(num(i,"zScore") * num(i,"stdDev") / num(i,"errorMargin"), 2) },
+  { id: "measurement.sample_finite", family: "measurement", label: "Sample size finite", fn: (i) => safeDivide(num(i,"sampleInfinite"), 1 + safeDivide(num(i,"sampleInfinite") - 1, num(i,"population"))) },
+  { id: "measurement.sample_continuous", family: "measurement", label: "Sample size continuous", fn: (i) => Math.pow(num(i,"zScore"), 2) * num(i,"estimatedVariance") / Math.pow(num(i,"precision"), 2) },
+  { id: "measurement.sample_power_adj", family: "measurement", label: "Power adjusted sample", fn: (i) => num(i,"sampleInfinite") * (1 + Math.pow(num(i,"zBeta"), 2) / (2 * Math.pow(num(i,"effectSize"), 2))) },
+  { id: "measurement.sample_design_effect", family: "measurement", label: "Design effect", fn: (i) => 1 + (num(i,"clusterSize") - 1) * num(i,"icc") },
+  { id: "measurement.sample_final_n", family: "measurement", label: "Final sample size", fn: (i) => Math.ceil(num(i,"sampleFinite") * num(i,"designEffect")) },
+  { id: "cost.sampling_total_cost", family: "cost", label: "Sampling total cost", fn: (i) => num(i,"sampleFinalN") * num(i,"costPerSample") + num(i,"fixedCost") },
+
+  // Rack storage
+  { id: "measurement.rack_capacity", family: "measurement", label: "Rack capacity", fn: (i) => num(i,"rackQty") * num(i,"palletsPerBay") * num(i,"levels") },
+  { id: "measurement.floor_utilization_rack", family: "measurement", label: "Floor utilization", fn: (i) => safeDivide(num(i,"rackFootprint"), num(i,"totalFloorArea")) },
+  { id: "measurement.rack_throughput", family: "measurement", label: "Rack throughput", fn: (i) => safeDivide(num(i,"totalMoves"), num(i,"availableHours")) },
+  { id: "measurement.rack_safety_factor", family: "measurement", label: "Rack safety factor", fn: (i) => safeDivide(num(i,"maxLoadRating"), num(i,"actualLoad")) },
+  { id: "cost.rack_cost_per_position", family: "cost", label: "Cost per pallet position", fn: (i) => safeDivide(num(i,"totalRackCost"), num(i,"rackCapacity")) },
+  { id: "measurement.rack_retrieval_time", family: "measurement", label: "Avg retrieval time", fn: (i) => safeDivide(num(i,"totalTravelDist"), num(i,"forkSpeed")) },
+
+  // Poka-yoke
+  { id: "measurement.current_defect_rate", family: "measurement", label: "Current defect rate", fn: (i) => safeDivide(num(i,"defects"), num(i,"totalInspected")) },
+  { id: "cost.defect_cost_annual", family: "cost", label: "Annual defect cost", fn: (i) => num(i,"currentDefectRate") * num(i,"annualVolume") * num(i,"costPerDefect") },
+  { id: "cost.poka_yoke_cost", family: "cost", label: "Poka-yoke implementation cost", fn: (i) => num(i,"deviceCost") + num(i,"installationCost") + num(i,"trainingCost") },
+  { id: "measurement.new_defect_rate", family: "measurement", label: "New defect rate", fn: (i) => num(i,"currentDefectRate") * (1 - num(i,"reductionFactor") / 100) },
+  { id: "cost.poka_yoke_savings", family: "cost", label: "Poka-yoke annual savings", fn: (i) => (num(i,"currentDefectRate") - num(i,"newDefectRate")) * num(i,"annualVolume") * num(i,"costPerDefect") },
+  { id: "cost.poka_yoke_roi", family: "cost", label: "Poka-yoke ROI", fn: (i) => safeDivide(num(i,"pokaYokeSavings") - num(i,"pokaYokeCost"), num(i,"pokaYokeCost")) * 100 },
+  { id: "cost.poka_yoke_payback", family: "cost", label: "Poka-yoke payback", fn: (i) => safeDivide(num(i,"pokaYokeCost"), num(i,"pokaYokeSavings")) },
+
+  // Food cost / menu pricing
+  { id: "cost.ingredient_cost_portion", family: "cost", label: "Ingredient cost per portion", fn: (i) => num(i,"ingredientQty") * num(i,"unitPrice") },
+  { id: "cost.yield_adjusted_cost", family: "cost", label: "Yield adjusted cost", fn: (i) => safeDivide(num(i,"ingredientCostPortion"), num(i,"yieldPct") / 100) },
+  { id: "cost.portion_labor_cost", family: "cost", label: "Portion labor cost", fn: (i) => safeDivide(num(i,"totalLaborCost"), num(i,"portionsProduced")) },
+  { id: "cost.portion_overhead", family: "cost", label: "Portion overhead", fn: (i) => safeDivide(num(i,"totalOverhead"), num(i,"portionsProduced")) },
+  { id: "cost.total_portion_cost", family: "cost", label: "Total portion cost", fn: (i) => num(i,"yieldAdjustedCost") + num(i,"portionLaborCost") + num(i,"portionOverhead") },
+  { id: "measurement.food_cost_pct", family: "measurement", label: "Food cost %", fn: (i) => safeDivide(num(i,"totalPortionCost"), num(i,"menuPrice")) * 100 },
+  { id: "measurement.target_menu_price", family: "measurement", label: "Target menu price", fn: (i) => safeDivide(num(i,"totalPortionCost"), num(i,"targetFoodCostPct") / 100) },
+
+  // Project cost estimate
+  { id: "cost.project_direct_labor", family: "cost", label: "Project direct labor", fn: (i) => num(i,"laborHours") * num(i,"laborRate") },
+  { id: "cost.project_direct_material", family: "cost", label: "Project direct material", fn: (i) => num(i,"materialQty") * num(i,"materialUnitPrice") },
+  { id: "cost.project_equipment", family: "cost", label: "Project equipment cost", fn: (i) => num(i,"equipQty") * num(i,"equipRate") * num(i,"equipDuration") },
+  { id: "cost.project_subcontractor", family: "cost", label: "Project subcontractor cost", fn: (i) => num(i,"subcontractorQuote") + num(i,"subMobilization") },
+  { id: "cost.project_overhead", family: "cost", label: "Project overhead", fn: (i) => (num(i,"directLabor") + num(i,"directMaterial")) * num(i,"overheadPct") / 100 },
+  { id: "cost.project_contingency", family: "cost", label: "Project contingency", fn: (i) => (num(i,"directLabor") + num(i,"directMaterial") + num(i,"projectEquipment") + num(i,"projectSubcontractor") + num(i,"projectOverhead")) * num(i,"contingencyPct") / 100 },
+  { id: "cost.project_total_estimate", family: "cost", label: "Project total estimate", fn: (i) => num(i,"directLabor") + num(i,"directMaterial") + num(i,"projectEquipment") + num(i,"projectSubcontractor") + num(i,"projectOverhead") + num(i,"projectContingency") },
+  { id: "cost.project_cost_variance", family: "cost", label: "Project cost variance", fn: (i) => num(i,"actualCost") - num(i,"projectTotalEstimate") },
+
+  // Risk cost
+  { id: "cost.risk_exposure_cost", family: "cost", label: "Risk exposure cost", fn: (i) => num(i,"probability") / 100 * num(i,"impact") },
+  { id: "cost.mitigation_cost", family: "cost", label: "Mitigation cost", fn: (i) => num(i,"mitigationLabor") + num(i,"mitigationMaterial") + num(i,"mitigationEquipment") },
+  { id: "cost.net_risk_cost", family: "cost", label: "Net risk cost", fn: (i) => num(i,"riskExposureCost") - num(i,"mitigationCost") },
+
+  // Recipe costing
+  { id: "cost.recipe_theoretical", family: "cost", label: "Theoretical recipe cost", fn: (i) => num(i,"batchQty") * num(i,"theoreticalCostPerKg") },
+  { id: "cost.recipe_actual", family: "cost", label: "Actual recipe cost", fn: (i) => num(i,"batchQty") * num(i,"actualCostPerKg") },
+  { id: "cost.recipe_variance", family: "cost", label: "Recipe cost variance", fn: (i) => num(i,"recipeActual") - num(i,"recipeTheoretical") },
+  { id: "cost.recipe_yield_loss_cost", family: "cost", label: "Recipe yield loss cost", fn: (i) => (num(i,"theoreticalYield") - num(i,"actualYield")) * num(i,"actualCostPerKg") },
+  { id: "measurement.recipe_evaporation", family: "measurement", label: "Recipe evaporation loss %", fn: (i) => safeDivide(num(i,"inputWeight") - num(i,"outputWeight"), num(i,"inputWeight")) * 100 },
+  { id: "measurement.recipe_efficiency_base", family: "measurement", label: "Recipe efficiency", fn: (i) => safeDivide(num(i,"outputWeight"), num(i,"inputWeight")) },
+  { id: "cost.recipe_cost_per_kg", family: "cost", label: "Cost per kg output", fn: (i) => safeDivide(num(i,"recipeActual"), num(i,"outputWeight")) },
+
+  // Restaurant food cost
+  { id: "cost.restaurant_theoretical_food", family: "cost", label: "Theoretical food cost", fn: (i) => num(i,"totalSales") * num(i,"idealFoodCostPct") / 100 },
+  { id: "cost.restaurant_actual_food", family: "cost", label: "Actual food cost", fn: (i) => num(i,"beginningInv") + num(i,"purchases") - num(i,"endingInv") },
+  { id: "cost.restaurant_variance_cost", family: "cost", label: "Food cost variance", fn: (i) => num(i,"actualFoodCost") - num(i,"theoreticalFoodCost") },
+  { id: "measurement.restaurant_variance_pct", family: "measurement", label: "Food cost variance %", fn: (i) => safeDivide(num(i,"varianceCost"), num(i,"actualFoodCost")) * 100 },
+  { id: "cost.restaurant_waste_cost", family: "cost", label: "Waste cost", fn: (i) => num(i,"wasteKg") * num(i,"avgCostPerKg") },
+  { id: "cost.restaurant_theft_loss", family: "cost", label: "Theft loss", fn: (i) => num(i,"theftQty") * num(i,"avgCostPerUnit") },
+  { id: "measurement.restaurant_ideal_margin", family: "measurement", label: "Ideal margin %", fn: (i) => (1 - num(i,"idealFoodCostPct") / 100) * 100 },
+  { id: "measurement.restaurant_actual_margin", family: "measurement", label: "Actual margin %", fn: (i) => (1 - safeDivide(num(i,"actualFoodCost"), num(i,"totalSales"))) * 100 },
+
+  // Robot vs manual
+  { id: "cost.manual_cost_annual", family: "cost", label: "Manual annual cost", fn: (i) => num(i,"manualWorkers") * num(i,"manualAnnualWage") + num(i,"manualBenefits") + num(i,"manualTraining") },
+  { id: "cost.robot_cost_annual", family: "cost", label: "Robot annual cost", fn: (i) => num(i,"robotLease") + num(i,"robotMaintenance") + num(i,"robotEnergy") + num(i,"robotOperatorSalary") },
+  { id: "measurement.robot_output", family: "measurement", label: "Robot annual output", fn: (i) => num(i,"robotCycleTime") * num(i,"robotUptime") * num(i,"workingDays") * 60 },
+  { id: "measurement.manual_output", family: "measurement", label: "Manual annual output", fn: (i) => num(i,"manualWorkers") * num(i,"manualCycleTime") * num(i,"manualUptime") * num(i,"workingDays") * 60 },
+  { id: "cost.cost_per_unit_manual", family: "cost", label: "Manual cost per unit", fn: (i) => safeDivide(num(i,"manualCostAnnual"), num(i,"manualOutput")) },
+  { id: "cost.cost_per_unit_robot", family: "cost", label: "Robot cost per unit", fn: (i) => safeDivide(num(i,"robotCostAnnual"), num(i,"robotOutput")) },
+  { id: "cost.robot_roi_analyzer", family: "cost", label: "Robot automation ROI", fn: (i) => safeDivide(num(i,"manualCostAnnual") - num(i,"robotCostAnnual"), num(i,"robotCostAnnual")) * 100 },
+  { id: "cost.robot_payback", family: "cost", label: "Robot payback years", fn: (i) => safeDivide(num(i,"robotInvestment"), num(i,"manualCostAnnual") - num(i,"robotCostAnnual")) },
+
+  // Route cost (simple)
+  { id: "cost.route_distance_cost", family: "cost", label: "Route distance cost", fn: (i) => num(i,"distanceKm") * num(i,"costPerKm") },
+  { id: "cost.route_time_cost", family: "cost", label: "Route time cost", fn: (i) => num(i,"timeHours") * num(i,"costPerHour") },
+  { id: "cost.route_toll_cost", family: "cost", label: "Route toll cost", fn: (i) => num(i,"tollAmount") + num(i,"tollCount") * num(i,"tollPerPass") },
+  { id: "cost.route_maintenance_cost", family: "cost", label: "Route maintenance cost", fn: (i) => num(i,"distanceKm") * num(i,"maintenanceRate") },
+  { id: "cost.route_overhead_cost", family: "cost", label: "Route overhead cost", fn: (i) => num(i,"distanceKm") * num(i,"overheadPerKm") },
+  { id: "cost.route_total_cost_simple", family: "cost", label: "Total route cost", fn: (i) => num(i,"distanceCost") + num(i,"timeCost") + num(i,"tollCost") + num(i,"maintenanceCost") + num(i,"overheadCost") },
+  { id: "measurement.route_cost_per_km", family: "measurement", label: "Route cost per km", fn: (i) => safeDivide(num(i,"routeTotalCost"), num(i,"distanceKm")) },
+  { id: "measurement.route_cost_per_drop", family: "measurement", label: "Route cost per drop", fn: (i) => safeDivide(num(i,"routeTotalCost"), num(i,"totalDrops")) },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOLS 101-140 FORMULAS
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // Rota Optimizasyonu
+  { id: "measurement.route_nearest_neighbor", family: "measurement", label: "Nearest neighbor distance", fn: (i) => num(i,"minDistance") },
+  { id: "measurement.route_clarke_wright", family: "measurement", label: "Clarke-Wright savings", fn: (i) => num(i,"depotDistA") + num(i,"depotDistB") - num(i,"distAB") },
+  { id: "measurement.route_efficiency_score", family: "measurement", label: "Route efficiency", fn: (i) => safeDivide(num(i,"theoreticalMin"), num(i,"actualRouteDist")) },
+  { id: "cost.route_total_savings", family: "cost", label: "Total routing savings", fn: (i) => num(i,"baselineCost") - num(i,"optimizedCost") },
+
+  // Rüzgar Türbini
+  { id: "measurement.wind_aep", family: "measurement", label: "AEP", fn: (i) => num(i,"ratedPower") * num(i,"capacityFactor") * 8760 },
+  { id: "cost.wind_annual_revenue", family: "cost", label: "Annual revenue", fn: (i) => num(i,"aep") * num(i,"feedInTariff") },
+  { id: "cost.wind_ebitda", family: "cost", label: "Wind EBITDA", fn: (i) => Math.max(0, num(i,"annualRevenue") - num(i,"opex")) },
+  { id: "cost.wind_lcoe", family: "cost", label: "Wind LCOE", fn: (i) => safeDivide(num(i,"totalCapex") + num(i,"opex") * num(i,"lifeYears"), num(i,"aep") * num(i,"lifeYears")) },
+  { id: "cost.wind_npv", family: "cost", label: "Wind NPV", fn: (i) => num(i,"ebitda") * (1 - Math.pow(1 + num(i,"wacc") / 100, -num(i,"lifeYears"))) / (num(i,"wacc") / 100) - num(i,"totalCapex") },
+
+  // SaaS Shelfware
+  { id: "measurement.saas_shelfware_pct", family: "measurement", label: "Shelfware %", fn: (i) => safeDivide(Math.max(0, num(i,"totalLicenses") - num(i,"activeUsers")), num(i,"totalLicenses")) },
+  { id: "cost.saas_shelfware_cost", family: "cost", label: "Shelfware cost", fn: (i) => num(i,"shelfwarePct") * num(i,"totalContract") },
+
+  // Saatlik Ücret
+  { id: "cost.burdened_hourly_rate", family: "cost", label: "Burdened hourly rate", fn: (i) => (num(i,"grossSalary") + num(i,"employerTaxes") + num(i,"benefits")) / Math.max(1, num(i,"productiveHours")) },
+
+  // SMED Değişim
+  { id: "measurement.smed_capacity_recovered", family: "measurement", label: "SMED capacity recovered", fn: (i) => (num(i,"currentSetup") - num(i,"targetSetup")) * num(i,"changeoverFreq") },
+  { id: "cost.smed_financial_gain", family: "cost", label: "SMED financial gain", fn: (i) => num(i,"capacityRecovered") * num(i,"bottleneckThroughput") * num(i,"unitMargin") },
+  { id: "cost.smed_roi", family: "cost", label: "SMED ROI", fn: (i) => safeDivide(num(i,"financialGain") - num(i,"smedInvestment"), num(i,"smedInvestment")) },
+
+  // Sözleşme Teşvik
+  { id: "cost.incentive_target_fee", family: "cost", label: "Target fee", fn: (i) => num(i,"targetCost") * num(i,"targetFeePct") / 100 },
+  { id: "cost.incentive_actual_fee", family: "cost", label: "Actual incentive fee", fn: (i) => Math.min(Math.max(num(i,"targetFee") + (num(i,"targetCost") - num(i,"actualCost")) * num(i,"contractorSharePct") / 100, num(i,"minFee")), num(i,"maxFee")) },
+
+  // SPC Signal Delay
+  { id: "measurement.spc_arl_in_control", family: "measurement", label: "ARL in control", fn: (i) => safeDivide(1, num(i,"alpha")) },
+  { id: "measurement.spc_arl_out_of_control", family: "measurement", label: "ARL out of control", fn: (i) => safeDivide(1, 1 - num(i,"beta")) },
+  { id: "cost.spc_delay_cost", family: "cost", label: "SPC delay cost", fn: (i) => num(i,"arlOOC") * num(i,"samplingInterval") * num(i,"productionRate") * num(i,"defectRateOOC") / 100 * num(i,"costPerDefect") },
+
+  // Steam Trap
+  { id: "measurement.steam_loss_rate", family: "measurement", label: "Steam loss rate", fn: (i) => num(i,"orificeArea") * Math.sqrt(2 * num(i,"deltaPressure") * num(i,"steamDensity")) * 3600 },
+  { id: "cost.steam_trap_annual_loss", family: "cost", label: "Annual steam loss cost", fn: (i) => num(i,"steamLoss") * num(i,"operatingHours") * num(i,"steamCost") / 1000 },
+  { id: "cost.steam_trap_roi", family: "cost", label: "Steam trap repair ROI", fn: (i) => safeDivide(num(i,"systemLoss"), num(i,"trapCost") + num(i,"laborCost")) },
+
+  // Stok Devir Hızı
+  { id: "measurement.inventory_turnover_ratio", family: "measurement", label: "Inventory turnover", fn: (i) => safeDivide(num(i,"cogs"), num(i,"avgInventory")) },
+  { id: "measurement.dsi_days", family: "measurement", label: "Days sales inventory", fn: (i) => safeDivide(365, num(i,"inventoryTurnover")) },
+  { id: "cost.obsolescence_risk_cost", family: "cost", label: "Obsolescence risk", fn: (i) => num(i,"avgInventory") * num(i,"obsolescenceRate") / 100 },
+  { id: "cost.liquidation_loss", family: "cost", label: "Liquidation loss", fn: (i) => num(i,"slowMovingInv") * (1 - num(i,"salvagePct") / 100) },
+
+  // Su Kullanımı
+  { id: "measurement.water_intensity", family: "measurement", label: "Water intensity", fn: (i) => safeDivide(num(i,"totalWater"), num(i,"productionVolume")) },
+  { id: "cost.water_savings_total", family: "cost", label: "Water savings total", fn: (i) => num(i,"baselineConsumption") - num(i,"actualConsumption") },
+  { id: "cost.water_cost_savings", family: "cost", label: "Water cost savings", fn: (i) => num(i,"waterSavings") * (num(i,"supplyRate") + num(i,"wastewaterRate")) },
+  { id: "cost.water_roi", family: "cost", label: "Water project ROI", fn: (i) => safeDivide(num(i,"costSavings") - num(i,"equipmentCost") - num(i,"installationCost"), num(i,"equipmentCost") + num(i,"installationCost")) },
+
+  // Sulama
+  { id: "measurement.irrigation_water_req", family: "measurement", label: "Water requirement", fn: (i) => num(i,"etc") * num(i,"area") * (1 - num(i,"effectiveRainfall") / 100) },
+  { id: "cost.irrigation_energy_cost", family: "cost", label: "Energy cost", fn: (i) => num(i,"waterRequirement") * num(i,"totalHead") / (num(i,"pumpEff") * num(i,"motorEff")) * num(i,"elecRate") },
+  { id: "cost.irrigation_total_cost", family: "cost", label: "Total irrigation cost", fn: (i) => num(i,"energyCost") + num(i,"maintCost") + num(i,"laborCost") + num(i,"depreciation") },
+
+  // Supplier TCO
+  { id: "cost.supplier_tco", family: "cost", label: "Supplier TCO", fn: (i) => num(i,"purchasePrice") + num(i,"orderingCost") + num(i,"transportCost") + num(i,"qualityCost") + num(i,"inventoryCost") + num(i,"riskCost") },
+
+  // Süt Kâr
+  { id: "measurement.fcm_milk", family: "measurement", label: "Fat corrected milk", fn: (i) => 0.4 * num(i,"milkYield") + 15 * num(i,"fatYield") },
+  { id: "cost.dairy_income_over_feed", family: "cost", label: "Income over feed cost", fn: (i) => num(i,"milkPrice") * num(i,"milkYield") - num(i,"totalFeedCost") },
+
+  // Taguchi
+  { id: "cost.taguchi_loss_per_unit", family: "cost", label: "Taguchi loss per unit", fn: (i) => num(i,"toleranceCost") / Math.pow(num(i,"toleranceLimit"), 2) * Math.pow(num(i,"actualValue") - num(i,"targetValue"), 2) },
+
+  // Takım Aşınma
+  { id: "cost.tooling_cost_per_part", family: "cost", label: "Tooling cost per part", fn: (i) => safeDivide(num(i,"toolingCost"), num(i,"partsProduced")) },
+  { id: "cost.tooling_total", family: "cost", label: "Total tooling cost", fn: (i) => num(i,"purchaseCost") + num(i,"regrindCost") + num(i,"inventoryCost") },
+  { id: "cost.premature_failure_cost", family: "cost", label: "Premature failure cost", fn: (i) => num(i,"prematureFailures") * num(i,"toolingCost") },
+
+  // Takt Süre
+  { id: "measurement.takt_time", family: "measurement", label: "Takt time", fn: (i) => safeDivide(num(i,"availableTime"), num(i,"customerDemand")) },
+  { id: "measurement.cycle_flexibility", family: "measurement", label: "Cycle flexibility", fn: (i) => safeDivide(num(i,"taktTime"), num(i,"actualCycleTime")) },
+  { id: "cost.balance_loss", family: "cost", label: "Balance loss cost", fn: (i) => num(i,"balanceDelay") * num(i,"laborRate") },
+  { id: "cost.flexibility_premium", family: "cost", label: "Flexibility premium", fn: (i) => num(i,"flexibilityHours") * num(i,"premiumRate") },
+
+  // Talep Forecast
+  { id: "measurement.forecast_error", family: "measurement", label: "Forecast error", fn: (i) => Math.abs(num(i,"actualDemand") - num(i,"forecastDemand")) },
+  { id: "measurement.safety_stock_forecast", family: "measurement", label: "Safety stock", fn: (i) => num(i,"serviceFactor") * num(i,"demandStdDev") * Math.sqrt(num(i,"leadTime")) },
+  { id: "cost.forecast_carrying_cost", family: "cost", label: "Forecast carrying cost", fn: (i) => num(i,"safetyStock") * num(i,"holdingCostPerUnit") },
+  { id: "cost.stockout_cost_forecast", family: "cost", label: "Stockout cost", fn: (i) => num(i,"stockoutUnits") * num(i,"lostMarginPerUnit") },
+  { id: "cost.total_forecast_cost", family: "cost", label: "Total forecast cost", fn: (i) => num(i,"carryingCost") + num(i,"stockoutCost") },
+
+  // Tamirhane
+  { id: "cost.quote_total", family: "cost", label: "Quote total", fn: (i) => num(i,"partsCost") + num(i,"laborHours") * num(i,"laborRate") + num(i,"overheadCost") },
+  { id: "cost.effective_labor_rate", family: "cost", label: "Effective labor rate", fn: (i) => safeDivide(num(i,"totalLaborCost"), num(i,"billableHours")) },
+  { id: "cost.gross_profit_pct", family: "cost", label: "Gross profit %", fn: (i) => safeDivide(num(i,"grossProfit"), num(i,"revenue")) * 100 },
+
+  // Taşeron
+  { id: "measurement.quoted_margin", family: "measurement", label: "Quoted margin", fn: (i) => safeDivide(num(i,"quotedPrice") - num(i,"estimatedCost"), num(i,"quotedPrice")) },
+  { id: "measurement.actual_margin", family: "measurement", label: "Actual margin", fn: (i) => safeDivide(num(i,"actualRevenue") - num(i,"actualCost"), num(i,"actualRevenue")) },
+  { id: "cost.margin_leak_sub", family: "cost", label: "Subcontractor margin leak", fn: (i) => num(i,"quotedMargin") - num(i,"actualMargin") },
+  { id: "cost.leakage_pct", family: "cost", label: "Margin leakage %", fn: (i) => safeDivide(num(i,"marginLeakSub"), num(i,"quotedMargin")) * 100 },
+
+  // Taşıma Mode
+  { id: "cost.transport_air", family: "cost", label: "Air freight cost", fn: (i) => num(i,"airFreightKg") * num(i,"airRatePerKg") },
+  { id: "cost.transport_sea", family: "cost", label: "Sea freight cost", fn: (i) => num(i,"seaFreightCbm") * num(i,"seaRatePerCbm") },
+  { id: "cost.transport_road", family: "cost", label: "Road freight cost", fn: (i) => num(i,"roadFreightKm") * num(i,"roadRatePerKm") },
+  { id: "cost.transit_time_cost", family: "cost", label: "Transit time cost", fn: (i) => num(i,"transitDays") * num(i,"costOfCapital") / 365 * num(i,"cargoValue") },
+  { id: "cost.risk_cost_transport", family: "cost", label: "Transport risk cost", fn: (i) => num(i,"cargoValue") * num(i,"riskPct") / 100 },
+  { id: "cost.total_mode_cost", family: "cost", label: "Total transport cost", fn: (i) => num(i,"transportAir") + num(i,"transportSea") + num(i,"transportRoad") + num(i,"transitTimeCost") + num(i,"riskCostTransport") },
+
+  // Tedarik Zinciri
+  { id: "cost.risk_exposure_sc", family: "cost", label: "Supply chain risk exposure", fn: (i) => num(i,"supplierSpend") * num(i,"disruptionProb") / 100 },
+  { id: "cost.revenue_loss_sc", family: "cost", label: "Revenue loss from disruption", fn: (i) => num(i,"disruptionDays") * num(i,"dailyRevenue") * num(i,"impactPct") / 100 },
+  { id: "cost.risk_adjusted_cost_sc", family: "cost", label: "Risk adjusted cost", fn: (i) => num(i,"riskExposureSc") + num(i,"revenueLossSc") },
+  { id: "measurement.resilience_index", family: "measurement", label: "Resilience index", fn: (i) => safeDivide(num(i,"recoveryCapacity"), num(i,"normalDemand")) },
+
+  // Tedarikçi Döviz
+  { id: "cost.fx_exposure_supplier", family: "cost", label: "Supplier FX exposure", fn: (i) => num(i,"contractValue") * num(i,"exchangeRate") },
+  { id: "cost.fx_expected_loss", family: "cost", label: "FX expected loss", fn: (i) => num(i,"fxExposureSupplier") * num(i,"forexVolatility") / 100 },
+  { id: "cost.fx_var_supplier", family: "cost", label: "FX VaR supplier", fn: (i) => num(i,"fxExposureSupplier") * num(i,"confidenceFactor") },
+  { id: "cost.fx_net_risk_cost", family: "cost", label: "FX net risk cost", fn: (i) => num(i,"fxExpectedLoss") + num(i,"fxVarSupplier") - num(i,"hedgeSavings") },
+  { id: "cost.fx_clause_savings", family: "cost", label: "FX clause savings", fn: (i) => num(i,"fxExposureSupplier") * num(i,"clauseDiscountPct") / 100 },
+
+  // Teklif Risk
+  { id: "cost.base_estimate", family: "cost", label: "Base estimate", fn: (i) => num(i,"directCost") + num(i,"indirectCost") + num(i,"profitMargin") },
+  { id: "cost.contingency_total", family: "cost", label: "Contingency total", fn: (i) => num(i,"baseEstimate") * num(i,"contingencyPct") / 100 },
+  { id: "measurement.win_probability", family: "measurement", label: "Win probability", fn: (i) => safeDivide(num(i,"competitiveScore"), num(i,"maxScore")) },
+  { id: "cost.expected_value_bid", family: "cost", label: "Expected bid value", fn: (i) => (num(i,"baseEstimate") + num(i,"contingencyTotal")) * num(i,"winProbability") },
+
+  // Tekrarlayan Maliyet
+  { id: "cost.recurring_annual_cost", family: "cost", label: "Recurring annual cost", fn: (i) => num(i,"monthlyCost") * 12 },
+  { id: "cost.present_value_recurring", family: "cost", label: "Present value recurring", fn: (i) => num(i,"recurringAnnualCost") * (1 - Math.pow(1 + num(i,"discountRate") / 100, -num(i,"years"))) / (num(i,"discountRate") / 100) },
+  { id: "cost.npv_elimination", family: "cost", label: "NPV of elimination", fn: (i) => num(i,"presentValueRecurring") - num(i,"eliminationCost") },
+  { id: "cost.root_cause_payback", family: "cost", label: "Root cause payback", fn: (i) => safeDivide(num(i,"fixCost"), num(i,"recurringAnnualCost")) },
+
+  // Tekstil Atığı
+  { id: "measurement.textile_waste_rate", family: "measurement", label: "Textile waste rate", fn: (i) => safeDivide(num(i,"wasteKg"), num(i,"totalKg")) * 100 },
+  { id: "cost.pre_consumer_waste", family: "cost", label: "Pre-consumer waste cost", fn: (i) => num(i,"preConsumerKg") * num(i,"materialCostPerKg") },
+  { id: "cost.net_waste_cost", family: "cost", label: "Net waste cost", fn: (i) => num(i,"preConsumerWaste") + num(i,"postConsumerWaste") - num(i,"recyclingRevenue") },
+  { id: "measurement.waste_risk_score", family: "measurement", label: "Waste risk score", fn: (i) => safeDivide(num(i,"textileWasteRate"), num(i,"industryBenchmark")) },
+
+  // Temizlik Teklif
+  { id: "cost.cleaning_labor_cost", family: "cost", label: "Cleaning labor cost", fn: (i) => num(i,"cleaningHours") * num(i,"cleaningRate") },
+  { id: "cost.cleaning_bid_price", family: "cost", label: "Cleaning bid price", fn: (i) => num(i,"cleaningLaborCost") + num(i,"cleaningMaterialCost") + num(i,"cleaningOverhead") + num(i,"cleaningMargin") },
+
+  // Teslimat Maliyeti
+  { id: "measurement.delivery_efficiency", family: "measurement", label: "Delivery efficiency", fn: (i) => safeDivide(num(i,"onTimeDeliveries"), num(i,"totalDeliveries")) },
+  { id: "cost.failed_delivery_cost", family: "cost", label: "Failed delivery cost", fn: (i) => num(i,"failedDeliveries") * num(i,"costPerFailedDelivery") },
+  { id: "cost.total_delivery_cost", family: "cost", label: "Total delivery cost", fn: (i) => num(i,"successfulDeliveries") * num(i,"costPerSuccessfulDelivery") + num(i,"failedDeliveryCost") },
+
+  // Tohum Oranı
+  { id: "measurement.seed_requirement", family: "measurement", label: "Seed requirement", fn: (i) => num(i,"areaHa") * num(i,"seedRatePerHa") },
+  { id: "cost.seed_cost_total", family: "cost", label: "Total seed cost", fn: (i) => num(i,"seedRequirement") * num(i,"seedPricePerUnit") },
+  { id: "cost.seed_financial_loss", family: "cost", label: "Seed financial loss", fn: (i) => (num(i,"expectedGermination") - num(i,"actualGermination")) / 100 * num(i,"seedCostTotal") },
+
+  // Toplam Çalışan
+  { id: "cost.total_employee_cost", family: "cost", label: "Total employee cost", fn: (i) => num(i,"grossSalary") + num(i,"employerCosts") + num(i,"bonus") + num(i,"training") + num(i,"otherBenefits") },
+  { id: "cost.employee_cost_per_hour", family: "cost", label: "Employee cost per hour", fn: (i) => safeDivide(num(i,"totalEmployeeCost"), num(i,"annualWorkHours")) },
+
+  // Transfer Fiyat
+  { id: "cost.transfer_tax_impact", family: "cost", label: "Transfer tax impact", fn: (i) => (num(i,"transferPrice") - num(i,"marketPrice")) * num(i,"taxRateDiff") / 100 },
+  { id: "cost.transfer_global_profit", family: "cost", label: "Transfer global profit", fn: (i) => num(i,"sellerProfit") + num(i,"buyerProfit") - num(i,"transferTaxImpact") },
+
+  // Ürün Complexity
+  { id: "measurement.complexity_index", family: "measurement", label: "Complexity index", fn: (i) => safeDivide(num(i,"uniqueParts"), num(i,"totalParts")) },
+  { id: "cost.hidden_cost_complexity", family: "cost", label: "Hidden complexity cost", fn: (i) => num(i,"complexityIndex") * num(i,"annualOverhead") },
+  { id: "cost.profitability_per_sku", family: "cost", label: "Profitability per SKU", fn: (i) => safeDivide(num(i,"skuRevenue") - num(i,"skuCost"), num(i,"skuQty")) },
+
+  // Vakum Kaçağı
+  { id: "measurement.vacuum_leak_rate", family: "measurement", label: "Vacuum leak rate", fn: (i) => num(i,"pressureDrop") * num(i,"chamberVolume") / num(i,"testDuration") },
+  { id: "cost.vacuum_leak_cost", family: "cost", label: "Vacuum leak cost", fn: (i) => num(i,"vacuumLeakRate") * num(i,"energyCostPerUnit") * num(i,"operatingHours") },
+  { id: "measurement.vacuum_capacity_waste", family: "measurement", label: "Vacuum capacity waste", fn: (i) => safeDivide(num(i,"vacuumLeakRate"), num(i,"vacuumCapacity")) * 100 },
+
+  // Vardiya Maliyet
+  { id: "cost.shift_total_cost", family: "cost", label: "Shift total cost", fn: (i) => num(i,"shiftWorkers") * num(i,"shiftHours") * num(i,"shiftRate") },
+  { id: "measurement.shift_efficiency", family: "measurement", label: "Shift efficiency", fn: (i) => safeDivide(num(i,"shiftOutput"), num(i,"shiftMaxOutput")) },
+  { id: "cost.shift_cost_per_unit", family: "cost", label: "Shift cost per unit", fn: (i) => safeDivide(num(i,"shiftTotalCost"), num(i,"shiftOutput")) },
+
+  // VSM
+  { id: "cost.vsm_leadtime_cost", family: "cost", label: "VSM leadtime cost", fn: (i) => num(i,"totalLeadTime") * num(i,"costPerDay") },
+  { id: "measurement.vsm_value_added_ratio", family: "measurement", label: "Value-added ratio", fn: (i) => safeDivide(num(i,"valueAddedTime"), num(i,"totalLeadTime")) },
+  { id: "cost.vsm_non_value_added_cost", family: "cost", label: "Non-value-added cost", fn: (i) => (num(i,"totalLeadTime") - num(i,"valueAddedTime")) * num(i,"costPerDay") },
+  { id: "cost.vsm_total_financial_impact", family: "cost", label: "VSM total impact", fn: (i) => num(i,"leadtimeCost") + num(i,"nonValueAddedCost") + num(i,"inventoryCost") },
+
+  // WPS Preheat
+  { id: "measurement.carbon_equivalent", family: "measurement", label: "Carbon equivalent", fn: (i) => num(i,"carbonPct") + num(i,"mnPct") / 6 + (num(i,"crPct") + num(i,"moPct") + num(i,"vPct")) / 5 + (num(i,"niPct") + num(i,"cuPct")) / 15 },
+  { id: "measurement.preheat_required", family: "measurement", label: "Preheat required", fn: (i) => num(i,"carbonEquivalent") > num(i,"thresholdCe") ? 1 : 0 },
+  { id: "cost.preheat_energy_cost", family: "cost", label: "Preheat energy cost", fn: (i) => num(i,"preheatHours") * num(i,"energyRate") * num(i,"preheatPower") },
+
+  // Yakıt Rota
+  { id: "cost.fuel_waste_distance", family: "cost", label: "Fuel waste distance", fn: (i) => (num(i,"actualKm") - num(i,"optimalKm")) * num(i,"fuelCostPerKm") },
+  { id: "cost.fuel_waste_efficiency", family: "cost", label: "Fuel waste efficiency", fn: (i) => num(i,"actualFuelUsed") * num(i,"fuelPrice") - num(i,"expectedFuelCost") },
+  { id: "cost.idle_fuel_cost", family: "cost", label: "Idle fuel cost", fn: (i) => num(i,"idleHours") * num(i,"fuelCostPerHour") },
+  { id: "cost.total_drift_cost", family: "cost", label: "Total drift cost", fn: (i) => num(i,"fuelWasteDistance") + num(i,"fuelWasteEfficiency") + num(i,"idleFuelCost") },
+
+  // Yangın
+  { id: "measurement.hydrant_flow", family: "measurement", label: "Hydrant flow", fn: (i) => num(i,"hydrantPressure") * num(i,"orificeCoefficient") * Math.sqrt(num(i,"hydrantPressure")) },
+  { id: "measurement.available_flow", family: "measurement", label: "Available flow", fn: (i) => num(i,"hydrantFlow") - num(i,"requiredFlow") },
+  { id: "cost.hydrant_compliance", family: "cost", label: "Hydrant compliance cost", fn: (i) => num(i,"deficientHydrants") * num(i,"remediationCost") },
+
+  // Yenileme Bütçe
+  { id: "cost.renovation_base_cost", family: "cost", label: "Renovation base cost", fn: (i) => num(i,"areaSqm") * num(i,"costPerSqm") },
+  { id: "cost.renovation_total_budget", family: "cost", label: "Renovation total budget", fn: (i) => num(i,"renovationBaseCost") + num(i,"contingencyBudget") + num(i,"designFee") },
+  { id: "cost.renovation_roi", family: "cost", label: "Renovation ROI", fn: (i) => safeDivide(num(i,"valueAfter") - num(i,"renovationTotalBudget"), num(i,"renovationTotalBudget")) * 100 },
+
+  // Yenilenebilir
+  { id: "measurement.renewable_annual_gen", family: "measurement", label: "Renewable annual generation", fn: (i) => num(i,"installedCapacity") * num(i,"capacityFactor") * 8760 },
+  { id: "cost.renewable_npv", family: "cost", label: "Renewable NPV", fn: (i) => num(i,"annualCashFlow") * (1 - Math.pow(1 + num(i,"discountRate") / 100, -num(i,"lifeYears"))) / (num(i,"discountRate") / 100) - num(i,"totalInvestment") },
+  { id: "cost.renewable_lcoe", family: "cost", label: "Renewable LCOE", fn: (i) => safeDivide(num(i,"totalInvestment") + num(i,"annualOpex") * num(i,"lifeYears"), num(i,"annualGen") * num(i,"lifeYears")) },
+
+  // YG ve NBD
+  { id: "cost.roi_investment", family: "cost", label: "ROI", fn: (i) => safeDivide(num(i,"netProfit"), num(i,"initialInvestment")) * 100 },
+  { id: "cost.npv_investment", family: "cost", label: "NPV", fn: (i) => num(i,"annualCashFlowNpv") * (1 - Math.pow(1 + num(i,"discountRateNpv") / 100, -num(i,"lifeYearsNpv"))) / (num(i,"discountRateNpv") / 100) - num(i,"initialInvestment") },
+  { id: "cost.irr_investment", family: "cost", label: "IRR", fn: (i) => safeDivide(num(i,"annualCashFlowNpv"), num(i,"initialInvestment")) },
+  { id: "cost.payback_period_inv", family: "cost", label: "Payback period", fn: (i) => safeDivide(num(i,"initialInvestment"), num(i,"annualCashFlowNpv")) },
+
+  // Zaman Etüdü
+  { id: "measurement.standard_time", family: "measurement", label: "Standard time", fn: (i) => num(i,"observedTime") * num(i,"performanceRating") / 100 * (1 + num(i,"allowancePct") / 100) },
+  { id: "measurement.standard_output", family: "measurement", label: "Standard output", fn: (i) => safeDivide(60, num(i,"standardTime")) },
+  { id: "cost.labor_cost_per_unit_zaman", family: "cost", label: "Labor cost per unit", fn: (i) => num(i,"standardTime") / 60 * num(i,"laborRate") },
+  { id: "cost.efficiency_variance", family: "cost", label: "Efficiency variance", fn: (i) => (num(i,"actualTime") - num(i,"standardTime") * num(i,"actualOutput")) * num(i,"laborRate") / 60 },
+
   {
     id: "yield.gap_value",
     family: "scrap",
@@ -1933,6 +2787,222 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       return assertFinite((d * d - rod * rod) / (d * d));
     },
   },
+  // -------------------------------------------------------------------------
+  // Setup & complexity cost formulas — product-complexity-hidden-cost
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.setup_total_cost",
+    family: "cost",
+    label: "Setup total cost from changeover time and cost per minute",
+    fn: (inputs) => assertFinite(num(inputs, "changeoverTime") * num(inputs, "costPerMinute")),
+  },
+  {
+    id: "measurement.waste_percentage",
+    family: "measurement",
+    label: "Waste percentage from waste and total",
+    fn: (inputs) => safeDivide(num(inputs, "waste"), num(inputs, "total")) * 100,
+  },
+  // -------------------------------------------------------------------------
+  // Vacuum leak energy — vacuum-leak-energy
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.vacuum_savings_potential",
+    family: "cost",
+    label: "Vacuum leak savings potential (70% of leak cost)",
+    fn: (inputs) => assertFinite(num(inputs, "vacuumLeakCost") * 0.7),
+  },
+  // -------------------------------------------------------------------------
+  // Shift cost — shift-cost-efficiency
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.annual_shift_cost",
+    family: "cost",
+    label: "Annual shift cost from workers, hours, rate, and days",
+    fn: (inputs) => assertFinite(num(inputs, "shiftWorkers") * num(inputs, "shiftHours") * num(inputs, "shiftRate") * num(inputs, "shiftDays")),
+  },
+  // -------------------------------------------------------------------------
+  // WPS preheat crack risk — wps-preheat-temperature
+  // -------------------------------------------------------------------------
+  {
+    id: "measurement.crack_risk_score",
+    family: "measurement",
+    label: "Crack risk score from carbon equivalent vs threshold",
+    fn: (inputs) => assertFinite(num(inputs, "carbonEquivalent") / num(inputs, "thresholdCe") * 100),
+  },
+  // -------------------------------------------------------------------------
+  // Fire hydrant compliance — fire-hydrant-flow
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.hydrant_compliance_penalty",
+    family: "cost",
+    label: "Hydrant compliance penalty from deficient hydrants",
+    fn: (inputs) => assertFinite(num(inputs, "deficientHydrants") * num(inputs, "penaltyPerHydrant")),
+  },
+  // -------------------------------------------------------------------------
+  // Renovation budget breakdown — renovation-budget-optimizer
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.renovation_budget_breakdown",
+    family: "cost",
+    label: "Renovation budget breakdown (base + contingency + design)",
+    fn: (inputs) => assertFinite(num(inputs, "renovationBaseCost") + num(inputs, "contingencyBudget") + num(inputs, "designFee")),
+  },
+  // -------------------------------------------------------------------------
+  // Renewable energy IRR — renewable-energy-irr
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.renewable_irr",
+    family: "cost",
+    label: "Renewable IRR proxy from cash flow ratio",
+    fn: (inputs) => assertFinite(safeDivide(num(inputs, "annualCashFlow"), num(inputs, "totalInvestment")) * 100),
+  },
+  {
+    id: "measurement.renewable_payback",
+    family: "measurement",
+    label: "Renewable energy payback period",
+    fn: (inputs) => safeDivide(num(inputs, "totalInvestment"), num(inputs, "annualCashFlow")),
+  },
+  // -------------------------------------------------------------------------
+  // Cash flow metrics — cash-flow-gap & payment-terms
+  // -------------------------------------------------------------------------
+  {
+    id: "measurement.dso",
+    family: "measurement",
+    label: "Days sales outstanding",
+    fn: (inputs) => safeDivide(num(inputs, "accountsReceivable"), num(inputs, "annualRevenue") / 365),
+  },
+  {
+    id: "measurement.dpo",
+    family: "measurement",
+    label: "Days payable outstanding",
+    fn: (inputs) => safeDivide(num(inputs, "accountsPayable"), num(inputs, "annualCOGS") / 365),
+  },
+  {
+    id: "measurement.dio",
+    family: "measurement",
+    label: "Days inventory outstanding",
+    fn: (inputs) => safeDivide(num(inputs, "inventory"), num(inputs, "annualCOGS") / 365),
+  },
+  // -------------------------------------------------------------------------
+  // Energy — kwh-cost
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.demand_charge",
+    family: "cost",
+    label: "Demand charge from peak kW, rate, and months",
+    fn: (inputs) => assertFinite(num(inputs, "peakDemandKW") * num(inputs, "demandRatePerKW") * num(inputs, "months")),
+  },
+  // -------------------------------------------------------------------------
+  // Breakeven — breakeven-unit
+  // -------------------------------------------------------------------------
+  {
+    id: "measurement.breakeven_unit",
+    family: "measurement",
+    label: "Breakeven unit from fixed cost and contribution margin",
+    fn: (inputs) => safeDivide(num(inputs, "fixedCost"), num(inputs, "unitPrice") - num(inputs, "variableCost")),
+  },
+  // -------------------------------------------------------------------------
+  // Machine economic life — machine-economic-life
+  // -------------------------------------------------------------------------
+  {
+    id: "measurement.machine_economic_life",
+    family: "measurement",
+    label: "Machine economic life in years (EOQ-like model)",
+    fn: (inputs) => assertFinite(Math.sqrt(2 * num(inputs, "annualOperatingCost") * num(inputs, "salvageFactor") / num(inputs, "holdingCostRate"))),
+  },
+  // -------------------------------------------------------------------------
+  // Project overrun (EVM) — project-overrun
+  // -------------------------------------------------------------------------
+  {
+    id: "measurement.spi",
+    family: "measurement",
+    label: "Schedule performance index (SPI)",
+    fn: (i) => safeDivide(num(i, "earnedValue"), num(i, "plannedValue")),
+  },
+  {
+    id: "measurement.cpi",
+    family: "measurement",
+    label: "Cost performance index (CPI)",
+    fn: (i) => safeDivide(num(i, "earnedValue"), num(i, "actualCost")),
+  },
+  {
+    id: "cost.eac",
+    family: "cost",
+    label: "Estimate at completion (EAC = BAC / CPI)",
+    fn: (i) => safeDivide(num(i, "budgetAtCompletion"), num(i, "cpi")),
+  },
+  {
+    id: "cost.expected_overrun",
+    family: "cost",
+    label: "Expected overrun (EAC - BAC)",
+    fn: (i) => assertFinite(num(i, "eac") - num(i, "budgetAtCompletion")),
+  },
+  {
+    id: "measurement.schedule_delay",
+    family: "measurement",
+    label: "Schedule delay from planned duration and EV",
+    fn: (inputs) => assertFinite(num(inputs, "plannedDuration") - safeDivide(num(inputs, "earnedValue"), num(inputs, "budgetAtCompletion") / num(inputs, "plannedDuration"))),
+  },
+  {
+    id: "cost.risk_exposure",
+    family: "cost",
+    label: "Risk exposure (probability × impact)",
+    fn: (i) => assertFinite(num(i, "probability") * num(i, "impact")),
+  },
+  {
+    id: "cost.net_risk",
+    family: "cost",
+    label: "Net risk (risk exposure - mitigation)",
+    fn: (i) => assertFinite(num(i, "riskExposure") - num(i, "mitigationCost")),
+  },
+  // -------------------------------------------------------------------------
+  // Recipe cost — recipe-cost-check
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.recipe_yield_loss",
+    family: "cost",
+    label: "Recipe yield loss cost from expected vs actual",
+    fn: (i) => assertFinite((num(i, "expectedYield") - num(i, "actualYield")) * num(i, "costPerUnit")),
+  },
+  {
+    id: "measurement.recipe_efficiency",
+    family: "measurement",
+    label: "Recipe efficiency (actual / expected × 100)",
+    fn: (i) => safeDivide(num(i, "actualYield"), num(i, "expectedYield")) * 100,
+  },
+  // -------------------------------------------------------------------------
+  // Restaurant margin — restaurant-menu-margin-leak
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.restaurant_variance",
+    family: "cost",
+    label: "Restaurant food cost variance × meals served",
+    fn: (inputs) => assertFinite((num(inputs, "expectedFoodCost") - num(inputs, "actualFoodCost")) * num(inputs, "mealsServed")),
+  },
+  // -------------------------------------------------------------------------
+  // Robot vs manual — robot-vs-manual
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.robot_roi",
+    family: "cost",
+    label: "Robot automation ROI including error cost",
+    fn: (inputs) => assertFinite(safeDivide((num(inputs, "annualLaborCost") + num(inputs, "annualErrorCost")) - num(inputs, "robotAnnualCost"), num(inputs, "robotInvestment")) * 100),
+  },
+  // -------------------------------------------------------------------------
+  // Route cost — route-cost
+  // -------------------------------------------------------------------------
+  {
+    id: "cost.route_overhead",
+    family: "cost",
+    label: "Route overhead from distance and rate per km",
+    fn: (inputs) => assertFinite(num(inputs, "routeDistance") * num(inputs, "overheadPerKm")),
+  },
+  {
+    id: "cost.route_total_cost",
+    family: "cost",
+    label: "Total route cost (fuel + labor + overhead)",
+    fn: (inputs) => assertFinite(num(inputs, "routeFuelCost") + num(inputs, "routeLaborCost") + num(inputs, "routeOverhead")),
+  },
 ];
 
 // Legacy aliases — stable ids for existing pilot schemas (same functions)
@@ -2133,6 +3203,461 @@ const FORMULA_META_DETAILS: Record<
     requiredInputs: ["p90Cost", "targetMarginPercent"],
     outputHint: "currency",
   },
+  // ── Batch 2 META (Tools 21-60) ──
+  "cost.clv": { description: "Customer lifetime value as avg order value × frequency × lifespan.", requiredInputs: ["avgOrderValue","purchaseFreq","lifespan"], outputHint: "currency" },
+  "cost.gross_margin_clv": { description: "CLV adjusted by gross margin percentage.", requiredInputs: ["clv","grossMarginPct"], outputHint: "currency" },
+  "cost.discounted_clv": { description: "Discounted cumulative CLV over 5 years with retention and discount rate.", requiredInputs: ["clv","retention","discountRate"], outputHint: "currency" },
+  "cost.cac": { description: "Customer acquisition cost from total marketing spend divided by new customers.", requiredInputs: ["salesMarketing","salaries","overhead","newCustomers"], outputHint: "currency" },
+  "cost.cac_payback": { description: "Months to recover CAC from monthly gross profit per customer.", requiredInputs: ["cac","avgOrderValue","purchaseFreq","grossMarginPct"], outputHint: "duration" },
+  "cost.ltv_cac_ratio": { description: "LTV to CAC ratio for customer acquisition efficiency.", requiredInputs: ["discountedClv","cac"], outputHint: "number" },
+  "measurement.cnc_rpm": { description: "CNC spindle RPM from cutting speed and tool diameter.", requiredInputs: ["cuttingSpeed","toolDiameter"], outputHint: "number" },
+  "measurement.cnc_feed_speed": { description: "Feed speed from feed per tooth, teeth count, and RPM.", requiredInputs: ["feedPerTooth","teeth","rpm"], outputHint: "number" },
+  "measurement.cnc_cut_time": { description: "Cut time from length, depth, feed speed, and axial depth.", requiredInputs: ["length","depth","feedSpeed","axialDepth"], outputHint: "duration" },
+  "measurement.cnc_rapid_time": { description: "Rapid traverse time from distance and speed.", requiredInputs: ["rapidDistance","rapidSpeed"], outputHint: "duration" },
+  "measurement.cnc_toolchange_time": { description: "Total tool change time from change count and time per change.", requiredInputs: ["changeCount","timePerChange"], outputHint: "duration" },
+  "measurement.cnc_total_time": { description: "Total CNC cycle time including cutting, rapid, toolchange, non-cutting, and load/unload.", requiredInputs: ["cutTime","rapidTime","toolChangeTime","nonCuttingTime","loadUnloadTime"], outputHint: "duration" },
+  "cost.cnc_material": { description: "Raw material cost per unit including scrap factor.", requiredInputs: ["rawVolume","density","pricePerKg","scrapRate"], outputHint: "currency" },
+  "cost.cnc_machining": { description: "Machining cost per unit from cycle time and machine rate.", requiredInputs: ["totalCycleTime","machineRate"], outputHint: "currency" },
+  "cost.cnc_tooling": { description: "Tooling cost per unit from tool life and cut time.", requiredInputs: ["cutTime","toolLife","toolCost"], outputHint: "currency" },
+  "cost.cnc_energy": { description: "Energy cost per unit from power, cycle time, and electricity rate.", requiredInputs: ["power","totalCycleTime","elecRate"], outputHint: "currency" },
+  "cost.cnc_overhead": { description: "Overhead cost per unit from cycle time and overhead rate.", requiredInputs: ["totalCycleTime","overheadRate"], outputHint: "currency" },
+  "cost.cnc_total_unit": { description: "Total unit cost including material, machining, tooling, energy, and overhead.", requiredInputs: ["materialCost","machiningCost","toolingCost","energyCost","overheadCost","qualityCost"], outputHint: "currency" },
+  "measurement.cpk_z_usl": { description: "Z score for upper specification limit.", requiredInputs: ["usl","mean","stdDev"], outputHint: "number" },
+  "measurement.cpk_z_lsl": { description: "Z score for lower specification limit.", requiredInputs: ["mean","lsl","stdDev"], outputHint: "number" },
+  "measurement.cpk_index": { description: "Cpk process capability index.", requiredInputs: ["zUsl","zLsl"], outputHint: "number" },
+  "measurement.cpk_p_usl": { description: "Probability of exceeding USL.", requiredInputs: ["zUsl"], outputHint: "percentage" },
+  "measurement.cpk_p_lsl": { description: "Probability of falling below LSL.", requiredInputs: ["zLsl"], outputHint: "percentage" },
+  "measurement.cpk_p_total": { description: "Total out-of-spec probability.", requiredInputs: ["pUsl","pLsl"], outputHint: "percentage" },
+  "measurement.cpk_ppm": { description: "Parts per million out of specification.", requiredInputs: ["pTotal"], outputHint: "number" },
+  "measurement.cpk_yield": { description: "Process yield (in-spec ratio).", requiredInputs: ["pTotal"], outputHint: "number" },
+  "measurement.cpk_sigma_st": { description: "Short-term sigma level with 1.5 shift.", requiredInputs: ["cpk"], outputHint: "number" },
+  "measurement.cpm_total_float": { description: "Total float from late start minus early start.", requiredInputs: ["lateStart","earlyStart"], outputHint: "duration" },
+  "measurement.cpm_critical_delay": { description: "Critical path delay beyond planned duration and float.", requiredInputs: ["actualDuration","plannedDuration","totalFloat"], outputHint: "duration" },
+  "measurement.cpm_non_excusable": { description: "Non-excusable delay days after removing force majeure.", requiredInputs: ["criticalDelay","excusableDelay"], outputHint: "duration" },
+  "cost.cpm_liquidated_damages": { description: "Liquidated damages from non-excusable delay.", requiredInputs: ["nonExcusable","dailyPenalty"], outputHint: "currency" },
+  "cost.cpm_acceleration": { description: "Acceleration cost from crashing.", requiredInputs: ["crashingCost","daysAccelerated"], outputHint: "currency" },
+  "cost.cpm_net_penalty": { description: "Net penalty after acceleration credit.", requiredInputs: ["liquidatedDamages","accelerationCost"], outputHint: "currency" },
+  "cost.cpm_eot_claim": { description: "Extension of time claim days.", requiredInputs: ["excusableDelay","effFactor"], outputHint: "duration" },
+  "measurement.roof_footprint": { description: "Building footprint area from length and width.", requiredInputs: ["buildingLength","buildingWidth"], outputHint: "number" },
+  "measurement.roof_gable_area": { description: "Gable roof area adjusted by pitch angle.", requiredInputs: ["footprint","pitchAngle"], outputHint: "number" },
+  "measurement.roof_overhang_area": { description: "Overhang area from perimeter and overhang width.", requiredInputs: ["buildingLength","buildingWidth","overhangWidth"], outputHint: "number" },
+  "measurement.roof_material_area": { description: "Total material area including waste factor.", requiredInputs: ["gableArea","wasteFactor"], outputHint: "number" },
+  "measurement.roof_ridge_length": { description: "Ridge length for hip roofs.", requiredInputs: ["buildingLength","buildingWidth"], outputHint: "number" },
+  "measurement.bottleneck_util": { description: "Bottleneck utilization as actual vs design capacity.", requiredInputs: ["actualOutput","designCapacity"], outputHint: "number" },
+  "measurement.bottleneck_throughput": { description: "Effective throughput adjusted for defect rate.", requiredInputs: ["demand","defectRate"], outputHint: "number" },
+  "measurement.bottleneck_takt_time": { description: "Takt time from available time and demand.", requiredInputs: ["availableTime","demand"], outputHint: "duration" },
+  "measurement.bottleneck_cycle_gap": { description: "Cycle time gap above takt time.", requiredInputs: ["bottleneckCycle","taktTime"], outputHint: "duration" },
+  "cost.bottleneck_cost": { description: "Cost of constraint from cycle gap, demand, and margin.", requiredInputs: ["cycleGap","demand","unitMargin"], outputHint: "currency" },
+  "cost.bottleneck_roi": { description: "ROI of bottleneck upgrade investment.", requiredInputs: ["throughputIncrease","margin","days","upgradeCost"], outputHint: "number" },
+  "cost.bottleneck_payback": { description: "Payback period in months for bottleneck upgrade.", requiredInputs: ["upgradeCost","monthlyGain"], outputHint: "duration" },
+  "measurement.smed_setup_total": { description: "Total setup time from internal and external setup.", requiredInputs: ["internalSetup","externalSetup"], outputHint: "duration" },
+  "measurement.smed_target_time": { description: "Target setup time after SMED conversion.", requiredInputs: ["internalSetup","conversionRate","externalSetup"], outputHint: "duration" },
+  "measurement.smed_ebq": { description: "Economic batch quantity from demand, setup, and holding cost.", requiredInputs: ["demand","setupCost","holdingCost"], outputHint: "number" },
+  "cost.smed_setup_cost": { description: "Setup cost from total time, machine rate, and labor.", requiredInputs: ["totalSetup","machineRate","labor"], outputHint: "currency" },
+  "cost.smed_annual_savings": { description: "Annual savings from SMED time reduction.", requiredInputs: ["totalSetup","targetTime","changeoverFreq","machineRate"], outputHint: "currency" },
+  "measurement.warehouse_storage_area": { description: "Available storage area from footprint and utilization.", requiredInputs: ["footprint","utilRate"], outputHint: "number" },
+  "measurement.warehouse_pallet_positions": { description: "Pallet positions from storage area and pallet footprint.", requiredInputs: ["storageArea","palletFootprint","aisleFactor"], outputHint: "number" },
+  "measurement.warehouse_vertical_cap": { description: "Vertical storage capacity from pallet positions and rack levels.", requiredInputs: ["palletPositions","rackLevels"], outputHint: "number" },
+  "measurement.warehouse_door_throughput": { description: "Door throughput capacity from doors and turnaround time.", requiredInputs: ["doors","turnaroundLoad","turnaroundUnload"], outputHint: "number" },
+  "cost.warehouse_cost_per_pos": { description: "Cost per pallet position.", requiredInputs: ["facilityCost","palletPositions"], outputHint: "currency" },
+  "cost.absenteeism_direct": { description: "Direct absenteeism cost including burden.", requiredInputs: ["absentHours","hourlyRate","burden"], outputHint: "currency" },
+  "cost.absenteeism_ot": { description: "Overtime premium cost for replacement.", requiredInputs: ["replaceOT","otRate","regRate"], outputHint: "currency" },
+  "cost.absenteeism_temp": { description: "Temporary worker cost.", requiredInputs: ["tempHours","tempRate","markup"], outputHint: "currency" },
+  "cost.absenteeism_prod": { description: "Production loss cost from absenteeism.", requiredInputs: ["absentHours","outputPerHour","margin","effDrop"], outputHint: "currency" },
+  "cost.absenteeism_admin": { description: "Admin cost per absenteeism event.", requiredInputs: ["events","hrTime","hrRate"], outputHint: "currency" },
+  "cost.absenteeism_bradford": { description: "Bradford factor score for absenteeism pattern.", requiredInputs: ["events","days"], outputHint: "score" },
+  "cost.absenteeism_total": { description: "Total absenteeism cost.", requiredInputs: ["directCost","otPremium","tempCost","prodLoss","adminCost"], outputHint: "currency" },
+  "cost.digital_twin_cost_trad": { description: "Traditional approach cost for testing/physical iterations.", requiredInputs: ["prototyping","fieldTest","downtime","travel"], outputHint: "currency" },
+  "cost.digital_twin_cost_dt": { description: "Digital twin approach cost for software/sensors.", requiredInputs: ["license","compute","sensor","modeling"], outputHint: "currency" },
+  "cost.digital_twin_time_gain": { description: "Time gain from digital twin iteration speed.", requiredInputs: ["physCycle","digCycle","iterations"], outputHint: "duration" },
+  "cost.digital_twin_roi": { description: "ROI of digital twin investment.", requiredInputs: ["costTrad","costDt","revenueGain","qualitySavings"], outputHint: "number" },
+  "measurement.sewing_takt_time": { description: "Takt time for sewing line.", requiredInputs: ["availableTime","demand"], outputHint: "duration" },
+  "measurement.sewing_theo_op": { description: "Theoretical operators needed.", requiredInputs: ["cycleTotal","taktTime"], outputHint: "number" },
+  "measurement.sewing_line_eff": { description: "Sewing line efficiency percentage.", requiredInputs: ["cycleTotal","actOperators","taktTime"], outputHint: "percentage" },
+  "measurement.sewing_balance_delay": { description: "Balance delay percentage.", requiredInputs: ["lineEff"], outputHint: "percentage" },
+  "measurement.sewing_smoothness": { description: "Smoothness index for line balance.", requiredInputs: [], outputHint: "score" },
+  "cost.dye_batch": { description: "Total dye batch cost including dye, chem, water, energy, waste.", requiredInputs: ["dyeCost","chemCost","waterCost","energyCost","wasteCost"], outputHint: "currency" },
+  "cost.dye_rft_savings": { description: "RFT rework savings.", requiredInputs: ["rework","rft"], outputHint: "currency" },
+  "cost.dye_cost_per_kg": { description: "Cost per kg of dyed fabric.", requiredInputs: ["totalBatch","rftSavings","fabricWeight"], outputHint: "currency" },
+  "energy.power_factor": { description: "Power factor from active and reactive power.", requiredInputs: ["active","reactive"], outputHint: "number" },
+  "energy.reactive_penalty": { description: "Reactive power penalty cost.", requiredInputs: ["pf","pfThresh","reactive","active","tariff"], outputHint: "currency" },
+  "energy.demand_charge": { description: "Demand charge from peak kW.", requiredInputs: ["peakKw","demandRate"], outputHint: "currency" },
+  "energy.carbon_energy": { description: "Carbon cost from energy consumption.", requiredInputs: ["active","emisFactor","carbonPrice"], outputHint: "currency" },
+  "cost.escalation_material": { description: "Material cost escalation factor over years.", requiredInputs: ["inflMat","years"], outputHint: "number" },
+  "cost.escalation_labor": { description: "Labor cost escalation factor over years.", requiredInputs: ["inflLab","years"], outputHint: "number" },
+  "cost.real_discount": { description: "Real discount rate from nominal and inflation.", requiredInputs: ["nominal","infl"], outputHint: "number" },
+  "cost.env_fire_disposal": { description: "Waste disposal cost.", requiredInputs: ["waste","dispFee"], outputHint: "currency" },
+  "cost.env_fire_haz": { description: "Hazardous waste disposal cost.", requiredInputs: ["hazMass","hazFee","surcharge"], outputHint: "currency" },
+  "cost.env_fire_recycle": { description: "Recycling net cost after scrap revenue.", requiredInputs: ["recycMass","sortCost","scrapRev"], outputHint: "currency" },
+  "cost.env_fire_emis": { description: "Emission cost from air and water.", requiredInputs: ["air","carbonPrice","water","treatCost"], outputHint: "currency" },
+  "cost.env_fire_penalty_risk": { description: "Expected penalty from regulatory violation.", requiredInputs: ["probViolation","fine"], outputHint: "currency" },
+  "cost.env_fire_total": { description: "Total environmental waste cost.", requiredInputs: ["disposalCost","hazCost","recycleCost","emisCost","penaltyRisk"], outputHint: "currency" },
+  "cost.eoq": { description: "Economic order quantity.", requiredInputs: ["annualDemand","orderCost","holdingCost"], outputHint: "number" },
+  "measurement.eoq_rop": { description: "Reorder point with safety stock.", requiredInputs: ["leadTime","dailyDemand","safetyStock"], outputHint: "number" },
+  "measurement.eoq_safety_stock": { description: "Safety stock from service level and demand variability.", requiredInputs: ["zScore","stdDev","leadTime"], outputHint: "number" },
+  "cost.eoq_total_inv": { description: "Total inventory cost including ordering and holding.", requiredInputs: ["annualDemand","eoq","orderCost","safetyStock","holdingCost"], outputHint: "currency" },
+  "cost.evm_sv": { description: "Schedule variance (EV - PV).", requiredInputs: ["ev","pv"], outputHint: "currency" },
+  "cost.evm_cv": { description: "Cost variance (EV - AC).", requiredInputs: ["ev","ac"], outputHint: "currency" },
+  "cost.evm_spi": { description: "Schedule performance index.", requiredInputs: ["ev","pv"], outputHint: "number" },
+  "cost.evm_cpi": { description: "Cost performance index.", requiredInputs: ["ev","ac"], outputHint: "number" },
+  "cost.evm_eac_cpi": { description: "Estimate at completion using CPI.", requiredInputs: ["bac","cpi"], outputHint: "currency" },
+  "cost.evm_eac_cpi_spi": { description: "Estimate at completion using CPI and SPI.", requiredInputs: ["ac","bac","ev","cpi","spi"], outputHint: "currency" },
+  "cost.evm_vac": { description: "Variance at completion.", requiredInputs: ["bac","eac"], outputHint: "currency" },
+  "measurement.layout_flow_cost": { description: "Flow distance cost from layout matrix.", requiredInputs: [], outputHint: "currency" },
+  "cost.ir_exposure": { description: "Interest rate exposure after hedge.", requiredInputs: ["floatingDebt","hedgeRatio"], outputHint: "currency" },
+  "cost.ir_shock_impact": { description: "Shock impact on interest exposure.", requiredInputs: ["exposure","bpsChange"], outputHint: "currency" },
+  "cost.ir_dur_gap": { description: "Duration gap between assets and liabilities.", requiredInputs: ["assetDur","liabDur"], outputHint: "duration" },
+  "cost.ir_eve_change": { description: "Economic value of equity change.", requiredInputs: ["durGap","assetVal","rateChange"], outputHint: "currency" },
+  "cost.filament_virgin": { description: "Virgin filament cost including scrap and transport.", requiredInputs: ["priceV","scrapV","transpV"], outputHint: "currency" },
+  "cost.filament_recycle": { description: "Recycled filament cost per unit.", requiredInputs: ["collect","sort","pellet","yield"], outputHint: "currency" },
+  "cost.filament_total_r": { description: "Total recycled filament cost after adjustments.", requiredInputs: ["costRecyc","qualPenalty","energySav","carbonCred"], outputHint: "currency" },
+  "cost.filament_roi": { description: "ROI of filament recycling investment.", requiredInputs: ["costV","totalR","volume","capex"], outputHint: "number" },
+  "measurement.price_elasticity": { description: "Price elasticity of demand.", requiredInputs: ["pctChangeDem","pctChangePrice"], outputHint: "number" },
+  "cost.price_elast_new_rev": { description: "New revenue after price change.", requiredInputs: ["newPrice","newDem"], outputHint: "currency" },
+  "cost.price_elast_new_margin": { description: "New margin after price change.", requiredInputs: ["newPrice","varCost","newDem","fixed"], outputHint: "currency" },
+  "cost.flex_mfg_cost_ded": { description: "Dedicated line total cost.", requiredInputs: ["machDed","setupDed","changeovers","invHigh"], outputHint: "currency" },
+  "cost.flex_mfg_cost_fms": { description: "FMS line total cost.", requiredInputs: ["machFms","toolFms","prog","maint"], outputHint: "currency" },
+  "cost.flex_mfg_flex_val": { description: "Flexibility value from TTM and customer premium.", requiredInputs: ["ttmRed","revGain","custPrem","volume"], outputHint: "currency" },
+  "cost.flex_mfg_roi": { description: "Flexible manufacturing ROI.", requiredInputs: ["costDed","costFms","flexVal","invSav","scrapRed","capex"], outputHint: "number" },
+  "measurement.grr_combined": { description: "GRR combined percentage from gage study.", requiredInputs: [], outputHint: "percentage" },
+  "cost.grr_error_cost": { description: "Cost impact from gage measurement errors.", requiredInputs: ["falseAcc","escapeCost","falseRej","scrapCost"], outputHint: "currency" },
+  "measurement.food_yield": { description: "Food yield ratio of finished to raw.", requiredInputs: ["finished","raw"], outputHint: "number" },
+  "cost.food_shrink_cost": { description: "Shrinkage cost from raw-to-finished loss.", requiredInputs: ["raw","finished","rawCost"], outputHint: "currency" },
+  "cost.food_spoil_cost": { description: "Spoilage cost.", requiredInputs: ["spoiled","prodCost"], outputHint: "currency" },
+  "cost.food_margin_leak": { description: "Total food margin leak from shrinkage, spoilage, and overproduction.", requiredInputs: ["shrinkCost","spoilCost","overCost"], outputHint: "currency" },
+  "measurement.fertilizer_need": { description: "Fertilizer nutrient need adjusted for soil and efficiency.", requiredInputs: ["nutReq","soilSupp","eff"], outputHint: "number" },
+  "cost.fertilizer_cost": { description: "Fertilizer cost for application area.", requiredInputs: ["appRate","area","price"], outputHint: "currency" },
+  "cost.fertilizer_roi": { description: "Fertilizer return on investment.", requiredInputs: ["yieldInc","cropPrice","cost"], outputHint: "number" },
+  "cost.haccp_hold": { description: "Quarantine hold cost.", requiredInputs: ["quarVol","holdCost","days"], outputHint: "currency" },
+  "cost.haccp_test": { description: "Lab test cost for deviation samples.", requiredInputs: ["samples","labCost"], outputHint: "currency" },
+  "cost.haccp_rework": { description: "Rework cost for deviated product.", requiredInputs: ["devVol","reworkCost"], outputHint: "currency" },
+  "cost.haccp_disp": { description: "Disposal cost for condemned product.", requiredInputs: ["condVol","dispCost","lostMat"], outputHint: "currency" },
+  "cost.haccp_recall": { description: "Recall cost including notification, logistics, retail penalty, and brand damage.", requiredInputs: ["notif","logRev","retailPen","brand"], outputHint: "currency" },
+  "cost.haccp_fine": { description: "Expected regulatory fine.", requiredInputs: ["probDet","fineAmt"], outputHint: "currency" },
+  "cost.haccp_total": { description: "Total HACCP deviation cost.", requiredInputs: ["holdCost","testCost","reworkCost","dispCost","recallCost","fineRisk"], outputHint: "currency" },
+  "measurement.volumetric_weight_air": { description: "Volumetric weight for air freight (CBM/6000).", requiredInputs: ["length","width","height"], outputHint: "number" },
+  "measurement.volumetric_weight_road": { description: "Volumetric weight for road freight (CBM/5000).", requiredInputs: ["length","width","height"], outputHint: "number" },
+  "measurement.volumetric_weight_sea": { description: "Volumetric weight for sea freight (CBM/1000).", requiredInputs: ["length","width","height"], outputHint: "number" },
+  "cost.volumetric_freight": { description: "Freight cost based on chargeable weight.", requiredInputs: ["gross","volWeight","rate"], outputHint: "currency" },
+  "measurement.lightweight_weight_red": { description: "Weight reduction from lightweight design.", requiredInputs: ["massOrig","massLw"], outputHint: "number" },
+  "cost.lightweight_annual_fuel_sav": { description: "Annual fuel savings from weight reduction.", requiredInputs: ["weightRed","fuelFactor","distance","fuelPrice"], outputHint: "currency" },
+  "cost.lightweight_net_sav": { description: "Net lifecycle savings from lightweight design.", requiredInputs: ["fuelSav","payloadGain","life","matPrem","toolDelta"], outputHint: "currency" },
+  "cost.scrap_optimize_total": { description: "Total scrap cost including material, labor, overhead, and opportunity.", requiredInputs: ["scrapMat","scrapLab","scrapOh","oppCost","salvage"], outputHint: "currency" },
+  "measurement.hvac_sensible": { description: "Sensible heat load in BTU/h.", requiredInputs: ["cfm","deltaT"], outputHint: "number" },
+  "measurement.hvac_latent": { description: "Latent heat load in BTU/h.", requiredInputs: ["cfm","deltaW"], outputHint: "number" },
+  "measurement.hvac_total_load": { description: "Total cooling load in BTU/h.", requiredInputs: ["sensible","latent"], outputHint: "number" },
+  "measurement.hvac_tons": { description: "Cooling capacity in tons.", requiredInputs: ["totalLoad"], outputHint: "number" },
+  "energy.hydraulic_heat_loss": { description: "Total hydraulic system heat loss from leaks, friction, and valves.", requiredInputs: ["qLeak","p","deltaPPipe","qFlow","deltaPValve"], outputHint: "number" },
+  "cost.hydraulic_loss_cost": { description: "Energy cost of hydraulic losses.", requiredInputs: ["heat","hours","elecRate"], outputHint: "currency" },
+  "energy.fouling_resistance": { description: "Fouling resistance from clean and dirty U values.", requiredInputs: ["uDirty","uClean"], outputHint: "number" },
+  "energy.heat_exchanger_loss": { description: "Heat loss from fouling.", requiredInputs: ["area","uClean","lmtd","uDirty"], outputHint: "number" },
+  "cost.fouling_energy_penalty": { description: "Energy penalty cost from fouling.", requiredInputs: ["heatLoss","hours","boilEff","fuelCost"], outputHint: "currency" },
+  "energy.enpi": { description: "Energy performance indicator (energy per unit volume).", requiredInputs: ["energy","volume"], outputHint: "number" },
+  "energy.enpi_cusum": { description: "CUSUM energy savings.", requiredInputs: ["predicted","actual"], outputHint: "number" },
+  "cost.irr_simple": { description: "Net present value of cash flow stream.", requiredInputs: ["cashFlows","discountRate","initialInv"], outputHint: "currency" },
+  "cost.irr_approx": { description: "Simple IRR approximation.", requiredInputs: ["cashFlows","initialInv"], outputHint: "number" },
+  "cost.feed_base_cost": { description: "Base feed cost per ton from inclusion rates and prices.", requiredInputs: ["inclRates","prices"], outputHint: "currency" },
+  "cost.feed_cost_per_kg_live": { description: "Feed cost per kg live weight.", requiredInputs: ["baseCost","procCost","addCost","shrinkRate","fcr"], outputHint: "currency" },
+  "measurement.scaffold_area": { description: "Scaffold surface area.", requiredInputs: ["perimeter","height"], outputHint: "number" },
+  "cost.scaffold_total": { description: "Total scaffold cost including rental, erection, dismantling, and transport.", requiredInputs: ["area","rate","duration","erectRate","dismRate","trips","truckRate"], outputHint: "currency" },
+  "measurement.spc_x_bar_avg": { description: "Average of subgroup means for X-bar chart.", requiredInputs: ["data"], outputHint: "number" },
+  "measurement.spc_r_bar": { description: "Average range for R chart.", requiredInputs: ["data"], outputHint: "number" },
+  "measurement.machining_mrr": { description: "Material removal rate.", requiredInputs: ["vc","feed","ap"], outputHint: "number" },
+  "measurement.machining_power": { description: "Machining power required.", requiredInputs: ["mrr","specEnergy"], outputHint: "number" },
+  "cost.kaizen_hard_savings": { description: "Hard savings from kaizen (baseline - actual) × volume.", requiredInputs: ["baseline","actual","volume"], outputHint: "currency" },
+  "cost.kaizen_soft_savings": { description: "Soft savings from time reduction.", requiredInputs: ["timeSaved","labRate","conv"], outputHint: "currency" },
+  "cost.kaizen_roi": { description: "Kaizen project ROI.", requiredInputs: ["hardSav","softSav","impCost"], outputHint: "number" },
+  // ── Missing stub META entries ──
+  "cost.absenteeism_prod_loss": { description: "Production loss from absenteeism.", requiredInputs: ["absentHours","outputPerHour","margin","effDrop"], outputHint: "currency" },
+  "cost.digital_twin_revenue_gain": { description: "Revenue gain from earlier market entry via digital twin.", requiredInputs: ["timeGain","dailyRev"], outputHint: "currency" },
+  "cost.digital_twin_quality_savings": { description: "Quality cost savings from digital twin defect reduction.", requiredInputs: ["defectReduction","warrantyCost","volume"], outputHint: "currency" },
+  "cost.digital_twin_total_savings": { description: "Total savings from digital twin.", requiredInputs: ["revenueGain","qualitySavings"], outputHint: "currency" },
+  "cost.env_fire_emissions": { description: "Emission cost from air and water pollutants.", requiredInputs: ["air","carbonPrice","water","treatCost"], outputHint: "currency" },
+  "cost.env_fire_recycling": { description: "Recycling cost net of scrap recovery.", requiredInputs: ["recycMass","sortCost","scrapRev"], outputHint: "currency" },
+  "cost.eoq_total_cost": { description: "Total inventory cost from ordering and holding.", requiredInputs: ["annualDemand","eoq","orderCost","safetyStock","holdingCost"], outputHint: "currency" },
+  "cost.escalation_contingency": { description: "Escalation contingency based on confidence factor.", requiredInputs: ["baseAdj","confFactor"], outputHint: "currency" },
+  "cost.escalation_real_discount": { description: "Real discount rate derived from nominal and inflation.", requiredInputs: ["nominal","infl"], outputHint: "number" },
+  "cost.feed_cost_per_kg": { description: "Feed cost per kg live weight including all cost factors.", requiredInputs: ["baseCost","procCost","addCost","shrinkRate","fcr"], outputHint: "currency" },
+  "cost.filament_recycled": { description: "Recycled filament production cost per unit.", requiredInputs: ["collect","sort","pellet","yield"], outputHint: "currency" },
+  "cost.grr_cost_error": { description: "Cost impact from gage measurement errors.", requiredInputs: ["falseAcc","escapeCost","falseRej","scrapCost"], outputHint: "currency" },
+  "cost.haccp_disposal": { description: "Disposal cost for condemned product.", requiredInputs: ["condVol","dispCost","lostMat"], outputHint: "currency" },
+  "cost.hvac_annual_cost": { description: "HVAC annual operating energy cost.", requiredInputs: ["totalLoad","eer","hours","elecRate"], outputHint: "currency" },
+  "cost.ir_var": { description: "Value at risk for interest rate exposure.", requiredInputs: ["portVal","volatility","zScore"], outputHint: "currency" },
+  "cost.kaizen_payback": { description: "Kaizen project payback period in months.", requiredInputs: ["impCost","monthSav"], outputHint: "duration" },
+  "cost.kaizen_sustainability": { description: "Kaizen savings sustainability ratio (M6/M1).", requiredInputs: ["savM6","savM1"], outputHint: "number" },
+  "cost.layout_total_cost": { description: "Total factory layout cost from material handling, space, and congestion.", requiredInputs: ["matHandCost","spaceUtil","spaceCost","congestion","congCost"], outputHint: "currency" },
+  "cost.lightweight_fuel_savings": { description: "Annual fuel savings from weight reduction.", requiredInputs: ["weightRed","fuelFactor","distance","fuelPrice"], outputHint: "currency" },
+  "cost.lightweight_net_savings": { description: "Net lifecycle savings from lightweight design.", requiredInputs: ["fuelSav","payloadGain","life","matPrem","toolDelta"], outputHint: "currency" },
+  "cost.lightweight_payload_gain": { description: "Payload revenue gain from weight reduction.", requiredInputs: ["weightRed","revPerKg"], outputHint: "currency" },
+  "cost.ltv_cac": { description: "LTV / CAC ratio for customer profitability.", requiredInputs: ["discountedClv","cac"], outputHint: "number" },
+  "cost.npv": { description: "Net present value of cash flow stream.", requiredInputs: ["cashFlows","discountRate","initialInv"], outputHint: "currency" },
+  "cost.payback": { description: "CAC payback period in months.", requiredInputs: ["cac","avgOrderValue","purchaseFreq","grossMarginPct"], outputHint: "duration" },
+  "cost.payback_period": { description: "Simple payback period in years.", requiredInputs: ["yearBefore","unrecovered","cashRec"], outputHint: "duration" },
+  "cost.price_optimal_markup": { description: "Optimal markup based on price elasticity.", requiredInputs: ["elasticity"], outputHint: "number" },
+  "cost.profitability_index": { description: "Profitability index (PI) of investment.", requiredInputs: ["cashFlows","discountRate","initialInv"], outputHint: "number" },
+  "cost.scaffold_rental": { description: "Scaffold rental cost from area, rate, and duration.", requiredInputs: ["area","rate","duration"], outputHint: "currency" },
+  "cost.scaffold_labor": { description: "Scaffold erection and dismantling labor cost.", requiredInputs: ["area","erectRate","dismRate"], outputHint: "currency" },
+  "energy.cusum": { description: "CUSUM energy savings (predicted - actual).", requiredInputs: ["predicted","actual"], outputHint: "number" },
+  "energy.energy_carbon_footprint": { description: "Carbon footprint from energy consumption.", requiredInputs: ["active","emisFactor"], outputHint: "number" },
+  "energy.energy_savings": { description: "Energy savings from baseline.", requiredInputs: ["predicted","actual"], outputHint: "number" },
+  "energy.energy_total_bill": { description: "Total energy bill including all charges.", requiredInputs: ["baseCharge","touCharge","demandCharge","reactivePenalty","tax"], outputHint: "currency" },
+  "energy.fouling_cost": { description: "Energy penalty cost from fouling.", requiredInputs: ["heatLoss","hours","boilEff","fuelCost"], outputHint: "currency" },
+  "energy.fouling_roi": { description: "ROI of fouling cleaning investment.", requiredInputs: ["totalCost","cleanCost"], outputHint: "number" },
+  "energy.hydraulic_cost": { description: "Energy cost of hydraulic losses.", requiredInputs: ["heat","hours","elecRate"], outputHint: "currency" },
+  "energy.hydraulic_eff": { description: "Hydraulic system efficiency percentage.", requiredInputs: ["pOut","pIn"], outputHint: "percentage" },
+  "measurement.cnc_oee_availability": { description: "CNC OEE availability ratio.", requiredInputs: ["plannedTime","downtime"], outputHint: "number" },
+  "measurement.cnc_tool_change_time": { description: "CNC total tool change time.", requiredInputs: ["changeCount","timePerChange"], outputHint: "duration" },
+  "measurement.cpk_ppm_total": { description: "Total PPM out of specification.", requiredInputs: ["pTotal"], outputHint: "number" },
+  "measurement.cpk_sigma_short": { description: "Short-term sigma level with 1.5 shift.", requiredInputs: ["cpk"], outputHint: "number" },
+  "measurement.cpm_eot_claim": { description: "EOT claim days adjusted by efficiency factor.", requiredInputs: ["excusableDelay","effFactor"], outputHint: "duration" },
+  "measurement.eoq_turnover": { description: "Inventory turnover ratio.", requiredInputs: ["annualDemand","avgInv"], outputHint: "number" },
+  "measurement.feed_fcr": { description: "Feed conversion ratio.", requiredInputs: ["feedCons","weightGain"], outputHint: "number" },
+  "measurement.fertilizer_application": { description: "Fertilizer application rate adjusted for content.", requiredInputs: ["fertNeed","contentPct"], outputHint: "number" },
+  "measurement.grr_pct": { description: "GRR as percentage of total variation.", requiredInputs: ["grr","tv"], outputHint: "percentage" },
+  "measurement.hvac_total_btu": { description: "Total HVAC cooling load in BTU/h.", requiredInputs: ["sensible","latent"], outputHint: "number" },
+  "measurement.layout_space_util": { description: "Factory floor space utilization.", requiredInputs: ["equipArea","facArea"], outputHint: "number" },
+  "measurement.machining_strategy_check": { description: "Machining strategy feasibility check (1=pass, 0=fail).", requiredInputs: ["power","maxPower","ra","tol"], outputHint: "score" },
+  "measurement.machining_tool_life": { description: "Taylor tool life estimation.", requiredInputs: ["cTaylor","vc","nTaylor","feed","mTaylor"], outputHint: "duration" },
+  "measurement.sewing_line_efficiency": { description: "Sewing line balance efficiency percentage.", requiredInputs: ["cycleTotal","actOperators","taktTime"], outputHint: "percentage" },
+  "measurement.smed_capacity_gain": { description: "SMED capacity gain as ratio.", requiredInputs: ["totalSetup","targetTime","changeoverFreq","availableTime"], outputHint: "number" },
+  "measurement.spc_cp": { description: "Process capability index Cp.", requiredInputs: ["usl","lsl","sigma"], outputHint: "number" },
+  "measurement.spc_lcl_x": { description: "X-bar chart lower control limit.", requiredInputs: ["xBarBar","a2","rBar"], outputHint: "number" },
+  "measurement.spc_sigma_estimate": { description: "Sigma estimate from average range.", requiredInputs: ["rBar","d2"], outputHint: "number" },
+  "measurement.spc_ucl_x": { description: "X-bar chart upper control limit.", requiredInputs: ["xBarBar","a2","rBar"], outputHint: "number" },
+  "measurement.volumetric_chargeable": { description: "Chargeable weight based on volumetric vs gross.", requiredInputs: ["length","width","height","mode","gross"], outputHint: "number" },
+  "measurement.warehouse_pick_efficiency": { description: "Pick efficiency lines per travel time.", requiredInputs: ["lines","travelTime"], outputHint: "number" },
+  "measurement.warehouse_throughput_cap": { description: "Door throughput capacity.", requiredInputs: ["doors","turnaroundLoad","turnaroundUnload"], outputHint: "number" },
+  "cost.paf_prevention": { description: "Sum of training, quality planning, supplier evaluation, and design review costs.", requiredInputs: ["training","qualityPlanning","supplierEvaluation","designReview"], outputHint: "currency" },
+  "cost.paf_appraisal": { description: "Sum of inspection, testing, calibration, and audit costs.", requiredInputs: ["inspection","testing","calibration","audit"], outputHint: "currency" },
+  "cost.paf_internal_failure": { description: "Sum of scrap, rework, reinspection, and downtime costs.", requiredInputs: ["scrap","rework","reinspection","downtime"], outputHint: "currency" },
+  "cost.paf_external_failure": { description: "Sum of warranty, returns, recall, liability, and lost sales costs.", requiredInputs: ["warranty","returns","recall","liability","lostSales"], outputHint: "currency" },
+  "cost.paf_total": { description: "Total cost of quality (prevention + appraisal + internal + external).", requiredInputs: ["prevention","appraisal","internalFailure","externalFailure"], outputHint: "currency" },
+  "cost.paf_ratio": { description: "COQ as a ratio of total revenue.", requiredInputs: ["totalCoq","totalRevenue"], outputHint: "number" },
+  "cost.paf_p_ratio": { description: "Prevention cost as a ratio of total COQ.", requiredInputs: ["prevention","totalCoq"], outputHint: "number" },
+  "measurement.carbon_scope1": { description: "Scope 1 emissions from fuel combustion and fugitive sources.", requiredInputs: ["fuelConsumption","fuelEF","fugitive"], outputHint: "number" },
+  "measurement.carbon_scope2_market": { description: "Scope 2 market-based emissions adjusted for RECs.", requiredInputs: ["electricity","gridEF","recFactor"], outputHint: "number" },
+  "measurement.carbon_scope3_upstream": { description: "Scope 3 upstream emissions from materials and logistics.", requiredInputs: ["material","materialEF","logisticsEF"], outputHint: "number" },
+  "measurement.carbon_total": { description: "Total carbon emissions across scope 1, 2, and 3.", requiredInputs: ["scope1","scope2Market","scope3"], outputHint: "number" },
+  "measurement.carbon_intensity": { description: "Carbon emissions per unit of production volume.", requiredInputs: ["totalCarbon","productionVolume"], outputHint: "number" },
+  "cost.carbon_financial_risk": { description: "Financial exposure from total carbon at a given carbon price.", requiredInputs: ["totalCarbon","carbonPrice"], outputHint: "currency" },
+  "measurement.weld_area": { description: "Fillet weld cross-sectional area from leg length.", requiredInputs: ["leg"], outputHint: "number" },
+  "measurement.weld_volume": { description: "Weld volume from area and length.", requiredInputs: ["weldArea","weldLength"], outputHint: "number" },
+  "measurement.weld_deposited_weight": { description: "Deposited weld metal weight.", requiredInputs: ["weldVolume","density"], outputHint: "number" },
+  "measurement.weld_electrode_weight": { description: "Electrode weight needed accounting for deposition efficiency.", requiredInputs: ["depositedWeight","depEff"], outputHint: "number" },
+  "cost.weld_filler_cost": { description: "Filler metal cost from electrode weight.", requiredInputs: ["electrodeWeight","pricePerKg"], outputHint: "currency" },
+  "cost.weld_gas_cost": { description: "Shielding gas cost from flow rate, arc time, and gas price.", requiredInputs: ["gasFlowRate","arcTime","gasPrice"], outputHint: "currency" },
+  "cost.weld_power_cost": { description: "Welding power cost from voltage, current, arc time, and machine efficiency.", requiredInputs: ["voltage","current","arcTime","machineEff","elecRate"], outputHint: "currency" },
+  "cost.weld_total_cost": { description: "Total weld cost including filler, gas, power, and labor.", requiredInputs: ["fillerCost","gasCost","powerCost","arcTime","depRate","laborRate"], outputHint: "currency" },
+  "measurement.weld_op_factor": { description: "Welding operating factor from arc time vs total shift time.", requiredInputs: ["arcTime","totalShiftTime"], outputHint: "number" },
+  "measurement.weld_deposition_rate": { description: "Deposition rate from deposited weight and arc time.", requiredInputs: ["depositedWeight","arcTime"], outputHint: "number" },
+  "cost.weld_joint_cost": { description: "Total cost per weld joint including labor, overhead, filler, gas, and power.", requiredInputs: ["weldLength","travelSpeed","laborRate","overheadRate","opFactor","fillerCost","gasCost","powerCost"], outputHint: "currency" },
+  "cost.weld_cost_per_meter": { description: "Weld cost per meter of joint.", requiredInputs: ["jointCost","weldLength"], outputHint: "currency" },
+  "cost.weld_consumable_pct": { description: "Consumable cost as percentage of joint cost.", requiredInputs: ["fillerCost","jointCost"], outputHint: "number" },
+  "measurement.weld_throat": { description: "Fillet weld throat thickness from leg length.", requiredInputs: ["leg"], outputHint: "number" },
+  "measurement.weld_shear_area": { description: "Weld shear area from throat thickness and length.", requiredInputs: ["throat","weldLength"], outputHint: "number" },
+  "measurement.weld_allowable_stress": { description: "Allowable weld stress based on tensile strength.", requiredInputs: ["tensileStrength"], outputHint: "number" },
+  "measurement.weld_max_shear_load": { description: "Maximum shear load capacity of the weld.", requiredInputs: ["shearArea","allowableStress"], outputHint: "number" },
+  "measurement.weld_safety_factor": { description: "Weld safety factor from max shear load vs applied load.", requiredInputs: ["maxShearLoad","appliedLoad"], outputHint: "number" },
+  "cost.beam_material": { description: "Beam material cost from length, weight per meter, and price per kg.", requiredInputs: ["beamLength","beamWeightPerM","materialPricePerKg"], outputHint: "currency" },
+  "measurement.cut_fill_net": { description: "Net cut/fill volume (cut minus fill).", requiredInputs: ["cutVolume","fillVolume"], outputHint: "number" },
+  "measurement.cut_fill_borrow": { description: "Borrow volume needed when fill exceeds cut.", requiredInputs: ["fillVolume","cutVolume"], outputHint: "number" },
+  "measurement.cut_fill_waste": { description: "Waste volume when cut exceeds fill.", requiredInputs: ["cutVolume","fillVolume"], outputHint: "number" },
+  "cost.cut_fill_haul": { description: "Haul cost for earthmoving volumes.", requiredInputs: ["cutVolume","fillVolume","haulRate"], outputHint: "currency" },
+  "measurement.leak_flow_cfm": { description: "Compressed air leak flow rate in CFM.", requiredInputs: ["leakArea","pressure"], outputHint: "number" },
+  "measurement.leak_power_loss": { description: "Power loss from compressed air leak.", requiredInputs: ["leakFlowCfm","pressure"], outputHint: "number" },
+  "measurement.leak_annual_energy": { description: "Annual energy lost to the leak.", requiredInputs: ["leakPowerLoss","runningHours"], outputHint: "number" },
+  "cost.leak_cost": { description: "Annual energy cost of a single leak.", requiredInputs: ["leakAnnualEnergy","energyRate"], outputHint: "currency" },
+  "cost.leak_total_cost": { description: "Total leak cost across all leaks.", requiredInputs: ["leakCost","leakCount"], outputHint: "currency" },
+  "measurement.leak_carbon": { description: "Carbon footprint of the compressed air leak.", requiredInputs: ["leakAnnualEnergy","gridCarbonFactor"], outputHint: "number" },
+  "cost.leak_payback": { description: "Payback period for repairing a leak.", requiredInputs: ["repairCost","leakCost"], outputHint: "number" },
+  "measurement.tank_required_vol": { description: "Required tank volume based on demand and reserve days.", requiredInputs: ["demand","reserveDays"], outputHint: "number" },
+  "measurement.tank_cycle_time": { description: "Tank cycle time from capacity and feed rate.", requiredInputs: ["tankCapacity","feedRate"], outputHint: "duration" },
+  "measurement.tank_cycles_per_hour": { description: "Number of tank cycles per hour.", requiredInputs: ["cycleTime"], outputHint: "number" },
+  "measurement.tank_motor_check": { description: "Motor sizing ratio (required vs installed power).", requiredInputs: ["requiredPower","motorPower"], outputHint: "number" },
+  "cost.tank_cost": { description: "Tank cost estimate from capacity and unit cost.", requiredInputs: ["tankCapacity","costPerUnitVol"], outputHint: "currency" },
+  "measurement.container_vol_util": { description: "Container volume utilization ratio.", requiredInputs: ["cargoVol","containerVol"], outputHint: "number" },
+  "measurement.container_weight_util": { description: "Container weight utilization ratio.", requiredInputs: ["cargoWeight","maxPayload"], outputHint: "number" },
+  "measurement.container_efficiency": { description: "Combined container efficiency score (vol + weight).", requiredInputs: ["volUtil","weightUtil"], outputHint: "number" },
+  "cost.container_waste_cost": { description: "Waste cost from unused container volume.", requiredInputs: ["volUtil","containerCost"], outputHint: "currency" },
+  "measurement.fabric_marker_eff": { description: "Fabric marker efficiency from net to gross area.", requiredInputs: ["netArea","grossArea"], outputHint: "number" },
+  "measurement.fabric_required": { description: "Fabric required adjusted for marker efficiency.", requiredInputs: ["netArea","markerEff"], outputHint: "number" },
+  "cost.fabric_cost": { description: "Fabric cost from required yardage and unit price.", requiredInputs: ["fabricRequired","pricePerUnit"], outputHint: "currency" },
+  "cost.fabric_util_gain": { description: "Savings from improved fabric utilization.", requiredInputs: ["oldWaste","newWaste","pricePerUnit","totalYards"], outputHint: "currency" },
+  "measurement.fabric_total_yardage": { description: "Total fabric yardage for given pieces.", requiredInputs: ["pieces","fabricRequired"], outputHint: "number" },
+  "cost.fx_exposure": { description: "Foreign exchange exposure at spot rate.", requiredInputs: ["fxAmount","spotRate"], outputHint: "currency" },
+  "cost.fx_var_historical": { description: "Historical value-at-risk for FX position.", requiredInputs: ["fxExposure","historicalVol"], outputHint: "currency" },
+  "cost.fx_var_parametric": { description: "Parametric value-at-risk for FX position.", requiredInputs: ["fxExposure","stdDev"], outputHint: "currency" },
+  "cost.fx_unhedged_var": { description: "Unhedged FX VaR from expected move.", requiredInputs: ["fxExposure","expectedMove"], outputHint: "currency" },
+  "cost.fx_hedge_cost": { description: "Cost of hedging FX exposure.", requiredInputs: ["fxExposure","hedgePremiumPct"], outputHint: "currency" },
+  "cost.fx_net_impact": { description: "Net FX impact after hedge cost.", requiredInputs: ["unhedgedVar","hedgeCost"], outputHint: "currency" },
+  "cost.energy_charge": { description: "Energy charge from consumption and rate.", requiredInputs: ["consumptionKwh","ratePerKwh"], outputHint: "currency" },
+  "cost.reactive_penalty_kwh": { description: "Reactive power penalty on energy bill.", requiredInputs: ["reactivePower","reactiveAllowance","penaltyRate"], outputHint: "currency" },
+  "cost.total_bill_kwh": { description: "Total energy bill including charges, penalties, and tax.", requiredInputs: ["energyCharge","fixedCharge","reactivePenalty","tax"], outputHint: "currency" },
+  "cost.unit_cost_kwh": { description: "Unit cost per kWh from total bill and consumption.", requiredInputs: ["totalBill","totalConsumption"], outputHint: "currency" },
+  "cost.peak_shaving_savings": { description: "Savings from peak demand shaving.", requiredInputs: ["peakDemand","shavedDemand","demandCharge"], outputHint: "currency" },
+  "measurement.route_drift_pct": { description: "Route drift as percentage over planned distance.", requiredInputs: ["actualKm","plannedKm"], outputHint: "percentage" },
+  "cost.route_fuel_waste": { description: "Fuel waste cost from excess route distance.", requiredInputs: ["actualKm","plannedKm","fuelPerKm","fuelPrice"], outputHint: "currency" },
+  "cost.route_time_waste": { description: "Time waste cost from excess route time.", requiredInputs: ["actualTime","plannedTime","costPerHour"], outputHint: "currency" },
+  "measurement.route_efficiency": { description: "Route efficiency ratio (planned / actual).", requiredInputs: ["plannedKm","actualKm"], outputHint: "number" },
+  "cost.route_total_loss": { description: "Total route loss from fuel and time waste.", requiredInputs: ["routeFuelWaste","routeTimeWaste"], outputHint: "currency" },
+  "cost.shop_direct_labor": { description: "Direct labor cost for shop operations.", requiredInputs: ["directHours","directRate"], outputHint: "currency" },
+  "cost.shop_indirect_labor": { description: "Indirect labor cost for shop operations.", requiredInputs: ["indirectHours","indirectRate"], outputHint: "currency" },
+  "cost.shop_overhead": { description: "Shop overhead cost based on labor.", requiredInputs: ["directLabor","indirectLabor","overheadPct"], outputHint: "currency" },
+  "cost.shop_total_cost": { description: "Total shop cost (direct + indirect + overhead).", requiredInputs: ["directLabor","indirectLabor","shopOverhead"], outputHint: "currency" },
+  "cost.shop_billable_hours": { description: "Billable hours from total hours and chargeable percentage.", requiredInputs: ["totalHours","chargeablePct"], outputHint: "number" },
+  "cost.shop_effective_margin": { description: "Effective shop margin percentage.", requiredInputs: ["shopRevenue","shopTotalCost"], outputHint: "percentage" },
+  "measurement.crop_potential_yield": { description: "Potential crop yield under optimal conditions.", requiredInputs: ["area","potentialPerHa"], outputHint: "number" },
+  "measurement.crop_actual_yield": { description: "Actual crop yield achieved.", requiredInputs: ["area","actualPerHa"], outputHint: "number" },
+  "measurement.crop_yield_gap": { description: "Crop yield gap (potential minus actual).", requiredInputs: ["potentialYield","actualYield"], outputHint: "number" },
+  "cost.crop_financial_loss": { description: "Financial loss from yield gap.", requiredInputs: ["yieldGap","pricePerTon"], outputHint: "currency" },
+  "cost.crop_roi_intervention": { description: "ROI of intervention to close yield gap.", requiredInputs: ["financialLoss","interventionCost"], outputHint: "percentage" },
+  "cost.machine_euac_capital": { description: "Equivalent uniform annual capital cost.", requiredInputs: ["purchasePrice","interestRate","lifeYears"], outputHint: "currency" },
+  "cost.machine_euac_operating": { description: "Equivalent uniform annual operating cost.", requiredInputs: ["annualOperating","annualMaintenance","annualEnergy"], outputHint: "currency" },
+  "cost.machine_total_euac": { description: "Total equivalent uniform annual cost.", requiredInputs: ["euacCapital","euacOperating"], outputHint: "currency" },
+  "cost.tco_current": { description: "Current total cost of ownership.", requiredInputs: ["currentPurchase","currentOperating","currentMaintenance","currentDisposal"], outputHint: "currency" },
+  "cost.tco_alternative": { description: "Alternative total cost of ownership.", requiredInputs: ["altPurchase","altOperating","altMaintenance","altDisposal"], outputHint: "currency" },
+  "cost.tco_weight_savings": { description: "Weighted TCO savings across multiple units.", requiredInputs: ["tcoCurrent","tcoAlternative","unitQuantity"], outputHint: "currency" },
+  "cost.tco_net_benefit": { description: "Net TCO benefit from switching.", requiredInputs: ["tcoCurrent","tcoAlternative"], outputHint: "currency" },
+  "measurement.tco_payback": { description: "TCO payback period from premium and net benefit.", requiredInputs: ["altPremium","tcoNetBenefit"], outputHint: "number" },
+  "cost.eoq_moq_penalty": { description: "Penalty from MOQ exceeding EOQ quantity.", requiredInputs: ["moq","eopQty","holdingCostPerUnit"], outputHint: "currency" },
+  "cost.moq_price_break_savings": { description: "Savings from MOQ price break discount.", requiredInputs: ["eopQty","standardPrice","discountPrice"], outputHint: "currency" },
+  "cost.moq_net_benefit": { description: "Net benefit from MOQ order (savings minus penalty).", requiredInputs: ["priceBreakSavings","moqPenalty"], outputHint: "currency" },
+  "measurement.moq_optimal_qty": { description: "Optimal order quantity considering MOQ constraint.", requiredInputs: ["eopQty","moq"], outputHint: "number" },
+  "measurement.availability_mtbf": { description: "Equipment availability from MTBF and MTTR.", requiredInputs: ["mtbf","mttr"], outputHint: "number" },
+  "measurement.expected_downtime": { description: "Expected downtime from availability and operating hours.", requiredInputs: ["availability","operatingHours"], outputHint: "duration" },
+  "cost.downtime_cost_mtbf": { description: "Cost of expected downtime.", requiredInputs: ["expectedDowntime","costPerDowntimeHour"], outputHint: "currency" },
+  "cost.reliability_total_cost": { description: "Total reliability cost including downtime, repair, and lost production.", requiredInputs: ["downtimeCost","repairCost","lostProduction"], outputHint: "currency" },
+  "cost.reliability_roi": { description: "ROI of reliability improvement investment.", requiredInputs: ["currentCost","improvedCost","improvementInvestment"], outputHint: "percentage" },
+  "cost.muda_overproduction": { description: "Cost of overproduction waste.", requiredInputs: ["overproducedQty","unitCost"], outputHint: "currency" },
+  "cost.muda_waiting": { description: "Cost of waiting waste.", requiredInputs: ["waitingHours","laborRate"], outputHint: "currency" },
+  "cost.muda_transport": { description: "Cost of transport waste.", requiredInputs: ["excessDist","costPerKm"], outputHint: "currency" },
+  "cost.muda_overprocessing": { description: "Cost of overprocessing waste.", requiredInputs: ["extraProcessHours","processRate"], outputHint: "currency" },
+  "cost.muda_inventory": { description: "Cost of excess inventory waste.", requiredInputs: ["excessInventory","holdingCostPerUnit"], outputHint: "currency" },
+  "cost.muda_motion": { description: "Cost of motion waste.", requiredInputs: ["excessMotionHours","laborRate"], outputHint: "currency" },
+  "cost.muda_defects": { description: "Cost of defects waste.", requiredInputs: ["defectQty","reworkCostPerUnit"], outputHint: "currency" },
+  "cost.muda_total": { description: "Total cost of all seven muda wastes.", requiredInputs: ["mudaOverproduction","mudaWaiting","mudaTransport","mudaOverprocessing","mudaInventory","mudaMotion","mudaDefects"], outputHint: "currency" },
+  "measurement.cash_inflow": { description: "Total cash inflow from sales, receivables, and other income.", requiredInputs: ["salesRevenue","receivablesCollected","otherIncome"], outputHint: "currency" },
+  "measurement.cash_outflow": { description: "Total cash outflow from payments, payroll, expenses, and tax.", requiredInputs: ["supplierPayments","payroll","operatingExpenses","taxPayment"], outputHint: "currency" },
+  "measurement.net_cash_flow": { description: "Net cash flow (inflow minus outflow).", requiredInputs: ["cashInflow","cashOutflow"], outputHint: "currency" },
+  "measurement.cumulative_cash": { description: "Cumulative cash balance.", requiredInputs: ["openingBalance","netCashFlow"], outputHint: "currency" },
+  "measurement.cash_gap": { description: "Cash gap when net cash flow is negative.", requiredInputs: ["netCashFlow"], outputHint: "currency" },
+  "measurement.cash_conversion_cycle": { description: "Cash conversion cycle in days.", requiredInputs: ["dso","dio","dpo"], outputHint: "number" },
+  "measurement.chargeable_weight": { description: "Chargeable weight as max of actual and volumetric.", requiredInputs: ["actualWeight","volumetricWeight"], outputHint: "number" },
+  "cost.base_freight": { description: "Base freight cost from chargeable weight.", requiredInputs: ["chargeableWeight","ratePerKg"], outputHint: "currency" },
+  "cost.bunker_surcharge": { description: "Bunker adjustment surcharge.", requiredInputs: ["baseFreight","bunkerPct"], outputHint: "currency" },
+  "cost.terminal_handling": { description: "Terminal handling charge.", requiredInputs: ["chargeableWeight","handlingRate"], outputHint: "currency" },
+  "cost.customs_clearance": { description: "Customs clearance cost from declared value.", requiredInputs: ["declaredValue","customsRate"], outputHint: "currency" },
+  "cost.total_freight_cost": { description: "Total freight cost including all surcharges and insurance.", requiredInputs: ["baseFreight","bunkerSurcharge","terminalHandling","customsClearance","insurance"], outputHint: "currency" },
+  "measurement.freight_cost_per_unit": { description: "Freight cost per unit shipped.", requiredInputs: ["totalFreightCost","unitCount"], outputHint: "currency" },
+  "measurement.noise_exposure": { description: "Noise exposure dose as percentage of limit.", requiredInputs: ["noiseLevel","noiseLimit"], outputHint: "percentage" },
+  "measurement.vibration_rms": { description: "Vibration RMS exposure level.", requiredInputs: ["vibrationLevel","exposureTime"], outputHint: "number" },
+  "cost.noise_health_cost": { description: "Health cost from noise exposure.", requiredInputs: ["affectedWorkers","healthCostPerWorker"], outputHint: "currency" },
+  "cost.noise_productivity_loss": { description: "Productivity loss from noise exposure.", requiredInputs: ["noiseExposure","annualProdValue","productivityLossPct"], outputHint: "currency" },
+  "cost.noise_rework_cost": { description: "Rework cost attributed to noise-related errors.", requiredInputs: ["reworkHours","reworkRate"], outputHint: "currency" },
+  "cost.noise_mitigation_roi": { description: "ROI of noise mitigation investments.", requiredInputs: ["healthCost","productivityLoss","reworkCost","mitigationCost"], outputHint: "percentage" },
+  "measurement.oee_availability": { description: "OEE availability factor.", requiredInputs: ["operatingTime","plannedProdTime"], outputHint: "number" },
+  "measurement.oee_performance": { description: "OEE performance factor.", requiredInputs: ["idealCycleTime","totalParts","operatingTime"], outputHint: "number" },
+  "measurement.oee_quality": { description: "OEE quality factor.", requiredInputs: ["goodParts","totalParts"], outputHint: "number" },
+  "measurement.oee_score": { description: "Overall OEE score as percentage.", requiredInputs: ["oeeAvailability","oeePerformance","oeeQuality"], outputHint: "percentage" },
+  "measurement.teep_score": { description: "Total effective equipment performance.", requiredInputs: ["operatingTime","totalCalendarTime","oeePerformance","oeeQuality"], outputHint: "percentage" },
+  "cost.oee_downtime_cost": { description: "Cost of OEE downtime losses.", requiredInputs: ["plannedProdTime","operatingTime","costPerHour"], outputHint: "currency" },
+  "cost.oee_speed_loss": { description: "Cost of OEE speed losses.", requiredInputs: ["operatingTime","idealCycleTime","totalParts","costPerHour"], outputHint: "currency" },
+  "cost.oee_quality_loss": { description: "Cost of OEE quality losses.", requiredInputs: ["totalParts","goodParts","costPerPart"], outputHint: "currency" },
+  "cost.office_consumption_rate": { description: "Monthly consumption rate from annual usage.", requiredInputs: ["annualUsage"], outputHint: "number" },
+  "cost.office_annual_cost": { description: "Annual ordering cost from EOQ model.", requiredInputs: ["annualDemand","orderQty","orderCost"], outputHint: "currency" },
+  "cost.office_carrying_cost": { description: "Annual carrying cost of office inventory.", requiredInputs: ["orderQty","holdingCostPerUnit"], outputHint: "currency" },
+  "cost.office_stockout_cost": { description: "Stockout cost from lost margin.", requiredInputs: ["stockoutUnits","lostMarginPerUnit"], outputHint: "currency" },
+  "cost.office_eoq": { description: "Economic order quantity for office supplies.", requiredInputs: ["annualDemand","orderCost","holdingCostPerUnit"], outputHint: "number" },
+  "cost.office_waste_pct": { description: "Office waste percentage from total ordered.", requiredInputs: ["wasteUnits","totalOrdered"], outputHint: "percentage" },
+  "cost.office_optimization_savings": { description: "Savings from office inventory optimization.", requiredInputs: ["currentTotalCost","optimalTotalCost"], outputHint: "currency" },
+  "cost.ot_cost_hour": { description: "Overtime cost per hour from base rate and multiplier.", requiredInputs: ["baseRate","otMultiplier"], outputHint: "currency" },
+  "cost.hiring_total_cost": { description: "Total hiring cost including advertising, recruiting, training, and onboarding.", requiredInputs: ["advertising","recruiting","training","onboarding"], outputHint: "currency" },
+  "cost.annual_new_hire_cost": { description: "Annual cost of a new hire.", requiredInputs: ["hiringTotalCost","salary","benefits"], outputHint: "currency" },
+  "measurement.breakeven_hours_base": { description: "Breakeven hours between OT and hiring.", requiredInputs: ["annualNewHireCost","otCostHour"], outputHint: "number" },
+  "measurement.ot_hire_decision": { description: "OT vs hire decision (1=hire, 0=OT).", requiredInputs: ["annualOtHours","breakevenHours"], outputHint: "score" },
+  "cost.ot_quality_cost": { description: "Quality cost from overtime work.", requiredInputs: ["annualOtHours","defectRate","reworkCost"], outputHint: "currency" },
+  "measurement.dso_base": { description: "Days sales outstanding from AR and daily sales.", requiredInputs: ["accountsReceivable","avgDailySales"], outputHint: "number" },
+  "cost.carrying_cost_ar": { description: "Carrying cost of accounts receivable.", requiredInputs: ["accountsReceivable","costOfCapital"], outputHint: "currency" },
+  "cost.bad_debt_expense": { description: "Bad debt expense from credit sales and bad debt rate.", requiredInputs: ["creditSales","badDebtRate"], outputHint: "currency" },
+  "cost.discount_cost": { description: "Cost of early payment discounts taken.", requiredInputs: ["discountEligibleSales","discountRate"], outputHint: "currency" },
+  "measurement.cash_flow_impact_terms": { description: "Cash flow impact from payment terms change.", requiredInputs: ["newDso","currentDso","avgDailySales"], outputHint: "currency" },
+  "cost.npv_terms": { description: "NPV of payment terms change.", requiredInputs: ["cashFlowImpact","discountRate","discountCost"], outputHint: "currency" },
+  "measurement.learning_rate": { description: "Learning curve rate from percentage of previous.", requiredInputs: ["pctOfPrevious"], outputHint: "number" },
+  "measurement.learning_slope": { description: "Learning curve slope (b factor).", requiredInputs: ["learningRate"], outputHint: "number" },
+  "measurement.time_n": { description: "Time to produce the nth unit.", requiredInputs: ["firstUnitTime","cumulativeUnits","learningSlope"], outputHint: "duration" },
+  "measurement.cumulative_time_n": { description: "Cumulative time for n units under learning curve.", requiredInputs: ["firstUnitTime","cumulativeUnits","learningSlope"], outputHint: "duration" },
+  "measurement.average_time_n": { description: "Average time per unit under learning curve.", requiredInputs: ["cumulativeTime","cumulativeUnits"], outputHint: "duration" },
+  "cost.learning_cost_n": { description: "Labor cost for the nth unit.", requiredInputs: ["timeN","laborRate"], outputHint: "currency" },
+  "measurement.breakeven_unit_learning": { description: "Unit number where target cost is reached.", requiredInputs: ["targetCost","firstUnitCost","learningSlope"], outputHint: "number" },
+  "measurement.sample_infinite": { description: "Sample size for infinite population.", requiredInputs: ["zScore","stdDev","errorMargin"], outputHint: "number" },
+  "measurement.sample_finite": { description: "Sample size adjusted for finite population.", requiredInputs: ["sampleInfinite","population"], outputHint: "number" },
+  "measurement.sample_continuous": { description: "Sample size for continuous data.", requiredInputs: ["zScore","estimatedVariance","precision"], outputHint: "number" },
+  "measurement.sample_power_adj": { description: "Power-adjusted sample size.", requiredInputs: ["sampleInfinite","zBeta","effectSize"], outputHint: "number" },
+  "measurement.sample_design_effect": { description: "Design effect for cluster sampling.", requiredInputs: ["clusterSize","icc"], outputHint: "number" },
+  "measurement.sample_final_n": { description: "Final sample size adjusted for design effect.", requiredInputs: ["sampleFinite","designEffect"], outputHint: "number" },
+  "cost.sampling_total_cost": { description: "Total sampling study cost.", requiredInputs: ["sampleFinalN","costPerSample","fixedCost"], outputHint: "currency" },
+  "measurement.rack_capacity": { description: "Total rack storage capacity in pallet positions.", requiredInputs: ["rackQty","palletsPerBay","levels"], outputHint: "number" },
+  "measurement.floor_utilization_rack": { description: "Floor space utilization for rack system.", requiredInputs: ["rackFootprint","totalFloorArea"], outputHint: "number" },
+  "measurement.rack_throughput": { description: "Rack throughput in moves per hour.", requiredInputs: ["totalMoves","availableHours"], outputHint: "number" },
+  "measurement.rack_safety_factor": { description: "Rack safety factor from load rating vs actual load.", requiredInputs: ["maxLoadRating","actualLoad"], outputHint: "number" },
+  "cost.rack_cost_per_position": { description: "Cost per pallet position in rack system.", requiredInputs: ["totalRackCost","rackCapacity"], outputHint: "currency" },
+  "measurement.rack_retrieval_time": { description: "Average retrieval time per pallet.", requiredInputs: ["totalTravelDist","forkSpeed"], outputHint: "duration" },
+  "measurement.current_defect_rate": { description: "Current defect rate from defects and total inspected.", requiredInputs: ["defects","totalInspected"], outputHint: "number" },
+  "cost.defect_cost_annual": { description: "Annual cost of defects.", requiredInputs: ["currentDefectRate","annualVolume","costPerDefect"], outputHint: "currency" },
+  "cost.poka_yoke_cost": { description: "Poka-yoke implementation cost.", requiredInputs: ["deviceCost","installationCost","trainingCost"], outputHint: "currency" },
+  "measurement.new_defect_rate": { description: "Defect rate after poka-yoke implementation.", requiredInputs: ["currentDefectRate","reductionFactor"], outputHint: "number" },
+  "cost.poka_yoke_savings": { description: "Annual savings from poka-yoke implementation.", requiredInputs: ["currentDefectRate","newDefectRate","annualVolume","costPerDefect"], outputHint: "currency" },
+  "cost.poka_yoke_roi": { description: "ROI of poka-yoke implementation.", requiredInputs: ["pokaYokeSavings","pokaYokeCost"], outputHint: "percentage" },
+  "cost.poka_yoke_payback": { description: "Payback period for poka-yoke investment.", requiredInputs: ["pokaYokeCost","pokaYokeSavings"], outputHint: "number" },
+  "cost.ingredient_cost_portion": { description: "Ingredient cost per portion.", requiredInputs: ["ingredientQty","unitPrice"], outputHint: "currency" },
+  "cost.yield_adjusted_cost": { description: "Yield-adjusted ingredient cost per portion.", requiredInputs: ["ingredientCostPortion","yieldPct"], outputHint: "currency" },
+  "cost.portion_labor_cost": { description: "Labor cost per portion.", requiredInputs: ["totalLaborCost","portionsProduced"], outputHint: "currency" },
+  "cost.portion_overhead": { description: "Overhead cost per portion.", requiredInputs: ["totalOverhead","portionsProduced"], outputHint: "currency" },
+  "cost.total_portion_cost": { description: "Total cost per portion including ingredients, labor, and overhead.", requiredInputs: ["yieldAdjustedCost","portionLaborCost","portionOverhead"], outputHint: "currency" },
+  "measurement.food_cost_pct": { description: "Food cost as percentage of menu price.", requiredInputs: ["totalPortionCost","menuPrice"], outputHint: "percentage" },
+  "measurement.target_menu_price": { description: "Target menu price from portion cost and target food cost %.", requiredInputs: ["totalPortionCost","targetFoodCostPct"], outputHint: "currency" },
+  "cost.project_direct_labor": { description: "Project direct labor cost.", requiredInputs: ["laborHours","laborRate"], outputHint: "currency" },
+  "cost.project_direct_material": { description: "Project direct material cost.", requiredInputs: ["materialQty","materialUnitPrice"], outputHint: "currency" },
+  "cost.project_equipment": { description: "Project equipment cost.", requiredInputs: ["equipQty","equipRate","equipDuration"], outputHint: "currency" },
+  "cost.project_subcontractor": { description: "Project subcontractor cost including mobilization.", requiredInputs: ["subcontractorQuote","subMobilization"], outputHint: "currency" },
+  "cost.project_overhead": { description: "Project overhead based on direct costs.", requiredInputs: ["directLabor","directMaterial","overheadPct"], outputHint: "currency" },
+  "cost.project_contingency": { description: "Project contingency allowance.", requiredInputs: ["directLabor","directMaterial","projectEquipment","projectSubcontractor","projectOverhead","contingencyPct"], outputHint: "currency" },
+  "cost.project_total_estimate": { description: "Total project cost estimate.", requiredInputs: ["directLabor","directMaterial","projectEquipment","projectSubcontractor","projectOverhead","projectContingency"], outputHint: "currency" },
+  "cost.project_cost_variance": { description: "Project cost variance (actual vs estimate).", requiredInputs: ["actualCost","projectTotalEstimate"], outputHint: "currency" },
+  "cost.risk_exposure_cost": { description: "Risk exposure cost from probability and impact.", requiredInputs: ["probability","impact"], outputHint: "currency" },
+  "cost.mitigation_cost": { description: "Total risk mitigation cost.", requiredInputs: ["mitigationLabor","mitigationMaterial","mitigationEquipment"], outputHint: "currency" },
+  "cost.net_risk_cost": { description: "Net risk cost after mitigation.", requiredInputs: ["riskExposureCost","mitigationCost"], outputHint: "currency" },
+  "cost.recipe_theoretical": { description: "Theoretical recipe cost at standard yield.", requiredInputs: ["batchQty","theoreticalCostPerKg"], outputHint: "currency" },
+  "cost.recipe_actual": { description: "Actual recipe cost incurred.", requiredInputs: ["batchQty","actualCostPerKg"], outputHint: "currency" },
+  "cost.recipe_variance": { description: "Recipe cost variance (actual minus theoretical).", requiredInputs: ["recipeActual","recipeTheoretical"], outputHint: "currency" },
+  "cost.recipe_yield_loss_cost": { description: "Cost of recipe yield loss.", requiredInputs: ["theoreticalYield","actualYield","actualCostPerKg"], outputHint: "currency" },
+  "measurement.recipe_evaporation": { description: "Recipe evaporation loss percentage.", requiredInputs: ["inputWeight","outputWeight"], outputHint: "percentage" },
+  "measurement.recipe_efficiency_base": { description: "Recipe output-to-input weight efficiency.", requiredInputs: ["outputWeight","inputWeight"], outputHint: "number" },
+  "cost.recipe_cost_per_kg": { description: "Recipe cost per kg of output.", requiredInputs: ["recipeActual","outputWeight"], outputHint: "currency" },
+  "cost.restaurant_theoretical_food": { description: "Theoretical food cost from sales and ideal percentage.", requiredInputs: ["totalSales","idealFoodCostPct"], outputHint: "currency" },
+  "cost.restaurant_actual_food": { description: "Actual food cost from inventory and purchases.", requiredInputs: ["beginningInv","purchases","endingInv"], outputHint: "currency" },
+  "cost.restaurant_variance_cost": { description: "Food cost variance (actual minus theoretical).", requiredInputs: ["actualFoodCost","theoreticalFoodCost"], outputHint: "currency" },
+  "measurement.restaurant_variance_pct": { description: "Food cost variance as percentage of actual.", requiredInputs: ["varianceCost","actualFoodCost"], outputHint: "percentage" },
+  "cost.restaurant_waste_cost": { description: "Waste cost from discarded ingredients.", requiredInputs: ["wasteKg","avgCostPerKg"], outputHint: "currency" },
+  "cost.restaurant_theft_loss": { description: "Loss from theft of ingredients.", requiredInputs: ["theftQty","avgCostPerUnit"], outputHint: "currency" },
+  "measurement.restaurant_ideal_margin": { description: "Ideal restaurant margin percentage.", requiredInputs: ["idealFoodCostPct"], outputHint: "percentage" },
+  "measurement.restaurant_actual_margin": { description: "Actual restaurant margin percentage.", requiredInputs: ["actualFoodCost","totalSales"], outputHint: "percentage" },
+  "cost.manual_cost_annual": { description: "Annual cost of manual operations.", requiredInputs: ["manualWorkers","manualAnnualWage","manualBenefits","manualTraining"], outputHint: "currency" },
+  "cost.robot_cost_annual": { description: "Annual cost of robot operations.", requiredInputs: ["robotLease","robotMaintenance","robotEnergy","robotOperatorSalary"], outputHint: "currency" },
+  "measurement.robot_output": { description: "Annual robot output in units.", requiredInputs: ["robotCycleTime","robotUptime","workingDays"], outputHint: "number" },
+  "measurement.manual_output": { description: "Annual manual output in units.", requiredInputs: ["manualWorkers","manualCycleTime","manualUptime","workingDays"], outputHint: "number" },
+  "cost.cost_per_unit_manual": { description: "Manual cost per unit produced.", requiredInputs: ["manualCostAnnual","manualOutput"], outputHint: "currency" },
+  "cost.cost_per_unit_robot": { description: "Robot cost per unit produced.", requiredInputs: ["robotCostAnnual","robotOutput"], outputHint: "currency" },
+  "cost.robot_roi_analyzer": { description: "ROI of robot automation vs manual.", requiredInputs: ["manualCostAnnual","robotCostAnnual"], outputHint: "percentage" },
+  "cost.robot_payback": { description: "Robot investment payback period in years.", requiredInputs: ["robotInvestment","manualCostAnnual","robotCostAnnual"], outputHint: "number" },
+  "cost.route_distance_cost": { description: "Route cost based on distance traveled.", requiredInputs: ["distanceKm","costPerKm"], outputHint: "currency" },
+  "cost.route_time_cost": { description: "Route cost based on travel time.", requiredInputs: ["timeHours","costPerHour"], outputHint: "currency" },
+  "cost.route_toll_cost": { description: "Route cost from tolls and passes.", requiredInputs: ["tollAmount","tollCount","tollPerPass"], outputHint: "currency" },
+  "cost.route_maintenance_cost": { description: "Route maintenance cost based on distance.", requiredInputs: ["distanceKm","maintenanceRate"], outputHint: "currency" },
+  "cost.route_overhead_cost": { description: "Route overhead cost based on distance.", requiredInputs: ["distanceKm","overheadPerKm"], outputHint: "currency" },
+  "cost.route_total_cost_simple": { description: "Total route cost including distance, time, tolls, maintenance, and overhead.", requiredInputs: ["distanceCost","timeCost","tollCost","maintenanceCost","overheadCost"], outputHint: "currency" },
+  "measurement.route_cost_per_km": { description: "Route cost per kilometer.", requiredInputs: ["routeTotalCost","distanceKm"], outputHint: "currency" },
+  "measurement.route_cost_per_drop": { description: "Route cost per delivery drop.", requiredInputs: ["routeTotalCost","totalDrops"], outputHint: "currency" },
   "yield.gap_value": {
     description: "Yield gap tonnage valued at price per ton.",
     requiredInputs: ["yieldGapTon", "pricePerTon"],
@@ -2781,6 +4306,170 @@ const FORMULA_META_DETAILS: Record<
   "cost.cloud_overrun_total": { description: "Total = overrun + throttling + egress + SLA.", requiredInputs: ["overrunCost", "throttlingCost", "dataEgressCost", "slaPenalty"], outputHint: "currency" },
   // ── TOOL 20: Cloud Waste ──
   "cost.cloud_waste_total": { description: "Total waste = zombie + oversizing + spot + reserved + idle.", requiredInputs: ["zombieCost", "oversizingSavings", "spotSavings", "reservedSavings", "idleHoursCost"], outputHint: "currency" },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOOLS 101-140 META
+  // ═══════════════════════════════════════════════════════════════════════════
+  "measurement.route_nearest_neighbor": { description: "Nearest neighbor distance for route optimization.", requiredInputs: ["minDistance"], outputHint: "number" },
+  "measurement.route_clarke_wright": { description: "Clarke-Wright savings from depot and inter-stop distances.", requiredInputs: ["depotDistA","depotDistB","distAB"], outputHint: "number" },
+  "measurement.route_efficiency_score": { description: "Route efficiency as theoretical minimum over actual distance.", requiredInputs: ["theoreticalMin","actualRouteDist"], outputHint: "number" },
+  "cost.route_total_savings": { description: "Total routing savings from baseline minus optimized cost.", requiredInputs: ["baselineCost","optimizedCost"], outputHint: "currency" },
+  "measurement.wind_aep": { description: "Annual energy production from rated power and capacity factor.", requiredInputs: ["ratedPower","capacityFactor"], outputHint: "number" },
+  "cost.wind_annual_revenue": { description: "Annual revenue from AEP and feed-in tariff.", requiredInputs: ["aep","feedInTariff"], outputHint: "currency" },
+  "cost.wind_ebitda": { description: "Wind turbine EBITDA from revenue minus opex.", requiredInputs: ["annualRevenue","opex"], outputHint: "currency" },
+  "cost.wind_lcoe": { description: "Levelized cost of energy for wind turbine.", requiredInputs: ["totalCapex","opex","lifeYears","aep"], outputHint: "currency" },
+  "cost.wind_npv": { description: "Net present value of wind turbine investment.", requiredInputs: ["ebitda","wacc","lifeYears","totalCapex"], outputHint: "currency" },
+  "measurement.saas_shelfware_pct": { description: "Percentage of unused SaaS licenses.", requiredInputs: ["totalLicenses","activeUsers"], outputHint: "percentage" },
+  "cost.saas_shelfware_cost": { description: "Cost of unused SaaS licenses.", requiredInputs: ["shelfwarePct","totalContract"], outputHint: "currency" },
+  "cost.burdened_hourly_rate": { description: "Fully burdened hourly labor rate including taxes and benefits.", requiredInputs: ["grossSalary","employerTaxes","benefits","productiveHours"], outputHint: "currency" },
+  "measurement.smed_capacity_recovered": { description: "Capacity recovered from SMED setup reduction.", requiredInputs: ["currentSetup","targetSetup","changeoverFreq"], outputHint: "number" },
+  "cost.smed_financial_gain": { description: "Financial gain from SMED capacity recovery.", requiredInputs: ["capacityRecovered","bottleneckThroughput","unitMargin"], outputHint: "currency" },
+  "cost.smed_roi": { description: "ROI of SMED investment.", requiredInputs: ["financialGain","smedInvestment"], outputHint: "percentage" },
+  "cost.incentive_target_fee": { description: "Target fee from target cost and fee percentage.", requiredInputs: ["targetCost","targetFeePct"], outputHint: "currency" },
+  "cost.incentive_actual_fee": { description: "Actual incentive fee with sharing ratio and fee limits.", requiredInputs: ["targetFee","targetCost","actualCost","contractorSharePct","minFee","maxFee"], outputHint: "currency" },
+  "measurement.spc_arl_in_control": { description: "Average run length when process is in control.", requiredInputs: ["alpha"], outputHint: "number" },
+  "measurement.spc_arl_out_of_control": { description: "Average run length when process is out of control.", requiredInputs: ["beta"], outputHint: "number" },
+  "cost.spc_delay_cost": { description: "Cost of delayed SPC signal detection.", requiredInputs: ["arlOOC","samplingInterval","productionRate","defectRateOOC","costPerDefect"], outputHint: "currency" },
+  "measurement.steam_loss_rate": { description: "Steam loss rate through orifice.", requiredInputs: ["orificeArea","deltaPressure","steamDensity"], outputHint: "number" },
+  "cost.steam_trap_annual_loss": { description: "Annual cost of steam loss through failed trap.", requiredInputs: ["steamLoss","operatingHours","steamCost"], outputHint: "currency" },
+  "cost.steam_trap_roi": { description: "ROI of steam trap repair.", requiredInputs: ["systemLoss","trapCost","laborCost"], outputHint: "percentage" },
+  "measurement.inventory_turnover_ratio": { description: "Inventory turnover ratio from COGS and average inventory.", requiredInputs: ["cogs","avgInventory"], outputHint: "number" },
+  "measurement.dsi_days": { description: "Days sales of inventory (DSI).", requiredInputs: ["inventoryTurnover"], outputHint: "number" },
+  "cost.obsolescence_risk_cost": { description: "Cost of inventory obsolescence risk.", requiredInputs: ["avgInventory","obsolescenceRate"], outputHint: "currency" },
+  "cost.liquidation_loss": { description: "Loss from liquidating slow-moving inventory at salvage value.", requiredInputs: ["slowMovingInv","salvagePct"], outputHint: "currency" },
+  "measurement.water_intensity": { description: "Water consumption per unit of production.", requiredInputs: ["totalWater","productionVolume"], outputHint: "number" },
+  "cost.water_savings_total": { description: "Total water savings from baseline minus actual consumption.", requiredInputs: ["baselineConsumption","actualConsumption"], outputHint: "number" },
+  "cost.water_cost_savings": { description: "Monetary savings from reduced water use.", requiredInputs: ["waterSavings","supplyRate","wastewaterRate"], outputHint: "currency" },
+  "cost.water_roi": { description: "ROI of water conservation project.", requiredInputs: ["costSavings","equipmentCost","installationCost"], outputHint: "percentage" },
+  "measurement.irrigation_water_req": { description: "Irrigation water requirement from ETc, area, and effective rainfall.", requiredInputs: ["etc","area","effectiveRainfall"], outputHint: "number" },
+  "cost.irrigation_energy_cost": { description: "Energy cost for irrigation pumping.", requiredInputs: ["waterRequirement","totalHead","pumpEff","motorEff","elecRate"], outputHint: "currency" },
+  "cost.irrigation_total_cost": { description: "Total irrigation cost including energy, maintenance, labor, and depreciation.", requiredInputs: ["energyCost","maintCost","laborCost","depreciation"], outputHint: "currency" },
+  "cost.supplier_tco": { description: "Total cost of ownership for a supplier.", requiredInputs: ["purchasePrice","orderingCost","transportCost","qualityCost","inventoryCost","riskCost"], outputHint: "currency" },
+  "measurement.fcm_milk": { description: "Fat corrected milk yield at 4% fat.", requiredInputs: ["milkYield","fatYield"], outputHint: "number" },
+  "cost.dairy_income_over_feed": { description: "Dairy income over feed cost (IOFC).", requiredInputs: ["milkPrice","milkYield","totalFeedCost"], outputHint: "currency" },
+  "cost.taguchi_loss_per_unit": { description: "Taguchi quality loss per unit from deviation.", requiredInputs: ["toleranceCost","toleranceLimit","actualValue","targetValue"], outputHint: "currency" },
+  "cost.tooling_cost_per_part": { description: "Tooling cost allocated per part produced.", requiredInputs: ["toolingCost","partsProduced"], outputHint: "currency" },
+  "cost.tooling_total": { description: "Total tooling cost including purchase, regrind, and inventory.", requiredInputs: ["purchaseCost","regrindCost","inventoryCost"], outputHint: "currency" },
+  "cost.premature_failure_cost": { description: "Cost from premature tooling failures.", requiredInputs: ["prematureFailures","toolingCost"], outputHint: "currency" },
+  "measurement.takt_time": { description: "Takt time from available time divided by customer demand.", requiredInputs: ["availableTime","customerDemand"], outputHint: "duration" },
+  "measurement.cycle_flexibility": { description: "Cycle flexibility ratio of takt time over actual cycle time.", requiredInputs: ["taktTime","actualCycleTime"], outputHint: "number" },
+  "cost.balance_loss": { description: "Cost of line balance loss from delays.", requiredInputs: ["balanceDelay","laborRate"], outputHint: "currency" },
+  "cost.flexibility_premium": { description: "Premium cost for production flexibility.", requiredInputs: ["flexibilityHours","premiumRate"], outputHint: "currency" },
+  "measurement.forecast_error": { description: "Absolute forecast error between actual and forecast demand.", requiredInputs: ["actualDemand","forecastDemand"], outputHint: "number" },
+  "measurement.safety_stock_forecast": { description: "Safety stock from service factor, demand variability, and lead time.", requiredInputs: ["serviceFactor","demandStdDev","leadTime"], outputHint: "number" },
+  "cost.forecast_carrying_cost": { description: "Carrying cost of safety stock inventory.", requiredInputs: ["safetyStock","holdingCostPerUnit"], outputHint: "currency" },
+  "cost.stockout_cost_forecast": { description: "Stockout cost from lost margin.", requiredInputs: ["stockoutUnits","lostMarginPerUnit"], outputHint: "currency" },
+  "cost.total_forecast_cost": { description: "Total forecast cost including carrying and stockout costs.", requiredInputs: ["carryingCost","stockoutCost"], outputHint: "currency" },
+  "cost.quote_total": { description: "Total repair quote from parts, labor, and overhead.", requiredInputs: ["partsCost","laborHours","laborRate","overheadCost"], outputHint: "currency" },
+  "cost.gross_profit_pct": { description: "Gross profit percentage on repair work.", requiredInputs: ["grossProfit","revenue"], outputHint: "percentage" },
+  "measurement.quoted_margin": { description: "Quoted margin percentage on subcontract work.", requiredInputs: ["quotedPrice","estimatedCost"], outputHint: "percentage" },
+  "measurement.actual_margin": { description: "Actual margin percentage achieved.", requiredInputs: ["actualRevenue","actualCost"], outputHint: "percentage" },
+  "cost.margin_leak_sub": { description: "Subcontractor margin leak from quoted minus actual.", requiredInputs: ["quotedMargin","actualMargin"], outputHint: "percentage" },
+  "cost.leakage_pct": { description: "Margin leakage as percentage of quoted margin.", requiredInputs: ["marginLeakSub","quotedMargin"], outputHint: "percentage" },
+  "cost.transport_air": { description: "Air freight cost from weight and rate.", requiredInputs: ["airFreightKg","airRatePerKg"], outputHint: "currency" },
+  "cost.transport_sea": { description: "Sea freight cost from volume and rate.", requiredInputs: ["seaFreightCbm","seaRatePerCbm"], outputHint: "currency" },
+  "cost.transport_road": { description: "Road freight cost from distance and rate.", requiredInputs: ["roadFreightKm","roadRatePerKm"], outputHint: "currency" },
+  "cost.transit_time_cost": { description: "Transit time cost from days, capital cost, and cargo value.", requiredInputs: ["transitDays","costOfCapital","cargoValue"], outputHint: "currency" },
+  "cost.risk_cost_transport": { description: "Transport risk cost as percentage of cargo value.", requiredInputs: ["cargoValue","riskPct"], outputHint: "currency" },
+  "cost.total_mode_cost": { description: "Total transport cost across all modes and risk.", requiredInputs: ["transportAir","transportSea","transportRoad","transitTimeCost","riskCostTransport"], outputHint: "currency" },
+  "cost.risk_exposure_sc": { description: "Supply chain risk exposure from supplier spend and disruption probability.", requiredInputs: ["supplierSpend","disruptionProb"], outputHint: "currency" },
+  "cost.revenue_loss_sc": { description: "Revenue loss from supply chain disruption.", requiredInputs: ["disruptionDays","dailyRevenue","impactPct"], outputHint: "currency" },
+  "cost.risk_adjusted_cost_sc": { description: "Risk adjusted supply chain cost.", requiredInputs: ["riskExposureSc","revenueLossSc"], outputHint: "currency" },
+  "measurement.resilience_index": { description: "Supply chain resilience index.", requiredInputs: ["recoveryCapacity","normalDemand"], outputHint: "number" },
+  "cost.fx_exposure_supplier": { description: "Supplier FX exposure from contract value and exchange rate.", requiredInputs: ["contractValue","exchangeRate"], outputHint: "currency" },
+  "cost.fx_expected_loss": { description: "Expected FX loss from exposure and volatility.", requiredInputs: ["fxExposureSupplier","forexVolatility"], outputHint: "currency" },
+  "cost.fx_var_supplier": { description: "FX value-at-risk for supplier contract.", requiredInputs: ["fxExposureSupplier","confidenceFactor"], outputHint: "currency" },
+  "cost.fx_net_risk_cost": { description: "Net FX risk cost after hedge savings.", requiredInputs: ["fxExpectedLoss","fxVarSupplier","hedgeSavings"], outputHint: "currency" },
+  "cost.fx_clause_savings": { description: "Savings from FX clause in supplier contract.", requiredInputs: ["fxExposureSupplier","clauseDiscountPct"], outputHint: "currency" },
+  "cost.base_estimate": { description: "Base bid estimate from direct, indirect costs and profit.", requiredInputs: ["directCost","indirectCost","profitMargin"], outputHint: "currency" },
+  "cost.contingency_total": { description: "Total contingency from base estimate and percentage.", requiredInputs: ["baseEstimate","contingencyPct"], outputHint: "currency" },
+  "measurement.win_probability": { description: "Bid win probability from competitive score.", requiredInputs: ["competitiveScore","maxScore"], outputHint: "percentage" },
+  "cost.expected_value_bid": { description: "Expected value of bid adjusted for win probability.", requiredInputs: ["baseEstimate","contingencyTotal","winProbability"], outputHint: "currency" },
+  "cost.recurring_annual_cost": { description: "Annualized recurring cost from monthly cost.", requiredInputs: ["monthlyCost"], outputHint: "currency" },
+  "cost.present_value_recurring": { description: "Present value of recurring costs over time.", requiredInputs: ["recurringAnnualCost","discountRate","years"], outputHint: "currency" },
+  "cost.npv_elimination": { description: "NPV of eliminating recurring cost.", requiredInputs: ["presentValueRecurring","eliminationCost"], outputHint: "currency" },
+  "cost.root_cause_payback": { description: "Payback period for root cause fix investment.", requiredInputs: ["fixCost","recurringAnnualCost"], outputHint: "number" },
+  "measurement.textile_waste_rate": { description: "Textile waste rate as percentage of total material.", requiredInputs: ["wasteKg","totalKg"], outputHint: "percentage" },
+  "cost.pre_consumer_waste": { description: "Cost of pre-consumer textile waste.", requiredInputs: ["preConsumerKg","materialCostPerKg"], outputHint: "currency" },
+  "cost.net_waste_cost": { description: "Net textile waste cost after recycling revenue.", requiredInputs: ["preConsumerWaste","postConsumerWaste","recyclingRevenue"], outputHint: "currency" },
+  "measurement.waste_risk_score": { description: "Textile waste risk score relative to industry benchmark.", requiredInputs: ["textileWasteRate","industryBenchmark"], outputHint: "number" },
+  "cost.cleaning_labor_cost": { description: "Cleaning labor cost from hours and rate.", requiredInputs: ["cleaningHours","cleaningRate"], outputHint: "currency" },
+  "cost.cleaning_bid_price": { description: "Cleaning bid price including labor, material, overhead, and margin.", requiredInputs: ["cleaningLaborCost","cleaningMaterialCost","cleaningOverhead","cleaningMargin"], outputHint: "currency" },
+  "measurement.delivery_efficiency": { description: "Delivery efficiency from on-time vs total deliveries.", requiredInputs: ["onTimeDeliveries","totalDeliveries"], outputHint: "percentage" },
+  "cost.failed_delivery_cost": { description: "Cost of failed deliveries.", requiredInputs: ["failedDeliveries","costPerFailedDelivery"], outputHint: "currency" },
+  "cost.total_delivery_cost": { description: "Total delivery cost including successful and failed deliveries.", requiredInputs: ["successfulDeliveries","costPerSuccessfulDelivery","failedDeliveryCost"], outputHint: "currency" },
+  "measurement.seed_requirement": { description: "Seed requirement from area and seeding rate.", requiredInputs: ["areaHa","seedRatePerHa"], outputHint: "number" },
+  "cost.seed_cost_total": { description: "Total seed cost from requirement and price.", requiredInputs: ["seedRequirement","seedPricePerUnit"], outputHint: "currency" },
+  "cost.seed_financial_loss": { description: "Financial loss from poor seed germination.", requiredInputs: ["expectedGermination","actualGermination","seedCostTotal"], outputHint: "currency" },
+  "cost.total_employee_cost": { description: "Total employee cost including salary, employer costs, bonus, training, and benefits.", requiredInputs: ["grossSalary","employerCosts","bonus","training","otherBenefits"], outputHint: "currency" },
+  "cost.employee_cost_per_hour": { description: "Employee cost per working hour.", requiredInputs: ["totalEmployeeCost","annualWorkHours"], outputHint: "currency" },
+  "cost.transfer_tax_impact": { description: "Tax impact from transfer price vs market price.", requiredInputs: ["transferPrice","marketPrice","taxRateDiff"], outputHint: "currency" },
+  "cost.transfer_global_profit": { description: "Global profit after transfer tax adjustment.", requiredInputs: ["sellerProfit","buyerProfit","transferTaxImpact"], outputHint: "currency" },
+  "measurement.complexity_index": { description: "Product complexity index from unique vs total parts.", requiredInputs: ["uniqueParts","totalParts"], outputHint: "number" },
+  "cost.hidden_cost_complexity": { description: "Hidden cost from product complexity.", requiredInputs: ["complexityIndex","annualOverhead"], outputHint: "currency" },
+  "cost.profitability_per_sku": { description: "Profitability per SKU sold.", requiredInputs: ["skuRevenue","skuCost","skuQty"], outputHint: "currency" },
+  "measurement.vacuum_leak_rate": { description: "Vacuum leak rate from pressure drop, volume, and test duration.", requiredInputs: ["pressureDrop","chamberVolume","testDuration"], outputHint: "number" },
+  "cost.vacuum_leak_cost": { description: "Cost of vacuum leak over operating hours.", requiredInputs: ["vacuumLeakRate","energyCostPerUnit","operatingHours"], outputHint: "currency" },
+  "measurement.vacuum_capacity_waste": { description: "Vacuum capacity wasted by leaks.", requiredInputs: ["vacuumLeakRate","vacuumCapacity"], outputHint: "percentage" },
+  "cost.shift_total_cost": { description: "Total shift cost from workers, hours, and rate.", requiredInputs: ["shiftWorkers","shiftHours","shiftRate"], outputHint: "currency" },
+  "measurement.shift_efficiency": { description: "Shift efficiency from actual vs max output.", requiredInputs: ["shiftOutput","shiftMaxOutput"], outputHint: "percentage" },
+  "cost.shift_cost_per_unit": { description: "Shift cost per unit produced.", requiredInputs: ["shiftTotalCost","shiftOutput"], outputHint: "currency" },
+  "cost.vsm_leadtime_cost": { description: "VSM lead time cost from total lead time and cost per day.", requiredInputs: ["totalLeadTime","costPerDay"], outputHint: "currency" },
+  "measurement.vsm_value_added_ratio": { description: "Value-added ratio from value-added time over total lead time.", requiredInputs: ["valueAddedTime","totalLeadTime"], outputHint: "percentage" },
+  "cost.vsm_non_value_added_cost": { description: "Cost of non-value-added time in VSM.", requiredInputs: ["totalLeadTime","valueAddedTime","costPerDay"], outputHint: "currency" },
+  "cost.vsm_total_financial_impact": { description: "Total VSM financial impact from lead time, NVA, and inventory.", requiredInputs: ["leadtimeCost","nonValueAddedCost","inventoryCost"], outputHint: "currency" },
+  "measurement.carbon_equivalent": { description: "Carbon equivalent from alloy composition (CE formula).", requiredInputs: ["carbonPct","mnPct","crPct","moPct","vPct","niPct","cuPct"], outputHint: "number" },
+  "measurement.preheat_required": { description: "Preheat required indicator based on carbon equivalent threshold.", requiredInputs: ["carbonEquivalent","thresholdCe"], outputHint: "score" },
+  "cost.preheat_energy_cost": { description: "Energy cost of preheat operation.", requiredInputs: ["preheatHours","energyRate","preheatPower"], outputHint: "currency" },
+  "cost.fuel_waste_distance": { description: "Fuel waste cost from excess distance driven.", requiredInputs: ["actualKm","optimalKm","fuelCostPerKm"], outputHint: "currency" },
+  "cost.fuel_waste_efficiency": { description: "Fuel waste cost from efficiency deviation.", requiredInputs: ["actualFuelUsed","fuelPrice","expectedFuelCost"], outputHint: "currency" },
+  "cost.idle_fuel_cost": { description: "Fuel cost from idle engine time.", requiredInputs: ["idleHours","fuelCostPerHour"], outputHint: "currency" },
+  "cost.total_drift_cost": { description: "Total route drift cost from distance, efficiency, and idle losses.", requiredInputs: ["fuelWasteDistance","fuelWasteEfficiency","idleFuelCost"], outputHint: "currency" },
+  "measurement.hydrant_flow": { description: "Hydrant flow rate from pressure and orifice coefficient.", requiredInputs: ["hydrantPressure","orificeCoefficient"], outputHint: "number" },
+  "measurement.available_flow": { description: "Available hydrant flow minus required flow.", requiredInputs: ["hydrantFlow","requiredFlow"], outputHint: "number" },
+  "cost.hydrant_compliance": { description: "Cost of hydrant non-compliance remediation.", requiredInputs: ["deficientHydrants","remediationCost"], outputHint: "currency" },
+  "cost.renovation_base_cost": { description: "Renovation base cost from area and unit cost.", requiredInputs: ["areaSqm","costPerSqm"], outputHint: "currency" },
+  "cost.renovation_total_budget": { description: "Total renovation budget including contingency and design fees.", requiredInputs: ["renovationBaseCost","contingencyBudget","designFee"], outputHint: "currency" },
+  "cost.renovation_roi": { description: "ROI of renovation investment.", requiredInputs: ["valueAfter","renovationTotalBudget"], outputHint: "percentage" },
+  "measurement.renewable_annual_gen": { description: "Annual renewable energy generation from capacity and capacity factor.", requiredInputs: ["installedCapacity","capacityFactor"], outputHint: "number" },
+  "cost.renewable_npv": { description: "NPV of renewable energy investment.", requiredInputs: ["annualCashFlow","discountRate","lifeYears","totalInvestment"], outputHint: "currency" },
+  "cost.renewable_lcoe": { description: "Levelized cost of energy for renewable project.", requiredInputs: ["totalInvestment","annualOpex","lifeYears","annualGen"], outputHint: "currency" },
+  "cost.roi_investment": { description: "Return on investment from net profit and investment.", requiredInputs: ["netProfit","initialInvestment"], outputHint: "percentage" },
+  "cost.npv_investment": { description: "Net present value of investment.", requiredInputs: ["annualCashFlowNpv","discountRateNpv","lifeYearsNpv","initialInvestment"], outputHint: "currency" },
+  "cost.irr_investment": { description: "Internal rate of return proxy from cash flow ratio.", requiredInputs: ["annualCashFlowNpv","initialInvestment"], outputHint: "percentage" },
+  "cost.payback_period_inv": { description: "Payback period for investment in years.", requiredInputs: ["initialInvestment","annualCashFlowNpv"], outputHint: "number" },
+  "measurement.standard_time": { description: "Standard time from observed time, performance rating, and allowance.", requiredInputs: ["observedTime","performanceRating","allowancePct"], outputHint: "duration" },
+  "measurement.standard_output": { description: "Standard output per hour.", requiredInputs: ["standardTime"], outputHint: "number" },
+  "cost.labor_cost_per_unit_zaman": { description: "Labor cost per unit from standard time and labor rate.", requiredInputs: ["standardTime","laborRate"], outputHint: "currency" },
+  "cost.efficiency_variance": { description: "Labor efficiency variance from actual vs standard time.", requiredInputs: ["actualTime","standardTime","actualOutput","laborRate"], outputHint: "currency" },
+  // --- Schema-linter fixes (UNKNOWN_FORMULA) ---
+  "cost.setup_total_cost": { description: "Setup total cost from changeover time and cost per minute.", requiredInputs: ["changeoverTime","costPerMinute"], outputHint: "currency" },
+  "measurement.waste_percentage": { description: "Waste percentage from waste over total.", requiredInputs: ["waste","total"], outputHint: "percentage" },
+  "cost.vacuum_savings_potential": { description: "Savings potential from 70% of vacuum leak cost.", requiredInputs: ["vacuumLeakCost"], outputHint: "currency" },
+  "cost.annual_shift_cost": { description: "Annual shift cost from workers, hours, rate, and days.", requiredInputs: ["shiftWorkers","shiftHours","shiftRate","shiftDays"], outputHint: "currency" },
+  "measurement.crack_risk_score": { description: "Crack risk score from carbon equivalent vs threshold.", requiredInputs: ["carbonEquivalent","thresholdCe"], outputHint: "number" },
+  "cost.hydrant_compliance_penalty": { description: "Compliance penalty from deficient hydrants.", requiredInputs: ["deficientHydrants","penaltyPerHydrant"], outputHint: "currency" },
+  "cost.renovation_budget_breakdown": { description: "Renovation budget breakdown (base + contingency + design).", requiredInputs: ["renovationBaseCost","contingencyBudget","designFee"], outputHint: "currency" },
+  "cost.renewable_irr": { description: "IRR proxy from cash flow ratio.", requiredInputs: ["annualCashFlow","totalInvestment"], outputHint: "percentage" },
+  "measurement.renewable_payback": { description: "Payback period from investment and annual cash flow.", requiredInputs: ["totalInvestment","annualCashFlow"], outputHint: "number" },
+  "measurement.dso": { description: "Days sales outstanding from AR and annual revenue.", requiredInputs: ["accountsReceivable","annualRevenue"], outputHint: "number" },
+  "measurement.dpo": { description: "Days payable outstanding from AP and annual COGS.", requiredInputs: ["accountsPayable","annualCOGS"], outputHint: "number" },
+  "measurement.dio": { description: "Days inventory outstanding from inventory and annual COGS.", requiredInputs: ["inventory","annualCOGS"], outputHint: "number" },
+  "cost.demand_charge": { description: "Demand charge from peak kW, rate, and months.", requiredInputs: ["peakDemandKW","demandRatePerKW","months"], outputHint: "currency" },
+  "measurement.breakeven_unit": { description: "Breakeven unit from fixed cost and unit contribution.", requiredInputs: ["fixedCost","unitPrice","variableCost"], outputHint: "number" },
+  "measurement.machine_economic_life": { description: "Machine economic life from operating cost, salvage factor, and holding cost rate.", requiredInputs: ["annualOperatingCost","salvageFactor","holdingCostRate"], outputHint: "number" },
+  "measurement.spi": { description: "Schedule performance index (EV / PV).", requiredInputs: ["earnedValue","plannedValue"], outputHint: "number" },
+  "measurement.cpi": { description: "Cost performance index (EV / AC).", requiredInputs: ["earnedValue","actualCost"], outputHint: "number" },
+  "cost.eac": { description: "Estimate at completion (BAC / CPI).", requiredInputs: ["budgetAtCompletion","cpi"], outputHint: "currency" },
+  "cost.expected_overrun": { description: "Expected overrun (EAC - BAC).", requiredInputs: ["eac","budgetAtCompletion"], outputHint: "currency" },
+  "measurement.schedule_delay": { description: "Schedule delay from planned duration and EV.", requiredInputs: ["plannedDuration","earnedValue","budgetAtCompletion"], outputHint: "number" },
+  "cost.risk_exposure": { description: "Risk exposure from probability and impact.", requiredInputs: ["probability","impact"], outputHint: "currency" },
+  "cost.net_risk": { description: "Net risk after mitigation costs.", requiredInputs: ["riskExposure","mitigationCost"], outputHint: "currency" },
+  "cost.recipe_yield_loss": { description: "Cost of recipe yield loss from expected vs actual.", requiredInputs: ["expectedYield","actualYield","costPerUnit"], outputHint: "currency" },
+  "measurement.recipe_efficiency": { description: "Recipe efficiency (actual / expected × 100).", requiredInputs: ["actualYield","expectedYield"], outputHint: "percentage" },
+  "cost.restaurant_variance": { description: "Restaurant food cost variance × meals served.", requiredInputs: ["expectedFoodCost","actualFoodCost","mealsServed"], outputHint: "currency" },
+  "cost.robot_roi": { description: "ROI of robot automation including error cost.", requiredInputs: ["annualLaborCost","annualErrorCost","robotAnnualCost","robotInvestment"], outputHint: "percentage" },
+  "cost.route_overhead": { description: "Route overhead from distance and rate per km.", requiredInputs: ["routeDistance","overheadPerKm"], outputHint: "currency" },
+  "cost.route_total_cost": { description: "Total route cost (fuel + labor + overhead).", requiredInputs: ["routeFuelCost","routeLaborCost","routeOverhead"], outputHint: "currency" },
 };
 
 function buildFormulaRegistryMeta(): FormulaRegistryMeta[] {

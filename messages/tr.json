@@ -68834,5 +68834,30 @@
     "card1.description": "Kurulum süresi, fire, işçilik, kapasite ve marj riski.",
     "card2.title": "Hızlı raporlar, düşük genel gider",
     "card2.description": "Ağır yazılımlar olmadan pratik karar desteği alın."
+  },
+  "verificationQueue": {
+    "reportIssue": "Hatalı sonucu bildir",
+    "title": "Sorun bildir",
+    "description": "Hesaplama sonucu hatalıysa veya eksik varsa bize bildirin.",
+    "issueTypeLabel": "Sorun türü",
+    "messageLabel": "Açıklama",
+    "messagePlaceholder": "Ne hatalı görünüyor? (en az 10 karakter)",
+    "emailLabel": "E-posta (isteğe bağlı)",
+    "emailPlaceholder": "ornek@email.com",
+    "cancel": "İptal",
+    "send": "Gönder",
+    "submitting": "Gönderiliyor…",
+    "submitted": "Teşekkürler. Raporunuz gönderildi.",
+    "rateLimited": "Çok fazla istek. Lütfen bekleyin ve tekrar deneyin.",
+    "submitError": "Gönderilemedi. Tekrar deneyin.",
+    "type": {
+      "wrong_result": "Yanlış sonuç",
+      "missing_input": "Eksik girdi",
+      "unit_issue": "Birim sorunu",
+      "unclear_explanation": "Anlaşılmayan açıklama",
+      "sector_assumption_issue": "Sektör varsayım sorunu",
+      "improvement_request": "İyileştirme önerisi",
+      "other": "Diğer"
+    }
   }
 }

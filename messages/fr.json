@@ -68837,5 +68837,30 @@
     "card1.description": "Temps de configuration, déchets, main-d'œuvre, capacité et risque de marge.",
     "card2.title": "Rapports rapides, frais généraux réduits",
     "card2.description": "Obtenez un soutien décisionnel pratique sans logiciel lourd."
+  },
+  "verificationQueue": {
+    "reportIssue": "Signaler un résultat incorrect",
+    "title": "Signaler un problème",
+    "description": "Faites-nous savoir si le résultat est erroné ou s'il manque quelque chose.",
+    "issueTypeLabel": "Type de problème",
+    "messageLabel": "Description du problème",
+    "messagePlaceholder": "Qu'est-ce qui est incorrect ? (min. 10 caractères)",
+    "emailLabel": "E-mail (facultatif)",
+    "emailPlaceholder": "votre@email.fr",
+    "cancel": "Annuler",
+    "send": "Envoyer",
+    "submitting": "Envoi…",
+    "submitted": "Merci. Votre rapport a été soumis.",
+    "rateLimited": "Trop de requêtes. Veuillez patienter.",
+    "submitError": "Échec d'envoi. Veuillez réessayer.",
+    "type": {
+      "wrong_result": "Résultat erroné",
+      "missing_input": "Entrée manquante",
+      "unit_issue": "Problème d'unité",
+      "unclear_explanation": "Explication peu claire",
+      "sector_assumption_issue": "Hypothèse sectorielle",
+      "improvement_request": "Suggestion d'amélioration",
+      "other": "Autre"
+    }
   }
 }

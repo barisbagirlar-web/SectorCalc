@@ -21,5 +21,20 @@ export function shouldAllowToolPageFraming(pathname: string): boolean {
     return true;
   }
 
+  if (path.startsWith("/embed/")) {
+    return true;
+  }
+
   return false;
+}
+
+/** Build the embed iframe URL for a given tool slug and locale. */
+export function buildEmbedUrl(
+  baseUrl: string,
+  locale: string,
+  slug: string,
+): string {
+  const cleanBase = baseUrl.replace(/\/+$/, "");
+  const siteOrigin = new URL(cleanBase).origin;
+  return `${siteOrigin}/${locale}/embed/${slug}`;
 }
