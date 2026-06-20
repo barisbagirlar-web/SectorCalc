@@ -179,6 +179,10 @@ function main() {
       console.log("run-vercel-build: skipping test:generated (SECTORCALC_SKIP_TEST_GENERATED=1)");
     }
 
+    runStep("node", ["scripts/generate-sitemap-static.mjs"], {
+      label: "generate:sitemap-static — sitemap XML shards for SEO",
+    });
+
     runStep("node", ["scripts/fix-generated-boolean-arithmetic.mjs"], {
       label: "fix:generated-types — repair boolean/string arithmetic in generated/*.ts",
     });
