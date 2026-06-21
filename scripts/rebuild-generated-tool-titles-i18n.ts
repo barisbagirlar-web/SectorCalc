@@ -337,24 +337,24 @@ async function main(): Promise<void> {
   console.log(`  total schemas: ${slugs.length}`);
   console.log(`  incomplete locale slots: ${incomplete}`);
 
-  // REQUIRE all translations to be complete BEFORE writing output.
-  // This prevents the bundle from being overwritten with glossary-only
-  // translations and losing previously saved copy-map entries.
-  if (incomplete > 0) {
-    if (!useDeepSeek) {
-      console.error("FATAL: Incomplete translations without --deepseek. Output NOT written.");
-      console.error("Run with --deepseek to polish remaining titles via DeepSeek.");
-      process.exit(1);
-    }
-    console.error("FATAL: DeepSeek did not resolve all incomplete translations. Output NOT written.");
-    process.exit(1);
-  }
-
-  // All translations complete — safe to write.
+  // Write output in ALL cases — even if some locale slots are incomplete.
+  // During production builds DeepSeek is not available, so glossary+overlay
+  // translations + existing copy-map entries are far better than an empty file
+  // (which would cause the deployed site to fall back to raw English titles).
+  // DeepSeek polishing can be run separately via --deepseek.
   fs.writeFileSync(OUT_TITLES, `${JSON.stringify(output, null, 2)}\n`, "utf8");
   saveCopyMap(copyMap.toolTitles);
   console.log(`  titles → ${OUT_TITLES}`);
-  console.log("  All locale slots complete. Bundle written safely.");
+  console.log(`  incomplete locale slots: ${incomplete}`);
+  if (incomplete > 0) {
+    if (!useDeepSeek) {
+      console.warn("WARN: DeepSeek not available — some slots use glossary/overlay translations. Run --deepseek for polish.");
+    } else {
+      console.warn("WARN: DeepSeek did not resolve all slots. Bundle written with best-effort translations.");
+    }
+  } else {
+    console.log("  All locale slots complete. Bundle written safely.");
+  }
 }
 
 main().catch((error: unknown) => {

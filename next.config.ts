@@ -51,6 +51,11 @@ const nextConfig: NextConfig = {
     if (!dev) {
       config.plugins ??= [];
       config.plugins.push(new EnsureManifestStubsPlugin());
+      // Disable webpack persistent filesystem cache for production builds.
+      // SSG worker crashes with "SyntaxError: Unexpected end of JSON input" when
+      // the cached context module for dynamic i18n JSON imports gets corrupted.
+      // Deterministic SSG > incremental build speed.
+      config.cache = false;
     }
     config.resolve.alias = {
       ...config.resolve.alias,
