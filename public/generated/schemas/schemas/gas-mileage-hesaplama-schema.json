@@ -1,0 +1,75 @@
+{
+  "slug": "gas-mileage-hesaplama",
+  "name": "Gas Mileage Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "distanceTraveled",
+      "label": "Score",
+      "type": "number",
+      "unit": "km",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Kat edilen mesafe.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "distanceTraveled * (1 + distanceTraveled/500) + Math.sqrt(distanceTraveled) * 5",
+    "result": "distanceTraveled * (1 + distanceTraveled/500) + Math.sqrt(distanceTraveled) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "distanceTraveled"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick gas mileage hesaplama.",
+      "long": "Free gas mileage hesaplama tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "gas-mileage-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

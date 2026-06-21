@@ -1,0 +1,316 @@
+{
+  "slug": "palet-raf-optimize-edici",
+  "name": "Palet Rafı Optimize Edici",
+  "description": "Palet Rafı Optimize Edici premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "koridorRafSayısı",
+      "label": "Koridor/Raf Sayısı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Koridor/Raf Sayısı",
+        "tr": "Koridor/Raf Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "seviye",
+      "label": "Seviye",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Seviye",
+        "tr": "Seviye",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "paletKapasitesi",
+      "label": "Palet Kapasitesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Palet Kapasitesi",
+        "tr": "Palet Kapasitesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "forkliftHızı",
+      "label": "Forklift Hızı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Forklift Hızı",
+        "tr": "Forklift Hızı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "toplamaSuresi",
+      "label": "Toplama Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplama Süresi",
+        "tr": "Toplama Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kirisUzunluguYuk",
+      "label": "Kiriş Uzunluğu/Yük",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kiriş Uzunluğu/Yük",
+        "tr": "Kiriş Uzunluğu/Yük",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "elastisite",
+      "label": "Elastisite",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Elastisite",
+        "tr": "Elastisite",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rafSistemToplamBedeli",
+      "label": "Raf Sistem Toplam Bedeli",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Raf Sistem Toplam Bedeli",
+        "tr": "Raf Sistem Toplam Bedeli",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "rackCapacity",
+      "label": "RackCapacity",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RackCapacity",
+        "tr": "RackCapacity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "floorUtilization",
+      "label": "FloorUtilization",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FloorUtilization",
+        "tr": "FloorUtilization",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "throughput",
+      "label": "Throughput",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Throughput",
+        "tr": "Throughput",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "deflection",
+      "label": "Deflection",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Deflection",
+        "tr": "Deflection",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "safetyFactor",
+      "label": "SafetyFactor",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SafetyFactor",
+        "tr": "SafetyFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costPerPosition",
+      "label": "CostPerPosition",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CostPerPosition",
+        "tr": "CostPerPosition",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "retrievalTime",
+      "label": "RetrievalTime",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RetrievalTime",
+        "tr": "RetrievalTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

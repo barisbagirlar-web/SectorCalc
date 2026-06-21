@@ -1,0 +1,322 @@
+{
+  "slug": "clv-cac-orani",
+  "name": "CLV / CAC ORANI",
+  "description": "CLV / CAC ORANI premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "butce",
+      "label": "Bütçe",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Bütçe",
+        "tr": "Bütçe",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yeniMusteri",
+      "label": "Yeni Müşteri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yeni Müşteri",
+        "tr": "Yeni Müşteri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "siparisDegeri",
+      "label": "Sipariş Değeri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sipariş Değeri",
+        "tr": "Sipariş Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sıklık",
+      "label": "Sıklık",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sıklık",
+        "tr": "Sıklık",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yasamSuresi",
+      "label": "Yaşam Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yaşam Süresi",
+        "tr": "Yaşam Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "churn",
+      "label": "Churn",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Churn",
+        "tr": "Churn",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "brutMarj",
+      "label": "Brüt Marj",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Brüt Marj",
+        "tr": "Brüt Marj",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "wACC",
+      "label": "WACC",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WACC",
+        "tr": "WACC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "cLV",
+      "label": "CLV",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CLV",
+        "tr": "CLV",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "grossMarginCLV",
+      "label": "GrossMarginCLV",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "GrossMarginCLV",
+        "tr": "GrossMarginCLV",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "discountedCLV",
+      "label": "DiscountedCLV",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DiscountedCLV",
+        "tr": "DiscountedCLV",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "cAC",
+      "label": "CAC",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CAC",
+        "tr": "CAC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "payback",
+      "label": "Payback",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Payback",
+        "tr": "Payback",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "lTVCAC",
+      "label": "LTV_CAC",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LTV_CAC",
+        "tr": "LTV_CAC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "finance",
+  "formulas": {
+    "normalized_product": "butce * yeniMusteri * siparisDegeri * sıklık",
+    "result": "butce * yeniMusteri * siparisDegeri * sıklık * (yasamSuresi * churn * brutMarj * wACC)",
+    "adjustment_factor": "yasamSuresi * churn * brutMarj * wACC"
+  }
+}

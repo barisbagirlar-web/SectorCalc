@@ -1,0 +1,75 @@
+{
+  "slug": "sqft-sqm-hesaplayici",
+  "name": "sqft - sqm Hesaplayıcı",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "areaValue",
+      "label": "Score",
+      "type": "number",
+      "unit": "m²",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Alan değeri.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Alan",
+        "fr": "Alan",
+        "es": "Alan",
+        "ar": "Alan"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Alan değeri.",
+        "fr": "Alan değeri.",
+        "es": "Alan değeri.",
+        "ar": "Alan değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "areaValue * (1 + areaValue/500) + Math.sqrt(areaValue) * 5",
+    "result": "areaValue * (1 + areaValue/500) + Math.sqrt(areaValue) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "areaValue"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick sqft - sqm hesaplayıcı.",
+      "long": "Free sqft - sqm hesaplayıcı tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "sqft-sqm-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

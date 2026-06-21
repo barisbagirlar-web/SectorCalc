@@ -1,0 +1,300 @@
+{
+  "slug": "haccp-deviation",
+  "name": "HACCP DEVIATION",
+  "description": "HACCP DEVIATION premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "karantinaHacim",
+      "label": "Karantina Hacim",
+      "type": "number",
+      "unit": "m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Karantina Hacim",
+        "tr": "Karantina Hacim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "bekletme",
+      "label": "Bekletme",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Bekletme",
+        "tr": "Bekletme",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "test",
+      "label": "Test",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Test",
+        "tr": "Test",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "reworkImha",
+      "label": "Rework/İmha",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Rework/İmha",
+        "tr": "Rework/İmha",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "geri Cagırma",
+      "label": "Geri Çağırma",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Geri Çağırma",
+        "tr": "Geri Çağırma",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ceza",
+      "label": "Ceza",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ceza",
+        "tr": "Ceza",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "costHold",
+      "label": "Cost_Hold",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Hold",
+        "tr": "Cost_Hold",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "costTest",
+      "label": "Cost_Test",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Test",
+        "tr": "Cost_Test",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "costRework",
+      "label": "Cost_Rework",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Rework",
+        "tr": "Cost_Rework",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "costDisp",
+      "label": "Cost_Disp",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Disp",
+        "tr": "Cost_Disp",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "costRecall",
+      "label": "Cost_Recall",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Recall",
+        "tr": "Cost_Recall",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "fine",
+      "label": "Fine",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Fine",
+        "tr": "Fine",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "total",
+      "label": "Total",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Total",
+        "tr": "Total",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "7": {
+      "id": "rPN",
+      "label": "RPN",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RPN",
+        "tr": "RPN",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "scrap",
+  "formulas": {
+    "normalized_product": "karantinaHacim * bekletme * test * reworkImha",
+    "result": "karantinaHacim * bekletme * test * reworkImha * (geri Cagırma * ceza)",
+    "adjustment_factor": "geri Cagırma * ceza"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "pintten-litreye-hesaplayici",
+  "name": "Pintten Litreye Hesaplayıcı",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "volumeValue",
+      "label": "Score",
+      "type": "number",
+      "unit": "m³",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Hacim değeri.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Hacim",
+        "fr": "Hacim",
+        "es": "Hacim",
+        "ar": "Hacim"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hacim değeri.",
+        "fr": "Hacim değeri.",
+        "es": "Hacim değeri.",
+        "ar": "Hacim değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "volumeValue * (1 + volumeValue/500) + Math.sqrt(volumeValue) * 5",
+    "result": "volumeValue * (1 + volumeValue/500) + Math.sqrt(volumeValue) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "volumeValue"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick pintten litreye hesaplayıcı.",
+      "long": "Free pintten litreye hesaplayıcı tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "pintten-litreye-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

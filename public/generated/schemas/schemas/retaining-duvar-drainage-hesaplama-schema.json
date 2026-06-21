@@ -1,0 +1,75 @@
+{
+  "slug": "retaining-duvar-drainage-hesaplama",
+  "name": "Retaining Duvar Drainage Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "birthDate",
+      "label": "Score",
+      "type": "number",
+      "unit": "date",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Kişinin doğum tarihi.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "birthDate * (1 + birthDate/1000) + Math.pow(birthDate/100, 2) * 50",
+    "result": "birthDate * (1 + birthDate/1000) + Math.pow(birthDate/100, 2) * 50"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "birthDate"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick retaining duvar drainage hesaplama.",
+      "long": "Free retaining duvar drainage hesaplama tool."
+    }
+  },
+  "sector": "Ev & Bahçe",
+  "toolName": "retaining-duvar-drainage-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "home"
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "pet-human-age-hesaplama",
+  "name": "Pet Human Age Hesaplama",
+  "description": "Professional pet human age hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "petAge",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "years",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Evcil hayvanın takvim yaşı.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Evcil Hayvan Yaşı",
+        "fr": "Evcil Hayvan Yaşı",
+        "es": "Evcil Hayvan Yaşı",
+        "ar": "Evcil Hayvan Yaşı"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Evcil hayvanın takvim yaşı.",
+        "fr": "Evcil hayvanın takvim yaşı.",
+        "es": "Evcil hayvanın takvim yaşı.",
+        "ar": "Evcil hayvanın takvim yaşı."
+      }
+    },
+    {
+      "id": "petWeight",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Evcil hayvan vücut ağırlığı.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Evcil Hayvan Kilosu",
+        "fr": "Evcil Hayvan Kilosu",
+        "es": "Evcil Hayvan Kilosu",
+        "ar": "Evcil Hayvan Kilosu"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Evcil hayvan vücut ağırlığı.",
+        "fr": "Evcil hayvan vücut ağırlığı.",
+        "es": "Evcil hayvan vücut ağırlığı.",
+        "ar": "Evcil hayvan vücut ağırlığı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "petAge / petWeight * 100 + Math.sqrt(petAge * petWeight) / 10",
+    "result": "petAge / petWeight * 100 + Math.sqrt(petAge * petWeight) / 10"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "petAge * petWeight"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick pet human age hesaplama calculation.",
+      "long": "This free tool provides a quick pet human age hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Pet Human Age Hesaplama include?",
+        "answer": "Basic pet human age hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "pet-human-age-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

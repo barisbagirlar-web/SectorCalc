@@ -1,0 +1,263 @@
+{
+  "slug": "talep-forecast-stok-maliyet",
+  "name": "talep Forecast Stok Maliyet",
+  "description": "talep Forecast Stok Maliyet premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "tahminGercekTalepArray",
+      "label": "Tahmin/Gerçek Talep array",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tahmin/Gerçek Talep array",
+        "tr": "Tahmin/Gerçek Talep array",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "leadTimeGun",
+      "label": "Lead Time gün",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Lead Time gün",
+        "tr": "Lead Time gün",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "zSkoru",
+      "label": "Z-Skoru",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Z-Skoru",
+        "tr": "Z-Skoru",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "stdDev",
+      "label": "StdDev",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "StdDev",
+        "tr": "StdDev",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "birimMaliyet",
+      "label": "Birim Maliyet",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Birim Maliyet",
+        "tr": "Birim Maliyet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tasımaOranı",
+      "label": "Taşıma Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Taşıma Oranı",
+        "tr": "Taşıma Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "stoksuzKalmaCezası",
+      "label": "Stoksuz Kalma Cezası",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Stoksuz Kalma Cezası",
+        "tr": "Stoksuz Kalma Cezası",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "forecastError",
+      "label": "ForecastError",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ForecastError",
+        "tr": "ForecastError",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "safetyStock",
+      "label": "SafetyStock",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SafetyStock",
+        "tr": "SafetyStock",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "carryingCostSafety",
+      "label": "CarryingCost_Safety",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CarryingCost_Safety",
+        "tr": "CarryingCost_Safety",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "stockoutCost",
+      "label": "StockoutCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "StockoutCost",
+        "tr": "StockoutCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalForecastCost",
+      "label": "TotalForecastCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalForecastCost",
+        "tr": "TotalForecastCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

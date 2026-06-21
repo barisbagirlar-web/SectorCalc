@@ -1,0 +1,298 @@
+{
+  "slug": "machine-economic-life-calculator",
+  "name": "Machine Economic Life Calculator",
+  "description": "Determines the optimal economic life of a machine by balancing capital costs, operating costs, and productivity losses, aligned with ISO 15663, Lean, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Sensitivity analysis",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "purchase_price",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "businessContext": "Initial capital investment for the machine, including installation and commissioning.",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Satın Alma Fiyatı",
+        "de": "Kaufpreis",
+        "fr": "Prix d'achat",
+        "es": "Precio de compra",
+        "ar": "سعر الشراء"
+      },
+      "businessContext_i18n": {
+        "en": "Initial capital investment for the machine, including installation and commissioning.",
+        "tr": "Kurulum ve devreye alma dahil makine için ilk sermaye yatırımı.",
+        "de": "Anfängliche Kapitalinvestition für die Maschine, einschließlich Installation und Inbetriebnahme.",
+        "fr": "Investissement initial en capital pour la machine, incluant l'installation et la mise en service.",
+        "es": "Inversión de capital inicial para la máquina, incluyendo instalación y puesta en marcha.",
+        "ar": "الاستثمار الرأسمالي الأولي للآلة، بما في ذلك التركيب والتشغيل."
+      }
+    },
+    {
+      "id": "salvage_value",
+      "label": "Salvage Value at End of Life",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": 5000000,
+      "businessContext": "Estimated resale or scrap value at the end of the machine's useful life.",
+      "label_i18n": {
+        "en": "Salvage Value at End of Life",
+        "tr": "Ömür Sonu Hurda Değeri",
+        "de": "Restwert am Ende der Lebensdauer",
+        "fr": "Valeur de récupération en fin de vie",
+        "es": "Valor residual al final de la vida útil",
+        "ar": "قيمة الإنقاذ في نهاية العمر الافتراضي"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated resale or scrap value at the end of the machine's useful life.",
+        "tr": "Makinenin faydalı ömrünün sonunda tahmini yeniden satış veya hurda değeri.",
+        "de": "Geschätzter Wiederverkaufs- oder Schrottwert am Ende der Nutzungsdauer der Maschine.",
+        "fr": "Valeur de revente ou de rebut estimée à la fin de la durée de vie utile de la machine.",
+        "es": "Valor estimado de reventa o desecho al final de la vida útil de la máquina.",
+        "ar": "القيمة التقديرية لإعادة البيع أو الهدر في نهاية العمر الإنتاجي للآلة."
+      }
+    },
+    {
+      "id": "useful_life_years",
+      "label": "Estimated Useful Life",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Expected number of years the machine will be operational before major overhaul or replacement.",
+      "label_i18n": {
+        "en": "Estimated Useful Life",
+        "tr": "Tahmini Faydalı Ömür",
+        "de": "Geschätzte Nutzungsdauer",
+        "fr": "Durée de vie utile estimée",
+        "es": "Vida útil estimada",
+        "ar": "العمر الإنتاجي المقدر"
+      },
+      "businessContext_i18n": {
+        "en": "Expected number of years the machine will be operational before major overhaul or replacement.",
+        "tr": "Makinenin büyük bir revizyon veya değiştirme öncesinde çalışır durumda olması beklenen yıl sayısı.",
+        "de": "Erwartete Anzahl von Jahren, in denen die Maschine vor einer Generalüberholung oder einem Austausch betriebsbereit ist.",
+        "fr": "Nombre d'années prévu pendant lequel la machine sera opérationnelle avant une révision majeure ou un remplacement.",
+        "es": "Número esperado de años que la máquina estará operativa antes de una revisión mayor o reemplazo.",
+        "ar": "عدد السنوات المتوقعة التي ستظل فيها الآلة قيد التشغيل قبل الإصلاح الشامل أو الاستبدال."
+      }
+    },
+    {
+      "id": "annual_operating_cost",
+      "label": "Annual Operating Cost (Year 1)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 15000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Includes energy, consumables, labor, and routine maintenance in the first year.",
+      "label_i18n": {
+        "en": "Annual Operating Cost (Year 1)",
+        "tr": "Yıllık İşletme Maliyeti (1. Yıl)",
+        "de": "Jährliche Betriebskosten (Jahr 1)",
+        "fr": "Coût d'exploitation annuel (Année 1)",
+        "es": "Costo operativo anual (Año 1)",
+        "ar": "تكلفة التشغيل السنوية (السنة الأولى)"
+      },
+      "businessContext_i18n": {
+        "en": "Includes energy, consumables, labor, and routine maintenance in the first year.",
+        "tr": "İlk yıldaki enerji, sarf malzemeleri, işçilik ve rutin bakımı içerir.",
+        "de": "Umfasst Energie, Verbrauchsmaterialien, Arbeitskräfte und routinemäßige Wartung im ersten Jahr.",
+        "fr": "Inclut l'énergie, les consommables, la main-d'œuvre et la maintenance de routine la première année.",
+        "es": "Incluye energía, consumibles, mano de obra y mantenimiento rutinario en el primer año.",
+        "ar": "تشمل الطاقة والمواد الاستهلاكية والعمالة والصيانة الروتينية في السنة الأولى."
+      }
+    },
+    {
+      "id": "operating_cost_escalation_rate",
+      "label": "Operating Cost Escalation Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 3,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Annual increase in operating costs due to aging, inflation, and wear.",
+      "label_i18n": {
+        "en": "Operating Cost Escalation Rate",
+        "tr": "İşletme Maliyeti Artış Oranı",
+        "de": "Steigerungsrate der Betriebskosten",
+        "fr": "Taux d'escalade des coûts d'exploitation",
+        "es": "Tasa de escalamiento del costo operativo",
+        "ar": "معدل تصاعد تكلفة التشغيل"
+      },
+      "businessContext_i18n": {
+        "en": "Annual increase in operating costs due to aging, inflation, and wear.",
+        "tr": "Eskime, enflasyon ve aşınma nedeniyle işletme maliyetlerindeki yıllık artış.",
+        "de": "Jährlicher Anstieg der Betriebskosten aufgrund von Alterung, Inflation und Verschleiß.",
+        "fr": "Augmentation annuelle des coûts d'exploitation due au vieillissement, à l'inflation et à l'usure.",
+        "es": "Incremento anual en los costos operativos debido al envejecimiento, inflación y desgaste.",
+        "ar": "الزيادة السنوية في تكاليف التشغيل بسبب التقادم والتضخم والتآكل."
+      }
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (WACC)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Weighted average cost of capital used for net present value calculations.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)",
+        "tr": "İskonto Oranı (AOSM)",
+        "de": "Diskontierungssatz (WACC)",
+        "fr": "Taux d'actualisation (WACC)",
+        "es": "Tasa de descuento (WACC)",
+        "ar": "معدل الخصم (متوسط التكلفة المرجح لرأس المال)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital used for net present value calculations.",
+        "tr": "Net bugünkü değer hesaplamaları için kullanılan ağırlıklı ortalama sermaye maliyeti.",
+        "de": "Gewichteter durchschnittlicher Kapitalkostensatz, der für die Nettobarwertberechnung verwendet wird.",
+        "fr": "Coût moyen pondéré du capital utilisé pour les calculs de valeur actuelle nette.",
+        "es": "Costo promedio ponderado del capital utilizado para cálculos de valor presente neto.",
+        "ar": "متوسط التكلفة المرجح لرأس المال المستخدم في حسابات القيمة الحالية الصافية."
+      }
+    },
+    {
+      "id": "annual_production_units",
+      "label": "Annual Production Units",
+      "type": "number",
+      "unit": "units/year",
+      "default": 50000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Number of units produced per year at full capacity.",
+      "label_i18n": {
+        "en": "Annual Production Units",
+        "tr": "Yıllık Üretim Birimleri",
+        "de": "Jährliche Produktionseinheiten",
+        "fr": "Unités de production annuelles",
+        "es": "Unidades de producción anuales",
+        "ar": "الوحدات المنتجة سنويًا"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced per year at full capacity.",
+        "tr": "Tam kapasitede yılda üretilen birim sayısı.",
+        "de": "Anzahl der pro Jahr bei voller Auslastung produzierten Einheiten.",
+        "fr": "Nombre d'unités produites par an à pleine capacité.",
+        "es": "Número de unidades producidas por año a plena capacidad.",
+        "ar": "عدد الوحدات المنتجة سنويًا عند الطاقة القصوى."
+      }
+    },
+    {
+      "id": "revenue_per_unit",
+      "label": "Revenue per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 5,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Selling price per unit produced by the machine.",
+      "label_i18n": {
+        "en": "Revenue per Unit",
+        "tr": "Birim Başına Gelir",
+        "de": "Stillstandszeit",
+        "fr": "Revenu par unité",
+        "es": "Ingreso por unidad",
+        "ar": "الإيراد لكل وحدة"
+      },
+      "businessContext_i18n": {
+        "en": "Selling price per unit produced by the machine.",
+        "tr": "Makine tarafından üretilen birim başına satış fiyatı.",
+        "de": "Verkaufspreis pro von der Maschine produzierter Einheit.",
+        "fr": "Prix de vente unitaire produit par la machine.",
+        "es": "Precio de venta por unidad producida por la máquina.",
+        "ar": "سعر البيع لكل وحدة تنتجها الآلة."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "salvage_less_than_purchase",
+        "condition": "salvage_value < purchase_price",
+        "message": "Salvage value must be less than purchase price."
+      },
+      {
+        "id": "positive_useful_life",
+        "condition": "useful_life_years > 0",
+        "message": "Useful life must be greater than zero."
+      },
+      {
+        "id": "defect_rate_less_than_100",
+        "condition": "quality_defect_rate + defect_rate_annual_increase * useful_life_years < 100",
+        "message": "Projected defect rate exceeds 100% within useful life."
+      },
+      {
+        "id": "utilization_range",
+        "condition": "utilization_rate >= 0 && utilization_rate <= 100",
+        "message": "Utilization rate must be between 0 and 100."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_operating_cost_alert",
+        "condition": "annual_operating_cost > 0.3 * purchase_price",
+        "message": "Annual operating cost exceeds 30% of purchase price; consider replacement."
+      },
+      {
+        "id": "low_utilization_alert",
+        "condition": "utilization_rate < 60",
+        "message": "Utilization rate below 60%; investigate root causes."
+      },
+      {
+        "id": "quality_degradation_alert",
+        "condition": "quality_defect_rate > 5",
+        "message": "Initial defect rate above 5%; Six Sigma DMAIC recommended."
+      }
+    ]
+  },
+  "formulas": {
+    "base_cost": "useful_life_years * purchase_price",
+    "adjusted_cost": "useful_life_years * purchase_price * (1 + (operating_cost_escalation_rate / 100))",
+    "result": "useful_life_years * purchase_price * (1 + (operating_cost_escalation_rate / 100)) * (salvage_value)",
+    "factor_salvage_value": "salvage_value"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_salvage_value"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
+    "suggestedActions": [
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
+  },
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "quality-six-sigma",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Makine & Üretim",
+  "toolName": "machine-economic-life-calculator",
+  "sectorId": "makine",
+  "profession": "CNC Operatörü",
+  "categoryId": "cost"
+}

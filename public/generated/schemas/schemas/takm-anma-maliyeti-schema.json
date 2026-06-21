@@ -1,0 +1,277 @@
+{
+  "slug": "takm-anma-maliyeti",
+  "name": "Takım Aşınma Maliyeti",
+  "description": "Takım Aşınma Maliyeti premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "kesmeSuresiDk",
+      "label": "Kesme Süresi dk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kesme Süresi dk",
+        "tr": "Kesme Süresi dk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "takım OmruDk",
+      "label": "Takım Ömrü dk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Takım Ömrü dk",
+        "tr": "Takım Ömrü dk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taylor UssuN",
+      "label": "Taylor Üssü n",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Taylor Üssü n",
+        "tr": "Taylor Üssü n",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "takımDegisimSuresiDk",
+      "label": "Takım Değişim Süresi dk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Takım Değişim Süresi dk",
+        "tr": "Takım Değişim Süresi dk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ucInsertFiyatı",
+      "label": "Uç/Insert Fiyatı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Uç/Insert Fiyatı",
+        "tr": "Uç/Insert Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kenarSayısı",
+      "label": "Kenar Sayısı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kenar Sayısı",
+        "tr": "Kenar Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "makineSaatlik Ucreti",
+      "label": "Makine Saatlik Ücreti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Makine Saatlik Ücreti",
+        "tr": "Makine Saatlik Ücreti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolCostPerPart",
+      "label": "ToolCostPerPart",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ToolCostPerPart",
+        "tr": "ToolCostPerPart",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "changeCostPerPart",
+      "label": "ChangeCostPerPart",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ChangeCostPerPart",
+        "tr": "ChangeCostPerPart",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalToolingCost",
+      "label": "TotalToolingCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalToolingCost",
+        "tr": "TotalToolingCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "wearRate",
+      "label": "WearRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "WearRate",
+        "tr": "WearRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "optimalToolLife",
+      "label": "OptimalToolLife",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OptimalToolLife",
+        "tr": "OptimalToolLife",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costOfPrematureFailure",
+      "label": "CostOfPrematureFailure",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CostOfPrematureFailure",
+        "tr": "CostOfPrematureFailure",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

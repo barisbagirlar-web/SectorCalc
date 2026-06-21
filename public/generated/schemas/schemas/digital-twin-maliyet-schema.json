@@ -1,0 +1,247 @@
+{
+  "slug": "digital-twin-maliyet",
+  "name": "DIGITAL TWIN MALİYET",
+  "description": "DIGITAL TWIN MALİYET premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "prototipSahaTesti",
+      "label": "Prototip/Saha Testi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Prototip/Saha Testi",
+        "tr": "Prototip/Saha Testi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "modelleme Iscilik",
+      "label": "Modelleme İşçilik",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Modelleme İşçilik",
+        "tr": "Modelleme İşçilik",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "bulutLisans",
+      "label": "Bulut/Lisans",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Bulut/Lisans",
+        "tr": "Bulut/Lisans",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "garantiDususu",
+      "label": "Garanti Düşüşü",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Garanti Düşüşü",
+        "tr": "Garanti Düşüşü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "erken CıkısGeliri",
+      "label": "Erken Çıkış Geliri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Erken Çıkış Geliri",
+        "tr": "Erken Çıkış Geliri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "costTrad",
+      "label": "Cost_Trad",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Trad",
+        "tr": "Cost_Trad",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "costDT",
+      "label": "Cost_DT",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_DT",
+        "tr": "Cost_DT",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "timeGain",
+      "label": "TimeGain",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TimeGain",
+        "tr": "TimeGain",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "revenueGain",
+      "label": "RevenueGain",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RevenueGain",
+        "tr": "RevenueGain",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "qualitySavings",
+      "label": "QualitySavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "QualitySavings",
+        "tr": "QualitySavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "rOI",
+      "label": "ROI",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ROI",
+        "tr": "ROI",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "finance",
+  "formulas": {
+    "normalized_product": "prototipSahaTesti * modelleme Iscilik * bulutLisans * garantiDususu",
+    "result": "prototipSahaTesti * modelleme Iscilik * bulutLisans * garantiDususu * (erken CıkısGeliri)",
+    "adjustment_factor": "erken CıkısGeliri"
+  }
+}

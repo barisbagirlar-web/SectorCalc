@@ -1,0 +1,330 @@
+{
+  "slug": "kaynak-hacmi-ve-maliyeti",
+  "name": "Kaynak Hacmi ve Maliyeti",
+  "description": "Kaynak Hacmi ve Maliyeti premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "kaynakBoyuLeg",
+      "label": "Kaynak Boyu Leg",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kaynak Boyu Leg",
+        "tr": "Kaynak Boyu Leg",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "uzunluk",
+      "label": "Uzunluk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Uzunluk",
+        "tr": "Uzunluk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tel CapıEkimVerimi",
+      "label": "Tel Çapı/Ekim Verimi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tel Çapı/Ekim Verimi",
+        "tr": "Tel Çapı/Ekim Verimi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gazDebisi",
+      "label": "Gaz Debisi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gaz Debisi",
+        "tr": "Gaz Debisi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "voltajAkım",
+      "label": "Voltaj/Akım",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Voltaj/Akım",
+        "tr": "Voltaj/Akım",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "telGazKgm3Fiyatı",
+      "label": "Tel/Gaz kg/m3 Fiyatı",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tel/Gaz kg/m3 Fiyatı",
+        "tr": "Tel/Gaz kg/m3 Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IscilikSaati",
+      "label": "İşçilik Saati",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşçilik Saati",
+        "tr": "İşçilik Saati",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "elektrik",
+      "label": "Elektrik",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Elektrik",
+        "tr": "Elektrik",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "areaWeld",
+      "label": "Area_Weld",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Area_Weld",
+        "tr": "Area_Weld",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "volumeWeld",
+      "label": "Volume_Weld",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Volume_Weld",
+        "tr": "Volume_Weld",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "weightDeposited",
+      "label": "Weight_Deposited",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Weight_Deposited",
+        "tr": "Weight_Deposited",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "weightElectrode",
+      "label": "Weight_Electrode",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Weight_Electrode",
+        "tr": "Weight_Electrode",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costFiller",
+      "label": "Cost_Filler",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Filler",
+        "tr": "Cost_Filler",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costGas",
+      "label": "Cost_Gas",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Gas",
+        "tr": "Cost_Gas",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costPower",
+      "label": "Cost_Power",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Power",
+        "tr": "Cost_Power",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalWeldCost",
+      "label": "TotalWeldCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalWeldCost",
+        "tr": "TotalWeldCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

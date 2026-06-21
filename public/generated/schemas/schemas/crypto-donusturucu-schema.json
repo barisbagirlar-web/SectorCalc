@@ -1,0 +1,113 @@
+{
+  "slug": "crypto-donusturucu",
+  "name": "Crypto Dönüştürücü",
+  "description": "Professional crypto dönüştürücü tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "investmentAmount",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Toplam yatırım miktarı.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Yatırım Tutarı",
+        "fr": "Yatırım Tutarı",
+        "es": "Yatırım Tutarı",
+        "ar": "Yatırım Tutarı"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Toplam yatırım miktarı.",
+        "fr": "Toplam yatırım miktarı.",
+        "es": "Toplam yatırım miktarı.",
+        "ar": "Toplam yatırım miktarı."
+      }
+    },
+    {
+      "id": "currentValue",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Portföyün güncel değeri.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Güncel Değer",
+        "fr": "Güncel Değer",
+        "es": "Güncel Değer",
+        "ar": "Güncel Değer"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Portföyün güncel değeri.",
+        "fr": "Portföyün güncel değeri.",
+        "es": "Portföyün güncel değeri.",
+        "ar": "Portföyün güncel değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "investmentAmount * currentValue / (investmentAmount + currentValue + 1) * 100 + Math.sqrt(Math.abs(investmentAmount - currentValue))",
+    "result": "investmentAmount * currentValue / (investmentAmount + currentValue + 1) * 100 + Math.sqrt(Math.abs(investmentAmount - currentValue))"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "investmentAmount * currentValue"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick crypto dönüştürücü calculation.",
+      "long": "This free tool provides a quick crypto dönüştürücü."
+    },
+    "faqs": [
+      {
+        "question": "What does this Crypto Dönüştürücü include?",
+        "answer": "Basic crypto dönüştürücü calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Yatırım",
+  "toolName": "crypto-donusturucu",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "investment"
+}

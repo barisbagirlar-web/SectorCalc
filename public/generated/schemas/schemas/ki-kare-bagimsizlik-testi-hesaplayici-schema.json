@@ -1,0 +1,113 @@
+{
+  "slug": "ki-kare-bagimsizlik-testi-hesaplayici",
+  "name": "Ki-Kare Bağımsızlık Testi Hesaplayıcı",
+  "description": "Professional ki-kare bağımsızlık testi hesaplayıcı tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "correctAnswers",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "n",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Doğru cevap sayısı.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Doğru Cevap",
+        "fr": "Doğru Cevap",
+        "es": "Doğru Cevap",
+        "ar": "Doğru Cevap"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Doğru cevap sayısı.",
+        "fr": "Doğru cevap sayısı.",
+        "es": "Doğru cevap sayısı.",
+        "ar": "Doğru cevap sayısı."
+      }
+    },
+    {
+      "id": "totalQuestions",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "n",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Toplam soru sayısı.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Toplam Soru",
+        "fr": "Toplam Soru",
+        "es": "Toplam Soru",
+        "ar": "Toplam Soru"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Toplam soru sayısı.",
+        "fr": "Toplam soru sayısı.",
+        "es": "Toplam soru sayısı.",
+        "ar": "Toplam soru sayısı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "(correctAnswers - totalQuestions) / Math.sqrt((correctAnswers + totalQuestions) / 2 + 1) * 10 + 50",
+    "result": "(correctAnswers - totalQuestions) / Math.sqrt((correctAnswers + totalQuestions) / 2 + 1) * 10 + 50"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "correctAnswers * totalQuestions"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick ki-kare bağımsızlık testi hesaplayıcı calculation.",
+      "long": "This free tool provides a quick ki-kare bağımsızlık testi hesaplayıcı."
+    },
+    "faqs": [
+      {
+        "question": "What does this Ki-Kare Bağımsızlık Testi Hesaplayıcı include?",
+        "answer": "Basic ki-kare bağımsızlık testi hesaplayıcı calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "ki-kare-bagimsizlik-testi-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

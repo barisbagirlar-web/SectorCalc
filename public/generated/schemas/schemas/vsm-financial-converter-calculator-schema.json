@@ -1,0 +1,304 @@
+{
+  "slug": "vsm-financial-converter",
+  "name": "VSM Financial Converter",
+  "description": "Converts Value Stream Mapping operational metrics into financial impact, highlighting hidden losses and improvement opportunities based on Lean, Six Sigma, and ISO standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Multi-scenario simulation"
+  ],
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Annual Demand (units)",
+      "type": "number",
+      "unit": "units/year",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "businessContext": "Total customer demand per year for the product family under analysis.",
+      "label_i18n": {
+        "en": "Annual Demand (units)",
+        "tr": "Yıllık Talep (birim)",
+        "de": "Jahresbedarf (Einheiten)",
+        "fr": "Demande annuelle (unités)",
+        "es": "Demanda anual (unidades)",
+        "ar": "الطلب السنوي (وحدات)"
+      },
+      "businessContext_i18n": {
+        "en": "Total customer demand per year for the product family under analysis.",
+        "tr": "Analiz edilen ürün ailesi için yıllık toplam müşteri talebi.",
+        "de": "Gesamte Kundennachfrage pro Jahr für die analysierte Produktfamilie.",
+        "fr": "Demande totale du client par an pour la famille de produits analysée.",
+        "es": "Demanda total del cliente por año para la familia de productos bajo análisis.",
+        "ar": "إجمالي طلب العملاء السنوي لعائلة المنتج قيد التحليل."
+      }
+    },
+    {
+      "id": "sellingPrice",
+      "label": "Selling Price per unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Average selling price per unit to the customer.",
+      "label_i18n": {
+        "en": "Selling Price per unit",
+        "tr": "Birim Satış Fiyatı",
+        "de": "Verkaufspreis pro Einheit",
+        "fr": "Prix de vente unitaire",
+        "es": "Precio de venta por unidad",
+        "ar": "سعر البيع لكل وحدة"
+      },
+      "businessContext_i18n": {
+        "en": "Average selling price per unit to the customer.",
+        "tr": "Müşteriye birim başına ortalama satış fiyatı.",
+        "de": "Durchschnittlicher Verkaufspreis pro Einheit an den Kunden.",
+        "fr": "Prix de vente moyen unitaire au client.",
+        "es": "Precio de venta promedio por unidad al cliente.",
+        "ar": "متوسط سعر البيع لكل وحدة للعميل."
+      }
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Material Cost per unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 20,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Direct material cost per unit.",
+      "label_i18n": {
+        "en": "Material Cost per unit",
+        "tr": "Birim Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
+        "fr": "Coût matière unitaire",
+        "es": "Costo de material por unidad",
+        "ar": "تكلفة المواد لكل وحدة"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per unit.",
+        "tr": "Birim başına direkt malzeme maliyeti.",
+        "de": "Direkte Materialkosten pro Einheit.",
+        "fr": "Coût direct matière par unité.",
+        "es": "Costo directo de material por unidad.",
+        "ar": "تكلفة المواد المباشرة لكل وحدة."
+      }
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 25,
+      "min": 5,
+      "max": 200,
+      "businessContext": "Fully loaded labor cost per operator hour.",
+      "label_i18n": {
+        "en": "Labor Cost per hour",
+        "tr": "Saatlik İşçilik Maliyeti",
+        "de": "Arbeitskosten pro Stunde",
+        "fr": "Coût de main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora",
+        "ar": "تكلفة العمالة لكل ساعة"
+      },
+      "businessContext_i18n": {
+        "en": "Fully loaded labor cost per operator hour.",
+        "tr": "Operatör saati başına tam yüklü işçilik maliyeti.",
+        "de": "Voll belastete Arbeitskosten pro Bedienstundenstunde.",
+        "fr": "Coût de main-d'œuvre entièrement chargé par heure opérateur.",
+        "es": "Costo de mano de obra totalmente cargado por hora de operador.",
+        "ar": "تكلفة العمالة الكاملة لكل ساعة مشغل."
+      }
+    },
+    {
+      "id": "totalCycleTime",
+      "label": "Total Cycle Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 45,
+      "min": 0.1,
+      "max": 1000,
+      "businessContext": "Sum of all process cycle times for one unit through the value stream.",
+      "label_i18n": {
+        "en": "Total Cycle Time (minutes)",
+        "tr": "Toplam Çevrim Süresi (dakika)",
+        "de": "Gesamte Zykluszeit (Minuten)",
+        "fr": "Temps de cycle total (minutes)",
+        "es": "Tiempo de ciclo total (minutos)",
+        "ar": "إجمالي وقت الدورة (بالدقائق)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all process cycle times for one unit through the value stream.",
+        "tr": "Değer akışı boyunca bir birim için tüm proses çevrim sürelerinin toplamı.",
+        "de": "Summe aller Prozesszykluszeiten für eine Einheit durch den Wertstrom.",
+        "fr": "Somme de tous les temps de cycle de processus pour une unité à travers la chaîne de valeur.",
+        "es": "Suma de todos los tiempos de ciclo del proceso para una unidad a través del flujo de valor.",
+        "ar": "مجموع أوقات دورة العمليات لوحدة واحدة عبر تيار القيمة."
+      }
+    },
+    {
+      "id": "totalValueAddedTime",
+      "label": "Total Value-Added Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Sum of only value-added process times (ISO 22400, Lean definition).",
+      "label_i18n": {
+        "en": "Total Value-Added Time (minutes)",
+        "tr": "Toplam Katma Değer Süresi (dakika)",
+        "de": "Gesamte Wertschöpfungszeit (Minuten)",
+        "fr": "Temps à valeur ajoutée total (minutes)",
+        "es": "Tiempo total de valor agregado (minutos)",
+        "ar": "إجمالي الوقت المضاف للقيمة (بالدقائق)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of only value-added process times (ISO 22400, Lean definition).",
+        "tr": "Yalnızca katma değerli proses sürelerinin toplamı (ISO 22400, Yalın tanımı).",
+        "de": "Summe nur der wertschöpfenden Prozesszeiten (ISO 22400, Lean-Definition).",
+        "fr": "Somme des temps de processus à valeur ajoutée uniquement (définition ISO 22400, Lean).",
+        "es": "Suma de solo los tiempos de proceso de valor agregado (ISO 22400, definición Lean).",
+        "ar": "مجموع أوقات العمليات ذات القيمة المضافة فقط (ISO 22400، تعريف اللين)."
+      }
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of units that require rework or are scrapped (First Pass Yield).",
+      "label_i18n": {
+        "en": "Defect Rate (%)",
+        "tr": "Hata Oranı (%)",
+        "de": "Ausschussrate (%)",
+        "fr": "Taux de rebut (%)",
+        "es": "Tasa de defectos (%)",
+        "ar": "معدل العيوب (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units that require rework or are scrapped (First Pass Yield).",
+        "tr": "Yeniden işlem veya fire olan birimlerin yüzdesi (İlk Geçiş Verimi).",
+        "de": "Prozentsatz der Einheiten, die Nacharbeit oder Ausschuss erfordern (First Pass Yield).",
+        "fr": "Pourcentage d'unités nécessitant une reprise ou mises au rebut (rendement de premier passage).",
+        "es": "Porcentaje de unidades que requieren retrabajo o se convierten en desperdicio (Rendimiento de primer paso).",
+        "ar": "نسبة الوحدات التي تتطلب إعادة عمل أو يتم هدرها (العائد من المحاولة الأولى)."
+      }
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Rework Cost per defective unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Additional cost to rework one defective unit (labor + material).",
+      "label_i18n": {
+        "en": "Rework Cost per defective unit",
+        "tr": "Hatalı Birim Başına Yeniden İşlem Maliyeti",
+        "de": "Nacharbeitskosten pro fehlerhafter Einheit",
+        "fr": "Coût de reprise par unité défectueuse",
+        "es": "Costo de retrabajo por unidad defectuosa",
+        "ar": "تكلفة إعادة العمل لكل وحدة معيبة"
+      },
+      "businessContext_i18n": {
+        "en": "Additional cost to rework one defective unit (labor + material).",
+        "tr": "Bir hatalı birimi yeniden işlemek için ek maliyet (işçilik + malzeme).",
+        "de": "Zusätzliche Kosten für die Nacharbeit einer fehlerhaften Einheit (Arbeit + Material).",
+        "fr": "Coût supplémentaire pour reprendre une unité défectueuse (main-d'œuvre + matière).",
+        "es": "Costo adicional para retrabajar una unidad defectuosa (mano de obra + material).",
+        "ar": "التكلفة الإضافية لإعادة عمل وحدة معيبة واحدة (عمالة + مواد)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "val_cycleTimeCheck",
+        "condition": "totalValueAddedTime > totalCycleTime",
+        "message": "Value-added time cannot exceed total cycle time.",
+        "severity": "error"
+      },
+      {
+        "id": "val_defectRateRange",
+        "condition": "defectRate < 0 || defectRate > 100",
+        "message": "Defect rate must be between 0 and 100.",
+        "severity": "error"
+      },
+      {
+        "id": "val_inventoryPositive",
+        "condition": "averageInventoryValue < 0",
+        "message": "Average inventory value must be non-negative.",
+        "severity": "error"
+      },
+      {
+        "id": "val_wasteTarget",
+        "condition": "wasteReductionTarget < 0 || wasteReductionTarget > 100",
+        "message": "Waste reduction target must be between 0 and 100.",
+        "severity": "error"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "thresh_highDefect",
+        "condition": "defectRate > 5",
+        "message": "Defect rate exceeds 5% – significant quality loss.",
+        "severity": "warning"
+      },
+      {
+        "id": "thresh_lowVA",
+        "condition": "(totalValueAddedTime / totalCycleTime) < 0.3",
+        "message": "Value-added ratio below 30% – high non-value-added waste.",
+        "severity": "warning"
+      },
+      {
+        "id": "thresh_highInventory",
+        "condition": "averageInventoryValue > 1000000",
+        "message": "Inventory value exceeds 1M currency – consider reduction initiatives.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": {
+    "base_cost": "annualDemand * sellingPrice",
+    "adjusted_cost": "annualDemand * sellingPrice * (1 + (defectRate / 100))",
+    "result": "annualDemand * sellingPrice * (1 + (defectRate / 100)) * (materialCostPerUnit)",
+    "factor_materialCostPerUnit": "materialCostPerUnit"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_materialCostPerUnit"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
+    "suggestedActions": [
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
+  },
+  "toolName": "vsm-financial-converter-calculator",
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "quality-six-sigma",
+  "category": "Dönüşüm & Ölçüm",
+  "sector": "Birim & Dönüşüm",
+  "sectorId": "birim-donusum",
+  "profession": "Operatör",
+  "categoryId": "conversion"
+}

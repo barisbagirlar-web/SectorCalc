@@ -1,0 +1,75 @@
+{
+  "slug": "tork-donusturucu",
+  "name": "Tork Dönüştürücü",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "powerOutput",
+      "label": "Value",
+      "type": "number",
+      "unit": "hp",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Motor güç çıkışı.",
+      "label_i18n": {
+        "en": "Value",
+        "tr": "Değer",
+        "de": "Güç Çıkışı",
+        "fr": "Güç Çıkışı",
+        "es": "Güç Çıkışı",
+        "ar": "Güç Çıkışı"
+      },
+      "businessContext_i18n": {
+        "en": "Input value.",
+        "tr": "Giriş değeri.",
+        "de": "Motor güç çıkışı.",
+        "fr": "Motor güç çıkışı.",
+        "es": "Motor güç çıkışı.",
+        "ar": "Motor güç çıkışı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "powerOutput * 1.0 + Math.log(powerOutput + 1) * 0.5",
+    "result": "powerOutput * 1.0 + Math.log(powerOutput + 1) * 0.5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "powerOutput"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick tork dönüştürücü.",
+      "long": "Free tork dönüştürücü tool."
+    }
+  },
+  "sector": "Dönüştürücü",
+  "toolName": "tork-donusturucu",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "converter"
+}

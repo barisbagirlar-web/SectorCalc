@@ -1,0 +1,113 @@
+{
+  "slug": "percentile-to-z-skoru-hesaplama",
+  "name": "Percentile To Z Skoru Hesaplama",
+  "description": "Professional percentile to z skoru hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "dataSet",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Sayısal veri seti.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Veri Seti",
+        "fr": "Veri Seti",
+        "es": "Veri Seti",
+        "ar": "Veri Seti"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Sayısal veri seti.",
+        "fr": "Sayısal veri seti.",
+        "es": "Sayısal veri seti.",
+        "ar": "Sayısal veri seti."
+      }
+    },
+    {
+      "id": "sampleSize",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "n",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Örneklem sayısı.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Örneklem Büyüklüğü",
+        "fr": "Örneklem Büyüklüğü",
+        "es": "Örneklem Büyüklüğü",
+        "ar": "Örneklem Büyüklüğü"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Örneklem sayısı.",
+        "fr": "Örneklem sayısı.",
+        "es": "Örneklem sayısı.",
+        "ar": "Örneklem sayısı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "dataSet / sampleSize * 100 + Math.sqrt(dataSet * sampleSize) / 10",
+    "result": "dataSet / sampleSize * 100 + Math.sqrt(dataSet * sampleSize) / 10"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "dataSet * sampleSize"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick percentile to z skoru hesaplama calculation.",
+      "long": "This free tool provides a quick percentile to z skoru hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Percentile To Z Skoru Hesaplama include?",
+        "answer": "Basic percentile to z skoru hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Dönüştürücü",
+  "toolName": "percentile-to-z-skoru-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "converter"
+}

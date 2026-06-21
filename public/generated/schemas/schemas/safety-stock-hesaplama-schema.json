@@ -1,0 +1,85 @@
+{
+  "slug": "safety-stock-hesaplama",
+  "name": "Safety Stock Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "investment",
+      "label": "Yatırım / Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Investment amount.",
+      "label_i18n": {
+        "en": "Investment Amount",
+        "tr": "Yatırım Tutarı"
+      },
+      "businessContext_i18n": {
+        "en": "Investment amount.",
+        "tr": "Yatırım tutarı."
+      }
+    },
+    {
+      "id": "returnRate",
+      "label": "Getiri / Return",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": -100,
+      "max": 10000,
+      "businessContext": "Rate of return.",
+      "label_i18n": {
+        "en": "Rate of Return",
+        "tr": "Getiri Oranı"
+      },
+      "businessContext_i18n": {
+        "en": "Rate of return.",
+        "tr": "Getiri oranı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "investment * (1 + returnRate/100)",
+    "result": "investment * (1 + returnRate/100)"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "USD",
+    "breakdown": {
+      "result": "investment * (1 + returnRate/100)"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick safety stock hesaplama.",
+      "long": "Free safety stock hesaplama tool."
+    }
+  },
+  "sector": "Yatırım",
+  "toolName": "safety-stock-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "investment"
+}

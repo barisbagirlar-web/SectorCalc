@@ -1,0 +1,113 @@
+{
+  "slug": "aliskanlik-takipcisi-hesaplayici",
+  "name": "Alışkanlık Takipçisi Hesaplayıcı",
+  "description": "Professional alışkanlık takipçisi hesaplayıcı tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "completedCount",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "n",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Tamamlanan aktivite sayısı.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Tamamlanan Sayı",
+        "fr": "Tamamlanan Sayı",
+        "es": "Tamamlanan Sayı",
+        "ar": "Tamamlanan Sayı"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Tamamlanan aktivite sayısı.",
+        "fr": "Tamamlanan aktivite sayısı.",
+        "es": "Tamamlanan aktivite sayısı.",
+        "ar": "Tamamlanan aktivite sayısı."
+      }
+    },
+    {
+      "id": "targetCount",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "n",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Hedeflenen aktivite sayısı.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Hedef Sayı",
+        "fr": "Hedef Sayı",
+        "es": "Hedef Sayı",
+        "ar": "Hedef Sayı"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Hedeflenen aktivite sayısı.",
+        "fr": "Hedeflenen aktivite sayısı.",
+        "es": "Hedeflenen aktivite sayısı.",
+        "ar": "Hedeflenen aktivite sayısı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "completedCount / Math.pow(targetCount/100 + 1, 1.5) * 10 + Math.sqrt(completedCount) * 2",
+    "result": "completedCount / Math.pow(targetCount/100 + 1, 1.5) * 10 + Math.sqrt(completedCount) * 2"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "completedCount * targetCount"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick alışkanlık takipçisi hesaplayıcı calculation.",
+      "long": "This free tool provides a quick alışkanlık takipçisi hesaplayıcı."
+    },
+    "faqs": [
+      {
+        "question": "What does this Alışkanlık Takipçisi Hesaplayıcı include?",
+        "answer": "Basic alışkanlık takipçisi hesaplayıcı calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "aliskanlik-takipcisi-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

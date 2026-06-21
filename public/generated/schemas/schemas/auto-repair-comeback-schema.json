@@ -1,0 +1,252 @@
+{
+  "slug": "auto-repair-comeback",
+  "name": "AUTO REPAIR COMEBACK",
+  "description": "AUTO REPAIR COMEBACK premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "tamamlananRO",
+      "label": "Tamamlanan RO",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tamamlanan RO",
+        "tr": "Tamamlanan RO",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "geriDonusRO",
+      "label": "Geri Dönüş RO",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Geri Dönüş RO",
+        "tr": "Geri Dönüş RO",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "teshisSuresi",
+      "label": "Teşhis Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Teşhis Süresi",
+        "tr": "Teşhis Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IsrafParcaDegeri",
+      "label": "İsraf Parça Değeri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İsraf Parça Değeri",
+        "tr": "İsraf Parça Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "korfezDolulukSuresi",
+      "label": "Körfez Doluluk Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Körfez Doluluk Süresi",
+        "tr": "Körfez Doluluk Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "churnOlasılıgı",
+      "label": "Churn Olasılığı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Churn Olasılığı",
+        "tr": "Churn Olasılığı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "comebackRate",
+      "label": "ComebackRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ComebackRate",
+        "tr": "ComebackRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "comebackCostDirect",
+      "label": "ComebackCost_Direct",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ComebackCost_Direct",
+        "tr": "ComebackCost_Direct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "comebackCostParts",
+      "label": "ComebackCost_Parts",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ComebackCost_Parts",
+        "tr": "ComebackCost_Parts",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "comebackCostOpportunity",
+      "label": "ComebackCost_Opportunity",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ComebackCost_Opportunity",
+        "tr": "ComebackCost_Opportunity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "dPMO",
+      "label": "DPMO",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DPMO",
+        "tr": "DPMO",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalCost",
+      "label": "TotalCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalCost",
+        "tr": "TotalCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

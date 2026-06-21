@@ -1,0 +1,75 @@
+{
+  "slug": "maastan-saatlik-ucrete-hesaplayici",
+  "name": "Maaştan Saatlik Ücrete Hesaplayıcı",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "Score",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Yıllık brüt gelir.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Yıllık Gelir",
+        "fr": "Yıllık Gelir",
+        "es": "Yıllık Gelir",
+        "ar": "Yıllık Gelir"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Yıllık brüt gelir.",
+        "fr": "Yıllık brüt gelir.",
+        "es": "Yıllık brüt gelir.",
+        "ar": "Yıllık brüt gelir."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "annualIncome * (1 + annualIncome/500) + Math.sqrt(annualIncome) * 5",
+    "result": "annualIncome * (1 + annualIncome/500) + Math.sqrt(annualIncome) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "annualIncome"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick maaştan saatlik ücrete hesaplayıcı.",
+      "long": "Free maaştan saatlik ücrete hesaplayıcı tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "maastan-saatlik-ucrete-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

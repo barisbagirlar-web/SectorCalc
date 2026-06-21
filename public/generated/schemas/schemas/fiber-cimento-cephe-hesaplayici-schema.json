@@ -1,0 +1,75 @@
+{
+  "slug": "fiber-cimento-cephe-hesaplayici",
+  "name": "Fiber Çimento Cephe Hesaplayıcı",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "inputValue",
+      "label": "Value",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Dönüştürülecek değer.",
+      "label_i18n": {
+        "en": "Value",
+        "tr": "Değer",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Input value.",
+        "tr": "Giriş değeri.",
+        "de": "Dönüştürülecek değer.",
+        "fr": "Dönüştürülecek değer.",
+        "es": "Dönüştürülecek değer.",
+        "ar": "Dönüştürülecek değer."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "inputValue * 1.0 + Math.log(inputValue + 1) * 0.5",
+    "result": "inputValue * 1.0 + Math.log(inputValue + 1) * 0.5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "inputValue"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick fiber çimento cephe hesaplayıcı.",
+      "long": "Free fiber çimento cephe hesaplayıcı tool."
+    }
+  },
+  "sector": "Kimya",
+  "toolName": "fiber-cimento-cephe-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "chemistry"
+}

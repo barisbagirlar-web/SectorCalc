@@ -1,0 +1,261 @@
+{
+  "slug": "yakt-rota-sapma",
+  "name": "Yakıt Rota Sapma",
+  "description": "Yakıt Rota Sapma premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "planlıGercekMesafeKm",
+      "label": "Planlı/Gerçek Mesafe km",
+      "type": "number",
+      "unit": "km",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Planlı/Gerçek Mesafe km",
+        "tr": "Planlı/Gerçek Mesafe km",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "planlıGercekTuketimLkm",
+      "label": "Planlı/Gerçek Tüketim L/km",
+      "type": "number",
+      "unit": "km",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Planlı/Gerçek Tüketim L/km",
+        "tr": "Planlı/Gerçek Tüketim L/km",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rolantiSuresiSaat",
+      "label": "Rölanti Süresi saat",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Rölanti Süresi saat",
+        "tr": "Rölanti Süresi saat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rolantiTuketimLsaat",
+      "label": "Rölanti Tüketim L/saat",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Rölanti Tüketim L/saat",
+        "tr": "Rölanti Tüketim L/saat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yakıtFiyatıCurrencyL",
+      "label": "Yakıt Fiyatı currency/L",
+      "type": "number",
+      "unit": "currency",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yakıt Fiyatı currency/L",
+        "tr": "Yakıt Fiyatı currency/L",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "plannedFuel",
+      "label": "PlannedFuel",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PlannedFuel",
+        "tr": "PlannedFuel",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "actualFuel",
+      "label": "ActualFuel",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ActualFuel",
+        "tr": "ActualFuel",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "routeDrift",
+      "label": "RouteDrift",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RouteDrift",
+        "tr": "RouteDrift",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "fuelWasteDistance",
+      "label": "FuelWaste_Distance",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FuelWaste_Distance",
+        "tr": "FuelWaste_Distance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "fuelWasteEfficiency",
+      "label": "FuelWaste_Efficiency",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FuelWaste_Efficiency",
+        "tr": "FuelWaste_Efficiency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "idleFuelCost",
+      "label": "IdleFuelCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "IdleFuelCost",
+        "tr": "IdleFuelCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "totalDriftCost",
+      "label": "TotalDriftCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalDriftCost",
+        "tr": "TotalDriftCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "route",
+  "formulas": {
+    "normalized_product": "planlıGercekMesafeKm * planlıGercekTuketimLkm * rolantiSuresiSaat * rolantiTuketimLsaat",
+    "result": "planlıGercekMesafeKm * planlıGercekTuketimLkm * rolantiSuresiSaat * rolantiTuketimLsaat * (yakıtFiyatıCurrencyL)",
+    "adjustment_factor": "yakıtFiyatıCurrencyL"
+  }
+}

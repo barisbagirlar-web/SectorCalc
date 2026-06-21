@@ -1,0 +1,75 @@
+{
+  "slug": "motor-hacmi-hesaplama",
+  "name": "Motor Hacmi Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "powerOutput",
+      "label": "Score",
+      "type": "number",
+      "unit": "hp",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Motor güç çıkışı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "powerOutput * (1 + powerOutput/500) + Math.sqrt(powerOutput) * 5",
+    "result": "powerOutput * (1 + powerOutput/500) + Math.sqrt(powerOutput) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "powerOutput"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick motor hacmi hesaplama.",
+      "long": "Free motor hacmi hesaplama tool."
+    }
+  },
+  "sector": "Elektrik",
+  "toolName": "motor-hacmi-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "electrical"
+}

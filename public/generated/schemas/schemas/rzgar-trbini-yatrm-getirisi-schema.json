@@ -1,0 +1,330 @@
+{
+  "slug": "rzgar-trbini-yatrm-getirisi",
+  "name": "Rüzgar Türbini Yatırım Getirisi",
+  "description": "Rüzgar Türbini Yatırım Getirisi premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "turbinGucuKW",
+      "label": "Türbin Gücü kW",
+      "type": "number",
+      "unit": "kW",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Türbin Gücü kW",
+        "tr": "Türbin Gücü kW",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gucEgrisi",
+      "label": "Güç Eğrisi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Güç Eğrisi",
+        "tr": "Güç Eğrisi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ruzgarFrekansı",
+      "label": "Rüzgar Frekansı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Rüzgar Frekansı",
+        "tr": "Rüzgar Frekansı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "capex",
+      "label": "Capex",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Capex",
+        "tr": "Capex",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "wACC",
+      "label": "WACC",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WACC",
+        "tr": "WACC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tesvikTarifeCurrencykWh",
+      "label": "Teşvik/Tarife currency/kWh",
+      "type": "number",
+      "unit": "kWh",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Teşvik/Tarife currency/kWh",
+        "tr": "Teşvik/Tarife currency/kWh",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kiraBakımSigorta",
+      "label": "Kira/Bakım/Sigorta",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kira/Bakım/Sigorta",
+        "tr": "Kira/Bakım/Sigorta",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "turbin OmruYıl",
+      "label": "Türbin Ömrü yıl",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Türbin Ömrü yıl",
+        "tr": "Türbin Ömrü yıl",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "aEP",
+      "label": "AEP",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AEP",
+        "tr": "AEP",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "capacityFactor",
+      "label": "CapacityFactor",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CapacityFactor",
+        "tr": "CapacityFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "annualRevenue",
+      "label": "AnnualRevenue",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AnnualRevenue",
+        "tr": "AnnualRevenue",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "oPEX",
+      "label": "OPEX",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OPEX",
+        "tr": "OPEX",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "eBITDA",
+      "label": "EBITDA",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EBITDA",
+        "tr": "EBITDA",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lCOE",
+      "label": "LCOE",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LCOE",
+        "tr": "LCOE",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "nPV",
+      "label": "NPV",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NPV",
+        "tr": "NPV",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "iRR",
+      "label": "IRR",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "IRR",
+        "tr": "IRR",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "finance"
+}

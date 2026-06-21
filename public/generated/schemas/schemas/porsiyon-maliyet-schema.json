@@ -1,0 +1,330 @@
+{
+  "slug": "porsiyon-maliyet",
+  "name": "Porsiyon Maliyet",
+  "description": "Porsiyon Maliyet premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "receteMiktarları",
+      "label": "Reçete Miktarları",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Reçete Miktarları",
+        "tr": "Reçete Miktarları",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hazırlıkSuresi",
+      "label": "Hazırlık Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hazırlık Süresi",
+        "tr": "Hazırlık Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fireYield",
+      "label": "Fire/Yield",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Fire/Yield",
+        "tr": "Fire/Yield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hammaddeBirimFiyatları",
+      "label": "Hammadde Birim Fiyatları",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hammadde Birim Fiyatları",
+        "tr": "Hammadde Birim Fiyatları",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IscilikSaati",
+      "label": "İşçilik Saati",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşçilik Saati",
+        "tr": "İşçilik Saati",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "overheadOranı",
+      "label": "Overhead Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Overhead Oranı",
+        "tr": "Overhead Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hedefFoodCost",
+      "label": "Hedef Food Cost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hedef Food Cost",
+        "tr": "Hedef Food Cost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "menuFiyatı",
+      "label": "Menü Fiyatı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Menü Fiyatı",
+        "tr": "Menü Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "ingredientCost",
+      "label": "IngredientCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "IngredientCost",
+        "tr": "IngredientCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yieldAdjustedCost",
+      "label": "YieldAdjustedCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "YieldAdjustedCost",
+        "tr": "YieldAdjustedCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "laborCost",
+      "label": "LaborCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LaborCost",
+        "tr": "LaborCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "overhead",
+      "label": "Overhead",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Overhead",
+        "tr": "Overhead",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalPortionCost",
+      "label": "TotalPortionCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalPortionCost",
+        "tr": "TotalPortionCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "foodCostPct",
+      "label": "FoodCostPct",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FoodCostPct",
+        "tr": "FoodCostPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "menuPriceTarget",
+      "label": "MenuPrice_Target",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MenuPrice_Target",
+        "tr": "MenuPrice_Target",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "margin",
+      "label": "Margin",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Margin",
+        "tr": "Margin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

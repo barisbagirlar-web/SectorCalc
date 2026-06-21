@@ -1,0 +1,341 @@
+{
+  "slug": "inventory-turnover-risk",
+  "name": "Inventory Turnover Risk Calculator",
+  "description": "Industrial-grade risk assessment for inventory turnover performance, incorporating variability, obsolescence, and carrying cost exposure. Aligns with ISO 9001, Lean, Six Sigma, and WERC DC Metrics.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Automated alerting via email"
+  ],
+  "inputs": [
+    {
+      "id": "avg_inventory_value",
+      "label": "Average Inventory Value (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory).",
+      "label_i18n": {
+        "en": "Average Inventory Value (USD)",
+        "tr": "Ortalama Stok Değeri (USD)",
+        "de": "Durchschnittlicher Lagerwert (USD)",
+        "fr": "Valeur moyenne des stocks (USD)",
+        "es": "Valor promedio del inventario (USD)",
+        "ar": "متوسط قيمة المخزون (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory).",
+        "tr": "Dönem boyunca envanterin toplam ortalama değeri (örneğin, SMM bazlı envanterin aylık ortalaması).",
+        "de": "Gesamter durchschnittlicher Lagerwert über den Zeitraum (z. B. monatlicher Durchschnitt des auf COGS basierenden Lagerbestands).",
+        "fr": "Valeur totale moyenne des stocks sur la période (par exemple, moyenne mensuelle des stocks basée sur le COGS).",
+        "es": "Valor total promedio del inventario durante el período (ej.: promedio mensual del inventario basado en COGS).",
+        "ar": "متوسط القيمة الإجمالية للمخزون خلال الفترة (مثل المتوسط الشهري للمخزون بناءً على تكلفة البضائع المباعة)."
+      }
+    },
+    {
+      "id": "cogs_annual",
+      "label": "Annual Cost of Goods Sold (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000000,
+      "min": 0,
+      "max": 10000000000,
+      "businessContext": "Total cost of goods sold over the last 12 months.",
+      "label_i18n": {
+        "en": "Annual Cost of Goods Sold (USD)",
+        "tr": "Yıllık Satılan Malın Maliyeti (USD)",
+        "de": "Jährliche Kosten der verkauften Waren (USD)",
+        "fr": "Coût annuel des marchandises vendues (USD)",
+        "es": "Costo anual de los bienes vendidos (USD)",
+        "ar": "تكلفة البضائع المباعة السنوية (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of goods sold over the last 12 months.",
+        "tr": "Son 12 aydaki satılan malın toplam maliyeti.",
+        "de": "Gesamtkosten der verkauften Waren in den letzten 12 Monaten.",
+        "fr": "Coût total des marchandises vendues au cours des 12 derniers mois.",
+        "es": "Costo total de los bienes vendidos en los últimos 12 meses.",
+        "ar": "إجمالي تكلفة البضائع المباعة خلال الـ 12 شهرًا الماضية."
+      }
+    },
+    {
+      "id": "demand_variability_coefficient",
+      "label": "Demand Variability Coefficient (CV)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.3,
+      "min": 0,
+      "max": 2,
+      "businessContext": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability.",
+      "label_i18n": {
+        "en": "Demand Variability Coefficient (CV)",
+        "tr": "Talep Değişkenlik Katsayısı (CV)",
+        "de": "Nachfragevariabilitätskoeffizient (CV)",
+        "fr": "Coefficient de variabilité de la demande (CV)",
+        "es": "Coeficiente de variabilidad de la demanda (CV)",
+        "ar": "معامل تباين الطلب (CV)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability.",
+        "tr": "Aylık talebin varyasyon katsayısı (standart sapma / ortalama). Daha yüksek değerler daha fazla öngörülemezliği gösterir.",
+        "de": "Variationskoeffizient der monatlichen Nachfrage (Standardabweichung / Mittelwert). Höhere Werte bedeuten größere Unvorhersagbarkeit.",
+        "fr": "Coefficient de variation de la demande mensuelle (écart type / moyenne). Des valeurs plus élevées indiquent une plus grande imprévisibilité.",
+        "es": "Coeficiente de variación de la demanda mensual (desviación estándar / media). Valores más altos indican mayor imprevisibilidad.",
+        "ar": "معامل التباين للطلب الشهري (الانحراف المعياري / المتوسط). تشير القيم الأعلى إلى عدم قابلية أكبر للتنبؤ."
+      }
+    },
+    {
+      "id": "obsolescence_rate",
+      "label": "Obsolescence Rate (% per year)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Annual percentage of inventory value that becomes obsolete or expired.",
+      "label_i18n": {
+        "en": "Obsolescence Rate (% per year)",
+        "tr": "Eskime Oranı (%/yıl)",
+        "de": "Veralterungsrate (% pro Jahr)",
+        "fr": "Taux d'obsolescence (% par an)",
+        "es": "Tasa de obsolescencia (% anual)",
+        "ar": "معدل التقادم (% سنويًا)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual percentage of inventory value that becomes obsolete or expired.",
+        "tr": "Eskiyen veya son kullanma tarihi geçen envanter değerinin yıllık yüzdesi.",
+        "de": "Jährlicher Prozentsatz des Lagerwerts, der veraltet oder abläuft.",
+        "fr": "Pourcentage annuel de la valeur des stocks qui devient obsolète ou périmé.",
+        "es": "Porcentaje anual del valor del inventario que se vuelve obsoleto o vence.",
+        "ar": "النسبة المئوية السنوية لقيمة المخزون التي تصبح قديمة أو منتهية الصلاحية."
+      }
+    },
+    {
+      "id": "carrying_cost_rate",
+      "label": "Inventory Carrying Cost Rate (% per year)",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value.",
+      "label_i18n": {
+        "en": "Inventory Carrying Cost Rate (% per year)",
+        "tr": "Envanter Taşıma Maliyeti Oranı (%/yıl)",
+        "de": "Lagerhaltungskostensatz (% pro Jahr)",
+        "fr": "Taux de coût de possession des stocks (% par an)",
+        "es": "Tasa de costo de mantenimiento de inventario (% anual)",
+        "ar": "معدل تكلفة الاحتفاظ بالمخزون (% سنويًا)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value.",
+        "tr": "Envanteri elde tutmanın yıllık maliyeti (depolama, sigorta, sermaye vb.) envanter değerinin yüzdesi olarak.",
+        "de": "Jährliche Kosten für die Lagerhaltung (Lagerung, Versicherung, Kapital usw.) als Prozentsatz des Lagerwerts.",
+        "fr": "Coût annuel de détention des stocks (stockage, assurance, capital, etc.) en pourcentage de la valeur des stocks.",
+        "es": "Costo anual de mantener inventario (almacenamiento, seguros, capital, etc.) como porcentaje del valor del inventario.",
+        "ar": "التكلفة السنوية للاحتفاظ بالمخزون (التخزين، التأمين، رأس المال، إلخ) كنسبة مئوية من قيمة المخزون."
+      }
+    },
+    {
+      "id": "lead_time_days",
+      "label": "Average Lead Time (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Average replenishment lead time from order placement to receipt.",
+      "label_i18n": {
+        "en": "Average Lead Time (Days)",
+        "tr": "Ortalama Tedarik Süresi (Gün)",
+        "de": "Durchschnittliche Vorlaufzeit (Tage)",
+        "fr": "Délai moyen d'approvisionnement (jours)",
+        "es": "Tiempo de entrega promedio (días)",
+        "ar": "متوسط مهلة التوريد (أيام)"
+      },
+      "businessContext_i18n": {
+        "en": "Average replenishment lead time from order placement to receipt.",
+        "tr": "Sipariş vermeden teslim almaya kadar geçen ortalama tedarik süresi.",
+        "de": "Durchschnittliche Wiederbeschaffungszeit von Bestellung bis Eingang.",
+        "fr": "Délai moyen de réapprovisionnement entre la passation de commande et la réception.",
+        "es": "Tiempo de entrega promedio de reabastecimiento desde la colocación del pedido hasta la recepción.",
+        "ar": "متوسط مهلة إعادة التموين من تقديم الطلب إلى الاستلام."
+      }
+    },
+    {
+      "id": "service_level_target",
+      "label": "Service Level Target (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 50,
+      "max": 99.99,
+      "businessContext": "Target fill rate or cycle service level (e.g., 95% = 0.95).",
+      "label_i18n": {
+        "en": "Service Level Target (%)",
+        "tr": "Hizmet Seviyesi Hedefi (%)",
+        "de": "Servicegrad-Ziel (%)",
+        "fr": "Objectif de niveau de service (%)",
+        "es": "Objetivo de nivel de servicio (%)",
+        "ar": "مستوى الخدمة المستهدف (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Target fill rate or cycle service level (e.g., 95% = 0.95).",
+        "tr": "Hedef doluluk oranı veya çevrim hizmet seviyesi (örneğin, %95 = 0,95).",
+        "de": "Ziel-Lieferfähigkeit oder Servicegrad (z. B. 95 % = 0,95).",
+        "fr": "Taux de service cible ou niveau de service cycle (ex. 95% = 0.95).",
+        "es": "Tasa de llenado objetivo o nivel de servicio del ciclo (ej., 95% = 0.95).",
+        "ar": "معدل التعبئة المستهدف أو مستوى خدمة الدورة (مثل 95% = 0.95)."
+      }
+    },
+    {
+      "id": "inventory_accuracy_pct",
+      "label": "Inventory Record Accuracy (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 98,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of inventory records matching physical counts (cycle count accuracy).",
+      "label_i18n": {
+        "en": "Inventory Record Accuracy (%)",
+        "tr": "Envanter Kayıt Doğruluğu (%)",
+        "de": "Bestandsgenauigkeit (%)",
+        "fr": "Précision des enregistrements de stocks (%)",
+        "es": "Precisión del registro de inventario (%)",
+        "ar": "دقة سجلات المخزون (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of inventory records matching physical counts (cycle count accuracy).",
+        "tr": "Fiziksel sayımlarla eşleşen envanter kayıtlarının yüzdesi (döngü sayım doğruluğu).",
+        "de": "Prozentsatz der Bestandsaufzeichnungen, die mit physischen Zählungen übereinstimmen (Zykluszählgenauigkeit).",
+        "fr": "Pourcentage des enregistrements de stocks correspondant aux inventaires physiques (précision du comptage cyclique).",
+        "es": "Porcentaje de registros de inventario que coinciden con los conteos físicos (precisión del conteo cíclico).",
+        "ar": "نسبة سجلات المخزون المطابقة للجرد الفعلي (دقة الجرد الدوري)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "positive_inventory",
+        "condition": "avg_inventory_value > 0",
+        "message": "Average inventory value must be greater than zero."
+      },
+      {
+        "id": "positive_cogs",
+        "condition": "cogs_annual > 0",
+        "message": "Annual COGS must be greater than zero."
+      },
+      {
+        "id": "cv_range",
+        "condition": "demand_variability_coefficient >= 0 && demand_variability_coefficient <= 2",
+        "message": "Demand variability coefficient must be between 0 and 2."
+      },
+      {
+        "id": "obsolescence_range",
+        "condition": "obsolescence_rate >= 0 && obsolescence_rate <= 100",
+        "message": "Obsolescence rate must be between 0 and 100."
+      },
+      {
+        "id": "carrying_cost_range",
+        "condition": "carrying_cost_rate >= 0 && carrying_cost_rate <= 100",
+        "message": "Carrying cost rate must be between 0 and 100."
+      },
+      {
+        "id": "lead_time_positive",
+        "condition": "lead_time_days > 0",
+        "message": "Lead time must be greater than 0 days."
+      },
+      {
+        "id": "service_level_range",
+        "condition": "service_level_target >= 50 && service_level_target <= 99.99",
+        "message": "Service level target must be between 50% and 99.99%."
+      },
+      {
+        "id": "accuracy_range",
+        "condition": "inventory_accuracy_pct >= 0 && inventory_accuracy_pct <= 100",
+        "message": "Inventory accuracy must be between 0% and 100%."
+      },
+      {
+        "id": "benchmark_positive",
+        "condition": "industry_benchmark_turnover > 0",
+        "message": "Industry benchmark turnover must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "turnover_risk_low",
+        "condition": "primaryResult >= 0.8 * industry_benchmark_turnover",
+        "severity": "low",
+        "message": "Turnover is within 80% of industry benchmark. Low risk."
+      },
+      {
+        "id": "turnover_risk_medium",
+        "condition": "primaryResult >= 0.5 * industry_benchmark_turnover && primaryResult < 0.8 * industry_benchmark_turnover",
+        "severity": "medium",
+        "message": "Turnover is between 50% and 80% of benchmark. Moderate risk."
+      },
+      {
+        "id": "turnover_risk_high",
+        "condition": "primaryResult < 0.5 * industry_benchmark_turnover",
+        "severity": "high",
+        "message": "Turnover is below 50% of industry benchmark. High risk of excess inventory and obsolescence."
+      },
+      {
+        "id": "carrying_cost_alert",
+        "condition": "carrying_cost_rate > 30",
+        "severity": "medium",
+        "message": "Carrying cost rate exceeds 30%. Consider reducing inventory levels."
+      },
+      {
+        "id": "obsolescence_alert",
+        "condition": "obsolescence_rate > 10",
+        "severity": "high",
+        "message": "Obsolescence rate exceeds 10%. Immediate review of slow-moving items required."
+      },
+      {
+        "id": "accuracy_alert",
+        "condition": "inventory_accuracy_pct < 95",
+        "severity": "high",
+        "message": "Inventory record accuracy below 95%. Risk of stockouts and excess safety stock."
+      }
+    ]
+  },
+  "formulas": {
+    "normalized_product": "avg_inventory_value * cogs_annual * demand_variability_coefficient * (obsolescence_rate / 100)",
+    "result": "avg_inventory_value * cogs_annual * demand_variability_coefficient * (obsolescence_rate / 100) * ((carrying_cost_rate / 100) * lead_time_days * (service_level_target / 100) * (inventory_accuracy_pct / 100))",
+    "adjustment_factor": "(carrying_cost_rate / 100) * lead_time_days * (service_level_target / 100) * (inventory_accuracy_pct / 100)"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
+  },
+  "toolName": "inventory-turnover-risk-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "quality-six-sigma",
+  "category": "Lojistik & Rota",
+  "sector": "Lojistik & Tedarik",
+  "sectorId": "lojistik",
+  "profession": "Lojistik Uzmanı",
+  "categoryId": "logistics"
+}

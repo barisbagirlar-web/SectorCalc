@@ -1,0 +1,397 @@
+{
+  "slug": "roi-analyzer",
+  "name": "ROI Analyzer (DuPont & RAROC)",
+  "description": "DuPont ROE ayrıştırması, RAROC ve EVA olmadan sermaye verimliliği ve risk-getiri dengesi tam olarak ölçülemez.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "netIncome",
+      "label": "Net Kâr",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Net Kâr",
+        "tr": "Net Kâr",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "revenue",
+      "label": "Gelir",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gelir",
+        "tr": "Gelir",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalAssets",
+      "label": "Toplam Varlıklar",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Varlıklar",
+        "tr": "Toplam Varlıklar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalEquity",
+      "label": "Toplam Özsermaye",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Özsermaye",
+        "tr": "Toplam Özsermaye",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "expectedRevenue",
+      "label": "Beklenen Gelir (RAROC)",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Beklenen Gelir (RAROC)",
+        "tr": "Beklenen Gelir (RAROC)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "expectedLoss",
+      "label": "Beklenen Kayıp",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Beklenen Kayıp",
+        "tr": "Beklenen Kayıp",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "operatingCost",
+      "label": "İşletme Gideri (RAROC)",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşletme Gideri (RAROC)",
+        "tr": "İşletme Gideri (RAROC)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "economicCapital",
+      "label": "Ekonomik Sermaye",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ekonomik Sermaye",
+        "tr": "Ekonomik Sermaye",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "nopat",
+      "label": "NOPAT (Vergi Sonrası Net Faaliyet Kârı)",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NOPAT (Vergi Sonrası Net Faaliyet Kârı)",
+        "tr": "NOPAT (Vergi Sonrası Net Faaliyet Kârı)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "investedCapital",
+      "label": "Yatırılan Sermaye",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yatırılan Sermaye",
+        "tr": "Yatırılan Sermaye",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "wacc",
+      "label": "WACC",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WACC",
+        "tr": "WACC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "roe",
+      "label": "ROE (DuPont)",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "ROE (DuPont)",
+        "tr": "ROE (DuPont)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "netProfitMargin",
+      "label": "Net Kâr Marjı",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "Net Kâr Marjı",
+        "tr": "Net Kâr Marjı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "assetTurnover",
+      "label": "Aktif Devir Hızı",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Aktif Devir Hızı",
+        "tr": "Aktif Devir Hızı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "equityMultiplier",
+      "label": "Özsermaye Çarpanı",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Özsermaye Çarpanı",
+        "tr": "Özsermaye Çarpanı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "raroc",
+      "label": "RAROC",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "RAROC",
+        "tr": "RAROC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "eva",
+      "label": "EVA (Ekonomik Katma Değer)",
+      "unit": "USD",
+      "format": "number",
+      "label_i18n": {
+        "en": "EVA (Ekonomik Katma Değer)",
+        "tr": "EVA (Ekonomik Katma Değer)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "%",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "cost",
+  "formulas": {
+    "normalized_product": "netIncome * revenue * totalAssets * totalEquity",
+    "result": "netIncome * revenue * totalAssets * totalEquity * (expectedRevenue * expectedLoss * operatingCost * economicCapital * nopat * investedCapital * (wacc / 100))",
+    "adjustment_factor": "expectedRevenue * expectedLoss * operatingCost * economicCapital * nopat * investedCapital * (wacc / 100)"
+  }
+}

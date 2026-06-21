@@ -1,0 +1,325 @@
+{
+  "slug": "isi-exchanger-fouling",
+  "name": "ISI EXCHANGER FOULING",
+  "description": "ISI EXCHANGER FOULING premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "ucleandirty",
+      "label": "U_clean/dirty",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "U_clean/dirty",
+        "tr": "U_clean/dirty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "alan",
+      "label": "Alan",
+      "type": "number",
+      "unit": "m²",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Alan",
+        "tr": "Alan",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lMTD",
+      "label": "LMTD",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LMTD",
+        "tr": "LMTD",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "dPArtıs",
+      "label": "DP Artış",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DP Artış",
+        "tr": "DP Artış",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "temizlik",
+      "label": "Temizlik",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Temizlik",
+        "tr": "Temizlik",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yakıt",
+      "label": "Yakıt",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yakıt",
+        "tr": "Yakıt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kazanVerim",
+      "label": "Kazan Verim",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kazan Verim",
+        "tr": "Kazan Verim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "rFoul",
+      "label": "R_foul",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "R_foul",
+        "tr": "R_foul",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "loss",
+      "label": "Loss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Loss",
+        "tr": "Loss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "energyPen",
+      "label": "EnergyPen",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EnergyPen",
+        "tr": "EnergyPen",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "costEnergy",
+      "label": "Cost_Energy",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Energy",
+        "tr": "Cost_Energy",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "dPInc",
+      "label": "DP_Inc",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DP_Inc",
+        "tr": "DP_Inc",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "pumpInc",
+      "label": "PumpInc",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PumpInc",
+        "tr": "PumpInc",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "total",
+      "label": "Total",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Total",
+        "tr": "Total",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "7": {
+      "id": "rOI",
+      "label": "ROI",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ROI",
+        "tr": "ROI",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "finance",
+  "formulas": {
+    "normalized_product": "ucleandirty * alan * lMTD * dPArtıs",
+    "result": "ucleandirty * alan * lMTD * dPArtıs * (temizlik * yakıt * kazanVerim)",
+    "adjustment_factor": "temizlik * yakıt * kazanVerim"
+  }
+}

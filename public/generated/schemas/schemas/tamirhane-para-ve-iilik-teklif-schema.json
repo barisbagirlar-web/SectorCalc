@@ -1,0 +1,266 @@
+{
+  "slug": "tamirhane-para-ve-iilik-teklif",
+  "name": "Tamirhane Parça ve İşçilik Teklif",
+  "description": "Tamirhane Parça ve İşçilik Teklif premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "flatRateSaatleri",
+      "label": "Flat Rate Saatleri",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Flat Rate Saatleri",
+        "tr": "Flat Rate Saatleri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "magazaSaatlik Ucreti",
+      "label": "Mağaza Saatlik Ücreti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mağaza Saatlik Ücreti",
+        "tr": "Mağaza Saatlik Ücreti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "parcaListesiAdetDealerFiyat",
+      "label": "Parça Listesi/Adet/Dealer Fiyat",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Parça Listesi/Adet/Dealer Fiyat",
+        "tr": "Parça Listesi/Adet/Dealer Fiyat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "parcaMarjOranı",
+      "label": "Parça Marj Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Parça Marj Oranı",
+        "tr": "Parça Marj Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sarfCevre Ucreti",
+      "label": "Sarf/Çevre Ücreti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sarf/Çevre Ücreti",
+        "tr": "Sarf/Çevre Ücreti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gercekHarcananSaat",
+      "label": "Gerçek Harcanan Saat",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gerçek Harcanan Saat",
+        "tr": "Gerçek Harcanan Saat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "partCost",
+      "label": "PartCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PartCost",
+        "tr": "PartCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "partMargin",
+      "label": "PartMargin",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PartMargin",
+        "tr": "PartMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "laborCost",
+      "label": "LaborCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LaborCost",
+        "tr": "LaborCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "subletCost",
+      "label": "SubletCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SubletCost",
+        "tr": "SubletCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalQuote",
+      "label": "TotalQuote",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalQuote",
+        "tr": "TotalQuote",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "effectiveLaborRate",
+      "label": "EffectiveLaborRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EffectiveLaborRate",
+        "tr": "EffectiveLaborRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "grossProfitPct",
+      "label": "GrossProfitPct",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "GrossProfitPct",
+        "tr": "GrossProfitPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

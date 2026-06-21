@@ -1,0 +1,304 @@
+{
+  "slug": "pressure-vessel-thickness",
+  "name": "Pressure Vessel Thickness Calculator",
+  "description": "Calculates minimum required wall thickness for cylindrical pressure vessels based on ASME BPVC Section VIII Div. 1 standards, with integrated safety factors, material utilization, and cost optimization.",
+  "premiumRequired": true,
+  "standardOptions": [
+    {
+      "id": "asme",
+      "label": "ASME BPVC Section VIII",
+      "description": "American Society of Mechanical Engineers Boiler and Pressure Vessel Code"
+    },
+    {
+      "id": "ped",
+      "label": "PED/EN 13445",
+      "description": "European Pressure Equipment Directive"
+    }
+  ],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Material database sync",
+    "Multi-user collaboration",
+    "API access"
+  ],
+  "inputs": [
+    {
+      "id": "design_pressure",
+      "label": "Design Pressure (P)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 1,
+      "min": 0.1,
+      "max": 50,
+      "businessContext": "Maximum allowable working pressure per ASME UG-21",
+      "label_i18n": {
+        "en": "Design Pressure (P)",
+        "tr": "Tasarım Basıncı (P)",
+        "de": "Auslegungsdruck (P)",
+        "fr": "Pression de calcul (P)",
+        "es": "Presión de diseño (P)",
+        "ar": "ضغط التصميم (P)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable working pressure per ASME UG-21",
+        "tr": "ASME UG-21'e göre izin verilen maksimum çalışma basıncı",
+        "de": "Maximal zulässiger Betriebsdruck gemäß ASME UG-21",
+        "fr": "Pression maximale de service admissible selon ASME UG-21",
+        "es": "Presión máxima de trabajo admisible según ASME UG-21",
+        "ar": "أقصى ضغط عمل مسموح به وفقًا لـ ASME UG-21"
+      }
+    },
+    {
+      "id": "vessel_diameter",
+      "label": "Vessel Inner Diameter (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "min": 100,
+      "max": 10000,
+      "businessContext": "Inside diameter of cylindrical shell",
+      "label_i18n": {
+        "en": "Vessel Inner Diameter (D)",
+        "tr": "Kazan İç Çapı (D)",
+        "de": "Behälterinnendurchmesser (D)",
+        "fr": "Diamètre intérieur de la cuve (D)",
+        "es": "Diámetro interior del recipiente (D)",
+        "ar": "القطر الداخلي للوعاء (D)"
+      },
+      "businessContext_i18n": {
+        "en": "Inside diameter of cylindrical shell",
+        "tr": "Silindirik kabuğun iç çapı",
+        "de": "Innendurchmesser des zylindrischen Mantels",
+        "fr": "Diamètre intérieur de la coque cylindrique",
+        "es": "Diámetro interior de la carcasa cilíndrica",
+        "ar": "القطر الداخلي للجسم الأسطواني"
+      }
+    },
+    {
+      "id": "allowable_stress",
+      "label": "Allowable Stress (S)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 138,
+      "min": 50,
+      "max": 500,
+      "businessContext": "Material allowable stress at design temperature per ASME II Part D",
+      "label_i18n": {
+        "en": "Allowable Stress (S)",
+        "tr": "İzin Verilen Gerilme (S)",
+        "de": "Zulässige Spannung (S)",
+        "fr": "Contrainte admissible (S)",
+        "es": "Esfuerzo admisible (S)",
+        "ar": "الإجهاد المسموح به (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Material allowable stress at design temperature per ASME II Part D",
+        "tr": "Tasarım sıcaklığında malzemenin izin verilen gerilmesi, ASME II Kısım D'ye göre",
+        "de": "Zulässige Werkstoffspannung bei Auslegungstemperatur gemäß ASME II Teil D",
+        "fr": "Contrainte admissible du matériau à la température de calcul selon ASME II Part D",
+        "es": "Esfuerzo admisible del material a temperatura de diseño según ASME II Parte D",
+        "ar": "إجهاد المادة المسموح به عند درجة حرارة التصميم وفقًا لـ ASME II الجزء D"
+      }
+    },
+    {
+      "id": "joint_efficiency",
+      "label": "Joint Efficiency (E)",
+      "type": "select",
+      "options": [
+        "1",
+        "0.85",
+        "0.7"
+      ],
+      "default": 1,
+      "businessContext": "Welded joint efficiency factor per ASME UW-12",
+      "label_i18n": {
+        "en": "Joint Efficiency (E)",
+        "tr": "Bağlantı Verimliliği (E)",
+        "de": "Verbindungswirkungsgrad (E)",
+        "fr": "Efficacité du joint (E)",
+        "es": "Eficiencia de junta (E)",
+        "ar": "كفاءة الوصلة (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Welded joint efficiency factor per ASME UW-12",
+        "tr": "Kaynaklı bağlantı verimlilik faktörü, ASME UW-12'ye göre",
+        "de": "Schweißnahtwirkungsgrad gemäß ASME UW-12",
+        "fr": "Facteur d'efficacité du joint soudé selon ASME UW-12",
+        "es": "Factor de eficiencia de junta soldada según ASME UW-12",
+        "ar": "معامل كفاءة وصلة اللحام وفقًا لـ ASME UW-12"
+      },
+      "unit": "unit"
+    },
+    {
+      "id": "corrosion_allowance",
+      "label": "Corrosion Allowance (CA)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "min": 0,
+      "max": 25,
+      "businessContext": "Additional thickness for corrosion/erosion per UG-25",
+      "label_i18n": {
+        "en": "Corrosion Allowance (CA)",
+        "tr": "Korozyon Payı (CA)",
+        "de": "Korrosionszuschlag (CA)",
+        "fr": "Surépaisseur de corrosion (CA)",
+        "es": "Sobreespesor por corrosión (CA)",
+        "ar": "بدل التآكل (CA)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional thickness for corrosion/erosion per UG-25",
+        "tr": "UG-25'e göre korozyon/erozyon için ek kalınlık",
+        "de": "Zusätzliche Wanddicke für Korrosion/Erosion gemäß UG-25",
+        "fr": "Épaisseur supplémentaire pour corrosion/érosion selon UG-25",
+        "es": "Espesor adicional por corrosión/erosión según UG-25",
+        "ar": "سمك إضافي للتآكل/التآكل وفقًا لـ UG-25"
+      }
+    },
+    {
+      "id": "material_utilization",
+      "label": "Material Utilization Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 50,
+      "max": 100,
+      "businessContext": "Lean manufacturing metric for material waste reduction",
+      "label_i18n": {
+        "en": "Material Utilization Factor",
+        "tr": "Malzeme Kullanım Faktörü",
+        "de": "Materialnutzungsfaktor",
+        "fr": "Facteur d'utilisation du matériau",
+        "es": "Factor de utilización del material",
+        "ar": "معامل استغلال المواد"
+      },
+      "businessContext_i18n": {
+        "en": "Lean manufacturing metric for material waste reduction",
+        "tr": "Malzeme israfını azaltmak için yalın üretim metriği",
+        "de": "Lean-Kennzahl zur Reduzierung von Materialverschwendung",
+        "fr": "Métrique Lean pour la réduction des déchets de matériaux",
+        "es": "Métrica Lean para reducción de desperdicio de material",
+        "ar": "مقياس التصنيع اللين لتقليل هدر المواد"
+      }
+    },
+    {
+      "id": "safety_factor_override",
+      "label": "Override Safety Factor",
+      "type": "boolean",
+      "default": false,
+      "businessContext": "Enable to use custom safety factor instead of ASME default 3.5",
+      "label_i18n": {
+        "en": "Override Safety Factor",
+        "tr": "Güvenlik Faktörünü Geçersiz Kıl",
+        "de": "Sicherheitsfaktor überschreiben",
+        "fr": "Facteur de sécurité de remplacement",
+        "es": "Factor de seguridad anulado",
+        "ar": "تجاوز معامل الأمان"
+      },
+      "businessContext_i18n": {
+        "en": "Enable to use custom safety factor instead of ASME default 3.5",
+        "tr": "ASME varsayılan 3.5 yerine özel güvenlik faktörü kullanmak için etkinleştirin",
+        "de": "Aktivieren, um einen benutzerdefinierten Sicherheitsfaktor anstelle des ASME-Standards 3,5 zu verwenden",
+        "fr": "Activer pour utiliser un facteur de sécurité personnalisé au lieu de la valeur par défaut ASME de 3,5",
+        "es": "Habilitar para usar factor de seguridad personalizado en lugar del valor por defecto ASME de 3.5",
+        "ar": "قم بالتمكين لاستخدام معامل أمان مخصص بدلاً من القيمة الافتراضية لـ ASME وهي 3.5"
+      },
+      "unit": "unit"
+    },
+    {
+      "id": "custom_safety_factor",
+      "label": "Custom Safety Factor",
+      "type": "number",
+      "unit": "unit",
+      "default": 3.5,
+      "min": 2,
+      "max": 6,
+      "businessContext": "Only used if override is enabled; typical range per ISO 16528",
+      "label_i18n": {
+        "en": "Custom Safety Factor",
+        "tr": "Özel Güvenlik Faktörü",
+        "de": "Benutzerdefinierter Sicherheitsfaktor",
+        "fr": "Facteur de sécurité personnalisé",
+        "es": "Factor de seguridad personalizado",
+        "ar": "معامل الأمان المخصص"
+      },
+      "businessContext_i18n": {
+        "en": "Only used if override is enabled; typical range per ISO 16528",
+        "tr": "Yalnızca geçersiz kılma etkinse kullanılır; ISO 16528'e göre tipik aralık",
+        "de": "Nur verwendet, wenn Überschreibung aktiviert ist; typischer Bereich gemäß ISO 16528",
+        "fr": "Utilisé uniquement si le remplacement est activé ; plage typique selon ISO 16528",
+        "es": "Solo se usa si la anulación está habilitada; rango típico según ISO 16528",
+        "ar": "يُستخدم فقط إذا تم تمكين التجاوز؛ النطاق النموذجي وفقًا لـ ISO 16528"
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "pressure_stress_ratio",
+        "condition": "design_pressure / allowable_stress > 0.385",
+        "message": "Design pressure exceeds 38.5% of allowable stress. Thick-wall formulas required (ASME UG-27(c)(2)).",
+        "severity": "warning"
+      },
+      {
+        "id": "diameter_thickness_ratio",
+        "condition": "vessel_diameter / (calculated_thickness) < 10",
+        "message": "Diameter-to-thickness ratio < 10. Consider thick-wall vessel analysis per ASME Appendix 1.",
+        "severity": "info"
+      },
+      {
+        "id": "material_utilization_min",
+        "condition": "material_utilization < 70",
+        "message": "Material utilization below 70%. Review nesting and cutting plan for Lean improvement.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "min_thickness_alert",
+        "condition": "calculated_thickness < 5.0",
+        "message": "Calculated thickness < 5mm. Fabrication handling risk; consider minimum thickness per ASME UG-16.",
+        "severity": "critical"
+      },
+      {
+        "id": "cost_efficiency_alert",
+        "condition": "material_cost_per_unit > 150",
+        "message": "Material cost exceeds $150/unit. Evaluate alternative materials or reduce corrosion allowance.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": {
+    "normalized_product": "design_pressure * vessel_diameter * allowable_stress * corrosion_allowance",
+    "result": "design_pressure * vessel_diameter * allowable_stress * corrosion_allowance * ((material_utilization / 100) * custom_safety_factor)",
+    "adjustment_factor": "(material_utilization / 100) * custom_safety_factor"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
+  },
+  "toolName": "pressure-vessel-thickness-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "metal-plastics-forming",
+  "category": "Teknik & Mühendislik",
+  "sector": "Fizik & Mekanik",
+  "sectorId": "fizik",
+  "profession": "Fizik Mühendisi",
+  "categoryId": "engineering"
+}

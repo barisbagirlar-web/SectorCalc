@@ -1,0 +1,311 @@
+{
+  "slug": "devamsizlik-maliyeti",
+  "name": "DEVAMSIZLIK MALİYETİ",
+  "description": "DEVAMSIZLIK MALİYETİ premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "kayıpSaat",
+      "label": "Kayıp Saat",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kayıp Saat",
+        "tr": "Kayıp Saat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Ucret",
+      "label": "Ücret",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ücret",
+        "tr": "Ücret",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yanHak",
+      "label": "Yan Hak",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yan Hak",
+        "tr": "Yan Hak",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "olaySayısıS",
+      "label": "Olay Sayısı S",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Olay Sayısı S",
+        "tr": "Olay Sayısı S",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fazlaMesai",
+      "label": "Fazla Mesai",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Fazla Mesai",
+        "tr": "Fazla Mesai",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gecici Isci",
+      "label": "Geçici İşçi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Geçici İşçi",
+        "tr": "Geçici İşçi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "verimDusus",
+      "label": "Verim Düşüş",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Verim Düşüş",
+        "tr": "Verim Düşüş",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "directCost",
+      "label": "DirectCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DirectCost",
+        "tr": "DirectCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "overtimePremium",
+      "label": "OvertimePremium",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OvertimePremium",
+        "tr": "OvertimePremium",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "tempCost",
+      "label": "TempCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TempCost",
+        "tr": "TempCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "prodLoss",
+      "label": "ProdLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ProdLoss",
+        "tr": "ProdLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "adminCost",
+      "label": "AdminCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AdminCost",
+        "tr": "AdminCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "bradfordFactor",
+      "label": "BradfordFactor",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "BradfordFactor",
+        "tr": "BradfordFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "totalCost",
+      "label": "TotalCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalCost",
+        "tr": "TotalCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "cost",
+  "formulas": {
+    "normalized_product": "kayıpSaat * Ucret * yanHak * olaySayısıS",
+    "result": "kayıpSaat * Ucret * yanHak * olaySayısıS * (fazlaMesai * gecici Isci * verimDusus)",
+    "adjustment_factor": "fazlaMesai * gecici Isci * verimDusus"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "slug": "kiri-arl",
+  "name": "Kiriş Ağırlığı",
+  "description": "Kiriş Ağırlığı premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "profilTipiBoyutu",
+      "label": "Profil Tipi/Boyutu",
+      "type": "string",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Profil Tipi/Boyutu",
+        "tr": "Profil Tipi/Boyutu",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "uzunluk",
+      "label": "Uzunluk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Uzunluk",
+        "tr": "Uzunluk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "adet",
+      "label": "Adet",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Adet",
+        "tr": "Adet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CelikYogunlugu",
+      "label": "Çelik Yoğunluğu",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çelik Yoğunluğu",
+        "tr": "Çelik Yoğunluğu",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "elastisiteModuluE",
+      "label": "Elastisite Modülü E",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Elastisite Modülü E",
+        "tr": "Elastisite Modülü E",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tonFiyatı",
+      "label": "Ton Fiyatı",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ton Fiyatı",
+        "tr": "Ton Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "boyaYalıtımM2Maliyeti",
+      "label": "Boya/Yalıtım m2 Maliyeti",
+      "type": "number",
+      "unit": "m²",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Boya/Yalıtım m2 Maliyeti",
+        "tr": "Boya/Yalıtım m2 Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "areaCross",
+      "label": "Area_Cross",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Area_Cross",
+        "tr": "Area_Cross",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "weightPerMeter",
+      "label": "Weight_PerMeter",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Weight_PerMeter",
+        "tr": "Weight_PerMeter",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalWeight",
+      "label": "TotalWeight",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalWeight",
+        "tr": "TotalWeight",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costMaterial",
+      "label": "Cost_Material",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Material",
+        "tr": "Cost_Material",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "paintArea",
+      "label": "PaintArea",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PaintArea",
+        "tr": "PaintArea",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fireproofingArea",
+      "label": "FireproofingArea",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FireproofingArea",
+        "tr": "FireproofingArea",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "deflectionMax",
+      "label": "Deflection_Max",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Deflection_Max",
+        "tr": "Deflection_Max",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "momentMax",
+      "label": "Moment_Max",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Moment_Max",
+        "tr": "Moment_Max",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

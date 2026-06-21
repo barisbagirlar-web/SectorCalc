@@ -1,0 +1,266 @@
+{
+  "slug": "tekstil-at-risk-deerlendirmesi",
+  "name": "Tekstil Atığı Risk Değerlendirmesi",
+  "description": "Tekstil Atığı Risk Değerlendirmesi premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "girenKumasCıkan UrunKg",
+      "label": "Giren Kumaş/Çıkan Ürün kg",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Giren Kumaş/Çıkan Ürün kg",
+        "tr": "Giren Kumaş/Çıkan Ürün kg",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kesimDikimBoyaFireleri",
+      "label": "Kesim/Dikim/Boya Fireleri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kesim/Dikim/Boya Fireleri",
+        "tr": "Kesim/Dikim/Boya Fireleri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kumasKgFiyatı",
+      "label": "Kumaş kg Fiyatı",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kumaş kg Fiyatı",
+        "tr": "Kumaş kg Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IslemeMaliyeti",
+      "label": "İşleme Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşleme Maliyeti",
+        "tr": "İşleme Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "depolama Ucreti",
+      "label": "Depolama Ücreti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Depolama Ücreti",
+        "tr": "Depolama Ücreti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hurdaGeriKazanımDegeri",
+      "label": "Hurda Geri Kazanım Değeri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hurda Geri Kazanım Değeri",
+        "tr": "Hurda Geri Kazanım Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "wasteRate",
+      "label": "WasteRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "WasteRate",
+        "tr": "WasteRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "preConsumerWaste",
+      "label": "PreConsumerWaste",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PreConsumerWaste",
+        "tr": "PreConsumerWaste",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "financialLoss",
+      "label": "FinancialLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FinancialLoss",
+        "tr": "FinancialLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "disposalCost",
+      "label": "DisposalCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DisposalCost",
+        "tr": "DisposalCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "circularRevenue",
+      "label": "CircularRevenue",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CircularRevenue",
+        "tr": "CircularRevenue",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "netWasteCost",
+      "label": "NetWasteCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NetWasteCost",
+        "tr": "NetWasteCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "riskScore",
+      "label": "RiskScore",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RiskScore",
+        "tr": "RiskScore",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

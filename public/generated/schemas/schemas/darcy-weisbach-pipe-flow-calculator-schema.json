@@ -1,0 +1,336 @@
+{
+  "slug": "darcy-weisbach-pipe-flow-calculator",
+  "name": "Pipe Pressure Drop (Colebrook-White) Calculator",
+  "description": "Boru hattında Colebrook-White sürtünme faktörü ve Darcy-Weisbach kayıpları hesaplanmadan doğru pompa seçimi yapılamaz.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Debi (Q)",
+      "type": "number",
+      "unit": "m³/s",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Debi (Q)",
+        "tr": "Debi (Q)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "diameter",
+      "label": "Boru Çapı (D)",
+      "type": "number",
+      "unit": "m",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Boru Çapı (D)",
+        "tr": "Boru Çapı (D)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "length",
+      "label": "Boru Uzunluğu (L)",
+      "type": "number",
+      "unit": "m",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Boru Uzunluğu (L)",
+        "tr": "Boru Uzunluğu (L)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "roughness",
+      "label": "Pürüzlülük (ε)",
+      "type": "number",
+      "unit": "m",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Pürüzlülük (ε)",
+        "tr": "Pürüzlülük (ε)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "density",
+      "label": "Akışkan Yoğunluğu (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Akışkan Yoğunluğu (ρ)",
+        "tr": "Akışkan Yoğunluğu (ρ)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "viscosity",
+      "label": "Dinamik Viskozite (μ)",
+      "type": "number",
+      "unit": "Pa·s",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Dinamik Viskozite (μ)",
+        "tr": "Dinamik Viskozite (μ)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kFactors",
+      "label": "Yerel Kayıp Katsayıları (ΣK)",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yerel Kayıp Katsayıları (ΣK)",
+        "tr": "Yerel Kayıp Katsayıları (ΣK)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "pumpEfficiency",
+      "label": "Pompa Verimi",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Pompa Verimi",
+        "tr": "Pompa Verimi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "velocity",
+      "label": "Akış Hızı (V)",
+      "unit": "m/s",
+      "format": "number",
+      "label_i18n": {
+        "en": "Akış Hızı (V)",
+        "tr": "Akış Hızı (V)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "reynolds",
+      "label": "Reynolds Sayısı (Re)",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Reynolds Sayısı (Re)",
+        "tr": "Reynolds Sayısı (Re)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "frictionFactor",
+      "label": "Sürtünme Faktörü (f)",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Sürtünme Faktörü (f)",
+        "tr": "Sürtünme Faktörü (f)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "majorLoss",
+      "label": "Ana Kayıp (hf)",
+      "unit": "m",
+      "format": "number",
+      "label_i18n": {
+        "en": "Ana Kayıp (hf)",
+        "tr": "Ana Kayıp (hf)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "minorLoss",
+      "label": "Yerel Kayıp (hm)",
+      "unit": "m",
+      "format": "number",
+      "label_i18n": {
+        "en": "Yerel Kayıp (hm)",
+        "tr": "Yerel Kayıp (hm)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "totalPressureDrop",
+      "label": "Toplam Basınç Düşümü",
+      "unit": "Pa",
+      "format": "number",
+      "label_i18n": {
+        "en": "Toplam Basınç Düşümü",
+        "tr": "Toplam Basınç Düşümü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "pumpPower",
+      "label": "Pompa Gücü",
+      "unit": "W",
+      "format": "number",
+      "label_i18n": {
+        "en": "Pompa Gücü",
+        "tr": "Pompa Gücü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "%",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "measurement",
+  "formulas": {
+    "normalized_product": "flowRate * diameter * length * roughness",
+    "result": "flowRate * diameter * length * roughness * (density * viscosity * kFactors * (pumpEfficiency / 100))",
+    "adjustment_factor": "density * viscosity * kFactors * (pumpEfficiency / 100)"
+  }
+}

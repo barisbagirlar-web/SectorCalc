@@ -1,0 +1,335 @@
+{
+  "slug": "roi-npv-calculator",
+  "name": "ROI & NPV Calculator",
+  "description": "Industrial-grade financial evaluation tool for capital investments, incorporating lean and six sigma principles, ISO standards, and WERC metrics.",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Sensitivity analysis",
+    "Multi-scenario comparison",
+    "Automated report generation"
+  ],
+  "inputs": [
+    {
+      "id": "initial_investment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Total upfront capital expenditure including equipment, installation, and training costs.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Başlangıç Yatırımı",
+        "de": "Anfangsinvestition",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
+        "ar": "الاستثمار الأولي"
+      },
+      "businessContext_i18n": {
+        "en": "Total upfront capital expenditure including equipment, installation, and training costs.",
+        "tr": "Ekipman, kurulum ve eğitim maliyetleri dahil toplam peşin sermaye harcaması.",
+        "de": "Gesamte anfängliche Kapitalausgaben einschließlich Ausrüstung, Installation und Schulungskosten.",
+        "fr": "Dépense d'investissement totale initiale incluant équipement, installation et formation.",
+        "es": "Gasto de capital inicial total, incluyendo equipos, instalación y costos de capacitación.",
+        "ar": "إجمالي الإنفاق الرأسمالي المقدم بما في ذلك تكاليف المعدات والتركيب والتدريب."
+      }
+    },
+    {
+      "id": "annual_cash_inflow",
+      "label": "Annual Cash Inflow",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Expected annual net cash inflow from the investment (revenue increase or cost savings).",
+      "label_i18n": {
+        "en": "Annual Cash Inflow",
+        "tr": "Yıllık Nakit Girişi",
+        "de": "Jährlicher Mittelzufluss",
+        "fr": "Entrée de trésorerie annuelle",
+        "es": "Flujo de caja anual entrante",
+        "ar": "التدفق النقدي السنوي الوارد"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual net cash inflow from the investment (revenue increase or cost savings).",
+        "tr": "Yatırımdan beklenen yıllık net nakit girişi (gelir artışı veya maliyet tasarrufu).",
+        "de": "Erwarteter jährlicher Netto-Cashflow aus der Investition (Umsatzsteigerung oder Kosteneinsparungen).",
+        "fr": "Entrée de trésorerie nette annuelle attendue de l'investissement (augmentation des revenus ou économies de coûts).",
+        "es": "Entrada neta de efectivo anual esperada de la inversión (aumento de ingresos o ahorro de costos).",
+        "ar": "صافي التدفق النقدي السنوي المتوقع من الاستثمار (زيادة الإيرادات أو توفير التكاليف)."
+      }
+    },
+    {
+      "id": "annual_cash_outflow",
+      "label": "Annual Cash Outflow",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Annual operating and maintenance costs associated with the investment.",
+      "label_i18n": {
+        "en": "Annual Cash Outflow",
+        "tr": "Yıllık Nakit Çıkışı",
+        "de": "Jährlicher Mittelabfluss",
+        "fr": "Sortie de trésorerie annuelle",
+        "es": "Flujo de caja anual saliente",
+        "ar": "التدفق النقدي السنوي الصادر"
+      },
+      "businessContext_i18n": {
+        "en": "Annual operating and maintenance costs associated with the investment.",
+        "tr": "Yatırımla ilgili yıllık işletme ve bakım maliyetleri.",
+        "de": "Jährliche Betriebs- und Wartungskosten im Zusammenhang mit der Investition.",
+        "fr": "Coûts annuels d'exploitation et de maintenance associés à l'investissement.",
+        "es": "Costos operativos y de mantenimiento anuales asociados con la inversión.",
+        "ar": "تكاليف التشغيل والصيانة السنوية المرتبطة بالاستثمار."
+      }
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663.",
+      "label_i18n": {
+        "en": "Discount Rate (%)",
+        "tr": "İskonto Oranı (%)",
+        "de": "Diskontsatz (%)",
+        "fr": "Taux d'actualisation (%)",
+        "es": "Tasa de descuento (%)",
+        "ar": "معدل الخصم (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663.",
+        "tr": "ISO 15663'e göre ağırlıklı ortalama sermaye maliyeti (WACC) veya gerekli getiri oranı.",
+        "de": "Gewichteter durchschnittlicher Kapitalkostensatz (WACC) oder erforderliche Rendite gemäß ISO 15663.",
+        "fr": "Coût moyen pondéré du capital (CMPC) ou taux de rendement requis selon l'ISO 15663.",
+        "es": "Costo promedio ponderado del capital (WACC) o tasa de rendimiento requerida según ISO 15663.",
+        "ar": "متوسط التكلفة المرجح لرأس المال (WACC) أو معدل العائد المطلوب وفقًا لـ ISO 15663."
+      }
+    },
+    {
+      "id": "project_life_years",
+      "label": "Project Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Expected useful life of the investment per ISO 15686.",
+      "label_i18n": {
+        "en": "Project Life (Years)",
+        "tr": "Proje Ömrü (Yıl)",
+        "de": "Projektlaufzeit (Jahre)",
+        "fr": "Durée de vie du projet (années)",
+        "es": "Vida del proyecto (años)",
+        "ar": "عمر المشروع (سنوات)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected useful life of the investment per ISO 15686.",
+        "tr": "ISO 15686'ya göre yatırımın beklenen faydalı ömrü.",
+        "de": "Erwartete Nutzungsdauer der Investition gemäß ISO 15686.",
+        "fr": "Durée de vie utile attendue de l'investissement selon l'ISO 15686.",
+        "es": "Vida útil esperada de la inversión según ISO 15686.",
+        "ar": "العمر الإنتاجي المتوقع للاستثمار وفقًا لـ ISO 15686."
+      }
+    },
+    {
+      "id": "salvage_value",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Estimated residual value at end of project life.",
+      "label_i18n": {
+        "en": "Salvage Value",
+        "tr": "Hurda Değeri",
+        "de": "Restwert",
+        "fr": "Valeur de récupération",
+        "es": "Valor de rescate",
+        "ar": "قيمة الإنقاذ"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated residual value at end of project life.",
+        "tr": "Proje ömrü sonunda tahmini kalıntı değer.",
+        "de": "Geschätzter Restwert am Ende der Projektlaufzeit.",
+        "fr": "Valeur résiduelle estimée en fin de vie du projet.",
+        "es": "Valor residual estimado al final de la vida del proyecto.",
+        "ar": "القيمة المتبقية المقدرة في نهاية عمر المشروع."
+      }
+    },
+    {
+      "id": "inflation_rate",
+      "label": "Inflation Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Expected annual inflation rate for adjusting future cash flows.",
+      "label_i18n": {
+        "en": "Inflation Rate (%)",
+        "tr": "Enflasyon Oranı (%)",
+        "de": "Inflationsrate (%)",
+        "fr": "Taux d'inflation (%)",
+        "es": "Tasa de inflación (%)",
+        "ar": "معدل التضخم (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual inflation rate for adjusting future cash flows.",
+        "tr": "Gelecekteki nakit akışlarını düzeltmek için beklenen yıllık enflasyon oranı.",
+        "de": "Erwartete jährliche Inflationsrate zur Anpassung zukünftiger Cashflows.",
+        "fr": "Taux d'inflation annuel attendu pour l'ajustement des flux de trésorerie futurs.",
+        "es": "Tasa de inflación anual esperada para ajustar flujos de caja futuros.",
+        "ar": "معدل التضخم السنوي المتوقع لتعديل التدفقات النقدية المستقبلية."
+      }
+    },
+    {
+      "id": "tax_rate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Effective corporate tax rate for after-tax cash flow calculations.",
+      "label_i18n": {
+        "en": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
+        "de": "Steuersatz (%)",
+        "fr": "Taux d'imposition (%)",
+        "es": "Tasa impositiva (%)",
+        "ar": "معدل الضريبة (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Effective corporate tax rate for after-tax cash flow calculations.",
+        "tr": "Vergi sonrası nakit akışı hesaplamaları için efektif kurumlar vergisi oranı.",
+        "de": "Effektiver Körperschaftsteuersatz für die Berechnung der Cashflows nach Steuern.",
+        "fr": "Taux d'imposition effectif des sociétés pour les calculs de flux de trésorerie après impôt.",
+        "es": "Tasa impositiva corporativa efectiva para cálculos de flujo de caja después de impuestos.",
+        "ar": "معدل ضريبة الشركات الفعلي لحسابات التدفق النقدي بعد الضريبة."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_positive_investment",
+        "condition": "initial_investment > 0",
+        "message": "Initial investment must be greater than zero."
+      },
+      {
+        "id": "rule_discount_rate_range",
+        "condition": "discount_rate >= 0 && discount_rate <= 100",
+        "message": "Discount rate must be between 0% and 100%."
+      },
+      {
+        "id": "rule_project_life_positive",
+        "condition": "project_life_years >= 1",
+        "message": "Project life must be at least 1 year."
+      },
+      {
+        "id": "rule_cash_flow_positive",
+        "condition": "annual_cash_inflow >= 0 && annual_cash_outflow >= 0",
+        "message": "Cash flows must be non-negative."
+      },
+      {
+        "id": "rule_inflation_non_negative",
+        "condition": "inflation_rate >= 0",
+        "message": "Inflation rate must be non-negative."
+      },
+      {
+        "id": "rule_tax_rate_range",
+        "condition": "tax_rate >= 0 && tax_rate <= 100",
+        "message": "Tax rate must be between 0% and 100%."
+      },
+      {
+        "id": "rule_risk_adjustment_range",
+        "condition": "risk_adjustment >= 0.5 && risk_adjustment <= 2.0",
+        "message": "Risk adjustment factor must be between 0.5 and 2.0."
+      },
+      {
+        "id": "rule_defect_rate_range",
+        "condition": "quality_defect_rate >= 0 && quality_defect_rate <= 100",
+        "message": "Defect rate must be between 0% and 100%."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_negative_npv",
+        "condition": "npv < 0",
+        "alert": "Net Present Value is negative. Investment may not be viable.",
+        "severity": "warning"
+      },
+      {
+        "id": "threshold_low_roi",
+        "condition": "roi < 10",
+        "alert": "Return on Investment is below 10%. Consider alternative investments.",
+        "severity": "warning"
+      },
+      {
+        "id": "threshold_high_defect_rate",
+        "condition": "quality_defect_rate > 3.4",
+        "alert": "Defect rate exceeds Six Sigma target (3.4 DPMO). Process improvement recommended.",
+        "severity": "critical"
+      },
+      {
+        "id": "threshold_payback_period",
+        "condition": "payback_period > project_life_years",
+        "alert": "Payback period exceeds project life. Investment may not recover costs.",
+        "severity": "critical"
+      },
+      {
+        "id": "threshold_energy_cost",
+        "condition": "energy_cost_per_unit > 0.10",
+        "alert": "Energy cost per unit exceeds $0.10. Consider energy efficiency improvements (ISO 50001).",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": {
+    "result": "(-initial_investment + (annual_cash_inflow - annual_cash_outflow) * (1 - tax_rate / 100) * ((1 - (1 + discount_rate / 100) ** (-project_life_years)) / (discount_rate / 100)) + salvage_value * (1 + inflation_rate / 100) ** (-project_life_years))",
+    "net_annual_cash_flow": "(annual_cash_inflow - annual_cash_outflow) * (1 - tax_rate / 100)",
+    "npv": "(-initial_investment + net_annual_cash_flow * ((1 - (1 + discount_rate / 100) ** (-project_life_years)) / (discount_rate / 100)) + salvage_value * (1 + inflation_rate / 100) ** (-project_life_years))",
+    "roi": "((net_annual_cash_flow * project_life_years + salvage_value - initial_investment) / initial_investment) * 100"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "net_annual_cash_flow",
+      "npv",
+      "roi"
+    ],
+    "hiddenLossDrivers": [
+      "Inflation erosion of future cash flows",
+      "Tax burden reducing net benefits"
+    ],
+    "suggestedActions": [
+      "Negotiate lower equipment costs or explore leasing options",
+      "Implement lean initiatives to reduce annual operating costs"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
+  },
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Finans & Yatırım",
+  "sector": "Finans & Muhasebe",
+  "toolName": "roi-npv-calculator",
+  "sectorId": "finans",
+  "profession": "Finans Müdürü",
+  "categoryId": "finance"
+}

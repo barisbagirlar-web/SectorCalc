@@ -1,0 +1,113 @@
+{
+  "slug": "zarf-boyutu-hesaplayici",
+  "name": "Zarf Boyutu Hesaplayıcı",
+  "description": "Professional zarf boyutu hesaplayıcı tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "lengthValue",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Uzunluk değeri.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Değer 1",
+        "de": "Uzunluk",
+        "fr": "Uzunluk",
+        "es": "Uzunluk",
+        "ar": "Uzunluk"
+      },
+      "businessContext_i18n": {
+        "en": "First value.",
+        "tr": "Birinci değer.",
+        "de": "Uzunluk değeri.",
+        "fr": "Uzunluk değeri.",
+        "es": "Uzunluk değeri.",
+        "ar": "Uzunluk değeri."
+      }
+    },
+    {
+      "id": "param2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Ek parametre 2.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Değer 2",
+        "de": "Parametre 2",
+        "fr": "Parametre 2",
+        "es": "Parametre 2",
+        "ar": "Parametre 2"
+      },
+      "businessContext_i18n": {
+        "en": "Second value.",
+        "tr": "İkinci değer.",
+        "de": "Ek parametre 2.",
+        "fr": "Ek parametre 2.",
+        "es": "Ek parametre 2.",
+        "ar": "Ek parametre 2."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "lengthValue / Math.pow(param2/100 + 1, 1.5) * 10 + Math.sqrt(lengthValue) * 2",
+    "result": "lengthValue / Math.pow(param2/100 + 1, 1.5) * 10 + Math.sqrt(lengthValue) * 2"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "lengthValue * param2"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick zarf boyutu hesaplayıcı calculation.",
+      "long": "This free tool provides a quick zarf boyutu hesaplayıcı."
+    },
+    "faqs": [
+      {
+        "question": "What does this Zarf Boyutu Hesaplayıcı include?",
+        "answer": "Basic zarf boyutu hesaplayıcı calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Finans & Muhasebe",
+  "toolName": "zarf-boyutu-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "finance"
+}

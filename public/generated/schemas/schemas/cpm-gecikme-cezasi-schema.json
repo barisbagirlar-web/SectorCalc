@@ -1,0 +1,300 @@
+{
+  "slug": "cpm-gecikme-cezasi",
+  "name": "CPM GECİKME CEZASI",
+  "description": "CPM GECİKME CEZASI premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "planlananGercekSure",
+      "label": "Planlanan/Gerçek Süre",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Planlanan/Gerçek Süre",
+        "tr": "Planlanan/Gerçek Süre",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "float",
+      "label": "Float",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Float",
+        "tr": "Float",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gunlukCeza",
+      "label": "Günlük Ceza",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Günlük Ceza",
+        "tr": "Günlük Ceza",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mucbirSebep",
+      "label": "Mücbir Sebep",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mücbir Sebep",
+        "tr": "Mücbir Sebep",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "crashingMaliyeti",
+      "label": "Crashing Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Crashing Maliyeti",
+        "tr": "Crashing Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "verimlilik",
+      "label": "Verimlilik",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Verimlilik",
+        "tr": "Verimlilik",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "totalFloat",
+      "label": "TotalFloat",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalFloat",
+        "tr": "TotalFloat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "criticalDelay",
+      "label": "CriticalDelay",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CriticalDelay",
+        "tr": "CriticalDelay",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "excusableDelay",
+      "label": "ExcusableDelay",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ExcusableDelay",
+        "tr": "ExcusableDelay",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "nonExcusable",
+      "label": "NonExcusable",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NonExcusable",
+        "tr": "NonExcusable",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "liquidatedDamages",
+      "label": "LiquidatedDamages",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LiquidatedDamages",
+        "tr": "LiquidatedDamages",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "accelerationCost",
+      "label": "AccelerationCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AccelerationCost",
+        "tr": "AccelerationCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "netPenalty",
+      "label": "NetPenalty",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NetPenalty",
+        "tr": "NetPenalty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "7": {
+      "id": "eOTClaim",
+      "label": "EOT_Claim",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EOT_Claim",
+        "tr": "EOT_Claim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "cost",
+  "formulas": {
+    "normalized_product": "planlananGercekSure * float * gunlukCeza * mucbirSebep",
+    "result": "planlananGercekSure * float * gunlukCeza * mucbirSebep * (crashingMaliyeti * verimlilik)",
+    "adjustment_factor": "crashingMaliyeti * verimlilik"
+  }
+}

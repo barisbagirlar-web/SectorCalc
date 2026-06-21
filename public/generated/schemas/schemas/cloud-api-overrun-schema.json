@@ -1,0 +1,247 @@
+{
+  "slug": "cloud-api-overrun",
+  "name": "CLOUD API OVERRUN",
+  "description": "CLOUD API OVERRUN premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "aylıkToplamDahil Istek",
+      "label": "Aylık Toplam/Dahil İstek",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Aylık Toplam/Dahil İstek",
+        "tr": "Aylık Toplam/Dahil İstek",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "asım Ucreti",
+      "label": "Aşım Ücreti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Aşım Ücreti",
+        "tr": "Aşım Ücreti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "veri CıkısıGB",
+      "label": "Veri Çıkışı GB",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Veri Çıkışı GB",
+        "tr": "Veri Çıkışı GB",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "egressFiyat",
+      "label": "Egress Fiyat",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Egress Fiyat",
+        "tr": "Egress Fiyat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sLATaahhutGercekUptime",
+      "label": "SLA Taahhüt/Gerçek Uptime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "SLA Taahhüt/Gerçek Uptime",
+        "tr": "SLA Taahhüt/Gerçek Uptime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "overrunRequests",
+      "label": "OverrunRequests",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OverrunRequests",
+        "tr": "OverrunRequests",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "overrunCost",
+      "label": "OverrunCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OverrunCost",
+        "tr": "OverrunCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "throttlingCost",
+      "label": "ThrottlingCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ThrottlingCost",
+        "tr": "ThrottlingCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "dataEgressCost",
+      "label": "DataEgressCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DataEgressCost",
+        "tr": "DataEgressCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "sLABreachPenalty",
+      "label": "SLABreachPenalty",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SLABreachPenalty",
+        "tr": "SLABreachPenalty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "totalOverrunCost",
+      "label": "TotalOverrunCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalOverrunCost",
+        "tr": "TotalOverrunCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "oee",
+  "formulas": {
+    "normalized_product": "aylıkToplamDahil Istek * asım Ucreti * veri CıkısıGB * egressFiyat",
+    "result": "aylıkToplamDahil Istek * asım Ucreti * veri CıkısıGB * egressFiyat * (sLATaahhutGercekUptime)",
+    "adjustment_factor": "sLATaahhutGercekUptime"
+  }
+}

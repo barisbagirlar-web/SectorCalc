@@ -1,0 +1,75 @@
+{
+  "slug": "recete-nutrition-hesaplama",
+  "name": "Reçete Nutrition Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "dailyCalories",
+      "label": "Score",
+      "type": "number",
+      "unit": "kcal",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Günlük kalori hedefi.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Günlük Kalori",
+        "fr": "Günlük Kalori",
+        "es": "Günlük Kalori",
+        "ar": "Günlük Kalori"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Günlük kalori hedefi.",
+        "fr": "Günlük kalori hedefi.",
+        "es": "Günlük kalori hedefi.",
+        "ar": "Günlük kalori hedefi."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "dailyCalories * (1 + dailyCalories/500) + Math.sqrt(dailyCalories) * 5",
+    "result": "dailyCalories * (1 + dailyCalories/500) + Math.sqrt(dailyCalories) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "dailyCalories"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick reçete nutrition hesaplama.",
+      "long": "Free reçete nutrition hesaplama tool."
+    }
+  },
+  "sector": "Kimya",
+  "toolName": "recete-nutrition-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "chemistry"
+}

@@ -1,0 +1,286 @@
+{
+  "slug": "spc-signal-delay-maliyet",
+  "name": "SPC Signal Delay Maliyet",
+  "description": "SPC Signal Delay Maliyet premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "alphaBetaRiskleri",
+      "label": "Alpha/Beta Riskleri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Alpha/Beta Riskleri",
+        "tr": "Alpha/Beta Riskleri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OrneklemeAralıgıSaat",
+      "label": "Örnekleme Aralığı saat",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Örnekleme Aralığı saat",
+        "tr": "Örnekleme Aralığı saat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UretimHızıAdetsaat",
+      "label": "Üretim Hızı adet/saat",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Üretim Hızı adet/saat",
+        "tr": "Üretim Hızı adet/saat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hataOranıOOC",
+      "label": "Hata Oranı OOC",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hata Oranı OOC",
+        "tr": "Hata Oranı OOC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hataBasınaMaliyet",
+      "label": "Hata Başına Maliyet",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hata Başına Maliyet",
+        "tr": "Hata Başına Maliyet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "arastırma Isciligi",
+      "label": "Araştırma İşçiliği",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Araştırma İşçiliği",
+        "tr": "Araştırma İşçiliği",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "aRLInControl",
+      "label": "ARL_InControl",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ARL_InControl",
+        "tr": "ARL_InControl",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "aRLOutOfControl",
+      "label": "ARL_OutOfControl",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ARL_OutOfControl",
+        "tr": "ARL_OutOfControl",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "detectionDelayHours",
+      "label": "DetectionDelay_Hours",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DetectionDelay_Hours",
+        "tr": "DetectionDelay_Hours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "defectsProduced",
+      "label": "DefectsProduced",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DefectsProduced",
+        "tr": "DefectsProduced",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "costDelay",
+      "label": "Cost_Delay",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Delay",
+        "tr": "Cost_Delay",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "investigationCost",
+      "label": "InvestigationCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "InvestigationCost",
+        "tr": "InvestigationCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "optimalInterval",
+      "label": "OptimalInterval",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OptimalInterval",
+        "tr": "OptimalInterval",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "USD",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "measurement",
+  "formulas": {
+    "normalized_product": "alphaBetaRiskleri * OrneklemeAralıgıSaat * UretimHızıAdetsaat * (hataOranıOOC / 100)",
+    "result": "alphaBetaRiskleri * OrneklemeAralıgıSaat * UretimHızıAdetsaat * (hataOranıOOC / 100) * (hataBasınaMaliyet * arastırma Isciligi)",
+    "adjustment_factor": "hataBasınaMaliyet * arastırma Isciligi"
+  }
+}

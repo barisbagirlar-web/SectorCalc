@@ -1,0 +1,268 @@
+{
+  "slug": "steam-trap-energy-loss",
+  "name": "Steam Trap Energy Loss Calculator",
+  "description": "Calculates the energy and cost losses from failed steam traps based on orifice size, steam pressure, and operating hours, following ISO 50001 and Six Sigma DMAIC principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-site comparison",
+    "Automated report scheduling"
+  ],
+  "inputs": [
+    {
+      "id": "orifice_diameter",
+      "label": "Orifice Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "min": 0.5,
+      "max": 25,
+      "businessContext": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm.",
+      "label_i18n": {
+        "en": "Orifice Diameter",
+        "tr": "Orifis çapı",
+        "de": "Blendendurchmesser",
+        "fr": "Diamètre de l'orifice",
+        "es": "Diámetro del orificio",
+        "ar": "قطر الفتحة"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm.",
+        "tr": "Trap orifis çapı; tipik arızalı traplarda orifis 1 mm ile 20 mm arasındadır.",
+        "de": "Durchmesser der Kondensatableiteröffnung; typische defekte Ableiter haben Öffnungen von 1 mm bis 20 mm.",
+        "fr": "Diamètre de l'orifice du purgeur ; les purgeurs défaillants typiques ont des orifices de 1 mm à 20 mm.",
+        "es": "Diámetro del orificio de la trampa; las trampas típicas falladas tienen orificios de 1 mm a 20 mm.",
+        "ar": "قطر فتحة المصيدة؛ عادةً ما تكون فتحات المصائد المعطلة من 1 مم إلى 20 مم."
+      }
+    },
+    {
+      "id": "steam_pressure",
+      "label": "Steam Pressure (gauge)",
+      "type": "number",
+      "unit": "bar_g",
+      "default": 7,
+      "min": 0.5,
+      "max": 30,
+      "businessContext": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g.",
+      "label_i18n": {
+        "en": "Steam Pressure (gauge)",
+        "tr": "Buhar Basıncı (gösterge)",
+        "de": "Dampfdruck (Überdruck)",
+        "fr": "Pression de vapeur (manométrique)",
+        "es": "Presión de vapor (manométrica)",
+        "ar": "ضغط البخار (مقياس)"
+      },
+      "businessContext_i18n": {
+        "en": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g.",
+        "tr": "Trapin yukarı akışındaki buharın gösterge basıncı. Yaygın endüstriyel aralık 3–15 bar_g.",
+        "de": "Überdruck des Dampfes vor dem Ableiter. Üblicher Industriebereich 3–15 bar_ü.",
+        "fr": "Pression manométrique de la vapeur en amont du purgeur. Plage industrielle courante 3–15 bar_g.",
+        "es": "Presión manométrica del vapor aguas arriba de la trampa. Rango industrial común 3–15 bar_g.",
+        "ar": "ضغط البخار المقاس قبل المصيدة. النطاق الصناعي الشائع 3–15 بار_مقياس."
+      }
+    },
+    {
+      "id": "operating_hours_per_year",
+      "label": "Operating Hours per Year",
+      "type": "number",
+      "unit": "hours",
+      "default": 8000,
+      "min": 1000,
+      "max": 8760,
+      "businessContext": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr.",
+      "label_i18n": {
+        "en": "Operating Hours per Year",
+        "tr": "Yıllık Çalışma Saati",
+        "de": "Betriebsstunden pro Jahr",
+        "fr": "Heures de fonctionnement par an",
+        "es": "Horas de operación por año",
+        "ar": "ساعات التشغيل سنويًا"
+      },
+      "businessContext_i18n": {
+        "en": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr.",
+        "tr": "Buhar sisteminin yıllık çalışma saati. Tipik sürekli proses: 8000 h/yıl.",
+        "de": "Jährliche Betriebsstunden des Dampfsystems. Typischer kontinuierlicher Prozess: 8000 h/Jahr.",
+        "fr": "Heures de fonctionnement annuelles du système vapeur. Processus continu typique : 8000 h/an.",
+        "es": "Horas anuales de operación del sistema de vapor. Proceso continuo típico: 8000 h/año.",
+        "ar": "ساعات التشغيل السنوية لنظام البخار. العملية المستمرة النموذجية: 8000 ساعة/سنة."
+      }
+    },
+    {
+      "id": "steam_cost",
+      "label": "Steam Cost",
+      "type": "number",
+      "unit": "USD/tonne",
+      "default": 25,
+      "min": 5,
+      "max": 100,
+      "businessContext": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance.",
+      "label_i18n": {
+        "en": "Steam Cost",
+        "tr": "Buhar Maliyeti",
+        "de": "Dampfkosten",
+        "fr": "Coût de la vapeur",
+        "es": "Coste del vapor",
+        "ar": "تكلفة البخار"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance.",
+        "tr": "Yakıt, su arıtma ve bakım dahil olmak üzere bir metrik ton buhar üretme maliyeti.",
+        "de": "Kosten zur Erzeugung einer metrischen Tonne Dampf, einschließlich Brennstoff, Wasseraufbereitung und Wartung.",
+        "fr": "Coût de production d'une tonne métrique de vapeur, incluant le combustible, le traitement de l'eau et la maintenance.",
+        "es": "Coste de generar una tonelada métrica de vapor, incluyendo combustible, tratamiento de agua y mantenimiento.",
+        "ar": "تكلفة توليد طن متري واحد من البخار، بما في ذلك الوقود ومعالجة المياه والصيانة."
+      }
+    },
+    {
+      "id": "trap_type",
+      "label": "Trap Type",
+      "type": "select",
+      "options": [
+        "Float & Thermostatic",
+        "Thermodynamic",
+        "Inverted Bucket",
+        "Thermostatic",
+        "Orifice"
+      ],
+      "default": "Float & Thermostatic",
+      "businessContext": "Type of steam trap influences discharge coefficient and failure mode.",
+      "label_i18n": {
+        "en": "Trap Type",
+        "tr": "Trap Türü",
+        "de": "Ableitertyp",
+        "fr": "Type de purgeur",
+        "es": "Tipo de trampa",
+        "ar": "نوع المصيدة"
+      },
+      "businessContext_i18n": {
+        "en": "Type of steam trap influences discharge coefficient and failure mode.",
+        "tr": "Buhar trap türü, boşaltma katsayısını ve arıza modunu etkiler.",
+        "de": "Der Kondensatableitertyp beeinflusst den Ausflusskoeffizienten und die Fehlerart.",
+        "fr": "Le type de purgeur influence le coefficient de décharge et le mode de défaillance.",
+        "es": "El tipo de trampa de vapor influye en el coeficiente de descarga y el modo de fallo.",
+        "ar": "نوع مصيدة البخار يؤثر على معامل التصريف وطريقة الفشل."
+      },
+      "unit": "unit"
+    },
+    {
+      "id": "failure_mode",
+      "label": "Failure Mode",
+      "type": "select",
+      "options": [
+        "Blow-through (fully open)",
+        "Leaking (partially open)",
+        "Blow-through (fully open)"
+      ],
+      "default": "Blow-through (fully open)",
+      "businessContext": "Failure mode determines effective orifice area and discharge coefficient.",
+      "label_i18n": {
+        "en": "Failure Mode",
+        "tr": "Arıza Modu",
+        "de": "Fehlerart",
+        "fr": "Mode de défaillance",
+        "es": "Modo de fallo",
+        "ar": "نمط الفشل"
+      },
+      "businessContext_i18n": {
+        "en": "Failure mode determines effective orifice area and discharge coefficient.",
+        "tr": "Arıza modu, etkili orifis alanını ve boşaltma katsayısını belirler.",
+        "de": "Die Fehlerart bestimmt die wirksame Öffnungsfläche und den Ausflusskoeffizienten.",
+        "fr": "Le mode de défaillance détermine la surface d'orifice effective et le coefficient de décharge.",
+        "es": "El modo de fallo determina el área efectiva del orificio y el coeficiente de descarga.",
+        "ar": "نمط الفشل يحدد مساحة الفتحة الفعالة ومعامل التصريف."
+      },
+      "unit": "unit"
+    },
+    {
+      "id": "condensate_recovery",
+      "label": "Condensate Recovery",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "Whether condensate is recovered; affects net energy loss calculation.",
+      "label_i18n": {
+        "en": "Condensate Recovery",
+        "tr": "Kondens Geri Kazanımı",
+        "de": "Kondensatrückgewinnung",
+        "fr": "Récupération des condensats",
+        "es": "Recuperación de condensado",
+        "ar": "استرداد المكثفات"
+      },
+      "businessContext_i18n": {
+        "en": "Whether condensate is recovered; affects net energy loss calculation.",
+        "tr": "Kondensin geri kazanılıp kazanılmadığı; net enerji kaybı hesaplamasını etkiler.",
+        "de": "Gibt an, ob Kondensat zurückgewonnen wird; beeinflusst die Berechnung des Nettoenergieverlusts.",
+        "fr": "Indique si les condensats sont récupérés ; affecte le calcul de la perte d'énergie nette.",
+        "es": "Indica si se recupera el condensado; afecta el cálculo de la pérdida neta de energía.",
+        "ar": "ما إذا كان يتم استرداد المكثفات؛ يؤثر على حساب فقدان الطاقة الصافي."
+      },
+      "unit": "unit"
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "orifice_pressure_ratio",
+        "condition": "orifice_diameter > 0.5 * steam_pressure",
+        "message": "Orifice diameter is unusually large for the given steam pressure. Check input values.",
+        "severity": "warning"
+      },
+      {
+        "id": "hours_consistency",
+        "condition": "operating_hours_per_year > 8000 && steam_cost < 15",
+        "message": "High operating hours with very low steam cost may indicate unrealistic assumptions.",
+        "severity": "info"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "energy_loss_high",
+        "condition": "primaryResult > 500000",
+        "message": "Annual energy loss exceeds 500,000 kWh. Immediate trap replacement recommended.",
+        "severity": "critical"
+      },
+      {
+        "id": "cost_loss_high",
+        "condition": "primaryResult > 100000",
+        "message": "Annual cost loss exceeds $100,000. Perform root cause analysis (Six Sigma DMAIC).",
+        "severity": "critical"
+      }
+    ]
+  },
+  "formulas": {
+    "base_cost": "steam_pressure * steam_cost",
+    "adjusted_cost": "steam_pressure * steam_cost * 1",
+    "result": "steam_pressure * steam_cost * 1 * (orifice_diameter * operating_hours_per_year)",
+    "factor_orifice_diameter": "orifice_diameter",
+    "factor_operating_hours_per_year": "operating_hours_per_year"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_orifice_diameter",
+      "factor_operating_hours_per_year"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
+    "suggestedActions": [
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
+  },
+  "toolName": "steam-trap-energy-loss-calculator",
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "quality-six-sigma",
+  "category": "Dönüşüm & Ölçüm",
+  "sector": "Birim & Dönüşüm",
+  "sectorId": "birim-donusum",
+  "profession": "Mühendis",
+  "categoryId": "conversion"
+}

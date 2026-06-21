@@ -1,0 +1,316 @@
+{
+  "slug": "kompresr-kaa-maliyet",
+  "name": "Kompresör Kaçağı Maliyet",
+  "description": "Kompresör Kaçağı Maliyet premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "kacak CapıD",
+      "label": "Kaçak Çapı d",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kaçak Çapı d",
+        "tr": "Kaçak Çapı d",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hatBasıncı",
+      "label": "Hat Basıncı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hat Basıncı",
+        "tr": "Hat Basıncı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kacakSayısı",
+      "label": "Kaçak Sayısı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kaçak Sayısı",
+        "tr": "Kaçak Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kompresorVerimi",
+      "label": "Kompresör Verimi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kompresör Verimi",
+        "tr": "Kompresör Verimi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yıllık CalısmaSaati",
+      "label": "Yıllık Çalışma Saati",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık Çalışma Saati",
+        "tr": "Yıllık Çalışma Saati",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "elektrikTarifesi",
+      "label": "Elektrik Tarifesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Elektrik Tarifesi",
+        "tr": "Elektrik Tarifesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tamirMaliyeti",
+      "label": "Tamir Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tamir Maliyeti",
+        "tr": "Tamir Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "emisyonFaktoru",
+      "label": "Emisyon Faktörü",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Emisyon Faktörü",
+        "tr": "Emisyon Faktörü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "leakFlowCFM",
+      "label": "LeakFlow_CFM",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LeakFlow_CFM",
+        "tr": "LeakFlow_CFM",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "powerLossKW",
+      "label": "Power_Loss_kW",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Power_Loss_kW",
+        "tr": "Power_Loss_kW",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "annualEnergyLoss",
+      "label": "AnnualEnergyLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AnnualEnergyLoss",
+        "tr": "AnnualEnergyLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costLeak",
+      "label": "Cost_Leak",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Leak",
+        "tr": "Cost_Leak",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalLeakCost",
+      "label": "TotalLeakCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalLeakCost",
+        "tr": "TotalLeakCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "carbonEmissions",
+      "label": "CarbonEmissions",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CarbonEmissions",
+        "tr": "CarbonEmissions",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "paybackRepair",
+      "label": "Payback_Repair",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Payback_Repair",
+        "tr": "Payback_Repair",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

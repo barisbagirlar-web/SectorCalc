@@ -1,0 +1,291 @@
+{
+  "slug": "kwh-maliyet",
+  "name": "KWh Maliyet",
+  "description": "KWh Maliyet premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "aktifReaktifTuketim",
+      "label": "Aktif/Reaktif Tüketim",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Aktif/Reaktif Tüketim",
+        "tr": "Aktif/Reaktif Tüketim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CekilenGucKW",
+      "label": "Çekilen Güç kW",
+      "type": "number",
+      "unit": "kW",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çekilen Güç kW",
+        "tr": "Çekilen Güç kW",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gucFaktoru",
+      "label": "Güç Faktörü",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Güç Faktörü",
+        "tr": "Güç Faktörü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "enerjiGucReaktifBirimFiyat",
+      "label": "Enerji/Güç/Reaktif Birim Fiyat",
+      "type": "number",
+      "unit": "kWh",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Enerji/Güç/Reaktif Birim Fiyat",
+        "tr": "Enerji/Güç/Reaktif Birim Fiyat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cezaEsigi",
+      "label": "Ceza Eşiği",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ceza Eşiği",
+        "tr": "Ceza Eşiği",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "vergiFonOranı",
+      "label": "Vergi/Fon Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Vergi/Fon Oranı",
+        "tr": "Vergi/Fon Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tepeGucuTrafoKapasitesi",
+      "label": "Tepe Gücü Trafo Kapasitesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tepe Gücü Trafo Kapasitesi",
+        "tr": "Tepe Gücü Trafo Kapasitesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "energyCharge",
+      "label": "EnergyCharge",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EnergyCharge",
+        "tr": "EnergyCharge",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "demandCharge",
+      "label": "DemandCharge",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DemandCharge",
+        "tr": "DemandCharge",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "reactivePenalty",
+      "label": "ReactivePenalty",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ReactivePenalty",
+        "tr": "ReactivePenalty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taxesAndFees",
+      "label": "TaxesAndFees",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TaxesAndFees",
+        "tr": "TaxesAndFees",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalBill",
+      "label": "TotalBill",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalBill",
+        "tr": "TotalBill",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "unitCostKWh",
+      "label": "UnitCost_kWh",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "UnitCost_kWh",
+        "tr": "UnitCost_kWh",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "peakShavingSavings",
+      "label": "PeakShavingSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PeakShavingSavings",
+        "tr": "PeakShavingSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "energy"
+}

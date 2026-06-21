@@ -1,0 +1,311 @@
+{
+  "slug": "kalite-maliyeti-paf",
+  "name": "Kalite Maliyeti PAF",
+  "description": "Kalite Maliyeti PAF premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "egitimPlanlamaButcesi",
+      "label": "Eğitim/Planlama Bütçesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Eğitim/Planlama Bütçesi",
+        "tr": "Eğitim/Planlama Bütçesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "muayeneTestMaliyeti",
+      "label": "Muayene/Test Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Muayene/Test Maliyeti",
+        "tr": "Muayene/Test Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hurdaYeniden IslemeMaliyeti",
+      "label": "Hurda/Yeniden İşleme Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hurda/Yeniden İşleme Maliyeti",
+        "tr": "Hurda/Yeniden İşleme Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "durusMaliyeti",
+      "label": "Duruş Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Duruş Maliyeti",
+        "tr": "Duruş Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "garantiIadeMaliyeti",
+      "label": "Garanti/İade Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Garanti/İade Maliyeti",
+        "tr": "Garanti/İade Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kayıpSatısTahmini",
+      "label": "Kayıp Satış Tahmini",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kayıp Satış Tahmini",
+        "tr": "Kayıp Satış Tahmini",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "toplamGelir",
+      "label": "Toplam Gelir",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Gelir",
+        "tr": "Toplam Gelir",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "preventionCost",
+      "label": "PreventionCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PreventionCost",
+        "tr": "PreventionCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "appraisalCost",
+      "label": "AppraisalCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AppraisalCost",
+        "tr": "AppraisalCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "internalFailure",
+      "label": "InternalFailure",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "InternalFailure",
+        "tr": "InternalFailure",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "externalFailure",
+      "label": "ExternalFailure",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ExternalFailure",
+        "tr": "ExternalFailure",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "totalCOQ",
+      "label": "TotalCOQ",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalCOQ",
+        "tr": "TotalCOQ",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "cOQRatio",
+      "label": "COQ_Ratio",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "COQ_Ratio",
+        "tr": "COQ_Ratio",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "pAFRatio",
+      "label": "PAF_Ratio",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PAF_Ratio",
+        "tr": "PAF_Ratio",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "USD",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "scrap",
+  "formulas": {
+    "normalized_product": "egitimPlanlamaButcesi * muayeneTestMaliyeti * hurdaYeniden IslemeMaliyeti * durusMaliyeti",
+    "result": "egitimPlanlamaButcesi * muayeneTestMaliyeti * hurdaYeniden IslemeMaliyeti * durusMaliyeti * (garantiIadeMaliyeti * kayıpSatısTahmini * toplamGelir)",
+    "adjustment_factor": "garantiIadeMaliyeti * kayıpSatısTahmini * toplamGelir"
+  }
+}

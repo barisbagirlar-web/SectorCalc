@@ -1,0 +1,266 @@
+{
+  "slug": "lojistik-rota-kayb",
+  "name": "Lojistik Rota Kaybı",
+  "description": "Lojistik Rota Kaybı premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "IdealGercekMesafeKm",
+      "label": "İdeal/Gerçek Mesafe km",
+      "type": "number",
+      "unit": "km",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İdeal/Gerçek Mesafe km",
+        "tr": "İdeal/Gerçek Mesafe km",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ortalamaHızKms",
+      "label": "Ortalama Hız km/s",
+      "type": "number",
+      "unit": "km",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ortalama Hız km/s",
+        "tr": "Ortalama Hız km/s",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yakıtTuketimOranıLkm",
+      "label": "Yakıt Tüketim Oranı L/km",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yakıt Tüketim Oranı L/km",
+        "tr": "Yakıt Tüketim Oranı L/km",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yakıtFiyatı",
+      "label": "Yakıt Fiyatı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yakıt Fiyatı",
+        "tr": "Yakıt Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "surucuSaatlik Ucreti",
+      "label": "Sürücü Saatlik Ücreti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sürücü Saatlik Ücreti",
+        "tr": "Sürücü Saatlik Ücreti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "aracKmAsınmaMaliyetiCurrencykm",
+      "label": "Araç Km Aşınma Maliyeti currency/km",
+      "type": "number",
+      "unit": "km",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Araç Km Aşınma Maliyeti currency/km",
+        "tr": "Araç Km Aşınma Maliyeti currency/km",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "idealDistance",
+      "label": "IdealDistance",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "IdealDistance",
+        "tr": "IdealDistance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "actualDistance",
+      "label": "ActualDistance",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ActualDistance",
+        "tr": "ActualDistance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "driftPct",
+      "label": "DriftPct",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DriftPct",
+        "tr": "DriftPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fuelWaste",
+      "label": "FuelWaste",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FuelWaste",
+        "tr": "FuelWaste",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "timeWaste",
+      "label": "TimeWaste",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TimeWaste",
+        "tr": "TimeWaste",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalRouteLoss",
+      "label": "TotalRouteLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalRouteLoss",
+        "tr": "TotalRouteLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "route"
+}
