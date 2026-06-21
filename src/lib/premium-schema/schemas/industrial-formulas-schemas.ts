@@ -741,8 +741,917 @@ const HYDRAULIC_CYLINDER_SCHEMA: PremiumCalculatorSchema = {
 };
 
 /* ════════════════════════════════════════════════════════════════════════════
+ * 19. Compressor Power & Air Flow Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const COMPRESSOR_POWER_AIR_FLOW_SCHEMA: PremiumCalculatorSchema = {
+  id: "compressor-power-air-flow-calculator",
+  legacyPaidSlug: "compressor-power-air-flow-calculator",
+  name: "Compressor Power & Air Flow Calculator", name_i18n: {"en":"Compressor Power & Air Flow Calculator","tr":"Kompresör Gücü ve Hava Debisi Hesaplayıcı"},
+  sectorSlug: "general",
+  category: "measurement",
+  painStatement: "Selecting a compressor without accounting for polytropic exponent, interstage cooling, and part-load efficiency leads to oversized motors and wasted energy — a 10% oversizing penalty persists for the entire equipment life.", painStatement_i18n: {"en":"Selecting a compressor without accounting for polytropic exponent, interstage cooling, and part-load efficiency leads to oversized motors and wasted energy — a 10% oversizing penalty persists for the entire equipment life.","tr":"Kompresör seçiminde politropik üs, kademeler arası soğutma ve kısmi yük verimini hesaba katmamak motorların gereğinden büyük seçilmesine ve enerji israfına yol açar."},
+  inputs: [
+    { id: "airFlowRate", label: "Air flow rate Q", label_i18n: {"en":"Air flow rate Q","tr":"Hava debisi Q"}, type: "number", unit: "m\u00b3/min", required: true, smartDefault: 40, validation: { min: 0.1 }, helper: "Actual volumetric flow rate at suction conditions.", helper_i18n: {"en":"Actual volumetric flow rate at suction conditions.","tr":"Emi\u015f ko\u015fullar\u0131nda ger\u00e7ek hacimsel debi."}, expertMeaning: "Q for isentropic work: W_is = \u03ba/(\u03ba-1)\u00b7P1\u00b7Q\u00b7((P2/P1)^((\u03ba-1)/\u03ba)-1)", expertMeaning_i18n: {"en":"Q for isentropic work: W_is = \u03ba/(\u03ba-1)\u00b7P1\u00b7Q\u00b7((P2/P1)^((\u03ba-1)/\u03ba)-1)","tr":"Q for isentropic work: W_is = \u03ba/(\u03ba-1)\u00b7P1\u00b7Q\u00b7((P2/P1)^((\u03ba-1)/\u03ba)-1)"} },
+    { id: "operatingPressure", label: "Operating pressure P\u2082", label_i18n: {"en":"Operating pressure P\u2082","tr":"\u00c7al\u0131\u015fma bas\u0131nc\u0131 P\u2082"}, type: "number", unit: "bar_g", required: true, smartDefault: 8, validation: { min: 0.1 }, helper: "Required discharge pressure (gauge).", helper_i18n: {"en":"Required discharge pressure (gauge).","tr":"Gerekli \u00e7\u0131k\u0131\u015f bas\u0131nc\u0131 (g\u00f6sterge)."}, expertMeaning: "P2 for pressure ratio: \u03a0 = (P2 + Patm)/P1", expertMeaning_i18n: {"en":"P2 for pressure ratio: \u03a0 = (P2 + Patm)/P1","tr":"P2 for pressure ratio: \u03a0 = (P2 + Patm)/P1"} },
+    { id: "inletTemperature", label: "Inlet temperature T\u2081", label_i18n: {"en":"Inlet temperature T\u2081","tr":"Giri\u015f s\u0131cakl\u0131\u011f\u0131 T\u2081"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 25, validation: { min: -50, max: 200 }, helper: "Suction air temperature.", helper_i18n: {"en":"Suction air temperature.","tr":"Emi\u015f havas\u0131 s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "T1 in K for T2 = T1\u00b7(P2/P1)^((n-1)/n)", expertMeaning_i18n: {"en":"T1 in K for T2 = T1\u00b7(P2/P1)^((n-1)/n)","tr":"T1 in K for T2 = T1\u00b7(P2/P1)^((n-1)/n)"} },
+    { id: "inletPressure", label: "Inlet pressure P\u2081", label_i18n: {"en":"Inlet pressure P\u2081","tr":"Giri\u015f bas\u0131nc\u0131 P\u2081"}, type: "number", unit: "bar_abs", required: true, smartDefault: 1.013, validation: { min: 0.1 }, helper: "Absolute suction pressure (typically 1.013 bar at sea level).", helper_i18n: {"en":"Absolute suction pressure (typically 1.013 bar at sea level).","tr":"Mutlak emi\u015f bas\u0131nc\u0131 (deniz seviyesinde tipik 1.013 bar)."}, expertMeaning: "P1 for pressure ratio calculation", expertMeaning_i18n: {"en":"P1 for pressure ratio calculation","tr":"P1 for pressure ratio calculation"} },
+    { id: "polytropicExponent", label: "Polytropic exponent n", label_i18n: {"en":"Polytropic exponent n","tr":"Politropik \u00fcs n"}, type: "number", unit: "", required: false, smartDefault: 1.35, validation: { min: 1, max: 1.67 }, helper: "n = 1.0 for isothermal, 1.4 for isentropic (air), typical 1.25-1.35 for screw compressors.", helper_i18n: {"en":"n = 1.0 for isothermal, 1.4 for isentropic (air), typical 1.25-1.35 for screw compressors.","tr":"n = 1.0 izotermal, 1.4 izentropik (hava), vida kompres\u00f6rlerde tipik 1.25-1.35."}, expertMeaning: "Polytropic exponent for real gas compression work", expertMeaning_i18n: {"en":"Polytropic exponent for real gas compression work","tr":"Polytropic exponent for real gas compression work"} },
+    { id: "isentropicEfficiency", label: "Isentropic efficiency \u03b7_is", label_i18n: {"en":"Isentropic efficiency \u03b7_is","tr":"\u0130zentropik verim \u03b7_is"}, type: "number", unit: "%", required: true, smartDefault: 82, validation: { min: 30, max: 100 }, helper: "Compressor stage isentropic efficiency (screw: 75-85%, centrifugal: 80-88%).", helper_i18n: {"en":"Compressor stage isentropic efficiency (screw: 75-85%, centrifugal: 80-88%).","tr":"Kompres\u00f6r kademesi izentropik verimi (vida: %75-85, santrif\u00fcj: %80-88)."}, expertMeaning: "\u03b7_is = W_is / W_actual", expertMeaning_i18n: {"en":"\u03b7_is = W_is / W_actual","tr":"\u03b7_is = W_is / W_actual"} },
+    { id: "mechanicalEfficiency", label: "Mechanical efficiency \u03b7_m", label_i18n: {"en":"Mechanical efficiency \u03b7_m","tr":"Mekanik verim \u03b7_m"}, type: "number", unit: "%", required: false, smartDefault: 95, validation: { min: 50, max: 100 }, helper: "Gears, bearings, seals efficiency.", helper_i18n: {"en":"Gears, bearings, seals efficiency.","tr":"Di\u015fli, yatak, conta verimi."}, expertMeaning: "W_shaft = W_actual / \u03b7_m", expertMeaning_i18n: {"en":"W_shaft = W_actual / \u03b7_m","tr":"W_shaft = W_actual / \u03b7_m"} },
+    { id: "motorEfficiency", label: "Motor efficiency \u03b7_el", label_i18n: {"en":"Motor efficiency \u03b7_el","tr":"Motor verimi \u03b7_el"}, type: "number", unit: "%", required: false, smartDefault: 93, validation: { min: 50, max: 100 }, helper: "Electric motor efficiency (IE3: 93-95%, IE4: 95-97%).", helper_i18n: {"en":"Electric motor efficiency (IE3: 93-95%, IE4: 95-97%).","tr":"Elektrik motoru verimi (IE3: %93-95, IE4: %95-97)."}, expertMeaning: "P_motor = W_shaft / \u03b7_el", expertMeaning_i18n: {"en":"P_motor = W_shaft / \u03b7_el","tr":"P_motor = W_shaft / \u03b7_el"} },
+    { id: "stageCount", label: "Stage count z", label_i18n: {"en":"Stage count z","tr":"Kademe say\u0131s\u0131 z"}, type: "number", unit: "", required: false, smartDefault: 2, validation: { min: 1, max: 6 }, helper: "Number of compression stages (1 for single-stage, 2+ for intercooled).", helper_i18n: {"en":"Number of compression stages (1 for single-stage, 2+ for intercooled).","tr":"Kompresyon kademesi say\u0131s\u0131 (1: tek kademe, 2+: ara so\u011futmal\u0131)."}, expertMeaning: "Stage pressure ratio: \u03a0^(1/z)", expertMeaning_i18n: {"en":"Stage pressure ratio: \u03a0^(1/z)","tr":"Stage pressure ratio: \u03a0^(1/z)"} },
+    { id: "annualOperatingHours", label: "Annual operating hours", label_i18n: {"en":"Annual operating hours","tr":"Y\u0131ll\u0131k \u00e7al\u0131\u015fma saati"}, type: "number", unit: "h/year", required: false, smartDefault: 6000, validation: { min: 0, max: 8760 }, helper: "Full-load equivalent operating hours per year.", helper_i18n: {"en":"Full-load equivalent operating hours per year.","tr":"Y\u0131ll\u0131k tam y\u00fck e\u015fde\u011fer \u00e7al\u0131\u015fma saati."}, expertMeaning: "For annual energy: kWh = P_motor \u00d7 hours", expertMeaning_i18n: {"en":"For annual energy: kWh = P_motor \u00d7 hours","tr":"For annual energy: kWh = P_motor \u00d7 hours"} },
+    { id: "electricityTariff", label: "Electricity tariff", label_i18n: {"en":"Electricity tariff","tr":"Elektrik tarifesi"}, type: "select", unit: "", required: false, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "Currency for annual cost calculation.", helper_i18n: {"en":"Currency for annual cost calculation.","tr":"Y\u0131ll\u0131k maliyet hesaplamas\u0131 i\u00e7in para birimi."}, expertMeaning: "Annual cost = kWh \u00d7 tariff_rate", expertMeaning_i18n: {"en":"Annual cost = kWh \u00d7 tariff_rate","tr":"Annual cost = kWh \u00d7 tariff_rate"} },
+  ],
+  outputs: [
+    { id: "motorPowerkW", label: "Motor power P_motor", label_i18n: {"en":"Motor power P_motor","tr":"Motor g\u00fcc\u00fc P_motor"}, unit: "kW", format: "number", isBigNumber: false },
+    { id: "motorPowerHP", label: "Motor power P_motor", label_i18n: {"en":"Motor power P_motor","tr":"Motor g\u00fcc\u00fc P_motor"}, unit: "HP", format: "number" },
+    { id: "specificPower", label: "Specific power", label_i18n: {"en":"Specific power","tr":"\u00d6zg\u00fcl g\u00fc\u00e7"}, unit: "kW/(m\u00b3/min)", format: "number" },
+    { id: "exitTemperatureC", label: "Discharge temperature T\u2082", label_i18n: {"en":"Discharge temperature T\u2082","tr":"\u00c7\u0131k\u0131\u015f s\u0131cakl\u0131\u011f\u0131 T\u2082"}, unit: "\u00b0C", format: "number" },
+    { id: "annualEnergykWh", label: "Annual energy consumption", label_i18n: {"en":"Annual energy consumption","tr":"Y\u0131ll\u0131k enerji t\u00fcketimi"}, unit: "kWh", format: "number", isBigNumber: true },
+    { id: "annualCost", label: "Annual energy cost", label_i18n: {"en":"Annual energy cost","tr":"Y\u0131ll\u0131k enerji maliyeti"}, unit: "currency", format: "currency", isBigNumber: false },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.compressor_power", inputMap: { airFlowRate: "airFlowRate", operatingPressure: "operatingPressure", inletTemperature: "inletTemperature", inletPressure: "inletPressure", polytropicExponent: "polytropicExponent", isentropicEfficiency: "isentropicEfficiency", mechanicalEfficiency: "mechanicalEfficiency", motorEfficiency: "motorEfficiency", stageCount: "stageCount", annualOperatingHours: "annualOperatingHours", electricityTariff: "electricityTariff" }, outputId: "motorPowerkW" }],
+  reportTemplate: { title: "Compressor Power & Air Flow Report", title_i18n: {"en":"Compressor Power & Air Flow Report","tr":"Kompres\u00f6r G\u00fcc\u00fc ve Hava Debisi Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Compressor work based on polytropic compression model.", "Interstage cooling assumed perfect for multi-stage (T\u2081 = T\u2081 at each stage).", "Atmospheric pressure assumed 1.013 bar abs at sea level.", "Annual cost requires electricity tariff input; default shown in selected currency."] },
+};
+
+const MATERIAL_OPTIONS = [
+  { value: "steel", label: "Steel (kc1=1780 N/mm\u00b2, mc=0.26)", label_i18n: {"en":"Steel (kc1=1780 N/mm\u00b2, mc=0.26)","tr":"Steel (kc1=1780 N/mm\u00b2, mc=0.26)"} },
+  { value: "stainless", label: "Stainless steel (kc1=2400 N/mm\u00b2, mc=0.23)", label_i18n: {"en":"Stainless steel (kc1=2400 N/mm\u00b2, mc=0.23)","tr":"Stainless steel (kc1=2400 N/mm\u00b2, mc=0.23)"} },
+  { value: "aluminum", label: "Aluminum (kc1=800 N/mm\u00b2, mc=0.28)", label_i18n: {"en":"Aluminum (kc1=800 N/mm\u00b2, mc=0.28)","tr":"Aluminum (kc1=800 N/mm\u00b2, mc=0.28)"} },
+  { value: "cast_iron", label: "Cast iron (kc1=1400 N/mm\u00b2, mc=0.23)", label_i18n: {"en":"Cast iron (kc1=1400 N/mm\u00b2, mc=0.23)","tr":"Cast iron (kc1=1400 N/mm\u00b2, mc=0.23)"} },
+  { value: "brass", label: "Brass (kc1=900 N/mm\u00b2, mc=0.28)", label_i18n: {"en":"Brass (kc1=900 N/mm\u00b2, mc=0.28)","tr":"Brass (kc1=900 N/mm\u00b2, mc=0.28)"} },
+  { value: "titanium", label: "Titanium (kc1=1850 N/mm\u00b2, mc=0.18)", label_i18n: {"en":"Titanium (kc1=1850 N/mm\u00b2, mc=0.18)","tr":"Titanium (kc1=1850 N/mm\u00b2, mc=0.18)"} },
+] as const;
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 20. Cutting Parameters & Power Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const CUTTING_PARAMETERS_POWER_SCHEMA: PremiumCalculatorSchema = {
+  id: "cutting-parameters-power-calculator",
+  legacyPaidSlug: "cutting-parameters-power-calculator",
+  name: "Cutting Parameters & Power Calculator", name_i18n: {"en":"Cutting Parameters & Power Calculator","tr":"Kesme Parametreleri ve G\u00fc\u00e7 Hesaplay\u0131c\u0131"},
+  sectorSlug: "metal-fabrication",
+  category: "measurement",
+  painStatement: "Blind cutting parameter selection causes tool breakage, chatter, and poor surface finish \u2014 each minute of trial-and-error at \u20ac150+ machine-hour rate burns budget before a single good part is made.", painStatement_i18n: {"en":"Blind cutting parameter selection causes tool breakage, chatter, and poor surface finish \u2014 each minute of trial-and-error at \u20ac150+ machine-hour rate burns budget before a single good part is made.","tr":"K\u00f6r kesme parametresi se\u00e7imi tak\u0131m k\u0131r\u0131lmas\u0131, titre\u015fim ve k\u00f6t\u00fc y\u00fczey kalitesine yol a\u00e7ar \u2014 her deneme-yan\u0131lma dakikas\u0131 \u20ac150+ makine saati ile b\u00fct\u00e7eyi eritir."},
+  inputs: [
+    { id: "workpieceMaterial", label: "Workpiece material", label_i18n: {"en":"Workpiece material","tr":"\u0130\u015f par\u00e7as\u0131 malzemesi"}, type: "select", unit: "", required: true, smartDefault: "steel", options: [...MATERIAL_OPTIONS], helper: "Material determines specific cutting force kc1 and exponent mc.", helper_i18n: {"en":"Material determines specific cutting force kc1 and exponent mc.","tr":"Malzeme \u00f6zg\u00fcl kesme kuvveti kc1 ve \u00fcs mc de\u011ferini belirler."}, expertMeaning: "kc = kc1 \u00d7 (hm^(-mc)) \u00d7 (1 - \u03b3\u2080/100) correction", expertMeaning_i18n: {"en":"kc = kc1 \u00d7 (hm^(-mc)) \u00d7 (1 - \u03b3\u2080/100) correction","tr":"kc = kc1 \u00d7 (hm^(-mc)) \u00d7 (1 - \u03b3\u2080/100) correction"} },
+    { id: "toolDiameter", label: "Tool diameter Dc", label_i18n: {"en":"Tool diameter Dc","tr":"Tak\u0131m \u00e7ap\u0131 Dc"}, type: "number", unit: "mm", required: true, smartDefault: 20, validation: { min: 0.5 }, helper: "Cutting tool outer diameter.", helper_i18n: {"en":"Cutting tool outer diameter.","tr":"Kesici tak\u0131m d\u0131\u015f \u00e7ap\u0131."}, expertMeaning: "Dc for n = 1000\u00d7Vc/(\u03c0\u00d7Dc)", expertMeaning_i18n: {"en":"Dc for n = 1000\u00d7Vc/(\u03c0\u00d7Dc)","tr":"Dc for n = 1000\u00d7Vc/(\u03c0\u00d7Dc)"} },
+    { id: "toothCount", label: "Number of teeth z", label_i18n: {"en":"Number of teeth z","tr":"Di\u015f say\u0131s\u0131 z"}, type: "number", unit: "", required: true, smartDefault: 4, validation: { min: 1, max: 200 }, helper: "Number of cutting edges on the tool.", helper_i18n: {"en":"Number of cutting edges on the tool.","tr":"Tak\u0131mdaki kesici a\u011f\u0131z say\u0131s\u0131."}, expertMeaning: "z for feed speed: Vf = fz \u00d7 z \u00d7 n", expertMeaning_i18n: {"en":"z for feed speed: Vf = fz \u00d7 z \u00d7 n","tr":"z for feed speed: Vf = fz \u00d7 z \u00d7 n"} },
+    { id: "cuttingSpeed", label: "Cutting speed Vc", label_i18n: {"en":"Cutting speed Vc","tr":"Kesme h\u0131z\u0131 Vc"}, type: "number", unit: "m/min", required: true, smartDefault: 200, validation: { min: 1 }, helper: "Peripheral speed of the cutting tool.", helper_i18n: {"en":"Peripheral speed of the cutting tool.","tr":"Kesici tak\u0131m\u0131n \u00e7evresel h\u0131z\u0131."}, expertMeaning: "Vc for spindle speed: n = 1000\u00d7Vc/(\u03c0\u00d7Dc)", expertMeaning_i18n: {"en":"Vc for spindle speed: n = 1000\u00d7Vc/(\u03c0\u00d7Dc)","tr":"Vc for spindle speed: n = 1000\u00d7Vc/(\u03c0\u00d7Dc)"} },
+    { id: "feedPerTooth", label: "Feed per tooth fz", label_i18n: {"en":"Feed per tooth fz","tr":"Di\u015f ba\u015f\u0131 ilerleme fz"}, type: "number", unit: "mm/tooth", required: true, smartDefault: 0.1, validation: { min: 0.001 }, helper: "Advance per cutting edge per revolution.", helper_i18n: {"en":"Advance per cutting edge per revolution.","tr":"Devir ba\u015f\u0131na her kesici a\u011f\u0131z i\u00e7in ilerleme."}, expertMeaning: "fz for Vf = fz \u00d7 z \u00d7 n and hm = fz \u00d7 ae/Dc", expertMeaning_i18n: {"en":"fz for Vf = fz \u00d7 z \u00d7 n and hm = fz \u00d7 ae/Dc","tr":"fz for Vf = fz \u00d7 z \u00d7 n and hm = fz \u00d7 ae/Dc"} },
+    { id: "depthOfCut", label: "Depth of cut ap", label_i18n: {"en":"Depth of cut ap","tr":"Kesme derinli\u011fi ap"}, type: "number", unit: "mm", required: true, smartDefault: 2, validation: { min: 0.01 }, helper: "Axial depth of cut.", helper_i18n: {"en":"Axial depth of cut.","tr":"Eksenel kesme derinli\u011fi."}, expertMeaning: "ap for MRR = ap \u00d7 ae \u00d7 Vf / 1000", expertMeaning_i18n: {"en":"ap for MRR = ap \u00d7 ae \u00d7 Vf / 1000","tr":"ap for MRR = ap \u00d7 ae \u00d7 Vf / 1000"} },
+    { id: "cuttingWidth", label: "Cutting width ae", label_i18n: {"en":"Cutting width ae","tr":"Kesme geni\u015fli\u011fi ae"}, type: "number", unit: "mm", required: true, smartDefault: 16, validation: { min: 0.01 }, helper: "Radial width of cut (ae \u2264 Dc for full slotting).", helper_i18n: {"en":"Radial width of cut (ae \u2264 Dc for full slotting).","tr":"Radyal kesme geni\u015fli\u011fi (ae \u2264 Dc tam kanal)."}, expertMeaning: "ae for engagement angle and chip thickness", expertMeaning_i18n: {"en":"ae for engagement angle and chip thickness","tr":"ae for engagement angle and chip thickness"} },
+    { id: "specificCuttingForce", label: "Specific cutting force kc1", label_i18n: {"en":"Specific cutting force kc1","tr":"\u00d6zg\u00fcl kesme kuvveti kc1"}, type: "number", unit: "N/mm\u00b2", required: false, smartDefault: 1780, validation: { min: 100 }, helper: "Unit-specific cutting force at 1 mm\u00b2 chip section (auto-filled from material).", helper_i18n: {"en":"Unit-specific cutting force at 1 mm\u00b2 chip section (auto-filled from material).","tr":"1 mm\u00b2 tala\u015f kesitinde birim \u00f6zg\u00fcl kesme kuvveti (malzemeden otomatik doldurulur)."}, expertMeaning: "kc1 for corrected kc = kc1 \u00d7 hm^(-mc)", expertMeaning_i18n: {"en":"kc1 for corrected kc = kc1 \u00d7 hm^(-mc)","tr":"kc1 for corrected kc = kc1 \u00d7 hm^(-mc)"} },
+    { id: "materialExponent", label: "Material exponent mc", label_i18n: {"en":"Material exponent mc","tr":"Malzeme \u00fcss\u00fc mc"}, type: "number", unit: "", required: false, smartDefault: 0.26, validation: { min: 0.1, max: 0.5 }, helper: "Chip thickness correction exponent (auto-filled from material).", helper_i18n: {"en":"Chip thickness correction exponent (auto-filled from material).","tr":"Tala\u015f kal\u0131nl\u0131\u011f\u0131 d\u00fczeltme \u00fcss\u00fc (malzemeden otomatik doldurulur)."}, expertMeaning: "mc for kc correction in Kienzle formula", expertMeaning_i18n: {"en":"mc for kc correction in Kienzle formula","tr":"mc for kc correction in Kienzle formula"} },
+    { id: "machineEfficiency", label: "Machine efficiency \u03b7", label_i18n: {"en":"Machine efficiency \u03b7","tr":"Makine verimi \u03b7"}, type: "number", unit: "%", required: false, smartDefault: 85, validation: { min: 30, max: 100 }, helper: "Spindle drive mechanical efficiency.", helper_i18n: {"en":"Spindle drive mechanical efficiency.","tr":"Spindle tahrik mekanik verimi."}, expertMeaning: "P_motor = Pc / \u03b7", expertMeaning_i18n: {"en":"P_motor = Pc / \u03b7","tr":"P_motor = Pc / \u03b7"} },
+  ],
+  outputs: [
+    { id: "spindleSpeedRpm", label: "Spindle speed n", label_i18n: {"en":"Spindle speed n","tr":"Devir n"}, unit: "rpm", format: "number" },
+    { id: "feedSpeedMmMin", label: "Feed speed Vf", label_i18n: {"en":"Feed speed Vf","tr":"\u0130lerleme h\u0131z\u0131 Vf"}, unit: "mm/min", format: "number" },
+    { id: "cuttingForceN", label: "Cutting force Fc", label_i18n: {"en":"Cutting force Fc","tr":"Kesme kuvveti Fc"}, unit: "N", format: "number" },
+    { id: "torqueNm", label: "Torque Tc", label_i18n: {"en":"Torque Tc","tr":"Tork Tc"}, unit: "Nm", format: "number" },
+    { id: "cuttingPowerkW", label: "Cutting power Pc", label_i18n: {"en":"Cutting power Pc","tr":"Kesme g\u00fcc\u00fc Pc"}, unit: "kW", format: "number" },
+    { id: "motorPowerkW", label: "Motor power P_motor", label_i18n: {"en":"Motor power P_motor","tr":"Motor g\u00fcc\u00fc P_motor"}, unit: "kW", format: "number" },
+    { id: "mrrCm3Min", label: "Material removal rate MRR", label_i18n: {"en":"Material removal rate MRR","tr":"Tala\u015f kald\u0131rma h\u0131z\u0131 MRR"}, unit: "cm\u00b3/min", format: "number" },
+    { id: "surfaceRoughnessRa", label: "Surface roughness Ra", label_i18n: {"en":"Surface roughness Ra","tr":"Y\u00fczey p\u00fcr\u00fczl\u00fcl\u00fc\u011f\u00fc Ra"}, unit: "\u00b5m", format: "number" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.cutting_power", inputMap: { workpieceMaterial: "workpieceMaterial", toolDiameter: "toolDiameter", toothCount: "toothCount", cuttingSpeed: "cuttingSpeed", feedPerTooth: "feedPerTooth", depthOfCut: "depthOfCut", cuttingWidth: "cuttingWidth", specificCuttingForce: "specificCuttingForce", materialExponent: "materialExponent", machineEfficiency: "machineEfficiency" }, outputId: "cuttingPowerkW" }],
+  reportTemplate: { title: "Cutting Parameters & Power Report", title_i18n: {"en":"Cutting Parameters & Power Report","tr":"Kesme Parametreleri ve G\u00fc\u00e7 Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Kienzle-Victor cutting force model: kc = kc1 \u00d7 hm^(-mc).", "Surface roughness Ra \u2248 fz\u00b2/(8\u00d7re) for theoretical finish.", "Machine efficiency includes spindle and drive train losses.", "Cutting tool assumed sharp; wear factor not included."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 21. Evaporative Cooling (FES) Capacity Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const EVAPORATIVE_COOLING_CAPACITY_SCHEMA: PremiumCalculatorSchema = {
+  id: "evaporative-cooling-capacity-calculator",
+  legacyPaidSlug: "evaporative-cooling-capacity-calculator",
+  name: "Evaporative Cooling (FES) Capacity Calculator", name_i18n: {"en":"Evaporative Cooling (FES) Capacity Calculator","tr":"Evaporatif So\u011futma (FES) Kapasite Hesaplay\u0131c\u0131"},
+  sectorSlug: "hvac",
+  category: "measurement",
+  painStatement: "Industrial facilities waste 30-50% of cooling energy by running conventional HVAC instead of evaporative cooling \u2014 a retrofit decision needs airflow, psychrometric, and annual cost savings computed together.", painStatement_i18n: {"en":"Industrial facilities waste 30-50% of cooling energy by running conventional HVAC instead of evaporative cooling \u2014 a retrofit decision needs airflow, psychrometric, and annual cost savings computed together.","tr":"End\u00fcstriyel tesisler geleneksel HVAC yerine evaporatif so\u011futma kullanmayarak enerjinin %30-50'sini bo\u015fa harc\u0131yor."},
+  inputs: [
+    { id: "areaLength", label: "Area length L", label_i18n: {"en":"Area length L","tr":"Alan uzunlu\u011fu L"}, type: "number", unit: "m", required: true, smartDefault: 60, validation: { min: 1 }, helper: "Building or zone length.", helper_i18n: {"en":"Building or zone length.","tr":"Bina veya b\u00f6lge uzunlu\u011fu."}, expertMeaning: "Volume = L \u00d7 W \u00d7 H", expertMeaning_i18n: {"en":"Volume = L \u00d7 W \u00d7 H","tr":"Volume = L \u00d7 W \u00d7 H"} },
+    { id: "areaWidth", label: "Area width W", label_i18n: {"en":"Area width W","tr":"Alan geni\u015fli\u011fi W"}, type: "number", unit: "m", required: true, smartDefault: 40, validation: { min: 1 }, helper: "Building or zone width.", helper_i18n: {"en":"Building or zone width.","tr":"Bina veya b\u00f6lge geni\u015fli\u011fi."}, expertMeaning: "Volume = L \u00d7 W \u00d7 H", expertMeaning_i18n: {"en":"Volume = L \u00d7 W \u00d7 H","tr":"Volume = L \u00d7 W \u00d7 H"} },
+    { id: "ceilingHeight", label: "Ceiling height H", label_i18n: {"en":"Ceiling height H","tr":"Tavan y\u00fcksekli\u011fi H"}, type: "number", unit: "m", required: true, smartDefault: 8, validation: { min: 1 }, helper: "Average ceiling height.", helper_i18n: {"en":"Average ceiling height.","tr":"Ortalama tavan y\u00fcksekli\u011fi."}, expertMeaning: "Volume for ACH-based airflow", expertMeaning_i18n: {"en":"Volume for ACH-based airflow","tr":"Volume for ACH-based airflow"} },
+    { id: "achValue", label: "ACH requirement", label_i18n: {"en":"ACH requirement","tr":"ACH de\u011feri"}, type: "number", unit: "1/h", required: true, smartDefault: 30, validation: { min: 1, max: 120 }, helper: "Air changes per hour required (industrial: 15-60 ACH).", helper_i18n: {"en":"Air changes per hour required (industrial: 15-60 ACH).","tr":"Saatlik hava de\u011fi\u015fim say\u0131s\u0131 (end\u00fcstriyel: 15-60 ACH)."}, expertMeaning: "Total airflow = Volume \u00d7 ACH", expertMeaning_i18n: {"en":"Total airflow = Volume \u00d7 ACH","tr":"Total airflow = Volume \u00d7 ACH"} },
+    { id: "outdoorDryBulb", label: "Outdoor dry-bulb T_db", label_i18n: {"en":"Outdoor dry-bulb T_db","tr":"D\u0131\u015f hava kuru termometre T_db"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 38, validation: { min: -10, max: 55 }, helper: "Summer design dry-bulb temperature.", helper_i18n: {"en":"Summer design dry-bulb temperature.","tr":"Yaz dizayn kuru termometre s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "T_db for evaporative cooling potential", expertMeaning_i18n: {"en":"T_db for evaporative cooling potential","tr":"T_db for evaporative cooling potential"} },
+    { id: "outdoorWetBulb", label: "Outdoor wet-bulb T_wb", label_i18n: {"en":"Outdoor wet-bulb T_wb","tr":"D\u0131\u015f hava ya\u015f termometre T_wb"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 22, validation: { min: -20, max: 40 }, helper: "Summer design wet-bulb temperature.", helper_i18n: {"en":"Summer design wet-bulb temperature.","tr":"Yaz dizayn ya\u015f termometre s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "T_wb for saturation efficiency: \u0394T = \u03b7\u00d7(T_db-T_wb)", expertMeaning_i18n: {"en":"T_wb for saturation efficiency: \u0394T = \u03b7\u00d7(T_db-T_wb)","tr":"T_wb for saturation efficiency: \u0394T = \u03b7\u00d7(T_db-T_wb)"} },
+    { id: "padEfficiency", label: "Pad efficiency \u03b7_pad", label_i18n: {"en":"Pad efficiency \u03b7_pad","tr":"Pad verimi \u03b7_pad"}, type: "number", unit: "%", required: false, smartDefault: 85, validation: { min: 40, max: 100 }, helper: "Evaporative media saturation efficiency (CELdek: 80-90%).", helper_i18n: {"en":"Evaporative media saturation efficiency (CELdek: 80-90%).","tr":"Evaporatif medya doygunluk verimi (CELdek: %80-90)."}, expertMeaning: "\u03b7 = (T_db_in - T_db_out)/(T_db_in - T_wb_in)", expertMeaning_i18n: {"en":"\u03b7 = (T_db_in - T_db_out)/(T_db_in - T_wb_in)","tr":"\u03b7 = (T_db_in - T_db_out)/(T_db_in - T_wb_in)"} },
+    { id: "unitAirflow", label: "Unit airflow rate", label_i18n: {"en":"Unit airflow rate","tr":"Cihaz debisi"}, type: "number", unit: "m\u00b3/h", required: true, smartDefault: 30000, validation: { min: 100 }, helper: "Airflow per FES unit.", helper_i18n: {"en":"Airflow per FES unit.","tr":"FES cihaz\u0131 ba\u015f\u0131na hava debisi."}, expertMeaning: "Number of units = Total airflow / Unit airflow (rounded up)", expertMeaning_i18n: {"en":"Number of units = Total airflow / Unit airflow (rounded up)","tr":"Number of units = Total airflow / Unit airflow (rounded up)"} },
+    { id: "unitPower", label: "Unit power", label_i18n: {"en":"Unit power","tr":"Cihaz g\u00fcc\u00fc"}, type: "number", unit: "kW", required: true, smartDefault: 1.5, validation: { min: 0.1 }, helper: "Electrical power per FES unit (fan + pump).", helper_i18n: {"en":"Electrical power per FES unit (fan + pump).","tr":"FES cihaz\u0131 ba\u015f\u0131na elektrik g\u00fcc\u00fc (fan + pompa)."}, expertMeaning: "Total FES power = Unit count \u00d7 Unit power", expertMeaning_i18n: {"en":"Total FES power = Unit count \u00d7 Unit power","tr":"Total FES power = Unit count \u00d7 Unit power"} },
+    { id: "conventionalPower", label: "Conventional system power", label_i18n: {"en":"Conventional system power","tr":"Konvansiyonel sistem g\u00fcc\u00fc"}, type: "number", unit: "kW", required: true, smartDefault: 60, validation: { min: 0.1 }, helper: "Equivalent conventional HVAC electrical power.", helper_i18n: {"en":"Equivalent conventional HVAC electrical power.","tr":"E\u015fde\u011fer geleneksel HVAC elektrik g\u00fcc\u00fc."}, expertMeaning: "Baseline for energy saving calculation", expertMeaning_i18n: {"en":"Baseline for energy saving calculation","tr":"Baseline for energy saving calculation"} },
+    { id: "unitWaterConsumption", label: "Unit water consumption", label_i18n: {"en":"Unit water consumption","tr":"Cihaz su t\u00fcketimi"}, type: "number", unit: "L/h", required: true, smartDefault: 20, validation: { min: 0 }, helper: "Water consumption per FES unit.", helper_i18n: {"en":"Water consumption per FES unit.","tr":"FES cihaz\u0131 ba\u015f\u0131na su t\u00fcketimi."}, expertMeaning: "Annual water = Unit consumption \u00d7 Units \u00d7 Hours", expertMeaning_i18n: {"en":"Annual water = Unit consumption \u00d7 Units \u00d7 Hours","tr":"Annual water = Unit consumption \u00d7 Units \u00d7 Hours"} },
+    { id: "electricityTariff", label: "Electricity tariff", label_i18n: {"en":"Electricity tariff","tr":"Elektrik tarifesi"}, type: "select", unit: "", required: false, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "Currency for annual cost calculation.", helper_i18n: {"en":"Currency for annual cost calculation.","tr":"Y\u0131ll\u0131k maliyet hesaplamas\u0131 i\u00e7in para birimi."}, expertMeaning: "Annual cost = kWh \u00d7 tariff_rate / 100", expertMeaning_i18n: {"en":"Annual cost = kWh \u00d7 tariff_rate / 100","tr":"Annual cost = kWh \u00d7 tariff_rate / 100"} },
+    { id: "waterTariff", label: "Water tariff", label_i18n: {"en":"Water tariff","tr":"Su tarifesi"}, type: "select", unit: "", required: false, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "Currency for water cost calculation.", helper_i18n: {"en":"Currency for water cost calculation.","tr":"Su maliyeti hesaplamas\u0131 i\u00e7in para birimi."}, expertMeaning: "Annual water cost = m\u00b3 \u00d7 tariff_rate", expertMeaning_i18n: {"en":"Annual water cost = m\u00b3 \u00d7 tariff_rate","tr":"Annual water cost = m\u00b3 \u00d7 tariff_rate"} },
+    { id: "dailyOperatingHours", label: "Daily operating hours", label_i18n: {"en":"Daily operating hours","tr":"G\u00fcnl\u00fck \u00e7al\u0131\u015fma saati"}, type: "number", unit: "h/day", required: true, smartDefault: 10, validation: { min: 0, max: 24 }, helper: "Operating hours per day.", helper_i18n: {"en":"Operating hours per day.","tr":"G\u00fcnl\u00fck \u00e7al\u0131\u015fma saati."}, expertMeaning: "Annual hours = Daily hours \u00d7 Annual days", expertMeaning_i18n: {"en":"Annual hours = Daily hours \u00d7 Annual days","tr":"Annual hours = Daily hours \u00d7 Annual days"} },
+    { id: "annualOperatingDays", label: "Annual operating days", label_i18n: {"en":"Annual operating days","tr":"Y\u0131ll\u0131k \u00e7al\u0131\u015fma g\u00fcn\u00fc"}, type: "number", unit: "day/year", required: true, smartDefault: 260, validation: { min: 1, max: 365 }, helper: "Operating days per year.", helper_i18n: {"en":"Operating days per year.","tr":"Y\u0131ll\u0131k \u00e7al\u0131\u015fma g\u00fcn\u00fc."}, expertMeaning: "Annual hours = Daily hours \u00d7 Annual days", expertMeaning_i18n: {"en":"Annual hours = Daily hours \u00d7 Annual days","tr":"Annual hours = Daily hours \u00d7 Annual days"} },
+  ],
+  outputs: [
+    { id: "volumeM3", label: "Zone volume", label_i18n: {"en":"Zone volume","tr":"B\u00f6lge hacmi"}, unit: "m\u00b3", format: "number" },
+    { id: "totalAirflow", label: "Total airflow required", label_i18n: {"en":"Total airflow required","tr":"Gerekli toplam hava debisi"}, unit: "m\u00b3/h", format: "number" },
+    { id: "dischargeTemperature", label: "Supply air temperature", label_i18n: {"en":"Supply air temperature","tr":"\u00dcfleme havas\u0131 s\u0131cakl\u0131\u011f\u0131"}, unit: "\u00b0C", format: "number" },
+    { id: "temperatureDrop", label: "Temperature drop \u0394T", label_i18n: {"en":"Temperature drop \u0394T","tr":"S\u0131cakl\u0131k d\u00fc\u015f\u00fc\u015f\u00fc \u0394T"}, unit: "\u00b0C", format: "number" },
+    { id: "unitCount", label: "Number of FES units", label_i18n: {"en":"Number of FES units","tr":"FES cihaz say\u0131s\u0131"}, unit: "", format: "number" },
+    { id: "totalPowerFES", label: "Total FES power", label_i18n: {"en":"Total FES power","tr":"Toplam FES g\u00fcc\u00fc"}, unit: "kW", format: "number" },
+    { id: "annualEnergyFES", label: "Annual FES energy", label_i18n: {"en":"Annual FES energy","tr":"Y\u0131ll\u0131k FES enerjisi"}, unit: "kWh", format: "number", isBigNumber: true },
+    { id: "annualEnergyConv", label: "Annual conventional energy", label_i18n: {"en":"Annual conventional energy","tr":"Y\u0131ll\u0131k konvansiyonel enerji"}, unit: "kWh", format: "number", isBigNumber: true },
+    { id: "energySavingskWh", label: "Energy savings", label_i18n: {"en":"Energy savings","tr":"Enerji tasarrufu"}, unit: "kWh", format: "number", isBigNumber: true },
+    { id: "energySavingsPct", label: "Energy savings", label_i18n: {"en":"Energy savings","tr":"Enerji tasarrufu"}, unit: "%", format: "percentage" },
+    { id: "annualElectricCostFES", label: "Annual FES electricity cost", label_i18n: {"en":"Annual FES electricity cost","tr":"Y\u0131ll\u0131k FES elektrik maliyeti"}, unit: "currency", format: "currency" },
+    { id: "annualWaterCost", label: "Annual water cost", label_i18n: {"en":"Annual water cost","tr":"Y\u0131ll\u0131k su maliyeti"}, unit: "currency", format: "currency" },
+    { id: "totalSavings", label: "Total annual savings", label_i18n: {"en":"Total annual savings","tr":"Toplam y\u0131ll\u0131k tasarruf"}, unit: "currency", format: "currency", isBigNumber: false },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.evaporative_cooling", inputMap: { areaLength: "areaLength", areaWidth: "areaWidth", ceilingHeight: "ceilingHeight", achValue: "achValue", outdoorDryBulb: "outdoorDryBulb", outdoorWetBulb: "outdoorWetBulb", padEfficiency: "padEfficiency", unitAirflow: "unitAirflow", unitPower: "unitPower", conventionalPower: "conventionalPower", unitWaterConsumption: "unitWaterConsumption", electricityTariff: "electricityTariff", waterTariff: "waterTariff", dailyOperatingHours: "dailyOperatingHours", annualOperatingDays: "annualOperatingDays" }, outputId: "totalSavings" }],
+  reportTemplate: { title: "Evaporative Cooling (FES) Capacity Report", title_i18n: {"en":"Evaporative Cooling (FES) Capacity Report","tr":"Evaporatif So\u011futma (FES) Kapasite Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Pad efficiency based on manufacturer data at nominal face velocity.", "Conventional system power is baseline for comparison; actual savings may vary.", "Water consumption includes evaporation + bleed-off at typical concentration ratio.", "Annual hours = daily hours \u00d7 annual days; assumes full-load operation."] },
+};
+
+const CAPACITY_UNIT_OPTIONS = [
+  { value: "kW", label: "kW", label_i18n: {"en":"kW","tr":"kW"} },
+  { value: "TR", label: "TR (tons of refrigeration)", label_i18n: {"en":"TR (tons of refrigeration)","tr":"TR (so\u011futma tonu)"} },
+] as const;
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 22. Condenser Precooling (Adiabatic) Energy Savings
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const CONDENSER_PRECOOLING_SAVINGS_SCHEMA: PremiumCalculatorSchema = {
+  id: "condenser-precooling-savings-calculator",
+  legacyPaidSlug: "condenser-precooling-savings-calculator",
+  name: "Condenser Precooling (Adiabatic) Energy Savings Calculator", name_i18n: {"en":"Condenser Precooling (Adiabatic) Energy Savings Calculator","tr":"Kondenser \u00d6nso\u011futma (Adiyabatik) Enerji Tasarrufu Hesaplay\u0131c\u0131"},
+  sectorSlug: "hvac",
+  category: "cost",
+  painStatement: "Every 1\u00b0C reduction in condenser inlet temperature cuts chiller energy by 3% \u2014 yet most facilities never calculate the ROI of a simple pre-cooling pad retrofit, leaving thousands in savings on the table.", painStatement_i18n: {"en":"Every 1\u00b0C reduction in condenser inlet temperature cuts chiller energy by 3% \u2014 yet most facilities never calculate the ROI of a simple pre-cooling pad retrofit, leaving thousands in savings on the table.","tr":"Kondenser giri\u015f s\u0131cakl\u0131\u011f\u0131ndaki her 1\u00b0C d\u00fc\u015f\u00fc\u015f, so\u011futma grubu enerjisini %3 azalt\u0131r."},
+  inputs: [
+    { id: "chillerCapacity", label: "Chiller capacity", label_i18n: {"en":"Chiller capacity","tr":"So\u011futma grubu kapasitesi"}, type: "number", unit: "", required: true, smartDefault: 500, validation: { min: 1 }, helper: "Nominal cooling capacity of the chiller.", helper_i18n: {"en":"Nominal cooling capacity of the chiller.","tr":"So\u011futma grubunun nominal kapasitesi."}, expertMeaning: "Capacity in selected unit (kW or TR)", expertMeaning_i18n: {"en":"Capacity in selected unit (kW or TR)","tr":"Capacity in selected unit (kW or TR)"} },
+    { id: "capacityUnit", label: "Capacity unit", label_i18n: {"en":"Capacity unit","tr":"Kapasite birimi"}, type: "select", unit: "", required: true, smartDefault: "kW", options: [...CAPACITY_UNIT_OPTIONS], helper: "Select kW or refrigeration tons.", helper_i18n: {"en":"Select kW or refrigeration tons.","tr":"kW veya so\u011futma tonu se\u00e7in."}, expertMeaning: "1 TR = 3.517 kW", expertMeaning_i18n: {"en":"1 TR = 3.517 kW","tr":"1 TR = 3.517 kW"} },
+    { id: "existingCOP", label: "Existing COP", label_i18n: {"en":"Existing COP","tr":"Mevcut COP"}, type: "number", unit: "", required: true, smartDefault: 3.5, validation: { min: 1, max: 10 }, helper: "Current coefficient of performance of the chiller.", helper_i18n: {"en":"Current coefficient of performance of the chiller.","tr":"So\u011futma grubunun mevcut performans katsay\u0131s\u0131."}, expertMeaning: "COP = Cooling output / Electrical input", expertMeaning_i18n: {"en":"COP = Cooling output / Electrical input","tr":"COP = Cooling output / Electrical input"} },
+    { id: "condenserInletTemp", label: "Condenser inlet temp T_cond", label_i18n: {"en":"Condenser inlet temp T_cond","tr":"Kondenser giri\u015f s\u0131cakl\u0131\u011f\u0131 T_cond"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 38, validation: { min: -10, max: 60 }, helper: "Current condenser entering air temperature.", helper_i18n: {"en":"Current condenser entering air temperature.","tr":"Mevcut kondensere giren hava s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "Baseline for precooling \u0394T calculation", expertMeaning_i18n: {"en":"Baseline for precooling \u0394T calculation","tr":"Baseline for precooling \u0394T calculation"} },
+    { id: "wetBulbTemp", label: "Wet-bulb temperature T_wb", label_i18n: {"en":"Wet-bulb temperature T_wb","tr":"Ya\u015f termometre s\u0131cakl\u0131\u011f\u0131 T_wb"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 22, validation: { min: -20, max: 40 }, helper: "Design wet-bulb temperature at site.", helper_i18n: {"en":"Design wet-bulb temperature at site.","tr":"Saha tasar\u0131m ya\u015f termometre s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "Determines adiabatic cooling potential", expertMeaning_i18n: {"en":"Determines adiabatic cooling potential","tr":"Determines adiabatic cooling potential"} },
+    { id: "precoolEfficiency", label: "Precooling efficiency \u03b7", label_i18n: {"en":"Precooling efficiency \u03b7","tr":"\u00d6nso\u011futma verimi \u03b7"}, type: "number", unit: "%", required: false, smartDefault: 85, validation: { min: 30, max: 100 }, helper: "Adiabatic pad saturation efficiency.", helper_i18n: {"en":"Adiabatic pad saturation efficiency.","tr":"Adiyabatik pad doygunluk verimi."}, expertMeaning: "T_new = T_cond - \u03b7\u00d7(T_cond - T_wb)", expertMeaning_i18n: {"en":"T_new = T_cond - \u03b7\u00d7(T_cond - T_wb)","tr":"T_new = T_cond - \u03b7\u00d7(T_cond - T_wb)"} },
+    { id: "annualOperatingHours", label: "Annual operating hours", label_i18n: {"en":"Annual operating hours","tr":"Y\u0131ll\u0131k \u00e7al\u0131\u015fma saati"}, type: "number", unit: "h/year", required: true, smartDefault: 4000, validation: { min: 0, max: 8760 }, helper: "Full-load chiller operating hours per year.", helper_i18n: {"en":"Full-load chiller operating hours per year.","tr":"So\u011futma grubunun y\u0131ll\u0131k tam y\u00fck \u00e7al\u0131\u015fma saati."}, expertMeaning: "Annual kWh = Power(kW) \u00d7 hours", expertMeaning_i18n: {"en":"Annual kWh = Power(kW) \u00d7 hours","tr":"Annual kWh = Power(kW) \u00d7 hours"} },
+    { id: "electricityTariff", label: "Electricity tariff", label_i18n: {"en":"Electricity tariff","tr":"Elektrik tarifesi"}, type: "select", unit: "", required: true, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "Currency for cost calculations.", helper_i18n: {"en":"Currency for cost calculations.","tr":"Maliyet hesaplamalar\u0131 i\u00e7in para birimi."}, expertMeaning: "Annual cost = kWh \u00d7 tariff_rate / 100", expertMeaning_i18n: {"en":"Annual cost = kWh \u00d7 tariff_rate / 100","tr":"Annual cost = kWh \u00d7 tariff_rate / 100"} },
+    { id: "precoolSystemCost", label: "Precooling system cost", label_i18n: {"en":"Precooling system cost","tr":"\u00d6nso\u011futma sistemi maliyeti"}, type: "number", unit: "currency", required: false, smartDefault: 15000, validation: { min: 0 }, helper: "Total installed cost of precooling system.", helper_i18n: {"en":"Total installed cost of precooling system.","tr":"\u00d6nso\u011futma sisteminin toplam kurulum maliyeti."}, expertMeaning: "CAPEX for payback calculation", expertMeaning_i18n: {"en":"CAPEX for payback calculation","tr":"CAPEX for payback calculation"} },
+    { id: "precoolOpex", label: "Precooling opex", label_i18n: {"en":"Precooling opex","tr":"\u00d6nso\u011futma i\u015fletme maliyeti"}, type: "number", unit: "currency", required: false, smartDefault: 500, validation: { min: 0 }, helper: "Annual operating cost of precooling system (water, maintenance).", helper_i18n: {"en":"Annual operating cost of precooling system (water, maintenance).","tr":"\u00d6nso\u011futma sisteminin y\u0131ll\u0131k i\u015fletme maliyeti (su, bak\u0131m)."}, expertMeaning: "Annual OPEX for net savings calculation", expertMeaning_i18n: {"en":"Annual OPEX for net savings calculation","tr":"Annual OPEX for net savings calculation"} },
+  ],
+  outputs: [
+    { id: "capacityKW", label: "Chiller capacity", label_i18n: {"en":"Chiller capacity","tr":"So\u011futma grubu kapasitesi"}, unit: "kW", format: "number" },
+    { id: "newCondenserTemp", label: "New condenser inlet temp", label_i18n: {"en":"New condenser inlet temp","tr":"Yeni kondenser giri\u015f s\u0131cakl\u0131\u011f\u0131"}, unit: "\u00b0C", format: "number" },
+    { id: "newCOP", label: "Improved COP", label_i18n: {"en":"Improved COP","tr":"\u0130yile\u015ftirilmi\u015f COP"}, unit: "", format: "number" },
+    { id: "existingPower", label: "Existing chiller power", label_i18n: {"en":"Existing chiller power","tr":"Mevcut so\u011futma grubu g\u00fcc\u00fc"}, unit: "kW", format: "number" },
+    { id: "newPower", label: "New chiller power", label_i18n: {"en":"New chiller power","tr":"Yeni so\u011futma grubu g\u00fcc\u00fc"}, unit: "kW", format: "number" },
+    { id: "powerSavingsKW", label: "Power savings", label_i18n: {"en":"Power savings","tr":"G\u00fc\u00e7 tasarrufu"}, unit: "kW", format: "number" },
+    { id: "annualSavingsKWh", label: "Annual energy savings", label_i18n: {"en":"Annual energy savings","tr":"Y\u0131ll\u0131k enerji tasarrufu"}, unit: "kWh", format: "number", isBigNumber: true },
+    { id: "annualSavings", label: "Annual cost savings", label_i18n: {"en":"Annual cost savings","tr":"Y\u0131ll\u0131k maliyet tasarrufu"}, unit: "currency", format: "currency", isBigNumber: false },
+    { id: "netSavings", label: "Net annual savings", label_i18n: {"en":"Net annual savings","tr":"Net y\u0131ll\u0131k tasarruf"}, unit: "currency", format: "currency" },
+    { id: "paybackMonths", label: "Payback period", label_i18n: {"en":"Payback period","tr":"Geri \u00f6deme s\u00fcresi"}, unit: "months", format: "duration" },
+    { id: "roi", label: "ROI", label_i18n: {"en":"ROI","tr":"ROI"}, unit: "%", format: "percentage" },
+    { id: "co2Reduction", label: "CO\u2082 reduction", label_i18n: {"en":"CO\u2082 reduction","tr":"CO\u2082 azalt\u0131m\u0131"}, unit: "tCO\u2082e", format: "number" },
+  ],
+  thresholds: [{ fieldId: "paybackMonths", warning: 36, critical: 60, direction: "higher_is_bad", warningMessage: "Payback longer than 3 years \u2014 review system cost.", warningMessage_i18n: {"en":"Payback longer than 3 years \u2014 review system cost.","tr":"Payback longer than 3 years \u2014 review system cost."}, criticalMessage: "Payback exceeds 5 years \u2014 precooling may not be economical.", criticalMessage_i18n: {"en":"Payback exceeds 5 years \u2014 precooling may not be economical.","tr":"Payback exceeds 5 years \u2014 precooling may not be economical."} }],
+  formulaPipeline: [{ formulaId: "industrial.condenser_precooling", inputMap: { chillerCapacity: "chillerCapacity", capacityUnit: "capacityUnit", existingCOP: "existingCOP", condenserInletTemp: "condenserInletTemp", wetBulbTemp: "wetBulbTemp", precoolEfficiency: "precoolEfficiency", annualOperatingHours: "annualOperatingHours", electricityTariff: "electricityTariff", precoolSystemCost: "precoolSystemCost", precoolOpex: "precoolOpex" }, outputId: "annualSavings" }],
+  reportTemplate: { title: "Condenser Precooling Energy Savings Report", title_i18n: {"en":"Condenser Precooling Energy Savings Report","tr":"Kondenser \u00d6nso\u011futma Enerji Tasarrufu Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["COP improvement estimated at 3% per \u00b0C condenser temperature reduction.", "Adiabatic precooling effectiveness depends on ambient humidity conditions.", "System cost and opex are user estimates; obtain vendor quotes for final decision.", "CO\u2082 reduction based on grid average emission factor (0.4 kgCO\u2082e/kWh)."] },
+};
+
+const PAD_TYPE_OPTIONS = [
+  { value: "CELdek_7090", label: "CELdek 7090 (\u03b7~90%, \u0394P~15 Pa @ 2 m/s)", label_i18n: {"en":"CELdek 7090 (\u03b7~90%, \u0394P~15 Pa @ 2 m/s)","tr":"CELdek 7090 (\u03b7~90%, \u0394P~15 Pa @ 2 m/s)"} },
+  { value: "CELdek_5090", label: "CELdek 5090 (\u03b7~85%, \u0394P~12 Pa @ 2 m/s)", label_i18n: {"en":"CELdek 5090 (\u03b7~85%, \u0394P~12 Pa @ 2 m/s)","tr":"CELdek 5090 (\u03b7~85%, \u0394P~12 Pa @ 2 m/s)"} },
+  { value: "GLASdek", label: "GLASdek (\u03b7~80%, \u0394P~10 Pa @ 2 m/s)", label_i18n: {"en":"GLASdek (\u03b7~80%, \u0394P~10 Pa @ 2 m/s)","tr":"GLASdek (\u03b7~80%, \u0394P~10 Pa @ 2 m/s)"} },
+] as const;
+
+const PAD_THICKNESS_OPTIONS = [
+  { value: "100", label: "100 mm", label_i18n: {"en":"100 mm","tr":"100 mm"} },
+  { value: "150", label: "150 mm", label_i18n: {"en":"150 mm","tr":"150 mm"} },
+  { value: "200", label: "200 mm", label_i18n: {"en":"200 mm","tr":"200 mm"} },
+  { value: "300", label: "300 mm", label_i18n: {"en":"300 mm","tr":"300 mm"} },
+] as const;
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 23. Pad Media (CELdek/GLASdek) Psychrometric Analysis
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const PAD_MEDIA_PSYCHROMETRIC_SCHEMA: PremiumCalculatorSchema = {
+  id: "pad-media-psychrometric-calculator",
+  legacyPaidSlug: "pad-media-psychrometric-calculator",
+  name: "Pad Media (CELdek/GLASdek) Psychrometric Analysis", name_i18n: {"en":"Pad Media (CELdek/GLASdek) Psychrometric Analysis","tr":"Pad Medya (CELdek/GLASdek) Psikrometrik Analiz"},
+  sectorSlug: "hvac",
+  category: "measurement",
+  painStatement: "Pad media selection without psychrometric analysis leads to wrong thickness, undersized face area, and inadequate cooling \u2014 a 10% efficiency miss means 3-5\u00b0C warmer supply air on peak days.", painStatement_i18n: {"en":"Pad media selection without psychrometric analysis leads to wrong thickness, undersized face area, and inadequate cooling \u2014 a 10% efficiency miss means 3-5\u00b0C warmer supply air on peak days.","tr":"Pad medya se\u00e7iminde psikrometrik analiz yap\u0131lmamas\u0131 yanl\u0131\u015f kal\u0131nl\u0131k, k\u00fc\u00e7\u00fck y\u00fczey alan\u0131 ve yetersiz so\u011futmaya yol a\u00e7ar."},
+  inputs: [
+    { id: "padType", label: "Pad type", label_i18n: {"en":"Pad type","tr":"Pad tipi"}, type: "select", unit: "", required: true, smartDefault: "CELdek_7090", options: [...PAD_TYPE_OPTIONS], helper: "Evaporative media type and grade.", helper_i18n: {"en":"Evaporative media type and grade.","tr":"Evaporatif medya tipi ve s\u0131n\u0131f\u0131."}, expertMeaning: "Determines saturation efficiency and pressure drop curves", expertMeaning_i18n: {"en":"Determines saturation efficiency and pressure drop curves","tr":"Determines saturation efficiency and pressure drop curves"} },
+    { id: "padThickness", label: "Pad thickness t", label_i18n: {"en":"Pad thickness t","tr":"Pad kal\u0131nl\u0131\u011f\u0131 t"}, type: "select", unit: "", required: true, smartDefault: "150", options: [...PAD_THICKNESS_OPTIONS], helper: "Media thickness in mm (nominal).", helper_i18n: {"en":"Media thickness in mm (nominal).","tr":"Nominal medya kal\u0131nl\u0131\u011f\u0131."}, expertMeaning: "Thicker media = higher efficiency + higher pressure drop", expertMeaning_i18n: {"en":"Thicker media = higher efficiency + higher pressure drop","tr":"Thicker media = higher efficiency + higher pressure drop"} },
+    { id: "faceVelocity", label: "Face velocity V", label_i18n: {"en":"Face velocity V","tr":"Y\u00fczey h\u0131z\u0131 V"}, type: "number", unit: "m/s", required: true, smartDefault: 2, validation: { min: 0.5, max: 4 }, helper: "Air velocity at pad face (CELdek: 1.5-3 m/s recommended).", helper_i18n: {"en":"Air velocity at pad face (CELdek: 1.5-3 m/s recommended).","tr":"Pad y\u00fczeyindeki hava h\u0131z\u0131 (CELdek: 1.5-3 m/s \u00f6nerilir)."}, expertMeaning: "V for pressure drop and contact time", expertMeaning_i18n: {"en":"V for pressure drop and contact time","tr":"V for pressure drop and contact time"} },
+    { id: "padArea", label: "Pad face area A", label_i18n: {"en":"Pad face area A","tr":"Pad y\u00fczey alan\u0131 A"}, type: "number", unit: "m\u00b2", required: true, smartDefault: 10, validation: { min: 0.1 }, helper: "Total pad face area (height \u00d7 width).", helper_i18n: {"en":"Total pad face area (height \u00d7 width).","tr":"Toplam pad y\u00fczey alan\u0131 (y\u00fckseklik \u00d7 geni\u015flik)."}, expertMeaning: "Airflow = A \u00d7 V \u00d7 3600", expertMeaning_i18n: {"en":"Airflow = A \u00d7 V \u00d7 3600","tr":"Airflow = A \u00d7 V \u00d7 3600"} },
+    { id: "inletDryBulb", label: "Inlet dry-bulb T_db", label_i18n: {"en":"Inlet dry-bulb T_db","tr":"Giri\u015f kuru termometre T_db"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 38, validation: { min: -10, max: 55 }, helper: "Entering air dry-bulb temperature.", helper_i18n: {"en":"Entering air dry-bulb temperature.","tr":"Giren hava kuru termometre s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "T_db for saturation efficiency calculation", expertMeaning_i18n: {"en":"T_db for saturation efficiency calculation","tr":"T_db for saturation efficiency calculation"} },
+    { id: "inletWetBulb", label: "Inlet wet-bulb T_wb", label_i18n: {"en":"Inlet wet-bulb T_wb","tr":"Giri\u015f ya\u015f termometre T_wb"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 22, validation: { min: -20, max: 40 }, helper: "Entering air wet-bulb temperature.", helper_i18n: {"en":"Entering air wet-bulb temperature.","tr":"Giren hava ya\u015f termometre s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "T_wb for psychrometric cooling limit", expertMeaning_i18n: {"en":"T_wb for psychrometric cooling limit","tr":"T_wb for psychrometric cooling limit"} },
+    { id: "inletRH", label: "Inlet relative humidity", label_i18n: {"en":"Inlet relative humidity","tr":"Giri\u015f ba\u011f\u0131l nemi"}, type: "number", unit: "%", required: false, smartDefault: 30, validation: { min: 0, max: 100 }, helper: "Entering air relative humidity.", helper_i18n: {"en":"Entering air relative humidity.","tr":"Giren hava ba\u011f\u0131l nemi."}, expertMeaning: "RH for enthalpy-based saturation check", expertMeaning_i18n: {"en":"RH for enthalpy-based saturation check","tr":"RH for enthalpy-based saturation check"} },
+    { id: "barometricPressure", label: "Barometric pressure", label_i18n: {"en":"Barometric pressure","tr":"Barometrik bas\u0131n\u00e7"}, type: "number", unit: "mbar", required: false, smartDefault: 1013, validation: { min: 800, max: 1100 }, helper: "Site atmospheric pressure (1013 mbar at sea level).", helper_i18n: {"en":"Site atmospheric pressure (1013 mbar at sea level).","tr":"Saha atmosfer bas\u0131nc\u0131 (deniz seviyesinde 1013 mbar)."}, expertMeaning: "P_bar for psychrometric property correction", expertMeaning_i18n: {"en":"P_bar for psychrometric property correction","tr":"P_bar for psychrometric property correction"} },
+  ],
+  outputs: [
+    { id: "saturationEfficiency", label: "Saturation efficiency \u03b7_sat", label_i18n: {"en":"Saturation efficiency \u03b7_sat","tr":"Doygunluk verimi \u03b7_sat"}, unit: "%", format: "percentage" },
+    { id: "outletDryBulb", label: "Outlet dry-bulb T_db_out", label_i18n: {"en":"Outlet dry-bulb T_db_out","tr":"\u00c7\u0131k\u0131\u015f kuru termometre T_db_out"}, unit: "\u00b0C", format: "number" },
+    { id: "temperatureDrop", label: "Temperature drop \u0394T", label_i18n: {"en":"Temperature drop \u0394T","tr":"S\u0131cakl\u0131k d\u00fc\u015f\u00fc\u015f\u00fc \u0394T"}, unit: "\u00b0C", format: "number" },
+    { id: "outletRH", label: "Outlet relative humidity", label_i18n: {"en":"Outlet relative humidity","tr":"\u00c7\u0131k\u0131\u015f ba\u011f\u0131l nemi"}, unit: "%", format: "percentage" },
+    { id: "airflowM3h", label: "Airflow rate", label_i18n: {"en":"Airflow rate","tr":"Hava debisi"}, unit: "m\u00b3/h", format: "number" },
+    { id: "coolingCapacityKW", label: "Cooling capacity", label_i18n: {"en":"Cooling capacity","tr":"So\u011futma kapasitesi"}, unit: "kW", format: "number" },
+    { id: "waterConsumptionLh", label: "Water consumption", label_i18n: {"en":"Water consumption","tr":"Su t\u00fcketimi"}, unit: "L/h", format: "number" },
+    { id: "pressureDropPa", label: "Pressure drop \u0394P", label_i18n: {"en":"Pressure drop \u0394P","tr":"Bas\u0131n\u00e7 d\u00fc\u015f\u00fcm\u00fc \u0394P"}, unit: "Pa", format: "number" },
+  ],
+  thresholds: [{ fieldId: "temperatureDrop", warning: 8, critical: 5, direction: "lower_is_bad", warningMessage: "Temperature drop below 8\u00b0C \u2014 consider thicker media or higher flow.", warningMessage_i18n: {"en":"Temperature drop below 8\u00b0C \u2014 consider thicker media or higher flow.","tr":"Temperature drop below 8\u00b0C \u2014 consider thicker media or higher flow."}, criticalMessage: "Temperature drop below 5\u00b0C \u2014 cooling is marginal; review design.", criticalMessage_i18n: {"en":"Temperature drop below 5\u00b0C \u2014 cooling is marginal; review design.","tr":"Temperature drop below 5\u00b0C \u2014 cooling is marginal; review design."} }],
+  formulaPipeline: [{ formulaId: "industrial.pad_media_psychrometric", inputMap: { padType: "padType", padThickness: "padThickness", faceVelocity: "faceVelocity", padArea: "padArea", inletDryBulb: "inletDryBulb", inletWetBulb: "inletWetBulb", inletRH: "inletRH", barometricPressure: "barometricPressure" }, outputId: "coolingCapacityKW" }],
+  reportTemplate: { title: "Pad Media Psychrometric Analysis Report", title_i18n: {"en":"Pad Media Psychrometric Analysis Report","tr":"Pad Medya Psikrometrik Analiz Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Saturation efficiency based on ASHRAE pad media performance data.", "Pressure drop interpolated from manufacturer curves at specified face velocity.", "Outlet RH assumes adiabatic saturation process near constant enthalpy.", "Barometric pressure correction applied for altitude effects on psychrometrics."] },
+};
+
+const REFRIGERANT_OPTIONS = [
+  { value: "R-134a", label: "R-134a (GWP=1430)", label_i18n: {"en":"R-134a (GWP=1430)","tr":"R-134a (GWP=1430)"} },
+  { value: "R-410A", label: "R-410A (GWP=2088)", label_i18n: {"en":"R-410A (GWP=2088)","tr":"R-410A (GWP=2088)"} },
+  { value: "R-404A", label: "R-404A (GWP=3922)", label_i18n: {"en":"R-404A (GWP=3922)","tr":"R-404A (GWP=3922)"} },
+  { value: "R-407C", label: "R-407C (GWP=1774)", label_i18n: {"en":"R-407C (GWP=1774)","tr":"R-407C (GWP=1774)"} },
+  { value: "R-32", label: "R-32 (GWP=675)", label_i18n: {"en":"R-32 (GWP=675)","tr":"R-32 (GWP=675)"} },
+  { value: "R-290", label: "R-290 / Propane (GWP=3)", label_i18n: {"en":"R-290 / Propane (GWP=3)","tr":"R-290 / Propane (GWP=3)"} },
+  { value: "R-744", label: "R-744 / CO\u2082 (GWP=1)", label_i18n: {"en":"R-744 / CO\u2082 (GWP=1)","tr":"R-744 / CO\u2082 (GWP=1)"} },
+  { value: "other", label: "Other (manual GWP)", label_i18n: {"en":"Other (manual GWP)","tr":"Other (manual GWP)"} },
+] as const;
+
+const TEST_FREQUENCY_OPTIONS = [
+  { value: "3ay", label: "Every 3 months (quarterly)", label_i18n: {"en":"Every 3 months (quarterly)","tr":"3 ayda bir (3 ayl\u0131k)"} },
+  { value: "6ay", label: "Every 6 months (semi-annual)", label_i18n: {"en":"Every 6 months (semi-annual)","tr":"6 ayda bir (6 ayl\u0131k)"} },
+  { value: "12ay", label: "Every 12 months (annual)", label_i18n: {"en":"Every 12 months (annual)","tr":"12 ayda bir (y\u0131ll\u0131k)"} },
+] as const;
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 24. F-Gas Leak & CO\u2082 Equivalent Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const FGAS_LEAK_CO2_SCHEMA: PremiumCalculatorSchema = {
+  id: "fgas-leak-co2-calculator",
+  legacyPaidSlug: "fgas-leak-co2-calculator",
+  name: "F-Gas Leak & CO\u2082 Equivalent Calculator", name_i18n: {"en":"F-Gas Leak & CO\u2082 Equivalent Calculator","tr":"F-Gaz Ka\u00e7a\u011f\u0131 ve CO\u2082 E\u015fde\u011fer Hesaplay\u0131c\u0131"},
+  sectorSlug: "hvac",
+  category: "energy",
+  painStatement: "F-gas regulations impose mandatory leak testing and reporting \u2014 a single unaccounted R-404A leak of 50 kg equals 196 tCO\u2082e, equivalent to 42 cars driven for a year, with fines up to \u20ac50,000 for non-compliance.", painStatement_i18n: {"en":"F-gas regulations impose mandatory leak testing and reporting \u2014 a single unaccounted R-404A leak of 50 kg equals 196 tCO\u2082e, equivalent to 42 cars driven for a year, with fines up to \u20ac50,000 for non-compliance.","tr":"F-gaz y\u00f6netmelikleri zorunlu ka\u00e7ak testi ve raporlamas\u0131 gerektirir."},
+  inputs: [
+    { id: "refrigerantType", label: "Refrigerant type", label_i18n: {"en":"Refrigerant type","tr":"Gaz tipi"}, type: "select", unit: "", required: true, smartDefault: "R-410A", options: [...REFRIGERANT_OPTIONS], helper: "Select refrigerant type; auto-fills GWP value.", helper_i18n: {"en":"Select refrigerant type; auto-fills GWP value.","tr":"Gaz tipini se\u00e7in; GWP de\u011feri otomatik doldurulur."}, expertMeaning: "GWP per IPCC AR6 / EU F-Gas regulation", expertMeaning_i18n: {"en":"GWP per IPCC AR6 / EU F-Gas regulation","tr":"GWP per IPCC AR6 / EU F-Gas regulation"} },
+    { id: "gwpValue", label: "GWP value", label_i18n: {"en":"GWP value","tr":"GWP de\u011feri"}, type: "number", unit: "kgCO\u2082e/kg", required: false, smartDefault: 2088, validation: { min: 0 }, helper: "Global warming potential (auto-filled from refrigerant type).", helper_i18n: {"en":"Global warming potential (auto-filled from refrigerant type).","tr":"K\u00fcresel \u0131s\u0131nma potansiyeli (gaz tipinden otomatik doldurulur)."}, expertMeaning: "GWP for tCO\u2082e = charge(kg) \u00d7 GWP / 1000", expertMeaning_i18n: {"en":"GWP for tCO\u2082e = charge(kg) \u00d7 GWP / 1000","tr":"GWP for tCO\u2082e = charge(kg) \u00d7 GWP / 1000"} },
+    { id: "refrigerantCharge", label: "Refrigerant charge per unit", label_i18n: {"en":"Refrigerant charge per unit","tr":"Birim ba\u015f\u0131na gaz \u015farj\u0131"}, type: "number", unit: "kg", required: true, smartDefault: 50, validation: { min: 0.01 }, helper: "Refrigerant charge per device/system.", helper_i18n: {"en":"Refrigerant charge per device/system.","tr":"Cihaz/sistem ba\u015f\u0131na gaz miktar\u0131."}, expertMeaning: "Total charge = Charge per unit \u00d7 Number of units", expertMeaning_i18n: {"en":"Total charge = Charge per unit \u00d7 Number of units","tr":"Total charge = Charge per unit \u00d7 Number of units"} },
+    { id: "unitCount", label: "Number of units", label_i18n: {"en":"Number of units","tr":"Cihaz say\u0131s\u0131"}, type: "number", unit: "", required: true, smartDefault: 1, validation: { min: 1 }, helper: "Total number of systems with this refrigerant.", helper_i18n: {"en":"Total number of systems with this refrigerant.","tr":"Bu gaz\u0131 i\u00e7eren toplam sistem say\u0131s\u0131."}, expertMeaning: "Scales total charge and emissions", expertMeaning_i18n: {"en":"Scales total charge and emissions","tr":"Scales total charge and emissions"} },
+    { id: "annualLeakRate", label: "Annual leak rate", label_i18n: {"en":"Annual leak rate","tr":"Y\u0131ll\u0131k ka\u00e7ak oran\u0131"}, type: "number", unit: "%/year", required: true, smartDefault: 10, validation: { min: 0, max: 100 }, helper: "Estimated annual leakage rate (EU avg: 10-25%).", helper_i18n: {"en":"Estimated annual leakage rate (EU avg: 10-25%).","tr":"Tahmini y\u0131ll\u0131k ka\u00e7ak oran\u0131 (AB ort: %10-25)."}, expertMeaning: "Annual leak (kg) = Total charge \u00d7 Leak rate / 100", expertMeaning_i18n: {"en":"Annual leak (kg) = Total charge \u00d7 Leak rate / 100","tr":"Annual leak (kg) = Total charge \u00d7 Leak rate / 100"} },
+    { id: "leakTestFrequency", label: "Leak test frequency", label_i18n: {"en":"Leak test frequency","tr":"S\u0131z\u0131nt\u0131 testi s\u0131kl\u0131\u011f\u0131"}, type: "select", unit: "", required: false, smartDefault: "12ay", options: [...TEST_FREQUENCY_OPTIONS], helper: "F-Gas mandatory leak test interval.", helper_i18n: {"en":"F-Gas mandatory leak test interval.","tr":"F-Gaz zorunlu ka\u00e7ak testi aral\u0131\u011f\u0131."}, expertMeaning: "EU F-Gas Regulation 517/2014 leak test intervals by tCO\u2082e", expertMeaning_i18n: {"en":"EU F-Gas Regulation 517/2014 leak test intervals by tCO\u2082e","tr":"EU F-Gas Regulation 517/2014 leak test intervals by tCO\u2082e"} },
+    { id: "testUnitCost", label: "Test unit cost", label_i18n: {"en":"Test unit cost","tr":"Test birim \u00fccreti"}, type: "number", unit: "currency", required: false, smartDefault: 200, validation: { min: 0 }, helper: "Cost per individual leak test.", helper_i18n: {"en":"Cost per individual leak test.","tr":"Her bir ka\u00e7ak testinin maliyeti."}, expertMeaning: "Annual test cost = Tests/year \u00d7 Unit cost", expertMeaning_i18n: {"en":"Annual test cost = Tests/year \u00d7 Unit cost","tr":"Annual test cost = Tests/year \u00d7 Unit cost"} },
+    { id: "refrigerantUnitPrice", label: "Refrigerant unit price", label_i18n: {"en":"Refrigerant unit price","tr":"Gaz birim fiyat\u0131"}, type: "number", unit: "currency", required: false, smartDefault: 25, validation: { min: 0 }, helper: "Cost per kg of refrigerant (replacement cost).", helper_i18n: {"en":"Cost per kg of refrigerant (replacement cost).","tr":"kg ba\u015f\u0131na gaz fiyat\u0131 (de\u011fi\u015ftirme maliyeti)."}, expertMeaning: "Annual leak cost = Leak(kg) \u00d7 Unit price", expertMeaning_i18n: {"en":"Annual leak cost = Leak(kg) \u00d7 Unit price","tr":"Annual leak cost = Leak(kg) \u00d7 Unit price"} },
+  ],
+  outputs: [
+    { id: "totalChargeKg", label: "Total refrigerant charge", label_i18n: {"en":"Total refrigerant charge","tr":"Toplam gaz \u015farj\u0131"}, unit: "kg", format: "number" },
+    { id: "tCO2ePerDevice", label: "CO\u2082e per device", label_i18n: {"en":"CO\u2082e per device","tr":"Cihaz ba\u015f\u0131na CO\u2082e"}, unit: "tCO\u2082e", format: "number" },
+    { id: "tCO2eTotal", label: "Total CO\u2082e", label_i18n: {"en":"Total CO\u2082e","tr":"Toplam CO\u2082e"}, unit: "tCO\u2082e", format: "number", isBigNumber: true },
+    { id: "leakTestRequirement", label: "Leak test requirement", label_i18n: {"en":"Leak test requirement","tr":"Ka\u00e7ak testi y\u00fck\u00fcml\u00fcl\u00fc\u011f\u00fc"}, unit: "", format: "number" },
+    { id: "annualTestCost", label: "Annual test cost", label_i18n: {"en":"Annual test cost","tr":"Y\u0131ll\u0131k test maliyeti"}, unit: "currency", format: "currency" },
+    { id: "annualLeakKg", label: "Annual leak quantity", label_i18n: {"en":"Annual leak quantity","tr":"Y\u0131ll\u0131k ka\u00e7ak miktar\u0131"}, unit: "kg", format: "number" },
+    { id: "leakCost", label: "Annual leak cost", label_i18n: {"en":"Annual leak cost","tr":"Y\u0131ll\u0131k ka\u00e7ak maliyeti"}, unit: "currency", format: "currency" },
+    { id: "leakEmissionCO2e", label: "Leak emission CO\u2082e", label_i18n: {"en":"Leak emission CO\u2082e","tr":"Ka\u00e7ak emisyonu CO\u2082e"}, unit: "tCO\u2082e", format: "number" },
+    { id: "totalComplianceCost", label: "Total compliance cost", label_i18n: {"en":"Total compliance cost","tr":"Toplam uyum maliyeti"}, unit: "currency", format: "currency" },
+  ],
+  thresholds: [{ fieldId: "tCO2eTotal", warning: 10, critical: 50, direction: "higher_is_bad", warningMessage: "Total CO\u2082e exceeds 10 t \u2014 F-Gas mandatory leak checks apply.", warningMessage_i18n: {"en":"Total CO\u2082e exceeds 10 t \u2014 F-Gas mandatory leak checks apply.","tr":"Total CO\u2082e exceeds 10 t \u2014 F-Gas mandatory leak checks apply."}, criticalMessage: "Total CO\u2082e exceeds 50 t \u2014 quarterly leak testing required + reporting.", criticalMessage_i18n: {"en":"Total CO\u2082e exceeds 50 t \u2014 quarterly leak testing required + reporting.","tr":"Total CO\u2082e exceeds 50 t \u2014 quarterly leak testing required + reporting."} }],
+  formulaPipeline: [{ formulaId: "industrial.fgas_leak", inputMap: { refrigerantType: "refrigerantType", gwpValue: "gwpValue", refrigerantCharge: "refrigerantCharge", unitCount: "unitCount", annualLeakRate: "annualLeakRate", leakTestFrequency: "leakTestFrequency", testUnitCost: "testUnitCost", refrigerantUnitPrice: "refrigerantUnitPrice" }, outputId: "totalComplianceCost" }],
+  reportTemplate: { title: "F-Gas Leak & CO\u2082 Equivalent Report", title_i18n: {"en":"F-Gas Leak & CO\u2082 Equivalent Report","tr":"F-Gaz Ka\u00e7a\u011f\u0131 ve CO\u2082 E\u015fde\u011fer Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["GWP values per IPCC AR6 / EU F-Gas Regulation 517/2014.", "Leak test intervals follow EU F-Gas requirements based on total tCO\u2082e.", "Annual leak rate is user estimate; actual leakage may vary with system age.", "Compliance cost includes testing and refrigerant replacement only; fines excluded."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 25. Water Footprint Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const WATER_FOOTPRINT_SCHEMA: PremiumCalculatorSchema = {
+  id: "water-footprint-calculator",
+  legacyPaidSlug: "water-footprint-calculator",
+  name: "Water Footprint Calculator", name_i18n: {"en":"Water Footprint Calculator","tr":"Su Ayak \u0130zi Hesaplay\u0131c\u0131"},
+  sectorSlug: "general",
+  category: "energy",
+  painStatement: "Water footprint accounting is mandatory for ESG reporting but most facilities only track the utility bill \u2014 blue (groundwater), green (rainwater), and grey (wastewater) components are invisible without systematic quantification.", painStatement_i18n: {"en":"Water footprint accounting is mandatory for ESG reporting but most facilities only track the utility bill \u2014 blue (groundwater), green (rainwater), and grey (wastewater) components are invisible without systematic quantification.","tr":"Su ayak izi muhasebesi ESG raporlamas\u0131 i\u00e7in zorunludur ancak \u00e7o\u011fu tesis yaln\u0131zca faturay\u0131 takip eder."},
+  inputs: [
+    { id: "blueWaterConsumption", label: "Blue water consumption", label_i18n: {"en":"Blue water consumption","tr":"Mavi su t\u00fcketimi"}, type: "number", unit: "m\u00b3/year", required: true, smartDefault: 5000, validation: { min: 0 }, helper: "Surface and groundwater consumption (municipal supply + wells).", helper_i18n: {"en":"Surface and groundwater consumption (municipal supply + wells).","tr":"Yeralt\u0131 ve yer\u00fcst\u00fc suyu t\u00fcketimi (\u015febeke + kuyu)."}, expertMeaning: "Blue WF = direct withdrawal - return flow", expertMeaning_i18n: {"en":"Blue WF = direct withdrawal - return flow","tr":"Blue WF = direct withdrawal - return flow"} },
+    { id: "greenWaterConsumption", label: "Green water consumption", label_i18n: {"en":"Green water consumption","tr":"Ye\u015fil su t\u00fcketimi"}, type: "number", unit: "m\u00b3/year", required: false, smartDefault: 0, validation: { min: 0 }, helper: "Rainwater consumed (mostly agricultural/landscaping).", helper_i18n: {"en":"Rainwater consumed (mostly agricultural/landscaping).","tr":"Ya\u011fmur suyu t\u00fcketimi (\u00e7o\u011funlukla tar\u0131m/peyzaj)."}, expertMeaning: "Green WF = effective rainfall evapotranspiration", expertMeaning_i18n: {"en":"Green WF = effective rainfall evapotranspiration","tr":"Green WF = effective rainfall evapotranspiration"} },
+    { id: "greyWaterVolume", label: "Grey water volume", label_i18n: {"en":"Grey water volume","tr":"Gri su hacmi"}, type: "number", unit: "m\u00b3/year", required: false, smartDefault: 2000, validation: { min: 0 }, helper: "Wastewater volume requiring dilution to meet quality standards.", helper_i18n: {"en":"Wastewater volume requiring dilution to meet quality standards.","tr":"Kalite standartlar\u0131n\u0131 kar\u015f\u0131lamak i\u00e7in seyreltilmesi gereken at\u0131k su hacmi."}, expertMeaning: "Grey WF = (C_effluent - C_natural) / (C_max - C_natural) \u00d7 V_effluent", expertMeaning_i18n: {"en":"Grey WF = (C_effluent - C_natural) / (C_max - C_natural) \u00d7 V_effluent","tr":"Grey WF = (C_effluent - C_natural) / (C_max - C_natural) \u00d7 V_effluent"} },
+    { id: "productionVolume", label: "Production volume", label_i18n: {"en":"Production volume","tr":"\u00dcretim hacmi"}, type: "number", unit: "units/year", required: true, smartDefault: 100000, validation: { min: 1 }, helper: "Total annual production output in selected units.", helper_i18n: {"en":"Total annual production output in selected units.","tr":"Se\u00e7ilen birimde y\u0131ll\u0131k toplam \u00fcretim."}, expertMeaning: "Unit WF = Total WF / Production volume", expertMeaning_i18n: {"en":"Unit WF = Total WF / Production volume","tr":"Unit WF = Total WF / Production volume"} },
+    { id: "sectorBenchmark", label: "Sector benchmark", label_i18n: {"en":"Sector benchmark","tr":"Sekt\u00f6r k\u0131yaslamas\u0131"}, type: "number", unit: "m\u00b3/unit", required: false, smartDefault: 0.05, validation: { min: 0 }, helper: "Industry average water intensity per unit of production.", helper_i18n: {"en":"Industry average water intensity per unit of production.","tr":"Birim \u00fcretim ba\u015f\u0131na sekt\u00f6r ortalama su yo\u011funlu\u011fu."}, expertMeaning: "Benchmark gap = Unit WF - Sector benchmark", expertMeaning_i18n: {"en":"Benchmark gap = Unit WF - Sector benchmark","tr":"Benchmark gap = Unit WF - Sector benchmark"} },
+  ],
+  outputs: [
+    { id: "totalWaterFootprint", label: "Total water footprint", label_i18n: {"en":"Total water footprint","tr":"Toplam su ayak izi"}, unit: "m\u00b3/year", format: "number", isBigNumber: true },
+    { id: "unitWaterFootprint", label: "Unit water footprint", label_i18n: {"en":"Unit water footprint","tr":"Birim su ayak izi"}, unit: "m\u00b3/unit", format: "number" },
+    { id: "blueRatio", label: "Blue water ratio", label_i18n: {"en":"Blue water ratio","tr":"Mavi su oran\u0131"}, unit: "%", format: "percentage" },
+    { id: "greenRatio", label: "Green water ratio", label_i18n: {"en":"Green water ratio","tr":"Ye\u015fil su oran\u0131"}, unit: "%", format: "percentage" },
+    { id: "greyRatio", label: "Grey water ratio", label_i18n: {"en":"Grey water ratio","tr":"Gri su oran\u0131"}, unit: "%", format: "percentage" },
+    { id: "benchmarkGap", label: "Benchmark gap", label_i18n: {"en":"Benchmark gap","tr":"K\u0131yaslama fark\u0131"}, unit: "m\u00b3/unit", format: "number" },
+    { id: "improvementPotential", label: "Improvement potential", label_i18n: {"en":"Improvement potential","tr":"\u0130yile\u015ftirme potansiyeli"}, unit: "%", format: "percentage" },
+  ],
+  thresholds: [{ fieldId: "unitWaterFootprint", warning: 0.1, critical: 0.2, direction: "higher_is_bad", warningMessage: "Unit water footprint above 0.1 m\u00b3/unit \u2014 investigate reduction opportunities.", warningMessage_i18n: {"en":"Unit water footprint above 0.1 m\u00b3/unit \u2014 investigate reduction opportunities.","tr":"Unit water footprint above 0.1 m\u00b3/unit \u2014 investigate reduction opportunities."}, criticalMessage: "Unit water footprint above 0.2 m\u00b3/unit \u2014 urgent water efficiency program needed.", criticalMessage_i18n: {"en":"Unit water footprint above 0.2 m\u00b3/unit \u2014 urgent water efficiency program needed.","tr":"Unit water footprint above 0.2 m\u00b3/unit \u2014 urgent water efficiency program needed."} }],
+  formulaPipeline: [{ formulaId: "industrial.water_footprint", inputMap: { blueWaterConsumption: "blueWaterConsumption", greenWaterConsumption: "greenWaterConsumption", greyWaterVolume: "greyWaterVolume", productionVolume: "productionVolume", sectorBenchmark: "sectorBenchmark" }, outputId: "totalWaterFootprint" }],
+  reportTemplate: { title: "Water Footprint Analysis Report", title_i18n: {"en":"Water Footprint Analysis Report","tr":"Su Ayak \u0130zi Analiz Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Blue water includes municipal supply and groundwater extraction.", "Green water includes effective precipitation consumed by vegetation.", "Grey water calculated as dilution volume to meet receiving water quality standards.", "Benchmark comparison based on sector average; verify against your specific sub-sector."] },
+};
+
+const BUILDING_TYPE_OPTIONS = [
+  { value: "warehouse", label: "Warehouse / Storage (fire load 500-1000 MJ/m\u00b2)", label_i18n: {"en":"Warehouse / Storage (fire load 500-1000 MJ/m\u00b2)","tr":"Warehouse / Storage (fire load 500-1000 MJ/m\u00b2)"} },
+  { value: "industrial", label: "Industrial / Factory (fire load 400-800 MJ/m\u00b2)", label_i18n: {"en":"Industrial / Factory (fire load 400-800 MJ/m\u00b2)","tr":"Industrial / Factory (fire load 400-800 MJ/m\u00b2)"} },
+  { value: "commercial", label: "Commercial / Office (fire load 300-600 MJ/m\u00b2)", label_i18n: {"en":"Commercial / Office (fire load 300-600 MJ/m\u00b2)","tr":"Commercial / Office (fire load 300-600 MJ/m\u00b2)"} },
+  { value: "retail", label: "Retail / Mall (fire load 400-700 MJ/m\u00b2)", label_i18n: {"en":"Retail / Mall (fire load 400-700 MJ/m\u00b2)","tr":"Retail / Mall (fire load 400-700 MJ/m\u00b2)"} },
+  { value: "parking", label: "Parking garage (fire load 200-400 MJ/m\u00b2)", label_i18n: {"en":"Parking garage (fire load 200-400 MJ/m\u00b2)","tr":"Parking garage (fire load 200-400 MJ/m\u00b2)"} },
+] as const;
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 26. Smoke Exhaust (SHEV) Sizing Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const SMOKE_EXHAUST_SHEV_SCHEMA: PremiumCalculatorSchema = {
+  id: "smoke-exhaust-shev-calculator",
+  legacyPaidSlug: "smoke-exhaust-shev-calculator",
+  name: "Smoke Exhaust (SHEV) Sizing Calculator", name_i18n: {"en":"Smoke Exhaust (SHEV) Sizing Calculator","tr":"Duman Tahliye (SHEV) Boyutland\u0131rma Hesaplay\u0131c\u0131"},
+  sectorSlug: "general",
+  category: "measurement",
+  painStatement: "Smoke exhaust sizing per EN 12101-5 requires iterative calculation of fire perimeter, plume mass flow, and vent area \u2014 a 20% undersized SHEV can render a smoke control system ineffective during a fire event.", painStatement_i18n: {"en":"Smoke exhaust sizing per EN 12101-5 requires iterative calculation of fire perimeter, plume mass flow, and vent area \u2014 a 20% undersized SHEV can render a smoke control system ineffective during a fire event.","tr":"EN 12101-5'e g\u00f6re duman tahliye boyutland\u0131rmas\u0131 yang\u0131n \u00e7evresi, duman k\u00fctle debisi ve havaland\u0131rma alan\u0131n\u0131n hesaplanmas\u0131n\u0131 gerektirir."},
+  inputs: [
+    { id: "buildingType", label: "Building type", label_i18n: {"en":"Building type","tr":"Bina tipi"}, type: "select", unit: "", required: true, smartDefault: "warehouse", options: [...BUILDING_TYPE_OPTIONS], helper: "Building occupancy type determines design fire.", helper_i18n: {"en":"Building occupancy type determines design fire.","tr":"Bina kullan\u0131m tipi tasar\u0131m yang\u0131n\u0131n\u0131 belirler."}, expertMeaning: "Design fire HRR per EN 12101-5 Table A.1", expertMeaning_i18n: {"en":"Design fire HRR per EN 12101-5 Table A.1","tr":"Design fire HRR per EN 12101-5 Table A.1"} },
+    { id: "ceilingArea", label: "Ceiling / compartment area A_tavan", label_i18n: {"en":"Ceiling / compartment area A_tavan","tr":"Tavan / kompart\u0131man alan\u0131 A_tavan"}, type: "number", unit: "m\u00b2", required: true, smartDefault: 2000, validation: { min: 10 }, helper: "Total ceiling area of the smoke compartment.", helper_i18n: {"en":"Total ceiling area of the smoke compartment.","tr":"Duman kompart\u0131man\u0131n\u0131n toplam tavan alan\u0131."}, expertMeaning: "A_tavan for natural vent area ratio", expertMeaning_i18n: {"en":"A_tavan for natural vent area ratio","tr":"A_tavan for natural vent area ratio"} },
+    { id: "zoneLength", label: "Zone length L", label_i18n: {"en":"Zone length L","tr":"B\u00f6lge uzunlu\u011fu L"}, type: "number", unit: "m", required: true, smartDefault: 50, validation: { min: 1 }, helper: "Smoke zone length.", helper_i18n: {"en":"Smoke zone length.","tr":"Duman b\u00f6lgesi uzunlu\u011fu."}, expertMeaning: "Fire perimeter ~ 2\u00d7(L+W) for design fire", expertMeaning_i18n: {"en":"Fire perimeter ~ 2\u00d7(L+W) for design fire","tr":"Fire perimeter ~ 2\u00d7(L+W) for design fire"} },
+    { id: "zoneWidth", label: "Zone width W", label_i18n: {"en":"Zone width W","tr":"B\u00f6lge geni\u015fli\u011fi W"}, type: "number", unit: "m", required: true, smartDefault: 40, validation: { min: 1 }, helper: "Smoke zone width.", helper_i18n: {"en":"Smoke zone width.","tr":"Duman b\u00f6lgesi geni\u015fli\u011fi."}, expertMeaning: "Fire perimeter ~ 2\u00d7(L+W) for design fire", expertMeaning_i18n: {"en":"Fire perimeter ~ 2\u00d7(L+W) for design fire","tr":"Fire perimeter ~ 2\u00d7(L+W) for design fire"} },
+    { id: "ceilingHeight", label: "Ceiling height H", label_i18n: {"en":"Ceiling height H","tr":"Tavan y\u00fcksekli\u011fi H"}, type: "number", unit: "m", required: true, smartDefault: 10, validation: { min: 2, max: 50 }, helper: "Smoke compartment height.", helper_i18n: {"en":"Smoke compartment height.","tr":"Duman kompart\u0131man\u0131 y\u00fcksekli\u011fi."}, expertMeaning: "H for plume mass flow calculation", expertMeaning_i18n: {"en":"H for plume mass flow calculation","tr":"H for plume mass flow calculation"} },
+    { id: "smokeLayerDepth", label: "Smoke layer depth d", label_i18n: {"en":"Smoke layer depth d","tr":"Duman tabakas\u0131 kal\u0131nl\u0131\u011f\u0131 d"}, type: "number", unit: "m", required: false, smartDefault: 2, validation: { min: 0.1, max: 20 }, helper: "Design smoke layer depth below ceiling.", helper_i18n: {"en":"Design smoke layer depth below ceiling.","tr":"Tavan alt\u0131 tasar\u0131m duman tabakas\u0131 kal\u0131nl\u0131\u011f\u0131."}, expertMeaning: "Clear height z = H - d", expertMeaning_i18n: {"en":"Clear height z = H - d","tr":"Clear height z = H - d"} },
+    { id: "fireArea", label: "Fire area A_fire", label_i18n: {"en":"Fire area A_fire","tr":"Yang\u0131n alan\u0131 A_fire"}, type: "number", unit: "m\u00b2", required: false, smartDefault: 36, validation: { min: 0.1 }, helper: "Design fire area (typically 6m \u00d7 6m = 36 m\u00b2 for warehouses).", helper_i18n: {"en":"Design fire area (typically 6m \u00d7 6m = 36 m\u00b2 for warehouses).","tr":"Tasar\u0131m yang\u0131n alan\u0131 (depolar i\u00e7in tipik 6m \u00d7 6m = 36 m\u00b2)."}, expertMeaning: "Fire perimeter P = 2\u00d7\u221a(\u03c0\u00d7A_fire) for circular fire", expertMeaning_i18n: {"en":"Fire perimeter P = 2\u00d7\u221a(\u03c0\u00d7A_fire) for circular fire","tr":"Fire perimeter P = 2\u00d7\u221a(\u03c0\u00d7A_fire) for circular fire"} },
+    { id: "inletArea", label: "Inlet air area A_inlet", label_i18n: {"en":"Inlet air area A_inlet","tr":"Hava giri\u015f alan\u0131 A_inlet"}, type: "number", unit: "m\u00b2", required: false, smartDefault: 5, validation: { min: 0 }, helper: "Total area of natural air inlets for make-up air.", helper_i18n: {"en":"Total area of natural air inlets for make-up air.","tr":"Tamamlama havas\u0131 i\u00e7in do\u011fal hava giri\u015flerinin toplam alan\u0131."}, expertMeaning: "A_inlet \u2265 1.4\u00d7A_vent per EN 12101-5 for natural systems", expertMeaning_i18n: {"en":"A_inlet \u2265 1.4\u00d7A_vent per EN 12101-5 for natural systems","tr":"A_inlet \u2265 1.4\u00d7A_vent per EN 12101-5 for natural systems"} },
+    { id: "ventFlowCoefficient", label: "Vent flow coefficient Cv", label_i18n: {"en":"Vent flow coefficient Cv","tr":"Kapak ak\u0131\u015f katsay\u0131s\u0131 Cv"}, type: "number", unit: "", required: false, smartDefault: 0.65, validation: { min: 0.3, max: 1 }, helper: "Discharge coefficient of SHEV vent (typical: 0.6-0.7).", helper_i18n: {"en":"Discharge coefficient of SHEV vent (typical: 0.6-0.7).","tr":"SHEV kapa\u011f\u0131n\u0131n ak\u0131\u015f katsay\u0131s\u0131 (tipik: 0.6-0.7)."}, expertMeaning: "Cv for volumetric flow Q = Cv \u00d7 A \u00d7 \u221a(2g\u00d7\u0394H\u00d7\u0394T/T)", expertMeaning_i18n: {"en":"Cv for volumetric flow Q = Cv \u00d7 A \u00d7 \u221a(2g\u00d7\u0394H\u00d7\u0394T/T)","tr":"Cv for volumetric flow Q = Cv \u00d7 A \u00d7 \u221a(2g\u00d7\u0394H\u00d7\u0394T/T)"} },
+    { id: "windSpeed", label: "External wind speed", label_i18n: {"en":"External wind speed","tr":"D\u0131\u015f r\u00fczgar h\u0131z\u0131"}, type: "number", unit: "m/s", required: false, smartDefault: 5, validation: { min: 0, max: 50 }, helper: "Design wind speed at roof level.", helper_i18n: {"en":"Design wind speed at roof level.","tr":"\u00c7at\u0131 seviyesinde tasar\u0131m r\u00fczgar h\u0131z\u0131."}, expertMeaning: "Wind effect on natural vent performance per EN 12101-2", expertMeaning_i18n: {"en":"Wind effect on natural vent performance per EN 12101-2","tr":"Wind effect on natural vent performance per EN 12101-2"} },
+  ],
+  outputs: [
+    { id: "firePerimeter", label: "Fire perimeter P", label_i18n: {"en":"Fire perimeter P","tr":"Yang\u0131n \u00e7evresi P"}, unit: "m", format: "number" },
+    { id: "plumeMassFlow", label: "Plume mass flow m_dot", label_i18n: {"en":"Plume mass flow m_dot","tr":"Duman k\u00fctle debisi m_dot"}, unit: "kg/s", format: "number" },
+    { id: "requiredVentArea", label: "Required vent area A_vent", label_i18n: {"en":"Required vent area A_vent","tr":"Gerekli havaland\u0131rma alan\u0131 A_vent"}, unit: "m\u00b2", format: "number" },
+    { id: "effectiveAreaRatio", label: "Effective vent area ratio", label_i18n: {"en":"Effective vent area ratio","tr":"Etkin havaland\u0131rma alan\u0131 oran\u0131"}, unit: "%", format: "percentage" },
+    { id: "ventSize", label: "Recommended vent size", label_i18n: {"en":"Recommended vent size","tr":"\u00d6nerilen kapak boyutu"}, unit: "m\u00b2", format: "number" },
+    { id: "ventCount", label: "Number of vents required", label_i18n: {"en":"Number of vents required","tr":"Gerekli kapak say\u0131s\u0131"}, unit: "", format: "number" },
+    { id: "inletCheck", label: "Inlet area check", label_i18n: {"en":"Inlet area check","tr":"Hava giri\u015fi kontrol\u00fc"}, unit: "", format: "number" },
+  ],
+  thresholds: [{ fieldId: "effectiveAreaRatio", warning: 0.5, critical: 0.3, direction: "lower_is_bad", warningMessage: "Vent area below 0.5% of ceiling area \u2014 consider increasing vent count or size.", warningMessage_i18n: {"en":"Vent area below 0.5% of ceiling area \u2014 consider increasing vent count or size.","tr":"Vent area below 0.5% of ceiling area \u2014 consider increasing vent count or size."}, criticalMessage: "Vent area below 0.3% \u2014 non-compliant per EN 12101-5 minimum requirement.", criticalMessage_i18n: {"en":"Vent area below 0.3% \u2014 non-compliant per EN 12101-5 minimum requirement.","tr":"Vent area below 0.3% \u2014 non-compliant per EN 12101-5 minimum requirement."} }],
+  formulaPipeline: [{ formulaId: "industrial.smoke_exhaust_shev", inputMap: { buildingType: "buildingType", ceilingArea: "ceilingArea", zoneLength: "zoneLength", zoneWidth: "zoneWidth", ceilingHeight: "ceilingHeight", smokeLayerDepth: "smokeLayerDepth", fireArea: "fireArea", inletArea: "inletArea", ventFlowCoefficient: "ventFlowCoefficient", windSpeed: "windSpeed" }, outputId: "requiredVentArea" }],
+  reportTemplate: { title: "Smoke Exhaust (SHEV) Sizing Report", title_i18n: {"en":"Smoke Exhaust (SHEV) Sizing Report","tr":"Duman Tahliye (SHEV) Boyutland\u0131rma Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Design fire based on building type per EN 12101-5 Table A.1.", "Plume mass flow uses Heskestad model for axisymmetric plume.", "Natural vent sizing assumes steady-state conditions and neutral plane at mid-height.", "Inlet area should be \u2265 1.4 \u00d7 vent area per EN 12101-5 for natural smoke exhaust."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 27. Natural Ventilation (ACH) Requirement Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const NATURAL_VENTILATION_ACH_SCHEMA: PremiumCalculatorSchema = {
+  id: "natural-ventilation-ach-calculator",
+  legacyPaidSlug: "natural-ventilation-ach-calculator",
+  name: "Natural Ventilation (ACH) Requirement Calculator", name_i18n: {"en":"Natural Ventilation (ACH) Requirement Calculator","tr":"Do\u011fal Havaland\u0131rma (ACH) \u0130htiya\u00e7 Hesaplay\u0131c\u0131"},
+  sectorSlug: "hvac",
+  category: "measurement",
+  painStatement: "Designing natural ventilation openings without calculating the stack-effect driving pressure leads to undersized louvres, stagnant zones, and IAQ complaints \u2014 occupants suffer while energy savings never materialize.", painStatement_i18n: {"en":"Designing natural ventilation openings without calculating the stack-effect driving pressure leads to undersized louvres, stagnant zones, and IAQ complaints \u2014 occupants suffer while energy savings never materialize.","tr":"Do\u011fal havaland\u0131rma a\u00e7\u0131kl\u0131klar\u0131n\u0131 baca etkisi itici bas\u0131nc\u0131n\u0131 hesaplamadan tasarlamak yetersiz menfez, durgun b\u00f6lgeler ve i\u00e7 hava kalitesi \u015fikayetlerine yol a\u00e7ar."},
+  inputs: [
+    { id: "areaLength", label: "Zone length L", label_i18n: {"en":"Zone length L","tr":"B\u00f6lge uzunlu\u011fu L"}, type: "number", unit: "m", required: true, smartDefault: 30, validation: { min: 1 }, helper: "Length of the ventilated zone.", helper_i18n: {"en":"Length of the ventilated zone.","tr":"Havaland\u0131r\u0131lan b\u00f6lgenin uzunlu\u011fu."}, expertMeaning: "Volume = L \u00d7 W \u00d7 H", expertMeaning_i18n: {"en":"Volume = L \u00d7 W \u00d7 H","tr":"Volume = L \u00d7 W \u00d7 H"} },
+    { id: "areaWidth", label: "Zone width W", label_i18n: {"en":"Zone width W","tr":"B\u00f6lge geni\u015fli\u011fi W"}, type: "number", unit: "m", required: true, smartDefault: 20, validation: { min: 1 }, helper: "Width of the ventilated zone.", helper_i18n: {"en":"Width of the ventilated zone.","tr":"Havaland\u0131r\u0131lan b\u00f6lgenin geni\u015fli\u011fi."}, expertMeaning: "Volume = L \u00d7 W \u00d7 H", expertMeaning_i18n: {"en":"Volume = L \u00d7 W \u00d7 H","tr":"Volume = L \u00d7 W \u00d7 H"} },
+    { id: "ceilingHeight", label: "Ceiling height H", label_i18n: {"en":"Ceiling height H","tr":"Tavan y\u00fcksekli\u011fi H"}, type: "number", unit: "m", required: true, smartDefault: 6, validation: { min: 1 }, helper: "Average ceiling height.", helper_i18n: {"en":"Average ceiling height.","tr":"Ortalama tavan y\u00fcksekli\u011fi."}, expertMeaning: "Volume and stack height for buoyancy", expertMeaning_i18n: {"en":"Volume and stack height for buoyancy","tr":"Volume and stack height for buoyancy"} },
+    { id: "indoorTemperature", label: "Indoor temperature Ti", label_i18n: {"en":"Indoor temperature Ti","tr":"\u0130\u00e7 ortam s\u0131cakl\u0131\u011f\u0131 Ti"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 26, validation: { min: -10, max: 60 }, helper: "Desired indoor temperature.", helper_i18n: {"en":"Desired indoor temperature.","tr":"Hedef i\u00e7 ortam s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "Ti for \u0394T = Ti - To (driving force)", expertMeaning_i18n: {"en":"Ti for \u0394T = Ti - To (driving force)","tr":"Ti for \u0394T = Ti - To (driving force)"} },
+    { id: "outdoorTemperature", label: "Outdoor temperature To", label_i18n: {"en":"Outdoor temperature To","tr":"D\u0131\u015f ortam s\u0131cakl\u0131\u011f\u0131 To"}, type: "number", unit: "\u00b0C", required: true, smartDefault: 32, validation: { min: -30, max: 50 }, helper: "Design outdoor temperature.", helper_i18n: {"en":"Design outdoor temperature.","tr":"Tasar\u0131m d\u0131\u015f ortam s\u0131cakl\u0131\u011f\u0131."}, expertMeaning: "To for \u0394T = Ti - To; natural ventilation works when \u0394T > 0", expertMeaning_i18n: {"en":"To for \u0394T = Ti - To; natural ventilation works when \u0394T > 0","tr":"To for \u0394T = Ti - To; natural ventilation works when \u0394T > 0"} },
+    { id: "targetACH", label: "Target ACH", label_i18n: {"en":"Target ACH","tr":"Hedef ACH"}, type: "number", unit: "1/h", required: true, smartDefault: 6, validation: { min: 0.5, max: 60 }, helper: "Required air changes per hour (IAQ: 4-8 ACH for occupied spaces).", helper_i18n: {"en":"Required air changes per hour (IAQ: 4-8 ACH for occupied spaces).","tr":"Saatlik gerekli hava de\u011fi\u015fimi (IAQ: kullan\u0131lan alanlar i\u00e7in 4-8 ACH)."}, expertMeaning: "Required flow Q = Volume \u00d7 ACH / 3600", expertMeaning_i18n: {"en":"Required flow Q = Volume \u00d7 ACH / 3600","tr":"Required flow Q = Volume \u00d7 ACH / 3600"} },
+    { id: "ventDischargeCoefficient", label: "Vent discharge coefficient Cd", label_i18n: {"en":"Vent discharge coefficient Cd","tr":"Menfez ak\u0131\u015f katsay\u0131s\u0131 Cd"}, type: "number", unit: "", required: false, smartDefault: 0.65, validation: { min: 0.3, max: 1 }, helper: "Discharge coefficient (sharp-edged: 0.6; louvre: 0.4-0.7).", helper_i18n: {"en":"Discharge coefficient (sharp-edged: 0.6; louvre: 0.4-0.7).","tr":"Ak\u0131\u015f katsay\u0131s\u0131 (keskin kenarl\u0131: 0.6; panjur: 0.4-0.7)."}, expertMeaning: "Cd for A = Q/(Cd\u00d7\u221a(2g\u00d7\u0394H\u00d7\u0394T/Ti))", expertMeaning_i18n: {"en":"Cd for A = Q/(Cd\u00d7\u221a(2g\u00d7\u0394H\u00d7\u0394T/Ti))","tr":"Cd for A = Q/(Cd\u00d7\u221a(2g\u00d7\u0394H\u00d7\u0394T/Ti))"} },
+    { id: "stackHeight", label: "Stack height \u0394H", label_i18n: {"en":"Stack height \u0394H","tr":"Baca y\u00fcksekli\u011fi \u0394H"}, type: "number", unit: "m", required: false, smartDefault: 3, validation: { min: 0.1 }, helper: "Vertical distance between inlet and outlet openings.", helper_i18n: {"en":"Vertical distance between inlet and outlet openings.","tr":"Giri\u015f ve \u00e7\u0131k\u0131\u015f a\u00e7\u0131kl\u0131klar\u0131 aras\u0131ndaki dikey mesafe."}, expertMeaning: "\u0394H for stack-induced pressure: \u0394P = \u03c1\u2080\u00d7g\u00d7\u0394H\u00d7\u0394T/Ti", expertMeaning_i18n: {"en":"\u0394H for stack-induced pressure: \u0394P = \u03c1\u2080\u00d7g\u00d7\u0394H\u00d7\u0394T/Ti","tr":"\u0394H for stack-induced pressure: \u0394P = \u03c1\u2080\u00d7g\u00d7\u0394H\u00d7\u0394T/Ti"} },
+  ],
+  outputs: [
+    { id: "zoneVolumeM3", label: "Zone volume", label_i18n: {"en":"Zone volume","tr":"B\u00f6lge hacmi"}, unit: "m\u00b3", format: "number" },
+    { id: "requiredFlowM3s", label: "Required flow rate Q", label_i18n: {"en":"Required flow rate Q","tr":"Gerekli debi Q"}, unit: "m\u00b3/s", format: "number" },
+    { id: "temperatureDelta", label: "Temperature difference \u0394T", label_i18n: {"en":"Temperature difference \u0394T","tr":"S\u0131cakl\u0131k fark\u0131 \u0394T"}, unit: "\u00b0C", format: "number" },
+    { id: "requiredVentArea", label: "Required vent area A_total", label_i18n: {"en":"Required vent area A_total","tr":"Gerekli menfez alan\u0131 A_total"}, unit: "m\u00b2", format: "number" },
+    { id: "lowerVentArea", label: "Lower (inlet) vent area", label_i18n: {"en":"Lower (inlet) vent area","tr":"Alt (giri\u015f) menfez alan\u0131"}, unit: "m\u00b2", format: "number" },
+    { id: "upperVentArea", label: "Upper (outlet) vent area", label_i18n: {"en":"Upper (outlet) vent area","tr":"\u00dcst (\u00e7\u0131k\u0131\u015f) menfez alan\u0131"}, unit: "m\u00b2", format: "number" },
+    { id: "actualAirflowM3h", label: "Actual airflow rate", label_i18n: {"en":"Actual airflow rate","tr":"Ger\u00e7ek hava debisi"}, unit: "m\u00b3/h", format: "number" },
+  ],
+  thresholds: [{ fieldId: "temperatureDelta", warning: 3, critical: 0.5, direction: "lower_is_bad", warningMessage: "\u0394T below 3\u00b0C \u2014 weak buoyancy; consider mechanical ventilation support.", warningMessage_i18n: {"en":"\u0394T below 3\u00b0C \u2014 weak buoyancy; consider mechanical ventilation support.","tr":"\u0394T below 3\u00b0C \u2014 weak buoyancy; consider mechanical ventilation support."}, criticalMessage: "\u0394T below 0.5\u00b0C \u2014 natural ventilation may not be feasible; design mechanical system.", criticalMessage_i18n: {"en":"\u0394T below 0.5\u00b0C \u2014 natural ventilation may not be feasible; design mechanical system.","tr":"\u0394T below 0.5\u00b0C \u2014 natural ventilation may not be feasible; design mechanical system."} }],
+  formulaPipeline: [{ formulaId: "industrial.natural_ventilation", inputMap: { areaLength: "areaLength", areaWidth: "areaWidth", ceilingHeight: "ceilingHeight", indoorTemperature: "indoorTemperature", outdoorTemperature: "outdoorTemperature", targetACH: "targetACH", ventDischargeCoefficient: "ventDischargeCoefficient", stackHeight: "stackHeight" }, outputId: "requiredVentArea" }],
+  reportTemplate: { title: "Natural Ventilation (ACH) Requirement Report", title_i18n: {"en":"Natural Ventilation (ACH) Requirement Report","tr":"Do\u011fal Havaland\u0131rma (ACH) \u0130htiya\u00e7 Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Natural ventilation driven by stack effect only; wind effect not included.", "Discharge coefficient assumes sharp-edged opening; louvres reduce effective area.", "Temperature difference must be positive for buoyancy-driven flow.", "Equal inlet and outlet area assumed for neutral pressure plane at mid-height."] },
+};
+
+const COMPOUNDING_FREQUENCY_OPTIONS = [
+  { value: "daily", label: "Daily (365/year)", label_i18n: {"en":"Daily (365/year)","tr":"G\u00fcnl\u00fck (365/y\u0131l)"} },
+  { value: "weekly", label: "Weekly (52/year)", label_i18n: {"en":"Weekly (52/year)","tr":"Haftal\u0131k (52/y\u0131l)"} },
+  { value: "monthly", label: "Monthly (12/year)", label_i18n: {"en":"Monthly (12/year)","tr":"Ayl\u0131k (12/y\u0131l)"} },
+  { value: "quarterly", label: "Quarterly (4/year)", label_i18n: {"en":"Quarterly (4/year)","tr":"3 ayl\u0131k (4/y\u0131l)"} },
+  { value: "semi_annual", label: "Semi-annual (2/year)", label_i18n: {"en":"Semi-annual (2/year)","tr":"6 ayl\u0131k (2/y\u0131l)"} },
+  { value: "annual", label: "Annual (1/year)", label_i18n: {"en":"Annual (1/year)","tr":"Y\u0131ll\u0131k (1/y\u0131l)"} },
+  { value: "continuous", label: "Continuous (e^rt)", label_i18n: {"en":"Continuous (e^rt)","tr":"S\u00fcrekli (e^rt)"} },
+] as const;
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 28. Compound Interest Calculator (Detailed)
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const COMPOUND_INTEREST_SCHEMA: PremiumCalculatorSchema = {
+  id: "compound-interest-calculator",
+  legacyPaidSlug: "compound-interest-calculator",
+  name: "Compound Interest Calculator (Detailed)", name_i18n: {"en":"Compound Interest Calculator (Detailed)","tr":"Bile\u015fik Faiz Hesaplay\u0131c\u0131 (Detayl\u0131)"},
+  sectorSlug: "financial-planning",
+  category: "finance",
+  painStatement: "A simple FV = PV\u00d7(1+r)^n formula hides the power of periodic contributions, compounding frequency, inflation erosion, and tax impact \u2014 decisions made with oversimplified calculators can cost hundreds of thousands over a 30-year horizon.", painStatement_i18n: {"en":"A simple FV = PV\u00d7(1+r)^n formula hides the power of periodic contributions, compounding frequency, inflation erosion, and tax impact \u2014 decisions made with oversimplified calculators can cost hundreds of thousands over a 30-year horizon.","tr":"Basit bir FV = PV\u00d7(1+r)^n form\u00fcl\u00fc periyodik katk\u0131lar\u0131n, bile\u015fik s\u0131kl\u0131\u011f\u0131n\u0131n, enflasyon ve vergi etkisinin g\u00fcc\u00fcn\u00fc gizler."},
+  inputs: [
+    { id: "currency", label: "Currency", label_i18n: {"en":"Currency","tr":"Currency"}, type: "select", unit: "", required: true, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "All monetary inputs in this currency.", helper_i18n: {"en":"All monetary inputs in this currency.","tr":"All monetary inputs in this currency."}, expertMeaning: "ISO code for output formatting.", expertMeaning_i18n: {"en":"ISO code for output formatting.","tr":"ISO code for output formatting."} },
+    { id: "initialPrincipal", label: "Initial principal PV", label_i18n: {"en":"Initial principal PV","tr":"Ba\u015flang\u0131\u00e7 sermayesi PV"}, type: "number", unit: "currency", required: true, smartDefault: 10000, validation: { min: 0 }, helper: "Starting investment amount (present value).", helper_i18n: {"en":"Starting investment amount (present value).","tr":"Ba\u015flang\u0131\u00e7 yat\u0131r\u0131m tutar\u0131 (bug\u00fcnk\u00fc de\u011fer)."}, expertMeaning: "PV in FV = PV\u00d7(1+r/m)^(m\u00d7t)", expertMeaning_i18n: {"en":"PV in FV = PV\u00d7(1+r/m)^(m\u00d7t)","tr":"PV in FV = PV\u00d7(1+r/m)^(m\u00d7t)"} },
+    { id: "monthlyContribution", label: "Monthly contribution PMT", label_i18n: {"en":"Monthly contribution PMT","tr":"Ayl\u0131k katk\u0131 PMT"}, type: "number", unit: "currency", required: false, smartDefault: 500, validation: { min: 0 }, helper: "Regular periodic contribution amount.", helper_i18n: {"en":"Regular periodic contribution amount.","tr":"D\u00fczenli periyodik katk\u0131 tutar\u0131."}, expertMeaning: "PMT for FV of annuity: FV = PMT\u00d7(((1+r/m)^(m\u00d7t)-1)/(r/m))", expertMeaning_i18n: {"en":"PMT for FV of annuity: FV = PMT\u00d7(((1+r/m)^(m\u00d7t)-1)/(r/m))","tr":"PMT for FV of annuity: FV = PMT\u00d7(((1+r/m)^(m\u00d7t)-1)/(r/m))"} },
+    { id: "annualRate", label: "Annual interest rate r", label_i18n: {"en":"Annual interest rate r","tr":"Y\u0131ll\u0131k faiz oran\u0131 r"}, type: "number", unit: "%/year", required: true, smartDefault: 8, validation: { min: 0, max: 100 }, helper: "Nominal annual interest or return rate.", helper_i18n: {"en":"Nominal annual interest or return rate.","tr":"Nominal y\u0131ll\u0131k faiz veya getiri oran\u0131."}, expertMeaning: "r as decimal in FV formula: r/100", expertMeaning_i18n: {"en":"r as decimal in FV formula: r/100","tr":"r as decimal in FV formula: r/100"} },
+    { id: "compoundingFrequency", label: "Compounding frequency m", label_i18n: {"en":"Compounding frequency m","tr":"Birle\u015ftirme s\u0131kl\u0131\u011f\u0131 m"}, type: "select", unit: "", required: true, smartDefault: "monthly", options: [...COMPOUNDING_FREQUENCY_OPTIONS], helper: "How often interest is compounded per year.", helper_i18n: {"en":"How often interest is compounded per year.","tr":"Faizin y\u0131lda ka\u00e7 kez birle\u015ftirildi\u011fi."}, expertMeaning: "m in FV = PV\u00d7(1+r/m)^(m\u00d7t); continuous: FV = PV\u00d7e^(r\u00d7t)", expertMeaning_i18n: {"en":"m in FV = PV\u00d7(1+r/m)^(m\u00d7t); continuous: FV = PV\u00d7e^(r\u00d7t)","tr":"m in FV = PV\u00d7(1+r/m)^(m\u00d7t); continuous: FV = PV\u00d7e^(r\u00d7t)"} },
+    { id: "investmentPeriod", label: "Investment period t", label_i18n: {"en":"Investment period t","tr":"Yat\u0131r\u0131m s\u00fcresi t"}, type: "number", unit: "years", required: true, smartDefault: 10, validation: { min: 0.5, max: 100 }, helper: "Total investment horizon in years.", helper_i18n: {"en":"Total investment horizon in years.","tr":"Y\u0131l cinsinden toplam yat\u0131r\u0131m s\u00fcresi."}, expertMeaning: "t in FV formula exponent", expertMeaning_i18n: {"en":"t in FV formula exponent","tr":"t in FV formula exponent"} },
+    { id: "inflationRate", label: "Expected inflation rate i", label_i18n: {"en":"Expected inflation rate i","tr":"Beklenen enflasyon oran\u0131 i"}, type: "number", unit: "%/year", required: false, smartDefault: 3, validation: { min: 0, max: 100 }, helper: "Expected average annual inflation rate.", helper_i18n: {"en":"Expected average annual inflation rate.","tr":"Beklenen ortalama y\u0131ll\u0131k enflasyon oran\u0131."}, expertMeaning: "Real return = ((1+r)/(1+i)) - 1 (Fisher equation)", expertMeaning_i18n: {"en":"Real return = ((1+r)/(1+i)) - 1 (Fisher equation)","tr":"Real return = ((1+r)/(1+i)) - 1 (Fisher equation)"} },
+    { id: "taxRate", label: "Capital gains tax rate t", label_i18n: {"en":"Capital gains tax rate t","tr":"Sermaye kazanc\u0131 vergi oran\u0131 t"}, type: "number", unit: "%", required: false, smartDefault: 0, validation: { min: 0, max: 100 }, helper: "Effective tax rate on investment returns.", helper_i18n: {"en":"Effective tax rate on investment returns.","tr":"Yat\u0131r\u0131m getirileri \u00fczerindeki efektif vergi oran\u0131."}, expertMeaning: "After-tax interest = r \u00d7 (1 - t/100)", expertMeaning_i18n: {"en":"After-tax interest = r \u00d7 (1 - t/100)","tr":"After-tax interest = r \u00d7 (1 - t/100)"} },
+  ],
+  outputs: [
+    { id: "totalPeriods", label: "Total compounding periods", label_i18n: {"en":"Total compounding periods","tr":"Toplam birle\u015ftirme d\u00f6nemi"}, unit: "", format: "number" },
+    { id: "fvPrincipal", label: "FV from principal only", label_i18n: {"en":"FV from principal only","tr":"Yaln\u0131zca anaparadan FV"}, unit: "currency", format: "currency" },
+    { id: "fvContributions", label: "FV from contributions", label_i18n: {"en":"FV from contributions","tr":"Katk\u0131lardan FV"}, unit: "currency", format: "currency" },
+    { id: "fvTotal", label: "Total future value", label_i18n: {"en":"Total future value","tr":"Toplam gelecek de\u011fer"}, unit: "currency", format: "currency", isBigNumber: true },
+    { id: "totalInvested", label: "Total amount invested", label_i18n: {"en":"Total amount invested","tr":"Toplam yat\u0131r\u0131lan tutar"}, unit: "currency", format: "currency" },
+    { id: "totalInterest", label: "Total interest earned", label_i18n: {"en":"Total interest earned","tr":"Kazan\u0131lan toplam faiz"}, unit: "currency", format: "currency", isBigNumber: true },
+    { id: "afterTaxInterest", label: "After-tax interest", label_i18n: {"en":"After-tax interest","tr":"Vergi sonras\u0131 faiz"}, unit: "currency", format: "currency" },
+    { id: "afterTaxTotal", label: "After-tax total value", label_i18n: {"en":"After-tax total value","tr":"Vergi sonras\u0131 toplam de\u011fer"}, unit: "currency", format: "currency" },
+    { id: "realReturnPct", label: "Real return (inflation-adjusted)", label_i18n: {"en":"Real return (inflation-adjusted)","tr":"Reel getiri (enflasyon d\u00fczeltmeli)"}, unit: "%", format: "percentage" },
+    { id: "purchasingPower", label: "Inflation-adjusted purchasing power", label_i18n: {"en":"Inflation-adjusted purchasing power","tr":"Enflasyon d\u00fczeltmeli sat\u0131n alma g\u00fcc\u00fc"}, unit: "currency", format: "currency" },
+    { id: "doublingYears", label: "Rule of 72 doubling years", label_i18n: {"en":"Rule of 72 doubling years","tr":"72 kural\u0131 katlanma y\u0131l\u0131"}, unit: "years", format: "duration" },
+  ],
+  thresholds: [{ fieldId: "realReturnPct", warning: 1, critical: 0, direction: "lower_is_bad", warningMessage: "Real return below 1% \u2014 inflation is eroding purchasing power significantly.", warningMessage_i18n: {"en":"Real return below 1% \u2014 inflation is eroding purchasing power significantly.","tr":"Real return below 1% \u2014 inflation is eroding purchasing power significantly."}, criticalMessage: "Real return zero or negative \u2014 investment is losing purchasing power after inflation.", criticalMessage_i18n: {"en":"Real return zero or negative \u2014 investment is losing purchasing power after inflation.","tr":"Real return zero or negative \u2014 investment is losing purchasing power after inflation."} }],
+  formulaPipeline: [{ formulaId: "industrial.compound_interest", inputMap: { currency: "currency", initialPrincipal: "initialPrincipal", monthlyContribution: "monthlyContribution", annualRate: "annualRate", compoundingFrequency: "compoundingFrequency", investmentPeriod: "investmentPeriod", inflationRate: "inflationRate", taxRate: "taxRate" }, outputId: "fvTotal" }],
+  reportTemplate: { title: "Compound Interest Analysis Report", title_i18n: {"en":"Compound Interest Analysis Report","tr":"Bile\u015fik Faiz Analiz Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["FV assumes constant rate of return over entire investment period (no volatility).", "Inflation adjustment uses Fisher equation: (1+r_nominal)/(1+i) - 1.", "Capital gains tax applied to interest portion only (not principal).", "Rule of 72 = 72 / (r \u00d7 100) for approximate doubling time.", "Monthly contributions assumed to occur at end of each period (ordinary annuity)."] },
+};
+
+/* ─── Shared option sets for tools #173-#180 ─── */
+
+const INSULATION_OPTIONS = [
+  { value: "iyi", label: "Good (R \u2265 4.0 m\u00b2K/W)" },
+  { value: "orta", label: "Average (R ~ 2.5 m\u00b2K/W)" },
+  { value: "kotu", label: "Poor (R ~ 1.0 m\u00b2K/W)" },
+] as const;
+
+const GLASS_TYPE_OPTIONS = [
+  { value: "cift_cam", label: "Double-glazed (U~2.8 W/m\u00b2K)" },
+  { value: "uc_cam", label: "Triple-glazed (U~1.8 W/m\u00b2K)" },
+  { value: "tek_cam", label: "Single-glazed (U~5.7 W/m\u00b2K)" },
+] as const;
+
+const PANEL_TYPE_OPTIONS = [
+  { value: "PKKP_11", label: "Type 11 \u2014 1 row + 1 fin" },
+  { value: "PKKP_21", label: "Type 21 \u2014 2 rows + 1 fin" },
+  { value: "PKKP_22", label: "Type 22 \u2014 2 rows + 2 fins (standard)" },
+  { value: "PKKP_33", label: "Type 33 \u2014 3 rows + 3 fins" },
+] as const;
+
+const OPERATING_TEMP_OPTIONS = [
+  { value: "75/65", label: "75/65 \u00b0C \u2014 Standard radiator system" },
+  { value: "55/45", label: "55/45 \u00b0C \u2014 Low-temperature system" },
+  { value: "45/35", label: "45/35 \u00b0C \u2014 Very low-temp / heat pump" },
+] as const;
+
+const FLOOR_TYPE_OPTIONS = [
+  { value: "sap", label: "Screed / Cement (R~0.10 m\u00b2K/W)" },
+  { value: "parke", label: "Parquet / Wood (R~0.15 m\u00b2K/W)" },
+  { value: "fayans", label: "Tile / Ceramic (R~0.02 m\u00b2K/W)" },
+  { value: "hal\u0131", label: "Carpet (R~0.25 m\u00b2K/W)" },
+] as const;
+
+const PIPE_DIAMETER_OPTIONS = [
+  { value: "16", label: "16 mm (standard PEX)" },
+  { value: "17", label: "17 mm (PEX-Al-PEX)" },
+  { value: "20", label: "20 mm (large loop)" },
+] as const;
+
+const COLLECTOR_TYPE_OPTIONS = [
+  { value: "duz_levha", label: "Flat plate (\u03b7~70%, cost-effective)" },
+  { value: "vakum_tupu", label: "Evacuated tube (\u03b7~80%, colder climates)" },
+  { value: "heat_pipe", label: "Heat pipe (\u03b7~85%, high efficiency)" },
+] as const;
+
+const AUXILIARY_SOURCE_OPTIONS = [
+  { value: "elektrikli", label: "Electric resistance" },
+  { value: "dogalgaz", label: "Natural gas boiler" },
+  { value: "isitma_pompasi", label: "Heat pump" },
+] as const;
+
+const CARD_TYPE_OPTIONS = [
+  { value: "cekim", label: "Withdrawal Kanban" },
+  { value: "uretim", label: "Production Kanban" },
+  { value: "sinyal", label: "Signal Kanban" },
+] as const;
+
+const PROCESS_TYPE_OPTIONS = [
+  { value: "service", label: "Service (people-flow)" },
+  { value: "manufacturing", label: "Manufacturing (material-flow)" },
+  { value: "software", label: "Software (work-item-flow)" },
+] as const;
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 29. Living Wage Calculator (SGK & T\u00fcrkiye payroll)
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const LIVING_WAGE_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
+  id: "living-wage-calculator",
+  legacyPaidSlug: "living-wage-calculator",
+  name: "Living Wage Calculator",
+  sectorSlug: "general",
+  category: "cost",
+  painStatement: "Calculating true employer cost per employee requires aggregating gross salary, overtime, SGK, unemployment fund, stamp tax, income tax withholding, meal and transportation allowances \u2014 one missing rate creates a misleading net cost figure.",
+  inputs: [
+    { id: "currency", label: "Currency", type: "select", unit: "", required: true, smartDefault: "TRY", options: [...CURRENCY_OPTIONS], helper: "All monetary inputs in this currency.", expertMeaning: "ISO code for output formatting." },
+    { id: "calisanSayisi", label: "Number of employees", type: "number", unit: "", required: true, smartDefault: 1, validation: { min: 1 }, helper: "Total employee headcount for aggregate calculations.", expertMeaning: "n for total employer cost = n \u00d7 per-employee cost" },
+    { id: "brUcret_Aylik", label: "Gross monthly salary (per employee)", type: "number", unit: "currency", required: true, smartDefault: 20000, validation: { min: 0 }, helper: "Base gross salary before any deductions.", expertMeaning: "Br\u00fct \u00fccret \u2014 SGK, \u0130\u015fsizlik, Damga, Gelir Vergisi matrah\u0131" },
+    { id: "fazlaMesaiSaat_Aylik", label: "Overtime hours per month (per employee)", type: "number", unit: "hours", required: false, smartDefault: 0, validation: { min: 0 }, helper: "Total overtime hours worked per month.", expertMeaning: "Fazla mesai \u2014 br\u00fct \u00fccrete eklenir" },
+    { id: "fazlaMesaiKatsayisi", label: "Overtime multiplier", type: "number", unit: "x", required: false, smartDefault: 1.5, validation: { min: 1, max: 3 }, helper: "Hourly rate multiplier for overtime (legal min. 1.5x).", expertMeaning: "Fazla mesai katsay\u0131s\u0131 \u2014 1.5 = %50 zaml\u0131" },
+    { id: "SGK_isverenOrani", label: "SGK employer contribution rate", type: "number", unit: "%", required: true, smartDefault: 15.5, validation: { min: 0, max: 40 }, helper: "Employer social security premium rate (standard 15.5%).", expertMeaning: "SGK i\u015fveren pay\u0131 \u2014 k\u0131sa vadeli + uzun vadeli kollar" },
+    { id: "issizlikFonuOrani", label: "Unemployment fund rate (employer)", type: "number", unit: "%", required: true, smartDefault: 2, validation: { min: 0, max: 5 }, helper: "Employer unemployment insurance fund contribution.", expertMeaning: "\u0130\u015fsizlik fonu i\u015fveren pay\u0131" },
+    { id: "damgaVergiOrani", label: "Stamp tax rate", type: "number", unit: "%", required: true, smartDefault: 0.759, validation: { min: 0, max: 5 }, helper: "Stamp duty on gross salary (2025 rate: 0.759%).", expertMeaning: "Damga vergisi oran\u0131 \u2014 br\u00fct \u00fccret \u00fczerinden" },
+    { id: "gelirVergiDilimi", label: "Income tax bracket", type: "number", unit: "%", required: true, smartDefault: 15, validation: { min: 0, max: 45 }, helper: "Applicable marginal income tax rate for the employee.", expertMeaning: "Gelir vergisi dilimi \u2014 kademeli oran" },
+    { id: "AGI_tutari", label: "Minimum living allowance (AGI)", type: "number", unit: "currency", required: false, smartDefault: 0, validation: { min: 0 }, helper: "Asgari ge\u00e7im indirimi (may be zeroed after tax reform).", expertMeaning: "AGI \u2014 br\u00fct asgari \u00fccrete ba\u011fl\u0131 indirim" },
+    { id: "yemekYardimi_Gunluk", label: "Daily meal allowance", type: "number", unit: "currency", required: false, smartDefault: 100, validation: { min: 0 }, helper: "Daily meal card or cash allowance per employee.", expertMeaning: "Yemek yard\u0131m\u0131 \u2014 g\u00fcnl\u00fck tutar" },
+    { id: "yolYardimi_Gunluk", label: "Daily transportation allowance", type: "number", unit: "currency", required: false, smartDefault: 50, validation: { min: 0 }, helper: "Daily transport allowance per employee.", expertMeaning: "Yol yard\u0131m\u0131 \u2014 g\u00fcnl\u00fck tutar" },
+    { id: "calismaGunu_Ay", label: "Working days per month", type: "number", unit: "days", required: true, smartDefault: 22, validation: { min: 1, max: 31 }, helper: "Average number of working days in a month.", expertMeaning: "Ayl\u0131k \u00e7al\u0131\u015fma g\u00fcn\u00fc say\u0131s\u0131 \u2014 yard\u0131m hesaplar\u0131nda kullan\u0131l\u0131r" },
+  ],
+  outputs: [
+    { id: "brUcret_Yillik", label: "Gross annual salary (per employee)", unit: "currency", format: "currency" },
+    { id: "SGK_toplam_isveren", label: "SGK total (employer share, annual)", unit: "currency", format: "currency" },
+    { id: "issizlik_toplam", label: "Unemployment fund (employer, annual)", unit: "currency", format: "currency" },
+    { id: "damgaVergisi", label: "Stamp tax (annual)", unit: "currency", format: "currency" },
+    { id: "gelirVergisi_yillik", label: "Income tax withheld (annual)", unit: "currency", format: "currency" },
+    { id: "kesintiToplami", label: "Total deductions (annual)", unit: "currency", format: "currency" },
+    { id: "netUcret_Aylik", label: "Net monthly salary (per employee)", unit: "currency", format: "currency" },
+    { id: "netUcret_Yillik", label: "Net annual salary (per employee)", unit: "currency", format: "currency" },
+    { id: "isvereneToplamMaliyet", label: "Total employer cost (annual, per employee)", unit: "currency", format: "currency", isBigNumber: true },
+    { id: "calisanaFayda_pct", label: "Net benefit ratio (net \u00f7 gross)", unit: "%", format: "percentage" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.living_wage", inputMap: { calisanSayisi: "calisanSayisi", brUcret_Aylik: "brUcret_Aylik", fazlaMesaiSaat_Aylik: "fazlaMesaiSaat_Aylik", fazlaMesaiKatsayisi: "fazlaMesaiKatsayisi", SGK_isverenOrani: "SGK_isverenOrani", issizlikFonuOrani: "issizlikFonuOrani", damgaVergiOrani: "damgaVergiOrani", gelirVergiDilimi: "gelirVergiDilimi", AGI_tutari: "AGI_tutari", yemekYardimi_Gunluk: "yemekYardimi_Gunluk", yolYardimi_Gunluk: "yolYardimi_Gunluk", calismaGunu_Ay: "calismaGunu_Ay" }, outputId: "netUcret_Aylik" }],
+  reportTemplate: { title: "Living Wage & Employer Cost Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, hiddenLossMultiplier: 1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["SGK employer = br\u00fct \u00d7 (SGK_oran\u0131/100); \u0130\u015fsizlik = br\u00fct \u00d7 (i\u015fsizlik_oran\u0131/100).", "Damga vergisi = br\u00fct \u00d7 (damga_oran\u0131/100); Gelir vergisi = br\u00fct \u00d7 (vergi_dilimi/100).", "Net = br\u00fct - kesintiler + yard\u0131mlar; \u0130\u015fveren maliyeti = br\u00fct \u00d7 (1 + SGK/100 + i\u015fsizlik/100) + yard\u0131mlar.", "Results are technical simulations \u2014 consult a qualified payroll specialist for exact figures."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 30. Panel Radiator Heating Capacity Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const PANEL_RADIATOR_HEATING_SCHEMA: PremiumCalculatorSchema = {
+  id: "panel-radiator-heating-capacity-calculator",
+  legacyPaidSlug: "panel-radiator-heating-capacity-calculator",
+  name: "Panel Radiator Heating Capacity Calculator",
+  sectorSlug: "hvac",
+  category: "measurement",
+  painStatement: "Sizing a panel radiator requires room heat-loss calculation (volume \u00d7 \u0394T \u00d7 U-value), panel output correction for non-standard operating temperatures, and boiler power verification \u2014 one wrong correction factor can undersize the radiator by 30%.",
+  inputs: [
+    { id: "odaUzunlugu", label: "Room length", type: "number", unit: "m", required: true, smartDefault: 5, validation: { min: 0.5 }, helper: "Length of the room.", expertMeaning: "L for room volume V = L \u00d7 W \u00d7 H" },
+    { id: "odaGenisligi", label: "Room width", type: "number", unit: "m", required: true, smartDefault: 4, validation: { min: 0.5 }, helper: "Width of the room.", expertMeaning: "W for room volume" },
+    { id: "odaYuksekligi", label: "Room height", type: "number", unit: "m", required: true, smartDefault: 2.7, validation: { min: 1, max: 10 }, helper: "Ceiling height.", expertMeaning: "H for room volume" },
+    { id: "hedefSicaklik_Ti", label: "Target indoor temperature Ti", type: "number", unit: "\u00b0C", required: true, smartDefault: 22, validation: { min: 10, max: 35 }, helper: "Desired indoor temperature.", expertMeaning: "Ti \u2014 indoor set-point" },
+    { id: "disSicaklik_To", label: "Outdoor design temperature To", type: "number", unit: "\u00b0C", required: true, smartDefault: 0, validation: { min: -40, max: 40 }, helper: "Winter design outdoor temperature for the region.", expertMeaning: "To for \u0394T = Ti - To" },
+    { id: "izolasyonSeviyesi", label: "Insulation level", type: "select", unit: "", required: true, smartDefault: "orta", options: [...INSULATION_OPTIONS], helper: "Building envelope insulation quality.", expertMeaning: "Determines U-value multiplier (0.7 / 1.0 / 1.5 W/m\u00b3K)" },
+    { id: "camTipi", label: "Window glazing type", type: "select", unit: "", required: true, smartDefault: "cift_cam", options: [...GLASS_TYPE_OPTIONS], helper: "Type of window glazing installed.", expertMeaning: "Glass U-value for window heat loss correction" },
+    { id: "camAlani_Orani", label: "Window-to-wall area ratio", type: "number", unit: "%", required: true, smartDefault: 20, validation: { min: 0, max: 100 }, helper: "Percentage of exterior wall area that is glazed.", expertMeaning: "Glazing ratio for solar gain and transmission loss adjustment" },
+    { id: "kisiSayisi", label: "Number of occupants", type: "number", unit: "", required: false, smartDefault: 2, validation: { min: 0, max: 200 }, helper: "Average number of people in the room.", expertMeaning: "Internal heat gain from occupants (~100 W/person)" },
+    { id: "aydinlatmaW_m2", label: "Lighting power density", type: "number", unit: "W/m\u00b2", required: false, smartDefault: 10, validation: { min: 0, max: 50 }, helper: "Installed lighting wattage per square meter.", expertMeaning: "Internal heat gain from lighting" },
+    { id: "panelTipi", label: "Radiator panel type", type: "select", unit: "", required: true, smartDefault: "PKKP_22", options: [...PANEL_TYPE_OPTIONS], helper: "Panel type determines heat output per unit length.", expertMeaning: "PKKP types: row count + fin count" },
+    { id: "isletimSicakligi", label: "Operating temperature regime", type: "select", unit: "", required: true, smartDefault: "75/65", options: [...OPERATING_TEMP_OPTIONS], helper: "Flow/return temperature of the heating system.", expertMeaning: "\u0394T_sys for power correction: Q_actual = Q_nom \u00d7 (\u0394T_sys/50)^n" },
+    { id: "kazanVerimi_\u03b7", label: "Boiler efficiency", type: "number", unit: "%", required: true, smartDefault: 90, validation: { min: 50, max: 100 }, helper: "Condensing boiler: 90-98%; conventional: 75-85%.", expertMeaning: "\u03b7 for boiler input power = heat output / \u03b7" },
+  ],
+  outputs: [
+    { id: "odaHacmi_m3", label: "Room volume", unit: "m\u00b3", format: "number" },
+    { id: "isiIhtiyaci_W", label: "Total heat demand", unit: "W", format: "number", isBigNumber: true },
+    { id: "isiIhtiyaci_kcalh", label: "Heat demand", unit: "kcal/h", format: "number" },
+    { id: "panelGucu_W_75_65", label: "Panel output @ 75/65 \u00b0C", unit: "W", format: "number" },
+    { id: "panelGucu_W_diger", label: "Panel output @ operating temp", unit: "W", format: "number" },
+    { id: "gerekliPanelBoyu", label: "Required panel length", unit: "mm", format: "number" },
+    { id: "secilenPanel", label: "Recommended panel specification", unit: "", format: "number" },
+    { id: "kazanGucu_kW", label: "Required boiler power", unit: "kW", format: "number" },
+    { id: "yillikIsitmaMaliyeti", label: "Annual heating cost (estimated)", unit: "currency", format: "currency" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.panel_radiator", inputMap: { odaUzunlugu: "odaUzunlugu", odaGenisligi: "odaGenisligi", odaYuksekligi: "odaYuksekligi", hedefSicaklik_Ti: "hedefSicaklik_Ti", disSicaklik_To: "disSicaklik_To", izolasyonSeviyesi: "izolasyonSeviyesi", camTipi: "camTipi", camAlani_Orani: "camAlani_Orani", kisiSayisi: "kisiSayisi", aydinlatmaW_m2: "aydinlatmaW_m2", panelTipi: "panelTipi", isletimSicakligi: "isletimSicakligi", kazanVerimi_\u03b7: "kazanVerimi_\u03b7" }, outputId: "isiIhtiyaci_W" }],
+  reportTemplate: { title: "Panel Radiator Sizing Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Heat loss = volume \u00d7 \u0394T \u00d7 U_factor \u00d7 correction; \u0394T = Ti - To.", "Panel power correction: Q_actual = Q_nom \u00d7 (\u0394T_m/50)^n per EN 442.", "Occupant heat gain ~100 W/person; lighting ~10 W/m\u00b2 typical.", "Annual energy cost assumes 2,000 equivalent full-load heating hours."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 31. Underfloor Heating Design Calculator (EN 1264)
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const UNDERFLOOR_HEATING_SCHEMA: PremiumCalculatorSchema = {
+  id: "underfloor-heating-design-calculator",
+  legacyPaidSlug: "underfloor-heating-design-calculator",
+  name: "Underfloor Heating Design Calculator",
+  sectorSlug: "hvac",
+  category: "measurement",
+  painStatement: "Underfloor heating design per EN 1264 requires iterative calculation of floor surface temperature, heat flux, pipe spacing, circuit count, pressure drop, and pump sizing \u2014 a manual miss in any parameter leads to cold spots or excessive floor temperature.",
+  inputs: [
+    { id: "alanUzunlugu", label: "Heated area length", type: "number", unit: "m", required: true, smartDefault: 8, validation: { min: 0.5 }, helper: "Length of the heated floor area.", expertMeaning: "L for heated area A = L \u00d7 W" },
+    { id: "alanGenisligi", label: "Heated area width", type: "number", unit: "m", required: true, smartDefault: 6, validation: { min: 0.5 }, helper: "Width of the heated floor area.", expertMeaning: "W for heated area" },
+    { id: "odaSicakligi_Ti", label: "Target room temperature Ti", type: "number", unit: "\u00b0C", required: true, smartDefault: 22, validation: { min: 10, max: 35 }, helper: "Desired indoor air temperature.", expertMeaning: "Ti for \u0394T_floor = T_floor_mean - Ti" },
+    { id: "serpantinAraligi_cm", label: "Pipe spacing (serpentine pitch)", type: "number", unit: "cm", required: true, smartDefault: 15, validation: { min: 5, max: 50 }, helper: "Center-to-center distance between pipe loops.", expertMeaning: "T for pipe length per m\u00b2 = 100/T (m/m\u00b2)" },
+    { id: "zeminTipi", label: "Floor covering type", type: "select", unit: "", required: true, smartDefault: "sap", options: [...FLOOR_TYPE_OPTIONS], helper: "Floor finish affects thermal resistance upward.", expertMeaning: "R_floor for upward heat flux calculation per EN 1264" },
+    { id: "isletimSicakligi_gidis", label: "Flow temperature (supply)", type: "number", unit: "\u00b0C", required: true, smartDefault: 45, validation: { min: 20, max: 60 }, helper: "Water temperature entering the floor loop.", expertMeaning: "T_supply for \u0394T_system = T_supply - T_return" },
+    { id: "donusSicakligi", label: "Return temperature", type: "number", unit: "\u00b0C", required: true, smartDefault: 35, validation: { min: 15, max: 55 }, helper: "Water temperature returning from the floor loop.", expertMeaning: "T_return \u2014 \u0394T_system typically 5-10 K" },
+    { id: "boruDisCap_mm", label: "Pipe outer diameter", type: "select", unit: "", required: true, smartDefault: "16", options: [...PIPE_DIAMETER_OPTIONS], helper: "Pipe diameter affects hydraulic resistance.", expertMeaning: "d for pressure drop and max loop length" },
+    { id: "b\u00f6lgeDebisi_Lmin", label: "Zone flow rate", type: "number", unit: "L/min", required: true, smartDefault: 10, validation: { min: 0.5 }, helper: "Water flow rate per zone or manifold circuit.", expertMeaning: "Q_flow for \u0394P and heat transport capacity" },
+    { id: "odadanCokOdaya", label: "Number of zones / rooms served", type: "number", unit: "", required: false, smartDefault: 1, validation: { min: 1, max: 50 }, helper: "How many separate zones this manifold serves.", expertMeaning: "N_zones for total manifold flow and pump sizing" },
+    { id: "pompVerimi_\u03b7", label: "Circulation pump efficiency", type: "number", unit: "%", required: false, smartDefault: 80, validation: { min: 10, max: 100 }, helper: "Pump motor and hydraulic efficiency.", expertMeaning: "\u03b7_pump for electrical pump power = hydraulic power / \u03b7" },
+  ],
+  outputs: [
+    { id: "isitmaAlani_m2", label: "Heated floor area", unit: "m\u00b2", format: "number" },
+    { id: "ortalamaZeminSicakligi", label: "Mean floor surface temperature", unit: "\u00b0C", format: "number" },
+    { id: "isiAkisi_Wm2", label: "Heat flux upward", unit: "W/m\u00b2", format: "number" },
+    { id: "toplamIsiGucu", label: "Total heating power", unit: "W", format: "number", isBigNumber: true },
+    { id: "boruBoyu_toplam", label: "Total pipe length", unit: "m", format: "number" },
+    { id: "boruSayisi_devre", label: "Circuits in parallel", unit: "", format: "number" },
+    { id: "boruBoyu_devre", label: "Pipe length per circuit", unit: "m", format: "number" },
+    { id: "devreSayisi", label: "Number of circuits required", unit: "", format: "number" },
+    { id: "basincDusumu_bar", label: "Pressure drop per circuit", unit: "bar", format: "number" },
+    { id: "pompaDebisi", label: "Required pump flow rate", unit: "L/min", format: "number" },
+    { id: "pompaBasinci_mSS", label: "Required pump head", unit: "mSS", format: "number" },
+    { id: "pompaGucu", label: "Pump electrical power", unit: "W", format: "number" },
+  ],
+  thresholds: [{ fieldId: "ortalamaZeminSicakligi", warning: 29, critical: 35, direction: "higher_is_bad", warningMessage: "Floor temperature exceeds 29 \u00b0C comfort limit (TS EN 1264).", criticalMessage: "Floor temperature exceeds 35 \u00b0C \u2014 possible discomfort or damage." }],
+  formulaPipeline: [{ formulaId: "industrial.underfloor_heating", inputMap: { alanUzunlugu: "alanUzunlugu", alanGenisligi: "alanGenisligi", odaSicakligi_Ti: "odaSicakligi_Ti", serpantinAraligi_cm: "serpantinAraligi_cm", zeminTipi: "zeminTipi", isletimSicakligi_gidis: "isletimSicakligi_gidis", donusSicakligi: "donusSicakligi", boruDisCap_mm: "boruDisCap_mm", b\u00f6lgeDebisi_Lmin: "b\u00f6lgeDebisi_Lmin", pompVerimi_\u03b7: "pompVerimi_\u03b7" }, outputId: "toplamIsiGucu" }],
+  reportTemplate: { title: "Underfloor Heating Design Report (EN 1264)", sections: ["executive_summary", "thresholds", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Design per EN 1264: floor surface temp \u2264 29 \u00b0C (occupied), \u2264 35 \u00b0C (perimeter).", "Pipe length per circuit limited to \u2264 120 m (16 mm) or \u2264 150 m (20 mm).", "Pressure drop uses Darcy-Weisbach + minor losses (K-factor method).", "Results are technical simulations \u2014 verify with a certified HVAC engineer."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 32. Solar Tube / Solar Collector Sizing Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const SOLAR_COLLECTOR_SCHEMA: PremiumCalculatorSchema = {
+  id: "solar-tube-collector-sizing-calculator",
+  legacyPaidSlug: "solar-tube-collector-sizing-calculator",
+  name: "Solar Tube / Solar Collector Sizing Calculator",
+  sectorSlug: "hvac",
+  category: "measurement",
+  painStatement: "Sizing a solar thermal system requires balancing hot water demand, collector area, storage volume, solar irradiation, and auxiliary backup \u2014 oversizing the collector wastes investment, undersizing leaves reliance on expensive backup energy.",
+  inputs: [
+    { id: "currency", label: "Currency", type: "select", unit: "", required: true, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "All monetary inputs in this currency.", expertMeaning: "ISO code for output formatting." },
+    { id: "kullaniciSayisi", label: "Number of users", type: "number", unit: "", required: true, smartDefault: 4, validation: { min: 1, max: 1000 }, helper: "Number of people consuming hot water.", expertMeaning: "n for daily demand Q = n \u00d7 L/person \u00d7 cp \u00d7 \u0394T" },
+    { id: "gunlukKullanim_su_L_kisi", label: "Daily hot water consumption per person", type: "number", unit: "L/person/day", required: true, smartDefault: 50, validation: { min: 5, max: 500 }, helper: "Average hot water usage per person per day.", expertMeaning: "L/person/day \u2014 typical: 30-60 (residential), 20-40 (office)" },
+    { id: "sogukSuSicakligi_Tc", label: "Cold water inlet temperature Tc", type: "number", unit: "\u00b0C", required: true, smartDefault: 10, validation: { min: 0, max: 30 }, helper: "Ground water temperature entering the system.", expertMeaning: "Tc for \u0394T = Tg - Tc" },
+    { id: "sicakSuHedef_Tg", label: "Target hot water temperature Tg", type: "number", unit: "\u00b0C", required: true, smartDefault: 60, validation: { min: 30, max: 90 }, helper: "Desired hot water storage temperature.", expertMeaning: "Tg \u2014 legionella prevention: \u2265 60 \u00b0C" },
+    { id: "kolektorVerimi_\u03b7_kol", label: "Collector efficiency", type: "number", unit: "%", required: true, smartDefault: 70, validation: { min: 10, max: 95 }, helper: "Optical and thermal efficiency of the collector.", expertMeaning: "\u03b7_kol \u2014 flat plate ~70%, evacuated tube ~80%, heat pipe ~85%" },
+    { id: "guneslenmeSuresi_saat", label: "Daily sunshine duration", type: "number", unit: "hours", required: true, smartDefault: 5, validation: { min: 1, max: 16 }, helper: "Average daily peak sun hours for the location.", expertMeaning: "t_sun \u2014 hours of usable solar irradiation per day" },
+    { id: "gunesIsinimiGunl\u00fck_Wm2", label: "Daily solar irradiance", type: "number", unit: "W/m\u00b2", required: true, smartDefault: 500, validation: { min: 50, max: 1200 }, helper: "Average daily solar power per square meter.", expertMeaning: "I for Q_solar = I \u00d7 A \u00d7 \u03b7 \u00d7 t" },
+    { id: "kolektorTipi", label: "Collector type", type: "select", unit: "", required: true, smartDefault: "duz_levha", options: [...COLLECTOR_TYPE_OPTIONS], helper: "Type of solar thermal collector.", expertMeaning: "Affects efficiency, cost, and operating temperature range" },
+    { id: "depolamaKapasitesi_saat", label: "Storage capacity factor", type: "number", unit: "hours", required: false, smartDefault: 24, validation: { min: 1, max: 72 }, helper: "Hours of hot water demand the storage tank should cover.", expertMeaning: "T_storage \u2014 typical 24h (residential), 12h (commercial)" },
+    { id: "yardimciKaynak", label: "Auxiliary backup source", type: "select", unit: "", required: true, smartDefault: "elektrikli", options: [...AUXILIARY_SOURCE_OPTIONS], helper: "Backup heating when solar is insufficient.", expertMeaning: "Determines auxiliary energy cost rate" },
+    { id: "yardimciKaynakVerimi_\u03b7_yd", label: "Auxiliary heater efficiency", type: "number", unit: "%", required: true, smartDefault: 100, validation: { min: 50, max: 100 }, helper: "Efficiency of the backup heating device.", expertMeaning: "\u03b7_yd \u2014 electric: ~100%, gas: ~90%, heat pump: ~300%" },
+    { id: "enerjiBirimFiyati", label: "Energy unit price", type: "number", unit: "currency/kWh", required: true, smartDefault: 0.12, validation: { min: 0.001 }, helper: "Cost per kWh of auxiliary energy.", expertMeaning: "Price per kWh for annual operating cost calculation" },
+  ],
+  outputs: [
+    { id: "gunlukSicakSuIhtiyaci_L", label: "Daily hot water demand", unit: "L/day", format: "number" },
+    { id: "gunlukToplamEnerji_kWh", label: "Daily thermal energy requirement", unit: "kWh", format: "number" },
+    { id: "kolektorAlan\u0131_m2", label: "Required collector area", unit: "m\u00b2", format: "number" },
+    { id: "depolamaHacmi_L", label: "Recommended storage tank volume", unit: "L", format: "number" },
+    { id: "yardimciKaynakEnerji_kWh_y\u0131l", label: "Annual auxiliary energy consumption", unit: "kWh/year", format: "number", isBigNumber: true },
+    { id: "yillikEnerjiMaliyeti", label: "Annual auxiliary energy cost", unit: "currency", format: "currency" },
+    { id: "yillikTasarruf_percent", label: "Solar fraction (annual savings %)", unit: "%", format: "percentage" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.solar_collector", inputMap: { kullaniciSayisi: "kullaniciSayisi", gunlukKullanim_su_L_kisi: "gunlukKullanim_su_L_kisi", sogukSuSicakligi_Tc: "sogukSuSicakligi_Tc", sicakSuHedef_Tg: "sicakSuHedef_Tg", kolektorVerimi_\u03b7_kol: "kolektorVerimi_\u03b7_kol", guneslenmeSuresi_saat: "guneslenmeSuresi_saat", gunesIsinimiGunl\u00fck_Wm2: "gunesIsinimiGunl\u00fck_Wm2" }, outputId: "kolektorAlan\u0131_m2" }],
+  reportTemplate: { title: "Solar Collector Sizing Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Energy demand: Q = m \u00d7 cp \u00d7 \u0394T; Collector area: A = Q / (I \u00d7 \u03b7_kol \u00d7 t).", "Solar fraction assumes 300 sunny-day-equivalents per year (temperate climate).", "Storage sized for T_storage hours of demand; minimum 1.2 \u00d7 daily demand.", "Results are technical simulations \u2014 verify with a certified solar installer."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 33. EPQ (Economic Production Quantity) Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const EPQ_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
+  id: "epq-production-quantity-calculator",
+  legacyPaidSlug: "epq-production-quantity-calculator",
+  name: "EPQ (Economic Production Quantity) Calculator",
+  sectorSlug: "general",
+  category: "cost",
+  painStatement: "The classic EOQ formula ignores finite production rates, leading to overestimated batch sizes for make-to-stock environments. The EPQ model accounts for simultaneous production and consumption with finite replenishment rate.",
+  inputs: [
+    { id: "currency", label: "Currency", type: "select", unit: "", required: true, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "All monetary inputs in this currency.", expertMeaning: "ISO code for output formatting." },
+    { id: "yillikTalep_D", label: "Annual demand D", type: "number", unit: "units/year", required: true, smartDefault: 10000, validation: { min: 1 }, helper: "Total annual customer demand.", expertMeaning: "D for EPQ = \u221a(2 \u00d7 D \u00d7 S / (H \u00d7 (1 - d/p)))" },
+    { id: "hazirlikMaliyeti_S", label: "Setup / changeover cost S", type: "number", unit: "currency", required: true, smartDefault: 500, validation: { min: 0 }, helper: "Cost per production run setup (labor, scrap, downtime).", expertMeaning: "S \u2014 setup cost per batch" },
+    { id: "birimStokTutmaMaliyeti_H", label: "Unit holding cost H", type: "number", unit: "currency/unit/year", required: true, smartDefault: 2, validation: { min: 0 }, helper: "Cost to hold one unit in inventory for one year.", expertMeaning: "H \u2014 storage, insurance, obsolescence, opportunity cost" },
+    { id: "gunlukUretimHizi_p", label: "Daily production rate p", type: "number", unit: "units/day", required: true, smartDefault: 100, validation: { min: 1 }, helper: "Maximum production output per day.", expertMeaning: "p \u2014 finite replenishment rate (p > d required)" },
+    { id: "gunlukTalepHizi_d", label: "Daily demand rate d", type: "number", unit: "units/day", required: true, smartDefault: 40, validation: { min: 0 }, helper: "Average daily consumption rate.", expertMeaning: "d \u2014 must be < p for EPQ to be finite and positive" },
+    { id: "birimDegiskenMaliyet_C", label: "Unit variable cost C", type: "number", unit: "currency", required: false, smartDefault: 10, validation: { min: 0 }, helper: "Direct material + labor + overhead per unit.", expertMeaning: "C for total production cost = D \u00d7 C" },
+    { id: "satisFiyati_P", label: "Unit selling price P", type: "number", unit: "currency", required: false, smartDefault: 25, validation: { min: 0 }, helper: "Revenue per unit sold.", expertMeaning: "P for gross margin = (P - C) \u00d7 D" },
+    { id: "calismaGunu_yil", label: "Working days per year", type: "number", unit: "days", required: true, smartDefault: 250, validation: { min: 1, max: 366 }, helper: "Number of production days per year.", expertMeaning: "N_days to derive d = D / N_days" },
+  ],
+  outputs: [
+    { id: "EPQ_miktar", label: "Economic Production Quantity EPQ", unit: "units", format: "number" },
+    { id: "envanterDongusu_gun", label: "Inventory cycle length", unit: "days", format: "number" },
+    { id: "maksimumStok", label: "Maximum inventory level", unit: "units", format: "number" },
+    { id: "yillikHazirlikMaliyeti", label: "Annual setup cost", unit: "currency", format: "currency" },
+    { id: "yillikStokMaliyeti", label: "Annual holding cost", unit: "currency", format: "currency" },
+    { id: "toplamStokMaliyeti_yillik", label: "Total annual inventory cost", unit: "currency", format: "currency" },
+    { id: "ortalamaStok", label: "Average inventory", unit: "units", format: "number" },
+    { id: "devirSayisi", label: "Inventory turns per year", unit: "", format: "number" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.epq", inputMap: { yillikTalep_D: "yillikTalep_D", hazirlikMaliyeti_S: "hazirlikMaliyeti_S", birimStokTutmaMaliyeti_H: "birimStokTutmaMaliyeti_H", gunlukUretimHizi_p: "gunlukUretimHizi_p", gunlukTalepHizi_d: "gunlukTalepHizi_d", calismaGunu_yil: "calismaGunu_yil" }, outputId: "EPQ_miktar" }],
+  reportTemplate: { title: "EPQ \u2014 Economic Production Quantity Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["EPQ = \u221a(2 \u00d7 D \u00d7 S / (H \u00d7 (1 - d/p))); requires p > d.", "Maximum inventory = EPQ \u00d7 (1 - d/p).", "Assumes constant demand and production rates (deterministic model).", "Results are technical simulations \u2014 adjust for demand seasonality."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 34. Kanban Bin / Card Count Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const KANBAN_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
+  id: "kanban-bin-card-calculator",
+  legacyPaidSlug: "kanban-bin-card-calculator",
+  name: "Kanban Bin / Card Count Calculator",
+  sectorSlug: "general",
+  category: "measurement",
+  painStatement: "Setting the correct number of Kanban cards is a balance between stock-out risk and WIP. The standard formula accounts for demand, lead time, safety stock factor, and container capacity \u2014 one wrong factor creates either shortages or excess inventory.",
+  inputs: [
+    { id: "gunlukTalep_d", label: "Daily demand d", type: "number", unit: "units/day", required: true, smartDefault: 100, validation: { min: 1 }, helper: "Average daily consumption rate of the part.", expertMeaning: "d for Kanban count = (d \u00d7 LT \u00d7 (1 + k)) / q + 1" },
+    { id: "tedarikSuresi_LT", label: "Lead time LT", type: "number", unit: "days", required: true, smartDefault: 3, validation: { min: 0.1 }, helper: "Total replenishment lead time (production + transport).", expertMeaning: "LT \u2014 time from signal to receipt" },
+    { id: "guvenlikStoguFaktoru_k", label: "Safety stock factor k", type: "number", unit: "", required: true, smartDefault: 0.2, validation: { min: 0, max: 2 }, helper: "Safety buffer as a decimal fraction of lead time demand (0.2 = 20%).", expertMeaning: "k \u2014 safety stock = k \u00d7 d \u00d7 LT" },
+    { id: "kutuKapasitesi_q", label: "Container capacity q", type: "number", unit: "units/container", required: true, smartDefault: 20, validation: { min: 1 }, helper: "Number of units per Kanban container or bin.", expertMeaning: "q \u2014 standard container size" },
+    { id: "kartTuru", label: "Kanban card type", type: "select", unit: "", required: false, smartDefault: "cekim", options: [...CARD_TYPE_OPTIONS], helper: "Type of Kanban signal being calculated.", expertMeaning: "Withdrawal: inter-process transport; Production: build signal; Signal: batch trigger" },
+  ],
+  outputs: [
+    { id: "kanbanSayisi", label: "Number of Kanban cards required", unit: "", format: "number" },
+    { id: "emniyetStogu_miktar", label: "Safety stock quantity", unit: "units", format: "number" },
+    { id: "optimumSiparisMiktari", label: "Optimum order quantity", unit: "units", format: "number" },
+    { id: "toplamStok", label: "Total Kanban stock (active + safety)", unit: "units", format: "number" },
+    { id: "devirHizi_yillik", label: "Annual inventory turns", unit: "", format: "number" },
+    { id: "yillikStokMaliyeti", label: "Annual stocking cost (estimated)", unit: "currency", format: "currency" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.kanban", inputMap: { gunlukTalep_d: "gunlukTalep_d", tedarikSuresi_LT: "tedarikSuresi_LT", guvenlikStoguFaktoru_k: "guvenlikStoguFaktoru_k", kutuKapasitesi_q: "kutuKapasitesi_q" }, outputId: "kanbanSayisi" }],
+  reportTemplate: { title: "Kanban Card Count Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Kanban count = (d \u00d7 LT \u00d7 (1 + k)) / q + 1 (rounded up).", "Safety stock = k \u00d7 d \u00d7 LT; assumes stable demand and lead time.", "Annual stocking cost estimated at 20% of average inventory value.", "Results are technical simulations \u2014 adjust k based on process variability."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 35. Little's Law (WIP) Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const LITTLES_LAW_SCHEMA: PremiumCalculatorSchema = {
+  id: "littles-law-calculator",
+  legacyPaidSlug: "littles-law-calculator",
+  name: "Little's Law (WIP) Calculator",
+  sectorSlug: "general",
+  category: "measurement",
+  painStatement: "Little's Law (WIP = CT \u00d7 TH) is the fundamental equation of queuing theory, yet most teams don't track all three metrics simultaneously. Given any two, this tool computes the third and translates WIP into financial exposure.",
+  inputs: [
+    { id: "currency", label: "Currency", type: "select", unit: "", required: true, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "Currency for WIP cost calculation.", expertMeaning: "ISO code for cost output formatting." },
+    { id: "prosesTipi", label: "Process type", type: "select", unit: "", required: true, smartDefault: "manufacturing", options: [...PROCESS_TYPE_OPTIONS], helper: "Type of process for metric interpretation.", expertMeaning: "Service: people-flow; MFG: material-flow; SW: work-item-flow" },
+    { id: "wip_miktar", label: "Work in Process WIP", type: "number", unit: "units", required: false, smartDefault: 500, validation: { min: 0 }, helper: "Current number of items in the system (omit to compute).", expertMeaning: "WIP \u2014 items started but not finished" },
+    { id: "cikisHizi", label: "Throughput TH", type: "number", unit: "units/hour", required: false, smartDefault: 10, validation: { min: 0 }, helper: "Average completion rate (omit to compute).", expertMeaning: "TH \u2014 throughput (units/time), also called exit rate" },
+    { id: "cevrimSuresi_CT", label: "Cycle time CT", type: "number", unit: "hours", required: false, smartDefault: 0, validation: { min: 0 }, helper: "Average time from start to finish (omit to compute).", expertMeaning: "CT \u2014 cycle time = WIP / TH" },
+    { id: "maliyet_birim", label: "Average cost per WIP unit", type: "number", unit: "currency", required: false, smartDefault: 50, validation: { min: 0 }, helper: "Average value or cost tied up in each WIP unit.", expertMeaning: "For WIP financial exposure = WIP \u00d7 cost" },
+  ],
+  outputs: [
+    { id: "cevrimSuresi_hesaplanan", label: "Cycle time CT (computed)", unit: "hours", format: "number" },
+    { id: "wip_hesaplanan", label: "WIP (computed)", unit: "units", format: "number" },
+    { id: "cikis_hesaplanan", label: "Throughput TH (computed)", unit: "units/hour", format: "number" },
+    { id: "wipMaliyeti", label: "WIP financial exposure", unit: "currency", format: "currency", isBigNumber: true },
+    { id: "cevrimSuresi_dakika", label: "Cycle time", unit: "minutes", format: "number" },
+    { id: "throughput_g\u00fcnl\u00fck", label: "Daily throughput (8h shift)", unit: "units/day", format: "number" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.littles_law", inputMap: { prosesTipi: "prosesTipi", wip_miktar: "wip_miktar", cikisHizi: "cikisHizi", cevrimSuresi_CT: "cevrimSuresi_CT" }, outputId: "cevrimSuresi_hesaplanan" }],
+  reportTemplate: { title: "Little's Law \u2014 WIP Analysis Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["Little's Law: WIP = CT \u00d7 TH; CT = WIP / TH; TH = WIP / CT.", "Assumes steady-state (stationary) process with stable averages.", "Enter exactly 2 of 3 variables (WIP, CT, TH); the third is computed.", "Daily throughput = TH \u00d7 8 (assuming 8-hour shift).", "WIP cost = WIP \u00d7 average cost per unit (financial exposure estimate)."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 36. Milk Run Route Optimization Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const MILK_RUN_SCHEMA: PremiumCalculatorSchema = {
+  id: "milk-run-route-calculator",
+  legacyPaidSlug: "milk-run-route-calculator",
+  name: "Milk Run Route Optimization Calculator",
+  sectorSlug: "logistics",
+  category: "cost",
+  painStatement: "Milk-run collection logistics must balance supplier distance, vehicle capacity, load/unload time, waiting time, and driver cost against dedicated pickup costs. Without a structured comparison, logistics managers cannot quantify the savings potential of switching from dedicated to milk-run routing.",
+  inputs: [
+    { id: "currency", label: "Currency", type: "select", unit: "", required: true, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "All monetary inputs in this currency.", expertMeaning: "ISO code for output formatting." },
+    { id: "tedarikciSayisi", label: "Number of suppliers on route", type: "number", unit: "", required: true, smartDefault: 5, validation: { min: 1, max: 100 }, helper: "Suppliers visited in one milk-run circuit.", expertMeaning: "N_suppliers for total route distance and time" },
+    { id: "tedarikciMesafe_ortalama", label: "Average distance per supplier leg", type: "number", unit: "km", required: true, smartDefault: 30, validation: { min: 0.1 }, helper: "Average one-way distance between consecutive stops.", expertMeaning: "d_avg \u2014 includes depot-to-first and last-to-depot" },
+    { id: "turSayisi_gunluk", label: "Number of milk-run tours per day", type: "number", unit: "", required: true, smartDefault: 2, validation: { min: 1, max: 10 }, helper: "How many complete circuits per day.", expertMeaning: "N_tours for total daily distance = N_tours \u00d7 route_distance" },
+    { id: "arabaMaliyeti_km", label: "Vehicle cost per km", type: "number", unit: "currency/km", required: true, smartDefault: 0.5, validation: { min: 0.01 }, helper: "Fuel + maintenance + tire cost per kilometer.", expertMeaning: "C_km \u2014 variable vehicle operating cost" },
+    { id: "arabaTamYuk_kg", label: "Vehicle full load capacity", type: "number", unit: "kg", required: true, smartDefault: 5000, validation: { min: 1 }, helper: "Maximum payload weight per vehicle.", expertMeaning: "Capacity constraint for load consolidation check" },
+    { id: "talep_gunluk_kg", label: "Daily total collection volume", type: "number", unit: "kg/day", required: true, smartDefault: 2000, validation: { min: 1 }, helper: "Total daily material weight to be collected.", expertMeaning: "Q_daily \u2014 must be \u2264 capacity \u00d7 tours for feasibility" },
+    { id: "yuklemeBosaltmaDk", label: "Load/unload time per stop", type: "number", unit: "minutes", required: true, smartDefault: 20, validation: { min: 0 }, helper: "Time to load collected goods at each supplier.", expertMeaning: "T_load per stop \u2014 affects total route duration" },
+    { id: "beklemeSuresiDk", label: "Waiting time per stop", type: "number", unit: "minutes", required: false, smartDefault: 10, validation: { min: 0 }, helper: "Average queue/wait time at each supplier.", expertMeaning: "T_wait \u2014 document handling, security, delays" },
+    { id: "ortalamaHiz_kmh", label: "Average vehicle speed", type: "number", unit: "km/h", required: true, smartDefault: 50, validation: { min: 5, max: 120 }, helper: "Average travel speed including traffic.", expertMeaning: "v_avg for travel time = distance / v_avg" },
+    { id: "surucuSaatUcreti", label: "Driver hourly wage", type: "number", unit: "currency/hour", required: true, smartDefault: 15, validation: { min: 0 }, helper: "Fully loaded driver labor cost per hour.", expertMeaning: "C_driver \u2014 for total driver cost" },
+    { id: "rotaPlanlamaMaliyeti", label: "Route planning overhead (daily)", type: "number", unit: "currency/day", required: false, smartDefault: 100, validation: { min: 0 }, helper: "Daily fixed cost for route planning and administration.", expertMeaning: "C_plan \u2014 fixed daily overhead for milk-run operations" },
+    { id: "aracSabitMaliyeti_gun", label: "Daily fixed vehicle cost", type: "number", unit: "currency/day", required: false, smartDefault: 200, validation: { min: 0 }, helper: "Daily depreciation, insurance, and licensing per vehicle.", expertMeaning: "C_fixed \u2014 daily fixed cost per vehicle" },
+  ],
+  outputs: [
+    { id: "toplamMesafe", label: "Total daily route distance", unit: "km/day", format: "number" },
+    { id: "toplamSure", label: "Total route duration", unit: "hours", format: "number" },
+    { id: "surucuMaliyeti", label: "Driver cost (daily)", unit: "currency", format: "currency" },
+    { id: "akaryakitMaliyeti", label: "Fuel / per-km cost (daily)", unit: "currency", format: "currency" },
+    { id: "rotaPlanlamaMaliyeti_out", label: "Route planning overhead (daily)", unit: "currency", format: "currency" },
+    { id: "toplamGunlukMaliyet", label: "Total daily milk-run cost", unit: "currency", format: "currency" },
+    { id: "mevcutToplamaMaliyeti", label: "Estimated dedicated collection cost (baseline)", unit: "currency", format: "currency" },
+    { id: "aylikTasarruf", label: "Monthly savings vs dedicated", unit: "currency", format: "currency", isBigNumber: true },
+    { id: "yillikTasarruf", label: "Annual savings vs dedicated", unit: "currency", format: "currency", isBigNumber: true },
+    { id: "tasarrufOrani", label: "Savings percentage", unit: "%", format: "percentage" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.milk_run", inputMap: { tedarikciSayisi: "tedarikciSayisi", tedarikciMesafe_ortalama: "tedarikciMesafe_ortalama", turSayisi_gunluk: "turSayisi_gunluk", arabaMaliyeti_km: "arabaMaliyeti_km", surucuSaatUcreti: "surucuSaatUcreti", yuklemeBosaltmaDk: "yuklemeBosaltmaDk", beklemeSuresiDk: "beklemeSuresiDk", ortalamaHiz_kmh: "ortalamaHiz_kmh" }, outputId: "toplamGunlukMaliyet" }],
+  reportTemplate: { title: "Milk Run Route Optimization Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Milk-run distance = N_suppliers \u00d7 d_avg \u00d7 N_tours (simplified circular route).", "Baseline (dedicated): each supplier visited independently = 2 \u00d7 d_avg per trip.", "Total daily cost = distance cost + driver cost + planning + fixed vehicle cost.", "Results are technical simulations \u2014 verify with real route data."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 37. CPM / PERT (Critical Path Method)
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const CPM_PERT_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
+  id: "cpm-pert-calculator",
+  legacyPaidSlug: "cpm-pert-calculator",
+  name: "CPM / PERT Critical Path Analyzer", name_i18n: {"en":"CPM / PERT Critical Path Analyzer","tr":"CPM / PERT Kritik Yol Analiz\u00f6r\u00fc"},
+  sectorSlug: "general",
+  category: "measurement",
+  painStatement: "Manual PERT calculations (Te = (O+4M+P)/6, variance, Z-scores) are tedious and error-prone in spreadsheets. This tool automates the full critical path analysis with probabilistic completion estimates.", painStatement_i18n: {"en":"Manual PERT calculations (Te = (O+4M+P)/6, variance, Z-scores) are tedious and error-prone in spreadsheets. This tool automates the full critical path analysis with probabilistic completion estimates.","tr":"Manual PERT calculations (Te = (O+4M+P)/6, variance, Z-scores) are tedious and error-prone in spreadsheets. This tool automates the full critical path analysis with probabilistic completion estimates."},
+  inputs: [
+    { id: "aktiviteSayisi", label: "Number of activities", label_i18n: {"en":"Number of activities","tr":"Aktivite say\u0131s\u0131"}, type: "number", unit: "", required: true, smartDefault: 10, validation: { min: 1, max: 1000 }, helper: "Total number of activities in the project network.", helper_i18n: {"en":"Total number of activities in the project network.","tr":"Proje a\u011f\u0131ndaki toplam aktivite say\u0131s\u0131."}, expertMeaning: "n for activity count", expertMeaning_i18n: {"en":"n for activity count","tr":"n for activity count"} },
+    { id: "iyimserSure", label: "Optimistic time (days)", label_i18n: {"en":"Optimistic time (days)","tr":"\u0130yimser s\u00fcre (g\u00fcn)"}, type: "number", unit: "days", required: true, smartDefault: 5, validation: { min: 0.1 }, helper: "Activity duration under ideal conditions (O).", helper_i18n: {"en":"Activity duration under ideal conditions (O).","tr":"\u0130deal ko\u015fullar alt\u0131nda aktivite s\u00fcresi (O)."}, expertMeaning: "O for Te = (O+4M+P)/6", expertMeaning_i18n: {"en":"O for Te = (O+4M+P)/6","tr":"O for Te = (O+4M+P)/6"} },
+    { id: "enOlasiSure", label: "Most likely time (days)", label_i18n: {"en":"Most likely time (days)","tr":"En olas\u0131 s\u00fcre (g\u00fcn)"}, type: "number", unit: "days", required: true, smartDefault: 10, validation: { min: 0.1 }, helper: "Activity duration under normal conditions (M).", helper_i18n: {"en":"Activity duration under normal conditions (M).","tr":"Normal ko\u015fullar alt\u0131nda aktivite s\u00fcresi (M)."}, expertMeaning: "M for Te = (O+4M+P)/6", expertMeaning_i18n: {"en":"M for Te = (O+4M+P)/6","tr":"M for Te = (O+4M+P)/6"} },
+    { id: "kotumserSure", label: "Pessimistic time (days)", label_i18n: {"en":"Pessimistic time (days)","tr":"K\u00f6t\u00fcmser s\u00fcre (g\u00fcn)"}, type: "number", unit: "days", required: true, smartDefault: 20, validation: { min: 0.1 }, helper: "Activity duration under worst-case conditions (P).", helper_i18n: {"en":"Activity duration under worst-case conditions (P).","tr":"En k\u00f6t\u00fc ko\u015fullar alt\u0131nda aktivite s\u00fcresi (P)."}, expertMeaning: "P for Te = (O+4M+P)/6 and \u03c3\u00b2 = ((P-O)/6)\u00b2", expertMeaning_i18n: {"en":"P for Te = (O+4M+P)/6 and \u03c3\u00b2 = ((P-O)/6)\u00b2","tr":"P for Te = (O+4M+P)/6 and \u03c3\u00b2 = ((P-O)/6)\u00b2"} },
+    { id: "kritikAktiviteSayisi", label: "Activities on critical path", label_i18n: {"en":"Activities on critical path","tr":"Kritik yoldaki aktivite say\u0131s\u0131"}, type: "number", unit: "", required: true, smartDefault: 5, validation: { min: 1 }, helper: "Number of activities on the longest path determining project duration.", helper_i18n: {"en":"Number of activities on the longest path determining project duration.","tr":"Proje s\u00fcresini belirleyen en uzun yoldaki aktivite say\u0131s\u0131."}, expertMeaning: "k for critical path variance sum", expertMeaning_i18n: {"en":"k for critical path variance sum","tr":"k for critical path variance sum"} },
+    { id: "hedefTamamlamaSuresi", label: "Target completion (days)", label_i18n: {"en":"Target completion (days)","tr":"Hedef tamamlama s\u00fcresi (g\u00fcn)"}, type: "number", unit: "days", required: true, smartDefault: 60, validation: { min: 0.1 }, helper: "Desired project completion deadline in days.", helper_i18n: {"en":"Desired project completion deadline in days.","tr":"G\u00fcn cinsinden istenen proje tamamlanma s\u00fcresi."}, expertMeaning: "T for Z = (T - CriticalPath) / \u03c3", expertMeaning_i18n: {"en":"T for Z = (T - CriticalPath) / \u03c3","tr":"T for Z = (T - CriticalPath) / \u03c3"} },
+    { id: "maliyet_kritikAktivite", label: "Cost per critical activity", label_i18n: {"en":"Cost per critical activity","tr":"Kritik aktivite ba\u015f\u0131na maliyet"}, type: "number", unit: "currency", required: false, smartDefault: 1000, validation: { min: 0 }, helper: "Estimated cost per activity on the critical path.", helper_i18n: {"en":"Estimated cost per activity on the critical path.","tr":"Kritik yoldaki aktivite ba\u015f\u0131na tahmini maliyet."}, expertMeaning: "For total cost estimate", expertMeaning_i18n: {"en":"For total cost estimate","tr":"For total cost estimate"} },
+  ],
+  outputs: [
+    { id: "beklenenSure", label: "Expected time Te", label_i18n: {"en":"Expected time Te","tr":"Beklenen s\u00fcre Te"}, unit: "days", format: "number" },
+    { id: "varyans", label: "Variance \u03c3\u00b2", label_i18n: {"en":"Variance \u03c3\u00b2","tr":"Varyans \u03c3\u00b2"}, unit: "", format: "number" },
+    { id: "standartSapma", label: "Std deviation \u03c3", label_i18n: {"en":"Std deviation \u03c3","tr":"Standart sapma \u03c3"}, unit: "days", format: "number" },
+    { id: "kritikYolSuresi", label: "Critical path duration", label_i18n: {"en":"Critical path duration","tr":"Kritik yol s\u00fcresi"}, unit: "days", format: "number" },
+    { id: "zSkoru", label: "Z-score", label_i18n: {"en":"Z-score","tr":"Z-skoru"}, unit: "", format: "number" },
+    { id: "tamamlanmaOlasiligi", label: "Completion probability", label_i18n: {"en":"Completion probability","tr":"Tamamlanma olas\u0131l\u0131\u011f\u0131"}, unit: "%", format: "percentage" },
+    { id: "toplamProjeMaliyeti", label: "Total project cost", label_i18n: {"en":"Total project cost","tr":"Toplam proje maliyeti"}, unit: "currency", format: "currency" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.cpm_pert_0", inputMap: { optimisticTime: "iyimserSure", mostLikelyTime: "enOlasiSure", pessimisticTime: "kotumserSure", criticalActivities: "kritikAktiviteSayisi", targetCompletion: "hedefTamamlamaSuresi", costPerActivity: "maliyet_kritikAktivite" }, outputId: "beklenenSure" }],
+  reportTemplate: { title: "CPM/PERT Critical Path Report", title_i18n: {"en":"CPM/PERT Critical Path Report","tr":"CPM/PERT Kritik Yol Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["PERT: Te = (O+4M+P)/6, \u03c3\u00b2 = ((P-O)/6)\u00b2.", "Critical path duration = Te \u00d7 critical activities.", "Z = (Target - CriticalPath) / \u03c3; normal distribution for probability.", "PERT assumes beta distribution for activity times.", "Cost estimate based on critical path activities only."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 38. Queuing Theory (M/M/1)
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const QUEUING_MM1_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
+  id: "queuing-mm1-calculator",
+  legacyPaidSlug: "queuing-mm1-calculator",
+  name: "Queuing Theory (M/M/1) Analyzer", name_i18n: {"en":"Queuing Theory (M/M/1) Analyzer","tr":"Kuyruk Teorisi (M/M/1) Analiz\u00f6r\u00fc"},
+  sectorSlug: "general",
+  category: "measurement",
+  painStatement: "Manual M/M/1 queuing calculations (\u03bb, \u03bc, \u03c1, L, Lq, W, Wq) and cost trade-off analysis are repetitive and error-prone. This tool automates the full single-server queue with cost optimization.", painStatement_i18n: {"en":"Manual M/M/1 queuing calculations (\u03bb, \u03bc, \u03c1, L, Lq, W, Wq) and cost trade-off analysis are repetitive and error-prone. This tool automates the full single-server queue with cost optimization.","tr":"Manual M/M/1 queuing calculations (\u03bb, \u03bc, \u03c1, L, Lq, W, Wq) and cost trade-off analysis are repetitive and error-prone. This tool automates the full single-server queue with cost optimization."},
+  inputs: [
+    { id: "musteriSayisi_gunluk", label: "Daily customer arrivals", label_i18n: {"en":"Daily customer arrivals","tr":"G\u00fcnl\u00fck m\u00fc\u015fteri say\u0131s\u0131"}, type: "number", unit: "", required: true, smartDefault: 100, validation: { min: 1 }, helper: "Total number of customers arriving per day.", helper_i18n: {"en":"Total number of customers arriving per day.","tr":"G\u00fcnl\u00fck toplam m\u00fc\u015fteri say\u0131s\u0131."}, expertMeaning: "\u03bb for \u03bb = arrivals/day \u00f7 working hours", expertMeaning_i18n: {"en":"\u03bb for \u03bb = arrivals/day \u00f7 working hours","tr":"\u03bb for \u03bb = arrivals/day \u00f7 working hours"} },
+    { id: "calismaSaati_gunluk", label: "Working hours per day", label_i18n: {"en":"Working hours per day","tr":"G\u00fcnl\u00fck \u00e7al\u0131\u015fma saati"}, type: "number", unit: "hours", required: true, smartDefault: 8, validation: { min: 1, max: 24 }, helper: "Hours of operation per day.", helper_i18n: {"en":"Hours of operation per day.","tr":"G\u00fcnl\u00fck \u00e7al\u0131\u015fma saati."}, expertMeaning: "For \u03bb = arrivals/hr", expertMeaning_i18n: {"en":"For \u03bb = arrivals/hr","tr":"For \u03bb = arrivals/hr"} },
+    { id: "ortalamaServisSuresi_dk", label: "Average service time (min)", label_i18n: {"en":"Average service time (min)","tr":"Ortalama servis s\u00fcresi (dk)"}, type: "number", unit: "min", required: true, smartDefault: 10, validation: { min: 0.1 }, helper: "Average time to serve one customer in minutes.", helper_i18n: {"en":"Average time to serve one customer in minutes.","tr":"Bir m\u00fc\u015fteriye hizmet i\u00e7in ortalama s\u00fcre (dakika)."}, expertMeaning: "1/\u03bc for \u03bc = 60 / service_min", expertMeaning_i18n: {"en":"1/\u03bc for \u03bc = 60 / service_min","tr":"1/\u03bc for \u03bc = 60 / service_min"} },
+    { id: "kuyrukMaliyeti_beklemeDk", label: "Waiting cost per min", label_i18n: {"en":"Waiting cost per min","tr":"Bekleme maliyeti (dk ba\u015f\u0131na)"}, type: "number", unit: "currency", required: false, smartDefault: 0.5, validation: { min: 0 }, helper: "Estimated cost per customer per minute of waiting.", helper_i18n: {"en":"Estimated cost per customer per minute of waiting.","tr":"Dakika ba\u015f\u0131na m\u00fc\u015fteri ba\u015f\u0131na tahmini bekleme maliyeti."}, expertMeaning: "C_w for total waiting cost = C_w \u00d7 L \u00d7 working_hours", expertMeaning_i18n: {"en":"C_w for total waiting cost = C_w \u00d7 L \u00d7 working_hours","tr":"C_w for total waiting cost = C_w \u00d7 L \u00d7 working_hours"} },
+    { id: "calisanSaatUcreti", label: "Staff hourly cost", label_i18n: {"en":"Staff hourly cost","tr":"\u00c7al\u0131\u015fan saat \u00fccreti"}, type: "number", unit: "currency", required: false, smartDefault: 20, validation: { min: 0 }, helper: "Hourly wage cost per staff member.", helper_i18n: {"en":"Hourly wage cost per staff member.","tr":"\u00c7al\u0131\u015fan ba\u015f\u0131na saatlik \u00fccret."}, expertMeaning: "C_s for staff cost = C_s \u00d7 staff \u00d7 working_hours", expertMeaning_i18n: {"en":"C_s for staff cost = C_s \u00d7 staff \u00d7 working_hours","tr":"C_s for staff cost = C_s \u00d7 staff \u00d7 working_hours"} },
+    { id: "mevcutPersonelSayisi", label: "Current staff count", label_i18n: {"en":"Current staff count","tr":"Mevcut personel say\u0131s\u0131"}, type: "number", unit: "", required: false, smartDefault: 1, validation: { min: 1 }, helper: "Number of staff currently serving customers.", helper_i18n: {"en":"Number of staff currently serving customers.","tr":"Mevcut m\u00fc\u015fteri hizmet personeli say\u0131s\u0131."}, expertMeaning: "s for total staff cost", expertMeaning_i18n: {"en":"s for total staff cost","tr":"s for total staff cost"} },
+  ],
+  outputs: [
+    { id: "varisOrani_lambda", label: "Arrival rate \u03bb", label_i18n: {"en":"Arrival rate \u03bb","tr":"Var\u0131\u015f oran\u0131 \u03bb"}, unit: "per hour", format: "number" },
+    { id: "servisOrani_mu", label: "Service rate \u03bc", label_i18n: {"en":"Service rate \u03bc","tr":"Servis oran\u0131 \u03bc"}, unit: "per hour", format: "number" },
+    { id: "kullanimOrani_rho", label: "Utilization \u03c1", label_i18n: {"en":"Utilization \u03c1","tr":"Kullan\u0131m oran\u0131 \u03c1"}, unit: "%", format: "percentage" },
+    { id: "musteriSayisi_sistem_L", label: "Avg customers in system L", label_i18n: {"en":"Avg customers in system L","tr":"Sistemdeki ortalama m\u00fc\u015fteri L"}, unit: "", format: "number" },
+    { id: "musteriSayisi_kuyruk_Lq", label: "Avg customers in queue Lq", label_i18n: {"en":"Avg customers in queue Lq","tr":"Kuyruktaki ortalama m\u00fc\u015fteri Lq"}, unit: "", format: "number" },
+    { id: "beklemeSuresi_sistem_W", label: "Avg time in system W", label_i18n: {"en":"Avg time in system W","tr":"Sistemde ortalama s\u00fcre W"}, unit: "hours", format: "number" },
+    { id: "beklemeSuresi_kuyruk_Wq", label: "Avg time in queue Wq", label_i18n: {"en":"Avg time in queue Wq","tr":"Kuyrukta ortalama s\u00fcre Wq"}, unit: "hours", format: "number" },
+    { id: "beklemeMaliyeti", label: "Total waiting cost", label_i18n: {"en":"Total waiting cost","tr":"Toplam bekleme maliyeti"}, unit: "currency", format: "currency" },
+    { id: "personelMaliyeti", label: "Staff cost", label_i18n: {"en":"Staff cost","tr":"Personel maliyeti"}, unit: "currency", format: "currency" },
+    { id: "toplamMaliyet", label: "Total cost", label_i18n: {"en":"Total cost","tr":"Toplam maliyet"}, unit: "currency", format: "currency" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.queuing_0", inputMap: { dailyArrivals: "musteriSayisi_gunluk", workingHours: "calismaSaati_gunluk", serviceTimeMin: "ortalamaServisSuresi_dk", waitingCostPerMin: "kuyrukMaliyeti_beklemeDk", staffHourlyCost: "calisanSaatUcreti", staffCount: "mevcutPersonelSayisi" }, outputId: "varisOrani_lambda" }],
+  reportTemplate: { title: "Queuing Theory (M/M/1) Analysis Report", title_i18n: {"en":"Queuing Theory (M/M/1) Analysis Report","tr":"Kuyruk Teorisi (M/M/1) Analiz Raporu"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["M/M/1 assumptions: Poisson arrivals, exponential service times, single server, infinite queue capacity.", "\u03bb = arrivals / working hours; \u03bc = 60 / service minutes; \u03c1 = \u03bb/\u03bc (must be < 1 for stability).", "L = \u03c1/(1-\u03c1); Lq = \u03c1\u00b2/(1-\u03c1); W = L/\u03bb; Wq = Lq/\u03bb.", "Waiting cost = waiting cost per min \u00d7 L \u00d7 working hours \u00d7 60.", "Utilization \u03c1 \u2265 0.9 indicates high congestion risk."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
  * FMEA RPN (Risk Priority Number)
  * ════════════════════════════════════════════════════════════════════════════ */
+
 
 const FMEA_RPN_SCHEMA: PremiumCalculatorSchema = {
   id: "fmea-rpn-calculator",
@@ -1252,6 +2161,26 @@ export const ALL_INDUSTRIAL_FORMULA_SCHEMAS: readonly PremiumCalculatorSchema[] 
   ROI_ANALYZER_SCHEMA,
   BELT_PULLEY_GEAR_SCHEMA,
   HYDRAULIC_CYLINDER_SCHEMA,
+  COMPRESSOR_POWER_AIR_FLOW_SCHEMA,
+  CUTTING_PARAMETERS_POWER_SCHEMA,
+  EVAPORATIVE_COOLING_CAPACITY_SCHEMA,
+  CONDENSER_PRECOOLING_SAVINGS_SCHEMA,
+  PAD_MEDIA_PSYCHROMETRIC_SCHEMA,
+  FGAS_LEAK_CO2_SCHEMA,
+  WATER_FOOTPRINT_SCHEMA,
+  SMOKE_EXHAUST_SHEV_SCHEMA,
+  NATURAL_VENTILATION_ACH_SCHEMA,
+  COMPOUND_INTEREST_SCHEMA,
+  LIVING_WAGE_CALCULATOR_SCHEMA,
+  PANEL_RADIATOR_HEATING_SCHEMA,
+  UNDERFLOOR_HEATING_SCHEMA,
+  SOLAR_COLLECTOR_SCHEMA,
+  EPQ_CALCULATOR_SCHEMA,
+  KANBAN_CALCULATOR_SCHEMA,
+  LITTLES_LAW_SCHEMA,
+  MILK_RUN_SCHEMA,
+  CPM_PERT_CALCULATOR_SCHEMA,
+  QUEUING_MM1_CALCULATOR_SCHEMA,
   FMEA_RPN_SCHEMA,
   DOE_FACTORIAL_SCHEMA,
   RELIABILITY_BLOCK_SCHEMA,

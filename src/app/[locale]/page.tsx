@@ -5,6 +5,7 @@ import { LandingPageContent } from "@/components/landing/LandingPageContent";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 import type { LandingContent } from "@/types/landing";
+import { getTotalToolCount } from "@/lib/tools/tool-counts";
 import "../../styles/landing-page.css";
 
 export const revalidate = 3600;
@@ -37,11 +38,31 @@ async function getLandingContent(locale: string): Promise<LandingContent> {
   return ((enMsgs as Record<string, unknown>).landingPage ?? {}) as LandingContent;
 }
 
+/** Deep-replace `{toolCount}` in every string of an object. */
+function replaceCount(obj: Record<string, unknown>, count: number): Record<string, unknown> {
+  const result: Record<string, unknown> = {};
+  for (const [key, val] of Object.entries(obj)) {
+    if (typeof val === "string") {
+      result[key] = val.replace(/\{toolCount\}/g, String(count));
+    } else if (val && typeof val === "object" && !Array.isArray(val)) {
+      result[key] = replaceCount(val as Record<string, unknown>, count);
+    } else {
+      result[key] = val;
+    }
+  }
+  return result;
+}
+
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const content = await getLandingContent(locale);
+  const [rawContent, total] = await Promise.all([
+    getLandingContent(locale),
+    getTotalToolCount(),
+  ]);
+
+  const content = replaceCount(rawContent as unknown as Record<string, unknown>, total) as unknown as LandingContent;
 
   return (
     <PageLayout>

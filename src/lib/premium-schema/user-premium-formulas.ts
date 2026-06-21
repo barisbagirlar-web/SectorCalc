@@ -12853,6 +12853,117 @@ export const USER_FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     label: "5S — Overall Score",
     fn: (inputs) => { const total = num(inputs, "sortScore", 18) + num(inputs, "seitonScore", 16) + num(inputs, "seisoScore", 20) + num(inputs, "seiketsuScore", 14) + num(inputs, "shitsukeScore", 12); const maxTotal = num(inputs, "sortMax", 25) + num(inputs, "seitonMax", 25) + num(inputs, "seisoMax", 25) + num(inputs, "seiketsuMax", 25) + num(inputs, "shitsukeMax", 25); return maxTotal > 0 ? assertFinite((total / maxTotal) * 100) : 0; },
   },
+
+  // ── #163-172: COMPRESSOR, CUTTING, EVAP, CONDENSER, PAD MEDIA, F-GAS, WATER, SMOKE, NATURAL VENT, COMPOUND INTEREST ──
+  {
+    id: "industrial.compressor_power",
+    family: "measurement",
+    label: "Compressor — Combined Power & Air Flow",
+    fn: (inputs) => { const Q = num(inputs, "airFlowRate", 40); const P2 = num(inputs, "operatingPressure", 8); const P1 = num(inputs, "inletPressure", 1.013); const T1 = num(inputs, "inletTemperature", 25); const n_over_n1 = num(inputs, "polytropicExponent", 1.3) / (num(inputs, "polytropicExponent", 1.3) - 1); const eta = num(inputs, "isentropicEfficiency", 75) / 100; const z = num(inputs, "stageCount", 1); const pr = Math.pow((P2 + P1) / P1, (num(inputs, "polytropicExponent", 1.3) - 1) / (num(inputs, "polytropicExponent", 1.3) * z)); const power_kW = n_over_n1 * Q / 60 * P1 * 1e5 * (pr - 1) / (eta * 1000); return nonNegative(assertFinite(power_kW)); },
+  },
+  {
+    id: "industrial.cutting_power",
+    family: "measurement",
+    label: "Cutting — Combined Cutting Power",
+    fn: (inputs) => { const Dc = num(inputs, "toolDiameter", 50); const Vc = num(inputs, "cuttingSpeed", 200); const fz = num(inputs, "feedPerTooth", 0.1); const z = num(inputs, "toothCount", 4); const ap = num(inputs, "depthOfCut", 2); const ae = num(inputs, "cuttingWidth", 40); const kc = num(inputs, "specificCuttingForce", 2500); const eta = num(inputs, "machineEfficiency", 80) / 100; const n = 1000 * Vc / (Math.PI * Dc); const Vf = fz * z * n; const Fc = kc * ap * fz * (ae/Dc) * z; const Tc = Fc * Dc / 2000; const Pc = Fc * Vc / 60000; const Pm = Pc / eta; return nonNegative(assertFinite(Pm)); },
+  },
+  {
+    id: "industrial.evaporative_cooling",
+    family: "measurement",
+    label: "Evaporative Cooling — Combined Capacity",
+    fn: (inputs) => { const L = num(inputs, "areaLength", 20); const W = num(inputs, "areaWidth", 15); const H = num(inputs, "ceilingHeight", 4); const ACH = num(inputs, "achValue", 30); const volume = L * W * H; const totalFlow = volume * ACH; const Tk = num(inputs, "outdoorDryBulb", 38); const Ty = num(inputs, "outdoorWetBulb", 22); const eta = num(inputs, "padEfficiency", 80) / 100; const Tout = Tk - eta * (Tk - Ty); const cooling_kW = (totalFlow / 3600) * 1.2 * (Tk - Tout); return nonNegative(assertFinite(cooling_kW)); },
+  },
+  {
+    id: "industrial.condenser_precooling",
+    family: "cost",
+    label: "Condenser Precooling — Savings",
+    fn: (inputs) => { const cap = num(inputs, "chillerCapacity", 100); const unit = num(inputs, "capacityUnit", 1); const cap_kW = cap * (unit === 2 ? 3.517 : 1); const cop = num(inputs, "existingCOP", 3.5); const Tg = num(inputs, "condenserInletTemp", 45); const Ty = num(inputs, "wetBulbTemp", 24); const eta = num(inputs, "precoolEfficiency", 70) / 100; const T_new = Tg - eta * (Tg - Ty); const cop_new = cop * (1 + (Tg - T_new) * 0.03); const P_old = cap_kW / cop; const P_new = cap_kW / cop_new; const savings = (P_old - P_new) * num(inputs, "annualOperatingHours", 4000); const cost_savings = savings * num(inputs, "electricityTariff", 0.12); const net = cost_savings - num(inputs, "precoolOpex", 500); return nonNegative(assertFinite(net)); },
+  },
+  {
+    id: "industrial.pad_media_psychrometric",
+    family: "measurement",
+    label: "Pad Media — Psychrometric",
+    fn: (inputs) => { const t = num(inputs, "padThickness", 150); const V = num(inputs, "faceVelocity", 2); const A = num(inputs, "padArea", 10); const Tk = num(inputs, "inletDryBulb", 38); const Ty = num(inputs, "inletWetBulb", 22); const Tk_Ty = Tk - Ty; const eta_sat = 1 - Math.exp(-0.6 * (t/100) / Math.pow(V, 0.5)); const delta_T = eta_sat * Tk_Ty; const flow = V * A * 3600; const cooling = flow * 1.2 * delta_T / 3600; return nonNegative(assertFinite(cooling)); },
+  },
+  {
+    id: "industrial.fgas_leak",
+    family: "energy",
+    label: "F-Gas Leak — Compliance Cost",
+    fn: (inputs) => { const gwp = num(inputs, "gwpValue", 2088); const charge = num(inputs, "refrigerantCharge", 50); const count = num(inputs, "unitCount", 5); const leakRate = num(inputs, "annualLeakRate", 10) / 100; const freq = num(inputs, "leakTestFrequency", 12); const testCost = num(inputs, "testUnitCost", 150); const refPrice = num(inputs, "refrigerantUnitPrice", 25); const total_charge = charge * count; const leak_kg = total_charge * leakRate; const leak_cost = leak_kg * refPrice; const test_annual = (freq / 12) * count * testCost; const total = test_annual + leak_cost; return nonNegative(assertFinite(total)); },
+  },
+  {
+    id: "industrial.water_footprint",
+    family: "energy",
+    label: "Water Footprint — Total",
+    fn: (inputs) => { const blue = num(inputs, "blueWaterConsumption", 1000); const green = num(inputs, "greenWaterConsumption", 500); const grey = num(inputs, "greyWaterVolume", 300); const prod = num(inputs, "productionVolume", 1000); const total = blue + green + grey; const unit = prod > 0 ? total / prod : 0; return nonNegative(assertFinite(unit)); },
+  },
+  {
+    id: "industrial.smoke_exhaust_shev",
+    family: "measurement",
+    label: "Smoke Exhaust SHEV — Required Vent Area",
+    fn: (inputs) => { const Cw = num(inputs, "ventFlowCoefficient", 0.6); const Af = num(inputs, "ceilingArea", 1000); const dz = num(inputs, "smokeLayerDepth", 2); const Tk = num(inputs, "outdoorTemp", 35); const Ti = num(inputs, "indoorTemp", 20); const inlet = num(inputs, "inletArea", 0); const Vw = num(inputs, "windSpeed", 5); const A_vent = Cw * 0.1 * Af + 0.01 * Af; return nonNegative(assertFinite(A_vent)); },
+  },
+  {
+    id: "industrial.natural_ventilation",
+    family: "measurement",
+    label: "Natural Ventilation — ACH-based",
+    fn: (inputs) => { const L = num(inputs, "areaLength", 20); const W = num(inputs, "areaWidth", 15); const H = num(inputs, "ceilingHeight", 4); const Ti = num(inputs, "indoorTemperature", 25); const To = num(inputs, "outdoorTemperature", 35); const ACH = num(inputs, "targetACH", 10); const Cd = num(inputs, "ventDischargeCoefficient", 0.65); const stack = num(inputs, "stackHeight", 5); const vol = L * W * H; const flow = vol * ACH / 3600; const dT = Math.abs(Ti - To); const A_vent = dT > 0 ? flow / (Cd * Math.sqrt(2 * 9.81 * stack * dT / (273 + To))) : vol * 0.001; return nonNegative(assertFinite(A_vent)); },
+  },
+  {
+    id: "industrial.compound_interest",
+    family: "finance",
+    label: "Compound Interest — Future Value",
+    fn: (inputs) => { const P = num(inputs, "initialPrincipal", 10000); const PMT = num(inputs, "monthlyContribution", 1000); const r = num(inputs, "annualRate", 8) / 100; const n = num(inputs, "compoundingFrequency", 12); const t = num(inputs, "investmentPeriod", 10); const r_n = r / n; const nt = n * t; const fv = P * Math.pow(1 + r_n, nt) + PMT * ((Math.pow(1 + r_n, nt) - 1) / r_n); const infl = num(inputs, "inflationRate", 3) / 100; const tax = num(inputs, "taxRate", 0) / 100; const fv_real = fv * (1 - tax) / Math.pow(1 + infl, t); return nonNegative(assertFinite(fv_real)); },
+  },
+  // ── #173-180: LIVING WAGE, PANEL RADIATOR, UNDERFLOOR, SOLAR, EPQ, KANBAN, LITTLES LAW, MILK RUN ──
+  {
+    id: "industrial.living_wage",
+    family: "cost",
+    label: "Living Wage — Net Ücret",
+    fn: (inputs) => { const brüt = num(inputs, "brUcret_Aylik", 30000); const mesaiSaat = num(inputs, "fazlaMesaiSaat_Aylik", 0); const mesaiKat = num(inputs, "fazlaMesaiKatsayisi", 1.5); const sgk = num(inputs, "SGK_isverenOrani", 20.5) / 100; const issizlik = num(inputs, "issizlikFonuOrani", 2) / 100; const damga = num(inputs, "damgaVergiOrani", 0.759) / 100; const gelirDilim = num(inputs, "gelirVergiDilimi", 15) / 100; const agi = num(inputs, "AGI_tutari", 0); const yemek = num(inputs, "yemekYardimi_Gunluk", 0); const yol = num(inputs, "yolYardimi_Gunluk", 0); const gun = num(inputs, "calismaGunu_Ay", 22); const mesaiUcret = (brüt / 225) * mesaiSaat * mesaiKat; const toplamBrüt = brüt + mesaiUcret; const sgkIsci = toplamBrüt * 0.14; const issizlikIsci = toplamBrüt * 0.01; const gelirMatrah = toplamBrüt - sgkIsci - issizlikIsci; const gelirVergi = gelirMatrah * gelirDilim; const damgaVergi = toplamBrüt * damga; const kesinti = sgkIsci + issizlikIsci + gelirVergi + damgaVergi; const net = toplamBrüt - kesinti + agi + (yemek + yol) * gun; return nonNegative(assertFinite(net)); },
+  },
+  {
+    id: "industrial.panel_radiator",
+    family: "measurement",
+    label: "Panel Radiator — Isı İhtiyacı",
+    fn: (inputs) => { const U = num(inputs, "odaUzunlugu", 5); const G = num(inputs, "odaGenisligi", 4); const H = num(inputs, "odaYuksekligi", 2.7); const Ti = num(inputs, "hedefSicaklik_Ti", 22); const To = num(inputs, "disSicaklik_To", -3); const izo = num(inputs, "izolasyonSeviyesi", 1); const cam = num(inputs, "camTipi", 1); const camOran = num(inputs, "camAlani_Orani", 20) / 100; const kisi = num(inputs, "kisiSayisi", 2); const ayd = num(inputs, "aydinlatmaW_m2", 10); const dT = Ti - To; const duvarAlani = (U + G) * 2 * H; const camAlani = duvarAlani * camOran; const duvarU = izo === 1 ? 0.6 : izo === 2 ? 0.8 : 1.2; const camU = cam === 1 ? 1.4 : cam === 2 ? 2.7 : 3.5; const iletim = duvarU * (duvarAlani - camAlani) * dT + camU * camAlani * dT; const infiltrasyon = 0.34 * (U * G * H) * 0.5 * dT; const kisiKazanc = kisi * 80; const aydKazanc = ayd * (U * G); const netIsi = iletim + infiltrasyon - kisiKazanc - aydKazanc; return nonNegative(assertFinite(Math.max(netIsi, 0))); },
+  },
+  {
+    id: "industrial.underfloor_heating",
+    family: "measurement",
+    label: "Underfloor Heating — Isı Gücü",
+    fn: (inputs) => { const U = num(inputs, "alanUzunlugu", 8); const G = num(inputs, "alanGenisligi", 6); const Ti = num(inputs, "odaSicakligi_Ti", 22); const aralik = num(inputs, "serpantinAraligi_cm", 15); const zemin = num(inputs, "zeminTipi", 1); const Tg = num(inputs, "isletimSicakligi_gidis", 45); const Td = num(inputs, "donusSicakligi", 35); const cap = num(inputs, "boruDisCap_mm", 16); const alan = U * G; const Tm = (Tg + Td) / 2; const q = zemin === 1 ? 8.3 * (Tm - Ti) * 1.1 : 7.5 * (Tm - Ti); const guc = alan * q / 1000; return nonNegative(assertFinite(guc)); },
+  },
+  {
+    id: "industrial.solar_collector",
+    family: "measurement",
+    label: "Solar Collector — Kolektör Alanı",
+    fn: (inputs) => { const kisi = num(inputs, "kullaniciSayisi", 4); const gunlukSu = num(inputs, "gunlukKullanim_su_L_kisi", 50); const Tc = num(inputs, "sogukSuSicakligi_Tc", 10); const Tg = num(inputs, "sicakSuHedef_Tg", 60); const eta = num(inputs, "kolektorVerimi_η_kol", 70) / 100; const gunes = num(inputs, "guneslenmeSuresi_saat", 5); const I = num(inputs, "gunesIsinimiGunluk_Wm2", 600); const energy_kWh = kisi * gunlukSu * 4.186 * (Tg - Tc) / 3600; const alan = energy_kWh * 1000 / (eta * I * gunes / 1000); return nonNegative(assertFinite(alan)); },
+  },
+  {
+    id: "industrial.epq",
+    family: "cost",
+    label: "EPQ — Economic Production Quantity",
+    fn: (inputs) => { const D = num(inputs, "yillikTalep_D", 10000); const S = num(inputs, "hazirlikMaliyeti_S", 500); const H = num(inputs, "birimStokTutmaMaliyeti_H", 5); const p = num(inputs, "gunlukUretimHizi_p", 100); const d = num(inputs, "gunlukTalepHizi_d", 40); const gun = num(inputs, "calismaGunu_yil", 250); const epq = Math.sqrt((2 * D * S) / (H * (1 - d/p))); return nonNegative(assertFinite(epq)); },
+  },
+  {
+    id: "industrial.kanban",
+    family: "measurement",
+    label: "Kanban — Card Count",
+    fn: (inputs) => { const d = num(inputs, "gunlukTalep_d", 200); const LT = num(inputs, "tedarikSuresi_LT", 3); const k = num(inputs, "guvenlikStoguFaktoru_k", 1.5); const q = num(inputs, "kutuKapasitesi_q", 20); const N = Math.ceil((d * LT * k) / q); return nonNegative(assertFinite(N)); },
+  },
+  {
+    id: "industrial.littles_law",
+    family: "measurement",
+    label: "Little's Law — Cycle Time",
+    fn: (inputs) => { const WIP = num(inputs, "wip_miktar", 100); const TH = num(inputs, "cikisHizi", 20); const CT = num(inputs, "cevrimSuresi_CT", 0); if (CT > 0) { return nonNegative(assertFinite(WIP / CT)); } if (TH > 0) { return nonNegative(assertFinite(WIP / TH)); } const WIP2 = num(inputs, "wip_miktar", 100); return nonNegative(assertFinite(WIP2)); },
+  },
+  {
+    id: "industrial.milk_run",
+    family: "cost",
+    label: "Milk Run — Daily Cost",
+    fn: (inputs) => { const n = num(inputs, "tedarikciSayisi", 5); const d = num(inputs, "tedarikciMesafe_ortalama", 50); const t = num(inputs, "turSayisi_gunluk", 2); const kmCost = num(inputs, "arabaMaliyeti_km", 5); const driver = num(inputs, "surucuSaatUcreti", 200); const loading = num(inputs, "yuklemeBosaltmaDk", 30); const wait = num(inputs, "beklemeSuresiDk", 15); const speed = num(inputs, "ortalamaHiz_kmh", 50); const totalDist = d * n * t; const driveTime = (totalDist / speed) * 60; const totalTime = driveTime + (loading + wait) * n * t; const fuel = totalDist * kmCost; const labor = (totalTime / 60) * driver; return nonNegative(assertFinite(fuel + labor)); },
+  },
 ];
 
 export const USER_FORMULA_META_DETAILS: Record<
@@ -14215,4 +14326,23 @@ export const USER_FORMULA_META_DETAILS: Record<
   "industrial.kaizen_event": { description: "Kaizen: total event investment cost", requiredInputs: ["teamCount","eventDays","hourlyCost","materialCost","consultantCost"], outputHint: "number" },
   "industrial.vsm_metrics": { description: "VSM: PCE = VA / Total Lead Time \u00d7 100", requiredInputs: ["vaTime_min","waitTime_min","transportTime_min","inspectionTime_min"], outputHint: "number" },
   "industrial.ss_audit": { description: "5S: overall score = total score / max total \u00d7 100", requiredInputs: ["sortScore","sortMax","seitonScore","seitonMax","seisoScore","seisoMax","seiketsuScore","seiketsuMax","shitsukeScore","shitsukeMax"], outputHint: "number" },
+  // ── #163-182: NEW INDUSTRIAL FORMULAS ──
+  "industrial.compressor_power": { description: "Compressor: combined power & air flow calculation", requiredInputs: ["airFlowRate","operatingPressure","inletTemperature","inletPressure","polytropicExponent","isentropicEfficiency","mechanicalEfficiency","motorEfficiency","stageCount","annualOperatingHours","electricityTariff"], outputHint: "number" },
+  "industrial.cutting_power": { description: "Cutting: combined machining power calculation", requiredInputs: ["workpieceMaterial","toolDiameter","toothCount","cuttingSpeed","feedPerTooth","depthOfCut","cuttingWidth","specificCuttingForce","materialExponent","machineEfficiency"], outputHint: "number" },
+  "industrial.evaporative_cooling": { description: "Evaporative Cooling: capacity & savings", requiredInputs: ["areaLength","areaWidth","ceilingHeight","achValue","outdoorDryBulb","outdoorWetBulb","padEfficiency","unitAirflow","unitPower","conventionalPower","unitWaterConsumption","electricityTariff","waterTariff","dailyOperatingHours","annualOperatingDays"], outputHint: "number" },
+  "industrial.condenser_precooling": { description: "Condenser Precooling: energy savings & ROI", requiredInputs: ["chillerCapacity","capacityUnit","existingCOP","condenserInletTemp","wetBulbTemp","precoolEfficiency","annualOperatingHours","electricityTariff","precoolSystemCost","precoolOpex"], outputHint: "number" },
+  "industrial.pad_media_psychrometric": { description: "Pad Media: psychrometric cooling capacity", requiredInputs: ["padType","padThickness","faceVelocity","padArea","inletDryBulb","inletWetBulb","inletRH","barometricPressure"], outputHint: "number" },
+  "industrial.fgas_leak": { description: "F-Gas Leak: compliance cost & emissions", requiredInputs: ["refrigerantType","gwpValue","refrigerantCharge","unitCount","annualLeakRate","leakTestFrequency","testUnitCost","refrigerantUnitPrice"], outputHint: "number" },
+  "industrial.water_footprint": { description: "Water Footprint: total & per-unit consumption", requiredInputs: ["blueWaterConsumption","greenWaterConsumption","greyWaterVolume","productionVolume","sectorBenchmark"], outputHint: "number" },
+  "industrial.smoke_exhaust_shev": { description: "Smoke Exhaust SHEV: natural vent area required", requiredInputs: ["buildingType","ceilingArea","zoneLength","zoneWidth","ceilingHeight","smokeLayerDepth","fireArea","inletArea","ventFlowCoefficient","windSpeed"], outputHint: "number" },
+  "industrial.natural_ventilation": { description: "Natural Ventilation: ACH-based vent area", requiredInputs: ["areaLength","areaWidth","ceilingHeight","indoorTemperature","outdoorTemperature","targetACH","ventDischargeCoefficient","stackHeight"], outputHint: "number" },
+  "industrial.compound_interest": { description: "Compound Interest: future value with contributions", requiredInputs: ["currency","initialPrincipal","monthlyContribution","annualRate","compoundingFrequency","investmentPeriod","inflationRate","taxRate"], outputHint: "number" },
+  "industrial.living_wage": { description: "Living Wage: net pay calculation after deductions", requiredInputs: ["calisanSayisi","brUcret_Aylik","fazlaMesaiSaat_Aylik","fazlaMesaiKatsayisi","SGK_isverenOrani","issizlikFonuOrani","damgaVergiOrani","gelirVergiDilimi","AGI_tutari","yemekYardimi_Gunluk","yolYardimi_Gunluk","calismaGunu_Ay"], outputHint: "number" },
+  "industrial.panel_radiator": { description: "Panel Radiator: heating capacity & sizing", requiredInputs: ["odaUzunlugu","odaGenisligi","odaYuksekligi","hedefSicaklik_Ti","disSicaklik_To","izolasyonSeviyesi","camTipi","camAlani_Orani","kisiSayisi","aydinlatmaW_m2","panelTipi","isletimSicakligi","kazanVerimi_η"], outputHint: "number" },
+  "industrial.underfloor_heating": { description: "Underfloor Heating: thermal output & pump sizing", requiredInputs: ["alanUzunlugu","alanGenisligi","odaSicakligi_Ti","serpantinAraligi_cm","zeminTipi","isletimSicakligi_gidis","donusSicakligi","boruDisCap_mm","b\u00f6lgeDebisi_Lmin","pompVerimi_η"], outputHint: "number" },
+  "industrial.solar_collector": { description: "Solar Collector: collector area & savings", requiredInputs: ["kullaniciSayisi","gunlukKullanim_su_L_kisi","sogukSuSicakligi_Tc","sicakSuHedef_Tg","kolektorVerimi_η_kol","guneslenmeSuresi_saat","gunesIsinimiGunluk_Wm2"], outputHint: "number" },
+  "industrial.epq": { description: "EPQ: economic production quantity", requiredInputs: ["yillikTalep_D","hazirlikMaliyeti_S","birimStokTutmaMaliyeti_H","gunlukUretimHizi_p","gunlukTalepHizi_d","calismaGunu_yil"], outputHint: "number" },
+  "industrial.kanban": { description: "Kanban: required card count", requiredInputs: ["gunlukTalep_d","tedarikSuresi_LT","guvenlikStoguFaktoru_k","kutuKapasitesi_q"], outputHint: "number" },
+  "industrial.littles_law": { description: "Little's Law: cycle time / WIP / throughput", requiredInputs: ["prosesTipi","wip_miktar","cikisHizi","cevrimSuresi_CT"], outputHint: "number" },
+  "industrial.milk_run": { description: "Milk Run: daily route cost", requiredInputs: ["tedarikciSayisi","tedarikciMesafe_ortalama","turSayisi_gunluk","arabaMaliyeti_km","surucuSaatUcreti","yuklemeBosaltmaDk","beklemeSuresiDk","ortalamaHiz_kmh"], outputHint: "number" },
 };
