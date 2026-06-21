@@ -369,7 +369,7 @@
   align-items: center;
   gap: var(--sp-3);
   background: #fff;
-  border-radius: var(--r-2xl);
+  border-radius: var(--r-md);
   padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-5);
   box-shadow: var(--shadow-md);
 }
@@ -424,7 +424,7 @@
   font-weight: 600;
   letter-spacing: -0.01em;
   padding: var(--sp-3) var(--sp-6);
-  border-radius: var(--r-xl);
+  border-radius: var(--r-md);
   flex-shrink: 0;
   transition: all var(--dur-base) var(--ease-out);
 }
@@ -1365,7 +1365,7 @@
   align-items: center;
   gap: var(--sp-2);
   background: var(--cream);
-  border-radius: var(--r-xl);
+  border-radius: var(--r-md);
   padding: var(--sp-2) var(--sp-3);
 }
 
