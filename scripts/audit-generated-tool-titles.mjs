@@ -34,6 +34,8 @@ const MARKERS = {
   ar: [/[\u0600-\u06FF]/],
 };
 
+const LEAK_SUFFIX_RE = /^(?:[\s\-–—]*)(?:hesaplama|hesaplayıcı|hesaplayici|araci|aracı|dönüştürücü|donusturucu|dengeleyici|kontrol|tahmincisi|tahminci|analizoru|analizörü|rechner|umrechner|calculator|converter|calculateur|calculadora|convertisseur|convertidor|محول|حاسبة|تحويل|آلة حاسبة|конвертер|калькулятор)[\s\-–—]*$/i;
+
 /**
  * Check if a locale value looks properly localized.
  * Rejects: empty, identical-to-EN (unless proper noun), or simple EN+suffix patterns.
@@ -47,27 +49,27 @@ function isLocalized(value, locale, enValue) {
     return false;
   }
 
-  // If same as EN, check if it's a proper noun (all title-cased words)
+  // Named entities (Cambridge English, Kendall Tau) are OK identical
   if (value === enValue) {
-    // Proper nouns like "Cambridge English", "Kendall Tau" are acceptable
-    const isProperNoun = enValue.split(/\s+/).every((w) => /^[A-Z][a-z]/.test(w));
-    return isProperNoun;
+    return enValue.split(/\s+/).every((w) => /^[A-Z][a-z]/.test(w));
   }
 
-  // If different from EN and not starting with EN+suffix, accept it
-  if (value !== enValue && !(value.startsWith(enValue) && value.length > enValue.length)) {
+  const suffix = value.slice(enValue.length).trim();
+
+  // Starting with EN + extra chars — could be EN leak or proper translation
+  if (value.startsWith(enValue) && value.length > enValue.length) {
+    // Turkish possessive (Friedman Testi)
+    if (/^(i|ı|ü|u|si|sı|sü|su|in|ın|ün|un|nin|nın|nün|nun|ye|ya|de|da|den|dan|le|la)$/i.test(suffix)) return true;
+    // Single-char suffix ("n" in Volumen) is legitimate language ending
+    if (suffix.length <= 1) return true;
+    // Long suffix — reject only if it contains KNOWN leak calculator terms
+    if (LEAK_SUFFIX_RE.test(value.slice(enValue.length))) return false;
+    // Otherwise legitimate compound/ending
     return true;
   }
 
-  // Accept Turkish possessive forms like "Friedman Testi" where only suffix is added
-  if (value.startsWith(enValue) && value.length > enValue.length) {
-    const suffix = value.slice(enValue.length);
-    const isTurkishPossessive = /^(i|ı|ü|u|si|sı|sü|su|in|ın|ün|un|nin|nın|nün|nun|ye|ya|de|da|den|dan|le|la)$/i.test(suffix);
-    if (isTurkishPossessive) return true;
-  }
-
-  // Last resort: check locale markers for edge cases
-  return MARKERS[locale]?.some((re) => re.test(value)) ?? false;
+  // Completely different text → properly translated
+  return true;
 }
 
 /** Turkish suffix patterns that the build pipeline adds to file slugs. */
