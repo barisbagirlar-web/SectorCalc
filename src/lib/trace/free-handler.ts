@@ -1,3 +1,7 @@
+// LOCKED — DO NOT MODIFY without explicit user approval.
+// Trace engine: max_tokens=120, temperature=0.3, MAX_REPLY_LENGTH=600.
+// Changing these will produce long/AI-sounding responses.
+
 import "server-only";
 
 import OpenAI from "openai";
@@ -14,11 +18,8 @@ import { findBestTools } from "@/lib/trace/tool-recommendation";
 import { routeAssistantSlug } from "@/lib/assistant/slug-router";
 import type { TraceFreeRequest, TraceFreeResponse } from "@/lib/trace/types";
 
-const MAX_REPLY_LENGTH = 1500;
+const MAX_REPLY_LENGTH = 600;
 
-// ── DeepSeek model configuration ──
-// DeepSeek API docs: https://api-docs.deepseek.com/quick_start/pricing
-// Model "deepseek-chat" maps to the latest DeepSeek-V3/V4 series.
 function resolveFlashModel(): string {
   return (
     process.env.AI_TRACE_FLASH_MODEL?.trim() ||
@@ -30,7 +31,7 @@ function resolveFlashModel(): string {
 function createDeepSeekClient(): OpenAI | null {
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
   if (!apiKey) {
-    console.error("[Trace] DEEPSEEK_API_KEY is not set — DeepSeek unavailable");
+    console.error("[Trace] DEEPSEEK_API_KEY is not set");
     return null;
   }
 
@@ -46,18 +47,14 @@ function formatSuggestionsForPrompt(
   suggestions: readonly { slug: string; label: string; href: string }[],
 ): string {
   if (suggestions.length === 0) {
-    return "No keyword match. Use the catalog below to recommend the right tool.";
+    return "";
   }
 
   return suggestions
-    .map((entry, index) => `${index + 1}. ${entry.label} (${entry.slug}) → ${entry.href}`)
+    .map((entry) => `${entry.label}: ${entry.href}`)
     .join("\n");
 }
 
-/**
- * Generate a DeepSeek flash reply. Logs errors to server console.
- * Returns null on any failure — caller handles fallback.
- */
 async function generateFlashReply(
   request: TraceFreeRequest,
   suggestions: readonly { slug: string; label: string; href: string }[],
@@ -104,9 +101,9 @@ async function generateFlashReply(
         })),
         { role: "user", content: userContent },
       ],
-      temperature: 0.7,
-      max_tokens: 500,
-      top_p: 0.9,
+      temperature: 0.3,
+      max_tokens: 120,
+      top_p: 0.5,
       frequency_penalty: 0.3,
       presence_penalty: 0.2,
     });
@@ -122,10 +119,9 @@ async function generateFlashReply(
     const msg = error instanceof Error ? error.message : String(error);
     console.error("[Trace] DeepSeek API error:", msg);
 
-    // Log additional context for 401/auth errors
     if (msg.includes("401") || msg.includes("Unauthorized") || msg.includes("auth")) {
       console.error(
-        "[Trace] DeepSeek 401 — check DEEPSEEK_API_KEY on this environment. " +
+        "[Trace] DeepSeek 401 check DEEPSEEK_API_KEY on this environment. " +
         `Model requested: ${modelName}`,
       );
     }
@@ -134,10 +130,6 @@ async function generateFlashReply(
   }
 }
 
-/**
- * Build a contextual fallback message when DeepSeek is unavailable.
- * More helpful than the plain router fallback.
- */
 function buildFallbackReply(
   message: string,
   suggestions: readonly { slug: string; label: string; href: string }[],
@@ -147,17 +139,16 @@ function buildFallbackReply(
     return { reply: blockedMessage, strongMatch: false };
   }
 
-  // Check if we have a strong tool match
   if (suggestions.length > 0) {
     const top = suggestions[0];
     return {
-      reply: `I found a tool that matches your question: **${top.label}**. Try it here: ${top.href}\n\nNeed something different? Let me know.`,
+      reply: `${top.label}: ${top.href}`,
       strongMatch: true,
     };
   }
 
   return {
-    reply: `I'm here to help you find the right SectorCalc tool for your calculation needs. Can you tell me more about what you're trying to calculate? I can route you to free tools (instant, no signup) or Pro analyzers (full verdict, PDF reports).`,
+    reply: "Tell me what you want to calculate and I will find the right tool.",
     strongMatch: false,
   };
 }
@@ -170,7 +161,6 @@ export async function handleFreeTraceRequest(
   const routed = await routeAssistantSlug(message, locale);
   const suggestions = await findBestTools(message, locale);
 
-  // ── Try Flash (DeepSeek) first ──
   const flashReply = await generateFlashReply(request, suggestions, routed.blocked ? routed.message : undefined);
 
   if (flashReply) {
@@ -183,7 +173,6 @@ export async function handleFreeTraceRequest(
     };
   }
 
-  // ── DeepSeek unavailable → smart fallback ──
   const fallback = buildFallbackReply(message, suggestions, routed.blocked ? routed.message : undefined);
 
   return {

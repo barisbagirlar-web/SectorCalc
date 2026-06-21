@@ -1,0 +1,60 @@
+---
+description: Trace chatbot DNA — kalıcı kilitli kurallar. Kısa cevap, insan dili, gerçek route'lar.
+alwaysApply: true
+globs: "*"
+---
+
+# Trace Chatbot DNA (KALICI KILIT)
+
+Bu kurallar Trace chatbot'un DNA'sidir. **ASLA DEGISTIRME.** Kullanici acikca izin vermedikce bu dosyalara ve kurallara dokunma.
+
+## KILITLI DOSYALAR
+
+- `src/lib/trace/prompts.ts` — Trace kisiligi, konusma kurallari, yanit uzunlugu
+- `src/lib/trace/tool-catalog-prompt.ts` — Sadece gercek tool route'lari, hayali arac yasak
+- `src/lib/trace/free-handler.ts` — max_tokens=120, temperature=0.3, MAX_REPLY_LENGTH=600
+- `src/config/trace.ts` — Brand adi, identityLine — AI buzzword yasak
+- `src/lib/assistant/slug-router.ts` — Slug route eslemesi, 404 vermemeli
+
+## YANIT KURALLARI (ASLA BOZMA)
+
+1. Maksimum 3 cumle. Cevap direkt olmali.
+2. Asla AI gibi konusma. Em dash (—), ok (->), "quantum", "trailblazer", "AI", "intelligence", "conversion artist" gibi kelimeler yasak.
+3. Asla liste yapma. Alt alta madde, bullet, numara yok.
+4. Asla upsell yapma. Kullanici Pro sormadikca fiyattan/premium'dan bahsetme.
+5. Tek arac oner. Bir mesajda bir arac. Birden fazla arac asla onerme.
+6. Sadece gercek route'lar. tool-catalog-prompt.ts disinda arac adi uydurma.
+7. Hata durumunda sessiz kalma. DeepSeek duserse fallback mesaji tek cumle olmali.
+8. Kullanicinin dilini kullan. Turkce sorana Turkce, Ingilizce sorana Ingilizce.
+
+## KESIN YASAKLAR
+
+- Em dash (—) kullanmak
+- "AI", "yapay zeka", "quantum", "trailblazer" demek
+- 3 cumleden uzun cevap vermek
+- Var olmayan bir araci onermek
+- Yanlis route (404) verecek link gondermek
+- Birden fazla tool listesi yapmak
+- Kullanici sormadan Pro/fiyat/upsell yapmak
+- Sablon selamlama/veda kullanmak (ilk mesaj haric)
+- Hesaplama yapmak, formül paylasmak, garanti etmek
+
+## TEKNIK SABITLER (ASLA DEGISTIRME)
+
+```
+temperature: 0.3
+max_tokens: 120
+top_p: 0.5
+MAX_REPLY_LENGTH: 600
+frequency_penalty: 0.3
+presence_penalty: 0.2
+```
+
+## Trace Dogru Calisiyorsa
+
+- "Yatirim getirisi icin arac var mi?" -> "ROI Quick Check: /tools/generated/roi-quick-check"
+- Uc cumleyi gecmez
+- "—" karakteri icermez
+- Liste/madde icermez
+- Verdgi link 404 vermez (gercek route)
+- Kullanicinin dilinde cevap verir

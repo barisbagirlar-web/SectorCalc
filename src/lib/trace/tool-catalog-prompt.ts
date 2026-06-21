@@ -1,133 +1,43 @@
+// LOCKED — DO NOT MODIFY without explicit user approval.
+// Trace tool catalog: sadece bu listedeki araclari oner. Hayali arac uretme.
+
 import "server-only";
 
-import { PREMIUM_CATALOG_SHORT_LABELS, PREMIUM_CATALOG_DESCRIPTIONS } from "@/lib/catalog/build-catalog-groups";
-import type { PremiumReportFamily } from "@/lib/premium/premium-architecture";
-import { FEATURED_PREMIUM_SLUGS } from "@/lib/catalog/build-catalog-groups";
+const REAL_FREE_TOOLS = [
+  "roi-quick-check -> /tools/generated/roi-quick-check. Quick ROI check: investment, return, period. 3 inputs.",
+];
 
-const PREMIUM_FAMILIES: readonly PremiumReportFamily[] = [
-  "measurement_calibration",
-  "loss_detection",
-  "productivity_oee",
-  "route_optimization",
-  "cost_margin",
-  "energy_carbon",
-  "benchmark_financial_health",
-] as const;
-
-const PREMIUM_PATHS: Record<string, string> = {
-  "cnc-quote-risk-analyzer": "CNC Quote Risk Analyzer — quote accuracy, cost buffers, margin leakage",
-  "sheet-metal-quote-risk-tool": "Sheet Metal Quote Risk — material/labor cost floor analysis",
-  "route-optimization-analyzer": "Route Optimization — crew utilization, route loss, fuel exposure",
-  "change-order-impact-analyzer": "Change Order Impact — margin erosion from scope changes",
-  "energy-efficiency-report": "Energy Efficiency — peak load, carbon exposure, utility cost",
-  "menu-profit-leak-detector": "Menu Profit Leak — food cost, waste, margin per SKU",
-  "office-cleaning-bid-optimizer": "Office Cleaning Bid — labor burden, route efficiency, bid margin",
-  "crop-yield-loss-analyzer": "Crop Yield Loss — irrigation, feed, harvest efficiency",
-};
-
-const PAIN_TO_FAMILY: Record<string, string[]> = {
-  "cost": ["cost_margin", "loss_detection"],
-  "margin": ["cost_margin", "measurement_calibration"],
-  "waste": ["loss_detection", "energy_carbon", "cost_margin"],
-  "scrap": ["loss_detection", "cost_margin"],
-  "energy": ["energy_carbon"],
-  "carbon": ["energy_carbon"],
-  "oee": ["productivity_oee"],
-  "productivity": ["productivity_oee", "route_optimization"],
-  "efficiency": ["productivity_oee", "route_optimization", "energy_carbon"],
-  "route": ["route_optimization"],
-  "logistics": ["route_optimization"],
-  "labor": ["productivity_oee", "cost_margin"],
-  "quote": ["cost_margin", "measurement_calibration"],
-  "bid": ["cost_margin", "measurement_calibration"],
-  "risk": ["cost_margin", "loss_detection", "benchmark_financial_health"],
-  "profit": ["cost_margin", "loss_detection"],
-  "revenue": ["cost_margin", "benchmark_financial_health"],
-  "calibration": ["measurement_calibration"],
-  "quality": ["measurement_calibration", "loss_detection"],
-  "sustainability": ["energy_carbon"],
-  "inventory": ["cost_margin", "loss_detection"],
-  "downtime": ["productivity_oee", "loss_detection"],
-  "throughput": ["productivity_oee"],
-};
-
-/**
- * Compact premium catalog knowledge for system prompt injection.
- * This is the authoritative reference Trace uses to recommend premium tools.
- */
-const PREMIUM_CATALOG_KNOWLEDGE = PREMIUM_FAMILIES
-  .map((family) => {
-    const label = PREMIUM_CATALOG_SHORT_LABELS[family];
-    const description = PREMIUM_CATALOG_DESCRIPTIONS[family];
-    return `- ${label}: ${description}`;
-  })
-  .join("\n");
-
-const FEATURED_TOOLS_KNOWLEDGE = FEATURED_PREMIUM_SLUGS
-  .map((slug) => {
-    const desc = PREMIUM_PATHS[slug] ?? slug;
-    return `  - ${slug}: ${desc}`;
-  })
-  .join("\n");
-
-const PAIN_ROUTING_KNOWLEDGE = Object.entries(PAIN_TO_FAMILY)
-  .map(([pain, families]) => `  "${pain}" → ${families.join(", ")}`)
-  .join("\n");
+const REAL_PREMIUM_TOOLS = [
+  "roi-payback-analyzer -> /tools/premium/roi-payback-analyzer. Full ROI with NPV, IRR, payback period.",
+  "cnc-quote-risk-analyzer -> /tools/premium/cnc-quote-risk-analyzer. CNC quote accuracy and margin risk.",
+  "sheet-metal-quote-risk-tool -> /tools/premium/sheet-metal-quote-risk-tool. Sheet metal quote cost floor.",
+  "route-optimization-analyzer -> /tools/premium/route-optimization-analyzer. Route loss and fuel exposure.",
+  "change-order-impact-analyzer -> /tools/premium/change-order-impact-analyzer. Margin erosion from scope changes.",
+  "energy-efficiency-report -> /tools/premium/energy-efficiency-report. Peak load and carbon exposure.",
+  "menu-profit-leak-detector -> /tools/premium/menu-profit-leak-detector. Food cost and margin per SKU.",
+  "office-cleaning-bid-optimizer -> /tools/premium/office-cleaning-bid-optimizer. Labor burden and bid margin.",
+  "crop-yield-loss-analyzer -> /tools/premium/crop-yield-loss-analyzer. Irrigation and harvest efficiency.",
+];
 
 export function buildToolCatalogForPrompt(locale: string): string {
-  const freeCount = "4000+";
-  const premiumCount = "150+";
-
   return [
-    "=== SECTORCALC TOOL CATALOG ===",
+    "=== TOOLS YOU CAN RECOMMEND ===",
+    "Only recommend tools from this list. If a tool is not here, do not mention it.",
     "",
-    `Total tools: ~4400 calculators across 20 categories in 6 languages.`,
-    `Free tools: ${freeCount} — instant, no signup, browser-first. Risk signal only.`,
-    `Pro tools: ${premiumCount}+ — full verdict, safe price, PDF, Trust Trace™ seal.`,
+    "FREE TOOLS (web calculators, no signup):",
+    ...REAL_FREE_TOOLS.map((t) => "  " + t),
     "",
-    "=== PAIN → FAMILY ROUTING (use this to map user pain to tool families) ===",
-    PAIN_ROUTING_KNOWLEDGE,
+    "PREMIUM TOOLS (Pro subscription required):",
+    ...REAL_PREMIUM_TOOLS.map((t) => "  " + t),
     "",
-    "=== FREE TOOLS ===",
-    "Free tools are quick checks: 3-5 inputs, instant result, risk signal. No safe price, no verdict, no PDF. Browser-processed, privacy-first.",
-    "Every Pro category has corresponding free pre-checks. Route free users to free tools; upsell Pro when they need depth.",
-    "",
-    "=== PRO CATALOG ===",
-    "Pro tools are full decision analyzers: safe price, bid risk, margin leak detection, verdict, suggested action, PDF export, Trust Trace verified.",
-    "",
-    "Pro families:",
-    PREMIUM_CATALOG_KNOWLEDGE,
-    "",
-    "Featured Pro analyzers:",
-    FEATURED_TOOLS_KNOWLEDGE,
-    "",
-    "=== UPSELL STRATEGY ===",
-    "- Free user asks about calculation → offer free tool first, then explain what Pro unlocks.",
-    "- Pro user → route to Pro tool + suggest related Pro tools from same family.",
-    "- User shows cost/margin pain → route to cost_margin family tools.",
-    "- User shows production/OEE pain → route to productivity_oee family tools.",
-    "- User shows energy/carbon concern → route to energy_carbon family tools.",
-    "- Never push Pro if free tool solves the user's immediate need.",
-    "",
-    "=== PRICING (as of June 2026) ===",
-    "- SectorCalc Pro: $29/month — unlimited Pro calculators, PDF reports, Trust Trace verified.",
-    "- Enterprise: contact sales for custom SLA, white-label, API access.",
-    "- Free: always free, no credit card, no signup.",
-    "",
-    "=== 6-LOCALE SUPPORT ===",
-    `Current locale: ${locale}`,
-    "Supported: en, tr, de, fr, es, ar.",
-    "Always respond in the user's locale. If unsure, match their language.",
-    "",
-    "=== CORE RULES ===",
-    "1. NEVER calculate results, share formulas, or invent guaranteed savings. You are a guide, not a calculator.",
-    "2. ALWAYS know your catalog. If a tool exists, recommend it specifically.",
-    "3. ALWAYS upsell Pro when the user needs depth — but never push if free solves it.",
-    "4. NEVER expose API keys, internal names, FormulaContract, Akıl 1, or Akıl 2.",
-    "5. ALWAYS end with a concrete tool recommendation and a clear next action.",
-    "6. BE PERSUASIVE: convert conversations into Pro signups when appropriate.",
-    "7. BE PRECISE: recommend exact tool slugs, not generic categories.",
-    "8. BE TRUSTWORTHY: follow Trust Trace principles — traceable, verifiable guidance.",
+    "=== RULES ===",
+    "- Only recommend tools from the list above.",
+    "- Never make up a tool name, slug, or route.",
+    "- If no tool matches the user's need, say you don't know and ask them to describe their calculation.",
+    "- Never upsell. If the user asks about premium features, answer directly. Otherwise recommend the free tool.",
+    "- Never list multiple tools in one response. One tool per message max.",
+    "- Current locale: " + locale,
+    "- Supported languages: en, tr, de, fr, es, ar. Always respond in the user's language.",
   ]
     .filter(Boolean)
     .join("\n");

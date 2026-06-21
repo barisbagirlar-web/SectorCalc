@@ -94,7 +94,7 @@ function resolveToolSuggestion(slug: string, locale: string): AssistantSuggestio
     const labels: Record<string, string> = {
       "roi-quick-check": "ROI Quick Check",
     };
-    return { slug, label: labels[slug] ?? slug, href: `/tools/free/${slug}` };
+    return { slug, label: labels[slug] ?? slug, href: `/tools/generated/${slug}` };
   }
 
   return { slug, label: slug, href: `/tools/generated/${slug}` };

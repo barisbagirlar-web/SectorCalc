@@ -1,14 +1,11 @@
-/**
- * Trace — SectorCalc intelligent assistant brand config.
- * Customer-facing AI identity (distinct from Trust Trace™ report validation).
- */
+// LOCKED — DO NOT MODIFY without explicit user approval.
+
 export const TRACE_BRAND = {
   name: "Trace",
-  fullTitle: "SectorCalc Calculation Trailblazer",
-  tagline: "Follow me to your true cost.",
-  identityLine: "I track the math behind your industry.",
+  tagline: "Find the right tool for your calculation.",
+  identityLine: "I help you find the right calculator.",
   proName: "Trace Pro",
-  proIdentityLine: "I pursue the mathematical proof behind your decisions.",
+  proIdentityLine: "I help Pro users get the most from their tools.",
   avatar: "/images/trace-avatar.svg",
   colors: {
     gold: "#d4af37",
