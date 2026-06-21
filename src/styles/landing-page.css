@@ -196,13 +196,6 @@
   flex-shrink: 0;
 }
 
-:where(.landing-root) .nav__logo-img {
-  display: block;
-  height: 30px;
-  width: auto;
-  object-fit: contain;
-}
-
 :where(.landing-root) .nav__links {
   display: flex;
   align-items: center;
@@ -376,16 +369,13 @@
   align-items: center;
   gap: var(--sp-3);
   background: #fff;
-  border: 1.5px solid var(--ink-18);
   border-radius: var(--r-2xl);
   padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-5);
   box-shadow: var(--shadow-md);
-  transition: border-color var(--dur-base), box-shadow var(--dur-base);
 }
 
 :where(.landing-root) .search-bar:focus-within {
-  border-color: var(--terracotta-border);
-  box-shadow: 0 0 0 3px rgba(217,119,87,0.08), var(--shadow-md);
+  box-shadow: var(--shadow-md);
 }
 
 :where(.landing-root) .search-ico {
@@ -931,6 +921,8 @@
 }
 
 /* ── METHODOLOGY GRID ── */
+:where(.landing-root) .audience-title__calc { color: #4A5CF5; }
+
 :where(.landing-root) .method-section { background: var(--cream); }
 
 :where(.landing-root) .method-layout {
@@ -974,12 +966,6 @@
   border: 1px solid var(--terracotta-border);
   border-radius: var(--r-pill);
   padding: 2px var(--sp-3);
-  margin-bottom: var(--sp-4);
-}
-
-:where(.landing-root) .method-card__icon {
-  font-size: 30px;
-  line-height: 1;
   margin-bottom: var(--sp-4);
 }
 
@@ -1379,12 +1365,9 @@
   align-items: center;
   gap: var(--sp-2);
   background: var(--cream);
-  border: 1.5px solid var(--ink-08);
   border-radius: var(--r-xl);
   padding: var(--sp-2) var(--sp-3);
-  transition: border-color var(--dur-fast);
 }
-:where(.landing-root) .trace__inputrow:focus-within { border-color: var(--terracotta-border); }
 
 :where(.landing-root) .trace__input {
   flex: 1; min-width: 0;
@@ -1427,13 +1410,6 @@
 
 :where(.landing-root) .footer-brand__logo {
   margin-bottom: var(--sp-4);
-}
-
-:where(.landing-root) .footer-brand__logo-img {
-  display: block;
-  width: auto;
-  height: 32px;
-  object-fit: contain;
 }
 
 :where(.landing-root) .footer-brand__desc {
@@ -1532,26 +1508,6 @@
 }
 :where(.landing-root) .cat-card:not(.cat-card--feature):hover .cat-card__icon { color: var(--terracotta); }
 :where(.landing-root) .cat-card--feature .cat-card__icon { color: rgba(250,249,245,0.70); }
-
-:where(.landing-root) .persona__icon {
-  color: var(--ink-45);
-  margin-bottom: var(--sp-4);
-}
-
-:where(.landing-root) .method-card__icon {
-  color: var(--ink-45);
-  margin-bottom: var(--sp-4);
-}
-:where(.landing-root) .method-card--highlight .method-card__icon { color: rgba(255,255,255,0.85); }
-
-:where(.landing-root) .pricing-row__feat-icon svg { display: inline-block; vertical-align: middle; margin-right: 2px; }
-:where(.landing-root) .pricing-row__feat-icon { color: var(--ink-45); display: inline-flex; align-items: center; }
-
-:where(.landing-root) .tier-tag svg { display: inline-block; vertical-align: middle; }
-
-:where(.landing-root) .tool-tag svg,
-:where(.landing-root) .chip svg,
-:where(.landing-root) .trace-chip svg { display: inline-block; vertical-align: middle; flex-shrink: 0; }
 
 /* SVG check/minus in pricing */
 :where(.landing-root) .check-y svg,

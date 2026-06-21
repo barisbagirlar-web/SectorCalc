@@ -26,30 +26,10 @@ import {
   Activity,
   Globe,
   Sparkles,
-  Gauge,
-  Package,
-  Thermometer,
-  GitFork,
-  Timer,
-  RotateCw,
-  Box,
-  TrendingDown,
-  LayoutGrid,
-  Droplets,
-  Leaf,
-  Wind,
-  Percent,
-  Hexagon,
 } from "lucide-react";
 
 const iconProps = {
   size: 22,
-  strokeWidth: 1.5,
-  "aria-hidden": "true" as const,
-};
-
-const smallIconProps = {
-  size: 12,
   strokeWidth: 1.5,
   "aria-hidden": "true" as const,
 };
@@ -269,22 +249,22 @@ export function LandingPageContent({
             <div className="search-hints" aria-label="Suggested searches">
               <span className="search-hint-label">{content.hero.tryLabel}</span>
               <button className="chip" aria-label="OEE" onClick={() => handleSearchChip(content.hero.chipOee)}>
-                <BarChart3 {...smallIconProps} />{content.hero.chipOee}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="8" width="5" height="12" rx="1"/><rect x="9.5" y="4" width="5" height="16" rx="1"/><rect x="16" y="10" width="5" height="10" rx="1"/></svg>{content.hero.chipOee}
               </button>
               <button className="chip" aria-label="EOQ" onClick={() => handleSearchChip(content.hero.chipEoq)}>
-                <Package {...smallIconProps} />{content.hero.chipEoq}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27,6.96 12,12.01 20.73,6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>{content.hero.chipEoq}
               </button>
               <button className="chip" aria-label="IRR" onClick={() => handleSearchChip(content.hero.chipIrr)}>
-                <TrendingUp {...smallIconProps} />{content.hero.chipIrr}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-6"/></svg>{content.hero.chipIrr}
               </button>
               <button className="chip" aria-label="Cpk" onClick={() => handleSearchChip(content.hero.chipCpk)}>
-                <Target {...smallIconProps} />{content.hero.chipCpk}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>{content.hero.chipCpk}
               </button>
               <button className="chip" aria-label="LMTD" onClick={() => handleSearchChip(content.hero.chipLmtd)}>
-                <Thermometer {...smallIconProps} />{content.hero.chipLmtd}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>{content.hero.chipLmtd}
               </button>
               <button className="chip" aria-label="MTBF" onClick={() => handleSearchChip(content.hero.chipMtbf)}>
-                <Wrench {...smallIconProps} />{content.hero.chipMtbf}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>{content.hero.chipMtbf}
               </button>
             </div>
           </div>
@@ -320,46 +300,46 @@ export function LandingPageContent({
             <div className="ticker__label" aria-hidden="true">{content.ticker.label}</div>
             <div className="ticker__scroll" role="list">
               <button className="tool-tag" role="listitem">
-                <Gauge {...smallIconProps} />{content.ticker.toolOee} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="8" width="5" height="12" rx="1"/><rect x="9.5" y="4" width="5" height="16" rx="1"/><rect x="16" y="10" width="5" height="10" rx="1"/></svg>{content.ticker.toolOee} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <Box {...smallIconProps} />{content.ticker.toolEoq} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27,6.96 12,12.01 20.73,6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>{content.ticker.toolEoq} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <TrendingUp {...smallIconProps} />{content.ticker.toolIrrNpv} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-6"/></svg>{content.ticker.toolIrrNpv} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <Hexagon {...smallIconProps} />{content.ticker.toolCpkSigma} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>{content.ticker.toolCpkSigma} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <Timer {...smallIconProps} />{content.ticker.toolTaktTime} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>{content.ticker.toolTaktTime} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <RotateCw {...smallIconProps} />{content.ticker.toolBoltTorque} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>{content.ticker.toolBoltTorque} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <Thermometer {...smallIconProps} />{content.ticker.toolLmtd} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>{content.ticker.toolLmtd} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <Activity {...smallIconProps} />{content.ticker.toolMtbfMttr} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>{content.ticker.toolMtbfMttr} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <TrendingDown {...smallIconProps} />{content.ticker.toolBreakEven} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 10 5 5 5-5"/></svg>{content.ticker.toolBreakEven} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <LayoutGrid {...smallIconProps} />{content.ticker.toolKanban} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-5h6v5"/></svg>{content.ticker.toolKanban} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <Droplets {...smallIconProps} />{content.ticker.toolPipePressure} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>{content.ticker.toolPipePressure} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <Leaf {...smallIconProps} />{content.ticker.toolCarbon} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 22 16 8"/><path d="M8.5 2A16.5 16.5 0 0 1 22 15.5c0 4.14-1.49 7.29-5.86 7.29A15.83 15.83 0 0 1 2 9.5 7.5 7.5 0 0 1 8.5 2z"/></svg>{content.ticker.toolCarbon} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <Wind {...smallIconProps} />{content.ticker.toolCompressor} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>{content.ticker.toolCompressor} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
               </button>
               <button className="tool-tag" role="listitem">
-                <GitFork {...smallIconProps} />{content.ticker.toolPertCpm} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="20" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/><line x1="3" y1="4" x2="3" y2="20"/></svg>{content.ticker.toolPertCpm} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
               </button>
             </div>
           </div>
@@ -665,7 +645,7 @@ export function LandingPageContent({
           </div>
 
           <div className="method-layout reveal">
-            <div className="method-card method-card--highlight">
+            <div className="method-card method-card--highlight" style={{gridColumn:1,gridRow:1}}>
               <div className="method-card__tag">{content.methodology.card1Tag}</div>
               <div className="method-card__icon" aria-hidden="true">
                 <Pen {...iconProps} />
@@ -673,26 +653,28 @@ export function LandingPageContent({
               <div className="method-card__title">{content.methodology.card1Title}</div>
               <div className="method-card__desc">{content.methodology.card1Desc}</div>
             </div>
-            <div className="method-card">
-              <div className="method-card__icon" aria-hidden="true">
-                <FileText {...iconProps} />
+            <div style={{display:'flex',flexDirection:'column',gap:'var(--sp-4)'}}>
+              <div className="method-card">
+                <div className="method-card__icon" aria-hidden="true">
+                  <FileText {...iconProps} />
+                </div>
+                <div className="method-card__title">{content.methodology.card2Title}</div>
+                <div className="method-card__desc">{content.methodology.card2Desc}</div>
               </div>
-              <div className="method-card__title">{content.methodology.card2Title}</div>
-              <div className="method-card__desc">{content.methodology.card2Desc}</div>
-            </div>
-            <div className="method-card">
-              <div className="method-card__icon" aria-hidden="true">
-                <TriangleAlert {...iconProps} />
+              <div className="method-card">
+                <div className="method-card__icon" aria-hidden="true">
+                  <TriangleAlert {...iconProps} />
+                </div>
+                <div className="method-card__title">{content.methodology.card3Title}</div>
+                <div className="method-card__desc">{content.methodology.card3Desc}</div>
               </div>
-              <div className="method-card__title">{content.methodology.card3Title}</div>
-              <div className="method-card__desc">{content.methodology.card3Desc}</div>
-            </div>
-            <div className="method-card">
-              <div className="method-card__icon" aria-hidden="true">
-                <ShieldCheck {...iconProps} />
+              <div className="method-card">
+                <div className="method-card__icon" aria-hidden="true">
+                  <ShieldCheck {...iconProps} />
+                </div>
+                <div className="method-card__title">{content.methodology.card4Title}</div>
+                <div className="method-card__desc">{content.methodology.card4Desc}</div>
               </div>
-              <div className="method-card__title">{content.methodology.card4Title}</div>
-              <div className="method-card__desc">{content.methodology.card4Desc}</div>
             </div>
           </div>
         </div>
@@ -707,7 +689,7 @@ export function LandingPageContent({
         <div className="wrap">
           <div className="reveal" style={{ textAlign: 'center', marginBottom: 'var(--sp-10)' }}>
             <div className="eyebrow">{content.audience.eyebrow}</div>
-            <h2 className="section-h2" id="audience-title">{content.audience.title}</h2>
+            <h2 className="section-h2" id="audience-title" dangerouslySetInnerHTML={{ __html: content.audience.title }} />
           </div>
 
           <div className="audience-grid reveal" role="list">
@@ -1073,19 +1055,19 @@ export function LandingPageContent({
           <p className="trace__msg">{content.trace.msg}</p>
           <div className="trace__chips">
             <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipOee)}>
-              <Gauge {...smallIconProps} />{content.trace.chipOee}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="8" width="5" height="12" rx="1"/><rect x="9.5" y="4" width="5" height="16" rx="1"/><rect x="16" y="10" width="5" height="10" rx="1"/></svg>{content.trace.chipOee}
             </button>
             <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipScrap)}>
-              <Percent {...smallIconProps} />{content.trace.chipScrap}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27,6.96 12,12.01 20.73,6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>{content.trace.chipScrap}
             </button>
             <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipEnergy)}>
-              <Zap {...smallIconProps} />{content.trace.chipEnergy}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>{content.trace.chipEnergy}
             </button>
             <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipPayback)}>
-              <TrendingUp {...smallIconProps} />{content.trace.chipPayback}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-6"/></svg>{content.trace.chipPayback}
             </button>
             <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipBolt)}>
-              <RotateCw {...smallIconProps} />{content.trace.chipBolt}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>{content.trace.chipBolt}
             </button>
           </div>
           <div className="trace__inputrow">
