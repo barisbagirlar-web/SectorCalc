@@ -1,0 +1,256 @@
+{
+  "slug": "taseron-marj-sizinti-dedektoru",
+  "toolName": "Taşeron Marj Sızıntı Dedektörü",
+  "name": "Taşeron Marj Sızıntı Dedektörü",
+  "description": "Taşeron Marj Sızıntı Dedektörü premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "ContractValue",
+      "label": "ContractValue",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ContractValue",
+        "tr": "ContractValue",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EstimatedSubcontractorCost",
+      "label": "EstimatedSubcontractorCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EstimatedSubcontractorCost",
+        "tr": "EstimatedSubcontractorCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualSubcontractorCost",
+      "label": "ActualSubcontractorCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualSubcontractorCost",
+        "tr": "ActualSubcontractorCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ReworkCost",
+      "label": "ReworkCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ReworkCost",
+        "tr": "ReworkCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DelayPenalties",
+      "label": "DelayPenalties",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DelayPenalties",
+        "tr": "DelayPenalties",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ChangeOrderAmount_i",
+      "label": "ChangeOrderAmount_i",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ChangeOrderAmount_i",
+        "tr": "ChangeOrderAmount_i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualWorkCompleted",
+      "label": "ActualWorkCompleted",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualWorkCompleted",
+        "tr": "ActualWorkCompleted",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "BilledAmount",
+      "label": "BilledAmount",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "BilledAmount",
+        "tr": "BilledAmount",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "QuotedMargin": "(ContractValue - EstimatedSubcontractorCost) / ContractValue",
+    "ActualMargin": "(ContractValue - ActualSubcontractorCost - ReworkCost - DelayPenalties) / ContractValue",
+    "MarginLeak": "QuotedMargin - ActualMargin",
+    "ChangeOrderCost": "SUM(ChangeOrderAmount_i)",
+    "UnbilledWork": "ActualWorkCompleted - BilledAmount",
+    "LeakagePct": "MarginLeak / QuotedMargin"
+  },
+  "outputs": {
+    "primary": "LeakagePct",
+    "unit": "USD",
+    "breakdown": {
+      "QuotedMargin": "QuotedMargin",
+      "ActualMargin": "ActualMargin",
+      "MarginLeak": "MarginLeak",
+      "ChangeOrderCost": "ChangeOrderCost",
+      "UnbilledWork": "UnbilledWork",
+      "LeakagePct": "LeakagePct"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Taşeron Marj Sızıntı Dedektörü premium araci ile kayiplari tespit edin.",
+      "long": "Taşeron Marj Sızıntı Dedektörü premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

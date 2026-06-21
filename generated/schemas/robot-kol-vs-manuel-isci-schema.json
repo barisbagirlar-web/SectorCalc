@@ -1,0 +1,435 @@
+{
+  "slug": "robot-kol-vs-manuel-isci",
+  "toolName": "Robot Kol vs. Manuel İşçi",
+  "name": "Robot Kol vs. Manuel İşçi",
+  "description": "Robot Kol vs. Manuel İşçi premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "Operators",
+      "label": "Operators",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Operators",
+        "tr": "Operators",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HourlyRate",
+      "label": "HourlyRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HourlyRate",
+        "tr": "HourlyRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "hour",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Burden",
+      "label": "Burden",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Burden",
+        "tr": "Burden",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RobotCapex",
+      "label": "Robot Capex",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Robot Capex",
+        "tr": "Robot Capex",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DepreciationLife",
+      "label": "DepreciationLife",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DepreciationLife",
+        "tr": "DepreciationLife",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Maintenance",
+      "label": "Maintenance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Maintenance",
+        "tr": "Maintenance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Energy",
+      "label": "Energy",
+      "type": "number",
+      "unit": "kWh",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Energy",
+        "tr": "Energy",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ProgrammerCost",
+      "label": "ProgrammerCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ProgrammerCost",
+        "tr": "ProgrammerCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CycleTime_Robot",
+      "label": "CycleTime_Robot",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CycleTime_Robot",
+        "tr": "CycleTime_Robot",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Uptime",
+      "label": "Uptime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Uptime",
+        "tr": "Uptime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CycleTime_Manual",
+      "label": "CycleTime_Manual",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CycleTime_Manual",
+        "tr": "CycleTime_Manual",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ManualCost",
+      "label": "ManualCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ManualCost",
+        "tr": "ManualCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RobotCost",
+      "label": "RobotCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RobotCost",
+        "tr": "RobotCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "ManualCost_Annual": "(Operators * HourlyRate * Hours) * (1 + Burden)",
+    "RobotCost_Annual": "(RobotCapex / DepreciationLife) + Maintenance + Energy + ProgrammerCost",
+    "RobotOutput": "CycleTime_Robot^-1 * Uptime",
+    "ManualOutput": "CycleTime_Manual^-1 * Efficiency",
+    "CostPerUnit_Manual": "ManualCost_Annual / ManualOutput",
+    "CostPerUnit_Robot": "RobotCost_Annual / RobotOutput",
+    "ROI": "(ManualCost - RobotCost) / RobotCapex",
+    "Payback": "RobotCapex / (ManualCost_Annual - RobotCost_Annual)"
+  },
+  "outputs": {
+    "primary": "Payback",
+    "unit": "USD",
+    "breakdown": {
+      "ManualCost_Annual": "ManualCost_Annual",
+      "RobotCost_Annual": "RobotCost_Annual",
+      "RobotOutput": "RobotOutput",
+      "ManualOutput": "ManualOutput",
+      "CostPerUnit_Manual": "CostPerUnit_Manual",
+      "CostPerUnit_Robot": "CostPerUnit_Robot",
+      "ROI": "ROI",
+      "Payback": "Payback"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
+  "category": "finance",
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Robot Kol vs. Manuel İşçi premium araci ile kayiplari tespit edin.",
+      "long": "Robot Kol vs. Manuel İşçi premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

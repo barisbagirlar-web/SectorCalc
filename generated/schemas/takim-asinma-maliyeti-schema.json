@@ -1,0 +1,306 @@
+{
+  "slug": "takim-asinma-maliyeti",
+  "toolName": "Takım Aşınma Maliyeti",
+  "name": "Takım Aşınma Maliyeti",
+  "description": "Takım Aşınma Maliyeti premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "InsertCost",
+      "label": "InsertCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "InsertCost",
+        "tr": "InsertCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Edges",
+      "label": "Edges",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Edges",
+        "tr": "Edges",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MachiningTime",
+      "label": "MachiningTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MachiningTime",
+        "tr": "MachiningTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ToolLife",
+      "label": "ToolLife",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ToolLife",
+        "tr": "ToolLife",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ToolChangeTime",
+      "label": "ToolChangeTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ToolChangeTime",
+        "tr": "ToolChangeTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MachineRate",
+      "label": "MachineRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MachineRate",
+        "tr": "MachineRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FlankWear",
+      "label": "FlankWear",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FlankWear",
+        "tr": "FlankWear",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "n",
+      "label": "n",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "n",
+        "tr": "n",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ExpectedLife",
+      "label": "ExpectedLife",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ExpectedLife",
+        "tr": "ExpectedLife",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualLife",
+      "label": "ActualLife",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualLife",
+        "tr": "ActualLife",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "ToolCostPerPart": "(InsertCost / Edges) * (MachiningTime / ToolLife)",
+    "ChangeCostPerPart": "(ToolChangeTime * MachineRate) * (MachiningTime / ToolLife)",
+    "TotalToolingCost": "ToolCostPerPart + ChangeCostPerPart",
+    "WearRate": "FlankWear / MachiningTime",
+    "OptimalToolLife": "((1/n - 1) * (ToolChangeTime + InsertCost/Edges / MachineRate))",
+    "CostOfPrematureFailure": "(ExpectedLife - ActualLife) / ExpectedLife * InsertCost"
+  },
+  "outputs": {
+    "primary": "CostOfPrematureFailure",
+    "unit": "USD",
+    "breakdown": {
+      "ToolCostPerPart": "ToolCostPerPart",
+      "ChangeCostPerPart": "ChangeCostPerPart",
+      "TotalToolingCost": "TotalToolingCost",
+      "WearRate": "WearRate",
+      "OptimalToolLife": "OptimalToolLife",
+      "CostOfPrematureFailure": "CostOfPrematureFailure"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Takım Aşınma Maliyeti premium araci ile kayiplari tespit edin.",
+      "long": "Takım Aşınma Maliyeti premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

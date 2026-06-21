@@ -1,27 +1,29 @@
 {
   "slug": "flexible-manufacturing-roi",
+  "toolName": "FLEXIBLE MANUFACTURING ROI",
   "name": "FLEXIBLE MANUFACTURING ROI",
-  "description": "FLEXIBLE MANUFACTURING ROI premium calculation tool.",
+  "description": "FLEXIBLE MANUFACTURING ROI premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "dedicatedFMSBedel",
-      "label": "Dedicated/FMS Bedel",
+      "id": "Mach_Ded",
+      "label": "Mach_Ded",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Dedicated/FMS Bedel",
-        "tr": "Dedicated/FMS Bedel",
+        "en": "Mach_Ded",
+        "tr": "Mach_Ded",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "setupSayısı",
-      "label": "Setup Sayısı",
+      "id": "Setup_Ded",
+      "label": "Setup_Ded",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Setup Sayısı",
-        "tr": "Setup Sayısı",
+        "en": "Setup_Ded",
+        "tr": "Setup_Ded",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "wIPHurdaAzalma",
-      "label": "WIP/Hurda Azalma",
+      "id": "Changeovers",
+      "label": "Changeovers",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "WIP/Hurda Azalma",
-        "tr": "WIP/Hurda Azalma",
+        "en": "Changeovers",
+        "tr": "Changeovers",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "tTMKazanc",
-      "label": "TTM Kazanç",
+      "id": "Inv_High",
+      "label": "Inv_High",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "TTM Kazanç",
-        "tr": "TTM Kazanç",
+        "en": "Inv_High",
+        "tr": "Inv_High",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "primMarj",
-      "label": "Prim Marj",
+      "id": "Mach_FMS",
+      "label": "Mach_FMS",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Prim Marj",
-        "tr": "Prim Marj",
+        "en": "Mach_FMS",
+        "tr": "Mach_FMS",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,341 @@
       }
     },
     {
-      "id": "tasıma",
-      "label": "Taşıma",
+      "id": "Tool_FMS",
+      "label": "Tool_FMS",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Taşıma",
-        "tr": "Taşıma",
+        "en": "Tool_FMS",
+        "tr": "Tool_FMS",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Prog",
+      "label": "Prog",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Prog",
+        "tr": "Prog",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Maint",
+      "label": "Maint",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Maint",
+        "tr": "Maint",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TTM_Red",
+      "label": "TTM_Red",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TTM_Red",
+        "tr": "TTM_Red",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RevGain",
+      "label": "RevGain",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RevGain",
+        "tr": "RevGain",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CustPrem",
+      "label": "CustPrem",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CustPrem",
+        "tr": "CustPrem",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Vol",
+      "label": "Vol",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Vol",
+        "tr": "Vol",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "WIP_Ded",
+      "label": "WIP_Ded",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WIP_Ded",
+        "tr": "WIP_Ded",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "WIP_Flex",
+      "label": "WIP_Flex",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WIP_Flex",
+        "tr": "WIP_Flex",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CarryCost",
+      "label": "CarryCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CarryCost",
+        "tr": "CarryCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Scrap_Ded",
+      "label": "Scrap_Ded",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Scrap_Ded",
+        "tr": "Scrap_Ded",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Scrap_Flex",
+      "label": "Scrap_Flex",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Scrap_Flex",
+        "tr": "Scrap_Flex",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitCost",
+      "label": "UnitCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitCost",
+        "tr": "UnitCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Capex",
+      "label": "Capex",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Capex",
+        "tr": "Capex",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,91 +489,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "costDed",
-      "label": "Cost_Ded",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Ded",
-        "tr": "Cost_Ded",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Cost_Ded": "Mach_Ded + Setup_Ded * Changeovers + Inv_High",
+    "Cost_Flex": "Mach_FMS + Tool_FMS + Prog + Maint",
+    "FlexVal": "(TTM_Red * RevGain) + (CustPrem * Vol)",
+    "InvSav": "(WIP_Ded - WIP_Flex) * CarryCost",
+    "ScrapRed": "(Scrap_Ded - Scrap_Flex) * Vol * UnitCost",
+    "ROI": "(Cost_Ded - Cost_Flex + FlexVal + InvSav + ScrapRed) / Capex"
+  },
+  "outputs": {
+    "primary": "ROI",
+    "unit": "USD",
+    "breakdown": {
+      "Cost_Ded": "Cost_Ded",
+      "Cost_Flex": "Cost_Flex",
+      "FlexVal": "FlexVal",
+      "InvSav": "InvSav",
+      "ScrapRed": "ScrapRed",
+      "ROI": "ROI"
     },
-    {
-      "id": "costFlex",
-      "label": "Cost_Flex",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Flex",
-        "tr": "Cost_Flex",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "flexVal",
-      "label": "FlexVal",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FlexVal",
-        "tr": "FlexVal",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "invSav",
-      "label": "InvSav",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "InvSav",
-        "tr": "InvSav",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "scrapRed",
-      "label": "ScrapRed",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ScrapRed",
-        "tr": "ScrapRed",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "rOI",
-      "label": "ROI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ROI",
-        "tr": "ROI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
+  "category": "finance",
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "FLEXIBLE MANUFACTURING ROI premium araci ile kayiplari tespit edin.",
+      "long": "FLEXIBLE MANUFACTURING ROI premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "finance"
+  }
 }

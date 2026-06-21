@@ -1,27 +1,29 @@
 {
   "slug": "kalite-maliyeti-paf",
+  "toolName": "Kalite Maliyeti PAF",
   "name": "Kalite Maliyeti PAF",
-  "description": "Kalite Maliyeti PAF premium calculation tool.",
+  "description": "Kalite Maliyeti PAF premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "egitimPlanlamaButcesi",
-      "label": "Eğitim/Planlama Bütçesi",
+      "id": "Training",
+      "label": "Training",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Eğitim/Planlama Bütçesi",
-        "tr": "Eğitim/Planlama Bütçesi",
+        "en": "Training",
+        "tr": "Training",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "muayeneTestMaliyeti",
-      "label": "Muayene/Test Maliyeti",
+      "id": "QualityPlanning",
+      "label": "QualityPlanning",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Muayene/Test Maliyeti",
-        "tr": "Muayene/Test Maliyeti",
+        "en": "QualityPlanning",
+        "tr": "QualityPlanning",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "hurdaYeniden IslemeMaliyeti",
-      "label": "Hurda/Yeniden İşleme Maliyeti",
+      "id": "SupplierEvaluation",
+      "label": "SupplierEvaluation",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hurda/Yeniden İşleme Maliyeti",
-        "tr": "Hurda/Yeniden İşleme Maliyeti",
+        "en": "SupplierEvaluation",
+        "tr": "SupplierEvaluation",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "durusMaliyeti",
-      "label": "Duruş Maliyeti",
+      "id": "DesignReview",
+      "label": "DesignReview",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Duruş Maliyeti",
-        "tr": "Duruş Maliyeti",
+        "en": "DesignReview",
+        "tr": "DesignReview",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "garantiIadeMaliyeti",
-      "label": "Garanti/İade Maliyeti",
+      "id": "Inspection",
+      "label": "Inspection",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Garanti/İade Maliyeti",
-        "tr": "Garanti/İade Maliyeti",
+        "en": "Inspection",
+        "tr": "Inspection",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "kayıpSatısTahmini",
-      "label": "Kayıp Satış Tahmini",
+      "id": "Testing",
+      "label": "Testing",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kayıp Satış Tahmini",
-        "tr": "Kayıp Satış Tahmini",
+        "en": "Testing",
+        "tr": "Testing",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,291 @@
       }
     },
     {
-      "id": "toplamGelir",
-      "label": "Toplam Gelir",
+      "id": "Calibration",
+      "label": "Calibration",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Toplam Gelir",
-        "tr": "Toplam Gelir",
+        "en": "Calibration",
+        "tr": "Calibration",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Audit",
+      "label": "Audit",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Audit",
+        "tr": "Audit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Scrap",
+      "label": "Scrap",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Scrap",
+        "tr": "Scrap",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Rework",
+      "label": "Rework",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Rework",
+        "tr": "Rework",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Reinspection",
+      "label": "Reinspection",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Reinspection",
+        "tr": "Reinspection",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Downtime",
+      "label": "Downtime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Downtime",
+        "tr": "Downtime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Warranty",
+      "label": "Warranty",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Warranty",
+        "tr": "Warranty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Returns",
+      "label": "Returns",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Returns",
+        "tr": "Returns",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Recall",
+      "label": "Recall",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Recall",
+        "tr": "Recall",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Liability",
+      "label": "Liability",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Liability",
+        "tr": "Liability",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LostSales",
+      "label": "LostSales",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LostSales",
+        "tr": "LostSales",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TotalRevenue",
+      "label": "TotalRevenue",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TotalRevenue",
+        "tr": "TotalRevenue",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,125 +464,45 @@
       }
     }
   ],
+  "formulas": {
+    "PreventionCost": "Training + QualityPlanning + SupplierEvaluation + DesignReview",
+    "AppraisalCost": "Inspection + Testing + Calibration + Audit",
+    "InternalFailure": "Scrap + Rework + Reinspection + Downtime",
+    "ExternalFailure": "Warranty + Returns + Recall + Liability + LostSales",
+    "TotalCOQ": "PreventionCost + AppraisalCost + InternalFailure + ExternalFailure",
+    "COQ_Ratio": "TotalCOQ / TotalRevenue",
+    "PAF_Ratio": "PreventionCost / TotalCOQ"
+  },
   "outputs": {
-    "0": {
-      "id": "preventionCost",
-      "label": "PreventionCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PreventionCost",
-        "tr": "PreventionCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "1": {
-      "id": "appraisalCost",
-      "label": "AppraisalCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AppraisalCost",
-        "tr": "AppraisalCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "internalFailure",
-      "label": "InternalFailure",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "InternalFailure",
-        "tr": "InternalFailure",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "externalFailure",
-      "label": "ExternalFailure",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ExternalFailure",
-        "tr": "ExternalFailure",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "totalCOQ",
-      "label": "TotalCOQ",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalCOQ",
-        "tr": "TotalCOQ",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "cOQRatio",
-      "label": "COQ_Ratio",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "COQ_Ratio",
-        "tr": "COQ_Ratio",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "pAFRatio",
-      "label": "PAF_Ratio",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PAF_Ratio",
-        "tr": "PAF_Ratio",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
+    "primary": "PAF_Ratio",
     "unit": "USD",
+    "breakdown": {
+      "PreventionCost": "PreventionCost",
+      "AppraisalCost": "AppraisalCost",
+      "InternalFailure": "InternalFailure",
+      "ExternalFailure": "ExternalFailure",
+      "TotalCOQ": "TotalCOQ",
+      "COQ_Ratio": "COQ_Ratio",
+      "PAF_Ratio": "PAF_Ratio"
+    },
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "scrap",
+  "sectorSlug": "heavy-industry",
   "category": "scrap",
-  "formulas": {
-    "normalized_product": "egitimPlanlamaButcesi * muayeneTestMaliyeti * hurdaYeniden IslemeMaliyeti * durusMaliyeti",
-    "result": "egitimPlanlamaButcesi * muayeneTestMaliyeti * hurdaYeniden IslemeMaliyeti * durusMaliyeti * (garantiIadeMaliyeti * kayıpSatısTahmini * toplamGelir)",
-    "adjustment_factor": "garantiIadeMaliyeti * kayıpSatısTahmini * toplamGelir"
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Kalite Maliyeti PAF premium araci ile kayiplari tespit edin.",
+      "long": "Kalite Maliyeti PAF premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

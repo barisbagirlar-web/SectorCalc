@@ -1,27 +1,29 @@
 {
   "slug": "karbon-ayak-izi-check",
+  "toolName": "Karbon Ayak izi Check",
   "name": "Karbon Ayak izi Check",
-  "description": "Karbon Ayak izi Check premium calculation tool.",
+  "description": "Karbon Ayak izi Check premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "yakıtTuketimleri",
-      "label": "Yakıt Tüketimleri",
+      "id": "FuelConsumption_i",
+      "label": "FuelConsumption_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yakıt Tüketimleri",
-        "tr": "Yakıt Tüketimleri",
+        "en": "FuelConsumption_i",
+        "tr": "FuelConsumption_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "kacakEmisyon",
-      "label": "Kaçak Emisyon",
+      "id": "EmissionFactor_i",
+      "label": "EmissionFactor_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kaçak Emisyon",
-        "tr": "Kaçak Emisyon",
+        "en": "EmissionFactor_i",
+        "tr": "EmissionFactor_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "elektrikTuketimi",
-      "label": "Elektrik Tüketimi",
+      "id": "FugitiveEmissions",
+      "label": "FugitiveEmissions",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Elektrik Tüketimi",
-        "tr": "Elektrik Tüketimi",
+        "en": "FugitiveEmissions",
+        "tr": "FugitiveEmissions",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "malzemeMiktarlarıVeEF",
-      "label": "Malzeme Miktarları ve EF",
+      "id": "ElectricityConsumption",
+      "label": "ElectricityConsumption",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Malzeme Miktarları ve EF",
-        "tr": "Malzeme Miktarları ve EF",
+        "en": "ElectricityConsumption",
+        "tr": "ElectricityConsumption",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "tasımaMesafesiVeModu",
-      "label": "Taşıma Mesafesi ve Modu",
+      "id": "GridEmissionFactor",
+      "label": "GridEmissionFactor",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Taşıma Mesafesi ve Modu",
-        "tr": "Taşıma Mesafesi ve Modu",
+        "en": "GridEmissionFactor",
+        "tr": "GridEmissionFactor",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "gelecekKarbonFiyatı",
-      "label": "Gelecek Karbon Fiyatı",
+      "id": "GridFactor",
+      "label": "GridFactor",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Gelecek Karbon Fiyatı",
-        "tr": "Gelecek Karbon Fiyatı",
+        "en": "GridFactor",
+        "tr": "GridFactor",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,141 @@
       }
     },
     {
-      "id": "UretimHacmi",
-      "label": "Üretim Hacmi",
+      "id": "REC_Factor",
+      "label": "REC_Factor",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Üretim Hacmi",
-        "tr": "Üretim Hacmi",
+        "en": "REC_Factor",
+        "tr": "REC_Factor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Material_i",
+      "label": "Material_i",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Material_i",
+        "tr": "Material_i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MaterialEF_i",
+      "label": "MaterialEF_i",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MaterialEF_i",
+        "tr": "MaterialEF_i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Logistics_Emissions",
+      "label": "Logistics_Emissions",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Logistics_Emissions",
+        "tr": "Logistics_Emissions",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ProductionVolume",
+      "label": "ProductionVolume",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ProductionVolume",
+        "tr": "ProductionVolume",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ForecastedCarbonPrice",
+      "label": "ForecastedCarbonPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ForecastedCarbonPrice",
+        "tr": "ForecastedCarbonPrice",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,105 +314,45 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "scope1",
-      "label": "Scope1",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Scope1",
-        "tr": "Scope1",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Scope1": "SUM(FuelConsumption_i * EmissionFactor_i) + FugitiveEmissions",
+    "Scope2_Location": "ElectricityConsumption * GridEmissionFactor",
+    "Scope2_Market": "ElectricityConsumption * (GridFactor - REC_Factor)",
+    "Scope3_Upstream": "SUM(Material_i * MaterialEF_i) + Logistics_Emissions",
+    "TotalCarbon": "Scope1 + Scope2_Market + Scope3_Upstream",
+    "CarbonIntensity": "TotalCarbon / ProductionVolume",
+    "FinancialRisk": "TotalCarbon * ForecastedCarbonPrice"
+  },
+  "outputs": {
+    "primary": "FinancialRisk",
+    "unit": "USD",
+    "breakdown": {
+      "Scope1": "Scope1",
+      "Scope2_Location": "Scope2_Location",
+      "Scope2_Market": "Scope2_Market",
+      "Scope3_Upstream": "Scope3_Upstream",
+      "TotalCarbon": "TotalCarbon",
+      "CarbonIntensity": "CarbonIntensity",
+      "FinancialRisk": "FinancialRisk"
     },
-    {
-      "id": "scope2Location",
-      "label": "Scope2_Location",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Scope2_Location",
-        "tr": "Scope2_Location",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "scope2Market",
-      "label": "Scope2_Market",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Scope2_Market",
-        "tr": "Scope2_Market",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "scope3Upstream",
-      "label": "Scope3_Upstream",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Scope3_Upstream",
-        "tr": "Scope3_Upstream",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalCarbon",
-      "label": "TotalCarbon",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalCarbon",
-        "tr": "TotalCarbon",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "carbonIntensity",
-      "label": "CarbonIntensity",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CarbonIntensity",
-        "tr": "CarbonIntensity",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "financialRisk",
-      "label": "FinancialRisk",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FinancialRisk",
-        "tr": "FinancialRisk",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "carbon",
+  "sectorSlug": "environmental-services",
+  "category": "carbon",
+  "sector": "environmental-services",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Karbon Ayak izi Check premium araci ile kayiplari tespit edin.",
+      "long": "Karbon Ayak izi Check premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "carbon"
+  }
 }

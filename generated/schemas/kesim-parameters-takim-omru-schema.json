@@ -1,0 +1,456 @@
+{
+  "slug": "kesim-parameters-takim-omru",
+  "toolName": "Kesim Parameters Takım ömrü",
+  "name": "Kesim Parameters Takım ömrü",
+  "description": "Kesim Parameters Takım ömrü premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "C",
+      "label": "C",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "C",
+        "tr": "C",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "V_c",
+      "label": "V_c",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "V_c",
+        "tr": "V_c",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "n",
+      "label": "n",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "n",
+        "tr": "n",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "m",
+      "label": "m",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "m",
+        "tr": "m",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "a_p",
+      "label": "a_p",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "a_p",
+        "tr": "a_p",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "k",
+      "label": "k",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "k",
+        "tr": "k",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "T1",
+      "label": "T1",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "T1",
+        "tr": "T1",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "T2",
+      "label": "T2",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "T2",
+        "tr": "T2",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "V1",
+      "label": "V1",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "V1",
+        "tr": "V1",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "V2",
+      "label": "V2",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "V2",
+        "tr": "V2",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ToolCost",
+      "label": "ToolCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ToolCost",
+        "tr": "ToolCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Edges",
+      "label": "Edges",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Edges",
+        "tr": "Edges",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MachiningTime",
+      "label": "MachiningTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MachiningTime",
+        "tr": "MachiningTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ToolLife",
+      "label": "ToolLife",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ToolLife",
+        "tr": "ToolLife",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ToolChangeTime",
+      "label": "ToolChangeTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ToolChangeTime",
+        "tr": "ToolChangeTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MachineRate",
+      "label": "MachineRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MachineRate",
+        "tr": "MachineRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "ToolLife_T": "C / (V_c^n * f^m * a_p^k)",
+    "TaylorExponent_n": "-LOG(T1/T2) / LOG(V1/V2)",
+    "CostPerPart_Tool": "(ToolCost / Edges) * (MachiningTime / ToolLife)",
+    "OptimalToolLife_Cost": "((1/n - 1) * (ToolChangeTime + ToolCost/Edges / MachineRate))",
+    "Optimal_Vc": "C / (OptimalToolLife_Cost^n)",
+    "ProductionRate": "1 / (MachiningTime + (MachiningTime / ToolLife) * ToolChangeTime)"
+  },
+  "outputs": {
+    "primary": "ProductionRate",
+    "unit": "USD",
+    "breakdown": {
+      "ToolLife_T": "ToolLife_T",
+      "TaylorExponent_n": "TaylorExponent_n",
+      "CostPerPart_Tool": "CostPerPart_Tool",
+      "OptimalToolLife_Cost": "OptimalToolLife_Cost",
+      "Optimal_Vc": "Optimal_Vc",
+      "ProductionRate": "ProductionRate"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Kesim Parameters Takım ömrü premium araci ile kayiplari tespit edin.",
+      "long": "Kesim Parameters Takım ömrü premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

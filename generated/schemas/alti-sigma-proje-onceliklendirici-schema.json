@@ -1,0 +1,331 @@
+{
+  "slug": "alti-sigma-proje-onceliklendirici",
+  "toolName": "ALTI SİGMA PROJE ÖNCELİKLENDİRİCİ",
+  "name": "ALTI SİGMA PROJE ÖNCELİKLENDİRİCİ",
+  "description": "ALTI SİGMA PROJE ÖNCELİKLENDİRİCİ premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "Defects",
+      "label": "Defects",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Defects",
+        "tr": "Defects",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Units",
+      "label": "Units",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Units",
+        "tr": "Units",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Opportunities",
+      "label": "Opportunities",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Opportunities",
+        "tr": "Opportunities",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "InternalFailure",
+      "label": "InternalFailure",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "InternalFailure",
+        "tr": "InternalFailure",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ExternalFailure",
+      "label": "ExternalFailure",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ExternalFailure",
+        "tr": "ExternalFailure",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Appraisal",
+      "label": "Appraisal",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Appraisal",
+        "tr": "Appraisal",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Prevention",
+      "label": "Prevention",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Prevention",
+        "tr": "Prevention",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RecoveryProb",
+      "label": "RecoveryProb",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RecoveryProb",
+        "tr": "RecoveryProb",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SigmaGap",
+      "label": "SigmaGap",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "SigmaGap",
+        "tr": "SigmaGap",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "StrategicAlignment",
+      "label": "StrategicAlignment",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "StrategicAlignment",
+        "tr": "StrategicAlignment",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Ease",
+      "label": "Ease",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ease",
+        "tr": "Ease",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "DPMO": "(Defects / (Units * Opportunities)) * 1000000",
+    "Yield": "1 - (Defects / (Units * Opportunities))",
+    "Z_bench": "NORMSINV(Yield)",
+    "SigmaLevel": "Z_bench + 1.5",
+    "COPQ": "InternalFailure + ExternalFailure + Appraisal + Prevention",
+    "ProjectScore": "(COPQ * RecoveryProb * 0.35) + (SigmaGap * 0.25) + (StrategicAlignment * 0.25) + (Ease * 0.15)"
+  },
+  "outputs": {
+    "primary": "ProjectScore",
+    "unit": "USD",
+    "breakdown": {
+      "DPMO": "DPMO",
+      "Yield": "Yield",
+      "Z_bench": "Z_bench",
+      "SigmaLevel": "SigmaLevel",
+      "COPQ": "COPQ",
+      "ProjectScore": "ProjectScore"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "ALTI SİGMA PROJE ÖNCELİKLENDİRİCİ premium araci ile kayiplari tespit edin.",
+      "long": "ALTI SİGMA PROJE ÖNCELİKLENDİRİCİ premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

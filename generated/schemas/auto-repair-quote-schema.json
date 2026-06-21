@@ -1,27 +1,29 @@
 {
   "slug": "auto-repair-quote",
+  "toolName": "AUTO REPAIR QUOTE",
   "name": "AUTO REPAIR QUOTE",
-  "description": "AUTO REPAIR QUOTE premium calculation tool.",
+  "description": "AUTO REPAIR QUOTE premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "teklif123Toplam",
-      "label": "Teklif 1-2-3 Toplam",
+      "id": "QuoteAmounts",
+      "label": "QuoteAmounts",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Teklif 1-2-3 Toplam",
-        "tr": "Teklif 1-2-3 Toplam",
+        "en": "QuoteAmounts",
+        "tr": "QuoteAmounts",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "parcaTeklifPiyasaFiyatı",
-      "label": "Parça Teklif/Piyasa Fiyatı",
+      "id": "QuotedPartPrice",
+      "label": "QuotedPartPrice",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Parça Teklif/Piyasa Fiyatı",
-        "tr": "Parça Teklif/Piyasa Fiyatı",
+        "en": "QuotedPartPrice",
+        "tr": "QuotedPartPrice",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "miktar",
-      "label": "Miktar",
+      "id": "MarketAvg",
+      "label": "MarketAvg",
       "type": "number",
-      "unit": "adet",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Miktar",
-        "tr": "Miktar",
+        "en": "MarketAvg",
+        "tr": "MarketAvg",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,116 @@
       }
     },
     {
-      "id": "teklifStandart IscilikSaati",
-      "label": "Teklif/Standart İşçilik Saati",
+      "id": "QuotedLaborHours",
+      "label": "QuotedLaborHours",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Teklif/Standart İşçilik Saati",
-        "tr": "Teklif/Standart İşçilik Saati",
+        "en": "QuotedLaborHours",
+        "tr": "QuotedLaborHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "StandardHours",
+      "label": "StandardHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "StandardHours",
+        "tr": "StandardHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MarketPrice",
+      "label": "MarketPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MarketPrice",
+        "tr": "MarketPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "QuotedPrice",
+      "label": "QuotedPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "QuotedPrice",
+        "tr": "QuotedPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,77 +214,41 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "quoteVariance",
-      "label": "QuoteVariance",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "QuoteVariance",
-        "tr": "QuoteVariance",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "QuoteVariance": "STDEV(QuoteAmounts) / AVERAGE(QuoteAmounts)",
+    "PartPriceDeviation": "(QuotedPartPrice - MarketAvg) / MarketAvg",
+    "LaborTimeDeviation": "(QuotedLaborHours - StandardHours) / StandardHours",
+    "ConsistencyScore": "100 - (QuoteVariance * 50 + ABS(PartPriceDeviation) * 25 + ABS(LaborTimeDeviation) * 25)",
+    "MarginLeak": "SUM((MarketPrice - QuotedPrice) * Quantity)"
+  },
+  "outputs": {
+    "primary": "MarginLeak",
+    "unit": "USD",
+    "breakdown": {
+      "QuoteVariance": "QuoteVariance",
+      "PartPriceDeviation": "PartPriceDeviation",
+      "LaborTimeDeviation": "LaborTimeDeviation",
+      "ConsistencyScore": "ConsistencyScore",
+      "MarginLeak": "MarginLeak"
     },
-    {
-      "id": "partPriceDeviation",
-      "label": "PartPriceDeviation",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PartPriceDeviation",
-        "tr": "PartPriceDeviation",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "laborTimeDeviation",
-      "label": "LaborTimeDeviation",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "LaborTimeDeviation",
-        "tr": "LaborTimeDeviation",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "consistencyScore",
-      "label": "ConsistencyScore",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ConsistencyScore",
-        "tr": "ConsistencyScore",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "marginLeak",
-      "label": "MarginLeak",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "MarginLeak",
-        "tr": "MarginLeak",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "AUTO REPAIR QUOTE premium araci ile kayiplari tespit edin.",
+      "long": "AUTO REPAIR QUOTE premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

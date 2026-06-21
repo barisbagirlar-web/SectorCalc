@@ -1,27 +1,29 @@
 {
   "slug": "saas-shelfware-maliyet",
+  "toolName": "SaaS Shelfware Maliyet",
   "name": "SaaS Shelfware Maliyet",
-  "description": "SaaS Shelfware Maliyet premium calculation tool.",
+  "description": "SaaS Shelfware Maliyet premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "satınAlınanLisans",
-      "label": "Satın Alınan Lisans",
+      "id": "PurchasedLicenses",
+      "label": "PurchasedLicenses",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Satın Alınan Lisans",
-        "tr": "Satın Alınan Lisans",
+        "en": "PurchasedLicenses",
+        "tr": "PurchasedLicenses",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "aktifKullanıcı",
-      "label": "Aktif Kullanıcı",
+      "id": "UsersLoggedInLast30Days",
+      "label": "UsersLoggedInLast30Days",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Aktif Kullanıcı",
-        "tr": "Aktif Kullanıcı",
+        "en": "UsersLoggedInLast30Days",
+        "tr": "UsersLoggedInLast30Days",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "toplamSozlesmeBedeli",
-      "label": "Toplam Sözleşme Bedeli",
+      "id": "TotalContractValue",
+      "label": "TotalContractValue",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Toplam Sözleşme Bedeli",
-        "tr": "Toplam Sözleşme Bedeli",
+        "en": "TotalContractValue",
+        "tr": "TotalContractValue",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "tierFiyatFarkı",
-      "label": "Tier Fiyat Farkı",
+      "id": "FeaturesUsed",
+      "label": "FeaturesUsed",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tier Fiyat Farkı",
-        "tr": "Tier Fiyat Farkı",
+        "en": "FeaturesUsed",
+        "tr": "FeaturesUsed",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "kullanılanToplam Ozellik",
-      "label": "Kullanılan/Toplam Özellik",
+      "id": "TotalFeatures",
+      "label": "TotalFeatures",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kullanılan/Toplam Özellik",
-        "tr": "Kullanılan/Toplam Özellik",
+        "en": "TotalFeatures",
+        "tr": "TotalFeatures",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,116 @@
       }
     },
     {
-      "id": "asımKullanımBedeli",
-      "label": "Aşım Kullanım Bedeli",
+      "id": "UnderutilizedTierPriceDiff",
+      "label": "UnderutilizedTierPriceDiff",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Aşım Kullanım Bedeli",
-        "tr": "Aşım Kullanım Bedeli",
+        "en": "UnderutilizedTierPriceDiff",
+        "tr": "UnderutilizedTierPriceDiff",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Users",
+      "label": "Users",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Users",
+        "tr": "Users",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualUsage",
+      "label": "ActualUsage",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualUsage",
+        "tr": "ActualUsage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ContractedUsage",
+      "label": "ContractedUsage",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ContractedUsage",
+        "tr": "ContractedUsage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OverageRate",
+      "label": "OverageRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OverageRate",
+        "tr": "OverageRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,119 +264,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "totalLicenses",
-      "label": "TotalLicenses",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalLicenses",
-        "tr": "TotalLicenses",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "TotalLicenses": "PurchasedLicenses",
+    "ActiveUsers": "UsersLoggedInLast30Days",
+    "ShelfwarePct": "(TotalLicenses - ActiveUsers) / TotalLicenses",
+    "ShelfwareCost": "ShelfwarePct * TotalContractValue",
+    "UtilizationRate": "ActiveUsers / TotalLicenses",
+    "FeatureAdoption": "FeaturesUsed / TotalFeatures",
+    "OptimizationSavings": "ShelfwareCost + (UnderutilizedTierPriceDiff * Users)",
+    "TrueUpCost": "MAX(0, ActualUsage - ContractedUsage) * OverageRate"
+  },
+  "outputs": {
+    "primary": "TrueUpCost",
+    "unit": "USD",
+    "breakdown": {
+      "TotalLicenses": "TotalLicenses",
+      "ActiveUsers": "ActiveUsers",
+      "ShelfwarePct": "ShelfwarePct",
+      "ShelfwareCost": "ShelfwareCost",
+      "UtilizationRate": "UtilizationRate",
+      "FeatureAdoption": "FeatureAdoption",
+      "OptimizationSavings": "OptimizationSavings",
+      "TrueUpCost": "TrueUpCost"
     },
-    {
-      "id": "activeUsers",
-      "label": "ActiveUsers",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ActiveUsers",
-        "tr": "ActiveUsers",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "shelfwarePct",
-      "label": "ShelfwarePct",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ShelfwarePct",
-        "tr": "ShelfwarePct",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "shelfwareCost",
-      "label": "ShelfwareCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ShelfwareCost",
-        "tr": "ShelfwareCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "utilizationRate",
-      "label": "UtilizationRate",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "UtilizationRate",
-        "tr": "UtilizationRate",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "featureAdoption",
-      "label": "FeatureAdoption",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FeatureAdoption",
-        "tr": "FeatureAdoption",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "optimizationSavings",
-      "label": "OptimizationSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OptimizationSavings",
-        "tr": "OptimizationSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "trueUpCost",
-      "label": "TrueUpCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TrueUpCost",
-        "tr": "TrueUpCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "SaaS Shelfware Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "SaaS Shelfware Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

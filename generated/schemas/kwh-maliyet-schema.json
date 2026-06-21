@@ -1,27 +1,29 @@
 {
   "slug": "kwh-maliyet",
+  "toolName": "KWh Maliyet",
   "name": "KWh Maliyet",
-  "description": "KWh Maliyet premium calculation tool.",
+  "description": "KWh Maliyet premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "aktifReaktifTuketim",
-      "label": "Aktif/Reaktif Tüketim",
+      "id": "ActiveEnergy",
+      "label": "ActiveEnergy",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Aktif/Reaktif Tüketim",
-        "tr": "Aktif/Reaktif Tüketim",
+        "en": "ActiveEnergy",
+        "tr": "ActiveEnergy",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,41 +39,16 @@
       }
     },
     {
-      "id": "CekilenGucKW",
-      "label": "Çekilen Güç kW",
-      "type": "number",
-      "unit": "kW",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Çekilen Güç kW",
-        "tr": "Çekilen Güç kW",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "gucFaktoru",
-      "label": "Güç Faktörü",
+      "id": "EnergyRate",
+      "label": "EnergyRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Güç Faktörü",
-        "tr": "Güç Faktörü",
+        "en": "EnergyRate",
+        "tr": "EnergyRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,41 +64,16 @@
       }
     },
     {
-      "id": "enerjiGucReaktifBirimFiyat",
-      "label": "Enerji/Güç/Reaktif Birim Fiyat",
-      "type": "number",
-      "unit": "kWh",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Enerji/Güç/Reaktif Birim Fiyat",
-        "tr": "Enerji/Güç/Reaktif Birim Fiyat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "cezaEsigi",
-      "label": "Ceza Eşiği",
+      "id": "PeakDemand",
+      "label": "PeakDemand",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Ceza Eşiği",
-        "tr": "Ceza Eşiği",
+        "en": "PeakDemand",
+        "tr": "PeakDemand",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,41 +89,191 @@
       }
     },
     {
-      "id": "vergiFonOranı",
-      "label": "Vergi/Fon Oranı",
-      "type": "number",
-      "unit": "%",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Vergi/Fon Oranı",
-        "tr": "Vergi/Fon Oranı",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "tepeGucuTrafoKapasitesi",
-      "label": "Tepe Gücü Trafo Kapasitesi",
+      "id": "DemandRate",
+      "label": "DemandRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tepe Gücü Trafo Kapasitesi",
-        "tr": "Tepe Gücü Trafo Kapasitesi",
+        "en": "DemandRate",
+        "tr": "DemandRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PowerFactor",
+      "label": "PowerFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PowerFactor",
+        "tr": "PowerFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Threshold",
+      "label": "Threshold",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Threshold",
+        "tr": "Threshold",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ReactiveEnergy",
+      "label": "ReactiveEnergy",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ReactiveEnergy",
+        "tr": "ReactiveEnergy",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PenaltyRate",
+      "label": "PenaltyRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PenaltyRate",
+        "tr": "PenaltyRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TaxRate",
+      "label": "TaxRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TaxRate",
+        "tr": "TaxRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OldPeak",
+      "label": "OldPeak",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OldPeak",
+        "tr": "OldPeak",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NewPeak",
+      "label": "NewPeak",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NewPeak",
+        "tr": "NewPeak",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,105 +289,45 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "energyCharge",
-      "label": "EnergyCharge",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EnergyCharge",
-        "tr": "EnergyCharge",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "EnergyCharge": "ActiveEnergy * EnergyRate",
+    "DemandCharge": "PeakDemand * DemandRate",
+    "ReactivePenalty": "IF(PowerFactor < Threshold, ReactiveEnergy * PenaltyRate, 0)",
+    "TaxesAndFees": "(EnergyCharge + DemandCharge) * TaxRate",
+    "TotalBill": "EnergyCharge + DemandCharge + ReactivePenalty + TaxesAndFees",
+    "UnitCost_kWh": "TotalBill / ActiveEnergy",
+    "PeakShavingSavings": "(OldPeak - NewPeak) * DemandRate"
+  },
+  "outputs": {
+    "primary": "PeakShavingSavings",
+    "unit": "USD",
+    "breakdown": {
+      "EnergyCharge": "EnergyCharge",
+      "DemandCharge": "DemandCharge",
+      "ReactivePenalty": "ReactivePenalty",
+      "TaxesAndFees": "TaxesAndFees",
+      "TotalBill": "TotalBill",
+      "UnitCost_kWh": "UnitCost_kWh",
+      "PeakShavingSavings": "PeakShavingSavings"
     },
-    {
-      "id": "demandCharge",
-      "label": "DemandCharge",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DemandCharge",
-        "tr": "DemandCharge",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "reactivePenalty",
-      "label": "ReactivePenalty",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ReactivePenalty",
-        "tr": "ReactivePenalty",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "taxesAndFees",
-      "label": "TaxesAndFees",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TaxesAndFees",
-        "tr": "TaxesAndFees",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalBill",
-      "label": "TotalBill",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalBill",
-        "tr": "TotalBill",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "unitCostKWh",
-      "label": "UnitCost_kWh",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "UnitCost_kWh",
-        "tr": "UnitCost_kWh",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "peakShavingSavings",
-      "label": "PeakShavingSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PeakShavingSavings",
-        "tr": "PeakShavingSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "energy",
+  "sectorSlug": "energy-utilities",
+  "category": "energy",
+  "sector": "energy-utilities",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "KWh Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "KWh Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "energy"
+  }
 }

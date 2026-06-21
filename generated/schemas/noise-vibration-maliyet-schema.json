@@ -1,27 +1,29 @@
 {
   "slug": "noise-vibration-maliyet",
+  "toolName": "Noise & Vibration Maliyet",
   "name": "Noise & Vibration Maliyet",
-  "description": "Noise & Vibration Maliyet premium calculation tool.",
+  "description": "Noise & Vibration Maliyet premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "gurultuSeviyeleriVeSureler",
-      "label": "Gürültü Seviyeleri ve Süreler",
+      "id": "T",
+      "label": "T",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Gürültü Seviyeleri ve Süreler",
-        "tr": "Gürültü Seviyeleri ve Süreler",
+        "en": "T",
+        "tr": "T",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "titresim Ivmeleri",
-      "label": "Titreşim İvmeleri",
+      "id": "t_i",
+      "label": "t_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Titreşim İvmeleri",
-        "tr": "Titreşim İvmeleri",
+        "en": "t_i",
+        "tr": "t_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "titresimKaynaklıHataOranı",
-      "label": "Titreşim Kaynaklı Hata Oranı",
+      "id": "L_i",
+      "label": "L_i",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Titreşim Kaynaklı Hata Oranı",
-        "tr": "Titreşim Kaynaklı Hata Oranı",
+        "en": "L_i",
+        "tr": "L_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "CıktıFarkı",
-      "label": "Çıktı Farkı",
+      "id": "a_i",
+      "label": "a_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Çıktı Farkı",
-        "tr": "Çıktı Farkı",
+        "en": "a_i",
+        "tr": "a_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "taramaKKDSigortaMaliyeti",
-      "label": "Tarama/KKD/Sigorta Maliyeti",
+      "id": "Noise",
+      "label": "Noise",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tarama/KKD/Sigorta Maliyeti",
-        "tr": "Tarama/KKD/Sigorta Maliyeti",
+        "en": "Noise",
+        "tr": "Noise",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,316 @@
       }
     },
     {
-      "id": "yalıtımYatırımı",
-      "label": "Yalıtım Yatırımı",
+      "id": "Vibration",
+      "label": "Vibration",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yalıtım Yatırımı",
-        "tr": "Yalıtım Yatırımı",
+        "en": "Vibration",
+        "tr": "Vibration",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Limit",
+      "label": "Limit",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Limit",
+        "tr": "Limit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MedicalScreening",
+      "label": "MedicalScreening",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MedicalScreening",
+        "tr": "MedicalScreening",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PPE_Cost",
+      "label": "PPE_Cost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PPE_Cost",
+        "tr": "PPE_Cost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "InsurancePremiumHike",
+      "label": "InsurancePremiumHike",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "InsurancePremiumHike",
+        "tr": "InsurancePremiumHike",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualOutput",
+      "label": "ActualOutput",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualOutput",
+        "tr": "ActualOutput",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "BaselineOutput",
+      "label": "BaselineOutput",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "BaselineOutput",
+        "tr": "BaselineOutput",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitMargin",
+      "label": "UnitMargin",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitMargin",
+        "tr": "UnitMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "VibrationDefectRate",
+      "label": "VibrationDefectRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "VibrationDefectRate",
+        "tr": "VibrationDefectRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TotalUnits",
+      "label": "TotalUnits",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TotalUnits",
+        "tr": "TotalUnits",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ReworkCostPerUnit",
+      "label": "ReworkCostPerUnit",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ReworkCostPerUnit",
+        "tr": "ReworkCostPerUnit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ProdLoss",
+      "label": "ProdLoss",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ProdLoss",
+        "tr": "ProdLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MitigationInvestment",
+      "label": "MitigationInvestment",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MitigationInvestment",
+        "tr": "MitigationInvestment",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,91 +464,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "noiseExposureDBA",
-      "label": "NoiseExposure_dBA",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NoiseExposure_dBA",
-        "tr": "NoiseExposure_dBA",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "NoiseExposure_dBA": "10 * LOG10((1/T) * SUM(t_i * 10^(L_i/10)))",
+    "Vibration_RMS": "SQRT((1/T) * SUM(a_i^2 * t_i))",
+    "HealthCost": "IF(Noise > 85 OR Vibration > Limit, MedicalScreening + PPE_Cost + InsurancePremiumHike, 0)",
+    "ProductivityLoss": "(ActualOutput - BaselineOutput) * UnitMargin",
+    "ReworkCost": "VibrationDefectRate * TotalUnits * ReworkCostPerUnit",
+    "MitigationROI": "(HealthCost + ProdLoss + ReworkCost) / MitigationInvestment"
+  },
+  "outputs": {
+    "primary": "MitigationROI",
+    "unit": "USD",
+    "breakdown": {
+      "NoiseExposure_dBA": "NoiseExposure_dBA",
+      "Vibration_RMS": "Vibration_RMS",
+      "HealthCost": "HealthCost",
+      "ProductivityLoss": "ProductivityLoss",
+      "ReworkCost": "ReworkCost",
+      "MitigationROI": "MitigationROI"
     },
-    {
-      "id": "vibrationRMS",
-      "label": "Vibration_RMS",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Vibration_RMS",
-        "tr": "Vibration_RMS",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "healthCost",
-      "label": "HealthCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "HealthCost",
-        "tr": "HealthCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "productivityLoss",
-      "label": "ProductivityLoss",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ProductivityLoss",
-        "tr": "ProductivityLoss",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "reworkCost",
-      "label": "ReworkCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ReworkCost",
-        "tr": "ReworkCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "mitigationROI",
-      "label": "MitigationROI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "MitigationROI",
-        "tr": "MitigationROI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Noise & Vibration Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "Noise & Vibration Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

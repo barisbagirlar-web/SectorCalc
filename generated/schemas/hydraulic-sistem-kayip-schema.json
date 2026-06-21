@@ -1,27 +1,29 @@
 {
   "slug": "hydraulic-sistem-kayip",
+  "toolName": "HYDRAULIC SİSTEM KAYIP",
   "name": "HYDRAULIC SİSTEM KAYIP",
-  "description": "HYDRAULIC SİSTEM KAYIP premium calculation tool.",
+  "description": "HYDRAULIC SİSTEM KAYIP premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "basınc",
-      "label": "Basınç",
+      "id": "Q_Leak",
+      "label": "Q_Leak",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Basınç",
-        "tr": "Basınç",
+        "en": "Q_Leak",
+        "tr": "Q_Leak",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "pompaDebisi",
-      "label": "Pompa Debisi",
+      "id": "P",
+      "label": "P",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Pompa Debisi",
-        "tr": "Pompa Debisi",
+        "en": "P",
+        "tr": "P",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "kacak",
-      "label": "Kaçak",
+      "id": "DeltaP_Pipe",
+      "label": "DeltaP_Pipe",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kaçak",
-        "tr": "Kaçak",
+        "en": "DeltaP_Pipe",
+        "tr": "DeltaP_Pipe",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "boruDusum",
-      "label": "Boru Düşüm",
+      "id": "Q_Flow",
+      "label": "Q_Flow",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Boru Düşüm",
-        "tr": "Boru Düşüm",
+        "en": "Q_Flow",
+        "tr": "Q_Flow",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "vanaKayıp",
-      "label": "Vana Kayıp",
+      "id": "DeltaP_Valve",
+      "label": "DeltaP_Valve",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Vana Kayıp",
-        "tr": "Vana Kayıp",
+        "en": "DeltaP_Valve",
+        "tr": "DeltaP_Valve",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "saat",
-      "label": "Saat",
+      "id": "P_Out",
+      "label": "P_Out",
       "type": "number",
-      "unit": "saat",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Saat",
-        "tr": "Saat",
+        "en": "P_Out",
+        "tr": "P_Out",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,16 @@
       }
     },
     {
-      "id": "verim",
-      "label": "Verim",
+      "id": "P_In",
+      "label": "P_In",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Verim",
-        "tr": "Verim",
+        "en": "P_In",
+        "tr": "P_In",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,16 +189,141 @@
       }
     },
     {
-      "id": "tarif",
-      "label": "Tarif",
+      "id": "Hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "hour",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ElecRate",
+      "label": "ElecRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tarif",
-        "tr": "Tarif",
+        "en": "ElecRate",
+        "tr": "ElecRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "T_Avg",
+      "label": "T_Avg",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "T_Avg",
+        "tr": "T_Avg",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Thresh",
+      "label": "Thresh",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Thresh",
+        "tr": "Thresh",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FluidCost",
+      "label": "FluidCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FluidCost",
+        "tr": "FluidCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "COP",
+      "label": "COP",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "COP",
+        "tr": "COP",
         "de": "",
         "fr": "",
         "es": "",
@@ -212,139 +339,47 @@
       }
     }
   ],
+  "formulas": {
+    "Loss_Leak": "Q_Leak * P",
+    "Loss_Fric": "DeltaP_Pipe * Q_Flow",
+    "Loss_Valve": "DeltaP_Valve * Q_Flow",
+    "Heat": "Loss_Leak + Loss_Fric + Loss_Valve",
+    "Eff": "(P_Out / P_In) * 100",
+    "Cost_Loss": "Heat * Hours * ElecRate",
+    "Degrade": "(T_Avg - Thresh) * FluidCost",
+    "Cool": "Heat * COP * ElecRate"
+  },
   "outputs": {
-    "0": {
-      "id": "lossLeak",
-      "label": "Loss_Leak",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Loss_Leak",
-        "tr": "Loss_Leak",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "Cool",
+    "unit": "USD",
+    "breakdown": {
+      "Loss_Leak": "Loss_Leak",
+      "Loss_Fric": "Loss_Fric",
+      "Loss_Valve": "Loss_Valve",
+      "Heat": "Heat",
+      "Eff": "Eff",
+      "Cost_Loss": "Cost_Loss",
+      "Degrade": "Degrade",
+      "Cool": "Cool"
     },
-    "1": {
-      "id": "lossFric",
-      "label": "Loss_Fric",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Loss_Fric",
-        "tr": "Loss_Fric",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "lossValve",
-      "label": "Loss_Valve",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Loss_Valve",
-        "tr": "Loss_Valve",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "heat",
-      "label": "Heat",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Heat",
-        "tr": "Heat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "eff",
-      "label": "Eff",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Eff",
-        "tr": "Eff",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "costLoss",
-      "label": "Cost_Loss",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Loss",
-        "tr": "Cost_Loss",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "degrade",
-      "label": "Degrade",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Degrade",
-        "tr": "Degrade",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "7": {
-      "id": "cool",
-      "label": "Cool",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cool",
-        "tr": "Cool",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "scrap",
+  "sectorSlug": "heavy-industry",
   "category": "scrap",
-  "formulas": {
-    "normalized_product": "basınc * pompaDebisi * kacak * boruDusum",
-    "result": "basınc * pompaDebisi * kacak * boruDusum * (vanaKayıp * saat * verim * tarif)",
-    "adjustment_factor": "vanaKayıp * saat * verim * tarif"
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "HYDRAULIC SİSTEM KAYIP premium araci ile kayiplari tespit edin.",
+      "long": "HYDRAULIC SİSTEM KAYIP premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

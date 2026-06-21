@@ -1,27 +1,29 @@
 {
   "slug": "devamsizlik-maliyeti",
+  "toolName": "DEVAMSIZLIK MALİYETİ",
   "name": "DEVAMSIZLIK MALİYETİ",
-  "description": "DEVAMSIZLIK MALİYETİ premium calculation tool.",
+  "description": "DEVAMSIZLIK MALİYETİ premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "kayıpSaat",
-      "label": "Kayıp Saat",
+      "id": "AbsentHours",
+      "label": "AbsentHours",
       "type": "number",
-      "unit": "saat",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kayıp Saat",
-        "tr": "Kayıp Saat",
+        "en": "AbsentHours",
+        "tr": "AbsentHours",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "Ucret",
-      "label": "Ücret",
+      "id": "HourlyRate",
+      "label": "HourlyRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Ücret",
-        "tr": "Ücret",
+        "en": "HourlyRate",
+        "tr": "HourlyRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "yanHak",
-      "label": "Yan Hak",
+      "id": "Burden",
+      "label": "Burden",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yan Hak",
-        "tr": "Yan Hak",
+        "en": "Burden",
+        "tr": "Burden",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "olaySayısıS",
-      "label": "Olay Sayısı S",
+      "id": "ReplaceOT",
+      "label": "ReplaceOT",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Olay Sayısı S",
-        "tr": "Olay Sayısı S",
+        "en": "ReplaceOT",
+        "tr": "ReplaceOT",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "fazlaMesai",
-      "label": "Fazla Mesai",
+      "id": "OTRate",
+      "label": "OTRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Fazla Mesai",
-        "tr": "Fazla Mesai",
+        "en": "OTRate",
+        "tr": "OTRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "gecici Isci",
-      "label": "Geçici İşçi",
+      "id": "RegRate",
+      "label": "RegRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Geçici İşçi",
-        "tr": "Geçici İşçi",
+        "en": "RegRate",
+        "tr": "RegRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,391 @@
       }
     },
     {
-      "id": "verimDusus",
-      "label": "Verim Düşüş",
+      "id": "TempHours",
+      "label": "TempHours",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Verim Düşüş",
-        "tr": "Verim Düşüş",
+        "en": "TempHours",
+        "tr": "TempHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TempRate",
+      "label": "TempRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TempRate",
+        "tr": "TempRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Markup",
+      "label": "Markup",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Markup",
+        "tr": "Markup",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OutputPerHour",
+      "label": "OutputPerHour",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OutputPerHour",
+        "tr": "OutputPerHour",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Margin",
+      "label": "Margin",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Margin",
+        "tr": "Margin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EffDrop",
+      "label": "EffDrop",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EffDrop",
+        "tr": "EffDrop",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Events",
+      "label": "Events",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Events",
+        "tr": "Events",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HR_Time",
+      "label": "HR_Time",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HR_Time",
+        "tr": "HR_Time",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HRRate",
+      "label": "HRRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HRRate",
+        "tr": "HRRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "S",
+      "label": "S",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "S",
+        "tr": "S",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "D",
+      "label": "D",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "D",
+        "tr": "D",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Direct",
+      "label": "Direct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Direct",
+        "tr": "Direct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OT",
+      "label": "OT",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OT",
+        "tr": "OT",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Temp",
+      "label": "Temp",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Temp",
+        "tr": "Temp",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Prod",
+      "label": "Prod",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Prod",
+        "tr": "Prod",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Admin",
+      "label": "Admin",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Admin",
+        "tr": "Admin",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,125 +564,45 @@
       }
     }
   ],
+  "formulas": {
+    "DirectCost": "AbsentHours * HourlyRate * (1 + Burden)",
+    "OvertimePremium": "ReplaceOT * (OTRate - RegRate)",
+    "TempCost": "TempHours * TempRate * (1 + Markup)",
+    "ProdLoss": "AbsentHours * OutputPerHour * Margin * EffDrop",
+    "AdminCost": "Events * HR_Time * HRRate",
+    "BradfordFactor": "S^2 * D",
+    "TotalCost": "Direct + OT + Temp + Prod + Admin"
+  },
   "outputs": {
-    "0": {
-      "id": "directCost",
-      "label": "DirectCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DirectCost",
-        "tr": "DirectCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "TotalCost",
+    "unit": "USD",
+    "breakdown": {
+      "DirectCost": "DirectCost",
+      "OvertimePremium": "OvertimePremium",
+      "TempCost": "TempCost",
+      "ProdLoss": "ProdLoss",
+      "AdminCost": "AdminCost",
+      "BradfordFactor": "BradfordFactor",
+      "TotalCost": "TotalCost"
     },
-    "1": {
-      "id": "overtimePremium",
-      "label": "OvertimePremium",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OvertimePremium",
-        "tr": "OvertimePremium",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "tempCost",
-      "label": "TempCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TempCost",
-        "tr": "TempCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "prodLoss",
-      "label": "ProdLoss",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ProdLoss",
-        "tr": "ProdLoss",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "adminCost",
-      "label": "AdminCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AdminCost",
-        "tr": "AdminCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "bradfordFactor",
-      "label": "BradfordFactor",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "BradfordFactor",
-        "tr": "BradfordFactor",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "totalCost",
-      "label": "TotalCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalCost",
-        "tr": "TotalCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
   "category": "cost",
-  "formulas": {
-    "normalized_product": "kayıpSaat * Ucret * yanHak * olaySayısıS",
-    "result": "kayıpSaat * Ucret * yanHak * olaySayısıS * (fazlaMesai * gecici Isci * verimDusus)",
-    "adjustment_factor": "fazlaMesai * gecici Isci * verimDusus"
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "DEVAMSIZLIK MALİYETİ premium araci ile kayiplari tespit edin.",
+      "long": "DEVAMSIZLIK MALİYETİ premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

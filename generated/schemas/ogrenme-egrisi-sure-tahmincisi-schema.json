@@ -1,0 +1,235 @@
+{
+  "slug": "ogrenme-egrisi-sure-tahmincisi",
+  "toolName": "Öğrenme Eğrisi Süre Tahmincisi",
+  "name": "Öğrenme Eğrisi Süre Tahmincisi",
+  "description": "Öğrenme Eğrisi Süre Tahmincisi premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "Time_2N",
+      "label": "Time_2N",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Time_2N",
+        "tr": "Time_2N",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Time_1",
+      "label": "Time_1",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Time_1",
+        "tr": "Time_1",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "N",
+      "label": "N",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "N",
+        "tr": "N",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "b",
+      "label": "b",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "b",
+        "tr": "b",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LaborRate",
+      "label": "LaborRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LaborRate",
+        "tr": "LaborRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "StandardTime",
+      "label": "StandardTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "StandardTime",
+        "tr": "StandardTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "reached",
+      "label": "reached",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "reached",
+        "tr": "reached",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "LearningRate": "1 - (Time_2N / Time_N)",
+    "Slope_b": "LOG(LearningRate) / LOG(2)",
+    "Time_N": "Time_1 * (N^b)",
+    "CumulativeTime_N": "Time_1 * (N^(b+1)) / (b+1)",
+    "AverageTime_N": "CumulativeTime_N / N",
+    "Cost_N": "Time_N * LaborRate",
+    "BreakevenUnit": "N where StandardTime is reached",
+    "TotalLaborCost": "CumulativeTime_N * LaborRate"
+  },
+  "outputs": {
+    "primary": "TotalLaborCost",
+    "unit": "USD",
+    "breakdown": {
+      "LearningRate": "LearningRate",
+      "Slope_b": "Slope_b",
+      "Time_N": "Time_N",
+      "CumulativeTime_N": "CumulativeTime_N",
+      "AverageTime_N": "AverageTime_N",
+      "Cost_N": "Cost_N",
+      "BreakevenUnit": "BreakevenUnit",
+      "TotalLaborCost": "TotalLaborCost"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Öğrenme Eğrisi Süre Tahmincisi premium araci ile kayiplari tespit edin.",
+      "long": "Öğrenme Eğrisi Süre Tahmincisi premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

@@ -14,6 +14,7 @@ import {
   resolveHighestWasteCategoryIndex,
 } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import type { PremiumOutputFormat } from "@/lib/premium-schema/premium-calculator-schema";
+import { USER_FORMULA_DEFINITIONS, USER_FORMULA_META_DETAILS } from "@/lib/premium-schema/user-premium-formulas";
 
 export type FormulaInputs = Readonly<Record<string, number>>;
 
@@ -3025,6 +3026,11 @@ for (const def of FORMULA_DEFINITIONS) {
   FORMULA_REGISTRY[def.id] = def.fn;
 }
 
+for (const def of USER_FORMULA_DEFINITIONS) {
+  FORMULA_META[def.id] = { family: def.family, label: def.label };
+  FORMULA_REGISTRY[def.id] = def.fn;
+}
+
 for (const [legacyId, canonicalId] of Object.entries(LEGACY_ALIASES)) {
   const canonical = FORMULA_DEFINITIONS.find((d) => d.id === canonicalId);
   if (!canonical) continue;
@@ -4476,7 +4482,7 @@ function buildFormulaRegistryMeta(): FormulaRegistryMeta[] {
   return listRegisteredFormulaIds().map((formulaId) => {
     const canonicalId = LEGACY_ALIASES[formulaId] ?? formulaId;
     const meta = FORMULA_META[formulaId];
-    const details = FORMULA_META_DETAILS[canonicalId];
+    const details = FORMULA_META_DETAILS[canonicalId] ?? (USER_FORMULA_META_DETAILS as Record<string, Omit<FormulaRegistryMeta, "formulaId" | "family" | "label">>)[canonicalId];
     if (!meta || !details) {
       throw new Error(`Missing formula metadata for "${formulaId}"`);
     }

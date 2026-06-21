@@ -1,27 +1,29 @@
 {
   "slug": "supplier-performans-tco",
+  "toolName": "Supplier Performans Tco",
   "name": "Supplier Performans Tco",
-  "description": "Supplier Performans Tco premium calculation tool.",
+  "description": "Supplier Performans Tco premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "teklifFiyatı",
-      "label": "Teklif Fiyatı",
+      "id": "PurchasePrice",
+      "label": "PurchasePrice",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Teklif Fiyatı",
-        "tr": "Teklif Fiyatı",
+        "en": "PurchasePrice",
+        "tr": "PurchasePrice",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "siparisNakliyeMaliyeti",
-      "label": "Sipariş/Nakliye Maliyeti",
+      "id": "OrderingCost",
+      "label": "OrderingCost",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sipariş/Nakliye Maliyeti",
-        "tr": "Sipariş/Nakliye Maliyeti",
+        "en": "OrderingCost",
+        "tr": "OrderingCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,41 +64,16 @@
       }
     },
     {
-      "id": "hataOranıPPM",
-      "label": "Hata Oranı PPM",
-      "type": "number",
-      "unit": "%",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Hata Oranı PPM",
-        "tr": "Hata Oranı PPM",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "hataMaliyeti",
-      "label": "Hata Maliyeti",
+      "id": "TransportCost",
+      "label": "TransportCost",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hata Maliyeti",
-        "tr": "Hata Maliyeti",
+        "en": "TransportCost",
+        "tr": "TransportCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,41 +89,16 @@
       }
     },
     {
-      "id": "leadTimeGun",
-      "label": "Lead Time gün",
-      "type": "number",
-      "unit": "saat",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Lead Time gün",
-        "tr": "Lead Time gün",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "guvenlikStoguGun",
-      "label": "Güvenlik Stoğu gün",
+      "id": "DefectRate",
+      "label": "DefectRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Güvenlik Stoğu gün",
-        "tr": "Güvenlik Stoğu gün",
+        "en": "DefectRate",
+        "tr": "DefectRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +114,16 @@
       }
     },
     {
-      "id": "kesintiOlasılıgı",
-      "label": "Kesinti Olasılığı",
+      "id": "AnnualVolume",
+      "label": "AnnualVolume",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kesinti Olasılığı",
-        "tr": "Kesinti Olasılığı",
+        "en": "AnnualVolume",
+        "tr": "AnnualVolume",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,16 +139,366 @@
       }
     },
     {
-      "id": "etkiMaliyeti",
-      "label": "Etki Maliyeti",
+      "id": "CostPerDefect",
+      "label": "CostPerDefect",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Etki Maliyeti",
-        "tr": "Etki Maliyeti",
+        "en": "CostPerDefect",
+        "tr": "CostPerDefect",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AvgLeadTime",
+      "label": "AvgLeadTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AvgLeadTime",
+        "tr": "AvgLeadTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SafetyStockDays",
+      "label": "SafetyStockDays",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "SafetyStockDays",
+        "tr": "SafetyStockDays",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DailyDemand",
+      "label": "DailyDemand",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DailyDemand",
+        "tr": "DailyDemand",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HoldingRate",
+      "label": "HoldingRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HoldingRate",
+        "tr": "HoldingRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ProbabilityOfDisruption",
+      "label": "ProbabilityOfDisruption",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ProbabilityOfDisruption",
+        "tr": "ProbabilityOfDisruption",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ImpactCost",
+      "label": "ImpactCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ImpactCost",
+        "tr": "ImpactCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "QualityWeight",
+      "label": "QualityWeight",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "QualityWeight",
+        "tr": "QualityWeight",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "QualityScore",
+      "label": "QualityScore",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "QualityScore",
+        "tr": "QualityScore",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DeliveryWeight",
+      "label": "DeliveryWeight",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DeliveryWeight",
+        "tr": "DeliveryWeight",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DeliveryScore",
+      "label": "DeliveryScore",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DeliveryScore",
+        "tr": "DeliveryScore",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CostWeight",
+      "label": "CostWeight",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CostWeight",
+        "tr": "CostWeight",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CostScore",
+      "label": "CostScore",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CostScore",
+        "tr": "CostScore",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TCO_Actual",
+      "label": "TCO_Actual",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TCO_Actual",
+        "tr": "TCO_Actual",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TCO_Quoted",
+      "label": "TCO_Quoted",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TCO_Quoted",
+        "tr": "TCO_Quoted",
         "de": "",
         "fr": "",
         "es": "",
@@ -212,91 +514,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "tCO",
-      "label": "TCO",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TCO",
-        "tr": "TCO",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "TCO": "PurchasePrice + OrderingCost + TransportCost + QualityCost + InventoryCost + RiskCost",
+    "QualityCost": "DefectRate * AnnualVolume * CostPerDefect",
+    "InventoryCost": "(AvgLeadTime + SafetyStockDays) * DailyDemand * HoldingRate",
+    "RiskCost": "ProbabilityOfDisruption * ImpactCost",
+    "SupplierScore": "(QualityWeight * QualityScore) + (DeliveryWeight * DeliveryScore) + (CostWeight * CostScore)",
+    "TCO_Variance": "TCO_Actual - TCO_Quoted"
+  },
+  "outputs": {
+    "primary": "TCO_Variance",
+    "unit": "USD",
+    "breakdown": {
+      "TCO": "TCO",
+      "QualityCost": "QualityCost",
+      "InventoryCost": "InventoryCost",
+      "RiskCost": "RiskCost",
+      "SupplierScore": "SupplierScore",
+      "TCO_Variance": "TCO_Variance"
     },
-    {
-      "id": "qualityCost",
-      "label": "QualityCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "QualityCost",
-        "tr": "QualityCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "inventoryCost",
-      "label": "InventoryCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "InventoryCost",
-        "tr": "InventoryCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "riskCost",
-      "label": "RiskCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "RiskCost",
-        "tr": "RiskCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "supplierScore",
-      "label": "SupplierScore",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "SupplierScore",
-        "tr": "SupplierScore",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "tCOVariance",
-      "label": "TCO_Variance",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TCO_Variance",
-        "tr": "TCO_Variance",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "benchmark",
+  "sectorSlug": "management-consulting",
+  "category": "benchmark",
+  "sector": "management-consulting",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Supplier Performans Tco premium araci ile kayiplari tespit edin.",
+      "long": "Supplier Performans Tco premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "benchmark"
+  }
 }

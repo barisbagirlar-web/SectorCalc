@@ -88,25 +88,26 @@ function readSchemaCategoryKeys() {
 // Instead we define them inline (must stay in sync with the .ts source).
 
 const COVERAGE_TOOL_MATCHERS = {
-  production: ["quality-six-sigma", "cnc-additive-manufacturing", "metal-plastics-forming", "lean-production", "textile-print-lab"],
-  industrial: ["hse-ergonomics", "maintenance-reliability", "fitness-spor"],
-  technical: ["technology-ai-cloud-cyber", "electrical-power-systems", "process-chemical"],
-  construction: ["project-construction-management"],
-  logistics: ["procurement-supply-chain"],
-  energy: ["sustainability-resource-esg"],
-  finance: ["finance-sales-working-capital", "workforce-hr"],
-  foodRetail: ["food-cold-chain-hygiene"],
+  production: ["quality-six-sigma", "cnc-additive-manufacturing", "metal-plastics-forming", "lean-production"],
+  industrial: ["calibration", "oee", "scrap"],
+  technical: ["technology", "electrical", "chemistry", "physics"],
+  construction: ["construction"],
+  logistics: ["procurement-supply-chain", "logistics", "route"],
+  energy: ["energy", "carbon", "environment"],
+  finance: ["finance-sales-working-capital", "finance", "workforce-hr", "investment", "insurance", "budget", "tax", "loan", "interest", "real-estate", "retirement", "business", "cost", "benchmark"],
+  foodRetail: ["food"],
+  general: ["general", "converter", "math", "health", "education", "measurement", "home", "events", "travel", "time", "gambling", "marketing", "sports", "music", "photography"],
 };
 
 const COVERAGE_FILTER_SLUG = {
   production: "quality-six-sigma",
-  industrial: "hse-ergonomics",
-  technical: "technology-ai-cloud-cyber",
-  construction: "project-construction-management",
+  industrial: "quality-six-sigma",
+  technical: "quality-six-sigma",
+  construction: "construction",
   logistics: "procurement-supply-chain",
-  energy: "sustainability-resource-esg",
+  energy: "energy",
   finance: "finance-sales-working-capital",
-  foodRetail: "food-cold-chain-hygiene",
+  foodRetail: "food",
 };
 
 /* ── 5. Validate ───────────────────────────────────────────── */

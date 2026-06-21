@@ -1,27 +1,29 @@
 {
   "slug": "gida-fire-marj",
+  "toolName": "GIDA FİRE MARJ",
   "name": "GIDA FİRE MARJ",
-  "description": "GIDA FİRE MARJ premium calculation tool.",
+  "description": "GIDA FİRE MARJ premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "girenCıkanAgırlık",
-      "label": "Giren/Çıkan Ağırlık",
+      "id": "Finished",
+      "label": "Finished",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Giren/Çıkan Ağırlık",
-        "tr": "Giren/Çıkan Ağırlık",
+        "en": "Finished",
+        "tr": "Finished",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "bozulmaAsırı",
-      "label": "Bozulma/Aşırı",
+      "id": "Raw",
+      "label": "Raw",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Bozulma/Aşırı",
-        "tr": "Bozulma/Aşırı",
+        "en": "Raw",
+        "tr": "Raw",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "teorikKullanım",
-      "label": "Teorik Kullanım",
+      "id": "RawCost",
+      "label": "RawCost",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Teorik Kullanım",
-        "tr": "Teorik Kullanım",
+        "en": "RawCost",
+        "tr": "RawCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "kgMaliyet",
-      "label": "kg Maliyet",
+      "id": "Spoiled",
+      "label": "Spoiled",
       "type": "number",
-      "unit": "kg",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "kg Maliyet",
-        "tr": "kg Maliyet",
+        "en": "Spoiled",
+        "tr": "Spoiled",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,7 +114,82 @@
       }
     },
     {
-      "id": "salvage",
+      "id": "ProdCost",
+      "label": "ProdCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ProdCost",
+        "tr": "ProdCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Excess",
+      "label": "Excess",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Excess",
+        "tr": "Excess",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitCost",
+      "label": "UnitCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitCost",
+        "tr": "UnitCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Salvage",
       "label": "Salvage",
       "type": "number",
       "unit": "",
@@ -137,16 +214,241 @@
       }
     },
     {
-      "id": "Indirimli",
-      "label": "İndirimli",
+      "id": "Shrink",
+      "label": "Shrink",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İndirimli",
-        "tr": "İndirimli",
+        "en": "Shrink",
+        "tr": "Shrink",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Spoil",
+      "label": "Spoil",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Spoil",
+        "tr": "Spoil",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Over",
+      "label": "Over",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Over",
+        "tr": "Over",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Avail",
+      "label": "Avail",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Avail",
+        "tr": "Avail",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Perf",
+      "label": "Perf",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Perf",
+        "tr": "Perf",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Qual_Yield",
+      "label": "Qual_Yield",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Qual_Yield",
+        "tr": "Qual_Yield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Recipe",
+      "label": "Recipe",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Recipe",
+        "tr": "Recipe",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualProd",
+      "label": "ActualProd",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualProd",
+        "tr": "ActualProd",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Actual",
+      "label": "Actual",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Actual",
+        "tr": "Actual",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Theo",
+      "label": "Theo",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Theo",
+        "tr": "Theo",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,133 +464,49 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "yield",
-      "label": "Yield",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Yield",
-        "tr": "Yield",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Yield": "Finished / Raw",
+    "Shrinkage": "Raw - Finished",
+    "Cost_Shrink": "Shrinkage * RawCost",
+    "Cost_Spoil": "Spoiled * ProdCost",
+    "Cost_Over": "Excess * (UnitCost - Salvage)",
+    "MarginLeak": "Shrink + Spoil + Over",
+    "OEE_Food": "Avail * Perf * Qual_Yield",
+    "TheoUsage": "Recipe * ActualProd",
+    "Variance": "Actual - Theo"
+  },
+  "outputs": {
+    "primary": "Variance",
+    "unit": "USD",
+    "breakdown": {
+      "Yield": "Yield",
+      "Shrinkage": "Shrinkage",
+      "Cost_Shrink": "Cost_Shrink",
+      "Cost_Spoil": "Cost_Spoil",
+      "Cost_Over": "Cost_Over",
+      "MarginLeak": "MarginLeak",
+      "OEE_Food": "OEE_Food",
+      "TheoUsage": "TheoUsage",
+      "Variance": "Variance"
     },
-    {
-      "id": "shrinkage",
-      "label": "Shrinkage",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Shrinkage",
-        "tr": "Shrinkage",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "costShrink",
-      "label": "Cost_Shrink",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Shrink",
-        "tr": "Cost_Shrink",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "costSpoil",
-      "label": "Cost_Spoil",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Spoil",
-        "tr": "Cost_Spoil",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "costOver",
-      "label": "Cost_Over",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Over",
-        "tr": "Cost_Over",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "marginLeak",
-      "label": "MarginLeak",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "MarginLeak",
-        "tr": "MarginLeak",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "oEEFood",
-      "label": "OEE_Food",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OEE_Food",
-        "tr": "OEE_Food",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "theoUsage",
-      "label": "TheoUsage",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TheoUsage",
-        "tr": "TheoUsage",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "variance",
-      "label": "Variance",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Variance",
-        "tr": "Variance",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "GIDA FİRE MARJ premium araci ile kayiplari tespit edin.",
+      "long": "GIDA FİRE MARJ premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

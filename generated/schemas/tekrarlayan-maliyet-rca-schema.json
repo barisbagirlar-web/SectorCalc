@@ -1,27 +1,29 @@
 {
   "slug": "tekrarlayan-maliyet-rca",
+  "toolName": "Tekrarlayan Maliyet (RCA)",
   "name": "Tekrarlayan Maliyet (RCA)",
-  "description": "Tekrarlayan Maliyet (RCA) premium calculation tool.",
+  "description": "Tekrarlayan Maliyet (RCA) premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "yıllıkFrekans",
-      "label": "Yıllık Frekans",
+      "id": "Frequency",
+      "label": "Frequency",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yıllık Frekans",
-        "tr": "Yıllık Frekans",
+        "en": "Frequency",
+        "tr": "Frequency",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "olayBasınaMaliyet",
-      "label": "Olay Başına Maliyet",
+      "id": "CostPerEvent",
+      "label": "CostPerEvent",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Olay Başına Maliyet",
-        "tr": "Olay Başına Maliyet",
+        "en": "CostPerEvent",
+        "tr": "CostPerEvent",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "duzelticiAksiyonYatırımı",
-      "label": "Düzeltici Aksiyon Yatırımı",
+      "id": "r",
+      "label": "r",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Düzeltici Aksiyon Yatırımı",
-        "tr": "Düzeltici Aksiyon Yatırımı",
+        "en": "r",
+        "tr": "r",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "IskontoOranıR",
-      "label": "İskonto Oranı r",
+      "id": "n",
+      "label": "n",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İskonto Oranı r",
-        "tr": "İskonto Oranı r",
+        "en": "n",
+        "tr": "n",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,41 @@
       }
     },
     {
-      "id": "analiz OmruNYıl",
-      "label": "Analiz Ömrü n yıl",
+      "id": "CorrectiveActionCost",
+      "label": "CorrectiveActionCost",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Analiz Ömrü n yıl",
-        "tr": "Analiz Ömrü n yıl",
+        "en": "CorrectiveActionCost",
+        "tr": "CorrectiveActionCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ImplementationCost",
+      "label": "ImplementationCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ImplementationCost",
+        "tr": "ImplementationCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,91 +164,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "recurringCostAnnual",
-      "label": "RecurringCost_Annual",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "RecurringCost_Annual",
-        "tr": "RecurringCost_Annual",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "RecurringCost_Annual": "Frequency * CostPerEvent",
+    "PresentValue_Recurring": "RecurringCost_Annual * ((1 - (1+r)^-n) / r)",
+    "RootCauseInvestment": "CorrectiveActionCost + ImplementationCost",
+    "PaybackPeriod": "RootCauseInvestment / RecurringCost_Annual",
+    "NPV_Elimination": "PresentValue_Recurring - RootCauseInvestment",
+    "BreakevenFrequency": "RootCauseInvestment / CostPerEvent"
+  },
+  "outputs": {
+    "primary": "BreakevenFrequency",
+    "unit": "USD",
+    "breakdown": {
+      "RecurringCost_Annual": "RecurringCost_Annual",
+      "PresentValue_Recurring": "PresentValue_Recurring",
+      "RootCauseInvestment": "RootCauseInvestment",
+      "PaybackPeriod": "PaybackPeriod",
+      "NPV_Elimination": "NPV_Elimination",
+      "BreakevenFrequency": "BreakevenFrequency"
     },
-    {
-      "id": "presentValueRecurring",
-      "label": "PresentValue_Recurring",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PresentValue_Recurring",
-        "tr": "PresentValue_Recurring",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "rootCauseInvestment",
-      "label": "RootCauseInvestment",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "RootCauseInvestment",
-        "tr": "RootCauseInvestment",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "paybackPeriod",
-      "label": "PaybackPeriod",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PaybackPeriod",
-        "tr": "PaybackPeriod",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "nPVElimination",
-      "label": "NPV_Elimination",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NPV_Elimination",
-        "tr": "NPV_Elimination",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "breakevenFrequency",
-      "label": "BreakevenFrequency",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "BreakevenFrequency",
-        "tr": "BreakevenFrequency",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Tekrarlayan Maliyet (RCA) premium araci ile kayiplari tespit edin.",
+      "long": "Tekrarlayan Maliyet (RCA) premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

@@ -1,0 +1,260 @@
+{
+  "slug": "oee-ve-durma-suresi",
+  "toolName": "OEE ve Durma Süresi",
+  "name": "OEE ve Durma Süresi",
+  "description": "OEE ve Durma Süresi premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "OperatingTime",
+      "label": "OperatingTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OperatingTime",
+        "tr": "OperatingTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PlannedProductionTime",
+      "label": "PlannedProductionTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PlannedProductionTime",
+        "tr": "PlannedProductionTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IdealCycleTime",
+      "label": "IdealCycleTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "IdealCycleTime",
+        "tr": "IdealCycleTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TotalCount",
+      "label": "TotalCount",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TotalCount",
+        "tr": "TotalCount",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "GoodCount",
+      "label": "GoodCount",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "GoodCount",
+        "tr": "GoodCount",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AllTime",
+      "label": "AllTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AllTime",
+        "tr": "AllTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CostPerMinute",
+      "label": "CostPerMinute",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CostPerMinute",
+        "tr": "CostPerMinute",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitCost",
+      "label": "UnitCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitCost",
+        "tr": "UnitCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "Availability": "OperatingTime / PlannedProductionTime",
+    "Performance": "(IdealCycleTime * TotalCount) / OperatingTime",
+    "Quality": "GoodCount / TotalCount",
+    "OEE": "Availability * Performance * Quality",
+    "TEEP": "OEE * (PlannedProductionTime / AllTime)",
+    "DowntimeCost": "(PlannedProductionTime - OperatingTime) * CostPerMinute",
+    "SpeedLoss": "(OperatingTime - (IdealCycleTime * TotalCount)) * CostPerMinute",
+    "QualityLoss": "(TotalCount - GoodCount) * UnitCost"
+  },
+  "outputs": {
+    "primary": "QualityLoss",
+    "unit": "USD",
+    "breakdown": {
+      "Availability": "Availability",
+      "Performance": "Performance",
+      "Quality": "Quality",
+      "OEE": "OEE",
+      "TEEP": "TEEP",
+      "DowntimeCost": "DowntimeCost",
+      "SpeedLoss": "SpeedLoss",
+      "QualityLoss": "QualityLoss"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "oee",
+  "sectorSlug": "heavy-industry",
+  "category": "oee",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "OEE ve Durma Süresi premium araci ile kayiplari tespit edin.",
+      "long": "OEE ve Durma Süresi premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

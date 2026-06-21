@@ -1,0 +1,235 @@
+{
+  "slug": "dikis-hatti-dengeleyici",
+  "toolName": "DİKİŞ HATTI DENGELEYİCİ",
+  "name": "DİKİŞ HATTI DENGELEYİCİ",
+  "description": "DİKİŞ HATTI DENGELEYİCİ premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "AvailableTime",
+      "label": "AvailableTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AvailableTime",
+        "tr": "AvailableTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Demand",
+      "label": "Demand",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Demand",
+        "tr": "Demand",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SMV",
+      "label": "SMV",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "SMV",
+        "tr": "SMV",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MaxCycle",
+      "label": "MaxCycle",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MaxCycle",
+        "tr": "MaxCycle",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Cycle_i",
+      "label": "Cycle_i",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Cycle_i",
+        "tr": "Cycle_i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Bottleneck",
+      "label": "Bottleneck",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Bottleneck",
+        "tr": "Bottleneck",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Takt",
+      "label": "Takt",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Takt",
+        "tr": "Takt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "TaktTime": "AvailableTime / Demand",
+    "CycleTotal": "SUM(SMV)",
+    "TheoOperators": "CycleTotal / TaktTime",
+    "ActOperators": "CEILING(TheoOperators)",
+    "LineEff": "(CycleTotal / (ActOperators * TaktTime)) * 100",
+    "BalanceDelay": "100 - LineEff",
+    "Smoothness": "SQRT(SUM((MaxCycle - Cycle_i)^2) / ActOperators)",
+    "WIP": "(Bottleneck - Takt) * Demand"
+  },
+  "outputs": {
+    "primary": "WIP",
+    "unit": "USD",
+    "breakdown": {
+      "TaktTime": "TaktTime",
+      "CycleTotal": "CycleTotal",
+      "TheoOperators": "TheoOperators",
+      "ActOperators": "ActOperators",
+      "LineEff": "LineEff",
+      "BalanceDelay": "BalanceDelay",
+      "Smoothness": "Smoothness",
+      "WIP": "WIP"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "time",
+  "sectorSlug": "heavy-industry",
+  "category": "time",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "DİKİŞ HATTI DENGELEYİCİ premium araci ile kayiplari tespit edin.",
+      "long": "DİKİŞ HATTI DENGELEYİCİ premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

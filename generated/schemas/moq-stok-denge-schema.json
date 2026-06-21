@@ -1,27 +1,29 @@
 {
   "slug": "moq-stok-denge",
+  "toolName": "MOQ Stok Denge",
   "name": "MOQ Stok Denge",
-  "description": "MOQ Stok Denge premium calculation tool.",
+  "description": "MOQ Stok Denge premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "yıllıkTalep",
-      "label": "Yıllık Talep",
+      "id": "AnnualDemand",
+      "label": "AnnualDemand",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yıllık Talep",
-        "tr": "Yıllık Talep",
+        "en": "AnnualDemand",
+        "tr": "AnnualDemand",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "siparisMaliyeti",
-      "label": "Sipariş Maliyeti",
+      "id": "OrderCost",
+      "label": "OrderCost",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sipariş Maliyeti",
-        "tr": "Sipariş Maliyeti",
+        "en": "OrderCost",
+        "tr": "OrderCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,7 +64,32 @@
       }
     },
     {
-      "id": "mOQ",
+      "id": "HoldingCost",
+      "label": "HoldingCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HoldingCost",
+        "tr": "HoldingCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MOQ",
       "label": "MOQ",
       "type": "number",
       "unit": "",
@@ -87,16 +114,16 @@
       }
     },
     {
-      "id": "standartMOQBirimFiyat",
-      "label": "Standart/MOQ Birim Fiyat",
+      "id": "UnitPrice_Standard",
+      "label": "UnitPrice_Standard",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Standart/MOQ Birim Fiyat",
-        "tr": "Standart/MOQ Birim Fiyat",
+        "en": "UnitPrice_Standard",
+        "tr": "UnitPrice_Standard",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +139,16 @@
       }
     },
     {
-      "id": "birimTasımaMaliyeti",
-      "label": "Birim Taşıma Maliyeti",
+      "id": "UnitPrice_MOQ",
+      "label": "UnitPrice_MOQ",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Birim Taşıma Maliyeti",
-        "tr": "Birim Taşıma Maliyeti",
+        "en": "UnitPrice_MOQ",
+        "tr": "UnitPrice_MOQ",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,41 +164,16 @@
       }
     },
     {
-      "id": "tedarikSuresi",
-      "label": "Tedarik Süresi",
+      "id": "AdditionalOrderCostSavings",
+      "label": "AdditionalOrderCostSavings",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tedarik Süresi",
-        "tr": "Tedarik Süresi",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "stokAlanıKısıtı",
-      "label": "Stok Alanı Kısıtı",
-      "type": "number",
-      "unit": "m²",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Stok Alanı Kısıtı",
-        "tr": "Stok Alanı Kısıtı",
+        "en": "AdditionalOrderCostSavings",
+        "tr": "AdditionalOrderCostSavings",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,91 +189,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "eOQ",
-      "label": "EOQ",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EOQ",
-        "tr": "EOQ",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "EOQ": "SQRT((2 * AnnualDemand * OrderCost) / HoldingCost)",
+    "MOQ_Penalty": "IF(MOQ > EOQ, (MOQ - EOQ)/2 * HoldingCost, 0)",
+    "PriceBreakSavings": "(UnitPrice_Standard - UnitPrice_MOQ) * AnnualDemand",
+    "NetBenefit": "PriceBreakSavings - MOQ_Penalty - AdditionalOrderCostSavings",
+    "OptimalOrderQty": "IF(NetBenefit > 0, MOQ, EOQ)",
+    "CycleStock_Cost": "(OptimalOrderQty / 2) * HoldingCost"
+  },
+  "outputs": {
+    "primary": "CycleStock_Cost",
+    "unit": "USD",
+    "breakdown": {
+      "EOQ": "EOQ",
+      "MOQ_Penalty": "MOQ_Penalty",
+      "PriceBreakSavings": "PriceBreakSavings",
+      "NetBenefit": "NetBenefit",
+      "OptimalOrderQty": "OptimalOrderQty",
+      "CycleStock_Cost": "CycleStock_Cost"
     },
-    {
-      "id": "mOQPenalty",
-      "label": "MOQ_Penalty",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "MOQ_Penalty",
-        "tr": "MOQ_Penalty",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "priceBreakSavings",
-      "label": "PriceBreakSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PriceBreakSavings",
-        "tr": "PriceBreakSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "netBenefit",
-      "label": "NetBenefit",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NetBenefit",
-        "tr": "NetBenefit",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "optimalOrderQty",
-      "label": "OptimalOrderQty",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OptimalOrderQty",
-        "tr": "OptimalOrderQty",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "cycleStockCost",
-      "label": "CycleStock_Cost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CycleStock_Cost",
-        "tr": "CycleStock_Cost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "benchmark",
+  "sectorSlug": "management-consulting",
+  "category": "benchmark",
+  "sector": "management-consulting",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "MOQ Stok Denge premium araci ile kayiplari tespit edin.",
+      "long": "MOQ Stok Denge premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "lean"
+  }
 }

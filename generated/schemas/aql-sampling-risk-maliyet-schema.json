@@ -1,27 +1,29 @@
 {
   "slug": "aql-sampling-risk-maliyet",
+  "toolName": "AQL SAMPLING RİSK & MALİYET",
   "name": "AQL SAMPLING RİSK & MALİYET",
-  "description": "AQL SAMPLING RİSK & MALİYET premium calculation tool.",
+  "description": "AQL SAMPLING RİSK & MALİYET premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "partiBuyukluguN",
-      "label": "Parti Büyüklüğü N",
+      "id": "LotSize",
+      "label": "LotSize",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Parti Büyüklüğü N",
-        "tr": "Parti Büyüklüğü N",
+        "en": "LotSize",
+        "tr": "LotSize",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "muayeneSeviyesi",
-      "label": "Muayene Seviyesi",
-      "type": "string",
+      "id": "InspectionLevel",
+      "label": "InspectionLevel",
+      "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Muayene Seviyesi",
-        "tr": "Muayene Seviyesi",
+        "en": "InspectionLevel",
+        "tr": "InspectionLevel",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,7 +64,7 @@
       }
     },
     {
-      "id": "aQL",
+      "id": "AQL",
       "label": "AQL",
       "type": "number",
       "unit": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "lTPD",
-      "label": "LTPD",
+      "id": "p_AQL",
+      "label": "p_AQL",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "LTPD",
-        "tr": "LTPD",
+        "en": "p_AQL",
+        "tr": "p_AQL",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "birimMuayeneMaliyeti",
-      "label": "Birim Muayene Maliyeti",
+      "id": "p_LTPD",
+      "label": "p_LTPD",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Birim Muayene Maliyeti",
-        "tr": "Birim Muayene Maliyeti",
+        "en": "p_LTPD",
+        "tr": "p_LTPD",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,116 @@
       }
     },
     {
-      "id": "kacanHataMaliyeti",
-      "label": "Kaçan Hata Maliyeti",
+      "id": "Pa",
+      "label": "Pa",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kaçan Hata Maliyeti",
-        "tr": "Kaçan Hata Maliyeti",
+        "en": "Pa",
+        "tr": "Pa",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "N",
+      "label": "N",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "N",
+        "tr": "N",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "p",
+      "label": "p",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "p",
+        "tr": "p",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DetectionRate",
+      "label": "DetectionRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DetectionRate",
+        "tr": "DetectionRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CostPerDefect",
+      "label": "CostPerDefect",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CostPerDefect",
+        "tr": "CostPerDefect",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,133 +264,49 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "codeLetter",
-      "label": "CodeLetter",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CodeLetter",
-        "tr": "CodeLetter",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "CodeLetter": "LookupCodeLetter(LotSize, InspectionLevel)",
+    "n": "SampleSize(CodeLetter, AQL)",
+    "Ac": "AcceptanceNumber(CodeLetter, AQL)",
+    "Pa_producer": "BINOMDIST(Ac, n, p_AQL, TRUE)",
+    "Alpha": "1 - Pa_producer",
+    "Pa_consumer": "BINOMDIST(Ac, n, p_LTPD, TRUE)",
+    "Beta": "Pa_consumer",
+    "ATI": "n + (1 - Pa) * (N - n)",
+    "TotalRiskCost": "(N * p * (1 - Pa) * (1 - DetectionRate)) * CostPerDefect"
+  },
+  "outputs": {
+    "primary": "TotalRiskCost",
+    "unit": "USD",
+    "breakdown": {
+      "CodeLetter": "CodeLetter",
+      "n": "n",
+      "Ac": "Ac",
+      "Pa_producer": "Pa_producer",
+      "Alpha": "Alpha",
+      "Pa_consumer": "Pa_consumer",
+      "Beta": "Beta",
+      "ATI": "ATI",
+      "TotalRiskCost": "TotalRiskCost"
     },
-    {
-      "id": "n",
-      "label": "n",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "n",
-        "tr": "n",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "ac",
-      "label": "Ac",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Ac",
-        "tr": "Ac",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "paProducer",
-      "label": "Pa_producer",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Pa_producer",
-        "tr": "Pa_producer",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "alpha",
-      "label": "Alpha",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Alpha",
-        "tr": "Alpha",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "paConsumer",
-      "label": "Pa_consumer",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Pa_consumer",
-        "tr": "Pa_consumer",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "beta",
-      "label": "Beta",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Beta",
-        "tr": "Beta",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "aTI",
-      "label": "ATI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ATI",
-        "tr": "ATI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalRiskCost",
-      "label": "TotalRiskCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalRiskCost",
-        "tr": "TotalRiskCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "AQL SAMPLING RİSK & MALİYET premium araci ile kayiplari tespit edin.",
+      "long": "AQL SAMPLING RİSK & MALİYET premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

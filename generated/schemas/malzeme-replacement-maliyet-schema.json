@@ -1,27 +1,29 @@
 {
   "slug": "malzeme-replacement-maliyet",
+  "toolName": "Malzeme Replacement Maliyet",
   "name": "Malzeme Replacement Maliyet",
-  "description": "Malzeme Replacement Maliyet premium calculation tool.",
+  "description": "Malzeme Replacement Maliyet premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "mevcutAlternatifMalzemeMaliyetiCurrencykg",
-      "label": "Mevcut/Alternatif Malzeme Maliyeti currency/kg",
+      "id": "MatCost_Current",
+      "label": "MatCost_Current",
       "type": "number",
-      "unit": "kg",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Mevcut/Alternatif Malzeme Maliyeti currency/kg",
-        "tr": "Mevcut/Alternatif Malzeme Maliyeti currency/kg",
+        "en": "MatCost_Current",
+        "tr": "MatCost_Current",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "agırlıklar",
-      "label": "Ağırlıklar",
+      "id": "ProcessingCost_Current",
+      "label": "ProcessingCost_Current",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Ağırlıklar",
-        "tr": "Ağırlıklar",
+        "en": "ProcessingCost_Current",
+        "tr": "ProcessingCost_Current",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "IslemeBakımImhaMaliyetleri",
-      "label": "İşleme/Bakım/İmha Maliyetleri",
+      "id": "LifecycleMaint_Current",
+      "label": "LifecycleMaint_Current",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İşleme/Bakım/İmha Maliyetleri",
-        "tr": "İşleme/Bakım/İmha Maliyetleri",
+        "en": "LifecycleMaint_Current",
+        "tr": "LifecycleMaint_Current",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "kalifikasyonTestMaliyeti",
-      "label": "Kalifikasyon/Test Maliyeti",
+      "id": "DisposalCost_Current",
+      "label": "DisposalCost_Current",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kalifikasyon/Test Maliyeti",
-        "tr": "Kalifikasyon/Test Maliyeti",
+        "en": "DisposalCost_Current",
+        "tr": "DisposalCost_Current",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "yakıtTasarrufuParametreleri",
-      "label": "Yakıt Tasarrufu Parametreleri",
+      "id": "MatCost_Alt",
+      "label": "MatCost_Alt",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yakıt Tasarrufu Parametreleri",
-        "tr": "Yakıt Tasarrufu Parametreleri",
+        "en": "MatCost_Alt",
+        "tr": "MatCost_Alt",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,291 @@
       }
     },
     {
-      "id": "toolingYatırımı",
-      "label": "Tooling Yatırımı",
+      "id": "ProcessingCost_Alt",
+      "label": "ProcessingCost_Alt",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tooling Yatırımı",
-        "tr": "Tooling Yatırımı",
+        "en": "ProcessingCost_Alt",
+        "tr": "ProcessingCost_Alt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LifecycleMaint_Alt",
+      "label": "LifecycleMaint_Alt",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LifecycleMaint_Alt",
+        "tr": "LifecycleMaint_Alt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DisposalCost_Alt",
+      "label": "DisposalCost_Alt",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DisposalCost_Alt",
+        "tr": "DisposalCost_Alt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Weight_Current",
+      "label": "Weight_Current",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Weight_Current",
+        "tr": "Weight_Current",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Weight_Alt",
+      "label": "Weight_Alt",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Weight_Alt",
+        "tr": "Weight_Alt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FuelFactor",
+      "label": "FuelFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FuelFactor",
+        "tr": "FuelFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LifecycleDistance",
+      "label": "LifecycleDistance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LifecycleDistance",
+        "tr": "LifecycleDistance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FuelPrice",
+      "label": "FuelPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FuelPrice",
+        "tr": "FuelPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "QualityPremium",
+      "label": "QualityPremium",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "QualityPremium",
+        "tr": "QualityPremium",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ToolingCost_Alt",
+      "label": "ToolingCost_Alt",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ToolingCost_Alt",
+        "tr": "ToolingCost_Alt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "QualificationCost",
+      "label": "QualificationCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "QualificationCost",
+        "tr": "QualificationCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AnnualNetBenefit",
+      "label": "AnnualNetBenefit",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AnnualNetBenefit",
+        "tr": "AnnualNetBenefit",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,91 +439,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "tCOCurrent",
-      "label": "TCO_Current",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TCO_Current",
-        "tr": "TCO_Current",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "TCO_Current": "MatCost_Current + ProcessingCost_Current + LifecycleMaint_Current + DisposalCost_Current",
+    "TCO_Alternative": "MatCost_Alt + ProcessingCost_Alt + LifecycleMaint_Alt + DisposalCost_Alt",
+    "WeightSavings": "Weight_Current - Weight_Alt",
+    "FuelSavings": "WeightSavings * FuelFactor * LifecycleDistance * FuelPrice",
+    "NetBenefit": "TCO_Current - TCO_Alternative + FuelSavings + QualityPremium",
+    "Payback": "(ToolingCost_Alt + QualificationCost) / AnnualNetBenefit"
+  },
+  "outputs": {
+    "primary": "Payback",
+    "unit": "USD",
+    "breakdown": {
+      "TCO_Current": "TCO_Current",
+      "TCO_Alternative": "TCO_Alternative",
+      "WeightSavings": "WeightSavings",
+      "FuelSavings": "FuelSavings",
+      "NetBenefit": "NetBenefit",
+      "Payback": "Payback"
     },
-    {
-      "id": "tCOAlternative",
-      "label": "TCO_Alternative",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TCO_Alternative",
-        "tr": "TCO_Alternative",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "weightSavings",
-      "label": "WeightSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "WeightSavings",
-        "tr": "WeightSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "fuelSavings",
-      "label": "FuelSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FuelSavings",
-        "tr": "FuelSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "netBenefit",
-      "label": "NetBenefit",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NetBenefit",
-        "tr": "NetBenefit",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "payback",
-      "label": "Payback",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Payback",
-        "tr": "Payback",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
+  "category": "finance",
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Malzeme Replacement Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "Malzeme Replacement Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "finance"
+  }
 }

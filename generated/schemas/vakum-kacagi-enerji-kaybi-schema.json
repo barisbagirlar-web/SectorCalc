@@ -1,0 +1,281 @@
+{
+  "slug": "vakum-kacagi-enerji-kaybi",
+  "toolName": "Vakum Kaçağı Enerji Kaybı",
+  "name": "Vakum Kaçağı Enerji Kaybı",
+  "description": "Vakum Kaçağı Enerji Kaybı premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "Volume",
+      "label": "Volume",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Volume",
+        "tr": "Volume",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DeltaP",
+      "label": "DeltaP",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DeltaP",
+        "tr": "DeltaP",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DeltaT",
+      "label": "DeltaT",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DeltaT",
+        "tr": "DeltaT",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "P_Atmospheric",
+      "label": "P_Atmospheric",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "P_Atmospheric",
+        "tr": "P_Atmospheric",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PumpEff",
+      "label": "PumpEff",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PumpEff",
+        "tr": "PumpEff",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OperatingHours",
+      "label": "OperatingHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OperatingHours",
+        "tr": "OperatingHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ElecRate",
+      "label": "ElecRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ElecRate",
+        "tr": "ElecRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TotalPumpCapacity",
+      "label": "TotalPumpCapacity",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TotalPumpCapacity",
+        "tr": "TotalPumpCapacity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "GridEmissionFactor",
+      "label": "GridEmissionFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "GridEmissionFactor",
+        "tr": "GridEmissionFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "LeakRate": "Volume * DeltaP / DeltaT",
+    "PowerLoss_kW": "(LeakRate * P_Atmospheric) / (PumpEff * 1000)",
+    "AnnualEnergyLoss": "PowerLoss_kW * OperatingHours",
+    "CostOfLeak": "AnnualEnergyLoss * ElecRate",
+    "PumpCapacityWaste": "LeakRate / TotalPumpCapacity",
+    "CarbonEmissions": "AnnualEnergyLoss * GridEmissionFactor"
+  },
+  "outputs": {
+    "primary": "CarbonEmissions",
+    "unit": "USD",
+    "breakdown": {
+      "LeakRate": "LeakRate",
+      "PowerLoss_kW": "PowerLoss_kW",
+      "AnnualEnergyLoss": "AnnualEnergyLoss",
+      "CostOfLeak": "CostOfLeak",
+      "PumpCapacityWaste": "PumpCapacityWaste",
+      "CarbonEmissions": "CarbonEmissions"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Vakum Kaçağı Enerji Kaybı premium araci ile kayiplari tespit edin.",
+      "long": "Vakum Kaçağı Enerji Kaybı premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

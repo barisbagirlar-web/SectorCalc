@@ -1,27 +1,29 @@
 {
   "slug": "cbam-uyumluluk",
+  "toolName": "CBAM UYUMLULUK",
   "name": "CBAM UYUMLULUK",
-  "description": "CBAM UYUMLULUK premium calculation tool.",
+  "description": "CBAM UYUMLULUK premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "toplamKutle",
-      "label": "Toplam Kütle",
+      "id": "Mass",
+      "label": "Mass",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Toplam Kütle",
-        "tr": "Toplam Kütle",
+        "en": "Mass",
+        "tr": "Mass",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "mense Ulke",
-      "label": "Menşe Ülke",
-      "type": "string",
+      "id": "Direct",
+      "label": "Direct",
+      "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Menşe Ülke",
-        "tr": "Menşe Ülke",
+        "en": "Direct",
+        "tr": "Direct",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "kapsam12Emisyon",
-      "label": "Kapsam 1/2 Emisyon",
+      "id": "DefaultEmissionFactor",
+      "label": "DefaultEmissionFactor",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kapsam 1/2 Emisyon",
-        "tr": "Kapsam 1/2 Emisyon",
+        "en": "DefaultEmissionFactor",
+        "tr": "DefaultEmissionFactor",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "menseKarbonVergisi",
-      "label": "Menşe Karbon Vergisi",
+      "id": "EU_ETS_Price",
+      "label": "EU_ETS_Price",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Menşe Karbon Vergisi",
-        "tr": "Menşe Karbon Vergisi",
+        "en": "EU_ETS_Price",
+        "tr": "EU_ETS_Price",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,66 @@
       }
     },
     {
-      "id": "karMarjıEsigi",
-      "label": "Kâr Marjı Eşiği",
+      "id": "CarbonPricePaidOrigin",
+      "label": "CarbonPricePaidOrigin",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kâr Marjı Eşiği",
-        "tr": "Kâr Marjı Eşiği",
+        "en": "CarbonPricePaidOrigin",
+        "tr": "CarbonPricePaidOrigin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Liability",
+      "label": "Liability",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Liability",
+        "tr": "Liability",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MarginThreshold",
+      "label": "MarginThreshold",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MarginThreshold",
+        "tr": "MarginThreshold",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,91 +189,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "totalMass",
-      "label": "TotalMass",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalMass",
-        "tr": "TotalMass",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "TotalMass": "SUM(Mass)",
+    "TotalEmbedded": "SUM(Direct + Indirect)",
+    "SpecificEmbedded": "TotalEmbedded / TotalMass",
+    "ActualVsDefault": "SpecificEmbedded / DefaultEmissionFactor",
+    "FinancialLiability": "TotalEmbedded * (EU_ETS_Price - CarbonPricePaidOrigin)",
+    "ComplianceDecision": "IF(ActualVsDefault < 1 AND Liability < MarginThreshold, \"Proceed\", \"Reevaluate\")"
+  },
+  "outputs": {
+    "primary": "ComplianceDecision",
+    "unit": "USD",
+    "breakdown": {
+      "TotalMass": "TotalMass",
+      "TotalEmbedded": "TotalEmbedded",
+      "SpecificEmbedded": "SpecificEmbedded",
+      "ActualVsDefault": "ActualVsDefault",
+      "FinancialLiability": "FinancialLiability",
+      "ComplianceDecision": "ComplianceDecision"
     },
-    {
-      "id": "totalEmbedded",
-      "label": "TotalEmbedded",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalEmbedded",
-        "tr": "TotalEmbedded",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "specificEmbedded",
-      "label": "SpecificEmbedded",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "SpecificEmbedded",
-        "tr": "SpecificEmbedded",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "actualVsDefault",
-      "label": "ActualVsDefault",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ActualVsDefault",
-        "tr": "ActualVsDefault",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "financialLiability",
-      "label": "FinancialLiability",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FinancialLiability",
-        "tr": "FinancialLiability",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "complianceDecision",
-      "label": "ComplianceDecision",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ComplianceDecision",
-        "tr": "ComplianceDecision",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "CBAM UYUMLULUK premium araci ile kayiplari tespit edin.",
+      "long": "CBAM UYUMLULUK premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

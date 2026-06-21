@@ -1,27 +1,29 @@
 {
   "slug": "eoq-envanter",
+  "toolName": "EOQ ENVANTER",
   "name": "EOQ ENVANTER",
-  "description": "EOQ ENVANTER premium calculation tool.",
+  "description": "EOQ ENVANTER premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "yıllıkTalep",
-      "label": "Yıllık Talep",
+      "id": "Demand",
+      "label": "Demand",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yıllık Talep",
-        "tr": "Yıllık Talep",
+        "en": "Demand",
+        "tr": "Demand",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "siparisMaliyet",
-      "label": "Sipariş Maliyet",
+      "id": "OrderCost",
+      "label": "OrderCost",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sipariş Maliyet",
-        "tr": "Sipariş Maliyet",
+        "en": "OrderCost",
+        "tr": "OrderCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,10 +64,35 @@
       }
     },
     {
-      "id": "leadTime",
+      "id": "HoldingCost",
+      "label": "HoldingCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HoldingCost",
+        "tr": "HoldingCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LeadTime",
       "label": "Lead Time",
       "type": "number",
-      "unit": "saat",
+      "unit": "hour",
       "min": 0,
       "default": 0,
       "businessContext": "",
@@ -87,16 +114,16 @@
       }
     },
     {
-      "id": "tasımaMaliyet",
-      "label": "Taşıma Maliyet",
+      "id": "DailyDemand",
+      "label": "DailyDemand",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Taşıma Maliyet",
-        "tr": "Taşıma Maliyet",
+        "en": "DailyDemand",
+        "tr": "DailyDemand",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,7 +139,32 @@
       }
     },
     {
-      "id": "stdDev",
+      "id": "Z",
+      "label": "Z",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Z",
+        "tr": "Z",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "StdDev",
       "label": "StdDev",
       "type": "number",
       "unit": "",
@@ -137,16 +189,16 @@
       }
     },
     {
-      "id": "hizmetSeviyesi",
-      "label": "Hizmet Seviyesi",
+      "id": "Safety",
+      "label": "Safety",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hizmet Seviyesi",
-        "tr": "Hizmet Seviyesi",
+        "en": "Safety",
+        "tr": "Safety",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +214,16 @@
       }
     },
     {
-      "id": "stoksuzMaliyet",
-      "label": "Stoksuz Maliyet",
+      "id": "AvgInv",
+      "label": "AvgInv",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Stoksuz Maliyet",
-        "tr": "Stoksuz Maliyet",
+        "en": "AvgInv",
+        "tr": "AvgInv",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,125 +239,45 @@
       }
     }
   ],
+  "formulas": {
+    "EOQ": "SQRT((2 * Demand * OrderCost) / HoldingCost)",
+    "ROP": "(LeadTime * DailyDemand) + SafetyStock",
+    "SafetyStock": "Z * StdDev * SQRT(LeadTime)",
+    "TotalCost": "(Demand / EOQ) * OrderCost + (EOQ / 2 + Safety) * HoldingCost",
+    "CycleStock": "EOQ / 2",
+    "Turnover": "Demand / AvgInv",
+    "DaysSales": "365 / Turnover"
+  },
   "outputs": {
-    "0": {
-      "id": "eOQ",
-      "label": "EOQ",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EOQ",
-        "tr": "EOQ",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "DaysSales",
+    "unit": "USD",
+    "breakdown": {
+      "EOQ": "EOQ",
+      "ROP": "ROP",
+      "SafetyStock": "SafetyStock",
+      "TotalCost": "TotalCost",
+      "CycleStock": "CycleStock",
+      "Turnover": "Turnover",
+      "DaysSales": "DaysSales"
     },
-    "1": {
-      "id": "rOP",
-      "label": "ROP",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ROP",
-        "tr": "ROP",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "safetyStock",
-      "label": "SafetyStock",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "SafetyStock",
-        "tr": "SafetyStock",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "totalCost",
-      "label": "TotalCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalCost",
-        "tr": "TotalCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "cycleStock",
-      "label": "CycleStock",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CycleStock",
-        "tr": "CycleStock",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "turnover",
-      "label": "Turnover",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Turnover",
-        "tr": "Turnover",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "daysSales",
-      "label": "DaysSales",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DaysSales",
-        "tr": "DaysSales",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "benchmark",
+  "sectorSlug": "management-consulting",
   "category": "benchmark",
-  "formulas": {
-    "normalized_product": "yıllıkTalep * siparisMaliyet * leadTime * tasımaMaliyet",
-    "result": "yıllıkTalep * siparisMaliyet * leadTime * tasımaMaliyet * (stdDev * hizmetSeviyesi * stoksuzMaliyet)",
-    "adjustment_factor": "stdDev * hizmetSeviyesi * stoksuzMaliyet"
+  "sector": "management-consulting",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "EOQ ENVANTER premium araci ile kayiplari tespit edin.",
+      "long": "EOQ ENVANTER premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

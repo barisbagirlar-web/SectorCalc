@@ -1,27 +1,29 @@
 {
   "slug": "poka-yoke-roi",
+  "toolName": "Poka-Yoke ROI",
   "name": "Poka-Yoke ROI",
-  "description": "Poka-Yoke ROI premium calculation tool.",
+  "description": "Poka-Yoke ROI premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "mevcutHataOranı",
-      "label": "Mevcut Hata Oranı",
+      "id": "Defects",
+      "label": "Defects",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Mevcut Hata Oranı",
-        "tr": "Mevcut Hata Oranı",
+        "en": "Defects",
+        "tr": "Defects",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "hataBasınaMaliyet",
-      "label": "Hata Başına Maliyet",
+      "id": "TotalUnits",
+      "label": "TotalUnits",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hata Başına Maliyet",
-        "tr": "Hata Başına Maliyet",
+        "en": "TotalUnits",
+        "tr": "TotalUnits",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "etkililik",
-      "label": "Etkililik",
+      "id": "CostPerDefect",
+      "label": "CostPerDefect",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Etkililik",
-        "tr": "Etkililik",
+        "en": "CostPerDefect",
+        "tr": "CostPerDefect",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "yıllık Uretim",
-      "label": "Yıllık Üretim",
+      "id": "Design",
+      "label": "Design",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yıllık Üretim",
-        "tr": "Yıllık Üretim",
+        "en": "Design",
+        "tr": "Design",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "tasarımUygulamaEgitimMaliyeti",
-      "label": "Tasarım/Uygulama/Eğitim Maliyeti",
+      "id": "Implementation",
+      "label": "Implementation",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tasarım/Uygulama/Eğitim Maliyeti",
-        "tr": "Tasarım/Uygulama/Eğitim Maliyeti",
+        "en": "Implementation",
+        "tr": "Implementation",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,66 @@
       }
     },
     {
-      "id": "yıllıkBakımMaliyeti",
-      "label": "Yıllık Bakım Maliyeti",
+      "id": "Training",
+      "label": "Training",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yıllık Bakım Maliyeti",
-        "tr": "Yıllık Bakım Maliyeti",
+        "en": "Training",
+        "tr": "Training",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Maintenance",
+      "label": "Maintenance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Maintenance",
+        "tr": "Maintenance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Effectiveness",
+      "label": "Effectiveness",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Effectiveness",
+        "tr": "Effectiveness",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,105 +214,45 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "currentDefectRate",
-      "label": "CurrentDefectRate",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CurrentDefectRate",
-        "tr": "CurrentDefectRate",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "CurrentDefectRate": "Defects / TotalUnits",
+    "DefectCost_Annual": "CurrentDefectRate * TotalUnits * CostPerDefect",
+    "PokaYoke_Cost": "Design + Implementation + Training + Maintenance",
+    "NewDefectRate": "CurrentDefectRate * (1 - Effectiveness)",
+    "Savings": "(CurrentDefectRate - NewDefectRate) * TotalUnits * CostPerDefect",
+    "ROI": "(Savings - PokaYoke_Cost) / PokaYoke_Cost",
+    "PaybackMonths": "PokaYoke_Cost / (Savings / 12)"
+  },
+  "outputs": {
+    "primary": "PaybackMonths",
+    "unit": "USD",
+    "breakdown": {
+      "CurrentDefectRate": "CurrentDefectRate",
+      "DefectCost_Annual": "DefectCost_Annual",
+      "PokaYoke_Cost": "PokaYoke_Cost",
+      "NewDefectRate": "NewDefectRate",
+      "Savings": "Savings",
+      "ROI": "ROI",
+      "PaybackMonths": "PaybackMonths"
     },
-    {
-      "id": "defectCostAnnual",
-      "label": "DefectCost_Annual",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DefectCost_Annual",
-        "tr": "DefectCost_Annual",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "pokaYokeCost",
-      "label": "PokaYoke_Cost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PokaYoke_Cost",
-        "tr": "PokaYoke_Cost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "newDefectRate",
-      "label": "NewDefectRate",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NewDefectRate",
-        "tr": "NewDefectRate",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "savings",
-      "label": "Savings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Savings",
-        "tr": "Savings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "rOI",
-      "label": "ROI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ROI",
-        "tr": "ROI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "paybackMonths",
-      "label": "PaybackMonths",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PaybackMonths",
-        "tr": "PaybackMonths",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
+  "category": "finance",
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Poka-Yoke ROI premium araci ile kayiplari tespit edin.",
+      "long": "Poka-Yoke ROI premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "finance"
+  }
 }

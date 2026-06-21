@@ -1,0 +1,306 @@
+{
+  "slug": "yenileme-butcesi-optimize-edici",
+  "toolName": "Yenileme Bütçesi Optimize Edici",
+  "name": "Yenileme Bütçesi Optimize Edici",
+  "description": "Yenileme Bütçesi Optimize Edici premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "Area",
+      "label": "Area",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Area",
+        "tr": "Area",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CostPerSqM_ByComplexity",
+      "label": "CostPerSqM_ByComplexity",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CostPerSqM_ByComplexity",
+        "tr": "CostPerSqM_ByComplexity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "InflationRate",
+      "label": "InflationRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "InflationRate",
+        "tr": "InflationRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ProjectDuration",
+      "label": "ProjectDuration",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ProjectDuration",
+        "tr": "ProjectDuration",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RiskFactor",
+      "label": "RiskFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RiskFactor",
+        "tr": "RiskFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DesignFeePct",
+      "label": "DesignFeePct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DesignFeePct",
+        "tr": "DesignFeePct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PermitFeePct",
+      "label": "PermitFeePct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PermitFeePct",
+        "tr": "PermitFeePct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FF_E",
+      "label": "FF_E",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FF_E",
+        "tr": "FF_E",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NewPropertyValue",
+      "label": "NewPropertyValue",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NewPropertyValue",
+        "tr": "NewPropertyValue",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OldPropertyValue",
+      "label": "OldPropertyValue",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OldPropertyValue",
+        "tr": "OldPropertyValue",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "BaseCost": "Area * CostPerSqM_ByComplexity",
+    "Escalation": "BaseCost * ((1 + InflationRate)^ProjectDuration - 1)",
+    "Contingency": "(BaseCost + Escalation) * RiskFactor",
+    "SoftCosts": "(BaseCost + Escalation) * (DesignFeePct + PermitFeePct)",
+    "TotalBudget": "BaseCost + Escalation + Contingency + SoftCosts + FF_E",
+    "ROI_Renovation": "(NewPropertyValue - OldPropertyValue - TotalBudget) / TotalBudget"
+  },
+  "outputs": {
+    "primary": "ROI_Renovation",
+    "unit": "USD",
+    "breakdown": {
+      "BaseCost": "BaseCost",
+      "Escalation": "Escalation",
+      "Contingency": "Contingency",
+      "SoftCosts": "SoftCosts",
+      "TotalBudget": "TotalBudget",
+      "ROI_Renovation": "ROI_Renovation"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Yenileme Bütçesi Optimize Edici premium araci ile kayiplari tespit edin.",
+      "long": "Yenileme Bütçesi Optimize Edici premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

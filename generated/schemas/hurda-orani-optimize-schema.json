@@ -1,27 +1,29 @@
 {
   "slug": "hurda-orani-optimize",
+  "toolName": "HURDA ORANI OPTİMİZE",
   "name": "HURDA ORANI OPTİMİZE",
-  "description": "HURDA ORANI OPTİMİZE premium calculation tool.",
+  "description": "HURDA ORANI OPTİMİZE premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "girdiHurda",
-      "label": "Girdi/Hurda",
+      "id": "ScrapQty",
+      "label": "ScrapQty",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Girdi/Hurda",
-        "tr": "Girdi/Hurda",
+        "en": "ScrapQty",
+        "tr": "ScrapQty",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "nedenler",
-      "label": "Nedenler",
+      "id": "TotalInput",
+      "label": "TotalInput",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Nedenler",
-        "tr": "Nedenler",
+        "en": "TotalInput",
+        "tr": "TotalInput",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "hammaddeMakine",
-      "label": "Hammadde/Makine",
+      "id": "MatCost",
+      "label": "MatCost",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hammadde/Makine",
-        "tr": "Hammadde/Makine",
+        "en": "MatCost",
+        "tr": "MatCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,7 +89,207 @@
       }
     },
     {
-      "id": "salvage",
+      "id": "Cycle",
+      "label": "Cycle",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Cycle",
+        "tr": "Cycle",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LabRate",
+      "label": "LabRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LabRate",
+        "tr": "LabRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MachRate",
+      "label": "MachRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MachRate",
+        "tr": "MachRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitMargin",
+      "label": "UnitMargin",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitMargin",
+        "tr": "UnitMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Mat",
+      "label": "Mat",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mat",
+        "tr": "Mat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Lab",
+      "label": "Lab",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Lab",
+        "tr": "Lab",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OH",
+      "label": "OH",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OH",
+        "tr": "OH",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Opp",
+      "label": "Opp",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Opp",
+        "tr": "Opp",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Salvage",
       "label": "Salvage",
       "type": "number",
       "unit": "",
@@ -112,16 +314,16 @@
       }
     },
     {
-      "id": "hedef",
-      "label": "Hedef",
+      "id": "Defects",
+      "label": "Defects",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hedef",
-        "tr": "Hedef",
+        "en": "Defects",
+        "tr": "Defects",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +339,66 @@
       }
     },
     {
-      "id": "marj",
-      "label": "Marj",
+      "id": "Freq",
+      "label": "Freq",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Marj",
-        "tr": "Marj",
+        "en": "Freq",
+        "tr": "Freq",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Benchmark",
+      "label": "Benchmark",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Benchmark",
+        "tr": "Benchmark",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ImpFactor",
+      "label": "ImpFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ImpFactor",
+        "tr": "ImpFactor",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,139 +414,47 @@
       }
     }
   ],
+  "formulas": {
+    "ScrapRate": "ScrapQty / TotalInput",
+    "Cost_Mat": "ScrapQty * MatCost",
+    "Cost_Lab": "ScrapQty * Cycle * LabRate",
+    "Cost_OH": "ScrapQty * Cycle * MachRate",
+    "OppCost": "ScrapQty * UnitMargin",
+    "TotalCost": "Mat + Lab + OH + Opp - Salvage",
+    "Pareto": "SORT(Defects, Freq, DESC)",
+    "Target": "Benchmark * (1 - ImpFactor)"
+  },
   "outputs": {
-    "0": {
-      "id": "scrapRate",
-      "label": "ScrapRate",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ScrapRate",
-        "tr": "ScrapRate",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "Target",
+    "unit": "USD",
+    "breakdown": {
+      "ScrapRate": "ScrapRate",
+      "Cost_Mat": "Cost_Mat",
+      "Cost_Lab": "Cost_Lab",
+      "Cost_OH": "Cost_OH",
+      "OppCost": "OppCost",
+      "TotalCost": "TotalCost",
+      "Pareto": "Pareto",
+      "Target": "Target"
     },
-    "1": {
-      "id": "costMat",
-      "label": "Cost_Mat",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Mat",
-        "tr": "Cost_Mat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "costLab",
-      "label": "Cost_Lab",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Lab",
-        "tr": "Cost_Lab",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "costOH",
-      "label": "Cost_OH",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_OH",
-        "tr": "Cost_OH",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "oppCost",
-      "label": "OppCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OppCost",
-        "tr": "OppCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "totalCost",
-      "label": "TotalCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalCost",
-        "tr": "TotalCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "pareto",
-      "label": "Pareto",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Pareto",
-        "tr": "Pareto",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "7": {
-      "id": "target",
-      "label": "Target",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Target",
-        "tr": "Target",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "scrap",
+  "sectorSlug": "heavy-industry",
   "category": "scrap",
-  "formulas": {
-    "normalized_product": "girdiHurda * nedenler * hammaddeMakine * salvage",
-    "result": "girdiHurda * nedenler * hammaddeMakine * salvage * (hedef * marj)",
-    "adjustment_factor": "hedef * marj"
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "HURDA ORANI OPTİMİZE premium araci ile kayiplari tespit edin.",
+      "long": "HURDA ORANI OPTİMİZE premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

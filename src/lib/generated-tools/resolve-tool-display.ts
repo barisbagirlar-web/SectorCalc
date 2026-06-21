@@ -45,19 +45,23 @@ export function resolveGeneratedToolTitle(
     return localizedTitle;
   }
 
-  // Layer 3: Humanized + locale-glossary-translated schema.toolName
-  // This catches tools without bundle entries or whose bundle entry
-  // resolves to the raw kebab-case schema.toolName.
-  const humanizedToolName = humanizeSlug(slug);
+  // Layer 3: Use schema.toolName if it's already human-readable (not kebab-case or slug-only).
+  // Otherwise, humanize the slug for a cleaner fallback.
+  // This prevents loss of properly localized titles with special characters (e.g. "Makine Ekonomik Ömrü").
+  const effectiveToolName =
+    schema.toolName.includes("-") || schema.toolName === slug.replace(/-/g, " ")
+      ? humanizeSlug(slug)
+      : schema.toolName;
+
   if (locale !== "en") {
-    const translated = translateCalculatorPhrase(humanizedToolName, locale);
-    if (translated.trim() && translated !== humanizedToolName) {
+    const translated = translateCalculatorPhrase(effectiveToolName, locale);
+    if (translated.trim() && translated !== effectiveToolName) {
       return translated;
     }
   }
 
-  // Layer 4: Ultimate fallback — humanized slug
-  return humanizedToolName;
+  // Layer 4: Ultimate fallback — effective tool name
+  return effectiveToolName;
 }
 
 export function resolveGeneratedToolDescription(

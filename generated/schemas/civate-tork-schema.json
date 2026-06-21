@@ -1,27 +1,29 @@
 {
   "slug": "civate-tork",
+  "toolName": "CIVATE TORK",
   "name": "CIVATE TORK",
-  "description": "CIVATE TORK premium calculation tool.",
+  "description": "CIVATE TORK premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "nominal CapD",
-      "label": "Nominal Çap d",
+      "id": "K",
+      "label": "K",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Nominal Çap d",
-        "tr": "Nominal Çap d",
+        "en": "K",
+        "tr": "K",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "hatveP",
-      "label": "Hatve p",
+      "id": "D",
+      "label": "D",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hatve p",
-        "tr": "Hatve p",
+        "en": "D",
+        "tr": "D",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "surtunmeK",
-      "label": "Sürtünme K",
+      "id": "Preload",
+      "label": "Preload",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sürtünme K",
-        "tr": "Sürtünme K",
+        "en": "Preload",
+        "tr": "Preload",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "malzemeSınıfı",
-      "label": "Malzeme Sınıfı",
-      "type": "string",
+      "id": "ProofStrength",
+      "label": "ProofStrength",
+      "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Malzeme Sınıfı",
-        "tr": "Malzeme Sınıfı",
+        "en": "ProofStrength",
+        "tr": "ProofStrength",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "akmaDayanımı",
-      "label": "Akma Dayanımı",
+      "id": "d",
+      "label": "d",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Akma Dayanımı",
-        "tr": "Akma Dayanımı",
+        "en": "d",
+        "tr": "d",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,66 @@
       }
     },
     {
-      "id": "hedef Ongerilme",
-      "label": "Hedef Öngerilme",
+      "id": "p",
+      "label": "p",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hedef Öngerilme",
-        "tr": "Hedef Öngerilme",
+        "en": "p",
+        "tr": "p",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "YieldStrength",
+      "label": "YieldStrength",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "YieldStrength",
+        "tr": "YieldStrength",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FAIL",
+      "label": "FAIL",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FAIL",
+        "tr": "FAIL",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,105 +214,45 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "t",
-      "label": "T",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "T",
-        "tr": "T",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "T": "K * D * F",
+    "F": "Preload = Sigma_p * A_t",
+    "Sigma_p": "0.7 * ProofStrength",
+    "A_t": "(PI / 4) * ((d2 + d3) / 2)^2",
+    "d2": "d - 0.649519 * p",
+    "d3": "d - 1.226869 * p",
+    "YieldCheck": "IF(Sigma_p > YieldStrength, \"FAIL\", \"PASS\")"
+  },
+  "outputs": {
+    "primary": "YieldCheck",
+    "unit": "USD",
+    "breakdown": {
+      "T": "T",
+      "F": "F",
+      "Sigma_p": "Sigma_p",
+      "A_t": "A_t",
+      "d2": "d2",
+      "d3": "d3",
+      "YieldCheck": "YieldCheck"
     },
-    {
-      "id": "f",
-      "label": "F",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "F",
-        "tr": "F",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "sigmaP",
-      "label": "Sigma_p",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Sigma_p",
-        "tr": "Sigma_p",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "aT",
-      "label": "A_t",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "A_t",
-        "tr": "A_t",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "d2",
-      "label": "d2",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "d2",
-        "tr": "d2",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "d3",
-      "label": "d3",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "d3",
-        "tr": "d3",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "yieldCheck",
-      "label": "YieldCheck",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "YieldCheck",
-        "tr": "YieldCheck",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "CIVATE TORK premium araci ile kayiplari tespit edin.",
+      "long": "CIVATE TORK premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

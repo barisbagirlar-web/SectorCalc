@@ -1,27 +1,29 @@
 {
   "slug": "hafiflik-maliyet-tasarrufu",
+  "toolName": "HAFİFLİK MALİYET TASARRUFU",
   "name": "HAFİFLİK MALİYET TASARRUFU",
-  "description": "HAFİFLİK MALİYET TASARRUFU premium calculation tool.",
+  "description": "HAFİFLİK MALİYET TASARRUFU premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "orijinalYeniAgırlık",
-      "label": "Orijinal/Yeni Ağırlık",
+      "id": "Mass_Orig",
+      "label": "Mass_Orig",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Orijinal/Yeni Ağırlık",
-        "tr": "Orijinal/Yeni Ağırlık",
+        "en": "Mass_Orig",
+        "tr": "Mass_Orig",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,66 +39,16 @@
       }
     },
     {
-      "id": "malzeme",
-      "label": "Malzeme",
-      "type": "string",
-      "unit": "",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Malzeme",
-        "tr": "Malzeme",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "yeniKgFiyat",
-      "label": "Yeni kg Fiyat",
-      "type": "number",
-      "unit": "kg",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Yeni kg Fiyat",
-        "tr": "Yeni kg Fiyat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "kalıpFarkı",
-      "label": "Kalıp Farkı",
+      "id": "Mass_LW",
+      "label": "Mass_LW",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kalıp Farkı",
-        "tr": "Kalıp Farkı",
+        "en": "Mass_LW",
+        "tr": "Mass_LW",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,41 +64,366 @@
       }
     },
     {
-      "id": "OmurSaat",
-      "label": "Ömür/Saat",
-      "type": "number",
-      "unit": "saat",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Ömür/Saat",
-        "tr": "Ömür/Saat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "yakıt",
-      "label": "Yakıt",
+      "id": "FuelFactor",
+      "label": "FuelFactor",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yakıt",
-        "tr": "Yakıt",
+        "en": "FuelFactor",
+        "tr": "FuelFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Dist",
+      "label": "Dist",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Dist",
+        "tr": "Dist",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FuelPrice",
+      "label": "FuelPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FuelPrice",
+        "tr": "FuelPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "BurnFactor",
+      "label": "BurnFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "BurnFactor",
+        "tr": "BurnFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "hour",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "JetPrice",
+      "label": "JetPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "JetPrice",
+        "tr": "JetPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RevPerKg",
+      "label": "RevPerKg",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RevPerKg",
+        "tr": "RevPerKg",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Cost_LW",
+      "label": "Cost_LW",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Cost_LW",
+        "tr": "Cost_LW",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Cost_Orig",
+      "label": "Cost_Orig",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Cost_Orig",
+        "tr": "Cost_Orig",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Vol",
+      "label": "Vol",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Vol",
+        "tr": "Vol",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Tool_LW",
+      "label": "Tool_LW",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tool_LW",
+        "tr": "Tool_LW",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Tool_Orig",
+      "label": "Tool_Orig",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tool_Orig",
+        "tr": "Tool_Orig",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FuelSav",
+      "label": "FuelSav",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FuelSav",
+        "tr": "FuelSav",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Payload",
+      "label": "Payload",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Payload",
+        "tr": "Payload",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Life",
+      "label": "Life",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Life",
+        "tr": "Life",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,105 +439,45 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "weightRed",
-      "label": "WeightRed",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "WeightRed",
-        "tr": "WeightRed",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "WeightRed": "Mass_Orig - Mass_LW",
+    "FuelSav_Auto": "WeightRed * FuelFactor * Dist * FuelPrice",
+    "FuelSav_Aero": "WeightRed * BurnFactor * Hours * JetPrice",
+    "PayloadGain": "WeightRed * RevPerKg",
+    "MatPrem": "(Cost_LW - Cost_Orig) * Vol",
+    "ToolDelta": "Tool_LW - Tool_Orig",
+    "NetSav": "(FuelSav + Payload) * Life - MatPrem - ToolDelta"
+  },
+  "outputs": {
+    "primary": "NetSav",
+    "unit": "USD",
+    "breakdown": {
+      "WeightRed": "WeightRed",
+      "FuelSav_Auto": "FuelSav_Auto",
+      "FuelSav_Aero": "FuelSav_Aero",
+      "PayloadGain": "PayloadGain",
+      "MatPrem": "MatPrem",
+      "ToolDelta": "ToolDelta",
+      "NetSav": "NetSav"
     },
-    {
-      "id": "fuelSavAuto",
-      "label": "FuelSav_Auto",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FuelSav_Auto",
-        "tr": "FuelSav_Auto",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "fuelSavAero",
-      "label": "FuelSav_Aero",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FuelSav_Aero",
-        "tr": "FuelSav_Aero",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "payloadGain",
-      "label": "PayloadGain",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PayloadGain",
-        "tr": "PayloadGain",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "matPrem",
-      "label": "MatPrem",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "MatPrem",
-        "tr": "MatPrem",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "toolDelta",
-      "label": "ToolDelta",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ToolDelta",
-        "tr": "ToolDelta",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "netSav",
-      "label": "NetSav",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NetSav",
-        "tr": "NetSav",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "HAFİFLİK MALİYET TASARRUFU premium araci ile kayiplari tespit edin.",
+      "long": "HAFİFLİK MALİYET TASARRUFU premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

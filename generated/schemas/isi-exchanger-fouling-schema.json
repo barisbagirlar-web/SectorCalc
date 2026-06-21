@@ -1,27 +1,29 @@
 {
   "slug": "isi-exchanger-fouling",
+  "toolName": "ISI EXCHANGER FOULING",
   "name": "ISI EXCHANGER FOULING",
-  "description": "ISI EXCHANGER FOULING premium calculation tool.",
+  "description": "ISI EXCHANGER FOULING premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "ucleandirty",
-      "label": "U_clean/dirty",
+      "id": "U_dirty",
+      "label": "U_dirty",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "U_clean/dirty",
-        "tr": "U_clean/dirty",
+        "en": "U_dirty",
+        "tr": "U_dirty",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "alan",
-      "label": "Alan",
+      "id": "U_clean",
+      "label": "U_clean",
       "type": "number",
-      "unit": "m²",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Alan",
-        "tr": "Alan",
+        "en": "U_clean",
+        "tr": "U_clean",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,7 +64,32 @@
       }
     },
     {
-      "id": "lMTD",
+      "id": "Area",
+      "label": "Area",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Area",
+        "tr": "Area",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LMTD",
       "label": "LMTD",
       "type": "number",
       "unit": "",
@@ -87,16 +114,16 @@
       }
     },
     {
-      "id": "dPArtıs",
-      "label": "DP Artış",
+      "id": "Hours",
+      "label": "Hours",
       "type": "number",
-      "unit": "",
+      "unit": "hour",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "DP Artış",
-        "tr": "DP Artış",
+        "en": "Hours",
+        "tr": "Hours",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +139,16 @@
       }
     },
     {
-      "id": "temizlik",
-      "label": "Temizlik",
+      "id": "BoilEff",
+      "label": "BoilEff",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Temizlik",
-        "tr": "Temizlik",
+        "en": "BoilEff",
+        "tr": "BoilEff",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +164,16 @@
       }
     },
     {
-      "id": "yakıt",
-      "label": "Yakıt",
+      "id": "FuelCost",
+      "label": "FuelCost",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yakıt",
-        "tr": "Yakıt",
+        "en": "FuelCost",
+        "tr": "FuelCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +189,116 @@
       }
     },
     {
-      "id": "kazanVerim",
-      "label": "Kazan Verim",
+      "id": "DeltaP_dirty",
+      "label": "DeltaP_dirty",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kazan Verim",
-        "tr": "Kazan Verim",
+        "en": "DeltaP_dirty",
+        "tr": "DeltaP_dirty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DeltaP_clean",
+      "label": "DeltaP_clean",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DeltaP_clean",
+        "tr": "DeltaP_clean",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Flow",
+      "label": "Flow",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Flow",
+        "tr": "Flow",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PumpEff",
+      "label": "PumpEff",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PumpEff",
+        "tr": "PumpEff",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CleanCost",
+      "label": "CleanCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CleanCost",
+        "tr": "CleanCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,139 +314,47 @@
       }
     }
   ],
+  "formulas": {
+    "R_foul": "(1 / U_dirty) - (1 / U_clean)",
+    "Loss": "Area * U_clean * LMTD - Area * U_dirty * LMTD",
+    "EnergyPen": "Loss * Hours / BoilEff",
+    "Cost_Energy": "EnergyPen * FuelCost",
+    "DP_Inc": "DeltaP_dirty - DeltaP_clean",
+    "PumpInc": "DP_Inc * Flow * Hours / PumpEff",
+    "Total": "Cost_Energy + PumpInc",
+    "ROI": "Total / CleanCost"
+  },
   "outputs": {
-    "0": {
-      "id": "rFoul",
-      "label": "R_foul",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "R_foul",
-        "tr": "R_foul",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "ROI",
+    "unit": "USD",
+    "breakdown": {
+      "R_foul": "R_foul",
+      "Loss": "Loss",
+      "EnergyPen": "EnergyPen",
+      "Cost_Energy": "Cost_Energy",
+      "DP_Inc": "DP_Inc",
+      "PumpInc": "PumpInc",
+      "Total": "Total",
+      "ROI": "ROI"
     },
-    "1": {
-      "id": "loss",
-      "label": "Loss",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Loss",
-        "tr": "Loss",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "energyPen",
-      "label": "EnergyPen",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EnergyPen",
-        "tr": "EnergyPen",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "costEnergy",
-      "label": "Cost_Energy",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Energy",
-        "tr": "Cost_Energy",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "dPInc",
-      "label": "DP_Inc",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DP_Inc",
-        "tr": "DP_Inc",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "pumpInc",
-      "label": "PumpInc",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PumpInc",
-        "tr": "PumpInc",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "total",
-      "label": "Total",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Total",
-        "tr": "Total",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "7": {
-      "id": "rOI",
-      "label": "ROI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ROI",
-        "tr": "ROI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
   "category": "finance",
-  "formulas": {
-    "normalized_product": "ucleandirty * alan * lMTD * dPArtıs",
-    "result": "ucleandirty * alan * lMTD * dPArtıs * (temizlik * yakıt * kazanVerim)",
-    "adjustment_factor": "temizlik * yakıt * kazanVerim"
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "ISI EXCHANGER FOULING premium araci ile kayiplari tespit edin.",
+      "long": "ISI EXCHANGER FOULING premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

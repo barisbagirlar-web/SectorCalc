@@ -1,27 +1,29 @@
 {
   "slug": "clv-cac-orani",
+  "toolName": "CLV / CAC ORANI",
   "name": "CLV / CAC ORANI",
-  "description": "CLV / CAC ORANI premium calculation tool.",
+  "description": "CLV / CAC ORANI premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "butce",
-      "label": "Bütçe",
+      "id": "AvgOrderValue",
+      "label": "AvgOrderValue",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Bütçe",
-        "tr": "Bütçe",
+        "en": "AvgOrderValue",
+        "tr": "AvgOrderValue",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "yeniMusteri",
-      "label": "Yeni Müşteri",
+      "id": "PurchaseFreq",
+      "label": "PurchaseFreq",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yeni Müşteri",
-        "tr": "Yeni Müşteri",
+        "en": "PurchaseFreq",
+        "tr": "PurchaseFreq",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "siparisDegeri",
-      "label": "Sipariş Değeri",
+      "id": "Lifespan",
+      "label": "Lifespan",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sipariş Değeri",
-        "tr": "Sipariş Değeri",
+        "en": "Lifespan",
+        "tr": "Lifespan",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "sıklık",
-      "label": "Sıklık",
+      "id": "GrossMarginPct",
+      "label": "GrossMarginPct",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sıklık",
-        "tr": "Sıklık",
+        "en": "GrossMarginPct",
+        "tr": "GrossMarginPct",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "yasamSuresi",
-      "label": "Yaşam Süresi",
+      "id": "Retention",
+      "label": "Retention",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yaşam Süresi",
-        "tr": "Yaşam Süresi",
+        "en": "Retention",
+        "tr": "Retention",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "churn",
-      "label": "Churn",
+      "id": "t",
+      "label": "t",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Churn",
-        "tr": "Churn",
+        "en": "t",
+        "tr": "t",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,16 @@
       }
     },
     {
-      "id": "brutMarj",
-      "label": "Brüt Marj",
+      "id": "DiscountRate",
+      "label": "DiscountRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Brüt Marj",
-        "tr": "Brüt Marj",
+        "en": "DiscountRate",
+        "tr": "DiscountRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,16 +189,116 @@
       }
     },
     {
-      "id": "wACC",
-      "label": "WACC",
+      "id": "SalesMarketing",
+      "label": "SalesMarketing",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "WACC",
-        "tr": "WACC",
+        "en": "SalesMarketing",
+        "tr": "SalesMarketing",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Salaries",
+      "label": "Salaries",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Salaries",
+        "tr": "Salaries",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Overhead",
+      "label": "Overhead",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Overhead",
+        "tr": "Overhead",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NewCustomers",
+      "label": "NewCustomers",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NewCustomers",
+        "tr": "NewCustomers",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AvgMonthlyGrossProfit",
+      "label": "AvgMonthlyGrossProfit",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AvgMonthlyGrossProfit",
+        "tr": "AvgMonthlyGrossProfit",
         "de": "",
         "fr": "",
         "es": "",
@@ -212,111 +314,43 @@
       }
     }
   ],
+  "formulas": {
+    "CLV": "AvgOrderValue * PurchaseFreq * Lifespan",
+    "GrossMarginCLV": "CLV * GrossMarginPct",
+    "DiscountedCLV": "SUM((GrossMarginCLV * Retention^t) / (1 + DiscountRate)^t)",
+    "CAC": "(SalesMarketing + Salaries + Overhead) / NewCustomers",
+    "Payback": "CAC / AvgMonthlyGrossProfit",
+    "LTV_CAC": "DiscountedCLV / CAC"
+  },
   "outputs": {
-    "0": {
-      "id": "cLV",
-      "label": "CLV",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CLV",
-        "tr": "CLV",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "LTV_CAC",
+    "unit": "USD",
+    "breakdown": {
+      "CLV": "CLV",
+      "GrossMarginCLV": "GrossMarginCLV",
+      "DiscountedCLV": "DiscountedCLV",
+      "CAC": "CAC",
+      "Payback": "Payback",
+      "LTV_CAC": "LTV_CAC"
     },
-    "1": {
-      "id": "grossMarginCLV",
-      "label": "GrossMarginCLV",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "GrossMarginCLV",
-        "tr": "GrossMarginCLV",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "discountedCLV",
-      "label": "DiscountedCLV",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DiscountedCLV",
-        "tr": "DiscountedCLV",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "cAC",
-      "label": "CAC",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CAC",
-        "tr": "CAC",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "payback",
-      "label": "Payback",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Payback",
-        "tr": "Payback",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "lTVCAC",
-      "label": "LTV_CAC",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "LTV_CAC",
-        "tr": "LTV_CAC",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
   "category": "finance",
-  "formulas": {
-    "normalized_product": "butce * yeniMusteri * siparisDegeri * sıklık",
-    "result": "butce * yeniMusteri * siparisDegeri * sıklık * (yasamSuresi * churn * brutMarj * wACC)",
-    "adjustment_factor": "yasamSuresi * churn * brutMarj * wACC"
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "CLV / CAC ORANI premium araci ile kayiplari tespit edin.",
+      "long": "CLV / CAC ORANI premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

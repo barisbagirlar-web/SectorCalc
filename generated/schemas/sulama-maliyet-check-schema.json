@@ -1,27 +1,29 @@
 {
   "slug": "sulama-maliyet-check",
+  "toolName": "Sulama Maliyet Check",
   "name": "Sulama Maliyet Check",
-  "description": "Sulama Maliyet Check premium calculation tool.",
+  "description": "Sulama Maliyet Check premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "eTcMmgun",
-      "label": "ETc mm/gün",
+      "id": "ETc",
+      "label": "ETc",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "ETc mm/gün",
-        "tr": "ETc mm/gün",
+        "en": "ETc",
+        "tr": "ETc",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,41 +39,16 @@
       }
     },
     {
-      "id": "alanDekar",
-      "label": "Alan dekar",
-      "type": "number",
-      "unit": "m²",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Alan dekar",
-        "tr": "Alan dekar",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "efektifYagısMm",
-      "label": "Efektif Yağış mm",
+      "id": "Area",
+      "label": "Area",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Efektif Yağış mm",
-        "tr": "Efektif Yağış mm",
+        "en": "Area",
+        "tr": "Area",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +64,16 @@
       }
     },
     {
-      "id": "toplamManometrikYukseklikM",
-      "label": "Toplam Manometrik Yükseklik m",
+      "id": "EffectiveRainfall",
+      "label": "EffectiveRainfall",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Toplam Manometrik Yükseklik m",
-        "tr": "Toplam Manometrik Yükseklik m",
+        "en": "EffectiveRainfall",
+        "tr": "EffectiveRainfall",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +89,16 @@
       }
     },
     {
-      "id": "pompaMotorVerimi",
-      "label": "Pompa/Motor Verimi",
+      "id": "TotalHead",
+      "label": "TotalHead",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Pompa/Motor Verimi",
-        "tr": "Pompa/Motor Verimi",
+        "en": "TotalHead",
+        "tr": "TotalHead",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +114,16 @@
       }
     },
     {
-      "id": "elektrikTarifesiCurrencykWh",
-      "label": "Elektrik Tarifesi currency/kWh",
+      "id": "PumpEff",
+      "label": "PumpEff",
       "type": "number",
-      "unit": "kWh",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Elektrik Tarifesi currency/kWh",
-        "tr": "Elektrik Tarifesi currency/kWh",
+        "en": "PumpEff",
+        "tr": "PumpEff",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +139,141 @@
       }
     },
     {
-      "id": "bakımCurrencyda",
-      "label": "Bakım currency/da",
+      "id": "MotorEff",
+      "label": "MotorEff",
       "type": "number",
-      "unit": "currency",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Bakım currency/da",
-        "tr": "Bakım currency/da",
+        "en": "MotorEff",
+        "tr": "MotorEff",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ElecRate",
+      "label": "ElecRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ElecRate",
+        "tr": "ElecRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MaintRatePerHa",
+      "label": "MaintRatePerHa",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MaintRatePerHa",
+        "tr": "MaintRatePerHa",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LaborCost",
+      "label": "LaborCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LaborCost",
+        "tr": "LaborCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Depreciation",
+      "label": "Depreciation",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Depreciation",
+        "tr": "Depreciation",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Losses",
+      "label": "Losses",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Losses",
+        "tr": "Losses",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,125 +289,45 @@
       }
     }
   ],
+  "formulas": {
+    "WaterRequirement": "ETc * Area * (1 - EffectiveRainfall)",
+    "PumpEnergy": "(WaterRequirement * TotalHead) / (PumpEff * MotorEff)",
+    "EnergyCost": "PumpEnergy * ElecRate",
+    "MaintCost": "Area * MaintRatePerHa",
+    "TotalIrrigationCost": "EnergyCost + MaintCost + LaborCost + Depreciation",
+    "CostPerM3": "TotalIrrigationCost / WaterRequirement",
+    "WaterUseEfficiency": "(WaterRequirement - Losses) / WaterRequirement"
+  },
   "outputs": {
-    "0": {
-      "id": "waterRequirement",
-      "label": "WaterRequirement",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "WaterRequirement",
-        "tr": "WaterRequirement",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "1": {
-      "id": "pumpEnergy",
-      "label": "PumpEnergy",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PumpEnergy",
-        "tr": "PumpEnergy",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "energyCost",
-      "label": "EnergyCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EnergyCost",
-        "tr": "EnergyCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "maintCost",
-      "label": "MaintCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "MaintCost",
-        "tr": "MaintCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "totalIrrigationCost",
-      "label": "TotalIrrigationCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalIrrigationCost",
-        "tr": "TotalIrrigationCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "costPerM3",
-      "label": "CostPerM3",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CostPerM3",
-        "tr": "CostPerM3",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "waterUseEfficiency",
-      "label": "WaterUseEfficiency",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "WaterUseEfficiency",
-        "tr": "WaterUseEfficiency",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
+    "primary": "WaterUseEfficiency",
     "unit": "USD",
+    "breakdown": {
+      "WaterRequirement": "WaterRequirement",
+      "PumpEnergy": "PumpEnergy",
+      "EnergyCost": "EnergyCost",
+      "MaintCost": "MaintCost",
+      "TotalIrrigationCost": "TotalIrrigationCost",
+      "CostPerM3": "CostPerM3",
+      "WaterUseEfficiency": "WaterUseEfficiency"
+    },
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
   "category": "cost",
-  "formulas": {
-    "normalized_product": "eTcMmgun * alanDekar * efektifYagısMm * toplamManometrikYukseklikM",
-    "result": "eTcMmgun * alanDekar * efektifYagısMm * toplamManometrikYukseklikM * (pompaMotorVerimi * elektrikTarifesiCurrencykWh * bakımCurrencyda)",
-    "adjustment_factor": "pompaMotorVerimi * elektrikTarifesiCurrencykWh * bakımCurrencyda"
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Sulama Maliyet Check premium araci ile kayiplari tespit edin.",
+      "long": "Sulama Maliyet Check premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

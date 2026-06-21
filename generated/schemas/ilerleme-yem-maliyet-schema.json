@@ -1,27 +1,29 @@
 {
   "slug": "ilerleme-yem-maliyet",
+  "toolName": "İLERLEME YEM MALİYET",
   "name": "İLERLEME YEM MALİYET",
-  "description": "İLERLEME YEM MALİYET premium calculation tool.",
+  "description": "İLERLEME YEM MALİYET premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "kısıtlar",
-      "label": "Kısıtlar",
+      "id": "InclRate",
+      "label": "InclRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kısıtlar",
-        "tr": "Kısıtlar",
+        "en": "InclRate",
+        "tr": "InclRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "besin",
-      "label": "Besin",
+      "id": "Price",
+      "label": "Price",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Besin",
-        "tr": "Besin",
+        "en": "Price",
+        "tr": "Price",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "fiyatlar",
-      "label": "Fiyatlar",
+      "id": "Grind",
+      "label": "Grind",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Fiyatlar",
-        "tr": "Fiyatlar",
+        "en": "Grind",
+        "tr": "Grind",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "Ogutme",
-      "label": "Öğütme",
+      "id": "Mix",
+      "label": "Mix",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Öğütme",
-        "tr": "Öğütme",
+        "en": "Mix",
+        "tr": "Mix",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "fire",
-      "label": "Fire",
+      "id": "Pellet",
+      "label": "Pellet",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Fire",
-        "tr": "Fire",
+        "en": "Pellet",
+        "tr": "Pellet",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "fCR",
-      "label": "FCR",
+      "id": "Enz",
+      "label": "Enz",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "FCR",
-        "tr": "FCR",
+        "en": "Enz",
+        "tr": "Enz",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,191 @@
       }
     },
     {
-      "id": "kazanc",
-      "label": "Kazanç",
+      "id": "Vit",
+      "label": "Vit",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kazanç",
-        "tr": "Kazanç",
+        "en": "Vit",
+        "tr": "Vit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Tox",
+      "label": "Tox",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tox",
+        "tr": "Tox",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ShrinkRate",
+      "label": "ShrinkRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ShrinkRate",
+        "tr": "ShrinkRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FeedCons",
+      "label": "FeedCons",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FeedCons",
+        "tr": "FeedCons",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "WeightGain",
+      "label": "WeightGain",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WeightGain",
+        "tr": "WeightGain",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Base",
+      "label": "Base",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Base",
+        "tr": "Base",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Proc",
+      "label": "Proc",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Proc",
+        "tr": "Proc",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Add",
+      "label": "Add",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Add",
+        "tr": "Add",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,139 +364,47 @@
       }
     }
   ],
+  "formulas": {
+    "Cost_Ing": "InclRate * Price",
+    "Cost_Base": "SUM(Cost_Ing)",
+    "Cost_Proc": "Grind + Mix + Pellet",
+    "Cost_Add": "SUM(Enz + Vit + Tox)",
+    "Shrink": "Cost_Base * ShrinkRate",
+    "FCR": "FeedCons / WeightGain",
+    "CostPerKg": "(Base + Proc + Add + Shrink) * FCR",
+    "Opt": "0.0"
+  },
   "outputs": {
-    "0": {
-      "id": "costIng",
-      "label": "Cost_Ing",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Ing",
-        "tr": "Cost_Ing",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "Opt",
+    "unit": "USD",
+    "breakdown": {
+      "Cost_Ing": "Cost_Ing",
+      "Cost_Base": "Cost_Base",
+      "Cost_Proc": "Cost_Proc",
+      "Cost_Add": "Cost_Add",
+      "Shrink": "Shrink",
+      "FCR": "FCR",
+      "CostPerKg": "CostPerKg",
+      "Opt": "Opt"
     },
-    "1": {
-      "id": "costBase",
-      "label": "Cost_Base",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Base",
-        "tr": "Cost_Base",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "costProc",
-      "label": "Cost_Proc",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Proc",
-        "tr": "Cost_Proc",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "costAdd",
-      "label": "Cost_Add",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Add",
-        "tr": "Cost_Add",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "shrink",
-      "label": "Shrink",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Shrink",
-        "tr": "Shrink",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "fCR",
-      "label": "FCR",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FCR",
-        "tr": "FCR",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "costPerKg",
-      "label": "CostPerKg",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CostPerKg",
-        "tr": "CostPerKg",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "7": {
-      "id": "opt",
-      "label": "Opt",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Opt",
-        "tr": "Opt",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
   "category": "cost",
-  "formulas": {
-    "normalized_product": "kısıtlar * besin * fiyatlar * Ogutme",
-    "result": "kısıtlar * besin * fiyatlar * Ogutme * (fire * fCR * kazanc)",
-    "adjustment_factor": "fire * fCR * kazanc"
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "İLERLEME YEM MALİYET premium araci ile kayiplari tespit edin.",
+      "long": "İLERLEME YEM MALİYET premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

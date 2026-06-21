@@ -1,27 +1,29 @@
 {
   "slug": "cbam-maruziyet",
+  "toolName": "CBAM MARUZİYET",
   "name": "CBAM MARUZİYET",
-  "description": "CBAM MARUZİYET premium calculation tool.",
+  "description": "CBAM MARUZİYET premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "UretimHacmi",
-      "label": "Üretim Hacmi",
+      "id": "ActivityData",
+      "label": "ActivityData",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Üretim Hacmi",
-        "tr": "Üretim Hacmi",
+        "en": "ActivityData",
+        "tr": "ActivityData",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "gazKomurElektrikTuketimi",
-      "label": "Gaz/Kömür/Elektrik Tüketimi",
+      "id": "EmissionFactor",
+      "label": "EmissionFactor",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Gaz/Kömür/Elektrik Tüketimi",
-        "tr": "Gaz/Kömür/Elektrik Tüketimi",
+        "en": "EmissionFactor",
+        "tr": "EmissionFactor",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "prosesEmisyonu",
-      "label": "Proses Emisyonu",
+      "id": "ElecConsumption",
+      "label": "ElecConsumption",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Proses Emisyonu",
-        "tr": "Proses Emisyonu",
+        "en": "ElecConsumption",
+        "tr": "ElecConsumption",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "yenilenebilirOranı",
-      "label": "Yenilenebilir Oranı",
+      "id": "GridFactor",
+      "label": "GridFactor",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yenilenebilir Oranı",
-        "tr": "Yenilenebilir Oranı",
+        "en": "GridFactor",
+        "tr": "GridFactor",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,191 @@
       }
     },
     {
-      "id": "eUETSFiyatı",
-      "label": "EU ETS Fiyatı",
+      "id": "ProductionVolume",
+      "label": "ProductionVolume",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "EU ETS Fiyatı",
-        "tr": "EU ETS Fiyatı",
+        "en": "ProductionVolume",
+        "tr": "ProductionVolume",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EmbeddedEmissions",
+      "label": "EmbeddedEmissions",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EmbeddedEmissions",
+        "tr": "EmbeddedEmissions",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EU_ETS_Price",
+      "label": "EU_ETS_Price",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EU_ETS_Price",
+        "tr": "EU_ETS_Price",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Benchmark",
+      "label": "Benchmark",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Benchmark",
+        "tr": "Benchmark",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LeakageFactor",
+      "label": "LeakageFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LeakageFactor",
+        "tr": "LeakageFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DataComplete",
+      "label": "DataComplete",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DataComplete",
+        "tr": "DataComplete",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Verification",
+      "label": "Verification",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Verification",
+        "tr": "Verification",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Reduction",
+      "label": "Reduction",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Reduction",
+        "tr": "Reduction",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,91 +314,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "directEmissions",
-      "label": "DirectEmissions",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DirectEmissions",
-        "tr": "DirectEmissions",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "DirectEmissions": "SUM(ActivityData * EmissionFactor)",
+    "IndirectEmissions": "ElecConsumption * GridFactor",
+    "CarbonIntensity": "(DirectEmissions + IndirectEmissions) / ProductionVolume",
+    "CBAMCertificateCost": "(EmbeddedEmissions - FreeAllowance) * EU_ETS_Price",
+    "FreeAllowance": "Benchmark * ProductionVolume * LeakageFactor",
+    "ComplianceScore": "(DataComplete * 0.3) + (Verification * 0.3) + (Reduction * 0.4)"
+  },
+  "outputs": {
+    "primary": "ComplianceScore",
+    "unit": "USD",
+    "breakdown": {
+      "DirectEmissions": "DirectEmissions",
+      "IndirectEmissions": "IndirectEmissions",
+      "CarbonIntensity": "CarbonIntensity",
+      "CBAMCertificateCost": "CBAMCertificateCost",
+      "FreeAllowance": "FreeAllowance",
+      "ComplianceScore": "ComplianceScore"
     },
-    {
-      "id": "indirectEmissions",
-      "label": "IndirectEmissions",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "IndirectEmissions",
-        "tr": "IndirectEmissions",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "carbonIntensity",
-      "label": "CarbonIntensity",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CarbonIntensity",
-        "tr": "CarbonIntensity",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "cBAMCertificateCost",
-      "label": "CBAMCertificateCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CBAMCertificateCost",
-        "tr": "CBAMCertificateCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "freeAllowance",
-      "label": "FreeAllowance",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FreeAllowance",
-        "tr": "FreeAllowance",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "complianceScore",
-      "label": "ComplianceScore",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ComplianceScore",
-        "tr": "ComplianceScore",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "CBAM MARUZİYET premium araci ile kayiplari tespit edin.",
+      "long": "CBAM MARUZİYET premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

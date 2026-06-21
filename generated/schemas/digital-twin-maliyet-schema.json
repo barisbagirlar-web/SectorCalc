@@ -1,27 +1,29 @@
 {
   "slug": "digital-twin-maliyet",
+  "toolName": "DIGITAL TWIN MALİYET",
   "name": "DIGITAL TWIN MALİYET",
-  "description": "DIGITAL TWIN MALİYET premium calculation tool.",
+  "description": "DIGITAL TWIN MALİYET premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "prototipSahaTesti",
-      "label": "Prototip/Saha Testi",
+      "id": "Prototyping",
+      "label": "Prototyping",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Prototip/Saha Testi",
-        "tr": "Prototip/Saha Testi",
+        "en": "Prototyping",
+        "tr": "Prototyping",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "modelleme Iscilik",
-      "label": "Modelleme İşçilik",
+      "id": "FieldTest",
+      "label": "FieldTest",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Modelleme İşçilik",
-        "tr": "Modelleme İşçilik",
+        "en": "FieldTest",
+        "tr": "FieldTest",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "bulutLisans",
-      "label": "Bulut/Lisans",
+      "id": "Downtime",
+      "label": "Downtime",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Bulut/Lisans",
-        "tr": "Bulut/Lisans",
+        "en": "Downtime",
+        "tr": "Downtime",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "garantiDususu",
-      "label": "Garanti Düşüşü",
+      "id": "Travel",
+      "label": "Travel",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Garanti Düşüşü",
-        "tr": "Garanti Düşüşü",
+        "en": "Travel",
+        "tr": "Travel",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,266 @@
       }
     },
     {
-      "id": "erken CıkısGeliri",
-      "label": "Erken Çıkış Geliri",
+      "id": "License",
+      "label": "License",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Erken Çıkış Geliri",
-        "tr": "Erken Çıkış Geliri",
+        "en": "License",
+        "tr": "License",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Compute",
+      "label": "Compute",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Compute",
+        "tr": "Compute",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Sensor",
+      "label": "Sensor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sensor",
+        "tr": "Sensor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Modeling",
+      "label": "Modeling",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Modeling",
+        "tr": "Modeling",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PhysCycle",
+      "label": "PhysCycle",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PhysCycle",
+        "tr": "PhysCycle",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DigCycle",
+      "label": "DigCycle",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DigCycle",
+        "tr": "DigCycle",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Iterations",
+      "label": "Iterations",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Iterations",
+        "tr": "Iterations",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DailyRev",
+      "label": "DailyRev",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DailyRev",
+        "tr": "DailyRev",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DefectReduction",
+      "label": "DefectReduction",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DefectReduction",
+        "tr": "DefectReduction",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "WarrantyCost",
+      "label": "WarrantyCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WarrantyCost",
+        "tr": "WarrantyCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Volume",
+      "label": "Volume",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Volume",
+        "tr": "Volume",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,111 +389,43 @@
       }
     }
   ],
+  "formulas": {
+    "Cost_Trad": "Prototyping + FieldTest + Downtime + Travel",
+    "Cost_DT": "License + Compute + Sensor + Modeling",
+    "TimeGain": "(PhysCycle - DigCycle) * Iterations",
+    "RevenueGain": "TimeGain * DailyRev",
+    "QualitySavings": "DefectReduction * WarrantyCost * Volume",
+    "ROI": "(Cost_Trad - Cost_DT + RevenueGain + QualitySavings) / Cost_DT"
+  },
   "outputs": {
-    "0": {
-      "id": "costTrad",
-      "label": "Cost_Trad",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Trad",
-        "tr": "Cost_Trad",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "ROI",
+    "unit": "USD",
+    "breakdown": {
+      "Cost_Trad": "Cost_Trad",
+      "Cost_DT": "Cost_DT",
+      "TimeGain": "TimeGain",
+      "RevenueGain": "RevenueGain",
+      "QualitySavings": "QualitySavings",
+      "ROI": "ROI"
     },
-    "1": {
-      "id": "costDT",
-      "label": "Cost_DT",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_DT",
-        "tr": "Cost_DT",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "timeGain",
-      "label": "TimeGain",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TimeGain",
-        "tr": "TimeGain",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "revenueGain",
-      "label": "RevenueGain",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "RevenueGain",
-        "tr": "RevenueGain",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "qualitySavings",
-      "label": "QualitySavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "QualitySavings",
-        "tr": "QualitySavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "rOI",
-      "label": "ROI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ROI",
-        "tr": "ROI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
   "category": "finance",
-  "formulas": {
-    "normalized_product": "prototipSahaTesti * modelleme Iscilik * bulutLisans * garantiDususu",
-    "result": "prototipSahaTesti * modelleme Iscilik * bulutLisans * garantiDususu * (erken CıkısGeliri)",
-    "adjustment_factor": "erken CıkısGeliri"
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "DIGITAL TWIN MALİYET premium araci ile kayiplari tespit edin.",
+      "long": "DIGITAL TWIN MALİYET premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

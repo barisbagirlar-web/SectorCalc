@@ -1,27 +1,29 @@
 {
   "slug": "cloud-fire-elimination",
+  "toolName": "CLOUD FIRE ELIMINATION",
   "name": "CLOUD FIRE ELIMINATION",
-  "description": "CLOUD FIRE ELIMINATION premium calculation tool.",
+  "description": "CLOUD FIRE ELIMINATION premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "bagımsızDiskAtılSnapshot",
-      "label": "Bağımsız Disk/Atıl Snapshot",
+      "id": "UnattachedVolumes",
+      "label": "UnattachedVolumes",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Bağımsız Disk/Atıl Snapshot",
-        "tr": "Bağımsız Disk/Atıl Snapshot",
+        "en": "UnattachedVolumes",
+        "tr": "UnattachedVolumes",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "mevcutRightSizedMaliyet",
-      "label": "Mevcut/Right-Sized Maliyet",
+      "id": "IdleLBs",
+      "label": "IdleLBs",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Mevcut/Right-Sized Maliyet",
-        "tr": "Mevcut/Right-Sized Maliyet",
+        "en": "IdleLBs",
+        "tr": "IdleLBs",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "spotOranı",
-      "label": "Spot Oranı",
+      "id": "OrphanSnapshots",
+      "label": "OrphanSnapshots",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Spot Oranı",
-        "tr": "Spot Oranı",
+        "en": "OrphanSnapshots",
+        "tr": "OrphanSnapshots",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,366 @@
       }
     },
     {
-      "id": "mesaiDısıSunucu",
-      "label": "Mesai Dışı Sunucu",
+      "id": "StorageRate",
+      "label": "StorageRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Mesai Dışı Sunucu",
-        "tr": "Mesai Dışı Sunucu",
+        "en": "StorageRate",
+        "tr": "StorageRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CurrentCost",
+      "label": "CurrentCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CurrentCost",
+        "tr": "CurrentCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RightSizedCost",
+      "label": "RightSizedCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RightSizedCost",
+        "tr": "RightSizedCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Uptime",
+      "label": "Uptime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Uptime",
+        "tr": "Uptime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OnDemand",
+      "label": "OnDemand",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OnDemand",
+        "tr": "OnDemand",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Spot",
+      "label": "Spot",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Spot",
+        "tr": "Spot",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FaultTolerantHours",
+      "label": "FaultTolerantHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FaultTolerantHours",
+        "tr": "FaultTolerantHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Reserved",
+      "label": "Reserved",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Reserved",
+        "tr": "Reserved",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CommitUtil",
+      "label": "CommitUtil",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CommitUtil",
+        "tr": "CommitUtil",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NonBizHours",
+      "label": "NonBizHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NonBizHours",
+        "tr": "NonBizHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RunningInstances",
+      "label": "RunningInstances",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RunningInstances",
+        "tr": "RunningInstances",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HourlyRate",
+      "label": "HourlyRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HourlyRate",
+        "tr": "HourlyRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Zombie",
+      "label": "Zombie",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Zombie",
+        "tr": "Zombie",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Oversizing",
+      "label": "Oversizing",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Oversizing",
+        "tr": "Oversizing",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Idle",
+      "label": "Idle",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Idle",
+        "tr": "Idle",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,91 +464,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "zombieCost",
-      "label": "ZombieCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ZombieCost",
-        "tr": "ZombieCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "ZombieCost": "SUM(UnattachedVolumes * Rate) + SUM(IdleLBs * Rate) + SUM(OrphanSnapshots * StorageRate)",
+    "OversizingSavings": "SUM((CurrentCost - RightSizedCost) * Uptime)",
+    "SpotSavings": "SUM((OnDemand - Spot) * FaultTolerantHours)",
+    "ReservedSavings": "(OnDemand - Reserved) * CommitUtil",
+    "IdleHoursCost": "NonBizHours * RunningInstances * HourlyRate",
+    "TotalWaste": "Zombie + Oversizing + Spot + Reserved + Idle"
+  },
+  "outputs": {
+    "primary": "TotalWaste",
+    "unit": "USD",
+    "breakdown": {
+      "ZombieCost": "ZombieCost",
+      "OversizingSavings": "OversizingSavings",
+      "SpotSavings": "SpotSavings",
+      "ReservedSavings": "ReservedSavings",
+      "IdleHoursCost": "IdleHoursCost",
+      "TotalWaste": "TotalWaste"
     },
-    {
-      "id": "oversizingSavings",
-      "label": "OversizingSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OversizingSavings",
-        "tr": "OversizingSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "spotSavings",
-      "label": "SpotSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "SpotSavings",
-        "tr": "SpotSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "reservedSavings",
-      "label": "ReservedSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ReservedSavings",
-        "tr": "ReservedSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "idleHoursCost",
-      "label": "IdleHoursCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "IdleHoursCost",
-        "tr": "IdleHoursCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalWaste",
-      "label": "TotalWaste",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalWaste",
-        "tr": "TotalWaste",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "scrap",
+  "sectorSlug": "heavy-industry",
+  "category": "scrap",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "CLOUD FIRE ELIMINATION premium araci ile kayiplari tespit edin.",
+      "long": "CLOUD FIRE ELIMINATION premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "scrap"
+  }
 }

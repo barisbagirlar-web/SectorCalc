@@ -2,41 +2,69 @@
 import * as z from 'zod';
 
 export interface Teslimat_maliyetiInput {
-  rotaToplamMaliyeti: number;
-  durakSayisi: number;
-  mesafeKm: number;
-  basarisizTeslimatSayisi: number;
-  IadeNavlunIstoklama_Ucreti: number;
-  yakitEndeksi: number;
+  TotalRouteCost: number;
+  NumberOfDrops: number;
+  TotalDistance: number;
+  FailedDrops: number;
+  ReturnFreight: number;
+  RestockingFee: number;
+  AdminCost: number;
+  BaseFreight: number;
+  FuelIndexPct: number;
+  Linehaul: number;
+  LastMile: number;
+  Surcharges: number;
+  SuccessfulDrops: number;
+  TotalPlannedDrops: number;
   dataConfidence?: number;
 }
 
 export const Teslimat_maliyetiInputSchema = z.object({
-  rotaToplamMaliyeti: z.number().min(0).default(0),
-  durakSayisi: z.number().min(0).default(0),
-  mesafeKm: z.number().min(0).default(0),
-  basarisizTeslimatSayisi: z.number().min(0).default(0),
-  IadeNavlunIstoklama_Ucreti: z.number().min(0).default(0),
-  yakitEndeksi: z.number().min(0).default(0),
+  TotalRouteCost: z.number().min(0).default(0),
+  NumberOfDrops: z.number().min(0).default(0),
+  TotalDistance: z.number().min(0).default(0),
+  FailedDrops: z.number().min(0).default(0),
+  ReturnFreight: z.number().min(0).default(0),
+  RestockingFee: z.number().min(0).default(0),
+  AdminCost: z.number().min(0).default(0),
+  BaseFreight: z.number().min(0).default(0),
+  FuelIndexPct: z.number().min(0).default(0),
+  Linehaul: z.number().min(0).default(0),
+  LastMile: z.number().min(0).default(0),
+  Surcharges: z.number().min(0).default(0),
+  SuccessfulDrops: z.number().min(0).default(0),
+  TotalPlannedDrops: z.number().min(0).default(0),
 });
 
 function toNumericFormulaValue(value: number): number {
   return Number.isFinite(value) ? value : Number.NaN;
 }
 
-function evaluateAllFormulas(_input: Teslimat_maliyetiInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Teslimat_maliyetiInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.TotalRouteCost / input.NumberOfDrops; results["CostPerDrop"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["CostPerDrop"] = Number.NaN; }
+  try { const v = input.TotalRouteCost / input.TotalDistance; results["CostPerKm"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["CostPerKm"] = Number.NaN; }
+  try { const v = input.FailedDrops * (input.ReturnFreight + input.RestockingFee + input.AdminCost); results["FailedDeliveryCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["FailedDeliveryCost"] = Number.NaN; }
+  try { const v = input.BaseFreight * input.FuelIndexPct; results["FuelSurcharge"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["FuelSurcharge"] = Number.NaN; }
+  try { const v = input.Linehaul + input.LastMile + (toNumericFormulaValue(results["FailedDeliveryCost"])) + input.Surcharges; results["TotalDeliveryCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["TotalDeliveryCost"] = Number.NaN; }
+  try { const v = input.SuccessfulDrops / input.TotalPlannedDrops; results["DeliveryEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["DeliveryEfficiency"] = Number.NaN; }
+  return results;
 }
 
 
 export function calculateTeslimat_maliyeti(input: Teslimat_maliyetiInput): Teslimat_maliyetiOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["total"]);
+  const totalWasteCost = toNumericFormulaValue(values["DeliveryEfficiency"]);
   const breakdown = {
-
+    CostPerDrop: toNumericFormulaValue(values["CostPerDrop"]),
+    CostPerKm: toNumericFormulaValue(values["CostPerKm"]),
+    FailedDeliveryCost: toNumericFormulaValue(values["FailedDeliveryCost"]),
+    FuelSurcharge: toNumericFormulaValue(values["FuelSurcharge"]),
+    TotalDeliveryCost: toNumericFormulaValue(values["TotalDeliveryCost"]),
+    DeliveryEfficiency: toNumericFormulaValue(values["DeliveryEfficiency"])
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const hiddenLossDrivers: string[] = ["Verify assumptions with real data","Cross-check with industry benchmarks"];
+  const suggestedActions: string[] = ["Run sensitivity analysis","Review assumptions with domain expert"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -47,9 +75,9 @@ export function calculateTeslimat_maliyeti(input: Teslimat_maliyetiInput): Tesli
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "km",
+    unit: "USD",
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report"],
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report","Action plan"],
   };
 }
 
@@ -57,7 +85,7 @@ export function calculateTeslimat_maliyeti(input: Teslimat_maliyetiInput): Tesli
 export interface Teslimat_maliyetiOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: {  };
+  breakdown: { CostPerDrop: number; CostPerKm: number; FailedDeliveryCost: number; FuelSurcharge: number; TotalDeliveryCost: number; DeliveryEfficiency: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -66,8 +94,8 @@ export interface Teslimat_maliyetiOutput {
 };
 
 export const Teslimat_maliyetiOutputMeta = {
-  primaryKey: "total",
-  unit: "km",
-  breakdownKeys: [],
+  primaryKey: "DeliveryEfficiency",
+  unit: "USD",
+  breakdownKeys: ["CostPerDrop","CostPerKm","FailedDeliveryCost","FuelSurcharge","TotalDeliveryCost","DeliveryEfficiency"],
 } as const;
 

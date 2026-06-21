@@ -1,0 +1,256 @@
+{
+  "slug": "basabas-noktasi",
+  "toolName": "BAŞABAŞ NOKTASI",
+  "name": "BAŞABAŞ NOKTASI",
+  "description": "BAŞABAŞ NOKTASI premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "FixedCosts",
+      "label": "FixedCosts",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FixedCosts",
+        "tr": "FixedCosts",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitPrice",
+      "label": "UnitPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitPrice",
+        "tr": "UnitPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitVariableCost",
+      "label": "UnitVariableCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitVariableCost",
+        "tr": "UnitVariableCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualSales",
+      "label": "ActualSales",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualSales",
+        "tr": "ActualSales",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ContributionMargin",
+      "label": "ContributionMargin",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ContributionMargin",
+        "tr": "ContributionMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NetOperatingIncome",
+      "label": "NetOperatingIncome",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NetOperatingIncome",
+        "tr": "NetOperatingIncome",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TargetProfit",
+      "label": "TargetProfit",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TargetProfit",
+        "tr": "TargetProfit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitContributionMargin",
+      "label": "UnitContributionMargin",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitContributionMargin",
+        "tr": "UnitContributionMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "BEP_Units": "FixedCosts / (UnitPrice - UnitVariableCost)",
+    "BEP_Revenue": "FixedCosts / CMR",
+    "CMR": "(UnitPrice - UnitVariableCost) / UnitPrice",
+    "MarginOfSafety_Percent": "(ActualSales - BEP_Units) / ActualSales * 100",
+    "OperatingLeverage": "ContributionMargin / NetOperatingIncome",
+    "TargetProfit_Units": "(FixedCosts + TargetProfit) / UnitContributionMargin"
+  },
+  "outputs": {
+    "primary": "TargetProfit_Units",
+    "unit": "USD",
+    "breakdown": {
+      "BEP_Units": "BEP_Units",
+      "BEP_Revenue": "BEP_Revenue",
+      "CMR": "CMR",
+      "MarginOfSafety_Percent": "MarginOfSafety_Percent",
+      "OperatingLeverage": "OperatingLeverage",
+      "TargetProfit_Units": "TargetProfit_Units"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "BAŞABAŞ NOKTASI premium araci ile kayiplari tespit edin.",
+      "long": "BAŞABAŞ NOKTASI premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

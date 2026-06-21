@@ -1,0 +1,310 @@
+{
+  "slug": "mahsul-verim-kaybi-analizoru",
+  "toolName": "Mahsul Verim Kaybı Analizörü",
+  "name": "Mahsul Verim Kaybı Analizörü",
+  "description": "Mahsul Verim Kaybı Analizörü premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "GeneticPotential",
+      "label": "GeneticPotential",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "GeneticPotential",
+        "tr": "GeneticPotential",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EnvironmentFactor",
+      "label": "EnvironmentFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EnvironmentFactor",
+        "tr": "EnvironmentFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HarvestedWeight",
+      "label": "HarvestedWeight",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HarvestedWeight",
+        "tr": "HarvestedWeight",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Area",
+      "label": "Area",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Area",
+        "tr": "Area",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PestDamagePct",
+      "label": "PestDamagePct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PestDamagePct",
+        "tr": "PestDamagePct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "WeatherStressPct",
+      "label": "WeatherStressPct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WeatherStressPct",
+        "tr": "WeatherStressPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NutrientDeficiencyPct",
+      "label": "NutrientDeficiencyPct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NutrientDeficiencyPct",
+        "tr": "NutrientDeficiencyPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MarketPrice",
+      "label": "MarketPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MarketPrice",
+        "tr": "MarketPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FinancialLoss_Recovered",
+      "label": "FinancialLoss_Recovered",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FinancialLoss_Recovered",
+        "tr": "FinancialLoss_Recovered",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "InterventionCost",
+      "label": "InterventionCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "InterventionCost",
+        "tr": "InterventionCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "PotentialYield": "GeneticPotential * EnvironmentFactor",
+    "ActualYield": "HarvestedWeight / Area",
+    "YieldGap": "PotentialYield - ActualYield",
+    "Loss_Pest": "PestDamagePct * PotentialYield",
+    "Loss_Weather": "WeatherStressPct * PotentialYield",
+    "Loss_Nutrient": "NutrientDeficiencyPct * PotentialYield",
+    "FinancialLoss": "YieldGap * MarketPrice",
+    "ROI_Intervention": "(FinancialLoss_Recovered - InterventionCost) / InterventionCost"
+  },
+  "outputs": {
+    "primary": "ROI_Intervention",
+    "unit": "USD",
+    "breakdown": {
+      "PotentialYield": "PotentialYield",
+      "ActualYield": "ActualYield",
+      "YieldGap": "YieldGap",
+      "Loss_Pest": "Loss_Pest",
+      "Loss_Weather": "Loss_Weather",
+      "Loss_Nutrient": "Loss_Nutrient",
+      "FinancialLoss": "FinancialLoss",
+      "ROI_Intervention": "ROI_Intervention"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Mahsul Verim Kaybı Analizörü premium araci ile kayiplari tespit edin.",
+      "long": "Mahsul Verim Kaybı Analizörü premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

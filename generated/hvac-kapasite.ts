@@ -2,26 +2,42 @@
 import * as z from 'zod';
 
 export interface Hvac_kapasiteInput {
-  alanHacim: number;
-  disIcSicaklik: number;
-  uDegerleri: number;
-  kisiIsik: number;
-  aCH: number;
-  eER: number;
-  saat: number;
-  tarif: number;
+  CFM: number;
+  DeltaT: number;
+  DeltaW: number;
+  U: number;
+  Area: number;
+  Occ: number;
+  SensPer: number;
+  Light: number;
+  Equip: number;
+  CFM_Out: number;
+  T_Out: number;
+  T_In: number;
+  BTU: number;
+  W: number;
+  Hours: number;
+  ElecRate: number;
   dataConfidence?: number;
 }
 
 export const Hvac_kapasiteInputSchema = z.object({
-  alanHacim: z.number().min(0).default(0),
-  disIcSicaklik: z.number().min(0).default(0),
-  uDegerleri: z.number().min(0).default(0),
-  kisiIsik: z.number().min(0).default(0),
-  aCH: z.number().min(0).default(0),
-  eER: z.number().min(0).default(0),
-  saat: z.number().min(0).default(0),
-  tarif: z.number().min(0).default(0),
+  CFM: z.number().min(0).default(0),
+  DeltaT: z.number().min(0).default(0),
+  DeltaW: z.number().min(0).default(0),
+  U: z.number().min(0).default(0),
+  Area: z.number().min(0).default(0),
+  Occ: z.number().min(0).default(0),
+  SensPer: z.number().min(0).default(0),
+  Light: z.number().min(0).default(0),
+  Equip: z.number().min(0).default(0),
+  CFM_Out: z.number().min(0).default(0),
+  T_Out: z.number().min(0).default(0),
+  T_In: z.number().min(0).default(0),
+  BTU: z.number().min(0).default(0),
+  W: z.number().min(0).default(0),
+  Hours: z.number().min(0).default(0),
+  ElecRate: z.number().min(0).default(0),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -30,22 +46,35 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Hvac_kapasiteInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.alanHacim * input.disIcSicaklik * input.uDegerleri * input.kisiIsik; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.alanHacim * input.disIcSicaklik * input.uDegerleri * input.kisiIsik * (input.aCH * input.eER * input.saat * input.tarif); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.aCH * input.eER * input.saat * input.tarif; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = 1.08 * input.CFM * input.DeltaT; results["Sensible"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Sensible"] = Number.NaN; }
+  try { const v = 0.68 * input.CFM * input.DeltaW; results["Latent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Latent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["Sensible"])) + (toNumericFormulaValue(results["Latent"])); results["Total"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Total"] = Number.NaN; }
+  try { const v = input.U * input.Area * input.DeltaT; results["Envelope"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Envelope"] = Number.NaN; }
+  try { const v = input.Occ * input.SensPer + input.Light + input.Equip; results["Internal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Internal"] = Number.NaN; }
+  try { const v = input.CFM_Out * 1.08 * (input.T_Out - input.T_In); results["Vent"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Vent"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["Total"])) / 12000; results["Tons"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Tons"] = Number.NaN; }
+  try { const v = input.BTU / input.W; results["EER"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["EER"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["Total"])) / (toNumericFormulaValue(results["EER"]))) * input.Hours * input.ElecRate; results["AnnualCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["AnnualCost"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateHvac_kapasite(input: Hvac_kapasiteInput): Hvac_kapasiteOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["AnnualCost"]);
   const breakdown = {
-    normalized_product: toNumericFormulaValue(values["normalized_product"]),
-    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
+    Sensible: toNumericFormulaValue(values["Sensible"]),
+    Latent: toNumericFormulaValue(values["Latent"]),
+    Total: toNumericFormulaValue(values["Total"]),
+    Envelope: toNumericFormulaValue(values["Envelope"]),
+    Internal: toNumericFormulaValue(values["Internal"]),
+    Vent: toNumericFormulaValue(values["Vent"]),
+    Tons: toNumericFormulaValue(values["Tons"]),
+    EER: toNumericFormulaValue(values["EER"]),
+    AnnualCost: toNumericFormulaValue(values["AnnualCost"])
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Verify assumptions with real data","Cross-check with industry benchmarks"];
+  const suggestedActions: string[] = ["Run sensitivity analysis","Review assumptions with domain expert"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -56,9 +85,9 @@ export function calculateHvac_kapasite(input: Hvac_kapasiteInput): Hvac_kapasite
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "units",
+    unit: "USD",
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report"],
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report","Action plan"],
   };
 }
 
@@ -66,7 +95,7 @@ export function calculateHvac_kapasite(input: Hvac_kapasiteInput): Hvac_kapasite
 export interface Hvac_kapasiteOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { normalized_product: number; adjustment_factor: number };
+  breakdown: { Sensible: number; Latent: number; Total: number; Envelope: number; Internal: number; Vent: number; Tons: number; EER: number; AnnualCost: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -75,8 +104,8 @@ export interface Hvac_kapasiteOutput {
 };
 
 export const Hvac_kapasiteOutputMeta = {
-  primaryKey: "result",
-  unit: "units",
-  breakdownKeys: ["normalized_product","adjustment_factor"],
+  primaryKey: "AnnualCost",
+  unit: "USD",
+  breakdownKeys: ["Sensible","Latent","Total","Envelope","Internal","Vent","Tons","EER","AnnualCost"],
 } as const;
 

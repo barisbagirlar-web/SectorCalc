@@ -1,0 +1,283 @@
+{
+  "slug": "kompresor-kacagi-maliyet",
+  "toolName": "Kompresör Kaçağı Maliyet",
+  "name": "Kompresör Kaçağı Maliyet",
+  "description": "Kompresör Kaçağı Maliyet premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "d",
+      "label": "d",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "d",
+        "tr": "d",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "P_Line",
+      "label": "P_Line",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "P_Line",
+        "tr": "P_Line",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "T_Abs",
+      "label": "T_Abs",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "T_Abs",
+        "tr": "T_Abs",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Eff_Compressor",
+      "label": "Eff_Compressor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Eff_Compressor",
+        "tr": "Eff_Compressor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OperatingHours",
+      "label": "OperatingHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OperatingHours",
+        "tr": "OperatingHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ElectricityRate",
+      "label": "ElectricityRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ElectricityRate",
+        "tr": "ElectricityRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Cost_Leak_i",
+      "label": "Cost_Leak_i",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Cost_Leak_i",
+        "tr": "Cost_Leak_i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "GridEmissionFactor",
+      "label": "GridEmissionFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "GridEmissionFactor",
+        "tr": "GridEmissionFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RepairCost",
+      "label": "RepairCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RepairCost",
+        "tr": "RepairCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "LeakFlow_CFM": "(22.4 * d^2 * P_Line) / SQRT(T_Abs)",
+    "Power_Loss_kW": "(LeakFlow_CFM * P_Line * 144) / (33000 * Eff_Compressor)",
+    "AnnualEnergyLoss": "Power_Loss_kW * OperatingHours",
+    "Cost_Leak": "AnnualEnergyLoss * ElectricityRate",
+    "TotalLeakCost": "SUM(Cost_Leak_i)",
+    "CarbonEmissions": "AnnualEnergyLoss * GridEmissionFactor",
+    "Payback_Repair": "RepairCost / Cost_Leak"
+  },
+  "outputs": {
+    "primary": "Payback_Repair",
+    "unit": "USD",
+    "breakdown": {
+      "LeakFlow_CFM": "LeakFlow_CFM",
+      "Power_Loss_kW": "Power_Loss_kW",
+      "AnnualEnergyLoss": "AnnualEnergyLoss",
+      "Cost_Leak": "Cost_Leak",
+      "TotalLeakCost": "TotalLeakCost",
+      "CarbonEmissions": "CarbonEmissions",
+      "Payback_Repair": "Payback_Repair"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Kompresör Kaçağı Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "Kompresör Kaçağı Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

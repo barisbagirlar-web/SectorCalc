@@ -2,24 +2,32 @@
 import * as z from 'zod';
 
 export interface Sulama_maliyet_checkInput {
-  eTcMmgun: number;
-  alanDekar: number;
-  efektifYagisMm: number;
-  toplamManometrikYukseklikM: number;
-  pompaMotorVerimi: number;
-  elektrikTarifesiCurrencykWh: number;
-  bakimCurrencyda: number;
+  ETc: number;
+  Area: number;
+  EffectiveRainfall: number;
+  TotalHead: number;
+  PumpEff: number;
+  MotorEff: number;
+  ElecRate: number;
+  MaintRatePerHa: number;
+  LaborCost: number;
+  Depreciation: number;
+  Losses: number;
   dataConfidence?: number;
 }
 
 export const Sulama_maliyet_checkInputSchema = z.object({
-  eTcMmgun: z.number().min(0).default(0),
-  alanDekar: z.number().min(0).default(0),
-  efektifYagisMm: z.number().min(0).default(0),
-  toplamManometrikYukseklikM: z.number().min(0).default(0),
-  pompaMotorVerimi: z.number().min(0).default(0),
-  elektrikTarifesiCurrencykWh: z.number().min(0).default(0),
-  bakimCurrencyda: z.number().min(0).default(0),
+  ETc: z.number().min(0).default(0),
+  Area: z.number().min(0).default(0),
+  EffectiveRainfall: z.number().min(0).default(0),
+  TotalHead: z.number().min(0).default(0),
+  PumpEff: z.number().min(0).default(0),
+  MotorEff: z.number().min(0).default(0),
+  ElecRate: z.number().min(0).default(0),
+  MaintRatePerHa: z.number().min(0).default(0),
+  LaborCost: z.number().min(0).default(0),
+  Depreciation: z.number().min(0).default(0),
+  Losses: z.number().min(0).default(0),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -28,22 +36,31 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Sulama_maliyet_checkInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.eTcMmgun * input.alanDekar * input.efektifYagisMm * input.toplamManometrikYukseklikM; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.eTcMmgun * input.alanDekar * input.efektifYagisMm * input.toplamManometrikYukseklikM * (input.pompaMotorVerimi * input.elektrikTarifesiCurrencykWh * input.bakimCurrencyda); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.pompaMotorVerimi * input.elektrikTarifesiCurrencykWh * input.bakimCurrencyda; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = input.ETc * input.Area * (1 - input.EffectiveRainfall); results["WaterRequirement"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["WaterRequirement"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["WaterRequirement"])) * input.TotalHead) / (input.PumpEff * input.MotorEff); results["PumpEnergy"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["PumpEnergy"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["PumpEnergy"])) * input.ElecRate; results["EnergyCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["EnergyCost"] = Number.NaN; }
+  try { const v = input.Area * input.MaintRatePerHa; results["MaintCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["MaintCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["EnergyCost"])) + (toNumericFormulaValue(results["MaintCost"])) + input.LaborCost + input.Depreciation; results["TotalIrrigationCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["TotalIrrigationCost"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["TotalIrrigationCost"])) / (toNumericFormulaValue(results["WaterRequirement"])); results["CostPerM3"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["CostPerM3"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["WaterRequirement"])) - input.Losses) / (toNumericFormulaValue(results["WaterRequirement"])); results["WaterUseEfficiency"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["WaterUseEfficiency"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateSulama_maliyet_check(input: Sulama_maliyet_checkInput): Sulama_maliyet_checkOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["WaterUseEfficiency"]);
   const breakdown = {
-    normalized_product: toNumericFormulaValue(values["normalized_product"]),
-    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
+    WaterRequirement: toNumericFormulaValue(values["WaterRequirement"]),
+    PumpEnergy: toNumericFormulaValue(values["PumpEnergy"]),
+    EnergyCost: toNumericFormulaValue(values["EnergyCost"]),
+    MaintCost: toNumericFormulaValue(values["MaintCost"]),
+    TotalIrrigationCost: toNumericFormulaValue(values["TotalIrrigationCost"]),
+    CostPerM3: toNumericFormulaValue(values["CostPerM3"]),
+    WaterUseEfficiency: toNumericFormulaValue(values["WaterUseEfficiency"])
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Verify assumptions with real data","Cross-check with industry benchmarks"];
+  const suggestedActions: string[] = ["Run sensitivity analysis","Review assumptions with domain expert"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -56,7 +73,7 @@ export function calculateSulama_maliyet_check(input: Sulama_maliyet_checkInput):
     dataConfidenceAdjusted,
     unit: "USD",
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report"],
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report","Action plan"],
   };
 }
 
@@ -64,7 +81,7 @@ export function calculateSulama_maliyet_check(input: Sulama_maliyet_checkInput):
 export interface Sulama_maliyet_checkOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { normalized_product: number; adjustment_factor: number };
+  breakdown: { WaterRequirement: number; PumpEnergy: number; EnergyCost: number; MaintCost: number; TotalIrrigationCost: number; CostPerM3: number; WaterUseEfficiency: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -73,8 +90,8 @@ export interface Sulama_maliyet_checkOutput {
 };
 
 export const Sulama_maliyet_checkOutputMeta = {
-  primaryKey: "result",
+  primaryKey: "WaterUseEfficiency",
   unit: "USD",
-  breakdownKeys: ["normalized_product","adjustment_factor"],
+  breakdownKeys: ["WaterRequirement","PumpEnergy","EnergyCost","MaintCost","TotalIrrigationCost","CostPerM3","WaterUseEfficiency"],
 } as const;
 

@@ -1,27 +1,29 @@
 {
   "slug": "talep-forecast-stok-maliyet",
+  "toolName": "talep Forecast Stok Maliyet",
   "name": "talep Forecast Stok Maliyet",
-  "description": "talep Forecast Stok Maliyet premium calculation tool.",
+  "description": "talep Forecast Stok Maliyet premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "tahminGercekTalepArray",
-      "label": "Tahmin/Gerçek Talep array",
+      "id": "ActualDemand",
+      "label": "ActualDemand",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tahmin/Gerçek Talep array",
-        "tr": "Tahmin/Gerçek Talep array",
+        "en": "ActualDemand",
+        "tr": "ActualDemand",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,41 +39,16 @@
       }
     },
     {
-      "id": "leadTimeGun",
-      "label": "Lead Time gün",
-      "type": "number",
-      "unit": "saat",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Lead Time gün",
-        "tr": "Lead Time gün",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "zSkoru",
-      "label": "Z-Skoru",
+      "id": "ForecastDemand",
+      "label": "ForecastDemand",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Z-Skoru",
-        "tr": "Z-Skoru",
+        "en": "ForecastDemand",
+        "tr": "ForecastDemand",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +64,16 @@
       }
     },
     {
-      "id": "stdDev",
-      "label": "StdDev",
+      "id": "Z_Score",
+      "label": "Z_Score",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "StdDev",
-        "tr": "StdDev",
+        "en": "Z_Score",
+        "tr": "Z_Score",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +89,16 @@
       }
     },
     {
-      "id": "birimMaliyet",
-      "label": "Birim Maliyet",
+      "id": "StdDev_ForecastError",
+      "label": "StdDev_ForecastError",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Birim Maliyet",
-        "tr": "Birim Maliyet",
+        "en": "StdDev_ForecastError",
+        "tr": "StdDev_ForecastError",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,41 +114,116 @@
       }
     },
     {
-      "id": "tasımaOranı",
-      "label": "Taşıma Oranı",
-      "type": "number",
-      "unit": "%",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Taşıma Oranı",
-        "tr": "Taşıma Oranı",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "stoksuzKalmaCezası",
-      "label": "Stoksuz Kalma Cezası",
+      "id": "LeadTime",
+      "label": "LeadTime",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Stoksuz Kalma Cezası",
-        "tr": "Stoksuz Kalma Cezası",
+        "en": "LeadTime",
+        "tr": "LeadTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitCost",
+      "label": "UnitCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitCost",
+        "tr": "UnitCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HoldingRate",
+      "label": "HoldingRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HoldingRate",
+        "tr": "HoldingRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PenaltyCost",
+      "label": "PenaltyCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PenaltyCost",
+        "tr": "PenaltyCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ForecastingSystemCost",
+      "label": "ForecastingSystemCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ForecastingSystemCost",
+        "tr": "ForecastingSystemCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,77 +239,41 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "forecastError",
-      "label": "ForecastError",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ForecastError",
-        "tr": "ForecastError",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "ForecastError": "ABS(ActualDemand - ForecastDemand) / ActualDemand",
+    "SafetyStock": "Z_Score * StdDev_ForecastError * SQRT(LeadTime)",
+    "CarryingCost_Safety": "SafetyStock * UnitCost * HoldingRate",
+    "StockoutCost": "IF(ActualDemand > (ForecastDemand + SafetyStock), (ActualDemand - ForecastDemand - SafetyStock) * PenaltyCost, 0)",
+    "TotalForecastCost": "CarryingCost_Safety + StockoutCost + ForecastingSystemCost"
+  },
+  "outputs": {
+    "primary": "TotalForecastCost",
+    "unit": "USD",
+    "breakdown": {
+      "ForecastError": "ForecastError",
+      "SafetyStock": "SafetyStock",
+      "CarryingCost_Safety": "CarryingCost_Safety",
+      "StockoutCost": "StockoutCost",
+      "TotalForecastCost": "TotalForecastCost"
     },
-    {
-      "id": "safetyStock",
-      "label": "SafetyStock",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "SafetyStock",
-        "tr": "SafetyStock",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "carryingCostSafety",
-      "label": "CarryingCost_Safety",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CarryingCost_Safety",
-        "tr": "CarryingCost_Safety",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "stockoutCost",
-      "label": "StockoutCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "StockoutCost",
-        "tr": "StockoutCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalForecastCost",
-      "label": "TotalForecastCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalForecastCost",
-        "tr": "TotalForecastCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "talep Forecast Stok Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "talep Forecast Stok Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

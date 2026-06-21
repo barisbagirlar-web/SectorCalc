@@ -69,7 +69,7 @@ export function useTraceChat() {
       try {
         const freeReply = await sendFreeTraceMessage(
           message,
-          { locale, pathname, messages },
+          { locale, pathname, messages, idToken: null, isPremium: false },
           nextId,
         );
 
@@ -111,6 +111,7 @@ export function useTraceChat() {
       title: t("title"),
       tagline: t("tagline"),
       close: t("close"),
+      proBadge: t("proBadge") || "",
     },
   };
 }

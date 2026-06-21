@@ -2,26 +2,38 @@
 import * as z from 'zod';
 
 export interface Yenilenebilir_enerji_ygInput {
-  kuruluGucKW: number;
-  kapasiteFaktoru: number;
-  sistem_OmruYil: number;
-  capex: number;
-  wACC: number;
-  SebekeElektrikFiyatiCurrencykWh: number;
-  yillikBakimSigorta: number;
-  tesvikler: number;
+  SystemCapacity: number;
+  CapacityFactor: number;
+  GridElectricityRate: number;
+  Maintenance: number;
+  Insurance: number;
+  InverterReplacementFund: number;
+  Incentives: number;
+  TotalCapex: number;
+  OPEX_t: number;
+  r: number;
+  t: number;
+  Generation_t: number;
+  NetCashFlow_t: number;
+  WACC: number;
   dataConfidence?: number;
 }
 
 export const Yenilenebilir_enerji_ygInputSchema = z.object({
-  kuruluGucKW: z.number().min(0).default(0),
-  kapasiteFaktoru: z.number().min(0).default(0),
-  sistem_OmruYil: z.number().min(0).default(0),
-  capex: z.number().min(0).default(0),
-  wACC: z.number().min(0).default(0),
-  SebekeElektrikFiyatiCurrencykWh: z.number().min(0).default(0),
-  yillikBakimSigorta: z.number().min(0).default(0),
-  tesvikler: z.number().min(0).default(0),
+  SystemCapacity: z.number().min(0).default(0),
+  CapacityFactor: z.number().min(0).default(0),
+  GridElectricityRate: z.number().min(0).default(0),
+  Maintenance: z.number().min(0).default(0),
+  Insurance: z.number().min(0).default(0),
+  InverterReplacementFund: z.number().min(0).default(0),
+  Incentives: z.number().min(0).default(0),
+  TotalCapex: z.number().min(0).default(0),
+  OPEX_t: z.number().min(0).default(0),
+  r: z.number().min(0).default(0),
+  t: z.number().min(0).default(0),
+  Generation_t: z.number().min(0).default(0),
+  NetCashFlow_t: z.number().min(0).default(0),
+  WACC: z.number().min(0).default(0),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -30,22 +42,31 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Yenilenebilir_enerji_ygInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.kuruluGucKW * input.kapasiteFaktoru * input.sistem_OmruYil * input.capex; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.kuruluGucKW * input.kapasiteFaktoru * input.sistem_OmruYil * input.capex * (input.wACC * input.SebekeElektrikFiyatiCurrencykWh * input.yillikBakimSigorta * input.tesvikler); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.wACC * input.SebekeElektrikFiyatiCurrencykWh * input.yillikBakimSigorta * input.tesvikler; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = input.SystemCapacity * input.CapacityFactor * 8760; results["AnnualGeneration"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["AnnualGeneration"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["AnnualGeneration"])) * input.GridElectricityRate; results["AnnualSavings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["AnnualSavings"] = Number.NaN; }
+  try { const v = input.Maintenance + input.Insurance + input.InverterReplacementFund; results["AnnualOPEX"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["AnnualOPEX"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["AnnualSavings"])) - (toNumericFormulaValue(results["AnnualOPEX"])) + input.Incentives; results["NetCashFlow"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["NetCashFlow"] = Number.NaN; }
+  try { const v = input.TotalCapex / (toNumericFormulaValue(results["NetCashFlow"])); results["PaybackPeriod"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["PaybackPeriod"] = Number.NaN; }
+  results["LCOE"] = Number.NaN;
+  results["NPV"] = Number.NaN;
   return results;
 }
 
 
 export function calculateYenilenebilir_enerji_yg(input: Yenilenebilir_enerji_ygInput): Yenilenebilir_enerji_ygOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["NPV"]);
   const breakdown = {
-    normalized_product: toNumericFormulaValue(values["normalized_product"]),
-    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
+    AnnualGeneration: toNumericFormulaValue(values["AnnualGeneration"]),
+    AnnualSavings: toNumericFormulaValue(values["AnnualSavings"]),
+    AnnualOPEX: toNumericFormulaValue(values["AnnualOPEX"]),
+    NetCashFlow: toNumericFormulaValue(values["NetCashFlow"]),
+    PaybackPeriod: toNumericFormulaValue(values["PaybackPeriod"]),
+    LCOE: toNumericFormulaValue(values["LCOE"]),
+    NPV: toNumericFormulaValue(values["NPV"])
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Verify assumptions with real data","Cross-check with industry benchmarks"];
+  const suggestedActions: string[] = ["Run sensitivity analysis","Review assumptions with domain expert"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -56,9 +77,9 @@ export function calculateYenilenebilir_enerji_yg(input: Yenilenebilir_enerji_ygI
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "units",
+    unit: "USD",
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report"],
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report","Action plan"],
   };
 }
 
@@ -66,7 +87,7 @@ export function calculateYenilenebilir_enerji_yg(input: Yenilenebilir_enerji_ygI
 export interface Yenilenebilir_enerji_ygOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { normalized_product: number; adjustment_factor: number };
+  breakdown: { AnnualGeneration: number; AnnualSavings: number; AnnualOPEX: number; NetCashFlow: number; PaybackPeriod: number; LCOE: number; NPV: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -75,8 +96,8 @@ export interface Yenilenebilir_enerji_ygOutput {
 };
 
 export const Yenilenebilir_enerji_ygOutputMeta = {
-  primaryKey: "result",
-  unit: "units",
-  breakdownKeys: ["normalized_product","adjustment_factor"],
+  primaryKey: "NPV",
+  unit: "USD",
+  breakdownKeys: ["AnnualGeneration","AnnualSavings","AnnualOPEX","NetCashFlow","PaybackPeriod","LCOE","NPV"],
 } as const;
 

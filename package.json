@@ -143,6 +143,7 @@
     "rebuild:tool-titles": "npx tsx scripts/rebuild-generated-tool-titles-i18n.ts",
     "rebuild:tool-titles:deepseek": "npx tsx scripts/rebuild-generated-tool-titles-i18n.ts --deepseek",
     "audit:generated-tool-titles": "node scripts/audit-generated-tool-titles.mjs",
+    "i18n:merge-copy-map": "node scripts/i18n/merge-copy-map-into-bundle.mjs",
     "audit:formula-compile": "npx tsx scripts/audit-formula-compile.mjs",
     "copy:generated-diagrams": "node scripts/copy-generated-diagrams.mjs",
     "test:generated": "npx tsx scripts/deepseek/test-generated-tools.ts",

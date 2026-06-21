@@ -1,27 +1,29 @@
 {
   "slug": "iskele-kiralama",
+  "toolName": "İSKELE KİRALAMA",
   "name": "İSKELE KİRALAMA",
-  "description": "İSKELE KİRALAMA premium calculation tool.",
+  "description": "İSKELE KİRALAMA premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "CevreYukseklik",
-      "label": "Çevre/Yükseklik",
+      "id": "Perim",
+      "label": "Perim",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Çevre/Yükseklik",
-        "tr": "Çevre/Yükseklik",
+        "en": "Perim",
+        "tr": "Perim",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "sure",
-      "label": "Süre",
+      "id": "Height",
+      "label": "Height",
       "type": "number",
-      "unit": "saat",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Süre",
-        "tr": "Süre",
+        "en": "Height",
+        "tr": "Height",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "mKiralamaIscilik",
-      "label": "m² Kiralama/İşçilik",
+      "id": "Standoff",
+      "label": "Standoff",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "m² Kiralama/İşçilik",
-        "tr": "m² Kiralama/İşçilik",
+        "en": "Standoff",
+        "tr": "Standoff",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "sefer",
-      "label": "Sefer",
+      "id": "Dur",
+      "label": "Dur",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sefer",
-        "tr": "Sefer",
+        "en": "Dur",
+        "tr": "Dur",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "kritikYol",
-      "label": "Kritik Yol",
+      "id": "ErectRate",
+      "label": "ErectRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kritik Yol",
-        "tr": "Kritik Yol",
+        "en": "ErectRate",
+        "tr": "ErectRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,191 @@
       }
     },
     {
-      "id": "risk",
-      "label": "Risk",
+      "id": "DismRate",
+      "label": "DismRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Risk",
-        "tr": "Risk",
+        "en": "DismRate",
+        "tr": "DismRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Trips",
+      "label": "Trips",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Trips",
+        "tr": "Trips",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TruckRate",
+      "label": "TruckRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TruckRate",
+        "tr": "TruckRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CritPath",
+      "label": "CritPath",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CritPath",
+        "tr": "CritPath",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Buffer",
+      "label": "Buffer",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Buffer",
+        "tr": "Buffer",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Overlap",
+      "label": "Overlap",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Overlap",
+        "tr": "Overlap",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Actual",
+      "label": "Actual",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Actual",
+        "tr": "Actual",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DailyRate",
+      "label": "DailyRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DailyRate",
+        "tr": "DailyRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,153 +339,49 @@
       }
     }
   ],
+  "formulas": {
+    "Area": "Perim * Height",
+    "Vol": "Area * Standoff",
+    "Rental": "Area * Rate * Dur",
+    "Lab_Erect": "Area * ErectRate",
+    "Lab_Dism": "Area * DismRate",
+    "Transp": "Trips * TruckRate",
+    "Total": "Rental + Lab_Erect + Lab_Dism + Transp",
+    "OptDur": "CritPath + Buffer - Overlap",
+    "Overrun": "MAX(0, Actual - OptDur) * DailyRate"
+  },
   "outputs": {
-    "0": {
-      "id": "area",
-      "label": "Area",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Area",
-        "tr": "Area",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "Overrun",
+    "unit": "USD",
+    "breakdown": {
+      "Area": "Area",
+      "Vol": "Vol",
+      "Rental": "Rental",
+      "Lab_Erect": "Lab_Erect",
+      "Lab_Dism": "Lab_Dism",
+      "Transp": "Transp",
+      "Total": "Total",
+      "OptDur": "OptDur",
+      "Overrun": "Overrun"
     },
-    "1": {
-      "id": "vol",
-      "label": "Vol",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Vol",
-        "tr": "Vol",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "rental",
-      "label": "Rental",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Rental",
-        "tr": "Rental",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "labErect",
-      "label": "Lab_Erect",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Lab_Erect",
-        "tr": "Lab_Erect",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "labDism",
-      "label": "Lab_Dism",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Lab_Dism",
-        "tr": "Lab_Dism",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "transp",
-      "label": "Transp",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Transp",
-        "tr": "Transp",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "total",
-      "label": "Total",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Total",
-        "tr": "Total",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "7": {
-      "id": "optDur",
-      "label": "OptDur",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OptDur",
-        "tr": "OptDur",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "8": {
-      "id": "overrun",
-      "label": "Overrun",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Overrun",
-        "tr": "Overrun",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
   "category": "cost",
-  "formulas": {
-    "normalized_product": "CevreYukseklik * sure * mKiralamaIscilik * sefer",
-    "result": "CevreYukseklik * sure * mKiralamaIscilik * sefer * (kritikYol * risk)",
-    "adjustment_factor": "kritikYol * risk"
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "İSKELE KİRALAMA premium araci ile kayiplari tespit edin.",
+      "long": "İSKELE KİRALAMA premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

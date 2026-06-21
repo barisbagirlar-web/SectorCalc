@@ -1,27 +1,29 @@
 {
   "slug": "yg-ve-nbd",
+  "toolName": "YG ve NBD",
   "name": "YG ve NBD",
-  "description": "YG ve NBD premium calculation tool.",
+  "description": "YG ve NBD premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "IlkYatırım",
-      "label": "İlk Yatırım",
+      "id": "TotalNetProfit",
+      "label": "TotalNetProfit",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İlk Yatırım",
-        "tr": "İlk Yatırım",
+        "en": "TotalNetProfit",
+        "tr": "TotalNetProfit",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "yıllıkNakitAkıslarıArray",
-      "label": "Yıllık Nakit Akışları array",
+      "id": "TotalInvestment",
+      "label": "TotalInvestment",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yıllık Nakit Akışları array",
-        "tr": "Yıllık Nakit Akışları array",
+        "en": "TotalInvestment",
+        "tr": "TotalInvestment",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "proje OmruYıl",
-      "label": "Proje Ömrü yıl",
+      "id": "CashFlow_t",
+      "label": "CashFlow_t",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Proje Ömrü yıl",
-        "tr": "Proje Ömrü yıl",
+        "en": "CashFlow_t",
+        "tr": "CashFlow_t",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "IskontoOranıWACC",
-      "label": "İskonto Oranı/WACC",
+      "id": "DiscountRate",
+      "label": "DiscountRate",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İskonto Oranı/WACC",
-        "tr": "İskonto Oranı/WACC",
+        "en": "DiscountRate",
+        "tr": "DiscountRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,141 @@
       }
     },
     {
-      "id": "hedefROI",
-      "label": "Hedef ROI",
+      "id": "t",
+      "label": "t",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hedef ROI",
-        "tr": "Hedef ROI",
+        "en": "t",
+        "tr": "t",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "InitialInvestment",
+      "label": "InitialInvestment",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "InitialInvestment",
+        "tr": "InitialInvestment",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnrecoveredCost",
+      "label": "UnrecoveredCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnrecoveredCost",
+        "tr": "UnrecoveredCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CashFlow_RecoveryYear",
+      "label": "CashFlow_RecoveryYear",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CashFlow_RecoveryYear",
+        "tr": "CashFlow_RecoveryYear",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PV_FutureCashFlows",
+      "label": "PV_FutureCashFlows",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PV_FutureCashFlows",
+        "tr": "PV_FutureCashFlows",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CumulativeDiscountedCashFlow",
+      "label": "CumulativeDiscountedCashFlow",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CumulativeDiscountedCashFlow",
+        "tr": "CumulativeDiscountedCashFlow",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,111 +264,43 @@
       }
     }
   ],
+  "formulas": {
+    "ROI": "(TotalNetProfit / TotalInvestment) * 100",
+    "NPV": "SUM(CashFlow_t / (1 + DiscountRate)^t) - InitialInvestment",
+    "IRR": "0.0",
+    "PaybackPeriod": "Year before full recovery + (UnrecoveredCost / CashFlow_RecoveryYear)",
+    "ProfitabilityIndex": "PV_FutureCashFlows / InitialInvestment",
+    "DiscountedPayback": "Year where CumulativeDiscountedCashFlow > 0"
+  },
   "outputs": {
-    "0": {
-      "id": "rOI",
-      "label": "ROI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ROI",
-        "tr": "ROI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "DiscountedPayback",
+    "unit": "USD",
+    "breakdown": {
+      "ROI": "ROI",
+      "NPV": "NPV",
+      "IRR": "IRR",
+      "PaybackPeriod": "PaybackPeriod",
+      "ProfitabilityIndex": "ProfitabilityIndex",
+      "DiscountedPayback": "DiscountedPayback"
     },
-    "1": {
-      "id": "nPV",
-      "label": "NPV",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NPV",
-        "tr": "NPV",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "iRR",
-      "label": "IRR",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "IRR",
-        "tr": "IRR",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "paybackPeriod",
-      "label": "PaybackPeriod",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PaybackPeriod",
-        "tr": "PaybackPeriod",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "profitabilityIndex",
-      "label": "ProfitabilityIndex",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ProfitabilityIndex",
-        "tr": "ProfitabilityIndex",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "discountedPayback",
-      "label": "DiscountedPayback",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DiscountedPayback",
-        "tr": "DiscountedPayback",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "%",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
   "category": "finance",
-  "formulas": {
-    "normalized_product": "IlkYatırım * yıllıkNakitAkıslarıArray * proje OmruYıl * (IskontoOranıWACC / 100)",
-    "result": "IlkYatırım * yıllıkNakitAkıslarıArray * proje OmruYıl * (IskontoOranıWACC / 100) * (hedefROI)",
-    "adjustment_factor": "hedefROI"
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "YG ve NBD premium araci ile kayiplari tespit edin.",
+      "long": "YG ve NBD premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

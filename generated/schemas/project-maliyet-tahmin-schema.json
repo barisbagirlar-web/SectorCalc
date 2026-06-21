@@ -1,27 +1,29 @@
 {
   "slug": "project-maliyet-tahmin",
+  "toolName": "Project Maliyet Tahmin",
   "name": "Project Maliyet Tahmin",
-  "description": "Project Maliyet Tahmin premium calculation tool.",
+  "description": "Project Maliyet Tahmin premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "IscilikSaatleriUcretleri",
-      "label": "İşçilik Saatleri/Ücretleri",
+      "id": "Hours_i",
+      "label": "Hours_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İşçilik Saatleri/Ücretleri",
-        "tr": "İşçilik Saatleri/Ücretleri",
+        "en": "Hours_i",
+        "tr": "Hours_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "malzemeListesi",
-      "label": "Malzeme Listesi",
+      "id": "Rate_i",
+      "label": "Rate_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Malzeme Listesi",
-        "tr": "Malzeme Listesi",
+        "en": "Rate_i",
+        "tr": "Rate_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "ekipmanKiralama",
-      "label": "Ekipman Kiralama",
+      "id": "Quantity_j",
+      "label": "Quantity_j",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Ekipman Kiralama",
-        "tr": "Ekipman Kiralama",
+        "en": "Quantity_j",
+        "tr": "Quantity_j",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "taseronTeklifleri",
-      "label": "Taşeron Teklifleri",
+      "id": "Price_j",
+      "label": "Price_j",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Taşeron Teklifleri",
-        "tr": "Taşeron Teklifleri",
+        "en": "Price_j",
+        "tr": "Price_j",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "overheadOranı",
-      "label": "Overhead Oranı",
+      "id": "RentalDays_k",
+      "label": "RentalDays_k",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Overhead Oranı",
-        "tr": "Overhead Oranı",
+        "en": "RentalDays_k",
+        "tr": "RentalDays_k",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "riskKontenjansı",
-      "label": "Risk Kontenjansı",
+      "id": "DailyRate_k",
+      "label": "DailyRate_k",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Risk Kontenjansı",
-        "tr": "Risk Kontenjansı",
+        "en": "DailyRate_k",
+        "tr": "DailyRate_k",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,116 @@
       }
     },
     {
-      "id": "onaylanmısButce",
-      "label": "Onaylanmış Bütçe",
+      "id": "LumpSum_m",
+      "label": "LumpSum_m",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Onaylanmış Bütçe",
-        "tr": "Onaylanmış Bütçe",
+        "en": "LumpSum_m",
+        "tr": "LumpSum_m",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OverheadRate",
+      "label": "OverheadRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OverheadRate",
+        "tr": "OverheadRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Direct",
+      "label": "Direct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Direct",
+        "tr": "Direct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RiskFactor",
+      "label": "RiskFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RiskFactor",
+        "tr": "RiskFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Budget",
+      "label": "Budget",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Budget",
+        "tr": "Budget",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,119 +289,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "directLabor",
-      "label": "DirectLabor",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DirectLabor",
-        "tr": "DirectLabor",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "DirectLabor": "SUM(Hours_i * Rate_i)",
+    "DirectMaterial": "SUM(Quantity_j * Price_j)",
+    "Equipment": "SUM(RentalDays_k * DailyRate_k)",
+    "Subcontractor": "SUM(LumpSum_m)",
+    "Overhead": "(DirectLabor + DirectMaterial) * OverheadRate",
+    "Contingency": "(Direct + Overhead) * RiskFactor",
+    "TotalEstimate": "DirectLabor + DirectMaterial + Equipment + Subcontractor + Overhead + Contingency",
+    "CostVariance": "TotalEstimate - Budget"
+  },
+  "outputs": {
+    "primary": "CostVariance",
+    "unit": "USD",
+    "breakdown": {
+      "DirectLabor": "DirectLabor",
+      "DirectMaterial": "DirectMaterial",
+      "Equipment": "Equipment",
+      "Subcontractor": "Subcontractor",
+      "Overhead": "Overhead",
+      "Contingency": "Contingency",
+      "TotalEstimate": "TotalEstimate",
+      "CostVariance": "CostVariance"
     },
-    {
-      "id": "directMaterial",
-      "label": "DirectMaterial",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DirectMaterial",
-        "tr": "DirectMaterial",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "equipment",
-      "label": "Equipment",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Equipment",
-        "tr": "Equipment",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "subcontractor",
-      "label": "Subcontractor",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Subcontractor",
-        "tr": "Subcontractor",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "overhead",
-      "label": "Overhead",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Overhead",
-        "tr": "Overhead",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "contingency",
-      "label": "Contingency",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Contingency",
-        "tr": "Contingency",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalEstimate",
-      "label": "TotalEstimate",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalEstimate",
-        "tr": "TotalEstimate",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "costVariance",
-      "label": "CostVariance",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CostVariance",
-        "tr": "CostVariance",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Project Maliyet Tahmin premium araci ile kayiplari tespit edin.",
+      "long": "Project Maliyet Tahmin premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

@@ -1,0 +1,358 @@
+{
+  "slug": "taguchi-kalite-kayip-fonksiyon",
+  "toolName": "Taguchi kalite kayıp Fonksiyon",
+  "name": "Taguchi kalite kayıp Fonksiyon",
+  "description": "Taguchi kalite kayıp Fonksiyon premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "ActualValue",
+      "label": "ActualValue",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualValue",
+        "tr": "ActualValue",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TargetValue",
+      "label": "TargetValue",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TargetValue",
+        "tr": "TargetValue",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CostAtTolerance",
+      "label": "CostAtTolerance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CostAtTolerance",
+        "tr": "CostAtTolerance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Variance",
+      "label": "Variance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Variance",
+        "tr": "Variance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Mean",
+      "label": "Mean",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mean",
+        "tr": "Mean",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Target",
+      "label": "Target",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Target",
+        "tr": "Target",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AnnualProduction",
+      "label": "AnnualProduction",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AnnualProduction",
+        "tr": "AnnualProduction",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "y_i",
+      "label": "y_i",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "y_i",
+        "tr": "y_i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "n",
+      "label": "n",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "n",
+        "tr": "n",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OldAverageLoss",
+      "label": "OldAverageLoss",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OldAverageLoss",
+        "tr": "OldAverageLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NewAverageLoss",
+      "label": "NewAverageLoss",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NewAverageLoss",
+        "tr": "NewAverageLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "LossPerUnit": "k * (ActualValue - TargetValue)^2",
+    "k": "CostAtTolerance / Tolerance^2",
+    "AverageLoss": "k * (Variance + (Mean - Target)^2)",
+    "TotalAnnualLoss": "AverageLoss * AnnualProduction",
+    "SignalToNoise_LargerBetter": "-10 * LOG10(SUM(1/y_i^2) / n)",
+    "SignalToNoise_SmallerBetter": "-10 * LOG10(SUM(y_i^2) / n)",
+    "QualityImprovementSavings": "(OldAverageLoss - NewAverageLoss) * AnnualProduction"
+  },
+  "outputs": {
+    "primary": "QualityImprovementSavings",
+    "unit": "USD",
+    "breakdown": {
+      "LossPerUnit": "LossPerUnit",
+      "k": "k",
+      "AverageLoss": "AverageLoss",
+      "TotalAnnualLoss": "TotalAnnualLoss",
+      "SignalToNoise_LargerBetter": "SignalToNoise_LargerBetter",
+      "SignalToNoise_SmallerBetter": "SignalToNoise_SmallerBetter",
+      "QualityImprovementSavings": "QualityImprovementSavings"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "calibration",
+  "sectorSlug": "measurement-calibration",
+  "category": "calibration",
+  "sector": "measurement-calibration",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Taguchi kalite kayıp Fonksiyon premium araci ile kayiplari tespit edin.",
+      "long": "Taguchi kalite kayıp Fonksiyon premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

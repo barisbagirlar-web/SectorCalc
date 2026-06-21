@@ -1,77 +1,29 @@
 {
   "slug": "mtbfmttr-finansal-etki",
+  "toolName": "MTBF/MTTR Finansal Etki",
   "name": "MTBF/MTTR Finansal Etki",
-  "description": "MTBF/MTTR Finansal Etki premium calculation tool.",
+  "description": "MTBF/MTTR Finansal Etki premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "mTBFSaat",
-      "label": "MTBF saat",
-      "type": "number",
-      "unit": "saat",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "MTBF saat",
-        "tr": "MTBF saat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "mTTRSaat",
-      "label": "MTTR saat",
-      "type": "number",
-      "unit": "saat",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "MTTR saat",
-        "tr": "MTTR saat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "arızaSayısı",
-      "label": "Arıza Sayısı",
+      "id": "MTBF",
+      "label": "MTBF",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Arıza Sayısı",
-        "tr": "Arıza Sayısı",
+        "en": "MTBF",
+        "tr": "MTBF",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,41 +39,16 @@
       }
     },
     {
-      "id": "durusSaatMaliyeti",
-      "label": "Duruş Saat Maliyeti",
-      "type": "number",
-      "unit": "saat",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Duruş Saat Maliyeti",
-        "tr": "Duruş Saat Maliyeti",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "ortalamaTamir IscilikParca",
-      "label": "Ortalama Tamir İşçilik/Parça",
+      "id": "MTTR",
+      "label": "MTTR",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Ortalama Tamir İşçilik/Parça",
-        "tr": "Ortalama Tamir İşçilik/Parça",
+        "en": "MTTR",
+        "tr": "MTTR",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +64,16 @@
       }
     },
     {
-      "id": "toplam CalısmaSuresi",
-      "label": "Toplam Çalışma Süresi",
+      "id": "TotalTime",
+      "label": "TotalTime",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Toplam Çalışma Süresi",
-        "tr": "Toplam Çalışma Süresi",
+        "en": "TotalTime",
+        "tr": "TotalTime",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +89,166 @@
       }
     },
     {
-      "id": "hedefAvailability",
-      "label": "Hedef Availability",
+      "id": "CostPerHour",
+      "label": "CostPerHour",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hedef Availability",
-        "tr": "Hedef Availability",
+        "en": "CostPerHour",
+        "tr": "CostPerHour",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LaborRate",
+      "label": "LaborRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LaborRate",
+        "tr": "LaborRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PartsCost",
+      "label": "PartsCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PartsCost",
+        "tr": "PartsCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OldCost",
+      "label": "OldCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OldCost",
+        "tr": "OldCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NewCost",
+      "label": "NewCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NewCost",
+        "tr": "NewCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "InvestmentCost",
+      "label": "InvestmentCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "InvestmentCost",
+        "tr": "InvestmentCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TargetAvailability",
+      "label": "TargetAvailability",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TargetAvailability",
+        "tr": "TargetAvailability",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,119 +264,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "availability",
-      "label": "Availability",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Availability",
-        "tr": "Availability",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Availability": "MTBF / (MTBF + MTTR)",
+    "ExpectedDowntime": "TotalTime * (1 - Availability)",
+    "DowntimeCost": "ExpectedDowntime * CostPerHour",
+    "FailureFrequency": "TotalTime / MTBF",
+    "RepairCost": "FailureFrequency * (MTTR * LaborRate + PartsCost)",
+    "TotalReliabilityCost": "DowntimeCost + RepairCost",
+    "ROI_Improvement": "(OldCost - NewCost) / InvestmentCost",
+    "TargetMTBF": "-TotalTime / LN(TargetAvailability)"
+  },
+  "outputs": {
+    "primary": "TargetMTBF",
+    "unit": "USD",
+    "breakdown": {
+      "Availability": "Availability",
+      "ExpectedDowntime": "ExpectedDowntime",
+      "DowntimeCost": "DowntimeCost",
+      "FailureFrequency": "FailureFrequency",
+      "RepairCost": "RepairCost",
+      "TotalReliabilityCost": "TotalReliabilityCost",
+      "ROI_Improvement": "ROI_Improvement",
+      "TargetMTBF": "TargetMTBF"
     },
-    {
-      "id": "expectedDowntime",
-      "label": "ExpectedDowntime",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ExpectedDowntime",
-        "tr": "ExpectedDowntime",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "downtimeCost",
-      "label": "DowntimeCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DowntimeCost",
-        "tr": "DowntimeCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "failureFrequency",
-      "label": "FailureFrequency",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "FailureFrequency",
-        "tr": "FailureFrequency",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "repairCost",
-      "label": "RepairCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "RepairCost",
-        "tr": "RepairCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalReliabilityCost",
-      "label": "TotalReliabilityCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalReliabilityCost",
-        "tr": "TotalReliabilityCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "rOIImprovement",
-      "label": "ROI_Improvement",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ROI_Improvement",
-        "tr": "ROI_Improvement",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "targetMTBF",
-      "label": "TargetMTBF",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TargetMTBF",
-        "tr": "TargetMTBF",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "oee",
+  "sectorSlug": "heavy-industry",
+  "category": "oee",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "MTBF/MTTR Finansal Etki premium araci ile kayiplari tespit edin.",
+      "long": "MTBF/MTTR Finansal Etki premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "oee"
+  }
 }

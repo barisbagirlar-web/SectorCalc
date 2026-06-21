@@ -1,27 +1,29 @@
 {
   "slug": "auto-repair-comeback",
+  "toolName": "AUTO REPAIR COMEBACK",
   "name": "AUTO REPAIR COMEBACK",
-  "description": "AUTO REPAIR COMEBACK premium calculation tool.",
+  "description": "AUTO REPAIR COMEBACK premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "tamamlananRO",
-      "label": "Tamamlanan RO",
+      "id": "ComebackOrders",
+      "label": "ComebackOrders",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tamamlanan RO",
-        "tr": "Tamamlanan RO",
+        "en": "ComebackOrders",
+        "tr": "ComebackOrders",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "geriDonusRO",
-      "label": "Geri Dönüş RO",
+      "id": "TotalCompleted",
+      "label": "TotalCompleted",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Geri Dönüş RO",
-        "tr": "Geri Dönüş RO",
+        "en": "TotalCompleted",
+        "tr": "TotalCompleted",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "teshisSuresi",
-      "label": "Teşhis Süresi",
+      "id": "DiagTime",
+      "label": "DiagTime",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Teşhis Süresi",
-        "tr": "Teşhis Süresi",
+        "en": "DiagTime",
+        "tr": "DiagTime",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "IsrafParcaDegeri",
-      "label": "İsraf Parça Değeri",
+      "id": "RepairTime",
+      "label": "RepairTime",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İsraf Parça Değeri",
-        "tr": "İsraf Parça Değeri",
+        "en": "RepairTime",
+        "tr": "RepairTime",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "korfezDolulukSuresi",
-      "label": "Körfez Doluluk Süresi",
+      "id": "LaborRate",
+      "label": "LaborRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Körfez Doluluk Süresi",
-        "tr": "Körfez Doluluk Süresi",
+        "en": "LaborRate",
+        "tr": "LaborRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,191 @@
       }
     },
     {
-      "id": "churnOlasılıgı",
-      "label": "Churn Olasılığı",
+      "id": "WastedPartsValue",
+      "label": "WastedPartsValue",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Churn Olasılığı",
-        "tr": "Churn Olasılığı",
+        "en": "WastedPartsValue",
+        "tr": "WastedPartsValue",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "BayOccupancyHours",
+      "label": "BayOccupancyHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "BayOccupancyHours",
+        "tr": "BayOccupancyHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RevenuePerBayHour",
+      "label": "RevenuePerBayHour",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RevenuePerBayHour",
+        "tr": "RevenuePerBayHour",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Direct",
+      "label": "Direct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Direct",
+        "tr": "Direct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Parts",
+      "label": "Parts",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Parts",
+        "tr": "Parts",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Warranty",
+      "label": "Warranty",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Warranty",
+        "tr": "Warranty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Goodwill",
+      "label": "Goodwill",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Goodwill",
+        "tr": "Goodwill",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Opportunity",
+      "label": "Opportunity",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Opportunity",
+        "tr": "Opportunity",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,91 +339,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "comebackRate",
-      "label": "ComebackRate",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ComebackRate",
-        "tr": "ComebackRate",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "ComebackRate": "(ComebackOrders / TotalCompleted) * 100",
+    "ComebackCost_Direct": "ComebackOrders * (DiagTime + RepairTime) * LaborRate",
+    "ComebackCost_Parts": "ComebackOrders * WastedPartsValue",
+    "ComebackCost_Opportunity": "ComebackOrders * BayOccupancyHours * RevenuePerBayHour",
+    "DPMO": "(ComebackOrders / TotalCompleted) * 1000000",
+    "TotalCost": "Direct + Parts + Warranty + Goodwill + Opportunity"
+  },
+  "outputs": {
+    "primary": "TotalCost",
+    "unit": "USD",
+    "breakdown": {
+      "ComebackRate": "ComebackRate",
+      "ComebackCost_Direct": "ComebackCost_Direct",
+      "ComebackCost_Parts": "ComebackCost_Parts",
+      "ComebackCost_Opportunity": "ComebackCost_Opportunity",
+      "DPMO": "DPMO",
+      "TotalCost": "TotalCost"
     },
-    {
-      "id": "comebackCostDirect",
-      "label": "ComebackCost_Direct",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ComebackCost_Direct",
-        "tr": "ComebackCost_Direct",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "comebackCostParts",
-      "label": "ComebackCost_Parts",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ComebackCost_Parts",
-        "tr": "ComebackCost_Parts",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "comebackCostOpportunity",
-      "label": "ComebackCost_Opportunity",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ComebackCost_Opportunity",
-        "tr": "ComebackCost_Opportunity",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "dPMO",
-      "label": "DPMO",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DPMO",
-        "tr": "DPMO",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalCost",
-      "label": "TotalCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalCost",
-        "tr": "TotalCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "AUTO REPAIR COMEBACK premium araci ile kayiplari tespit edin.",
+      "long": "AUTO REPAIR COMEBACK premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

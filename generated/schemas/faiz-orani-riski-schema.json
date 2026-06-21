@@ -1,27 +1,29 @@
 {
   "slug": "faiz-orani-riski",
+  "toolName": "FAİZ ORANI RİSKİ",
   "name": "FAİZ ORANI RİSKİ",
-  "description": "FAİZ ORANI RİSKİ premium calculation tool.",
+  "description": "FAİZ ORANI RİSKİ premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "degiskenSabitBorc",
-      "label": "Değişken/Sabit Borç",
+      "id": "FloatingDebt",
+      "label": "FloatingDebt",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Değişken/Sabit Borç",
-        "tr": "Değişken/Sabit Borç",
+        "en": "FloatingDebt",
+        "tr": "FloatingDebt",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,41 +39,16 @@
       }
     },
     {
-      "id": "hedgeOranı",
-      "label": "Hedge Oranı",
-      "type": "number",
-      "unit": "%",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Hedge Oranı",
-        "tr": "Hedge Oranı",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "duration",
-      "label": "Duration",
+      "id": "HedgeRatio",
+      "label": "HedgeRatio",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Duration",
-        "tr": "Duration",
+        "en": "HedgeRatio",
+        "tr": "HedgeRatio",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +64,16 @@
       }
     },
     {
-      "id": "bps Sok",
-      "label": "Bps Şok",
+      "id": "BpsChange",
+      "label": "BpsChange",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Bps Şok",
-        "tr": "Bps Şok",
+        "en": "BpsChange",
+        "tr": "BpsChange",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +89,16 @@
       }
     },
     {
-      "id": "volatilite",
-      "label": "Volatilite",
+      "id": "AssetDur",
+      "label": "AssetDur",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Volatilite",
-        "tr": "Volatilite",
+        "en": "AssetDur",
+        "tr": "AssetDur",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,7 +114,232 @@
       }
     },
     {
-      "id": "swapSpread",
+      "id": "LiabDur",
+      "label": "LiabDur",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LiabDur",
+        "tr": "LiabDur",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AssetVal",
+      "label": "AssetVal",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AssetVal",
+        "tr": "AssetVal",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RateChange",
+      "label": "RateChange",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RateChange",
+        "tr": "RateChange",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Inc",
+      "label": "Inc",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Inc",
+        "tr": "Inc",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EarningAssets",
+      "label": "EarningAssets",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EarningAssets",
+        "tr": "EarningAssets",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PortVal",
+      "label": "PortVal",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PortVal",
+        "tr": "PortVal",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Volatility",
+      "label": "Volatility",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Volatility",
+        "tr": "Volatility",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Z",
+      "label": "Z",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Z",
+        "tr": "Z",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Notional",
+      "label": "Notional",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Notional",
+        "tr": "Notional",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SwapSpread",
       "label": "Swap Spread",
       "type": "number",
       "unit": "",
@@ -162,16 +364,41 @@
       }
     },
     {
-      "id": "hedefNIM",
-      "label": "Hedef NIM",
+      "id": "Fixed",
+      "label": "Fixed",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hedef NIM",
-        "tr": "Hedef NIM",
+        "en": "Fixed",
+        "tr": "Fixed",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Floating_Curr",
+      "label": "Floating_Curr",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Floating_Curr",
+        "tr": "Floating_Curr",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,119 +414,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "exposure",
-      "label": "Exposure",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Exposure",
-        "tr": "Exposure",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Exposure": "FloatingDebt * (1 - HedgeRatio)",
+    "ShockImpact": "Exposure * BpsChange / 10000",
+    "DurGap": "AssetDur - LiabDur",
+    "EVE_Change": "-DurGap * AssetVal * RateChange",
+    "NIM": "(Inc - Exp) / EarningAssets",
+    "VaR": "PortVal * Volatility * Z",
+    "HedgeCost": "Notional * SwapSpread",
+    "BreakEven": "Fixed - Floating_Curr"
+  },
+  "outputs": {
+    "primary": "BreakEven",
+    "unit": "USD",
+    "breakdown": {
+      "Exposure": "Exposure",
+      "ShockImpact": "ShockImpact",
+      "DurGap": "DurGap",
+      "EVE_Change": "EVE_Change",
+      "NIM": "NIM",
+      "VaR": "VaR",
+      "HedgeCost": "HedgeCost",
+      "BreakEven": "BreakEven"
     },
-    {
-      "id": "shockImpact",
-      "label": "ShockImpact",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ShockImpact",
-        "tr": "ShockImpact",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "durGap",
-      "label": "DurGap",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DurGap",
-        "tr": "DurGap",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "eVEChange",
-      "label": "EVE_Change",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EVE_Change",
-        "tr": "EVE_Change",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "nIM",
-      "label": "NIM",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NIM",
-        "tr": "NIM",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "vaR",
-      "label": "VaR",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "VaR",
-        "tr": "VaR",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "hedgeCost",
-      "label": "HedgeCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "HedgeCost",
-        "tr": "HedgeCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "breakEven",
-      "label": "BreakEven",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "BreakEven",
-        "tr": "BreakEven",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "FAİZ ORANI RİSKİ premium araci ile kayiplari tespit edin.",
+      "long": "FAİZ ORANI RİSKİ premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

@@ -1,27 +1,29 @@
 {
   "slug": "beton-hacmi",
+  "toolName": "BETON HACMİ",
   "name": "BETON HACMİ",
-  "description": "BETON HACMİ premium calculation tool.",
+  "description": "BETON HACMİ premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "dosemeUzunlukGenislikKalınlık",
-      "label": "Döşeme Uzunluk/Genişlik/Kalınlık",
+      "id": "Length",
+      "label": "Length",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Döşeme Uzunluk/Genişlik/Kalınlık",
-        "tr": "Döşeme Uzunluk/Genişlik/Kalınlık",
+        "en": "Length",
+        "tr": "Length",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "temelKolonSayısı",
-      "label": "Temel/Kolon Sayısı",
+      "id": "Width",
+      "label": "Width",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Temel/Kolon Sayısı",
-        "tr": "Temel/Kolon Sayısı",
+        "en": "Width",
+        "tr": "Width",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "betonSınıfı",
-      "label": "Beton Sınıfı",
-      "type": "string",
+      "id": "Thickness",
+      "label": "Thickness",
+      "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Beton Sınıfı",
-        "tr": "Beton Sınıfı",
+        "en": "Thickness",
+        "tr": "Thickness",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "yogunluk",
-      "label": "Yoğunluk",
+      "id": "Depth",
+      "label": "Depth",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yoğunluk",
-        "tr": "Yoğunluk",
+        "en": "Depth",
+        "tr": "Depth",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "fireOranı",
-      "label": "Fire Oranı",
+      "id": "Count",
+      "label": "Count",
       "type": "number",
-      "unit": "%",
+      "unit": "unit",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Fire Oranı",
-        "tr": "Fire Oranı",
+        "en": "Count",
+        "tr": "Count",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,191 @@
       }
     },
     {
-      "id": "birimFiyat",
-      "label": "Birim Fiyat",
+      "id": "Diameter",
+      "label": "Diameter",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Birim Fiyat",
-        "tr": "Birim Fiyat",
+        "en": "Diameter",
+        "tr": "Diameter",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Height",
+      "label": "Height",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "V_geometric",
+      "label": "V_geometric",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "V_geometric",
+        "tr": "V_geometric",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "WasteFactor",
+      "label": "WasteFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WasteFactor",
+        "tr": "WasteFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Density",
+      "label": "Density",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Density",
+        "tr": "Density",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TruckCapacity",
+      "label": "TruckCapacity",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TruckCapacity",
+        "tr": "TruckCapacity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitPrice",
+      "label": "UnitPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitPrice",
+        "tr": "UnitPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PumpCost",
+      "label": "PumpCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PumpCost",
+        "tr": "PumpCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,119 +339,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "vSlab",
-      "label": "V_slab",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "V_slab",
-        "tr": "V_slab",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "V_slab": "Length * Width * Thickness",
+    "V_footing": "Length * Width * Depth * Count",
+    "V_column": "PI * (Diameter/2)^2 * Height * Count",
+    "V_wall": "Length * Height * Thickness",
+    "V_total": "V_geometric * (1 + WasteFactor)",
+    "Weight": "V_total * Density",
+    "TruckLoads": "CEILING(V_total / TruckCapacity)",
+    "TotalCost": "V_total * UnitPrice + PumpCost"
+  },
+  "outputs": {
+    "primary": "TotalCost",
+    "unit": "USD",
+    "breakdown": {
+      "V_slab": "V_slab",
+      "V_footing": "V_footing",
+      "V_column": "V_column",
+      "V_wall": "V_wall",
+      "V_total": "V_total",
+      "Weight": "Weight",
+      "TruckLoads": "TruckLoads",
+      "TotalCost": "TotalCost"
     },
-    {
-      "id": "vFooting",
-      "label": "V_footing",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "V_footing",
-        "tr": "V_footing",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "vColumn",
-      "label": "V_column",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "V_column",
-        "tr": "V_column",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "vWall",
-      "label": "V_wall",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "V_wall",
-        "tr": "V_wall",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "vTotal",
-      "label": "V_total",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "V_total",
-        "tr": "V_total",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "weight",
-      "label": "Weight",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Weight",
-        "tr": "Weight",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "truckLoads",
-      "label": "TruckLoads",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TruckLoads",
-        "tr": "TruckLoads",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalCost",
-      "label": "TotalCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalCost",
-        "tr": "TotalCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "BETON HACMİ premium araci ile kayiplari tespit edin.",
+      "long": "BETON HACMİ premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

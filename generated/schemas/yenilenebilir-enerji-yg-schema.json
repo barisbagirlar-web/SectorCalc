@@ -1,52 +1,29 @@
 {
   "slug": "yenilenebilir-enerji-yg",
+  "toolName": "Yenilenebilir Enerji YG",
   "name": "Yenilenebilir Enerji YG",
-  "description": "Yenilenebilir Enerji YG premium calculation tool.",
+  "description": "Yenilenebilir Enerji YG premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "kuruluGucKW",
-      "label": "Kurulu Güç kW",
-      "type": "number",
-      "unit": "kW",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Kurulu Güç kW",
-        "tr": "Kurulu Güç kW",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "kapasiteFaktoru",
-      "label": "Kapasite Faktörü",
+      "id": "SystemCapacity",
+      "label": "SystemCapacity",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kapasite Faktörü",
-        "tr": "Kapasite Faktörü",
+        "en": "SystemCapacity",
+        "tr": "SystemCapacity",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +39,16 @@
       }
     },
     {
-      "id": "sistem OmruYıl",
-      "label": "Sistem Ömrü yıl",
+      "id": "CapacityFactor",
+      "label": "CapacityFactor",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sistem Ömrü yıl",
-        "tr": "Sistem Ömrü yıl",
+        "en": "CapacityFactor",
+        "tr": "CapacityFactor",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +64,16 @@
       }
     },
     {
-      "id": "capex",
-      "label": "Capex",
+      "id": "GridElectricityRate",
+      "label": "GridElectricityRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Capex",
-        "tr": "Capex",
+        "en": "GridElectricityRate",
+        "tr": "GridElectricityRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,7 +89,257 @@
       }
     },
     {
-      "id": "wACC",
+      "id": "Maintenance",
+      "label": "Maintenance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Maintenance",
+        "tr": "Maintenance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Insurance",
+      "label": "Insurance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Insurance",
+        "tr": "Insurance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "InverterReplacementFund",
+      "label": "InverterReplacementFund",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "InverterReplacementFund",
+        "tr": "InverterReplacementFund",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Incentives",
+      "label": "Incentives",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Incentives",
+        "tr": "Incentives",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TotalCapex",
+      "label": "TotalCapex",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TotalCapex",
+        "tr": "TotalCapex",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OPEX_t",
+      "label": "OPEX_t",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OPEX_t",
+        "tr": "OPEX_t",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "r",
+      "label": "r",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "r",
+        "tr": "r",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "t",
+      "label": "t",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "t",
+        "tr": "t",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Generation_t",
+      "label": "Generation_t",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Generation_t",
+        "tr": "Generation_t",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NetCashFlow_t",
+      "label": "NetCashFlow_t",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NetCashFlow_t",
+        "tr": "NetCashFlow_t",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "WACC",
       "label": "WACC",
       "type": "number",
       "unit": "",
@@ -135,202 +362,47 @@
         "es": "",
         "ar": ""
       }
-    },
-    {
-      "id": "SebekeElektrikFiyatıCurrencykWh",
-      "label": "Şebeke Elektrik Fiyatı currency/kWh",
-      "type": "number",
-      "unit": "kWh",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Şebeke Elektrik Fiyatı currency/kWh",
-        "tr": "Şebeke Elektrik Fiyatı currency/kWh",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "yıllıkBakımSigorta",
-      "label": "Yıllık Bakım/Sigorta",
-      "type": "number",
-      "unit": "",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Yıllık Bakım/Sigorta",
-        "tr": "Yıllık Bakım/Sigorta",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "tesvikler",
-      "label": "Teşvikler",
-      "type": "number",
-      "unit": "",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Teşvikler",
-        "tr": "Teşvikler",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
     }
   ],
+  "formulas": {
+    "AnnualGeneration": "SystemCapacity * CapacityFactor * 8760",
+    "AnnualSavings": "AnnualGeneration * GridElectricityRate",
+    "AnnualOPEX": "Maintenance + Insurance + InverterReplacementFund",
+    "NetCashFlow": "AnnualSavings - AnnualOPEX + Incentives",
+    "PaybackPeriod": "TotalCapex / NetCashFlow",
+    "LCOE": "(TotalCapex + SUM(OPEX_t / (1+r)^t)) / SUM(Generation_t / (1+r)^t)",
+    "NPV": "SUM(NetCashFlow_t / (1+WACC)^t) - TotalCapex"
+  },
   "outputs": {
-    "0": {
-      "id": "annualGeneration",
-      "label": "AnnualGeneration",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AnnualGeneration",
-        "tr": "AnnualGeneration",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "NPV",
+    "unit": "USD",
+    "breakdown": {
+      "AnnualGeneration": "AnnualGeneration",
+      "AnnualSavings": "AnnualSavings",
+      "AnnualOPEX": "AnnualOPEX",
+      "NetCashFlow": "NetCashFlow",
+      "PaybackPeriod": "PaybackPeriod",
+      "LCOE": "LCOE",
+      "NPV": "NPV"
     },
-    "1": {
-      "id": "annualSavings",
-      "label": "AnnualSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AnnualSavings",
-        "tr": "AnnualSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "annualOPEX",
-      "label": "AnnualOPEX",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AnnualOPEX",
-        "tr": "AnnualOPEX",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "netCashFlow",
-      "label": "NetCashFlow",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NetCashFlow",
-        "tr": "NetCashFlow",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "paybackPeriod",
-      "label": "PaybackPeriod",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PaybackPeriod",
-        "tr": "PaybackPeriod",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "lCOE",
-      "label": "LCOE",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "LCOE",
-        "tr": "LCOE",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "nPV",
-      "label": "NPV",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NPV",
-        "tr": "NPV",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
   "category": "finance",
-  "formulas": {
-    "normalized_product": "kuruluGucKW * kapasiteFaktoru * sistem OmruYıl * capex",
-    "result": "kuruluGucKW * kapasiteFaktoru * sistem OmruYıl * capex * (wACC * SebekeElektrikFiyatıCurrencykWh * yıllıkBakımSigorta * tesvikler)",
-    "adjustment_factor": "wACC * SebekeElektrikFiyatıCurrencykWh * yıllıkBakımSigorta * tesvikler"
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Yenilenebilir Enerji YG premium araci ile kayiplari tespit edin.",
+      "long": "Yenilenebilir Enerji YG premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

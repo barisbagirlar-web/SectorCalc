@@ -1,52 +1,29 @@
 {
   "slug": "hvac-kapasite",
+  "toolName": "HVAC KAPASİTE",
   "name": "HVAC KAPASİTE",
-  "description": "HVAC KAPASİTE premium calculation tool.",
+  "description": "HVAC KAPASİTE premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "alanHacim",
-      "label": "Alan/Hacim",
-      "type": "number",
-      "unit": "m²",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Alan/Hacim",
-        "tr": "Alan/Hacim",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "dısIcSıcaklık",
-      "label": "Dış/İç Sıcaklık",
+      "id": "CFM",
+      "label": "CFM",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Dış/İç Sıcaklık",
-        "tr": "Dış/İç Sıcaklık",
+        "en": "CFM",
+        "tr": "CFM",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +39,16 @@
       }
     },
     {
-      "id": "uDegerleri",
-      "label": "U Değerleri",
+      "id": "DeltaT",
+      "label": "DeltaT",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "U Değerleri",
-        "tr": "U Değerleri",
+        "en": "DeltaT",
+        "tr": "DeltaT",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +64,16 @@
       }
     },
     {
-      "id": "kisiIsık",
-      "label": "Kişi/Işık",
+      "id": "DeltaW",
+      "label": "DeltaW",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kişi/Işık",
-        "tr": "Kişi/Işık",
+        "en": "DeltaW",
+        "tr": "DeltaW",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +89,16 @@
       }
     },
     {
-      "id": "aCH",
-      "label": "ACH",
+      "id": "U",
+      "label": "U",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "ACH",
-        "tr": "ACH",
+        "en": "U",
+        "tr": "U",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +114,16 @@
       }
     },
     {
-      "id": "eER",
-      "label": "EER",
+      "id": "Area",
+      "label": "Area",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "EER",
-        "tr": "EER",
+        "en": "Area",
+        "tr": "Area",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,41 +139,266 @@
       }
     },
     {
-      "id": "saat",
-      "label": "Saat",
-      "type": "number",
-      "unit": "saat",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Saat",
-        "tr": "Saat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "tarif",
-      "label": "Tarif",
+      "id": "Occ",
+      "label": "Occ",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tarif",
-        "tr": "Tarif",
+        "en": "Occ",
+        "tr": "Occ",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SensPer",
+      "label": "SensPer",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "SensPer",
+        "tr": "SensPer",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Light",
+      "label": "Light",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Light",
+        "tr": "Light",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Equip",
+      "label": "Equip",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Equip",
+        "tr": "Equip",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CFM_Out",
+      "label": "CFM_Out",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CFM_Out",
+        "tr": "CFM_Out",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "T_Out",
+      "label": "T_Out",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "T_Out",
+        "tr": "T_Out",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "T_In",
+      "label": "T_In",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "T_In",
+        "tr": "T_In",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "BTU",
+      "label": "BTU",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "BTU",
+        "tr": "BTU",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "W",
+      "label": "W",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "W",
+        "tr": "W",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "hour",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ElecRate",
+      "label": "ElecRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ElecRate",
+        "tr": "ElecRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -212,153 +414,49 @@
       }
     }
   ],
+  "formulas": {
+    "Sensible": "1.08 * CFM * DeltaT",
+    "Latent": "0.68 * CFM * DeltaW",
+    "Total": "Sensible + Latent",
+    "Envelope": "U * Area * DeltaT",
+    "Internal": "Occ * SensPer + Light + Equip",
+    "Vent": "CFM_Out * 1.08 * (T_Out - T_In)",
+    "Tons": "Total / 12000",
+    "EER": "BTU / W",
+    "AnnualCost": "(Total / EER) * Hours * ElecRate"
+  },
   "outputs": {
-    "0": {
-      "id": "sensible",
-      "label": "Sensible",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Sensible",
-        "tr": "Sensible",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "AnnualCost",
+    "unit": "USD",
+    "breakdown": {
+      "Sensible": "Sensible",
+      "Latent": "Latent",
+      "Total": "Total",
+      "Envelope": "Envelope",
+      "Internal": "Internal",
+      "Vent": "Vent",
+      "Tons": "Tons",
+      "EER": "EER",
+      "AnnualCost": "AnnualCost"
     },
-    "1": {
-      "id": "latent",
-      "label": "Latent",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Latent",
-        "tr": "Latent",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "total",
-      "label": "Total",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Total",
-        "tr": "Total",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "envelope",
-      "label": "Envelope",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Envelope",
-        "tr": "Envelope",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "internal",
-      "label": "Internal",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Internal",
-        "tr": "Internal",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "vent",
-      "label": "Vent",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Vent",
-        "tr": "Vent",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "tons",
-      "label": "Tons",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Tons",
-        "tr": "Tons",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "7": {
-      "id": "eER",
-      "label": "EER",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EER",
-        "tr": "EER",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "8": {
-      "id": "annualCost",
-      "label": "AnnualCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AnnualCost",
-        "tr": "AnnualCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "energy",
+  "sectorSlug": "energy-utilities",
   "category": "energy",
-  "formulas": {
-    "normalized_product": "alanHacim * dısIcSıcaklık * uDegerleri * kisiIsık",
-    "result": "alanHacim * dısIcSıcaklık * uDegerleri * kisiIsık * (aCH * eER * saat * tarif)",
-    "adjustment_factor": "aCH * eER * saat * tarif"
+  "sector": "energy-utilities",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "HVAC KAPASİTE premium araci ile kayiplari tespit edin.",
+      "long": "HVAC KAPASİTE premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

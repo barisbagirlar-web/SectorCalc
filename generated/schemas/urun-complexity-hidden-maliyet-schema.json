@@ -1,0 +1,356 @@
+{
+  "slug": "urun-complexity-hidden-maliyet",
+  "toolName": "ürün Complexity Hidden Maliyet",
+  "name": "ürün Complexity Hidden Maliyet",
+  "description": "ürün Complexity Hidden Maliyet premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "NumberOfSKUs",
+      "label": "NumberOfSKUs",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NumberOfSKUs",
+        "tr": "NumberOfSKUs",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AverageBOMDepth",
+      "label": "AverageBOMDepth",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AverageBOMDepth",
+        "tr": "AverageBOMDepth",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Changeovers",
+      "label": "Changeovers",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Changeovers",
+        "tr": "Changeovers",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SetupCostPerChange",
+      "label": "SetupCostPerChange",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "SetupCostPerChange",
+        "tr": "SetupCostPerChange",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SafetyStock_AllSKUs",
+      "label": "SafetyStock_AllSKUs",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "SafetyStock_AllSKUs",
+        "tr": "SafetyStock_AllSKUs",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HoldingRate",
+      "label": "HoldingRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HoldingRate",
+        "tr": "HoldingRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TotalIndirectCosts",
+      "label": "TotalIndirectCosts",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TotalIndirectCosts",
+        "tr": "TotalIndirectCosts",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ComplexityDriverPct",
+      "label": "ComplexityDriverPct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ComplexityDriverPct",
+        "tr": "ComplexityDriverPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TraditionalOverhead",
+      "label": "TraditionalOverhead",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TraditionalOverhead",
+        "tr": "TraditionalOverhead",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Revenue_SKU",
+      "label": "Revenue_SKU",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Revenue_SKU",
+        "tr": "Revenue_SKU",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DirectCost_SKU",
+      "label": "DirectCost_SKU",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DirectCost_SKU",
+        "tr": "DirectCost_SKU",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HiddenCost_SKU",
+      "label": "HiddenCost_SKU",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HiddenCost_SKU",
+        "tr": "HiddenCost_SKU",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "ComplexityIndex": "NumberOfSKUs * AverageBOMDepth",
+    "SetupCostComplexity": "Changeovers * SetupCostPerChange",
+    "InventoryCostComplexity": "SafetyStock_AllSKUs * HoldingRate",
+    "OverheadAllocation": "TotalIndirectCosts * ComplexityDriverPct",
+    "HiddenCost": "SetupCostComplexity + InventoryCostComplexity + (OverheadAllocation - TraditionalOverhead)",
+    "ProfitabilityPerSKU": "(Revenue_SKU - DirectCost_SKU - HiddenCost_SKU)"
+  },
+  "outputs": {
+    "primary": "ProfitabilityPerSKU",
+    "unit": "USD",
+    "breakdown": {
+      "ComplexityIndex": "ComplexityIndex",
+      "SetupCostComplexity": "SetupCostComplexity",
+      "InventoryCostComplexity": "InventoryCostComplexity",
+      "OverheadAllocation": "OverheadAllocation",
+      "HiddenCost": "HiddenCost",
+      "ProfitabilityPerSKU": "ProfitabilityPerSKU"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "ürün Complexity Hidden Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "ürün Complexity Hidden Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

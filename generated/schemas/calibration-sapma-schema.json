@@ -1,27 +1,29 @@
 {
   "slug": "calibration-sapma",
+  "toolName": "CALIBRATION SAPMA",
   "name": "CALIBRATION SAPMA",
-  "description": "CALIBRATION SAPMA premium calculation tool.",
+  "description": "CALIBRATION SAPMA premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "sonOncekiHata",
-      "label": "Son/Önceki Hata",
+      "id": "LastError",
+      "label": "LastError",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Son/Önceki Hata",
-        "tr": "Son/Önceki Hata",
+        "en": "LastError",
+        "tr": "LastError",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "kalibrasyonlarArasıSure",
-      "label": "Kalibrasyonlar Arası Süre",
+      "id": "PrevError",
+      "label": "PrevError",
       "type": "number",
-      "unit": "saat",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kalibrasyonlar Arası Süre",
-        "tr": "Kalibrasyonlar Arası Süre",
+        "en": "PrevError",
+        "tr": "PrevError",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "tolerans",
-      "label": "Tolerans",
+      "id": "TimeBetween",
+      "label": "TimeBetween",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tolerans",
-        "tr": "Tolerans",
+        "en": "TimeBetween",
+        "tr": "TimeBetween",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "kritiklik",
-      "label": "Kritiklik",
-      "type": "string",
+      "id": "TimeSinceLast",
+      "label": "TimeSinceLast",
+      "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kritiklik",
-        "tr": "Kritiklik",
+        "en": "TimeSinceLast",
+        "tr": "TimeSinceLast",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "bazAralık",
-      "label": "Baz Aralık",
+      "id": "BaseUncertainty",
+      "label": "BaseUncertainty",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Baz Aralık",
-        "tr": "Baz Aralık",
+        "en": "BaseUncertainty",
+        "tr": "BaseUncertainty",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,166 @@
       }
     },
     {
-      "id": "birimHataEtkisi",
-      "label": "Birim Hata Etkisi",
+      "id": "EnvFactor",
+      "label": "EnvFactor",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Birim Hata Etkisi",
-        "tr": "Birim Hata Etkisi",
+        "en": "EnvFactor",
+        "tr": "EnvFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Criticality",
+      "label": "Criticality",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Criticality",
+        "tr": "Criticality",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UsageFreq",
+      "label": "UsageFreq",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UsageFreq",
+        "tr": "UsageFreq",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "BaseInterval",
+      "label": "BaseInterval",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "BaseInterval",
+        "tr": "BaseInterval",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ExpandedUncertainty",
+      "label": "ExpandedUncertainty",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ExpandedUncertainty",
+        "tr": "ExpandedUncertainty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "k",
+      "label": "k",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "k",
+        "tr": "k",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,91 +314,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "driftRate",
-      "label": "DriftRate",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DriftRate",
-        "tr": "DriftRate",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "DriftRate": "(LastError - PrevError) / TimeBetween",
+    "PredictedDrift": "DriftRate * TimeSinceLast",
+    "CurrentUncertainty": "SQRT(BaseUncertainty^2 + PredictedDrift^2 + EnvFactor^2)",
+    "RiskScore": "(CurrentUncertainty / Tolerance) * Criticality * UsageFreq",
+    "OptimalInterval": "BaseInterval * (Tolerance / CurrentUncertainty)",
+    "GuardBand": "ExpandedUncertainty * k"
+  },
+  "outputs": {
+    "primary": "GuardBand",
+    "unit": "USD",
+    "breakdown": {
+      "DriftRate": "DriftRate",
+      "PredictedDrift": "PredictedDrift",
+      "CurrentUncertainty": "CurrentUncertainty",
+      "RiskScore": "RiskScore",
+      "OptimalInterval": "OptimalInterval",
+      "GuardBand": "GuardBand"
     },
-    {
-      "id": "predictedDrift",
-      "label": "PredictedDrift",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "PredictedDrift",
-        "tr": "PredictedDrift",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "currentUncertainty",
-      "label": "CurrentUncertainty",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CurrentUncertainty",
-        "tr": "CurrentUncertainty",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "riskScore",
-      "label": "RiskScore",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "RiskScore",
-        "tr": "RiskScore",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "optimalInterval",
-      "label": "OptimalInterval",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OptimalInterval",
-        "tr": "OptimalInterval",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "guardBand",
-      "label": "GuardBand",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "GuardBand",
-        "tr": "GuardBand",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "calibration",
+  "sectorSlug": "measurement-calibration",
+  "category": "calibration",
+  "sector": "measurement-calibration",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "CALIBRATION SAPMA premium araci ile kayiplari tespit edin.",
+      "long": "CALIBRATION SAPMA premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "calibration"
+  }
 }

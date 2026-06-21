@@ -2,20 +2,40 @@
 import * as z from 'zod';
 
 export interface Digital_twin_maliyetInput {
-  prototipSahaTesti: number;
-  modelleme_Iscilik: number;
-  bulutLisans: number;
-  garantiDususu: number;
-  erken_CikisGeliri: number;
+  Prototyping: number;
+  FieldTest: number;
+  Downtime: number;
+  Travel: number;
+  License: number;
+  Compute: number;
+  Sensor: number;
+  Modeling: number;
+  PhysCycle: number;
+  DigCycle: number;
+  Iterations: number;
+  DailyRev: number;
+  DefectReduction: number;
+  WarrantyCost: number;
+  Volume: number;
   dataConfidence?: number;
 }
 
 export const Digital_twin_maliyetInputSchema = z.object({
-  prototipSahaTesti: z.number().min(0).default(0),
-  modelleme_Iscilik: z.number().min(0).default(0),
-  bulutLisans: z.number().min(0).default(0),
-  garantiDususu: z.number().min(0).default(0),
-  erken_CikisGeliri: z.number().min(0).default(0),
+  Prototyping: z.number().min(0).default(0),
+  FieldTest: z.number().min(0).default(0),
+  Downtime: z.number().min(0).default(0),
+  Travel: z.number().min(0).default(0),
+  License: z.number().min(0).default(0),
+  Compute: z.number().min(0).default(0),
+  Sensor: z.number().min(0).default(0),
+  Modeling: z.number().min(0).default(0),
+  PhysCycle: z.number().min(0).default(0),
+  DigCycle: z.number().min(0).default(0),
+  Iterations: z.number().min(0).default(0),
+  DailyRev: z.number().min(0).default(0),
+  DefectReduction: z.number().min(0).default(0),
+  WarrantyCost: z.number().min(0).default(0),
+  Volume: z.number().min(0).default(0),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -24,22 +44,29 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Digital_twin_maliyetInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.prototipSahaTesti * input.modelleme_Iscilik * input.bulutLisans * input.garantiDususu; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.prototipSahaTesti * input.modelleme_Iscilik * input.bulutLisans * input.garantiDususu * (input.erken_CikisGeliri); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.erken_CikisGeliri; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = input.Prototyping + input.FieldTest + input.Downtime + input.Travel; results["Cost_Trad"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Cost_Trad"] = Number.NaN; }
+  try { const v = input.License + input.Compute + input.Sensor + input.Modeling; results["Cost_DT"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["Cost_DT"] = Number.NaN; }
+  try { const v = (input.PhysCycle - input.DigCycle) * input.Iterations; results["TimeGain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["TimeGain"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["TimeGain"])) * input.DailyRev; results["RevenueGain"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["RevenueGain"] = Number.NaN; }
+  try { const v = input.DefectReduction * input.WarrantyCost * input.Volume; results["QualitySavings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["QualitySavings"] = Number.NaN; }
+  try { const v = ((toNumericFormulaValue(results["Cost_Trad"])) - (toNumericFormulaValue(results["Cost_DT"])) + (toNumericFormulaValue(results["RevenueGain"])) + (toNumericFormulaValue(results["QualitySavings"]))) / (toNumericFormulaValue(results["Cost_DT"])); results["ROI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ROI"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateDigital_twin_maliyet(input: Digital_twin_maliyetInput): Digital_twin_maliyetOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["ROI"]);
   const breakdown = {
-    normalized_product: toNumericFormulaValue(values["normalized_product"]),
-    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
+    Cost_Trad: toNumericFormulaValue(values["Cost_Trad"]),
+    Cost_DT: toNumericFormulaValue(values["Cost_DT"]),
+    TimeGain: toNumericFormulaValue(values["TimeGain"]),
+    RevenueGain: toNumericFormulaValue(values["RevenueGain"]),
+    QualitySavings: toNumericFormulaValue(values["QualitySavings"]),
+    ROI: toNumericFormulaValue(values["ROI"])
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Verify assumptions with real data","Cross-check with industry benchmarks"];
+  const suggestedActions: string[] = ["Run sensitivity analysis","Review assumptions with domain expert"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -50,9 +77,9 @@ export function calculateDigital_twin_maliyet(input: Digital_twin_maliyetInput):
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "units",
+    unit: "USD",
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report"],
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report","Action plan"],
   };
 }
 
@@ -60,7 +87,7 @@ export function calculateDigital_twin_maliyet(input: Digital_twin_maliyetInput):
 export interface Digital_twin_maliyetOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { normalized_product: number; adjustment_factor: number };
+  breakdown: { Cost_Trad: number; Cost_DT: number; TimeGain: number; RevenueGain: number; QualitySavings: number; ROI: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -69,8 +96,8 @@ export interface Digital_twin_maliyetOutput {
 };
 
 export const Digital_twin_maliyetOutputMeta = {
-  primaryKey: "result",
-  unit: "units",
-  breakdownKeys: ["normalized_product","adjustment_factor"],
+  primaryKey: "ROI",
+  unit: "USD",
+  breakdownKeys: ["Cost_Trad","Cost_DT","TimeGain","RevenueGain","QualitySavings","ROI"],
 } as const;
 

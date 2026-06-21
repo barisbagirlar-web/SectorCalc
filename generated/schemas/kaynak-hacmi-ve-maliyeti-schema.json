@@ -1,27 +1,29 @@
 {
   "slug": "kaynak-hacmi-ve-maliyeti",
+  "toolName": "Kaynak Hacmi ve Maliyeti",
   "name": "Kaynak Hacmi ve Maliyeti",
-  "description": "Kaynak Hacmi ve Maliyeti premium calculation tool.",
+  "description": "Kaynak Hacmi ve Maliyeti premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "kaynakBoyuLeg",
-      "label": "Kaynak Boyu Leg",
+      "id": "Leg",
+      "label": "Leg",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Kaynak Boyu Leg",
-        "tr": "Kaynak Boyu Leg",
+        "en": "Leg",
+        "tr": "Leg",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "uzunluk",
-      "label": "Uzunluk",
+      "id": "Length",
+      "label": "Length",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Uzunluk",
-        "tr": "Uzunluk",
+        "en": "Length",
+        "tr": "Length",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "tel CapıEkimVerimi",
-      "label": "Tel Çapı/Ekim Verimi",
+      "id": "Density",
+      "label": "Density",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tel Çapı/Ekim Verimi",
-        "tr": "Tel Çapı/Ekim Verimi",
+        "en": "Density",
+        "tr": "Density",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "gazDebisi",
-      "label": "Gaz Debisi",
+      "id": "DepositionEfficiency",
+      "label": "DepositionEfficiency",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Gaz Debisi",
-        "tr": "Gaz Debisi",
+        "en": "DepositionEfficiency",
+        "tr": "DepositionEfficiency",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "voltajAkım",
-      "label": "Voltaj/Akım",
+      "id": "PricePerKg",
+      "label": "PricePerKg",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Voltaj/Akım",
-        "tr": "Voltaj/Akım",
+        "en": "PricePerKg",
+        "tr": "PricePerKg",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "telGazKgm3Fiyatı",
-      "label": "Tel/Gaz kg/m3 Fiyatı",
+      "id": "GasFlowRate",
+      "label": "GasFlowRate",
       "type": "number",
-      "unit": "kg",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tel/Gaz kg/m3 Fiyatı",
-        "tr": "Tel/Gaz kg/m3 Fiyatı",
+        "en": "GasFlowRate",
+        "tr": "GasFlowRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,16 @@
       }
     },
     {
-      "id": "IscilikSaati",
-      "label": "İşçilik Saati",
+      "id": "ArcTime",
+      "label": "ArcTime",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İşçilik Saati",
-        "tr": "İşçilik Saati",
+        "en": "ArcTime",
+        "tr": "ArcTime",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,16 +189,166 @@
       }
     },
     {
-      "id": "elektrik",
-      "label": "Elektrik",
+      "id": "GasPrice",
+      "label": "GasPrice",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Elektrik",
-        "tr": "Elektrik",
+        "en": "GasPrice",
+        "tr": "GasPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Voltage",
+      "label": "Voltage",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Voltage",
+        "tr": "Voltage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Current",
+      "label": "Current",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Current",
+        "tr": "Current",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MachineEff",
+      "label": "MachineEff",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MachineEff",
+        "tr": "MachineEff",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ElecRate",
+      "label": "ElecRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ElecRate",
+        "tr": "ElecRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DepositionRate",
+      "label": "DepositionRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DepositionRate",
+        "tr": "DepositionRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LaborRate",
+      "label": "LaborRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LaborRate",
+        "tr": "LaborRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -212,119 +364,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "areaWeld",
-      "label": "Area_Weld",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Area_Weld",
-        "tr": "Area_Weld",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Area_Weld": "(Leg^2) / 2",
+    "Volume_Weld": "Area_Weld * Length",
+    "Weight_Deposited": "Volume_Weld * Density",
+    "Weight_Electrode": "Weight_Deposited / DepositionEfficiency",
+    "Cost_Filler": "Weight_Electrode * PricePerKg",
+    "Cost_Gas": "GasFlowRate * ArcTime * GasPrice",
+    "Cost_Power": "(Voltage * Current * ArcTime) / (1000 * MachineEff) * ElecRate",
+    "TotalWeldCost": "Cost_Filler + Cost_Gas + Cost_Power + (ArcTime / DepositionRate) * LaborRate"
+  },
+  "outputs": {
+    "primary": "TotalWeldCost",
+    "unit": "USD",
+    "breakdown": {
+      "Area_Weld": "Area_Weld",
+      "Volume_Weld": "Volume_Weld",
+      "Weight_Deposited": "Weight_Deposited",
+      "Weight_Electrode": "Weight_Electrode",
+      "Cost_Filler": "Cost_Filler",
+      "Cost_Gas": "Cost_Gas",
+      "Cost_Power": "Cost_Power",
+      "TotalWeldCost": "TotalWeldCost"
     },
-    {
-      "id": "volumeWeld",
-      "label": "Volume_Weld",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Volume_Weld",
-        "tr": "Volume_Weld",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "weightDeposited",
-      "label": "Weight_Deposited",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Weight_Deposited",
-        "tr": "Weight_Deposited",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "weightElectrode",
-      "label": "Weight_Electrode",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Weight_Electrode",
-        "tr": "Weight_Electrode",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "costFiller",
-      "label": "Cost_Filler",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Filler",
-        "tr": "Cost_Filler",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "costGas",
-      "label": "Cost_Gas",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Gas",
-        "tr": "Cost_Gas",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "costPower",
-      "label": "Cost_Power",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Power",
-        "tr": "Cost_Power",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "totalWeldCost",
-      "label": "TotalWeldCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalWeldCost",
-        "tr": "TotalWeldCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Kaynak Hacmi ve Maliyeti premium araci ile kayiplari tespit edin.",
+      "long": "Kaynak Hacmi ve Maliyeti premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

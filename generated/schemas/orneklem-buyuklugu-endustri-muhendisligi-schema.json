@@ -1,0 +1,333 @@
+{
+  "slug": "orneklem-buyuklugu-endustri-muhendisligi",
+  "toolName": "Örneklem Büyüklüğü (Endüstri Mühendisliği)",
+  "name": "Örneklem Büyüklüğü (Endüstri Mühendisliği)",
+  "description": "Örneklem Büyüklüğü (Endüstri Mühendisliği) premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "Z",
+      "label": "Z",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Z",
+        "tr": "Z",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "p",
+      "label": "p",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "p",
+        "tr": "p",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "E",
+      "label": "E",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "E",
+        "tr": "E",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "N",
+      "label": "N",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "N",
+        "tr": "N",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Sigma",
+      "label": "Sigma",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sigma",
+        "tr": "Sigma",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "n",
+      "label": "n",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "n",
+        "tr": "n",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Z_beta",
+      "label": "Z_beta",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Z_beta",
+        "tr": "Z_beta",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Z_alpha",
+      "label": "Z_alpha",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Z_alpha",
+        "tr": "Z_alpha",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ClusterSize",
+      "label": "ClusterSize",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ClusterSize",
+        "tr": "ClusterSize",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ICC",
+      "label": "ICC",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ICC",
+        "tr": "ICC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CostPerUnit",
+      "label": "CostPerUnit",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CostPerUnit",
+        "tr": "CostPerUnit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "n_Infinite": "(Z^2 * p * (1-p)) / E^2",
+    "n_Finite": "n_Infinite / (1 + ((n_Infinite - 1) / N))",
+    "n_Continuous": "(Z * Sigma / E)^2",
+    "Power_Adjusted": "n * (1 + (Z_beta / Z_alpha)^2)",
+    "DesignEffect": "1 + (ClusterSize - 1) * ICC",
+    "Final_n": "n_Finite * DesignEffect",
+    "Cost_Sampling": "Final_n * CostPerUnit"
+  },
+  "outputs": {
+    "primary": "Cost_Sampling",
+    "unit": "USD",
+    "breakdown": {
+      "n_Infinite": "n_Infinite",
+      "n_Finite": "n_Finite",
+      "n_Continuous": "n_Continuous",
+      "Power_Adjusted": "Power_Adjusted",
+      "DesignEffect": "DesignEffect",
+      "Final_n": "Final_n",
+      "Cost_Sampling": "Cost_Sampling"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "measurement",
+  "sectorSlug": "measurement-calibration",
+  "category": "measurement",
+  "sector": "measurement-calibration",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Örneklem Büyüklüğü (Endüstri Mühendisliği) premium araci ile kayiplari tespit edin.",
+      "long": "Örneklem Büyüklüğü (Endüstri Mühendisliği) premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

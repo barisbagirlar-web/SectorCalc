@@ -1,27 +1,29 @@
 {
   "slug": "enflasyon-eskalasyon",
+  "toolName": "ENFLASYON ESKALASYON",
   "name": "ENFLASYON ESKALASYON",
-  "description": "ENFLASYON ESKALASYON premium calculation tool.",
+  "description": "ENFLASYON ESKALASYON premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "bazMalzeme",
-      "label": "Baz Malzeme",
+      "id": "Infl_Mat",
+      "label": "Infl_Mat",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Baz Malzeme",
-        "tr": "Baz Malzeme",
+        "en": "Infl_Mat",
+        "tr": "Infl_Mat",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "malzemeEnflasyon",
-      "label": "Malzeme Enflasyon",
+      "id": "Years",
+      "label": "Years",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Malzeme Enflasyon",
-        "tr": "Malzeme Enflasyon",
+        "en": "Years",
+        "tr": "Years",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "baz Iscilik",
-      "label": "Baz İşçilik",
+      "id": "Infl_Lab",
+      "label": "Infl_Lab",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Baz İşçilik",
-        "tr": "Baz İşçilik",
+        "en": "Infl_Lab",
+        "tr": "Infl_Lab",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "UcretArtıs",
-      "label": "Ücret Artış",
+      "id": "BaseMat",
+      "label": "BaseMat",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Ücret Artış",
-        "tr": "Ücret Artış",
+        "en": "BaseMat",
+        "tr": "BaseMat",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "sure",
-      "label": "Süre",
+      "id": "BaseLab",
+      "label": "BaseLab",
       "type": "number",
-      "unit": "saat",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Süre",
-        "tr": "Süre",
+        "en": "BaseLab",
+        "tr": "BaseLab",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "risk",
-      "label": "Risk",
-      "type": "string",
+      "id": "Nominal",
+      "label": "Nominal",
+      "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Risk",
-        "tr": "Risk",
+        "en": "Nominal",
+        "tr": "Nominal",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,166 @@
       }
     },
     {
-      "id": "nominalGenelEnflasyon",
-      "label": "Nominal/Genel Enflasyon",
+      "id": "Infl",
+      "label": "Infl",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Nominal/Genel Enflasyon",
-        "tr": "Nominal/Genel Enflasyon",
+        "en": "Infl",
+        "tr": "Infl",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Cash",
+      "label": "Cash",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Cash",
+        "tr": "Cash",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Esc",
+      "label": "Esc",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Esc",
+        "tr": "Esc",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Nom",
+      "label": "Nom",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Nom",
+        "tr": "Nom",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "t",
+      "label": "t",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "t",
+        "tr": "t",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Real",
+      "label": "Real",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Real",
+        "tr": "Real",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ConfFactor",
+      "label": "ConfFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ConfFactor",
+        "tr": "ConfFactor",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,119 +339,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "escMat",
-      "label": "Esc_Mat",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Esc_Mat",
-        "tr": "Esc_Mat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Esc_Mat": "(1 + Infl_Mat)^Years",
+    "Esc_Lab": "(1 + Infl_Lab)^Years",
+    "BaseAdj": "BaseMat * Esc_Mat + BaseLab * Esc_Lab",
+    "RealDisc": "((1 + Nominal) / (1 + Infl)) - 1",
+    "NPV_Nom": "SUM(Cash * Esc / (1 + Nom)^t)",
+    "NPV_Real": "SUM(Cash / (1 + Real)^t)",
+    "Contingency": "BaseAdj * ConfFactor",
+    "Total": "BaseAdj + Contingency"
+  },
+  "outputs": {
+    "primary": "Total",
+    "unit": "USD",
+    "breakdown": {
+      "Esc_Mat": "Esc_Mat",
+      "Esc_Lab": "Esc_Lab",
+      "BaseAdj": "BaseAdj",
+      "RealDisc": "RealDisc",
+      "NPV_Nom": "NPV_Nom",
+      "NPV_Real": "NPV_Real",
+      "Contingency": "Contingency",
+      "Total": "Total"
     },
-    {
-      "id": "escLab",
-      "label": "Esc_Lab",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Esc_Lab",
-        "tr": "Esc_Lab",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "baseAdj",
-      "label": "BaseAdj",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "BaseAdj",
-        "tr": "BaseAdj",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "realDisc",
-      "label": "RealDisc",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "RealDisc",
-        "tr": "RealDisc",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "nPVNom",
-      "label": "NPV_Nom",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NPV_Nom",
-        "tr": "NPV_Nom",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "nPVReal",
-      "label": "NPV_Real",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NPV_Real",
-        "tr": "NPV_Real",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "contingency",
-      "label": "Contingency",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Contingency",
-        "tr": "Contingency",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "total",
-      "label": "Total",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Total",
-        "tr": "Total",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "ENFLASYON ESKALASYON premium araci ile kayiplari tespit edin.",
+      "long": "ENFLASYON ESKALASYON premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

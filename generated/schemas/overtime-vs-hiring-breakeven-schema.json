@@ -1,27 +1,29 @@
 {
   "slug": "overtime-vs-hiring-breakeven",
+  "toolName": "Overtime vs. Hiring Breakeven",
   "name": "Overtime vs. Hiring Breakeven",
-  "description": "Overtime vs. Hiring Breakeven premium calculation tool.",
+  "description": "Overtime vs. Hiring Breakeven premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "IseAlımEgitimMaliyeti",
-      "label": "İşe Alım/Eğitim Maliyeti",
+      "id": "RegularRate",
+      "label": "RegularRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İşe Alım/Eğitim Maliyeti",
-        "tr": "İşe Alım/Eğitim Maliyeti",
+        "en": "RegularRate",
+        "tr": "RegularRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "yanHaklar",
-      "label": "Yan Haklar",
+      "id": "OvertimeMultiplier",
+      "label": "OvertimeMultiplier",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yan Haklar",
-        "tr": "Yan Haklar",
+        "en": "OvertimeMultiplier",
+        "tr": "OvertimeMultiplier",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "normalFazlaMesai Ucreti",
-      "label": "Normal/Fazla Mesai Ücreti",
+      "id": "BurdenRate",
+      "label": "BurdenRate",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Normal/Fazla Mesai Ücreti",
-        "tr": "Normal/Fazla Mesai Ücreti",
+        "en": "BurdenRate",
+        "tr": "BurdenRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "mesai Carpanı",
-      "label": "Mesai Çarpanı",
+      "id": "Recruitment",
+      "label": "Recruitment",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Mesai Çarpanı",
-        "tr": "Mesai Çarpanı",
+        "en": "Recruitment",
+        "tr": "Recruitment",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "yorgunlukHataOranı",
-      "label": "Yorgunluk Hata Oranı",
+      "id": "Onboarding",
+      "label": "Onboarding",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yorgunluk Hata Oranı",
-        "tr": "Yorgunluk Hata Oranı",
+        "en": "Onboarding",
+        "tr": "Onboarding",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "hataMaliyeti",
-      "label": "Hata Maliyeti",
+      "id": "Training",
+      "label": "Training",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hata Maliyeti",
-        "tr": "Hata Maliyeti",
+        "en": "Training",
+        "tr": "Training",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,216 @@
       }
     },
     {
-      "id": "beklenenMesaiSaati",
-      "label": "Beklenen Mesai Saati",
+      "id": "RampUpProductivityLoss",
+      "label": "RampUpProductivityLoss",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Beklenen Mesai Saati",
-        "tr": "Beklenen Mesai Saati",
+        "en": "RampUpProductivityLoss",
+        "tr": "RampUpProductivityLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AnnualHours",
+      "label": "AnnualHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AnnualHours",
+        "tr": "AnnualHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Benefits",
+      "label": "Benefits",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Benefits",
+        "tr": "Benefits",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ExpectedOvertimeHours",
+      "label": "ExpectedOvertimeHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ExpectedOvertimeHours",
+        "tr": "ExpectedOvertimeHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Hire",
+      "label": "Hire",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hire",
+        "tr": "Hire",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Overtime",
+      "label": "Overtime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Overtime",
+        "tr": "Overtime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OvertimeHours",
+      "label": "OvertimeHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OvertimeHours",
+        "tr": "OvertimeHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FatigueDefectRate",
+      "label": "FatigueDefectRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FatigueDefectRate",
+        "tr": "FatigueDefectRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DefectCost",
+      "label": "DefectCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DefectCost",
+        "tr": "DefectCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,91 +389,43 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "overtimeCostHour",
-      "label": "OvertimeCost_Hour",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OvertimeCost_Hour",
-        "tr": "OvertimeCost_Hour",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "OvertimeCost_Hour": "RegularRate * OvertimeMultiplier * (1 + BurdenRate)",
+    "HiringCost_Total": "Recruitment + Onboarding + Training + RampUpProductivityLoss",
+    "AnnualNewHireCost": "(RegularRate * AnnualHours) * (1 + BurdenRate) + Benefits",
+    "BreakevenHours": "HiringCost_Total / (AnnualNewHireCost / AnnualHours - OvertimeCost_Hour)",
+    "Decision": "IF(ExpectedOvertimeHours > BreakevenHours, \"Hire\", \"Overtime\")",
+    "QualityCost_OT": "OvertimeHours * FatigueDefectRate * DefectCost"
+  },
+  "outputs": {
+    "primary": "QualityCost_OT",
+    "unit": "USD",
+    "breakdown": {
+      "OvertimeCost_Hour": "OvertimeCost_Hour",
+      "HiringCost_Total": "HiringCost_Total",
+      "AnnualNewHireCost": "AnnualNewHireCost",
+      "BreakevenHours": "BreakevenHours",
+      "Decision": "Decision",
+      "QualityCost_OT": "QualityCost_OT"
     },
-    {
-      "id": "hiringCostTotal",
-      "label": "HiringCost_Total",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "HiringCost_Total",
-        "tr": "HiringCost_Total",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "annualNewHireCost",
-      "label": "AnnualNewHireCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AnnualNewHireCost",
-        "tr": "AnnualNewHireCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "breakevenHours",
-      "label": "BreakevenHours",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "BreakevenHours",
-        "tr": "BreakevenHours",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "decision",
-      "label": "Decision",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Decision",
-        "tr": "Decision",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "qualityCostOT",
-      "label": "QualityCost_OT",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "QualityCost_OT",
-        "tr": "QualityCost_OT",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Overtime vs. Hiring Breakeven premium araci ile kayiplari tespit edin.",
+      "long": "Overtime vs. Hiring Breakeven premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

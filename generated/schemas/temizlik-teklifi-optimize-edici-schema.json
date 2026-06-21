@@ -1,77 +1,29 @@
 {
   "slug": "temizlik-teklifi-optimize-edici",
+  "toolName": "Temizlik Teklifi Optimize Edici",
   "name": "Temizlik Teklifi Optimize Edici",
-  "description": "Temizlik Teklifi Optimize Edici premium calculation tool.",
+  "description": "Temizlik Teklifi Optimize Edici premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "temizlenebilirAlanM2",
-      "label": "Temizlenebilir Alan m2",
-      "type": "number",
-      "unit": "m²",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Temizlenebilir Alan m2",
-        "tr": "Temizlenebilir Alan m2",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "UretimHızıM2saat",
-      "label": "Üretim Hızı m2/saat",
-      "type": "number",
-      "unit": "m²",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Üretim Hızı m2/saat",
-        "tr": "Üretim Hızı m2/saat",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "saatlik UcretVeYanHaklar",
-      "label": "Saatlik Ücret ve Yan Haklar",
+      "id": "TotalSqM",
+      "label": "TotalSqM",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Saatlik Ücret ve Yan Haklar",
-        "tr": "Saatlik Ücret ve Yan Haklar",
+        "en": "TotalSqM",
+        "tr": "TotalSqM",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,41 +39,16 @@
       }
     },
     {
-      "id": "sarfMalzemeM2Maliyeti",
-      "label": "Sarf Malzeme m2 Maliyeti",
-      "type": "number",
-      "unit": "m²",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Sarf Malzeme m2 Maliyeti",
-        "tr": "Sarf Malzeme m2 Maliyeti",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "makineSaati",
-      "label": "Makine Saati",
+      "id": "CleanablePct",
+      "label": "CleanablePct",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Makine Saati",
-        "tr": "Makine Saati",
+        "en": "CleanablePct",
+        "tr": "CleanablePct",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,41 +64,191 @@
       }
     },
     {
-      "id": "overheadOranı",
-      "label": "Overhead Oranı",
-      "type": "number",
-      "unit": "%",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Overhead Oranı",
-        "tr": "Overhead Oranı",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "hedefMarj",
-      "label": "Hedef Marj",
+      "id": "ProductionRatePerHour",
+      "label": "ProductionRatePerHour",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hedef Marj",
-        "tr": "Hedef Marj",
+        "en": "ProductionRatePerHour",
+        "tr": "ProductionRatePerHour",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HourlyWage",
+      "label": "HourlyWage",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HourlyWage",
+        "tr": "HourlyWage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Burden",
+      "label": "Burden",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Burden",
+        "tr": "Burden",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ConsumableCostPerSqM",
+      "label": "ConsumableCostPerSqM",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ConsumableCostPerSqM",
+        "tr": "ConsumableCostPerSqM",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MachineHours",
+      "label": "MachineHours",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MachineHours",
+        "tr": "MachineHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DepreciationRate",
+      "label": "DepreciationRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DepreciationRate",
+        "tr": "DepreciationRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OverheadPct",
+      "label": "OverheadPct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OverheadPct",
+        "tr": "OverheadPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TargetMargin",
+      "label": "TargetMargin",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TargetMargin",
+        "tr": "TargetMargin",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,105 +264,45 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "areaToClean",
-      "label": "AreaToClean",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AreaToClean",
-        "tr": "AreaToClean",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "AreaToClean": "TotalSqM * CleanablePct",
+    "LaborHours": "AreaToClean / ProductionRatePerHour",
+    "LaborCost": "LaborHours * HourlyWage * (1 + Burden)",
+    "MaterialCost": "AreaToClean * ConsumableCostPerSqM",
+    "EquipmentCost": "MachineHours * DepreciationRate",
+    "Overhead": "(LaborCost + MaterialCost) * OverheadPct",
+    "BidPrice": "(LaborCost + MaterialCost + EquipmentCost + Overhead) / (1 - TargetMargin)"
+  },
+  "outputs": {
+    "primary": "BidPrice",
+    "unit": "USD",
+    "breakdown": {
+      "AreaToClean": "AreaToClean",
+      "LaborHours": "LaborHours",
+      "LaborCost": "LaborCost",
+      "MaterialCost": "MaterialCost",
+      "EquipmentCost": "EquipmentCost",
+      "Overhead": "Overhead",
+      "BidPrice": "BidPrice"
     },
-    {
-      "id": "laborHours",
-      "label": "LaborHours",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "LaborHours",
-        "tr": "LaborHours",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "laborCost",
-      "label": "LaborCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "LaborCost",
-        "tr": "LaborCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "materialCost",
-      "label": "MaterialCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "MaterialCost",
-        "tr": "MaterialCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "equipmentCost",
-      "label": "EquipmentCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EquipmentCost",
-        "tr": "EquipmentCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "overhead",
-      "label": "Overhead",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Overhead",
-        "tr": "Overhead",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "bidPrice",
-      "label": "BidPrice",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "BidPrice",
-        "tr": "BidPrice",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Temizlik Teklifi Optimize Edici premium araci ile kayiplari tespit edin.",
+      "long": "Temizlik Teklifi Optimize Edici premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

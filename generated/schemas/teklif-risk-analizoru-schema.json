@@ -1,0 +1,256 @@
+{
+  "slug": "teklif-risk-analizoru",
+  "toolName": "Teklif Risk Analizörü",
+  "name": "Teklif Risk Analizörü",
+  "description": "Teklif Risk Analizörü premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "DirectCosts",
+      "label": "DirectCosts",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DirectCosts",
+        "tr": "DirectCosts",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Overhead",
+      "label": "Overhead",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Overhead",
+        "tr": "Overhead",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RiskFactor",
+      "label": "RiskFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RiskFactor",
+        "tr": "RiskFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "BidPrice",
+      "label": "BidPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "BidPrice",
+        "tr": "BidPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CompetitorIndex",
+      "label": "CompetitorIndex",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CompetitorIndex",
+        "tr": "CompetitorIndex",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HistoricalWinRate",
+      "label": "HistoricalWinRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HistoricalWinRate",
+        "tr": "HistoricalWinRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "TargetMargin",
+      "label": "TargetMargin",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "TargetMargin",
+        "tr": "TargetMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RiskPremium",
+      "label": "RiskPremium",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RiskPremium",
+        "tr": "RiskPremium",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "BaseEstimate": "SUM(DirectCosts) + Overhead",
+    "Contingency": "BaseEstimate * RiskFactor",
+    "ExpectedMargin": "(BidPrice - (BaseEstimate + Contingency)) / BidPrice",
+    "WinProbability": "f(BidPrice, CompetitorIndex, HistoricalWinRate)",
+    "ExpectedValue": "WinProbability * ExpectedMargin * BidPrice",
+    "RiskAdjustedBid": "BaseEstimate / (1 - TargetMargin - RiskPremium)"
+  },
+  "outputs": {
+    "primary": "RiskAdjustedBid",
+    "unit": "USD",
+    "breakdown": {
+      "BaseEstimate": "BaseEstimate",
+      "Contingency": "Contingency",
+      "ExpectedMargin": "ExpectedMargin",
+      "WinProbability": "WinProbability",
+      "ExpectedValue": "ExpectedValue",
+      "RiskAdjustedBid": "RiskAdjustedBid"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Teklif Risk Analizörü premium araci ile kayiplari tespit edin.",
+      "long": "Teklif Risk Analizörü premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

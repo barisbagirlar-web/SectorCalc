@@ -1,27 +1,29 @@
 {
   "slug": "kesme-dolgu-denge",
+  "toolName": "Kesme-Dolgu Denge",
   "name": "Kesme-Dolgu Denge",
-  "description": "Kesme-Dolgu Denge premium calculation tool.",
+  "description": "Kesme-Dolgu Denge premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "enkesitAlanlarıKesimDolgu",
-      "label": "Enkesit Alanları Kesim/Dolgu",
+      "id": "Area_Cut_i",
+      "label": "Area_Cut_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Enkesit Alanları Kesim/Dolgu",
-        "tr": "Enkesit Alanları Kesim/Dolgu",
+        "en": "Area_Cut_i",
+        "tr": "Area_Cut_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "IstasyonMesafeleri",
-      "label": "İstasyon Mesafeleri",
+      "id": "Distance_i",
+      "label": "Distance_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "İstasyon Mesafeleri",
-        "tr": "İstasyon Mesafeleri",
+        "en": "Distance_i",
+        "tr": "Distance_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "SismeKuculmeFaktorleri",
-      "label": "Şişme/Küçülme Faktörleri",
+      "id": "Area_Fill_i",
+      "label": "Area_Fill_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Şişme/Küçülme Faktörleri",
-        "tr": "Şişme/Küçülme Faktörleri",
+        "en": "Area_Fill_i",
+        "tr": "Area_Fill_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "nakliyeBirimFiyatı",
-      "label": "Nakliye Birim Fiyatı",
+      "id": "CompactedVolume",
+      "label": "CompactedVolume",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Nakliye Birim Fiyatı",
-        "tr": "Nakliye Birim Fiyatı",
+        "en": "CompactedVolume",
+        "tr": "CompactedVolume",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,91 @@
       }
     },
     {
-      "id": "OduncDepoAlanıMesafesi",
-      "label": "Ödünç/Depo Alanı Mesafesi",
+      "id": "LooseVolume",
+      "label": "LooseVolume",
       "type": "number",
-      "unit": "m²",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Ödünç/Depo Alanı Mesafesi",
-        "tr": "Ödünç/Depo Alanı Mesafesi",
+        "en": "LooseVolume",
+        "tr": "LooseVolume",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "BankVolume",
+      "label": "BankVolume",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "BankVolume",
+        "tr": "BankVolume",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Volume_i",
+      "label": "Volume_i",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Volume_i",
+        "tr": "Volume_i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UnitHaulCost",
+      "label": "UnitHaulCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "UnitHaulCost",
+        "tr": "UnitHaulCost",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,119 +214,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "volumeCut",
-      "label": "Volume_Cut",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Volume_Cut",
-        "tr": "Volume_Cut",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Volume_Cut": "SUM(Area_Cut_i * Distance_i)",
+    "Volume_Fill": "SUM(Area_Fill_i * Distance_i)",
+    "ShrinkageFactor": "1 - (CompactedVolume / LooseVolume)",
+    "SwellFactor": "LooseVolume / BankVolume",
+    "NetBalance": "Volume_Cut - (Volume_Fill * ShrinkageFactor)",
+    "BorrowRequired": "MAX(0, (Volume_Fill * ShrinkageFactor) - Volume_Cut)",
+    "WasteRequired": "MAX(0, Volume_Cut - (Volume_Fill * ShrinkageFactor))",
+    "HaulCost": "SUM(Volume_i * Distance_i * UnitHaulCost)"
+  },
+  "outputs": {
+    "primary": "HaulCost",
+    "unit": "USD",
+    "breakdown": {
+      "Volume_Cut": "Volume_Cut",
+      "Volume_Fill": "Volume_Fill",
+      "ShrinkageFactor": "ShrinkageFactor",
+      "SwellFactor": "SwellFactor",
+      "NetBalance": "NetBalance",
+      "BorrowRequired": "BorrowRequired",
+      "WasteRequired": "WasteRequired",
+      "HaulCost": "HaulCost"
     },
-    {
-      "id": "volumeFill",
-      "label": "Volume_Fill",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Volume_Fill",
-        "tr": "Volume_Fill",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "shrinkageFactor",
-      "label": "ShrinkageFactor",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ShrinkageFactor",
-        "tr": "ShrinkageFactor",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "swellFactor",
-      "label": "SwellFactor",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "SwellFactor",
-        "tr": "SwellFactor",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "netBalance",
-      "label": "NetBalance",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NetBalance",
-        "tr": "NetBalance",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "borrowRequired",
-      "label": "BorrowRequired",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "BorrowRequired",
-        "tr": "BorrowRequired",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "wasteRequired",
-      "label": "WasteRequired",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "WasteRequired",
-        "tr": "WasteRequired",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "haulCost",
-      "label": "HaulCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "HaulCost",
-        "tr": "HaulCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Kesme-Dolgu Denge premium araci ile kayiplari tespit edin.",
+      "long": "Kesme-Dolgu Denge premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "lean"
+  }
 }

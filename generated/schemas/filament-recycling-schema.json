@@ -1,27 +1,29 @@
 {
   "slug": "filament-recycling",
+  "toolName": "FILAMENT RECYCLING",
   "name": "FILAMENT RECYCLING",
-  "description": "FILAMENT RECYCLING premium calculation tool.",
+  "description": "FILAMENT RECYCLING premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "safFiyatFire",
-      "label": "Saf Fiyat/Fire",
+      "id": "Price_V",
+      "label": "Price_V",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Saf Fiyat/Fire",
-        "tr": "Saf Fiyat/Fire",
+        "en": "Price_V",
+        "tr": "Price_V",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "toplamaPellet",
-      "label": "Toplama/Pellet",
+      "id": "Scrap_V",
+      "label": "Scrap_V",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Toplama/Pellet",
-        "tr": "Toplama/Pellet",
+        "en": "Scrap_V",
+        "tr": "Scrap_V",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "verim",
-      "label": "Verim",
+      "id": "Transp_V",
+      "label": "Transp_V",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Verim",
-        "tr": "Verim",
+        "en": "Transp_V",
+        "tr": "Transp_V",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "enerji",
-      "label": "Enerji",
+      "id": "Collect",
+      "label": "Collect",
       "type": "number",
-      "unit": "kWh",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Enerji",
-        "tr": "Enerji",
+        "en": "Collect",
+        "tr": "Collect",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "mukavemetKayıp",
-      "label": "Mukavemet Kayıp",
+      "id": "Pellet",
+      "label": "Pellet",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Mukavemet Kayıp",
-        "tr": "Mukavemet Kayıp",
+        "en": "Pellet",
+        "tr": "Pellet",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,316 @@
       }
     },
     {
-      "id": "karbon",
-      "label": "Karbon",
+      "id": "Yield",
+      "label": "Yield",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Karbon",
-        "tr": "Karbon",
+        "en": "Yield",
+        "tr": "Yield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Tensile_V",
+      "label": "Tensile_V",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tensile_V",
+        "tr": "Tensile_V",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Tensile_R",
+      "label": "Tensile_R",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tensile_R",
+        "tr": "Tensile_R",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AppFactor",
+      "label": "AppFactor",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AppFactor",
+        "tr": "AppFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Energy_V",
+      "label": "Energy_V",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Energy_V",
+        "tr": "Energy_V",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Energy_R",
+      "label": "Energy_R",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Energy_R",
+        "tr": "Energy_R",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EnergyCost",
+      "label": "EnergyCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EnergyCost",
+        "tr": "EnergyCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CO2_V",
+      "label": "CO2_V",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CO2_V",
+        "tr": "CO2_V",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CO2_R",
+      "label": "CO2_R",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CO2_R",
+        "tr": "CO2_R",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CarbonPrice",
+      "label": "CarbonPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CarbonPrice",
+        "tr": "CarbonPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Cost_V",
+      "label": "Cost_V",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Cost_V",
+        "tr": "Cost_V",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Vol",
+      "label": "Vol",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Vol",
+        "tr": "Vol",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Capex",
+      "label": "Capex",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Capex",
+        "tr": "Capex",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,125 +464,45 @@
       }
     }
   ],
+  "formulas": {
+    "Cost_Virgin": "Price_V * (1 + Scrap_V) + Transp_V",
+    "Cost_Recyc": "(Collect + Sort + Pellet) / Yield",
+    "QualPenalty": "(Tensile_V - Tensile_R) * AppFactor",
+    "EnergySav": "(Energy_V - Energy_R) * EnergyCost",
+    "CarbonCred": "(CO2_V - CO2_R) * CarbonPrice",
+    "Total_R": "Cost_Recyc + QualPenalty - EnergySav - CarbonCred",
+    "ROI": "(Cost_V - Total_R) * Vol / Capex"
+  },
   "outputs": {
-    "0": {
-      "id": "costVirgin",
-      "label": "Cost_Virgin",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Virgin",
-        "tr": "Cost_Virgin",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "ROI",
+    "unit": "USD",
+    "breakdown": {
+      "Cost_Virgin": "Cost_Virgin",
+      "Cost_Recyc": "Cost_Recyc",
+      "QualPenalty": "QualPenalty",
+      "EnergySav": "EnergySav",
+      "CarbonCred": "CarbonCred",
+      "Total_R": "Total_R",
+      "ROI": "ROI"
     },
-    "1": {
-      "id": "costRecyc",
-      "label": "Cost_Recyc",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Recyc",
-        "tr": "Cost_Recyc",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "qualPenalty",
-      "label": "QualPenalty",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "QualPenalty",
-        "tr": "QualPenalty",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "energySav",
-      "label": "EnergySav",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EnergySav",
-        "tr": "EnergySav",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "carbonCred",
-      "label": "CarbonCred",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CarbonCred",
-        "tr": "CarbonCred",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "totalR",
-      "label": "Total_R",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Total_R",
-        "tr": "Total_R",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "rOI",
-      "label": "ROI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ROI",
-        "tr": "ROI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "finance",
+  "sectorSlug": "financial-planning",
   "category": "finance",
-  "formulas": {
-    "normalized_product": "safFiyatFire * toplamaPellet * verim * enerji",
-    "result": "safFiyatFire * toplamaPellet * verim * enerji * (mukavemetKayıp * karbon)",
-    "adjustment_factor": "mukavemetKayıp * karbon"
+  "sector": "financial-planning",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "FILAMENT RECYCLING premium araci ile kayiplari tespit edin.",
+      "long": "FILAMENT RECYCLING premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

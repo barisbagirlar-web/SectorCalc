@@ -1,27 +1,29 @@
 {
   "slug": "istatistiksel-proses-kontrol",
+  "toolName": "İSTATİSTİKSEL PROSES KONTROL",
   "name": "İSTATİSTİKSEL PROSES KONTROL",
-  "description": "İSTATİSTİKSEL PROSES KONTROL premium calculation tool.",
+  "description": "İSTATİSTİKSEL PROSES KONTROL premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "altGrupN",
-      "label": "Alt Grup n",
+      "id": "Means",
+      "label": "Means",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Alt Grup n",
-        "tr": "Alt Grup n",
+        "en": "Means",
+        "tr": "Means",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "veri",
-      "label": "Veri",
+      "id": "Ranges",
+      "label": "Ranges",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Veri",
-        "tr": "Veri",
+        "en": "Ranges",
+        "tr": "Ranges",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,7 +64,132 @@
       }
     },
     {
-      "id": "uSL",
+      "id": "StdDevs",
+      "label": "StdDevs",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "StdDevs",
+        "tr": "StdDevs",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "A2",
+      "label": "A2",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "A2",
+        "tr": "A2",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "D4",
+      "label": "D4",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "D4",
+        "tr": "D4",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "D3",
+      "label": "D3",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "D3",
+        "tr": "D3",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "d2",
+      "label": "d2",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "d2",
+        "tr": "d2",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "USL",
       "label": "USL",
       "type": "number",
       "unit": "",
@@ -87,7 +214,7 @@
       }
     },
     {
-      "id": "lSL",
+      "id": "LSL",
       "label": "LSL",
       "type": "number",
       "unit": "",
@@ -110,185 +237,51 @@
         "es": "",
         "ar": ""
       }
-    },
-    {
-      "id": "tip",
-      "label": "Tip",
-      "type": "string",
-      "unit": "",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Tip",
-        "tr": "Tip",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "hedef",
-      "label": "Hedef",
-      "type": "number",
-      "unit": "",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Hedef",
-        "tr": "Hedef",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
     }
   ],
-  "outputs": [
-    {
-      "id": "xBarBar",
-      "label": "X_Bar_Bar",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "X_Bar_Bar",
-        "tr": "X_Bar_Bar",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "X_Bar_Bar": "AVERAGE(Means)",
+    "R_Bar": "AVERAGE(Ranges)",
+    "S_Bar": "AVERAGE(StdDevs)",
+    "UCL_X": "X_Bar_Bar + (A2 * R_Bar)",
+    "LCL_X": "X_Bar_Bar - (A2 * R_Bar)",
+    "UCL_R": "D4 * R_Bar",
+    "LCL_R": "D3 * R_Bar",
+    "Sigma": "R_Bar / d2",
+    "Cp": "(USL - LSL) / (6 * Sigma)"
+  },
+  "outputs": {
+    "primary": "Cp",
+    "unit": "USD",
+    "breakdown": {
+      "X_Bar_Bar": "X_Bar_Bar",
+      "R_Bar": "R_Bar",
+      "S_Bar": "S_Bar",
+      "UCL_X": "UCL_X",
+      "LCL_X": "LCL_X",
+      "UCL_R": "UCL_R",
+      "LCL_R": "LCL_R",
+      "Sigma": "Sigma",
+      "Cp": "Cp"
     },
-    {
-      "id": "rBar",
-      "label": "R_Bar",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "R_Bar",
-        "tr": "R_Bar",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "sBar",
-      "label": "S_Bar",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "S_Bar",
-        "tr": "S_Bar",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "uCLX",
-      "label": "UCL_X",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "UCL_X",
-        "tr": "UCL_X",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "lCLX",
-      "label": "LCL_X",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "LCL_X",
-        "tr": "LCL_X",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "uCLR",
-      "label": "UCL_R",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "UCL_R",
-        "tr": "UCL_R",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "lCLR",
-      "label": "LCL_R",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "LCL_R",
-        "tr": "LCL_R",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "sigma",
-      "label": "Sigma",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Sigma",
-        "tr": "Sigma",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "cp",
-      "label": "Cp",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cp",
-        "tr": "Cp",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "measurement",
+  "sectorSlug": "measurement-calibration",
+  "category": "measurement",
+  "sector": "measurement-calibration",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "İSTATİSTİKSEL PROSES KONTROL premium araci ile kayiplari tespit edin.",
+      "long": "İSTATİSTİKSEL PROSES KONTROL premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "measurement"
+  }
 }

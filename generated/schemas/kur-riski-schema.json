@@ -1,27 +1,29 @@
 {
   "slug": "kur-riski",
+  "toolName": "Kur Riski",
   "name": "Kur Riski",
-  "description": "Kur Riski premium calculation tool.",
+  "description": "Kur Riski premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "dovizGelirGider",
-      "label": "Döviz Gelir/Gider",
+      "id": "TotalRevenue_FC",
+      "label": "TotalRevenue_FC",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Döviz Gelir/Gider",
-        "tr": "Döviz Gelir/Gider",
+        "en": "TotalRevenue_FC",
+        "tr": "TotalRevenue_FC",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "vadeler",
-      "label": "Vadeler",
+      "id": "TotalCost_FC",
+      "label": "TotalCost_FC",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Vadeler",
-        "tr": "Vadeler",
+        "en": "TotalCost_FC",
+        "tr": "TotalCost_FC",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "doviz Cifti",
-      "label": "Döviz Çifti",
-      "type": "string",
+      "id": "StdDev_ExchangeRate",
+      "label": "StdDev_ExchangeRate",
+      "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Döviz Çifti",
-        "tr": "Döviz Çifti",
+        "en": "StdDev_ExchangeRate",
+        "tr": "StdDev_ExchangeRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "volatilite",
-      "label": "Volatilite",
+      "id": "Z_Score",
+      "label": "Z_Score",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Volatilite",
-        "tr": "Volatilite",
+        "en": "Z_Score",
+        "tr": "Z_Score",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "zamanUfku",
-      "label": "Zaman Ufku",
+      "id": "Volatility",
+      "label": "Volatility",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Zaman Ufku",
-        "tr": "Zaman Ufku",
+        "en": "Volatility",
+        "tr": "Volatility",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "zSkoru",
-      "label": "Z-Skoru",
+      "id": "TimeHorizon",
+      "label": "TimeHorizon",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Z-Skoru",
-        "tr": "Z-Skoru",
+        "en": "TimeHorizon",
+        "tr": "TimeHorizon",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,16 @@
       }
     },
     {
-      "id": "hedgeOranı",
-      "label": "Hedge Oranı",
+      "id": "HedgeRatio",
+      "label": "HedgeRatio",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Hedge Oranı",
-        "tr": "Hedge Oranı",
+        "en": "HedgeRatio",
+        "tr": "HedgeRatio",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,16 +189,16 @@
       }
     },
     {
-      "id": "forwardPuanı",
-      "label": "Forward Puanı",
+      "id": "Notional",
+      "label": "Notional",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Forward Puanı",
-        "tr": "Forward Puanı",
+        "en": "Notional",
+        "tr": "Notional",
         "de": "",
         "fr": "",
         "es": "",
@@ -212,16 +214,66 @@
       }
     },
     {
-      "id": "spotForwardKur",
-      "label": "Spot/Forward Kur",
+      "id": "ForwardPoints",
+      "label": "ForwardPoints",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Spot/Forward Kur",
-        "tr": "Spot/Forward Kur",
+        "en": "ForwardPoints",
+        "tr": "ForwardPoints",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SpotRate",
+      "label": "SpotRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "SpotRate",
+        "tr": "SpotRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ForwardRate",
+      "label": "ForwardRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ForwardRate",
+        "tr": "ForwardRate",
         "de": "",
         "fr": "",
         "es": "",
@@ -237,105 +289,45 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "exposureFC",
-      "label": "Exposure_FC",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Exposure_FC",
-        "tr": "Exposure_FC",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "Exposure_FC": "TotalRevenue_FC - TotalCost_FC",
+    "VaR_Historical": "Exposure_FC * StdDev_ExchangeRate * Z_Score",
+    "VaR_Parametric": "Exposure_FC * Volatility * SQRT(TimeHorizon)",
+    "HedgedExposure": "Exposure_FC * HedgeRatio",
+    "UnhedgedVaR": "VaR_Historical * (1 - HedgeRatio)",
+    "CostOfHedge": "Notional * ForwardPoints",
+    "NetImpact": "(SpotRate - ForwardRate) * HedgedExposure"
+  },
+  "outputs": {
+    "primary": "NetImpact",
+    "unit": "USD",
+    "breakdown": {
+      "Exposure_FC": "Exposure_FC",
+      "VaR_Historical": "VaR_Historical",
+      "VaR_Parametric": "VaR_Parametric",
+      "HedgedExposure": "HedgedExposure",
+      "UnhedgedVaR": "UnhedgedVaR",
+      "CostOfHedge": "CostOfHedge",
+      "NetImpact": "NetImpact"
     },
-    {
-      "id": "vaRHistorical",
-      "label": "VaR_Historical",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "VaR_Historical",
-        "tr": "VaR_Historical",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "vaRParametric",
-      "label": "VaR_Parametric",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "VaR_Parametric",
-        "tr": "VaR_Parametric",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "hedgedExposure",
-      "label": "HedgedExposure",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "HedgedExposure",
-        "tr": "HedgedExposure",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "unhedgedVaR",
-      "label": "UnhedgedVaR",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "UnhedgedVaR",
-        "tr": "UnhedgedVaR",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "costOfHedge",
-      "label": "CostOfHedge",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CostOfHedge",
-        "tr": "CostOfHedge",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "netImpact",
-      "label": "NetImpact",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "NetImpact",
-        "tr": "NetImpact",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Kur Riski premium araci ile kayiplari tespit edin.",
+      "long": "Kur Riski premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

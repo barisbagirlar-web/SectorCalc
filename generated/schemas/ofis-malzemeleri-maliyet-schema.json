@@ -1,27 +1,29 @@
 {
   "slug": "ofis-malzemeleri-maliyet",
+  "toolName": "Ofis Malzemeleri Maliyet",
   "name": "Ofis Malzemeleri Maliyet",
-  "description": "Ofis Malzemeleri Maliyet premium calculation tool.",
+  "description": "Ofis Malzemeleri Maliyet premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "CalısanSayısı",
-      "label": "Çalışan Sayısı",
+      "id": "TotalConsumed",
+      "label": "TotalConsumed",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Çalışan Sayısı",
-        "tr": "Çalışan Sayısı",
+        "en": "TotalConsumed",
+        "tr": "TotalConsumed",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "tuketimMiktarları",
-      "label": "Tüketim Miktarları",
+      "id": "EmployeeCount",
+      "label": "EmployeeCount",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tüketim Miktarları",
-        "tr": "Tüketim Miktarları",
+        "en": "EmployeeCount",
+        "tr": "EmployeeCount",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "birimFiyatlar",
-      "label": "Birim Fiyatlar",
+      "id": "Item_i",
+      "label": "Item_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Birim Fiyatlar",
-        "tr": "Birim Fiyatlar",
+        "en": "Item_i",
+        "tr": "Item_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "siparisMaliyeti",
-      "label": "Sipariş Maliyeti",
+      "id": "UnitPrice_i",
+      "label": "UnitPrice_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sipariş Maliyeti",
-        "tr": "Sipariş Maliyeti",
+        "en": "UnitPrice_i",
+        "tr": "UnitPrice_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "acilKargoMaliyeti",
-      "label": "Acil Kargo Maliyeti",
+      "id": "AnnualUsage_i",
+      "label": "AnnualUsage_i",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Acil Kargo Maliyeti",
-        "tr": "Acil Kargo Maliyeti",
+        "en": "AnnualUsage_i",
+        "tr": "AnnualUsage_i",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "stokTasımaOranı",
-      "label": "Stok Taşıma Oranı",
+      "id": "AverageInventory",
+      "label": "AverageInventory",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Stok Taşıma Oranı",
-        "tr": "Stok Taşıma Oranı",
+        "en": "AverageInventory",
+        "tr": "AverageInventory",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,241 @@
       }
     },
     {
-      "id": "fireIsrafOranı",
-      "label": "Fire/İsraf Oranı",
+      "id": "HoldingRate",
+      "label": "HoldingRate",
       "type": "number",
-      "unit": "%",
+      "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Fire/İsraf Oranı",
-        "tr": "Fire/İsraf Oranı",
+        "en": "HoldingRate",
+        "tr": "HoldingRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EmergencyOrders",
+      "label": "EmergencyOrders",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EmergencyOrders",
+        "tr": "EmergencyOrders",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "PremiumFreight",
+      "label": "PremiumFreight",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PremiumFreight",
+        "tr": "PremiumFreight",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "AnnualUsage",
+      "label": "AnnualUsage",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "AnnualUsage",
+        "tr": "AnnualUsage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OrderCost",
+      "label": "OrderCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OrderCost",
+        "tr": "OrderCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "HoldingCost",
+      "label": "HoldingCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HoldingCost",
+        "tr": "HoldingCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Purchased",
+      "label": "Purchased",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Purchased",
+        "tr": "Purchased",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Consumed",
+      "label": "Consumed",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Consumed",
+        "tr": "Consumed",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CurrentCost",
+      "label": "CurrentCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CurrentCost",
+        "tr": "CurrentCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "EOQ_Cost",
+      "label": "EOQ_Cost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EOQ_Cost",
+        "tr": "EOQ_Cost",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,105 +414,45 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "consumptionRate",
-      "label": "ConsumptionRate",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "ConsumptionRate",
-        "tr": "ConsumptionRate",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "ConsumptionRate": "TotalConsumed / EmployeeCount",
+    "AnnualCost": "SUM(Item_i * UnitPrice_i * AnnualUsage_i)",
+    "CarryingCost": "AverageInventory * HoldingRate",
+    "StockoutCost": "EmergencyOrders * PremiumFreight",
+    "EOQ_Office": "SQRT((2 * AnnualUsage * OrderCost) / HoldingCost)",
+    "WastePct": "(Purchased - Consumed) / Purchased",
+    "OptimizationSavings": "(CurrentCost - EOQ_Cost) + (WastePct * CurrentCost)"
+  },
+  "outputs": {
+    "primary": "OptimizationSavings",
+    "unit": "USD",
+    "breakdown": {
+      "ConsumptionRate": "ConsumptionRate",
+      "AnnualCost": "AnnualCost",
+      "CarryingCost": "CarryingCost",
+      "StockoutCost": "StockoutCost",
+      "EOQ_Office": "EOQ_Office",
+      "WastePct": "WastePct",
+      "OptimizationSavings": "OptimizationSavings"
     },
-    {
-      "id": "annualCost",
-      "label": "AnnualCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "AnnualCost",
-        "tr": "AnnualCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "carryingCost",
-      "label": "CarryingCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CarryingCost",
-        "tr": "CarryingCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "stockoutCost",
-      "label": "StockoutCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "StockoutCost",
-        "tr": "StockoutCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "eOQOffice",
-      "label": "EOQ_Office",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EOQ_Office",
-        "tr": "EOQ_Office",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "wastePct",
-      "label": "WastePct",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "WastePct",
-        "tr": "WastePct",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "optimizationSavings",
-      "label": "OptimizationSavings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "OptimizationSavings",
-        "tr": "OptimizationSavings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "cost",
+  "sectorSlug": "heavy-industry",
+  "category": "cost",
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Ofis Malzemeleri Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "Ofis Malzemeleri Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "cost"
+  }
 }

@@ -1,27 +1,29 @@
 {
   "slug": "iso-50001-baseline",
+  "toolName": "ISO 50001 BASELINE",
   "name": "ISO 50001 BASELINE",
-  "description": "ISO 50001 BASELINE premium calculation tool.",
+  "description": "ISO 50001 BASELINE premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "tuketim",
-      "label": "Tüketim",
+      "id": "Energy",
+      "label": "Energy",
       "type": "number",
       "unit": "kWh",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Tüketim",
-        "tr": "Tüketim",
+        "en": "Energy",
+        "tr": "Energy",
         "de": "",
         "fr": "",
         "es": "",
@@ -37,16 +39,16 @@
       }
     },
     {
-      "id": "Uretim",
-      "label": "Üretim",
+      "id": "Volume",
+      "label": "Volume",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Üretim",
-        "tr": "Üretim",
+        "en": "Volume",
+        "tr": "Volume",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +64,16 @@
       }
     },
     {
-      "id": "hDDCDD",
-      "label": "HDD/CDD",
+      "id": "Slope1",
+      "label": "Slope1",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "HDD/CDD",
-        "tr": "HDD/CDD",
+        "en": "Slope1",
+        "tr": "Slope1",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +89,16 @@
       }
     },
     {
-      "id": "rKare",
-      "label": "R-Kare",
+      "id": "Prod",
+      "label": "Prod",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "R-Kare",
-        "tr": "R-Kare",
+        "en": "Prod",
+        "tr": "Prod",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +114,16 @@
       }
     },
     {
-      "id": "bazYıl",
-      "label": "Baz Yıl",
+      "id": "Slope2",
+      "label": "Slope2",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Baz Yıl",
-        "tr": "Baz Yıl",
+        "en": "Slope2",
+        "tr": "Slope2",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +139,16 @@
       }
     },
     {
-      "id": "azaltım",
-      "label": "Azaltım",
+      "id": "DD",
+      "label": "DD",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Azaltım",
-        "tr": "Azaltım",
+        "en": "DD",
+        "tr": "DD",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,16 +164,166 @@
       }
     },
     {
-      "id": "periyot",
-      "label": "Periyot",
-      "type": "string",
+      "id": "Actual",
+      "label": "Actual",
+      "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Periyot",
-        "tr": "Periyot",
+        "en": "Actual",
+        "tr": "Actual",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Predicted",
+      "label": "Predicted",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Predicted",
+        "tr": "Predicted",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DD_Curr",
+      "label": "DD_Curr",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DD_Curr",
+        "tr": "DD_Curr",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DD_Hist",
+      "label": "DD_Hist",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DD_Hist",
+        "tr": "DD_Hist",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "R2",
+      "label": "R2",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "R2",
+        "tr": "R2",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "P",
+      "label": "P",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "P",
+        "tr": "P",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RedTarget",
+      "label": "RedTarget",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RedTarget",
+        "tr": "RedTarget",
         "de": "",
         "fr": "",
         "es": "",
@@ -187,119 +339,47 @@
       }
     }
   ],
-  "outputs": [
-    {
-      "id": "enPI",
-      "label": "EnPI",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "EnPI",
-        "tr": "EnPI",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+  "formulas": {
+    "EnPI": "Energy / Volume",
+    "Baseline": "Intercept + (Slope1 * Prod) + (Slope2 * DD)",
+    "Cusum_t": "Actual - Predicted",
+    "Cusum_Cum": "SUM(Cusum_t)",
+    "Savings": "Predicted - Actual",
+    "Norm": "DD_Curr / DD_Hist",
+    "Sig": "R2 > 0.75 AND P < 0.05",
+    "Target": "Baseline * (1 - RedTarget)"
+  },
+  "outputs": {
+    "primary": "Target",
+    "unit": "USD",
+    "breakdown": {
+      "EnPI": "EnPI",
+      "Baseline": "Baseline",
+      "Cusum_t": "Cusum_t",
+      "Cusum_Cum": "Cusum_Cum",
+      "Savings": "Savings",
+      "Norm": "Norm",
+      "Sig": "Sig",
+      "Target": "Target"
     },
-    {
-      "id": "baseline",
-      "label": "Baseline",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Baseline",
-        "tr": "Baseline",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "cusumT",
-      "label": "Cusum_t",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cusum_t",
-        "tr": "Cusum_t",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "cusumCum",
-      "label": "Cusum_Cum",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cusum_Cum",
-        "tr": "Cusum_Cum",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "savings",
-      "label": "Savings",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Savings",
-        "tr": "Savings",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "norm",
-      "label": "Norm",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Norm",
-        "tr": "Norm",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "sig",
-      "label": "Sig",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Sig",
-        "tr": "Sig",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "target",
-      "label": "Target",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Target",
-        "tr": "Target",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "energy",
+  "sectorSlug": "energy-utilities",
+  "category": "energy",
+  "sector": "energy-utilities",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "ISO 50001 BASELINE premium araci ile kayiplari tespit edin.",
+      "long": "ISO 50001 BASELINE premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
     }
-  ],
-  "category": "energy"
+  }
 }

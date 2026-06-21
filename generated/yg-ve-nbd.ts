@@ -2,20 +2,30 @@
 import * as z from 'zod';
 
 export interface Yg_ve_nbdInput {
-  IlkYatirim: number;
-  yillikNakitAkislariArray: number;
-  proje_OmruYil: number;
-  IskontoOraniWACC: number;
-  hedefROI: number;
+  TotalNetProfit: number;
+  TotalInvestment: number;
+  CashFlow_t: number;
+  DiscountRate: number;
+  t: number;
+  InitialInvestment: number;
+  UnrecoveredCost: number;
+  CashFlow_RecoveryYear: number;
+  PV_FutureCashFlows: number;
+  CumulativeDiscountedCashFlow: number;
   dataConfidence?: number;
 }
 
 export const Yg_ve_nbdInputSchema = z.object({
-  IlkYatirim: z.number().min(0).default(0),
-  yillikNakitAkislariArray: z.number().min(0).default(0),
-  proje_OmruYil: z.number().min(0).default(0),
-  IskontoOraniWACC: z.number().min(0).default(0),
-  hedefROI: z.number().min(0).default(0),
+  TotalNetProfit: z.number().min(0).default(0),
+  TotalInvestment: z.number().min(0).default(0),
+  CashFlow_t: z.number().min(0).default(0),
+  DiscountRate: z.number().min(0).default(0),
+  t: z.number().min(0).default(0),
+  InitialInvestment: z.number().min(0).default(0),
+  UnrecoveredCost: z.number().min(0).default(0),
+  CashFlow_RecoveryYear: z.number().min(0).default(0),
+  PV_FutureCashFlows: z.number().min(0).default(0),
+  CumulativeDiscountedCashFlow: z.number().min(0).default(0),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -24,22 +34,29 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Yg_ve_nbdInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.IlkYatirim * input.yillikNakitAkislariArray * input.proje_OmruYil * (input.IskontoOraniWACC / 100); results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
-  try { const v = input.IlkYatirim * input.yillikNakitAkislariArray * input.proje_OmruYil * (input.IskontoOraniWACC / 100) * (input.hedefROI); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.hedefROI; results["adjustment_factor"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjustment_factor"] = Number.NaN; }
+  try { const v = (input.TotalNetProfit / input.TotalInvestment) * 100; results["ROI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ROI"] = Number.NaN; }
+  results["NPV"] = Number.NaN;
+  try { const v = 0.0; results["IRR"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["IRR"] = Number.NaN; }
+  results["PaybackPeriod"] = Number.NaN;
+  try { const v = input.PV_FutureCashFlows / input.InitialInvestment; results["ProfitabilityIndex"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ProfitabilityIndex"] = Number.NaN; }
+  results["DiscountedPayback"] = Number.NaN;
   return results;
 }
 
 
 export function calculateYg_ve_nbd(input: Yg_ve_nbdInput): Yg_ve_nbdOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["DiscountedPayback"]);
   const breakdown = {
-    normalized_product: toNumericFormulaValue(values["normalized_product"]),
-    adjustment_factor: toNumericFormulaValue(values["adjustment_factor"])
+    ROI: toNumericFormulaValue(values["ROI"]),
+    NPV: toNumericFormulaValue(values["NPV"]),
+    IRR: toNumericFormulaValue(values["IRR"]),
+    PaybackPeriod: toNumericFormulaValue(values["PaybackPeriod"]),
+    ProfitabilityIndex: toNumericFormulaValue(values["ProfitabilityIndex"]),
+    DiscountedPayback: toNumericFormulaValue(values["DiscountedPayback"])
   };
-  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
-  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
+  const hiddenLossDrivers: string[] = ["Verify assumptions with real data","Cross-check with industry benchmarks"];
+  const suggestedActions: string[] = ["Run sensitivity analysis","Review assumptions with domain expert"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -50,9 +67,9 @@ export function calculateYg_ve_nbd(input: Yg_ve_nbdInput): Yg_ve_nbdOutput {
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "%",
+    unit: "USD",
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report"],
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Verdict report","Action plan"],
   };
 }
 
@@ -60,7 +77,7 @@ export function calculateYg_ve_nbd(input: Yg_ve_nbdInput): Yg_ve_nbdOutput {
 export interface Yg_ve_nbdOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { normalized_product: number; adjustment_factor: number };
+  breakdown: { ROI: number; NPV: number; IRR: number; PaybackPeriod: number; ProfitabilityIndex: number; DiscountedPayback: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -69,8 +86,8 @@ export interface Yg_ve_nbdOutput {
 };
 
 export const Yg_ve_nbdOutputMeta = {
-  primaryKey: "result",
-  unit: "%",
-  breakdownKeys: ["normalized_product","adjustment_factor"],
+  primaryKey: "DiscountedPayback",
+  unit: "USD",
+  breakdownKeys: ["ROI","NPV","IRR","PaybackPeriod","ProfitabilityIndex","DiscountedPayback"],
 } as const;
 

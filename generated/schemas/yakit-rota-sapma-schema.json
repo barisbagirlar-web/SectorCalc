@@ -1,0 +1,233 @@
+{
+  "slug": "yakit-rota-sapma",
+  "toolName": "Yakıt Rota Sapma",
+  "name": "Yakıt Rota Sapma",
+  "description": "Yakıt Rota Sapma premium hesaplama araci.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report",
+    "Action plan"
+  ],
+  "inputs": [
+    {
+      "id": "PlannedDistance",
+      "label": "PlannedDistance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PlannedDistance",
+        "tr": "PlannedDistance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FuelEfficiency",
+      "label": "FuelEfficiency",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FuelEfficiency",
+        "tr": "FuelEfficiency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualDistance",
+      "label": "ActualDistance",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualDistance",
+        "tr": "ActualDistance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ActualFuelEfficiency",
+      "label": "ActualFuelEfficiency",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ActualFuelEfficiency",
+        "tr": "ActualFuelEfficiency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FuelPrice",
+      "label": "FuelPrice",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FuelPrice",
+        "tr": "FuelPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IdleTime",
+      "label": "IdleTime",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "IdleTime",
+        "tr": "IdleTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IdleConsumptionRate",
+      "label": "IdleConsumptionRate",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "IdleConsumptionRate",
+        "tr": "IdleConsumptionRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "formulas": {
+    "PlannedFuel": "PlannedDistance * FuelEfficiency",
+    "ActualFuel": "ActualDistance * ActualFuelEfficiency",
+    "RouteDrift": "ActualDistance - PlannedDistance",
+    "FuelWaste_Distance": "RouteDrift * FuelEfficiency * FuelPrice",
+    "FuelWaste_Efficiency": "PlannedDistance * (ActualFuelEfficiency - FuelEfficiency) * FuelPrice",
+    "IdleFuelCost": "IdleTime * IdleConsumptionRate * FuelPrice",
+    "TotalDriftCost": "FuelWaste_Distance + FuelWaste_Efficiency + IdleFuelCost"
+  },
+  "outputs": {
+    "primary": "TotalDriftCost",
+    "unit": "USD",
+    "breakdown": {
+      "PlannedFuel": "PlannedFuel",
+      "ActualFuel": "ActualFuel",
+      "RouteDrift": "RouteDrift",
+      "FuelWaste_Distance": "FuelWaste_Distance",
+      "FuelWaste_Efficiency": "FuelWaste_Efficiency",
+      "IdleFuelCost": "IdleFuelCost",
+      "TotalDriftCost": "TotalDriftCost"
+    },
+    "hiddenLossDrivers": [
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
+    ],
+    "suggestedActions": [
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
+  },
+  "categorySlug": "route",
+  "sectorSlug": "logistics-supply-chain",
+  "category": "route",
+  "sector": "logistics-supply-chain",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Yakıt Rota Sapma premium araci ile kayiplari tespit edin.",
+      "long": "Yakıt Rota Sapma premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
+  }
+}

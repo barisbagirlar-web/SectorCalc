@@ -1,52 +1,29 @@
 {
   "slug": "rota-maliyet",
+  "toolName": "Rota Maliyet",
   "name": "Rota Maliyet",
-  "description": "Rota Maliyet premium calculation tool.",
+  "description": "Rota Maliyet premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "toplamMesafeSure",
-      "label": "Toplam Mesafe/Süre",
-      "type": "number",
-      "unit": "km",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Toplam Mesafe/Süre",
-        "tr": "Toplam Mesafe/Süre",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "yakıtTuketimFiyat",
-      "label": "Yakıt Tüketim/Fiyat",
+      "id": "TotalDistance",
+      "label": "TotalDistance",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Yakıt Tüketim/Fiyat",
-        "tr": "Yakıt Tüketim/Fiyat",
+        "en": "TotalDistance",
+        "tr": "TotalDistance",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,16 +39,16 @@
       }
     },
     {
-      "id": "surucu Ucreti",
-      "label": "Sürücü Ücreti",
+      "id": "FuelConsumption",
+      "label": "FuelConsumption",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Sürücü Ücreti",
-        "tr": "Sürücü Ücreti",
+        "en": "FuelConsumption",
+        "tr": "FuelConsumption",
         "de": "",
         "fr": "",
         "es": "",
@@ -87,16 +64,16 @@
       }
     },
     {
-      "id": "otoyolKopruGecisleri",
-      "label": "Otoyol/Köprü Geçişleri",
+      "id": "FuelPrice",
+      "label": "FuelPrice",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Otoyol/Köprü Geçişleri",
-        "tr": "Otoyol/Köprü Geçişleri",
+        "en": "FuelPrice",
+        "tr": "FuelPrice",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,41 +89,166 @@
       }
     },
     {
-      "id": "bakımKmMaliyeti",
-      "label": "Bakım km Maliyeti",
-      "type": "number",
-      "unit": "km",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Bakım km Maliyeti",
-        "tr": "Bakım km Maliyeti",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "amortismanVeOverhead",
-      "label": "Amortisman ve Overhead",
+      "id": "TotalTime",
+      "label": "TotalTime",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Amortisman ve Overhead",
-        "tr": "Amortisman ve Overhead",
+        "en": "TotalTime",
+        "tr": "TotalTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DriverWage",
+      "label": "DriverWage",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DriverWage",
+        "tr": "DriverWage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "VehicleDepreciation",
+      "label": "VehicleDepreciation",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "VehicleDepreciation",
+        "tr": "VehicleDepreciation",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Tolls_i",
+      "label": "Tolls_i",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tolls_i",
+        "tr": "Tolls_i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "MaintRatePerKm",
+      "label": "MaintRatePerKm",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MaintRatePerKm",
+        "tr": "MaintRatePerKm",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OverheadPct",
+      "label": "OverheadPct",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "OverheadPct",
+        "tr": "OverheadPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "NumberOfDrops",
+      "label": "NumberOfDrops",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "NumberOfDrops",
+        "tr": "NumberOfDrops",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,139 +264,47 @@
       }
     }
   ],
+  "formulas": {
+    "DistanceCost": "TotalDistance * FuelConsumption * FuelPrice",
+    "TimeCost": "TotalTime * (DriverWage + VehicleDepreciation)",
+    "TollCost": "SUM(Tolls_i)",
+    "MaintenanceCost": "TotalDistance * MaintRatePerKm",
+    "Overhead": "(DistanceCost + TimeCost) * OverheadPct",
+    "TotalRouteCost": "DistanceCost + TimeCost + TollCost + MaintenanceCost + Overhead",
+    "CostPerKm": "TotalRouteCost / TotalDistance",
+    "CostPerDrop": "TotalRouteCost / NumberOfDrops"
+  },
   "outputs": {
-    "0": {
-      "id": "distanceCost",
-      "label": "DistanceCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "DistanceCost",
-        "tr": "DistanceCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "1": {
-      "id": "timeCost",
-      "label": "TimeCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TimeCost",
-        "tr": "TimeCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "tollCost",
-      "label": "TollCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TollCost",
-        "tr": "TollCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "maintenanceCost",
-      "label": "MaintenanceCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "MaintenanceCost",
-        "tr": "MaintenanceCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "overhead",
-      "label": "Overhead",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Overhead",
-        "tr": "Overhead",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "totalRouteCost",
-      "label": "TotalRouteCost",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "TotalRouteCost",
-        "tr": "TotalRouteCost",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "costPerKm",
-      "label": "CostPerKm",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CostPerKm",
-        "tr": "CostPerKm",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "7": {
-      "id": "costPerDrop",
-      "label": "CostPerDrop",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "CostPerDrop",
-        "tr": "CostPerDrop",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
+    "primary": "CostPerDrop",
     "unit": "USD",
+    "breakdown": {
+      "DistanceCost": "DistanceCost",
+      "TimeCost": "TimeCost",
+      "TollCost": "TollCost",
+      "MaintenanceCost": "MaintenanceCost",
+      "Overhead": "Overhead",
+      "TotalRouteCost": "TotalRouteCost",
+      "CostPerKm": "CostPerKm",
+      "CostPerDrop": "CostPerDrop"
+    },
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "route",
+  "sectorSlug": "logistics-supply-chain",
   "category": "route",
-  "formulas": {
-    "normalized_product": "toplamMesafeSure * yakıtTuketimFiyat * surucu Ucreti * otoyolKopruGecisleri",
-    "result": "toplamMesafeSure * yakıtTuketimFiyat * surucu Ucreti * otoyolKopruGecisleri * (bakımKmMaliyeti * amortismanVeOverhead)",
-    "adjustment_factor": "bakımKmMaliyeti * amortismanVeOverhead"
+  "sector": "logistics-supply-chain",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "Rota Maliyet premium araci ile kayiplari tespit edin.",
+      "long": "Rota Maliyet premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }

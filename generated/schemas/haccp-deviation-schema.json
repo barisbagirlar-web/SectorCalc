@@ -1,52 +1,29 @@
 {
   "slug": "haccp-deviation",
+  "toolName": "HACCP DEVIATION",
   "name": "HACCP DEVIATION",
-  "description": "HACCP DEVIATION premium calculation tool.",
+  "description": "HACCP DEVIATION premium hesaplama araci.",
   "premiumRequired": true,
   "standardOptions": [],
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis",
-    "Verdict report"
+    "Verdict report",
+    "Action plan"
   ],
   "inputs": [
     {
-      "id": "karantinaHacim",
-      "label": "Karantina Hacim",
-      "type": "number",
-      "unit": "m³",
-      "min": 0,
-      "default": 0,
-      "businessContext": "",
-      "label_i18n": {
-        "en": "Karantina Hacim",
-        "tr": "Karantina Hacim",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      },
-      "businessContext_i18n": {
-        "en": "",
-        "tr": "",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "bekletme",
-      "label": "Bekletme",
+      "id": "QuarVol",
+      "label": "QuarVol",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Bekletme",
-        "tr": "Bekletme",
+        "en": "QuarVol",
+        "tr": "QuarVol",
         "de": "",
         "fr": "",
         "es": "",
@@ -62,7 +39,407 @@
       }
     },
     {
-      "id": "test",
+      "id": "HoldCost",
+      "label": "HoldCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "HoldCost",
+        "tr": "HoldCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Days",
+      "label": "Days",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Days",
+        "tr": "Days",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Samples",
+      "label": "Samples",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Samples",
+        "tr": "Samples",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LabCost",
+      "label": "LabCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LabCost",
+        "tr": "LabCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DevVol",
+      "label": "DevVol",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DevVol",
+        "tr": "DevVol",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ReworkCost",
+      "label": "ReworkCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ReworkCost",
+        "tr": "ReworkCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CondVol",
+      "label": "CondVol",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "CondVol",
+        "tr": "CondVol",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "DispCost",
+      "label": "DispCost",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "DispCost",
+        "tr": "DispCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "LostMat",
+      "label": "LostMat",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LostMat",
+        "tr": "LostMat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Notif",
+      "label": "Notif",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Notif",
+        "tr": "Notif",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Log_Rev",
+      "label": "Log_Rev",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Log_Rev",
+        "tr": "Log_Rev",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "RetailPen",
+      "label": "RetailPen",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "RetailPen",
+        "tr": "RetailPen",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Brand",
+      "label": "Brand",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Brand",
+        "tr": "Brand",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ProbDet",
+      "label": "ProbDet",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ProbDet",
+        "tr": "ProbDet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "FineAmt",
+      "label": "FineAmt",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "FineAmt",
+        "tr": "FineAmt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Hold",
+      "label": "Hold",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hold",
+        "tr": "Hold",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Test",
       "label": "Test",
       "type": "number",
       "unit": "",
@@ -87,16 +464,16 @@
       }
     },
     {
-      "id": "reworkImha",
-      "label": "Rework/İmha",
+      "id": "Rework",
+      "label": "Rework",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Rework/İmha",
-        "tr": "Rework/İmha",
+        "en": "Rework",
+        "tr": "Rework",
         "de": "",
         "fr": "",
         "es": "",
@@ -112,16 +489,16 @@
       }
     },
     {
-      "id": "geri Cagırma",
-      "label": "Geri Çağırma",
+      "id": "Disp",
+      "label": "Disp",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Geri Çağırma",
-        "tr": "Geri Çağırma",
+        "en": "Disp",
+        "tr": "Disp",
         "de": "",
         "fr": "",
         "es": "",
@@ -137,16 +514,91 @@
       }
     },
     {
-      "id": "ceza",
-      "label": "Ceza",
+      "id": "Recall",
+      "label": "Recall",
       "type": "number",
       "unit": "",
       "min": 0,
       "default": 0,
       "businessContext": "",
       "label_i18n": {
-        "en": "Ceza",
-        "tr": "Ceza",
+        "en": "Recall",
+        "tr": "Recall",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Sev",
+      "label": "Sev",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sev",
+        "tr": "Sev",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Occ",
+      "label": "Occ",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Occ",
+        "tr": "Occ",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Det",
+      "label": "Det",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Det",
+        "tr": "Det",
         "de": "",
         "fr": "",
         "es": "",
@@ -162,139 +614,47 @@
       }
     }
   ],
+  "formulas": {
+    "Cost_Hold": "QuarVol * HoldCost * Days",
+    "Cost_Test": "Samples * LabCost",
+    "Cost_Rework": "DevVol * ReworkCost",
+    "Cost_Disp": "CondVol * DispCost + LostMat",
+    "Cost_Recall": "Notif + Log_Rev + RetailPen + Brand",
+    "Fine": "ProbDet * FineAmt",
+    "Total": "Hold + Test + Rework + Disp + Recall + Fine",
+    "RPN": "Sev * Occ * Det"
+  },
   "outputs": {
-    "0": {
-      "id": "costHold",
-      "label": "Cost_Hold",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Hold",
-        "tr": "Cost_Hold",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
+    "primary": "RPN",
+    "unit": "USD",
+    "breakdown": {
+      "Cost_Hold": "Cost_Hold",
+      "Cost_Test": "Cost_Test",
+      "Cost_Rework": "Cost_Rework",
+      "Cost_Disp": "Cost_Disp",
+      "Cost_Recall": "Cost_Recall",
+      "Fine": "Fine",
+      "Total": "Total",
+      "RPN": "RPN"
     },
-    "1": {
-      "id": "costTest",
-      "label": "Cost_Test",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Test",
-        "tr": "Cost_Test",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "2": {
-      "id": "costRework",
-      "label": "Cost_Rework",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Rework",
-        "tr": "Cost_Rework",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "3": {
-      "id": "costDisp",
-      "label": "Cost_Disp",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Disp",
-        "tr": "Cost_Disp",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "4": {
-      "id": "costRecall",
-      "label": "Cost_Recall",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Cost_Recall",
-        "tr": "Cost_Recall",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "5": {
-      "id": "fine",
-      "label": "Fine",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Fine",
-        "tr": "Fine",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "6": {
-      "id": "total",
-      "label": "Total",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "Total",
-        "tr": "Total",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "7": {
-      "id": "rPN",
-      "label": "RPN",
-      "unit": "",
-      "format": "number",
-      "label_i18n": {
-        "en": "RPN",
-        "tr": "RPN",
-        "de": "",
-        "fr": "",
-        "es": "",
-        "ar": ""
-      }
-    },
-    "primary": "result",
-    "breakdown": [
-      "normalized_product",
-      "adjustment_factor"
-    ],
-    "unit": "units",
     "hiddenLossDrivers": [
-      "Model uses normalized input chain — validate units",
-      "Assumption-heavy without site benchmark"
+      "Verify assumptions with real data",
+      "Cross-check with industry benchmarks"
     ],
     "suggestedActions": [
-      "Cross-check with historical actuals",
-      "Run sensitivity on top 2 inputs"
-    ],
-    "dataConfidenceAdjusted": "result"
+      "Run sensitivity analysis",
+      "Review assumptions with domain expert"
+    ]
   },
+  "categorySlug": "scrap",
+  "sectorSlug": "heavy-industry",
   "category": "scrap",
-  "formulas": {
-    "normalized_product": "karantinaHacim * bekletme * test * reworkImha",
-    "result": "karantinaHacim * bekletme * test * reworkImha * (geri Cagırma * ceza)",
-    "adjustment_factor": "geri Cagırma * ceza"
+  "sector": "heavy-industry",
+  "profession": "engineer",
+  "about": {
+    "description": {
+      "short": "HACCP DEVIATION premium araci ile kayiplari tespit edin.",
+      "long": "HACCP DEVIATION premium hesaplama araci. Endustriyel formuller ile hizli ve dogru hesaplama."
+    }
   }
 }
