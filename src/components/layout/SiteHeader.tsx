@@ -6,13 +6,11 @@ import { HeaderNavPrefetch } from "@/components/layout/HeaderNavPrefetch";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { RegionSelector } from "@/components/layout/RegionSelector";
-import { SkipToMainLink } from "@/components/layout/SkipToMainLink";
 
 export function SiteHeader() {
   const a11y = useTranslations("a11y");
   return (
     <>
-      <SkipToMainLink />
       <header id="header" className="apple-nav sc-header-craft" role="banner">
       <HeaderNavPrefetch />
       <div className="apple-nav__inner">

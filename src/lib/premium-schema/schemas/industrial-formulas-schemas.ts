@@ -741,7 +741,51 @@ const HYDRAULIC_CYLINDER_SCHEMA: PremiumCalculatorSchema = {
 };
 
 /* ════════════════════════════════════════════════════════════════════════════
- * 19. Compressor Power & Air Flow Calculator
+ * 19. Hydraulic Cylinder Tonnage & Power Calculator
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+const HYDRAULIC_CYLINDER_TONNAGE_POWER_SCHEMA: PremiumCalculatorSchema = {
+  id: "hydraulic-cylinder-tonnage-power-calculator",
+  legacyPaidSlug: "hydraulic-cylinder-tonnage-power-calculator",
+  name: "Hydraulic Cylinder Tonnage & Power Calculator",
+  name_i18n: {"en":"Hydraulic Cylinder Tonnage & Power Calculator","tr":"Hidrolik Silindir Tonaj ve Motor Gücü Hesaplayıcı"},
+  sectorSlug: "sheet-metal",
+  category: "measurement",
+  painStatement: "Hydraulic cylinder tonnage and motor power selection without accounting for annular area difference, volumetric efficiency, and friction losses leads to undersized pumps or oversized motors — a mismatch that wastes energy and capital on every cycle.",
+  inputs: [
+    { id: "pistonDiameter_D", label: "Piston diameter D", type: "number", unit: "mm", required: true, smartDefault: 63, validation: { min: 10 }, helper: "Cylinder bore diameter.", expertMeaning: "D for A_push = π·D²/4" },
+    { id: "rodDiameter_d", label: "Rod diameter d", type: "number", unit: "mm", required: true, smartDefault: 36, validation: { min: 5 }, helper: "Piston rod diameter (d < D).", expertMeaning: "d for annular area A_pull = π·(D²-d²)/4" },
+    { id: "systemPressure_P", label: "System pressure P", type: "number", unit: "bar", required: true, smartDefault: 200, validation: { min: 1 }, helper: "Hydraulic system working pressure.", expertMeaning: "1 bar = 1e5 Pa" },
+    { id: "strokeLength_L", label: "Stroke length L", type: "number", unit: "mm", required: true, smartDefault: 500, validation: { min: 10 }, helper: "Full piston stroke length.", expertMeaning: "L for cylinder displacement" },
+    { id: "cylinderCount_n", label: "Cylinder count n", type: "number", unit: "adet", required: true, smartDefault: 1, validation: { min: 1 }, helper: "Number of simultaneously acting cylinders.", expertMeaning: "Total flow = n × single-cylinder flow" },
+    { id: "pumpFlowRate_Q", label: "Pump flow rate Q", type: "number", unit: "L/min", required: true, smartDefault: 50, validation: { min: 0.1 }, helper: "Hydraulic pump volumetric delivery.", expertMeaning: "Q for speed: v = Q / (n × A)" },
+    { id: "volumetricEfficiency_η_v", label: "Volumetric efficiency η_v", type: "number", unit: "%", required: true, smartDefault: 95, validation: { min: 70, max: 98 }, helper: "Volumetric efficiency of pump/cylinder.", expertMeaning: "Effective flow = Q × η_v/100" },
+    { id: "mechanicalEfficiency_η_m", label: "Mechanical efficiency η_m", type: "number", unit: "%", required: true, smartDefault: 95, validation: { min: 80, max: 98 }, helper: "Mechanical efficiency of cylinder.", expertMeaning: "F_actual = F_ideal × η_m/100" },
+    { id: "frictionLossCoeff", label: "Friction loss coefficient f", type: "number", unit: "", required: true, smartDefault: 0.05, validation: { min: 0, max: 0.15 }, helper: "Seal and wiper friction as fraction of output force.", expertMeaning: "Effective friction force = f × F_ideal" },
+    { id: "currency", label: "Currency", type: "select", unit: "", required: true, smartDefault: "USD", options: [...CURRENCY_OPTIONS], helper: "All monetary inputs in this currency.", expertMeaning: "ISO code." },
+  ],
+  outputs: [
+    { id: "pistonArea_cm2", label: "Piston area A_push", unit: "cm²", format: "number" },
+    { id: "annularArea_cm2", label: "Annular area A_pull", unit: "cm²", format: "number" },
+    { id: "pushForce_ton", label: "Push force F_push", unit: "ton-f", format: "number" },
+    { id: "pullForce_ton", label: "Pull force F_pull", unit: "ton-f", format: "number" },
+    { id: "pushPullRatio", label: "Push/pull ratio", unit: "", format: "number" },
+    { id: "extendSpeed_mms", label: "Extension speed v_ext", unit: "mm/s", format: "number" },
+    { id: "retractSpeed_mms", label: "Retraction speed v_ret", unit: "mm/s", format: "number" },
+    { id: "totalFlowRate", label: "Total flow rate Q_total", unit: "L/min", format: "number" },
+    { id: "hydraulicPower_kW", label: "Hydraulic power P_hyd", unit: "kW", format: "number" },
+    { id: "motorPower_HP", label: "Motor power P_motor", unit: "HP", format: "number" },
+    { id: "specificPower", label: "Specific power per cylinder", unit: "kW", format: "number" },
+    { id: "areaRatio", label: "Area ratio D²/(D²-d²)", unit: "", format: "number" },
+  ],
+  thresholds: [],
+  formulaPipeline: [{ formulaId: "industrial.hydraulic_cylinder_tonnage_0", inputMap: { pistonDiameter_D: "pistonDiameter_D", rodDiameter_d: "rodDiameter_d", systemPressure_P: "systemPressure_P", strokeLength_L: "strokeLength_L", cylinderCount_n: "cylinderCount_n", pumpFlowRate_Q: "pumpFlowRate_Q", volumetricEfficiency_η_v: "volumetricEfficiency_η_v", mechanicalEfficiency_η_m: "mechanicalEfficiency_η_m", frictionLossCoeff: "frictionLossCoeff" }, outputId: "pushForce_ton" }],
+  reportTemplate: { title: "Hydraulic Cylinder Tonnage & Power Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Hydraulic fluid assumed incompressible and Newtonian.", "Friction loss coefficient f includes seal and wiper friction.", "Cylinder count n assumes simultaneous operation; total flow distributed evenly.", "Motor power calculation includes both volumetric and mechanical efficiencies.", "Efficiency values are typical manufacturer ranges; measured values preferred for final design."] },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * 20. Compressor Power & Air Flow Calculator
  * ════════════════════════════════════════════════════════════════════════════ */
 
 const COMPRESSOR_POWER_AIR_FLOW_SCHEMA: PremiumCalculatorSchema = {
@@ -2161,6 +2205,7 @@ export const ALL_INDUSTRIAL_FORMULA_SCHEMAS: readonly PremiumCalculatorSchema[] 
   ROI_ANALYZER_SCHEMA,
   BELT_PULLEY_GEAR_SCHEMA,
   HYDRAULIC_CYLINDER_SCHEMA,
+  HYDRAULIC_CYLINDER_TONNAGE_POWER_SCHEMA,
   COMPRESSOR_POWER_AIR_FLOW_SCHEMA,
   CUTTING_PARAMETERS_POWER_SCHEMA,
   EVAPORATIVE_COOLING_CAPACITY_SCHEMA,

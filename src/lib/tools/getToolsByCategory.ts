@@ -15,6 +15,7 @@ export interface ToolListItem {
   href: string;
   isPremium: boolean;
   categorySlug: string;
+  sectorKey: string;
 }
 
 /**
@@ -47,6 +48,7 @@ export function getAllToolsGroupedByCategory(
       href: tool.href,
       isPremium: tool.premiumRequired,
       categorySlug: canonicalSlug,
+      sectorKey: tool.sectorKey,
     });
   }
 

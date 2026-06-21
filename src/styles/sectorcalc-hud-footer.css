@@ -4,9 +4,9 @@
 
 .sch-footer {
   font-family: "Inter", sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
-  border-top: 1px solid #cbd5e1;
+  background-color: #141413;
+  color: rgba(250, 249, 245, 0.75);
+  border-top: 1px solid rgba(250, 249, 245, 0.08);
   padding: 56px 0 32px;
   -webkit-font-smoothing: antialiased;
 }
@@ -26,7 +26,7 @@
   align-items: flex-start;
   gap: 24px;
   padding-bottom: 18px;
-  border-bottom: 1px solid #cbd5e1;
+  border-bottom: 1px solid rgba(250, 249, 245, 0.08);
 }
 
 .sch-hud-left {
@@ -63,15 +63,15 @@
 }
 
 .sch-sq-1 {
-  background: #e2e8f0;
+  background: rgba(250, 249, 245, 0.25);
 }
 
 .sch-sq-2 {
-  background: #cbd5e1;
+  background: rgba(250, 249, 245, 0.4);
 }
 
 .sch-sq-3 {
-  background: #94a3b8;
+  background: rgba(250, 249, 245, 0.55);
 }
 
 .sch-sq-4 {
@@ -83,7 +83,7 @@
   font-size: 20px;
   font-weight: 750;
   letter-spacing: 0.02em;
-  color: #0f172a;
+  color: rgba(250, 249, 245, 0.9);
   text-transform: none;
   white-space: nowrap;
 }
@@ -91,7 +91,7 @@
 .sch-footer-tagline {
   margin: 10px 0 0;
   max-width: 440px;
-  color: #475569;
+  color: rgba(250, 249, 245, 0.55);
   font-size: 14px;
   line-height: 1.55;
 }
@@ -111,12 +111,12 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
-  background-color: #cbd5e1;
-  border: 1px solid #cbd5e1;
+  background-color: rgba(250, 249, 245, 0.08);
+  border: 1px solid rgba(250, 249, 245, 0.08);
 }
 
 .sch-panel {
-  background-color: #ffffff;
+  background-color: #1a1a19;
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
@@ -126,7 +126,7 @@
 }
 
 .sch-panel:hover {
-  background-color: #f8fafc;
+  background-color: #1e1e1d;
 }
 
 .sch-panel-visual {
@@ -142,15 +142,15 @@
 }
 
 .sch-svg-bg {
-  fill: #ffffff;
-  stroke: rgba(74, 92, 245, 0.15);
+  fill: #1c1c1a;
+  stroke: rgba(250, 249, 245, 0.1);
   stroke-width: 1px;
   transition: all 0.5s ease;
 }
 
 .sch-svg-icon {
   fill: none;
-  stroke: #4a5cf5;
+  stroke: rgba(250, 249, 245, 0.6);
   stroke-width: 2px;
   stroke-linecap: round;
   transform-origin: center;
@@ -158,7 +158,7 @@
 }
 
 .sch-svg-dot {
-  color: #4a5cf5;
+  color: rgba(250, 249, 245, 0.6);
   transition: all 0.4s ease;
 }
 
@@ -174,8 +174,8 @@
 }
 
 .sch-panel:hover .sch-svg-bg {
-  stroke: #4a5cf5;
-  fill: rgba(74, 92, 245, 0.03);
+  stroke: rgba(250, 249, 245, 0.25);
+  fill: rgba(250, 249, 245, 0.03);
 }
 
 .sch-panel:hover .sch-spin-hover {
@@ -188,12 +188,12 @@
 }
 
 .sch-panel:hover .sch-svg-text {
-  fill: #1e293b;
+  fill: rgba(250, 249, 245, 0.75);
 }
 
 .sch-panel-content {
   width: 100%;
-  border-top: 1px dashed #cbd5e1;
+  border-top: 1px dashed rgba(250, 249, 245, 0.08);
   padding-top: 18px;
 }
 
@@ -208,7 +208,7 @@
 
 .sch-list a {
   text-decoration: none;
-  color: #475569;
+  color: rgba(250, 249, 245, 0.55);
   font-size: 13px;
   line-height: 1.35;
   font-weight: 450;
@@ -221,35 +221,35 @@
 .sch-list a::before {
   content: "›";
   margin-right: 8px;
-  color: #94a3b8;
+  color: rgba(250, 249, 245, 0.35);
   font-size: 15px;
   line-height: 1.1;
   transition: margin 0.2s ease, color 0.2s ease;
 }
 
 .sch-list a:hover {
-  color: #4a5cf5;
+  color: rgba(250, 249, 245, 0.85);
 }
 
 .sch-list a:hover::before {
   margin-right: 10px;
-  color: #4a5cf5;
+  color: rgba(250, 249, 245, 0.85);
 }
 
 .sch-panel-note {
-  background-color: #f8fafc;
+  background-color: #1e1e1d;
 }
 
 .sch-footer-note-title {
   margin: 0 0 8px;
-  color: #0f172a;
+  color: rgba(250, 249, 245, 0.8);
   font-size: 13px;
   font-weight: 700;
 }
 
 .sch-footer-note {
   margin: 0;
-  color: #475569;
+  color: rgba(250, 249, 245, 0.5);
   font-size: 13px;
   line-height: 1.55;
 }
@@ -266,8 +266,8 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   padding: 24px 0;
-  border-top: 1px solid #cbd5e1;
-  border-bottom: 1px solid #cbd5e1;
+  border-top: 1px solid rgba(250, 249, 245, 0.08);
+  border-bottom: 1px solid rgba(250, 249, 245, 0.08);
 }
 
 .sch-footer-utility-col {
@@ -290,7 +290,7 @@
 
 .sch-footer-col-title {
   margin: 0;
-  color: #64748b;
+  color: rgba(250, 249, 245, 0.4);
   font-size: 11px;
   font-weight: 700;
   line-height: 1.2;
@@ -312,10 +312,10 @@
   gap: 8px;
   min-height: 36px;
   padding: 8px 12px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid rgba(250, 249, 245, 0.15);
   border-radius: 999px;
-  background: #ffffff;
-  color: #475569;
+  background: transparent;
+  color: rgba(250, 249, 245, 0.55);
   text-decoration: none;
   font-size: 12px;
   line-height: 1;
@@ -324,9 +324,9 @@
 }
 
 .sch-social-icon-link:hover {
-  border-color: #4a5cf5;
-  color: #4a5cf5;
-  background: rgba(74, 92, 245, 0.04);
+  border-color: rgba(250, 249, 245, 0.3);
+  color: rgba(250, 249, 245, 0.85);
+  background: rgba(250, 249, 245, 0.05);
 }
 
 .sch-social-svg {
@@ -353,10 +353,10 @@
   align-items: center;
   min-height: 32px;
   padding: 7px 10px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid rgba(250, 249, 245, 0.12);
   border-radius: 8px;
-  background: #f8fafc;
-  color: #64748b;
+  background: transparent;
+  color: rgba(250, 249, 245, 0.45);
   text-decoration: none;
   font-size: 12px;
   line-height: 1;
@@ -365,9 +365,9 @@
 }
 
 .sch-resource-link:hover {
-  border-color: #4a5cf5;
-  color: #4a5cf5;
-  background: #ffffff;
+  border-color: rgba(250, 249, 245, 0.3);
+  color: rgba(250, 249, 245, 0.85);
+  background: rgba(250, 249, 245, 0.05);
 }
 
 .sch-bottom-nav {
@@ -401,10 +401,10 @@
   align-items: center;
   min-height: 32px;
   padding: 7px 12px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid rgba(250, 249, 245, 0.12);
   border-radius: 8px;
-  background: #ffffff;
-  color: #334155;
+  background: transparent;
+  color: rgba(250, 249, 245, 0.5);
   text-decoration: none;
   font-size: 12px;
   line-height: 1;
@@ -414,9 +414,9 @@
 }
 
 .sch-platform-links a:hover {
-  border-color: #4a5cf5;
-  color: #4a5cf5;
-  background: rgba(74, 92, 245, 0.04);
+  border-color: rgba(250, 249, 245, 0.3);
+  color: rgba(250, 249, 245, 0.85);
+  background: rgba(250, 249, 245, 0.05);
 }
 
 .sch-legal-links {
@@ -429,7 +429,7 @@
 }
 
 .sch-legal-links a {
-  color: #64748b;
+  color: rgba(250, 249, 245, 0.45);
   text-decoration: none;
   font-size: 12px;
   line-height: 1.2;
@@ -440,7 +440,7 @@
 }
 
 .sch-legal-links a:hover {
-  color: #0f172a;
+  color: rgba(250, 249, 245, 0.85);
 }
 
 .sch-meta-info {
@@ -454,14 +454,14 @@
 }
 
 .sch-meta-sep {
-  color: #94a3b8;
+  color: rgba(250, 249, 245, 0.3);
   font-size: 12px;
   line-height: 1;
   user-select: none;
 }
 
 .sch-mono-text {
-  color: #64748b;
+  color: rgba(250, 249, 245, 0.45);
   font-size: 12px;
   line-height: 1.25;
   letter-spacing: 0.01em;

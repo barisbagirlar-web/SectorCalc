@@ -381,6 +381,161 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "Her iki üretim yöntemi için kurulum maliyetleri ve birim maliyetlerin başabaş analizini kullanarak, 3B baskının CNC işlemeye (veya tersi) hangi üretim miktarında daha ekonomik olduğunu belirler.\n\nEklemeli imalat ile talaşlı imalat arasında seçim yapmak, modern üretimdeki en yaygın kararlardan biridir. Veri odaklı karşılaştırma olmadan ekipler alışkanlığa göre hareket eder — yüksek hacimlerde eklemeli veya düşük hacimlerde talaşlı imalat için fazla ödeme yapar. Bu araç, geçiş miktarını, toplam maliyet eğrilerini ve belirtilen herhangi bir hacimdeki maliyet farkını hesaplar.\n\nÖrnek: 3B baskı 100$ kurulum ve parça başı 5$; işleme 500$ kurulum ve parça başı 2$ ile başabaş miktarı 134 parçadır. 134 birimin altında baskı daha ucuzdur; üstünde işleme kazanır. 100 birimde baskı 600$'a karşılık işleme 700$ tutar.\n\nİmalat mühendisleri, üretim planlamacıları ve tedarik yöneticileri, herhangi bir üretim miktarı için en uygun maliyetli üretim sürecini objektif olarak seçmek, tahminleri ortadan kaldırmak ve parça başı maliyetleri azaltmak için bu başabaş analizörünü kullanır.",
   },
+  "hydraulic-cylinder-tonnage-power-calculator": {
+    title: "Hidrolik Silindir Tonaj ve Güç Hesaplayıcısı",
+    painStatement:
+      "Hidrolik silindir boyutlandırması, tonaj ve motor gücü için eş zamanlı kuvvet, hız ve güç hesaplamaları gerektirir. Piston kolu strok oranının gözden kaçırılması feci burkulma hasarına yol açabilir.",
+  },
+  "compressor-power-air-flow-calculator": {
+    title: "Kompresör Gücü ve Hava Akış Hesaplayıcısı",
+    painStatement:
+      "Polytropik üs ve çok kademeli düzeltme olmadan yapılan kompresör gücü hesaplamaları, aşırı büyük veya küçük boyutlandırılmış motorlara yol açar.",
+  },
+  "cutting-parameters-power-calculator": {
+    title: "Kesme Parametreleri ve Güç Hesaplayıcısı",
+    painStatement:
+      "Manuel kesme parametresi seçimi, makine kullanımını %60'ın altında bırakır ve önlenebilir takım aşınmasına neden olur.",
+  },
+  "evaporative-cooling-capacity-calculator": {
+    title: "Evaporatif Soğutma (FES) Kapasite Hesaplayıcısı",
+    painStatement:
+      "Evaporatif soğutma sistemi boyutlandırması psikrometrik hesaplama ve ped verimliliği gerektirir—bunlar atlanırsa yetersiz soğutma ortaya çıkar.",
+  },
+  "condenser-precooling-savings-calculator": {
+    title: "Kondenser Ön Soğutma (Adyabatik) Enerji Tasarrufu",
+    painStatement:
+      "Kondenser ön soğutma analizi olmadan adyabatik soğutmadan elde edilecek enerji tasarrufunu ölçemezsiniz.",
+  },
+  "pad-media-psychrometric-calculator": {
+    title: "Ped Medya Psikrometrik Analizi",
+    painStatement:
+      "Ped medya verimliliği, ped kalınlığı, hava hızı ve psikrometrik koşullara bağlıdır—manuel hesaplama saatler kaybettirir.",
+  },
+  "fgas-leak-co2-calculator": {
+    title: "F-Gaz Sızıntısı ve CO₂ Eşdeğer Hesaplayıcısı",
+    painStatement:
+      "F-gaz sızıntısı ölçümü, GWP hesaplaması ve mevzuat uyum kontrolleri gerektirir.",
+  },
+  "water-footprint-calculator": {
+    title: "Su Ayak İzi Hesaplayıcısı",
+    painStatement:
+      "Mavi/yeşil/gri su ayrımı olmadan yapılan su ayak izi analizi gerçek çevresel etkiyi gizler.",
+  },
+  "shev-smoke-exhaust-calculator": {
+    title: "SHEV Duman Tahliye Hesaplayıcısı",
+    painStatement:
+      "EN 12101-5'e göre duman tahliye boyutlandırması kütle akışı ve alan hesaplamaları gerektirir.",
+  },
+  "natural-ventilation-ach-calculator": {
+    title: "Doğal Havalandırma (ACH) İhtiyaç Hesaplayıcısı",
+    painStatement:
+      "Doğal havalandırma boyutlandırması, kaldırma kuvvetiyle oluşan akış hesaplamalarını gerektirir.",
+  },
+  "compound-interest-calculator": {
+    title: "Bileşik Faiz Hesaplayıcısı (Detaylı)",
+    painStatement:
+      "Birleştirme sıklığı ayarı olmadan yapılan bileşik faiz hesaplamaları yanıltıcı gelecek değer tahminleri verir.",
+  },
+  "living-wage-calculator": {
+    title: "Yaşam Ücreti Hesaplayıcısı",
+    painStatement:
+      "Çalışan başına gerçek işveren maliyetini hesaplamak, brüt maaş, fazla mesai, SGK, vergiler ve yan ödemelerin toplanmasını gerektirir.",
+  },
+  "panel-radiator-heating-capacity-calculator": {
+    title: "Panel Radyatör Isıtma Kapasitesi Hesaplayıcısı",
+    painStatement:
+      "Panel radyatör boyutlandırması, oda ısı kaybı hesabı ve standart dışı sıcaklıklar için panel çıkış düzeltmesini gerektirir.",
+  },
+  "underfloor-heating-design-calculator": {
+    title: "Yerden Isıtma Tasarım Hesaplayıcısı",
+    painStatement:
+      "EN 1264'e göre yerden ısıtma tasarımı, yinelemeli zemin sıcaklığı ve devre sayısı hesaplaması gerektirir.",
+  },
+  "solar-tube-collector-sizing-calculator": {
+    title: "Güneş Tüpü / Güneş Kollektörü Boyutlandırma Hesaplayıcısı",
+    painStatement:
+      "Güneş kollektörü boyutlandırması, sıcak su talebi, kollektör alanı, depolama ve yardımcı ısıtma arasında denge kurmayı gerektirir.",
+  },
+  "epq-production-quantity-calculator": {
+    title: "EPQ (Ekonomik Üretim Miktarı) Hesaplayıcısı",
+    painStatement:
+      "Klasik EOQ formülü, sınırlı üretim hızlarını dikkate almayarak parti boyutlarını olduğundan büyük tahmin eder.",
+  },
+  "kanban-bin-card-calculator": {
+    title: "Kanban Kutu / Kart Sayısı Hesaplayıcısı",
+    painStatement:
+      "Doğru Kanban kart sayısını belirlemek, stokta kalma riski ile YİP arasında talep ve teslim süresi üzerinden denge kurar.",
+  },
+  "littles-law-calculator": {
+    title: "Little Yasası (YİP) Hesaplayıcısı",
+    painStatement:
+      "YİP/CT/TH üçlüsünden herhangi ikisini vererek üçüncüyü hesaplayın ve YİP'i finansal riske dönüştürün.",
+  },
+  "milk-run-route-calculator": {
+    title: "Milk Run Rota Optimizasyon Hesaplayıcısı",
+    painStatement:
+      "Milk-run lojistiği, tedarikçi mesafesi, kapasite, yükleme süresi ve sürücü maliyetleri arasında denge kurmalıdır.",
+  },
+  "cpm-pert-calculator": {
+    title: "CPM / PERT (Kritik Yol) Hesaplayıcısı",
+    painStatement:
+      "İyimser/en olası/kötümser sürelerle PERT analizi, olasılıksal proje tamamlama tahminleri sağlar.",
+  },
+  "queuing-mm1-calculator": {
+    title: "Kuyruk Teorisi (M/M/1) Hesaplayıcısı",
+    painStatement:
+      "Varış ve hizmet oranı modellemesi olmadan yapılan kuyruk analizi, yetersiz veya fazla personellendirilmiş operasyonlara yol açar.",
+  },
+  "fmea-rpn-calculator": {
+    title: "FMEA RPN (Risk Öncelik Numarası) Hesaplayıcısı",
+    painStatement:
+      "Manuel FMEA RPN hesaplaması, fonksiyonlar arası risk önceliklendirmesini kaçırır.",
+  },
+  "doe-factorial-design-calculator": {
+    title: "DOE Faktöriyel Tasarım Hesaplayıcısı",
+    painStatement:
+      "Deney Tasarımı, merkez noktaları ve bloklama ile uygun faktöriyel tasarım gerektirir.",
+  },
+  "reliability-block-calculator": {
+    title: "Güvenilirlik Bloğu (RBD/MTBF) Hesaplayıcısı",
+    painStatement:
+      "Seri/paralel sistemler için güvenilirlik hesaplamaları, MTBF ve MTTR birleştirmesi gerektirir.",
+  },
+  "niosh-lifting-calculator": {
+    title: "NIOSH Kaldırma (Revize) Hesaplayıcısı",
+    painStatement:
+      "NIOSH kaldırma denklemi, yatay/dikey/kenetlenme/frekans çarpanlarını gerektirir.",
+  },
+  "reba-rapid-body-assessment-calculator": {
+    title: "REBA (Hızlı Tüm Vücut Değerlendirmesi)",
+    painStatement:
+      "Hignett & McAtamney'a göre REBA ergonomik puanlaması, A grubu ve B grubu puanlaması gerektirir.",
+  },
+  "rcm-decision-calculator": {
+    title: "RCM (Güvenilirlik Merkezli Bakım) Karar Hesaplayıcısı",
+    painStatement:
+      "RCM karar analizi, planlı ve plansız bakım maliyetlerini karşılaştırır.",
+  },
+  "pareto-root-cause-calculator": {
+    title: "Pareto / Kök Neden Analizi Hesaplayıcısı",
+    painStatement:
+      "Kümülatif yüzde sıralaması olmadan Pareto (80/20) analizi, hayati az sayıdaki kök nedeni kaçırır.",
+  },
+  "value-added-process-analyzer": {
+    title: "Katma Değerli Süreç (VAP) Oran Analizörü",
+    painStatement:
+      "VAP oran analizi, katma değerli zamanı katma değersiz zamandan ayırır.",
+  },
+  "kaizen-event-tracker": {
+    title: "Kaizen Etkinlik / Maliyet Tasarrufu Takipçisi",
+    painStatement:
+      "Kaizen etkinlik ROI takibi, çevrim süresi, fire oranı ve duruş süresinde önce/sonra metrikleri gerektirir.",
+  },
+  "fives-audit-scoring-calculator": {
+    title: "5S Denetim Puanlama Hesaplayıcısı",
+    painStatement:
+      "5S denetim puanlaması, her bir S kategorisini tutarlı derecelendirme kriterlerine göre sıralamayı gerektirir.",
+  },
 };
 
 const PREMIUM_SCHEMA_I18N: Partial<Record<AppLocale, Record<string, LocalizedPremiumSchema>>> = {

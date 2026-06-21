@@ -12964,6 +12964,26 @@ export const USER_FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     label: "Milk Run — Daily Cost",
     fn: (inputs) => { const n = num(inputs, "tedarikciSayisi", 5); const d = num(inputs, "tedarikciMesafe_ortalama", 50); const t = num(inputs, "turSayisi_gunluk", 2); const kmCost = num(inputs, "arabaMaliyeti_km", 5); const driver = num(inputs, "surucuSaatUcreti", 200); const loading = num(inputs, "yuklemeBosaltmaDk", 30); const wait = num(inputs, "beklemeSuresiDk", 15); const speed = num(inputs, "ortalamaHiz_kmh", 50); const totalDist = d * n * t; const driveTime = (totalDist / speed) * 60; const totalTime = driveTime + (loading + wait) * n * t; const fuel = totalDist * kmCost; const labor = (totalTime / 60) * driver; return nonNegative(assertFinite(fuel + labor)); },
   },
+  // ── HYDRAULIC CYLINDER TONNAGE & POWER ──
+  {
+    id: "industrial.hydraulic_cylinder_tonnage_0",
+    family: "industrial",
+    label: "Hydraulic Cylinder Tonnage — push force (ton-f)",
+    fn: (inputs) => {
+      const D = num(inputs, "pistonDiameter_D", 63);
+      const d = num(inputs, "rodDiameter_d", 36);
+      const P = num(inputs, "systemPressure_P", 200);
+      const n = num(inputs, "cylinderCount_n", 1);
+      const η_v = num(inputs, "volumetricEfficiency_η_v", 95) / 100;
+      const η_m = num(inputs, "mechanicalEfficiency_η_m", 95) / 100;
+      const f = num(inputs, "frictionLossCoeff", 0.05);
+      const A_push_m2 = (Math.PI * D * D) / 4e6;
+      const P_Pa = P * 1e5;
+      const F_push_N = P_Pa * A_push_m2 * η_m * (1 - f);
+      const F_push_ton = F_push_N / 9806.65;
+      return nonNegative(assertFinite(F_push_ton));
+    },
+  },
 ];
 
 export const USER_FORMULA_META_DETAILS: Record<
@@ -14345,4 +14365,6 @@ export const USER_FORMULA_META_DETAILS: Record<
   "industrial.kanban": { description: "Kanban: required card count", requiredInputs: ["gunlukTalep_d","tedarikSuresi_LT","guvenlikStoguFaktoru_k","kutuKapasitesi_q"], outputHint: "number" },
   "industrial.littles_law": { description: "Little's Law: cycle time / WIP / throughput", requiredInputs: ["prosesTipi","wip_miktar","cikisHizi","cevrimSuresi_CT"], outputHint: "number" },
   "industrial.milk_run": { description: "Milk Run: daily route cost", requiredInputs: ["tedarikciSayisi","tedarikciMesafe_ortalama","turSayisi_gunluk","arabaMaliyeti_km","surucuSaatUcreti","yuklemeBosaltmaDk","beklemeSuresiDk","ortalamaHiz_kmh"], outputHint: "number" },
+  // ── HYDRAULIC CYLINDER TONNAGE & POWER ──
+  "industrial.hydraulic_cylinder_tonnage_0": { description: "Hydraulic Cylinder Tonnage: push force (ton-f) = (P × A_push × η_m × (1-f)) / 9806.65", requiredInputs: ["pistonDiameter_D","rodDiameter_d","systemPressure_P","cylinderCount_n","volumetricEfficiency_η_v","mechanicalEfficiency_η_m","frictionLossCoeff"], outputHint: "number" },
 };

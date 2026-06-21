@@ -291,7 +291,163 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
     title: "7 Verschwendungsarten (Muda) – monetärer Impact-Rechner",
     painStatement:
       "Quantifiziert die monetären Auswirkungen aller 7 Lean-Verschwendungsarten (Muda) — Überproduktion, Warten, Transport, Bestand, Bewegung, Überbearbeitung und Fehler — und übersetzt operative Ineffizienzen in finanzielle Kennzahlen, auf die das Management reagieren kann.\n\nTraditionelle Verschwendungsverfolgung beschränkt sich auf Fehlerzählung oder Stillstandszeiten. Dieses Tool wandelt jede Verschwendungskategorie in Periodenkosten, annualisierten Verlust, Abfall-Umsatz-Verhältnis und risikoadjustierte Prioritätswerte um. Es zeigt, welche Muda-Kategorie am teuersten ist und wo Kaizen die höchste Rendite erzielt.\n\nBeispiel: Eine Fabrik mit 50 Überproduktionseinheiten, 20 Wartestunden und 15 Fehlereinheiten in 30 Tagen entdeckt, dass Warten und Fehler 62% der gesamten Abfallkosten von 28.500 € ausmachen. Das Tool priorisiert Fehlerreduzierung mit einem risikoadjustierten Wert von 4,2/5 und prognostiziert jährliche Einsparungen von 17.700 €.\n\nProduktionsleiter, Lean-Koordinatoren und Werksdirektoren nutzen diesen Analysator, um Muda in vorstandsgerechte Finanzkennzahlen zu übersetzen, Verbesserungsinvestitionen nach ROI zu priorisieren und die Reduzierung des Abfall-Umsatz-Verhältnisses über aufeinanderfolgende Perioden zu verfolgen.",
-  }};
+  },
+  "hydraulic-cylinder-tonnage-power-calculator": {
+    title: "Hydraulikzylinder-Tonnage- und Leistungsrechner",
+    painStatement:
+      "Die Dimensionierung von Hydraulikzylindern erfordert gleichzeitige Kraft-, Geschwindigkeits- und Leistungsberechnungen für Tonnage und Motorleistung. Ein falsches Kolbenstangen-Hub-Verhältnis kann katastrophales Knickversagen verursachen.",
+  },
+  "compressor-power-air-flow-calculator": {
+    title: "Kompressorleistungs- und Luftstromrechner",
+    painStatement:
+      "Kompressorleistungsberechnungen ohne korrekten Polytropenexponenten und mehrstufige Korrektur führen zu über- oder unterdimensionierten Motoren.",
+  },
+  "cutting-parameters-power-calculator": {
+    title: "Schnittparameter- und Leistungsrechner",
+    painStatement:
+      "Manuelle Schnittparameterwahl lässt die Maschinenauslastung unter 60% fallen und verursacht vermeidbaren Werkzeugverschleiß.",
+  },
+  "evaporative-cooling-capacity-calculator": {
+    title: "Verdunstungskühlungs-(FES)-Kapazitätsrechner",
+    painStatement:
+      "Die Dimensionierung von Verdunstungskühlsystemen erfordert psychrometrische Berechnungen und Pad-Wirkungsgrad — das Fehlen führt zu unzureichender Kühlung.",
+  },
+  "condenser-precooling-savings-calculator": {
+    title: "Kondensator-Vorkühlung (adiabatische) Energieeinsparung",
+    painStatement:
+      "Ohne Kondensator-Vorkühlungsanalyse können Sie die Energieeinsparung durch adiabatische Kühlung nicht quantifizieren.",
+  },
+  "pad-media-psychrometric-calculator": {
+    title: "Pad-Medien-psychrometrische Analyse",
+    painStatement:
+      "Der Pad-Medien-Wirkungsgrad hängt von Pad-Dicke, Luftgeschwindigkeit und psychrometrischen Bedingungen ab — manuelles Nachschlagen kostet Stunden.",
+  },
+  "fgas-leak-co2-calculator": {
+    title: "F-Gas-Leck- und CO₂-Äquivalentrechner",
+    painStatement:
+      "Die F-Gas-Leckquantifizierung erfordert GWP-Berechnung und gesetzliche Compliance-Prüfungen.",
+  },
+  "water-footprint-calculator": {
+    title: "Wasserfußabdruckrechner",
+    painStatement:
+      "Wasserfußabdruckanalyse ohne Aufteilung in blaues/grünes/graues Wasser verbirgt die tatsächlichen Umweltauswirkungen.",
+  },
+  "shev-smoke-exhaust-calculator": {
+    title: "SHEV-Rauchabzugs-Dimensionsrechner",
+    painStatement:
+      "Die Rauchabzugsdimensionierung nach EN 12101-5 erfordert Massenstrom- und Flächenberechnungen.",
+  },
+  "natural-ventilation-ach-calculator": {
+    title: "Natürlicher Lüftungs-(ACH)-Bedarfrechner",
+    painStatement:
+      "Die natürliche Lüftungsdimensionierung erfordert auftriebsgetriebene Strömungsberechnungen.",
+  },
+  "compound-interest-calculator": {
+    title: "Zinseszinsrechner (detailliert)",
+    painStatement:
+      "Zinseszinsberechnungen ohne Anpassung der Zinseszinshäufigkeit führen zu irreführenden Zukunftswertprognosen.",
+  },
+  "living-wage-calculator": {
+    title: "Existenzlohnrechner",
+    painStatement:
+      "Die Berechnung der tatsächlichen Arbeitgeberkosten pro Mitarbeiter erfordert die Aggregation von Bruttogehalt, Überstunden, Sozialabgaben, Steuern und Zulagen.",
+  },
+  "panel-radiator-heating-capacity-calculator": {
+    title: "Plattenheizkörper-Heizleistungsrechner",
+    painStatement:
+      "Die Dimensionierung eines Plattenheizkörpers erfordert Raumwärmeverlustberechnung und Heizkörperleistungskorrektur für nicht standardmäßige Temperaturen.",
+  },
+  "underfloor-heating-design-calculator": {
+    title: "Fußbodenheizungs-Designrechner",
+    painStatement:
+      "Die Fußbodenheizungsauslegung nach EN 1264 erfordert iterative Bodenvorlauftemperatur- und Kreiszahlberechnung.",
+  },
+  "solar-tube-collector-sizing-calculator": {
+    title: "Solarkollektor-Dimensionierungsrechner",
+    painStatement:
+      "Die Solarkollektordimensionierung erfordert die Abstimmung von Warmwasserbedarf, Kollektorfläche, Speicher und Zusatzheizung.",
+  },
+  "epq-production-quantity-calculator": {
+    title: "EPQ (Economical Production Quantity) Rechner",
+    painStatement:
+      "Die klassische EOQ-Formel ignoriert endliche Produktionsraten und überschätzt dadurch die Losgrößen.",
+  },
+  "kanban-bin-card-calculator": {
+    title: "Kanban-Behälter-/Kartenanzahlrechner",
+    painStatement:
+      "Die richtige Kanban-Kartenanzahl balanciert Bestandsrisiko und Umlaufbestand durch Nachfrage- und Durchlaufzeit.",
+  },
+  "littles-law-calculator": {
+    title: "Little's Law (Umlaufbestand) Rechner",
+    painStatement:
+      "Aus zwei beliebigen Größen von Umlaufbestand/Durchlaufzeit/Durchsatz die dritte berechnen und Umlaufbestand in finanzielle Risiken übersetzen.",
+  },
+  "milk-run-route-calculator": {
+    title: "Milk-Run-Routenoptimierungsrechner",
+    painStatement:
+      "Milk-Run-Logistik muss Lieferantenentfernung, Kapazität, Ladezeit und Fahrerkosten ausbalancieren.",
+  },
+  "cpm-pert-calculator": {
+    title: "CPM / PERT (kritischer Pfad) Rechner",
+    painStatement:
+      "PERT-Analyse mit optimistischsten/wahrscheinlichsten/pessimistischsten Zeiten liefert probabilistische Projektabschlussprognosen.",
+  },
+  "queuing-mm1-calculator": {
+    title: "Warteschlangentheorie (M/M/1) Rechner",
+    painStatement:
+      "Warteschlangenanalyse ohne Ankunfts- und Bedienratenmodellierung führt zu unter- oder überbesetzten Betrieben.",
+  },
+  "fmea-rpn-calculator": {
+    title: "FMEA-RPN (Risikoprioritätszahl) Rechner",
+    painStatement:
+      "Manuelle FMEA-RPN-Berechnung verfehlt die funktionsübergreifende Risikopriorisierung.",
+  },
+  "doe-factorial-design-calculator": {
+    title: "DOE-Faktorieller-Design-Rechner",
+    painStatement:
+      "Versuchsplanung erfordert korrekte faktorielle Designs mit Mittelpunkten und Blockbildung.",
+  },
+  "reliability-block-calculator": {
+    title: "Zuverlässigkeitsblock-(RBD/MTBF)-Rechner",
+    painStatement:
+      "Zuverlässigkeitsberechnungen für Serie/Parallel-Systeme erfordern MTBF- und MTTR-Aggregation.",
+  },
+  "niosh-lifting-calculator": {
+    title: "NIOSH-Hebevorgangs-(überarbeiteter)-Rechner",
+    painStatement:
+      "Die NIOSH-Hebegleichung erfordert horizontale/vertikale/Kopplungs-/Frequenzmultiplikatoren.",
+  },
+  "reba-rapid-body-assessment-calculator": {
+    title: "REBA (Rapid Entire Body Assessment) Rechner",
+    painStatement:
+      "REBA-ergonomische Bewertung nach Hignett & McAtamney erfordert Gruppe-A- und Gruppe-B-Bewertung.",
+  },
+  "rcm-decision-calculator": {
+    title: "RCM (Reliability-Centered Maintenance) Entscheidungsrechner",
+    painStatement:
+      "RCM-Entscheidungsanalyse vergleicht geplante vs. ungeplante Wartungskosten.",
+  },
+  "pareto-root-cause-calculator": {
+    title: "Pareto-/Ursachenanalyse-Rechner",
+    painStatement:
+      "Pareto-(80/20)-Analyse ohne kumulative Prozentsortierung übersieht die wenigen lebenswichtigen Ursachen.",
+  },
+  "value-added-process-analyzer": {
+    title: "Wertschöpfungsprozess-(VAP)-Verhältnis-Analysator",
+    painStatement:
+      "VAP-Verhältnisanalyse trennt wertschöpfende von nicht-wertschöpfender Zeit.",
+  },
+  "kaizen-event-tracker": {
+    title: "Kaizen-Ereignis-/Kosteneinsparungs-Tracker",
+    painStatement:
+      "Kaizen-Event-ROI-Tracking erfordert Vorher-/Nachher-Kennzahlen zu Zykluszeit, Ausschussrate und Stillstandszeit.",
+  },
+  "fives-audit-scoring-calculator": {
+    title: "5S-Audit-Bewertungsrechner",
+    painStatement:
+      "5S-Audit-Bewertung erfordert die Sortierung jeder S-Kategorie mit konsistenten Bewertungskriterien.",
+  },
+};
 
 export const FR_SCHEMAS: Record<string, { title?: string; painStatement?: string }> = {
   "cnc-oee-loss": {
@@ -578,7 +734,163 @@ export const FR_SCHEMAS: Record<string, { title?: string; painStatement?: string
     title: "Calculateur d'impact monétaire des 7 gaspillages (Muda)",
     painStatement:
       "Quantifie l'impact monétaire des 7 gaspillages Lean (Muda) — surproduction, attente, transport, stock, mouvement, sur-traitement et défauts — en traduisant les inefficacités opérationnelles en termes financiers directs sur lesquels la direction peut agir.\n\nLe suivi traditionnel des gaspillages se limite à compter les défauts ou à mesurer les heures d'arrêt. Cet outil convertit chaque catégorie de gaspillage en coût périodique, perte annualisée, ratio déchets/revenus et scores de priorité ajustés au risque. Il classe quelle catégorie Muda coûte le plus cher et où le kaizen offrira le meilleur retour.\n\nExemple : Une usine avec 50 unités de surproduction, 20 heures d'attente et 15 unités défectueuses sur 30 jours découvre que l'attente et les défauts représentent 62% du coût total des déchets de 28 500 €. L'outil priorise la réduction des défauts avec un score de 4,2/5 et projette 17 700 € d'économies annuelles.\n\nLes directeurs de production, coordinateurs Lean et chefs d'usine utilisent cet analyseur pour traduire le Muda en indicateurs financiers prêts pour le conseil d'administration, prioriser les investissements d'amélioration par ROI et suivre la réduction du ratio déchets/revenus sur des périodes consécutives.",
-  }};
+  },
+  "hydraulic-cylinder-tonnage-power-calculator": {
+    title: "Calculateur de tonnage et puissance de vérin hydraulique",
+    painStatement:
+      "Le dimensionnement des vérins hydrauliques pour le tonnage et la puissance moteur nécessite des calculs simultanés de force, vitesse et puissance. Un mauvais rapport tige/course peut provoquer un flambage catastrophique.",
+  },
+  "compressor-power-air-flow-calculator": {
+    title: "Calculateur de puissance compresseur et débit d'air",
+    painStatement:
+      "Les calculs de puissance de compresseur sans exposant polytropique correct et correction multi-étages conduisent à des moteurs surdimensionnés ou sous-dimensionnés.",
+  },
+  "cutting-parameters-power-calculator": {
+    title: "Calculateur de paramètres de coupe et puissance",
+    painStatement:
+      "La sélection manuelle des paramètres de coupe laisse l'utilisation machine sous 60% et provoque une usure d'outil évitable.",
+  },
+  "evaporative-cooling-capacity-calculator": {
+    title: "Calculateur de capacité de refroidissement évaporatif (FES)",
+    painStatement:
+      "Le dimensionnement d'un système de refroidissement évaporatif nécessite un calcul psychrométrique et l'efficacité du pad — leur absence mène à un refroidissement inadéquat.",
+  },
+  "condenser-precooling-savings-calculator": {
+    title: "Économies d'énergie pré-refroidissement (adiabatique) condenseur",
+    painStatement:
+      "Sans analyse du pré-refroidissement du condenseur, vous ne pouvez pas quantifier les économies d'énergie du refroidissement adiabatique.",
+  },
+  "pad-media-psychrometric-calculator": {
+    title: "Analyse psychrométrique de média de pad",
+    painStatement:
+      "L'efficacité du média de pad dépend de l'épaisseur, de la vitesse d'air et des conditions psychrométriques — la consultation manuelle fait perdre des heures.",
+  },
+  "fgas-leak-co2-calculator": {
+    title: "Calculateur de fuite de gaz F et équivalent CO₂",
+    painStatement:
+      "La quantification des fuites de gaz F nécessite le calcul du PRG et des vérifications de conformité réglementaire.",
+  },
+  "water-footprint-calculator": {
+    title: "Calculateur d'empreinte eau",
+    painStatement:
+      "L'analyse de l'empreinte eau sans distinction eau bleue/verte/grise cache le véritable impact environnemental.",
+  },
+  "shev-smoke-exhaust-calculator": {
+    title: "Calculateur de dimensionnement désenfumage (SHEV)",
+    painStatement:
+      "Le dimensionnement du désenfumage selon EN 12101-5 nécessite des calculs de débit massique et de surface.",
+  },
+  "natural-ventilation-ach-calculator": {
+    title: "Calculateur de besoin de ventilation naturelle (ACH)",
+    painStatement:
+      "Le dimensionnement de la ventilation naturelle nécessite des calculs d'écoulement par convection naturelle.",
+  },
+  "compound-interest-calculator": {
+    title: "Calculateur d'intérêts composés (détaillé)",
+    painStatement:
+      "Les calculs d'intérêts composés sans ajustement de la fréquence de composition donnent des projections de valeur future trompeuses.",
+  },
+  "living-wage-calculator": {
+    title: "Calculateur de salaire vital",
+    painStatement:
+      "Le calcul du coût employeur réel par employé nécessite l'agrégation du salaire brut, des heures sup, des charges sociales, des taxes et des allocations.",
+  },
+  "panel-radiator-heating-capacity-calculator": {
+    title: "Calculateur de capacité de chauffage radiateur panneau",
+    painStatement:
+      "Le dimensionnement d'un radiateur panneau nécessite le calcul des déperditions thermiques de la pièce et la correction de la puissance du radiateur pour températures non standard.",
+  },
+  "underfloor-heating-design-calculator": {
+    title: "Calculateur de conception de chauffage par le sol",
+    painStatement:
+      "La conception du chauffage par le sol selon EN 1264 nécessite un calcul itératif de température de surface et de nombre de circuits.",
+  },
+  "solar-tube-collector-sizing-calculator": {
+    title: "Calculateur de dimensionnement de capteur solaire",
+    painStatement:
+      "Le dimensionnement d'un capteur solaire nécessite l'équilibrage entre la demande d'eau chaude, la surface du capteur, le stockage et l'appoint auxiliaire.",
+  },
+  "epq-production-quantity-calculator": {
+    title: "Calculateur EPQ (Quantité Économique de Production)",
+    painStatement:
+      "La formule classique EOQ ignore les taux de production finis, surestimant les tailles de lot.",
+  },
+  "kanban-bin-card-calculator": {
+    title: "Calculateur de nombre de bacs/cartes Kanban",
+    painStatement:
+      "Définir le bon nombre de cartes Kanban équilibre le risque de rupture et l'en-cours via la demande et le délai.",
+  },
+  "littles-law-calculator": {
+    title: "Calculateur de la loi de Little (WIP)",
+    painStatement:
+      "Étant donnés deux des trois paramètres WIP/CT/TH, calculez le troisième et traduisez le WIP en exposition financière.",
+  },
+  "milk-run-route-calculator": {
+    title: "Calculateur d'optimisation de tournée Milk Run",
+    painStatement:
+      "La logistique Milk Run doit équilibrer distance fournisseur, capacité, temps de chargement et coûts conducteur.",
+  },
+  "cpm-pert-calculator": {
+    title: "Calculateur CPM/PERT (chemin critique)",
+    painStatement:
+      "L'analyse PERT avec temps optimistes/probables/pessimistes donne des estimations probabilistes d'achèvement de projet.",
+  },
+  "queuing-mm1-calculator": {
+    title: "Calculateur de théorie des files d'attente (M/M/1)",
+    painStatement:
+      "L'analyse des files d'attente sans modélisation des taux d'arrivée et de service conduit à des opérations sous- ou sur-personnelisées.",
+  },
+  "fmea-rpn-calculator": {
+    title: "Calculateur RPN (Indice de Priorité du Risque) FMEA",
+    painStatement:
+      "Le calcul manuel du RPN FMEA manque la priorisation interservice des risques.",
+  },
+  "doe-factorial-design-calculator": {
+    title: "Calculateur de plan factoriel (DOE)",
+    painStatement:
+      "Les plans d'expériences nécessitent un plan factoriel correct avec points centraux et blocage.",
+  },
+  "reliability-block-calculator": {
+    title: "Calculateur de bloc de fiabilité (RBD/MTBF)",
+    painStatement:
+      "Les calculs de fiabilité pour systèmes série/parallèle nécessitent l'agrégation MTBF et MTTR.",
+  },
+  "niosh-lifting-calculator": {
+    title: "Calculateur de levage NIOSH (révisé)",
+    painStatement:
+      "L'équation de levage NIOSH nécessite des multiplicateurs horizontaux/verticaux/préhension/fréquence.",
+  },
+  "reba-rapid-body-assessment-calculator": {
+    title: "REBA (Rapid Entire Body Assessment)",
+    painStatement:
+      "La notation ergonomique REBA selon Hignett & McAtamney nécessite une notation groupe A et groupe B.",
+  },
+  "rcm-decision-calculator": {
+    title: "Calculateur de décision RCM (Maintenance Centrée sur la Fiabilité)",
+    painStatement:
+      "L'analyse décisionnelle RCM compare les coûts de maintenance planifiée vs non planifiée.",
+  },
+  "pareto-root-cause-calculator": {
+    title: "Calculateur d'analyse de Pareto / causes racines",
+    painStatement:
+      "L'analyse de Pareto (80/20) sans tri par pourcentage cumulé manque les causes racines vitales peu nombreuses.",
+  },
+  "value-added-process-analyzer": {
+    title: "Analyseur de ratio VAP (Processus à Valeur Ajoutée)",
+    painStatement:
+      "L'analyse VAP sépare le temps à valeur ajoutée du temps sans valeur ajoutée.",
+  },
+  "kaizen-event-tracker": {
+    title: "Suivi d'événement Kaizen / d'économies de coûts",
+    painStatement:
+      "Le suivi ROI d'événement Kaizen nécessite des métriques avant/après sur le temps de cycle, le taux de rebut et les temps d'arrêt.",
+  },
+  "fives-audit-scoring-calculator": {
+    title: "Calculateur de notation d'audit 5S",
+    painStatement:
+      "La notation d'audit 5S nécessite le classement de chaque catégorie S avec des critères d'évaluation cohérents.",
+  },
+};
 
 export const ES_SCHEMAS: Record<string, { title?: string; painStatement?: string }> = {
   "cnc-oee-loss": {
@@ -865,7 +1177,163 @@ export const ES_SCHEMAS: Record<string, { title?: string; painStatement?: string
     title: "Calculadora de impacto monetario de los 7 desperdicios (Muda)",
     painStatement:
       "Cuantifica el impacto monetario de los 7 desperdicios Lean (Muda) — sobreproducción, espera, transporte, inventario, movimiento, sobreprocesamiento y defectos — traduciendo las ineficiencias operativas en términos financieros directos sobre los que la dirección puede actuar.\n\nEl seguimiento tradicional de desperdicios se limita a contar defectos o medir horas de parada. Esta herramienta convierte cada categoría de desperdicio en costo periódico, pérdida anualizada, ratio desperdicio/ingresos y puntuaciones de prioridad ajustadas al riesgo. Clasifica qué categoría Muda cuesta más y dónde el kaizen generará el mayor retorno.\n\nEjemplo: Una fábrica con 50 unidades de sobreproducción, 20 horas de espera y 15 unidades defectuosas en 30 días descubre que la espera y los defectos representan el 62% del costo total de desperdicio de 28.500 €. La herramienta prioriza la reducción de defectos con una puntuación de 4.2/5 y proyecta un ahorro anual de 17.700 €.\n\nLos directores de producción, coordinadores Lean y jefes de planta utilizan este analizador para traducir Muda en métricas financieras listas para la dirección, priorizar inversiones de mejora por ROI y realizar un seguimiento de la reducción del ratio desperdicio/ingresos en períodos consecutivos.",
-  }};
+  },
+  "hydraulic-cylinder-tonnage-power-calculator": {
+    title: "Calculadora de tonelaje y potencia de cilindro hidráulico",
+    painStatement:
+      "El dimensionamiento de cilindros hidráulicos para tonelaje y potencia del motor requiere cálculos simultáneos de fuerza, velocidad y potencia. Omitir la relación vástago/carrera puede causar un fallo catastrófico por pandeo.",
+  },
+  "compressor-power-air-flow-calculator": {
+    title: "Calculadora de potencia de compresor y flujo de aire",
+    painStatement:
+      "Los cálculos de potencia del compresor sin el exponente politrópico correcto y la corrección multi-etapa conducen a motores sobredimensionados o subdimensionados.",
+  },
+  "cutting-parameters-power-calculator": {
+    title: "Calculadora de parámetros de corte y potencia",
+    painStatement:
+      "La selección manual de parámetros de corte deja la utilización de la máquina por debajo del 60% y provoca desgaste de herramienta evitable.",
+  },
+  "evaporative-cooling-capacity-calculator": {
+    title: "Calculadora de capacidad de enfriamiento evaporativo (FES)",
+    painStatement:
+      "El dimensionamiento de sistemas de enfriamiento evaporativo requiere cálculo psicrométrico y eficiencia del panel—omitirlos conduce a enfriamiento inadecuado.",
+  },
+  "condenser-precooling-savings-calculator": {
+    title: "Ahorro energético de preenfriamiento (adiabático) de condensador",
+    painStatement:
+      "Sin análisis de preenfriamiento del condensador, no puede cuantificar el ahorro energético del enfriamiento adiabático.",
+  },
+  "pad-media-psychrometric-calculator": {
+    title: "Análisis psicrométrico de medio de panel",
+    painStatement:
+      "La eficiencia del medio de panel depende del espesor, la velocidad del aire y las condiciones psicrométricas—la consulta manual pierde horas.",
+  },
+  "fgas-leak-co2-calculator": {
+    title: "Calculadora de fuga de gases F y equivalente de CO₂",
+    painStatement:
+      "La cuantificación de fugas de gases F requiere cálculo de PCA y verificaciones de cumplimiento normativo.",
+  },
+  "water-footprint-calculator": {
+    title: "Calculadora de huella hídrica",
+    painStatement:
+      "El análisis de la huella hídrica sin división en agua azul/verde/gris oculta el verdadero impacto ambiental.",
+  },
+  "shev-smoke-exhaust-calculator": {
+    title: "Calculadora de dimensionamiento de extracción de humos (SHEV)",
+    painStatement:
+      "El dimensionamiento de extracción de humos según EN 12101-5 requiere cálculos de flujo másico y área.",
+  },
+  "natural-ventilation-ach-calculator": {
+    title: "Calculadora de requerimiento de ventilación natural (ACH)",
+    painStatement:
+      "El dimensionamiento de ventilación natural requiere cálculos de flujo por convección natural.",
+  },
+  "compound-interest-calculator": {
+    title: "Calculadora de interés compuesto (detallada)",
+    painStatement:
+      "Los cálculos de interés compuesto sin ajuste de frecuencia de capitalización dan proyecciones de valor futuro engañosas.",
+  },
+  "living-wage-calculator": {
+    title: "Calculadora de salario digno",
+    painStatement:
+      "Calcular el costo real del empleador por empleado requiere agregar salario bruto, horas extra, cotizaciones sociales, impuestos y asignaciones.",
+  },
+  "panel-radiator-heating-capacity-calculator": {
+    title: "Calculadora de capacidad de calefacción de radiador de panel",
+    painStatement:
+      "Dimensionar un radiador de panel requiere cálculo de pérdida de calor de la habitación y corrección de potencia del radiador para temperaturas no estándar.",
+  },
+  "underfloor-heating-design-calculator": {
+    title: "Calculadora de diseño de calefacción por suelo radiante",
+    painStatement:
+      "El diseño de calefacción por suelo radiante según EN 1264 requiere cálculo iterativo de temperatura del suelo y número de circuitos.",
+  },
+  "solar-tube-collector-sizing-calculator": {
+    title: "Calculadora de dimensionamiento de colector solar",
+    painStatement:
+      "El dimensionamiento de colectores solares requiere equilibrar la demanda de agua caliente, el área del colector, el almacenamiento y el respaldo auxiliar.",
+  },
+  "epq-production-quantity-calculator": {
+    title: "Calculadora EPQ (Cantidad Económica de Producción)",
+    painStatement:
+      "La fórmula clásica EOQ ignora las tasas de producción finitas, sobreestimando los tamaños de lote.",
+  },
+  "kanban-bin-card-calculator": {
+    title: "Calculadora de número de contenedores/tarjetas Kanban",
+    painStatement:
+      "Establecer el número correcto de tarjetas Kanban equilibra el riesgo de desabastecimiento y el WIP a través de la demanda y el plazo de entrega.",
+  },
+  "littles-law-calculator": {
+    title: "Calculadora de la ley de Little (WIP)",
+    painStatement:
+      "Dados dos de tres parámetros WIP/CT/TH, calcule el tercero y traduzca el WIP en exposición financiera.",
+  },
+  "milk-run-route-calculator": {
+    title: "Calculadora de optimización de ruta Milk Run",
+    painStatement:
+      "La logística Milk Run debe equilibrar la distancia del proveedor, la capacidad, el tiempo de carga y los costos del conductor.",
+  },
+  "cpm-pert-calculator": {
+    title: "Calculadora CPM/PERT (ruta crítica)",
+    painStatement:
+      "El análisis PERT con tiempos optimistas/más probables/pesimistas proporciona estimaciones probabilísticas de finalización del proyecto.",
+  },
+  "queuing-mm1-calculator": {
+    title: "Calculadora de teoría de colas (M/M/1)",
+    painStatement:
+      "El análisis de colas sin modelado de tasas de llegada y servicio conduce a operaciones con personal insuficiente o excesivo.",
+  },
+  "fmea-rpn-calculator": {
+    title: "Calculadora de NPR (Número Prioritario de Riesgo) FMEA",
+    painStatement:
+      "El cálculo manual de NPR FMEA omite la priorización de riesgos interdepartamental.",
+  },
+  "doe-factorial-design-calculator": {
+    title: "Calculadora de diseño factorial DOE",
+    painStatement:
+      "El diseño de experimentos requiere un diseño factorial adecuado con puntos centrales y bloqueo.",
+  },
+  "reliability-block-calculator": {
+    title: "Calculadora de bloque de confiabilidad (RBD/MTBF)",
+    painStatement:
+      "Los cálculos de confiabilidad para sistemas en serie/paralelo requieren agregación de MTBF y MTTR.",
+  },
+  "niosh-lifting-calculator": {
+    title: "Calculadora de levantamiento NIOSH (revisada)",
+    painStatement:
+      "La ecuación de levantamiento NIOSH requiere multiplicadores horizontales/verticales/agarre/frecuencia.",
+  },
+  "reba-rapid-body-assessment-calculator": {
+    title: "REBA (Evaluación Rápida de Cuerpo Entero)",
+    painStatement:
+      "La puntuación ergonómica REBA según Hignett & McAtamney requiere puntuación del grupo A y grupo B.",
+  },
+  "rcm-decision-calculator": {
+    title: "Calculadora de decisión RCM (Mantenimiento Centrado en Confiabilidad)",
+    painStatement:
+      "El análisis de decisión RCM compara costos de mantenimiento planificado vs no planificado.",
+  },
+  "pareto-root-cause-calculator": {
+    title: "Calculadora de análisis de Pareto/causa raíz",
+    painStatement:
+      "El análisis de Pareto (80/20) sin ordenación de porcentaje acumulativo pierde las pocas causas raíz vitales.",
+  },
+  "value-added-process-analyzer": {
+    title: "Analizador de relación de proceso de valor agregado (VAP)",
+    painStatement:
+      "El análisis de relación VAP separa el tiempo de valor agregado del tiempo sin valor agregado.",
+  },
+  "kaizen-event-tracker": {
+    title: "Rastreador de eventos Kaizen / ahorro de costos",
+    painStatement:
+      "El seguimiento del ROI de eventos Kaizen requiere métricas antes/después de tiempo de ciclo, tasa de desperdicio y tiempo de inactividad.",
+  },
+  "fives-audit-scoring-calculator": {
+    title: "Calculadora de puntuación de auditoría 5S",
+    painStatement:
+      "La puntuación de auditoría 5S requiere clasificar cada categoría S con criterios de calificación consistentes.",
+  },
+};
 
 export const AR_SCHEMAS: Record<string, { title?: string; painStatement?: string }> = {
   "cnc-oee-loss": {
@@ -1152,4 +1620,160 @@ export const AR_SCHEMAS: Record<string, { title?: string; painStatement?: string
     title: "حاسبة الأثر المالي لسبعة أنواع الهدر (مودا)",
     painStatement:
       "يقيس الأثر المالي لجميع أنواع الهدر السبعة في اللين (مودا) — الإنتاج الزائد، الانتظار، النقل، المخزون، الحركة، المعالجة الزائدة والعيوب — ويترجم أوجه عدم الكفاءة التشغيلية إلى مصطلحات مالية مباشرة يمكن للإدارة العمل بناءً عليها.\n\nيقتصر تتبع الهدر التقليدي على عد العيوب أو قياس ساعات التوقف. تحول هذه الأداة كل فئة من فئات الهدر إلى تكلفة دورية، وخسارة سنوية، ونسبة الهدر إلى الإيرادات، ودرجات أولوية معدلة حسب المخاطر. وتصنف فئة الهدر الأكثر تكلفة وأين سيحقق كايزن أعلى عائد.\n\nمثال: مصنع به 50 وحدة إنتاج زائد و20 ساعة انتظار و15 وحدة معيبة خلال 30 يومًا يكتشف أن الانتظار والعيوب يمثلان 62% من إجمالي تكلفة الهدر البالغة 28,500 دولار. تعطي الأداة أولوية لتقليل العيوب بدرجة 4.2/5 وتتوقع وفورات سنوية قدرها 17,700 دولار.\n\nيستخدم مدراء الإنتاج ومنسقو اللين ومديرو المصانع هذا المحلل لترجمة مودا إلى مقاييس مالية جاهزة لمجلس الإدارة، وترتيب أولويات استثمارات التحسين حسب العائد على الاستثمار، وتتبع انخفاض نسبة الهدر إلى الإيرادات على فترات متتالية.",
-  }};
+  },
+  "hydraulic-cylinder-tonnage-power-calculator": {
+    title: "حاسبة حمولة وقدرة الأسطوانة الهيدروليكية",
+    painStatement:
+      "يتطلب تحديد أبعاد الأسطوانة الهيدروليكية للحمولة وقدرة المحرك حسابات متزامنة للقوة والسرعة والقدرة. إهمال نسبة الكباس إلى الشوط يمكن أن يسبب فشل انبعاج كارثي.",
+  },
+  "compressor-power-air-flow-calculator": {
+    title: "حاسبة قدرة الضاغط وتدفق الهواء",
+    painStatement:
+      "حسابات قدرة الضاغط بدون معامل البوليتروب الصحيح وتصحيح المراحل المتعددة تؤدي إلى محركات مفرطة أو غير كافية في الحجم.",
+  },
+  "cutting-parameters-power-calculator": {
+    title: "حاسبة معايير القطع والقدرة",
+    painStatement:
+      "اختيار معايير القطع اليدوي يترك استخدام الماكينة تحت 60% ويسبب تآكل أداة يمكن تجنبه.",
+  },
+  "evaporative-cooling-capacity-calculator": {
+    title: "حاسبة سعة التبريد التبخيري (FES)",
+    painStatement:
+      "يتطلب تحديد أبعاد نظام التبريد التبخيري حسابًا سيكرومتريًا وكفاءة الوسادة—إهمالها يؤدي إلى تبريد غير كافٍ.",
+  },
+  "condenser-precooling-savings-calculator": {
+    title: "توفير الطاقة من التبريد المسبق (الأدياباتي) للمكثف",
+    painStatement:
+      "بدون تحليل التبريد المسبق للمكثف، لا يمكنك قياس توفير الطاقة من التبريد الأدياباتي.",
+  },
+  "pad-media-psychrometric-calculator": {
+    title: "تحليل سيكرومتري لوسادة التبريد",
+    painStatement:
+      "تعتمد كفاءة وسادة التبريد على سمك الوسادة وسرعة الهواء والظروف السيكرومترية—البحث اليدوي يضيع ساعات.",
+  },
+  "fgas-leak-co2-calculator": {
+    title: "حاسبة تسرب غازات F ومكافئ ثاني أكسيد الكربون",
+    painStatement:
+      "يتطلب قياس تسرب غازات F حساب قدرة الاحترار العالمي وفحوص الامتثال التنظيمي.",
+  },
+  "water-footprint-calculator": {
+    title: "حاسبة البصمة المائية",
+    painStatement:
+      "تحليل البصمة المائية بدون تقسيم المياه الزرقاء/الخضراء/الرمادية يخفي التأثير البيئي الحقيقي.",
+  },
+  "shev-smoke-exhaust-calculator": {
+    title: "حاسبة تحديد أبعاد شفط الدخان (SHEV)",
+    painStatement:
+      "يتطلب تحديد أبعاد شفط الدخان وفقًا للمعيار EN 12101-5 حسابات تدفق الكتلة والمساحة.",
+  },
+  "natural-ventilation-ach-calculator": {
+    title: "حاسبة متطلبات التهوية الطبيعية (ACH)",
+    painStatement:
+      "يتطلب تحديد أبعاد التهوية الطبيعية حسابات تدفق مدفوعة بالطفو.",
+  },
+  "compound-interest-calculator": {
+    title: "حاسبة الفائدة المركبة (مفصلة)",
+    painStatement:
+      "حسابات الفائدة المركبة بدون تعديل تكرار التركيب تعطي توقعات مستقبلية مضللة للقيمة.",
+  },
+  "living-wage-calculator": {
+    title: "حاسبة الأجر المعيشي",
+    painStatement:
+      "يتطلب حساب التكلفة الحقيقية لصاحب العمل لكل موظف تجميع الراتب الإجمالي وساعات العمل الإضافية والضمان الاجتماعي والضرائب والبدلات.",
+  },
+  "panel-radiator-heating-capacity-calculator": {
+    title: "حاسبة قدرة تدفئة المبرد اللوحي",
+    painStatement:
+      "يتطلب تحديد حجم المبرد اللوحي حساب فقدان حرارة الغرفة وتصحيح خرج المبرد لدرجات حرارة غير قياسية.",
+  },
+  "underfloor-heating-design-calculator": {
+    title: "حاسبة تصميم التدفئة الأرضية",
+    painStatement:
+      "يتطلب تصميم التدفئة الأرضية وفقًا للمعيار EN 1264 حسابًا متكررًا لدرجة حرارة الأرضية وعدد الدوائر.",
+  },
+  "solar-tube-collector-sizing-calculator": {
+    title: "حاسبة تحديد أبعاد المجمع الشمسي",
+    painStatement:
+      "يتطلب تحديد أبعاد المجمع الشمسي الموازنة بين طلب الماء الساخن ومساحة المجمع والتخزين والتدفئة الاحتياطية.",
+  },
+  "epq-production-quantity-calculator": {
+    title: "حاسبة EPQ (الكمية الاقتصادية للإنتاج)",
+    painStatement:
+      "تتجاهل معادلة EOQ الكلاسيكية معدلات الإنتاج المحدودة، مما يبالغ في تقدير أحجام الدفعات.",
+  },
+  "kanban-bin-card-calculator": {
+    title: "حاسبة عدد حاويات/بطاقات كانبان",
+    painStatement:
+      "تحديد العدد الصحيح لبطاقات كانبان يوازن بين مخاطر نفاد المخزون والعمل قيد التنفيذ من خلال الطلب والمهلة الزمنية.",
+  },
+  "littles-law-calculator": {
+    title: "حاسبة قانون ليتل (العمل قيد التنفيذ)",
+    painStatement:
+      "بمعرفة اثنين من ثلاثة معايير العمل قيد التنفيذ/زمن الدورة/الإنتاجية، احسب الثالث وترجم العمل قيد التنفيذ إلى مخاطر مالية.",
+  },
+  "milk-run-route-calculator": {
+    title: "حاسبة تحسين مسار Milk Run",
+    painStatement:
+      "يجب أن يوازن لوجستيات Milk Run بين مسافة المورد والسعة ووقت التحميل وتكاليف السائق.",
+  },
+  "cpm-pert-calculator": {
+    title: "حاسبة CPM/PERT (المسار الحرج)",
+    painStatement:
+      "تحليل PERT مع الأوقات المتفائلة/الأكثر احتمالاً/المتشائمة يعطي تقديرات احتمالية لإنجاز المشروع.",
+  },
+  "queuing-mm1-calculator": {
+    title: "حاسبة نظرية الطوابير (M/M/1)",
+    painStatement:
+      "تحليل الطوابير بدون نمذجة معدل الوصول ومعدل الخدمة يؤدي إلى عمليات بنقص أو زيادة في الموظفين.",
+  },
+  "fmea-rpn-calculator": {
+    title: "حاسبة FMEA RPN (رقم أولوية المخاطرة)",
+    painStatement:
+      "حساب RPN اليدوي لـ FMEA يفتقد تحديد أولويات المخاطر عبر الوظائف المختلفة.",
+  },
+  "doe-factorial-design-calculator": {
+    title: "حاسبة تصميم العوامل التجريبية (DOE)",
+    painStatement:
+      "تصميم التجارب يتطلب تصميمًا عامليًا مناسبًا مع نقاط مركزية وتقسيم إلى كتل.",
+  },
+  "reliability-block-calculator": {
+    title: "حاسبة كتلة الموثوقية (RBD/MTBF)",
+    painStatement:
+      "حسابات الموثوقية للأنظمة المتسلسلة/المتوازية تتطلب تجميع MTBF و MTTR.",
+  },
+  "niosh-lifting-calculator": {
+    title: "حاسبة الرفع NIOSH (المنقحة)",
+    painStatement:
+      "معادلة الرفع NIOSH تتطلب مضاعفات أفقية/عمودية/قبض/تردد.",
+  },
+  "reba-rapid-body-assessment-calculator": {
+    title: "REBA (التقييم السريع لكامل الجسم)",
+    painStatement:
+      "تتطلب الدرجات المريحية REBA وفقًا لـ Hignett & McAtamney تسجيل المجموعة A والمجموعة B.",
+  },
+  "rcm-decision-calculator": {
+    title: "حاسبة قرار RCM (الصيانة المتمركزة حول الموثوقية)",
+    painStatement:
+      "تحليل قرار RCM يقارن تكاليف الصيانة المخططة مقابل غير المخططة.",
+  },
+  "pareto-root-cause-calculator": {
+    title: "حاسبة تحليل باريتو / السبب الجذري",
+    painStatement:
+      "تحليل باريتو (80/20) بدون ترتيب النسبة المئوية التراكمية يفقد الأسباب الجذرية الحيوية القليلة.",
+  },
+  "value-added-process-analyzer": {
+    title: "محلل نسبة العملية ذات القيمة المضافة (VAP)",
+    painStatement:
+      "تحليل نسبة VAP يفصل الوقت ذا القيمة المضافة عن الوقت غير ذي القيمة المضافة.",
+  },
+  "kaizen-event-tracker": {
+    title: "متتبع حدث كايزن / توفير التكاليف",
+    painStatement:
+      "يتتبع عائد الاستثمار لأحداث كايزن مقاييس قبل/بعد لزمن الدورة ومعدل الهدر ووقت التوقف.",
+  },
+  "fives-audit-scoring-calculator": {
+    title: "حاسبة تسجيل تدقيق 5S",
+    painStatement:
+      "يتطلب تسجيل تدقيق 5S فرز كل فئة من فئات S بمعايير تقييم متسقة.",
+  },
+};

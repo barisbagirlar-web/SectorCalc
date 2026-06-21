@@ -9,7 +9,6 @@ import { LlmsTxtLink, SeoHeadLinks } from "@/components/seo/SeoHeadLinks";
 import type { AppLocale } from "@/i18n/routing";
 import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
 import { getServerRegion } from "@/lib/compliance/server-region";
-import { SkipToMainLink } from "@/components/layout/SkipToMainLink";
 import { RegionProvider } from "@/lib/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
 import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
@@ -117,7 +116,6 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
           ]}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <SkipToMainLink />
           <RegionProvider region={region} source={source}>
             <AttributionBootstrap />
             <ServiceWorkerRegister />
