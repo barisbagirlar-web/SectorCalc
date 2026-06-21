@@ -14,7 +14,6 @@ import { useUser } from "@/hooks/useUser";
 import { TraceAiLogo } from "@/components/trace/TraceAiLogo";
 import { TraceErrorBoundary } from "@/components/trace/TraceErrorBoundary";
 
-// ─── Lazy-loaded chat panel (code split — ~2.6 kB gzipped) ──────
 const FreeTraceChat = lazy(() =>
   import("@/components/trace/FreeTraceChat").then((m) => ({
     default: m.FreeTraceChat,
@@ -27,10 +26,8 @@ const ProTraceChat = lazy(() =>
 );
 
 const PANEL_TRANSITION_MS = 260;
-const FAB_BG_GRADIENT =
-  "linear-gradient(135deg,#2563eb,#1e3a8a)";
+const FAB_BG_GRADIENT = "linear-gradient(135deg,#2563eb,#1e3a8a)";
 
-// ─── Loading skeleton for lazy-loaded chat ──────────────────────
 function ChatSkeleton() {
   return (
     <div className="sc-trace__skeleton" aria-hidden="true">
@@ -45,7 +42,6 @@ function ChatSkeleton() {
   );
 }
 
-// ─── Chat panel with ErrorBoundary + lazy loading ───────────────
 type ChatPanelWrapperProps = {
   readonly isPro: boolean;
   readonly onClose: () => void;
@@ -74,18 +70,28 @@ function ChatPanelWrapper({ isPro, onClose, panelRef }: ChatPanelWrapperProps) {
   );
 }
 
-// ─── Main FAB component ─────────────────────────────────────────
 export function TraceFloatingButton() {
   const t = useTranslations("trace");
   const { user, userRole, loading } = useUser();
-  const isPro = userRole === "premium" && Boolean(user);
 
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const fabRef = useRef<HTMLButtonElement>(null);
   const panelContainerRef = useRef<HTMLDivElement | null>(null);
+  // Lock mode on first open so late auth state doesn't swap
+  // FreeTraceChat <-> ProTraceChat mid-conversation.
+  const lockedProRef = useRef<boolean | null>(null);
+  const isPro =
+    lockedProRef.current !== null
+      ? lockedProRef.current
+      : userRole === "premium" && Boolean(user);
 
-  // ── Listen for trace:open event (from homepage TraceIntro) ──
+  useEffect(() => {
+    if (open && lockedProRef.current === null) {
+      lockedProRef.current = userRole === "premium" && Boolean(user);
+    }
+  }, [open, user, userRole]);
+
   useEffect(() => {
     const openHandler = () => {
       setOpen(true);
@@ -94,7 +100,6 @@ export function TraceFloatingButton() {
     return () => window.removeEventListener("trace:open", openHandler);
   }, []);
 
-  // ── Save/restore focus for a11y ──
   useEffect(() => {
     if (open) {
       const timer = setTimeout(() => {
@@ -105,7 +110,6 @@ export function TraceFloatingButton() {
     }
   }, [open]);
 
-  // ── Close animation sequence ──
   const closePanel = useCallback(() => {
     setClosing(true);
     setTimeout(() => {
@@ -123,7 +127,6 @@ export function TraceFloatingButton() {
     }
   }, [open, closing, closePanel]);
 
-  // ── Escape key to close ──
   useEffect(() => {
     if (!open) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -136,7 +139,6 @@ export function TraceFloatingButton() {
     return () => document.removeEventListener("keydown", handleKeyDown, true);
   }, [open, closePanel]);
 
-  // ── Backdrop click to close (click outside panel) ──
   const handleBackdropClick = useCallback(
     (e: React.MouseEvent) => {
       if (
@@ -150,7 +152,6 @@ export function TraceFloatingButton() {
     [open, closePanel],
   );
 
-  // ── Panel ref callback ──
   const setPanelRef = useCallback((node: HTMLDivElement | null) => {
     panelContainerRef.current = node;
   }, []);

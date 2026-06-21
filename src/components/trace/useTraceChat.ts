@@ -101,16 +101,17 @@ export function useTraceChat(mode: TraceChatMode) {
             return;
           }
 
+          // Auth required (no idToken) → show message, don't try free
           if (proResult.errorText === "auth_required") {
             setError(true);
             setErrorDetail(t("errors.authRequired"));
             return;
           }
 
+          // Any other pro error (unauthorized, rate_limited, etc.) →
+          // fall through to free endpoint so chat always works
           if (proResult.errorText) {
-            setError(true);
-            setErrorDetail(proResult.errorText);
-            return;
+            console.warn("[Trace] Pro request failed, falling back to free:", proResult.errorText);
           }
         }
 
