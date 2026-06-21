@@ -11,7 +11,6 @@ import {
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
-import { TraceAiLogo } from "@/components/trace/TraceAiLogo";
 import { TraceErrorBoundary } from "@/components/trace/TraceErrorBoundary";
 
 // Always use FreeTraceChat — no Pro mode.
@@ -173,7 +172,9 @@ export function TraceFloatingButton() {
         {open || closing ? (
           <X className="sc-trace__fab-close-icon" aria-hidden="true" />
         ) : (
-          <TraceAiLogo size="fab" />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{color:'#fff'}}>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
         )}
       </button>
     </div>
