@@ -1,0 +1,128 @@
+{
+  "toolName": "carbon-offset-trees-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "emisyon",
+      "label": "Toplam Emisyon (ton CO₂)",
+      "label_i18n": {
+        "en": "Total Emissions (ton CO₂)",
+        "tr": "Toplam Emisyon (ton CO₂)",
+        "de": "Total Emissions (ton CO₂)",
+        "fr": "Total Emissions (ton CO₂)",
+        "es": "Total Emissions (ton CO₂)",
+        "ar": "Total Emissions (ton CO₂)"
+      },
+      "type": "number",
+      "unit": "tons",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Nötrelenmek istenen karbon.",
+      "businessContext_i18n": {
+        "en": "Carbon to offset.",
+        "tr": "Nötrelenmek istenen karbon.",
+        "de": "Carbon to offset.",
+        "fr": "Carbon to offset.",
+        "es": "Carbon to offset.",
+        "ar": "Carbon to offset."
+      }
+    },
+    {
+      "id": "agacYillikYutak",
+      "label": "Ağaç Başı Yıllık Yutak (kg CO₂)",
+      "label_i18n": {
+        "en": "Tree Annual Uptake (kg CO₂)",
+        "tr": "Ağaç Başı Yıllık Yutak (kg CO₂)",
+        "de": "Tree Annual Uptake (kg CO₂)",
+        "fr": "Tree Annual Uptake (kg CO₂)",
+        "es": "Tree Annual Uptake (kg CO₂)",
+        "ar": "Tree Annual Uptake (kg CO₂)"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 22,
+      "min": 0,
+      "businessContext": "Bir ağacın yıllık karbon tutma kapasitesi.",
+      "businessContext_i18n": {
+        "en": "Annual carbon capture per tree.",
+        "tr": "Bir ağacın yıllık karbon tutma kapasitesi.",
+        "de": "Annual carbon capture per tree.",
+        "fr": "Annual carbon capture per tree.",
+        "es": "Annual carbon capture per tree.",
+        "ar": "Annual carbon capture per tree."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(emisyon * 1000) / Math.max(0.0001, agacYillikYutak)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "trees",
+    "breakdown": {
+      "sonuc": "Gerekli Ağaç Sayısı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Ağaç Sayısı",
+        "tr": "Gerekli Ağaç Sayısı",
+        "de": "Gerekli Ağaç Sayısı",
+        "fr": "Gerekli Ağaç Sayısı",
+        "es": "Gerekli Ağaç Sayısı",
+        "ar": "Gerekli Ağaç Sayısı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "trees"
+    },
+    "hiddenLossDrivers": [
+      "Low SNR indicates poor signal quality.",
+      "High Q indicates narrow bandwidth."
+    ],
+    "suggestedActions": [
+      "Use proper shielding for sensitive measurements.",
+      "Consider efficiency losses in energy calculations."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate number of trees needed to offset carbon emissions.",
+      "long": "Calculate number of trees needed to offset carbon emissions.",
+      "short_i18n": {
+        "en": "Calculate number of trees needed to offset carbon emissions.",
+        "tr": "Salınan karbonu nötralize etmek için dikilmesi gereken ağaç sayısını hesaplar.",
+        "de": "Calculate number of trees needed to offset carbon emissions.",
+        "fr": "Calculate number of trees needed to offset carbon emissions.",
+        "es": "Calculate number of trees needed to offset carbon emissions.",
+        "ar": "Calculate number of trees needed to offset carbon emissions."
+      },
+      "long_i18n": {
+        "en": "Calculate number of trees needed to offset carbon emissions.",
+        "tr": "Salınan karbonu nötralize etmek için dikilmesi gereken ağaç sayısını hesaplar.",
+        "de": "Calculate number of trees needed to offset carbon emissions.",
+        "fr": "Calculate number of trees needed to offset carbon emissions.",
+        "es": "Calculate number of trees needed to offset carbon emissions.",
+        "ar": "Calculate number of trees needed to offset carbon emissions."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "carbon-offset-trees-calculator",
+    "de": "Kohlenstoffausgleich Baumrechner",
+    "fr": "Calculateur d'Arbres de Compensation Carbone",
+    "es": "Calculadora de Árboles de Compensación de Carbono",
+    "ar": "حاسبة أشجار تعويض الكربون"
+  }
+}

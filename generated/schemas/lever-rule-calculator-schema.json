@@ -1,0 +1,150 @@
+{
+  "toolName": "lever-rule-calculator",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "C0",
+      "label": "Toplam Bileşim (%)",
+      "label_i18n": {
+        "en": "Overall Composition (%)",
+        "tr": "Toplam Bileşim (%)",
+        "de": "Overall Composition (%)",
+        "fr": "Overall Composition (%)",
+        "es": "Overall Composition (%)",
+        "ar": "Overall Composition (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 0,
+      "businessContext": "Alaşımın toplam bileşimi.",
+      "businessContext_i18n": {
+        "en": "Alloy overall composition.",
+        "tr": "Alaşımın toplam bileşimi.",
+        "de": "Alloy overall composition.",
+        "fr": "Alloy overall composition.",
+        "es": "Alloy overall composition.",
+        "ar": "Alloy overall composition."
+      }
+    },
+    {
+      "id": "Cl",
+      "label": "Sıvı Bileşimi (%)",
+      "label_i18n": {
+        "en": "Liquid Composition (%)",
+        "tr": "Sıvı Bileşimi (%)",
+        "de": "Liquid Composition (%)",
+        "fr": "Liquid Composition (%)",
+        "es": "Liquid Composition (%)",
+        "ar": "Liquid Composition (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "businessContext": "Sıvı fazın bileşimi.",
+      "businessContext_i18n": {
+        "en": "Liquid phase composition.",
+        "tr": "Sıvı fazın bileşimi.",
+        "de": "Liquid phase composition.",
+        "fr": "Liquid phase composition.",
+        "es": "Liquid phase composition.",
+        "ar": "Liquid phase composition."
+      }
+    },
+    {
+      "id": "Cs",
+      "label": "Katı Bileşimi (%)",
+      "label_i18n": {
+        "en": "Solid Composition (%)",
+        "tr": "Katı Bileşimi (%)",
+        "de": "Solid Composition (%)",
+        "fr": "Solid Composition (%)",
+        "es": "Solid Composition (%)",
+        "ar": "Solid Composition (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "min": 0,
+      "businessContext": "Katı fazın bileşimi.",
+      "businessContext_i18n": {
+        "en": "Solid phase composition.",
+        "tr": "Katı fazın bileşimi.",
+        "de": "Solid phase composition.",
+        "fr": "Solid phase composition.",
+        "es": "Solid phase composition.",
+        "ar": "Solid phase composition."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(C0 - Cl) / Math.max(0.0001, (Cs - Cl))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "fraction",
+    "breakdown": {
+      "sonuc": "Katı Faz Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Katı Faz Oranı",
+        "tr": "Katı Faz Oranı",
+        "de": "Katı Faz Oranı",
+        "fr": "Katı Faz Oranı",
+        "es": "Katı Faz Oranı",
+        "ar": "Katı Faz Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "fraction"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+      "long": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+      "short_i18n": {
+        "en": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+        "tr": "Faz diyagramında katı fazın kütle oranını (lever kuralı) hesaplar.",
+        "de": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+        "fr": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+        "es": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+        "ar": "Calculate solid phase fraction using the lever rule on a phase diagram."
+      },
+      "long_i18n": {
+        "en": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+        "tr": "Faz diyagramında katı fazın kütle oranını (lever kuralı) hesaplar.",
+        "de": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+        "fr": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+        "es": "Calculate solid phase fraction using the lever rule on a phase diagram.",
+        "ar": "Calculate solid phase fraction using the lever rule on a phase diagram."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "lever-rule-calculator",
+    "de": "Hebelregel-Rechner für Phasendiagramme",
+    "fr": "Calculateur de règle du levier pour diagramme de phases",
+    "es": "Calculadora de regla de la palanca para diagrama de fases",
+    "ar": "حاسبة قاعدة الرافعة لمخطط الطور"
+  }
+}

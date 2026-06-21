@@ -1,0 +1,178 @@
+{
+  "toolName": "traffic-signal-delay-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "donguSuresi",
+      "label": "Sinyal Döngü Süresi (s)",
+      "label_i18n": {
+        "en": "Cycle Length (s)",
+        "tr": "Sinyal Döngü Süresi (s)",
+        "de": "Durchschnittliche Zykluslänge (Tage)",
+        "fr": "Longueur moyenne du cycle (jours)",
+        "es": "Longitud media del ciclo (días)",
+        "ar": "متوسط طول الدورة (أيام)"
+      },
+      "type": "number",
+      "unit": "s",
+      "default": 90,
+      "min": 0,
+      "businessContext": "Trafik sinyal döngü süresi.",
+      "businessContext_i18n": {
+        "en": "Signal cycle length.",
+        "tr": "Trafik sinyal döngü süresi.",
+        "de": "Signal cycle length.",
+        "fr": "Signal cycle length.",
+        "es": "Signal cycle length.",
+        "ar": "Signal cycle length."
+      }
+    },
+    {
+      "id": "yesilSure",
+      "label": "Yeşil Süre (s)",
+      "label_i18n": {
+        "en": "Green Time (s)",
+        "tr": "Yeşil Süre (s)",
+        "de": "Green Time (s)",
+        "fr": "Green Time (s)",
+        "es": "Green Time (s)",
+        "ar": "Green Time (s)"
+      },
+      "type": "number",
+      "unit": "s",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Yeşil ışık süresi.",
+      "businessContext_i18n": {
+        "en": "Green signal duration.",
+        "tr": "Yeşil ışık süresi.",
+        "de": "Green signal duration.",
+        "fr": "Green signal duration.",
+        "es": "Green signal duration.",
+        "ar": "Green signal duration."
+      }
+    },
+    {
+      "id": "akisHizi",
+      "label": "Trafik Akış Hızı (araç/s)",
+      "label_i18n": {
+        "en": "Traffic Flow (veh/s)",
+        "tr": "Trafik Akış Hızı (araç/s)",
+        "de": "Traffic Flow (veh/s)",
+        "fr": "Traffic Flow (veh/s)",
+        "es": "Traffic Flow (veh/s)",
+        "ar": "Traffic Flow (veh/s)"
+      },
+      "type": "number",
+      "unit": "veh/s",
+      "default": 0.3,
+      "min": 0,
+      "businessContext": "Gelen trafik hızı.",
+      "businessContext_i18n": {
+        "en": "Arrival flow rate.",
+        "tr": "Gelen trafik hızı.",
+        "de": "Arrival flow rate.",
+        "fr": "Arrival flow rate.",
+        "es": "Arrival flow rate.",
+        "ar": "Arrival flow rate."
+      }
+    },
+    {
+      "id": "doygunAkis",
+      "label": "Doygun Akış Hızı (araç/s)",
+      "label_i18n": {
+        "en": "Saturation Flow (veh/s)",
+        "tr": "Doygun Akış Hızı (araç/s)",
+        "de": "Saturation Flow (veh/s)",
+        "fr": "Saturation Flow (veh/s)",
+        "es": "Saturation Flow (veh/s)",
+        "ar": "Saturation Flow (veh/s)"
+      },
+      "type": "number",
+      "unit": "veh/s",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Maksimum geçiş kapasitesi.",
+      "businessContext_i18n": {
+        "en": "Maximum discharge rate.",
+        "tr": "Maksimum geçiş kapasitesi.",
+        "de": "Maximum discharge rate.",
+        "fr": "Maximum discharge rate.",
+        "es": "Maximum discharge rate.",
+        "ar": "Maximum discharge rate."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(donguSuresi * Math.pow((1 - yesilSure/Math.max(1,donguSuresi)), 2)) / Math.max(0.0001, (2 * (1 - (akisHizi/Math.max(0.0001, doygunAkis)))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "s/veh",
+    "breakdown": {
+      "sonuc": "Ortalama Gecikme"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Ortalama Gecikme",
+        "tr": "Ortalama Gecikme",
+        "de": "Ortalama Gecikme",
+        "fr": "Ortalama Gecikme",
+        "es": "Ortalama Gecikme",
+        "ar": "Ortalama Gecikme"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "s/veh"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate average vehicle delay at a signalized intersection.",
+      "long": "Calculate average vehicle delay at a signalized intersection.",
+      "short_i18n": {
+        "en": "Calculate average vehicle delay at a signalized intersection.",
+        "tr": "Kavşaktaki ortalama araç bekleme süresini (trafik sinyal gecikmesi) hesaplar.",
+        "de": "Calculate average vehicle delay at a signalized intersection.",
+        "fr": "Calculate average vehicle delay at a signalized intersection.",
+        "es": "Calculate average vehicle delay at a signalized intersection.",
+        "ar": "Calculate average vehicle delay at a signalized intersection."
+      },
+      "long_i18n": {
+        "en": "Calculate average vehicle delay at a signalized intersection.",
+        "tr": "Kavşaktaki ortalama araç bekleme süresini (trafik sinyal gecikmesi) hesaplar.",
+        "de": "Calculate average vehicle delay at a signalized intersection.",
+        "fr": "Calculate average vehicle delay at a signalized intersection.",
+        "es": "Calculate average vehicle delay at a signalized intersection.",
+        "ar": "Calculate average vehicle delay at a signalized intersection."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "traffic-signal-delay-calculator",
+    "de": "Rechner für Verkehrssignalverzögerung",
+    "fr": "Calculateur de délai de signalisation routière",
+    "es": "Calculadora de retardo de señalización de tráfico",
+    "ar": "حاسبة تأخير إشارات المرور"
+  }
+}

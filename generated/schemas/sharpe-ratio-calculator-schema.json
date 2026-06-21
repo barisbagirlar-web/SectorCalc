@@ -1,0 +1,150 @@
+{
+  "toolName": "sharpe-ratio-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "portfoyGetirisi",
+      "label": "Portföy Getirisi (%)",
+      "label_i18n": {
+        "en": "Portfolio Return (%)",
+        "tr": "Portföy Getirisi (%)",
+        "de": "Portfoliorendite (%)",
+        "fr": "Rendement du portefeuille (%)",
+        "es": "Rendimiento de la cartera (%)",
+        "ar": "عائد المحفظة (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Portföyün dönemsel getirisi.",
+      "businessContext_i18n": {
+        "en": "Portfolio's periodic return.",
+        "tr": "Portföyün dönemsel getirisi.",
+        "de": "Portfolio's periodic return.",
+        "fr": "Portfolio's periodic return.",
+        "es": "Portfolio's periodic return.",
+        "ar": "Portfolio's periodic return."
+      }
+    },
+    {
+      "id": "risksizFaiz",
+      "label": "Risksiz Faiz (%)",
+      "label_i18n": {
+        "en": "Risk-Free Rate (%)",
+        "tr": "Risksiz Faiz (%)",
+        "de": "Risikofreier Zinssatz (%)",
+        "fr": "Taux sans risque (%)",
+        "es": "Tasa libre de riesgo (%)",
+        "ar": "معدل الفائدة الخالي من المخاطر (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "businessContext": "Risksiz varlık getirisi.",
+      "businessContext_i18n": {
+        "en": "Risk-free asset return.",
+        "tr": "Risksiz varlık getirisi.",
+        "de": "Risk-free asset return.",
+        "fr": "Risk-free asset return.",
+        "es": "Risk-free asset return.",
+        "ar": "Risk-free asset return."
+      }
+    },
+    {
+      "id": "volatilite",
+      "label": "Volatilite (%)",
+      "label_i18n": {
+        "en": "Volatility (%)",
+        "tr": "Volatilite (%)",
+        "de": "Volatilität (%)",
+        "fr": "Volatilité (%)",
+        "es": "Volatilidad (%)",
+        "ar": "التقلب (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Portföyün standart sapması.",
+      "businessContext_i18n": {
+        "en": "Portfolio standard deviation.",
+        "tr": "Portföyün standart sapması.",
+        "de": "Portfolio standard deviation.",
+        "fr": "Portfolio standard deviation.",
+        "es": "Portfolio standard deviation.",
+        "ar": "Portfolio standard deviation."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(portfoyGetirisi - risksizFaiz) / Math.max(0.0001, volatilite)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "Sharpe Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Sharpe Oranı",
+        "tr": "Sharpe Oranı",
+        "de": "Sharpe Oranı",
+        "fr": "Sharpe Oranı",
+        "es": "Sharpe Oranı",
+        "ar": "Sharpe Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+      "long": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+      "short_i18n": {
+        "en": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+        "tr": "Toplam risk (volatilite) başına üretilen fazla getiriyi (Sharpe Oranı) hesaplar.",
+        "de": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+        "fr": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+        "es": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+        "ar": "Calculate the Sharpe ratio — excess return per unit of total risk."
+      },
+      "long_i18n": {
+        "en": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+        "tr": "Toplam risk (volatilite) başına üretilen fazla getiriyi (Sharpe Oranı) hesaplar.",
+        "de": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+        "fr": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+        "es": "Calculate the Sharpe ratio — excess return per unit of total risk.",
+        "ar": "Calculate the Sharpe ratio — excess return per unit of total risk."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "sharpe-ratio-calculator",
+    "de": "Sharpe-Ratio-Rechner",
+    "fr": "Calculateur de ratio de Sharpe",
+    "es": "Calculadora de ratio de Sharpe",
+    "ar": "حاسبة نسبة شارب"
+  }
+}

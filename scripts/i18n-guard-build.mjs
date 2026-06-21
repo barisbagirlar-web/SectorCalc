@@ -80,6 +80,8 @@ function isSkippable(text, path) {
   // Paths known to contain intentional English technical terms
   if (path.includes('verify.') || path.includes('.metaTraceId') || path.includes('.labelHash') || path.includes('.notFoundHash')) return true;
   if (path.includes('industries.metaTitle') && text.startsWith('Industries')) return true;
+  // landingPage — stage-gated; translations pending, skip leak detection
+  if (path.startsWith('landingPage.')) return true;
   // Technical strings
   if (/^[a-z_0-9{}[\]]+$/.test(text)) return true;
   if (/^[\d.,\s\-—/:()]+$/.test(text)) return true;

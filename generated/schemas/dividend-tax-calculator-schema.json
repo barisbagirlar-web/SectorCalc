@@ -1,0 +1,126 @@
+{
+  "toolName": "dividend-tax-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "temettu",
+      "label": "Brüt Temettü (₺)",
+      "label_i18n": {
+        "en": "Gross Dividend (USD)",
+        "tr": "Brüt Temettü (₺)",
+        "de": "Gross Dividend (USD)",
+        "fr": "Gross Dividend (USD)",
+        "es": "Gross Dividend (USD)",
+        "ar": "Gross Dividend (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Vergi kesintisi öncesi temettü tutarı.",
+      "businessContext_i18n": {
+        "en": "Dividend amount before tax.",
+        "tr": "Vergi kesintisi öncesi temettü tutarı.",
+        "de": "Dividend amount before tax.",
+        "fr": "Dividend amount before tax.",
+        "es": "Dividend amount before tax.",
+        "ar": "Dividend amount before tax."
+      }
+    },
+    {
+      "id": "stopaj",
+      "label": "Stopaj Oranı (%)",
+      "label_i18n": {
+        "en": "Withholding Rate (%)",
+        "tr": "Stopaj Oranı (%)",
+        "de": "Withholding Rate (%)",
+        "fr": "Withholding Rate (%)",
+        "es": "Withholding Rate (%)",
+        "ar": "Withholding Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Temettüye uygulanan stopaj vergisi.",
+      "businessContext_i18n": {
+        "en": "Dividend withholding tax rate.",
+        "tr": "Temettüye uygulanan stopaj vergisi.",
+        "de": "Dividend withholding tax rate.",
+        "fr": "Dividend withholding tax rate.",
+        "es": "Dividend withholding tax rate.",
+        "ar": "Dividend withholding tax rate."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "temettu * (1 - stopaj / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Net Temettü"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Net Temettü",
+        "tr": "Net Temettü",
+        "de": "Net Temettü",
+        "fr": "Net Temettü",
+        "es": "Net Temettü",
+        "ar": "Net Temettü"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate net dividend after withholding tax deduction.",
+      "long": "Calculate net dividend after withholding tax deduction.",
+      "short_i18n": {
+        "en": "Calculate net dividend after withholding tax deduction.",
+        "tr": "Stopaj kesintisi sonrası ele geçen net temettü tutarını hesaplar.",
+        "de": "Calculate net dividend after withholding tax deduction.",
+        "fr": "Calculate net dividend after withholding tax deduction.",
+        "es": "Calculate net dividend after withholding tax deduction.",
+        "ar": "Calculate net dividend after withholding tax deduction."
+      },
+      "long_i18n": {
+        "en": "Calculate net dividend after withholding tax deduction.",
+        "tr": "Stopaj kesintisi sonrası ele geçen net temettü tutarını hesaplar.",
+        "de": "Calculate net dividend after withholding tax deduction.",
+        "fr": "Calculate net dividend after withholding tax deduction.",
+        "es": "Calculate net dividend after withholding tax deduction.",
+        "ar": "Calculate net dividend after withholding tax deduction."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "dividend-tax-calculator",
+    "de": "Dividendensteuer-Rechner",
+    "fr": "Calculateur d'impôt sur les dividendes",
+    "es": "Calculadora de impuesto a dividendos",
+    "ar": "حاسبة ضريبة الأرباح"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "toolName": "esg-score-calculator",
+  "catalogCategory": "sustainability-resource-esg",
+  "categorySlug": "sustainability-resource-esg",
+  "sector": "Çevre ve Sürdürülebilirlik",
+  "sectorId": "sustainability-resource-esg",
+  "inputs": [
+    {
+      "id": "cevre",
+      "label": "Çevre Puanı (0-100)",
+      "label_i18n": {
+        "en": "Environmental (0-100)",
+        "tr": "Çevre Puanı (0-100)",
+        "de": "Umweltbelastungsfaktor",
+        "fr": "Facteur de stress environnemental",
+        "es": "Factor de Estrés Ambiental",
+        "ar": "عامل الإجهاد البيئي"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 75,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Çevresel performans.",
+      "businessContext_i18n": {
+        "en": "Environmental performance.",
+        "tr": "Çevresel performans.",
+        "de": "Environmental performance.",
+        "fr": "Environmental performance.",
+        "es": "Environmental performance.",
+        "ar": "Environmental performance."
+      }
+    },
+    {
+      "id": "sosyal",
+      "label": "Sosyal Puan (0-100)",
+      "label_i18n": {
+        "en": "Social (0-100)",
+        "tr": "Sosyal Puan (0-100)",
+        "de": "Sozialversicherungssatz",
+        "fr": "Taux de sécurité sociale",
+        "es": "Tasa de seguridad social",
+        "ar": "معدل الضمان الاجتماعي"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Sosyal sorumluluk.",
+      "businessContext_i18n": {
+        "en": "Social responsibility.",
+        "tr": "Sosyal sorumluluk.",
+        "de": "Social responsibility.",
+        "fr": "Social responsibility.",
+        "es": "Social responsibility.",
+        "ar": "Social responsibility."
+      }
+    },
+    {
+      "id": "yonetisim",
+      "label": "Yönetişim Puanı (0-100)",
+      "label_i18n": {
+        "en": "Governance (0-100)",
+        "tr": "Yönetişim Puanı (0-100)",
+        "de": "Governance (0-100)",
+        "fr": "Governance (0-100)",
+        "es": "Governance (0-100)",
+        "ar": "Governance (0-100)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Kurumsal yönetim.",
+      "businessContext_i18n": {
+        "en": "Corporate governance.",
+        "tr": "Kurumsal yönetim.",
+        "de": "Corporate governance.",
+        "fr": "Corporate governance.",
+        "es": "Corporate governance.",
+        "ar": "Corporate governance."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(cevre * 0.4) + (sosyal * 0.3) + (yonetisim * 0.3)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "score",
+    "breakdown": {
+      "sonuc": "ESG Skoru"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "ESG Skoru",
+        "tr": "ESG Skoru",
+        "de": "ESG Skoru",
+        "fr": "ESG Skoru",
+        "es": "ESG Skoru",
+        "ar": "ESG Skoru"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "score"
+    },
+    "hiddenLossDrivers": [
+      "High environmental score may reduce operational costs.",
+      "Low ESG score may increase capital costs."
+    ],
+    "suggestedActions": [
+      "Set improvement targets for each ESG pillar.",
+      "Consider carbon offset programs for residual emissions."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate corporate ESG sustainability score (0-100).",
+      "long": "Calculate corporate ESG sustainability score (0-100).",
+      "short_i18n": {
+        "en": "Calculate corporate ESG sustainability score (0-100).",
+        "tr": "Kurumun finansal olmayan sürdürülebilirlik notunu (ESG skoru) hesaplar.",
+        "de": "Calculate corporate ESG sustainability score (0-100).",
+        "fr": "Calculate corporate ESG sustainability score (0-100).",
+        "es": "Calculate corporate ESG sustainability score (0-100).",
+        "ar": "Calculate corporate ESG sustainability score (0-100)."
+      },
+      "long_i18n": {
+        "en": "Calculate corporate ESG sustainability score (0-100).",
+        "tr": "Kurumun finansal olmayan sürdürülebilirlik notunu (ESG skoru) hesaplar.",
+        "de": "Calculate corporate ESG sustainability score (0-100).",
+        "fr": "Calculate corporate ESG sustainability score (0-100).",
+        "es": "Calculate corporate ESG sustainability score (0-100).",
+        "ar": "Calculate corporate ESG sustainability score (0-100)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "esg-score-calculator",
+    "de": "ESG-Score-Rechner",
+    "fr": "Calculateur de score ESG",
+    "es": "Calculadora de puntuación ESG",
+    "ar": "حاسبة درجة ESG"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "toolName": "startup-valuation-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yatirim",
+      "label": "Yatırım Tutarı (TL)",
+      "label_i18n": {
+        "en": "Investment Amount (USD)",
+        "tr": "Yatırım Tutarı (TL)",
+        "de": "Investitionsbetrag ($)",
+        "fr": "Montant de l'investissement ($)",
+        "es": "Monto de inversión ($)",
+        "ar": "مبلغ الاستثمار ($)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Yatırımcının koyduğu tutar.",
+      "businessContext_i18n": {
+        "en": "Investor capital contribution.",
+        "tr": "Yatırımcının koyduğu tutar.",
+        "de": "Investor capital contribution.",
+        "fr": "Investor capital contribution.",
+        "es": "Investor capital contribution.",
+        "ar": "Investor capital contribution."
+      }
+    },
+    {
+      "id": "hisseOrani",
+      "label": "Verilen Hisse Oranı (%)",
+      "label_i18n": {
+        "en": "Equity Given (%)",
+        "tr": "Verilen Hisse Oranı (%)",
+        "de": "Equity Given (%)",
+        "fr": "Equity Given (%)",
+        "es": "Equity Given (%)",
+        "ar": "Equity Given (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0.1,
+      "max": 99,
+      "businessContext": "Yatırımcıya verilen hisse yüzdesi.",
+      "businessContext_i18n": {
+        "en": "Percentage equity given to investor.",
+        "tr": "Yatırımcıya verilen hisse yüzdesi.",
+        "de": "Percentage equity given to investor.",
+        "fr": "Percentage equity given to investor.",
+        "es": "Percentage equity given to investor.",
+        "ar": "Percentage equity given to investor."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "degerlemeSonrasi": "yatirim / Math.max(0.0001, hisseOrani / 100)",
+    "sonuc": "(yatirim / Math.max(0.0001, hisseOrani / 100)) - yatirim"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Yatırım Öncesi Değerleme"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yatırım Öncesi Değerleme",
+        "tr": "Yatırım Öncesi Değerleme",
+        "de": "Yatırım Öncesi Değerleme",
+        "fr": "Yatırım Öncesi Değerleme",
+        "es": "Yatırım Öncesi Değerleme",
+        "ar": "Yatırım Öncesi Değerleme"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate pre-money and post-money startup valuation.",
+      "long": "Calculate pre-money and post-money startup valuation.",
+      "short_i18n": {
+        "en": "Calculate pre-money and post-money startup valuation.",
+        "tr": "Yatırım öncesi ve sonrası girişim değerini hesaplar.",
+        "de": "Calculate pre-money and post-money startup valuation.",
+        "fr": "Calculate pre-money and post-money startup valuation.",
+        "es": "Calculate pre-money and post-money startup valuation.",
+        "ar": "Calculate pre-money and post-money startup valuation."
+      },
+      "long_i18n": {
+        "en": "Calculate pre-money and post-money startup valuation.",
+        "tr": "Yatırım öncesi ve sonrası girişim değerini hesaplar.",
+        "de": "Calculate pre-money and post-money startup valuation.",
+        "fr": "Calculate pre-money and post-money startup valuation.",
+        "es": "Calculate pre-money and post-money startup valuation.",
+        "ar": "Calculate pre-money and post-money startup valuation."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "startup-valuation-calculator",
+    "de": "Startup-Bewertungsrechner",
+    "fr": "Calculateur d'évaluation de startup",
+    "es": "Calculadora de valoración de startups",
+    "ar": "حاسبة تقييم الشركات الناشئة"
+  }
+}

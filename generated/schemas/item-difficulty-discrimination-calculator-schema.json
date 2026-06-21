@@ -1,0 +1,214 @@
+{
+  "toolName": "item-difficulty-discrimination-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "dogruCevap",
+      "label": "Doğru Cevap Sayısı",
+      "label_i18n": {
+        "en": "Correct Answers",
+        "tr": "Doğru Cevap Sayısı",
+        "de": "Correct Answers",
+        "fr": "Correct Answers",
+        "es": "Correct Answers",
+        "ar": "Correct Answers"
+      },
+      "type": "number",
+      "unit": "students",
+      "default": 40,
+      "min": 0,
+      "businessContext": "Soruyu doğru cevaplayan öğrenci.",
+      "businessContext_i18n": {
+        "en": "Students answering correctly.",
+        "tr": "Soruyu doğru cevaplayan öğrenci.",
+        "de": "Students answering correctly.",
+        "fr": "Students answering correctly.",
+        "es": "Students answering correctly.",
+        "ar": "Students answering correctly."
+      }
+    },
+    {
+      "id": "toplamOgrenci",
+      "label": "Toplam Öğrenci Sayısı",
+      "label_i18n": {
+        "en": "Total Students",
+        "tr": "Toplam Öğrenci Sayısı",
+        "de": "Total Students",
+        "fr": "Total Students",
+        "es": "Total Students",
+        "ar": "Total Students"
+      },
+      "type": "number",
+      "unit": "students",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Sınava giren toplam öğrenci.",
+      "businessContext_i18n": {
+        "en": "Total test takers.",
+        "tr": "Sınava giren toplam öğrenci.",
+        "de": "Total test takers.",
+        "fr": "Total test takers.",
+        "es": "Total test takers.",
+        "ar": "Total test takers."
+      }
+    },
+    {
+      "id": "ustGrupDogru",
+      "label": "Üst Grupta Doğru",
+      "label_i18n": {
+        "en": "Upper Group Correct",
+        "tr": "Üst Grupta Doğru",
+        "de": "Upper Group Correct",
+        "fr": "Upper Group Correct",
+        "es": "Upper Group Correct",
+        "ar": "Upper Group Correct"
+      },
+      "type": "number",
+      "unit": "students",
+      "default": 25,
+      "min": 0,
+      "businessContext": "En başarılı %27'nin doğru sayısı.",
+      "businessContext_i18n": {
+        "en": "Top 27% correct count.",
+        "tr": "En başarılı %27'nin doğru sayısı.",
+        "de": "Top 27% correct count.",
+        "fr": "Top 27% correct count.",
+        "es": "Top 27% correct count.",
+        "ar": "Top 27% correct count."
+      }
+    },
+    {
+      "id": "altGrupDogru",
+      "label": "Alt Grupta Doğru",
+      "label_i18n": {
+        "en": "Lower Group Correct",
+        "tr": "Alt Grupta Doğru",
+        "de": "Lower Group Correct",
+        "fr": "Lower Group Correct",
+        "es": "Lower Group Correct",
+        "ar": "Lower Group Correct"
+      },
+      "type": "number",
+      "unit": "students",
+      "default": 5,
+      "min": 0,
+      "businessContext": "En düşük %27'nin doğru sayısı.",
+      "businessContext_i18n": {
+        "en": "Bottom 27% correct count.",
+        "tr": "En düşük %27'nin doğru sayısı.",
+        "de": "Bottom 27% correct count.",
+        "fr": "Bottom 27% correct count.",
+        "es": "Bottom 27% correct count.",
+        "ar": "Bottom 27% correct count."
+      }
+    },
+    {
+      "id": "grupBoyutu",
+      "label": "Grup Boyutu",
+      "label_i18n": {
+        "en": "Group Size",
+        "tr": "Grup Boyutu",
+        "de": "Untergruppengröße (n)",
+        "fr": "Taille sous-groupe (n)",
+        "es": "Tamaño del Subgrupo (n)",
+        "ar": "حجم المجموعة الفرعية (n)"
+      },
+      "type": "number",
+      "unit": "students",
+      "default": 27,
+      "min": 0,
+      "businessContext": "Her grubun öğrenci sayısı.",
+      "businessContext_i18n": {
+        "en": "Each group's student count.",
+        "tr": "Her grubun öğrenci sayısı.",
+        "de": "Each group's student count.",
+        "fr": "Each group's student count.",
+        "es": "Each group's student count.",
+        "ar": "Each group's student count."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "p": "dogruCevap / Math.max(1, toplamOgrenci)",
+    "sonuc": "(ustGrupDogru - altGrupDogru) / Math.max(1, grupBoyutu)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "r-value",
+    "breakdown": {
+      "p": "Madde Güçlüğü (p)",
+      "sonuc": "Ayırt Edicilik (r)"
+    },
+    "breakdown_i18n": {
+      "p": {
+        "en": "Madde Güçlüğü (p)",
+        "tr": "Madde Güçlüğü (p)",
+        "de": "Madde Güçlüğü (p)",
+        "fr": "Madde Güçlüğü (p)",
+        "es": "Madde Güçlüğü (p)",
+        "ar": "Madde Güçlüğü (p)"
+      },
+      "sonuc": {
+        "en": "Ayırt Edicilik (r)",
+        "tr": "Ayırt Edicilik (r)",
+        "de": "Ayırt Edicilik (r)",
+        "fr": "Ayırt Edicilik (r)",
+        "es": "Ayırt Edicilik (r)",
+        "ar": "Ayırt Edicilik (r)"
+      }
+    },
+    "breakdownUnits": {
+      "p": "r-value",
+      "sonuc": "r-value"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+      "long": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+      "short_i18n": {
+        "en": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+        "tr": "Test sorusunun zorluk (p) ve ayırt edicilik (r) değerlerini hesaplar.",
+        "de": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+        "fr": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+        "es": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+        "ar": "Calculate item difficulty (p) and discrimination index (r) for test questions."
+      },
+      "long_i18n": {
+        "en": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+        "tr": "Test sorusunun zorluk (p) ve ayırt edicilik (r) değerlerini hesaplar.",
+        "de": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+        "fr": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+        "es": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
+        "ar": "Calculate item difficulty (p) and discrimination index (r) for test questions."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "item-difficulty-discrimination-calculator",
+    "de": "Stoffstärke-Unterscheidungsrechner",
+    "fr": "Calculateur de pouvoir discriminant de substance",
+    "es": "Calculadora de poder discriminante de sustancia",
+    "ar": "حاسبة قوة تمييز المادة"
+  }
+}

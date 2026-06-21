@@ -1,0 +1,153 @@
+{
+  "toolName": "solenoid-magnetic-field-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "akim",
+      "label": "Sargı Akımı (A)",
+      "label_i18n": {
+        "en": "Coil Current (A)",
+        "tr": "Sargı Akımı (A)",
+        "de": "Coil Current (A)",
+        "fr": "Coil Current (A)",
+        "es": "Coil Current (A)",
+        "ar": "Coil Current (A)"
+      },
+      "type": "number",
+      "unit": "A",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Bobin sargısından geçen akım.",
+      "businessContext_i18n": {
+        "en": "Coil winding current.",
+        "tr": "Bobin sargısından geçen akım.",
+        "de": "Coil winding current.",
+        "fr": "Coil winding current.",
+        "es": "Coil winding current.",
+        "ar": "Coil winding current."
+      }
+    },
+    {
+      "id": "sarimSayisi",
+      "label": "Toplam Sarım Sayısı",
+      "label_i18n": {
+        "en": "Number of Turns",
+        "tr": "Toplam Sarım Sayısı",
+        "de": "Number of Turns",
+        "fr": "Number of Turns",
+        "es": "Number of Turns",
+        "ar": "Number of Turns"
+      },
+      "type": "number",
+      "unit": "turns",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Bobin toplam sarım adedi.",
+      "businessContext_i18n": {
+        "en": "Total coil turns.",
+        "tr": "Bobin toplam sarım adedi.",
+        "de": "Total coil turns.",
+        "fr": "Total coil turns.",
+        "es": "Total coil turns.",
+        "ar": "Total coil turns."
+      }
+    },
+    {
+      "id": "uzunluk",
+      "label": "Bobin Boyu (m)",
+      "label_i18n": {
+        "en": "Coil Length (m)",
+        "tr": "Bobin Boyu (m)",
+        "de": "Coil Length (m)",
+        "fr": "Coil Length (m)",
+        "es": "Coil Length (m)",
+        "ar": "Coil Length (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "min": 0,
+      "businessContext": "Solenoidin fiziksel uzunluğu.",
+      "businessContext_i18n": {
+        "en": "Solenoid physical length.",
+        "tr": "Solenoidin fiziksel uzunluğu.",
+        "de": "Solenoid physical length.",
+        "fr": "Solenoid physical length.",
+        "es": "Solenoid physical length.",
+        "ar": "Solenoid physical length."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(4 * Math.PI * 1e-7 * sarimSayisi * akim) / Math.max(0.0001, uzunluk)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "T",
+    "breakdown": {
+      "sonuc": "Manyetik Alan (B)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Manyetik Alan (B)",
+        "tr": "Manyetik Alan (B)",
+        "de": "Manyetik Alan (B)",
+        "fr": "Manyetik Alan (B)",
+        "es": "Manyetik Alan (B)",
+        "ar": "Manyetik Alan (B)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "T"
+    },
+    "hiddenLossDrivers": [
+      "Low SNR indicates poor signal quality.",
+      "High Q indicates narrow bandwidth."
+    ],
+    "suggestedActions": [
+      "Use proper shielding for sensitive measurements.",
+      "Consider efficiency losses in energy calculations."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate magnetic flux density inside a solenoid.",
+      "long": "Calculate magnetic flux density inside a solenoid.",
+      "short_i18n": {
+        "en": "Calculate magnetic flux density inside a solenoid.",
+        "tr": "Bobin içindeki homojen manyetik akı yoğunluğunu (solenoid) hesaplar.",
+        "de": "Calculate magnetic flux density inside a solenoid.",
+        "fr": "Calculate magnetic flux density inside a solenoid.",
+        "es": "Calculate magnetic flux density inside a solenoid.",
+        "ar": "Calculate magnetic flux density inside a solenoid."
+      },
+      "long_i18n": {
+        "en": "Calculate magnetic flux density inside a solenoid.",
+        "tr": "Bobin içindeki homojen manyetik akı yoğunluğunu (solenoid) hesaplar.",
+        "de": "Calculate magnetic flux density inside a solenoid.",
+        "fr": "Calculate magnetic flux density inside a solenoid.",
+        "es": "Calculate magnetic flux density inside a solenoid.",
+        "ar": "Calculate magnetic flux density inside a solenoid."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "solenoid-magnetic-field-calculator",
+    "de": "Magnetfeld-Solenoid-Rechner",
+    "fr": "Calculateur de champ magnétique de solénoïde",
+    "es": "Calculadora de campo magnético de solenoide",
+    "ar": "حاسبة المجال المغناطيسي للملف اللولبي"
+  }
+}

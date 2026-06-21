@@ -1,0 +1,127 @@
+{
+  "toolName": "motor-efficiency-calculator",
+  "catalogCategory": "automotive-transport",
+  "categorySlug": "automotive-transport",
+  "sector": "Mekanik, Otomotiv ve Havacılık",
+  "sectorId": "automotive-transport",
+  "inputs": [
+    {
+      "id": "cikisGuc",
+      "label": "Çıkış Gücü (W)",
+      "label_i18n": {
+        "en": "Output Power (W)",
+        "tr": "Çıkış Gücü (W)",
+        "de": "Output Power (W)",
+        "fr": "Output Power (W)",
+        "es": "Output Power (W)",
+        "ar": "Output Power (W)"
+      },
+      "type": "number",
+      "unit": "W",
+      "default": 750,
+      "min": 0,
+      "businessContext": "Milin ürettiği mekanik güç.",
+      "businessContext_i18n": {
+        "en": "Shaft mechanical power.",
+        "tr": "Milin ürettiği mekanik güç.",
+        "de": "Shaft mechanical power.",
+        "fr": "Shaft mechanical power.",
+        "es": "Shaft mechanical power.",
+        "ar": "Shaft mechanical power."
+      }
+    },
+    {
+      "id": "girisGuc",
+      "label": "Giriş Gücü (W)",
+      "label_i18n": {
+        "en": "Input Power (W)",
+        "tr": "Giriş Gücü (W)",
+        "de": "Input Power (W)",
+        "fr": "Input Power (W)",
+        "es": "Input Power (W)",
+        "ar": "Input Power (W)"
+      },
+      "type": "number",
+      "unit": "W",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Motorun çektiği elektrik gücü.",
+      "businessContext_i18n": {
+        "en": "Motor electrical power.",
+        "tr": "Motorun çektiği elektrik gücü.",
+        "de": "Motor electrical power.",
+        "fr": "Motor electrical power.",
+        "es": "Motor electrical power.",
+        "ar": "Motor electrical power."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(cikisGuc / Math.max(0.0001, girisGuc)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Motor Verimi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Motor Verimi",
+        "tr": "Motor Verimi",
+        "de": "Motor Verimi",
+        "fr": "Motor Verimi",
+        "es": "Motor Verimi",
+        "ar": "Motor Verimi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [
+      "High fuel/energy consumption indicates efficiency losses."
+    ],
+    "suggestedActions": [
+      "Regular maintenance improves overall equipment efficiency.",
+      "Simulate real-world driving conditions for accurate range estimates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate electric motor efficiency.",
+      "long": "Calculate electric motor efficiency.",
+      "short_i18n": {
+        "en": "Calculate electric motor efficiency.",
+        "tr": "Elektrik enerjisinin mekanik enerjiye dönüşüm başarısını (motor verimi) hesaplar.",
+        "de": "Calculate electric motor efficiency.",
+        "fr": "Calculate electric motor efficiency.",
+        "es": "Calculate electric motor efficiency.",
+        "ar": "Calculate electric motor efficiency."
+      },
+      "long_i18n": {
+        "en": "Calculate electric motor efficiency.",
+        "tr": "Elektrik enerjisinin mekanik enerjiye dönüşüm başarısını (motor verimi) hesaplar.",
+        "de": "Calculate electric motor efficiency.",
+        "fr": "Calculate electric motor efficiency.",
+        "es": "Calculate electric motor efficiency.",
+        "ar": "Calculate electric motor efficiency."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "motor-efficiency-calculator",
+    "de": "Motorwirkungsgradrechner",
+    "fr": "Calculateur de rendement moteur",
+    "es": "Calculadora de eficiencia del motor",
+    "ar": "حاسبة كفاءة المحرك"
+  }
+}

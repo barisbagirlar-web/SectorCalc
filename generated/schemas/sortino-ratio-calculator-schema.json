@@ -1,0 +1,150 @@
+{
+  "toolName": "sortino-ratio-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "portfoyGetirisi",
+      "label": "Portföy Getirisi (%)",
+      "label_i18n": {
+        "en": "Portfolio Return (%)",
+        "tr": "Portföy Getirisi (%)",
+        "de": "Portfoliorendite (%)",
+        "fr": "Rendement du portefeuille (%)",
+        "es": "Rendimiento de la cartera (%)",
+        "ar": "عائد المحفظة (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Portföyün dönemsel getirisi.",
+      "businessContext_i18n": {
+        "en": "Portfolio return.",
+        "tr": "Portföyün dönemsel getirisi.",
+        "de": "Portfolio return.",
+        "fr": "Portfolio return.",
+        "es": "Portfolio return.",
+        "ar": "Portfolio return."
+      }
+    },
+    {
+      "id": "risksizFaiz",
+      "label": "Risksiz Faiz (%)",
+      "label_i18n": {
+        "en": "Risk-Free Rate (%)",
+        "tr": "Risksiz Faiz (%)",
+        "de": "Risikofreier Zinssatz (%)",
+        "fr": "Taux sans risque (%)",
+        "es": "Tasa libre de riesgo (%)",
+        "ar": "معدل الفائدة الخالي من المخاطر (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "businessContext": "Risksiz varlık getirisi.",
+      "businessContext_i18n": {
+        "en": "Risk-free return.",
+        "tr": "Risksiz varlık getirisi.",
+        "de": "Risk-free return.",
+        "fr": "Risk-free return.",
+        "es": "Risk-free return.",
+        "ar": "Risk-free return."
+      }
+    },
+    {
+      "id": "asagiSapma",
+      "label": "Aşağı Yönlü Sapma (%)",
+      "label_i18n": {
+        "en": "Downside Deviation (%)",
+        "tr": "Aşağı Yönlü Sapma (%)",
+        "de": "Abwärtsabweichung (%)",
+        "fr": "Écart à la baisse (%)",
+        "es": "Desviación a la baja (%)",
+        "ar": "الانحراف السلبي (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "businessContext": "Negatif getirilerin standart sapması.",
+      "businessContext_i18n": {
+        "en": "Standard deviation of negative returns.",
+        "tr": "Negatif getirilerin standart sapması.",
+        "de": "Standard deviation of negative returns.",
+        "fr": "Standard deviation of negative returns.",
+        "es": "Standard deviation of negative returns.",
+        "ar": "Standard deviation of negative returns."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(portfoyGetirisi - risksizFaiz) / Math.max(0.0001, asagiSapma)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "Sortino Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Sortino Oranı",
+        "tr": "Sortino Oranı",
+        "de": "Sortino Oranı",
+        "fr": "Sortino Oranı",
+        "es": "Sortino Oranı",
+        "ar": "Sortino Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the Sortino ratio — return per unit of downside risk only.",
+      "long": "Calculate the Sortino ratio — return per unit of downside risk only.",
+      "short_i18n": {
+        "en": "Calculate the Sortino ratio — return per unit of downside risk only.",
+        "tr": "Sadece aşağı yönlü (zarar) risk başına üretilen getiriyi (Sortino) hesaplar.",
+        "de": "Calculate the Sortino ratio — return per unit of downside risk only.",
+        "fr": "Calculate the Sortino ratio — return per unit of downside risk only.",
+        "es": "Calculate the Sortino ratio — return per unit of downside risk only.",
+        "ar": "Calculate the Sortino ratio — return per unit of downside risk only."
+      },
+      "long_i18n": {
+        "en": "Calculate the Sortino ratio — return per unit of downside risk only.",
+        "tr": "Sadece aşağı yönlü (zarar) risk başına üretilen getiriyi (Sortino) hesaplar.",
+        "de": "Calculate the Sortino ratio — return per unit of downside risk only.",
+        "fr": "Calculate the Sortino ratio — return per unit of downside risk only.",
+        "es": "Calculate the Sortino ratio — return per unit of downside risk only.",
+        "ar": "Calculate the Sortino ratio — return per unit of downside risk only."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "sortino-ratio-calculator",
+    "de": "Sortino-Ratio-Rechner",
+    "fr": "Calculateur de ratio de Sortino",
+    "es": "Calculadora de ratio de Sortino",
+    "ar": "حاسبة نسبة سورتينو"
+  }
+}

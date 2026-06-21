@@ -1,0 +1,125 @@
+{
+  "toolName": "pb-ratio-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "piyasaDegeri",
+      "label": "Piyasa Değeri (₺)",
+      "label_i18n": {
+        "en": "Market Cap (USD)",
+        "tr": "Piyasa Değeri (₺)",
+        "de": "Market Cap (USD)",
+        "fr": "Market Cap (USD)",
+        "es": "Market Cap (USD)",
+        "ar": "Market Cap (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 5000000,
+      "min": 0,
+      "businessContext": "Şirketin toplam piyasa değeri.",
+      "businessContext_i18n": {
+        "en": "Total market capitalization.",
+        "tr": "Şirketin toplam piyasa değeri.",
+        "de": "Total market capitalization.",
+        "fr": "Total market capitalization.",
+        "es": "Total market capitalization.",
+        "ar": "Total market capitalization."
+      }
+    },
+    {
+      "id": "ozsermaye",
+      "label": "Özsermaye (₺)",
+      "label_i18n": {
+        "en": "Shareholders Equity (USD)",
+        "tr": "Özsermaye (₺)",
+        "de": "Shareholders Equity (USD)",
+        "fr": "Shareholders Equity (USD)",
+        "es": "Shareholders Equity (USD)",
+        "ar": "Shareholders Equity (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 3000000,
+      "min": 0,
+      "businessContext": "Şirketin defter değeri.",
+      "businessContext_i18n": {
+        "en": "Book value of shareholders equity.",
+        "tr": "Şirketin defter değeri.",
+        "de": "Book value of shareholders equity.",
+        "fr": "Book value of shareholders equity.",
+        "es": "Book value of shareholders equity.",
+        "ar": "Book value of shareholders equity."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "piyasaDegeri / Math.max(1, ozsermaye)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "PD/DD (P/B) Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "PD/DD (P/B) Oranı",
+        "tr": "PD/DD (P/B) Oranı",
+        "de": "PD/DD (P/B) Oranı",
+        "fr": "PD/DD (P/B) Oranı",
+        "es": "PD/DD (P/B) Oranı",
+        "ar": "PD/DD (P/B) Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the price-to-book (P/B) ratio.",
+      "long": "Calculate the price-to-book (P/B) ratio.",
+      "short_i18n": {
+        "en": "Calculate the price-to-book (P/B) ratio.",
+        "tr": "Piyasanın şirketin defter değerine biçtiği primi (PD/DD) hesaplar.",
+        "de": "Calculate the price-to-book (P/B) ratio.",
+        "fr": "Calculate the price-to-book (P/B) ratio.",
+        "es": "Calculate the price-to-book (P/B) ratio.",
+        "ar": "Calculate the price-to-book (P/B) ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate the price-to-book (P/B) ratio.",
+        "tr": "Piyasanın şirketin defter değerine biçtiği primi (PD/DD) hesaplar.",
+        "de": "Calculate the price-to-book (P/B) ratio.",
+        "fr": "Calculate the price-to-book (P/B) ratio.",
+        "es": "Calculate the price-to-book (P/B) ratio.",
+        "ar": "Calculate the price-to-book (P/B) ratio."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "pb-ratio-calculator",
+    "de": "Kurs-Buchwert-Verhältnis-Rechner",
+    "fr": "Calculateur de ratio cours/valeur comptable",
+    "es": "Calculadora de ratio precio/valor contable",
+    "ar": "حاسبة نسبة السعر إلى القيمة الدفترية"
+  }
+}

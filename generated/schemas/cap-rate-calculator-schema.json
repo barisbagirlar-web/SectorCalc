@@ -1,0 +1,125 @@
+{
+  "toolName": "cap-rate-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "yillikNetGelir",
+      "label": "Yıllık Net Kira Geliri (₺)",
+      "label_i18n": {
+        "en": "Annual Net Rental Income (USD)",
+        "tr": "Yıllık Net Kira Geliri (₺)",
+        "de": "Annual Net Rental Income (USD)",
+        "fr": "Annual Net Rental Income (USD)",
+        "es": "Annual Net Rental Income (USD)",
+        "ar": "Annual Net Rental Income (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 120000,
+      "min": 0,
+      "businessContext": "Giderler düşüldükten sonraki net kira geliri.",
+      "businessContext_i18n": {
+        "en": "Net rental income after expenses.",
+        "tr": "Giderler düşüldükten sonraki net kira geliri.",
+        "de": "Net rental income after expenses.",
+        "fr": "Net rental income after expenses.",
+        "es": "Net rental income after expenses.",
+        "ar": "Net rental income after expenses."
+      }
+    },
+    {
+      "id": "mulkDegeri",
+      "label": "Mülk Değeri (₺)",
+      "label_i18n": {
+        "en": "Property Value (USD)",
+        "tr": "Mülk Değeri (₺)",
+        "de": "Immobilienwert",
+        "fr": "Valeur de la propriété",
+        "es": "Valor de la propiedad",
+        "ar": "قيمة العقار"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1500000,
+      "min": 0,
+      "businessContext": "Gayrimenkulün piyasa değeri.",
+      "businessContext_i18n": {
+        "en": "Property market value.",
+        "tr": "Gayrimenkulün piyasa değeri.",
+        "de": "Property market value.",
+        "fr": "Property market value.",
+        "es": "Property market value.",
+        "ar": "Property market value."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(yillikNetGelir / Math.max(1, mulkDegeri)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Cap Rate (Getiri Oranı)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Cap Rate (Getiri Oranı)",
+        "tr": "Cap Rate (Getiri Oranı)",
+        "de": "Cap Rate (Getiri Oranı)",
+        "fr": "Cap Rate (Getiri Oranı)",
+        "es": "Cap Rate (Getiri Oranı)",
+        "ar": "Cap Rate (Getiri Oranı)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate property cap rate — unleveraged annual net return.",
+      "long": "Calculate property cap rate — unleveraged annual net return.",
+      "short_i18n": {
+        "en": "Calculate property cap rate — unleveraged annual net return.",
+        "tr": "Mülkün kredi kaldıracı hariç yıllık net getiri oranını (Cap Rate) hesaplar.",
+        "de": "Calculate property cap rate — unleveraged annual net return.",
+        "fr": "Calculate property cap rate — unleveraged annual net return.",
+        "es": "Calculate property cap rate — unleveraged annual net return.",
+        "ar": "Calculate property cap rate — unleveraged annual net return."
+      },
+      "long_i18n": {
+        "en": "Calculate property cap rate — unleveraged annual net return.",
+        "tr": "Mülkün kredi kaldıracı hariç yıllık net getiri oranını (Cap Rate) hesaplar.",
+        "de": "Calculate property cap rate — unleveraged annual net return.",
+        "fr": "Calculate property cap rate — unleveraged annual net return.",
+        "es": "Calculate property cap rate — unleveraged annual net return.",
+        "ar": "Calculate property cap rate — unleveraged annual net return."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "cap-rate-calculator",
+    "de": "Cap-Rate-Mietrendite-Rechner",
+    "fr": "Calculateur de rendement locatif Cap Rate",
+    "es": "Calculadora de rendimiento de alquiler Cap Rate",
+    "ar": "حاسبة عائد الإيجار Cap Rate"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "toolName": "antenna-length-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik ve Kuantum",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "frekans",
+      "label": "Frekans (MHz)",
+      "label_i18n": {
+        "en": "Frequency (MHz)",
+        "tr": "Frekans (MHz)",
+        "de": "Zinseszinshäufigkeit",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de Capitalización",
+        "ar": "تكرار المركبة"
+      },
+      "type": "number",
+      "unit": "MHz",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Çalışma frekansı.",
+      "businessContext_i18n": {
+        "en": "Operating frequency.",
+        "tr": "Çalışma frekansı.",
+        "de": "Operating frequency.",
+        "fr": "Operating frequency.",
+        "es": "Operating frequency.",
+        "ar": "Operating frequency."
+      }
+    },
+    {
+      "id": "tip",
+      "label": "Anten Tipi (1=Dipole, 2=Yagi)",
+      "label_i18n": {
+        "en": "Antenna Type (1=Dipole, 2=Yagi)",
+        "tr": "Anten Tipi (1=Dipole, 2=Yagi)",
+        "de": "Antenna Type (1=Dipole, 2=Yagi)",
+        "fr": "Antenna Type (1=Dipole, 2=Yagi)",
+        "es": "Antenna Type (1=Dipole, 2=Yagi)",
+        "ar": "Antenna Type (1=Dipole, 2=Yagi)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Anten türü.",
+      "businessContext_i18n": {
+        "en": "Antenna type.",
+        "tr": "Anten türü.",
+        "de": "Antenna type.",
+        "fr": "Antenna type.",
+        "es": "Antenna type.",
+        "ar": "Antenna type."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "dalgaBoyu": "300 / Math.max(0.0001, frekans)",
+    "sonuc": "tip === 1 ? 300 / Math.max(0.0001, frekans) / 2 : 300 / Math.max(0.0001, frekans) * 0.45"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Anten Uzunluğu"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Anten Uzunluğu",
+        "tr": "Anten Uzunluğu",
+        "de": "Anten Uzunluğu",
+        "fr": "Anten Uzunluğu",
+        "es": "Anten Uzunluğu",
+        "ar": "Anten Uzunluğu"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Quantum effects are only observable at microscopic scales.",
+      "These are idealized models."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate physical antenna element length for resonance at given frequency.",
+      "long": "Calculate physical antenna element length for resonance at given frequency.",
+      "short_i18n": {
+        "en": "Calculate physical antenna element length for resonance at given frequency.",
+        "tr": "Rezonans için gereken fiziksel anten eleman boyunu hesaplar.",
+        "de": "Calculate physical antenna element length for resonance at given frequency.",
+        "fr": "Calculate physical antenna element length for resonance at given frequency.",
+        "es": "Calculate physical antenna element length for resonance at given frequency.",
+        "ar": "Calculate physical antenna element length for resonance at given frequency."
+      },
+      "long_i18n": {
+        "en": "Calculate physical antenna element length for resonance at given frequency.",
+        "tr": "Rezonans için gereken fiziksel anten eleman boyunu hesaplar.",
+        "de": "Calculate physical antenna element length for resonance at given frequency.",
+        "fr": "Calculate physical antenna element length for resonance at given frequency.",
+        "es": "Calculate physical antenna element length for resonance at given frequency.",
+        "ar": "Calculate physical antenna element length for resonance at given frequency."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "antenna-length-calculator",
+    "de": "RF-Antennengrößenrechner",
+    "fr": "Calculateur de dimensionnement d'antenne RF",
+    "es": "Calculadora de dimensionamiento de antena RF",
+    "ar": "حاسبة حجم هوائي RF"
+  }
+}

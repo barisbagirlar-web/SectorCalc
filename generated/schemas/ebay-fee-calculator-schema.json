@@ -1,0 +1,150 @@
+{
+  "toolName": "ebay-fee-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "E-Ticaret",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "satis",
+      "label": "Satış Tutarı (TL)",
+      "label_i18n": {
+        "en": "Sale Amount (USD)",
+        "tr": "Satış Tutarı (TL)",
+        "de": "Verkaufsbetrag",
+        "fr": "Montant de la vente",
+        "es": "Monto de venta",
+        "ar": "مبلغ البيع"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Ürün satış fiyatı.",
+      "businessContext_i18n": {
+        "en": "Sale amount.",
+        "tr": "Ürün satış fiyatı.",
+        "de": "Sale amount.",
+        "fr": "Sale amount.",
+        "es": "Sale amount.",
+        "ar": "Sale amount."
+      }
+    },
+    {
+      "id": "kategori",
+      "label": "Kategori Ücreti (%)",
+      "label_i18n": {
+        "en": "Category Fee (%)",
+        "tr": "Kategori Ücreti (%)",
+        "de": "Category Fee (%)",
+        "fr": "Category Fee (%)",
+        "es": "Category Fee (%)",
+        "ar": "Category Fee (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 13.25,
+      "min": 0,
+      "businessContext": "Kategori bazlı satış ücreti.",
+      "businessContext_i18n": {
+        "en": "Category-based selling fee.",
+        "tr": "Kategori bazlı satış ücreti.",
+        "de": "Category-based selling fee.",
+        "fr": "Category-based selling fee.",
+        "es": "Category-based selling fee.",
+        "ar": "Category-based selling fee."
+      }
+    },
+    {
+      "id": "sabit",
+      "label": "Sabit Ücret (TL)",
+      "label_i18n": {
+        "en": "Fixed Fee (USD)",
+        "tr": "Sabit Ücret (TL)",
+        "de": "Feste Gebühr (USD)",
+        "fr": "Frais fixes (USD)",
+        "es": "Tarifa fija (USD)",
+        "ar": "الرسوم الثابتة (دولار أمريكي)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Sabit işlem ücreti.",
+      "businessContext_i18n": {
+        "en": "Fixed transaction fee.",
+        "tr": "Sabit işlem ücreti.",
+        "de": "Fixed transaction fee.",
+        "fr": "Fixed transaction fee.",
+        "es": "Fixed transaction fee.",
+        "ar": "Fixed transaction fee."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(satis * kategori / 100) + sabit"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Toplam eBay Kesintisi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam eBay Kesintisi",
+        "tr": "Toplam eBay Kesintisi",
+        "de": "Toplam eBay Kesintisi",
+        "fr": "Toplam eBay Kesintisi",
+        "es": "Toplam eBay Kesintisi",
+        "ar": "Toplam eBay Kesintisi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Factor in return rates and chargebacks.",
+      "Review platform fee schedules regularly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate eBay final value and fixed fees.",
+      "long": "Calculate eBay final value and fixed fees.",
+      "short_i18n": {
+        "en": "Calculate eBay final value and fixed fees.",
+        "tr": "eBay nihai değer ücreti ve sabit kesintileri hesaplar.",
+        "de": "Calculate eBay final value and fixed fees.",
+        "fr": "Calculate eBay final value and fixed fees.",
+        "es": "Calculate eBay final value and fixed fees.",
+        "ar": "Calculate eBay final value and fixed fees."
+      },
+      "long_i18n": {
+        "en": "Calculate eBay final value and fixed fees.",
+        "tr": "eBay nihai değer ücreti ve sabit kesintileri hesaplar.",
+        "de": "Calculate eBay final value and fixed fees.",
+        "fr": "Calculate eBay final value and fixed fees.",
+        "es": "Calculate eBay final value and fixed fees.",
+        "ar": "Calculate eBay final value and fixed fees."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "ebay-fee-calculator",
+    "de": "eBay-Gebührenrechner",
+    "fr": "Calculateur de frais eBay",
+    "es": "Calculadora de tarifas de eBay",
+    "ar": "حاسبة رسوم eBay"
+  }
+}

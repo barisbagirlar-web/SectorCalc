@@ -142,8 +142,9 @@ export default function middleware(request: NextRequest) {
     return applyRegionHeaders(NextResponse.redirect(url, 301), request);
   }
 
+  // Legacy /en/ → root redirect: only for homepage, not for tool/content pages
   const legacyRedirect = getLegacyEnRedirectPath(pathname);
-  if (legacyRedirect !== null) {
+  if (legacyRedirect !== null && !isLocalizedPath(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = legacyRedirect;
     return applyRegionHeaders(NextResponse.redirect(url, 301), request);
@@ -157,6 +158,21 @@ export default function middleware(request: NextRequest) {
   }
 
   if (isLocalizedPath(pathname)) {
+    // Explicit /en/ paths: set English cookie so locale stays English
+    if (pathname === "/en" || pathname.startsWith("/en/")) {
+      const response = NextResponse.next();
+      response.cookies.set(LOCALE_COOKIE, "en", {
+        path: "/",
+        maxAge: 60 * 60 * 24 * 365,
+        sameSite: "lax",
+      });
+      response.cookies.set(NEXT_LOCALE_COOKIE, "en", {
+        path: "/",
+        maxAge: 60 * 60 * 24 * 365,
+        sameSite: "lax",
+      });
+      return applyRegionHeaders(response, request);
+    }
     const response = intlMiddleware(request);
     if (response instanceof NextResponse) {
       return applyRegionHeaders(response, request);
@@ -193,7 +209,7 @@ export const config = {
   matcher: [
     "/api-public/:path*",
     "/",
-    "/(tr|de|fr|es|ar)/:path*",
+    "/(en|tr|de|fr|es|ar)/:path*",
     "/((?!admin|api|api-public|_next|_vercel|.*\\..*).*)",
   ],
 };

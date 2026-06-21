@@ -1,0 +1,150 @@
+{
+  "toolName": "cagr-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "ilkDeger",
+      "label": "İlk Değer (₺)",
+      "label_i18n": {
+        "en": "Initial Value (USD)",
+        "tr": "İlk Değer (₺)",
+        "de": "Anfangswert",
+        "fr": "Valeur initiale",
+        "es": "Valor inicial",
+        "ar": "القيمة الأولية"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Dönem başındaki yatırım değeri.",
+      "businessContext_i18n": {
+        "en": "Value at the beginning of the period.",
+        "tr": "Dönem başındaki yatırım değeri.",
+        "de": "Value at the beginning of the period.",
+        "fr": "Value at the beginning of the period.",
+        "es": "Value at the beginning of the period.",
+        "ar": "Value at the beginning of the period."
+      }
+    },
+    {
+      "id": "sonDeger",
+      "label": "Son Değer (₺)",
+      "label_i18n": {
+        "en": "Final Value (USD)",
+        "tr": "Son Değer (₺)",
+        "de": "Endwert",
+        "fr": "Valeur finale",
+        "es": "Valor final",
+        "ar": "القيمة النهائية"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "min": 0,
+      "businessContext": "Dönem sonundaki yatırım değeri.",
+      "businessContext_i18n": {
+        "en": "Value at the end of the period.",
+        "tr": "Dönem sonundaki yatırım değeri.",
+        "de": "Value at the end of the period.",
+        "fr": "Value at the end of the period.",
+        "es": "Value at the end of the period.",
+        "ar": "Value at the end of the period."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Dönem (Yıl)",
+      "label_i18n": {
+        "en": "Period (Years)",
+        "tr": "Dönem (Yıl)",
+        "de": "Anlagezeitraum",
+        "fr": "Période d'investissement",
+        "es": "Período de inversión",
+        "ar": "فترة الاستثمار"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Yatırımın toplam süresi.",
+      "businessContext_i18n": {
+        "en": "Total investment period.",
+        "tr": "Yatırımın toplam süresi.",
+        "de": "Total investment period.",
+        "fr": "Total investment period.",
+        "es": "Total investment period.",
+        "ar": "Total investment period."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(Math.pow(sonDeger / Math.max(1, ilkDeger), 1 / Math.max(1, yil)) - 1) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "CAGR (Bileşik Yıllık Büyüme)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "CAGR (Bileşik Yıllık Büyüme)",
+        "tr": "CAGR (Bileşik Yıllık Büyüme)",
+        "de": "CAGR (Bileşik Yıllık Büyüme)",
+        "fr": "CAGR (Bileşik Yıllık Büyüme)",
+        "es": "CAGR (Bileşik Yıllık Büyüme)",
+        "ar": "CAGR (Bileşik Yıllık Büyüme)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the compound annual growth rate (CAGR) over time.",
+      "long": "Calculate the compound annual growth rate (CAGR) over time.",
+      "short_i18n": {
+        "en": "Calculate the compound annual growth rate (CAGR) over time.",
+        "tr": "Zaman içindeki pürüzsüz yıllık bileşik büyüme oranını (CAGR) hesaplar.",
+        "de": "Calculate the compound annual growth rate (CAGR) over time.",
+        "fr": "Calculate the compound annual growth rate (CAGR) over time.",
+        "es": "Calculate the compound annual growth rate (CAGR) over time.",
+        "ar": "Calculate the compound annual growth rate (CAGR) over time."
+      },
+      "long_i18n": {
+        "en": "Calculate the compound annual growth rate (CAGR) over time.",
+        "tr": "Zaman içindeki pürüzsüz yıllık bileşik büyüme oranını (CAGR) hesaplar.",
+        "de": "Calculate the compound annual growth rate (CAGR) over time.",
+        "fr": "Calculate the compound annual growth rate (CAGR) over time.",
+        "es": "Calculate the compound annual growth rate (CAGR) over time.",
+        "ar": "Calculate the compound annual growth rate (CAGR) over time."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "cagr-calculator",
+    "de": "CAGR-Wachstumsrechner",
+    "fr": "Calculateur de croissance composée CAGR",
+    "es": "Calculadora de crecimiento compuesto CAGR",
+    "ar": "حاسبة النمو المركب CAGR"
+  }
+}

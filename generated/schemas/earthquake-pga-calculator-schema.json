@@ -1,0 +1,154 @@
+{
+  "toolName": "earthquake-pga-calculator",
+  "catalogCategory": "technology-ai-cloud-cyber",
+  "categorySlug": "technology-ai-cloud-cyber",
+  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sectorId": "technology-ai-cloud-cyber",
+  "inputs": [
+    {
+      "id": "momentMagnitudu",
+      "label": "Deprem Büyüklüğü (Mw)",
+      "label_i18n": {
+        "en": "Moment Magnitude (Mw)",
+        "tr": "Deprem Büyüklüğü (Mw)",
+        "de": "Moment Magnitude (Mw)",
+        "fr": "Moment Magnitude (Mw)",
+        "es": "Moment Magnitude (Mw)",
+        "ar": "Moment Magnitude (Mw)"
+      },
+      "type": "number",
+      "unit": "Mw",
+      "default": 7,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Depremin moment magnitüdü.",
+      "businessContext_i18n": {
+        "en": "Earthquake moment magnitude.",
+        "tr": "Depremin moment magnitüdü.",
+        "de": "Earthquake moment magnitude.",
+        "fr": "Earthquake moment magnitude.",
+        "es": "Earthquake moment magnitude.",
+        "ar": "Earthquake moment magnitude."
+      }
+    },
+    {
+      "id": "mesafe",
+      "label": "Deprem Merkezine Uzaklık (km)",
+      "label_i18n": {
+        "en": "Distance from Epicenter (km)",
+        "tr": "Deprem Merkezine Uzaklık (km)",
+        "de": "Distance from Epicenter (km)",
+        "fr": "Distance from Epicenter (km)",
+        "es": "Distance from Epicenter (km)",
+        "ar": "Distance from Epicenter (km)"
+      },
+      "type": "number",
+      "unit": "km",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Gözlem noktasının deprem merkezine uzaklığı.",
+      "businessContext_i18n": {
+        "en": "Distance from epicenter.",
+        "tr": "Gözlem noktasının deprem merkezine uzaklığı.",
+        "de": "Distance from epicenter.",
+        "fr": "Distance from epicenter.",
+        "es": "Distance from epicenter.",
+        "ar": "Distance from epicenter."
+      }
+    },
+    {
+      "id": "zeminKatsayisi",
+      "label": "Zemin Katsayısı",
+      "label_i18n": {
+        "en": "Site Coefficient",
+        "tr": "Zemin Katsayısı",
+        "de": "Site Coefficient",
+        "fr": "Site Coefficient",
+        "es": "Site Coefficient",
+        "ar": "Site Coefficient"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Zemin türü katsayısı (sert=0.8, yumuşak=1.5).",
+      "businessContext_i18n": {
+        "en": "Soil amplification factor.",
+        "tr": "Zemin türü katsayısı (sert=0.8, yumuşak=1.5).",
+        "de": "Soil amplification factor.",
+        "fr": "Soil amplification factor.",
+        "es": "Soil amplification factor.",
+        "ar": "Soil amplification factor."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "zeminKatsayisi * Math.exp(0.5 * momentMagnitudu - 2.0 * Math.log(Math.max(1, mesafe + 10)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "g",
+    "breakdown": {
+      "sonuc": "PGA (g)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "PGA (g)",
+        "tr": "PGA (g)",
+        "de": "PGA (g)",
+        "fr": "PGA (g)",
+        "es": "PGA (g)",
+        "ar": "PGA (g)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "g"
+    },
+    "hiddenLossDrivers": [
+      "Low SLA indicates service reliability issue.",
+      "High latency degrades user experience."
+    ],
+    "suggestedActions": [
+      "Monitor system performance regularly.",
+      "Implement redundancy for critical infrastructure."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+      "long": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+      "short_i18n": {
+        "en": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+        "tr": "Belirli bir deprem büyüklüğü ve mesafe için yüzeyde beklenen maksimum yer ivmesini (PGA) hesaplar.",
+        "de": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+        "fr": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+        "es": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+        "ar": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance."
+      },
+      "long_i18n": {
+        "en": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+        "tr": "Belirli bir deprem büyüklüğü ve mesafe için yüzeyde beklenen maksimum yer ivmesini (PGA) hesaplar.",
+        "de": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+        "fr": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+        "es": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
+        "ar": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "earthquake-pga-calculator",
+    "de": "Erdbebenmagnitude-PGA-Rechner",
+    "fr": "Calculateur de magnitude de séisme PGA",
+    "es": "Calculadora de magnitud de terremoto PGA",
+    "ar": "حاسبة حجم الزلزال PGA"
+  }
+}

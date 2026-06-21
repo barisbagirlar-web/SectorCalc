@@ -1,0 +1,150 @@
+{
+  "toolName": "fund-return-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "baslangicNAV",
+      "label": "Dönem Başı NAV (₺)",
+      "label_i18n": {
+        "en": "Start NAV (USD)",
+        "tr": "Dönem Başı NAV (₺)",
+        "de": "Start NAV (USD)",
+        "fr": "Start NAV (USD)",
+        "es": "Start NAV (USD)",
+        "ar": "Start NAV (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Dönem başındaki fon pay fiyatı.",
+      "businessContext_i18n": {
+        "en": "Fund unit price at period start.",
+        "tr": "Dönem başındaki fon pay fiyatı.",
+        "de": "Fund unit price at period start.",
+        "fr": "Fund unit price at period start.",
+        "es": "Fund unit price at period start.",
+        "ar": "Fund unit price at period start."
+      }
+    },
+    {
+      "id": "bitisNAV",
+      "label": "Dönem Sonu NAV (₺)",
+      "label_i18n": {
+        "en": "End NAV (USD)",
+        "tr": "Dönem Sonu NAV (₺)",
+        "de": "End NAV (USD)",
+        "fr": "End NAV (USD)",
+        "es": "End NAV (USD)",
+        "ar": "End NAV (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Dönem sonundaki fon pay fiyatı.",
+      "businessContext_i18n": {
+        "en": "Fund unit price at period end.",
+        "tr": "Dönem sonundaki fon pay fiyatı.",
+        "de": "Fund unit price at period end.",
+        "fr": "Fund unit price at period end.",
+        "es": "Fund unit price at period end.",
+        "ar": "Fund unit price at period end."
+      }
+    },
+    {
+      "id": "dagitim",
+      "label": "Dağıtım (₺)",
+      "label_i18n": {
+        "en": "Distribution (USD)",
+        "tr": "Dağıtım (₺)",
+        "de": "Verteilungstyp",
+        "fr": "Type de distribution",
+        "es": "Tipo de Distribución",
+        "ar": "نوع التوزيع"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Dönem boyunca dağıtılan temettü.",
+      "businessContext_i18n": {
+        "en": "Dividend distributed during period.",
+        "tr": "Dönem boyunca dağıtılan temettü.",
+        "de": "Dividend distributed during period.",
+        "fr": "Dividend distributed during period.",
+        "es": "Dividend distributed during period.",
+        "ar": "Dividend distributed during period."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "((bitisNAV + dagitim - baslangicNAV) / Math.max(1, baslangicNAV)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Fon Getirisi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Fon Getirisi",
+        "tr": "Fon Getirisi",
+        "de": "Fon Getirisi",
+        "fr": "Fon Getirisi",
+        "es": "Fon Getirisi",
+        "ar": "Fon Getirisi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total investor return of a mutual fund.",
+      "long": "Calculate total investor return of a mutual fund.",
+      "short_i18n": {
+        "en": "Calculate total investor return of a mutual fund.",
+        "tr": "Fonun dönemsel toplam yatırımcı getirisini hesaplar.",
+        "de": "Calculate total investor return of a mutual fund.",
+        "fr": "Calculate total investor return of a mutual fund.",
+        "es": "Calculate total investor return of a mutual fund.",
+        "ar": "Calculate total investor return of a mutual fund."
+      },
+      "long_i18n": {
+        "en": "Calculate total investor return of a mutual fund.",
+        "tr": "Fonun dönemsel toplam yatırımcı getirisini hesaplar.",
+        "de": "Calculate total investor return of a mutual fund.",
+        "fr": "Calculate total investor return of a mutual fund.",
+        "es": "Calculate total investor return of a mutual fund.",
+        "ar": "Calculate total investor return of a mutual fund."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "fund-return-calculator",
+    "de": "Fondsrendite-Rechner",
+    "fr": "Calculateur de rendement de fonds",
+    "es": "Calculadora de rendimiento de fondos",
+    "ar": "حاسبة عائد الصندوق"
+  }
+}

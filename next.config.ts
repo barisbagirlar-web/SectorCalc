@@ -148,8 +148,8 @@ const nextConfig: NextConfig = {
       },
       { source: "/tools/free/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
-      { source: "/en", destination: "/", permanent: true },
-      { source: "/en/:path*", destination: "/:path*", permanent: true },
+      // /en/ paths removed — let /en/... reach middleware for proper locale cookie handling
+      // (The rewrites below handle root → /en/* internally.)
       {
         source: "/:locale(en|tr|de|fr|es|ar)/tools/free/:slug",
         destination: "/:locale/tools/generated/:slug",

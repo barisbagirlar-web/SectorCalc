@@ -1,0 +1,150 @@
+{
+  "toolName": "wood-siding-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "alan",
+      "label": "Kaplama Alanı (m²)",
+      "label_i18n": {
+        "en": "Siding Area (m²)",
+        "tr": "Kaplama Alanı (m²)",
+        "de": "Siding Area (m²)",
+        "fr": "Siding Area (m²)",
+        "es": "Siding Area (m²)",
+        "ar": "Siding Area (m²)"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 40,
+      "min": 0,
+      "businessContext": "Kaplanacak alan.",
+      "businessContext_i18n": {
+        "en": "Area to cover.",
+        "tr": "Kaplanacak alan.",
+        "de": "Area to cover.",
+        "fr": "Area to cover.",
+        "es": "Area to cover.",
+        "ar": "Area to cover."
+      }
+    },
+    {
+      "id": "tahtaEn",
+      "label": "Tahta Eni (m)",
+      "label_i18n": {
+        "en": "Board Width (m)",
+        "tr": "Tahta Eni (m)",
+        "de": "Board Width (m)",
+        "fr": "Board Width (m)",
+        "es": "Board Width (m)",
+        "ar": "Board Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.15,
+      "min": 0,
+      "businessContext": "Tahtanın toplam eni.",
+      "businessContext_i18n": {
+        "en": "Board total width.",
+        "tr": "Tahtanın toplam eni.",
+        "de": "Board total width.",
+        "fr": "Board total width.",
+        "es": "Board total width.",
+        "ar": "Board total width."
+      }
+    },
+    {
+      "id": "bindirmePayi",
+      "label": "Bindirme Payı (m)",
+      "label_i18n": {
+        "en": "Overlap (m)",
+        "tr": "Bindirme Payı (m)",
+        "de": "Overlap (m)",
+        "fr": "Overlap (m)",
+        "es": "Overlap (m)",
+        "ar": "Overlap (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.025,
+      "min": 0,
+      "businessContext": "Tahtaların üst üste binme miktarı.",
+      "businessContext_i18n": {
+        "en": "Overlap between boards.",
+        "tr": "Tahtaların üst üste binme miktarı.",
+        "de": "Overlap between boards.",
+        "fr": "Overlap between boards.",
+        "es": "Overlap between boards.",
+        "ar": "Overlap between boards."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "alan / Math.max(0.0001, (tahtaEn - bindirmePayi))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Toplam Kaplama Boyu"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Kaplama Boyu",
+        "tr": "Toplam Kaplama Boyu",
+        "de": "Toplam Kaplama Boyu",
+        "fr": "Toplam Kaplama Boyu",
+        "es": "Toplam Kaplama Boyu",
+        "ar": "Toplam Kaplama Boyu"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate wood siding length needed accounting for overlap.",
+      "long": "Calculate wood siding length needed accounting for overlap.",
+      "short_i18n": {
+        "en": "Calculate wood siding length needed accounting for overlap.",
+        "tr": "Üst üste binme payları düşülmüş toplam kaplama uzunluğunu hesaplar.",
+        "de": "Calculate wood siding length needed accounting for overlap.",
+        "fr": "Calculate wood siding length needed accounting for overlap.",
+        "es": "Calculate wood siding length needed accounting for overlap.",
+        "ar": "Calculate wood siding length needed accounting for overlap."
+      },
+      "long_i18n": {
+        "en": "Calculate wood siding length needed accounting for overlap.",
+        "tr": "Üst üste binme payları düşülmüş toplam kaplama uzunluğunu hesaplar.",
+        "de": "Calculate wood siding length needed accounting for overlap.",
+        "fr": "Calculate wood siding length needed accounting for overlap.",
+        "es": "Calculate wood siding length needed accounting for overlap.",
+        "ar": "Calculate wood siding length needed accounting for overlap."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "wood-siding-calculator",
+    "de": "Holzverkleidungsrechner",
+    "fr": "Calculateur de revêtement en bois",
+    "es": "Calculadora de revestimiento de madera",
+    "ar": "حاسبة تكسية الخشب"
+  }
+}

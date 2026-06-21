@@ -32,8 +32,8 @@ export function SiteLogo({
       <Image
         src={BRAND_ASSETS.favicon.master}
         alt=""
-        width={48}
-        height={48}
+        width={40}
+        height={40}
         priority={priority}
         unoptimized
         className="sc-site-logo__mark"

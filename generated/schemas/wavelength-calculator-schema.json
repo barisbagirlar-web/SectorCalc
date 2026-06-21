@@ -1,0 +1,125 @@
+{
+  "toolName": "wavelength-calculator",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "hiz",
+      "label": "Dalga Hızı (m/s)",
+      "label_i18n": {
+        "en": "Wave Speed (m/s)",
+        "tr": "Dalga Hızı (m/s)",
+        "de": "Wave Speed (m/s)",
+        "fr": "Wave Speed (m/s)",
+        "es": "Wave Speed (m/s)",
+        "ar": "Wave Speed (m/s)"
+      },
+      "type": "number",
+      "unit": "m/s",
+      "default": 343,
+      "min": 0,
+      "businessContext": "Dalganın yayılma hızı.",
+      "businessContext_i18n": {
+        "en": "Wave propagation speed.",
+        "tr": "Dalganın yayılma hızı.",
+        "de": "Wave propagation speed.",
+        "fr": "Wave propagation speed.",
+        "es": "Wave propagation speed.",
+        "ar": "Wave propagation speed."
+      }
+    },
+    {
+      "id": "frekans",
+      "label": "Frekans (Hz)",
+      "label_i18n": {
+        "en": "Frequency (Hz)",
+        "tr": "Frekans (Hz)",
+        "de": "Zinseszinshäufigkeit",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de Capitalización",
+        "ar": "تكرار المركبة"
+      },
+      "type": "number",
+      "unit": "Hz",
+      "default": 440,
+      "min": 0,
+      "businessContext": "Dalganın frekansı.",
+      "businessContext_i18n": {
+        "en": "Wave frequency.",
+        "tr": "Dalganın frekansı.",
+        "de": "Wave frequency.",
+        "fr": "Wave frequency.",
+        "es": "Wave frequency.",
+        "ar": "Wave frequency."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "hiz / Math.max(0.0001, frekans)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Dalga Boyu"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Dalga Boyu",
+        "tr": "Dalga Boyu",
+        "de": "Dalga Boyu",
+        "fr": "Dalga Boyu",
+        "es": "Dalga Boyu",
+        "ar": "Dalga Boyu"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate wavelength from wave speed and frequency.",
+      "long": "Calculate wavelength from wave speed and frequency.",
+      "short_i18n": {
+        "en": "Calculate wavelength from wave speed and frequency.",
+        "tr": "Dalganın hız ve frekansından dalga boyunu hesaplar.",
+        "de": "Calculate wavelength from wave speed and frequency.",
+        "fr": "Calculate wavelength from wave speed and frequency.",
+        "es": "Calculate wavelength from wave speed and frequency.",
+        "ar": "Calculate wavelength from wave speed and frequency."
+      },
+      "long_i18n": {
+        "en": "Calculate wavelength from wave speed and frequency.",
+        "tr": "Dalganın hız ve frekansından dalga boyunu hesaplar.",
+        "de": "Calculate wavelength from wave speed and frequency.",
+        "fr": "Calculate wavelength from wave speed and frequency.",
+        "es": "Calculate wavelength from wave speed and frequency.",
+        "ar": "Calculate wavelength from wave speed and frequency."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "wavelength-calculator",
+    "de": "Wellenlängen-Frequenz-Rechner",
+    "fr": "Calculateur de longueur d'onde et fréquence",
+    "es": "Calculadora de longitud de onda y frecuencia",
+    "ar": "حاسبة الطول الموجي والتردد"
+  }
+}

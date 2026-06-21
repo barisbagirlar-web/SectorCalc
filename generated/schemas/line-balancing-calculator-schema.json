@@ -1,0 +1,150 @@
+{
+  "toolName": "line-balancing-calculator",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "toplamIs",
+      "label": "Toplam İş İçeriği (Dk)",
+      "label_i18n": {
+        "en": "Total Work Content (Min)",
+        "tr": "Toplam İş İçeriği (Dk)",
+        "de": "Gesamtarbeitsinhalt (TWC)",
+        "fr": "Contenu travail total (TWC)",
+        "es": "Contenido Total de Trabajo (TWC)",
+        "ar": "إجمالي محتوى العمل (TWC)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Tüm operasyonların toplam süresi.",
+      "businessContext_i18n": {
+        "en": "Sum of all operation times.",
+        "tr": "Tüm operasyonların toplam süresi.",
+        "de": "Sum of all operation times.",
+        "fr": "Sum of all operation times.",
+        "es": "Sum of all operation times.",
+        "ar": "Sum of all operation times."
+      }
+    },
+    {
+      "id": "taktTime",
+      "label": "Takt Süresi (Dk)",
+      "label_i18n": {
+        "en": "Takt Time (Min)",
+        "tr": "Takt Süresi (Dk)",
+        "de": "Taktzeit",
+        "fr": "Temps de cycle",
+        "es": "Tiempo takt",
+        "ar": "وقت التكت"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Müşteri talebini karşılayan maksimum çevrim süresi.",
+      "businessContext_i18n": {
+        "en": "Maximum cycle time to meet demand.",
+        "tr": "Müşteri talebini karşılayan maksimum çevrim süresi.",
+        "de": "Maximum cycle time to meet demand.",
+        "fr": "Maximum cycle time to meet demand.",
+        "es": "Maximum cycle time to meet demand.",
+        "ar": "Maximum cycle time to meet demand."
+      }
+    },
+    {
+      "id": "istasyonSayisi",
+      "label": "İstasyon Sayısı",
+      "label_i18n": {
+        "en": "Number of Stations",
+        "tr": "İstasyon Sayısı",
+        "de": "Number of Stations",
+        "fr": "Number of Stations",
+        "es": "Number of Stations",
+        "ar": "Number of Stations"
+      },
+      "type": "number",
+      "unit": "stations",
+      "default": 12,
+      "min": 1,
+      "businessContext": "Hattaki toplam iş istasyonu.",
+      "businessContext_i18n": {
+        "en": "Total workstations on the line.",
+        "tr": "Hattaki toplam iş istasyonu.",
+        "de": "Total workstations on the line.",
+        "fr": "Total workstations on the line.",
+        "es": "Total workstations on the line.",
+        "ar": "Total workstations on the line."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(toplamIs / Math.max(0.0001, (istasyonSayisi * taktTime))) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Bant Dengeleme Verimliliği"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Bant Dengeleme Verimliliği",
+        "tr": "Bant Dengeleme Verimliliği",
+        "de": "Bant Dengeleme Verimliliği",
+        "fr": "Bant Dengeleme Verimliliği",
+        "es": "Bant Dengeleme Verimliliği",
+        "ar": "Bant Dengeleme Verimliliği"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate assembly line balancing efficiency.",
+      "long": "Calculate assembly line balancing efficiency.",
+      "short_i18n": {
+        "en": "Calculate assembly line balancing efficiency.",
+        "tr": "İş yükü dağılımının dengelilik oranını (bant dengeleme verimliliği) hesaplar.",
+        "de": "Calculate assembly line balancing efficiency.",
+        "fr": "Calculate assembly line balancing efficiency.",
+        "es": "Calculate assembly line balancing efficiency.",
+        "ar": "Calculate assembly line balancing efficiency."
+      },
+      "long_i18n": {
+        "en": "Calculate assembly line balancing efficiency.",
+        "tr": "İş yükü dağılımının dengelilik oranını (bant dengeleme verimliliği) hesaplar.",
+        "de": "Calculate assembly line balancing efficiency.",
+        "fr": "Calculate assembly line balancing efficiency.",
+        "es": "Calculate assembly line balancing efficiency.",
+        "ar": "Calculate assembly line balancing efficiency."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "line-balancing-calculator",
+    "de": "Bandabgleichrechner",
+    "fr": "Calculateur d'équilibrage de bande",
+    "es": "Calculadora de equilibrio de banda",
+    "ar": "حاسبة موازنة الحزام"
+  }
+}

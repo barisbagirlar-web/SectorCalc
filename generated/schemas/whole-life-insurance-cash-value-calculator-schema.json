@@ -1,0 +1,150 @@
+{
+  "toolName": "whole-life-insurance-cash-value-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yillikPrim",
+      "label": "Yıllık Prim (TL)",
+      "label_i18n": {
+        "en": "Annual Premium (USD)",
+        "tr": "Yıllık Prim (TL)",
+        "de": "Annual Premium (USD)",
+        "fr": "Annual Premium (USD)",
+        "es": "Annual Premium (USD)",
+        "ar": "Annual Premium (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Ödenen yıllık sigorta primi.",
+      "businessContext_i18n": {
+        "en": "Annual insurance premium.",
+        "tr": "Ödenen yıllık sigorta primi.",
+        "de": "Annual insurance premium.",
+        "fr": "Annual insurance premium.",
+        "es": "Annual insurance premium.",
+        "ar": "Annual insurance premium."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Birikim Faizi (%)",
+      "label_i18n": {
+        "en": "Accumulation Rate (%)",
+        "tr": "Birikim Faizi (%)",
+        "de": "Accumulation Rate (%)",
+        "fr": "Accumulation Rate (%)",
+        "es": "Accumulation Rate (%)",
+        "ar": "Accumulation Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "min": 0,
+      "businessContext": "Poliçe birikim faizi.",
+      "businessContext_i18n": {
+        "en": "Policy cash value growth rate.",
+        "tr": "Poliçe birikim faizi.",
+        "de": "Policy cash value growth rate.",
+        "fr": "Policy cash value growth rate.",
+        "es": "Policy cash value growth rate.",
+        "ar": "Policy cash value growth rate."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Geçen Yıl",
+      "label_i18n": {
+        "en": "Years Elapsed",
+        "tr": "Geçen Yıl",
+        "de": "Years Elapsed",
+        "fr": "Years Elapsed",
+        "es": "Years Elapsed",
+        "ar": "Years Elapsed"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Prim ödenen yıl sayısı.",
+      "businessContext_i18n": {
+        "en": "Years of premium payments.",
+        "tr": "Prim ödenen yıl sayısı.",
+        "de": "Years of premium payments.",
+        "fr": "Years of premium payments.",
+        "es": "Years of premium payments.",
+        "ar": "Years of premium payments."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "yillikPrim * (((Math.pow(1 + faiz / 100, yil) - 1) / Math.max(0.0001, (faiz / 100))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Poliçe Nakit Değeri"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Poliçe Nakit Değeri",
+        "tr": "Poliçe Nakit Değeri",
+        "de": "Poliçe Nakit Değeri",
+        "fr": "Poliçe Nakit Değeri",
+        "es": "Poliçe Nakit Değeri",
+        "ar": "Poliçe Nakit Değeri"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate whole life insurance cash value accumulation.",
+      "long": "Calculate whole life insurance cash value accumulation.",
+      "short_i18n": {
+        "en": "Calculate whole life insurance cash value accumulation.",
+        "tr": "Poliçenin zamanla biriken nakit değerini hesaplar.",
+        "de": "Calculate whole life insurance cash value accumulation.",
+        "fr": "Calculate whole life insurance cash value accumulation.",
+        "es": "Calculate whole life insurance cash value accumulation.",
+        "ar": "Calculate whole life insurance cash value accumulation."
+      },
+      "long_i18n": {
+        "en": "Calculate whole life insurance cash value accumulation.",
+        "tr": "Poliçenin zamanla biriken nakit değerini hesaplar.",
+        "de": "Calculate whole life insurance cash value accumulation.",
+        "fr": "Calculate whole life insurance cash value accumulation.",
+        "es": "Calculate whole life insurance cash value accumulation.",
+        "ar": "Calculate whole life insurance cash value accumulation."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "whole-life-insurance-cash-value-calculator",
+    "de": "Ganzes-Leben-Versicherungs-Rechner",
+    "fr": "Calculateur d'assurance vie entière",
+    "es": "Calculadora de seguro de vida entera",
+    "ar": "حاسبة التأمين على الحياة بالكامل"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "toolName": "maximum-torsional-shear-stress-circular-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "tork",
+      "label": "Burulma Momenti (N.m)",
+      "label_i18n": {
+        "en": "Torque (N.m)",
+        "tr": "Burulma Momenti (N.m)",
+        "de": "Drehmoment",
+        "fr": "Couple",
+        "es": "Par motor",
+        "ar": "عزم الدوران"
+      },
+      "type": "number",
+      "unit": "N.m",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Mile etkiyen tork.",
+      "businessContext_i18n": {
+        "en": "Torque on shaft.",
+        "tr": "Mile etkiyen tork.",
+        "de": "Torque on shaft.",
+        "fr": "Torque on shaft.",
+        "es": "Torque on shaft.",
+        "ar": "Torque on shaft."
+      }
+    },
+    {
+      "id": "yariCap",
+      "label": "Kesit Yarıçapı (m)",
+      "label_i18n": {
+        "en": "Section Radius (m)",
+        "tr": "Kesit Yarıçapı (m)",
+        "de": "Section Radius (m)",
+        "fr": "Section Radius (m)",
+        "es": "Section Radius (m)",
+        "ar": "Section Radius (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.025,
+      "min": 0,
+      "businessContext": "Milin dış yarıçapı.",
+      "businessContext_i18n": {
+        "en": "Shaft outer radius.",
+        "tr": "Milin dış yarıçapı.",
+        "de": "Shaft outer radius.",
+        "fr": "Shaft outer radius.",
+        "es": "Shaft outer radius.",
+        "ar": "Shaft outer radius."
+      }
+    },
+    {
+      "id": "kutupsalAtalet",
+      "label": "Kutupsal Atalet Momenti (m⁴)",
+      "label_i18n": {
+        "en": "Polar Moment of Inertia (m⁴)",
+        "tr": "Kutupsal Atalet Momenti (m⁴)",
+        "de": "Polar Moment of Inertia (m⁴)",
+        "fr": "Polar Moment of Inertia (m⁴)",
+        "es": "Polar Moment of Inertia (m⁴)",
+        "ar": "Polar Moment of Inertia (m⁴)"
+      },
+      "type": "number",
+      "unit": "m4",
+      "default": 6.14e-7,
+      "min": 0,
+      "businessContext": "J = πR⁴/2",
+      "businessContext_i18n": {
+        "en": "J = πR⁴/2.",
+        "tr": "J = πR⁴/2",
+        "de": "J = πR⁴/2.",
+        "fr": "J = πR⁴/2.",
+        "es": "J = πR⁴/2.",
+        "ar": "J = πR⁴/2."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(tork * yariCap) / Math.max(0.0001, kutupsalAtalet)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Maks. Kayma Gerilmesi (τ)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maks. Kayma Gerilmesi (τ)",
+        "tr": "Maks. Kayma Gerilmesi (τ)",
+        "de": "Maks. Kayma Gerilmesi (τ)",
+        "fr": "Maks. Kayma Gerilmesi (τ)",
+        "es": "Maks. Kayma Gerilmesi (τ)",
+        "ar": "Maks. Kayma Gerilmesi (τ)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate maximum torsional shear stress in a circular section.",
+      "long": "Calculate maximum torsional shear stress in a circular section.",
+      "short_i18n": {
+        "en": "Calculate maximum torsional shear stress in a circular section.",
+        "tr": "Dairesel kesitteki maksimum burulma (torsiyonel) kayma gerilmesini hesaplar.",
+        "de": "Calculate maximum torsional shear stress in a circular section.",
+        "fr": "Calculate maximum torsional shear stress in a circular section.",
+        "es": "Calculate maximum torsional shear stress in a circular section.",
+        "ar": "Calculate maximum torsional shear stress in a circular section."
+      },
+      "long_i18n": {
+        "en": "Calculate maximum torsional shear stress in a circular section.",
+        "tr": "Dairesel kesitteki maksimum burulma (torsiyonel) kayma gerilmesini hesaplar.",
+        "de": "Calculate maximum torsional shear stress in a circular section.",
+        "fr": "Calculate maximum torsional shear stress in a circular section.",
+        "es": "Calculate maximum torsional shear stress in a circular section.",
+        "ar": "Calculate maximum torsional shear stress in a circular section."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "maximum-torsional-shear-stress-circular-calculator",
+    "de": "Schubspannung Torsionsrechner",
+    "fr": "Calculateur de Contrainte de Cisaillement en Torsion",
+    "es": "Calculadora de Esfuerzo Cortante por Torsión",
+    "ar": "حاسبة إجهاد القص الالتوائي"
+  }
+}

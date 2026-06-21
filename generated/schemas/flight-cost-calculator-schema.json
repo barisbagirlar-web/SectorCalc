@@ -1,0 +1,151 @@
+{
+  "toolName": "flight-cost-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "mesafe",
+      "label": "Uçuş Mesafesi (km)",
+      "label_i18n": {
+        "en": "Flight Distance (km)",
+        "tr": "Uçuş Mesafesi (km)",
+        "de": "Flight Distance (km)",
+        "fr": "Flight Distance (km)",
+        "es": "Flight Distance (km)",
+        "ar": "Flight Distance (km)"
+      },
+      "type": "number",
+      "unit": "km",
+      "default": 3000,
+      "min": 0,
+      "businessContext": "Uçuş uzunluğu.",
+      "businessContext_i18n": {
+        "en": "Flight length.",
+        "tr": "Uçuş uzunluğu.",
+        "de": "Flight length.",
+        "fr": "Flight length.",
+        "es": "Flight length.",
+        "ar": "Flight length."
+      }
+    },
+    {
+      "id": "yolcuSayisi",
+      "label": "Yolcu Sayısı",
+      "label_i18n": {
+        "en": "Passenger Count",
+        "tr": "Yolcu Sayısı",
+        "de": "Passenger Count",
+        "fr": "Passenger Count",
+        "es": "Passenger Count",
+        "ar": "Passenger Count"
+      },
+      "type": "number",
+      "unit": "passengers",
+      "default": 180,
+      "min": 1,
+      "businessContext": "Uçaktaki yolcu sayısı.",
+      "businessContext_i18n": {
+        "en": "Number of passengers.",
+        "tr": "Uçaktaki yolcu sayısı.",
+        "de": "Number of passengers.",
+        "fr": "Number of passengers.",
+        "es": "Number of passengers.",
+        "ar": "Number of passengers."
+      }
+    },
+    {
+      "id": "koltukMaliyeti",
+      "label": "Koltuk km Maliyeti (TL)",
+      "label_i18n": {
+        "en": "Cost per Seat-km (USD)",
+        "tr": "Koltuk km Maliyeti (TL)",
+        "de": "Cost per Seat-km (USD)",
+        "fr": "Cost per Seat-km (USD)",
+        "es": "Cost per Seat-km (USD)",
+        "ar": "Cost per Seat-km (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Her koltuk-km'nin maliyeti.",
+      "businessContext_i18n": {
+        "en": "Cost per seat-km.",
+        "tr": "Her koltuk-km'nin maliyeti.",
+        "de": "Cost per seat-km.",
+        "fr": "Cost per seat-km.",
+        "es": "Cost per seat-km.",
+        "ar": "Cost per seat-km."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "toplam": "mesafe * koltukMaliyeti",
+    "sonuc": "(mesafe * koltukMaliyeti) / Math.max(1, yolcuSayisi)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Yolcu Başı Maliyet"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yolcu Başı Maliyet",
+        "tr": "Yolcu Başı Maliyet",
+        "de": "Yolcu Başı Maliyet",
+        "fr": "Yolcu Başı Maliyet",
+        "es": "Yolcu Başı Maliyet",
+        "ar": "Yolcu Başı Maliyet"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate per-passenger operational cost for a flight.",
+      "long": "Calculate per-passenger operational cost for a flight.",
+      "short_i18n": {
+        "en": "Calculate per-passenger operational cost for a flight.",
+        "tr": "Havayolunda yolcu başına düşen operasyonel maliyeti hesaplar.",
+        "de": "Calculate per-passenger operational cost for a flight.",
+        "fr": "Calculate per-passenger operational cost for a flight.",
+        "es": "Calculate per-passenger operational cost for a flight.",
+        "ar": "Calculate per-passenger operational cost for a flight."
+      },
+      "long_i18n": {
+        "en": "Calculate per-passenger operational cost for a flight.",
+        "tr": "Havayolunda yolcu başına düşen operasyonel maliyeti hesaplar.",
+        "de": "Calculate per-passenger operational cost for a flight.",
+        "fr": "Calculate per-passenger operational cost for a flight.",
+        "es": "Calculate per-passenger operational cost for a flight.",
+        "ar": "Calculate per-passenger operational cost for a flight."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "flight-cost-calculator",
+    "de": "Flugkostenrechner",
+    "fr": "Calculateur de coût de vol",
+    "es": "Calculadora de costo de vuelo",
+    "ar": "حاسبة تكلفة الرحلة"
+  }
+}

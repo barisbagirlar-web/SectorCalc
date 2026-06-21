@@ -1,0 +1,176 @@
+{
+  "toolName": "boat-loan-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Kredi ve Borç",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "fiyat",
+      "label": "Tekne Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Boat Price (USD)",
+        "tr": "Tekne Fiyatı (₺)",
+        "de": "Bootspreis",
+        "fr": "Prix du bateau",
+        "es": "Precio del barco",
+        "ar": "سعر القارب"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Teknenin satış fiyatı.",
+      "businessContext_i18n": {
+        "en": "Boat purchase price.",
+        "tr": "Teknenin satış fiyatı.",
+        "de": "Boat purchase price.",
+        "fr": "Boat purchase price.",
+        "es": "Boat purchase price.",
+        "ar": "Boat purchase price."
+      }
+    },
+    {
+      "id": "pesin",
+      "label": "Peşinat (₺)",
+      "label_i18n": {
+        "en": "Down Payment (USD)",
+        "tr": "Peşinat (₺)",
+        "de": "Anzahlung",
+        "fr": "Acompte",
+        "es": "Pago Inicial",
+        "ar": "الدفعة الأولى"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Peşinat tutarı.",
+      "businessContext_i18n": {
+        "en": "Down payment.",
+        "tr": "Peşinat tutarı.",
+        "de": "Gesamtverhandelter Preis einschließlich Bestimmungsort, Händlergebühren und Steuern vor Anzahlung.",
+        "fr": "Prix total négocié incluant la destination, les frais de concessionnaire et les taxes avant acompte.",
+        "es": "Precio total negociado incluyendo destino, tarifas del concesionario e impuestos antes del pago inicial.",
+        "ar": "السعر الإجمالي المتفاوض عليه بما في ذلك الوجهة ورسوم الوكيل والضرائب قبل الدفعة الأولى."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Nominaler Jahreszinssatz",
+        "fr": "Taux d'intérêt annuel nominal",
+        "es": "Tasa de interés anual nominal",
+        "ar": "سعر الفائدة السنوي الاسمي"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "min": 0,
+      "businessContext": "Tekne kredisi faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Boat loan rate.",
+        "tr": "Tekne kredisi faiz oranı.",
+        "de": "Boat loan rate.",
+        "fr": "Boat loan rate.",
+        "es": "Boat loan rate.",
+        "ar": "Boat loan rate."
+      }
+    },
+    {
+      "id": "vade",
+      "label": "Vade (Ay)",
+      "label_i18n": {
+        "en": "Term (Months)",
+        "tr": "Vade (Ay)",
+        "de": "Kreditlaufzeit",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
+        "ar": "مدة القرض"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 84,
+      "min": 1,
+      "businessContext": "Kredi vadesi.",
+      "businessContext_i18n": {
+        "en": "Loan term.",
+        "tr": "Kredi vadesi.",
+        "de": "Loan term.",
+        "fr": "Loan term.",
+        "es": "Loan term.",
+        "ar": "Loan term."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "krediNet": "fiyat - pesin",
+    "sonuc": "(fiyat - pesin) * ((faiz / 1200) * Math.pow(1 + faiz / 1200, vade)) / (Math.pow(1 + faiz / 1200, vade) - 1)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Aylık Tekne Kredisi Taksiti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Aylık Tekne Kredisi Taksiti",
+        "tr": "Aylık Tekne Kredisi Taksiti",
+        "de": "Aylık Tekne Kredisi Taksiti",
+        "fr": "Aylık Tekne Kredisi Taksiti",
+        "es": "Aylık Tekne Kredisi Taksiti",
+        "ar": "Aylık Tekne Kredisi Taksiti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Compare multiple loan offers before committing.",
+      "Consider total cost including fees."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate monthly boat loan payment.",
+      "long": "Calculate monthly boat loan payment.",
+      "short_i18n": {
+        "en": "Calculate monthly boat loan payment.",
+        "tr": "Deniz aracı finansmanının aylık ödeme planını hesaplar.",
+        "de": "Calculate monthly boat loan payment.",
+        "fr": "Calculate monthly boat loan payment.",
+        "es": "Calculate monthly boat loan payment.",
+        "ar": "Calculate monthly boat loan payment."
+      },
+      "long_i18n": {
+        "en": "Calculate monthly boat loan payment.",
+        "tr": "Deniz aracı finansmanının aylık ödeme planını hesaplar.",
+        "de": "Calculate monthly boat loan payment.",
+        "fr": "Calculate monthly boat loan payment.",
+        "es": "Calculate monthly boat loan payment.",
+        "ar": "Calculate monthly boat loan payment."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "boat-loan-calculator",
+    "de": "Bootskredit-Rechner",
+    "fr": "Calculateur de prêt bateau",
+    "es": "Calculadora de préstamo para barco",
+    "ar": "حاسبة قرض القارب"
+  }
+}

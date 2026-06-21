@@ -1,0 +1,127 @@
+{
+  "toolName": "bilge-discharge-time-calculator",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "tankHacim",
+      "label": "Sintine Tank Hacmi (m³)",
+      "label_i18n": {
+        "en": "Bilge Tank Volume (m³)",
+        "tr": "Sintine Tank Hacmi (m³)",
+        "de": "Bilge Tank Volume (m³)",
+        "fr": "Bilge Tank Volume (m³)",
+        "es": "Bilge Tank Volume (m³)",
+        "ar": "Bilge Tank Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Toplam sintine suyu hacmi.",
+      "businessContext_i18n": {
+        "en": "Total bilge water volume.",
+        "tr": "Toplam sintine suyu hacmi.",
+        "de": "Total bilge water volume.",
+        "fr": "Total bilge water volume.",
+        "es": "Total bilge water volume.",
+        "ar": "Total bilge water volume."
+      }
+    },
+    {
+      "id": "pompaDebi",
+      "label": "Pompa Debisi (m³/saat)",
+      "label_i18n": {
+        "en": "Pump Flow (m³/h)",
+        "tr": "Pompa Debisi (m³/saat)",
+        "de": "Pump Flow (m³/h)",
+        "fr": "Pump Flow (m³/h)",
+        "es": "Pump Flow (m³/h)",
+        "ar": "Pump Flow (m³/h)"
+      },
+      "type": "number",
+      "unit": "m3/h",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Sintine pompasının debisi.",
+      "businessContext_i18n": {
+        "en": "Bilge pump flow rate.",
+        "tr": "Sintine pompasının debisi.",
+        "de": "Bilge pump flow rate.",
+        "fr": "Bilge pump flow rate.",
+        "es": "Bilge pump flow rate.",
+        "ar": "Bilge pump flow rate."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "tankHacim / Math.max(0.0001, pompaDebi)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "hours",
+    "breakdown": {
+      "sonuc": "Tahliye Süresi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Tahliye Süresi",
+        "tr": "Tahliye Süresi",
+        "de": "Tahliye Süresi",
+        "fr": "Tahliye Süresi",
+        "es": "Tahliye Süresi",
+        "ar": "Tahliye Süresi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "hours"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate time required to discharge bilge water.",
+      "long": "Calculate time required to discharge bilge water.",
+      "short_i18n": {
+        "en": "Calculate time required to discharge bilge water.",
+        "tr": "Sintine suyunun tahliyesi için gereken süreyi hesaplar.",
+        "de": "Calculate time required to discharge bilge water.",
+        "fr": "Calculate time required to discharge bilge water.",
+        "es": "Calculate time required to discharge bilge water.",
+        "ar": "Calculate time required to discharge bilge water."
+      },
+      "long_i18n": {
+        "en": "Calculate time required to discharge bilge water.",
+        "tr": "Sintine suyunun tahliyesi için gereken süreyi hesaplar.",
+        "de": "Calculate time required to discharge bilge water.",
+        "fr": "Calculate time required to discharge bilge water.",
+        "es": "Calculate time required to discharge bilge water.",
+        "ar": "Calculate time required to discharge bilge water."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "bilge-discharge-time-calculator",
+    "de": "Bilgenentleerungszeit-Rechner",
+    "fr": "Calculateur de temps de vidange de cale",
+    "es": "Calculadora de tiempo de vaciado de sentina",
+    "ar": "حاسبة وقت تصريف مياه الآسن"
+  }
+}

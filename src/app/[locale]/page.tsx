@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { PageLayout } from "@/components/layout/PageLayout";
-import { AudienceGrid } from "@/components/home/AudienceGrid";
-import { CategoryGrid } from "@/components/home/CategoryGrid";
-import { CompareCards } from "@/components/home/CompareCards";
-import { CTASection } from "@/components/home/CTASection";
-import { TraceIntroSection } from "@/components/trace/TraceIntroSection";
-import { HeroSection } from "@/components/home/HeroSection";
-import { LimitsGrid } from "@/components/home/LimitsGrid";
-import { LossGrid } from "@/components/home/LossGrid";
-import { PopularTools } from "@/components/home/PopularTools";
-import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
-import { buildHomeJsonLd } from "@/lib/semantic/build-home-jsonld";
+import { getTranslations, setRequestLocale, getMessages } from "next-intl/server";
+import { AppProviders } from "@/components/providers/AppProviders";
+import { LandingPageContent } from "@/components/landing/LandingPageContent";
 import { createPageMetadata } from "@/lib/metadata";
-import { buildHomepageSearchEntries } from "@/lib/home/homepage-search-entries";
 import type { AppLocale } from "@/i18n/routing";
-import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
+import type { LandingContent } from "@/types/landing";
+import "../../styles/landing-page.css";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -36,34 +26,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
+async function getLandingContent(locale: string): Promise<LandingContent> {
+  const messages = await getMessages({ locale });
+  const lp = (messages as Record<string, unknown>).landingPage as
+    | LandingContent
+    | undefined;
+  if (lp) return lp;
+  // Fallback: load English
+  const enMsgs = await getMessages({ locale: "en" });
+  return ((enMsgs as Record<string, unknown>).landingPage ?? {}) as LandingContent;
+}
+
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const tCatalog = await getTranslations("freeTrafficCatalog");
-  const searchEntries = buildHomepageSearchEntries(
-    locale,
-    (meta: FreeTrafficCategoryMeta) => ({
-      label: tCatalog(meta.labelKey),
-      description: tCatalog(meta.descriptionKey),
-    }),
-    tCatalog("openCalculator")
-  );
+  const content = await getLandingContent(locale);
 
   return (
-    <PageLayout>
-      <SemanticJsonLd data={buildHomeJsonLd(locale)} />
-      <div className="sc-home-omni">
-        <HeroSection searchEntries={searchEntries} />
-        <TraceIntroSection />
-        <CategoryGrid locale={locale} />
-        <LossGrid />
-        <CompareCards />
-        <PopularTools />
-        <AudienceGrid />
-        <LimitsGrid />
-        <CTASection />
-      </div>
-    </PageLayout>
+    <AppProviders>
+      <LandingPageContent content={content} />
+    </AppProviders>
   );
 }

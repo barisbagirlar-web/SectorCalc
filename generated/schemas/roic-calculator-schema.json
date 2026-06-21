@@ -1,0 +1,125 @@
+{
+  "toolName": "roic-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "nopat",
+      "label": "NOPAT (₺)",
+      "label_i18n": {
+        "en": "NOPAT (USD)",
+        "tr": "NOPAT (₺)",
+        "de": "NOPAT (USD)",
+        "fr": "NOPAT (USD)",
+        "es": "NOPAT (USD)",
+        "ar": "NOPAT (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Vergi sonrası net faaliyet kârı.",
+      "businessContext_i18n": {
+        "en": "Net operating profit after tax.",
+        "tr": "Vergi sonrası net faaliyet kârı.",
+        "de": "Net operating profit after tax.",
+        "fr": "Net operating profit after tax.",
+        "es": "Net operating profit after tax.",
+        "ar": "Net operating profit after tax."
+      }
+    },
+    {
+      "id": "yatirilanSermaye",
+      "label": "Yatırılan Sermaye (₺)",
+      "label_i18n": {
+        "en": "Invested Capital (USD)",
+        "tr": "Yatırılan Sermaye (₺)",
+        "de": "Invested Capital (USD)",
+        "fr": "Invested Capital (USD)",
+        "es": "Invested Capital (USD)",
+        "ar": "Invested Capital (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1500000,
+      "min": 0,
+      "businessContext": "Toplam yatırılmış sermaye.",
+      "businessContext_i18n": {
+        "en": "Total invested capital.",
+        "tr": "Toplam yatırılmış sermaye.",
+        "de": "Total invested capital.",
+        "fr": "Total invested capital.",
+        "es": "Total invested capital.",
+        "ar": "Total invested capital."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "nopat / Math.max(1, yatirilanSermaye) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "ROIC (Yatırılan Sermaye Getirisi)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "ROIC (Yatırılan Sermaye Getirisi)",
+        "tr": "ROIC (Yatırılan Sermaye Getirisi)",
+        "de": "ROIC (Yatırılan Sermaye Getirisi)",
+        "fr": "ROIC (Yatırılan Sermaye Getirisi)",
+        "es": "ROIC (Yatırılan Sermaye Getirisi)",
+        "ar": "ROIC (Yatırılan Sermaye Getirisi)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+      "long": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+      "short_i18n": {
+        "en": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+        "tr": "Şirketin yatırdığı sermayeden ürettiği vergi sonrası verimi (ROIC) hesaplar.",
+        "de": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+        "fr": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+        "es": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+        "ar": "Calculate return on invested capital (ROIC) — post-tax efficiency."
+      },
+      "long_i18n": {
+        "en": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+        "tr": "Şirketin yatırdığı sermayeden ürettiği vergi sonrası verimi (ROIC) hesaplar.",
+        "de": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+        "fr": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+        "es": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
+        "ar": "Calculate return on invested capital (ROIC) — post-tax efficiency."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "roic-calculator",
+    "de": "ROIC-Investitionsrendite-Rechner",
+    "fr": "Calculateur de rendement du capital investi ROIC",
+    "es": "Calculadora de retorno sobre el capital invertido ROIC",
+    "ar": "حاسبة العائد على رأس المال المستثمر ROIC"
+  }
+}

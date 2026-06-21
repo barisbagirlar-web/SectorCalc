@@ -1,0 +1,150 @@
+{
+  "toolName": "calibration-drift-calculator",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "sonHata",
+      "label": "Son Kalibrasyon Hatası (Birim)",
+      "label_i18n": {
+        "en": "Latest Error",
+        "tr": "Son Kalibrasyon Hatası (Birim)",
+        "de": "Latest Error",
+        "fr": "Latest Error",
+        "es": "Latest Error",
+        "ar": "Latest Error"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Son kalibrasyondaki hata.",
+      "businessContext_i18n": {
+        "en": "Error at last calibration.",
+        "tr": "Son kalibrasyondaki hata.",
+        "de": "Error at last calibration.",
+        "fr": "Error at last calibration.",
+        "es": "Error at last calibration.",
+        "ar": "Error at last calibration."
+      }
+    },
+    {
+      "id": "oncekiHata",
+      "label": "Önceki Hata (Birim)",
+      "label_i18n": {
+        "en": "Previous Error",
+        "tr": "Önceki Hata (Birim)",
+        "de": "Previous Error",
+        "fr": "Previous Error",
+        "es": "Previous Error",
+        "ar": "Previous Error"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Bir önceki kalibrasyon hatası.",
+      "businessContext_i18n": {
+        "en": "Previous calibration error.",
+        "tr": "Bir önceki kalibrasyon hatası.",
+        "de": "Previous calibration error.",
+        "fr": "Previous calibration error.",
+        "es": "Previous calibration error.",
+        "ar": "Previous calibration error."
+      }
+    },
+    {
+      "id": "gecenSure",
+      "label": "Geçen Süre (Gün)",
+      "label_i18n": {
+        "en": "Elapsed Time (Days)",
+        "tr": "Geçen Süre (Gün)",
+        "de": "Elapsed Time (Days)",
+        "fr": "Elapsed Time (Days)",
+        "es": "Elapsed Time (Days)",
+        "ar": "Elapsed Time (Days)"
+      },
+      "type": "number",
+      "unit": "days",
+      "default": 90,
+      "min": 0,
+      "businessContext": "İki kalibrasyon arası süre.",
+      "businessContext_i18n": {
+        "en": "Time between calibrations.",
+        "tr": "İki kalibrasyon arası süre.",
+        "de": "Time between calibrations.",
+        "fr": "Time between calibrations.",
+        "es": "Time between calibrations.",
+        "ar": "Time between calibrations."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(sonHata - oncekiHata) / Math.max(1, gecenSure)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "unit/day",
+    "breakdown": {
+      "sonuc": "Sapma Hızı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Sapma Hızı",
+        "tr": "Sapma Hızı",
+        "de": "Sapma Hızı",
+        "fr": "Sapma Hızı",
+        "es": "Sapma Hızı",
+        "ar": "Sapma Hızı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "unit/day"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate measurement instrument drift rate over time.",
+      "long": "Calculate measurement instrument drift rate over time.",
+      "short_i18n": {
+        "en": "Calculate measurement instrument drift rate over time.",
+        "tr": "Ölçüm cihazının zamanla bozulma hızını (sapma) hesaplar.",
+        "de": "Calculate measurement instrument drift rate over time.",
+        "fr": "Calculate measurement instrument drift rate over time.",
+        "es": "Calculate measurement instrument drift rate over time.",
+        "ar": "Calculate measurement instrument drift rate over time."
+      },
+      "long_i18n": {
+        "en": "Calculate measurement instrument drift rate over time.",
+        "tr": "Ölçüm cihazının zamanla bozulma hızını (sapma) hesaplar.",
+        "de": "Calculate measurement instrument drift rate over time.",
+        "fr": "Calculate measurement instrument drift rate over time.",
+        "es": "Calculate measurement instrument drift rate over time.",
+        "ar": "Calculate measurement instrument drift rate over time."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "calibration-drift-calculator",
+    "de": "Kalibrierungsabweichungsrechner",
+    "fr": "Calculateur d'Écart d'Étalonnage",
+    "es": "Calculadora de Desviación de Calibración",
+    "ar": "حاسبة انحراف المعايرة"
+  }
+}

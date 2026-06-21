@@ -1,0 +1,179 @@
+{
+  "toolName": "pile-bearing-capacity-calculator",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "cap",
+      "label": "Kazık Çapı (m)",
+      "label_i18n": {
+        "en": "Pile Diameter (m)",
+        "tr": "Kazık Çapı (m)",
+        "de": "Pile Diameter (m)",
+        "fr": "Pile Diameter (m)",
+        "es": "Pile Diameter (m)",
+        "ar": "Pile Diameter (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.6,
+      "min": 0,
+      "businessContext": "Fore kazık çapı.",
+      "businessContext_i18n": {
+        "en": "Pile diameter.",
+        "tr": "Fore kazık çapı.",
+        "de": "Pile diameter.",
+        "fr": "Pile diameter.",
+        "es": "Pile diameter.",
+        "ar": "Pile diameter."
+      }
+    },
+    {
+      "id": "boy",
+      "label": "Kazık Boyu (m)",
+      "label_i18n": {
+        "en": "Pile Length (m)",
+        "tr": "Kazık Boyu (m)",
+        "de": "Pile Length (m)",
+        "fr": "Pile Length (m)",
+        "es": "Pile Length (m)",
+        "ar": "Pile Length (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Kazık boyu.",
+      "businessContext_i18n": {
+        "en": "Pile length.",
+        "tr": "Kazık boyu.",
+        "de": "Pile length.",
+        "fr": "Pile length.",
+        "es": "Pile length.",
+        "ar": "Pile length."
+      }
+    },
+    {
+      "id": "kohezyon",
+      "label": "Kohezyon (kPa)",
+      "label_i18n": {
+        "en": "Cohesion (kPa)",
+        "tr": "Kohezyon (kPa)",
+        "de": "Kohäsion",
+        "fr": "Cohésion",
+        "es": "Cohesión",
+        "ar": "التماسك"
+      },
+      "type": "number",
+      "unit": "kPa",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Zemin kohezyonu.",
+      "businessContext_i18n": {
+        "en": "Soil cohesion.",
+        "tr": "Zemin kohezyonu.",
+        "de": "Soil cohesion.",
+        "fr": "Soil cohesion.",
+        "es": "Soil cohesion.",
+        "ar": "Soil cohesion."
+      }
+    },
+    {
+      "id": "suratme",
+      "label": "Çevre Sürtünmesi (kPa)",
+      "label_i18n": {
+        "en": "Skin Friction (kPa)",
+        "tr": "Çevre Sürtünmesi (kPa)",
+        "de": "Skin Friction (kPa)",
+        "fr": "Skin Friction (kPa)",
+        "es": "Skin Friction (kPa)",
+        "ar": "Skin Friction (kPa)"
+      },
+      "type": "number",
+      "unit": "kPa",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Kazık-zemin arası sürtünme.",
+      "businessContext_i18n": {
+        "en": "Pile-soil skin friction.",
+        "tr": "Kazık-zemin arası sürtünme.",
+        "de": "Pile-soil skin friction.",
+        "fr": "Pile-soil skin friction.",
+        "es": "Pile-soil skin friction.",
+        "ar": "Pile-soil skin friction."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "ucDayanimi": "(Math.PI * Math.pow(cap / 2, 2)) * (9 * kohezyon)",
+    "yuzeySuratmesi": "Math.PI * cap * boy * suratme",
+    "sonuc": "((Math.PI * Math.pow(cap / 2, 2)) * (9 * kohezyon)) + (Math.PI * cap * boy * suratme)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kN",
+    "breakdown": {
+      "sonuc": "Nihai Taşıma Gücü"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Nihai Taşıma Gücü",
+        "tr": "Nihai Taşıma Gücü",
+        "de": "Nihai Taşıma Gücü",
+        "fr": "Nihai Taşıma Gücü",
+        "es": "Nihai Taşıma Gücü",
+        "ar": "Nihai Taşıma Gücü"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kN"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+      "long": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+      "short_i18n": {
+        "en": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+        "tr": "Kazığın göçmeden taşıyabileceği maksimum eksenel yükü hesaplar.",
+        "de": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+        "fr": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+        "es": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+        "ar": "Calculate ultimate axial bearing capacity of a cast-in-place pile."
+      },
+      "long_i18n": {
+        "en": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+        "tr": "Kazığın göçmeden taşıyabileceği maksimum eksenel yükü hesaplar.",
+        "de": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+        "fr": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+        "es": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
+        "ar": "Calculate ultimate axial bearing capacity of a cast-in-place pile."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "pile-bearing-capacity-calculator",
+    "de": "Pfahl-Tragfähigkeitsrechner",
+    "fr": "Calculateur de capacité portante de pieu",
+    "es": "Calculadora de capacidad de carga de pilotes",
+    "ar": "حاسبة قدرة تحمل الخوازيق"
+  }
+}

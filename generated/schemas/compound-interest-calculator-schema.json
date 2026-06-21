@@ -1,0 +1,175 @@
+{
+  "toolName": "compound-interest-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "anapara",
+      "label": "Anapara (₺)",
+      "label_i18n": {
+        "en": "Principal (USD)",
+        "tr": "Anapara (₺)",
+        "de": "Anfangskapital",
+        "fr": "Capital initial",
+        "es": "Capital inicial",
+        "ar": "رأس المال الأولي"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Başlangıç yatırım tutarı.",
+      "businessContext_i18n": {
+        "en": "Initial investment amount.",
+        "tr": "Başlangıç yatırım tutarı.",
+        "de": "Initial investment amount.",
+        "fr": "Initial investment amount.",
+        "es": "Initial investment amount.",
+        "ar": "Initial investment amount."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Nominaler Jahreszinssatz",
+        "fr": "Taux d'intérêt annuel nominal",
+        "es": "Tasa de interés anual nominal",
+        "ar": "سعر الفائدة السنوي الاسمي"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Yıllık nominal faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate.",
+        "tr": "Yıllık nominal faiz oranı.",
+        "de": "Annual nominal interest rate.",
+        "fr": "Annual nominal interest rate.",
+        "es": "Annual nominal interest rate.",
+        "ar": "Annual nominal interest rate."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Vade (Yıl)",
+      "label_i18n": {
+        "en": "Term (Years)",
+        "tr": "Vade (Yıl)",
+        "de": "Kreditlaufzeit",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
+        "ar": "مدة القرض"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Toplam yatırım süresi.",
+      "businessContext_i18n": {
+        "en": "Total investment period.",
+        "tr": "Toplam yatırım süresi.",
+        "de": "Total investment period.",
+        "fr": "Total investment period.",
+        "es": "Total investment period.",
+        "ar": "Total investment period."
+      }
+    },
+    {
+      "id": "siklik",
+      "label": "Bileşim Sıklığı (Adet/Yıl)",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Bileşim Sıklığı (Adet/Yıl)",
+        "de": "Zinseszinshäufigkeit",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de Capitalización",
+        "ar": "تكرار المركبة"
+      },
+      "type": "number",
+      "unit": "per year",
+      "default": 12,
+      "min": 1,
+      "businessContext": "Faizin yılda kaç kez eklendiği (12: aylık).",
+      "businessContext_i18n": {
+        "en": "Number of compounding periods per year (12=monthly).",
+        "tr": "Faizin yılda kaç kez eklendiği (12: aylık).",
+        "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich).",
+        "fr": "Nombre de périodes de composition par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien).",
+        "es": "Número de períodos de capitalización por año (por ejemplo, 1=anual, 12=mensual, 365=diario).",
+        "ar": "عدد فترات التركيب في السنة (مثل 1=سنوي، 12=شهري، 365=يومي)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "anapara * Math.pow(1 + (faiz / 100) / Math.max(1, siklik), siklik * yil)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Vade Sonu Değer"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Vade Sonu Değer",
+        "tr": "Vade Sonu Değer",
+        "de": "Vade Sonu Değer",
+        "fr": "Vade Sonu Değer",
+        "es": "Vade Sonu Değer",
+        "ar": "Vade Sonu Değer"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate compound interest future value with periodic compounding.",
+      "long": "Calculate compound interest future value with periodic compounding.",
+      "short_i18n": {
+        "en": "Calculate compound interest future value with periodic compounding.",
+        "tr": "Faizin anaparaya eklendiği bileşik faizin vade sonu değerini hesaplar.",
+        "de": "Calculate compound interest future value with periodic compounding.",
+        "fr": "Calculate compound interest future value with periodic compounding.",
+        "es": "Calculate compound interest future value with periodic compounding.",
+        "ar": "Calculate compound interest future value with periodic compounding."
+      },
+      "long_i18n": {
+        "en": "Calculate compound interest future value with periodic compounding.",
+        "tr": "Faizin anaparaya eklendiği bileşik faizin vade sonu değerini hesaplar.",
+        "de": "Calculate compound interest future value with periodic compounding.",
+        "fr": "Calculate compound interest future value with periodic compounding.",
+        "es": "Calculate compound interest future value with periodic compounding.",
+        "ar": "Calculate compound interest future value with periodic compounding."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "compound-interest-calculator",
+    "de": "Zinseszinsrechner",
+    "fr": "Calculateur d'intérêt composé",
+    "es": "Calculadora de interés compuesto",
+    "ar": "حاسبة الفائدة المركبة"
+  }
+}

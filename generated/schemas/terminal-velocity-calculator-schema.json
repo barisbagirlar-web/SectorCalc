@@ -1,0 +1,175 @@
+{
+  "toolName": "terminal-velocity-calculator",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "kutle",
+      "label": "Kütle (kg)",
+      "label_i18n": {
+        "en": "Mass (kg)",
+        "tr": "Kütle (kg)",
+        "de": "Massenstrom des heißen Fluids",
+        "fr": "Débit massique du fluide chaud",
+        "es": "Caudal másico del fluido caliente",
+        "ar": "معدل تدفق كتلة السائل الساخن"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "min": 0,
+      "businessContext": "Cismin kütlesi.",
+      "businessContext_i18n": {
+        "en": "Object mass.",
+        "tr": "Cismin kütlesi.",
+        "de": "Object mass.",
+        "fr": "Object mass.",
+        "es": "Object mass.",
+        "ar": "Object mass."
+      }
+    },
+    {
+      "id": "yogunluk",
+      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label_i18n": {
+        "en": "Fluid Density (kg/m³)",
+        "tr": "Akışkan Yoğunluğu (kg/m³)",
+        "de": "Fluiddichte",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
+        "ar": "كثافة المائع"
+      },
+      "type": "number",
+      "unit": "kg/m3",
+      "default": 1.225,
+      "min": 0,
+      "businessContext": "Havanın yoğunluğu.",
+      "businessContext_i18n": {
+        "en": "Air density.",
+        "tr": "Havanın yoğunluğu.",
+        "de": "Air density.",
+        "fr": "Air density.",
+        "es": "Air density.",
+        "ar": "Air density."
+      }
+    },
+    {
+      "id": "direncKatsayisi",
+      "label": "Sürükleme Katsayısı",
+      "label_i18n": {
+        "en": "Drag Coefficient",
+        "tr": "Sürükleme Katsayısı",
+        "de": "Drag Coefficient",
+        "fr": "Drag Coefficient",
+        "es": "Drag Coefficient",
+        "ar": "Drag Coefficient"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Cismin şekline bağlı sürükleme katsayısı.",
+      "businessContext_i18n": {
+        "en": "Shape-dependent drag coefficient.",
+        "tr": "Cismin şekline bağlı sürükleme katsayısı.",
+        "de": "Shape-dependent drag coefficient.",
+        "fr": "Shape-dependent drag coefficient.",
+        "es": "Shape-dependent drag coefficient.",
+        "ar": "Shape-dependent drag coefficient."
+      }
+    },
+    {
+      "id": "alan",
+      "label": "Kesit Alanı (m²)",
+      "label_i18n": {
+        "en": "Cross-sectional Area (m²)",
+        "tr": "Kesit Alanı (m²)",
+        "de": "Querschnittsfläche",
+        "fr": "Aire de la section transversale",
+        "es": "Área de la sección transversal",
+        "ar": "مساحة المقطع العرضي"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Cismin izdüşüm alanı.",
+      "businessContext_i18n": {
+        "en": "Projected frontal area.",
+        "tr": "Cismin izdüşüm alanı.",
+        "de": "Projected frontal area.",
+        "fr": "Projected frontal area.",
+        "es": "Projected frontal area.",
+        "ar": "Projected frontal area."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.sqrt(Math.max(0, (2 * kutle * 9.81) / Math.max(0.0001, (yogunluk * direncKatsayisi * alan))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m/s",
+    "breakdown": {
+      "sonuc": "Terminal Hız"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Terminal Hız",
+        "tr": "Terminal Hız",
+        "de": "Terminal Hız",
+        "fr": "Terminal Hız",
+        "es": "Terminal Hız",
+        "ar": "Terminal Hız"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m/s"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate terminal velocity where drag balances gravity.",
+      "long": "Calculate terminal velocity where drag balances gravity.",
+      "short_i18n": {
+        "en": "Calculate terminal velocity where drag balances gravity.",
+        "tr": "Hava direnci ile yerçekiminin dengelendiği sabit terminal hızını hesaplar.",
+        "de": "Calculate terminal velocity where drag balances gravity.",
+        "fr": "Calculate terminal velocity where drag balances gravity.",
+        "es": "Calculate terminal velocity where drag balances gravity.",
+        "ar": "Calculate terminal velocity where drag balances gravity."
+      },
+      "long_i18n": {
+        "en": "Calculate terminal velocity where drag balances gravity.",
+        "tr": "Hava direnci ile yerçekiminin dengelendiği sabit terminal hızını hesaplar.",
+        "de": "Calculate terminal velocity where drag balances gravity.",
+        "fr": "Calculate terminal velocity where drag balances gravity.",
+        "es": "Calculate terminal velocity where drag balances gravity.",
+        "ar": "Calculate terminal velocity where drag balances gravity."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "terminal-velocity-calculator",
+    "de": "Endgeschwindigkeits-Rechner",
+    "fr": "Calculateur de vitesse terminale",
+    "es": "Calculadora de velocidad terminal",
+    "ar": "حاسبة السرعة النهائية"
+  }
+}

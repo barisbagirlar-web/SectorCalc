@@ -1,0 +1,150 @@
+{
+  "toolName": "daily-compound-interest-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "anapara",
+      "label": "Anapara (₺)",
+      "label_i18n": {
+        "en": "Principal (USD)",
+        "tr": "Anapara (₺)",
+        "de": "Anfangskapital",
+        "fr": "Capital initial",
+        "es": "Capital inicial",
+        "ar": "رأس المال الأولي"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Başlangıç yatırım tutarı.",
+      "businessContext_i18n": {
+        "en": "Initial investment amount.",
+        "tr": "Başlangıç yatırım tutarı.",
+        "de": "Initial investment amount.",
+        "fr": "Initial investment amount.",
+        "es": "Initial investment amount.",
+        "ar": "Initial investment amount."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Nominaler Jahreszinssatz",
+        "fr": "Taux d'intérêt annuel nominal",
+        "es": "Tasa de interés anual nominal",
+        "ar": "سعر الفائدة السنوي الاسمي"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Yıllık nominal faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Annual interest rate.",
+        "tr": "Yıllık nominal faiz oranı.",
+        "de": "Nominaler jährlicher Zinssatz.",
+        "fr": "Taux d'intérêt annuel nominal.",
+        "es": "Tasa de interés anual nominal.",
+        "ar": "سعر الفائدة السنوي الاسمي."
+      }
+    },
+    {
+      "id": "gun",
+      "label": "Gün Sayısı",
+      "label_i18n": {
+        "en": "Number of Days",
+        "tr": "Gün Sayısı",
+        "de": "Anzahl der Tage",
+        "fr": "Nombre de jours",
+        "es": "Número de días",
+        "ar": "عدد الأيام"
+      },
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "min": 1,
+      "businessContext": "Vadeye kalan gün sayısı.",
+      "businessContext_i18n": {
+        "en": "Number of days for the term.",
+        "tr": "Vadeye kalan gün sayısı.",
+        "de": "Number of days for the term.",
+        "fr": "Number of days for the term.",
+        "es": "Number of days for the term.",
+        "ar": "Number of days for the term."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "anapara * Math.pow(1 + faiz / 36500, gun)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Günlük Bileşik Değer"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Günlük Bileşik Değer",
+        "tr": "Günlük Bileşik Değer",
+        "de": "Günlük Bileşik Değer",
+        "fr": "Günlük Bileşik Değer",
+        "es": "Günlük Bileşik Değer",
+        "ar": "Günlük Bileşik Değer"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate daily compound interest future value.",
+      "long": "Calculate daily compound interest future value.",
+      "short_i18n": {
+        "en": "Calculate daily compound interest future value.",
+        "tr": "Günlük bazda bileşik getirinin vade sonu değerini hesaplar.",
+        "de": "Calculate daily compound interest future value.",
+        "fr": "Calculate daily compound interest future value.",
+        "es": "Calculate daily compound interest future value.",
+        "ar": "Calculate daily compound interest future value."
+      },
+      "long_i18n": {
+        "en": "Calculate daily compound interest future value.",
+        "tr": "Günlük bazda bileşik getirinin vade sonu değerini hesaplar.",
+        "de": "Calculate daily compound interest future value.",
+        "fr": "Calculate daily compound interest future value.",
+        "es": "Calculate daily compound interest future value.",
+        "ar": "Calculate daily compound interest future value."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "daily-compound-interest-calculator",
+    "de": "Täglicher Zinseszinsrechner",
+    "fr": "Calculateur d'intérêts composés quotidiens",
+    "es": "Calculadora de interés compuesto diario",
+    "ar": "حاسبة الفائدة المركبة اليومية"
+  }
+}

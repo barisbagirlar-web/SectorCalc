@@ -1,0 +1,128 @@
+{
+  "toolName": "water-footprint-calculator",
+  "catalogCategory": "sustainability-resource-esg",
+  "categorySlug": "sustainability-resource-esg",
+  "sector": "Çevre ve Sürdürülebilirlik",
+  "sectorId": "sustainability-resource-esg",
+  "inputs": [
+    {
+      "id": "uretimHacmi",
+      "label": "Üretim Hacmi (Ton)",
+      "label_i18n": {
+        "en": "Production Volume (Tons)",
+        "tr": "Üretim Hacmi (Ton)",
+        "de": "Produktionsvolumen (N)",
+        "fr": "Volume de production (N)",
+        "es": "Volumen de producción (N)",
+        "ar": "حجم الإنتاج (N)"
+      },
+      "type": "number",
+      "unit": "tons",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Toplam üretim miktarı.",
+      "businessContext_i18n": {
+        "en": "Total production quantity.",
+        "tr": "Toplam üretim miktarı.",
+        "de": "Total production quantity.",
+        "fr": "Total production quantity.",
+        "es": "Total production quantity.",
+        "ar": "Total production quantity."
+      }
+    },
+    {
+      "id": "tuketilenSu",
+      "label": "Tüketilen Su (m³)",
+      "label_i18n": {
+        "en": "Water Consumed (m³)",
+        "tr": "Tüketilen Su (m³)",
+        "de": "Water Consumed (m³)",
+        "fr": "Water Consumed (m³)",
+        "es": "Water Consumed (m³)",
+        "ar": "Water Consumed (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 15000,
+      "min": 0,
+      "businessContext": "Üretimde kullanılan toplam su.",
+      "businessContext_i18n": {
+        "en": "Total water used in production.",
+        "tr": "Üretimde kullanılan toplam su.",
+        "de": "Total water used in production.",
+        "fr": "Total water used in production.",
+        "es": "Total water used in production.",
+        "ar": "Total water used in production."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "tuketilenSu / Math.max(0.0001, uretimHacmi)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m3/ton",
+    "breakdown": {
+      "sonuc": "Su Ayak İzi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Su Ayak İzi",
+        "tr": "Su Ayak İzi",
+        "de": "Su Ayak İzi",
+        "fr": "Su Ayak İzi",
+        "es": "Su Ayak İzi",
+        "ar": "Su Ayak İzi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m3/ton"
+    },
+    "hiddenLossDrivers": [
+      "High environmental score may reduce operational costs.",
+      "Low ESG score may increase capital costs."
+    ],
+    "suggestedActions": [
+      "Set improvement targets for each ESG pillar.",
+      "Consider carbon offset programs for residual emissions."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate water footprint per unit of production.",
+      "long": "Calculate water footprint per unit of production.",
+      "short_i18n": {
+        "en": "Calculate water footprint per unit of production.",
+        "tr": "Birim ürün başına harcanan tatlı su miktarını (su ayak izi) hesaplar.",
+        "de": "Calculate water footprint per unit of production.",
+        "fr": "Calculate water footprint per unit of production.",
+        "es": "Calculate water footprint per unit of production.",
+        "ar": "Calculate water footprint per unit of production."
+      },
+      "long_i18n": {
+        "en": "Calculate water footprint per unit of production.",
+        "tr": "Birim ürün başına harcanan tatlı su miktarını (su ayak izi) hesaplar.",
+        "de": "Calculate water footprint per unit of production.",
+        "fr": "Calculate water footprint per unit of production.",
+        "es": "Calculate water footprint per unit of production.",
+        "ar": "Calculate water footprint per unit of production."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "water-footprint-calculator",
+    "de": "Wasserfußabdruck-Rechner",
+    "fr": "Calculateur d'empreinte hydrique",
+    "es": "Calculadora de huella hídrica",
+    "ar": "حاسبة البصمة المائية"
+  }
+}

@@ -3,12 +3,15 @@ import type { UnitSystemPreference } from "@/config/measurement";
 import {
   getAvailableUnitsForGroup,
   getDefaultUnitForRegion,
-  inferUnitGroupFromFieldKey,
+  inferUnitGroupFromFieldKey as inferFieldKeyUnitGroup,
   resolveRegionalCodeForUnitDefaults,
   type UnitGroup,
 } from "@/lib/regional/unit-defaults";
 import { convertUnits } from "@/lib/units/unit-conversions";
 import { lookupCanonicalUnit } from "@/lib/units/unit-definitions";
+
+/** Export renamed for external use */
+export { inferFieldKeyUnitGroup as inferUnitGroupFromFieldKey };
 
 const NON_CONVERTIBLE_UNITS = new Set([
   "%",
@@ -18,11 +21,6 @@ const NON_CONVERTIBLE_UNITS = new Set([
   "each",
   "qty",
   "dimensionless",
-  "A",
-  "V",
-  "Ω",
-  "W",
-  "kW",
 ]);
 
 const DIMENSION_TO_UNIT_GROUP: Partial<Record<string, UnitGroup>> = {
@@ -35,15 +33,20 @@ const DIMENSION_TO_UNIT_GROUP: Partial<Record<string, UnitGroup>> = {
   time: "time",
 };
 
+const CURRENCY_CODES = new Set([
+  "USD", "EUR", "TRY", "GBP", "SAR", "AED",
+  "CAD", "AUD", "CHF", "JPY", "KWD", "QAR",
+]);
+
 function isCurrencyLikeUnit(unit: string): boolean {
-  const normalized = unit.trim().toUpperCase();
-  return (
-    normalized.includes("/") ||
-    normalized.includes("$") ||
-    normalized.startsWith("USD") ||
-    normalized.startsWith("EUR") ||
-    normalized.startsWith("TRY") ||
-    normalized.startsWith("GBP")
+  return CURRENCY_CODES.has(unit.trim().toUpperCase());
+}
+
+/** Recognise compound currency units like "USD/yıl", "EUR/kg", "TRY/saat" */
+function isCompoundCurrencyUnit(unit: string): boolean {
+  const upper = unit.trim().toUpperCase();
+  return [...CURRENCY_CODES].some(
+    (code) => upper.startsWith(code + "/") || upper.includes("/" + code),
   );
 }
 
@@ -55,21 +58,48 @@ function inferUnitGroupFromSchemaUnit(unit: string): UnitGroup | null {
   return DIMENSION_TO_UNIT_GROUP[canonical.dimension] ?? null;
 }
 
+/**
+ * Generic unit-group inference from any unit string + field key.
+ * Used by both GeneratedToolInput forms and Premium schema engine.
+ */
+export function inferInputUnitGroup(
+  unit: string,
+  fieldKey?: string,
+): UnitGroup | null {
+  const schemaUnit = unit?.trim() ?? "";
+  if (!schemaUnit && !fieldKey) {
+    return null;
+  }
+
+  // Direct currency match
+  if (schemaUnit && isCurrencyLikeUnit(schemaUnit)) {
+    return "currency";
+  }
+
+  // Compound currency units — not convertible
+  if (schemaUnit && isCompoundCurrencyUnit(schemaUnit)) {
+    return null;
+  }
+
+  // Non-convertible
+  if (schemaUnit && NON_CONVERTIBLE_UNITS.has(schemaUnit)) {
+    return null;
+  }
+
+  // Try canonical unit lookup first
+  if (schemaUnit) {
+    return inferUnitGroupFromSchemaUnit(schemaUnit) ?? (fieldKey ? inferFieldKeyUnitGroup(fieldKey) : null);
+  }
+
+  // Fallback to field key inference
+  return fieldKey ? inferFieldKeyUnitGroup(fieldKey) : null;
+}
+
 export function inferGeneratedInputUnitGroup(input: GeneratedToolInput): UnitGroup | null {
   if (input.type !== "number") {
     return null;
   }
-
-  const schemaUnit = input.unit?.trim() ?? "";
-  if (schemaUnit && (NON_CONVERTIBLE_UNITS.has(schemaUnit) || isCurrencyLikeUnit(schemaUnit))) {
-    return null;
-  }
-
-  if (schemaUnit) {
-    return inferUnitGroupFromSchemaUnit(schemaUnit) ?? inferUnitGroupFromFieldKey(input.id);
-  }
-
-  return inferUnitGroupFromFieldKey(input.id);
+  return inferInputUnitGroup(input.unit, input.id);
 }
 
 export function shouldShowGeneratedUnitSelector(input: GeneratedToolInput): boolean {
@@ -134,6 +164,14 @@ export function convertGeneratedFormValues(
 
     const rawValue = values[input.id];
     if (typeof rawValue !== "number" || !Number.isFinite(rawValue)) {
+      continue;
+    }
+
+    const group = inferGeneratedInputUnitGroup(input);
+
+    // For currency fields, skip conversion (no live exchange rates).
+    // The value the user enters is in their chosen currency unit.
+    if (group === "currency") {
       continue;
     }
 

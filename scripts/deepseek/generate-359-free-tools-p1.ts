@@ -101,15 +101,10 @@ function writeSchema(tool: ToolDef) {
 }
 
 function updateFreeSlugs(toolDefs: ToolDef[]) {
-  const current = JSON.parse(fs.readFileSync(FREE_SLUGS_PATH, "utf-8")) as string[];
-  const set = new Set(current);
-  let added = 0;
-  for (const t of toolDefs) {
-    if (!set.has(t.slug)) { current.push(t.slug); set.add(t.slug); added++; }
-  }
-  current.sort();
-  fs.writeFileSync(FREE_SLUGS_PATH, JSON.stringify(current, null, 2), "utf-8");
-  console.log(`free-slugs.json: ${added} yeni slug (toplam: ${current.length})`);
+  const slugs = [...new Set(toolDefs.map((t) => t.slug))];
+  slugs.sort();
+  fs.writeFileSync(FREE_SLUGS_PATH, JSON.stringify(slugs, null, 2), "utf-8");
+  console.log(`free-slugs.json: ${slugs.length} slug yazıldı (önceki tüm slug'lar SİLİNDİ).`);
 }
 
 /* ── Tool definitions entry ──────────────────────── */

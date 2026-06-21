@@ -1,0 +1,125 @@
+{
+  "toolName": "surface-roughness-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "ilerleme",
+      "label": "İlerleme (mm/dev)",
+      "label_i18n": {
+        "en": "Feed Rate (mm/rev)",
+        "tr": "İlerleme (mm/dev)",
+        "de": "Vorschubgeschwindigkeit (f)",
+        "fr": "Vitesse d'avance (f)",
+        "es": "Velocidad de avance (f)",
+        "ar": "معدل التغذية (f)"
+      },
+      "type": "number",
+      "unit": "mm/rev",
+      "default": 0.1,
+      "min": 0,
+      "businessContext": "Devir başına ilerleme miktarı.",
+      "businessContext_i18n": {
+        "en": "Feed per revolution.",
+        "tr": "Devir başına ilerleme miktarı.",
+        "de": "Feed per revolution.",
+        "fr": "Feed per revolution.",
+        "es": "Feed per revolution.",
+        "ar": "Feed per revolution."
+      }
+    },
+    {
+      "id": "ucYariCap",
+      "label": "Uç Radyüsü (mm)",
+      "label_i18n": {
+        "en": "Nose Radius (mm)",
+        "tr": "Uç Radyüsü (mm)",
+        "de": "Nose Radius (mm)",
+        "fr": "Nose Radius (mm)",
+        "es": "Nose Radius (mm)",
+        "ar": "Nose Radius (mm)"
+      },
+      "type": "number",
+      "unit": "mm",
+      "default": 0.8,
+      "min": 0,
+      "businessContext": "Kesici uç radyüsü.",
+      "businessContext_i18n": {
+        "en": "Insert nose radius.",
+        "tr": "Kesici uç radyüsü.",
+        "de": "Insert nose radius.",
+        "fr": "Insert nose radius.",
+        "es": "Insert nose radius.",
+        "ar": "Insert nose radius."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(Math.pow(ilerleme, 2)) / Math.max(0.0001, (32 * ucYariCap))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "mm",
+    "breakdown": {
+      "sonuc": "Yüzey Pürüzlülüğü (Ra)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yüzey Pürüzlülüğü (Ra)",
+        "tr": "Yüzey Pürüzlülüğü (Ra)",
+        "de": "Yüzey Pürüzlülüğü (Ra)",
+        "fr": "Yüzey Pürüzlülüğü (Ra)",
+        "es": "Yüzey Pürüzlülüğü (Ra)",
+        "ar": "Yüzey Pürüzlülüğü (Ra)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "mm"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate theoretical surface roughness (Ra) for turning operation.",
+      "long": "Calculate theoretical surface roughness (Ra) for turning operation.",
+      "short_i18n": {
+        "en": "Calculate theoretical surface roughness (Ra) for turning operation.",
+        "tr": "Tornalama işlemindeki teorik yüzey pürüzlülüğünü (Ra) hesaplar.",
+        "de": "Calculate theoretical surface roughness (Ra) for turning operation.",
+        "fr": "Calculate theoretical surface roughness (Ra) for turning operation.",
+        "es": "Calculate theoretical surface roughness (Ra) for turning operation.",
+        "ar": "Calculate theoretical surface roughness (Ra) for turning operation."
+      },
+      "long_i18n": {
+        "en": "Calculate theoretical surface roughness (Ra) for turning operation.",
+        "tr": "Tornalama işlemindeki teorik yüzey pürüzlülüğünü (Ra) hesaplar.",
+        "de": "Calculate theoretical surface roughness (Ra) for turning operation.",
+        "fr": "Calculate theoretical surface roughness (Ra) for turning operation.",
+        "es": "Calculate theoretical surface roughness (Ra) for turning operation.",
+        "ar": "Calculate theoretical surface roughness (Ra) for turning operation."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "surface-roughness-calculator",
+    "de": "Oberflächenrauheitsrechner Ra",
+    "fr": "Calculateur de rugosité de surface Ra",
+    "es": "Calculadora de rugosidad superficial Ra",
+    "ar": "حاسبة خشونة السطح Ra"
+  }
+}

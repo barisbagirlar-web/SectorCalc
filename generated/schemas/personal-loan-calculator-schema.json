@@ -1,0 +1,186 @@
+{
+  "toolName": "personal-loan-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Kredi ve Borç",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "tutar",
+      "label": "Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan Amount (USD)",
+        "tr": "Kredi Tutarı (₺)",
+        "de": "Darlehensbetrag",
+        "fr": "Montant du prêt",
+        "es": "Monto del préstamo",
+        "ar": "مبلغ القرض"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Çekilen kredi anaparası.",
+      "businessContext_i18n": {
+        "en": "Loan principal.",
+        "tr": "Çekilen kredi anaparası.",
+        "de": "Erste Barzahlung, die den Darlehensbetrag reduziert.",
+        "fr": "Paiement initial en espèces réduisant le principal du prêt.",
+        "es": "Pago inicial en efectivo que reduce el capital del préstamo.",
+        "ar": "دفعة نقدية أولية تقلل من أصل القرض."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Nominaler Jahreszinssatz",
+        "fr": "Taux d'intérêt annuel nominal",
+        "es": "Tasa de interés anual nominal",
+        "ar": "سعر الفائدة السنوي الاسمي"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "min": 0,
+      "businessContext": "Kredinin yıllık faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Annual interest rate.",
+        "tr": "Kredinin yıllık faiz oranı.",
+        "de": "Nominaler jährlicher Zinssatz.",
+        "fr": "Taux d'intérêt annuel nominal.",
+        "es": "Tasa de interés anual nominal.",
+        "ar": "سعر الفائدة السنوي الاسمي."
+      }
+    },
+    {
+      "id": "vade",
+      "label": "Vade (Ay)",
+      "label_i18n": {
+        "en": "Term (Months)",
+        "tr": "Vade (Ay)",
+        "de": "Kreditlaufzeit",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
+        "ar": "مدة القرض"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 36,
+      "min": 1,
+      "businessContext": "Kredi vadesi.",
+      "businessContext_i18n": {
+        "en": "Loan term.",
+        "tr": "Kredi vadesi.",
+        "de": "Loan term.",
+        "fr": "Loan term.",
+        "es": "Loan term.",
+        "ar": "Loan term."
+      }
+    },
+    {
+      "id": "masraf",
+      "label": "Masraflar (₺)",
+      "label_i18n": {
+        "en": "Fees (USD)",
+        "tr": "Masraflar (₺)",
+        "de": "Fahrzeugpreis (MSRP + Gebühren)",
+        "fr": "Prix du véhicule (PDSF + frais)",
+        "es": "Precio del vehículo (MSRP + tarifas)",
+        "ar": "سعر المركبة (سعر التجزئة المقترح + الرسوم)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Dosya masrafı ve diğer ücretler.",
+      "businessContext_i18n": {
+        "en": "Origination and processing fees.",
+        "tr": "Dosya masrafı ve diğer ücretler.",
+        "de": "Origination and processing fees.",
+        "fr": "Origination and processing fees.",
+        "es": "Origination and processing fees.",
+        "ar": "Origination and processing fees."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "taksit": "faiz === 0 ? (tutar - masraf) / Math.max(1, vade) : (tutar - masraf) * ((faiz / 1200) * Math.pow(1 + faiz / 1200, vade)) / (Math.pow(1 + faiz / 1200, vade) - 1)",
+    "sonuc": "((faiz === 0 ? (tutar - masraf) / Math.max(1, vade) : (tutar - masraf) * ((faiz / 1200) * Math.pow(1 + faiz / 1200, vade)) / (Math.pow(1 + faiz / 1200, vade) - 1)) * vade + masraf - tutar)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "taksit": "Aylık Taksit",
+      "sonuc": "Toplam Maliyet"
+    },
+    "breakdown_i18n": {
+      "taksit": {
+        "en": "Aylık Taksit",
+        "tr": "Aylık Taksit",
+        "de": "Aylık Taksit",
+        "fr": "Aylık Taksit",
+        "es": "Aylık Taksit",
+        "ar": "Aylık Taksit"
+      },
+      "sonuc": {
+        "en": "Toplam Maliyet",
+        "tr": "Toplam Maliyet",
+        "de": "Toplam Maliyet",
+        "fr": "Toplam Maliyet",
+        "es": "Toplam Maliyet",
+        "ar": "Toplam Maliyet"
+      }
+    },
+    "breakdownUnits": {
+      "taksit": "USD",
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Compare multiple loan offers before committing.",
+      "Consider total cost including fees."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate monthly payment and total interest for a personal loan.",
+      "long": "Calculate monthly payment and total interest for a personal loan.",
+      "short_i18n": {
+        "en": "Calculate monthly payment and total interest for a personal loan.",
+        "tr": "İhtiyaç kredisinin aylık ödemesini ve toplam faiz yükünü hesaplar.",
+        "de": "Calculate monthly payment and total interest for a personal loan.",
+        "fr": "Calculate monthly payment and total interest for a personal loan.",
+        "es": "Calculate monthly payment and total interest for a personal loan.",
+        "ar": "Calculate monthly payment and total interest for a personal loan."
+      },
+      "long_i18n": {
+        "en": "Calculate monthly payment and total interest for a personal loan.",
+        "tr": "İhtiyaç kredisinin aylık ödemesini ve toplam faiz yükünü hesaplar.",
+        "de": "Calculate monthly payment and total interest for a personal loan.",
+        "fr": "Calculate monthly payment and total interest for a personal loan.",
+        "es": "Calculate monthly payment and total interest for a personal loan.",
+        "ar": "Calculate monthly payment and total interest for a personal loan."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "personal-loan-calculator",
+    "de": "Privatkredit Rechner",
+    "fr": "Calculateur de Prêt Personnel",
+    "es": "Calculadora de Préstamo Personal",
+    "ar": "حاسبة القرض الشخصي"
+  }
+}

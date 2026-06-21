@@ -256,7 +256,10 @@ export function getEffectiveLocaleCookie(options: {
     return raw;
   }
 
-  return undefined;
+  // English (root) cookie should be respected.
+  // Without this, an /en/ path visit sets cookie but it gets ignored,
+  // causing geo-detection to override and redirect to a different locale.
+  return raw;
 }
 
 export function resolveRootVisitLocale(options: {

@@ -26,7 +26,7 @@ const freeTrafficCache = new Map<string, readonly CatalogGroup[]>();
 export { DEFAULT_FREE_TRAFFIC_CATEGORY };
 
 function extractGeneratedToolSlug(href: string): string | null {
-  const match = href.match(/\/tools\/generated\/([^/]+)$/);
+  const match = href.match(/\/tools\/(?:generated|free)\/([^/]+)$/);
   return match?.[1] ?? null;
 }
 
@@ -84,7 +84,11 @@ export function getCachedCategoryPageCatalogGroups(locale = "en"): readonly Cata
   if (hit) {
     return hit;
   }
-  const groups = buildCategoryPageCatalogGroups(buildSectorToolCatalogGroups(getLocalizedFreeTools(locale)), locale);
+  const freeGroups = enrichFreeTrafficCatalogGroups(
+    buildSectorToolCatalogGroups(getLocalizedFreeTools(locale)),
+    locale,
+  );
+  const groups = buildCategoryPageCatalogGroups(freeGroups, locale);
   categoryPageCache.set(key, groups);
   return groups;
 }

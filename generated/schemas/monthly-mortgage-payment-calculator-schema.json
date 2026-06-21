@@ -1,0 +1,151 @@
+{
+  "toolName": "monthly-mortgage-payment-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "kredi",
+      "label": "Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan Amount (USD)",
+        "tr": "Kredi Tutarı (₺)",
+        "de": "Darlehensbetrag",
+        "fr": "Montant du prêt",
+        "es": "Monto del préstamo",
+        "ar": "مبلغ القرض"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Çekilen konut kredisi anaparası.",
+      "businessContext_i18n": {
+        "en": "Mortgage principal.",
+        "tr": "Çekilen konut kredisi anaparası.",
+        "de": "Mortgage principal.",
+        "fr": "Mortgage principal.",
+        "es": "Mortgage principal.",
+        "ar": "Mortgage principal."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Nominaler Jahreszinssatz",
+        "fr": "Taux d'intérêt annuel nominal",
+        "es": "Tasa de interés anual nominal",
+        "ar": "سعر الفائدة السنوي الاسمي"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Kredinin yıllık faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Annual mortgage interest rate.",
+        "tr": "Kredinin yıllık faiz oranı.",
+        "de": "Annual mortgage interest rate.",
+        "fr": "Annual mortgage interest rate.",
+        "es": "Annual mortgage interest rate.",
+        "ar": "Annual mortgage interest rate."
+      }
+    },
+    {
+      "id": "vade",
+      "label": "Vade (Ay)",
+      "label_i18n": {
+        "en": "Term (Months)",
+        "tr": "Vade (Ay)",
+        "de": "Kreditlaufzeit",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
+        "ar": "مدة القرض"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 120,
+      "min": 1,
+      "businessContext": "Kredinin toplam vadesi.",
+      "businessContext_i18n": {
+        "en": "Total loan term.",
+        "tr": "Kredinin toplam vadesi.",
+        "de": "Total loan term.",
+        "fr": "Total loan term.",
+        "es": "Total loan term.",
+        "ar": "Total loan term."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "aylikFaiz": "faiz / 1200",
+    "sonuc": "faiz === 0 ? kredi / Math.max(1, vade) : kredi * ((faiz / 1200) / (1 - Math.pow(1 + faiz / 1200, -vade)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Aylık Mortgage Taksiti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Aylık Mortgage Taksiti",
+        "tr": "Aylık Mortgage Taksiti",
+        "de": "Aylık Mortgage Taksiti",
+        "fr": "Aylık Mortgage Taksiti",
+        "es": "Aylık Mortgage Taksiti",
+        "ar": "Aylık Mortgage Taksiti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate monthly mortgage payment for a home loan.",
+      "long": "Calculate monthly mortgage payment for a home loan.",
+      "short_i18n": {
+        "en": "Calculate monthly mortgage payment for a home loan.",
+        "tr": "Eşit taksitli konut kredisinin aylık ödeme tutarını hesaplar.",
+        "de": "Calculate monthly mortgage payment for a home loan.",
+        "fr": "Calculate monthly mortgage payment for a home loan.",
+        "es": "Calculate monthly mortgage payment for a home loan.",
+        "ar": "Calculate monthly mortgage payment for a home loan."
+      },
+      "long_i18n": {
+        "en": "Calculate monthly mortgage payment for a home loan.",
+        "tr": "Eşit taksitli konut kredisinin aylık ödeme tutarını hesaplar.",
+        "de": "Calculate monthly mortgage payment for a home loan.",
+        "fr": "Calculate monthly mortgage payment for a home loan.",
+        "es": "Calculate monthly mortgage payment for a home loan.",
+        "ar": "Calculate monthly mortgage payment for a home loan."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "monthly-mortgage-payment-calculator",
+    "de": "Hypotheken-Monatsratenrechner",
+    "fr": "Calculateur de mensualité hypothécaire",
+    "es": "Calculadora de cuota mensual hipotecaria",
+    "ar": "حاسبة القسط الشهري للرهن العقاري"
+  }
+}

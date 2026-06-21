@@ -53,6 +53,7 @@ export const HOMEPAGE_COVERAGE_ICON_MAP: Record<HomepageCoverageId, LucideIcon> 
   energy: Sun,
   finance: Wallet,
   foodRetail: Sandwich,
+  general: Calculator,
 };
 
 export const HOMEPAGE_LOSS_ICON_MAP: Record<HomepageLossId, LucideIcon> = {

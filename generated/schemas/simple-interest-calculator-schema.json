@@ -1,0 +1,150 @@
+{
+  "toolName": "simple-interest-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "anapara",
+      "label": "Anapara (₺)",
+      "label_i18n": {
+        "en": "Principal (USD)",
+        "tr": "Anapara (₺)",
+        "de": "Anfangskapital",
+        "fr": "Capital initial",
+        "es": "Capital inicial",
+        "ar": "رأس المال الأولي"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Faiz hesaplanacak ana para.",
+      "businessContext_i18n": {
+        "en": "Principal amount for interest calculation.",
+        "tr": "Faiz hesaplanacak ana para.",
+        "de": "Principal amount for interest calculation.",
+        "fr": "Principal amount for interest calculation.",
+        "es": "Principal amount for interest calculation.",
+        "ar": "Principal amount for interest calculation."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Faiz Oranı (%)",
+      "label_i18n": {
+        "en": "Interest Rate (%)",
+        "tr": "Faiz Oranı (%)",
+        "de": "Zinssatz (%)",
+        "fr": "Taux d'intérêt (%)",
+        "es": "Tasa de Interés (%)",
+        "ar": "سعر الفائدة (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Yıllık faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Annual interest rate.",
+        "tr": "Yıllık faiz oranı.",
+        "de": "Nominaler jährlicher Zinssatz.",
+        "fr": "Taux d'intérêt annuel nominal.",
+        "es": "Tasa de interés anual nominal.",
+        "ar": "سعر الفائدة السنوي الاسمي."
+      }
+    },
+    {
+      "id": "sure",
+      "label": "Süre (Yıl)",
+      "label_i18n": {
+        "en": "Time (Years)",
+        "tr": "Süre (Yıl)",
+        "de": "Überstundenzuschlag einbeziehen",
+        "fr": "Inclure la pénalité pour heures supplémentaires",
+        "es": "Incluir Penalización por Horas Extra",
+        "ar": "تضمين عقوبة العمل الإضافي"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Faiz uygulanacak yıl sayısı.",
+      "businessContext_i18n": {
+        "en": "Number of years for interest accrual.",
+        "tr": "Faiz uygulanacak yıl sayısı.",
+        "de": "Number of years for interest accrual.",
+        "fr": "Number of years for interest accrual.",
+        "es": "Number of years for interest accrual.",
+        "ar": "Number of years for interest accrual."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "anapara * (faiz / 100) * sure"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Basit Faiz Tutarı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Basit Faiz Tutarı",
+        "tr": "Basit Faiz Tutarı",
+        "de": "Basit Faiz Tutarı",
+        "fr": "Basit Faiz Tutarı",
+        "es": "Basit Faiz Tutarı",
+        "ar": "Basit Faiz Tutarı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate simple interest earned on principal only.",
+      "long": "Calculate simple interest earned on principal only.",
+      "short_i18n": {
+        "en": "Calculate simple interest earned on principal only.",
+        "tr": "Sadece anapara üzerinden hesaplanan basit faiz gelirini hesaplar.",
+        "de": "Calculate simple interest earned on principal only.",
+        "fr": "Calculate simple interest earned on principal only.",
+        "es": "Calculate simple interest earned on principal only.",
+        "ar": "Calculate simple interest earned on principal only."
+      },
+      "long_i18n": {
+        "en": "Calculate simple interest earned on principal only.",
+        "tr": "Sadece anapara üzerinden hesaplanan basit faiz gelirini hesaplar.",
+        "de": "Calculate simple interest earned on principal only.",
+        "fr": "Calculate simple interest earned on principal only.",
+        "es": "Calculate simple interest earned on principal only.",
+        "ar": "Calculate simple interest earned on principal only."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "simple-interest-calculator",
+    "de": "Einfacher Zinsrechner",
+    "fr": "Calculateur d'intérêt simple",
+    "es": "Calculadora de interés simple",
+    "ar": "حاسبة الفائدة البسيطة"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "toolName": "bottleneck-analysis-calculator",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "istasyon1",
+      "label": "1. İstasyon Süresi (Dk)",
+      "label_i18n": {
+        "en": "Station 1 Time (Min)",
+        "tr": "1. İstasyon Süresi (Dk)",
+        "de": "Station 1 Time (Min)",
+        "fr": "Station 1 Time (Min)",
+        "es": "Station 1 Time (Min)",
+        "ar": "Station 1 Time (Min)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 45,
+      "min": 0,
+      "businessContext": "Birinci istasyonun işlem süresi.",
+      "businessContext_i18n": {
+        "en": "First station operation time.",
+        "tr": "Birinci istasyonun işlem süresi.",
+        "de": "First station operation time.",
+        "fr": "First station operation time.",
+        "es": "First station operation time.",
+        "ar": "First station operation time."
+      }
+    },
+    {
+      "id": "istasyon2",
+      "label": "2. İstasyon Süresi (Dk)",
+      "label_i18n": {
+        "en": "Station 2 Time (Min)",
+        "tr": "2. İstasyon Süresi (Dk)",
+        "de": "Station 2 Time (Min)",
+        "fr": "Station 2 Time (Min)",
+        "es": "Station 2 Time (Min)",
+        "ar": "Station 2 Time (Min)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "min": 0,
+      "businessContext": "İkinci istasyon süresi.",
+      "businessContext_i18n": {
+        "en": "Second station time.",
+        "tr": "İkinci istasyon süresi.",
+        "de": "Second station time.",
+        "fr": "Second station time.",
+        "es": "Second station time.",
+        "ar": "Second station time."
+      }
+    },
+    {
+      "id": "istasyon3",
+      "label": "3. İstasyon Süresi (Dk)",
+      "label_i18n": {
+        "en": "Station 3 Time (Min)",
+        "tr": "3. İstasyon Süresi (Dk)",
+        "de": "Station 3 Time (Min)",
+        "fr": "Station 3 Time (Min)",
+        "es": "Station 3 Time (Min)",
+        "ar": "Station 3 Time (Min)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Üçüncü istasyon süresi.",
+      "businessContext_i18n": {
+        "en": "Third station time.",
+        "tr": "Üçüncü istasyon süresi.",
+        "de": "Third station time.",
+        "fr": "Third station time.",
+        "es": "Third station time.",
+        "ar": "Third station time."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "darbogaz": "Math.max(istasyon1, istasyon2, istasyon3)",
+    "sonuc": "60 / Math.max(0.0001, Math.max(istasyon1, istasyon2, istasyon3))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "units/hour",
+    "breakdown": {
+      "sonuc": "Maksimum Üretim Hızı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maksimum Üretim Hızı",
+        "tr": "Maksimum Üretim Hızı",
+        "de": "Maksimum Üretim Hızı",
+        "fr": "Maksimum Üretim Hızı",
+        "es": "Maksimum Üretim Hızı",
+        "ar": "Maksimum Üretim Hızı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "units/hour"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Identify bottleneck and calculate maximum production rate.",
+      "long": "Identify bottleneck and calculate maximum production rate.",
+      "short_i18n": {
+        "en": "Identify bottleneck and calculate maximum production rate.",
+        "tr": "Hattın en yavaş istasyonuna göre maksimum üretim hızını hesaplar.",
+        "de": "Identify bottleneck and calculate maximum production rate.",
+        "fr": "Identify bottleneck and calculate maximum production rate.",
+        "es": "Identify bottleneck and calculate maximum production rate.",
+        "ar": "Identify bottleneck and calculate maximum production rate."
+      },
+      "long_i18n": {
+        "en": "Identify bottleneck and calculate maximum production rate.",
+        "tr": "Hattın en yavaş istasyonuna göre maksimum üretim hızını hesaplar.",
+        "de": "Identify bottleneck and calculate maximum production rate.",
+        "fr": "Identify bottleneck and calculate maximum production rate.",
+        "es": "Identify bottleneck and calculate maximum production rate.",
+        "ar": "Identify bottleneck and calculate maximum production rate."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "bottleneck-analysis-calculator",
+    "de": "Engpassanalyse-Rechner",
+    "fr": "Calculateur d'analyse des goulots d'étranglement",
+    "es": "Calculadora de análisis de cuellos de botella",
+    "ar": "حاسبة تحليل الاختناقات"
+  }
+}

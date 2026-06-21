@@ -1,0 +1,186 @@
+{
+  "toolName": "cash-out-refinance-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "mulkDegeri",
+      "label": "Mülk Değeri (₺)",
+      "label_i18n": {
+        "en": "Property Value (USD)",
+        "tr": "Mülk Değeri (₺)",
+        "de": "Immobilienwert",
+        "fr": "Valeur de la propriété",
+        "es": "Valor de la propiedad",
+        "ar": "قيمة العقار"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1500000,
+      "min": 0,
+      "businessContext": "Evin güncel piyasa değeri.",
+      "businessContext_i18n": {
+        "en": "Current property value.",
+        "tr": "Evin güncel piyasa değeri.",
+        "de": "Current property value.",
+        "fr": "Current property value.",
+        "es": "Current property value.",
+        "ar": "Current property value."
+      }
+    },
+    {
+      "id": "kalanBorc",
+      "label": "Kalan Borç (₺)",
+      "label_i18n": {
+        "en": "Remaining Debt (USD)",
+        "tr": "Kalan Borç (₺)",
+        "de": "Remaining Debt (USD)",
+        "fr": "Remaining Debt (USD)",
+        "es": "Remaining Debt (USD)",
+        "ar": "Remaining Debt (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Mevcut kredi bakiyesi.",
+      "businessContext_i18n": {
+        "en": "Current mortgage balance.",
+        "tr": "Mevcut kredi bakiyesi.",
+        "de": "Current mortgage balance.",
+        "fr": "Current mortgage balance.",
+        "es": "Current mortgage balance.",
+        "ar": "Current mortgage balance."
+      }
+    },
+    {
+      "id": "yeniKredi",
+      "label": "Yeni Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "New Loan Amount (USD)",
+        "tr": "Yeni Kredi Tutarı (₺)",
+        "de": "New Loan Amount (USD)",
+        "fr": "New Loan Amount (USD)",
+        "es": "New Loan Amount (USD)",
+        "ar": "New Loan Amount (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Yeni çekilen toplam kredi.",
+      "businessContext_i18n": {
+        "en": "Total new loan to draw.",
+        "tr": "Yeni çekilen toplam kredi.",
+        "de": "Total new loan to draw.",
+        "fr": "Total new loan to draw.",
+        "es": "Total new loan to draw.",
+        "ar": "Total new loan to draw."
+      }
+    },
+    {
+      "id": "masraf",
+      "label": "Masraflar (₺)",
+      "label_i18n": {
+        "en": "Closing Costs (USD)",
+        "tr": "Masraflar (₺)",
+        "de": "Abschlusskosten (%)",
+        "fr": "Frais de clôture (%)",
+        "es": "Costos de cierre (%)",
+        "ar": "تكاليف الإغلاق (%)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "businessContext": "Kapatma ve işlem masrafları.",
+      "businessContext_i18n": {
+        "en": "Closing and processing costs.",
+        "tr": "Kapatma ve işlem masrafları.",
+        "de": "Closing and processing costs.",
+        "fr": "Closing and processing costs.",
+        "es": "Closing and processing costs.",
+        "ar": "Closing and processing costs."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "ltv": "(yeniKredi / Math.max(1, mulkDegeri)) * 100",
+    "sonuc": "yeniKredi - kalanBorc - masraf"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "ltv": "LTV Oranı (%)",
+      "sonuc": "Net Nakit Çıkış"
+    },
+    "breakdown_i18n": {
+      "ltv": {
+        "en": "LTV Oranı (%)",
+        "tr": "LTV Oranı (%)",
+        "de": "LTV Oranı (%)",
+        "fr": "LTV Oranı (%)",
+        "es": "LTV Oranı (%)",
+        "ar": "LTV Oranı (%)"
+      },
+      "sonuc": {
+        "en": "Net Nakit Çıkış",
+        "tr": "Net Nakit Çıkış",
+        "de": "Net Nakit Çıkış",
+        "fr": "Net Nakit Çıkış",
+        "es": "Net Nakit Çıkış",
+        "ar": "Net Nakit Çıkış"
+      }
+    },
+    "breakdownUnits": {
+      "ltv": "USD",
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate net cash-out from a cash-out refinance.",
+      "long": "Calculate net cash-out from a cash-out refinance.",
+      "short_i18n": {
+        "en": "Calculate net cash-out from a cash-out refinance.",
+        "tr": "Ev sermayesinin nakde çevrilerek ele geçen net tutarı hesaplar.",
+        "de": "Calculate net cash-out from a cash-out refinance.",
+        "fr": "Calculate net cash-out from a cash-out refinance.",
+        "es": "Calculate net cash-out from a cash-out refinance.",
+        "ar": "Calculate net cash-out from a cash-out refinance."
+      },
+      "long_i18n": {
+        "en": "Calculate net cash-out from a cash-out refinance.",
+        "tr": "Ev sermayesinin nakde çevrilerek ele geçen net tutarı hesaplar.",
+        "de": "Calculate net cash-out from a cash-out refinance.",
+        "fr": "Calculate net cash-out from a cash-out refinance.",
+        "es": "Calculate net cash-out from a cash-out refinance.",
+        "ar": "Calculate net cash-out from a cash-out refinance."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "cash-out-refinance-calculator",
+    "de": "Cash-Out-Refinanzierungsrechner",
+    "fr": "Calculateur de refinancement avec sortie de fonds",
+    "es": "Calculadora de refinanciamiento con retiro de efectivo",
+    "ar": "حاسبة إعادة التمويل النقدي"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "toolName": "roi-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "netKar",
+      "label": "Net Kâr (₺)",
+      "label_i18n": {
+        "en": "Net Profit (USD)",
+        "tr": "Net Kâr (₺)",
+        "de": "Net Profit (USD)",
+        "fr": "Net Profit (USD)",
+        "es": "Net Profit (USD)",
+        "ar": "Net Profit (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 25000,
+      "min": 0,
+      "businessContext": "Yatırımdan elde edilen toplam net kâr.",
+      "businessContext_i18n": {
+        "en": "Total net profit from investment.",
+        "tr": "Yatırımdan elde edilen toplam net kâr.",
+        "de": "Total net profit from investment.",
+        "fr": "Total net profit from investment.",
+        "es": "Total net profit from investment.",
+        "ar": "Total net profit from investment."
+      }
+    },
+    {
+      "id": "maliyet",
+      "label": "Toplam Maliyet (₺)",
+      "label_i18n": {
+        "en": "Total Cost (USD)",
+        "tr": "Toplam Maliyet (₺)",
+        "de": "Geplante Gesamtkosten (USD)",
+        "fr": "Coût total prévu (USD)",
+        "es": "Costo total planificado (USD)",
+        "ar": "التكلفة الإجمالية المخطط لها (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "businessContext": "Yatırım için yapılan toplam harcama.",
+      "businessContext_i18n": {
+        "en": "Total investment expenditure.",
+        "tr": "Yatırım için yapılan toplam harcama.",
+        "de": "Total investment expenditure.",
+        "fr": "Total investment expenditure.",
+        "es": "Total investment expenditure.",
+        "ar": "Total investment expenditure."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(netKar / Math.max(1, maliyet)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "ROI (Yatırım Getirisi)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "ROI (Yatırım Getirisi)",
+        "tr": "ROI (Yatırım Getirisi)",
+        "de": "ROI (Yatırım Getirisi)",
+        "fr": "ROI (Yatırım Getirisi)",
+        "es": "ROI (Yatırım Getirisi)",
+        "ar": "ROI (Yatırım Getirisi)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate return on investment (ROI) relative to cost.",
+      "long": "Calculate return on investment (ROI) relative to cost.",
+      "short_i18n": {
+        "en": "Calculate return on investment (ROI) relative to cost.",
+        "tr": "Yatırımın maliyetine göre ürettiği net verimi (ROI) hesaplar.",
+        "de": "Calculate return on investment (ROI) relative to cost.",
+        "fr": "Calculate return on investment (ROI) relative to cost.",
+        "es": "Calculate return on investment (ROI) relative to cost.",
+        "ar": "Calculate return on investment (ROI) relative to cost."
+      },
+      "long_i18n": {
+        "en": "Calculate return on investment (ROI) relative to cost.",
+        "tr": "Yatırımın maliyetine göre ürettiği net verimi (ROI) hesaplar.",
+        "de": "Calculate return on investment (ROI) relative to cost.",
+        "fr": "Calculate return on investment (ROI) relative to cost.",
+        "es": "Calculate return on investment (ROI) relative to cost.",
+        "ar": "Calculate return on investment (ROI) relative to cost."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "roi-calculator",
+    "de": "ROI-Rechner",
+    "fr": "Calculateur de ROI",
+    "es": "Calculadora de ROI",
+    "ar": "حاسبة العائد على الاستثمار ROI"
+  }
+}

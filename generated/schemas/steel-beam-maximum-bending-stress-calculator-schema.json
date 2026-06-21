@@ -1,0 +1,125 @@
+{
+  "toolName": "steel-beam-maximum-bending-stress-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "moment",
+      "label": "Eğilme Momenti (N.m)",
+      "label_i18n": {
+        "en": "Bending Moment (N.m)",
+        "tr": "Eğilme Momenti (N.m)",
+        "de": "Biegemoment",
+        "fr": "Moment de flexion",
+        "es": "Momento flector",
+        "ar": "عزم الانحناء"
+      },
+      "type": "number",
+      "unit": "N.m",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Kirişe etkiyen eğilme momenti.",
+      "businessContext_i18n": {
+        "en": "Bending moment on beam.",
+        "tr": "Kirişe etkiyen eğilme momenti.",
+        "de": "Bending moment on beam.",
+        "fr": "Bending moment on beam.",
+        "es": "Bending moment on beam.",
+        "ar": "Bending moment on beam."
+      }
+    },
+    {
+      "id": "kesitModulu",
+      "label": "Kesit Modülü (m³)",
+      "label_i18n": {
+        "en": "Section Modulus (m³)",
+        "tr": "Kesit Modülü (m³)",
+        "de": "Widerstandsmoment",
+        "fr": "Module de section",
+        "es": "Módulo de sección",
+        "ar": "معامل المقطع"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.00025,
+      "min": 0,
+      "businessContext": "Profilin elastik kesit modülü.",
+      "businessContext_i18n": {
+        "en": "Elastic section modulus.",
+        "tr": "Profilin elastik kesit modülü.",
+        "de": "Elastic section modulus.",
+        "fr": "Elastic section modulus.",
+        "es": "Elastic section modulus.",
+        "ar": "Elastic section modulus."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "moment / Math.max(0.0001, kesitModulu)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Maks. Eğilme Gerilmesi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maks. Eğilme Gerilmesi",
+        "tr": "Maks. Eğilme Gerilmesi",
+        "de": "Maks. Eğilme Gerilmesi",
+        "fr": "Maks. Eğilme Gerilmesi",
+        "es": "Maks. Eğilme Gerilmesi",
+        "ar": "Maks. Eğilme Gerilmesi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate maximum bending stress in a steel beam section.",
+      "long": "Calculate maximum bending stress in a steel beam section.",
+      "short_i18n": {
+        "en": "Calculate maximum bending stress in a steel beam section.",
+        "tr": "Çelik profilin dış liflerindeki maksimum eğilme (normal) gerilmesini hesaplar.",
+        "de": "Calculate maximum bending stress in a steel beam section.",
+        "fr": "Calculate maximum bending stress in a steel beam section.",
+        "es": "Calculate maximum bending stress in a steel beam section.",
+        "ar": "Calculate maximum bending stress in a steel beam section."
+      },
+      "long_i18n": {
+        "en": "Calculate maximum bending stress in a steel beam section.",
+        "tr": "Çelik profilin dış liflerindeki maksimum eğilme (normal) gerilmesini hesaplar.",
+        "de": "Calculate maximum bending stress in a steel beam section.",
+        "fr": "Calculate maximum bending stress in a steel beam section.",
+        "es": "Calculate maximum bending stress in a steel beam section.",
+        "ar": "Calculate maximum bending stress in a steel beam section."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "steel-beam-maximum-bending-stress-calculator",
+    "de": "Stahlträger-Biegeberechner",
+    "fr": "Calculateur de flexion de poutre en acier",
+    "es": "Calculadora de flexión de viga de acero",
+    "ar": "حاسبة انحناء العارضة الفولاذية"
+  }
+}

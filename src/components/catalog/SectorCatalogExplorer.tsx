@@ -42,6 +42,7 @@ const DISCOVERY_VARIANTS = new Set<CategoryExplorerVariant>([
   "free-tools",
   "premium-tools",
   "industries",
+  "categories",
 ]);
 
 const CATEGORY_ALL = DISCOVERY_TAB_ALL;

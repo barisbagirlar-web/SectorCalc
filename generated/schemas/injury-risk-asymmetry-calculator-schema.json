@@ -1,0 +1,128 @@
+{
+  "toolName": "injury-risk-asymmetry-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "sagKuvvet",
+      "label": "Sağ Ekstremite Kuvveti (N)",
+      "label_i18n": {
+        "en": "Right Limb Strength (N)",
+        "tr": "Sağ Ekstremite Kuvveti (N)",
+        "de": "Right Limb Strength (N)",
+        "fr": "Right Limb Strength (N)",
+        "es": "Right Limb Strength (N)",
+        "ar": "Right Limb Strength (N)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Sağ bacak/kol kuvveti.",
+      "businessContext_i18n": {
+        "en": "Right leg/arm strength.",
+        "tr": "Sağ bacak/kol kuvveti.",
+        "de": "Right leg/arm strength.",
+        "fr": "Right leg/arm strength.",
+        "es": "Right leg/arm strength.",
+        "ar": "Right leg/arm strength."
+      }
+    },
+    {
+      "id": "solKuvvet",
+      "label": "Sol Ekstremite Kuvveti (N)",
+      "label_i18n": {
+        "en": "Left Limb Strength (N)",
+        "tr": "Sol Ekstremite Kuvveti (N)",
+        "de": "Left Limb Strength (N)",
+        "fr": "Left Limb Strength (N)",
+        "es": "Left Limb Strength (N)",
+        "ar": "Left Limb Strength (N)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 450,
+      "min": 0,
+      "businessContext": "Sol bacak/kol kuvveti.",
+      "businessContext_i18n": {
+        "en": "Left leg/arm strength.",
+        "tr": "Sol bacak/kol kuvveti.",
+        "de": "Left leg/arm strength.",
+        "fr": "Left leg/arm strength.",
+        "es": "Left leg/arm strength.",
+        "ar": "Left leg/arm strength."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(Math.abs(sagKuvvet - solKuvvet) / Math.max(0.0001, Math.max(sagKuvvet, solKuvvet))) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Asimetri Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Asimetri Oranı",
+        "tr": "Asimetri Oranı",
+        "de": "Asimetri Oranı",
+        "fr": "Asimetri Oranı",
+        "es": "Asimetri Oranı",
+        "ar": "Asimetri Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+      "long": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+      "short_i18n": {
+        "en": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+        "tr": "Ekstremiteler arası güç asimetrisini hesaplar (%15 üstü yüksek sakatlık riski).",
+        "de": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+        "fr": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+        "es": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+        "ar": "Calculate limb strength asymmetry percentage (≥15% = high injury risk)."
+      },
+      "long_i18n": {
+        "en": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+        "tr": "Ekstremiteler arası güç asimetrisini hesaplar (%15 üstü yüksek sakatlık riski).",
+        "de": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+        "fr": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+        "es": "Calculate limb strength asymmetry percentage (≥15% = high injury risk).",
+        "ar": "Calculate limb strength asymmetry percentage (≥15% = high injury risk)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "injury-risk-asymmetry-calculator",
+    "de": "Invaliditätsrisiko-Asymmetrie-Rechner",
+    "fr": "Calculateur d'asymétrie du risque d'invalidité",
+    "es": "Calculadora de asimetría de riesgo de discapacidad",
+    "ar": "حاسبة عدم تماثل مخاطر العجز"
+  }
+}

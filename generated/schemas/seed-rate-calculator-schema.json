@@ -1,0 +1,177 @@
+{
+  "toolName": "seed-rate-calculator",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "siraAraligi",
+      "label": "Sıra Aralığı (m)",
+      "label_i18n": {
+        "en": "Row Spacing (m)",
+        "tr": "Sıra Aralığı (m)",
+        "de": "Reihenabstand (cm)",
+        "fr": "Espacement des rangs (cm)",
+        "es": "Espaciado entre hileras (cm)",
+        "ar": "تباعد الصفوف (سم)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.7,
+      "min": 0,
+      "businessContext": "Sıralar arası mesafe.",
+      "businessContext_i18n": {
+        "en": "Distance between rows.",
+        "tr": "Sıralar arası mesafe.",
+        "de": "Distance between rows.",
+        "fr": "Distance between rows.",
+        "es": "Distance between rows.",
+        "ar": "Distance between rows."
+      }
+    },
+    {
+      "id": "uzeriMesafe",
+      "label": "Sıra Üzeri Mesafe (m)",
+      "label_i18n": {
+        "en": "In-Row Spacing (m)",
+        "tr": "Sıra Üzeri Mesafe (m)",
+        "de": "In-Row Spacing (m)",
+        "fr": "In-Row Spacing (m)",
+        "es": "In-Row Spacing (m)",
+        "ar": "In-Row Spacing (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Bitkiler arası mesafe.",
+      "businessContext_i18n": {
+        "en": "Distance between plants.",
+        "tr": "Bitkiler arası mesafe.",
+        "de": "Distance between plants.",
+        "fr": "Distance between plants.",
+        "es": "Distance between plants.",
+        "ar": "Distance between plants."
+      }
+    },
+    {
+      "id": "binTaneAgirlik",
+      "label": "Bin Tane Ağırlığı (g)",
+      "label_i18n": {
+        "en": "Thousand Grain Weight (g)",
+        "tr": "Bin Tane Ağırlığı (g)",
+        "de": "Thousand Grain Weight (g)",
+        "fr": "Thousand Grain Weight (g)",
+        "es": "Thousand Grain Weight (g)",
+        "ar": "Thousand Grain Weight (g)"
+      },
+      "type": "number",
+      "unit": "g",
+      "default": 350,
+      "min": 0,
+      "businessContext": "1000 adet tohumun ağırlığı.",
+      "businessContext_i18n": {
+        "en": "Weight of 1000 seeds.",
+        "tr": "1000 adet tohumun ağırlığı.",
+        "de": "Weight of 1000 seeds.",
+        "fr": "Weight of 1000 seeds.",
+        "es": "Weight of 1000 seeds.",
+        "ar": "Weight of 1000 seeds."
+      }
+    },
+    {
+      "id": "cimlenme",
+      "label": "Çimlenme Oranı (%)",
+      "label_i18n": {
+        "en": "Germination Rate (%)",
+        "tr": "Çimlenme Oranı (%)",
+        "de": "Keimrate (%)",
+        "fr": "Taux de germination (%)",
+        "es": "Tasa de germinación (%)",
+        "ar": "معدل الإنبات (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "businessContext": "Tohumun çimlenme yüzdesi.",
+      "businessContext_i18n": {
+        "en": "Germination percentage.",
+        "tr": "Tohumun çimlenme yüzdesi.",
+        "de": "Germination percentage.",
+        "fr": "Germination percentage.",
+        "es": "Germination percentage.",
+        "ar": "Germination percentage."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(10000 / Math.max(0.0001, (siraAraligi * uzeriMesafe))) * (binTaneAgirlik / 1000) / Math.max(0.0001, (cimlenme / 100))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kg/da",
+    "breakdown": {
+      "sonuc": "Tohum İhtiyacı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Tohum İhtiyacı",
+        "tr": "Tohum İhtiyacı",
+        "de": "Tohum İhtiyacı",
+        "fr": "Tohum İhtiyacı",
+        "es": "Tohum İhtiyacı",
+        "ar": "Tohum İhtiyacı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kg/da"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate seed rate per decare (kg/da) for planting.",
+      "long": "Calculate seed rate per decare (kg/da) for planting.",
+      "short_i18n": {
+        "en": "Calculate seed rate per decare (kg/da) for planting.",
+        "tr": "Dekara düşen net tohumluk ihtiyacını hesaplar.",
+        "de": "Calculate seed rate per decare (kg/da) for planting.",
+        "fr": "Calculate seed rate per decare (kg/da) for planting.",
+        "es": "Calculate seed rate per decare (kg/da) for planting.",
+        "ar": "Calculate seed rate per decare (kg/da) for planting."
+      },
+      "long_i18n": {
+        "en": "Calculate seed rate per decare (kg/da) for planting.",
+        "tr": "Dekara düşen net tohumluk ihtiyacını hesaplar.",
+        "de": "Calculate seed rate per decare (kg/da) for planting.",
+        "fr": "Calculate seed rate per decare (kg/da) for planting.",
+        "es": "Calculate seed rate per decare (kg/da) for planting.",
+        "ar": "Calculate seed rate per decare (kg/da) for planting."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "seed-rate-calculator",
+    "de": "Rechner für Saatdichte",
+    "fr": "Calculateur de densité de semis",
+    "es": "Calculadora de densidad de siembra",
+    "ar": "حاسبة كثافة البذور"
+  }
+}

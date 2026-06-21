@@ -1,0 +1,175 @@
+{
+  "toolName": "angle-of-twist-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "tork",
+      "label": "Burulma Momenti (N.m)",
+      "label_i18n": {
+        "en": "Torque (N.m)",
+        "tr": "Burulma Momenti (N.m)",
+        "de": "Drehmoment",
+        "fr": "Couple",
+        "es": "Par motor",
+        "ar": "عزم الدوران"
+      },
+      "type": "number",
+      "unit": "N.m",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Mile etkiyen tork.",
+      "businessContext_i18n": {
+        "en": "Torque on shaft.",
+        "tr": "Mile etkiyen tork.",
+        "de": "Torque on shaft.",
+        "fr": "Torque on shaft.",
+        "es": "Torque on shaft.",
+        "ar": "Torque on shaft."
+      }
+    },
+    {
+      "id": "uzunluk",
+      "label": "Mil Boyu (m)",
+      "label_i18n": {
+        "en": "Shaft Length (m)",
+        "tr": "Mil Boyu (m)",
+        "de": "Shaft Length (m)",
+        "fr": "Shaft Length (m)",
+        "es": "Shaft Length (m)",
+        "ar": "Shaft Length (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Burulmaya maruz mil uzunluğu.",
+      "businessContext_i18n": {
+        "en": "Shaft length under torsion.",
+        "tr": "Burulmaya maruz mil uzunluğu.",
+        "de": "Shaft length under torsion.",
+        "fr": "Shaft length under torsion.",
+        "es": "Shaft length under torsion.",
+        "ar": "Shaft length under torsion."
+      }
+    },
+    {
+      "id": "kaymaModulu",
+      "label": "Kayma Modülü (Pa)",
+      "label_i18n": {
+        "en": "Shear Modulus (Pa)",
+        "tr": "Kayma Modülü (Pa)",
+        "de": "Shear Modulus (Pa)",
+        "fr": "Shear Modulus (Pa)",
+        "es": "Shear Modulus (Pa)",
+        "ar": "Shear Modulus (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 80000000000,
+      "min": 0,
+      "businessContext": "Malzemenin kayma modülü.",
+      "businessContext_i18n": {
+        "en": "Material shear modulus.",
+        "tr": "Malzemenin kayma modülü.",
+        "de": "Material shear modulus.",
+        "fr": "Material shear modulus.",
+        "es": "Material shear modulus.",
+        "ar": "Material shear modulus."
+      }
+    },
+    {
+      "id": "kutupsalAtalet",
+      "label": "Kutupsal Atalet Momenti (m⁴)",
+      "label_i18n": {
+        "en": "Polar Moment (m⁴)",
+        "tr": "Kutupsal Atalet Momenti (m⁴)",
+        "de": "Polar Moment (m⁴)",
+        "fr": "Polar Moment (m⁴)",
+        "es": "Polar Moment (m⁴)",
+        "ar": "Polar Moment (m⁴)"
+      },
+      "type": "number",
+      "unit": "m4",
+      "default": 6.14e-7,
+      "min": 0,
+      "businessContext": "J = πR⁴/2",
+      "businessContext_i18n": {
+        "en": "J = πR⁴/2.",
+        "tr": "J = πR⁴/2",
+        "de": "J = πR⁴/2.",
+        "fr": "J = πR⁴/2.",
+        "es": "J = πR⁴/2.",
+        "ar": "J = πR⁴/2."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(tork * uzunluk) / Math.max(0.0001, (kaymaModulu * kutupsalAtalet))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "rad",
+    "breakdown": {
+      "sonuc": "Burulma Açısı (θ)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Burulma Açısı (θ)",
+        "tr": "Burulma Açısı (θ)",
+        "de": "Burulma Açısı (θ)",
+        "fr": "Burulma Açısı (θ)",
+        "es": "Burulma Açısı (θ)",
+        "ar": "Burulma Açısı (θ)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "rad"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total angle of twist in a shaft under torsion.",
+      "long": "Calculate total angle of twist in a shaft under torsion.",
+      "short_i18n": {
+        "en": "Calculate total angle of twist in a shaft under torsion.",
+        "tr": "Milin boyunda oluşan toplam burulma (dönme) miktarını hesaplar.",
+        "de": "Calculate total angle of twist in a shaft under torsion.",
+        "fr": "Calculate total angle of twist in a shaft under torsion.",
+        "es": "Calculate total angle of twist in a shaft under torsion.",
+        "ar": "Calculate total angle of twist in a shaft under torsion."
+      },
+      "long_i18n": {
+        "en": "Calculate total angle of twist in a shaft under torsion.",
+        "tr": "Milin boyunda oluşan toplam burulma (dönme) miktarını hesaplar.",
+        "de": "Calculate total angle of twist in a shaft under torsion.",
+        "fr": "Calculate total angle of twist in a shaft under torsion.",
+        "es": "Calculate total angle of twist in a shaft under torsion.",
+        "ar": "Calculate total angle of twist in a shaft under torsion."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "angle-of-twist-calculator",
+    "de": "Torsionswinkelrechner",
+    "fr": "Calculateur d'angle de torsion",
+    "es": "Calculadora de ángulo de torsión",
+    "ar": "حاسبة زاوية الالتواء"
+  }
+}

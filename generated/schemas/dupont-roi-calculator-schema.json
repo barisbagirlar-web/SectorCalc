@@ -1,0 +1,178 @@
+{
+  "toolName": "dupont-roi-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "netKar",
+      "label": "Net Kâr (₺)",
+      "label_i18n": {
+        "en": "Net Income (USD)",
+        "tr": "Net Kâr (₺)",
+        "de": "Nettogewinn",
+        "fr": "Revenu net",
+        "es": "Ingreso neto",
+        "ar": "صافي الدخل"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 150000,
+      "min": 0,
+      "businessContext": "Dönem net kârı.",
+      "businessContext_i18n": {
+        "en": "Net income for the period.",
+        "tr": "Dönem net kârı.",
+        "de": "Net income for the period.",
+        "fr": "Net income for the period.",
+        "es": "Net income for the period.",
+        "ar": "Net income for the period."
+      }
+    },
+    {
+      "id": "satislar",
+      "label": "Satışlar (₺)",
+      "label_i18n": {
+        "en": "Sales (USD)",
+        "tr": "Satışlar (₺)",
+        "de": "Umsatzsteuersatz",
+        "fr": "Taux de taxe de vente",
+        "es": "Tasa de impuesto a las ventas",
+        "ar": "نسبة ضريبة المبيعات"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 2000000,
+      "min": 0,
+      "businessContext": "Toplam satış geliri.",
+      "businessContext_i18n": {
+        "en": "Total sales revenue.",
+        "tr": "Toplam satış geliri.",
+        "de": "Total sales revenue.",
+        "fr": "Total sales revenue.",
+        "es": "Total sales revenue.",
+        "ar": "Total sales revenue."
+      }
+    },
+    {
+      "id": "varliklar",
+      "label": "Toplam Varlıklar (₺)",
+      "label_i18n": {
+        "en": "Total Assets (USD)",
+        "tr": "Toplam Varlıklar (₺)",
+        "de": "Gesamtvermögen",
+        "fr": "Actif total",
+        "es": "Activos totales",
+        "ar": "إجمالي الأصول"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 3000000,
+      "min": 0,
+      "businessContext": "Şirketin toplam aktif büyüklüğü.",
+      "businessContext_i18n": {
+        "en": "Total assets.",
+        "tr": "Şirketin toplam aktif büyüklüğü.",
+        "de": "Total assets.",
+        "fr": "Total assets.",
+        "es": "Total assets.",
+        "ar": "Total assets."
+      }
+    },
+    {
+      "id": "ozsermaye",
+      "label": "Özsermaye (₺)",
+      "label_i18n": {
+        "en": "Equity (USD)",
+        "tr": "Özsermaye (₺)",
+        "de": "Gesamter Eigenkapitalwert ($)",
+        "fr": "Valeur totale des capitaux propres ($)",
+        "es": "Valor total del patrimonio ($)",
+        "ar": "إجمالي قيمة حقوق الملكية ($)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1500000,
+      "min": 0,
+      "businessContext": "Toplam özsermaye.",
+      "businessContext_i18n": {
+        "en": "Total shareholders equity.",
+        "tr": "Toplam özsermaye.",
+        "de": "Total shareholders equity.",
+        "fr": "Total shareholders equity.",
+        "es": "Total shareholders equity.",
+        "ar": "Total shareholders equity."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "karMarji": "netKar / Math.max(1, satislar)",
+    "varlikDevri": "satislar / Math.max(1, varliklar)",
+    "kaldırac": "varliklar / Math.max(1, ozsermaye)",
+    "sonuc": "(netKar / Math.max(1, satislar)) * (satislar / Math.max(1, varliklar)) * (varliklar / Math.max(1, ozsermaye)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "DuPont ROE"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "DuPont ROE",
+        "tr": "DuPont ROE",
+        "de": "DuPont ROE",
+        "fr": "DuPont ROE",
+        "es": "DuPont ROE",
+        "ar": "DuPont ROE"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+      "long": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+      "short_i18n": {
+        "en": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+        "tr": "Kârlılık, verimlilik ve kaldıracın özsermaye getirisine etkisini (DuPont ROE) hesaplar.",
+        "de": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+        "fr": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+        "es": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+        "ar": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage."
+      },
+      "long_i18n": {
+        "en": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+        "tr": "Kârlılık, verimlilik ve kaldıracın özsermaye getirisine etkisini (DuPont ROE) hesaplar.",
+        "de": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+        "fr": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+        "es": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
+        "ar": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "dupont-roi-calculator",
+    "de": "ROE-Dupont-Analyse-Rechner",
+    "fr": "Calculateur d'analyse ROE Dupont",
+    "es": "Calculadora de análisis ROE Dupont",
+    "ar": "حاسبة تحليل ROE دوبونت"
+  }
+}

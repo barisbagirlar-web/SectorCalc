@@ -1,0 +1,153 @@
+{
+  "toolName": "audit-risk-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "dogustan",
+      "label": "Doğuştan Risk (%)",
+      "label_i18n": {
+        "en": "Inherent Risk (%)",
+        "tr": "Doğuştan Risk (%)",
+        "de": "Inherent Risk (%)",
+        "fr": "Inherent Risk (%)",
+        "es": "Inherent Risk (%)",
+        "ar": "Inherent Risk (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "businessContext": "İşletmenin yapısından kaynaklanan hata riski.",
+      "businessContext_i18n": {
+        "en": "Risk inherent in the business operations.",
+        "tr": "İşletmenin yapısından kaynaklanan hata riski.",
+        "de": "Risk inherent in the business operations.",
+        "fr": "Risk inherent in the business operations.",
+        "es": "Risk inherent in the business operations.",
+        "ar": "Risk inherent in the business operations."
+      }
+    },
+    {
+      "id": "kontrol",
+      "label": "Kontrol Riski (%)",
+      "label_i18n": {
+        "en": "Control Risk (%)",
+        "tr": "Kontrol Riski (%)",
+        "de": "Control Risk (%)",
+        "fr": "Control Risk (%)",
+        "es": "Control Risk (%)",
+        "ar": "Control Risk (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "businessContext": "İç kontrollerin hatayı önleyememe riski.",
+      "businessContext_i18n": {
+        "en": "Risk that internal controls fail to prevent errors.",
+        "tr": "İç kontrollerin hatayı önleyememe riski.",
+        "de": "Risk that internal controls fail to prevent errors.",
+        "fr": "Risk that internal controls fail to prevent errors.",
+        "es": "Risk that internal controls fail to prevent errors.",
+        "ar": "Risk that internal controls fail to prevent errors."
+      }
+    },
+    {
+      "id": "tespit",
+      "label": "Tespit Riski (%)",
+      "label_i18n": {
+        "en": "Detection Risk (%)",
+        "tr": "Tespit Riski (%)",
+        "de": "Detection Risk (%)",
+        "fr": "Detection Risk (%)",
+        "es": "Detection Risk (%)",
+        "ar": "Detection Risk (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Denetçinin hatayı bulamama riski.",
+      "businessContext_i18n": {
+        "en": "Risk that the auditor fails to detect errors.",
+        "tr": "Denetçinin hatayı bulamama riski.",
+        "de": "Risk that the auditor fails to detect errors.",
+        "fr": "Risk that the auditor fails to detect errors.",
+        "es": "Risk that the auditor fails to detect errors.",
+        "ar": "Risk that the auditor fails to detect errors."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(dogustan / 100) * (kontrol / 100) * (tespit / 100) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Toplam Denetim Riski"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Denetim Riski",
+        "tr": "Toplam Denetim Riski",
+        "de": "Toplam Denetim Riski",
+        "fr": "Toplam Denetim Riski",
+        "es": "Toplam Denetim Riski",
+        "ar": "Toplam Denetim Riski"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate audit risk — the probability of not detecting material misstatement.",
+      "long": "Calculate audit risk — the probability of not detecting material misstatement.",
+      "short_i18n": {
+        "en": "Calculate audit risk — the probability of not detecting material misstatement.",
+        "tr": "Mali tabloda maddi hata bulunamama olasılığını (denetim riski) hesaplar.",
+        "de": "Calculate audit risk — the probability of not detecting material misstatement.",
+        "fr": "Calculate audit risk — the probability of not detecting material misstatement.",
+        "es": "Calculate audit risk — the probability of not detecting material misstatement.",
+        "ar": "Calculate audit risk — the probability of not detecting material misstatement."
+      },
+      "long_i18n": {
+        "en": "Calculate audit risk — the probability of not detecting material misstatement.",
+        "tr": "Mali tabloda maddi hata bulunamama olasılığını (denetim riski) hesaplar.",
+        "de": "Calculate audit risk — the probability of not detecting material misstatement.",
+        "fr": "Calculate audit risk — the probability of not detecting material misstatement.",
+        "es": "Calculate audit risk — the probability of not detecting material misstatement.",
+        "ar": "Calculate audit risk — the probability of not detecting material misstatement."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "audit-risk-calculator",
+    "de": "Prüfungsrisikorechner",
+    "fr": "Calculateur de risque d'audit",
+    "es": "Calculadora de riesgo de auditoría",
+    "ar": "حاسبة مخاطر التدقيق"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "toolName": "ecommerce-profit-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "E-Ticaret",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "ciro",
+      "label": "Ciro (TL)",
+      "label_i18n": {
+        "en": "Revenue (USD)",
+        "tr": "Ciro (TL)",
+        "de": "Tagesumsatz",
+        "fr": "Revenu quotidien",
+        "es": "Ingreso Diario",
+        "ar": "الإيرادات اليومية"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Toplam satış geliri.",
+      "businessContext_i18n": {
+        "en": "Total revenue.",
+        "tr": "Toplam satış geliri.",
+        "de": "Total revenue.",
+        "fr": "Total revenue.",
+        "es": "Total revenue.",
+        "ar": "Total revenue."
+      }
+    },
+    {
+      "id": "cogs",
+      "label": "SMM (TL)",
+      "label_i18n": {
+        "en": "COGS (USD)",
+        "tr": "SMM (TL)",
+        "de": "Gesamte Teilekosten (COGS)",
+        "fr": "Coût total des pièces (COGS)",
+        "es": "Costo total de piezas (COGS)",
+        "ar": "إجمالي تكلفة القطع (تكلفة البضائع المباعة)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "min": 0,
+      "businessContext": "Satılan mal maliyeti.",
+      "businessContext_i18n": {
+        "en": "Cost of goods sold.",
+        "tr": "Satılan mal maliyeti.",
+        "de": "Cost of goods sold.",
+        "fr": "Cost of goods sold.",
+        "es": "Cost of goods sold.",
+        "ar": "Cost of goods sold."
+      }
+    },
+    {
+      "id": "pazarlama",
+      "label": "Pazarlama (TL)",
+      "label_i18n": {
+        "en": "Marketing (USD)",
+        "tr": "Pazarlama (TL)",
+        "de": "Marketingkosten pro Verkauf ($)",
+        "fr": "Coût marketing par vente ($)",
+        "es": "Costo de marketing por venta ($)",
+        "ar": "تكلفة التسويق لكل عملية بيع ($)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 80000,
+      "min": 0,
+      "businessContext": "Reklam ve pazarlama gideri.",
+      "businessContext_i18n": {
+        "en": "Marketing expense.",
+        "tr": "Reklam ve pazarlama gideri.",
+        "de": "Marketing expense.",
+        "fr": "Marketing expense.",
+        "es": "Marketing expense.",
+        "ar": "Marketing expense."
+      }
+    },
+    {
+      "id": "operasyon",
+      "label": "Operasyon (TL)",
+      "label_i18n": {
+        "en": "Operations (USD)",
+        "tr": "Operasyon (TL)",
+        "de": "Interne Vorgänge (% der Gesamtzeit)",
+        "fr": "Opérations internes (% du temps total)",
+        "es": "Operaciones internas (% del tiempo total)",
+        "ar": "العمليات الداخلية (٪ من الوقت الإجمالي)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Depo, kargo, yazılım giderleri.",
+      "businessContext_i18n": {
+        "en": "Warehouse, shipping, software costs.",
+        "tr": "Depo, kargo, yazılım giderleri.",
+        "de": "Warehouse, shipping, software costs.",
+        "fr": "Warehouse, shipping, software costs.",
+        "es": "Warehouse, shipping, software costs.",
+        "ar": "Warehouse, shipping, software costs."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "ciro - cogs - pazarlama - operasyon"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Net E-Ticaret Kârı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Net E-Ticaret Kârı",
+        "tr": "Net E-Ticaret Kârı",
+        "de": "Net E-Ticaret Kârı",
+        "fr": "Net E-Ticaret Kârı",
+        "es": "Net E-Ticaret Kârı",
+        "ar": "Net E-Ticaret Kârı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Factor in return rates and chargebacks.",
+      "Review platform fee schedules regularly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate overall ecommerce net profit.",
+      "long": "Calculate overall ecommerce net profit.",
+      "short_i18n": {
+        "en": "Calculate overall ecommerce net profit.",
+        "tr": "Genel e-ticaret operasyonunun nihai net kârını hesaplar.",
+        "de": "Calculate overall ecommerce net profit.",
+        "fr": "Calculate overall ecommerce net profit.",
+        "es": "Calculate overall ecommerce net profit.",
+        "ar": "Calculate overall ecommerce net profit."
+      },
+      "long_i18n": {
+        "en": "Calculate overall ecommerce net profit.",
+        "tr": "Genel e-ticaret operasyonunun nihai net kârını hesaplar.",
+        "de": "Calculate overall ecommerce net profit.",
+        "fr": "Calculate overall ecommerce net profit.",
+        "es": "Calculate overall ecommerce net profit.",
+        "ar": "Calculate overall ecommerce net profit."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "ecommerce-profit-calculator",
+    "de": "E-Commerce-Gewinn-Rechner",
+    "fr": "Calculateur de profit e-commerce",
+    "es": "Calculadora de ganancias de comercio electrónico",
+    "ar": "حاسبة أرباح التجارة الإلكترونية"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "toolName": "consulting-hourly-rate-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "hedefGelir",
+      "label": "Hedef Yıllık Gelir (TL)",
+      "label_i18n": {
+        "en": "Target Annual Income (USD)",
+        "tr": "Hedef Yıllık Gelir (TL)",
+        "de": "Target Annual Income (USD)",
+        "fr": "Target Annual Income (USD)",
+        "es": "Target Annual Income (USD)",
+        "ar": "Target Annual Income (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Danışmanın hedef geliri.",
+      "businessContext_i18n": {
+        "en": "Consultant's target income.",
+        "tr": "Danışmanın hedef geliri.",
+        "de": "Consultant's target income.",
+        "fr": "Consultant's target income.",
+        "es": "Consultant's target income.",
+        "ar": "Consultant's target income."
+      }
+    },
+    {
+      "id": "yillikGider",
+      "label": "Yıllık İşletme Gideri (TL)",
+      "label_i18n": {
+        "en": "Annual Overhead (USD)",
+        "tr": "Yıllık İşletme Gideri (TL)",
+        "de": "Jährliche Gemeinkosten insgesamt",
+        "fr": "Coûts indirects annuels totaux",
+        "es": "Costos indirectos anuales totales",
+        "ar": "إجمالي التكاليف العامة السنوية"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "businessContext": "Ofis, sigorta, seyahat giderleri.",
+      "businessContext_i18n": {
+        "en": "Office, insurance, travel costs.",
+        "tr": "Ofis, sigorta, seyahat giderleri.",
+        "de": "Office, insurance, travel costs.",
+        "fr": "Office, insurance, travel costs.",
+        "es": "Office, insurance, travel costs.",
+        "ar": "Office, insurance, travel costs."
+      }
+    },
+    {
+      "id": "faturaliSaat",
+      "label": "Faturalanabilir Saat",
+      "label_i18n": {
+        "en": "Billable Hours/Year",
+        "tr": "Faturalanabilir Saat",
+        "de": "Billable Hours/Year",
+        "fr": "Billable Hours/Year",
+        "es": "Billable Hours/Year",
+        "ar": "Billable Hours/Year"
+      },
+      "type": "number",
+      "unit": "hours",
+      "default": 1500,
+      "min": 1,
+      "businessContext": "Yıllık faturalanabilir saat.",
+      "businessContext_i18n": {
+        "en": "Annual billable hours.",
+        "tr": "Yıllık faturalanabilir saat.",
+        "de": "Annual billable hours.",
+        "fr": "Annual billable hours.",
+        "es": "Annual billable hours.",
+        "ar": "Annual billable hours."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(hedefGelir + yillikGider) / Math.max(1, faturaliSaat)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY/hour",
+    "breakdown": {
+      "sonuc": "Saatlik Danışmanlık Ücreti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Saatlik Danışmanlık Ücreti",
+        "tr": "Saatlik Danışmanlık Ücreti",
+        "de": "Saatlik Danışmanlık Ücreti",
+        "fr": "Saatlik Danışmanlık Ücreti",
+        "es": "Saatlik Danışmanlık Ücreti",
+        "ar": "Saatlik Danışmanlık Ücreti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY/hour"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum hourly consulting rate covering costs and profit.",
+      "long": "Calculate minimum hourly consulting rate covering costs and profit.",
+      "short_i18n": {
+        "en": "Calculate minimum hourly consulting rate covering costs and profit.",
+        "tr": "Giderleri ve kârı karşılayan minimum saatlik danışmanlık bedelini hesaplar.",
+        "de": "Calculate minimum hourly consulting rate covering costs and profit.",
+        "fr": "Calculate minimum hourly consulting rate covering costs and profit.",
+        "es": "Calculate minimum hourly consulting rate covering costs and profit.",
+        "ar": "Calculate minimum hourly consulting rate covering costs and profit."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum hourly consulting rate covering costs and profit.",
+        "tr": "Giderleri ve kârı karşılayan minimum saatlik danışmanlık bedelini hesaplar.",
+        "de": "Calculate minimum hourly consulting rate covering costs and profit.",
+        "fr": "Calculate minimum hourly consulting rate covering costs and profit.",
+        "es": "Calculate minimum hourly consulting rate covering costs and profit.",
+        "ar": "Calculate minimum hourly consulting rate covering costs and profit."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "consulting-hourly-rate-calculator",
+    "de": "Beratungsstundensatzrechner",
+    "fr": "Calculateur de tarif horaire de conseil",
+    "es": "Calculadora de tarifa por hora de consultoría",
+    "ar": "حاسبة أجر الساعة الاستشارية"
+  }
+}

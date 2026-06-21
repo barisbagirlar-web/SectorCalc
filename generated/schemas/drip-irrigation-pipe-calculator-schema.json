@@ -1,0 +1,153 @@
+{
+  "toolName": "drip-irrigation-pipe-calculator",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "damaticiDebi",
+      "label": "Damlatıcı Debi (L/h)",
+      "label_i18n": {
+        "en": "Emitter Flow (L/h)",
+        "tr": "Damlatıcı Debi (L/h)",
+        "de": "Emitter Flow (L/h)",
+        "fr": "Emitter Flow (L/h)",
+        "es": "Emitter Flow (L/h)",
+        "ar": "Emitter Flow (L/h)"
+      },
+      "type": "number",
+      "unit": "L/h",
+      "default": 4,
+      "min": 0,
+      "businessContext": "Her bir damlatıcının debisi.",
+      "businessContext_i18n": {
+        "en": "Flow per emitter.",
+        "tr": "Her bir damlatıcının debisi.",
+        "de": "Flow per emitter.",
+        "fr": "Flow per emitter.",
+        "es": "Flow per emitter.",
+        "ar": "Flow per emitter."
+      }
+    },
+    {
+      "id": "damaticiSayisi",
+      "label": "Damlatıcı Sayısı",
+      "label_i18n": {
+        "en": "Number of Emitters",
+        "tr": "Damlatıcı Sayısı",
+        "de": "Number of Emitters",
+        "fr": "Number of Emitters",
+        "es": "Number of Emitters",
+        "ar": "Number of Emitters"
+      },
+      "type": "number",
+      "unit": "emitters",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Hatta bağlı toplam damlatıcı.",
+      "businessContext_i18n": {
+        "en": "Total emitters on line.",
+        "tr": "Hatta bağlı toplam damlatıcı.",
+        "de": "Total emitters on line.",
+        "fr": "Total emitters on line.",
+        "es": "Total emitters on line.",
+        "ar": "Total emitters on line."
+      }
+    },
+    {
+      "id": "maxHiz",
+      "label": "Maks. Akış Hızı (m/s)",
+      "label_i18n": {
+        "en": "Max. Flow Velocity (m/s)",
+        "tr": "Maks. Akış Hızı (m/s)",
+        "de": "Max. Flow Velocity (m/s)",
+        "fr": "Max. Flow Velocity (m/s)",
+        "es": "Max. Flow Velocity (m/s)",
+        "ar": "Max. Flow Velocity (m/s)"
+      },
+      "type": "number",
+      "unit": "m/s",
+      "default": 1.5,
+      "min": 0,
+      "businessContext": "Boruda izin verilen azami hız.",
+      "businessContext_i18n": {
+        "en": "Max permissible velocity.",
+        "tr": "Boruda izin verilen azami hız.",
+        "de": "Max permissible velocity.",
+        "fr": "Max permissible velocity.",
+        "es": "Max permissible velocity.",
+        "ar": "Max permissible velocity."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "toplamDebi": "(damaticiDebi * damaticiSayisi) / 3600000",
+    "sonuc": "Math.sqrt(Math.max(0, (4 * toplamDebi) / Math.max(0.0001, (Math.PI * maxHiz)))) * 1000"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "mm",
+    "breakdown": {
+      "sonuc": "Min. Boru İç Çapı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Min. Boru İç Çapı",
+        "tr": "Min. Boru İç Çapı",
+        "de": "Min. Boru İç Çapı",
+        "fr": "Min. Boru İç Çapı",
+        "es": "Min. Boru İç Çapı",
+        "ar": "Min. Boru İç Çapı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "mm"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum mainline pipe diameter for drip irrigation.",
+      "long": "Calculate minimum mainline pipe diameter for drip irrigation.",
+      "short_i18n": {
+        "en": "Calculate minimum mainline pipe diameter for drip irrigation.",
+        "tr": "Basınç kaybını önleyen minimum damla sulama ana boru iç çapını hesaplar.",
+        "de": "Calculate minimum mainline pipe diameter for drip irrigation.",
+        "fr": "Calculate minimum mainline pipe diameter for drip irrigation.",
+        "es": "Calculate minimum mainline pipe diameter for drip irrigation.",
+        "ar": "Calculate minimum mainline pipe diameter for drip irrigation."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum mainline pipe diameter for drip irrigation.",
+        "tr": "Basınç kaybını önleyen minimum damla sulama ana boru iç çapını hesaplar.",
+        "de": "Calculate minimum mainline pipe diameter for drip irrigation.",
+        "fr": "Calculate minimum mainline pipe diameter for drip irrigation.",
+        "es": "Calculate minimum mainline pipe diameter for drip irrigation.",
+        "ar": "Calculate minimum mainline pipe diameter for drip irrigation."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "drip-irrigation-pipe-calculator",
+    "de": "Tropfbewässerungsrohrdurchmesser-Rechner",
+    "fr": "Calculateur de diamètre de tuyau d'irrigation goutte à goutte",
+    "es": "Calculadora de diámetro de tubería de riego por goteo",
+    "ar": "حاسبة قطر أنبوب الري بالتنقيط"
+  }
+}

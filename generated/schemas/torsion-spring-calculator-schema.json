@@ -1,0 +1,125 @@
+{
+  "toolName": "torsion-spring-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "moment",
+      "label": "Uygulanan Moment (N.m)",
+      "label_i18n": {
+        "en": "Applied Moment (N.m)",
+        "tr": "Uygulanan Moment (N.m)",
+        "de": "Applied Moment (N.m)",
+        "fr": "Applied Moment (N.m)",
+        "es": "Applied Moment (N.m)",
+        "ar": "Applied Moment (N.m)"
+      },
+      "type": "number",
+      "unit": "N.m",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Yaya etkiyen moment.",
+      "businessContext_i18n": {
+        "en": "Moment applied to spring.",
+        "tr": "Yaya etkiyen moment.",
+        "de": "Moment applied to spring.",
+        "fr": "Moment applied to spring.",
+        "es": "Moment applied to spring.",
+        "ar": "Moment applied to spring."
+      }
+    },
+    {
+      "id": "yayKatsayisi",
+      "label": "Yay Sabiti (N.m/rad)",
+      "label_i18n": {
+        "en": "Spring Constant (N.m/rad)",
+        "tr": "Yay Sabiti (N.m/rad)",
+        "de": "Spring Constant (N.m/rad)",
+        "fr": "Spring Constant (N.m/rad)",
+        "es": "Spring Constant (N.m/rad)",
+        "ar": "Spring Constant (N.m/rad)"
+      },
+      "type": "number",
+      "unit": "N.m/rad",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Burulma yayının rijitliği.",
+      "businessContext_i18n": {
+        "en": "Torsion spring stiffness.",
+        "tr": "Burulma yayının rijitliği.",
+        "de": "Torsion spring stiffness.",
+        "fr": "Torsion spring stiffness.",
+        "es": "Torsion spring stiffness.",
+        "ar": "Torsion spring stiffness."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "moment / Math.max(0.0001, yayKatsayisi)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "rad",
+    "breakdown": {
+      "sonuc": "Açısal Deplasman"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Açısal Deplasman",
+        "tr": "Açısal Deplasman",
+        "de": "Açısal Deplasman",
+        "fr": "Açısal Deplasman",
+        "es": "Açısal Deplasman",
+        "ar": "Açısal Deplasman"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "rad"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate angular displacement of a torsion spring.",
+      "long": "Calculate angular displacement of a torsion spring.",
+      "short_i18n": {
+        "en": "Calculate angular displacement of a torsion spring.",
+        "tr": "Burulma yayında oluşan açısal deplasmanı hesaplar.",
+        "de": "Calculate angular displacement of a torsion spring.",
+        "fr": "Calculate angular displacement of a torsion spring.",
+        "es": "Calculate angular displacement of a torsion spring.",
+        "ar": "Calculate angular displacement of a torsion spring."
+      },
+      "long_i18n": {
+        "en": "Calculate angular displacement of a torsion spring.",
+        "tr": "Burulma yayında oluşan açısal deplasmanı hesaplar.",
+        "de": "Calculate angular displacement of a torsion spring.",
+        "fr": "Calculate angular displacement of a torsion spring.",
+        "es": "Calculate angular displacement of a torsion spring.",
+        "ar": "Calculate angular displacement of a torsion spring."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "torsion-spring-calculator",
+    "de": "Torsionsfederrechner",
+    "fr": "Calculateur de ressort de torsion",
+    "es": "Calculadora de resorte de torsión",
+    "ar": "حاسبة نابض الالتواء"
+  }
+}

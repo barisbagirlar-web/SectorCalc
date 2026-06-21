@@ -1,0 +1,125 @@
+{
+  "toolName": "soffit-area-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "cevre",
+      "label": "Bina Çevresi (m)",
+      "label_i18n": {
+        "en": "Building Perimeter (m)",
+        "tr": "Bina Çevresi (m)",
+        "de": "Building Perimeter (m)",
+        "fr": "Building Perimeter (m)",
+        "es": "Building Perimeter (m)",
+        "ar": "Building Perimeter (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 80,
+      "min": 0,
+      "businessContext": "Binanın toplam çevresi.",
+      "businessContext_i18n": {
+        "en": "Building perimeter.",
+        "tr": "Binanın toplam çevresi.",
+        "de": "Building perimeter.",
+        "fr": "Building perimeter.",
+        "es": "Building perimeter.",
+        "ar": "Building perimeter."
+      }
+    },
+    {
+      "id": "genislik",
+      "label": "Saçak Genişliği (m)",
+      "label_i18n": {
+        "en": "Eave Width (m)",
+        "tr": "Saçak Genişliği (m)",
+        "de": "Eave Width (m)",
+        "fr": "Eave Width (m)",
+        "es": "Eave Width (m)",
+        "ar": "Eave Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Saçak çıkıntı genişliği.",
+      "businessContext_i18n": {
+        "en": "Eave overhang width.",
+        "tr": "Saçak çıkıntı genişliği.",
+        "de": "Eave overhang width.",
+        "fr": "Eave overhang width.",
+        "es": "Eave overhang width.",
+        "ar": "Eave overhang width."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "cevre * genislik"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m2",
+    "breakdown": {
+      "sonuc": "Saçak Altı Alanı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Saçak Altı Alanı",
+        "tr": "Saçak Altı Alanı",
+        "de": "Saçak Altı Alanı",
+        "fr": "Saçak Altı Alanı",
+        "es": "Saçak Altı Alanı",
+        "ar": "Saçak Altı Alanı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m2"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate soffit area under roof eaves for cladding.",
+      "long": "Calculate soffit area under roof eaves for cladding.",
+      "short_i18n": {
+        "en": "Calculate soffit area under roof eaves for cladding.",
+        "tr": "Çatı saçak altının kaplanacak net yüzey alanını hesaplar.",
+        "de": "Calculate soffit area under roof eaves for cladding.",
+        "fr": "Calculate soffit area under roof eaves for cladding.",
+        "es": "Calculate soffit area under roof eaves for cladding.",
+        "ar": "Calculate soffit area under roof eaves for cladding."
+      },
+      "long_i18n": {
+        "en": "Calculate soffit area under roof eaves for cladding.",
+        "tr": "Çatı saçak altının kaplanacak net yüzey alanını hesaplar.",
+        "de": "Calculate soffit area under roof eaves for cladding.",
+        "fr": "Calculate soffit area under roof eaves for cladding.",
+        "es": "Calculate soffit area under roof eaves for cladding.",
+        "ar": "Calculate soffit area under roof eaves for cladding."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "soffit-area-calculator",
+    "de": "Traufunterseiten-Rechner",
+    "fr": "Calculateur de soffite d'avant-toit",
+    "es": "Calculadora de sofito de alero",
+    "ar": "حاسبة السقف المعلق"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "toolName": "carbon-footprint-calculator",
+  "catalogCategory": "sustainability-resource-esg",
+  "categorySlug": "sustainability-resource-esg",
+  "sector": "Çevre ve Sürdürülebilirlik",
+  "sectorId": "sustainability-resource-esg",
+  "inputs": [
+    {
+      "id": "yakit",
+      "label": "Yakıt Tüketimi (L)",
+      "label_i18n": {
+        "en": "Fuel Consumption (L)",
+        "tr": "Yakıt Tüketimi (L)",
+        "de": "Dieselkraftstoffverbrauch (Flotte)",
+        "fr": "Consommation de carburant diesel (Flotte)",
+        "es": "Consumo de combustible diésel (Flota)",
+        "ar": "استهلاك وقود الديزل (الأسطول)"
+      },
+      "type": "number",
+      "unit": "L",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Yıllık yakıt tüketimi (motorin).",
+      "businessContext_i18n": {
+        "en": "Annual diesel consumption.",
+        "tr": "Yıllık yakıt tüketimi (motorin).",
+        "de": "Annual diesel consumption.",
+        "fr": "Annual diesel consumption.",
+        "es": "Annual diesel consumption.",
+        "ar": "Annual diesel consumption."
+      }
+    },
+    {
+      "id": "elektrik",
+      "label": "Elektrik Tüketimi (kWh)",
+      "label_i18n": {
+        "en": "Electricity (kWh)",
+        "tr": "Elektrik Tüketimi (kWh)",
+        "de": "Stromverbrauch",
+        "fr": "Consommation d'électricité",
+        "es": "Consumo de electricidad",
+        "ar": "استهلاك الكهرباء"
+      },
+      "type": "number",
+      "unit": "kWh",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Yıllık elektrik tüketimi.",
+      "businessContext_i18n": {
+        "en": "Annual electricity consumption.",
+        "tr": "Yıllık elektrik tüketimi.",
+        "de": "Annual electricity consumption.",
+        "fr": "Annual electricity consumption.",
+        "es": "Annual electricity consumption.",
+        "ar": "Annual electricity consumption."
+      }
+    },
+    {
+      "id": "tedarik",
+      "label": "Tedarik Emisyonu (kgCO₂)",
+      "label_i18n": {
+        "en": "Supply Chain (kgCO₂)",
+        "tr": "Tedarik Emisyonu (kgCO₂)",
+        "de": "Supply Chain (kgCO₂)",
+        "fr": "Supply Chain (kgCO₂)",
+        "es": "Supply Chain (kgCO₂)",
+        "ar": "Supply Chain (kgCO₂)"
+      },
+      "type": "number",
+      "unit": "kgCO2",
+      "default": 20000,
+      "min": 0,
+      "businessContext": "Satın alınan mal/hizmet kaynaklı emisyon.",
+      "businessContext_i18n": {
+        "en": "Purchased goods emissions.",
+        "tr": "Satın alınan mal/hizmet kaynaklı emisyon.",
+        "de": "Purchased goods emissions.",
+        "fr": "Purchased goods emissions.",
+        "es": "Purchased goods emissions.",
+        "ar": "Purchased goods emissions."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "scope1": "yakit * 2.31",
+    "scope2": "elektrik * 0.45",
+    "sonuc": "(yakit * 2.31) + (elektrik * 0.45) + tedarik"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kgCO2",
+    "breakdown": {
+      "sonuc": "Toplam Karbon Ayak İzi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Karbon Ayak İzi",
+        "tr": "Toplam Karbon Ayak İzi",
+        "de": "Toplam Karbon Ayak İzi",
+        "fr": "Toplam Karbon Ayak İzi",
+        "es": "Toplam Karbon Ayak İzi",
+        "ar": "Toplam Karbon Ayak İzi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kgCO2"
+    },
+    "hiddenLossDrivers": [
+      "High environmental score may reduce operational costs.",
+      "Low ESG score may increase capital costs."
+    ],
+    "suggestedActions": [
+      "Set improvement targets for each ESG pillar.",
+      "Consider carbon offset programs for residual emissions."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+      "long": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+      "short_i18n": {
+        "en": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+        "tr": "Kurumun toplam sera gazı emisyonunu (karbon ayak izi) hesaplar.",
+        "de": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+        "fr": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+        "es": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+        "ar": "Calculate total corporate greenhouse gas emissions (carbon footprint)."
+      },
+      "long_i18n": {
+        "en": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+        "tr": "Kurumun toplam sera gazı emisyonunu (karbon ayak izi) hesaplar.",
+        "de": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+        "fr": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+        "es": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
+        "ar": "Calculate total corporate greenhouse gas emissions (carbon footprint)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "carbon-footprint-calculator",
+    "de": "CO2-Fußabdruck Rechner",
+    "fr": "Calculateur d'Empreinte Carbone",
+    "es": "Calculadora de Huella de Carbono",
+    "ar": "حاسبة البصمة الكربونية"
+  }
+}

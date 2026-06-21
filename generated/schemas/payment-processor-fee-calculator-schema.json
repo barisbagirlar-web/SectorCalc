@@ -1,0 +1,151 @@
+{
+  "toolName": "payment-processor-fee-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "E-Ticaret",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "satis",
+      "label": "Satış Tutarı (TL)",
+      "label_i18n": {
+        "en": "Sale Amount (USD)",
+        "tr": "Satış Tutarı (TL)",
+        "de": "Verkaufsbetrag",
+        "fr": "Montant de la vente",
+        "es": "Monto de venta",
+        "ar": "مبلغ البيع"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Müşteriden tahsil edilen tutar.",
+      "businessContext_i18n": {
+        "en": "Amount charged to customer.",
+        "tr": "Müşteriden tahsil edilen tutar.",
+        "de": "Amount charged to customer.",
+        "fr": "Amount charged to customer.",
+        "es": "Amount charged to customer.",
+        "ar": "Amount charged to customer."
+      }
+    },
+    {
+      "id": "yuzde",
+      "label": "Yüzde Kesinti (%)",
+      "label_i18n": {
+        "en": "Percentage Fee (%)",
+        "tr": "Yüzde Kesinti (%)",
+        "de": "Prozentsatzgebühr (%)",
+        "fr": "Frais en pourcentage (%)",
+        "es": "Tarifa de Porcentaje (%)",
+        "ar": "رسوم النسبة المئوية (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 2.9,
+      "min": 0,
+      "businessContext": "İşlem yüzdesi.",
+      "businessContext_i18n": {
+        "en": "Transaction percentage.",
+        "tr": "İşlem yüzdesi.",
+        "de": "Transaction percentage.",
+        "fr": "Transaction percentage.",
+        "es": "Transaction percentage.",
+        "ar": "Transaction percentage."
+      }
+    },
+    {
+      "id": "sabit",
+      "label": "Sabit Kesinti (TL)",
+      "label_i18n": {
+        "en": "Fixed Fee (USD)",
+        "tr": "Sabit Kesinti (TL)",
+        "de": "Feste Gebühr (USD)",
+        "fr": "Frais fixes (USD)",
+        "es": "Tarifa fija (USD)",
+        "ar": "الرسوم الثابتة (دولار أمريكي)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 2.35,
+      "min": 0,
+      "businessContext": "Sabit işlem ücreti.",
+      "businessContext_i18n": {
+        "en": "Fixed transaction fee.",
+        "tr": "Sabit işlem ücreti.",
+        "de": "Fixed transaction fee.",
+        "fr": "Fixed transaction fee.",
+        "es": "Fixed transaction fee.",
+        "ar": "Fixed transaction fee."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "kesinti": "(satis * yuzde / 100) + sabit",
+    "sonuc": "satis - ((satis * yuzde / 100) + sabit)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Net Hesaba Geçen Tutar"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Net Hesaba Geçen Tutar",
+        "tr": "Net Hesaba Geçen Tutar",
+        "de": "Net Hesaba Geçen Tutar",
+        "fr": "Net Hesaba Geçen Tutar",
+        "es": "Net Hesaba Geçen Tutar",
+        "ar": "Net Hesaba Geçen Tutar"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Factor in return rates and chargebacks.",
+      "Review platform fee schedules regularly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+      "long": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+      "short_i18n": {
+        "en": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+        "tr": "Stripe/PayPal kesintisi sonrası hesaba geçen net tutarı hesaplar.",
+        "de": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+        "fr": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+        "es": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+        "ar": "Calculate net settlement after Stripe/PayPal payment processor fees."
+      },
+      "long_i18n": {
+        "en": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+        "tr": "Stripe/PayPal kesintisi sonrası hesaba geçen net tutarı hesaplar.",
+        "de": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+        "fr": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+        "es": "Calculate net settlement after Stripe/PayPal payment processor fees.",
+        "ar": "Calculate net settlement after Stripe/PayPal payment processor fees."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "payment-processor-fee-calculator",
+    "de": "Zahlungsanbieter-Gebührenrechner",
+    "fr": "Calculateur de frais de fournisseur de paiement",
+    "es": "Calculadora de tarifas de proveedor de pagos",
+    "ar": "حاسبة رسوم مزود الدفع"
+  }
+}

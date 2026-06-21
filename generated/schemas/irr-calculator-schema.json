@@ -1,0 +1,150 @@
+{
+  "toolName": "irr-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yatirim",
+      "label": "Başlangıç Yatırımı (₺)",
+      "label_i18n": {
+        "en": "Initial Investment (USD)",
+        "tr": "Başlangıç Yatırımı (₺)",
+        "de": "Anfangsinvestition",
+        "fr": "Investissement initial",
+        "es": "Inversión Inicial",
+        "ar": "الاستثمار الأولي"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "businessContext": "Projenin başlangıç yatırım maliyeti.",
+      "businessContext_i18n": {
+        "en": "Initial project cost.",
+        "tr": "Projenin başlangıç yatırım maliyeti.",
+        "de": "Initial project cost.",
+        "fr": "Initial project cost.",
+        "es": "Initial project cost.",
+        "ar": "Initial project cost."
+      }
+    },
+    {
+      "id": "ortalamaNakit",
+      "label": "Ortalama Yıllık Nakit Akışı (₺)",
+      "label_i18n": {
+        "en": "Avg Annual Cash Flow (USD)",
+        "tr": "Ortalama Yıllık Nakit Akışı (₺)",
+        "de": "Avg Annual Cash Flow (USD)",
+        "fr": "Avg Annual Cash Flow (USD)",
+        "es": "Avg Annual Cash Flow (USD)",
+        "ar": "Avg Annual Cash Flow (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 35000,
+      "min": 0,
+      "businessContext": "Projenin ortalama yıllık nakit girişi.",
+      "businessContext_i18n": {
+        "en": "Average annual cash inflow.",
+        "tr": "Projenin ortalama yıllık nakit girişi.",
+        "de": "Average annual cash inflow.",
+        "fr": "Average annual cash inflow.",
+        "es": "Average annual cash inflow.",
+        "ar": "Average annual cash inflow."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Proje Süresi (Yıl)",
+      "label_i18n": {
+        "en": "Project Life (Years)",
+        "tr": "Proje Süresi (Yıl)",
+        "de": "Projektlaufzeit (Jahre)",
+        "fr": "Durée de vie du projet (années)",
+        "es": "Vida del proyecto (años)",
+        "ar": "عمر المشروع (سنوات)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "businessContext": "Projenin ekonomik ömrü.",
+      "businessContext_i18n": {
+        "en": "Project's economic life.",
+        "tr": "Projenin ekonomik ömrü.",
+        "de": "Project's economic life.",
+        "fr": "Project's economic life.",
+        "es": "Project's economic life.",
+        "ar": "Project's economic life."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(Math.pow(1 + ortalamaNakit / Math.max(1, yatirim), 1 / Math.max(1, yil)) - 1) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "IRR (İç Verim Oranı - Yaklaşık)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "IRR (İç Verim Oranı - Yaklaşık)",
+        "tr": "IRR (İç Verim Oranı - Yaklaşık)",
+        "de": "IRR (İç Verim Oranı - Yaklaşık)",
+        "fr": "IRR (İç Verim Oranı - Yaklaşık)",
+        "es": "IRR (İç Verim Oranı - Yaklaşık)",
+        "ar": "IRR (İç Verim Oranı - Yaklaşık)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+      "long": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+      "short_i18n": {
+        "en": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+        "tr": "NPV'yi sıfıra eşitleyen proje iç getiri oranını (IRR) tahmin eder.",
+        "de": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+        "fr": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+        "es": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+        "ar": "Estimate the internal rate of return (IRR) that zeroes NPV."
+      },
+      "long_i18n": {
+        "en": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+        "tr": "NPV'yi sıfıra eşitleyen proje iç getiri oranını (IRR) tahmin eder.",
+        "de": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+        "fr": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+        "es": "Estimate the internal rate of return (IRR) that zeroes NPV.",
+        "ar": "Estimate the internal rate of return (IRR) that zeroes NPV."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "irr-calculator",
+    "de": "IRR-Rechner",
+    "fr": "Calculateur de TRI",
+    "es": "Calculadora de TIR",
+    "ar": "حاسبة معدل العائد الداخلي (IRR)"
+  }
+}

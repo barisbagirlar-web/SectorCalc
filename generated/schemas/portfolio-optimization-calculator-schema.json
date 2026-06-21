@@ -1,0 +1,125 @@
+{
+  "toolName": "portfolio-optimization-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "beklenenGetiri",
+      "label": "Beklenen Getiri (%)",
+      "label_i18n": {
+        "en": "Expected Return (%)",
+        "tr": "Beklenen Getiri (%)",
+        "de": "Erwartete Rendite",
+        "fr": "Rendement attendu",
+        "es": "Rendimiento esperado",
+        "ar": "العائد المتوقع"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Portföyün hedef getiri beklentisi.",
+      "businessContext_i18n": {
+        "en": "Target portfolio return expectation.",
+        "tr": "Portföyün hedef getiri beklentisi.",
+        "de": "Target portfolio return expectation.",
+        "fr": "Target portfolio return expectation.",
+        "es": "Target portfolio return expectation.",
+        "ar": "Target portfolio return expectation."
+      }
+    },
+    {
+      "id": "beklenenRisk",
+      "label": "Beklenen Risk (%)",
+      "label_i18n": {
+        "en": "Expected Risk (%)",
+        "tr": "Beklenen Risk (%)",
+        "de": "Expected Risk (%)",
+        "fr": "Expected Risk (%)",
+        "es": "Expected Risk (%)",
+        "ar": "Expected Risk (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Portföyün tahmini volatilitesi.",
+      "businessContext_i18n": {
+        "en": "Estimated portfolio risk/volatility.",
+        "tr": "Portföyün tahmini volatilitesi.",
+        "de": "Estimated portfolio risk/volatility.",
+        "fr": "Estimated portfolio risk/volatility.",
+        "es": "Estimated portfolio risk/volatility.",
+        "ar": "Estimated portfolio risk/volatility."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "beklenenGetiri / Math.max(0.0001, beklenenRisk)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "Getiri/Risk Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Getiri/Risk Oranı",
+        "tr": "Getiri/Risk Oranı",
+        "de": "Getiri/Risk Oranı",
+        "fr": "Getiri/Risk Oranı",
+        "es": "Getiri/Risk Oranı",
+        "ar": "Getiri/Risk Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Simple portfolio optimization along the efficient frontier.",
+      "long": "Simple portfolio optimization along the efficient frontier.",
+      "short_i18n": {
+        "en": "Simple portfolio optimization along the efficient frontier.",
+        "tr": "Verimli sınır üzerinde basit portföy optimizasyonu yapar.",
+        "de": "Simple portfolio optimization along the efficient frontier.",
+        "fr": "Simple portfolio optimization along the efficient frontier.",
+        "es": "Simple portfolio optimization along the efficient frontier.",
+        "ar": "Simple portfolio optimization along the efficient frontier."
+      },
+      "long_i18n": {
+        "en": "Simple portfolio optimization along the efficient frontier.",
+        "tr": "Verimli sınır üzerinde basit portföy optimizasyonu yapar.",
+        "de": "Simple portfolio optimization along the efficient frontier.",
+        "fr": "Simple portfolio optimization along the efficient frontier.",
+        "es": "Simple portfolio optimization along the efficient frontier.",
+        "ar": "Simple portfolio optimization along the efficient frontier."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "portfolio-optimization-calculator",
+    "de": "Portfoliooptimierungsrechner",
+    "fr": "Calculateur d'optimisation de portefeuille",
+    "es": "Calculadora de optimización de cartera",
+    "ar": "حاسبة تحسين المحفظة"
+  }
+}

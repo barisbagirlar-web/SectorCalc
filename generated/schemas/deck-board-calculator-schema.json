@@ -1,0 +1,175 @@
+{
+  "toolName": "deck-board-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "alan",
+      "label": "Deck Alanı (m²)",
+      "label_i18n": {
+        "en": "Deck Area (m²)",
+        "tr": "Deck Alanı (m²)",
+        "de": "Deck Area (m²)",
+        "fr": "Deck Area (m²)",
+        "es": "Deck Area (m²)",
+        "ar": "Deck Area (m²)"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Döşenecek alan.",
+      "businessContext_i18n": {
+        "en": "Area to cover.",
+        "tr": "Döşenecek alan.",
+        "de": "Area to cover.",
+        "fr": "Area to cover.",
+        "es": "Area to cover.",
+        "ar": "Area to cover."
+      }
+    },
+    {
+      "id": "tahtaEn",
+      "label": "Tahta Eni (m)",
+      "label_i18n": {
+        "en": "Board Width (m)",
+        "tr": "Tahta Eni (m)",
+        "de": "Board Width (m)",
+        "fr": "Board Width (m)",
+        "es": "Board Width (m)",
+        "ar": "Board Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.14,
+      "min": 0,
+      "businessContext": "Tek tahtanın eni.",
+      "businessContext_i18n": {
+        "en": "Board width.",
+        "tr": "Tek tahtanın eni.",
+        "de": "Board width.",
+        "fr": "Board width.",
+        "es": "Board width.",
+        "ar": "Board width."
+      }
+    },
+    {
+      "id": "tahtaBoy",
+      "label": "Tahta Boyu (m)",
+      "label_i18n": {
+        "en": "Board Length (m)",
+        "tr": "Tahta Boyu (m)",
+        "de": "Board Length (m)",
+        "fr": "Board Length (m)",
+        "es": "Board Length (m)",
+        "ar": "Board Length (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Tek tahtanın boyu.",
+      "businessContext_i18n": {
+        "en": "Board length.",
+        "tr": "Tek tahtanın boyu.",
+        "de": "Board length.",
+        "fr": "Board length.",
+        "es": "Board length.",
+        "ar": "Board length."
+      }
+    },
+    {
+      "id": "fire",
+      "label": "Fire Oranı (%)",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Fire Oranı (%)",
+        "de": "Abfallfaktor (%)",
+        "fr": "Facteur de déchet (%)",
+        "es": "Factor de desperdicio (%)",
+        "ar": "عامل الهدر (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Kesim kaybı.",
+      "businessContext_i18n": {
+        "en": "Cutting waste.",
+        "tr": "Kesim kaybı.",
+        "de": "Cutting waste.",
+        "fr": "Cutting waste.",
+        "es": "Cutting waste.",
+        "ar": "Cutting waste."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.ceil((alan / Math.max(0.0001, (tahtaEn * tahtaBoy))) * (1 + fire / 100))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "boards",
+    "breakdown": {
+      "sonuc": "Gerekli Deck Tahtası"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Deck Tahtası",
+        "tr": "Gerekli Deck Tahtası",
+        "de": "Gerekli Deck Tahtası",
+        "fr": "Gerekli Deck Tahtası",
+        "es": "Gerekli Deck Tahtası",
+        "ar": "Gerekli Deck Tahtası"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "boards"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate number of deck boards needed including waste factor.",
+      "long": "Calculate number of deck boards needed including waste factor.",
+      "short_i18n": {
+        "en": "Calculate number of deck boards needed including waste factor.",
+        "tr": "Kesim payı dahil gereken deck tahtası sayısını hesaplar.",
+        "de": "Calculate number of deck boards needed including waste factor.",
+        "fr": "Calculate number of deck boards needed including waste factor.",
+        "es": "Calculate number of deck boards needed including waste factor.",
+        "ar": "Calculate number of deck boards needed including waste factor."
+      },
+      "long_i18n": {
+        "en": "Calculate number of deck boards needed including waste factor.",
+        "tr": "Kesim payı dahil gereken deck tahtası sayısını hesaplar.",
+        "de": "Calculate number of deck boards needed including waste factor.",
+        "fr": "Calculate number of deck boards needed including waste factor.",
+        "es": "Calculate number of deck boards needed including waste factor.",
+        "ar": "Calculate number of deck boards needed including waste factor."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "deck-board-calculator",
+    "de": "Holzterrassen-Rechner",
+    "fr": "Calculateur de terrasse en bois",
+    "es": "Calculadora de terraza de madera",
+    "ar": "حاسبة سطح السفينة الخشبية"
+  }
+}

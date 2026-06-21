@@ -1,0 +1,125 @@
+{
+  "toolName": "equity-dilution-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "mevcutHisse",
+      "label": "Mevcut Hisse (Adet)",
+      "label_i18n": {
+        "en": "Current Shares",
+        "tr": "Mevcut Hisse (Adet)",
+        "de": "Aktuell ausstehende Aktien",
+        "fr": "Actions en circulation actuelles",
+        "es": "Acciones en circulación actuales",
+        "ar": "الأسهم القائمة الحالية"
+      },
+      "type": "number",
+      "unit": "shares",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Mevcut toplam hisse.",
+      "businessContext_i18n": {
+        "en": "Current total shares.",
+        "tr": "Mevcut toplam hisse.",
+        "de": "Current total shares.",
+        "fr": "Current total shares.",
+        "es": "Current total shares.",
+        "ar": "Current total shares."
+      }
+    },
+    {
+      "id": "yeniHisse",
+      "label": "Yeni Hisse (Adet)",
+      "label_i18n": {
+        "en": "New Shares",
+        "tr": "Yeni Hisse (Adet)",
+        "de": "Neu ausgegebene Aktien",
+        "fr": "Nouvelles actions émises",
+        "es": "Nuevas Acciones Emitidas",
+        "ar": "الأسهم الجديدة المصدرة"
+      },
+      "type": "number",
+      "unit": "shares",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Yeni ihraç edilen hisse.",
+      "businessContext_i18n": {
+        "en": "Newly issued shares.",
+        "tr": "Yeni ihraç edilen hisse.",
+        "de": "Newly issued shares.",
+        "fr": "Newly issued shares.",
+        "es": "Newly issued shares.",
+        "ar": "Newly issued shares."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "yeniHisse / Math.max(1, (mevcutHisse + yeniHisse)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Sulandırma Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Sulandırma Oranı",
+        "tr": "Sulandırma Oranı",
+        "de": "Sulandırma Oranı",
+        "fr": "Sulandırma Oranı",
+        "es": "Sulandırma Oranı",
+        "ar": "Sulandırma Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate equity dilution percentage for existing shareholders.",
+      "long": "Calculate equity dilution percentage for existing shareholders.",
+      "short_i18n": {
+        "en": "Calculate equity dilution percentage for existing shareholders.",
+        "tr": "Mevcut hissedarların mülkiyet oranındaki azalmayı (sulandırma) hesaplar.",
+        "de": "Calculate equity dilution percentage for existing shareholders.",
+        "fr": "Calculate equity dilution percentage for existing shareholders.",
+        "es": "Calculate equity dilution percentage for existing shareholders.",
+        "ar": "Calculate equity dilution percentage for existing shareholders."
+      },
+      "long_i18n": {
+        "en": "Calculate equity dilution percentage for existing shareholders.",
+        "tr": "Mevcut hissedarların mülkiyet oranındaki azalmayı (sulandırma) hesaplar.",
+        "de": "Calculate equity dilution percentage for existing shareholders.",
+        "fr": "Calculate equity dilution percentage for existing shareholders.",
+        "es": "Calculate equity dilution percentage for existing shareholders.",
+        "ar": "Calculate equity dilution percentage for existing shareholders."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "equity-dilution-calculator",
+    "de": "Aktienverwässerungsrechner",
+    "fr": "Calculateur de dilution des actions",
+    "es": "Calculadora de dilución de acciones",
+    "ar": "حاسبة تخفيف الأسهم"
+  }
+}

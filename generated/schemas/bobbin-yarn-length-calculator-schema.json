@@ -1,0 +1,127 @@
+{
+  "toolName": "bobbin-yarn-length-calculator",
+  "catalogCategory": "textile-print-lab",
+  "categorySlug": "textile-print-lab",
+  "sector": "Tekstil, Gıda ve Plastik",
+  "sectorId": "textile-print-lab",
+  "inputs": [
+    {
+      "id": "bobinAgirlik",
+      "label": "Bobin Ağırlığı (g)",
+      "label_i18n": {
+        "en": "Bobbin Weight (g)",
+        "tr": "Bobin Ağırlığı (g)",
+        "de": "Bobbin Weight (g)",
+        "fr": "Bobbin Weight (g)",
+        "es": "Bobbin Weight (g)",
+        "ar": "Bobbin Weight (g)"
+      },
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Bobinin ağırlığı.",
+      "businessContext_i18n": {
+        "en": "Bobbin weight.",
+        "tr": "Bobinin ağırlığı.",
+        "de": "Bobbin weight.",
+        "fr": "Bobbin weight.",
+        "es": "Bobbin weight.",
+        "ar": "Bobbin weight."
+      }
+    },
+    {
+      "id": "iplikNumara",
+      "label": "İplik Numarası (Nm)",
+      "label_i18n": {
+        "en": "Yarn Count (Nm)",
+        "tr": "İplik Numarası (Nm)",
+        "de": "Yarn Count (Nm)",
+        "fr": "Yarn Count (Nm)",
+        "es": "Yarn Count (Nm)",
+        "ar": "Yarn Count (Nm)"
+      },
+      "type": "number",
+      "unit": "Nm",
+      "default": 40,
+      "min": 0,
+      "businessContext": "İplik numara değeri.",
+      "businessContext_i18n": {
+        "en": "Yarn count (metric).",
+        "tr": "İplik numara değeri.",
+        "de": "Yarn count (metric).",
+        "fr": "Yarn count (metric).",
+        "es": "Yarn count (metric).",
+        "ar": "Yarn count (metric)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(bobinAgirlik / 1000) * iplikNumara * 1000"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "İplik Uzunluğu"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "İplik Uzunluğu",
+        "tr": "İplik Uzunluğu",
+        "de": "İplik Uzunluğu",
+        "fr": "İplik Uzunluğu",
+        "es": "İplik Uzunluğu",
+        "ar": "İplik Uzunluğu"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [
+      "Waste in material or time indicates process improvement opportunity."
+    ],
+    "suggestedActions": [
+      "Optimize drying/cooling parameters for cycle time reduction.",
+      "Monitor defects and adjust process conditions accordingly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total yarn length on a bobbin.",
+      "long": "Calculate total yarn length on a bobbin.",
+      "short_i18n": {
+        "en": "Calculate total yarn length on a bobbin.",
+        "tr": "Bobine sarılı toplam iplik metreajını hesaplar.",
+        "de": "Calculate total yarn length on a bobbin.",
+        "fr": "Calculate total yarn length on a bobbin.",
+        "es": "Calculate total yarn length on a bobbin.",
+        "ar": "Calculate total yarn length on a bobbin."
+      },
+      "long_i18n": {
+        "en": "Calculate total yarn length on a bobbin.",
+        "tr": "Bobine sarılı toplam iplik metreajını hesaplar.",
+        "de": "Calculate total yarn length on a bobbin.",
+        "fr": "Calculate total yarn length on a bobbin.",
+        "es": "Calculate total yarn length on a bobbin.",
+        "ar": "Calculate total yarn length on a bobbin."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "bobbin-yarn-length-calculator",
+    "de": "Spulengarn-Kapazitätsrechner",
+    "fr": "Calculateur de capacité de fil de bobine",
+    "es": "Calculadora de capacidad de hilo de bobina",
+    "ar": "حاسبة سعة خيوط البكرة"
+  }
+}

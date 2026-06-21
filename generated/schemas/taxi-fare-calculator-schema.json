@@ -1,0 +1,200 @@
+{
+  "toolName": "taxi-fare-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "acilis",
+      "label": "Açılış Ücreti (TL)",
+      "label_i18n": {
+        "en": "Base Fare (USD)",
+        "tr": "Açılış Ücreti (TL)",
+        "de": "Base Fare (USD)",
+        "fr": "Base Fare (USD)",
+        "es": "Base Fare (USD)",
+        "ar": "Base Fare (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Taksimetre açılış ücreti.",
+      "businessContext_i18n": {
+        "en": "Flag-fall charge.",
+        "tr": "Taksimetre açılış ücreti.",
+        "de": "Flag-fall charge.",
+        "fr": "Flag-fall charge.",
+        "es": "Flag-fall charge.",
+        "ar": "Flag-fall charge."
+      }
+    },
+    {
+      "id": "kmFiyati",
+      "label": "Km Başı Ücret (TL)",
+      "label_i18n": {
+        "en": "Per km Rate (USD)",
+        "tr": "Km Başı Ücret (TL)",
+        "de": "Per km Rate (USD)",
+        "fr": "Per km Rate (USD)",
+        "es": "Per km Rate (USD)",
+        "ar": "Per km Rate (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Her km için ücret.",
+      "businessContext_i18n": {
+        "en": "Charge per km.",
+        "tr": "Her km için ücret.",
+        "de": "Charge per km.",
+        "fr": "Charge per km.",
+        "es": "Charge per km.",
+        "ar": "Charge per km."
+      }
+    },
+    {
+      "id": "dakikaFiyati",
+      "label": "Dakika Başı Ücret (TL)",
+      "label_i18n": {
+        "en": "Per Minute Rate (USD)",
+        "tr": "Dakika Başı Ücret (TL)",
+        "de": "Per Minute Rate (USD)",
+        "fr": "Per Minute Rate (USD)",
+        "es": "Per Minute Rate (USD)",
+        "ar": "Per Minute Rate (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Bekleme veya yavaş trafik ücreti.",
+      "businessContext_i18n": {
+        "en": "Waiting or slow traffic rate.",
+        "tr": "Bekleme veya yavaş trafik ücreti.",
+        "de": "Waiting or slow traffic rate.",
+        "fr": "Waiting or slow traffic rate.",
+        "es": "Waiting or slow traffic rate.",
+        "ar": "Waiting or slow traffic rate."
+      }
+    },
+    {
+      "id": "mesafe",
+      "label": "Mesafe (km)",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Mesafe (km)",
+        "de": "Entfernung (km)",
+        "fr": "Distance (km)",
+        "es": "Distancia (km)",
+        "ar": "المسافة (كم)"
+      },
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Yolculuk mesafesi.",
+      "businessContext_i18n": {
+        "en": "Trip distance.",
+        "tr": "Yolculuk mesafesi.",
+        "de": "Trip distance.",
+        "fr": "Trip distance.",
+        "es": "Trip distance.",
+        "ar": "Trip distance."
+      }
+    },
+    {
+      "id": "sure",
+      "label": "Süre (Dk)",
+      "label_i18n": {
+        "en": "Duration (Min)",
+        "tr": "Süre (Dk)",
+        "de": "Durchschnittliche Überlaufdauer",
+        "fr": "Durée moyenne de dépassement",
+        "es": "Duración promedio del exceso",
+        "ar": "متوسط مدة التجاوز"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 25,
+      "min": 0,
+      "businessContext": "Tahmini yolculuk süresi.",
+      "businessContext_i18n": {
+        "en": "Estimated trip duration.",
+        "tr": "Tahmini yolculuk süresi.",
+        "de": "Estimated trip duration.",
+        "fr": "Estimated trip duration.",
+        "es": "Estimated trip duration.",
+        "ar": "Estimated trip duration."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "acilis + (mesafe * kmFiyati) + (sure * dakikaFiyati)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Tahmini Yolculuk Ücreti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Tahmini Yolculuk Ücreti",
+        "tr": "Tahmini Yolculuk Ücreti",
+        "de": "Tahmini Yolculuk Ücreti",
+        "fr": "Tahmini Yolculuk Ücreti",
+        "es": "Tahmini Yolculuk Ücreti",
+        "ar": "Tahmini Yolculuk Ücreti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate estimated taxi/Uber fare based on distance and time.",
+      "long": "Calculate estimated taxi/Uber fare based on distance and time.",
+      "short_i18n": {
+        "en": "Calculate estimated taxi/Uber fare based on distance and time.",
+        "tr": "Mesafe ve süreye bağlı tahmini taksi/Über yolculuk maliyetini hesaplar.",
+        "de": "Calculate estimated taxi/Uber fare based on distance and time.",
+        "fr": "Calculate estimated taxi/Uber fare based on distance and time.",
+        "es": "Calculate estimated taxi/Uber fare based on distance and time.",
+        "ar": "Calculate estimated taxi/Uber fare based on distance and time."
+      },
+      "long_i18n": {
+        "en": "Calculate estimated taxi/Uber fare based on distance and time.",
+        "tr": "Mesafe ve süreye bağlı tahmini taksi/Über yolculuk maliyetini hesaplar.",
+        "de": "Calculate estimated taxi/Uber fare based on distance and time.",
+        "fr": "Calculate estimated taxi/Uber fare based on distance and time.",
+        "es": "Calculate estimated taxi/Uber fare based on distance and time.",
+        "ar": "Calculate estimated taxi/Uber fare based on distance and time."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "taxi-fare-calculator",
+    "de": "Taxi-Uber-Gebührenrechner",
+    "fr": "Calculateur de tarif taxi/Uber",
+    "es": "Calculadora de tarifa de taxi/Uber",
+    "ar": "حاسبة أجرة التاكسي/أوبر"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "toolName": "abc-classification-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "yillikTalep",
+      "label": "Yıllık Talep (Adet)",
+      "label_i18n": {
+        "en": "Annual Demand",
+        "tr": "Yıllık Talep (Adet)",
+        "de": "Jährliche Nachfrage",
+        "fr": "Demande annuelle",
+        "es": "Demanda anual",
+        "ar": "الطلب السنوي"
+      },
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Ürünün yıllık talep miktarı.",
+      "businessContext_i18n": {
+        "en": "Annual demand quantity.",
+        "tr": "Ürünün yıllık talep miktarı.",
+        "de": "Annual demand quantity.",
+        "fr": "Annual demand quantity.",
+        "es": "Annual demand quantity.",
+        "ar": "Annual demand quantity."
+      }
+    },
+    {
+      "id": "birimMaliyet",
+      "label": "Birim Maliyet (TL)",
+      "label_i18n": {
+        "en": "Unit Cost (USD)",
+        "tr": "Birim Maliyet (TL)",
+        "de": "Stückkosten",
+        "fr": "Coût unitaire",
+        "es": "Costo unitario",
+        "ar": "التكلفة لكل وحدة"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Ürünün birim maliyeti.",
+      "businessContext_i18n": {
+        "en": "Unit product cost.",
+        "tr": "Ürünün birim maliyeti.",
+        "de": "Unit product cost.",
+        "fr": "Unit product cost.",
+        "es": "Unit product cost.",
+        "ar": "Unit product cost."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "yillikDeger": "yillikTalep * birimMaliyet",
+    "sonuc": "yillikTalep * birimMaliyet"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Yıllık Stok Değeri"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllık Stok Değeri",
+        "tr": "Yıllık Stok Değeri",
+        "de": "Yıllık Stok Değeri",
+        "fr": "Yıllık Stok Değeri",
+        "es": "Yıllık Stok Değeri",
+        "ar": "Yıllık Stok Değeri"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Classify inventory items by financial value (ABC analysis).",
+      "long": "Classify inventory items by financial value (ABC analysis).",
+      "short_i18n": {
+        "en": "Classify inventory items by financial value (ABC analysis).",
+        "tr": "Stok kalemlerini finansal önemine göre A/B/C sınıflarına ayırır.",
+        "de": "Classify inventory items by financial value (ABC analysis).",
+        "fr": "Classify inventory items by financial value (ABC analysis).",
+        "es": "Classify inventory items by financial value (ABC analysis).",
+        "ar": "Classify inventory items by financial value (ABC analysis)."
+      },
+      "long_i18n": {
+        "en": "Classify inventory items by financial value (ABC analysis).",
+        "tr": "Stok kalemlerini finansal önemine göre A/B/C sınıflarına ayırır.",
+        "de": "Classify inventory items by financial value (ABC analysis).",
+        "fr": "Classify inventory items by financial value (ABC analysis).",
+        "es": "Classify inventory items by financial value (ABC analysis).",
+        "ar": "Classify inventory items by financial value (ABC analysis)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "abc-classification-calculator",
+    "de": "ABC-Klassifizierungsrechner",
+    "fr": "Calculateur de classification ABC",
+    "es": "Calculadora de clasificación ABC",
+    "ar": "حاسبة تصنيف ABC"
+  }
+}

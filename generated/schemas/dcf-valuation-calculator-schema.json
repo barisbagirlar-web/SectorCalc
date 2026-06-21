@@ -1,0 +1,257 @@
+{
+  "toolName": "dcf-valuation-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "fcf1",
+      "label": "1. Yıl FCF (₺)",
+      "label_i18n": {
+        "en": "Year 1 FCF (USD)",
+        "tr": "1. Yıl FCF (₺)",
+        "de": "Year 1 FCF (USD)",
+        "fr": "Year 1 FCF (USD)",
+        "es": "Year 1 FCF (USD)",
+        "ar": "Year 1 FCF (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "businessContext": "Birinci yıl serbest nakit akışı.",
+      "businessContext_i18n": {
+        "en": "First year free cash flow.",
+        "tr": "Birinci yıl serbest nakit akışı.",
+        "de": "First year free cash flow.",
+        "fr": "First year free cash flow.",
+        "es": "First year free cash flow.",
+        "ar": "First year free cash flow."
+      }
+    },
+    {
+      "id": "fcf2",
+      "label": "2. Yıl FCF (₺)",
+      "label_i18n": {
+        "en": "Year 2 FCF (USD)",
+        "tr": "2. Yıl FCF (₺)",
+        "de": "Year 2 FCF (USD)",
+        "fr": "Year 2 FCF (USD)",
+        "es": "Year 2 FCF (USD)",
+        "ar": "Year 2 FCF (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 110000,
+      "min": 0,
+      "businessContext": "İkinci yıl serbest nakit akışı.",
+      "businessContext_i18n": {
+        "en": "Second year free cash flow.",
+        "tr": "İkinci yıl serbest nakit akışı.",
+        "de": "Second year free cash flow.",
+        "fr": "Second year free cash flow.",
+        "es": "Second year free cash flow.",
+        "ar": "Second year free cash flow."
+      }
+    },
+    {
+      "id": "fcf3",
+      "label": "3. Yıl FCF (₺)",
+      "label_i18n": {
+        "en": "Year 3 FCF (USD)",
+        "tr": "3. Yıl FCF (₺)",
+        "de": "Year 3 FCF (USD)",
+        "fr": "Year 3 FCF (USD)",
+        "es": "Year 3 FCF (USD)",
+        "ar": "Year 3 FCF (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 121000,
+      "min": 0,
+      "businessContext": "Üçüncü yıl serbest nakit akışı.",
+      "businessContext_i18n": {
+        "en": "Third year free cash flow.",
+        "tr": "Üçüncü yıl serbest nakit akışı.",
+        "de": "Third year free cash flow.",
+        "fr": "Third year free cash flow.",
+        "es": "Third year free cash flow.",
+        "ar": "Third year free cash flow."
+      }
+    },
+    {
+      "id": "fcf4",
+      "label": "4. Yıl FCF (₺)",
+      "label_i18n": {
+        "en": "Year 4 FCF (USD)",
+        "tr": "4. Yıl FCF (₺)",
+        "de": "Year 4 FCF (USD)",
+        "fr": "Year 4 FCF (USD)",
+        "es": "Year 4 FCF (USD)",
+        "ar": "Year 4 FCF (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 133100,
+      "min": 0,
+      "businessContext": "Dördüncü yıl serbest nakit akışı.",
+      "businessContext_i18n": {
+        "en": "Fourth year free cash flow.",
+        "tr": "Dördüncü yıl serbest nakit akışı.",
+        "de": "Fourth year free cash flow.",
+        "fr": "Fourth year free cash flow.",
+        "es": "Fourth year free cash flow.",
+        "ar": "Fourth year free cash flow."
+      }
+    },
+    {
+      "id": "fcf5",
+      "label": "5. Yıl FCF (₺)",
+      "label_i18n": {
+        "en": "Year 5 FCF (USD)",
+        "tr": "5. Yıl FCF (₺)",
+        "de": "Year 5 FCF (USD)",
+        "fr": "Year 5 FCF (USD)",
+        "es": "Year 5 FCF (USD)",
+        "ar": "Year 5 FCF (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 146410,
+      "min": 0,
+      "businessContext": "Beşinci yıl serbest nakit akışı.",
+      "businessContext_i18n": {
+        "en": "Fifth year free cash flow.",
+        "tr": "Beşinci yıl serbest nakit akışı.",
+        "de": "Fifth year free cash flow.",
+        "fr": "Fifth year free cash flow.",
+        "es": "Fifth year free cash flow.",
+        "ar": "Fifth year free cash flow."
+      }
+    },
+    {
+      "id": "WACC",
+      "label": "WACC (%)",
+      "label_i18n": {
+        "en": "WACC (%)",
+        "tr": "WACC (%)",
+        "de": "WACC (%)",
+        "fr": "WACC (%)",
+        "es": "WACC (%)",
+        "ar": "المتوسط المرجح لتكلفة رأس المال (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Ağırlıklı ortalama sermaye maliyeti.",
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital.",
+        "tr": "Ağırlıklı ortalama sermaye maliyeti.",
+        "de": "Weighted average cost of capital.",
+        "fr": "Weighted average cost of capital.",
+        "es": "Weighted average cost of capital.",
+        "ar": "Weighted average cost of capital."
+      }
+    },
+    {
+      "id": "terminalBuyume",
+      "label": "Terminal Büyüme (%)",
+      "label_i18n": {
+        "en": "Terminal Growth (%)",
+        "tr": "Terminal Büyüme (%)",
+        "de": "Terminale Wachstumsrate",
+        "fr": "Taux de croissance terminal",
+        "es": "Tasa de crecimiento terminal",
+        "ar": "معدل النمو النهائي"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Sonsuz büyüme varsayımı.",
+      "businessContext_i18n": {
+        "en": "Perpetual growth rate assumption.",
+        "tr": "Sonsuz büyüme varsayımı.",
+        "de": "Perpetual growth rate assumption.",
+        "fr": "Perpetual growth rate assumption.",
+        "es": "Perpetual growth rate assumption.",
+        "ar": "Perpetual growth rate assumption."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "fcf_bd1": "fcf1 / Math.pow(1 + WACC / 100, 1)",
+    "fcf_bd2": "fcf2 / Math.pow(1 + WACC / 100, 2)",
+    "fcf_bd3": "fcf3 / Math.pow(1 + WACC / 100, 3)",
+    "fcf_bd4": "fcf4 / Math.pow(1 + WACC / 100, 4)",
+    "fcf_bd5": "fcf5 / Math.pow(1 + WACC / 100, 5)",
+    "tv": "fcf5 * (1 + terminalBuyume / 100) / Math.max(0.0001, (WACC / 100 - terminalBuyume / 100))",
+    "tv_bd": "fcf5 * (1 + terminalBuyume / 100) / Math.max(0.0001, (WACC / 100 - terminalBuyume / 100)) / Math.pow(1 + WACC / 100, 5)",
+    "sonuc": "fcf1 / Math.pow(1 + WACC/100, 1) + fcf2 / Math.pow(1 + WACC/100, 2) + fcf3 / Math.pow(1 + WACC/100, 3) + fcf4 / Math.pow(1 + WACC/100, 4) + fcf5 / Math.pow(1 + WACC/100, 5) + (fcf5 * (1 + terminalBuyume/100) / Math.max(0.0001, (WACC/100 - terminalBuyume/100))) / Math.pow(1 + WACC/100, 5)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "İşletme Değeri (DCF)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "İşletme Değeri (DCF)",
+        "tr": "İşletme Değeri (DCF)",
+        "de": "İşletme Değeri (DCF)",
+        "fr": "İşletme Değeri (DCF)",
+        "es": "İşletme Değeri (DCF)",
+        "ar": "İşletme Değeri (DCF)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+      "long": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+      "short_i18n": {
+        "en": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+        "tr": "Şirketin nakit üretme kapasitesine dayalı işletme değerini (DCF) hesaplar.",
+        "de": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+        "fr": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+        "es": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+        "ar": "Calculate enterprise value using discounted cash flow (DCF) analysis."
+      },
+      "long_i18n": {
+        "en": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+        "tr": "Şirketin nakit üretme kapasitesine dayalı işletme değerini (DCF) hesaplar.",
+        "de": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+        "fr": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+        "es": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
+        "ar": "Calculate enterprise value using discounted cash flow (DCF) analysis."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "dcf-valuation-calculator",
+    "de": "DCF-Unternehmensbewertungsrechner",
+    "fr": "Calculateur d'évaluation d'entreprise DCF",
+    "es": "Calculadora de valoración de empresas DCF",
+    "ar": "حاسبة تقييم الأعمال DCF"
+  }
+}

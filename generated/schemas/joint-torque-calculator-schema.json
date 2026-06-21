@@ -1,0 +1,128 @@
+{
+  "toolName": "joint-torque-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "eylemsizlikMomenti",
+      "label": "Eylemsizlik Momenti (kg·m²)",
+      "label_i18n": {
+        "en": "Moment of Inertia (kg·m²)",
+        "tr": "Eylemsizlik Momenti (kg·m²)",
+        "de": "Flächenträgheitsmoment (I)",
+        "fr": "Moment d'inertie (I)",
+        "es": "Momento de Inercia (I)",
+        "ar": "عزم القصور الذاتي (I)"
+      },
+      "type": "number",
+      "unit": "kgm2",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Eklem etrafındaki atalet.",
+      "businessContext_i18n": {
+        "en": "Inertia about joint.",
+        "tr": "Eklem etrafındaki atalet.",
+        "de": "Inertia about joint.",
+        "fr": "Inertia about joint.",
+        "es": "Inertia about joint.",
+        "ar": "Inertia about joint."
+      }
+    },
+    {
+      "id": "acisalIvme",
+      "label": "Açısal İvme (rad/s²)",
+      "label_i18n": {
+        "en": "Angular Acceleration (rad/s²)",
+        "tr": "Açısal İvme (rad/s²)",
+        "de": "Angular Acceleration (rad/s²)",
+        "fr": "Angular Acceleration (rad/s²)",
+        "es": "Angular Acceleration (rad/s²)",
+        "ar": "Angular Acceleration (rad/s²)"
+      },
+      "type": "number",
+      "unit": "rad/s2",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Hedef açısal ivme.",
+      "businessContext_i18n": {
+        "en": "Target angular acceleration.",
+        "tr": "Hedef açısal ivme.",
+        "de": "Target angular acceleration.",
+        "fr": "Target angular acceleration.",
+        "es": "Target angular acceleration.",
+        "ar": "Target angular acceleration."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "eylemsizlikMomenti * acisalIvme"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "N.m",
+    "breakdown": {
+      "sonuc": "Eylem Torku"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Eylem Torku",
+        "tr": "Eylem Torku",
+        "de": "Eylem Torku",
+        "fr": "Eylem Torku",
+        "es": "Eylem Torku",
+        "ar": "Eylem Torku"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "N.m"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate joint torque from moment of inertia and angular acceleration.",
+      "long": "Calculate joint torque from moment of inertia and angular acceleration.",
+      "short_i18n": {
+        "en": "Calculate joint torque from moment of inertia and angular acceleration.",
+        "tr": "Bir robot ekleminin etrafında üretilen net döndürme momentini (tork) hesaplar.",
+        "de": "Calculate joint torque from moment of inertia and angular acceleration.",
+        "fr": "Calculate joint torque from moment of inertia and angular acceleration.",
+        "es": "Calculate joint torque from moment of inertia and angular acceleration.",
+        "ar": "Calculate joint torque from moment of inertia and angular acceleration."
+      },
+      "long_i18n": {
+        "en": "Calculate joint torque from moment of inertia and angular acceleration.",
+        "tr": "Bir robot ekleminin etrafında üretilen net döndürme momentini (tork) hesaplar.",
+        "de": "Calculate joint torque from moment of inertia and angular acceleration.",
+        "fr": "Calculate joint torque from moment of inertia and angular acceleration.",
+        "es": "Calculate joint torque from moment of inertia and angular acceleration.",
+        "ar": "Calculate joint torque from moment of inertia and angular acceleration."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "joint-torque-calculator",
+    "de": "Gelenk-Winkelgeschwindigkeits-Drehmoment-Rechner",
+    "fr": "Calculateur de couple de vitesse angulaire d'articulation",
+    "es": "Calculadora de par de velocidad angular de articulación",
+    "ar": "حاسبة عزم السرعة الزاوية للمفصل"
+  }
+}

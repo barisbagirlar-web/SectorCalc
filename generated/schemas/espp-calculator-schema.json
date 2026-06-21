@@ -1,0 +1,152 @@
+{
+  "toolName": "espp-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "piyasaFiyati",
+      "label": "Piyasa Fiyatı (TL)",
+      "label_i18n": {
+        "en": "Market Price (USD)",
+        "tr": "Piyasa Fiyatı (TL)",
+        "de": "Marktpreis für reines Filament",
+        "fr": "Prix du marché du filament vierge",
+        "es": "Precio de mercado del filamento virgen",
+        "ar": "سعر السوق للخيوط البكر"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Hisse senedinin piyasa fiyatı.",
+      "businessContext_i18n": {
+        "en": "Stock market price.",
+        "tr": "Hisse senedinin piyasa fiyatı.",
+        "de": "Stock market price.",
+        "fr": "Stock market price.",
+        "es": "Stock market price.",
+        "ar": "Stock market price."
+      }
+    },
+    {
+      "id": "iskonto",
+      "label": "İskonto Oranı (%)",
+      "label_i18n": {
+        "en": "Discount Rate (%)",
+        "tr": "İskonto Oranı (%)",
+        "de": "Diskontsatz (%)",
+        "fr": "Taux d'actualisation (%)",
+        "es": "Tasa de descuento (%)",
+        "ar": "معدل الخصم (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "ESPP indirim oranı.",
+      "businessContext_i18n": {
+        "en": "ESPP purchase discount.",
+        "tr": "ESPP indirim oranı.",
+        "de": "ESPP purchase discount.",
+        "fr": "ESPP purchase discount.",
+        "es": "ESPP purchase discount.",
+        "ar": "ESPP purchase discount."
+      }
+    },
+    {
+      "id": "katki",
+      "label": "Aylık Katkı (TL)",
+      "label_i18n": {
+        "en": "Monthly Contribution (USD)",
+        "tr": "Aylık Katkı (TL)",
+        "de": "Monatlicher Beitrag ($)",
+        "fr": "Contribution mensuelle ($)",
+        "es": "Contribución Mensual ($)",
+        "ar": "المساهمة الشهرية ($)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Çalışanın aylık katkısı.",
+      "businessContext_i18n": {
+        "en": "Employee monthly contribution.",
+        "tr": "Çalışanın aylık katkısı.",
+        "de": "Employee monthly contribution.",
+        "fr": "Employee monthly contribution.",
+        "es": "Employee monthly contribution.",
+        "ar": "Employee monthly contribution."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "alimFiyati": "piyasaFiyati * (1 - iskonto / 100)",
+    "sonuc": "katki / Math.max(0.0001, (piyasaFiyati * (1 - iskonto / 100)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "shares",
+    "breakdown": {
+      "sonuc": "Alınabilecek Hisse"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Alınabilecek Hisse",
+        "tr": "Alınabilecek Hisse",
+        "de": "Alınabilecek Hisse",
+        "fr": "Alınabilecek Hisse",
+        "es": "Alınabilecek Hisse",
+        "ar": "Alınabilecek Hisse"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "shares"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate shares purchasable through employee stock purchase plan.",
+      "long": "Calculate shares purchasable through employee stock purchase plan.",
+      "short_i18n": {
+        "en": "Calculate shares purchasable through employee stock purchase plan.",
+        "tr": "İndirimli fiyatla alınabilecek hisse adedini hesaplar.",
+        "de": "Calculate shares purchasable through employee stock purchase plan.",
+        "fr": "Calculate shares purchasable through employee stock purchase plan.",
+        "es": "Calculate shares purchasable through employee stock purchase plan.",
+        "ar": "Calculate shares purchasable through employee stock purchase plan."
+      },
+      "long_i18n": {
+        "en": "Calculate shares purchasable through employee stock purchase plan.",
+        "tr": "İndirimli fiyatla alınabilecek hisse adedini hesaplar.",
+        "de": "Calculate shares purchasable through employee stock purchase plan.",
+        "fr": "Calculate shares purchasable through employee stock purchase plan.",
+        "es": "Calculate shares purchasable through employee stock purchase plan.",
+        "ar": "Calculate shares purchasable through employee stock purchase plan."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "espp-calculator",
+    "de": "ESPP-Aktienoptionsrechner",
+    "fr": "Calculateur d'options d'achat d'actions ESPP",
+    "es": "Calculadora de opciones sobre acciones ESPP",
+    "ar": "حاسبة خيارات أسهم ESPP"
+  }
+}

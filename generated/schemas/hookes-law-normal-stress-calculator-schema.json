@@ -1,0 +1,125 @@
+{
+  "toolName": "hookes-law-normal-stress-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "elastisiteModulu",
+      "label": "Elastisite Modülü (Pa)",
+      "label_i18n": {
+        "en": "Young's Modulus (Pa)",
+        "tr": "Elastisite Modülü (Pa)",
+        "de": "Elastizitätsmodul (E)",
+        "fr": "Module de Young (E)",
+        "es": "Módulo de Young (E)",
+        "ar": "معامل يونغ (E)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 200000000000,
+      "min": 0,
+      "businessContext": "Malzemenin elastisite modülü.",
+      "businessContext_i18n": {
+        "en": "Material Young's modulus.",
+        "tr": "Malzemenin elastisite modülü.",
+        "de": "Material Young's modulus.",
+        "fr": "Material Young's modulus.",
+        "es": "Material Young's modulus.",
+        "ar": "Material Young's modulus."
+      }
+    },
+    {
+      "id": "birimSekilDegistirme",
+      "label": "Birim Şekil Değiştirme",
+      "label_i18n": {
+        "en": "Strain",
+        "tr": "Birim Şekil Değiştirme",
+        "de": "Einspannfaktor der Verbindung",
+        "fr": "Facteur de contrainte du joint",
+        "es": "Factor de Restricción de la Junta",
+        "ar": "عامل تقييد الوصلة"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0.001,
+      "min": 0,
+      "businessContext": "Malzemedeki birim uzama.",
+      "businessContext_i18n": {
+        "en": "Unit elongation.",
+        "tr": "Malzemedeki birim uzama.",
+        "de": "Unit elongation.",
+        "fr": "Unit elongation.",
+        "es": "Unit elongation.",
+        "ar": "Unit elongation."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "elastisiteModulu * birimSekilDegistirme"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Normal Gerilme (σ)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Normal Gerilme (σ)",
+        "tr": "Normal Gerilme (σ)",
+        "de": "Normal Gerilme (σ)",
+        "fr": "Normal Gerilme (σ)",
+        "es": "Normal Gerilme (σ)",
+        "ar": "Normal Gerilme (σ)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate normal stress in linear elastic region using Hooke's Law.",
+      "long": "Calculate normal stress in linear elastic region using Hooke's Law.",
+      "short_i18n": {
+        "en": "Calculate normal stress in linear elastic region using Hooke's Law.",
+        "tr": "Lineer elastik bölgedeki normal gerilmeyi Hooke Yasası ile hesaplar.",
+        "de": "Calculate normal stress in linear elastic region using Hooke's Law.",
+        "fr": "Calculate normal stress in linear elastic region using Hooke's Law.",
+        "es": "Calculate normal stress in linear elastic region using Hooke's Law.",
+        "ar": "Calculate normal stress in linear elastic region using Hooke's Law."
+      },
+      "long_i18n": {
+        "en": "Calculate normal stress in linear elastic region using Hooke's Law.",
+        "tr": "Lineer elastik bölgedeki normal gerilmeyi Hooke Yasası ile hesaplar.",
+        "de": "Calculate normal stress in linear elastic region using Hooke's Law.",
+        "fr": "Calculate normal stress in linear elastic region using Hooke's Law.",
+        "es": "Calculate normal stress in linear elastic region using Hooke's Law.",
+        "ar": "Calculate normal stress in linear elastic region using Hooke's Law."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "hookes-law-normal-stress-calculator",
+    "de": "Hookesches Gesetz-Spannungsrechner",
+    "fr": "Calculateur de contrainte loi de Hooke",
+    "es": "Calculadora de tensión ley de Hooke",
+    "ar": "حاسبة الإجهاد بقانون هوك"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "toolName": "fuel-cost-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "mesafe",
+      "label": "Mesafe (km)",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Mesafe (km)",
+        "de": "Entfernung (km)",
+        "fr": "Distance (km)",
+        "es": "Distancia (km)",
+        "ar": "المسافة (كم)"
+      },
+      "type": "number",
+      "unit": "km",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Toplam mesafe.",
+      "businessContext_i18n": {
+        "en": "Total distance.",
+        "tr": "Toplam mesafe.",
+        "de": "Total distance.",
+        "fr": "Total distance.",
+        "es": "Total distance.",
+        "ar": "Total distance."
+      }
+    },
+    {
+      "id": "tuketim",
+      "label": "Yakıt Tüketimi (L/100km)",
+      "label_i18n": {
+        "en": "Fuel Consumption (L/100km)",
+        "tr": "Yakıt Tüketimi (L/100km)",
+        "de": "Kraftstoffverbrauch (L/100km)",
+        "fr": "Consommation de carburant (L/100km)",
+        "es": "Consumo de combustible (L/100km)",
+        "ar": "استهلاك الوقود (لتر/100كم)"
+      },
+      "type": "number",
+      "unit": "L/100km",
+      "default": 10,
+      "min": 0,
+      "businessContext": "100 km'de tüketilen yakıt.",
+      "businessContext_i18n": {
+        "en": "Fuel per 100 km.",
+        "tr": "100 km'de tüketilen yakıt.",
+        "de": "Fuel per 100 km.",
+        "fr": "Fuel per 100 km.",
+        "es": "Fuel per 100 km.",
+        "ar": "Fuel per 100 km."
+      }
+    },
+    {
+      "id": "litreFiyati",
+      "label": "Litre Fiyatı (TL)",
+      "label_i18n": {
+        "en": "Fuel Price/Liter (USD)",
+        "tr": "Litre Fiyatı (TL)",
+        "de": "Fuel Price/Liter (USD)",
+        "fr": "Fuel Price/Liter (USD)",
+        "es": "Fuel Price/Liter (USD)",
+        "ar": "Fuel Price/Liter (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 25,
+      "min": 0,
+      "businessContext": "Litre başı yakıt fiyatı.",
+      "businessContext_i18n": {
+        "en": "Price per liter.",
+        "tr": "Litre başı yakıt fiyatı.",
+        "de": "Price per liter.",
+        "fr": "Price per liter.",
+        "es": "Price per liter.",
+        "ar": "Price per liter."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(mesafe / 100) * tuketim * litreFiyati"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Toplam Yakıt Maliyeti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Yakıt Maliyeti",
+        "tr": "Toplam Yakıt Maliyeti",
+        "de": "Toplam Yakıt Maliyeti",
+        "fr": "Toplam Yakıt Maliyeti",
+        "es": "Toplam Yakıt Maliyeti",
+        "ar": "Toplam Yakıt Maliyeti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total fuel cost for a trip.",
+      "long": "Calculate total fuel cost for a trip.",
+      "short_i18n": {
+        "en": "Calculate total fuel cost for a trip.",
+        "tr": "Gidilen yol için gereken toplam yakıt giderini hesaplar.",
+        "de": "Calculate total fuel cost for a trip.",
+        "fr": "Calculate total fuel cost for a trip.",
+        "es": "Calculate total fuel cost for a trip.",
+        "ar": "Calculate total fuel cost for a trip."
+      },
+      "long_i18n": {
+        "en": "Calculate total fuel cost for a trip.",
+        "tr": "Gidilen yol için gereken toplam yakıt giderini hesaplar.",
+        "de": "Calculate total fuel cost for a trip.",
+        "fr": "Calculate total fuel cost for a trip.",
+        "es": "Calculate total fuel cost for a trip.",
+        "ar": "Calculate total fuel cost for a trip."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "fuel-cost-calculator",
+    "de": "Kraftstoffkostenrechner",
+    "fr": "Calculateur de coût de carburant",
+    "es": "Calculadora de costo de combustible",
+    "ar": "حاسبة تكلفة الوقود"
+  }
+}

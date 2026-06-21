@@ -1,0 +1,200 @@
+{
+  "toolName": "daily-macronutrient-targets-calculator",
+  "catalogCategory": "health-fitness-daily-life",
+  "categorySlug": "health-fitness-daily-life",
+  "sector": "Sağlık ve Fitness",
+  "sectorId": "health-fitness-daily-life",
+  "inputs": [
+    {
+      "id": "tdee",
+      "label": "Günlük Kalori (kcal)",
+      "label_i18n": {
+        "en": "Daily Calories (kcal)",
+        "tr": "Günlük Kalori (kcal)",
+        "de": "Daily Calories (kcal)",
+        "fr": "Daily Calories (kcal)",
+        "es": "Daily Calories (kcal)",
+        "ar": "Daily Calories (kcal)"
+      },
+      "type": "number",
+      "unit": "kcal",
+      "default": 2500,
+      "min": 0,
+      "businessContext": "Toplam günlük enerji hedefi.",
+      "businessContext_i18n": {
+        "en": "Total daily energy target.",
+        "tr": "Toplam günlük enerji hedefi.",
+        "de": "Total daily energy target.",
+        "fr": "Total daily energy target.",
+        "es": "Total daily energy target.",
+        "ar": "Total daily energy target."
+      }
+    },
+    {
+      "id": "protein",
+      "label": "Protein Oranı (%)",
+      "label_i18n": {
+        "en": "Protein Ratio (%)",
+        "tr": "Protein Oranı (%)",
+        "de": "Protein Ratio (%)",
+        "fr": "Protein Ratio (%)",
+        "es": "Protein Ratio (%)",
+        "ar": "Protein Ratio (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 5,
+      "max": 50,
+      "businessContext": "Kalorinin protein yüzdesi.",
+      "businessContext_i18n": {
+        "en": "Percentage of calories from protein.",
+        "tr": "Kalorinin protein yüzdesi.",
+        "de": "Percentage of calories from protein.",
+        "fr": "Percentage of calories from protein.",
+        "es": "Percentage of calories from protein.",
+        "ar": "Percentage of calories from protein."
+      }
+    },
+    {
+      "id": "yag",
+      "label": "Yağ Oranı (%)",
+      "label_i18n": {
+        "en": "Fat Ratio (%)",
+        "tr": "Yağ Oranı (%)",
+        "de": "Fat Ratio (%)",
+        "fr": "Fat Ratio (%)",
+        "es": "Fat Ratio (%)",
+        "ar": "Fat Ratio (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 5,
+      "max": 50,
+      "businessContext": "Kalorinin yağ yüzdesi.",
+      "businessContext_i18n": {
+        "en": "Percentage from fat.",
+        "tr": "Kalorinin yağ yüzdesi.",
+        "de": "Percentage from fat.",
+        "fr": "Percentage from fat.",
+        "es": "Percentage from fat.",
+        "ar": "Percentage from fat."
+      }
+    },
+    {
+      "id": "karb",
+      "label": "Karbonhidrat Oranı (%)",
+      "label_i18n": {
+        "en": "Carbs Ratio (%)",
+        "tr": "Karbonhidrat Oranı (%)",
+        "de": "Carbs Ratio (%)",
+        "fr": "Carbs Ratio (%)",
+        "es": "Carbs Ratio (%)",
+        "ar": "Carbs Ratio (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 45,
+      "min": 5,
+      "max": 80,
+      "businessContext": "Kalorinin karbonhidrat yüzdesi.",
+      "businessContext_i18n": {
+        "en": "Percentage from carbs.",
+        "tr": "Kalorinin karbonhidrat yüzdesi.",
+        "de": "Percentage from carbs.",
+        "fr": "Percentage from carbs.",
+        "es": "Percentage from carbs.",
+        "ar": "Percentage from carbs."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "protein_g": "(tdee * protein / 100) / 4",
+    "yag_g": "(tdee * yag / 100) / 9",
+    "sonuc": "(tdee * karb / 100) / 4"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "g",
+    "breakdown": {
+      "protein_g": "Protein (g)",
+      "yag_g": "Yağ (g)",
+      "sonuc": "Karbohidrat (g)"
+    },
+    "breakdown_i18n": {
+      "protein_g": {
+        "en": "Protein (g)",
+        "tr": "Protein (g)",
+        "de": "Protein (g)",
+        "fr": "Protein (g)",
+        "es": "Protein (g)",
+        "ar": "Protein (g)"
+      },
+      "yag_g": {
+        "en": "Yağ (g)",
+        "tr": "Yağ (g)",
+        "de": "Yağ (g)",
+        "fr": "Yağ (g)",
+        "es": "Yağ (g)",
+        "ar": "Yağ (g)"
+      },
+      "sonuc": {
+        "en": "Karbohidrat (g)",
+        "tr": "Karbohidrat (g)",
+        "de": "Karbohidrat (g)",
+        "fr": "Karbohidrat (g)",
+        "es": "Karbohidrat (g)",
+        "ar": "Karbohidrat (g)"
+      }
+    },
+    "breakdownUnits": {
+      "protein_g": "g",
+      "yag_g": "g",
+      "sonuc": "g"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult a healthcare professional before starting any diet or exercise program.",
+      "Individual results may vary."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate daily macronutrient targets in grams based on calorie goals.",
+      "long": "Calculate daily macronutrient targets in grams based on calorie goals.",
+      "short_i18n": {
+        "en": "Calculate daily macronutrient targets in grams based on calorie goals.",
+        "tr": "Günlük kalori hedefinin gramaj bazlı besin dağılımını (protein, yağ, karbonhidrat) hesaplar.",
+        "de": "Calculate daily macronutrient targets in grams based on calorie goals.",
+        "fr": "Calculate daily macronutrient targets in grams based on calorie goals.",
+        "es": "Calculate daily macronutrient targets in grams based on calorie goals.",
+        "ar": "Calculate daily macronutrient targets in grams based on calorie goals."
+      },
+      "long_i18n": {
+        "en": "Calculate daily macronutrient targets in grams based on calorie goals.",
+        "tr": "Günlük kalori hedefinin gramaj bazlı besin dağılımını (protein, yağ, karbonhidrat) hesaplar.",
+        "de": "Calculate daily macronutrient targets in grams based on calorie goals.",
+        "fr": "Calculate daily macronutrient targets in grams based on calorie goals.",
+        "es": "Calculate daily macronutrient targets in grams based on calorie goals.",
+        "ar": "Calculate daily macronutrient targets in grams based on calorie goals."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "daily-macronutrient-targets-calculator",
+    "de": "Makronährstoffbedarfsrechner",
+    "fr": "Calculateur de besoins en macronutriments",
+    "es": "Calculadora de necesidades de macronutrientes",
+    "ar": "حاسبة الاحتياجات من المغذيات الكبيرة"
+  }
+}

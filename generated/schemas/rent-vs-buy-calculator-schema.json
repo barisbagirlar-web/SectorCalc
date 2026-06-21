@@ -1,0 +1,126 @@
+{
+  "toolName": "rent-vs-buy-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "evFiyati",
+      "label": "Ev Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Home Price (USD)",
+        "tr": "Ev Fiyatı (₺)",
+        "de": "Hauspreis",
+        "fr": "Prix de la maison",
+        "es": "Precio de la Vivienda",
+        "ar": "سعر المنزل"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 2000000,
+      "min": 0,
+      "businessContext": "Satın alınacak evin fiyatı.",
+      "businessContext_i18n": {
+        "en": "Home purchase price.",
+        "tr": "Satın alınacak evin fiyatı.",
+        "de": "Home purchase price.",
+        "fr": "Home purchase price.",
+        "es": "Home purchase price.",
+        "ar": "Home purchase price."
+      }
+    },
+    {
+      "id": "yillikKira",
+      "label": "Yıllık Kira (₺)",
+      "label_i18n": {
+        "en": "Annual Rent (USD)",
+        "tr": "Yıllık Kira (₺)",
+        "de": "Jährliches Mieteinkommen",
+        "fr": "Revenu Locatif Annuel",
+        "es": "Ingreso Anual por Alquiler",
+        "ar": "دخل الإيجار السنوي"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 120000,
+      "min": 0,
+      "businessContext": "Aynı evin yıllık kira bedeli.",
+      "businessContext_i18n": {
+        "en": "Annual rent for same property.",
+        "tr": "Aynı evin yıllık kira bedeli.",
+        "de": "Annual rent for same property.",
+        "fr": "Annual rent for same property.",
+        "es": "Annual rent for same property.",
+        "ar": "Annual rent for same property."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "oran": "evFiyati / Math.max(1, yillikKira)",
+    "sonuc": "evFiyati / Math.max(1, yillikKira)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "Fiyat/Kira Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Fiyat/Kira Oranı",
+        "tr": "Fiyat/Kira Oranı",
+        "de": "Fiyat/Kira Oranı",
+        "fr": "Fiyat/Kira Oranı",
+        "es": "Fiyat/Kira Oranı",
+        "ar": "Fiyat/Kira Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Compare renting vs buying based on price-to-rent ratio.",
+      "long": "Compare renting vs buying based on price-to-rent ratio.",
+      "short_i18n": {
+        "en": "Compare renting vs buying based on price-to-rent ratio.",
+        "tr": "Fiyat/Kira oranına göre optimal barınma stratejisini hesaplar.",
+        "de": "Compare renting vs buying based on price-to-rent ratio.",
+        "fr": "Compare renting vs buying based on price-to-rent ratio.",
+        "es": "Compare renting vs buying based on price-to-rent ratio.",
+        "ar": "Compare renting vs buying based on price-to-rent ratio."
+      },
+      "long_i18n": {
+        "en": "Compare renting vs buying based on price-to-rent ratio.",
+        "tr": "Fiyat/Kira oranına göre optimal barınma stratejisini hesaplar.",
+        "de": "Compare renting vs buying based on price-to-rent ratio.",
+        "fr": "Compare renting vs buying based on price-to-rent ratio.",
+        "es": "Compare renting vs buying based on price-to-rent ratio.",
+        "ar": "Compare renting vs buying based on price-to-rent ratio."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "rent-vs-buy-calculator",
+    "de": "Mieten oder Kaufen Vergleichsrechner",
+    "fr": "Calculateur de Comparatif Location Achat",
+    "es": "Calculadora de Comparación Alquiler vs Compra",
+    "ar": "حاسبة مقارنة الإيجار والشراء"
+  }
+}

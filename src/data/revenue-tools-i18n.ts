@@ -331,3 +331,50 @@ export function getLocalizedRevenueToolTitle(
   if (!map) return fallback;
   return map[kind][slug] ?? fallback;
 }
+
+// ═══════════════════════════════════════════════════════════════
+// Locale-aware overrides for revenue tool FREE/PAID descriptions.
+// Added to fix English description leaks in categories page.
+// ═══════════════════════════════════════════════════════════════
+
+/* TR */
+const TR_FREE_DESCRIPTIONS: Record<string, string> = {
+  "carbon-footprint-quick": "Üretim hacmi ve enerji karışımından görünür CO₂ maruziyetini tahmin et.",
+  "feed-cost-estimator": "Sürü büyüklüğü ve günlük rasyondan aylık yem harcamasını tahmin et.",
+  "fertilizer-dosage-calculator": "N-P-K yükünü ve aşırı gübreleme riskini hesapla.",
+  "fuel-consumption-check": "Mesafe ve tüketimden yakıt maliyetini tahmin et.",
+  "home-renovation-m2": "Metrekare başına görünür malzeme ve işçilik maliyetini tahmin et.",
+  "irrigation-cost-check": "Görünür pompa süresi ve su maliyeti maruziyetini tahmin et.",
+  "kwh-consumption-check": "Aylık kWh maruziyetini referans tarife karşısında kontrol et.",
+  "milk-yield-check": "Süt gelirini görünür yem maliyeti baskısıyla karşılaştır.",
+  "recipe-cost-check": "Malzeme listesinden porsiyon başına maliyeti hesapla.",
+};
+
+const TR_PAID_DESCRIPTIONS: Record<string, string> = {
+  "carbon-footprint-quick": "Proses emisyonları, nakliye ve CBAM maliyet maruziyetini modelle.",
+  "feed-cost-estimator": "Atık, su kalitesi ve yem-çıktı verimliliğini modelle.",
+  "fertilizer-dosage-calculator": "Nem, hava ve girdi maliyeti kaçaklarını verim kararıyla modelle.",
+  "fuel-consumption-check": "Köprüler, dönüş ayağı ve gerçekçi yolculuk bütçesi için tampon ekle.",
+  "home-renovation-m2": "Mevsimsel gecikme, bölgesel çarpan ve gerçekçi toplam ekle.",
+  "irrigation-cost-check": "Verimlilik kararıyla minimum uygulanabilir sulama harcamasını bul.",
+  "kwh-consumption-check": "Talep bedelleri, güç faktörü ve verimlilik kararını modelle.",
+  "milk-yield-check": "Tam maliyet yığını kararıyla süt kâr kaçaklarını tespit et.",
+  "recipe-cost-check": "Atık ve enflasyon tamponuyla haftalık bakkal planını modelle.",
+};
+
+const REVENUE_TOOL_DESCRIPTIONS: Partial<
+  Record<AppLocale, { paid: Record<string, string>; free: Record<string, string> }>
+> = {
+  tr: { paid: TR_PAID_DESCRIPTIONS, free: TR_FREE_DESCRIPTIONS },
+};
+
+export function getLocalizedRevenueToolDescription(
+  slug: string,
+  kind: ToolKind,
+  locale: string,
+  fallback: string,
+): string {
+  const map = REVENUE_TOOL_DESCRIPTIONS[locale as AppLocale];
+  if (!map) return fallback;
+  return map[kind][slug] ?? fallback;
+}

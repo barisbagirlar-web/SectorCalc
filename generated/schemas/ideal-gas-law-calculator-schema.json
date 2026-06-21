@@ -1,0 +1,179 @@
+{
+  "toolName": "ideal-gas-law-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "basinc",
+      "label": "Basınç (Pa)",
+      "label_i18n": {
+        "en": "Pressure (Pa)",
+        "tr": "Basınç (Pa)",
+        "de": "Systemdrucksollwert",
+        "fr": "Point de consigne de pression du système",
+        "es": "Punto de consigna de presión del sistema",
+        "ar": "نقطة ضبط ضغط النظام"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "min": 0,
+      "businessContext": "Gaz basıncı.",
+      "businessContext_i18n": {
+        "en": "Gas pressure.",
+        "tr": "Gaz basıncı.",
+        "de": "Gas pressure.",
+        "fr": "Gas pressure.",
+        "es": "Gas pressure.",
+        "ar": "Gas pressure."
+      }
+    },
+    {
+      "id": "hacim",
+      "label": "Hacim (m³)",
+      "label_i18n": {
+        "en": "Volume (m³)",
+        "tr": "Hacim (m³)",
+        "de": "Produktionsvolumen (N)",
+        "fr": "Volume de production (N)",
+        "es": "Volumen de producción (N)",
+        "ar": "حجم الإنتاج (N)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.024,
+      "min": 0,
+      "businessContext": "Gaz hacmi.",
+      "businessContext_i18n": {
+        "en": "Gas volume.",
+        "tr": "Gaz hacmi.",
+        "de": "Gas volume.",
+        "fr": "Gas volume.",
+        "es": "Gas volume.",
+        "ar": "Gas volume."
+      }
+    },
+    {
+      "id": "mol",
+      "label": "Miktar (mol)",
+      "label_i18n": {
+        "en": "Amount (mol)",
+        "tr": "Miktar (mol)",
+        "de": "Kapitalbetrag",
+        "fr": "Montant principal",
+        "es": "Monto principal",
+        "ar": "المبلغ الأساسي"
+      },
+      "type": "number",
+      "unit": "mol",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Gaz miktarı.",
+      "businessContext_i18n": {
+        "en": "Amount of substance.",
+        "tr": "Gaz miktarı.",
+        "de": "Amount of substance.",
+        "fr": "Amount of substance.",
+        "es": "Amount of substance.",
+        "ar": "Amount of substance."
+      }
+    },
+    {
+      "id": "sicaklik",
+      "label": "Sıcaklık (K)",
+      "label_i18n": {
+        "en": "Temperature (K)",
+        "tr": "Sıcaklık (K)",
+        "de": "Betriebstemperatur",
+        "fr": "Température de fonctionnement",
+        "es": "Temperatura de operación",
+        "ar": "درجة حرارة التشغيل"
+      },
+      "type": "number",
+      "unit": "K",
+      "default": 293,
+      "min": 0,
+      "businessContext": "Gaz sıcaklığı.",
+      "businessContext_i18n": {
+        "en": "Gas temperature.",
+        "tr": "Gaz sıcaklığı.",
+        "de": "Gas temperature.",
+        "fr": "Gas temperature.",
+        "es": "Gas temperature.",
+        "ar": "Gas temperature."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "R": "8.314",
+    "sonuc": "(basinc * hacim) / (mol * 8.314 * sicaklik)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "K",
+    "breakdown": {
+      "sonuc": "Sıcaklık (T)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Sıcaklık (T)",
+        "tr": "Sıcaklık (T)",
+        "de": "Sıcaklık (T)",
+        "fr": "Sıcaklık (T)",
+        "es": "Sıcaklık (T)",
+        "ar": "Sıcaklık (T)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "K"
+    },
+    "hiddenLossDrivers": [
+      "Low SNR indicates poor signal quality.",
+      "High Q indicates narrow bandwidth."
+    ],
+    "suggestedActions": [
+      "Use proper shielding for sensitive measurements.",
+      "Consider efficiency losses in energy calculations."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+      "long": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+      "short_i18n": {
+        "en": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+        "tr": "Gazın durum denklemindeki (PV=nRT) bilinmeyen parametreyi hesaplar.",
+        "de": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+        "fr": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+        "es": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+        "ar": "Calculate unknown parameter in ideal gas law (PV=nRT)."
+      },
+      "long_i18n": {
+        "en": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+        "tr": "Gazın durum denklemindeki (PV=nRT) bilinmeyen parametreyi hesaplar.",
+        "de": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+        "fr": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+        "es": "Calculate unknown parameter in ideal gas law (PV=nRT).",
+        "ar": "Calculate unknown parameter in ideal gas law (PV=nRT)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "ideal-gas-law-calculator",
+    "de": "Ideales Gasgesetz Rechner",
+    "fr": "Calculateur de Loi des Gaz Parfaits",
+    "es": "Calculadora de Ley de Gas Ideal",
+    "ar": "حاسبة قانون الغاز المثالي"
+  }
+}

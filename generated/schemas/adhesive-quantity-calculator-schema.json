@@ -1,0 +1,125 @@
+{
+  "toolName": "adhesive-quantity-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "alan",
+      "label": "Yüzey Alanı (m²)",
+      "label_i18n": {
+        "en": "Surface Area (m²)",
+        "tr": "Yüzey Alanı (m²)",
+        "de": "Surface Fläche to paint",
+        "fr": "Surface Surface to paint",
+        "es": "Surface Área to paint",
+        "ar": "Surface المساحة to paint"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Kaplanacak alan.",
+      "businessContext_i18n": {
+        "en": "Area to cover.",
+        "tr": "Kaplanacak alan.",
+        "de": "Area to cover.",
+        "fr": "Area to cover.",
+        "es": "Area to cover.",
+        "ar": "Area to cover."
+      }
+    },
+    {
+      "id": "sarfiyat",
+      "label": "Sarfiyat (kg/m²)",
+      "label_i18n": {
+        "en": "Consumption (kg/m²)",
+        "tr": "Sarfiyat (kg/m²)",
+        "de": "Stromverbrauch",
+        "fr": "Consommation d'électricité",
+        "es": "Consumo de electricidad",
+        "ar": "استهلاك الكهرباء"
+      },
+      "type": "number",
+      "unit": "kg/m2",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Birim alan için yapıştırıcı tüketimi.",
+      "businessContext_i18n": {
+        "en": "Adhesive consumption per m².",
+        "tr": "Birim alan için yapıştırıcı tüketimi.",
+        "de": "Adhesive consumption per m².",
+        "fr": "Adhesive consumption per m².",
+        "es": "Adhesive consumption per m².",
+        "ar": "Adhesive consumption per m²."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "alan * sarfiyat"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kg",
+    "breakdown": {
+      "sonuc": "Gerekli Yapıştırıcı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Yapıştırıcı",
+        "tr": "Gerekli Yapıştırıcı",
+        "de": "Gerekli Yapıştırıcı",
+        "fr": "Gerekli Yapıştırıcı",
+        "es": "Gerekli Yapıştırıcı",
+        "ar": "Gerekli Yapıştırıcı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kg"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate adhesive quantity needed to cover a surface area.",
+      "long": "Calculate adhesive quantity needed to cover a surface area.",
+      "short_i18n": {
+        "en": "Calculate adhesive quantity needed to cover a surface area.",
+        "tr": "Yüzeyi kaplamak için gereken net yapıştırıcı miktarını hesaplar.",
+        "de": "Calculate adhesive quantity needed to cover a surface area.",
+        "fr": "Calculate adhesive quantity needed to cover a surface area.",
+        "es": "Calculate adhesive quantity needed to cover a surface area.",
+        "ar": "Calculate adhesive quantity needed to cover a surface area."
+      },
+      "long_i18n": {
+        "en": "Calculate adhesive quantity needed to cover a surface area.",
+        "tr": "Yüzeyi kaplamak için gereken net yapıştırıcı miktarını hesaplar.",
+        "de": "Calculate adhesive quantity needed to cover a surface area.",
+        "fr": "Calculate adhesive quantity needed to cover a surface area.",
+        "es": "Calculate adhesive quantity needed to cover a surface area.",
+        "ar": "Calculate adhesive quantity needed to cover a surface area."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "adhesive-quantity-calculator",
+    "de": "Klebstoffmengenrechner",
+    "fr": "Calculateur de quantité d'adhésif",
+    "es": "Calculadora de cantidad de adhesivo",
+    "ar": "حاسبة كمية المادة اللاصقة"
+  }
+}

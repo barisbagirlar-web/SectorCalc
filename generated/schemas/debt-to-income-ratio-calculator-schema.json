@@ -1,0 +1,125 @@
+{
+  "toolName": "debt-to-income-ratio-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Kredi ve Borç",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "aylikBorc",
+      "label": "Toplam Aylık Borç (₺)",
+      "label_i18n": {
+        "en": "Total Monthly Debt (USD)",
+        "tr": "Toplam Aylık Borç (₺)",
+        "de": "Monatliche Gesamtschuldenzahlungen",
+        "fr": "Paiements mensuels totaux de la dette",
+        "es": "Pagos mensuales totales de deuda",
+        "ar": "إجمالي مدفوعات الديون الشهرية"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 15000,
+      "min": 0,
+      "businessContext": "Tüm borçların aylık toplamı.",
+      "businessContext_i18n": {
+        "en": "Total monthly debt payments.",
+        "tr": "Tüm borçların aylık toplamı.",
+        "de": "Total monthly debt payments.",
+        "fr": "Total monthly debt payments.",
+        "es": "Total monthly debt payments.",
+        "ar": "Total monthly debt payments."
+      }
+    },
+    {
+      "id": "brutGelir",
+      "label": "Brüt Aylık Gelir (₺)",
+      "label_i18n": {
+        "en": "Gross Monthly Income (USD)",
+        "tr": "Brüt Aylık Gelir (₺)",
+        "de": "Bruttomonatseinkommen",
+        "fr": "Revenu mensuel brut",
+        "es": "Ingreso mensual bruto",
+        "ar": "الدخل الشهري الإجمالي"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Vergi öncesi aylık gelir.",
+      "businessContext_i18n": {
+        "en": "Monthly gross income.",
+        "tr": "Vergi öncesi aylık gelir.",
+        "de": "Monthly gross income.",
+        "fr": "Monthly gross income.",
+        "es": "Monthly gross income.",
+        "ar": "Monthly gross income."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(aylikBorc / Math.max(1, brutGelir)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Borç/Gelir Oranı (DTI)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Borç/Gelir Oranı (DTI)",
+        "tr": "Borç/Gelir Oranı (DTI)",
+        "de": "Borç/Gelir Oranı (DTI)",
+        "fr": "Borç/Gelir Oranı (DTI)",
+        "es": "Borç/Gelir Oranı (DTI)",
+        "ar": "Borç/Gelir Oranı (DTI)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Compare multiple loan offers before committing.",
+      "Consider total cost including fees."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate debt-to-income (DTI) ratio.",
+      "long": "Calculate debt-to-income (DTI) ratio.",
+      "short_i18n": {
+        "en": "Calculate debt-to-income (DTI) ratio.",
+        "tr": "Gelirin borç ödemelerine ayrılan yüzdesini (DTI) hesaplar.",
+        "de": "Calculate debt-to-income (DTI) ratio.",
+        "fr": "Calculate debt-to-income (DTI) ratio.",
+        "es": "Calculate debt-to-income (DTI) ratio.",
+        "ar": "Calculate debt-to-income (DTI) ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate debt-to-income (DTI) ratio.",
+        "tr": "Gelirin borç ödemelerine ayrılan yüzdesini (DTI) hesaplar.",
+        "de": "Calculate debt-to-income (DTI) ratio.",
+        "fr": "Calculate debt-to-income (DTI) ratio.",
+        "es": "Calculate debt-to-income (DTI) ratio.",
+        "ar": "Calculate debt-to-income (DTI) ratio."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "debt-to-income-ratio-calculator",
+    "de": "Schulden-Einkommens-Verhältnis (DTI) Rechner",
+    "fr": "Calculateur de ratio dette/revenu (DTI)",
+    "es": "Calculadora de relación deuda-ingreso (DTI)",
+    "ar": "حاسبة نسبة الدين إلى الدخل (DTI)"
+  }
+}

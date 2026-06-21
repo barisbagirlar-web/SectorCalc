@@ -1,0 +1,225 @@
+{
+  "toolName": "bernoulli-pressure-calculator",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "P1",
+      "label": "1. Nokta Basıncı (Pa)",
+      "label_i18n": {
+        "en": "Point 1 Pressure (Pa)",
+        "tr": "1. Nokta Basıncı (Pa)",
+        "de": "Point 1 Pressure (Pa)",
+        "fr": "Point 1 Pressure (Pa)",
+        "es": "Point 1 Pressure (Pa)",
+        "ar": "Point 1 Pressure (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Birinci noktadaki statik basınç.",
+      "businessContext_i18n": {
+        "en": "Static pressure at point 1.",
+        "tr": "Birinci noktadaki statik basınç.",
+        "de": "Static pressure at point 1.",
+        "fr": "Static pressure at point 1.",
+        "es": "Static pressure at point 1.",
+        "ar": "Static pressure at point 1."
+      }
+    },
+    {
+      "id": "v1",
+      "label": "1. Nokta Hızı (m/s)",
+      "label_i18n": {
+        "en": "Point 1 Velocity (m/s)",
+        "tr": "1. Nokta Hızı (m/s)",
+        "de": "Point 1 Velocity (m/s)",
+        "fr": "Point 1 Velocity (m/s)",
+        "es": "Point 1 Velocity (m/s)",
+        "ar": "Point 1 Velocity (m/s)"
+      },
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Birinci noktadaki akış hızı.",
+      "businessContext_i18n": {
+        "en": "Flow velocity at point 1.",
+        "tr": "Birinci noktadaki akış hızı.",
+        "de": "Flow velocity at point 1.",
+        "fr": "Flow velocity at point 1.",
+        "es": "Flow velocity at point 1.",
+        "ar": "Flow velocity at point 1."
+      }
+    },
+    {
+      "id": "v2",
+      "label": "2. Nokta Hızı (m/s)",
+      "label_i18n": {
+        "en": "Point 2 Velocity (m/s)",
+        "tr": "2. Nokta Hızı (m/s)",
+        "de": "Point 2 Velocity (m/s)",
+        "fr": "Point 2 Velocity (m/s)",
+        "es": "Point 2 Velocity (m/s)",
+        "ar": "Point 2 Velocity (m/s)"
+      },
+      "type": "number",
+      "unit": "m/s",
+      "default": 4,
+      "min": 0,
+      "businessContext": "İkinci noktadaki akış hızı.",
+      "businessContext_i18n": {
+        "en": "Flow velocity at point 2.",
+        "tr": "İkinci noktadaki akış hızı.",
+        "de": "Flow velocity at point 2.",
+        "fr": "Flow velocity at point 2.",
+        "es": "Flow velocity at point 2.",
+        "ar": "Flow velocity at point 2."
+      }
+    },
+    {
+      "id": "h1",
+      "label": "1. Nokta Yükseklik (m)",
+      "label_i18n": {
+        "en": "Point 1 Height (m)",
+        "tr": "1. Nokta Yükseklik (m)",
+        "de": "Point 1 Height (m)",
+        "fr": "Point 1 Height (m)",
+        "es": "Point 1 Height (m)",
+        "ar": "Point 1 Height (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Birinci noktanın kotu.",
+      "businessContext_i18n": {
+        "en": "Elevation at point 1.",
+        "tr": "Birinci noktanın kotu.",
+        "de": "Elevation at point 1.",
+        "fr": "Elevation at point 1.",
+        "es": "Elevation at point 1.",
+        "ar": "Elevation at point 1."
+      }
+    },
+    {
+      "id": "h2",
+      "label": "2. Nokta Yükseklik (m)",
+      "label_i18n": {
+        "en": "Point 2 Height (m)",
+        "tr": "2. Nokta Yükseklik (m)",
+        "de": "Point 2 Height (m)",
+        "fr": "Point 2 Height (m)",
+        "es": "Point 2 Height (m)",
+        "ar": "Point 2 Height (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "min": 0,
+      "businessContext": "İkinci noktanın kotu.",
+      "businessContext_i18n": {
+        "en": "Elevation at point 2.",
+        "tr": "İkinci noktanın kotu.",
+        "de": "Elevation at point 2.",
+        "fr": "Elevation at point 2.",
+        "es": "Elevation at point 2.",
+        "ar": "Elevation at point 2."
+      }
+    },
+    {
+      "id": "yogunluk",
+      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label_i18n": {
+        "en": "Fluid Density (kg/m³)",
+        "tr": "Akışkan Yoğunluğu (kg/m³)",
+        "de": "Fluiddichte",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
+        "ar": "كثافة المائع"
+      },
+      "type": "number",
+      "unit": "kg/m3",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext_i18n": {
+        "en": "Fluid density.",
+        "tr": "Akışkanın yoğunluğu.",
+        "de": "Fluid density.",
+        "fr": "Fluid density.",
+        "es": "Fluid density.",
+        "ar": "Fluid density."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "P1 + 0.5 * yogunluk * (v1 * v1 - v2 * v2) + yogunluk * 9.81 * (h1 - h2)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "2. Nokta Basıncı (P₂)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "2. Nokta Basıncı (P₂)",
+        "tr": "2. Nokta Basıncı (P₂)",
+        "de": "2. Nokta Basıncı (P₂)",
+        "fr": "2. Nokta Basıncı (P₂)",
+        "es": "2. Nokta Basıncı (P₂)",
+        "ar": "2. Nokta Basıncı (P₂)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate static pressure at a point using Bernoulli's equation.",
+      "long": "Calculate static pressure at a point using Bernoulli's equation.",
+      "short_i18n": {
+        "en": "Calculate static pressure at a point using Bernoulli's equation.",
+        "tr": "Akışkanın bir noktadaki statik basıncını Bernoulli prensibiyle hesaplar.",
+        "de": "Calculate static pressure at a point using Bernoulli's equation.",
+        "fr": "Calculate static pressure at a point using Bernoulli's equation.",
+        "es": "Calculate static pressure at a point using Bernoulli's equation.",
+        "ar": "Calculate static pressure at a point using Bernoulli's equation."
+      },
+      "long_i18n": {
+        "en": "Calculate static pressure at a point using Bernoulli's equation.",
+        "tr": "Akışkanın bir noktadaki statik basıncını Bernoulli prensibiyle hesaplar.",
+        "de": "Calculate static pressure at a point using Bernoulli's equation.",
+        "fr": "Calculate static pressure at a point using Bernoulli's equation.",
+        "es": "Calculate static pressure at a point using Bernoulli's equation.",
+        "ar": "Calculate static pressure at a point using Bernoulli's equation."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "bernoulli-pressure-calculator",
+    "de": "Bernoulli-Gleichungsrechner",
+    "fr": "Calculateur d'équation de Bernoulli",
+    "es": "Calculadora de ecuación de Bernoulli",
+    "ar": "حاسبة معادلة برنولي"
+  }
+}

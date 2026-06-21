@@ -1,0 +1,125 @@
+{
+  "toolName": "lvl-beam-capacity-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "kesitModulu",
+      "label": "Kesit Modülü (m³)",
+      "label_i18n": {
+        "en": "Section Modulus (m³)",
+        "tr": "Kesit Modülü (m³)",
+        "de": "Widerstandsmoment",
+        "fr": "Module de section",
+        "es": "Módulo de sección",
+        "ar": "معامل المقطع"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.00025,
+      "min": 0,
+      "businessContext": "LVL kirişin kesit modülü.",
+      "businessContext_i18n": {
+        "en": "LVL beam section modulus.",
+        "tr": "LVL kirişin kesit modülü.",
+        "de": "LVL beam section modulus.",
+        "fr": "LVL beam section modulus.",
+        "es": "LVL beam section modulus.",
+        "ar": "LVL beam section modulus."
+      }
+    },
+    {
+      "id": "egilmeDayanimi",
+      "label": "Eğilme Dayanımı (Pa)",
+      "label_i18n": {
+        "en": "Bending Strength (Pa)",
+        "tr": "Eğilme Dayanımı (Pa)",
+        "de": "Bending Strength (Pa)",
+        "fr": "Bending Strength (Pa)",
+        "es": "Bending Strength (Pa)",
+        "ar": "Bending Strength (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 40000000,
+      "min": 0,
+      "businessContext": "LVL'nin izin verilen eğilme gerilmesi.",
+      "businessContext_i18n": {
+        "en": "LVL allowable bending stress.",
+        "tr": "LVL'nin izin verilen eğilme gerilmesi.",
+        "de": "LVL allowable bending stress.",
+        "fr": "LVL allowable bending stress.",
+        "es": "LVL allowable bending stress.",
+        "ar": "LVL allowable bending stress."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "kesitModulu * egilmeDayanimi"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "N.m",
+    "breakdown": {
+      "sonuc": "Maks. Eğilme Momenti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maks. Eğilme Momenti",
+        "tr": "Maks. Eğilme Momenti",
+        "de": "Maks. Eğilme Momenti",
+        "fr": "Maks. Eğilme Momenti",
+        "es": "Maks. Eğilme Momenti",
+        "ar": "Maks. Eğilme Momenti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "N.m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate maximum bending moment capacity of an LVL beam.",
+      "long": "Calculate maximum bending moment capacity of an LVL beam.",
+      "short_i18n": {
+        "en": "Calculate maximum bending moment capacity of an LVL beam.",
+        "tr": "Lamine ahşap (LVL) kirişin taşıyabileceği maksimum eğilme momentini hesaplar.",
+        "de": "Calculate maximum bending moment capacity of an LVL beam.",
+        "fr": "Calculate maximum bending moment capacity of an LVL beam.",
+        "es": "Calculate maximum bending moment capacity of an LVL beam.",
+        "ar": "Calculate maximum bending moment capacity of an LVL beam."
+      },
+      "long_i18n": {
+        "en": "Calculate maximum bending moment capacity of an LVL beam.",
+        "tr": "Lamine ahşap (LVL) kirişin taşıyabileceği maksimum eğilme momentini hesaplar.",
+        "de": "Calculate maximum bending moment capacity of an LVL beam.",
+        "fr": "Calculate maximum bending moment capacity of an LVL beam.",
+        "es": "Calculate maximum bending moment capacity of an LVL beam.",
+        "ar": "Calculate maximum bending moment capacity of an LVL beam."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "lvl-beam-capacity-calculator",
+    "de": "LVL-Trägerkapazitätsrechner",
+    "fr": "Calculateur de capacité de poutre LVL",
+    "es": "Calculadora de capacidad de viga LVL",
+    "ar": "حاسبة سعة عارضة LVL"
+  }
+}

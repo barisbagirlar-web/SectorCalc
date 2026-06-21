@@ -1,0 +1,126 @@
+{
+  "toolName": "total-daily-energy-expenditure-calculator",
+  "catalogCategory": "health-fitness-daily-life",
+  "categorySlug": "health-fitness-daily-life",
+  "sector": "Sağlık ve Fitness",
+  "sectorId": "health-fitness-daily-life",
+  "inputs": [
+    {
+      "id": "bmr",
+      "label": "BMR (kcal)",
+      "label_i18n": {
+        "en": "BMR (kcal)",
+        "tr": "BMR (kcal)",
+        "de": "BMR (kcal)",
+        "fr": "BMR (kcal)",
+        "es": "BMR (kcal)",
+        "ar": "BMR (kcal)"
+      },
+      "type": "number",
+      "unit": "kcal",
+      "default": 1650,
+      "min": 0,
+      "businessContext": "Bazal metabolizma hızı.",
+      "businessContext_i18n": {
+        "en": "Basal metabolic rate.",
+        "tr": "Bazal metabolizma hızı.",
+        "de": "Primäreingabe für den Grundumsatz.",
+        "fr": "Entrée principale pour le métabolisme de base.",
+        "es": "Entrada principal para la Tasa Metabólica Basal.",
+        "ar": "إدخال أساسي لمعدل الأيض الأساسي."
+      }
+    },
+    {
+      "id": "aktiviteSeviyesi",
+      "label": "Aktivite Seviyesi (1.2-2.0)",
+      "label_i18n": {
+        "en": "Activity Level (1.2-2.0)",
+        "tr": "Aktivite Seviyesi (1.2-2.0)",
+        "de": "Körperliches Aktivitätsniveau",
+        "fr": "Niveau d'activité physique",
+        "es": "Nivel de Actividad Física",
+        "ar": "مستوى النشاط البدني"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1.55,
+      "min": 1.2,
+      "max": 2,
+      "businessContext": "Fiziksel aktivite çarpanı (1.2=hareketsiz, 2.0=çok aktif).",
+      "businessContext_i18n": {
+        "en": "Physical activity multiplier.",
+        "tr": "Fiziksel aktivite çarpanı (1.2=hareketsiz, 2.0=çok aktif).",
+        "de": "Physical activity multiplier.",
+        "fr": "Physical activity multiplier.",
+        "es": "Physical activity multiplier.",
+        "ar": "Physical activity multiplier."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "bmr * aktiviteSeviyesi"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kcal",
+    "breakdown": {
+      "sonuc": "TDEE (Günlük Kalori İhtiyacı)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "TDEE (Günlük Kalori İhtiyacı)",
+        "tr": "TDEE (Günlük Kalori İhtiyacı)",
+        "de": "TDEE (Günlük Kalori İhtiyacı)",
+        "fr": "TDEE (Günlük Kalori İhtiyacı)",
+        "es": "TDEE (Günlük Kalori İhtiyacı)",
+        "ar": "TDEE (Günlük Kalori İhtiyacı)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kcal"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult a healthcare professional before starting any diet or exercise program.",
+      "Individual results may vary."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+      "long": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+      "short_i18n": {
+        "en": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+        "tr": "Mevcut kiloyu korumak için günlük alınması gereken toplam kaloriyi (TDEE) hesaplar.",
+        "de": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+        "fr": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+        "es": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+        "ar": "Calculate total daily energy expenditure (TDEE) to maintain weight."
+      },
+      "long_i18n": {
+        "en": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+        "tr": "Mevcut kiloyu korumak için günlük alınması gereken toplam kaloriyi (TDEE) hesaplar.",
+        "de": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+        "fr": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+        "es": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
+        "ar": "Calculate total daily energy expenditure (TDEE) to maintain weight."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "total-daily-energy-expenditure-calculator",
+    "de": "TDEE-Rechner",
+    "fr": "Calculateur de dépense énergétique totale (TDEE)",
+    "es": "Calculadora de gasto energético total (TDEE)",
+    "ar": "حاسبة إجمالي إنفاق الطاقة اليومي (TDEE)"
+  }
+}

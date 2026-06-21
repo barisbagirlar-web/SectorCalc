@@ -1,0 +1,125 @@
+{
+  "toolName": "accounts-payable-turnover-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yillikCOGS",
+      "label": "Yıllık SMM (TL)",
+      "label_i18n": {
+        "en": "Annual COGS (USD)",
+        "tr": "Yıllık SMM (TL)",
+        "de": "Annual COGS (USD)",
+        "fr": "Annual COGS (USD)",
+        "es": "Annual COGS (USD)",
+        "ar": "Annual COGS (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1200000,
+      "min": 0,
+      "businessContext": "Yıllık satılan mal maliyeti.",
+      "businessContext_i18n": {
+        "en": "Annual cost of goods sold.",
+        "tr": "Yıllık satılan mal maliyeti.",
+        "de": "Annual cost of goods sold.",
+        "fr": "Annual cost of goods sold.",
+        "es": "Annual cost of goods sold.",
+        "ar": "Annual cost of goods sold."
+      }
+    },
+    {
+      "id": "ortBorc",
+      "label": "Ortalama Borç (TL)",
+      "label_i18n": {
+        "en": "Avg Payables (USD)",
+        "tr": "Ortalama Borç (TL)",
+        "de": "Avg Payables (USD)",
+        "fr": "Avg Payables (USD)",
+        "es": "Avg Payables (USD)",
+        "ar": "Avg Payables (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 150000,
+      "min": 0,
+      "businessContext": "Ortalama ticari borç.",
+      "businessContext_i18n": {
+        "en": "Average accounts payable.",
+        "tr": "Ortalama ticari borç.",
+        "de": "Average accounts payable.",
+        "fr": "Average accounts payable.",
+        "es": "Average accounts payable.",
+        "ar": "Average accounts payable."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "365 / Math.max(0.0001, yillikCOGS / Math.max(0.0001, ortBorc))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "days",
+    "breakdown": {
+      "sonuc": "Ortalama Ödeme Süresi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Ortalama Ödeme Süresi",
+        "tr": "Ortalama Ödeme Süresi",
+        "de": "Ortalama Ödeme Süresi",
+        "fr": "Ortalama Ödeme Süresi",
+        "es": "Ortalama Ödeme Süresi",
+        "ar": "Ortalama Ödeme Süresi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "days"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate accounts payable turnover in days.",
+      "long": "Calculate accounts payable turnover in days.",
+      "short_i18n": {
+        "en": "Calculate accounts payable turnover in days.",
+        "tr": "Tedarikçilere borçların ödenme ortalama süresini hesaplar.",
+        "de": "Calculate accounts payable turnover in days.",
+        "fr": "Calculate accounts payable turnover in days.",
+        "es": "Calculate accounts payable turnover in days.",
+        "ar": "Calculate accounts payable turnover in days."
+      },
+      "long_i18n": {
+        "en": "Calculate accounts payable turnover in days.",
+        "tr": "Tedarikçilere borçların ödenme ortalama süresini hesaplar.",
+        "de": "Calculate accounts payable turnover in days.",
+        "fr": "Calculate accounts payable turnover in days.",
+        "es": "Calculate accounts payable turnover in days.",
+        "ar": "Calculate accounts payable turnover in days."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "accounts-payable-turnover-calculator",
+    "de": "Schuldenumsatzrechner",
+    "fr": "Calculateur de rotation de la dette",
+    "es": "Calculadora de rotación de deuda",
+    "ar": "حاسبة دوران الديون"
+  }
+}

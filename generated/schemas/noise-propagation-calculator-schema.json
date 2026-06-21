@@ -1,0 +1,178 @@
+{
+  "toolName": "noise-propagation-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "sesGucu",
+      "label": "Ses Gücü Seviyesi (dB)",
+      "label_i18n": {
+        "en": "Sound Power Level (dB)",
+        "tr": "Ses Gücü Seviyesi (dB)",
+        "de": "Sound Power Level (dB)",
+        "fr": "Sound Power Level (dB)",
+        "es": "Sound Power Level (dB)",
+        "ar": "Sound Power Level (dB)"
+      },
+      "type": "number",
+      "unit": "dB",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Kaynağın ses gücü.",
+      "businessContext_i18n": {
+        "en": "Source sound power.",
+        "tr": "Kaynağın ses gücü.",
+        "de": "Source sound power.",
+        "fr": "Source sound power.",
+        "es": "Source sound power.",
+        "ar": "Source sound power."
+      }
+    },
+    {
+      "id": "mesafe",
+      "label": "Kaynağa Uzaklık (m)",
+      "label_i18n": {
+        "en": "Distance from Source (m)",
+        "tr": "Kaynağa Uzaklık (m)",
+        "de": "Distance from Source (m)",
+        "fr": "Distance from Source (m)",
+        "es": "Distance from Source (m)",
+        "ar": "Distance from Source (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Ölçüm noktası uzaklığı.",
+      "businessContext_i18n": {
+        "en": "Measurement distance.",
+        "tr": "Ölçüm noktası uzaklığı.",
+        "de": "Measurement distance.",
+        "fr": "Measurement distance.",
+        "es": "Measurement distance.",
+        "ar": "Measurement distance."
+      }
+    },
+    {
+      "id": "zeminZayiflama",
+      "label": "Zemin Zayıflaması (dB)",
+      "label_i18n": {
+        "en": "Ground Attenuation (dB)",
+        "tr": "Zemin Zayıflaması (dB)",
+        "de": "Ground Attenuation (dB)",
+        "fr": "Ground Attenuation (dB)",
+        "es": "Ground Attenuation (dB)",
+        "ar": "Ground Attenuation (dB)"
+      },
+      "type": "number",
+      "unit": "dB",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Zemin emilimi.",
+      "businessContext_i18n": {
+        "en": "Ground absorption.",
+        "tr": "Zemin emilimi.",
+        "de": "Ground absorption.",
+        "fr": "Ground absorption.",
+        "es": "Ground absorption.",
+        "ar": "Ground absorption."
+      }
+    },
+    {
+      "id": "engelZayiflama",
+      "label": "Engel Zayıflaması (dB)",
+      "label_i18n": {
+        "en": "Barrier Attenuation (dB)",
+        "tr": "Engel Zayıflaması (dB)",
+        "de": "Barrier Attenuation (dB)",
+        "fr": "Barrier Attenuation (dB)",
+        "es": "Barrier Attenuation (dB)",
+        "ar": "Barrier Attenuation (dB)"
+      },
+      "type": "number",
+      "unit": "dB",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Duvar/bina perdelemesi.",
+      "businessContext_i18n": {
+        "en": "Wall/barrier screening.",
+        "tr": "Duvar/bina perdelemesi.",
+        "de": "Wall/barrier screening.",
+        "fr": "Wall/barrier screening.",
+        "es": "Wall/barrier screening.",
+        "ar": "Wall/barrier screening."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "sesGucu - 20 * Math.log10(Math.max(1, mesafe)) - 11 - zeminZayiflama - engelZayiflama"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "dB",
+    "breakdown": {
+      "sonuc": "Ses Basınç Seviyesi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Ses Basınç Seviyesi",
+        "tr": "Ses Basınç Seviyesi",
+        "de": "Ses Basınç Seviyesi",
+        "fr": "Ses Basınç Seviyesi",
+        "es": "Ses Basınç Seviyesi",
+        "ar": "Ses Basınç Seviyesi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "dB"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate sound pressure level at a distance from noise source.",
+      "long": "Calculate sound pressure level at a distance from noise source.",
+      "short_i18n": {
+        "en": "Calculate sound pressure level at a distance from noise source.",
+        "tr": "Kaynaktan belirli mesafedeki tahmini ses basınç seviyesini (gürültü yayılımı) hesaplar.",
+        "de": "Calculate sound pressure level at a distance from noise source.",
+        "fr": "Calculate sound pressure level at a distance from noise source.",
+        "es": "Calculate sound pressure level at a distance from noise source.",
+        "ar": "Calculate sound pressure level at a distance from noise source."
+      },
+      "long_i18n": {
+        "en": "Calculate sound pressure level at a distance from noise source.",
+        "tr": "Kaynaktan belirli mesafedeki tahmini ses basınç seviyesini (gürültü yayılımı) hesaplar.",
+        "de": "Calculate sound pressure level at a distance from noise source.",
+        "fr": "Calculate sound pressure level at a distance from noise source.",
+        "es": "Calculate sound pressure level at a distance from noise source.",
+        "ar": "Calculate sound pressure level at a distance from noise source."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "noise-propagation-calculator",
+    "de": "Umgebungslärmausbreitungsrechner",
+    "fr": "Calculateur de propagation du bruit environnemental",
+    "es": "Calculadora de propagación de ruido ambiental",
+    "ar": "حاسبة انتشار الضوضاء البيئية"
+  }
+}

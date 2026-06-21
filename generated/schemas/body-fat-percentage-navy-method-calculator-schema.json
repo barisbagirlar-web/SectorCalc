@@ -1,0 +1,150 @@
+{
+  "toolName": "body-fat-percentage-navy-method-calculator",
+  "catalogCategory": "health-fitness-daily-life",
+  "categorySlug": "health-fitness-daily-life",
+  "sector": "Sağlık ve Fitness",
+  "sectorId": "health-fitness-daily-life",
+  "inputs": [
+    {
+      "id": "boy",
+      "label": "Boy (cm)",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Boy (cm)",
+        "de": "Höhe (cm)",
+        "fr": "Hauteur (cm)",
+        "es": "Altura (cm)",
+        "ar": "الارتفاع (سم)"
+      },
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "min": 0,
+      "businessContext": "Boy uzunluğu.",
+      "businessContext_i18n": {
+        "en": "Height.",
+        "tr": "Boy uzunluğu.",
+        "de": "Höhe der Ladeeinheit. Muss die Container-Türhöhe und Innenhöhe beachten.",
+        "fr": "Hauteur de l'unité de chargement. Doit respecter la hauteur de la porte du conteneur et la hauteur intérieure.",
+        "es": "Altura de la unidad de carga. Debe respetar la altura de la puerta del contenedor y la altura interior.",
+        "ar": "ارتفاع وحدة الشحن. يجب أن يحترم ارتفاع باب الحاوية والارتفاع الداخلي."
+      }
+    },
+    {
+      "id": "bel",
+      "label": "Bel Çevresi (cm)",
+      "label_i18n": {
+        "en": "Waist (cm)",
+        "tr": "Bel Çevresi (cm)",
+        "de": "Taillenumfang (cm)",
+        "fr": "Tour de taille (cm)",
+        "es": "Circunferencia de Cintura (cm)",
+        "ar": "محيط الخصر (سم)"
+      },
+      "type": "number",
+      "unit": "cm",
+      "default": 85,
+      "min": 0,
+      "businessContext": "En dar bel çevresi.",
+      "businessContext_i18n": {
+        "en": "Narrowest waist circumference.",
+        "tr": "En dar bel çevresi.",
+        "de": "Narrowest waist circumference.",
+        "fr": "Narrowest waist circumference.",
+        "es": "Narrowest waist circumference.",
+        "ar": "Narrowest waist circumference."
+      }
+    },
+    {
+      "id": "boyun",
+      "label": "Boyun Çevresi (cm)",
+      "label_i18n": {
+        "en": "Neck (cm)",
+        "tr": "Boyun Çevresi (cm)",
+        "de": "Halsumfang",
+        "fr": "Tour de cou",
+        "es": "Circunferencia del Cuello",
+        "ar": "محيط الرقبة"
+      },
+      "type": "number",
+      "unit": "cm",
+      "default": 38,
+      "min": 0,
+      "businessContext": "Boyun çevresi.",
+      "businessContext_i18n": {
+        "en": "Neck circumference.",
+        "tr": "Boyun çevresi.",
+        "de": "Neck circumference.",
+        "fr": "Neck circumference.",
+        "es": "Neck circumference.",
+        "ar": "Neck circumference."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "495 / Math.max(0.0001, (1.0324 - 0.19077 * Math.log(Math.max(1, bel - boyun)) / Math.log(10) + 0.15456 * Math.log(Math.max(1, boy)) / Math.log(10))) - 450"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Vücut Yağ Yüzdesi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Vücut Yağ Yüzdesi",
+        "tr": "Vücut Yağ Yüzdesi",
+        "de": "Vücut Yağ Yüzdesi",
+        "fr": "Vücut Yağ Yüzdesi",
+        "es": "Vücut Yağ Yüzdesi",
+        "ar": "Vücut Yağ Yüzdesi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult a healthcare professional before starting any diet or exercise program.",
+      "Individual results may vary."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate body fat percentage using the Navy method.",
+      "long": "Calculate body fat percentage using the Navy method.",
+      "short_i18n": {
+        "en": "Calculate body fat percentage using the Navy method.",
+        "tr": "Vücuttaki yağ kütlesinin toplam ağırlığa oranını (vücut yağ yüzdesi) hesaplar.",
+        "de": "Calculate body fat percentage using the Navy method.",
+        "fr": "Calculate body fat percentage using the Navy method.",
+        "es": "Calculate body fat percentage using the Navy method.",
+        "ar": "Calculate body fat percentage using the Navy method."
+      },
+      "long_i18n": {
+        "en": "Calculate body fat percentage using the Navy method.",
+        "tr": "Vücuttaki yağ kütlesinin toplam ağırlığa oranını (vücut yağ yüzdesi) hesaplar.",
+        "de": "Calculate body fat percentage using the Navy method.",
+        "fr": "Calculate body fat percentage using the Navy method.",
+        "es": "Calculate body fat percentage using the Navy method.",
+        "ar": "Calculate body fat percentage using the Navy method."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "body-fat-percentage-navy-method-calculator",
+    "de": "Körperfettanteil-Rechner",
+    "fr": "Calculateur de pourcentage de graisse corporelle",
+    "es": "Calculadora de porcentaje de grasa corporal",
+    "ar": "حاسبة نسبة الدهون في الجسم"
+  }
+}

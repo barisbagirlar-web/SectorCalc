@@ -1,0 +1,127 @@
+{
+  "toolName": "clamping-force-calculator",
+  "catalogCategory": "textile-print-lab",
+  "categorySlug": "textile-print-lab",
+  "sector": "Tekstil, Gıda ve Plastik",
+  "sectorId": "textile-print-lab",
+  "inputs": [
+    {
+      "id": "projeksiyonAlani",
+      "label": "Projeksiyon Alanı (cm²)",
+      "label_i18n": {
+        "en": "Projected Area (cm²)",
+        "tr": "Projeksiyon Alanı (cm²)",
+        "de": "Projected Area (cm²)",
+        "fr": "Projected Area (cm²)",
+        "es": "Projected Area (cm²)",
+        "ar": "Projected Area (cm²)"
+      },
+      "type": "number",
+      "unit": "cm2",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Parçanın kalıp ayrışma yüzeyindeki izdüşüm alanı.",
+      "businessContext_i18n": {
+        "en": "Part projected area on mold.",
+        "tr": "Parçanın kalıp ayrışma yüzeyindeki izdüşüm alanı.",
+        "de": "Part projected area on mold.",
+        "fr": "Part projected area on mold.",
+        "es": "Part projected area on mold.",
+        "ar": "Part projected area on mold."
+      }
+    },
+    {
+      "id": "kalipIcBasinc",
+      "label": "Kalıp İçi Basınc (bar)",
+      "label_i18n": {
+        "en": "Cavity Pressure (bar)",
+        "tr": "Kalıp İçi Basınc (bar)",
+        "de": "Cavity Pressure (bar)",
+        "fr": "Cavity Pressure (bar)",
+        "es": "Cavity Pressure (bar)",
+        "ar": "Cavity Pressure (bar)"
+      },
+      "type": "number",
+      "unit": "bar",
+      "default": 800,
+      "min": 0,
+      "businessContext": "Ergiyik plastiğin kalıp içindeki basıncı.",
+      "businessContext_i18n": {
+        "en": "Melt cavity pressure.",
+        "tr": "Ergiyik plastiğin kalıp içindeki basıncı.",
+        "de": "Melt cavity pressure.",
+        "fr": "Melt cavity pressure.",
+        "es": "Melt cavity pressure.",
+        "ar": "Melt cavity pressure."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(projeksiyonAlani * kalipIcBasinc) / 1000"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "tons",
+    "breakdown": {
+      "sonuc": "Gerekli Kilit Tonajı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Kilit Tonajı",
+        "tr": "Gerekli Kilit Tonajı",
+        "de": "Gerekli Kilit Tonajı",
+        "fr": "Gerekli Kilit Tonajı",
+        "es": "Gerekli Kilit Tonajı",
+        "ar": "Gerekli Kilit Tonajı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "tons"
+    },
+    "hiddenLossDrivers": [
+      "Waste in material or time indicates process improvement opportunity."
+    ],
+    "suggestedActions": [
+      "Optimize drying/cooling parameters for cycle time reduction.",
+      "Monitor defects and adjust process conditions accordingly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum clamping force for injection molding press.",
+      "long": "Calculate minimum clamping force for injection molding press.",
+      "short_i18n": {
+        "en": "Calculate minimum clamping force for injection molding press.",
+        "tr": "Kalıbın açılmasını önlemek için gereken minimum pres bağlama kuvvetini hesaplar.",
+        "de": "Calculate minimum clamping force for injection molding press.",
+        "fr": "Calculate minimum clamping force for injection molding press.",
+        "es": "Calculate minimum clamping force for injection molding press.",
+        "ar": "Calculate minimum clamping force for injection molding press."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum clamping force for injection molding press.",
+        "tr": "Kalıbın açılmasını önlemek için gereken minimum pres bağlama kuvvetini hesaplar.",
+        "de": "Calculate minimum clamping force for injection molding press.",
+        "fr": "Calculate minimum clamping force for injection molding press.",
+        "es": "Calculate minimum clamping force for injection molding press.",
+        "ar": "Calculate minimum clamping force for injection molding press."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "clamping-force-calculator",
+    "de": "Spritzgieß-Schließkraftrechner",
+    "fr": "Calculateur de tonnage de fermeture d'injection",
+    "es": "Calculadora de tonelaje de cierre de inyección",
+    "ar": "حاسبة حمولة إغلاق الحقن"
+  }
+}

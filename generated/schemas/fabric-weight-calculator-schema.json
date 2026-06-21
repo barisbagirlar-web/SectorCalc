@@ -1,0 +1,127 @@
+{
+  "toolName": "fabric-weight-calculator",
+  "catalogCategory": "textile-print-lab",
+  "categorySlug": "textile-print-lab",
+  "sector": "Tekstil, Gıda ve Plastik",
+  "sectorId": "textile-print-lab",
+  "inputs": [
+    {
+      "id": "en",
+      "label": "Kumaş Eni (m)",
+      "label_i18n": {
+        "en": "Fabric Width (m)",
+        "tr": "Kumaş Eni (m)",
+        "de": "Stoffbreite (cm)",
+        "fr": "Largeur du tissu (cm)",
+        "es": "Ancho de la tela (cm)",
+        "ar": "عرض القماش (سم)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "min": 0,
+      "businessContext": "Kumaşın eni.",
+      "businessContext_i18n": {
+        "en": "Fabric width.",
+        "tr": "Kumaşın eni.",
+        "de": "Fabric width.",
+        "fr": "Fabric width.",
+        "es": "Fabric width.",
+        "ar": "Fabric width."
+      }
+    },
+    {
+      "id": "gramaj",
+      "label": "Gramaj (g/m²)",
+      "label_i18n": {
+        "en": "Fabric Weight (g/m²)",
+        "tr": "Gramaj (g/m²)",
+        "de": "Stoffgewicht (kg)",
+        "fr": "Poids du tissu (kg)",
+        "es": "Peso de la tela (kg)",
+        "ar": "وزن القماش (كجم)"
+      },
+      "type": "number",
+      "unit": "g/m2",
+      "default": 180,
+      "min": 0,
+      "businessContext": "Metrekare gramajı.",
+      "businessContext_i18n": {
+        "en": "GSM - grams per square meter.",
+        "tr": "Metrekare gramajı.",
+        "de": "GSM - grams per square meter.",
+        "fr": "GSM - grams per square meter.",
+        "es": "GSM - grams per square meter.",
+        "ar": "GSM - grams per square meter."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(en * gramaj) / 1000"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kg/m",
+    "breakdown": {
+      "sonuc": "Metre Ağırlığı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Metre Ağırlığı",
+        "tr": "Metre Ağırlığı",
+        "de": "Metre Ağırlığı",
+        "fr": "Metre Ağırlığı",
+        "es": "Metre Ağırlığı",
+        "ar": "Metre Ağırlığı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kg/m"
+    },
+    "hiddenLossDrivers": [
+      "Waste in material or time indicates process improvement opportunity."
+    ],
+    "suggestedActions": [
+      "Optimize drying/cooling parameters for cycle time reduction.",
+      "Monitor defects and adjust process conditions accordingly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate fabric weight per meter using GSM and width.",
+      "long": "Calculate fabric weight per meter using GSM and width.",
+      "short_i18n": {
+        "en": "Calculate fabric weight per meter using GSM and width.",
+        "tr": "1 metre kumaşın ağırlığını gramaj ve en bilgisine göre hesaplar.",
+        "de": "Calculate fabric weight per meter using GSM and width.",
+        "fr": "Calculate fabric weight per meter using GSM and width.",
+        "es": "Calculate fabric weight per meter using GSM and width.",
+        "ar": "Calculate fabric weight per meter using GSM and width."
+      },
+      "long_i18n": {
+        "en": "Calculate fabric weight per meter using GSM and width.",
+        "tr": "1 metre kumaşın ağırlığını gramaj ve en bilgisine göre hesaplar.",
+        "de": "Calculate fabric weight per meter using GSM and width.",
+        "fr": "Calculate fabric weight per meter using GSM and width.",
+        "es": "Calculate fabric weight per meter using GSM and width.",
+        "ar": "Calculate fabric weight per meter using GSM and width."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "fabric-weight-calculator",
+    "de": "Stoffgewichtrechner",
+    "fr": "Calculateur de grammage de tissu",
+    "es": "Calculadora de gramaje de tela",
+    "ar": "حاسبة وزن القماش"
+  }
+}

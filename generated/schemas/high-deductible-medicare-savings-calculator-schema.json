@@ -1,0 +1,150 @@
+{
+  "toolName": "high-deductible-medicare-savings-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "dusukPrim",
+      "label": "Düşük Primli Plan (TL)",
+      "label_i18n": {
+        "en": "Low Premium Plan (USD)",
+        "tr": "Düşük Primli Plan (TL)",
+        "de": "Low Premium Plan (USD)",
+        "fr": "Low Premium Plan (USD)",
+        "es": "Low Premium Plan (USD)",
+        "ar": "Low Premium Plan (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 3000,
+      "min": 0,
+      "businessContext": "Standart plan aylık primi.",
+      "businessContext_i18n": {
+        "en": "Standard plan monthly premium.",
+        "tr": "Standart plan aylık primi.",
+        "de": "Standard plan monthly premium.",
+        "fr": "Standard plan monthly premium.",
+        "es": "Standard plan monthly premium.",
+        "ar": "Standard plan monthly premium."
+      }
+    },
+    {
+      "id": "yuksekPrim",
+      "label": "Yüksek Primli Plan (TL)",
+      "label_i18n": {
+        "en": "High Premium Plan (USD)",
+        "tr": "Yüksek Primli Plan (TL)",
+        "de": "High Premium Plan (USD)",
+        "fr": "High Premium Plan (USD)",
+        "es": "High Premium Plan (USD)",
+        "ar": "High Premium Plan (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Kapsamlı plan aylık primi.",
+      "businessContext_i18n": {
+        "en": "Comprehensive plan premium.",
+        "tr": "Kapsamlı plan aylık primi.",
+        "de": "Comprehensive plan premium.",
+        "fr": "Comprehensive plan premium.",
+        "es": "Comprehensive plan premium.",
+        "ar": "Comprehensive plan premium."
+      }
+    },
+    {
+      "id": "muafiyetFarki",
+      "label": "Muafiyet Farkı (TL)",
+      "label_i18n": {
+        "en": "Deductible Difference (USD)",
+        "tr": "Muafiyet Farkı (TL)",
+        "de": "Deductible Difference (USD)",
+        "fr": "Deductible Difference (USD)",
+        "es": "Deductible Difference (USD)",
+        "ar": "Deductible Difference (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "İki plan arasındaki muafiyet farkı.",
+      "businessContext_i18n": {
+        "en": "Deductible gap between plans.",
+        "tr": "İki plan arasındaki muafiyet farkı.",
+        "de": "Deductible gap between plans.",
+        "fr": "Deductible gap between plans.",
+        "es": "Deductible gap between plans.",
+        "ar": "Deductible gap between plans."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(yuksekPrim - dusukPrim) * 12 - muafiyetFarki"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Yıllık Net Tasarruf"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllık Net Tasarruf",
+        "tr": "Yıllık Net Tasarruf",
+        "de": "Yıllık Net Tasarruf",
+        "fr": "Yıllık Net Tasarruf",
+        "es": "Yıllık Net Tasarruf",
+        "ar": "Yıllık Net Tasarruf"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+      "long": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+      "short_i18n": {
+        "en": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+        "tr": "Yüksek muafiyetli plan seçmenin yıllık net avantajını hesaplar.",
+        "de": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+        "fr": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+        "es": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+        "ar": "Calculate annual savings from choosing a high-deductible Medicare plan."
+      },
+      "long_i18n": {
+        "en": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+        "tr": "Yüksek muafiyetli plan seçmenin yıllık net avantajını hesaplar.",
+        "de": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+        "fr": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+        "es": "Calculate annual savings from choosing a high-deductible Medicare plan.",
+        "ar": "Calculate annual savings from choosing a high-deductible Medicare plan."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "high-deductible-medicare-savings-calculator",
+    "de": "Medicare-Sparrechner",
+    "fr": "Calculateur d'économies Medicare",
+    "es": "Calculadora de ahorros de Medicare",
+    "ar": "حاسبة توفير Medicare"
+  }
+}

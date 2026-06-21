@@ -1,0 +1,161 @@
+{
+  "toolName": "mohrs-circle-principal-stress-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "sigmaX",
+      "label": "σx (Pa)",
+      "label_i18n": {
+        "en": "σx (Pa)",
+        "tr": "σx (Pa)",
+        "de": "σx (Pa)",
+        "fr": "σx (Pa)",
+        "es": "σx (Pa)",
+        "ar": "σx (باسكال)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 100000000,
+      "min": 0,
+      "businessContext": "X yönündeki normal gerilme.",
+      "businessContext_i18n": {
+        "en": "Normal stress in x direction.",
+        "tr": "X yönündeki normal gerilme.",
+        "de": "Normal stress in x direction.",
+        "fr": "Normal stress in x direction.",
+        "es": "Normal stress in x direction.",
+        "ar": "Normal stress in x direction."
+      }
+    },
+    {
+      "id": "sigmaY",
+      "label": "σy (Pa)",
+      "label_i18n": {
+        "en": "σy (Pa)",
+        "tr": "σy (Pa)",
+        "de": "σy (Pa)",
+        "fr": "σy (Pa)",
+        "es": "σy (Pa)",
+        "ar": "σy (باسكال)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 50000000,
+      "min": 0,
+      "businessContext": "Y yönündeki normal gerilme.",
+      "businessContext_i18n": {
+        "en": "Normal stress in y direction.",
+        "tr": "Y yönündeki normal gerilme.",
+        "de": "Normal stress in y direction.",
+        "fr": "Normal stress in y direction.",
+        "es": "Normal stress in y direction.",
+        "ar": "Normal stress in y direction."
+      }
+    },
+    {
+      "id": "tauXY",
+      "label": "τxy (Pa)",
+      "label_i18n": {
+        "en": "τxy (Pa)",
+        "tr": "τxy (Pa)",
+        "de": "τxy (Pa)",
+        "fr": "τxy (Pa)",
+        "es": "τxy (Pa)",
+        "ar": "τxy (باسكال)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 30000000,
+      "min": 0,
+      "businessContext": "Düzlemdeki kayma gerilmesi.",
+      "businessContext_i18n": {
+        "en": "Shear stress in xy plane.",
+        "tr": "Düzlemdeki kayma gerilmesi.",
+        "de": "Shear stress in xy plane.",
+        "fr": "Shear stress in xy plane.",
+        "es": "Shear stress in xy plane.",
+        "ar": "Shear stress in xy plane."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "merkez": "(sigmaX + sigmaY) / 2",
+    "sonuc": "Math.sqrt(Math.max(0, Math.pow((sigmaX - sigmaY) / 2, 2) + Math.pow(tauXY, 2)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "merkez": "Çember Merkezi",
+      "sonuc": "Çember Yarıçapı"
+    },
+    "breakdown_i18n": {
+      "merkez": {
+        "en": "Çember Merkezi",
+        "tr": "Çember Merkezi",
+        "de": "Çember Merkezi",
+        "fr": "Çember Merkezi",
+        "es": "Çember Merkezi",
+        "ar": "Çember Merkezi"
+      },
+      "sonuc": {
+        "en": "Çember Yarıçapı",
+        "tr": "Çember Yarıçapı",
+        "de": "Çember Yarıçapı",
+        "fr": "Çember Yarıçapı",
+        "es": "Çember Yarıçapı",
+        "ar": "Çember Yarıçapı"
+      }
+    },
+    "breakdownUnits": {
+      "merkez": "Pa",
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate Mohr's circle parameters for principal stresses.",
+      "long": "Calculate Mohr's circle parameters for principal stresses.",
+      "short_i18n": {
+        "en": "Calculate Mohr's circle parameters for principal stresses.",
+        "tr": "Asal gerilmeler ve maksimum kayma gerilmesi için Mohr çemberi parametrelerini hesaplar.",
+        "de": "Calculate Mohr's circle parameters for principal stresses.",
+        "fr": "Calculate Mohr's circle parameters for principal stresses.",
+        "es": "Calculate Mohr's circle parameters for principal stresses.",
+        "ar": "Calculate Mohr's circle parameters for principal stresses."
+      },
+      "long_i18n": {
+        "en": "Calculate Mohr's circle parameters for principal stresses.",
+        "tr": "Asal gerilmeler ve maksimum kayma gerilmesi için Mohr çemberi parametrelerini hesaplar.",
+        "de": "Calculate Mohr's circle parameters for principal stresses.",
+        "fr": "Calculate Mohr's circle parameters for principal stresses.",
+        "es": "Calculate Mohr's circle parameters for principal stresses.",
+        "ar": "Calculate Mohr's circle parameters for principal stresses."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "mohrs-circle-principal-stress-calculator",
+    "de": "Mohrscher Kreis Rechner",
+    "fr": "Calculateur de cercle de Mohr",
+    "es": "Calculadora de círculo de Mohr",
+    "ar": "حاسبة دائرة مور"
+  }
+}

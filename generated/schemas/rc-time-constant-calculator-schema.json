@@ -1,0 +1,127 @@
+{
+  "toolName": "rc-time-constant-calculator",
+  "catalogCategory": "electrical-power-systems",
+  "categorySlug": "electrical-power-systems",
+  "sector": "Yangın, Elektrik ve Elektronik",
+  "sectorId": "electrical-power-systems",
+  "inputs": [
+    {
+      "id": "R",
+      "label": "Direnç (Ω)",
+      "label_i18n": {
+        "en": "Resistance (Ω)",
+        "tr": "Direnç (Ω)",
+        "de": "Widerstand (R)",
+        "fr": "Résistance (R)",
+        "es": "Resistencia (R)",
+        "ar": "المقاومة (أوم)"
+      },
+      "type": "number",
+      "unit": "ohms",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Devre direnci.",
+      "businessContext_i18n": {
+        "en": "Circuit resistance.",
+        "tr": "Devre direnci.",
+        "de": "Circuit resistance.",
+        "fr": "Circuit resistance.",
+        "es": "Circuit resistance.",
+        "ar": "Circuit resistance."
+      }
+    },
+    {
+      "id": "C",
+      "label": "Kapasite (F)",
+      "label_i18n": {
+        "en": "Capacitance (F)",
+        "tr": "Kapasite (F)",
+        "de": "Capacitance (F)",
+        "fr": "Capacitance (F)",
+        "es": "Capacitance (F)",
+        "ar": "Capacitance (F)"
+      },
+      "type": "number",
+      "unit": "F",
+      "default": 0.000001,
+      "min": 0,
+      "businessContext": "Devre kapasitesi.",
+      "businessContext_i18n": {
+        "en": "Circuit capacitance.",
+        "tr": "Devre kapasitesi.",
+        "de": "Circuit capacitance.",
+        "fr": "Circuit capacitance.",
+        "es": "Circuit capacitance.",
+        "ar": "Circuit capacitance."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "R * C"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "s",
+    "breakdown": {
+      "sonuc": "Zaman Sabiti (τ)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Zaman Sabiti (τ)",
+        "tr": "Zaman Sabiti (τ)",
+        "de": "Zaman Sabiti (τ)",
+        "fr": "Zaman Sabiti (τ)",
+        "es": "Zaman Sabiti (τ)",
+        "ar": "Zaman Sabiti (τ)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "s"
+    },
+    "hiddenLossDrivers": [
+      "Low Q factor indicates broader frequency response."
+    ],
+    "suggestedActions": [
+      "Verify component tolerances affect circuit performance.",
+      "Use proper safety equipment for high voltage/current work."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+      "long": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+      "short_i18n": {
+        "en": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+        "tr": "Kapasitörün %63,2 şarj/deşarj olması için geçen süreyi (RC zaman sabiti) hesaplar.",
+        "de": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+        "fr": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+        "es": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+        "ar": "Calculate RC time constant — time to reach 63.2% charge/discharge."
+      },
+      "long_i18n": {
+        "en": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+        "tr": "Kapasitörün %63,2 şarj/deşarj olması için geçen süreyi (RC zaman sabiti) hesaplar.",
+        "de": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+        "fr": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+        "es": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
+        "ar": "Calculate RC time constant — time to reach 63.2% charge/discharge."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "rc-time-constant-calculator",
+    "de": "RC-Zeitkonstantenrechner",
+    "fr": "Calculateur de constante de temps RC",
+    "es": "Calculadora de constante de tiempo RC",
+    "ar": "حاسبة ثابت الزمن RC"
+  }
+}

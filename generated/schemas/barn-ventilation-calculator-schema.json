@@ -1,0 +1,152 @@
+{
+  "toolName": "barn-ventilation-calculator",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "alan",
+      "label": "Ahır Alanı (m²)",
+      "label_i18n": {
+        "en": "Barn Area (m²)",
+        "tr": "Ahır Alanı (m²)",
+        "de": "Barn Area (m²)",
+        "fr": "Barn Area (m²)",
+        "es": "Barn Area (m²)",
+        "ar": "Barn Area (m²)"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 200,
+      "min": 0,
+      "businessContext": "Ahır taban alanı.",
+      "businessContext_i18n": {
+        "en": "Barn floor area.",
+        "tr": "Ahır taban alanı.",
+        "de": "Barn floor area.",
+        "fr": "Barn floor area.",
+        "es": "Barn floor area.",
+        "ar": "Barn floor area."
+      }
+    },
+    {
+      "id": "yukseklik",
+      "label": "Ahır Yüksekliği (m)",
+      "label_i18n": {
+        "en": "Barn Height (m)",
+        "tr": "Ahır Yüksekliği (m)",
+        "de": "Barn Height (m)",
+        "fr": "Barn Height (m)",
+        "es": "Barn Height (m)",
+        "ar": "Barn Height (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "min": 0,
+      "businessContext": "Ahır yüksekliği.",
+      "businessContext_i18n": {
+        "en": "Barn height.",
+        "tr": "Ahır yüksekliği.",
+        "de": "Barn height.",
+        "fr": "Barn height.",
+        "es": "Barn height.",
+        "ar": "Barn height."
+      }
+    },
+    {
+      "id": "havaDegisimSayisi",
+      "label": "Hava Değişim Sayısı (adet/saat)",
+      "label_i18n": {
+        "en": "Air Changes (per hour)",
+        "tr": "Hava Değişim Sayısı (adet/saat)",
+        "de": "Air Changes (per hour)",
+        "fr": "Air Changes (per hour)",
+        "es": "Air Changes (per hour)",
+        "ar": "Air Changes (per hour)"
+      },
+      "type": "number",
+      "unit": "per_hour",
+      "default": 6,
+      "min": 0,
+      "businessContext": "Saatlik hava değişim adedi.",
+      "businessContext_i18n": {
+        "en": "Hourly air change rate.",
+        "tr": "Saatlik hava değişim adedi.",
+        "de": "Hourly air change rate.",
+        "fr": "Hourly air change rate.",
+        "es": "Hourly air change rate.",
+        "ar": "Hourly air change rate."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(alan * yukseklik * havaDegisimSayisi) / 3600"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m3/s",
+    "breakdown": {
+      "sonuc": "Havalandırma Debisi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Havalandırma Debisi",
+        "tr": "Havalandırma Debisi",
+        "de": "Havalandırma Debisi",
+        "fr": "Havalandırma Debisi",
+        "es": "Havalandırma Debisi",
+        "ar": "Havalandırma Debisi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m3/s"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate ventilation air flow rate needed for animal barn.",
+      "long": "Calculate ventilation air flow rate needed for animal barn.",
+      "short_i18n": {
+        "en": "Calculate ventilation air flow rate needed for animal barn.",
+        "tr": "Ahırdan atılması gereken kirli hava debisini hesaplar.",
+        "de": "Calculate ventilation air flow rate needed for animal barn.",
+        "fr": "Calculate ventilation air flow rate needed for animal barn.",
+        "es": "Calculate ventilation air flow rate needed for animal barn.",
+        "ar": "Calculate ventilation air flow rate needed for animal barn."
+      },
+      "long_i18n": {
+        "en": "Calculate ventilation air flow rate needed for animal barn.",
+        "tr": "Ahırdan atılması gereken kirli hava debisini hesaplar.",
+        "de": "Calculate ventilation air flow rate needed for animal barn.",
+        "fr": "Calculate ventilation air flow rate needed for animal barn.",
+        "es": "Calculate ventilation air flow rate needed for animal barn.",
+        "ar": "Calculate ventilation air flow rate needed for animal barn."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "barn-ventilation-calculator",
+    "de": "Ahmet Ferdi Lüftungsrechner",
+    "fr": "Calculateur de ventilation Ahmet Ferdi",
+    "es": "Calculadora de ventilación Ahmet Ferdi",
+    "ar": "حاسبة تهوية أحمد فردي"
+  }
+}

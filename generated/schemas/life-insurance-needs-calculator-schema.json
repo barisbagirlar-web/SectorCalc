@@ -1,0 +1,175 @@
+{
+  "toolName": "life-insurance-needs-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yillikGelir",
+      "label": "Yıllık Aile Geliri (TL)",
+      "label_i18n": {
+        "en": "Annual Income (USD)",
+        "tr": "Yıllık Aile Geliri (TL)",
+        "de": "Jährliches Einkommen (USD)",
+        "fr": "Revenu annuel (USD)",
+        "es": "Ingreso anual (USD)",
+        "ar": "الدخل السنوي (دولار أمريكي)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Ailenin yıllık geliri.",
+      "businessContext_i18n": {
+        "en": "Annual family income.",
+        "tr": "Ailenin yıllık geliri.",
+        "de": "Annual family income.",
+        "fr": "Annual family income.",
+        "es": "Annual family income.",
+        "ar": "Annual family income."
+      }
+    },
+    {
+      "id": "bagimliSayisi",
+      "label": "Bağımlı Sayısı",
+      "label_i18n": {
+        "en": "Number of Dependents",
+        "tr": "Bağımlı Sayısı",
+        "de": "Number of Dependents",
+        "fr": "Number of Dependents",
+        "es": "Number of Dependents",
+        "ar": "Number of Dependents"
+      },
+      "type": "number",
+      "unit": "dependents",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Gelire bağımlı kişi sayısı.",
+      "businessContext_i18n": {
+        "en": "Number of income dependents.",
+        "tr": "Gelire bağımlı kişi sayısı.",
+        "de": "Number of income dependents.",
+        "fr": "Number of income dependents.",
+        "es": "Number of income dependents.",
+        "ar": "Number of income dependents."
+      }
+    },
+    {
+      "id": "borclar",
+      "label": "Toplam Borçlar (TL)",
+      "label_i18n": {
+        "en": "Total Debts (USD)",
+        "tr": "Toplam Borçlar (TL)",
+        "de": "Total Debts (USD)",
+        "fr": "Total Debts (USD)",
+        "es": "Total Debts (USD)",
+        "ar": "Total Debts (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Mortgage ve diğer borçlar.",
+      "businessContext_i18n": {
+        "en": "Mortgage and other debts.",
+        "tr": "Mortgage ve diğer borçlar.",
+        "de": "Mortgage and other debts.",
+        "fr": "Mortgage and other debts.",
+        "es": "Mortgage and other debts.",
+        "ar": "Mortgage and other debts."
+      }
+    },
+    {
+      "id": "birikim",
+      "label": "Mevcut Birikim (TL)",
+      "label_i18n": {
+        "en": "Current Savings (USD)",
+        "tr": "Mevcut Birikim (TL)",
+        "de": "Aktuelle Ersparnisse",
+        "fr": "Épargne actuelle",
+        "es": "Ahorros Actuales",
+        "ar": "المدخرات الحالية"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "businessContext": "Mevcut tasarruf ve yatırımlar.",
+      "businessContext_i18n": {
+        "en": "Existing savings and investments.",
+        "tr": "Mevcut tasarruf ve yatırımlar.",
+        "de": "Existing savings and investments.",
+        "fr": "Existing savings and investments.",
+        "es": "Existing savings and investments.",
+        "ar": "Existing savings and investments."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.max(0, (yillikGelir * 10 * bagimliSayisi) + borclar - birikim)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Önerilen Hayat Sigortası Teminatı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Önerilen Hayat Sigortası Teminatı",
+        "tr": "Önerilen Hayat Sigortası Teminatı",
+        "de": "Önerilen Hayat Sigortası Teminatı",
+        "fr": "Önerilen Hayat Sigortası Teminatı",
+        "es": "Önerilen Hayat Sigortası Teminatı",
+        "ar": "Önerilen Hayat Sigortası Teminatı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate life insurance coverage needed to protect family income.",
+      "long": "Calculate life insurance coverage needed to protect family income.",
+      "short_i18n": {
+        "en": "Calculate life insurance coverage needed to protect family income.",
+        "tr": "Ailenin geleceğini güvenceye almak için gerekli hayat sigortası teminatını hesaplar.",
+        "de": "Calculate life insurance coverage needed to protect family income.",
+        "fr": "Calculate life insurance coverage needed to protect family income.",
+        "es": "Calculate life insurance coverage needed to protect family income.",
+        "ar": "Calculate life insurance coverage needed to protect family income."
+      },
+      "long_i18n": {
+        "en": "Calculate life insurance coverage needed to protect family income.",
+        "tr": "Ailenin geleceğini güvenceye almak için gerekli hayat sigortası teminatını hesaplar.",
+        "de": "Calculate life insurance coverage needed to protect family income.",
+        "fr": "Calculate life insurance coverage needed to protect family income.",
+        "es": "Calculate life insurance coverage needed to protect family income.",
+        "ar": "Calculate life insurance coverage needed to protect family income."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "life-insurance-needs-calculator",
+    "de": "Lebensversicherungsbedarfsrechner",
+    "fr": "Calculateur de besoin d'assurance vie",
+    "es": "Calculadora de necesidad de seguro de vida",
+    "ar": "حاسبة الحاجة للتأمين على الحياة"
+  }
+}

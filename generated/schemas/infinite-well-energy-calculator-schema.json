@@ -1,0 +1,150 @@
+{
+  "toolName": "infinite-well-energy-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik ve Kuantum",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "kuyuGenisligi",
+      "label": "Kuyu Genişliği (m)",
+      "label_i18n": {
+        "en": "Well Width (m)",
+        "tr": "Kuyu Genişliği (m)",
+        "de": "Well Width (m)",
+        "fr": "Well Width (m)",
+        "es": "Well Width (m)",
+        "ar": "Well Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 1e-10,
+      "min": 0,
+      "businessContext": "Sonsuz kuyunun genişliği.",
+      "businessContext_i18n": {
+        "en": "Infinite well width.",
+        "tr": "Sonsuz kuyunun genişliği.",
+        "de": "Infinite well width.",
+        "fr": "Infinite well width.",
+        "es": "Infinite well width.",
+        "ar": "Infinite well width."
+      }
+    },
+    {
+      "id": "kutle",
+      "label": "Parçacık Kütlesi (kg)",
+      "label_i18n": {
+        "en": "Particle Mass (kg)",
+        "tr": "Parçacık Kütlesi (kg)",
+        "de": "Particle Mass (kg)",
+        "fr": "Particle Mass (kg)",
+        "es": "Particle Mass (kg)",
+        "ar": "Particle Mass (kg)"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 9.11e-31,
+      "min": 0,
+      "businessContext": "Parçacığın kütlesi.",
+      "businessContext_i18n": {
+        "en": "Particle mass.",
+        "tr": "Parçacığın kütlesi.",
+        "de": "Particle mass.",
+        "fr": "Particle mass.",
+        "es": "Particle mass.",
+        "ar": "Particle mass."
+      }
+    },
+    {
+      "id": "kuantumSayisi",
+      "label": "Kuantum Sayısı (n)",
+      "label_i18n": {
+        "en": "Quantum Number (n)",
+        "tr": "Kuantum Sayısı (n)",
+        "de": "Quantum Number (n)",
+        "fr": "Quantum Number (n)",
+        "es": "Quantum Number (n)",
+        "ar": "Quantum Number (n)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 1,
+      "businessContext": "Enerji seviye numarası.",
+      "businessContext_i18n": {
+        "en": "Energy level quantum number.",
+        "tr": "Enerji seviye numarası.",
+        "de": "Energy level quantum number.",
+        "fr": "Energy level quantum number.",
+        "es": "Energy level quantum number.",
+        "ar": "Energy level quantum number."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(Math.pow(kuantumSayisi, 2) * Math.pow(Math.PI, 2) * Math.pow(1.054e-34, 2)) / Math.max(0.0001, (2 * kutle * Math.pow(kuyuGenisligi, 2)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "J",
+    "breakdown": {
+      "sonuc": "Enerji (Eₙ)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Enerji (Eₙ)",
+        "tr": "Enerji (Eₙ)",
+        "de": "Enerji (Eₙ)",
+        "fr": "Enerji (Eₙ)",
+        "es": "Enerji (Eₙ)",
+        "ar": "Enerji (Eₙ)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "J"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Quantum effects are only observable at microscopic scales.",
+      "These are idealized models."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate allowed energy level in an infinite potential well (1D).",
+      "long": "Calculate allowed energy level in an infinite potential well (1D).",
+      "short_i18n": {
+        "en": "Calculate allowed energy level in an infinite potential well (1D).",
+        "tr": "Sonsuz potansiyel kuyusundaki parçacığın izin verilen enerji seviyesini hesaplar.",
+        "de": "Calculate allowed energy level in an infinite potential well (1D).",
+        "fr": "Calculate allowed energy level in an infinite potential well (1D).",
+        "es": "Calculate allowed energy level in an infinite potential well (1D).",
+        "ar": "Calculate allowed energy level in an infinite potential well (1D)."
+      },
+      "long_i18n": {
+        "en": "Calculate allowed energy level in an infinite potential well (1D).",
+        "tr": "Sonsuz potansiyel kuyusundaki parçacığın izin verilen enerji seviyesini hesaplar.",
+        "de": "Calculate allowed energy level in an infinite potential well (1D).",
+        "fr": "Calculate allowed energy level in an infinite potential well (1D).",
+        "es": "Calculate allowed energy level in an infinite potential well (1D).",
+        "ar": "Calculate allowed energy level in an infinite potential well (1D)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "infinite-well-energy-calculator",
+    "de": "Schrödinger-1D-Energierechner",
+    "fr": "Calculateur d'énergie 1D de Schrödinger",
+    "es": "Calculadora de energía 1D de Schrödinger",
+    "ar": "حاسبة طاقة شرودنغر أحادية البعد"
+  }
+}

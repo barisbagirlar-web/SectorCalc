@@ -1,0 +1,129 @@
+{
+  "toolName": "drug-half-life-calculator",
+  "catalogCategory": "technology-ai-cloud-cyber",
+  "categorySlug": "technology-ai-cloud-cyber",
+  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sectorId": "technology-ai-cloud-cyber",
+  "inputs": [
+    {
+      "id": "yarilanmaOmru",
+      "label": "Yarılanma Ömrü (Saat)",
+      "label_i18n": {
+        "en": "Half-Life (Hours)",
+        "tr": "Yarılanma Ömrü (Saat)",
+        "de": "Half-Life (Hours)",
+        "fr": "Half-Life (Hours)",
+        "es": "Half-Life (Hours)",
+        "ar": "Half-Life (Hours)"
+      },
+      "type": "number",
+      "unit": "h",
+      "default": 12,
+      "min": 0,
+      "businessContext": "İlacın vücuttan yarılanma süresi.",
+      "businessContext_i18n": {
+        "en": "Drug elimination half-life.",
+        "tr": "İlacın vücuttan yarılanma süresi.",
+        "de": "Drug elimination half-life.",
+        "fr": "Drug elimination half-life.",
+        "es": "Drug elimination half-life.",
+        "ar": "Drug elimination half-life."
+      }
+    },
+    {
+      "id": "dozAraligi",
+      "label": "Doz Aralığı (Saat)",
+      "label_i18n": {
+        "en": "Dosing Interval (Hours)",
+        "tr": "Doz Aralığı (Saat)",
+        "de": "Dosing Interval (Hours)",
+        "fr": "Dosing Interval (Hours)",
+        "es": "Dosing Interval (Hours)",
+        "ar": "Dosing Interval (Hours)"
+      },
+      "type": "number",
+      "unit": "h",
+      "default": 8,
+      "min": 0,
+      "businessContext": "İlaç alma sıklığı.",
+      "businessContext_i18n": {
+        "en": "Time between doses.",
+        "tr": "İlaç alma sıklığı.",
+        "de": "Time between doses.",
+        "fr": "Time between doses.",
+        "es": "Time between doses.",
+        "ar": "Time between doses."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "k": "0.693 / Math.max(0.0001, yarilanmaOmru)",
+    "sonuc": "1 / Math.max(0.0001, (1 - Math.exp(-(0.693 / Math.max(0.0001, yarilanmaOmru)) * dozAraligi)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "factor",
+    "breakdown": {
+      "sonuc": "Birikim Faktörü"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Birikim Faktörü",
+        "tr": "Birikim Faktörü",
+        "de": "Birikim Faktörü",
+        "fr": "Birikim Faktörü",
+        "es": "Birikim Faktörü",
+        "ar": "Birikim Faktörü"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "factor"
+    },
+    "hiddenLossDrivers": [
+      "Low SLA indicates service reliability issue.",
+      "High latency degrades user experience."
+    ],
+    "suggestedActions": [
+      "Monitor system performance regularly.",
+      "Implement redundancy for critical infrastructure."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate drug accumulation factor based on half-life and dosing interval.",
+      "long": "Calculate drug accumulation factor based on half-life and dosing interval.",
+      "short_i18n": {
+        "en": "Calculate drug accumulation factor based on half-life and dosing interval.",
+        "tr": "Kararlı durumda ilacın vücutta birikim faktörünü yarılanma ömrüne göre hesaplar.",
+        "de": "Calculate drug accumulation factor based on half-life and dosing interval.",
+        "fr": "Calculate drug accumulation factor based on half-life and dosing interval.",
+        "es": "Calculate drug accumulation factor based on half-life and dosing interval.",
+        "ar": "Calculate drug accumulation factor based on half-life and dosing interval."
+      },
+      "long_i18n": {
+        "en": "Calculate drug accumulation factor based on half-life and dosing interval.",
+        "tr": "Kararlı durumda ilacın vücutta birikim faktörünü yarılanma ömrüne göre hesaplar.",
+        "de": "Calculate drug accumulation factor based on half-life and dosing interval.",
+        "fr": "Calculate drug accumulation factor based on half-life and dosing interval.",
+        "es": "Calculate drug accumulation factor based on half-life and dosing interval.",
+        "ar": "Calculate drug accumulation factor based on half-life and dosing interval."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "drug-half-life-calculator",
+    "de": "Medikamenten-Halbwertszeit Rechner",
+    "fr": "Calculateur de Demi-vie Médicamenteuse",
+    "es": "Calculadora de Vida Media de Medicamentos",
+    "ar": "حاسبة عمر النصف للدواء"
+  }
+}

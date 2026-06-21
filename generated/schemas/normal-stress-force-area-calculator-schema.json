@@ -1,0 +1,125 @@
+{
+  "toolName": "normal-stress-force-area-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "kuvvet",
+      "label": "Eksenel Kuvvet (N)",
+      "label_i18n": {
+        "en": "Axial Force (N)",
+        "tr": "Eksenel Kuvvet (N)",
+        "de": "Axial Force (N)",
+        "fr": "Axial Force (N)",
+        "es": "Axial Force (N)",
+        "ar": "Axial Force (N)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Kesite dik etkiyen kuvvet.",
+      "businessContext_i18n": {
+        "en": "Force perpendicular to section.",
+        "tr": "Kesite dik etkiyen kuvvet.",
+        "de": "Force perpendicular to section.",
+        "fr": "Force perpendicular to section.",
+        "es": "Force perpendicular to section.",
+        "ar": "Force perpendicular to section."
+      }
+    },
+    {
+      "id": "alan",
+      "label": "Kesit Alanı (m²)",
+      "label_i18n": {
+        "en": "Cross-Sectional Area (m²)",
+        "tr": "Kesit Alanı (m²)",
+        "de": "Querschnittsfläche",
+        "fr": "Aire de la section transversale",
+        "es": "Área de la sección transversal",
+        "ar": "مساحة المقطع العرضي"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 0.01,
+      "min": 0,
+      "businessContext": "Kuvvetin etki ettiği alan.",
+      "businessContext_i18n": {
+        "en": "Area over which force acts.",
+        "tr": "Kuvvetin etki ettiği alan.",
+        "de": "Area over which force acts.",
+        "fr": "Area over which force acts.",
+        "es": "Area over which force acts.",
+        "ar": "Area over which force acts."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "kuvvet / Math.max(0.0001, alan)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Normal Gerilme (σ)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Normal Gerilme (σ)",
+        "tr": "Normal Gerilme (σ)",
+        "de": "Normal Gerilme (σ)",
+        "fr": "Normal Gerilme (σ)",
+        "es": "Normal Gerilme (σ)",
+        "ar": "Normal Gerilme (σ)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate normal stress as force divided by cross-sectional area.",
+      "long": "Calculate normal stress as force divided by cross-sectional area.",
+      "short_i18n": {
+        "en": "Calculate normal stress as force divided by cross-sectional area.",
+        "tr": "Birim alana etkiyen iç kuvvet yoğunluğunu (gerilme/Stress) hesaplar.",
+        "de": "Calculate normal stress as force divided by cross-sectional area.",
+        "fr": "Calculate normal stress as force divided by cross-sectional area.",
+        "es": "Calculate normal stress as force divided by cross-sectional area.",
+        "ar": "Calculate normal stress as force divided by cross-sectional area."
+      },
+      "long_i18n": {
+        "en": "Calculate normal stress as force divided by cross-sectional area.",
+        "tr": "Birim alana etkiyen iç kuvvet yoğunluğunu (gerilme/Stress) hesaplar.",
+        "de": "Calculate normal stress as force divided by cross-sectional area.",
+        "fr": "Calculate normal stress as force divided by cross-sectional area.",
+        "es": "Calculate normal stress as force divided by cross-sectional area.",
+        "ar": "Calculate normal stress as force divided by cross-sectional area."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "normal-stress-force-area-calculator",
+    "de": "Spannungsrechner",
+    "fr": "Calculateur de contrainte",
+    "es": "Calculadora de tensión",
+    "ar": "حاسبة الإجهاد"
+  }
+}

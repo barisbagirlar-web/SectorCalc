@@ -1,0 +1,175 @@
+{
+  "toolName": "capillary-rise-calculator",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "yuzeyGerilimi",
+      "label": "Yüzey Gerilimi (N/m)",
+      "label_i18n": {
+        "en": "Surface Tension (N/m)",
+        "tr": "Yüzey Gerilimi (N/m)",
+        "de": "Surface Tension (N/m)",
+        "fr": "Surface Tension (N/m)",
+        "es": "Surface Tension (N/m)",
+        "ar": "Surface Tension (N/m)"
+      },
+      "type": "number",
+      "unit": "N/m",
+      "default": 0.073,
+      "min": 0,
+      "businessContext": "Sıvının yüzey gerilimi.",
+      "businessContext_i18n": {
+        "en": "Liquid surface tension.",
+        "tr": "Sıvının yüzey gerilimi.",
+        "de": "Liquid surface tension.",
+        "fr": "Liquid surface tension.",
+        "es": "Liquid surface tension.",
+        "ar": "Liquid surface tension."
+      }
+    },
+    {
+      "id": "temasAcisi",
+      "label": "Temas Açısı (Derece)",
+      "label_i18n": {
+        "en": "Contact Angle (Deg)",
+        "tr": "Temas Açısı (Derece)",
+        "de": "Contact Angle (Deg)",
+        "fr": "Contact Angle (Deg)",
+        "es": "Contact Angle (Deg)",
+        "ar": "Contact Angle (Deg)"
+      },
+      "type": "number",
+      "unit": "degrees",
+      "default": 0,
+      "min": 0,
+      "businessContext": "Sıvı-katı temas açısı.",
+      "businessContext_i18n": {
+        "en": "Liquid-solid contact angle.",
+        "tr": "Sıvı-katı temas açısı.",
+        "de": "Liquid-solid contact angle.",
+        "fr": "Liquid-solid contact angle.",
+        "es": "Liquid-solid contact angle.",
+        "ar": "Liquid-solid contact angle."
+      }
+    },
+    {
+      "id": "yariCap",
+      "label": "Borun Yarıçap (m)",
+      "label_i18n": {
+        "en": "Tube Radius (m)",
+        "tr": "Borun Yarıçap (m)",
+        "de": "Tube Radius (m)",
+        "fr": "Tube Radius (m)",
+        "es": "Tube Radius (m)",
+        "ar": "Tube Radius (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.0005,
+      "min": 0,
+      "businessContext": "Kılcal borunun iç yarıçapı.",
+      "businessContext_i18n": {
+        "en": "Capillary tube inner radius.",
+        "tr": "Kılcal borunun iç yarıçapı.",
+        "de": "Capillary tube inner radius.",
+        "fr": "Capillary tube inner radius.",
+        "es": "Capillary tube inner radius.",
+        "ar": "Capillary tube inner radius."
+      }
+    },
+    {
+      "id": "yogunluk",
+      "label": "Sıvı Yoğunluğu (kg/m³)",
+      "label_i18n": {
+        "en": "Liquid Density (kg/m³)",
+        "tr": "Sıvı Yoğunluğu (kg/m³)",
+        "de": "Liquid Density (kg/m³)",
+        "fr": "Liquid Density (kg/m³)",
+        "es": "Liquid Density (kg/m³)",
+        "ar": "Liquid Density (kg/m³)"
+      },
+      "type": "number",
+      "unit": "kg/m3",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Sıvının yoğunluğu.",
+      "businessContext_i18n": {
+        "en": "Liquid density.",
+        "tr": "Sıvının yoğunluğu.",
+        "de": "Liquid density.",
+        "fr": "Liquid density.",
+        "es": "Liquid density.",
+        "ar": "Liquid density."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(2 * yuzeyGerilimi * Math.cos(temasAcisi * Math.PI / 180)) / Math.max(0.0001, (yogunluk * 9.81 * yariCap))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Kılcal Yükselme"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Kılcal Yükselme",
+        "tr": "Kılcal Yükselme",
+        "de": "Kılcal Yükselme",
+        "fr": "Kılcal Yükselme",
+        "es": "Kılcal Yükselme",
+        "ar": "Kılcal Yükselme"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate capillary rise height of liquid in a narrow tube.",
+      "long": "Calculate capillary rise height of liquid in a narrow tube.",
+      "short_i18n": {
+        "en": "Calculate capillary rise height of liquid in a narrow tube.",
+        "tr": "Sıvının dar bir boruda kılcal yükselme yüksekliğini hesaplar.",
+        "de": "Calculate capillary rise height of liquid in a narrow tube.",
+        "fr": "Calculate capillary rise height of liquid in a narrow tube.",
+        "es": "Calculate capillary rise height of liquid in a narrow tube.",
+        "ar": "Calculate capillary rise height of liquid in a narrow tube."
+      },
+      "long_i18n": {
+        "en": "Calculate capillary rise height of liquid in a narrow tube.",
+        "tr": "Sıvının dar bir boruda kılcal yükselme yüksekliğini hesaplar.",
+        "de": "Calculate capillary rise height of liquid in a narrow tube.",
+        "fr": "Calculate capillary rise height of liquid in a narrow tube.",
+        "es": "Calculate capillary rise height of liquid in a narrow tube.",
+        "ar": "Calculate capillary rise height of liquid in a narrow tube."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "capillary-rise-calculator",
+    "de": "Kapillarwirkungsrechner",
+    "fr": "Calculateur d'Action Capillaire",
+    "es": "Calculadora de Acción Capilar",
+    "ar": "حاسبة التأثير الشعري"
+  }
+}

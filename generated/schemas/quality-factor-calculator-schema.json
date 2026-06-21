@@ -1,0 +1,128 @@
+{
+  "toolName": "quality-factor-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "rezonansFrekans",
+      "label": "Rezonans Frekansı (Hz)",
+      "label_i18n": {
+        "en": "Resonant Frequency (Hz)",
+        "tr": "Rezonans Frekansı (Hz)",
+        "de": "Resonant Frequency (Hz)",
+        "fr": "Resonant Frequency (Hz)",
+        "es": "Resonant Frequency (Hz)",
+        "ar": "Resonant Frequency (Hz)"
+      },
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Devrenin rezonans frekansı.",
+      "businessContext_i18n": {
+        "en": "Circuit resonant frequency.",
+        "tr": "Devrenin rezonans frekansı.",
+        "de": "Circuit resonant frequency.",
+        "fr": "Circuit resonant frequency.",
+        "es": "Circuit resonant frequency.",
+        "ar": "Circuit resonant frequency."
+      }
+    },
+    {
+      "id": "bantGenislik",
+      "label": "Bant Genişliği (Hz)",
+      "label_i18n": {
+        "en": "Bandwidth (Hz)",
+        "tr": "Bant Genişliği (Hz)",
+        "de": "Bandbreite",
+        "fr": "Largeur de bande",
+        "es": "Ancho de banda",
+        "ar": "عرض النطاق"
+      },
+      "type": "number",
+      "unit": "Hz",
+      "default": 20000,
+      "min": 0,
+      "businessContext": "-3 dB bant genişliği.",
+      "businessContext_i18n": {
+        "en": "-3 dB bandwidth.",
+        "tr": "-3 dB bant genişliği.",
+        "de": "-3 dB bandwidth.",
+        "fr": "-3 dB bandwidth.",
+        "es": "-3 dB bandwidth.",
+        "ar": "-3 dB bandwidth."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "rezonansFrekans / Math.max(0.0001, bantGenislik)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Q",
+    "breakdown": {
+      "sonuc": "Kalite Faktörü (Q)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Kalite Faktörü (Q)",
+        "tr": "Kalite Faktörü (Q)",
+        "de": "Kalite Faktörü (Q)",
+        "fr": "Kalite Faktörü (Q)",
+        "es": "Kalite Faktörü (Q)",
+        "ar": "Kalite Faktörü (Q)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Q"
+    },
+    "hiddenLossDrivers": [
+      "Low SNR indicates poor signal quality.",
+      "High Q indicates narrow bandwidth."
+    ],
+    "suggestedActions": [
+      "Use proper shielding for sensitive measurements.",
+      "Consider efficiency losses in energy calculations."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate resonant circuit quality factor (Q).",
+      "long": "Calculate resonant circuit quality factor (Q).",
+      "short_i18n": {
+        "en": "Calculate resonant circuit quality factor (Q).",
+        "tr": "Rezonans devresinin frekans seçiciliğini (Q faktörü) hesaplar.",
+        "de": "Calculate resonant circuit quality factor (Q).",
+        "fr": "Calculate resonant circuit quality factor (Q).",
+        "es": "Calculate resonant circuit quality factor (Q).",
+        "ar": "Calculate resonant circuit quality factor (Q)."
+      },
+      "long_i18n": {
+        "en": "Calculate resonant circuit quality factor (Q).",
+        "tr": "Rezonans devresinin frekans seçiciliğini (Q faktörü) hesaplar.",
+        "de": "Calculate resonant circuit quality factor (Q).",
+        "fr": "Calculate resonant circuit quality factor (Q).",
+        "es": "Calculate resonant circuit quality factor (Q).",
+        "ar": "Calculate resonant circuit quality factor (Q)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "quality-factor-calculator",
+    "de": "Gütefaktor Q Rechner",
+    "fr": "Calculateur de Facteur de Qualité Q",
+    "es": "Calculadora de Factor de Calidad Q",
+    "ar": "حاسبة عامل الجودة Q"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "toolName": "porosity-calculator",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "boslukHacim",
+      "label": "Boşluk Hacmi (m³)",
+      "label_i18n": {
+        "en": "Void Volume (m³)",
+        "tr": "Boşluk Hacmi (m³)",
+        "de": "Void Volume (m³)",
+        "fr": "Void Volume (m³)",
+        "es": "Void Volume (m³)",
+        "ar": "Void Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Malzemedeki boşlukların toplam hacmi.",
+      "businessContext_i18n": {
+        "en": "Total void volume.",
+        "tr": "Malzemedeki boşlukların toplam hacmi.",
+        "de": "Total void volume.",
+        "fr": "Total void volume.",
+        "es": "Total void volume.",
+        "ar": "Total void volume."
+      }
+    },
+    {
+      "id": "toplamHacim",
+      "label": "Toplam Hacim (m³)",
+      "label_i18n": {
+        "en": "Total Volume (m³)",
+        "tr": "Toplam Hacim (m³)",
+        "de": "Total Volume (m³)",
+        "fr": "Total Volume (m³)",
+        "es": "Total Volume (m³)",
+        "ar": "Total Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Malzemenin toplam hacmi.",
+      "businessContext_i18n": {
+        "en": "Total material volume.",
+        "tr": "Malzemenin toplam hacmi.",
+        "de": "Total material volume.",
+        "fr": "Total material volume.",
+        "es": "Total material volume.",
+        "ar": "Total material volume."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(boslukHacim / Math.max(0.0001, toplamHacim)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Porozite"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Porozite",
+        "tr": "Porozite",
+        "de": "Porozite",
+        "fr": "Porozite",
+        "es": "Porozite",
+        "ar": "Porozite"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate material porosity as percentage of void volume.",
+      "long": "Calculate material porosity as percentage of void volume.",
+      "short_i18n": {
+        "en": "Calculate material porosity as percentage of void volume.",
+        "tr": "Malzemedeki boşluk oranını (porozite/gözeneklilik) hesaplar.",
+        "de": "Calculate material porosity as percentage of void volume.",
+        "fr": "Calculate material porosity as percentage of void volume.",
+        "es": "Calculate material porosity as percentage of void volume.",
+        "ar": "Calculate material porosity as percentage of void volume."
+      },
+      "long_i18n": {
+        "en": "Calculate material porosity as percentage of void volume.",
+        "tr": "Malzemedeki boşluk oranını (porozite/gözeneklilik) hesaplar.",
+        "de": "Calculate material porosity as percentage of void volume.",
+        "fr": "Calculate material porosity as percentage of void volume.",
+        "es": "Calculate material porosity as percentage of void volume.",
+        "ar": "Calculate material porosity as percentage of void volume."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "porosity-calculator",
+    "de": "Porositätsrechner",
+    "fr": "Calculateur de porosité",
+    "es": "Calculadora de porosidad",
+    "ar": "حاسبة المسامية"
+  }
+}

@@ -23,6 +23,7 @@ export const HOMEPAGE_COVERAGE_IDS = [
   "energy",
   "finance",
   "foodRetail",
+  "general",
 ] as const;
 
 export type HomepageCoverageId = (typeof HOMEPAGE_COVERAGE_IDS)[number];

@@ -1,0 +1,125 @@
+{
+  "toolName": "load-factor-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik ve Kuantum",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "ortalamaGuc",
+      "label": "Ortalama Güç (kW)",
+      "label_i18n": {
+        "en": "Average Power (kW)",
+        "tr": "Ortalama Güç (kW)",
+        "de": "Average Power (kW)",
+        "fr": "Average Power (kW)",
+        "es": "Average Power (kW)",
+        "ar": "Average Power (kW)"
+      },
+      "type": "number",
+      "unit": "kW",
+      "default": 80,
+      "min": 0,
+      "businessContext": "Dönem boyunca ortalama çekilen güç.",
+      "businessContext_i18n": {
+        "en": "Average power drawn.",
+        "tr": "Dönem boyunca ortalama çekilen güç.",
+        "de": "Average power drawn.",
+        "fr": "Average power drawn.",
+        "es": "Average power drawn.",
+        "ar": "Average power drawn."
+      }
+    },
+    {
+      "id": "pikGuc",
+      "label": "Pik Güç (kW)",
+      "label_i18n": {
+        "en": "Peak Power (kW)",
+        "tr": "Pik Güç (kW)",
+        "de": "Peak Power (kW)",
+        "fr": "Peak Power (kW)",
+        "es": "Peak Power (kW)",
+        "ar": "Peak Power (kW)"
+      },
+      "type": "number",
+      "unit": "kW",
+      "default": 200,
+      "min": 0,
+      "businessContext": "Dönemdeki en yüksek güç talebi.",
+      "businessContext_i18n": {
+        "en": "Peak power demand.",
+        "tr": "Dönemdeki en yüksek güç talebi.",
+        "de": "Peak power demand.",
+        "fr": "Peak power demand.",
+        "es": "Peak power demand.",
+        "ar": "Peak power demand."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(ortalamaGuc / Math.max(0.0001, pikGuc)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Yük Faktörü"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yük Faktörü",
+        "tr": "Yük Faktörü",
+        "de": "Yük Faktörü",
+        "fr": "Yük Faktörü",
+        "es": "Yük Faktörü",
+        "ar": "Yük Faktörü"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Quantum effects are only observable at microscopic scales.",
+      "These are idealized models."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate electrical load factor — average vs peak power usage ratio.",
+      "long": "Calculate electrical load factor — average vs peak power usage ratio.",
+      "short_i18n": {
+        "en": "Calculate electrical load factor — average vs peak power usage ratio.",
+        "tr": "Tüketicinin enerjiyi ne kadar dengeli kullandığının göstergesini (yük faktörü) hesaplar.",
+        "de": "Calculate electrical load factor — average vs peak power usage ratio.",
+        "fr": "Calculate electrical load factor — average vs peak power usage ratio.",
+        "es": "Calculate electrical load factor — average vs peak power usage ratio.",
+        "ar": "Calculate electrical load factor — average vs peak power usage ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate electrical load factor — average vs peak power usage ratio.",
+        "tr": "Tüketicinin enerjiyi ne kadar dengeli kullandığının göstergesini (yük faktörü) hesaplar.",
+        "de": "Calculate electrical load factor — average vs peak power usage ratio.",
+        "fr": "Calculate electrical load factor — average vs peak power usage ratio.",
+        "es": "Calculate electrical load factor — average vs peak power usage ratio.",
+        "ar": "Calculate electrical load factor — average vs peak power usage ratio."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "load-factor-calculator",
+    "de": "Lastfaktor-Rechner für Elektrizität",
+    "fr": "Calculateur de facteur de charge électrique",
+    "es": "Calculadora de factor de carga eléctrica",
+    "ar": "حاسبة عامل الحمولة الكهربائية"
+  }
+}

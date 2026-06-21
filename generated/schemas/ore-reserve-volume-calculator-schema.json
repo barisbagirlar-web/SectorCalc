@@ -1,0 +1,164 @@
+{
+  "toolName": "ore-reserve-volume-calculator",
+  "catalogCategory": "technology-ai-cloud-cyber",
+  "categorySlug": "technology-ai-cloud-cyber",
+  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sectorId": "technology-ai-cloud-cyber",
+  "inputs": [
+    {
+      "id": "blokHacim",
+      "label": "Cevher Blok Hacmi (m³)",
+      "label_i18n": {
+        "en": "Ore Block Volume (m³)",
+        "tr": "Cevher Blok Hacmi (m³)",
+        "de": "Ore Block Volume (m³)",
+        "fr": "Ore Block Volume (m³)",
+        "es": "Ore Block Volume (m³)",
+        "ar": "Ore Block Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Cevher kütlesinin hacmi.",
+      "businessContext_i18n": {
+        "en": "Ore body volume.",
+        "tr": "Cevher kütlesinin hacmi.",
+        "de": "Ore body volume.",
+        "fr": "Ore body volume.",
+        "es": "Ore body volume.",
+        "ar": "Ore body volume."
+      }
+    },
+    {
+      "id": "cevherYogunlugu",
+      "label": "Cevher Yoğunluğu (ton/m³)",
+      "label_i18n": {
+        "en": "Ore Density (ton/m³)",
+        "tr": "Cevher Yoğunluğu (ton/m³)",
+        "de": "Ore Density (ton/m³)",
+        "fr": "Ore Density (ton/m³)",
+        "es": "Ore Density (ton/m³)",
+        "ar": "Ore Density (ton/m³)"
+      },
+      "type": "number",
+      "unit": "ton/m3",
+      "default": 2.7,
+      "min": 0,
+      "businessContext": "Cevherin yoğunluğu.",
+      "businessContext_i18n": {
+        "en": "Ore density.",
+        "tr": "Cevherin yoğunluğu.",
+        "de": "Ore density.",
+        "fr": "Ore density.",
+        "es": "Ore density.",
+        "ar": "Ore density."
+      }
+    },
+    {
+      "id": "tenor",
+      "label": "Tenör (%)",
+      "label_i18n": {
+        "en": "Grade (%)",
+        "tr": "Tenör (%)",
+        "de": "Schraubenfestigkeitsklasse / Eigenschaftsklasse",
+        "fr": "Classe de qualité de boulon / Classe de propriété",
+        "es": "Grado de perno / Clase de propiedad",
+        "ar": "درجة البرغي / فئة الخواص"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0,
+      "businessContext": "Cevherin metal içeriği.",
+      "businessContext_i18n": {
+        "en": "Metal grade in ore.",
+        "tr": "Cevherin metal içeriği.",
+        "de": "Metal grade in ore.",
+        "fr": "Metal grade in ore.",
+        "es": "Metal grade in ore.",
+        "ar": "Metal grade in ore."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "tonaj": "blokHacim * cevherYogunlugu",
+    "sonuc": "(blokHacim * cevherYogunlugu) * (tenor / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "tons",
+    "breakdown": {
+      "tonaj": "Toplam Cevher (ton)",
+      "sonuc": "Metal Miktarı (ton)"
+    },
+    "breakdown_i18n": {
+      "tonaj": {
+        "en": "Toplam Cevher (ton)",
+        "tr": "Toplam Cevher (ton)",
+        "de": "Toplam Cevher (ton)",
+        "fr": "Toplam Cevher (ton)",
+        "es": "Toplam Cevher (ton)",
+        "ar": "Toplam Cevher (ton)"
+      },
+      "sonuc": {
+        "en": "Metal Miktarı (ton)",
+        "tr": "Metal Miktarı (ton)",
+        "de": "Metal Miktarı (ton)",
+        "fr": "Metal Miktarı (ton)",
+        "es": "Metal Miktarı (ton)",
+        "ar": "Metal Miktarı (ton)"
+      }
+    },
+    "breakdownUnits": {
+      "tonaj": "tons",
+      "sonuc": "tons"
+    },
+    "hiddenLossDrivers": [
+      "Low SLA indicates service reliability issue.",
+      "High latency degrades user experience."
+    ],
+    "suggestedActions": [
+      "Monitor system performance regularly.",
+      "Implement redundancy for critical infrastructure."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate ore tonnage and metal content in a mining block.",
+      "long": "Calculate ore tonnage and metal content in a mining block.",
+      "short_i18n": {
+        "en": "Calculate ore tonnage and metal content in a mining block.",
+        "tr": "Sahadaki net cevher ve saf metal ağırlığını (rezerv hacim) hesaplar.",
+        "de": "Calculate ore tonnage and metal content in a mining block.",
+        "fr": "Calculate ore tonnage and metal content in a mining block.",
+        "es": "Calculate ore tonnage and metal content in a mining block.",
+        "ar": "Calculate ore tonnage and metal content in a mining block."
+      },
+      "long_i18n": {
+        "en": "Calculate ore tonnage and metal content in a mining block.",
+        "tr": "Sahadaki net cevher ve saf metal ağırlığını (rezerv hacim) hesaplar.",
+        "de": "Calculate ore tonnage and metal content in a mining block.",
+        "fr": "Calculate ore tonnage and metal content in a mining block.",
+        "es": "Calculate ore tonnage and metal content in a mining block.",
+        "ar": "Calculate ore tonnage and metal content in a mining block."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "ore-reserve-volume-calculator",
+    "de": "Erzreservenvolumenrechner",
+    "fr": "Calculateur de volume de réserve minière",
+    "es": "Calculadora de volumen de reserva minera",
+    "ar": "حاسبة حجم الاحتياطي المعدني"
+  }
+}

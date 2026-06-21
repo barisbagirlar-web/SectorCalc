@@ -1,0 +1,187 @@
+{
+  "toolName": "apr-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "kredi",
+      "label": "Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan Amount (USD)",
+        "tr": "Kredi Tutarı (₺)",
+        "de": "Darlehensbetrag",
+        "fr": "Montant du prêt",
+        "es": "Monto del préstamo",
+        "ar": "مبلغ القرض"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Çekilen toplam kredi anaparası.",
+      "businessContext_i18n": {
+        "en": "Total loan principal.",
+        "tr": "Çekilen toplam kredi anaparası.",
+        "de": "Total loan principal.",
+        "fr": "Total loan principal.",
+        "es": "Total loan principal.",
+        "ar": "Total loan principal."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Nominal Faiz (%)",
+      "label_i18n": {
+        "en": "Nominal Interest (%)",
+        "tr": "Nominal Faiz (%)",
+        "de": "Nominalzinssatz",
+        "fr": "Taux d'intérêt nominal",
+        "es": "Tasa de interés nominal",
+        "ar": "سعر الفائدة الاسمي"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Kredinin yıllık nominal faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate.",
+        "tr": "Kredinin yıllık nominal faiz oranı.",
+        "de": "Annual nominal interest rate.",
+        "fr": "Annual nominal interest rate.",
+        "es": "Annual nominal interest rate.",
+        "ar": "Annual nominal interest rate."
+      }
+    },
+    {
+      "id": "vade",
+      "label": "Vade (Ay)",
+      "label_i18n": {
+        "en": "Term (Months)",
+        "tr": "Vade (Ay)",
+        "de": "Kreditlaufzeit",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
+        "ar": "مدة القرض"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 36,
+      "min": 1,
+      "businessContext": "Kredinin toplam vadesi.",
+      "businessContext_i18n": {
+        "en": "Total loan term.",
+        "tr": "Kredinin toplam vadesi.",
+        "de": "Total loan term.",
+        "fr": "Total loan term.",
+        "es": "Total loan term.",
+        "ar": "Total loan term."
+      }
+    },
+    {
+      "id": "masraf",
+      "label": "Toplam Masraf (₺)",
+      "label_i18n": {
+        "en": "Total Fees (USD)",
+        "tr": "Toplam Masraf (₺)",
+        "de": "Total Fees (USD)",
+        "fr": "Total Fees (USD)",
+        "es": "Total Fees (USD)",
+        "ar": "Total Fees (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1500,
+      "min": 0,
+      "businessContext": "Dosya, ekspertiz ve sigorta masrafları.",
+      "businessContext_i18n": {
+        "en": "Origination, appraisal and insurance fees.",
+        "tr": "Dosya, ekspertiz ve sigorta masrafları.",
+        "de": "Origination, appraisal and insurance fees.",
+        "fr": "Origination, appraisal and insurance fees.",
+        "es": "Origination, appraisal and insurance fees.",
+        "ar": "Origination, appraisal and insurance fees."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "netKredi": "kredi - masraf",
+    "aylikTaksit": "kredi * ((faiz/12/100) * Math.pow(1 + faiz/12/100, vade)) / (Math.pow(1 + faiz/12/100, vade) - 1)",
+    "sonuc": "((kredi - masraf) > 0) ? ((((kredi * ((faiz/12/100) * Math.pow(1 + faiz/12/100, vade)) / (Math.pow(1 + faiz/12/100, vade) - 1)) * vade) - kredi) / kredi) * 100 / (vade/12) : 0"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "APR (Yıllık Maliyet Oranı)",
+      "aylikTaksit": "Aylık Taksit"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "APR (Yıllık Maliyet Oranı)",
+        "tr": "APR (Yıllık Maliyet Oranı)",
+        "de": "APR (Yıllık Maliyet Oranı)",
+        "fr": "APR (Yıllık Maliyet Oranı)",
+        "es": "APR (Yıllık Maliyet Oranı)",
+        "ar": "APR (Yıllık Maliyet Oranı)"
+      },
+      "aylikTaksit": {
+        "en": "Aylık Taksit",
+        "tr": "Aylık Taksit",
+        "de": "Aylık Taksit",
+        "fr": "Aylık Taksit",
+        "es": "Aylık Taksit",
+        "ar": "Aylık Taksit"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%",
+      "aylikTaksit": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the true annual percentage rate including all fees.",
+      "long": "Calculate the true annual percentage rate including all fees.",
+      "short_i18n": {
+        "en": "Calculate the true annual percentage rate including all fees.",
+        "tr": "Masraflar dahil kredinin gerçek yıllık maliyet oranını hesaplar.",
+        "de": "Calculate the true annual percentage rate including all fees.",
+        "fr": "Calculate the true annual percentage rate including all fees.",
+        "es": "Calculate the true annual percentage rate including all fees.",
+        "ar": "Calculate the true annual percentage rate including all fees."
+      },
+      "long_i18n": {
+        "en": "Calculate the true annual percentage rate including all fees.",
+        "tr": "Masraflar dahil kredinin gerçek yıllık maliyet oranını hesaplar.",
+        "de": "Calculate the true annual percentage rate including all fees.",
+        "fr": "Calculate the true annual percentage rate including all fees.",
+        "es": "Calculate the true annual percentage rate including all fees.",
+        "ar": "Calculate the true annual percentage rate including all fees."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "apr-calculator",
+    "de": "APR Effektivjahreszins Rechner",
+    "fr": "Calculateur de TAEG",
+    "es": "Calculadora de TAE",
+    "ar": "حاسبة معدل الفائدة السنوية APR"
+  }
+}

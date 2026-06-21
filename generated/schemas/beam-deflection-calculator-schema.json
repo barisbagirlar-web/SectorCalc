@@ -1,0 +1,175 @@
+{
+  "toolName": "beam-deflection-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "yuk",
+      "label": "Tekil Yük (N)",
+      "label_i18n": {
+        "en": "Point Load (N)",
+        "tr": "Tekil Yük (N)",
+        "de": "Punktlast (P)",
+        "fr": "Charge ponctuelle (P)",
+        "es": "Carga Puntual (P)",
+        "ar": "الحمولة النقطية (P)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 15000,
+      "min": 0,
+      "businessContext": "Kiriş ortasındaki yük.",
+      "businessContext_i18n": {
+        "en": "Mid-span point load.",
+        "tr": "Kiriş ortasındaki yük.",
+        "de": "Mid-span point load.",
+        "fr": "Mid-span point load.",
+        "es": "Mid-span point load.",
+        "ar": "Mid-span point load."
+      }
+    },
+    {
+      "id": "aciklik",
+      "label": "Açıklık (m)",
+      "label_i18n": {
+        "en": "Span (m)",
+        "tr": "Açıklık (m)",
+        "de": "Cobot-Lebensdauer",
+        "fr": "Durée de vie du cobot",
+        "es": "Vida útil del cobot",
+        "ar": "عمر الكوبوت"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "min": 0,
+      "businessContext": "Mesnetler arası mesafe.",
+      "businessContext_i18n": {
+        "en": "Support spacing.",
+        "tr": "Mesnetler arası mesafe.",
+        "de": "Support spacing.",
+        "fr": "Support spacing.",
+        "es": "Support spacing.",
+        "ar": "Support spacing."
+      }
+    },
+    {
+      "id": "elastisiteModulu",
+      "label": "Elastisite Modülü (Pa)",
+      "label_i18n": {
+        "en": "Young's Modulus (Pa)",
+        "tr": "Elastisite Modülü (Pa)",
+        "de": "Elastizitätsmodul (E)",
+        "fr": "Module de Young (E)",
+        "es": "Módulo de Young (E)",
+        "ar": "معامل يونغ (E)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 200000000000,
+      "min": 0,
+      "businessContext": "Malzeme modülü.",
+      "businessContext_i18n": {
+        "en": "Material modulus.",
+        "tr": "Malzeme modülü.",
+        "de": "Material modulus.",
+        "fr": "Material modulus.",
+        "es": "Material modulus.",
+        "ar": "Material modulus."
+      }
+    },
+    {
+      "id": "ataletMomenti",
+      "label": "Atalet Momenti (m⁴)",
+      "label_i18n": {
+        "en": "Moment of Inertia (m⁴)",
+        "tr": "Atalet Momenti (m⁴)",
+        "de": "Flächenträgheitsmoment (I)",
+        "fr": "Moment d'inertie (I)",
+        "es": "Momento de Inercia (I)",
+        "ar": "عزم القصور الذاتي (I)"
+      },
+      "type": "number",
+      "unit": "m4",
+      "default": 0.0000083,
+      "min": 0,
+      "businessContext": "Kesitin atalet momenti.",
+      "businessContext_i18n": {
+        "en": "Section moment of inertia.",
+        "tr": "Kesitin atalet momenti.",
+        "de": "Section moment of inertia.",
+        "fr": "Section moment of inertia.",
+        "es": "Section moment of inertia.",
+        "ar": "Section moment of inertia."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(yuk * Math.pow(aciklik, 3)) / Math.max(0.0001, (48 * elastisiteModulu * ataletMomenti))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Orta Nokta Sehimi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Orta Nokta Sehimi",
+        "tr": "Orta Nokta Sehimi",
+        "de": "Orta Nokta Sehimi",
+        "fr": "Orta Nokta Sehimi",
+        "es": "Orta Nokta Sehimi",
+        "ar": "Orta Nokta Sehimi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate mid-span deflection of a simply supported beam under point load.",
+      "long": "Calculate mid-span deflection of a simply supported beam under point load.",
+      "short_i18n": {
+        "en": "Calculate mid-span deflection of a simply supported beam under point load.",
+        "tr": "Tekil yük altındaki basit kirişin orta nokta çökmesini (sehim) hesaplar.",
+        "de": "Calculate mid-span deflection of a simply supported beam under point load.",
+        "fr": "Calculate mid-span deflection of a simply supported beam under point load.",
+        "es": "Calculate mid-span deflection of a simply supported beam under point load.",
+        "ar": "Calculate mid-span deflection of a simply supported beam under point load."
+      },
+      "long_i18n": {
+        "en": "Calculate mid-span deflection of a simply supported beam under point load.",
+        "tr": "Tekil yük altındaki basit kirişin orta nokta çökmesini (sehim) hesaplar.",
+        "de": "Calculate mid-span deflection of a simply supported beam under point load.",
+        "fr": "Calculate mid-span deflection of a simply supported beam under point load.",
+        "es": "Calculate mid-span deflection of a simply supported beam under point load.",
+        "ar": "Calculate mid-span deflection of a simply supported beam under point load."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "beam-deflection-calculator",
+    "de": "Durchbiegungsrechner für Bodenbalken",
+    "fr": "Calculateur de flèche de poutre de plancher",
+    "es": "Calculadora de deflexión de viga de piso",
+    "ar": "حاسبة انحراف عارضة الأرضية"
+  }
+}

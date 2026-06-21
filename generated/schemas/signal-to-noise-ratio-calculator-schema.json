@@ -1,0 +1,127 @@
+{
+  "toolName": "signal-to-noise-ratio-calculator",
+  "catalogCategory": "electrical-power-systems",
+  "categorySlug": "electrical-power-systems",
+  "sector": "Yangın, Elektrik ve Elektronik",
+  "sectorId": "electrical-power-systems",
+  "inputs": [
+    {
+      "id": "sinyalGuc",
+      "label": "Sinyal Gücü (W)",
+      "label_i18n": {
+        "en": "Signal Power (W)",
+        "tr": "Sinyal Gücü (W)",
+        "de": "Signal Power (W)",
+        "fr": "Signal Power (W)",
+        "es": "Signal Power (W)",
+        "ar": "Signal Power (W)"
+      },
+      "type": "number",
+      "unit": "W",
+      "default": 0.001,
+      "min": 0,
+      "businessContext": "İstenen sinyalin gücü.",
+      "businessContext_i18n": {
+        "en": "Desired signal power.",
+        "tr": "İstenen sinyalin gücü.",
+        "de": "Desired signal power.",
+        "fr": "Desired signal power.",
+        "es": "Desired signal power.",
+        "ar": "Desired signal power."
+      }
+    },
+    {
+      "id": "gurultuGuc",
+      "label": "Gürültü Gücü (W)",
+      "label_i18n": {
+        "en": "Noise Power (W)",
+        "tr": "Gürültü Gücü (W)",
+        "de": "Noise Power (W)",
+        "fr": "Noise Power (W)",
+        "es": "Noise Power (W)",
+        "ar": "Noise Power (W)"
+      },
+      "type": "number",
+      "unit": "W",
+      "default": 0.000001,
+      "min": 0,
+      "businessContext": "Arka plan gürültü gücü.",
+      "businessContext_i18n": {
+        "en": "Background noise power.",
+        "tr": "Arka plan gürültü gücü.",
+        "de": "Background noise power.",
+        "fr": "Background noise power.",
+        "es": "Background noise power.",
+        "ar": "Background noise power."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "10 * Math.log10(Math.max(0.0001, sinyalGuc / Math.max(0.0001, gurultuGuc)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "dB",
+    "breakdown": {
+      "sonuc": "SNR"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "SNR",
+        "tr": "SNR",
+        "de": "SNR",
+        "fr": "SNR",
+        "es": "SNR",
+        "ar": "SNR"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "dB"
+    },
+    "hiddenLossDrivers": [
+      "Low Q factor indicates broader frequency response."
+    ],
+    "suggestedActions": [
+      "Verify component tolerances affect circuit performance.",
+      "Use proper safety equipment for high voltage/current work."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+      "long": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+      "short_i18n": {
+        "en": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+        "tr": "İstenen sinyalin arka plan gürültüsüne baskınlığını (SNR) desibel cinsinden hesaplar.",
+        "de": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+        "fr": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+        "es": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+        "ar": "Calculate Signal-to-Noise Ratio (SNR) in dB."
+      },
+      "long_i18n": {
+        "en": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+        "tr": "İstenen sinyalin arka plan gürültüsüne baskınlığını (SNR) desibel cinsinden hesaplar.",
+        "de": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+        "fr": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+        "es": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
+        "ar": "Calculate Signal-to-Noise Ratio (SNR) in dB."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "signal-to-noise-ratio-calculator",
+    "de": "Signal-Rausch-Verhältnis (SNR)-Rechner",
+    "fr": "Calculateur de rapport signal/bruit (SNR)",
+    "es": "Calculadora de relación señal/ruido (SNR)",
+    "ar": "حاسبة نسبة الإشارة إلى الضوضاء (SNR)"
+  }
+}

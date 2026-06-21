@@ -1,0 +1,153 @@
+{
+  "toolName": "standard-time-calculator",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "gozlenenSure",
+      "label": "Gözlenen Süre (Dk)",
+      "label_i18n": {
+        "en": "Observed Time (Min)",
+        "tr": "Gözlenen Süre (Dk)",
+        "de": "Beobachtete Zeit (Sekunden)",
+        "fr": "Temps observé (secondes)",
+        "es": "Tiempo observado (segundos)",
+        "ar": "الوقت المرصود (ثوانٍ)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Operasyonda ölçülen süre.",
+      "businessContext_i18n": {
+        "en": "Measured operation time.",
+        "tr": "Operasyonda ölçülen süre.",
+        "de": "Measured operation time.",
+        "fr": "Measured operation time.",
+        "es": "Measured operation time.",
+        "ar": "Measured operation time."
+      }
+    },
+    {
+      "id": "performans",
+      "label": "Performans Hızı (%)",
+      "label_i18n": {
+        "en": "Performance Rating (%)",
+        "tr": "Performans Hızı (%)",
+        "de": "Leistungsbewertung (%)",
+        "fr": "Évaluation de performance (%)",
+        "es": "Calificación de rendimiento (%)",
+        "ar": "تقييم الأداء (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 20,
+      "max": 150,
+      "businessContext": "Operatörün standart hıza göre performansı.",
+      "businessContext_i18n": {
+        "en": "Operator speed vs standard.",
+        "tr": "Operatörün standart hıza göre performansı.",
+        "de": "Operator speed vs standard.",
+        "fr": "Operator speed vs standard.",
+        "es": "Operator speed vs standard.",
+        "ar": "Operator speed vs standard."
+      }
+    },
+    {
+      "id": "ekSure",
+      "label": "Ek Süre Payı (%)",
+      "label_i18n": {
+        "en": "Allowance (%)",
+        "tr": "Ek Süre Payı (%)",
+        "de": "Toleranzprozentsatz (%)",
+        "fr": "Pourcentage de tolérance (%)",
+        "es": "Porcentaje de tolerancia (%)",
+        "ar": "نسبة السماح (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Yorgunluk, kişisel ihtiyaçlar için ek süre.",
+      "businessContext_i18n": {
+        "en": "Fatigue and personal allowance.",
+        "tr": "Yorgunluk, kişisel ihtiyaçlar için ek süre.",
+        "de": "Fatigue and personal allowance.",
+        "fr": "Fatigue and personal allowance.",
+        "es": "Fatigue and personal allowance.",
+        "ar": "Fatigue and personal allowance."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "normal": "gozlenenSure * (performans / 100)",
+    "sonuc": "(gozlenenSure * (performans / 100)) * (1 + ekSure / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "min",
+    "breakdown": {
+      "sonuc": "Standart Süre"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Standart Süre",
+        "tr": "Standart Süre",
+        "de": "Standart Süre",
+        "fr": "Standart Süre",
+        "es": "Standart Süre",
+        "ar": "Standart Süre"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "min"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate standard time with allowance for fatigue.",
+      "long": "Calculate standard time with allowance for fatigue.",
+      "short_i18n": {
+        "en": "Calculate standard time with allowance for fatigue.",
+        "tr": "Yorgunluk payı eklenmiş hedef standart üretim süresini hesaplar.",
+        "de": "Calculate standard time with allowance for fatigue.",
+        "fr": "Calculate standard time with allowance for fatigue.",
+        "es": "Calculate standard time with allowance for fatigue.",
+        "ar": "Calculate standard time with allowance for fatigue."
+      },
+      "long_i18n": {
+        "en": "Calculate standard time with allowance for fatigue.",
+        "tr": "Yorgunluk payı eklenmiş hedef standart üretim süresini hesaplar.",
+        "de": "Calculate standard time with allowance for fatigue.",
+        "fr": "Calculate standard time with allowance for fatigue.",
+        "es": "Calculate standard time with allowance for fatigue.",
+        "ar": "Calculate standard time with allowance for fatigue."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "standard-time-calculator",
+    "de": "Standardzeit-Rechner",
+    "fr": "Calculateur de temps standard",
+    "es": "Calculadora de tiempo estándar",
+    "ar": "حاسبة الوقت القياسي"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "toolName": "income-adjusted-medicare-premium-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yillikGelir",
+      "label": "Yıllık Gelir (TL)",
+      "label_i18n": {
+        "en": "Annual Income (USD)",
+        "tr": "Yıllık Gelir (TL)",
+        "de": "Jährliches Einkommen (USD)",
+        "fr": "Revenu annuel (USD)",
+        "es": "Ingreso anual (USD)",
+        "ar": "الدخل السنوي (دولار أمريكي)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Beyan edilen yıllık gelir.",
+      "businessContext_i18n": {
+        "en": "Reported annual income.",
+        "tr": "Beyan edilen yıllık gelir.",
+        "de": "Reported annual income.",
+        "fr": "Reported annual income.",
+        "es": "Reported annual income.",
+        "ar": "Reported annual income."
+      }
+    },
+    {
+      "id": "bazPrim",
+      "label": "Baz Prim (TL)",
+      "label_i18n": {
+        "en": "Base Premium (USD)",
+        "tr": "Baz Prim (TL)",
+        "de": "Base Premium (USD)",
+        "fr": "Base Premium (USD)",
+        "es": "Base Premium (USD)",
+        "ar": "Base Premium (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Standart prim tutarı.",
+      "businessContext_i18n": {
+        "en": "Standard premium amount.",
+        "tr": "Standart prim tutarı.",
+        "de": "Standard premium amount.",
+        "fr": "Standard premium amount.",
+        "es": "Standard premium amount.",
+        "ar": "Standard premium amount."
+      }
+    },
+    {
+      "id": "ekOran",
+      "label": "Ek Prim Oranı (%)",
+      "label_i18n": {
+        "en": "Surcharge Rate (%)",
+        "tr": "Ek Prim Oranı (%)",
+        "de": "Surcharge Rate (%)",
+        "fr": "Surcharge Rate (%)",
+        "es": "Surcharge Rate (%)",
+        "ar": "Surcharge Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Yüksek gelirlilere uygulanan ek oran.",
+      "businessContext_i18n": {
+        "en": "High-income surcharge.",
+        "tr": "Yüksek gelirlilere uygulanan ek oran.",
+        "de": "High-income surcharge.",
+        "fr": "High-income surcharge.",
+        "es": "High-income surcharge.",
+        "ar": "High-income surcharge."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "esik": "300000",
+    "sonuc": "bazPrim + Math.max(0, (yillikGelir - 300000) * ekOran / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Aylık Medicare Primi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Aylık Medicare Primi",
+        "tr": "Aylık Medicare Primi",
+        "de": "Aylık Medicare Primi",
+        "fr": "Aylık Medicare Primi",
+        "es": "Aylık Medicare Primi",
+        "ar": "Aylık Medicare Primi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate income-adjusted monthly Medicare premium.",
+      "long": "Calculate income-adjusted monthly Medicare premium.",
+      "short_i18n": {
+        "en": "Calculate income-adjusted monthly Medicare premium.",
+        "tr": "Gelire göre ayarlanmış aylık Medicare sağlık sigortası primini hesaplar.",
+        "de": "Calculate income-adjusted monthly Medicare premium.",
+        "fr": "Calculate income-adjusted monthly Medicare premium.",
+        "es": "Calculate income-adjusted monthly Medicare premium.",
+        "ar": "Calculate income-adjusted monthly Medicare premium."
+      },
+      "long_i18n": {
+        "en": "Calculate income-adjusted monthly Medicare premium.",
+        "tr": "Gelire göre ayarlanmış aylık Medicare sağlık sigortası primini hesaplar.",
+        "de": "Calculate income-adjusted monthly Medicare premium.",
+        "fr": "Calculate income-adjusted monthly Medicare premium.",
+        "es": "Calculate income-adjusted monthly Medicare premium.",
+        "ar": "Calculate income-adjusted monthly Medicare premium."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "income-adjusted-medicare-premium-calculator",
+    "de": "Medicare-Prämienrechner",
+    "fr": "Calculateur de prime Medicare",
+    "es": "Calculadora de prima de Medicare",
+    "ar": "حاسبة أقساط Medicare"
+  }
+}

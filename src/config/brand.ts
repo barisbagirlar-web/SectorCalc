@@ -4,29 +4,29 @@
  */
 export const BRAND_ASSETS = {
  logo: {
- default: "/img/brand/sectorcalc-logo.png",
- onDark: "/img/brand/sectorcalc-logo-on-dark.png",
- /** Header/LCP — 2× display size; master PNGs kept for schema and print. */
- headerDefault: "/img/brand/sectorcalc-logo-header.png",
- headerOnDark: "/img/brand/sectorcalc-logo-on-dark-header.png",
+ default: "/img/brand/sectorcalc-logo.svg",
+ onDark: "/img/brand/sectorcalc-logo-on-dark.svg",
+ /** Header/LCP — SVG with 4 blue squares + SectorCalc text. */
+ headerDefault: "/img/brand/sectorcalc-logo.svg",
+ headerOnDark: "/img/brand/sectorcalc-logo-on-dark.svg",
     /** SVG symbol/icon logo (original thin stroke). */
     symbolSvg: "/img/brand/sectorcalc-logo.svg",
     /** SVG bold filled symbol — matches the real Trace AI bracket logo in black. */
     symbolBoldSvg: "/img/brand/sectorcalc-logo-bold.svg",
- /** Intrinsic asset dimensions (PNG master). */
- width: 1024,
- height: 268,
- /** Header asset dimensions (520×136 PNG). */
- headerWidth: 520,
- headerHeight: 136,
+ /** Intrinsic asset dimensions (SVG native). */
+ width: 280,
+ height: 72,
+ /** Header asset dimensions (SVG). */
+ headerWidth: 280,
+ headerHeight: 72,
  /** Max rendered size in header — used for Next/Image `sizes` and layout. */
- displayWidth: 260,
- displayHeight: 68,
+ displayWidth: 130,
+ displayHeight: 34,
  /** SVG symbol display size — rendered via native <img>. */
- symbolWidth: 512,
- symbolHeight: 512,
- displaySymbolWidth: 88,
- displaySymbolHeight: 88,
+ symbolWidth: 280,
+ symbolHeight: 72,
+ displaySymbolWidth: 130,
+ displaySymbolHeight: 34,
  },
 favicon: {
     /** Master PNG favicon (Sector Mavisi logo). */

@@ -9,28 +9,15 @@
 >
   <title id="faviconTitle">SectorCalc</title>
 
-  <!--
-    White background with black logo.
-    - Background fills entire 512×512 canvas (rounded square).
-    - Logo is centered at (256, 256) with scale 0.95 so it sits safely
-      within the PWA maskable safe zone (inner ~60% diameter).
-    - Logo natural bbox: X=101..413 (312px), Y=91..394 (303px);
-      scaled to ~296×288, well within the 307px maskable safe circle.
-    - White background ensures the icon is clearly visible on dark browser
-      tabs, black logo guarantees contrast on light backgrounds.
-  -->
-
   <!-- White rounded-square background -->
   <rect x="0" y="0" width="512" height="512" rx="32" fill="#FFFFFF"/>
-
-  <!-- Thin visual border for subtle definition on white surfaces -->
   <rect x="5" y="5" width="502" height="502" rx="28" fill="none" stroke="#E5E7EB" stroke-width="3"/>
 
-  <!-- Black logo — centered, maskable-safe -->
-  <g fill="#000000" transform="translate(256, 256) scale(0.95) translate(-257, -242.5)">
-    <rect x="101" y="209" width="58" height="20" rx="0"/>
-    <rect x="355" y="209" width="58" height="20" rx="0"/>
-    <path d="M254 111H197V91H276V340H254V111Z"/>
-    <rect x="196" y="374" width="119" height="20" rx="0"/>
+  <!-- 4 blue squares centered, maskable-safe -->
+  <g transform="translate(256, 256) scale(2.8) translate(-44, -44)">
+    <rect x="6" y="6" width="20" height="20" rx="2" fill="#A0C4E8"/>
+    <rect x="30" y="6" width="20" height="20" rx="2" fill="#4A90D9"/>
+    <rect x="6" y="30" width="20" height="20" rx="2" fill="#2B6CB0"/>
+    <rect x="30" y="30" width="20" height="20" rx="2" fill="#0F2B5C"/>
   </g>
 </svg>

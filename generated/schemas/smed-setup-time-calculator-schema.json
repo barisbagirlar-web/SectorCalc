@@ -1,0 +1,152 @@
+{
+  "toolName": "smed-setup-time-calculator",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "icAyar",
+      "label": "İç Ayar Süresi (Dk)",
+      "label_i18n": {
+        "en": "Internal Setup (Min)",
+        "tr": "İç Ayar Süresi (Dk)",
+        "de": "Interne Rüstzeit pro Rüstvorgang (Minuten)",
+        "fr": "Temps de réglage interne par changement (minutes)",
+        "es": "Tiempo de configuración interna por cambio (minutos)",
+        "ar": "وقت الإعداد الداخلي لكل تغيير (بالدقائق)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "min": 0,
+      "businessContext": "Makine dururken yapılan ayar.",
+      "businessContext_i18n": {
+        "en": "Setup done while machine stopped.",
+        "tr": "Makine dururken yapılan ayar.",
+        "de": "Setup done while machine stopped.",
+        "fr": "Setup done while machine stopped.",
+        "es": "Setup done while machine stopped.",
+        "ar": "Setup done while machine stopped."
+      }
+    },
+    {
+      "id": "disAyar",
+      "label": "Dış Ayar Süresi (Dk)",
+      "label_i18n": {
+        "en": "External Setup (Min)",
+        "tr": "Dış Ayar Süresi (Dk)",
+        "de": "Externe Rüstzeit pro Rüstvorgang (Minuten)",
+        "fr": "Temps de réglage externe par changement (minutes)",
+        "es": "Tiempo de configuración externa por cambio (minutos)",
+        "ar": "وقت الإعداد الخارجي لكل تغيير (بالدقائق)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Makine çalışırken yapılan ayar.",
+      "businessContext_i18n": {
+        "en": "Setup done while machine runs.",
+        "tr": "Makine çalışırken yapılan ayar.",
+        "de": "Setup done while machine runs.",
+        "fr": "Setup done while machine runs.",
+        "es": "Setup done while machine runs.",
+        "ar": "Setup done while machine runs."
+      }
+    },
+    {
+      "id": "donusum",
+      "label": "İç-Dış Dönüşüm Oranı (%)",
+      "label_i18n": {
+        "en": "Conversion Rate (%)",
+        "tr": "İç-Dış Dönüşüm Oranı (%)",
+        "de": "Currency Conversion Satz (to EUR)",
+        "fr": "Currency Conversion Taux (to EUR)",
+        "es": "Currency Conversion Tasa (to EUR)",
+        "ar": "Currency Conversion المعدل (to EUR)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "businessContext": "İç ayarın ne kadarının dışa dönüştüğü.",
+      "businessContext_i18n": {
+        "en": "Percentage of internal converted to external.",
+        "tr": "İç ayarın ne kadarının dışa dönüştüğü.",
+        "de": "Percentage of internal converted to external.",
+        "fr": "Percentage of internal converted to external.",
+        "es": "Percentage of internal converted to external.",
+        "ar": "Percentage of internal converted to external."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "hedefIc": "icAyar * (1 - donusum / 100)",
+    "sonuc": "(icAyar * (1 - donusum / 100)) + disAyar"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "min",
+    "breakdown": {
+      "sonuc": "Yeni Setup Süresi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yeni Setup Süresi",
+        "tr": "Yeni Setup Süresi",
+        "de": "Yeni Setup Süresi",
+        "fr": "Yeni Setup Süresi",
+        "es": "Yeni Setup Süresi",
+        "ar": "Yeni Setup Süresi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "min"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+      "long": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+      "short_i18n": {
+        "en": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+        "tr": "İç ayarların dış ayara çevrilmesiyle kısaltılmış setup süresini hesaplar.",
+        "de": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+        "fr": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+        "es": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+        "ar": "Calculate reduced setup time by converting internal to external SMED adjustments."
+      },
+      "long_i18n": {
+        "en": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+        "tr": "İç ayarların dış ayara çevrilmesiyle kısaltılmış setup süresini hesaplar.",
+        "de": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+        "fr": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+        "es": "Calculate reduced setup time by converting internal to external SMED adjustments.",
+        "ar": "Calculate reduced setup time by converting internal to external SMED adjustments."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "smed-setup-time-calculator",
+    "de": "SMED-Formwechsel-Rechner",
+    "fr": "Calculateur de changement de moule SMED",
+    "es": "Calculadora de cambio de molde SMED",
+    "ar": "حاسبة تغيير القالب SMED"
+  }
+}

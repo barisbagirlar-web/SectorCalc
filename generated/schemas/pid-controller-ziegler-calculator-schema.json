@@ -1,0 +1,150 @@
+{
+  "toolName": "pid-controller-ziegler-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "kritikKazanc",
+      "label": "Kritik Kazanç (Ku)",
+      "label_i18n": {
+        "en": "Ultimate Gain (Ku)",
+        "tr": "Kritik Kazanç (Ku)",
+        "de": "Ultimate Gain (Ku)",
+        "fr": "Ultimate Gain (Ku)",
+        "es": "Ultimate Gain (Ku)",
+        "ar": "Ultimate Gain (Ku)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Salınım başladığı andaki kazanç.",
+      "businessContext_i18n": {
+        "en": "Gain at onset of oscillation.",
+        "tr": "Salınım başladığı andaki kazanç.",
+        "de": "Gain at onset of oscillation.",
+        "fr": "Gain at onset of oscillation.",
+        "es": "Gain at onset of oscillation.",
+        "ar": "Gain at onset of oscillation."
+      }
+    },
+    {
+      "id": "kritikPeriyot",
+      "label": "Kritik Periyot (Tu sn)",
+      "label_i18n": {
+        "en": "Ultimate Period (Tu sec)",
+        "tr": "Kritik Periyot (Tu sn)",
+        "de": "Ultimate Period (Tu sec)",
+        "fr": "Ultimate Period (Tu sec)",
+        "es": "Ultimate Period (Tu sec)",
+        "ar": "Ultimate Period (Tu sec)"
+      },
+      "type": "number",
+      "unit": "s",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Salınım periyodu.",
+      "businessContext_i18n": {
+        "en": "Oscillation period.",
+        "tr": "Salınım periyodu.",
+        "de": "Oscillation period.",
+        "fr": "Oscillation period.",
+        "es": "Oscillation period.",
+        "ar": "Oscillation period."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "Kp": "0.6 * kritikKazanc",
+    "Ki": "2 * (0.6 * kritikKazanc) / Math.max(0.0001, kritikPeriyot)",
+    "sonuc": "(0.6 * kritikKazanc) * kritikPeriyot / 8"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Kd",
+    "breakdown": {
+      "Kp": "Oransal (Kp)",
+      "Ki": "İntegral (Ki)",
+      "sonuc": "Türev (Kd)"
+    },
+    "breakdown_i18n": {
+      "Kp": {
+        "en": "Oransal (Kp)",
+        "tr": "Oransal (Kp)",
+        "de": "Oransal (Kp)",
+        "fr": "Oransal (Kp)",
+        "es": "Oransal (Kp)",
+        "ar": "Oransal (Kp)"
+      },
+      "Ki": {
+        "en": "İntegral (Ki)",
+        "tr": "İntegral (Ki)",
+        "de": "İntegral (Ki)",
+        "fr": "İntegral (Ki)",
+        "es": "İntegral (Ki)",
+        "ar": "İntegral (Ki)"
+      },
+      "sonuc": {
+        "en": "Türev (Kd)",
+        "tr": "Türev (Kd)",
+        "de": "Türev (Kd)",
+        "fr": "Türev (Kd)",
+        "es": "Türev (Kd)",
+        "ar": "Türev (Kd)"
+      }
+    },
+    "breakdownUnits": {
+      "Kp": "Kd",
+      "Ki": "Kd",
+      "sonuc": "Kd"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate PID controller gains using Ziegler-Nichols method.",
+      "long": "Calculate PID controller gains using Ziegler-Nichols method.",
+      "short_i18n": {
+        "en": "Calculate PID controller gains using Ziegler-Nichols method.",
+        "tr": "Ziegler-Nichols yöntemine göre PID kontrolör katsayılarını (Kp, Ki, Kd) hesaplar.",
+        "de": "Calculate PID controller gains using Ziegler-Nichols method.",
+        "fr": "Calculate PID controller gains using Ziegler-Nichols method.",
+        "es": "Calculate PID controller gains using Ziegler-Nichols method.",
+        "ar": "Calculate PID controller gains using Ziegler-Nichols method."
+      },
+      "long_i18n": {
+        "en": "Calculate PID controller gains using Ziegler-Nichols method.",
+        "tr": "Ziegler-Nichols yöntemine göre PID kontrolör katsayılarını (Kp, Ki, Kd) hesaplar.",
+        "de": "Calculate PID controller gains using Ziegler-Nichols method.",
+        "fr": "Calculate PID controller gains using Ziegler-Nichols method.",
+        "es": "Calculate PID controller gains using Ziegler-Nichols method.",
+        "ar": "Calculate PID controller gains using Ziegler-Nichols method."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "pid-controller-ziegler-calculator",
+    "de": "PID-Regler-Ziegler-Rechner",
+    "fr": "Calculateur de régulateur PID Ziegler",
+    "es": "Calculadora de controlador PID Ziegler",
+    "ar": "حاسبة وحدة التحكم PID زيغلر"
+  }
+}

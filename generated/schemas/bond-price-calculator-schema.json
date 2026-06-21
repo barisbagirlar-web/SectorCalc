@@ -1,0 +1,176 @@
+{
+  "toolName": "bond-price-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "nominal",
+      "label": "Nominal Değer (₺)",
+      "label_i18n": {
+        "en": "Face Value (USD)",
+        "tr": "Nominal Değer (₺)",
+        "de": "Nennwert",
+        "fr": "Valeur nominale",
+        "es": "Valor nominal",
+        "ar": "القيمة الاسمية"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Tahvilin vade sonu anapara değeri.",
+      "businessContext_i18n": {
+        "en": "Bond's par value at maturity.",
+        "tr": "Tahvilin vade sonu anapara değeri.",
+        "de": "Bond's par value at maturity.",
+        "fr": "Bond's par value at maturity.",
+        "es": "Bond's par value at maturity.",
+        "ar": "Bond's par value at maturity."
+      }
+    },
+    {
+      "id": "kupon",
+      "label": "Kupon Oranı (%)",
+      "label_i18n": {
+        "en": "Coupon Rate (%)",
+        "tr": "Kupon Oranı (%)",
+        "de": "Kuponrate (%)",
+        "fr": "Taux du coupon (%)",
+        "es": "Tasa de cupón (%)",
+        "ar": "معدل القسيمة (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "businessContext": "Tahvilin yıllık faiz ödeme oranı.",
+      "businessContext_i18n": {
+        "en": "Annual coupon payment rate.",
+        "tr": "Tahvilin yıllık faiz ödeme oranı.",
+        "de": "Annual coupon payment rate.",
+        "fr": "Annual coupon payment rate.",
+        "es": "Annual coupon payment rate.",
+        "ar": "Annual coupon payment rate."
+      }
+    },
+    {
+      "id": "piyasaFaizi",
+      "label": "Piyasa Faizi (%)",
+      "label_i18n": {
+        "en": "Market Rate (%)",
+        "tr": "Piyasa Faizi (%)",
+        "de": "Marktpreis pro Stunde ($)",
+        "fr": "Taux horaire du marché ($)",
+        "es": "Tarifa por hora de mercado ($)",
+        "ar": "سعر السوق للساعة ($)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Benzer riskteki tahvillerin getirisi.",
+      "businessContext_i18n": {
+        "en": "Yield on comparable bonds.",
+        "tr": "Benzer riskteki tahvillerin getirisi.",
+        "de": "Yield on comparable bonds.",
+        "fr": "Yield on comparable bonds.",
+        "es": "Yield on comparable bonds.",
+        "ar": "Yield on comparable bonds."
+      }
+    },
+    {
+      "id": "vade",
+      "label": "Vade (Yıl)",
+      "label_i18n": {
+        "en": "Maturity (Years)",
+        "tr": "Vade (Yıl)",
+        "de": "Lean Six Sigma Reifegrad",
+        "fr": "Niveau de maturité Lean Six Sigma",
+        "es": "Nivel de Madurez Lean Six Sigma",
+        "ar": "مستوى نضج اللين ستة سيجما"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "businessContext": "Tahvilin vadesine kalan yıl.",
+      "businessContext_i18n": {
+        "en": "Years to maturity.",
+        "tr": "Tahvilin vadesine kalan yıl.",
+        "de": "Years to maturity.",
+        "fr": "Years to maturity.",
+        "es": "Years to maturity.",
+        "ar": "Years to maturity."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "kuponOdeme": "nominal * (kupon / 100)",
+    "sonuc": "nominal / Math.pow(1 + piyasaFaizi / 100, vade) + (nominal * (kupon / 100)) * ((1 - Math.pow(1 / (1 + piyasaFaizi / 100), vade)) / (piyasaFaizi / 100))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Tahvil Fiyatı (Bugünkü Değer)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Tahvil Fiyatı (Bugünkü Değer)",
+        "tr": "Tahvil Fiyatı (Bugünkü Değer)",
+        "de": "Tahvil Fiyatı (Bugünkü Değer)",
+        "fr": "Tahvil Fiyatı (Bugünkü Değer)",
+        "es": "Tahvil Fiyatı (Bugünkü Değer)",
+        "ar": "Tahvil Fiyatı (Bugünkü Değer)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the fair price of a bond based on market interest rates.",
+      "long": "Calculate the fair price of a bond based on market interest rates.",
+      "short_i18n": {
+        "en": "Calculate the fair price of a bond based on market interest rates.",
+        "tr": "Tahvilin piyasa faizine göre bugünkü adil fiyatını hesaplar.",
+        "de": "Calculate the fair price of a bond based on market interest rates.",
+        "fr": "Calculate the fair price of a bond based on market interest rates.",
+        "es": "Calculate the fair price of a bond based on market interest rates.",
+        "ar": "Calculate the fair price of a bond based on market interest rates."
+      },
+      "long_i18n": {
+        "en": "Calculate the fair price of a bond based on market interest rates.",
+        "tr": "Tahvilin piyasa faizine göre bugünkü adil fiyatını hesaplar.",
+        "de": "Calculate the fair price of a bond based on market interest rates.",
+        "fr": "Calculate the fair price of a bond based on market interest rates.",
+        "es": "Calculate the fair price of a bond based on market interest rates.",
+        "ar": "Calculate the fair price of a bond based on market interest rates."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "bond-price-calculator",
+    "de": "Anleihepreis-Rendite-Rechner",
+    "fr": "Calculateur de prix et rendement d'obligation",
+    "es": "Calculadora de precio y rendimiento de bonos",
+    "ar": "حاسبة سعر وعائد السندات"
+  }
+}

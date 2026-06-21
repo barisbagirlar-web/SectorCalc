@@ -1,0 +1,175 @@
+{
+  "toolName": "futures-profit-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "girisFiyati",
+      "label": "Giriş Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Entry Price (USD)",
+        "tr": "Giriş Fiyatı (₺)",
+        "de": "Einstiegspreis (USD)",
+        "fr": "Prix d'entrée (USD)",
+        "es": "Precio de Entrada (USD)",
+        "ar": "سعر الدخول (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Kontratın açılış fiyatı.",
+      "businessContext_i18n": {
+        "en": "Contract entry price.",
+        "tr": "Kontratın açılış fiyatı.",
+        "de": "Contract entry price.",
+        "fr": "Contract entry price.",
+        "es": "Contract entry price.",
+        "ar": "Contract entry price."
+      }
+    },
+    {
+      "id": "cikisFiyati",
+      "label": "Çıkış Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Exit Price (USD)",
+        "tr": "Çıkış Fiyatı (₺)",
+        "de": "Ausstiegspreis (USD)",
+        "fr": "Prix de sortie (USD)",
+        "es": "Precio de Salida (USD)",
+        "ar": "سعر الخروج (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 105,
+      "min": 0,
+      "businessContext": "Kontratın kapanış fiyatı.",
+      "businessContext_i18n": {
+        "en": "Contract exit price.",
+        "tr": "Kontratın kapanış fiyatı.",
+        "de": "Contract exit price.",
+        "fr": "Contract exit price.",
+        "es": "Contract exit price.",
+        "ar": "Contract exit price."
+      }
+    },
+    {
+      "id": "carpan",
+      "label": "Kontrat Çarpanı",
+      "label_i18n": {
+        "en": "Contract Multiplier",
+        "tr": "Kontrat Çarpanı",
+        "de": "Contract Multiplier",
+        "fr": "Contract Multiplier",
+        "es": "Contract Multiplier",
+        "ar": "Contract Multiplier"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 1,
+      "businessContext": "Kontratın büyüklük çarpanı.",
+      "businessContext_i18n": {
+        "en": "Contract size multiplier.",
+        "tr": "Kontratın büyüklük çarpanı.",
+        "de": "Contract size multiplier.",
+        "fr": "Contract size multiplier.",
+        "es": "Contract size multiplier.",
+        "ar": "Contract size multiplier."
+      }
+    },
+    {
+      "id": "lot",
+      "label": "Lot (Adet)",
+      "label_i18n": {
+        "en": "Lot (Number)",
+        "tr": "Lot (Adet)",
+        "de": "Losgröße (N)",
+        "fr": "Taille du lot (N)",
+        "es": "Tamaño de Lote (N)",
+        "ar": "حجم الدفعة (N)"
+      },
+      "type": "number",
+      "unit": "lots",
+      "default": 1,
+      "min": 1,
+      "businessContext": "İşlem miktarı.",
+      "businessContext_i18n": {
+        "en": "Number of contracts traded.",
+        "tr": "İşlem miktarı.",
+        "de": "Number of contracts traded.",
+        "fr": "Number of contracts traded.",
+        "es": "Number of contracts traded.",
+        "ar": "Number of contracts traded."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(cikisFiyati - girisFiyati) * carpan * lot"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Kâr / Zarar"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Kâr / Zarar",
+        "tr": "Kâr / Zarar",
+        "de": "Kâr / Zarar",
+        "fr": "Kâr / Zarar",
+        "es": "Kâr / Zarar",
+        "ar": "Kâr / Zarar"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate profit/loss from futures contract price movement.",
+      "long": "Calculate profit/loss from futures contract price movement.",
+      "short_i18n": {
+        "en": "Calculate profit/loss from futures contract price movement.",
+        "tr": "Vadeli kontratın fiyat hareketinden doğan nakit kâr/zararını hesaplar.",
+        "de": "Calculate profit/loss from futures contract price movement.",
+        "fr": "Calculate profit/loss from futures contract price movement.",
+        "es": "Calculate profit/loss from futures contract price movement.",
+        "ar": "Calculate profit/loss from futures contract price movement."
+      },
+      "long_i18n": {
+        "en": "Calculate profit/loss from futures contract price movement.",
+        "tr": "Vadeli kontratın fiyat hareketinden doğan nakit kâr/zararını hesaplar.",
+        "de": "Calculate profit/loss from futures contract price movement.",
+        "fr": "Calculate profit/loss from futures contract price movement.",
+        "es": "Calculate profit/loss from futures contract price movement.",
+        "ar": "Calculate profit/loss from futures contract price movement."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "futures-profit-calculator",
+    "de": "Futures-Rechner",
+    "fr": "Calculateur de contrats à terme",
+    "es": "Calculadora de futuros",
+    "ar": "حاسبة العقود الآجلة"
+  }
+}

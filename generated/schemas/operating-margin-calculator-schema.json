@@ -1,0 +1,125 @@
+{
+  "toolName": "operating-margin-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "favok",
+      "label": "FAVÖK (TL)",
+      "label_i18n": {
+        "en": "EBITDA (USD)",
+        "tr": "FAVÖK (TL)",
+        "de": "EBITDA-Marge (%)",
+        "fr": "Marge d'EBITDA (%)",
+        "es": "Margen EBITDA (%)",
+        "ar": "هامش الأرباح قبل الفوائد والضرائب والإهلاك والاستهلاك (%)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "min": 0,
+      "businessContext": "Vergi ve faiz öncesi kâr.",
+      "businessContext_i18n": {
+        "en": "EBITDA.",
+        "tr": "Vergi ve faiz öncesi kâr.",
+        "de": "EBITDA.",
+        "fr": "EBITDA.",
+        "es": "EBITDA.",
+        "ar": "EBITDA."
+      }
+    },
+    {
+      "id": "ciro",
+      "label": "Ciro (TL)",
+      "label_i18n": {
+        "en": "Revenue (USD)",
+        "tr": "Ciro (TL)",
+        "de": "Tagesumsatz",
+        "fr": "Revenu quotidien",
+        "es": "Ingreso Diario",
+        "ar": "الإيرادات اليومية"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Toplam satış geliri.",
+      "businessContext_i18n": {
+        "en": "Total revenue.",
+        "tr": "Toplam satış geliri.",
+        "de": "Total revenue.",
+        "fr": "Total revenue.",
+        "es": "Total revenue.",
+        "ar": "Total revenue."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(favok / Math.max(0.0001, ciro)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "İşletme Marjı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "İşletme Marjı",
+        "tr": "İşletme Marjı",
+        "de": "İşletme Marjı",
+        "fr": "İşletme Marjı",
+        "es": "İşletme Marjı",
+        "ar": "İşletme Marjı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate operating margin (EBITDA / Revenue).",
+      "long": "Calculate operating margin (EBITDA / Revenue).",
+      "short_i18n": {
+        "en": "Calculate operating margin (EBITDA / Revenue).",
+        "tr": "Ana faaliyetlerden elde edilen kârlılık oranını (FAVÖK marjı) hesaplar.",
+        "de": "Calculate operating margin (EBITDA / Revenue).",
+        "fr": "Calculate operating margin (EBITDA / Revenue).",
+        "es": "Calculate operating margin (EBITDA / Revenue).",
+        "ar": "Calculate operating margin (EBITDA / Revenue)."
+      },
+      "long_i18n": {
+        "en": "Calculate operating margin (EBITDA / Revenue).",
+        "tr": "Ana faaliyetlerden elde edilen kârlılık oranını (FAVÖK marjı) hesaplar.",
+        "de": "Calculate operating margin (EBITDA / Revenue).",
+        "fr": "Calculate operating margin (EBITDA / Revenue).",
+        "es": "Calculate operating margin (EBITDA / Revenue).",
+        "ar": "Calculate operating margin (EBITDA / Revenue)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "operating-margin-calculator",
+    "de": "Betriebsmarge Rechner",
+    "fr": "Calculateur de Marge Opérationnelle",
+    "es": "Calculadora de Margen Operativo",
+    "ar": "حاسبة هامش التشغيل"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "toolName": "scrap-rate-optimization-calculator",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "uretim",
+      "label": "Toplam Üretim (Adet)",
+      "label_i18n": {
+        "en": "Total Production",
+        "tr": "Toplam Üretim (Adet)",
+        "de": "Gesamtproduktionseinheiten",
+        "fr": "Unités de production totales",
+        "es": "Unidades de Producción Totales",
+        "ar": "إجمالي وحدات الإنتاج"
+      },
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 1,
+      "businessContext": "Üretilen toplam ürün.",
+      "businessContext_i18n": {
+        "en": "Total units produced.",
+        "tr": "Üretilen toplam ürün.",
+        "de": "Total units produced.",
+        "fr": "Total units produced.",
+        "es": "Total units produced.",
+        "ar": "Total units produced."
+      }
+    },
+    {
+      "id": "hurda",
+      "label": "Hurda Miktarı (Adet)",
+      "label_i18n": {
+        "en": "Scrap Quantity",
+        "tr": "Hurda Miktarı (Adet)",
+        "de": "Scrap Quantity",
+        "fr": "Scrap Quantity",
+        "es": "Scrap Quantity",
+        "ar": "Scrap Quantity"
+      },
+      "type": "number",
+      "unit": "units",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Hatalı ürün sayısı.",
+      "businessContext_i18n": {
+        "en": "Defective units.",
+        "tr": "Hatalı ürün sayısı.",
+        "de": "Defective units.",
+        "fr": "Defective units.",
+        "es": "Defective units.",
+        "ar": "Defective units."
+      }
+    },
+    {
+      "id": "birimMaliyet",
+      "label": "Birim Maliyet (TL)",
+      "label_i18n": {
+        "en": "Unit Cost (USD)",
+        "tr": "Birim Maliyet (TL)",
+        "de": "Stückkosten",
+        "fr": "Coût unitaire",
+        "es": "Costo unitario",
+        "ar": "التكلفة لكل وحدة"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Ürünün maliyeti.",
+      "businessContext_i18n": {
+        "en": "Product unit cost.",
+        "tr": "Ürünün maliyeti.",
+        "de": "Product unit cost.",
+        "fr": "Product unit cost.",
+        "es": "Product unit cost.",
+        "ar": "Product unit cost."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "oran": "(hurda / Math.max(1, uretim)) * 100",
+    "sonuc": "hurda * birimMaliyet"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Hurda Kaybı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Hurda Kaybı",
+        "tr": "Hurda Kaybı",
+        "de": "Hurda Kaybı",
+        "fr": "Hurda Kaybı",
+        "es": "Hurda Kaybı",
+        "ar": "Hurda Kaybı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total financial loss from scrap and rework.",
+      "long": "Calculate total financial loss from scrap and rework.",
+      "short_i18n": {
+        "en": "Calculate total financial loss from scrap and rework.",
+        "tr": "Hatalı üretimden kaynaklanan toplam finansal kaybı hesaplar.",
+        "de": "Calculate total financial loss from scrap and rework.",
+        "fr": "Calculate total financial loss from scrap and rework.",
+        "es": "Calculate total financial loss from scrap and rework.",
+        "ar": "Calculate total financial loss from scrap and rework."
+      },
+      "long_i18n": {
+        "en": "Calculate total financial loss from scrap and rework.",
+        "tr": "Hatalı üretimden kaynaklanan toplam finansal kaybı hesaplar.",
+        "de": "Calculate total financial loss from scrap and rework.",
+        "fr": "Calculate total financial loss from scrap and rework.",
+        "es": "Calculate total financial loss from scrap and rework.",
+        "ar": "Calculate total financial loss from scrap and rework."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "scrap-rate-optimization-calculator",
+    "de": "Ausschussraten-Optimierungsrechner",
+    "fr": "Calculateur d'optimisation du taux de rebut",
+    "es": "Calculadora de optimización de tasa de desecho",
+    "ar": "حاسبة تحسين نسبة الخردة"
+  }
+}

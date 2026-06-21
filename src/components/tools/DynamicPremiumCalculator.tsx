@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { stripLocalePrefix } from "@/i18n/locales";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import {
@@ -52,6 +52,11 @@ import {
 } from "@/components/tools/resolve-tool-form-presence";
 import { EngineeringInterpretationPanel } from "@/components/interpretation/EngineeringInterpretationPanel";
 import type { InterpretPremiumResultRequest } from "@/lib/ai/engineering-interpretation/types";
+import {
+  inferInputUnitGroup,
+} from "@/lib/generated-tools/unit-conversion";
+import { getAvailableUnitsForGroup } from "@/lib/regional/unit-defaults";
+import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 
 const SEVEN_MUDA_WASTE_COST_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";
 
@@ -125,6 +130,27 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const isFullReport = entitlement.canViewFullReport;
   const [values, setValues] = useState<SchemaInputValues>(() => buildDefaultSchemaInputs(schema));
   const [submitted, setSubmitted] = useState(false);
+  const unitSystem = usePreferredUnitSystem();
+  const [selectedUnits, setSelectedUnits] = useState<Record<string, string>>(() => {
+    const initial: Record<string, string> = {};
+    for (const input of schema.inputs) {
+      if (input.type !== "number") {
+        continue;
+      }
+      const group = inferInputUnitGroup(input.unit, input.id);
+      if (!group) {
+        continue;
+      }
+      const options = getAvailableUnitsForGroup(group, locale, unitSystem);
+      if (options.length > 0) {
+        const schemaOption = options.find(
+          (o) => o.value.toLowerCase() === input.unit?.trim().toLowerCase(),
+        );
+        initial[input.id] = schemaOption?.value ?? options[0].value;
+      }
+    }
+    return initial;
+  });
   const trustSlug = schema.legacyPaidSlug ?? schema.id;
   const runtimeTrust = useMemo(
     () =>
@@ -360,39 +386,67 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
     return (
       <GuidanceFieldFocus key={input.id} fieldKey={input.id}>
-        {({ onFocus, onBlur }) => (
-          <div className="sc-industrial-field sc-industrial-field--full">
-            <div className="sc-industrial-field__label-row">
-              <label htmlFor={id} className="sc-ledger-label sc-industrial-field__label">
-                {display.label}
-              </label>
-              {input.unit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
+        {({ onFocus, onBlur }) => {
+          const group = input.type === "number" ? inferInputUnitGroup(input.unit, input.id) : null;
+          const showUnitSelector = group !== null;
+          const unitOptions = showUnitSelector
+            ? getAvailableUnitsForGroup(group, locale, unitSystem)
+            : [];
+          return (
+            <div className="sc-industrial-field sc-industrial-field--full">
+              <div className="sc-industrial-field__label-row">
+                <label htmlFor={id} className="sc-ledger-label sc-industrial-field__label">
+                  {display.label}
+                </label>
+                {!showUnitSelector && input.unit ? (
+                  <span className="sc-industrial-field__unit">{input.unit}</span>
+                ) : null}
+              </div>
+              <div className="flex min-w-0 items-stretch gap-2">
+                <input
+                  id={id}
+                  type={input.type === "slider" ? "range" : "text"}
+                  inputMode="decimal"
+                  min={input.validation?.min}
+                  max={input.validation?.max}
+                  step={input.validation?.step}
+                  placeholder={display.placeholder}
+                  value={String(value ?? "")}
+                  onFocus={onFocus}
+                  onBlur={onBlur}
+                  onChange={(e) => {
+                    if (input.type === "slider") {
+                      setValues((prev) => ({ ...prev, [input.id]: Number(e.target.value) }));
+                    } else {
+                      const { numeric } = handleNumericInputChange(e.target.value);
+                      setValues((prev) => ({ ...prev, [input.id]: numeric }));
+                    }
+                    setSubmitted(false);
+                  }}
+                  className="sc-ledger-input-boxed sc-industrial-input min-h-[44px] min-w-0 flex-1"
+                />
+                {showUnitSelector && unitOptions.length > 0 ? (
+                  <select
+                    id={`${id}-unit`}
+                    value={selectedUnits[input.id] ?? input.unit ?? unitOptions[0]?.value ?? ""}
+                    onChange={(e) =>
+                      setSelectedUnits((prev) => ({ ...prev, [input.id]: e.target.value }))
+                    }
+                    className="sc-premium-dtf-unit-select"
+                    aria-label={`${display.label} unit`}
+                  >
+                    {unitOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                ) : null}
+              </div>
+              <p className="sc-ledger-helper sc-industrial-field__helper">{display.helper}</p>
             </div>
-            <input
-              id={id}
-              type={input.type === "slider" ? "range" : "text"}
-              inputMode="decimal"
-              min={input.validation?.min}
-              max={input.validation?.max}
-              step={input.validation?.step}
-              placeholder={display.placeholder}
-              value={String(value ?? "")}
-              onFocus={onFocus}
-              onBlur={onBlur}
-              onChange={(e) => {
-                if (input.type === "slider") {
-                  setValues((prev) => ({ ...prev, [input.id]: Number(e.target.value) }));
-                } else {
-                  const { numeric } = handleNumericInputChange(e.target.value);
-                  setValues((prev) => ({ ...prev, [input.id]: numeric }));
-                }
-                setSubmitted(false);
-              }}
-              className="sc-ledger-input-boxed sc-industrial-input min-h-[44px]"
-            />
-            <p className="sc-ledger-helper sc-industrial-field__helper">{display.helper}</p>
-          </div>
-        )}
+          );
+        }}
       </GuidanceFieldFocus>
     );
   };

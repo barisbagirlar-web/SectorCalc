@@ -1,0 +1,100 @@
+{
+  "toolName": "vo2-max-cooper-test-calculator",
+  "catalogCategory": "health-fitness-daily-life",
+  "categorySlug": "health-fitness-daily-life",
+  "sector": "Sağlık ve Fitness",
+  "sectorId": "health-fitness-daily-life",
+  "inputs": [
+    {
+      "id": "kosuMesafesi",
+      "label": "12 Dk Koşu Mesafesi (m)",
+      "label_i18n": {
+        "en": "12min Run Distance (m)",
+        "tr": "12 Dk Koşu Mesafesi (m)",
+        "de": "12min Run Distance (m)",
+        "fr": "12min Run Distance (m)",
+        "es": "12min Run Distance (m)",
+        "ar": "12min Run Distance (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 2400,
+      "min": 500,
+      "businessContext": "12 dakikada koşulan toplam mesafe.",
+      "businessContext_i18n": {
+        "en": "Total distance covered in 12 minutes.",
+        "tr": "12 dakikada koşulan toplam mesafe.",
+        "de": "Total distance covered in 12 minutes.",
+        "fr": "Total distance covered in 12 minutes.",
+        "es": "Total distance covered in 12 minutes.",
+        "ar": "Total distance covered in 12 minutes."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(kosuMesafesi - 504.9) / 44.73"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ml/kg/min",
+    "breakdown": {
+      "sonuc": "VO2 Max"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "VO2 Max",
+        "tr": "VO2 Max",
+        "de": "VO2 Max",
+        "fr": "VO2 Max",
+        "es": "VO2 Max",
+        "ar": "VO2 Max"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ml/kg/min"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult a healthcare professional before starting any diet or exercise program.",
+      "Individual results may vary."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Estimate VO2 max using the Cooper test formula.",
+      "long": "Estimate VO2 max using the Cooper test formula.",
+      "short_i18n": {
+        "en": "Estimate VO2 max using the Cooper test formula.",
+        "tr": "Cooper testine göre maksimum oksijen tüketim kapasitesini (VO2 Max) hesaplar.",
+        "de": "Estimate VO2 max using the Cooper test formula.",
+        "fr": "Estimate VO2 max using the Cooper test formula.",
+        "es": "Estimate VO2 max using the Cooper test formula.",
+        "ar": "Estimate VO2 max using the Cooper test formula."
+      },
+      "long_i18n": {
+        "en": "Estimate VO2 max using the Cooper test formula.",
+        "tr": "Cooper testine göre maksimum oksijen tüketim kapasitesini (VO2 Max) hesaplar.",
+        "de": "Estimate VO2 max using the Cooper test formula.",
+        "fr": "Estimate VO2 max using the Cooper test formula.",
+        "es": "Estimate VO2 max using the Cooper test formula.",
+        "ar": "Estimate VO2 max using the Cooper test formula."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "vo2-max-cooper-test-calculator",
+    "de": "VO2max-Rechner",
+    "fr": "Calculateur de VO2max",
+    "es": "Calculadora de VO2max",
+    "ar": "حاسبة VO2max"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "toolName": "watershed-runoff-calculator",
+  "catalogCategory": "sustainability-resource-esg",
+  "categorySlug": "sustainability-resource-esg",
+  "sector": "Çevre ve Sürdürülebilirlik",
+  "sectorId": "sustainability-resource-esg",
+  "inputs": [
+    {
+      "id": "havzaAlani",
+      "label": "Havza Alanı (km²)",
+      "label_i18n": {
+        "en": "Watershed Area (km²)",
+        "tr": "Havza Alanı (km²)",
+        "de": "Watershed Area (km²)",
+        "fr": "Watershed Area (km²)",
+        "es": "Watershed Area (km²)",
+        "ar": "Watershed Area (km²)"
+      },
+      "type": "number",
+      "unit": "km2",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Toplama havzası alanı.",
+      "businessContext_i18n": {
+        "en": "Catchment area.",
+        "tr": "Toplama havzası alanı.",
+        "de": "Catchment area.",
+        "fr": "Catchment area.",
+        "es": "Catchment area.",
+        "ar": "Catchment area."
+      }
+    },
+    {
+      "id": "yagis",
+      "label": "Yağış Miktarı (mm)",
+      "label_i18n": {
+        "en": "Rainfall (mm)",
+        "tr": "Yağış Miktarı (mm)",
+        "de": "Niederschlagsvorhersage (nächste 7 Tage)",
+        "fr": "Prévisions de précipitations (7 prochains jours)",
+        "es": "Pronóstico de lluvia (próximos 7 días)",
+        "ar": "توقعات هطول الأمطار (الأيام السبعة القادمة)"
+      },
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Birim yağış yüksekliği.",
+      "businessContext_i18n": {
+        "en": "Single rainfall depth.",
+        "tr": "Birim yağış yüksekliği.",
+        "de": "Single rainfall depth.",
+        "fr": "Single rainfall depth.",
+        "es": "Single rainfall depth.",
+        "ar": "Single rainfall depth."
+      }
+    },
+    {
+      "id": "akisKatsayisi",
+      "label": "Akış Katsayısı (0-1)",
+      "label_i18n": {
+        "en": "Runoff Coefficient (0-1)",
+        "tr": "Akış Katsayısı (0-1)",
+        "de": "Runoff Coefficient (0-1)",
+        "fr": "Runoff Coefficient (0-1)",
+        "es": "Runoff Coefficient (0-1)",
+        "ar": "Runoff Coefficient (0-1)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "min": 0,
+      "businessContext": "Zeminin geçirgenliğine bağlı katsayı.",
+      "businessContext_i18n": {
+        "en": "Surface permeability coefficient.",
+        "tr": "Zeminin geçirgenliğine bağlı katsayı.",
+        "de": "Surface permeability coefficient.",
+        "fr": "Surface permeability coefficient.",
+        "es": "Surface permeability coefficient.",
+        "ar": "Surface permeability coefficient."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "havzaAlani * 1000000 * (yagis / 1000) * akisKatsayisi"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m3",
+    "breakdown": {
+      "sonuc": "Toplam Yüzey Akış Hacmi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Yüzey Akış Hacmi",
+        "tr": "Toplam Yüzey Akış Hacmi",
+        "de": "Toplam Yüzey Akış Hacmi",
+        "fr": "Toplam Yüzey Akış Hacmi",
+        "es": "Toplam Yüzey Akış Hacmi",
+        "ar": "Toplam Yüzey Akış Hacmi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m3"
+    },
+    "hiddenLossDrivers": [
+      "High environmental score may reduce operational costs.",
+      "Low ESG score may increase capital costs."
+    ],
+    "suggestedActions": [
+      "Set improvement targets for each ESG pillar.",
+      "Consider carbon offset programs for residual emissions."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate surface runoff volume from a watershed after rainfall.",
+      "long": "Calculate surface runoff volume from a watershed after rainfall.",
+      "short_i18n": {
+        "en": "Calculate surface runoff volume from a watershed after rainfall.",
+        "tr": "Yağış sonrası havzadan çıkacak yüzey akış suyu miktarını hesaplar.",
+        "de": "Calculate surface runoff volume from a watershed after rainfall.",
+        "fr": "Calculate surface runoff volume from a watershed after rainfall.",
+        "es": "Calculate surface runoff volume from a watershed after rainfall.",
+        "ar": "Calculate surface runoff volume from a watershed after rainfall."
+      },
+      "long_i18n": {
+        "en": "Calculate surface runoff volume from a watershed after rainfall.",
+        "tr": "Yağış sonrası havzadan çıkacak yüzey akış suyu miktarını hesaplar.",
+        "de": "Calculate surface runoff volume from a watershed after rainfall.",
+        "fr": "Calculate surface runoff volume from a watershed after rainfall.",
+        "es": "Calculate surface runoff volume from a watershed after rainfall.",
+        "ar": "Calculate surface runoff volume from a watershed after rainfall."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "watershed-runoff-calculator",
+    "de": "Einzugsgebietsabflussrechner",
+    "fr": "Calculateur de débit de bassin versant",
+    "es": "Calculadora de caudal de cuenca",
+    "ar": "حاسبة تدفق حوض الصرف"
+  }
+}

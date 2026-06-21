@@ -1,0 +1,175 @@
+{
+  "toolName": "soil-bearing-capacity-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "kohezyon",
+      "label": "Kohezyon (Pa)",
+      "label_i18n": {
+        "en": "Cohesion (Pa)",
+        "tr": "Kohezyon (Pa)",
+        "de": "Kohäsion",
+        "fr": "Cohésion",
+        "es": "Cohesión",
+        "ar": "التماسك"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 20000,
+      "min": 0,
+      "businessContext": "Zemin kohezyonu.",
+      "businessContext_i18n": {
+        "en": "Soil cohesion.",
+        "tr": "Zemin kohezyonu.",
+        "de": "Soil cohesion.",
+        "fr": "Soil cohesion.",
+        "es": "Soil cohesion.",
+        "ar": "Soil cohesion."
+      }
+    },
+    {
+      "id": "temelGenislik",
+      "label": "Temel Genişliği (m)",
+      "label_i18n": {
+        "en": "Footing Width (m)",
+        "tr": "Temel Genişliği (m)",
+        "de": "Footing Width (m)",
+        "fr": "Footing Width (m)",
+        "es": "Footing Width (m)",
+        "ar": "Footing Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Temel taban genişliği.",
+      "businessContext_i18n": {
+        "en": "Footing base width.",
+        "tr": "Temel taban genişliği.",
+        "de": "Footing base width.",
+        "fr": "Footing base width.",
+        "es": "Footing base width.",
+        "ar": "Footing base width."
+      }
+    },
+    {
+      "id": "derinlik",
+      "label": "Temel Derinliği (m)",
+      "label_i18n": {
+        "en": "Footing Depth (m)",
+        "tr": "Temel Derinliği (m)",
+        "de": "Footing Depth (m)",
+        "fr": "Footing Depth (m)",
+        "es": "Footing Depth (m)",
+        "ar": "Footing Depth (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "min": 0,
+      "businessContext": "Temel alt kotu.",
+      "businessContext_i18n": {
+        "en": "Footing base depth.",
+        "tr": "Temel alt kotu.",
+        "de": "Footing base depth.",
+        "fr": "Footing base depth.",
+        "es": "Footing base depth.",
+        "ar": "Footing base depth."
+      }
+    },
+    {
+      "id": "yogunluk",
+      "label": "Zemin Yoğunluğu (kg/m³)",
+      "label_i18n": {
+        "en": "Soil Density (kg/m³)",
+        "tr": "Zemin Yoğunluğu (kg/m³)",
+        "de": "Soil Density (kg/m³)",
+        "fr": "Soil Density (kg/m³)",
+        "es": "Soil Density (kg/m³)",
+        "ar": "Soil Density (kg/m³)"
+      },
+      "type": "number",
+      "unit": "kg/m3",
+      "default": 1800,
+      "min": 0,
+      "businessContext": "Zeminin birim hacim ağırlığı.",
+      "businessContext_i18n": {
+        "en": "Soil unit weight.",
+        "tr": "Zeminin birim hacim ağırlığı.",
+        "de": "Soil unit weight.",
+        "fr": "Soil unit weight.",
+        "es": "Soil unit weight.",
+        "ar": "Soil unit weight."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(kohezyon * 30) + (yogunluk * 9.81 * derinlik * 18) + (0.5 * yogunluk * 9.81 * temelGenislik * 15)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Nihai Taşıma Kapasitesi (q)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Nihai Taşıma Kapasitesi (q)",
+        "tr": "Nihai Taşıma Kapasitesi (q)",
+        "de": "Nihai Taşıma Kapasitesi (q)",
+        "fr": "Nihai Taşıma Kapasitesi (q)",
+        "es": "Nihai Taşıma Kapasitesi (q)",
+        "ar": "Nihai Taşıma Kapasitesi (q)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate soil bearing capacity using Terzaghi's formula.",
+      "long": "Calculate soil bearing capacity using Terzaghi's formula.",
+      "short_i18n": {
+        "en": "Calculate soil bearing capacity using Terzaghi's formula.",
+        "tr": "Zeminin göçmeden taşıyabileceği maksimum basıncı (taşıma kapasitesi) hesaplar.",
+        "de": "Calculate soil bearing capacity using Terzaghi's formula.",
+        "fr": "Calculate soil bearing capacity using Terzaghi's formula.",
+        "es": "Calculate soil bearing capacity using Terzaghi's formula.",
+        "ar": "Calculate soil bearing capacity using Terzaghi's formula."
+      },
+      "long_i18n": {
+        "en": "Calculate soil bearing capacity using Terzaghi's formula.",
+        "tr": "Zeminin göçmeden taşıyabileceği maksimum basıncı (taşıma kapasitesi) hesaplar.",
+        "de": "Calculate soil bearing capacity using Terzaghi's formula.",
+        "fr": "Calculate soil bearing capacity using Terzaghi's formula.",
+        "es": "Calculate soil bearing capacity using Terzaghi's formula.",
+        "ar": "Calculate soil bearing capacity using Terzaghi's formula."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "soil-bearing-capacity-calculator",
+    "de": "Rechner für Bodentragfähigkeit",
+    "fr": "Calculateur de capacité portante du sol",
+    "es": "Calculadora de capacidad portante del suelo",
+    "ar": "حاسبة قدرة تحمل التربة"
+  }
+}

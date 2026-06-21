@@ -1,0 +1,125 @@
+{
+  "toolName": "tile-waste-calculator",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "alanEn",
+      "label": "Alan Genişliği (m)",
+      "label_i18n": {
+        "en": "Room Width (m)",
+        "tr": "Alan Genişliği (m)",
+        "de": "Raumbreite",
+        "fr": "Largeur de la pièce",
+        "es": "Ancho de la Habitación",
+        "ar": "عرض الغرفة"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 4.2,
+      "min": 0,
+      "businessContext": "Döşenecek alanın genişliği.",
+      "businessContext_i18n": {
+        "en": "Room width.",
+        "tr": "Döşenecek alanın genişliği.",
+        "de": "Room width.",
+        "fr": "Room width.",
+        "es": "Room width.",
+        "ar": "Room width."
+      }
+    },
+    {
+      "id": "fayansEn",
+      "label": "Fayans Eni (m)",
+      "label_i18n": {
+        "en": "Tile Width (m)",
+        "tr": "Fayans Eni (m)",
+        "de": "Fliesenbreite",
+        "fr": "Largeur du carreau",
+        "es": "Ancho de la baldosa",
+        "ar": "عرض البلاطة"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.6,
+      "min": 0,
+      "businessContext": "Fayansın eni.",
+      "businessContext_i18n": {
+        "en": "Tile width.",
+        "tr": "Fayansın eni.",
+        "de": "Tile width.",
+        "fr": "Tile width.",
+        "es": "Tile width.",
+        "ar": "Tile width."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(alanEn % fayansEn) / Math.max(0.0001, fayansEn) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Kesim Fire Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Kesim Fire Oranı",
+        "tr": "Kesim Fire Oranı",
+        "de": "Kesim Fire Oranı",
+        "fr": "Kesim Fire Oranı",
+        "es": "Kesim Fire Oranı",
+        "ar": "Kesim Fire Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate tile cutting waste ratio for layout optimization.",
+      "long": "Calculate tile cutting waste ratio for layout optimization.",
+      "short_i18n": {
+        "en": "Calculate tile cutting waste ratio for layout optimization.",
+        "tr": "Kenarlarda oluşacak fayans kesim fire optimizasyon oranını hesaplar.",
+        "de": "Calculate tile cutting waste ratio for layout optimization.",
+        "fr": "Calculate tile cutting waste ratio for layout optimization.",
+        "es": "Calculate tile cutting waste ratio for layout optimization.",
+        "ar": "Calculate tile cutting waste ratio for layout optimization."
+      },
+      "long_i18n": {
+        "en": "Calculate tile cutting waste ratio for layout optimization.",
+        "tr": "Kenarlarda oluşacak fayans kesim fire optimizasyon oranını hesaplar.",
+        "de": "Calculate tile cutting waste ratio for layout optimization.",
+        "fr": "Calculate tile cutting waste ratio for layout optimization.",
+        "es": "Calculate tile cutting waste ratio for layout optimization.",
+        "ar": "Calculate tile cutting waste ratio for layout optimization."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "tile-waste-calculator",
+    "de": "Fliesenverlegungsrechner",
+    "fr": "Calculateur de disposition de carreaux",
+    "es": "Calculadora de disposición de baldosas",
+    "ar": "حاسبة تخطيط البلاط"
+  }
+}

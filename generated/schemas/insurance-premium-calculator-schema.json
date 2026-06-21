@@ -1,0 +1,153 @@
+{
+  "toolName": "insurance-premium-calculator",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "beklenenHasar",
+      "label": "Beklenen Hasar (TL)",
+      "label_i18n": {
+        "en": "Expected Loss (TL)",
+        "tr": "Beklenen Hasar (TL)",
+        "de": "Expected Loss (TL)",
+        "fr": "Expected Loss (TL)",
+        "es": "Expected Loss (TL)",
+        "ar": "Expected Loss (TL)"
+      },
+      "type": "number",
+      "unit": "TL",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Yıllık ortalama hasar miktarı.",
+      "businessContext_i18n": {
+        "en": "Average annual loss.",
+        "tr": "Yıllık ortalama hasar miktarı.",
+        "de": "Average annual loss.",
+        "fr": "Average annual loss.",
+        "es": "Average annual loss.",
+        "ar": "Average annual loss."
+      }
+    },
+    {
+      "id": "giderYuklemesi",
+      "label": "Gider Yüklemesi (%)",
+      "label_i18n": {
+        "en": "Expense Loading (%)",
+        "tr": "Gider Yüklemesi (%)",
+        "de": "Expense Loading (%)",
+        "fr": "Expense Loading (%)",
+        "es": "Expense Loading (%)",
+        "ar": "Expense Loading (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Operasyonel gider oranı.",
+      "businessContext_i18n": {
+        "en": "Operational expense ratio.",
+        "tr": "Operasyonel gider oranı.",
+        "de": "Operational expense ratio.",
+        "fr": "Operational expense ratio.",
+        "es": "Operational expense ratio.",
+        "ar": "Operational expense ratio."
+      }
+    },
+    {
+      "id": "karMarji",
+      "label": "Kâr Marjı (%)",
+      "label_i18n": {
+        "en": "Profit Margin (%)",
+        "tr": "Kâr Marjı (%)",
+        "de": "Zielgewinnmarge (%)",
+        "fr": "Marge bénéficiaire cible (%)",
+        "es": "Margen de beneficio objetivo (%)",
+        "ar": "هامش الربح المستهدف (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Hedeflenen kâr oranı.",
+      "businessContext_i18n": {
+        "en": "Target profit margin.",
+        "tr": "Hedeflenen kâr oranı.",
+        "de": "Target profit margin.",
+        "fr": "Target profit margin.",
+        "es": "Target profit margin.",
+        "ar": "Target profit margin."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "beklenenHasar / Math.max(0.0001, (1 - (giderYuklemesi / 100) - (karMarji / 100)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TL",
+    "breakdown": {
+      "sonuc": "Brüt Prim"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Brüt Prim",
+        "tr": "Brüt Prim",
+        "de": "Brüt Prim",
+        "fr": "Brüt Prim",
+        "es": "Brüt Prim",
+        "ar": "Brüt Prim"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TL"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate gross insurance premium covering risk, expenses, and profit.",
+      "long": "Calculate gross insurance premium covering risk, expenses, and profit.",
+      "short_i18n": {
+        "en": "Calculate gross insurance premium covering risk, expenses, and profit.",
+        "tr": "Riski, operasyonu ve kârı karşılayan nihai sigorta poliçe bedelini hesaplar.",
+        "de": "Calculate gross insurance premium covering risk, expenses, and profit.",
+        "fr": "Calculate gross insurance premium covering risk, expenses, and profit.",
+        "es": "Calculate gross insurance premium covering risk, expenses, and profit.",
+        "ar": "Calculate gross insurance premium covering risk, expenses, and profit."
+      },
+      "long_i18n": {
+        "en": "Calculate gross insurance premium covering risk, expenses, and profit.",
+        "tr": "Riski, operasyonu ve kârı karşılayan nihai sigorta poliçe bedelini hesaplar.",
+        "de": "Calculate gross insurance premium covering risk, expenses, and profit.",
+        "fr": "Calculate gross insurance premium covering risk, expenses, and profit.",
+        "es": "Calculate gross insurance premium covering risk, expenses, and profit.",
+        "ar": "Calculate gross insurance premium covering risk, expenses, and profit."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "insurance-premium-calculator",
+    "de": "Lebensversicherungsprämien-Rechner",
+    "fr": "Calculateur de prime d'assurance vie",
+    "es": "Calculadora de prima de seguro de vida",
+    "ar": "حاسبة قسط التأمين على الحياة"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "toolName": "safe-agreement-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yatirim",
+      "label": "Yatırım (TL)",
+      "label_i18n": {
+        "en": "Investment (USD)",
+        "tr": "Yatırım (TL)",
+        "de": "Anlagezeitraum",
+        "fr": "Période d'investissement",
+        "es": "Período de inversión",
+        "ar": "فترة الاستثمار"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "SAFE yatırım tutarı.",
+      "businessContext_i18n": {
+        "en": "SAFE investment.",
+        "tr": "SAFE yatırım tutarı.",
+        "de": "SAFE investment.",
+        "fr": "SAFE investment.",
+        "es": "SAFE investment.",
+        "ar": "SAFE investment."
+      }
+    },
+    {
+      "id": "tavanDeger",
+      "label": "Değerleme Tavanı (TL)",
+      "label_i18n": {
+        "en": "Valuation Cap (USD)",
+        "tr": "Değerleme Tavanı (TL)",
+        "de": "Bewertungsobergrenze ($)",
+        "fr": "Plafond de valorisation ($)",
+        "es": "Tope de valoración ($)",
+        "ar": "سقف التقييم ($)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 5000000,
+      "min": 0,
+      "businessContext": "Maksimum değerleme.",
+      "businessContext_i18n": {
+        "en": "Valuation cap.",
+        "tr": "Maksimum değerleme.",
+        "de": "Valuation cap.",
+        "fr": "Valuation cap.",
+        "es": "Valuation cap.",
+        "ar": "Valuation cap."
+      }
+    },
+    {
+      "id": "toplamHisse",
+      "label": "Toplam Hisse (Adet)",
+      "label_i18n": {
+        "en": "Total Shares",
+        "tr": "Toplam Hisse (Adet)",
+        "de": "Gesamtaktien",
+        "fr": "Nombre total d'actions",
+        "es": "Acciones totales",
+        "ar": "إجمالي الأسهم"
+      },
+      "type": "number",
+      "unit": "shares",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Şirketin toplam hisse adedi.",
+      "businessContext_i18n": {
+        "en": "Total shares outstanding.",
+        "tr": "Şirketin toplam hisse adedi.",
+        "de": "Total shares outstanding.",
+        "fr": "Total shares outstanding.",
+        "es": "Total shares outstanding.",
+        "ar": "Total shares outstanding."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "donusumFiyati": "tavanDeger / Math.max(1, toplamHisse)",
+    "sonuc": "yatirim / Math.max(0.0001, (tavanDeger / Math.max(1, toplamHisse)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "shares",
+    "breakdown": {
+      "sonuc": "Yeni Hisse Adedi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yeni Hisse Adedi",
+        "tr": "Yeni Hisse Adedi",
+        "de": "Yeni Hisse Adedi",
+        "fr": "Yeni Hisse Adedi",
+        "es": "Yeni Hisse Adedi",
+        "ar": "Yeni Hisse Adedi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "shares"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate shares issued under a SAFE agreement.",
+      "long": "Calculate shares issued under a SAFE agreement.",
+      "short_i18n": {
+        "en": "Calculate shares issued under a SAFE agreement.",
+        "tr": "SAFE anlaşmasıyla yatırımcıya verilecek hisse adedini hesaplar.",
+        "de": "Calculate shares issued under a SAFE agreement.",
+        "fr": "Calculate shares issued under a SAFE agreement.",
+        "es": "Calculate shares issued under a SAFE agreement.",
+        "ar": "Calculate shares issued under a SAFE agreement."
+      },
+      "long_i18n": {
+        "en": "Calculate shares issued under a SAFE agreement.",
+        "tr": "SAFE anlaşmasıyla yatırımcıya verilecek hisse adedini hesaplar.",
+        "de": "Calculate shares issued under a SAFE agreement.",
+        "fr": "Calculate shares issued under a SAFE agreement.",
+        "es": "Calculate shares issued under a SAFE agreement.",
+        "ar": "Calculate shares issued under a SAFE agreement."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "safe-agreement-calculator",
+    "de": "SAFE-Investitionsvereinbarungsrechner",
+    "fr": "Calculateur d'accord d'investissement SAFE",
+    "es": "Calculadora de acuerdo de inversión SAFE",
+    "ar": "حاسبة اتفاقية الاستثمار SAFE"
+  }
+}

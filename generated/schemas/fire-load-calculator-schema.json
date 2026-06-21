@@ -1,0 +1,152 @@
+{
+  "toolName": "fire-load-calculator",
+  "catalogCategory": "electrical-power-systems",
+  "categorySlug": "electrical-power-systems",
+  "sector": "Yangın, Elektrik ve Elektronik",
+  "sectorId": "electrical-power-systems",
+  "inputs": [
+    {
+      "id": "yaniciKutle",
+      "label": "Yanıcı Malzeme Kütlesi (kg)",
+      "label_i18n": {
+        "en": "Combustible Mass (kg)",
+        "tr": "Yanıcı Malzeme Kütlesi (kg)",
+        "de": "Combustible Mass (kg)",
+        "fr": "Combustible Mass (kg)",
+        "es": "Combustible Mass (kg)",
+        "ar": "Combustible Mass (kg)"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Kat planında yanıcı kütle.",
+      "businessContext_i18n": {
+        "en": "Combustible material on floor.",
+        "tr": "Kat planında yanıcı kütle.",
+        "de": "Combustible material on floor.",
+        "fr": "Combustible material on floor.",
+        "es": "Combustible material on floor.",
+        "ar": "Combustible material on floor."
+      }
+    },
+    {
+      "id": "isilDeger",
+      "label": "Isıl Değer (MJ/kg)",
+      "label_i18n": {
+        "en": "Calorific Value (MJ/kg)",
+        "tr": "Isıl Değer (MJ/kg)",
+        "de": "Calorific Value (MJ/kg)",
+        "fr": "Calorific Value (MJ/kg)",
+        "es": "Calorific Value (MJ/kg)",
+        "ar": "Calorific Value (MJ/kg)"
+      },
+      "type": "number",
+      "unit": "MJ/kg",
+      "default": 18,
+      "min": 0,
+      "businessContext": "Malzemenin birim kütle enerjisi.",
+      "businessContext_i18n": {
+        "en": "Material energy per kg.",
+        "tr": "Malzemenin birim kütle enerjisi.",
+        "de": "Material energy per kg.",
+        "fr": "Material energy per kg.",
+        "es": "Material energy per kg.",
+        "ar": "Material energy per kg."
+      }
+    },
+    {
+      "id": "katAlani",
+      "label": "Kat Alanı (m²)",
+      "label_i18n": {
+        "en": "Floor Area (m²)",
+        "tr": "Kat Alanı (m²)",
+        "de": "Gesamtfläche",
+        "fr": "Surface totale",
+        "es": "Superficie total",
+        "ar": "المساحة الإجمالية"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 200,
+      "min": 0,
+      "businessContext": "Yangın kompartmanı alanı.",
+      "businessContext_i18n": {
+        "en": "Fire compartment area.",
+        "tr": "Yangın kompartmanı alanı.",
+        "de": "Fire compartment area.",
+        "fr": "Fire compartment area.",
+        "es": "Fire compartment area.",
+        "ar": "Fire compartment area."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(yaniciKutle * isilDeger) / Math.max(0.0001, katAlani)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "MJ/m2",
+    "breakdown": {
+      "sonuc": "Yangın Yükü"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yangın Yükü",
+        "tr": "Yangın Yükü",
+        "de": "Yangın Yükü",
+        "fr": "Yangın Yükü",
+        "es": "Yangın Yükü",
+        "ar": "Yangın Yükü"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "MJ/m2"
+    },
+    "hiddenLossDrivers": [
+      "Low Q factor indicates broader frequency response."
+    ],
+    "suggestedActions": [
+      "Verify component tolerances affect circuit performance.",
+      "Use proper safety equipment for high voltage/current work."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate building fire load per unit area.",
+      "long": "Calculate building fire load per unit area.",
+      "short_i18n": {
+        "en": "Calculate building fire load per unit area.",
+        "tr": "Yangın anında açığa çıkacak birim alandaki toplam ısı enerjisini (yangın yükü) hesaplar.",
+        "de": "Calculate building fire load per unit area.",
+        "fr": "Calculate building fire load per unit area.",
+        "es": "Calculate building fire load per unit area.",
+        "ar": "Calculate building fire load per unit area."
+      },
+      "long_i18n": {
+        "en": "Calculate building fire load per unit area.",
+        "tr": "Yangın anında açığa çıkacak birim alandaki toplam ısı enerjisini (yangın yükü) hesaplar.",
+        "de": "Calculate building fire load per unit area.",
+        "fr": "Calculate building fire load per unit area.",
+        "es": "Calculate building fire load per unit area.",
+        "ar": "Calculate building fire load per unit area."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "fire-load-calculator",
+    "de": "Gebäude-Brandlastrechner",
+    "fr": "Calculateur de charge incendie de bâtiment",
+    "es": "Calculadora de carga de incendio de edificio",
+    "ar": "حاسبة حمل الحريق للمبنى"
+  }
+}

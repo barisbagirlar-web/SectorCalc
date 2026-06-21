@@ -1,6 +1,6 @@
 import { getToolHref } from "@/lib/tools/paths";
 import { revenueToolRegistry } from "@/lib/tools/revenue-tools";
-import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
+import { getLocalizedRevenueToolTitle, getLocalizedRevenueToolDescription } from "@/data/revenue-tools-i18n";
 
 export type ToolTier = "free" | "premium";
 
@@ -46,6 +46,12 @@ function localizeTool(tool: Tool, locale: string): Tool {
      tool.tier === "free" ? "free" : "paid",
      locale,
      tool.name,
+   ),
+   shortDescription: getLocalizedRevenueToolDescription(
+     tool.slug,
+     tool.tier === "free" ? "free" : "paid",
+     locale,
+     tool.shortDescription,
    ),
  };
 }

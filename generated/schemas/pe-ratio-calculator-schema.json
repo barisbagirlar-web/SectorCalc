@@ -1,0 +1,125 @@
+{
+  "toolName": "pe-ratio-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "hisseFiyati",
+      "label": "Hisse Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Share Price (USD)",
+        "tr": "Hisse Fiyatı (₺)",
+        "de": "Aktueller Aktienkurs ($)",
+        "fr": "Cours actuel de l'action ($)",
+        "es": "Precio actual de la acción ($)",
+        "ar": "سعر السهم الحالي ($)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Hisse senedinin güncel piyasa fiyatı.",
+      "businessContext_i18n": {
+        "en": "Current market price per share.",
+        "tr": "Hisse senedinin güncel piyasa fiyatı.",
+        "de": "Current market price per share.",
+        "fr": "Current market price per share.",
+        "es": "Current market price per share.",
+        "ar": "Current market price per share."
+      }
+    },
+    {
+      "id": "hisseBasiKar",
+      "label": "Hisse Başı Kâr (₺)",
+      "label_i18n": {
+        "en": "Earnings Per Share (USD)",
+        "tr": "Hisse Başı Kâr (₺)",
+        "de": "Gewinn pro Aktie (EPS)",
+        "fr": "Bénéfice par action (BPA)",
+        "es": "Ganancias por acción (EPS)",
+        "ar": "ربحية السهم (EPS)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Şirketin hisse başına düşen net kârı.",
+      "businessContext_i18n": {
+        "en": "Net earnings per share.",
+        "tr": "Şirketin hisse başına düşen net kârı.",
+        "de": "Net earnings per share.",
+        "fr": "Net earnings per share.",
+        "es": "Net earnings per share.",
+        "ar": "Net earnings per share."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "hisseFiyati / Math.max(0.0001, hisseBasiKar)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "F/K (P/E) Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "F/K (P/E) Oranı",
+        "tr": "F/K (P/E) Oranı",
+        "de": "F/K (P/E) Oranı",
+        "fr": "F/K (P/E) Oranı",
+        "es": "F/K (P/E) Oranı",
+        "ar": "F/K (P/E) Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the price-to-earnings (P/E) ratio.",
+      "long": "Calculate the price-to-earnings (P/E) ratio.",
+      "short_i18n": {
+        "en": "Calculate the price-to-earnings (P/E) ratio.",
+        "tr": "Yatırımın kâr üzerinden kendini amorti etme süresini (F/K) hesaplar.",
+        "de": "Calculate the price-to-earnings (P/E) ratio.",
+        "fr": "Calculate the price-to-earnings (P/E) ratio.",
+        "es": "Calculate the price-to-earnings (P/E) ratio.",
+        "ar": "Calculate the price-to-earnings (P/E) ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate the price-to-earnings (P/E) ratio.",
+        "tr": "Yatırımın kâr üzerinden kendini amorti etme süresini (F/K) hesaplar.",
+        "de": "Calculate the price-to-earnings (P/E) ratio.",
+        "fr": "Calculate the price-to-earnings (P/E) ratio.",
+        "es": "Calculate the price-to-earnings (P/E) ratio.",
+        "ar": "Calculate the price-to-earnings (P/E) ratio."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "pe-ratio-calculator",
+    "de": "KGV-Rechner",
+    "fr": "Calculateur de ratio cours/bénéfice",
+    "es": "Calculadora de ratio precio/ganancias",
+    "ar": "حاسبة نسبة السعر إلى الربح"
+  }
+}

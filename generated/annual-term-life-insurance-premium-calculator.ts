@@ -1,0 +1,70 @@
+// Auto-generated from annual-term-life-insurance-premium-calculator-schema.json
+import * as z from 'zod';
+
+export interface Annual_term_life_insurance_premium_calculatorInput {
+  teminat: number;
+  olumOlasiligi: number;
+  giderMarji: number;
+  dataConfidence?: number;
+}
+
+export const Annual_term_life_insurance_premium_calculatorInputSchema = z.object({
+  teminat: z.number().min(0).default(500000),
+  olumOlasiligi: z.number().min(0).default(0.2),
+  giderMarji: z.number().min(0).max(100).default(20),
+});
+
+function toNumericFormulaValue(value: number): number {
+  return Number.isFinite(value) ? value : Number.NaN;
+}
+
+function evaluateAllFormulas(input: Annual_term_life_insurance_premium_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.teminat * (input.olumOlasiligi / 100); results["netPrim"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["netPrim"] = Number.NaN; }
+  try { const v = (input.teminat * (input.olumOlasiligi / 100)) / Math.max(0.0001, (1 - input.giderMarji / 100)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  return results;
+}
+
+
+export function calculateAnnual_term_life_insurance_premium_calculator(input: Annual_term_life_insurance_premium_calculatorInput): Annual_term_life_insurance_premium_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
+  const breakdown = {
+    sonuc: toNumericFormulaValue(values["sonuc"])
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = ["Review insurance coverage annually.","Consult a retirement planner for personalized strategy."];
+  const dataConfidenceAdjusted =
+    typeof input.dataConfidence === "number"
+      ? totalWasteCost * (input.dataConfidence / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    unit: "USD",
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Annual_term_life_insurance_premium_calculatorOutput {
+  totalWasteCost: number;
+  unit: string;
+  breakdown: { sonuc: number };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+};
+
+export const Annual_term_life_insurance_premium_calculatorOutputMeta = {
+  primaryKey: "sonuc",
+  unit: "USD",
+  breakdownKeys: ["sonuc"],
+} as const;
+

@@ -1,0 +1,150 @@
+{
+  "toolName": "thin-walled-pressure-vessel-hoop-stress-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "basinc",
+      "label": "İç Basınç (Pa)",
+      "label_i18n": {
+        "en": "Internal Pressure (Pa)",
+        "tr": "İç Basınç (Pa)",
+        "de": "Internal Pressure (Pa)",
+        "fr": "Internal Pressure (Pa)",
+        "es": "Internal Pressure (Pa)",
+        "ar": "Internal Pressure (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Kap içindeki basınç.",
+      "businessContext_i18n": {
+        "en": "Internal vessel pressure.",
+        "tr": "Kap içindeki basınç.",
+        "de": "Internal vessel pressure.",
+        "fr": "Internal vessel pressure.",
+        "es": "Internal vessel pressure.",
+        "ar": "Internal vessel pressure."
+      }
+    },
+    {
+      "id": "cap",
+      "label": "Çap (m)",
+      "label_i18n": {
+        "en": "Diameter (m)",
+        "tr": "Çap (m)",
+        "de": "Nennbolzendurchmesser (d)",
+        "fr": "Diamètre nominal du boulon (d)",
+        "es": "Diámetro nominal del perno (d)",
+        "ar": "القطر الاسمي للبرغي (d)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "min": 0,
+      "businessContext": "Silindir çapı.",
+      "businessContext_i18n": {
+        "en": "Cylinder diameter.",
+        "tr": "Silindir çapı.",
+        "de": "Cylinder diameter.",
+        "fr": "Cylinder diameter.",
+        "es": "Cylinder diameter.",
+        "ar": "Cylinder diameter."
+      }
+    },
+    {
+      "id": "kalinlik",
+      "label": "Cidar Kalınlığı (m)",
+      "label_i18n": {
+        "en": "Wall Thickness (m)",
+        "tr": "Cidar Kalınlığı (m)",
+        "de": "Wanddicke",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor de pared",
+        "ar": "سمك الجدار"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.003,
+      "min": 0,
+      "businessContext": "Kap et kalınlığı.",
+      "businessContext_i18n": {
+        "en": "Vessel wall thickness.",
+        "tr": "Kap et kalınlığı.",
+        "de": "Vessel wall thickness.",
+        "fr": "Vessel wall thickness.",
+        "es": "Vessel wall thickness.",
+        "ar": "Vessel wall thickness."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(basinc * cap) / Math.max(0.0001, (2 * kalinlik))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Çevresel Gerilme"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Çevresel Gerilme",
+        "tr": "Çevresel Gerilme",
+        "de": "Çevresel Gerilme",
+        "fr": "Çevresel Gerilme",
+        "es": "Çevresel Gerilme",
+        "ar": "Çevresel Gerilme"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+      "long": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+      "short_i18n": {
+        "en": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+        "tr": "Silindirik ince cidarlı kaptaki çevresel (teğetsel) membran gerilmesini hesaplar.",
+        "de": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+        "fr": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+        "es": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+        "ar": "Calculate hoop stress in a thin-walled cylindrical pressure vessel."
+      },
+      "long_i18n": {
+        "en": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+        "tr": "Silindirik ince cidarlı kaptaki çevresel (teğetsel) membran gerilmesini hesaplar.",
+        "de": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+        "fr": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+        "es": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
+        "ar": "Calculate hoop stress in a thin-walled cylindrical pressure vessel."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "thin-walled-pressure-vessel-hoop-stress-calculator",
+    "de": "Dünnwandiger Behälter Spannungsrechner",
+    "fr": "Calculateur de Contrainte de Récipient à Paroi Mince",
+    "es": "Calculadora de Tensión de Recipiente de Pared Delgada",
+    "ar": "حاسبة إجهاد الأوعية رقيقة الجدران"
+  }
+}

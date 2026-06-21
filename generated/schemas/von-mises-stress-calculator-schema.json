@@ -1,0 +1,150 @@
+{
+  "toolName": "von-mises-stress-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "sigmaX",
+      "label": "σx (Pa)",
+      "label_i18n": {
+        "en": "σx (Pa)",
+        "tr": "σx (Pa)",
+        "de": "σx (Pa)",
+        "fr": "σx (Pa)",
+        "es": "σx (Pa)",
+        "ar": "σx (باسكال)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 150000000,
+      "min": 0,
+      "businessContext": "X yönü normal gerilme.",
+      "businessContext_i18n": {
+        "en": "Normal stress in x.",
+        "tr": "X yönü normal gerilme.",
+        "de": "Normal stress in x.",
+        "fr": "Normal stress in x.",
+        "es": "Normal stress in x.",
+        "ar": "Normal stress in x."
+      }
+    },
+    {
+      "id": "sigmaY",
+      "label": "σy (Pa)",
+      "label_i18n": {
+        "en": "σy (Pa)",
+        "tr": "σy (Pa)",
+        "de": "σy (Pa)",
+        "fr": "σy (Pa)",
+        "es": "σy (Pa)",
+        "ar": "σy (باسكال)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 50000000,
+      "min": 0,
+      "businessContext": "Y yönü normal gerilme.",
+      "businessContext_i18n": {
+        "en": "Normal stress in y.",
+        "tr": "Y yönü normal gerilme.",
+        "de": "Normal stress in y.",
+        "fr": "Normal stress in y.",
+        "es": "Normal stress in y.",
+        "ar": "Normal stress in y."
+      }
+    },
+    {
+      "id": "tauXY",
+      "label": "τxy (Pa)",
+      "label_i18n": {
+        "en": "τxy (Pa)",
+        "tr": "τxy (Pa)",
+        "de": "τxy (Pa)",
+        "fr": "τxy (Pa)",
+        "es": "τxy (Pa)",
+        "ar": "τxy (باسكال)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 40000000,
+      "min": 0,
+      "businessContext": "Kayma gerilmesi.",
+      "businessContext_i18n": {
+        "en": "Shear stress in xy.",
+        "tr": "Kayma gerilmesi.",
+        "de": "Shear stress in xy.",
+        "fr": "Shear stress in xy.",
+        "es": "Shear stress in xy.",
+        "ar": "Shear stress in xy."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.sqrt(Math.max(0, sigmaX*sigmaX - sigmaX*sigmaY + sigmaY*sigmaY + 3*tauXY*tauXY))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Von Mises Gerilmesi (σᵥ)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Von Mises Gerilmesi (σᵥ)",
+        "tr": "Von Mises Gerilmesi (σᵥ)",
+        "de": "Von Mises Gerilmesi (σᵥ)",
+        "fr": "Von Mises Gerilmesi (σᵥ)",
+        "es": "Von Mises Gerilmesi (σᵥ)",
+        "ar": "Von Mises Gerilmesi (σᵥ)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate Von Mises equivalent stress for multiaxial loading.",
+      "long": "Calculate Von Mises equivalent stress for multiaxial loading.",
+      "short_i18n": {
+        "en": "Calculate Von Mises equivalent stress for multiaxial loading.",
+        "tr": "Çok eksenli yüklemedeki eşdeğer akma gerilmesini (Von Mises) hesaplar.",
+        "de": "Calculate Von Mises equivalent stress for multiaxial loading.",
+        "fr": "Calculate Von Mises equivalent stress for multiaxial loading.",
+        "es": "Calculate Von Mises equivalent stress for multiaxial loading.",
+        "ar": "Calculate Von Mises equivalent stress for multiaxial loading."
+      },
+      "long_i18n": {
+        "en": "Calculate Von Mises equivalent stress for multiaxial loading.",
+        "tr": "Çok eksenli yüklemedeki eşdeğer akma gerilmesini (Von Mises) hesaplar.",
+        "de": "Calculate Von Mises equivalent stress for multiaxial loading.",
+        "fr": "Calculate Von Mises equivalent stress for multiaxial loading.",
+        "es": "Calculate Von Mises equivalent stress for multiaxial loading.",
+        "ar": "Calculate Von Mises equivalent stress for multiaxial loading."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "von-mises-stress-calculator",
+    "de": "Von-Mises-Spannungsrechner",
+    "fr": "Calculateur de contrainte de von Mises",
+    "es": "Calculadora de tensión de von Mises",
+    "ar": "حاسبة إجهاد فون ميزس"
+  }
+}

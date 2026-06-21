@@ -1,0 +1,125 @@
+{
+  "toolName": "property-tax-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "rayicBedel",
+      "label": "Rayiç Bedel (₺)",
+      "label_i18n": {
+        "en": "Assessed Value (USD)",
+        "tr": "Rayiç Bedel (₺)",
+        "de": "Assessed Value (USD)",
+        "fr": "Assessed Value (USD)",
+        "es": "Assessed Value (USD)",
+        "ar": "Assessed Value (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Taşınmazın vergi değeri.",
+      "businessContext_i18n": {
+        "en": "Property's tax-assessed value.",
+        "tr": "Taşınmazın vergi değeri.",
+        "de": "Property's tax-assessed value.",
+        "fr": "Property's tax-assessed value.",
+        "es": "Property's tax-assessed value.",
+        "ar": "Property's tax-assessed value."
+      }
+    },
+    {
+      "id": "vergiOrani",
+      "label": "Vergi Oranı (Binde)",
+      "label_i18n": {
+        "en": "Tax Rate (Per Mille)",
+        "tr": "Vergi Oranı (Binde)",
+        "de": "Steuersatz auf Gewinne",
+        "fr": "Taux d'imposition sur les gains",
+        "es": "Tasa impositiva sobre ganancias",
+        "ar": "معدل الضريبة على الأرباح"
+      },
+      "type": "number",
+      "unit": "per mille",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Emlak vergisi binde oranı.",
+      "businessContext_i18n": {
+        "en": "Property tax rate per thousand.",
+        "tr": "Emlak vergisi binde oranı.",
+        "de": "Property tax rate per thousand.",
+        "fr": "Property tax rate per thousand.",
+        "es": "Property tax rate per thousand.",
+        "ar": "Property tax rate per thousand."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "rayicBedel * (vergiOrani / 1000)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Yıllık Emlak Vergisi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllık Emlak Vergisi",
+        "tr": "Yıllık Emlak Vergisi",
+        "de": "Yıllık Emlak Vergisi",
+        "fr": "Yıllık Emlak Vergisi",
+        "es": "Yıllık Emlak Vergisi",
+        "ar": "Yıllık Emlak Vergisi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate annual property tax payable to the municipality.",
+      "long": "Calculate annual property tax payable to the municipality.",
+      "short_i18n": {
+        "en": "Calculate annual property tax payable to the municipality.",
+        "tr": "Belediyeye ödenmesi gereken yıllık emlak vergisini hesaplar.",
+        "de": "Calculate annual property tax payable to the municipality.",
+        "fr": "Calculate annual property tax payable to the municipality.",
+        "es": "Calculate annual property tax payable to the municipality.",
+        "ar": "Calculate annual property tax payable to the municipality."
+      },
+      "long_i18n": {
+        "en": "Calculate annual property tax payable to the municipality.",
+        "tr": "Belediyeye ödenmesi gereken yıllık emlak vergisini hesaplar.",
+        "de": "Calculate annual property tax payable to the municipality.",
+        "fr": "Calculate annual property tax payable to the municipality.",
+        "es": "Calculate annual property tax payable to the municipality.",
+        "ar": "Calculate annual property tax payable to the municipality."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "property-tax-calculator",
+    "de": "Grundsteuerrechner",
+    "fr": "Calculateur de taxe foncière",
+    "es": "Calculadora de impuesto a la propiedad",
+    "ar": "حاسبة ضريبة الأملاك"
+  }
+}

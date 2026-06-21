@@ -90,24 +90,26 @@ function readSchemaCategoryKeys() {
 
 const COVERAGE_TOOL_MATCHERS = {
   production: ["lean-production", "process-chemical", "textile-print-lab"],
-  industrial: ["mechanical-hvac-energy-loss", "electrical-power-systems"],
-  technical: ["technology-ai-cloud-cyber", "technology", "electrical", "chemistry", "physics"],
-  construction: ["construction", "project-construction-management"],
-  logistics: ["logistics", "automotive-transport"],
-  energy: ["energy", "environment", "sustainability-resource-esg"],
-  finance: ["finance-sales-working-capital", "finance", "investment", "insurance", "budget", "tax", "loan", "interest", "real-estate", "retirement", "business"],
-  foodRetail: ["food", "agriculture-food-beverage"],
+  industrial: ["mechanical-hvac-energy-loss"],
+  technical: ["technology-ai-cloud-cyber", "electrical-power-systems"],
+  construction: ["project-construction-management"],
+  logistics: ["automotive-transport"],
+  energy: ["sustainability-resource-esg"],
+  finance: ["finance-sales-working-capital"],
+  foodRetail: ["agriculture-food-beverage"],
+  general: ["health-fitness-daily-life", "mathematics-statistics", "other"],
 };
 
 const COVERAGE_FILTER_SLUG = {
   production: "lean-production",
   industrial: "mechanical-hvac-energy-loss",
-  technical: "chemistry",
+  technical: "technology-ai-cloud-cyber",
   construction: "project-construction-management",
-  logistics: "logistics",
-  energy: "energy",
+  logistics: "automotive-transport",
+  energy: "sustainability-resource-esg",
   finance: "finance-sales-working-capital",
-  foodRetail: "food",
+  foodRetail: "agriculture-food-beverage",
+  general: "other",
 };
 
 /* ── 5. Validate ───────────────────────────────────────────── */

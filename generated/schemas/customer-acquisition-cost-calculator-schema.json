@@ -1,0 +1,150 @@
+{
+  "toolName": "customer-acquisition-cost-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "pazarlama",
+      "label": "Pazarlama Gideri (TL)",
+      "label_i18n": {
+        "en": "Marketing Spend (USD)",
+        "tr": "Pazarlama Gideri (TL)",
+        "de": "Marketing Spend (USD)",
+        "fr": "Marketing Spend (USD)",
+        "es": "Marketing Spend (USD)",
+        "ar": "Marketing Spend (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Dönem pazarlama harcaması.",
+      "businessContext_i18n": {
+        "en": "Marketing expenses.",
+        "tr": "Dönem pazarlama harcaması.",
+        "de": "Marketing expenses.",
+        "fr": "Marketing expenses.",
+        "es": "Marketing expenses.",
+        "ar": "Marketing expenses."
+      }
+    },
+    {
+      "id": "satisGideri",
+      "label": "Satış Gideri (TL)",
+      "label_i18n": {
+        "en": "Sales Cost (USD)",
+        "tr": "Satış Gideri (TL)",
+        "de": "Kosten für Haftung und entgangene Verkäufe bei externem Fehler",
+        "fr": "Coût de responsabilité et de perte de ventes dû à un défaut externe",
+        "es": "Costo de responsabilidad y pérdida de ventas por falla externa",
+        "ar": "تكلفة المسؤولية وفقدان المبيعات بسبب الفشل الخارجي"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "businessContext": "Satış ekibi giderleri.",
+      "businessContext_i18n": {
+        "en": "Sales team costs.",
+        "tr": "Satış ekibi giderleri.",
+        "de": "Sales team costs.",
+        "fr": "Sales team costs.",
+        "es": "Sales team costs.",
+        "ar": "Sales team costs."
+      }
+    },
+    {
+      "id": "yeniMusteri",
+      "label": "Yeni Müşteri (Adet)",
+      "label_i18n": {
+        "en": "New Customers",
+        "tr": "Yeni Müşteri (Adet)",
+        "de": "New Customers",
+        "fr": "New Customers",
+        "es": "New Customers",
+        "ar": "New Customers"
+      },
+      "type": "number",
+      "unit": "customers",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Kazanılan yeni müşteri sayısı.",
+      "businessContext_i18n": {
+        "en": "New customers acquired.",
+        "tr": "Kazanılan yeni müşteri sayısı.",
+        "de": "New customers acquired.",
+        "fr": "New customers acquired.",
+        "es": "New customers acquired.",
+        "ar": "New customers acquired."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(pazarlama + satisGideri) / Math.max(1, yeniMusteri)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Müşteri Edinim Maliyeti (CAC)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Müşteri Edinim Maliyeti (CAC)",
+        "tr": "Müşteri Edinim Maliyeti (CAC)",
+        "de": "Müşteri Edinim Maliyeti (CAC)",
+        "fr": "Müşteri Edinim Maliyeti (CAC)",
+        "es": "Müşteri Edinim Maliyeti (CAC)",
+        "ar": "Müşteri Edinim Maliyeti (CAC)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate customer acquisition cost (CAC).",
+      "long": "Calculate customer acquisition cost (CAC).",
+      "short_i18n": {
+        "en": "Calculate customer acquisition cost (CAC).",
+        "tr": "Bir yeni müşteriyi kazanmanın ortalama maliyetini (CAC) hesaplar.",
+        "de": "Calculate customer acquisition cost (CAC).",
+        "fr": "Calculate customer acquisition cost (CAC).",
+        "es": "Calculate customer acquisition cost (CAC).",
+        "ar": "Calculate customer acquisition cost (CAC)."
+      },
+      "long_i18n": {
+        "en": "Calculate customer acquisition cost (CAC).",
+        "tr": "Bir yeni müşteriyi kazanmanın ortalama maliyetini (CAC) hesaplar.",
+        "de": "Calculate customer acquisition cost (CAC).",
+        "fr": "Calculate customer acquisition cost (CAC).",
+        "es": "Calculate customer acquisition cost (CAC).",
+        "ar": "Calculate customer acquisition cost (CAC)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "customer-acquisition-cost-calculator",
+    "de": "Kundenakquisitionskosten CAC Rechner",
+    "fr": "Calculateur de coût d'acquisition client CAC",
+    "es": "Calculadora de costo de adquisición de clientes CAC",
+    "ar": "حاسبة تكلفة اكتساب العميل CAC"
+  }
+}

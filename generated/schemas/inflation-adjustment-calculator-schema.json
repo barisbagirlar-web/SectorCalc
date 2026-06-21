@@ -1,0 +1,150 @@
+{
+  "toolName": "inflation-adjustment-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "nominalDeger",
+      "label": "Nominal Değer (₺)",
+      "label_i18n": {
+        "en": "Nominal Value (USD)",
+        "tr": "Nominal Değer (₺)",
+        "de": "Nominal Value (USD)",
+        "fr": "Nominal Value (USD)",
+        "es": "Nominal Value (USD)",
+        "ar": "Nominal Value (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Bugünkü para değeri.",
+      "businessContext_i18n": {
+        "en": "Current nominal money value.",
+        "tr": "Bugünkü para değeri.",
+        "de": "Current nominal money value.",
+        "fr": "Current nominal money value.",
+        "es": "Current nominal money value.",
+        "ar": "Current nominal money value."
+      }
+    },
+    {
+      "id": "enflasyon",
+      "label": "Yıllık Enflasyon (%)",
+      "label_i18n": {
+        "en": "Annual Inflation (%)",
+        "tr": "Yıllık Enflasyon (%)",
+        "de": "Jährliche Inflationsrate",
+        "fr": "Taux d'inflation annuel",
+        "es": "Tasa de inflación anual",
+        "ar": "معدل التضخم السنوي"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Ortalama yıllık enflasyon oranı.",
+      "businessContext_i18n": {
+        "en": "Average annual inflation rate.",
+        "tr": "Ortalama yıllık enflasyon oranı.",
+        "de": "Erwartete durchschnittliche jährliche Inflationsrate. Inflation verringert die Kaufkraft im Laufe der Zeit, daher müssen die Entnahmen möglicherweise erhöht werden. Keine Finanzberatung.",
+        "fr": "Taux d'inflation annuel moyen attendu. L'inflation réduit le pouvoir d'achat au fil du temps, donc les retraits peuvent devoir augmenter. Ce n'est pas un conseil financier.",
+        "es": "Tasa de inflación anual promedio esperada. La inflación reduce el poder adquisitivo con el tiempo, por lo que los retiros pueden necesitar aumentar. No es asesoramiento financiero.",
+        "ar": "متوسط معدل التضخم السنوي المتوقع. يقلل التضخم من القوة الشرائية بمرور الوقت، لذلك قد تحتاج السحوبات إلى الزيادة. ليست نصيحة مالية."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Yıl Sayısı",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Yıl Sayısı",
+        "de": "Anzahl der Jahre",
+        "fr": "Nombre d'années",
+        "es": "Número de años",
+        "ar": "عدد السنوات"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Gelecek dönem.",
+      "businessContext_i18n": {
+        "en": "Future period in years.",
+        "tr": "Gelecek dönem.",
+        "de": "Future period in years.",
+        "fr": "Future period in years.",
+        "es": "Future period in years.",
+        "ar": "Future period in years."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "nominalDeger / Math.pow(1 + enflasyon / 100, yil)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "USD",
+    "breakdown": {
+      "sonuc": "Enflasyon Düzeltilmiş Değer"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Enflasyon Düzeltilmiş Değer",
+        "tr": "Enflasyon Düzeltilmiş Değer",
+        "de": "Enflasyon Düzeltilmiş Değer",
+        "fr": "Enflasyon Düzeltilmiş Değer",
+        "es": "Enflasyon Düzeltilmiş Değer",
+        "ar": "Enflasyon Düzeltilmiş Değer"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "USD"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate inflation-adjusted purchasing power of money.",
+      "long": "Calculate inflation-adjusted purchasing power of money.",
+      "short_i18n": {
+        "en": "Calculate inflation-adjusted purchasing power of money.",
+        "tr": "Paranın enflasyondan arındırılmış bugünkü alım gücünü hesaplar.",
+        "de": "Calculate inflation-adjusted purchasing power of money.",
+        "fr": "Calculate inflation-adjusted purchasing power of money.",
+        "es": "Calculate inflation-adjusted purchasing power of money.",
+        "ar": "Calculate inflation-adjusted purchasing power of money."
+      },
+      "long_i18n": {
+        "en": "Calculate inflation-adjusted purchasing power of money.",
+        "tr": "Paranın enflasyondan arındırılmış bugünkü alım gücünü hesaplar.",
+        "de": "Calculate inflation-adjusted purchasing power of money.",
+        "fr": "Calculate inflation-adjusted purchasing power of money.",
+        "es": "Calculate inflation-adjusted purchasing power of money.",
+        "ar": "Calculate inflation-adjusted purchasing power of money."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "inflation-adjustment-calculator",
+    "de": "Inflationsanpassungsrechner",
+    "fr": "Calculateur d'ajustement à l'inflation",
+    "es": "Calculadora de ajuste por inflación",
+    "ar": "حاسبة تعديل التضخم"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "toolName": "marketing-roi-calculator",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "kampanyaGeliri",
+      "label": "Kampanya Geliri (TL)",
+      "label_i18n": {
+        "en": "Campaign Revenue (USD)",
+        "tr": "Kampanya Geliri (TL)",
+        "de": "Campaign Revenue (USD)",
+        "fr": "Campaign Revenue (USD)",
+        "es": "Campaign Revenue (USD)",
+        "ar": "Campaign Revenue (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Kampanyadan elde edilen gelir.",
+      "businessContext_i18n": {
+        "en": "Revenue generated.",
+        "tr": "Kampanyadan elde edilen gelir.",
+        "de": "Revenue generated.",
+        "fr": "Revenue generated.",
+        "es": "Revenue generated.",
+        "ar": "Revenue generated."
+      }
+    },
+    {
+      "id": "kampanyaMaliyeti",
+      "label": "Kampanya Maliyeti (TL)",
+      "label_i18n": {
+        "en": "Campaign Cost (USD)",
+        "tr": "Kampanya Maliyeti (TL)",
+        "de": "Campaign Cost (USD)",
+        "fr": "Campaign Cost (USD)",
+        "es": "Campaign Cost (USD)",
+        "ar": "Campaign Cost (USD)"
+      },
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Toplam kampanya harcaması.",
+      "businessContext_i18n": {
+        "en": "Total campaign spend.",
+        "tr": "Toplam kampanya harcaması.",
+        "de": "Total campaign spend.",
+        "fr": "Total campaign spend.",
+        "es": "Total campaign spend.",
+        "ar": "Total campaign spend."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "((kampanyaGeliri - kampanyaMaliyeti) / Math.max(0.0001, kampanyaMaliyeti)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Pazarlama ROI"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Pazarlama ROI",
+        "tr": "Pazarlama ROI",
+        "de": "Pazarlama ROI",
+        "fr": "Pazarlama ROI",
+        "es": "Pazarlama ROI",
+        "ar": "Pazarlama ROI"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate marketing ROI from campaign revenue and cost.",
+      "long": "Calculate marketing ROI from campaign revenue and cost.",
+      "short_i18n": {
+        "en": "Calculate marketing ROI from campaign revenue and cost.",
+        "tr": "Pazarlama harcamasının getirdiği net kâr oranını hesaplar.",
+        "de": "Calculate marketing ROI from campaign revenue and cost.",
+        "fr": "Calculate marketing ROI from campaign revenue and cost.",
+        "es": "Calculate marketing ROI from campaign revenue and cost.",
+        "ar": "Calculate marketing ROI from campaign revenue and cost."
+      },
+      "long_i18n": {
+        "en": "Calculate marketing ROI from campaign revenue and cost.",
+        "tr": "Pazarlama harcamasının getirdiği net kâr oranını hesaplar.",
+        "de": "Calculate marketing ROI from campaign revenue and cost.",
+        "fr": "Calculate marketing ROI from campaign revenue and cost.",
+        "es": "Calculate marketing ROI from campaign revenue and cost.",
+        "ar": "Calculate marketing ROI from campaign revenue and cost."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "marketing-roi-calculator",
+    "de": "Marketing-ROI-Rechner",
+    "fr": "Calculateur ROI marketing",
+    "es": "Calculadora de ROI de marketing",
+    "ar": "حاسبة عائد الاستثمار التسويقي"
+  }
+}

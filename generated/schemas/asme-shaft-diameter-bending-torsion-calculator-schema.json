@@ -1,0 +1,150 @@
+{
+  "toolName": "asme-shaft-diameter-bending-torsion-calculator",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "moment",
+      "label": "Eğilme Momenti (N.m)",
+      "label_i18n": {
+        "en": "Bending Moment (N.m)",
+        "tr": "Eğilme Momenti (N.m)",
+        "de": "Biegemoment",
+        "fr": "Moment de flexion",
+        "es": "Momento flector",
+        "ar": "عزم الانحناء"
+      },
+      "type": "number",
+      "unit": "N.m",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Mile etkiyen eğilme momenti.",
+      "businessContext_i18n": {
+        "en": "Bending moment on shaft.",
+        "tr": "Mile etkiyen eğilme momenti.",
+        "de": "Bending moment on shaft.",
+        "fr": "Bending moment on shaft.",
+        "es": "Bending moment on shaft.",
+        "ar": "Bending moment on shaft."
+      }
+    },
+    {
+      "id": "tork",
+      "label": "Burulma Momenti (N.m)",
+      "label_i18n": {
+        "en": "Torque (N.m)",
+        "tr": "Burulma Momenti (N.m)",
+        "de": "Drehmoment",
+        "fr": "Couple",
+        "es": "Par motor",
+        "ar": "عزم الدوران"
+      },
+      "type": "number",
+      "unit": "N.m",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Mile etkiyen tork.",
+      "businessContext_i18n": {
+        "en": "Torque on shaft.",
+        "tr": "Mile etkiyen tork.",
+        "de": "Torque on shaft.",
+        "fr": "Torque on shaft.",
+        "es": "Torque on shaft.",
+        "ar": "Torque on shaft."
+      }
+    },
+    {
+      "id": "akmaGerilmesi",
+      "label": "Akma Gerilmesi (Pa)",
+      "label_i18n": {
+        "en": "Yield Stress (Pa)",
+        "tr": "Akma Gerilmesi (Pa)",
+        "de": "Yield Stress (Pa)",
+        "fr": "Yield Stress (Pa)",
+        "es": "Yield Stress (Pa)",
+        "ar": "Yield Stress (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 300000000,
+      "min": 0,
+      "businessContext": "Mil malzemesinin akma dayanımı.",
+      "businessContext_i18n": {
+        "en": "Shaft material yield strength.",
+        "tr": "Mil malzemesinin akma dayanımı.",
+        "de": "Shaft material yield strength.",
+        "fr": "Shaft material yield strength.",
+        "es": "Shaft material yield strength.",
+        "ar": "Shaft material yield strength."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.pow((16 / (Math.PI * akmaGerilmesi)) * Math.sqrt(Math.max(0, moment*moment + 0.75*tork*tork)), 1/3)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Min. Mil Çapı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Min. Mil Çapı",
+        "tr": "Min. Mil Çapı",
+        "de": "Min. Mil Çapı",
+        "fr": "Min. Mil Çapı",
+        "es": "Min. Mil Çapı",
+        "ar": "Min. Mil Çapı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+      "long": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+      "short_i18n": {
+        "en": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+        "tr": "Eğilme ve burulma altındaki milin minimum çapını ASME formülü ile hesaplar.",
+        "de": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+        "fr": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+        "es": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+        "ar": "Calculate minimum shaft diameter under bending and torsion (ASME)."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+        "tr": "Eğilme ve burulma altındaki milin minimum çapını ASME formülü ile hesaplar.",
+        "de": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+        "fr": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+        "es": "Calculate minimum shaft diameter under bending and torsion (ASME).",
+        "ar": "Calculate minimum shaft diameter under bending and torsion (ASME)."
+      }
+    }
+  },
+  "title_i18n": {
+    "en": "asme-shaft-diameter-bending-torsion-calculator",
+    "de": "Wellenkonstruktions-Durchbiegungsrechner",
+    "fr": "Calculateur de déflexion de conception d'arbre",
+    "es": "Calculadora de deflexión de diseño de eje",
+    "ar": "حاسبة انحراف تصميم العمود"
+  }
+}
