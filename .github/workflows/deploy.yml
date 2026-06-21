@@ -107,7 +107,13 @@ jobs:
       - name: "Stage 7.3 — Release Gate"
         run: npm run release:gate
 
-      # ── Deploy ──
+      # ── i18n sync (Lokalise) ──
+      - name: Install lokalise2 CLI
+        run: npm run i18n:setup
+        continue-on-error: true
+        env:
+          NODE_OPTIONS: --max-old-space-size=512
+
       - name: Sync translations (Lokalise)
         run: npm run i18n:sync
         continue-on-error: true

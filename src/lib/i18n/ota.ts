@@ -10,11 +10,9 @@ import {
   isTmsLivePullEnabled,
   resolveLokaliseApiToken,
   resolveLokaliseProjectId,
-  resolveOtaApiToken,
 } from "@/config/tms";
 
 const LOKALISE_API = "https://api.lokalise.com/api2";
-const OTA_API = "https://ota.lokalise.com";
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
 type CacheEntry = {
@@ -158,55 +156,13 @@ async function fetchViaLokaliseApi(locale: SupportedLocale): Promise<Record<stri
   return JSON.parse(jsonText) as Record<string, unknown>;
 }
 
-async function fetchViaOtaSdk(locale: SupportedLocale): Promise<Record<string, unknown> | null> {
-  const otaToken = resolveOtaApiToken();
-  const projectId = resolveLokaliseProjectId();
-  if (!otaToken || !projectId) {
-    return null;
-  }
-
-  const params = new URLSearchParams({
-    appVersion: process.env.LOKALISE_OTA_APP_VERSION?.trim() || "1.0.0",
-    transVersion: "0",
-  });
-
-  const response = await fetch(
-    `${OTA_API}/v3/lokalise/projects/${projectId}/frameworks/flutter_sdk?${params.toString()}`,
-    {
-      headers: { "x-ota-api-token": otaToken },
-      cache: "no-store",
-    },
-  );
-
-  if (response.status === 204) {
-    return null;
-  }
-
-  if (!response.ok) {
-    throw new Error(`Lokalise OTA bundle request failed (${response.status})`);
-  }
-
-  const payload = (await response.json()) as {
-    data?: { url?: string };
-  };
-
-  if (!payload.data?.url) {
-    return null;
-  }
-
-  const bundleResponse = await fetch(payload.data.url, { cache: "no-store" });
-  if (!bundleResponse.ok) {
-    throw new Error(`Lokalise OTA bundle download failed (${bundleResponse.status})`);
-  }
-
-  const buffer = Buffer.from(await bundleResponse.arrayBuffer());
-  const jsonText = await extractLocaleJsonFromZip(buffer, locale);
-  return JSON.parse(jsonText) as Record<string, unknown>;
-}
-
 /**
- * Fetch latest translations for a locale from Lokalise (OTA / live pull).
+ * Fetch latest translations for a locale from Lokalise (REST live pull).
  * Returns null when TMS is off, credentials are missing, or fetch fails.
+ *
+ * Uses the REST API (async download + poll) — the correct approach for web.
+ * The OTA SDK path (lokalise-ota.ts) was removed because it used flutter_sdk
+ * framework which is incompatible with Next.js web apps.
  */
 export async function getOTATranslations(
   locale: string,
@@ -229,25 +185,14 @@ export async function getOTATranslations(
   }
 
   try {
-    const fromApi = await fetchViaLokaliseApi(locale);
-    if (fromApi) {
-      writeCache(locale, fromApi);
-      return fromApi;
+    const messages = await fetchViaLokaliseApi(locale);
+    if (messages) {
+      writeCache(locale, messages);
+      return messages;
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    console.warn(`[i18n:ota] API pull failed for "${locale}": ${message}`);
-  }
-
-  try {
-    const fromOta = await fetchViaOtaSdk(locale);
-    if (fromOta) {
-      writeCache(locale, fromOta);
-      return fromOta;
-    }
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.warn(`[i18n:ota] OTA SDK pull failed for "${locale}": ${message}`);
+    console.warn(`[i18n:ota] Lokalise API pull failed for "${locale}": ${message}`);
   }
 
   return null;

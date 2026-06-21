@@ -21,7 +21,7 @@ runLokaliseCommand({
     "file", "download", "--format", "json", "--async",
     "--original-filenames", "false",
     "--bundle-structure", "%LANG_ISO%.%FORMAT%",
-    "--export-empty-as", "skip", "--dest", DEST,
+    "--export-empty-as", "skip", "--dest", DEST, "--unzip-to", DEST,
   ],
 });
 
