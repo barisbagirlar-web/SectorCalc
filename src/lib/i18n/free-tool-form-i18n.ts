@@ -240,8 +240,23 @@ export function resolveCalculatorInputDisplay(
   toolSlug: string,
   fieldKey: string,
   locale: string,
-  source: { readonly label: string; readonly helper?: string },
+  source: {
+    readonly label: string;
+    readonly helper?: string;
+    readonly label_i18n?: Readonly<Record<string, string>>;
+    readonly helper_i18n?: Readonly<Record<string, string>>;
+  },
 ): FieldDisplayCopy {
+  // Check schema-level i18n fields first
+  if (source.label_i18n && source.label_i18n[locale]) {
+    const localizedLabel = source.label_i18n[locale];
+    const localizedHelper = source.helper_i18n?.[locale] ?? source.helper_i18n?.en;
+    return {
+      label: localizedLabel,
+      placeholder: localizedHelper ?? localizedLabel,
+      helper: localizedHelper ?? source.helper,
+    };
+  }
   return resolveFreeToolFieldDisplay(toolSlug, fieldKey, locale, {
     label: source.label,
     placeholder: source.helper ?? source.label,

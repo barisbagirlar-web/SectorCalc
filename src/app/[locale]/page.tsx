@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale, getMessages } from "next-intl/server";
-import { AppProviders } from "@/components/providers/AppProviders";
+import { PageLayout } from "@/components/layout/PageLayout";
 import { LandingPageContent } from "@/components/landing/LandingPageContent";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
@@ -44,8 +44,8 @@ export default async function HomePage({ params }: PageProps) {
   const content = await getLandingContent(locale);
 
   return (
-    <AppProviders>
+    <PageLayout>
       <LandingPageContent content={content} />
-    </AppProviders>
+    </PageLayout>
   );
 }

@@ -15,8 +15,8 @@ export function FooterLogo({ tagline }: FooterLogoProps) {
         <img
           src={BRAND_ASSETS.favicon.master}
           alt=""
-          width={32}
-          height={32}
+          width={24}
+          height={24}
           className="footer-logo-icon"
           aria-hidden
         />

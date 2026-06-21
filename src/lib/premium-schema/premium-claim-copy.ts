@@ -20,6 +20,66 @@ export type PremiumClaimCopy = {
   upgradeReason: string;
 };
 
+/** Locale-aware claim map — key = claim text, value = Record<locale, translation> */
+type ClaimLocaleMap = Record<string, Record<string, string>>;
+
+const LOCALE_FIELDS: readonly (keyof PremiumClaimCopy)[] = [
+  "headline",
+  "valueStatement",
+  "exampleExposure",
+  "decisionValue",
+  "upgradeReason",
+] as const;
+
+function registerAllEnglish(): void {
+  const texts = new Set<string>();
+  const collect = (obj: Record<string, unknown>): void => {
+    for (const field of LOCALE_FIELDS) {
+      const val = obj[field];
+      if (typeof val === "string" && val) texts.add(val);
+    }
+  };
+  // Collect from DEFAULT_CLAIM
+  collect(DEFAULT_CLAIM as unknown as Record<string, unknown>);
+  // Collect from SPECIFIC_CLAIMS
+  for (const key of Object.keys(SPECIFIC_CLAIMS)) {
+    collect(SPECIFIC_CLAIMS[key] as Record<string, unknown>);
+  }
+  // Collect from CATEGORY_CLAIM_TEMPLATES
+  for (const key of Object.keys(CATEGORY_CLAIM_TEMPLATES) as FormulaFamilyId[]) {
+    collect(CATEGORY_CLAIM_TEMPLATES[key] as unknown as Record<string, unknown>);
+  }
+  for (const t of texts) {
+    registerLocale(t, "en", t);
+  }
+}
+const CLAIM_LOCALE_MAP: ClaimLocaleMap = {};
+
+function registerLocale(text: string, locale: string, translated: string): void {
+  if (!text || !translated) return;
+  const existing = CLAIM_LOCALE_MAP[text] ?? {};
+  CLAIM_LOCALE_MAP[text] = { ...existing, [locale]: translated };
+}
+
+function resolveLocale(text: string, locale: string): string {
+  if (!text || !locale || locale === "en") return text;
+  const map = CLAIM_LOCALE_MAP[text];
+  return map?.[locale] ?? text;
+}
+
+/** Apply locale to all translatable fields in a claim copy. */
+function localizeClaim(copy: PremiumClaimCopy, locale: string): PremiumClaimCopy {
+  if (!locale || locale === "en") return copy;
+  const result = { ...copy };
+  for (const field of LOCALE_FIELDS) {
+    const val = result[field];
+    if (typeof val === "string") {
+      (result as Record<string, string | undefined>)[field] = resolveLocale(val, locale);
+    }
+  }
+  return result;
+}
+
 const DEFAULT_CLAIM: Omit<PremiumClaimCopy, "slug"> = {
   claimType: "sample_scenario",
   headline: "Measure the hidden loss before it becomes cash damage.",
@@ -245,6 +305,9 @@ const CATEGORY_CLAIM_TEMPLATES: Readonly<
 
 const FORBIDDEN_PUBLIC_TERMS = /\b(schema|migration|pilot|debug)\b/i;
 
+// Register all English texts in the locale map
+registerAllEnglish();
+
 function mergeClaim(slug: string, partial: Partial<Omit<PremiumClaimCopy, "slug">>): PremiumClaimCopy {
   return {
     slug,
@@ -275,17 +338,23 @@ function buildClaimForSlug(slug: string): PremiumClaimCopy {
 /** Adjust claim type when benchmark data loop reaches readiness thresholds. */
 export function applyClaimReadiness(
   copy: PremiumClaimCopy,
-  readiness: ClaimReadiness = "sample_only"
+  readiness: ClaimReadiness = "sample_only",
+  locale?: string
 ): PremiumClaimCopy {
-  if (readiness === "sample_only") {
-    return copy;
+  let result = copy;
+  if (locale && locale !== "en") {
+    result = localizeClaim(result, locale);
   }
 
-  if (readiness === "benchmark_ready" && copy.claimType === "sample_scenario") {
+  if (readiness === "sample_only") {
+    return result;
+  }
+
+  if (readiness === "benchmark_ready" && result.claimType === "sample_scenario") {
     return {
-      ...copy,
+      ...result,
       claimType: "benchmark_model",
-      valueStatement: copy.valueStatement.replace(
+      valueStatement: result.valueStatement.replace(
         /sample scenario/gi,
         "benchmark model"
       ),
@@ -294,34 +363,34 @@ export function applyClaimReadiness(
 
   if (readiness === "case_study_ready") {
     return {
-      ...copy,
-      claimType: copy.claimType === "sample_scenario" ? "benchmark_model" : copy.claimType,
+      ...result,
+      claimType: result.claimType === "sample_scenario" ? "benchmark_model" : result.claimType,
     };
   }
 
-  return copy;
+  return result;
 }
 
 export function getPremiumClaimCopy(
   slug: string,
-  readiness: ClaimReadiness = "sample_only"
+  readiness: ClaimReadiness = "sample_only",
+  locale?: string
 ): PremiumClaimCopy {
   const base = buildClaimForSlug(slug.trim());
-  return applyClaimReadiness(base, readiness);
+  return applyClaimReadiness(base, readiness, locale);
 }
 
 export function getPremiumClaimTypeLabel(
-  claimType: PremiumClaimCopy["claimType"]
+  claimType: PremiumClaimCopy["claimType"],
+  locale?: string
 ): string {
-  switch (claimType) {
-    case "benchmark_model":
-      return "Benchmark model";
-    case "potential_exposure":
-      return "Hidden-loss diagnostic";
-    case "sample_scenario":
-    default:
-      return "Sample scenario";
-  }
+  const labels: Record<string, Record<string, string>> = {
+    benchmark_model: { en: "Benchmark model", tr: "Benchmark modeli", de: "Benchmark-Modell", fr: "Modèle de référence", es: "Modelo de referencia", ar: "نموذج مرجعي" },
+    potential_exposure: { en: "Hidden-loss diagnostic", tr: "Gizli kayıp teşhisi", de: "Versteckte-Verlust-Diagnose", fr: "Diagnostic de perte cachée", es: "Diagnóstico de pérdida oculta", ar: "تشخيص الخسارة المخفية" },
+    sample_scenario: { en: "Sample scenario", tr: "Örnek senaryo", de: "Beispielszenario", fr: "Scénario exemple", es: "Escenario de ejemplo", ar: "سيناريو عينة" },
+  };
+  const map = labels[claimType] ?? labels.sample_scenario;
+  return map[locale as string] ?? map.en;
 }
 
 export function claimCopyIsPublicSafe(copy: PremiumClaimCopy): boolean {

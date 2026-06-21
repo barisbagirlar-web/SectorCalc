@@ -39,6 +39,8 @@ export type ExportFormat = "pdf" | "excel" | "csv";
 export interface PremiumInputSchema {
   readonly id: string;
   readonly label: string;
+  /** Optional 6-locale label map (en, tr, de, fr, es, ar) — falls back to label */
+  readonly label_i18n?: Readonly<Record<string, string>>;
   readonly type: PremiumInputType;
   readonly unit: string;
   readonly required: boolean;
@@ -52,7 +54,11 @@ export interface PremiumInputSchema {
     readonly step?: number;
   };
   readonly helper: string;
+  /** Optional 6-locale helper map (en, tr, de, fr, es, ar) — falls back to helper */
+  readonly helper_i18n?: Readonly<Record<string, string>>;
   readonly expertMeaning: string;
+  /** Optional 6-locale expertMeaning map */
+  readonly expertMeaning_i18n?: Readonly<Record<string, string>>;
   readonly options?: readonly { readonly value: string; readonly label: string }[];
 }
 
@@ -67,6 +73,8 @@ export interface FormulaPipelineStep {
 export interface PremiumOutputSchema {
   readonly id: string;
   readonly label: string;
+  /** Optional 6-locale label map */
+  readonly label_i18n?: Readonly<Record<string, string>>;
   readonly unit: string;
   readonly format: PremiumOutputFormat;
   readonly isBigNumber?: boolean;
@@ -78,11 +86,17 @@ export interface PremiumThresholdSchema {
   readonly critical: number;
   readonly direction: ThresholdDirection;
   readonly warningMessage: string;
+  /** Optional 6-locale warningMessage map */
+  readonly warningMessage_i18n?: Readonly<Record<string, string>>;
   readonly criticalMessage: string;
+  /** Optional 6-locale criticalMessage map */
+  readonly criticalMessage_i18n?: Readonly<Record<string, string>>;
 }
 
 export interface PremiumReportTemplate {
   readonly title: string;
+  /** Optional 6-locale title map */
+  readonly title_i18n?: Readonly<Record<string, string>>;
   readonly sections: readonly ReportSectionId[];
   readonly exportFormats: readonly ExportFormat[];
 }
@@ -92,14 +106,20 @@ export interface SectorAssumptionPack {
   readonly volatilityPercent: number;
   readonly targetMarginPercent: number;
   readonly assumptionNotes: readonly string[];
+  /** Optional 6-locale assumption notes array — parallel to assumptionNotes */
+  readonly assumptionNotes_i18n?: readonly Readonly<Record<string, string>>[];
 }
 
 export interface PremiumCalculatorSchema {
   readonly id: string;
   readonly name: string;
+  /** Optional 6-locale name map */
+  readonly name_i18n?: Readonly<Record<string, string>>;
   readonly sectorSlug: string;
   readonly category: FormulaFamilyId;
   readonly painStatement: string;
+  /** Optional 6-locale painStatement map */
+  readonly painStatement_i18n?: Readonly<Record<string, string>>;
   readonly inputs: readonly PremiumInputSchema[];
   readonly formulaPipeline: readonly FormulaPipelineStep[];
   readonly outputs: readonly PremiumOutputSchema[];

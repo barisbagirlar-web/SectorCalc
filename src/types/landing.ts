@@ -107,6 +107,7 @@ export interface LandingContent {
     title: string;
     lead: string;
     compareLabel: string;
+    compareDesc: string;
     proTag: string;
     proCount: string;
     proSub: string;
