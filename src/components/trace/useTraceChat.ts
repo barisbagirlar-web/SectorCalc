@@ -3,34 +3,20 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
-import { useUser } from "@/hooks/useUser";
-import { getCurrentUserIdToken } from "@/lib/firebase/auth";
 import { sendFreeTraceMessage } from "@/components/trace/trace-api";
-import { sendProTraceMessage } from "@/components/trace/trace-api";
 import type { TraceChatMessage } from "@/components/trace/trace-chat-shared";
 
-export type TraceChatMode = "free" | "pro";
-
-const FREE_QUICK_KEYS = [
+const QUICK_KEYS = [
   "findTool",
   "explainInputs",
   "premiumHint",
   "pricing",
 ] as const;
 
-const PRO_QUICK_KEYS = [
-  "decisionSummary",
-  "compareScenario",
-  "reportHelp",
-  "multiTool",
-] as const;
-
-export function useTraceChat(mode: TraceChatMode) {
+export function useTraceChat() {
   const t = useTranslations("trace");
   const locale = useLocale();
   const pathname = usePathname();
-  const { user, userRole } = useUser();
-  const isPremium = userRole === "premium";
   const idRef = useRef(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +41,7 @@ export function useTraceChat(mode: TraceChatMode) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
-  const quickActions = (mode === "pro" ? PRO_QUICK_KEYS : FREE_QUICK_KEYS).map((key) => ({
+  const quickActions = QUICK_KEYS.map((key) => ({
     key,
     label: t(`quickActions.${key}`),
     message: t(`quickMessages.${key}`),
@@ -80,42 +66,13 @@ export function useTraceChat(mode: TraceChatMode) {
       setMessages((prev) => [...prev, userMessage]);
       setLoading(true);
 
-      const context = {
-        locale,
-        pathname,
-        messages,
-        isPremium,
-      };
-
       try {
-        if (mode === "pro" && user) {
-          const idToken = await getCurrentUserIdToken(true);
-          const proResult = await sendProTraceMessage(
-            message,
-            { ...context, idToken },
-            nextId,
-          );
+        const freeReply = await sendFreeTraceMessage(
+          message,
+          { locale, pathname, messages },
+          nextId,
+        );
 
-          if (proResult.message) {
-            setMessages((prev) => [...prev, proResult.message!]);
-            return;
-          }
-
-          // Auth required (no idToken) → show message, don't try free
-          if (proResult.errorText === "auth_required") {
-            setError(true);
-            setErrorDetail(t("errors.authRequired"));
-            return;
-          }
-
-          // Any other pro error (unauthorized, rate_limited, etc.) →
-          // fall through to free endpoint so chat always works
-          if (proResult.errorText) {
-            console.warn("[Trace] Pro request failed, falling back to free:", proResult.errorText);
-          }
-        }
-
-        const freeReply = await sendFreeTraceMessage(message, context, nextId);
         if (freeReply) {
           setMessages((prev) => [...prev, freeReply]);
           return;
@@ -130,7 +87,7 @@ export function useTraceChat(mode: TraceChatMode) {
         setLoading(false);
       }
     },
-    [isPremium, loading, locale, messages, mode, nextId, pathname, t, user],
+    [loading, locale, messages, nextId, pathname, t],
   );
 
   return {
@@ -146,9 +103,8 @@ export function useTraceChat(mode: TraceChatMode) {
     labels: {
       loading: t("loading"),
       error: t("error"),
-      placeholder: mode === "pro" ? t("placeholderPro") : t("inputPlaceholder"),
+      placeholder: t("inputPlaceholder"),
       send: t("send"),
-      proBadge: t("proBadge"),
       freeTagline: t("freeTagline"),
       freeTaglineLink: t("freeTaglineLink"),
       disclaimer: t("disclaimer"),
@@ -156,6 +112,5 @@ export function useTraceChat(mode: TraceChatMode) {
       tagline: t("tagline"),
       close: t("close"),
     },
-    isPremium,
   };
 }

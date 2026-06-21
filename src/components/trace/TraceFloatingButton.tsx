@@ -14,14 +14,13 @@ import { useUser } from "@/hooks/useUser";
 import { TraceAiLogo } from "@/components/trace/TraceAiLogo";
 import { TraceErrorBoundary } from "@/components/trace/TraceErrorBoundary";
 
-const FreeTraceChat = lazy(() =>
+// Always use FreeTraceChat — no Pro mode.
+// Root cause of "unauthorized": ProTraceChat calls /api/trace/pro which
+// requires Firebase auth. When token is missing/expired it returns 401.
+// FreeTraceChat uses /api/trace/free which has ZERO auth checks.
+const TraceChat = lazy(() =>
   import("@/components/trace/FreeTraceChat").then((m) => ({
     default: m.FreeTraceChat,
-  })),
-);
-const ProTraceChat = lazy(() =>
-  import("@/components/trace/ProTraceChat").then((m) => ({
-    default: m.ProTraceChat,
   })),
 );
 
@@ -43,12 +42,11 @@ function ChatSkeleton() {
 }
 
 type ChatPanelWrapperProps = {
-  readonly isPro: boolean;
   readonly onClose: () => void;
   readonly panelRef: (node: HTMLDivElement | null) => void;
 };
 
-function ChatPanelWrapper({ isPro, onClose, panelRef }: ChatPanelWrapperProps) {
+function ChatPanelWrapper({ onClose, panelRef }: ChatPanelWrapperProps) {
   return (
     <TraceErrorBoundary onRetry={onClose}>
       <div
@@ -59,11 +57,7 @@ function ChatPanelWrapper({ isPro, onClose, panelRef }: ChatPanelWrapperProps) {
         aria-label="Trace AI Chat"
       >
         <Suspense fallback={<ChatSkeleton />}>
-          {isPro ? (
-            <ProTraceChat onClose={onClose} />
-          ) : (
-            <FreeTraceChat onClose={onClose} />
-          )}
+          <TraceChat onClose={onClose} />
         </Suspense>
       </div>
     </TraceErrorBoundary>
@@ -72,25 +66,12 @@ function ChatPanelWrapper({ isPro, onClose, panelRef }: ChatPanelWrapperProps) {
 
 export function TraceFloatingButton() {
   const t = useTranslations("trace");
-  const { user, userRole, loading } = useUser();
+  const { loading } = useUser();
 
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const fabRef = useRef<HTMLButtonElement>(null);
   const panelContainerRef = useRef<HTMLDivElement | null>(null);
-  // Lock mode on first open so late auth state doesn't swap
-  // FreeTraceChat <-> ProTraceChat mid-conversation.
-  const lockedProRef = useRef<boolean | null>(null);
-  const isPro =
-    lockedProRef.current !== null
-      ? lockedProRef.current
-      : userRole === "premium" && Boolean(user);
-
-  useEffect(() => {
-    if (open && lockedProRef.current === null) {
-      lockedProRef.current = userRole === "premium" && Boolean(user);
-    }
-  }, [open, user, userRole]);
 
   useEffect(() => {
     const openHandler = () => {
@@ -170,7 +151,6 @@ export function TraceFloatingButton() {
           className={`sc-trace__panel-wrap ${closing ? "sc-trace__panel-wrap--closing" : "sc-trace__panel-wrap--open"}`}
         >
           <ChatPanelWrapper
-            isPro={isPro}
             onClose={closePanel}
             panelRef={setPanelRef}
           />

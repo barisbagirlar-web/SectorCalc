@@ -8,7 +8,7 @@ type FreeTraceChatProps = {
 };
 
 export function FreeTraceChat({ onClose }: FreeTraceChatProps) {
-  const chat = useTraceChat("free");
+  const chat = useTraceChat();
 
   return (
     <TraceChatPanel
