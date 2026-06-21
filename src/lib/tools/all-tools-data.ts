@@ -3,7 +3,7 @@ import "server-only";
 import fs from "fs";
 import path from "path";
 import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
-import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
+import { buildCategorizedToolIndex, type CategorizedToolItem } from "@/lib/catalog/build-categorized-tool-index";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import {
   resolveGeneratedToolTitle,
@@ -281,8 +281,41 @@ export function getFreeTools(locale = "tr"): ToolData[] {
   return getAllTools(locale).filter((tool) => !tool.premiumRequired);
 }
 
+function categorizedToToolData(
+  item: CategorizedToolItem,
+  locale: string,
+): ToolData {
+  const title = item.title?.[locale] ?? item.title?.en ?? humanizeSlug(item.slug);
+  const desc = item.description?.[locale] ?? item.description?.en ?? "";
+  return {
+    slug: item.slug,
+    name: title,
+    category: resolveSchemaCatalogCategoryLabel(item.categorySlug, locale),
+    categoryKey: item.categorySlug,
+    sector: resolveSchemaCatalogSectorLabel("diger", locale),
+    sectorKey: "diger",
+    description: desc,
+    premiumRequired: true,
+    href: item.routePath ?? `/tools/generated/${item.slug}`,
+  };
+}
+
 export function getPremiumTools(locale = "tr"): ToolData[] {
-  return getAllTools(locale).filter((tool) => tool.premiumRequired);
+  const fromSchemas = getAllTools(locale).filter((tool) => tool.premiumRequired);
+
+  if (fromSchemas.length > 0) {
+    return fromSchemas;
+  }
+
+  // Fallback: premium tools from categorized index (premium seeds, premium schemas)
+  const index = buildCategorizedToolIndex();
+  const premiumItems = index.filter(
+    (item) =>
+      (item.tier === "premium" || item.tier === "premium-schema") &&
+      item.publicStatus === "active",
+  );
+
+  return premiumItems.map((item) => categorizedToToolData(item, locale));
 }
 
 export function getToolsByCategory(categoryKey: string, locale = "tr"): ToolData[] {
