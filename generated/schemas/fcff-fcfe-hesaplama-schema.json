@@ -1,0 +1,204 @@
+{
+  "toolName": "fcff-fcfe-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "netKar",
+      "label": "Net Kâr (₺)",
+      "label_i18n": {
+        "en": "Net Income (TRY)",
+        "tr": "Net Kâr (₺)",
+        "de": "Net Income (TRY)",
+        "fr": "Net Income (TRY)",
+        "es": "Net Income (TRY)",
+        "ar": "Net Income (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 150000,
+      "min": 0,
+      "businessContext": "Dönem net kârı.",
+      "businessContext_i18n": {
+        "en": "Net profit for the period.",
+        "tr": "Dönem net kârı.",
+        "de": "Net profit for the period.",
+        "fr": "Net profit for the period.",
+        "es": "Net profit for the period.",
+        "ar": "Net profit for the period."
+      }
+    },
+    {
+      "id": "amortisman",
+      "label": "Amortisman (₺)",
+      "label_i18n": {
+        "en": "Depreciation (TRY)",
+        "tr": "Amortisman (₺)",
+        "de": "Depreciation (TRY)",
+        "fr": "Depreciation (TRY)",
+        "es": "Depreciation (TRY)",
+        "ar": "Depreciation (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 30000,
+      "min": 0,
+      "businessContext": "Dönem amortisman gideri.",
+      "businessContext_i18n": {
+        "en": "Period depreciation expense.",
+        "tr": "Dönem amortisman gideri.",
+        "de": "Period depreciation expense.",
+        "fr": "Period depreciation expense.",
+        "es": "Period depreciation expense.",
+        "ar": "Period depreciation expense."
+      }
+    },
+    {
+      "id": "isletmeSermayesi",
+      "label": "İşletme Sermayesi Değişimi (₺)",
+      "label_i18n": {
+        "en": "Working Capital Change (TRY)",
+        "tr": "İşletme Sermayesi Değişimi (₺)",
+        "de": "Working Capital Change (TRY)",
+        "fr": "Working Capital Change (TRY)",
+        "es": "Working Capital Change (TRY)",
+        "ar": "Working Capital Change (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Net işletme sermayesindeki artış.",
+      "businessContext_i18n": {
+        "en": "Increase in net working capital.",
+        "tr": "Net işletme sermayesindeki artış.",
+        "de": "Increase in net working capital.",
+        "fr": "Increase in net working capital.",
+        "es": "Increase in net working capital.",
+        "ar": "Increase in net working capital."
+      }
+    },
+    {
+      "id": "capex",
+      "label": "Sermaye Harcaması (₺)",
+      "label_i18n": {
+        "en": "CapEx (TRY)",
+        "tr": "Sermaye Harcaması (₺)",
+        "de": "CapEx (TRY)",
+        "fr": "CapEx (TRY)",
+        "es": "CapEx (TRY)",
+        "ar": "CapEx (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 40000,
+      "min": 0,
+      "businessContext": "Duran varlık yatırımları.",
+      "businessContext_i18n": {
+        "en": "Capital expenditures on fixed assets.",
+        "tr": "Duran varlık yatırımları.",
+        "de": "Capital expenditures on fixed assets.",
+        "fr": "Capital expenditures on fixed assets.",
+        "es": "Capital expenditures on fixed assets.",
+        "ar": "Capital expenditures on fixed assets."
+      }
+    },
+    {
+      "id": "borc",
+      "label": "Net Borç Değişimi (₺)",
+      "label_i18n": {
+        "en": "Net Debt Change (TRY)",
+        "tr": "Net Borç Değişimi (₺)",
+        "de": "Net Debt Change (TRY)",
+        "fr": "Net Debt Change (TRY)",
+        "es": "Net Debt Change (TRY)",
+        "ar": "Net Debt Change (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 20000,
+      "min": 0,
+      "businessContext": "Yeni borç - anapara ödemesi.",
+      "businessContext_i18n": {
+        "en": "New debt issuance minus principal payments.",
+        "tr": "Yeni borç - anapara ödemesi.",
+        "de": "New debt issuance minus principal payments.",
+        "fr": "New debt issuance minus principal payments.",
+        "es": "New debt issuance minus principal payments.",
+        "ar": "New debt issuance minus principal payments."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "fcff": "netKar + amortisman - isletmeSermayesi - capex",
+    "sonuc": "netKar + amortisman - isletmeSermayesi - capex + borc"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "fcff": "FCFF (Firmaya)",
+      "sonuc": "FCFE (Hissedara)"
+    },
+    "breakdown_i18n": {
+      "fcff": {
+        "en": "FCFF (Firmaya)",
+        "tr": "FCFF (Firmaya)",
+        "de": "FCFF (Firmaya)",
+        "fr": "FCFF (Firmaya)",
+        "es": "FCFF (Firmaya)",
+        "ar": "FCFF (Firmaya)"
+      },
+      "sonuc": {
+        "en": "FCFE (Hissedara)",
+        "tr": "FCFE (Hissedara)",
+        "de": "FCFE (Hissedara)",
+        "fr": "FCFE (Hissedara)",
+        "es": "FCFE (Hissedara)",
+        "ar": "FCFE (Hissedara)"
+      }
+    },
+    "breakdownUnits": {
+      "fcff": "TRY",
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+      "long": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+      "short_i18n": {
+        "en": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+        "tr": "Firma ve hissedar serbest nakit akışlarını (FCFF/FCFE) hesaplar.",
+        "de": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+        "fr": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+        "es": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+        "ar": "Calculate free cash flow to firm (FCFF) and to equity (FCFE)."
+      },
+      "long_i18n": {
+        "en": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+        "tr": "Firma ve hissedar serbest nakit akışlarını (FCFF/FCFE) hesaplar.",
+        "de": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+        "fr": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+        "es": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
+        "ar": "Calculate free cash flow to firm (FCFF) and to equity (FCFE)."
+      }
+    }
+  }
+}

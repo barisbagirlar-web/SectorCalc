@@ -1,0 +1,248 @@
+{
+  "toolName": "net-bugunku-deger-npv-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "nakit1",
+      "label": "1. Yıl Nakit Akışı (₺)",
+      "label_i18n": {
+        "en": "Year 1 Cash Flow (TRY)",
+        "tr": "1. Yıl Nakit Akışı (₺)",
+        "de": "Year 1 Cash Flow (TRY)",
+        "fr": "Year 1 Cash Flow (TRY)",
+        "es": "Year 1 Cash Flow (TRY)",
+        "ar": "Year 1 Cash Flow (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 30000,
+      "min": 0,
+      "businessContext": "Projenin ilk yıl nakit akışı.",
+      "businessContext_i18n": {
+        "en": "First year cash flow.",
+        "tr": "Projenin ilk yıl nakit akışı.",
+        "de": "First year cash flow.",
+        "fr": "First year cash flow.",
+        "es": "First year cash flow.",
+        "ar": "First year cash flow."
+      }
+    },
+    {
+      "id": "nakit2",
+      "label": "2. Yıl Nakit Akışı (₺)",
+      "label_i18n": {
+        "en": "Year 2 Cash Flow (TRY)",
+        "tr": "2. Yıl Nakit Akışı (₺)",
+        "de": "Year 2 Cash Flow (TRY)",
+        "fr": "Year 2 Cash Flow (TRY)",
+        "es": "Year 2 Cash Flow (TRY)",
+        "ar": "Year 2 Cash Flow (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 40000,
+      "min": 0,
+      "businessContext": "Projenin ikinci yıl nakit akışı.",
+      "businessContext_i18n": {
+        "en": "Second year cash flow.",
+        "tr": "Projenin ikinci yıl nakit akışı.",
+        "de": "Second year cash flow.",
+        "fr": "Second year cash flow.",
+        "es": "Second year cash flow.",
+        "ar": "Second year cash flow."
+      }
+    },
+    {
+      "id": "nakit3",
+      "label": "3. Yıl Nakit Akışı (₺)",
+      "label_i18n": {
+        "en": "Year 3 Cash Flow (TRY)",
+        "tr": "3. Yıl Nakit Akışı (₺)",
+        "de": "Year 3 Cash Flow (TRY)",
+        "fr": "Year 3 Cash Flow (TRY)",
+        "es": "Year 3 Cash Flow (TRY)",
+        "ar": "Year 3 Cash Flow (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Projenin üçüncü yıl nakit akışı.",
+      "businessContext_i18n": {
+        "en": "Third year cash flow.",
+        "tr": "Projenin üçüncü yıl nakit akışı.",
+        "de": "Third year cash flow.",
+        "fr": "Third year cash flow.",
+        "es": "Third year cash flow.",
+        "ar": "Third year cash flow."
+      }
+    },
+    {
+      "id": "nakit4",
+      "label": "4. Yıl Nakit Akışı (₺)",
+      "label_i18n": {
+        "en": "Year 4 Cash Flow (TRY)",
+        "tr": "4. Yıl Nakit Akışı (₺)",
+        "de": "Year 4 Cash Flow (TRY)",
+        "fr": "Year 4 Cash Flow (TRY)",
+        "es": "Year 4 Cash Flow (TRY)",
+        "ar": "Year 4 Cash Flow (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 35000,
+      "min": 0,
+      "businessContext": "Projenin dördüncü yıl nakit akışı.",
+      "businessContext_i18n": {
+        "en": "Fourth year cash flow.",
+        "tr": "Projenin dördüncü yıl nakit akışı.",
+        "de": "Fourth year cash flow.",
+        "fr": "Fourth year cash flow.",
+        "es": "Fourth year cash flow.",
+        "ar": "Fourth year cash flow."
+      }
+    },
+    {
+      "id": "nakit5",
+      "label": "5. Yıl Nakit Akışı (₺)",
+      "label_i18n": {
+        "en": "Year 5 Cash Flow (TRY)",
+        "tr": "5. Yıl Nakit Akışı (₺)",
+        "de": "Year 5 Cash Flow (TRY)",
+        "fr": "Year 5 Cash Flow (TRY)",
+        "es": "Year 5 Cash Flow (TRY)",
+        "ar": "Year 5 Cash Flow (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 30000,
+      "min": 0,
+      "businessContext": "Projenin beşinci yıl nakit akışı.",
+      "businessContext_i18n": {
+        "en": "Fifth year cash flow.",
+        "tr": "Projenin beşinci yıl nakit akışı.",
+        "de": "Fifth year cash flow.",
+        "fr": "Fifth year cash flow.",
+        "es": "Fifth year cash flow.",
+        "ar": "Fifth year cash flow."
+      }
+    },
+    {
+      "id": "iskonto",
+      "label": "İskonto Oranı (%)",
+      "label_i18n": {
+        "en": "Discount Rate (%)",
+        "tr": "İskonto Oranı (%)",
+        "de": "Discount Rate (%)",
+        "fr": "Discount Rate (%)",
+        "es": "Discount Rate (%)",
+        "ar": "Discount Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Sermaye maliyetini yansıtan iskonto oranı.",
+      "businessContext_i18n": {
+        "en": "Discount rate reflecting cost of capital.",
+        "tr": "Sermaye maliyetini yansıtan iskonto oranı.",
+        "de": "Discount rate reflecting cost of capital.",
+        "fr": "Discount rate reflecting cost of capital.",
+        "es": "Discount rate reflecting cost of capital.",
+        "ar": "Discount rate reflecting cost of capital."
+      }
+    },
+    {
+      "id": "yatirim",
+      "label": "Başlangıç Yatırımı (₺)",
+      "label_i18n": {
+        "en": "Initial Investment (TRY)",
+        "tr": "Başlangıç Yatırımı (₺)",
+        "de": "Initial Investment (TRY)",
+        "fr": "Initial Investment (TRY)",
+        "es": "Initial Investment (TRY)",
+        "ar": "Initial Investment (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 100000,
+      "min": 0,
+      "businessContext": "Projenin başlangıç yatırım tutarı.",
+      "businessContext_i18n": {
+        "en": "Initial project investment.",
+        "tr": "Projenin başlangıç yatırım tutarı.",
+        "de": "Initial project investment.",
+        "fr": "Initial project investment.",
+        "es": "Initial project investment.",
+        "ar": "Initial project investment."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "bugun1": "nakit1 / Math.pow(1 + iskonto / 100, 1)",
+    "bugun2": "nakit2 / Math.pow(1 + iskonto / 100, 2)",
+    "bugun3": "nakit3 / Math.pow(1 + iskonto / 100, 3)",
+    "bugun4": "nakit4 / Math.pow(1 + iskonto / 100, 4)",
+    "bugun5": "nakit5 / Math.pow(1 + iskonto / 100, 5)",
+    "sonuc": "(nakit1 / Math.pow(1 + iskonto / 100, 1) + nakit2 / Math.pow(1 + iskonto / 100, 2) + nakit3 / Math.pow(1 + iskonto / 100, 3) + nakit4 / Math.pow(1 + iskonto / 100, 4) + nakit5 / Math.pow(1 + iskonto / 100, 5)) - yatirim"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Net Bugünkü Değer (NPV)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Net Bugünkü Değer (NPV)",
+        "tr": "Net Bugünkü Değer (NPV)",
+        "de": "Net Bugünkü Değer (NPV)",
+        "fr": "Net Bugünkü Değer (NPV)",
+        "es": "Net Bugünkü Değer (NPV)",
+        "ar": "Net Bugünkü Değer (NPV)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate net present value (NPV) of a series of cash flows.",
+      "long": "Calculate net present value (NPV) of a series of cash flows.",
+      "short_i18n": {
+        "en": "Calculate net present value (NPV) of a series of cash flows.",
+        "tr": "Projenin bugünkü değer cinsinden net kârlılığını (NPV) hesaplar.",
+        "de": "Calculate net present value (NPV) of a series of cash flows.",
+        "fr": "Calculate net present value (NPV) of a series of cash flows.",
+        "es": "Calculate net present value (NPV) of a series of cash flows.",
+        "ar": "Calculate net present value (NPV) of a series of cash flows."
+      },
+      "long_i18n": {
+        "en": "Calculate net present value (NPV) of a series of cash flows.",
+        "tr": "Projenin bugünkü değer cinsinden net kârlılığını (NPV) hesaplar.",
+        "de": "Calculate net present value (NPV) of a series of cash flows.",
+        "fr": "Calculate net present value (NPV) of a series of cash flows.",
+        "es": "Calculate net present value (NPV) of a series of cash flows.",
+        "ar": "Calculate net present value (NPV) of a series of cash flows."
+      }
+    }
+  }
+}

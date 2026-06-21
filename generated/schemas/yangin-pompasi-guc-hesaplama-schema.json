@@ -1,0 +1,145 @@
+{
+  "toolName": "yangin-pompasi-guc-hesaplama",
+  "catalogCategory": "electrical-power-systems",
+  "categorySlug": "electrical-power-systems",
+  "sector": "Yangın, Elektrik ve Elektronik",
+  "sectorId": "electrical-power-systems",
+  "inputs": [
+    {
+      "id": "debi",
+      "label": "Debi (L/dk)",
+      "label_i18n": {
+        "en": "Flow Rate (L/min)",
+        "tr": "Debi (L/dk)",
+        "de": "Flow Rate (L/min)",
+        "fr": "Flow Rate (L/min)",
+        "es": "Flow Rate (L/min)",
+        "ar": "Flow Rate (L/min)"
+      },
+      "type": "number",
+      "unit": "L/min",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Sistem debisi.",
+      "businessContext_i18n": {
+        "en": "System flow rate.",
+        "tr": "Sistem debisi.",
+        "de": "System flow rate.",
+        "fr": "System flow rate.",
+        "es": "System flow rate.",
+        "ar": "System flow rate."
+      }
+    },
+    {
+      "id": "basinc",
+      "label": "Basınç (bar)",
+      "label_i18n": {
+        "en": "Pressure (bar)",
+        "tr": "Basınç (bar)",
+        "de": "Pressure (bar)",
+        "fr": "Pressure (bar)",
+        "es": "Pressure (bar)",
+        "ar": "Pressure (bar)"
+      },
+      "type": "number",
+      "unit": "bar",
+      "default": 7,
+      "min": 0,
+      "businessContext": "Gerekli basınç.",
+      "businessContext_i18n": {
+        "en": "Required pressure.",
+        "tr": "Gerekli basınç.",
+        "de": "Required pressure.",
+        "fr": "Required pressure.",
+        "es": "Required pressure.",
+        "ar": "Required pressure."
+      }
+    },
+    {
+      "id": "pompaVerim",
+      "label": "Pompa Verimi (%)",
+      "label_i18n": {
+        "en": "Pump Efficiency (%)",
+        "tr": "Pompa Verimi (%)",
+        "de": "Pump Efficiency (%)",
+        "fr": "Pump Efficiency (%)",
+        "es": "Pump Efficiency (%)",
+        "ar": "Pump Efficiency (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "min": 0,
+      "businessContext": "Pompa verimi.",
+      "businessContext_i18n": {
+        "en": "Pump efficiency.",
+        "tr": "Pompa verimi.",
+        "de": "Pump efficiency.",
+        "fr": "Pump efficiency.",
+        "es": "Pump efficiency.",
+        "ar": "Pump efficiency."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(debi * basinc * 100) / Math.max(0.0001, (600 * (pompaVerim / 100) * 746))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "HP",
+    "breakdown": {
+      "sonuc": "Pompa Motor Gücü"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Pompa Motor Gücü",
+        "tr": "Pompa Motor Gücü",
+        "de": "Pompa Motor Gücü",
+        "fr": "Pompa Motor Gücü",
+        "es": "Pompa Motor Gücü",
+        "ar": "Pompa Motor Gücü"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "HP"
+    },
+    "hiddenLossDrivers": [
+      "Low Q factor indicates broader frequency response."
+    ],
+    "suggestedActions": [
+      "Verify component tolerances affect circuit performance.",
+      "Use proper safety equipment for high voltage/current work."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum fire pump motor power for hydrant system.",
+      "long": "Calculate minimum fire pump motor power for hydrant system.",
+      "short_i18n": {
+        "en": "Calculate minimum fire pump motor power for hydrant system.",
+        "tr": "Hidrant sistemini besleyecek pompanın minimum motor gücünü hesaplar.",
+        "de": "Calculate minimum fire pump motor power for hydrant system.",
+        "fr": "Calculate minimum fire pump motor power for hydrant system.",
+        "es": "Calculate minimum fire pump motor power for hydrant system.",
+        "ar": "Calculate minimum fire pump motor power for hydrant system."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum fire pump motor power for hydrant system.",
+        "tr": "Hidrant sistemini besleyecek pompanın minimum motor gücünü hesaplar.",
+        "de": "Calculate minimum fire pump motor power for hydrant system.",
+        "fr": "Calculate minimum fire pump motor power for hydrant system.",
+        "es": "Calculate minimum fire pump motor power for hydrant system.",
+        "ar": "Calculate minimum fire pump motor power for hydrant system."
+      }
+    }
+  }
+}

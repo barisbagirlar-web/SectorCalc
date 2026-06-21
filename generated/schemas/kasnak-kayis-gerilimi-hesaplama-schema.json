@@ -1,0 +1,169 @@
+{
+  "toolName": "kasnak-kayis-gerilimi-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "guc",
+      "label": "İletilen Güç (W)",
+      "label_i18n": {
+        "en": "Power Transmitted (W)",
+        "tr": "İletilen Güç (W)",
+        "de": "Power Transmitted (W)",
+        "fr": "Power Transmitted (W)",
+        "es": "Power Transmitted (W)",
+        "ar": "Power Transmitted (W)"
+      },
+      "type": "number",
+      "unit": "W",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Kayışla iletilen güç.",
+      "businessContext_i18n": {
+        "en": "Belt power transmission.",
+        "tr": "Kayışla iletilen güç.",
+        "de": "Belt power transmission.",
+        "fr": "Belt power transmission.",
+        "es": "Belt power transmission.",
+        "ar": "Belt power transmission."
+      }
+    },
+    {
+      "id": "hiz",
+      "label": "Kayış Hızı (m/s)",
+      "label_i18n": {
+        "en": "Belt Speed (m/s)",
+        "tr": "Kayış Hızı (m/s)",
+        "de": "Belt Speed (m/s)",
+        "fr": "Belt Speed (m/s)",
+        "es": "Belt Speed (m/s)",
+        "ar": "Belt Speed (m/s)"
+      },
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Kayışın lineer hızı.",
+      "businessContext_i18n": {
+        "en": "Belt linear speed.",
+        "tr": "Kayışın lineer hızı.",
+        "de": "Belt linear speed.",
+        "fr": "Belt linear speed.",
+        "es": "Belt linear speed.",
+        "ar": "Belt linear speed."
+      }
+    },
+    {
+      "id": "sarilmaAcisi",
+      "label": "Sarılma Açısı (Rad)",
+      "label_i18n": {
+        "en": "Wrap Angle (Rad)",
+        "tr": "Sarılma Açısı (Rad)",
+        "de": "Wrap Angle (Rad)",
+        "fr": "Wrap Angle (Rad)",
+        "es": "Wrap Angle (Rad)",
+        "ar": "Wrap Angle (Rad)"
+      },
+      "type": "number",
+      "unit": "rad",
+      "default": 2.8,
+      "min": 0,
+      "businessContext": "Küçük kasnağa sarılma açısı.",
+      "businessContext_i18n": {
+        "en": "Small pulley wrap angle.",
+        "tr": "Küçük kasnağa sarılma açısı.",
+        "de": "Small pulley wrap angle.",
+        "fr": "Small pulley wrap angle.",
+        "es": "Small pulley wrap angle.",
+        "ar": "Small pulley wrap angle."
+      }
+    },
+    {
+      "id": "suratme",
+      "label": "Sürtünme Katsayısı",
+      "label_i18n": {
+        "en": "Friction Coefficient",
+        "tr": "Sürtünme Katsayısı",
+        "de": "Friction Coefficient",
+        "fr": "Friction Coefficient",
+        "es": "Friction Coefficient",
+        "ar": "Friction Coefficient"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "min": 0,
+      "businessContext": "Kayış-kasnak sürtünmesi.",
+      "businessContext_i18n": {
+        "en": "Belt-pulley friction.",
+        "tr": "Kayış-kasnak sürtünmesi.",
+        "de": "Belt-pulley friction.",
+        "fr": "Belt-pulley friction.",
+        "es": "Belt-pulley friction.",
+        "ar": "Belt-pulley friction."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "F1_F2": "Math.exp(0.3 * 2.8)",
+    "sonuc": "5000 / Math.max(0.0001, (10 * (Math.exp(0.3 * 2.8) - 1)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "N",
+    "breakdown": {
+      "sonuc": "Gevşek Kol Gerilimi (F₂)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gevşek Kol Gerilimi (F₂)",
+        "tr": "Gevşek Kol Gerilimi (F₂)",
+        "de": "Gevşek Kol Gerilimi (F₂)",
+        "fr": "Gevşek Kol Gerilimi (F₂)",
+        "es": "Gevşek Kol Gerilimi (F₂)",
+        "ar": "Gevşek Kol Gerilimi (F₂)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "N"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum belt tension on the slack side.",
+      "long": "Calculate minimum belt tension on the slack side.",
+      "short_i18n": {
+        "en": "Calculate minimum belt tension on the slack side.",
+        "tr": "Kayışın gevşek kolundaki minimum gerilme kuvvetini hesaplar.",
+        "de": "Calculate minimum belt tension on the slack side.",
+        "fr": "Calculate minimum belt tension on the slack side.",
+        "es": "Calculate minimum belt tension on the slack side.",
+        "ar": "Calculate minimum belt tension on the slack side."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum belt tension on the slack side.",
+        "tr": "Kayışın gevşek kolundaki minimum gerilme kuvvetini hesaplar.",
+        "de": "Calculate minimum belt tension on the slack side.",
+        "fr": "Calculate minimum belt tension on the slack side.",
+        "es": "Calculate minimum belt tension on the slack side.",
+        "ar": "Calculate minimum belt tension on the slack side."
+      }
+    }
+  }
+}

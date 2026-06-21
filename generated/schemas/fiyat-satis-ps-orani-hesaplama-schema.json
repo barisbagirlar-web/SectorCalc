@@ -1,0 +1,118 @@
+{
+  "toolName": "fiyat-satis-ps-orani-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "piyasaDegeri",
+      "label": "Piyasa Değeri (₺)",
+      "label_i18n": {
+        "en": "Market Cap (TRY)",
+        "tr": "Piyasa Değeri (₺)",
+        "de": "Market Cap (TRY)",
+        "fr": "Market Cap (TRY)",
+        "es": "Market Cap (TRY)",
+        "ar": "Market Cap (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000000,
+      "min": 0,
+      "businessContext": "Şirketin toplam piyasa değeri.",
+      "businessContext_i18n": {
+        "en": "Market capitalization.",
+        "tr": "Şirketin toplam piyasa değeri.",
+        "de": "Market capitalization.",
+        "fr": "Market capitalization.",
+        "es": "Market capitalization.",
+        "ar": "Market capitalization."
+      }
+    },
+    {
+      "id": "toplamSatislar",
+      "label": "Toplam Satışlar (₺)",
+      "label_i18n": {
+        "en": "Total Revenue (TRY)",
+        "tr": "Toplam Satışlar (₺)",
+        "de": "Total Revenue (TRY)",
+        "fr": "Total Revenue (TRY)",
+        "es": "Total Revenue (TRY)",
+        "ar": "Total Revenue (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 4000000,
+      "min": 0,
+      "businessContext": "Şirketin yıllık toplam satış geliri.",
+      "businessContext_i18n": {
+        "en": "Annual total revenue.",
+        "tr": "Şirketin yıllık toplam satış geliri.",
+        "de": "Annual total revenue.",
+        "fr": "Annual total revenue.",
+        "es": "Annual total revenue.",
+        "ar": "Annual total revenue."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "piyasaDegeri / Math.max(1, toplamSatislar)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "F/S (P/S) Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "F/S (P/S) Oranı",
+        "tr": "F/S (P/S) Oranı",
+        "de": "F/S (P/S) Oranı",
+        "fr": "F/S (P/S) Oranı",
+        "es": "F/S (P/S) Oranı",
+        "ar": "F/S (P/S) Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the price-to-sales (P/S) ratio.",
+      "long": "Calculate the price-to-sales (P/S) ratio.",
+      "short_i18n": {
+        "en": "Calculate the price-to-sales (P/S) ratio.",
+        "tr": "1 birimlik satış için ödenen piyasa bedelini (F/S) hesaplar.",
+        "de": "Calculate the price-to-sales (P/S) ratio.",
+        "fr": "Calculate the price-to-sales (P/S) ratio.",
+        "es": "Calculate the price-to-sales (P/S) ratio.",
+        "ar": "Calculate the price-to-sales (P/S) ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate the price-to-sales (P/S) ratio.",
+        "tr": "1 birimlik satış için ödenen piyasa bedelini (F/S) hesaplar.",
+        "de": "Calculate the price-to-sales (P/S) ratio.",
+        "fr": "Calculate the price-to-sales (P/S) ratio.",
+        "es": "Calculate the price-to-sales (P/S) ratio.",
+        "ar": "Calculate the price-to-sales (P/S) ratio."
+      }
+    }
+  }
+}

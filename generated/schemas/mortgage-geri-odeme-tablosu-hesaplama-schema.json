@@ -1,0 +1,170 @@
+{
+  "toolName": "mortgage-geri-odeme-tablosu-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "kredi",
+      "label": "Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan Amount (TRY)",
+        "tr": "Kredi Tutarı (₺)",
+        "de": "Loan Amount (TRY)",
+        "fr": "Loan Amount (TRY)",
+        "es": "Loan Amount (TRY)",
+        "ar": "Loan Amount (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Konut kredisi anaparası.",
+      "businessContext_i18n": {
+        "en": "Mortgage principal.",
+        "tr": "Konut kredisi anaparası.",
+        "de": "Mortgage principal.",
+        "fr": "Mortgage principal.",
+        "es": "Mortgage principal.",
+        "ar": "Mortgage principal."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Annual Interest (%)",
+        "fr": "Annual Interest (%)",
+        "es": "Annual Interest (%)",
+        "ar": "Annual Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Kredi faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Loan interest rate.",
+        "tr": "Kredi faiz oranı.",
+        "de": "Loan interest rate.",
+        "fr": "Loan interest rate.",
+        "es": "Loan interest rate.",
+        "ar": "Loan interest rate."
+      }
+    },
+    {
+      "id": "vade",
+      "label": "Vade (Ay)",
+      "label_i18n": {
+        "en": "Term (Months)",
+        "tr": "Vade (Ay)",
+        "de": "Term (Months)",
+        "fr": "Term (Months)",
+        "es": "Term (Months)",
+        "ar": "Term (Months)"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 120,
+      "min": 1,
+      "businessContext": "Kredinin toplam vadesi.",
+      "businessContext_i18n": {
+        "en": "Total loan term.",
+        "tr": "Kredinin toplam vadesi.",
+        "de": "Total loan term.",
+        "fr": "Total loan term.",
+        "es": "Total loan term.",
+        "ar": "Total loan term."
+      }
+    },
+    {
+      "id": "donem",
+      "label": "Sorgulanan Ay",
+      "label_i18n": {
+        "en": "Inquiry Month",
+        "tr": "Sorgulanan Ay",
+        "de": "Inquiry Month",
+        "fr": "Inquiry Month",
+        "es": "Inquiry Month",
+        "ar": "Inquiry Month"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "min": 1,
+      "businessContext": "Detayı görüntülenecek ay.",
+      "businessContext_i18n": {
+        "en": "Month to analyze.",
+        "tr": "Detayı görüntülenecek ay.",
+        "de": "Month to analyze.",
+        "fr": "Month to analyze.",
+        "es": "Month to analyze.",
+        "ar": "Month to analyze."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "taksit": "faiz === 0 ? kredi / Math.max(1, vade) : kredi * ((faiz / 1200) / (1 - Math.pow(1 + faiz / 1200, -vade)))",
+    "kalanAnapara": "faiz === 0 ? Math.max(0, kredi - (donem - 1) * (kredi / Math.max(1, vade))) : kredi * (Math.pow(1 + faiz / 1200, donem - 1) - Math.pow(1 + faiz / 1200, vade)) / (1 - Math.pow(1 + faiz / 1200, vade))",
+    "sonuc": "faiz === 0 ? kredi / Math.max(1, vade) : kredi * Math.pow(1 + faiz / 1200, donem - 1) * (1 - 1 / (1 + faiz / 1200)) / (1 - Math.pow(1 + faiz / 1200, -vade)) / (faiz / 1200)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Belirli Aydaki Anapara/ Faiz Analizi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Belirli Aydaki Anapara/ Faiz Analizi",
+        "tr": "Belirli Aydaki Anapara/ Faiz Analizi",
+        "de": "Belirli Aydaki Anapara/ Faiz Analizi",
+        "fr": "Belirli Aydaki Anapara/ Faiz Analizi",
+        "es": "Belirli Aydaki Anapara/ Faiz Analizi",
+        "ar": "Belirli Aydaki Anapara/ Faiz Analizi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate principal and interest portion for a specific mortgage payment.",
+      "long": "Calculate principal and interest portion for a specific mortgage payment.",
+      "short_i18n": {
+        "en": "Calculate principal and interest portion for a specific mortgage payment.",
+        "tr": "Belirli bir aydaki taksitin anapara/faiz dağılımını hesaplar.",
+        "de": "Calculate principal and interest portion for a specific mortgage payment.",
+        "fr": "Calculate principal and interest portion for a specific mortgage payment.",
+        "es": "Calculate principal and interest portion for a specific mortgage payment.",
+        "ar": "Calculate principal and interest portion for a specific mortgage payment."
+      },
+      "long_i18n": {
+        "en": "Calculate principal and interest portion for a specific mortgage payment.",
+        "tr": "Belirli bir aydaki taksitin anapara/faiz dağılımını hesaplar.",
+        "de": "Calculate principal and interest portion for a specific mortgage payment.",
+        "fr": "Calculate principal and interest portion for a specific mortgage payment.",
+        "es": "Calculate principal and interest portion for a specific mortgage payment.",
+        "ar": "Calculate principal and interest portion for a specific mortgage payment."
+      }
+    }
+  }
+}

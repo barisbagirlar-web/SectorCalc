@@ -1,0 +1,144 @@
+{
+  "toolName": "heloc-ev-sermayesi-kredisi-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "evDegeri",
+      "label": "Ev Değeri (₺)",
+      "label_i18n": {
+        "en": "Home Value (TRY)",
+        "tr": "Ev Değeri (₺)",
+        "de": "Home Value (TRY)",
+        "fr": "Home Value (TRY)",
+        "es": "Home Value (TRY)",
+        "ar": "Home Value (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1500000,
+      "min": 0,
+      "businessContext": "Evin güncel piyasa değeri.",
+      "businessContext_i18n": {
+        "en": "Current home market value.",
+        "tr": "Evin güncel piyasa değeri.",
+        "de": "Current home market value.",
+        "fr": "Current home market value.",
+        "es": "Current home market value.",
+        "ar": "Current home market value."
+      }
+    },
+    {
+      "id": "kalanBorc",
+      "label": "Kalan Borç (₺)",
+      "label_i18n": {
+        "en": "Remaining Mortgage (TRY)",
+        "tr": "Kalan Borç (₺)",
+        "de": "Remaining Mortgage (TRY)",
+        "fr": "Remaining Mortgage (TRY)",
+        "es": "Remaining Mortgage (TRY)",
+        "ar": "Remaining Mortgage (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Mevcut mortgage bakiyesi.",
+      "businessContext_i18n": {
+        "en": "Current mortgage balance.",
+        "tr": "Mevcut mortgage bakiyesi.",
+        "de": "Current mortgage balance.",
+        "fr": "Current mortgage balance.",
+        "es": "Current mortgage balance.",
+        "ar": "Current mortgage balance."
+      }
+    },
+    {
+      "id": "maksOran",
+      "label": "Maks Kredi/Değer Oranı (%)",
+      "label_i18n": {
+        "en": "Max LTV Ratio (%)",
+        "tr": "Maks Kredi/Değer Oranı (%)",
+        "de": "Max LTV Ratio (%)",
+        "fr": "Max LTV Ratio (%)",
+        "es": "Max LTV Ratio (%)",
+        "ar": "Max LTV Ratio (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Bankanın izin verdiği maksimum kredi/değer oranı.",
+      "businessContext_i18n": {
+        "en": "Maximum loan-to-value ratio.",
+        "tr": "Bankanın izin verdiği maksimum kredi/değer oranı.",
+        "de": "Maximum loan-to-value ratio.",
+        "fr": "Maximum loan-to-value ratio.",
+        "es": "Maximum loan-to-value ratio.",
+        "ar": "Maximum loan-to-value ratio."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(evDegeri * maksOran / 100) - kalanBorc"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "HELOC Limiti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "HELOC Limiti",
+        "tr": "HELOC Limiti",
+        "de": "HELOC Limiti",
+        "fr": "HELOC Limiti",
+        "es": "HELOC Limiti",
+        "ar": "HELOC Limiti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate home equity line of credit (HELOC) limit.",
+      "long": "Calculate home equity line of credit (HELOC) limit.",
+      "short_i18n": {
+        "en": "Calculate home equity line of credit (HELOC) limit.",
+        "tr": "Evin mevcut değerine göre çekilebilecek ek kredi limitini (HELOC) hesaplar.",
+        "de": "Calculate home equity line of credit (HELOC) limit.",
+        "fr": "Calculate home equity line of credit (HELOC) limit.",
+        "es": "Calculate home equity line of credit (HELOC) limit.",
+        "ar": "Calculate home equity line of credit (HELOC) limit."
+      },
+      "long_i18n": {
+        "en": "Calculate home equity line of credit (HELOC) limit.",
+        "tr": "Evin mevcut değerine göre çekilebilecek ek kredi limitini (HELOC) hesaplar.",
+        "de": "Calculate home equity line of credit (HELOC) limit.",
+        "fr": "Calculate home equity line of credit (HELOC) limit.",
+        "es": "Calculate home equity line of credit (HELOC) limit.",
+        "ar": "Calculate home equity line of credit (HELOC) limit."
+      }
+    }
+  }
+}

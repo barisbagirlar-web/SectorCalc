@@ -1,0 +1,121 @@
+{
+  "toolName": "sondaj-kuyusu-basinc-hesaplama",
+  "catalogCategory": "technology-ai-cloud-cyber",
+  "categorySlug": "technology-ai-cloud-cyber",
+  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sectorId": "technology-ai-cloud-cyber",
+  "inputs": [
+    {
+      "id": "dikeyDerinlik",
+      "label": "Dikey Derinlik (m)",
+      "label_i18n": {
+        "en": "Vertical Depth (m)",
+        "tr": "Dikey Derinlik (m)",
+        "de": "Vertical Depth (m)",
+        "fr": "Vertical Depth (m)",
+        "es": "Vertical Depth (m)",
+        "ar": "Vertical Depth (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 3000,
+      "min": 0,
+      "businessContext": "Kuyunun dikey boyu.",
+      "businessContext_i18n": {
+        "en": "True vertical depth.",
+        "tr": "Kuyunun dikey boyu.",
+        "de": "True vertical depth.",
+        "fr": "True vertical depth.",
+        "es": "True vertical depth.",
+        "ar": "True vertical depth."
+      }
+    },
+    {
+      "id": "camurYogunlugu",
+      "label": "Sondaj Çamuru Yoğunluğu (kg/m³)",
+      "label_i18n": {
+        "en": "Mud Density (kg/m³)",
+        "tr": "Sondaj Çamuru Yoğunluğu (kg/m³)",
+        "de": "Mud Density (kg/m³)",
+        "fr": "Mud Density (kg/m³)",
+        "es": "Mud Density (kg/m³)",
+        "ar": "Mud Density (kg/m³)"
+      },
+      "type": "number",
+      "unit": "kg/m3",
+      "default": 1500,
+      "min": 0,
+      "businessContext": "Çamur yoğunluğu.",
+      "businessContext_i18n": {
+        "en": "Mud weight.",
+        "tr": "Çamur yoğunluğu.",
+        "de": "Mud weight.",
+        "fr": "Mud weight.",
+        "es": "Mud weight.",
+        "ar": "Mud weight."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(camurYogunlugu * 9.81 * dikeyDerinlik) / 1000000"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "MPa",
+    "breakdown": {
+      "sonuc": "Hidrostatik Basınç"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Hidrostatik Basınç",
+        "tr": "Hidrostatik Basınç",
+        "de": "Hidrostatik Basınç",
+        "fr": "Hidrostatik Basınç",
+        "es": "Hidrostatik Basınç",
+        "ar": "Hidrostatik Basınç"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "MPa"
+    },
+    "hiddenLossDrivers": [
+      "Low SLA indicates service reliability issue.",
+      "High latency degrades user experience."
+    ],
+    "suggestedActions": [
+      "Monitor system performance regularly.",
+      "Implement redundancy for critical infrastructure."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate hydrostatic pressure of mud column at well depth.",
+      "long": "Calculate hydrostatic pressure of mud column at well depth.",
+      "short_i18n": {
+        "en": "Calculate hydrostatic pressure of mud column at well depth.",
+        "tr": "Kuyu tabanındaki çamur sütununun oluşturduğu hidrostatik basıncı hesaplar.",
+        "de": "Calculate hydrostatic pressure of mud column at well depth.",
+        "fr": "Calculate hydrostatic pressure of mud column at well depth.",
+        "es": "Calculate hydrostatic pressure of mud column at well depth.",
+        "ar": "Calculate hydrostatic pressure of mud column at well depth."
+      },
+      "long_i18n": {
+        "en": "Calculate hydrostatic pressure of mud column at well depth.",
+        "tr": "Kuyu tabanındaki çamur sütununun oluşturduğu hidrostatik basıncı hesaplar.",
+        "de": "Calculate hydrostatic pressure of mud column at well depth.",
+        "fr": "Calculate hydrostatic pressure of mud column at well depth.",
+        "es": "Calculate hydrostatic pressure of mud column at well depth.",
+        "ar": "Calculate hydrostatic pressure of mud column at well depth."
+      }
+    }
+  }
+}

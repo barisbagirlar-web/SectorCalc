@@ -2,14 +2,16 @@
 import * as z from 'zod';
 
 export interface Medicare_prim_hesaplamaInput {
-  inputA: number;
-  inputB: number;
+  yillikGelir: number;
+  bazPrim: number;
+  ekOran: number;
   dataConfidence?: number;
 }
 
 export const Medicare_prim_hesaplamaInputSchema = z.object({
-  inputA: z.number().min(0).default(100),
-  inputB: z.number().min(0).default(50),
+  yillikGelir: z.number().min(0).default(500000),
+  bazPrim: z.number().min(0).default(5000),
+  ekOran: z.number().min(0).default(10),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -18,20 +20,20 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Medicare_prim_hesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.inputA / input.inputB * 100 + Math.sqrt(input.inputA * input.inputB) / 10; results["main"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["main"] = Number.NaN; }
-  try { const v = input.inputA / input.inputB * 100 + Math.sqrt(input.inputA * input.inputB) / 10; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = 300000; results["esik"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["esik"] = Number.NaN; }
+  try { const v = input.bazPrim + Math.max(0, (input.yillikGelir - 300000) * input.ekOran / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateMedicare_prim_hesaplama(input: Medicare_prim_hesaplamaInput): Medicare_prim_hesaplamaOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
   const breakdown = {
-    result: toNumericFormulaValue(values["result"])
+    sonuc: toNumericFormulaValue(values["sonuc"])
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Consult with a professional.","Review assumptions regularly."];
+  const suggestedActions: string[] = ["Review insurance coverage annually.","Consult a retirement planner for personalized strategy."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -42,9 +44,9 @@ export function calculateMedicare_prim_hesaplama(input: Medicare_prim_hesaplamaI
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "",
+    unit: "TRY",
     premiumRequired: false,
-    premiumFeatures: ["Detailed PDF report","Scenario comparison","Multi-year projections"],
+    premiumFeatures: [],
   };
 }
 
@@ -52,7 +54,7 @@ export function calculateMedicare_prim_hesaplama(input: Medicare_prim_hesaplamaI
 export interface Medicare_prim_hesaplamaOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { result: number };
+  breakdown: { sonuc: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -61,8 +63,8 @@ export interface Medicare_prim_hesaplamaOutput {
 };
 
 export const Medicare_prim_hesaplamaOutputMeta = {
-  primaryKey: "result",
-  unit: "",
-  breakdownKeys: ["result"],
+  primaryKey: "sonuc",
+  unit: "TRY",
+  breakdownKeys: ["sonuc"],
 } as const;
 

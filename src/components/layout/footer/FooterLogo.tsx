@@ -8,16 +8,22 @@ type FooterLogoProps = {
 
 export function FooterLogo({ tagline }: FooterLogoProps) {
   const a11y = useTranslations("a11y");
+  const t = useTranslations("sectorFooter");
   return (
     <div className="footer-brand">
       <Link href="/" prefetch={false} className="footer-logo" aria-label={a11y("logoHome")}>
         <img
-          src={BRAND_ASSETS.logo.symbolSvg}
-          alt={a11y("logoAlt")}
-          width={BRAND_ASSETS.logo.displaySymbolWidth}
-          height={BRAND_ASSETS.logo.displaySymbolHeight}
+          src={BRAND_ASSETS.favicon.master}
+          alt=""
+          width={32}
+          height={32}
           className="footer-logo-icon"
+          aria-hidden
         />
+        <span className="footer-logo-text">
+          <span className="sector">Sector</span>
+          <span className="calc">Calc</span>
+        </span>
       </Link>
       <p className="footer-tagline">{tagline}</p>
     </div>

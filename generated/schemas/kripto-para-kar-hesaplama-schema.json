@@ -1,0 +1,168 @@
+{
+  "toolName": "kripto-para-kar-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "alis",
+      "label": "Alış Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Buy Price (TRY)",
+        "tr": "Alış Fiyatı (₺)",
+        "de": "Buy Price (TRY)",
+        "fr": "Buy Price (TRY)",
+        "es": "Buy Price (TRY)",
+        "ar": "Buy Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Kripto paranın alış fiyatı.",
+      "businessContext_i18n": {
+        "en": "Cryptocurrency buy price.",
+        "tr": "Kripto paranın alış fiyatı.",
+        "de": "Cryptocurrency buy price.",
+        "fr": "Cryptocurrency buy price.",
+        "es": "Cryptocurrency buy price.",
+        "ar": "Cryptocurrency buy price."
+      }
+    },
+    {
+      "id": "satis",
+      "label": "Satış Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Sell Price (TRY)",
+        "tr": "Satış Fiyatı (₺)",
+        "de": "Sell Price (TRY)",
+        "fr": "Sell Price (TRY)",
+        "es": "Sell Price (TRY)",
+        "ar": "Sell Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1500,
+      "min": 0,
+      "businessContext": "Kripto paranın satış fiyatı.",
+      "businessContext_i18n": {
+        "en": "Cryptocurrency sell price.",
+        "tr": "Kripto paranın satış fiyatı.",
+        "de": "Cryptocurrency sell price.",
+        "fr": "Cryptocurrency sell price.",
+        "es": "Cryptocurrency sell price.",
+        "ar": "Cryptocurrency sell price."
+      }
+    },
+    {
+      "id": "miktar",
+      "label": "Miktar (Adet)",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Miktar (Adet)",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      },
+      "type": "number",
+      "unit": "coins",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Alınıp satılan miktar.",
+      "businessContext_i18n": {
+        "en": "Quantity bought and sold.",
+        "tr": "Alınıp satılan miktar.",
+        "de": "Quantity bought and sold.",
+        "fr": "Quantity bought and sold.",
+        "es": "Quantity bought and sold.",
+        "ar": "Quantity bought and sold."
+      }
+    },
+    {
+      "id": "komisyon",
+      "label": "Komisyon Oranı (%)",
+      "label_i18n": {
+        "en": "Commission Rate (%)",
+        "tr": "Komisyon Oranı (%)",
+        "de": "Commission Rate (%)",
+        "fr": "Commission Rate (%)",
+        "es": "Commission Rate (%)",
+        "ar": "Commission Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Borsa işlem ücreti.",
+      "businessContext_i18n": {
+        "en": "Exchange trading fee.",
+        "tr": "Borsa işlem ücreti.",
+        "de": "Exchange trading fee.",
+        "fr": "Exchange trading fee.",
+        "es": "Exchange trading fee.",
+        "ar": "Exchange trading fee."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(satis - alis) * miktar * (1 - komisyon / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Net Kripto Kârı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Net Kripto Kârı",
+        "tr": "Net Kripto Kârı",
+        "de": "Net Kripto Kârı",
+        "fr": "Net Kripto Kârı",
+        "es": "Net Kripto Kârı",
+        "ar": "Net Kripto Kârı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate net cryptocurrency profit after exchange fees.",
+      "long": "Calculate net cryptocurrency profit after exchange fees.",
+      "short_i18n": {
+        "en": "Calculate net cryptocurrency profit after exchange fees.",
+        "tr": "Borsa kesintileri sonrası net kripto kârını hesaplar.",
+        "de": "Calculate net cryptocurrency profit after exchange fees.",
+        "fr": "Calculate net cryptocurrency profit after exchange fees.",
+        "es": "Calculate net cryptocurrency profit after exchange fees.",
+        "ar": "Calculate net cryptocurrency profit after exchange fees."
+      },
+      "long_i18n": {
+        "en": "Calculate net cryptocurrency profit after exchange fees.",
+        "tr": "Borsa kesintileri sonrası net kripto kârını hesaplar.",
+        "de": "Calculate net cryptocurrency profit after exchange fees.",
+        "fr": "Calculate net cryptocurrency profit after exchange fees.",
+        "es": "Calculate net cryptocurrency profit after exchange fees.",
+        "ar": "Calculate net cryptocurrency profit after exchange fees."
+      }
+    }
+  }
+}

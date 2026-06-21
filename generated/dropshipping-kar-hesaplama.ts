@@ -2,14 +2,18 @@
 import * as z from 'zod';
 
 export interface Dropshipping_kar_hesaplamaInput {
-  revenueAmount: number;
-  costAmount: number;
+  satis: number;
+  tedarik: number;
+  kargo: number;
+  reklam: number;
   dataConfidence?: number;
 }
 
 export const Dropshipping_kar_hesaplamaInputSchema = z.object({
-  revenueAmount: z.number().min(0).default(100),
-  costAmount: z.number().min(0).default(50),
+  satis: z.number().min(0).default(300),
+  tedarik: z.number().min(0).default(120),
+  kargo: z.number().min(0).default(30),
+  reklam: z.number().min(0).default(40),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -18,20 +22,19 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Dropshipping_kar_hesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.revenueAmount / input.costAmount * 100 + Math.sqrt(input.revenueAmount * input.costAmount) / 10; results["main"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["main"] = Number.NaN; }
-  try { const v = input.revenueAmount / input.costAmount * 100 + Math.sqrt(input.revenueAmount * input.costAmount) / 10; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.satis - input.tedarik - input.kargo - input.reklam; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateDropshipping_kar_hesaplama(input: Dropshipping_kar_hesaplamaInput): Dropshipping_kar_hesaplamaOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
   const breakdown = {
-    result: toNumericFormulaValue(values["result"])
+    sonuc: toNumericFormulaValue(values["sonuc"])
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Consult with a professional.","Review assumptions regularly."];
+  const suggestedActions: string[] = ["Factor in return rates and chargebacks.","Review platform fee schedules regularly."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -42,9 +45,9 @@ export function calculateDropshipping_kar_hesaplama(input: Dropshipping_kar_hesa
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "currency",
+    unit: "TRY",
     premiumRequired: false,
-    premiumFeatures: ["Detailed PDF report","Scenario comparison","Multi-year projections"],
+    premiumFeatures: [],
   };
 }
 
@@ -52,7 +55,7 @@ export function calculateDropshipping_kar_hesaplama(input: Dropshipping_kar_hesa
 export interface Dropshipping_kar_hesaplamaOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { result: number };
+  breakdown: { sonuc: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -61,8 +64,8 @@ export interface Dropshipping_kar_hesaplamaOutput {
 };
 
 export const Dropshipping_kar_hesaplamaOutputMeta = {
-  primaryKey: "result",
-  unit: "currency",
-  breakdownKeys: ["result"],
+  primaryKey: "sonuc",
+  unit: "TRY",
+  breakdownKeys: ["sonuc"],
 } as const;
 

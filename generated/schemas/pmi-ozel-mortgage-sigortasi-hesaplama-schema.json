@@ -1,0 +1,118 @@
+{
+  "toolName": "pmi-ozel-mortgage-sigortasi-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "krediTutari",
+      "label": "Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan Amount (TRY)",
+        "tr": "Kredi Tutarı (₺)",
+        "de": "Loan Amount (TRY)",
+        "fr": "Loan Amount (TRY)",
+        "es": "Loan Amount (TRY)",
+        "ar": "Loan Amount (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Konut kredisi anaparası.",
+      "businessContext_i18n": {
+        "en": "Mortgage principal.",
+        "tr": "Konut kredisi anaparası.",
+        "de": "Mortgage principal.",
+        "fr": "Mortgage principal.",
+        "es": "Mortgage principal.",
+        "ar": "Mortgage principal."
+      }
+    },
+    {
+      "id": "pmiOrani",
+      "label": "Yıllık PMI Oranı (%)",
+      "label_i18n": {
+        "en": "Annual PMI Rate (%)",
+        "tr": "Yıllık PMI Oranı (%)",
+        "de": "Annual PMI Rate (%)",
+        "fr": "Annual PMI Rate (%)",
+        "es": "Annual PMI Rate (%)",
+        "ar": "Annual PMI Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "PMI sigorta prim oranı.",
+      "businessContext_i18n": {
+        "en": "PMI insurance premium rate.",
+        "tr": "PMI sigorta prim oranı.",
+        "de": "PMI insurance premium rate.",
+        "fr": "PMI insurance premium rate.",
+        "es": "PMI insurance premium rate.",
+        "ar": "PMI insurance premium rate."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(krediTutari * pmiOrani / 100) / 12"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Aylık PMI Primi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Aylık PMI Primi",
+        "tr": "Aylık PMI Primi",
+        "de": "Aylık PMI Primi",
+        "fr": "Aylık PMI Primi",
+        "es": "Aylık PMI Primi",
+        "ar": "Aylık PMI Primi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+      "long": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+      "short_i18n": {
+        "en": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+        "tr": "Düşük peşinatlarda bankayı koruyan aylık özel mortgage sigortası primini hesaplar.",
+        "de": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+        "fr": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+        "es": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+        "ar": "Calculate monthly private mortgage insurance (PMI) premium for low down payments."
+      },
+      "long_i18n": {
+        "en": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+        "tr": "Düşük peşinatlarda bankayı koruyan aylık özel mortgage sigortası primini hesaplar.",
+        "de": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+        "fr": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+        "es": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
+        "ar": "Calculate monthly private mortgage insurance (PMI) premium for low down payments."
+      }
+    }
+  }
+}

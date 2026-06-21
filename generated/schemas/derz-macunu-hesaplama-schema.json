@@ -1,0 +1,118 @@
+{
+  "toolName": "derz-macunu-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "alan",
+      "label": "Alçıpan Alanı (m²)",
+      "label_i18n": {
+        "en": "Drywall Area (m²)",
+        "tr": "Alçıpan Alanı (m²)",
+        "de": "Drywall Area (m²)",
+        "fr": "Drywall Area (m²)",
+        "es": "Drywall Area (m²)",
+        "ar": "Drywall Area (m²)"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 80,
+      "min": 0,
+      "businessContext": "Toplam alçıpan yüzeyi.",
+      "businessContext_i18n": {
+        "en": "Total drywall area.",
+        "tr": "Toplam alçıpan yüzeyi.",
+        "de": "Total drywall area.",
+        "fr": "Total drywall area.",
+        "es": "Total drywall area.",
+        "ar": "Total drywall area."
+      }
+    },
+    {
+      "id": "sarfiyat",
+      "label": "Sarfiyat (kg/m²)",
+      "label_i18n": {
+        "en": "Consumption (kg/m²)",
+        "tr": "Sarfiyat (kg/m²)",
+        "de": "Consumption (kg/m²)",
+        "fr": "Consumption (kg/m²)",
+        "es": "Consumption (kg/m²)",
+        "ar": "Consumption (kg/m²)"
+      },
+      "type": "number",
+      "unit": "kg/m2",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "m² başı macun tüketimi.",
+      "businessContext_i18n": {
+        "en": "Joint compound per m².",
+        "tr": "m² başı macun tüketimi.",
+        "de": "Joint compound per m².",
+        "fr": "Joint compound per m².",
+        "es": "Joint compound per m².",
+        "ar": "Joint compound per m²."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "alan * sarfiyat"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kg",
+    "breakdown": {
+      "sonuc": "Gerekli Derz Macunu"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Derz Macunu",
+        "tr": "Gerekli Derz Macunu",
+        "de": "Gerekli Derz Macunu",
+        "fr": "Gerekli Derz Macunu",
+        "es": "Gerekli Derz Macunu",
+        "ar": "Gerekli Derz Macunu"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kg"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate joint compound weight for drywall seams.",
+      "long": "Calculate joint compound weight for drywall seams.",
+      "short_i18n": {
+        "en": "Calculate joint compound weight for drywall seams.",
+        "tr": "Alçıpan ek yerlerini dolduracak toz macun ağırlığını hesaplar.",
+        "de": "Calculate joint compound weight for drywall seams.",
+        "fr": "Calculate joint compound weight for drywall seams.",
+        "es": "Calculate joint compound weight for drywall seams.",
+        "ar": "Calculate joint compound weight for drywall seams."
+      },
+      "long_i18n": {
+        "en": "Calculate joint compound weight for drywall seams.",
+        "tr": "Alçıpan ek yerlerini dolduracak toz macun ağırlığını hesaplar.",
+        "de": "Calculate joint compound weight for drywall seams.",
+        "fr": "Calculate joint compound weight for drywall seams.",
+        "es": "Calculate joint compound weight for drywall seams.",
+        "ar": "Calculate joint compound weight for drywall seams."
+      }
+    }
+  }
+}

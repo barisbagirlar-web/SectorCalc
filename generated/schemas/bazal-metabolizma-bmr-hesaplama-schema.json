@@ -1,0 +1,169 @@
+{
+  "toolName": "bazal-metabolizma-bmr-hesaplama",
+  "catalogCategory": "health-fitness-daily-life",
+  "categorySlug": "health-fitness-daily-life",
+  "sector": "Sağlık ve Fitness",
+  "sectorId": "health-fitness-daily-life",
+  "inputs": [
+    {
+      "id": "agirlik",
+      "label": "Ağırlık (kg)",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Ağırlık (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "min": 0,
+      "businessContext": "Vücut ağırlığı.",
+      "businessContext_i18n": {
+        "en": "Body weight.",
+        "tr": "Vücut ağırlığı.",
+        "de": "Body weight.",
+        "fr": "Body weight.",
+        "es": "Body weight.",
+        "ar": "Body weight."
+      }
+    },
+    {
+      "id": "boy",
+      "label": "Boy (cm)",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Boy (cm)",
+        "de": "Height (cm)",
+        "fr": "Height (cm)",
+        "es": "Height (cm)",
+        "ar": "Height (cm)"
+      },
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "min": 0,
+      "businessContext": "Boy uzunluğu.",
+      "businessContext_i18n": {
+        "en": "Height.",
+        "tr": "Boy uzunluğu.",
+        "de": "Height.",
+        "fr": "Height.",
+        "es": "Height.",
+        "ar": "Height."
+      }
+    },
+    {
+      "id": "yas",
+      "label": "Yaş",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Yaş",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Kişinin yaşı.",
+      "businessContext_i18n": {
+        "en": "Person's age.",
+        "tr": "Kişinin yaşı.",
+        "de": "Person's age.",
+        "fr": "Person's age.",
+        "es": "Person's age.",
+        "ar": "Person's age."
+      }
+    },
+    {
+      "id": "cinsiyet",
+      "label": "Cinsiyet (1=Erkek, 0=Kadın)",
+      "label_i18n": {
+        "en": "Sex (1=Male, 0=Female)",
+        "tr": "Cinsiyet (1=Erkek, 0=Kadın)",
+        "de": "Sex (1=Male, 0=Female)",
+        "fr": "Sex (1=Male, 0=Female)",
+        "es": "Sex (1=Male, 0=Female)",
+        "ar": "Sex (1=Male, 0=Female)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Cinsiyet.",
+      "businessContext_i18n": {
+        "en": "Gender.",
+        "tr": "Cinsiyet.",
+        "de": "Gender.",
+        "fr": "Gender.",
+        "es": "Gender.",
+        "ar": "Gender."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "cinsiyet === 1 ? (10 * agirlik + 6.25 * boy - 5 * yas + 5) : (10 * agirlik + 6.25 * boy - 5 * yas - 161)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kcal",
+    "breakdown": {
+      "sonuc": "BMR (Bazal Metabolizma Hızı)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "BMR (Bazal Metabolizma Hızı)",
+        "tr": "BMR (Bazal Metabolizma Hızı)",
+        "de": "BMR (Bazal Metabolizma Hızı)",
+        "fr": "BMR (Bazal Metabolizma Hızı)",
+        "es": "BMR (Bazal Metabolizma Hızı)",
+        "ar": "BMR (Bazal Metabolizma Hızı)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kcal"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult a healthcare professional before starting any diet or exercise program.",
+      "Individual results may vary."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+      "long": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+      "short_i18n": {
+        "en": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+        "tr": "Vücudun dinlenme halindeyken yaktığı minimum günlük enerjiyi (BMR) hesaplar.",
+        "de": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+        "fr": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+        "es": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+        "ar": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula."
+      },
+      "long_i18n": {
+        "en": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+        "tr": "Vücudun dinlenme halindeyken yaktığı minimum günlük enerjiyi (BMR) hesaplar.",
+        "de": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+        "fr": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+        "es": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula.",
+        "ar": "Calculate basal metabolic rate (BMR) using Mifflin-St Jeor formula."
+      }
+    }
+  }
+}

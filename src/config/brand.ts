@@ -29,9 +29,13 @@ export const BRAND_ASSETS = {
  displaySymbolHeight: 88,
  },
 favicon: {
-    /** Only SVG used — PNG variants removed for cross-locale consistency. */
+    /** Master PNG favicon (Sector Mavisi logo). */
+    master: "/img/brand/sectorcalc-favicon.png",
+    /** 32×32 PNG for standard browser tabs. */
+    size32: "/img/brand/sectorcalc-favicon-32.png",
+    /** Apple touch icon 180×180 PNG. */
+    appleTouch: "/img/brand/sectorcalc-favicon-180.png",
     svg: "/img/brand/sectorcalc-favicon.svg",
-    appleTouch: "/img/brand/sectorcalc-favicon.svg",
     width: 512,
     height: 512,
   },
@@ -49,14 +53,15 @@ favicon: {
 
 export const BRAND_METADATA_ICONS = {
   icon: [
-    { url: BRAND_ASSETS.favicon.svg, sizes: "any", type: "image/svg+xml" },
+    { url: BRAND_ASSETS.favicon.size32, sizes: "32x32", type: "image/png" },
+    { url: BRAND_ASSETS.favicon.master, sizes: "512x512", type: "image/png" },
   ],
   apple: [
     {
       url: BRAND_ASSETS.favicon.appleTouch,
-      sizes: "any",
-      type: "image/svg+xml",
+      sizes: "180x180",
+      type: "image/png",
     },
   ],
-  shortcut: BRAND_ASSETS.favicon.svg,
+  shortcut: BRAND_ASSETS.favicon.master,
 } as const;

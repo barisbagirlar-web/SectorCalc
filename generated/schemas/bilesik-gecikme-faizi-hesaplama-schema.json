@@ -1,0 +1,171 @@
+{
+  "toolName": "bilesik-gecikme-faizi-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "anapara",
+      "label": "Anapara (TL)",
+      "label_i18n": {
+        "en": "Principal (TL)",
+        "tr": "Anapara (TL)",
+        "de": "Principal (TL)",
+        "fr": "Principal (TL)",
+        "es": "Principal (TL)",
+        "ar": "Principal (TL)"
+      },
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Ana borç tutarı.",
+      "businessContext_i18n": {
+        "en": "Principal debt amount.",
+        "tr": "Ana borç tutarı.",
+        "de": "Principal debt amount.",
+        "fr": "Principal debt amount.",
+        "es": "Principal debt amount.",
+        "ar": "Principal debt amount."
+      }
+    },
+    {
+      "id": "yillikFaiz",
+      "label": "Yıllık Gecikme Faizi (%)",
+      "label_i18n": {
+        "en": "Annual Late Interest (%)",
+        "tr": "Yıllık Gecikme Faizi (%)",
+        "de": "Annual Late Interest (%)",
+        "fr": "Annual Late Interest (%)",
+        "es": "Annual Late Interest (%)",
+        "ar": "Annual Late Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "min": 0,
+      "businessContext": "Yasal temerrüt faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Legal default interest rate.",
+        "tr": "Yasal temerrüt faiz oranı.",
+        "de": "Legal default interest rate.",
+        "fr": "Legal default interest rate.",
+        "es": "Legal default interest rate.",
+        "ar": "Legal default interest rate."
+      }
+    },
+    {
+      "id": "gecikmeGun",
+      "label": "Gecikme Günü",
+      "label_i18n": {
+        "en": "Days Overdue",
+        "tr": "Gecikme Günü",
+        "de": "Days Overdue",
+        "fr": "Days Overdue",
+        "es": "Days Overdue",
+        "ar": "Days Overdue"
+      },
+      "type": "number",
+      "unit": "days",
+      "default": 90,
+      "min": 0,
+      "businessContext": "Vade aşımı süresi.",
+      "businessContext_i18n": {
+        "en": "Days past due.",
+        "tr": "Vade aşımı süresi.",
+        "de": "Days past due.",
+        "fr": "Days past due.",
+        "es": "Days past due.",
+        "ar": "Days past due."
+      }
+    },
+    {
+      "id": "bilesimSikligi",
+      "label": "Bileşim Sıklığı (Gün)",
+      "label_i18n": {
+        "en": "Compounding Frequency (Days)",
+        "tr": "Bileşim Sıklığı (Gün)",
+        "de": "Compounding Frequency (Days)",
+        "fr": "Compounding Frequency (Days)",
+        "es": "Compounding Frequency (Days)",
+        "ar": "Compounding Frequency (Days)"
+      },
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Faizin anaparaya eklendiği periyot.",
+      "businessContext_i18n": {
+        "en": "Interest capitalization period.",
+        "tr": "Faizin anaparaya eklendiği periyot.",
+        "de": "Interest capitalization period.",
+        "fr": "Interest capitalization period.",
+        "es": "Interest capitalization period.",
+        "ar": "Interest capitalization period."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "anapara * Math.pow((1 + (yillikFaiz / 100) * (bilesimSikligi / 365)), gecikmeGun / Math.max(1, bilesimSikligi))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TL",
+    "breakdown": {
+      "sonuc": "Toplam Borç"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Borç",
+        "tr": "Toplam Borç",
+        "de": "Toplam Borç",
+        "fr": "Toplam Borç",
+        "es": "Toplam Borç",
+        "ar": "Toplam Borç"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TL"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate compound late payment interest on principal debt.",
+      "long": "Calculate compound late payment interest on principal debt.",
+      "short_i18n": {
+        "en": "Calculate compound late payment interest on principal debt.",
+        "tr": "Temerrüt faizinin anaparaya eklendiği yasal toplam borç tutarını hesaplar.",
+        "de": "Calculate compound late payment interest on principal debt.",
+        "fr": "Calculate compound late payment interest on principal debt.",
+        "es": "Calculate compound late payment interest on principal debt.",
+        "ar": "Calculate compound late payment interest on principal debt."
+      },
+      "long_i18n": {
+        "en": "Calculate compound late payment interest on principal debt.",
+        "tr": "Temerrüt faizinin anaparaya eklendiği yasal toplam borç tutarını hesaplar.",
+        "de": "Calculate compound late payment interest on principal debt.",
+        "fr": "Calculate compound late payment interest on principal debt.",
+        "es": "Calculate compound late payment interest on principal debt.",
+        "ar": "Calculate compound late payment interest on principal debt."
+      }
+    }
+  }
+}

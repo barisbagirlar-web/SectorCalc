@@ -1,0 +1,144 @@
+{
+  "toolName": "annuite-yillik-gelir-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "anapara",
+      "label": "Anapara (₺)",
+      "label_i18n": {
+        "en": "Principal (TRY)",
+        "tr": "Anapara (₺)",
+        "de": "Principal (TRY)",
+        "fr": "Principal (TRY)",
+        "es": "Principal (TRY)",
+        "ar": "Principal (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Anüiteye yatırılan toplam ana para.",
+      "businessContext_i18n": {
+        "en": "Total principal invested.",
+        "tr": "Anüiteye yatırılan toplam ana para.",
+        "de": "Total principal invested.",
+        "fr": "Total principal invested.",
+        "es": "Total principal invested.",
+        "ar": "Total principal invested."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Annual Interest (%)",
+        "fr": "Annual Interest (%)",
+        "es": "Annual Interest (%)",
+        "ar": "Annual Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "businessContext": "Yıllık faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Annual interest rate.",
+        "tr": "Yıllık faiz oranı.",
+        "de": "Annual interest rate.",
+        "fr": "Annual interest rate.",
+        "es": "Annual interest rate.",
+        "ar": "Annual interest rate."
+      }
+    },
+    {
+      "id": "donem",
+      "label": "Dönem (Ay)",
+      "label_i18n": {
+        "en": "Period (Months)",
+        "tr": "Dönem (Ay)",
+        "de": "Period (Months)",
+        "fr": "Period (Months)",
+        "es": "Period (Months)",
+        "ar": "Period (Months)"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 120,
+      "min": 1,
+      "businessContext": "Gelir çekilecek toplam ay.",
+      "businessContext_i18n": {
+        "en": "Total income withdrawal months.",
+        "tr": "Gelir çekilecek toplam ay.",
+        "de": "Total income withdrawal months.",
+        "fr": "Total income withdrawal months.",
+        "es": "Total income withdrawal months.",
+        "ar": "Total income withdrawal months."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "aylikOran": "faiz / 12 / 100",
+    "sonuc": "anapara * ((faiz/12/100) / Math.max(0.0001, (1 - Math.pow(1 + faiz/12/100, -donem))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Aylık Anüite Geliri"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Aylık Anüite Geliri",
+        "tr": "Aylık Anüite Geliri",
+        "de": "Aylık Anüite Geliri",
+        "fr": "Aylık Anüite Geliri",
+        "es": "Aylık Anüite Geliri",
+        "ar": "Aylık Anüite Geliri"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+      "long": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+      "short_i18n": {
+        "en": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+        "tr": "Birikmiş anaparanın belirli faiz oranında düzenli çekilebilecek sabit gelirini hesaplar.",
+        "de": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+        "fr": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+        "es": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+        "ar": "Calculate fixed periodic income from a principal amount at a given interest rate."
+      },
+      "long_i18n": {
+        "en": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+        "tr": "Birikmiş anaparanın belirli faiz oranında düzenli çekilebilecek sabit gelirini hesaplar.",
+        "de": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+        "fr": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+        "es": "Calculate fixed periodic income from a principal amount at a given interest rate.",
+        "ar": "Calculate fixed periodic income from a principal amount at a given interest rate."
+      }
+    }
+  }
+}

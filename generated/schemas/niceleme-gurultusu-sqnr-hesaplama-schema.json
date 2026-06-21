@@ -1,0 +1,97 @@
+{
+  "toolName": "niceleme-gurultusu-sqnr-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "bitSayisi",
+      "label": "Bit Sayısı (N)",
+      "label_i18n": {
+        "en": "Number of Bits (N)",
+        "tr": "Bit Sayısı (N)",
+        "de": "Number of Bits (N)",
+        "fr": "Number of Bits (N)",
+        "es": "Number of Bits (N)",
+        "ar": "Number of Bits (N)"
+      },
+      "type": "number",
+      "unit": "bits",
+      "default": 16,
+      "min": 1,
+      "max": 32,
+      "businessContext": "ADC çözünürlüğü.",
+      "businessContext_i18n": {
+        "en": "ADC resolution.",
+        "tr": "ADC çözünürlüğü.",
+        "de": "ADC resolution.",
+        "fr": "ADC resolution.",
+        "es": "ADC resolution.",
+        "ar": "ADC resolution."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "6.02 * bitSayisi + 1.76"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "dB",
+    "breakdown": {
+      "sonuc": "SQNR"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "SQNR",
+        "tr": "SQNR",
+        "de": "SQNR",
+        "fr": "SQNR",
+        "es": "SQNR",
+        "ar": "SQNR"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "dB"
+    },
+    "hiddenLossDrivers": [
+      "Low SNR indicates poor signal quality.",
+      "High Q indicates narrow bandwidth."
+    ],
+    "suggestedActions": [
+      "Use proper shielding for sensitive measurements.",
+      "Consider efficiency losses in energy calculations."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+      "long": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+      "short_i18n": {
+        "en": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+        "tr": "ADC dönüşümündeki teorik sinyal/gürültü oranını (SQNR) hesaplar.",
+        "de": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+        "fr": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+        "es": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+        "ar": "Calculate theoretical SQNR (signal-to-quantization-noise ratio)."
+      },
+      "long_i18n": {
+        "en": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+        "tr": "ADC dönüşümündeki teorik sinyal/gürültü oranını (SQNR) hesaplar.",
+        "de": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+        "fr": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+        "es": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
+        "ar": "Calculate theoretical SQNR (signal-to-quantization-noise ratio)."
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "toolName": "dongusel-ekonomi-hesaplama",
+  "catalogCategory": "sustainability-resource-esg",
+  "categorySlug": "sustainability-resource-esg",
+  "sector": "Çevre ve Sürdürülebilirlik",
+  "sectorId": "sustainability-resource-esg",
+  "inputs": [
+    {
+      "id": "geriKazanilan",
+      "label": "Geri Kazanılan Malzeme (ton)",
+      "label_i18n": {
+        "en": "Recovered Material (tons)",
+        "tr": "Geri Kazanılan Malzeme (ton)",
+        "de": "Recovered Material (tons)",
+        "fr": "Recovered Material (tons)",
+        "es": "Recovered Material (tons)",
+        "ar": "Recovered Material (tons)"
+      },
+      "type": "number",
+      "unit": "tons",
+      "default": 500,
+      "min": 0,
+      "businessContext": "İkincil hammadde miktarı.",
+      "businessContext_i18n": {
+        "en": "Secondary raw material.",
+        "tr": "İkincil hammadde miktarı.",
+        "de": "Secondary raw material.",
+        "fr": "Secondary raw material.",
+        "es": "Secondary raw material.",
+        "ar": "Secondary raw material."
+      }
+    },
+    {
+      "id": "toplamGirdi",
+      "label": "Toplam Hammadde Girdisi (ton)",
+      "label_i18n": {
+        "en": "Total Material Input (tons)",
+        "tr": "Toplam Hammadde Girdisi (ton)",
+        "de": "Total Material Input (tons)",
+        "fr": "Total Material Input (tons)",
+        "es": "Total Material Input (tons)",
+        "ar": "Total Material Input (tons)"
+      },
+      "type": "number",
+      "unit": "tons",
+      "default": 2000,
+      "min": 0,
+      "businessContext": "Üretimde kullanılan tüm malzeme.",
+      "businessContext_i18n": {
+        "en": "All production material input.",
+        "tr": "Üretimde kullanılan tüm malzeme.",
+        "de": "All production material input.",
+        "fr": "All production material input.",
+        "es": "All production material input.",
+        "ar": "All production material input."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(geriKazanilan / Math.max(0.0001, toplamGirdi)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Döngüsel Ekonomi Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Döngüsel Ekonomi Oranı",
+        "tr": "Döngüsel Ekonomi Oranı",
+        "de": "Döngüsel Ekonomi Oranı",
+        "fr": "Döngüsel Ekonomi Oranı",
+        "es": "Döngüsel Ekonomi Oranı",
+        "ar": "Döngüsel Ekonomi Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [
+      "High environmental score may reduce operational costs.",
+      "Low ESG score may increase capital costs."
+    ],
+    "suggestedActions": [
+      "Set improvement targets for each ESG pillar.",
+      "Consider carbon offset programs for residual emissions."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate circular economy material reuse ratio.",
+      "long": "Calculate circular economy material reuse ratio.",
+      "short_i18n": {
+        "en": "Calculate circular economy material reuse ratio.",
+        "tr": "Üretimde kullanılan ikincil hammadde oranını (döngüsel ekonomi oranı) hesaplar.",
+        "de": "Calculate circular economy material reuse ratio.",
+        "fr": "Calculate circular economy material reuse ratio.",
+        "es": "Calculate circular economy material reuse ratio.",
+        "ar": "Calculate circular economy material reuse ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate circular economy material reuse ratio.",
+        "tr": "Üretimde kullanılan ikincil hammadde oranını (döngüsel ekonomi oranı) hesaplar.",
+        "de": "Calculate circular economy material reuse ratio.",
+        "fr": "Calculate circular economy material reuse ratio.",
+        "es": "Calculate circular economy material reuse ratio.",
+        "ar": "Calculate circular economy material reuse ratio."
+      }
+    }
+  }
+}

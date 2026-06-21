@@ -1,0 +1,193 @@
+{
+  "toolName": "varlik-dagilimi-portfoy-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "portfoy",
+      "label": "Toplam Portföy (₺)",
+      "label_i18n": {
+        "en": "Total Portfolio (TRY)",
+        "tr": "Toplam Portföy (₺)",
+        "de": "Total Portfolio (TRY)",
+        "fr": "Total Portfolio (TRY)",
+        "es": "Total Portfolio (TRY)",
+        "ar": "Total Portfolio (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Yatırım portföyünün toplam değeri.",
+      "businessContext_i18n": {
+        "en": "Total investment portfolio value.",
+        "tr": "Yatırım portföyünün toplam değeri.",
+        "de": "Total investment portfolio value.",
+        "fr": "Total investment portfolio value.",
+        "es": "Total investment portfolio value.",
+        "ar": "Total investment portfolio value."
+      }
+    },
+    {
+      "id": "hisse",
+      "label": "Hisse Senedi (%)",
+      "label_i18n": {
+        "en": "Stocks (%)",
+        "tr": "Hisse Senedi (%)",
+        "de": "Stocks (%)",
+        "fr": "Stocks (%)",
+        "es": "Stocks (%)",
+        "ar": "Stocks (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Portföydeki hisse senedi hedef oranı.",
+      "businessContext_i18n": {
+        "en": "Target stock allocation percentage.",
+        "tr": "Portföydeki hisse senedi hedef oranı.",
+        "de": "Target stock allocation percentage.",
+        "fr": "Target stock allocation percentage.",
+        "es": "Target stock allocation percentage.",
+        "ar": "Target stock allocation percentage."
+      }
+    },
+    {
+      "id": "tahvil",
+      "label": "Tahvil/Bono (%)",
+      "label_i18n": {
+        "en": "Bonds (%)",
+        "tr": "Tahvil/Bono (%)",
+        "de": "Bonds (%)",
+        "fr": "Bonds (%)",
+        "es": "Bonds (%)",
+        "ar": "Bonds (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Portföydeki tahvil hedef oranı.",
+      "businessContext_i18n": {
+        "en": "Target bond allocation percentage.",
+        "tr": "Portföydeki tahvil hedef oranı.",
+        "de": "Target bond allocation percentage.",
+        "fr": "Target bond allocation percentage.",
+        "es": "Target bond allocation percentage.",
+        "ar": "Target bond allocation percentage."
+      }
+    },
+    {
+      "id": "nakit",
+      "label": "Nakit (%)",
+      "label_i18n": {
+        "en": "Cash (%)",
+        "tr": "Nakit (%)",
+        "de": "Cash (%)",
+        "fr": "Cash (%)",
+        "es": "Cash (%)",
+        "ar": "Cash (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Portföydeki nakit hedef oranı.",
+      "businessContext_i18n": {
+        "en": "Target cash allocation percentage.",
+        "tr": "Portföydeki nakit hedef oranı.",
+        "de": "Target cash allocation percentage.",
+        "fr": "Target cash allocation percentage.",
+        "es": "Target cash allocation percentage.",
+        "ar": "Target cash allocation percentage."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "hisseTutar": "portfoy * (hisse / 100)",
+    "tahvilTutar": "portfoy * (tahvil / 100)",
+    "sonuc": "portfoy * (nakit / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "hisseTutar": "Hisse Senedi Tutarı",
+      "tahvilTutar": "Tahvil Tutarı",
+      "sonuc": "Nakit Tutarı"
+    },
+    "breakdown_i18n": {
+      "hisseTutar": {
+        "en": "Hisse Senedi Tutarı",
+        "tr": "Hisse Senedi Tutarı",
+        "de": "Hisse Senedi Tutarı",
+        "fr": "Hisse Senedi Tutarı",
+        "es": "Hisse Senedi Tutarı",
+        "ar": "Hisse Senedi Tutarı"
+      },
+      "tahvilTutar": {
+        "en": "Tahvil Tutarı",
+        "tr": "Tahvil Tutarı",
+        "de": "Tahvil Tutarı",
+        "fr": "Tahvil Tutarı",
+        "es": "Tahvil Tutarı",
+        "ar": "Tahvil Tutarı"
+      },
+      "sonuc": {
+        "en": "Nakit Tutarı",
+        "tr": "Nakit Tutarı",
+        "de": "Nakit Tutarı",
+        "fr": "Nakit Tutarı",
+        "es": "Nakit Tutarı",
+        "ar": "Nakit Tutarı"
+      }
+    },
+    "breakdownUnits": {
+      "hisseTutar": "TRY",
+      "tahvilTutar": "TRY",
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Allocate portfolio across asset classes based on target percentages.",
+      "long": "Allocate portfolio across asset classes based on target percentages.",
+      "short_i18n": {
+        "en": "Allocate portfolio across asset classes based on target percentages.",
+        "tr": "Portföyün hedeflenen varlık sınıflarına bölünmesini hesaplar.",
+        "de": "Allocate portfolio across asset classes based on target percentages.",
+        "fr": "Allocate portfolio across asset classes based on target percentages.",
+        "es": "Allocate portfolio across asset classes based on target percentages.",
+        "ar": "Allocate portfolio across asset classes based on target percentages."
+      },
+      "long_i18n": {
+        "en": "Allocate portfolio across asset classes based on target percentages.",
+        "tr": "Portföyün hedeflenen varlık sınıflarına bölünmesini hesaplar.",
+        "de": "Allocate portfolio across asset classes based on target percentages.",
+        "fr": "Allocate portfolio across asset classes based on target percentages.",
+        "es": "Allocate portfolio across asset classes based on target percentages.",
+        "ar": "Allocate portfolio across asset classes based on target percentages."
+      }
+    }
+  }
+}

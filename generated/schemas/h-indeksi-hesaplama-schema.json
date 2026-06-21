@@ -1,0 +1,196 @@
+{
+  "toolName": "h-indeksi-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "atif1",
+      "label": "Atıf Sayısı 1",
+      "label_i18n": {
+        "en": "Citations 1",
+        "tr": "Atıf Sayısı 1",
+        "de": "Citations 1",
+        "fr": "Citations 1",
+        "es": "Citations 1",
+        "ar": "Citations 1"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 50,
+      "min": 0,
+      "businessContext": "En çok atıf alan makale.",
+      "businessContext_i18n": {
+        "en": "Most cited paper.",
+        "tr": "En çok atıf alan makale.",
+        "de": "Most cited paper.",
+        "fr": "Most cited paper.",
+        "es": "Most cited paper.",
+        "ar": "Most cited paper."
+      }
+    },
+    {
+      "id": "atif2",
+      "label": "Atıf Sayısı 2",
+      "label_i18n": {
+        "en": "Citations 2",
+        "tr": "Atıf Sayısı 2",
+        "de": "Citations 2",
+        "fr": "Citations 2",
+        "es": "Citations 2",
+        "ar": "Citations 2"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "min": 0,
+      "businessContext": "İkinci makale.",
+      "businessContext_i18n": {
+        "en": "Second paper.",
+        "tr": "İkinci makale.",
+        "de": "Second paper.",
+        "fr": "Second paper.",
+        "es": "Second paper.",
+        "ar": "Second paper."
+      }
+    },
+    {
+      "id": "atif3",
+      "label": "Atıf Sayısı 3",
+      "label_i18n": {
+        "en": "Citations 3",
+        "tr": "Atıf Sayısı 3",
+        "de": "Citations 3",
+        "fr": "Citations 3",
+        "es": "Citations 3",
+        "ar": "Citations 3"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Üçüncü makale.",
+      "businessContext_i18n": {
+        "en": "Third paper.",
+        "tr": "Üçüncü makale.",
+        "de": "Third paper.",
+        "fr": "Third paper.",
+        "es": "Third paper.",
+        "ar": "Third paper."
+      }
+    },
+    {
+      "id": "atif4",
+      "label": "Atıf Sayısı 4",
+      "label_i18n": {
+        "en": "Citations 4",
+        "tr": "Atıf Sayısı 4",
+        "de": "Citations 4",
+        "fr": "Citations 4",
+        "es": "Citations 4",
+        "ar": "Citations 4"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Dördüncü makale.",
+      "businessContext_i18n": {
+        "en": "Fourth paper.",
+        "tr": "Dördüncü makale.",
+        "de": "Fourth paper.",
+        "fr": "Fourth paper.",
+        "es": "Fourth paper.",
+        "ar": "Fourth paper."
+      }
+    },
+    {
+      "id": "atif5",
+      "label": "Atıf Sayısı 5",
+      "label_i18n": {
+        "en": "Citations 5",
+        "tr": "Atıf Sayısı 5",
+        "de": "Citations 5",
+        "fr": "Citations 5",
+        "es": "Citations 5",
+        "ar": "Citations 5"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Beşinci makale.",
+      "businessContext_i18n": {
+        "en": "Fifth paper.",
+        "tr": "Beşinci makale.",
+        "de": "Fifth paper.",
+        "fr": "Fifth paper.",
+        "es": "Fifth paper.",
+        "ar": "Fifth paper."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "atif1 >= 5 && atif2 >= 4 && atif3 >= 3 && atif4 >= 2 && atif5 >= 1 ? 5 : atif1 >= 4 && atif2 >= 3 && atif3 >= 2 && atif4 >= 1 ? 4 : atif1 >= 3 && atif2 >= 2 && atif3 >= 1 ? 3 : atif1 >= 2 && atif2 >= 1 ? 2 : atif1 >= 1 ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "H-index",
+    "breakdown": {
+      "sonuc": "H-İndeksi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "H-İndeksi",
+        "tr": "H-İndeksi",
+        "de": "H-İndeksi",
+        "fr": "H-İndeksi",
+        "es": "H-İndeksi",
+        "ar": "H-İndeksi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "H-index"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate H-index from a list of citation counts.",
+      "long": "Calculate H-index from a list of citation counts.",
+      "short_i18n": {
+        "en": "Calculate H-index from a list of citation counts.",
+        "tr": "Akademisyenin h kadar makalesinin en az h atıf aldığı etki skorunu (H-İndeksi) hesaplar.",
+        "de": "Calculate H-index from a list of citation counts.",
+        "fr": "Calculate H-index from a list of citation counts.",
+        "es": "Calculate H-index from a list of citation counts.",
+        "ar": "Calculate H-index from a list of citation counts."
+      },
+      "long_i18n": {
+        "en": "Calculate H-index from a list of citation counts.",
+        "tr": "Akademisyenin h kadar makalesinin en az h atıf aldığı etki skorunu (H-İndeksi) hesaplar.",
+        "de": "Calculate H-index from a list of citation counts.",
+        "fr": "Calculate H-index from a list of citation counts.",
+        "es": "Calculate H-index from a list of citation counts.",
+        "ar": "Calculate H-index from a list of citation counts."
+      }
+    }
+  }
+}

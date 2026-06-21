@@ -1,113 +1,193 @@
 {
-  "slug": "shopify-kar-hesaplama",
-  "name": "Shopify Kâr Hesaplama",
-  "description": "Professional shopify kâr hesaplama tool for accurate calculations.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "Detailed PDF report",
-    "Scenario comparison",
-    "Multi-year projections"
-  ],
+  "toolName": "shopify-kar-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "E-Ticaret",
+  "sectorId": "other",
   "inputs": [
     {
-      "id": "revenueAmount",
-      "label": "Value 1",
-      "type": "number",
-      "unit": "currency",
-      "default": 100,
-      "min": 0,
-      "businessContext": "Toplam gelir.",
+      "id": "satis",
+      "label": "Satış (TL)",
       "label_i18n": {
-        "en": "Value 1",
-        "tr": "Değer 1",
-        "de": "Giriş Değeri",
-        "fr": "Giriş Değeri",
-        "es": "Giriş Değeri",
-        "ar": "Giriş Değeri"
+        "en": "Sale Price (TRY)",
+        "tr": "Satış (TL)",
+        "de": "Sale Price (TRY)",
+        "fr": "Sale Price (TRY)",
+        "es": "Sale Price (TRY)",
+        "ar": "Sale Price (TRY)"
       },
+      "type": "number",
+      "unit": "TRY",
+      "default": 200,
+      "min": 0,
+      "businessContext": "Ürün satış fiyatı.",
       "businessContext_i18n": {
-        "en": "First value.",
-        "tr": "Birinci değer.",
-        "de": "Hesaplama için giriş değeri.",
-        "fr": "Hesaplama için giriş değeri.",
-        "es": "Hesaplama için giriş değeri.",
-        "ar": "Hesaplama için giriş değeri."
+        "en": "Product price.",
+        "tr": "Ürün satış fiyatı.",
+        "de": "Product price.",
+        "fr": "Product price.",
+        "es": "Product price.",
+        "ar": "Product price."
       }
     },
     {
-      "id": "costAmount",
-      "label": "Value 2",
-      "type": "number",
-      "unit": "currency",
-      "default": 50,
-      "min": 0,
-      "businessContext": "Toplam maliyet.",
+      "id": "urun",
+      "label": "Ürün Maliyeti (TL)",
       "label_i18n": {
-        "en": "Value 2",
-        "tr": "Değer 2",
-        "de": "Giriş Faktörü",
-        "fr": "Giriş Faktörü",
-        "es": "Giriş Faktörü",
-        "ar": "Giriş Faktörü"
+        "en": "Product Cost (TRY)",
+        "tr": "Ürün Maliyeti (TL)",
+        "de": "Product Cost (TRY)",
+        "fr": "Product Cost (TRY)",
+        "es": "Product Cost (TRY)",
+        "ar": "Product Cost (TRY)"
       },
+      "type": "number",
+      "unit": "TRY",
+      "default": 80,
+      "min": 0,
+      "businessContext": "Tedarik maliyeti.",
       "businessContext_i18n": {
-        "en": "Second value.",
-        "tr": "İkinci değer.",
-        "de": "Hesaplama için giriş faktörü.",
-        "fr": "Hesaplama için giriş faktörü.",
-        "es": "Hesaplama için giriş faktörü.",
-        "ar": "Hesaplama için giriş faktörü."
+        "en": "Product cost.",
+        "tr": "Tedarik maliyeti.",
+        "de": "Product cost.",
+        "fr": "Product cost.",
+        "es": "Product cost.",
+        "ar": "Product cost."
+      }
+    },
+    {
+      "id": "kargo",
+      "label": "Kargo (TL)",
+      "label_i18n": {
+        "en": "Shipping (TRY)",
+        "tr": "Kargo (TL)",
+        "de": "Shipping (TRY)",
+        "fr": "Shipping (TRY)",
+        "es": "Shipping (TRY)",
+        "ar": "Shipping (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Kargo ücreti.",
+      "businessContext_i18n": {
+        "en": "Shipping cost.",
+        "tr": "Kargo ücreti.",
+        "de": "Shipping cost.",
+        "fr": "Shipping cost.",
+        "es": "Shipping cost.",
+        "ar": "Shipping cost."
+      }
+    },
+    {
+      "id": "platform",
+      "label": "Platform Ücreti (%)",
+      "label_i18n": {
+        "en": "Platform Fee (%)",
+        "tr": "Platform Ücreti (%)",
+        "de": "Platform Fee (%)",
+        "fr": "Platform Fee (%)",
+        "es": "Platform Fee (%)",
+        "ar": "Platform Fee (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 2.9,
+      "min": 0,
+      "businessContext": "Shopify işlem ücreti.",
+      "businessContext_i18n": {
+        "en": "Shopify transaction fee.",
+        "tr": "Shopify işlem ücreti.",
+        "de": "Shopify transaction fee.",
+        "fr": "Shopify transaction fee.",
+        "es": "Shopify transaction fee.",
+        "ar": "Shopify transaction fee."
+      }
+    },
+    {
+      "id": "sabit",
+      "label": "Sabit İşlem Ücreti (TL)",
+      "label_i18n": {
+        "en": "Fixed Transaction Fee (TRY)",
+        "tr": "Sabit İşlem Ücreti (TL)",
+        "de": "Fixed Transaction Fee (TRY)",
+        "fr": "Fixed Transaction Fee (TRY)",
+        "es": "Fixed Transaction Fee (TRY)",
+        "ar": "Fixed Transaction Fee (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 2.35,
+      "min": 0,
+      "businessContext": "Sabit işlem ücreti.",
+      "businessContext_i18n": {
+        "en": "Fixed fee per transaction.",
+        "tr": "Sabit işlem ücreti.",
+        "de": "Fixed fee per transaction.",
+        "fr": "Fixed fee per transaction.",
+        "es": "Fixed fee per transaction.",
+        "ar": "Fixed fee per transaction."
       }
     }
   ],
   "validation": {
     "rules": [
-      "All inputs should be positive numbers where applicable."
+      "All numeric inputs must be positive numbers."
     ],
     "thresholds": {}
   },
   "formulas": {
-    "main": "revenueAmount / costAmount * 100 + Math.sqrt(revenueAmount * costAmount) / 10",
-    "result": "revenueAmount / costAmount * 100 + Math.sqrt(revenueAmount * costAmount) / 10"
+    "sonuc": "satis - urun - kargo - (satis * platform / 100) - sabit"
   },
   "outputs": {
-    "primary": "result",
-    "unit": "",
+    "primary": "sonuc",
+    "unit": "TRY",
     "breakdown": {
-      "result": "revenueAmount * costAmount"
+      "sonuc": "Net Kâr (Shopify)"
     },
     "breakdown_i18n": {
-      "result": {
-        "en": "Result",
-        "tr": "Sonuç"
+      "sonuc": {
+        "en": "Net Kâr (Shopify)",
+        "tr": "Net Kâr (Shopify)",
+        "de": "Net Kâr (Shopify)",
+        "fr": "Net Kâr (Shopify)",
+        "es": "Net Kâr (Shopify)",
+        "ar": "Net Kâr (Shopify)"
       }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
-      "Consult with a professional.",
-      "Review assumptions regularly."
+      "Factor in return rates and chargebacks.",
+      "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+    "dataConfidenceAdjusted": "sonuc"
   },
+  "premiumRequired": false,
+  "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Quick shopify kâr hesaplama calculation.",
-      "long": "This free tool provides a quick shopify kâr hesaplama."
-    },
-    "faqs": [
-      {
-        "question": "What does this Shopify Kâr Hesaplama include?",
-        "answer": "Basic shopify kâr hesaplama calculation."
+      "short": "Calculate net profit after Shopify platform fees.",
+      "long": "Calculate net profit after Shopify platform fees.",
+      "short_i18n": {
+        "en": "Calculate net profit after Shopify platform fees.",
+        "tr": "Shopify kesintileri sonrası net e-ticaret kârını hesaplar.",
+        "de": "Calculate net profit after Shopify platform fees.",
+        "fr": "Calculate net profit after Shopify platform fees.",
+        "es": "Calculate net profit after Shopify platform fees.",
+        "ar": "Calculate net profit after Shopify platform fees."
       },
-      {
-        "question": "What is missing from the free version?",
-        "answer": "The free version does not include detailed reporting and projections."
+      "long_i18n": {
+        "en": "Calculate net profit after Shopify platform fees.",
+        "tr": "Shopify kesintileri sonrası net e-ticaret kârını hesaplar.",
+        "de": "Calculate net profit after Shopify platform fees.",
+        "fr": "Calculate net profit after Shopify platform fees.",
+        "es": "Calculate net profit after Shopify platform fees.",
+        "ar": "Calculate net profit after Shopify platform fees."
       }
-    ]
-  },
-  "sector": "Finans & Muhasebe",
-  "toolName": "shopify-kar-hesaplama",
-  "sectorId": "genel",
-  "profession": "Professional",
-  "categoryId": "finance"
+    }
+  }
 }

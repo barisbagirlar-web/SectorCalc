@@ -1,0 +1,169 @@
+{
+  "toolName": "kuantum-tunelleme-olasilik-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik ve Kuantum",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "engelGenisligi",
+      "label": "Engel Genişliği (m)",
+      "label_i18n": {
+        "en": "Barrier Width (m)",
+        "tr": "Engel Genişliği (m)",
+        "de": "Barrier Width (m)",
+        "fr": "Barrier Width (m)",
+        "es": "Barrier Width (m)",
+        "ar": "Barrier Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 1e-10,
+      "min": 0,
+      "businessContext": "Potansiyel engelin kalınlığı.",
+      "businessContext_i18n": {
+        "en": "Potential barrier thickness.",
+        "tr": "Potansiyel engelin kalınlığı.",
+        "de": "Potential barrier thickness.",
+        "fr": "Potential barrier thickness.",
+        "es": "Potential barrier thickness.",
+        "ar": "Potential barrier thickness."
+      }
+    },
+    {
+      "id": "engelYuksekligi",
+      "label": "Engel Yüksekliği (J)",
+      "label_i18n": {
+        "en": "Barrier Height (J)",
+        "tr": "Engel Yüksekliği (J)",
+        "de": "Barrier Height (J)",
+        "fr": "Barrier Height (J)",
+        "es": "Barrier Height (J)",
+        "ar": "Barrier Height (J)"
+      },
+      "type": "number",
+      "unit": "J",
+      "default": 1.6e-19,
+      "min": 0,
+      "businessContext": "Potansiyel engelin yüksekliği.",
+      "businessContext_i18n": {
+        "en": "Potential barrier height.",
+        "tr": "Potansiyel engelin yüksekliği.",
+        "de": "Potential barrier height.",
+        "fr": "Potential barrier height.",
+        "es": "Potential barrier height.",
+        "ar": "Potential barrier height."
+      }
+    },
+    {
+      "id": "enerji",
+      "label": "Parçacık Enerjisi (J)",
+      "label_i18n": {
+        "en": "Particle Energy (J)",
+        "tr": "Parçacık Enerjisi (J)",
+        "de": "Particle Energy (J)",
+        "fr": "Particle Energy (J)",
+        "es": "Particle Energy (J)",
+        "ar": "Particle Energy (J)"
+      },
+      "type": "number",
+      "unit": "J",
+      "default": 8e-20,
+      "min": 0,
+      "businessContext": "Gelen parçacığın kinetik enerjisi.",
+      "businessContext_i18n": {
+        "en": "Incident particle kinetic energy.",
+        "tr": "Gelen parçacığın kinetik enerjisi.",
+        "de": "Incident particle kinetic energy.",
+        "fr": "Incident particle kinetic energy.",
+        "es": "Incident particle kinetic energy.",
+        "ar": "Incident particle kinetic energy."
+      }
+    },
+    {
+      "id": "kutle",
+      "label": "Parçacık Kütlesi (kg)",
+      "label_i18n": {
+        "en": "Particle Mass (kg)",
+        "tr": "Parçacık Kütlesi (kg)",
+        "de": "Particle Mass (kg)",
+        "fr": "Particle Mass (kg)",
+        "es": "Particle Mass (kg)",
+        "ar": "Particle Mass (kg)"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 9.11e-31,
+      "min": 0,
+      "businessContext": "Parçacığın kütlesi.",
+      "businessContext_i18n": {
+        "en": "Particle mass.",
+        "tr": "Parçacığın kütlesi.",
+        "de": "Particle mass.",
+        "fr": "Particle mass.",
+        "es": "Particle mass.",
+        "ar": "Particle mass."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "hbar": "1.054e-34",
+    "sonuc": "Math.exp(-2 * Math.sqrt(Math.max(0, 2 * kutle * (engelYuksekligi - enerji))) / 1.054e-34 * engelGenisligi) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Tünelleme Olasılığı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Tünelleme Olasılığı",
+        "tr": "Tünelleme Olasılığı",
+        "de": "Tünelleme Olasılığı",
+        "fr": "Tünelleme Olasılığı",
+        "es": "Tünelleme Olasılığı",
+        "ar": "Tünelleme Olasılığı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Quantum effects are only observable at microscopic scales.",
+      "These are idealized models."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate quantum tunneling probability through a potential barrier.",
+      "long": "Calculate quantum tunneling probability through a potential barrier.",
+      "short_i18n": {
+        "en": "Calculate quantum tunneling probability through a potential barrier.",
+        "tr": "Parçacığın klasik fizikte aşamayacağı engeli geçme olasılığını (kuantum tünelleme) hesaplar.",
+        "de": "Calculate quantum tunneling probability through a potential barrier.",
+        "fr": "Calculate quantum tunneling probability through a potential barrier.",
+        "es": "Calculate quantum tunneling probability through a potential barrier.",
+        "ar": "Calculate quantum tunneling probability through a potential barrier."
+      },
+      "long_i18n": {
+        "en": "Calculate quantum tunneling probability through a potential barrier.",
+        "tr": "Parçacığın klasik fizikte aşamayacağı engeli geçme olasılığını (kuantum tünelleme) hesaplar.",
+        "de": "Calculate quantum tunneling probability through a potential barrier.",
+        "fr": "Calculate quantum tunneling probability through a potential barrier.",
+        "es": "Calculate quantum tunneling probability through a potential barrier.",
+        "ar": "Calculate quantum tunneling probability through a potential barrier."
+      }
+    }
+  }
+}

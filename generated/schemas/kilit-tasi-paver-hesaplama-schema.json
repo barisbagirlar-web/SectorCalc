@@ -1,0 +1,168 @@
+{
+  "toolName": "kilit-tasi-paver-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "alan",
+      "label": "Döşeme Alanı (m²)",
+      "label_i18n": {
+        "en": "Paving Area (m²)",
+        "tr": "Döşeme Alanı (m²)",
+        "de": "Paving Area (m²)",
+        "fr": "Paving Area (m²)",
+        "es": "Paving Area (m²)",
+        "ar": "Paving Area (m²)"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Döşenecek alan.",
+      "businessContext_i18n": {
+        "en": "Area to pave.",
+        "tr": "Döşenecek alan.",
+        "de": "Area to pave.",
+        "fr": "Area to pave.",
+        "es": "Area to pave.",
+        "ar": "Area to pave."
+      }
+    },
+    {
+      "id": "tasEn",
+      "label": "Taş Eni (m)",
+      "label_i18n": {
+        "en": "Stone Width (m)",
+        "tr": "Taş Eni (m)",
+        "de": "Stone Width (m)",
+        "fr": "Stone Width (m)",
+        "es": "Stone Width (m)",
+        "ar": "Stone Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "min": 0,
+      "businessContext": "Kilit taşı eni.",
+      "businessContext_i18n": {
+        "en": "Paver width.",
+        "tr": "Kilit taşı eni.",
+        "de": "Paver width.",
+        "fr": "Paver width.",
+        "es": "Paver width.",
+        "ar": "Paver width."
+      }
+    },
+    {
+      "id": "tasBoy",
+      "label": "Taş Boyu (m)",
+      "label_i18n": {
+        "en": "Stone Length (m)",
+        "tr": "Taş Boyu (m)",
+        "de": "Stone Length (m)",
+        "fr": "Stone Length (m)",
+        "es": "Stone Length (m)",
+        "ar": "Stone Length (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Kilit taşı boyu.",
+      "businessContext_i18n": {
+        "en": "Paver length.",
+        "tr": "Kilit taşı boyu.",
+        "de": "Paver length.",
+        "fr": "Paver length.",
+        "es": "Paver length.",
+        "ar": "Paver length."
+      }
+    },
+    {
+      "id": "fire",
+      "label": "Fire Oranı (%)",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Fire Oranı (%)",
+        "de": "Waste Factor (%)",
+        "fr": "Waste Factor (%)",
+        "es": "Waste Factor (%)",
+        "ar": "Waste Factor (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Kesim kaybı.",
+      "businessContext_i18n": {
+        "en": "Cutting waste.",
+        "tr": "Kesim kaybı.",
+        "de": "Cutting waste.",
+        "fr": "Cutting waste.",
+        "es": "Cutting waste.",
+        "ar": "Cutting waste."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.ceil((alan / Math.max(0.0001, (tasEn * tasBoy))) * (1 + fire / 100))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "stones",
+    "breakdown": {
+      "sonuc": "Gerekli Kilit Taşı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Kilit Taşı",
+        "tr": "Gerekli Kilit Taşı",
+        "de": "Gerekli Kilit Taşı",
+        "fr": "Gerekli Kilit Taşı",
+        "es": "Gerekli Kilit Taşı",
+        "ar": "Gerekli Kilit Taşı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "stones"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate number of paving stones needed for a patio or driveway.",
+      "long": "Calculate number of paving stones needed for a patio or driveway.",
+      "short_i18n": {
+        "en": "Calculate number of paving stones needed for a patio or driveway.",
+        "tr": "Kaldırım döşemesi için gereken kilit taşı sayısını hesaplar.",
+        "de": "Calculate number of paving stones needed for a patio or driveway.",
+        "fr": "Calculate number of paving stones needed for a patio or driveway.",
+        "es": "Calculate number of paving stones needed for a patio or driveway.",
+        "ar": "Calculate number of paving stones needed for a patio or driveway."
+      },
+      "long_i18n": {
+        "en": "Calculate number of paving stones needed for a patio or driveway.",
+        "tr": "Kaldırım döşemesi için gereken kilit taşı sayısını hesaplar.",
+        "de": "Calculate number of paving stones needed for a patio or driveway.",
+        "fr": "Calculate number of paving stones needed for a patio or driveway.",
+        "es": "Calculate number of paving stones needed for a patio or driveway.",
+        "ar": "Calculate number of paving stones needed for a patio or driveway."
+      }
+    }
+  }
+}

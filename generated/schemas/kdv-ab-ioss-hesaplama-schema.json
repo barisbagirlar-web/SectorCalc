@@ -1,0 +1,143 @@
+{
+  "toolName": "kdv-ab-ioss-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "E-Ticaret",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "netFiyat",
+      "label": "Net Fiyat (EUR)",
+      "label_i18n": {
+        "en": "Net Price (EUR)",
+        "tr": "Net Fiyat (EUR)",
+        "de": "Net Price (EUR)",
+        "fr": "Net Price (EUR)",
+        "es": "Net Price (EUR)",
+        "ar": "Net Price (EUR)"
+      },
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Ürünün net fiyatı.",
+      "businessContext_i18n": {
+        "en": "Product net price.",
+        "tr": "Ürünün net fiyatı.",
+        "de": "Product net price.",
+        "fr": "Product net price.",
+        "es": "Product net price.",
+        "ar": "Product net price."
+      }
+    },
+    {
+      "id": "kargo",
+      "label": "Kargo (EUR)",
+      "label_i18n": {
+        "en": "Shipping (EUR)",
+        "tr": "Kargo (EUR)",
+        "de": "Shipping (EUR)",
+        "fr": "Shipping (EUR)",
+        "es": "Shipping (EUR)",
+        "ar": "Shipping (EUR)"
+      },
+      "type": "number",
+      "unit": "EUR",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Kargo ücreti.",
+      "businessContext_i18n": {
+        "en": "Shipping cost.",
+        "tr": "Kargo ücreti.",
+        "de": "Shipping cost.",
+        "fr": "Shipping cost.",
+        "es": "Shipping cost.",
+        "ar": "Shipping cost."
+      }
+    },
+    {
+      "id": "ulkeKDV",
+      "label": "Ülke KDV Oranı (%)",
+      "label_i18n": {
+        "en": "Country VAT Rate (%)",
+        "tr": "Ülke KDV Oranı (%)",
+        "de": "Country VAT Rate (%)",
+        "fr": "Country VAT Rate (%)",
+        "es": "Country VAT Rate (%)",
+        "ar": "Country VAT Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Hedef ülkenin KDV oranı.",
+      "businessContext_i18n": {
+        "en": "Destination country VAT rate.",
+        "tr": "Hedef ülkenin KDV oranı.",
+        "de": "Destination country VAT rate.",
+        "fr": "Destination country VAT rate.",
+        "es": "Destination country VAT rate.",
+        "ar": "Destination country VAT rate."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(netFiyat + kargo) * (ulkeKDV / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "EUR",
+    "breakdown": {
+      "sonuc": "Ödenecek KDV (IOSS)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Ödenecek KDV (IOSS)",
+        "tr": "Ödenecek KDV (IOSS)",
+        "de": "Ödenecek KDV (IOSS)",
+        "fr": "Ödenecek KDV (IOSS)",
+        "es": "Ödenecek KDV (IOSS)",
+        "ar": "Ödenecek KDV (IOSS)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "EUR"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Factor in return rates and chargebacks.",
+      "Review platform fee schedules regularly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+      "long": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+      "short_i18n": {
+        "en": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+        "tr": "AB ithalatında alıcı ülkeye ödenen KDV'yi (IOSS) hesaplar.",
+        "de": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+        "fr": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+        "es": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+        "ar": "Calculate EU import VAT (IOSS) for goods under EUR 150."
+      },
+      "long_i18n": {
+        "en": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+        "tr": "AB ithalatında alıcı ülkeye ödenen KDV'yi (IOSS) hesaplar.",
+        "de": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+        "fr": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+        "es": "Calculate EU import VAT (IOSS) for goods under EUR 150.",
+        "ar": "Calculate EU import VAT (IOSS) for goods under EUR 150."
+      }
+    }
+  }
+}

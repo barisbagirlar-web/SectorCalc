@@ -1,113 +1,168 @@
 {
-  "slug": "nft-kar-hesaplama",
-  "name": "NFT Kâr Hesaplama",
-  "description": "Professional nft kâr hesaplama tool for accurate calculations.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "Detailed PDF report",
-    "Scenario comparison",
-    "Multi-year projections"
-  ],
+  "toolName": "nft-kar-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "revenueAmount",
-      "label": "Value 1",
-      "type": "number",
-      "unit": "currency",
-      "default": 100,
-      "min": 0,
-      "businessContext": "Toplam gelir.",
+      "id": "alis",
+      "label": "Alış Fiyatı (ETH)",
       "label_i18n": {
-        "en": "Value 1",
-        "tr": "Değer 1",
-        "de": "Giriş Değeri",
-        "fr": "Giriş Değeri",
-        "es": "Giriş Değeri",
-        "ar": "Giriş Değeri"
+        "en": "Buy Price (ETH)",
+        "tr": "Alış Fiyatı (ETH)",
+        "de": "Buy Price (ETH)",
+        "fr": "Buy Price (ETH)",
+        "es": "Buy Price (ETH)",
+        "ar": "Buy Price (ETH)"
       },
+      "type": "number",
+      "unit": "ETH",
+      "default": 1,
+      "min": 0,
+      "businessContext": "NFT'nin alış fiyatı (ETH).",
       "businessContext_i18n": {
-        "en": "First value.",
-        "tr": "Birinci değer.",
-        "de": "Hesaplama için giriş değeri.",
-        "fr": "Hesaplama için giriş değeri.",
-        "es": "Hesaplama için giriş değeri.",
-        "ar": "Hesaplama için giriş değeri."
+        "en": "NFT purchase price in ETH.",
+        "tr": "NFT'nin alış fiyatı (ETH).",
+        "de": "NFT purchase price in ETH.",
+        "fr": "NFT purchase price in ETH.",
+        "es": "NFT purchase price in ETH.",
+        "ar": "NFT purchase price in ETH."
       }
     },
     {
-      "id": "costAmount",
-      "label": "Value 2",
-      "type": "number",
-      "unit": "currency",
-      "default": 50,
-      "min": 0,
-      "businessContext": "Toplam maliyet.",
+      "id": "satis",
+      "label": "Satış Fiyatı (ETH)",
       "label_i18n": {
-        "en": "Value 2",
-        "tr": "Değer 2",
-        "de": "Giriş Faktörü",
-        "fr": "Giriş Faktörü",
-        "es": "Giriş Faktörü",
-        "ar": "Giriş Faktörü"
+        "en": "Sell Price (ETH)",
+        "tr": "Satış Fiyatı (ETH)",
+        "de": "Sell Price (ETH)",
+        "fr": "Sell Price (ETH)",
+        "es": "Sell Price (ETH)",
+        "ar": "Sell Price (ETH)"
       },
+      "type": "number",
+      "unit": "ETH",
+      "default": 2.5,
+      "min": 0,
+      "businessContext": "NFT'nin satış fiyatı (ETH).",
       "businessContext_i18n": {
-        "en": "Second value.",
-        "tr": "İkinci değer.",
-        "de": "Hesaplama için giriş faktörü.",
-        "fr": "Hesaplama için giriş faktörü.",
-        "es": "Hesaplama için giriş faktörü.",
-        "ar": "Hesaplama için giriş faktörü."
+        "en": "NFT sell price in ETH.",
+        "tr": "NFT'nin satış fiyatı (ETH).",
+        "de": "NFT sell price in ETH.",
+        "fr": "NFT sell price in ETH.",
+        "es": "NFT sell price in ETH.",
+        "ar": "NFT sell price in ETH."
+      }
+    },
+    {
+      "id": "gas",
+      "label": "Gas Ücreti (ETH)",
+      "label_i18n": {
+        "en": "Gas Fee (ETH)",
+        "tr": "Gas Ücreti (ETH)",
+        "de": "Gas Fee (ETH)",
+        "fr": "Gas Fee (ETH)",
+        "es": "Gas Fee (ETH)",
+        "ar": "Gas Fee (ETH)"
+      },
+      "type": "number",
+      "unit": "ETH",
+      "default": 0.05,
+      "min": 0,
+      "businessContext": "İşlem için ödenen gas ücreti.",
+      "businessContext_i18n": {
+        "en": "Gas fee paid for the transaction.",
+        "tr": "İşlem için ödenen gas ücreti.",
+        "de": "Gas fee paid for the transaction.",
+        "fr": "Gas fee paid for the transaction.",
+        "es": "Gas fee paid for the transaction.",
+        "ar": "Gas fee paid for the transaction."
+      }
+    },
+    {
+      "id": "royalty",
+      "label": "Royalty Oranı (%)",
+      "label_i18n": {
+        "en": "Royalty Rate (%)",
+        "tr": "Royalty Oranı (%)",
+        "de": "Royalty Rate (%)",
+        "fr": "Royalty Rate (%)",
+        "es": "Royalty Rate (%)",
+        "ar": "Royalty Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Platforma ödenen royalty.",
+      "businessContext_i18n": {
+        "en": "Platform royalty percentage.",
+        "tr": "Platforma ödenen royalty.",
+        "de": "Platform royalty percentage.",
+        "fr": "Platform royalty percentage.",
+        "es": "Platform royalty percentage.",
+        "ar": "Platform royalty percentage."
       }
     }
   ],
   "validation": {
     "rules": [
-      "All inputs should be positive numbers where applicable."
+      "All numeric inputs must be positive numbers."
     ],
     "thresholds": {}
   },
   "formulas": {
-    "main": "revenueAmount / costAmount * 100 + Math.sqrt(revenueAmount * costAmount) / 10",
-    "result": "revenueAmount / costAmount * 100 + Math.sqrt(revenueAmount * costAmount) / 10"
+    "sonuc": "satis - alis - gas - (satis * royalty / 100)"
   },
   "outputs": {
-    "primary": "result",
-    "unit": "",
+    "primary": "sonuc",
+    "unit": "ETH",
     "breakdown": {
-      "result": "revenueAmount * costAmount"
+      "sonuc": "Net NFT Kârı"
     },
     "breakdown_i18n": {
-      "result": {
-        "en": "Result",
-        "tr": "Sonuç"
+      "sonuc": {
+        "en": "Net NFT Kârı",
+        "tr": "Net NFT Kârı",
+        "de": "Net NFT Kârı",
+        "fr": "Net NFT Kârı",
+        "es": "Net NFT Kârı",
+        "ar": "Net NFT Kârı"
       }
+    },
+    "breakdownUnits": {
+      "sonuc": "ETH"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
-      "Consult with a professional.",
-      "Review assumptions regularly."
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+    "dataConfidenceAdjusted": "sonuc"
   },
+  "premiumRequired": false,
+  "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Quick nft kâr hesaplama calculation.",
-      "long": "This free tool provides a quick nft kâr hesaplama."
-    },
-    "faqs": [
-      {
-        "question": "What does this NFT Kâr Hesaplama include?",
-        "answer": "Basic nft kâr hesaplama calculation."
+      "short": "Calculate net NFT profit after gas and royalty fees.",
+      "long": "Calculate net NFT profit after gas and royalty fees.",
+      "short_i18n": {
+        "en": "Calculate net NFT profit after gas and royalty fees.",
+        "tr": "Gas ve royalty kesintileri sonrası net NFT kârını hesaplar.",
+        "de": "Calculate net NFT profit after gas and royalty fees.",
+        "fr": "Calculate net NFT profit after gas and royalty fees.",
+        "es": "Calculate net NFT profit after gas and royalty fees.",
+        "ar": "Calculate net NFT profit after gas and royalty fees."
       },
-      {
-        "question": "What is missing from the free version?",
-        "answer": "The free version does not include detailed reporting and projections."
+      "long_i18n": {
+        "en": "Calculate net NFT profit after gas and royalty fees.",
+        "tr": "Gas ve royalty kesintileri sonrası net NFT kârını hesaplar.",
+        "de": "Calculate net NFT profit after gas and royalty fees.",
+        "fr": "Calculate net NFT profit after gas and royalty fees.",
+        "es": "Calculate net NFT profit after gas and royalty fees.",
+        "ar": "Calculate net NFT profit after gas and royalty fees."
       }
-    ]
-  },
-  "sector": "Finans & Muhasebe",
-  "toolName": "nft-kar-hesaplama",
-  "sectorId": "genel",
-  "profession": "Professional",
-  "categoryId": "finance"
+    }
+  }
 }

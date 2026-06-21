@@ -1,113 +1,144 @@
 {
-  "slug": "medicare-prim-hesaplama",
-  "name": "Medicare Prim Hesaplama",
-  "description": "Professional medicare prim hesaplama tool for accurate calculations.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "Detailed PDF report",
-    "Scenario comparison",
-    "Multi-year projections"
-  ],
+  "toolName": "medicare-prim-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "inputA",
-      "label": "Value 1",
-      "type": "number",
-      "unit": "units",
-      "default": 100,
-      "min": 0,
-      "businessContext": "Birinci giriş değeri.",
+      "id": "yillikGelir",
+      "label": "Yıllık Gelir (TL)",
       "label_i18n": {
-        "en": "Value 1",
-        "tr": "Değer 1",
-        "de": "Giriş Değeri",
-        "fr": "Giriş Değeri",
-        "es": "Giriş Değeri",
-        "ar": "Giriş Değeri"
+        "en": "Annual Income (TRY)",
+        "tr": "Yıllık Gelir (TL)",
+        "de": "Annual Income (TRY)",
+        "fr": "Annual Income (TRY)",
+        "es": "Annual Income (TRY)",
+        "ar": "Annual Income (TRY)"
       },
+      "type": "number",
+      "unit": "TRY",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Beyan edilen yıllık gelir.",
       "businessContext_i18n": {
-        "en": "First value.",
-        "tr": "Birinci değer.",
-        "de": "Hesaplama için giriş değeri.",
-        "fr": "Hesaplama için giriş değeri.",
-        "es": "Hesaplama için giriş değeri.",
-        "ar": "Hesaplama için giriş değeri."
+        "en": "Reported annual income.",
+        "tr": "Beyan edilen yıllık gelir.",
+        "de": "Reported annual income.",
+        "fr": "Reported annual income.",
+        "es": "Reported annual income.",
+        "ar": "Reported annual income."
       }
     },
     {
-      "id": "inputB",
-      "label": "Value 2",
-      "type": "number",
-      "unit": "units",
-      "default": 50,
-      "min": 0,
-      "businessContext": "İkinci giriş değeri.",
+      "id": "bazPrim",
+      "label": "Baz Prim (TL)",
       "label_i18n": {
-        "en": "Value 2",
-        "tr": "Değer 2",
-        "de": "Giriş Faktörü",
-        "fr": "Giriş Faktörü",
-        "es": "Giriş Faktörü",
-        "ar": "Giriş Faktörü"
+        "en": "Base Premium (TRY)",
+        "tr": "Baz Prim (TL)",
+        "de": "Base Premium (TRY)",
+        "fr": "Base Premium (TRY)",
+        "es": "Base Premium (TRY)",
+        "ar": "Base Premium (TRY)"
       },
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Standart prim tutarı.",
       "businessContext_i18n": {
-        "en": "Second value.",
-        "tr": "İkinci değer.",
-        "de": "Hesaplama için giriş faktörü.",
-        "fr": "Hesaplama için giriş faktörü.",
-        "es": "Hesaplama için giriş faktörü.",
-        "ar": "Hesaplama için giriş faktörü."
+        "en": "Standard premium amount.",
+        "tr": "Standart prim tutarı.",
+        "de": "Standard premium amount.",
+        "fr": "Standard premium amount.",
+        "es": "Standard premium amount.",
+        "ar": "Standard premium amount."
+      }
+    },
+    {
+      "id": "ekOran",
+      "label": "Ek Prim Oranı (%)",
+      "label_i18n": {
+        "en": "Surcharge Rate (%)",
+        "tr": "Ek Prim Oranı (%)",
+        "de": "Surcharge Rate (%)",
+        "fr": "Surcharge Rate (%)",
+        "es": "Surcharge Rate (%)",
+        "ar": "Surcharge Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Yüksek gelirlilere uygulanan ek oran.",
+      "businessContext_i18n": {
+        "en": "High-income surcharge.",
+        "tr": "Yüksek gelirlilere uygulanan ek oran.",
+        "de": "High-income surcharge.",
+        "fr": "High-income surcharge.",
+        "es": "High-income surcharge.",
+        "ar": "High-income surcharge."
       }
     }
   ],
   "validation": {
     "rules": [
-      "All inputs should be positive numbers where applicable."
+      "All numeric inputs must be positive numbers."
     ],
     "thresholds": {}
   },
   "formulas": {
-    "main": "inputA / inputB * 100 + Math.sqrt(inputA * inputB) / 10",
-    "result": "inputA / inputB * 100 + Math.sqrt(inputA * inputB) / 10"
+    "esik": "300000",
+    "sonuc": "bazPrim + Math.max(0, (yillikGelir - 300000) * ekOran / 100)"
   },
   "outputs": {
-    "primary": "result",
-    "unit": "",
+    "primary": "sonuc",
+    "unit": "TRY",
     "breakdown": {
-      "result": "inputA * inputB"
+      "sonuc": "Aylık Medicare Primi"
     },
     "breakdown_i18n": {
-      "result": {
-        "en": "Result",
-        "tr": "Sonuç"
+      "sonuc": {
+        "en": "Aylık Medicare Primi",
+        "tr": "Aylık Medicare Primi",
+        "de": "Aylık Medicare Primi",
+        "fr": "Aylık Medicare Primi",
+        "es": "Aylık Medicare Primi",
+        "ar": "Aylık Medicare Primi"
       }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
-      "Consult with a professional.",
-      "Review assumptions regularly."
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
     ],
-    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+    "dataConfidenceAdjusted": "sonuc"
   },
+  "premiumRequired": false,
+  "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Quick medicare prim hesaplama calculation.",
-      "long": "This free tool provides a quick medicare prim hesaplama."
-    },
-    "faqs": [
-      {
-        "question": "What does this Medicare Prim Hesaplama include?",
-        "answer": "Basic medicare prim hesaplama calculation."
+      "short": "Calculate income-adjusted monthly Medicare premium.",
+      "long": "Calculate income-adjusted monthly Medicare premium.",
+      "short_i18n": {
+        "en": "Calculate income-adjusted monthly Medicare premium.",
+        "tr": "Gelire göre ayarlanmış aylık Medicare sağlık sigortası primini hesaplar.",
+        "de": "Calculate income-adjusted monthly Medicare premium.",
+        "fr": "Calculate income-adjusted monthly Medicare premium.",
+        "es": "Calculate income-adjusted monthly Medicare premium.",
+        "ar": "Calculate income-adjusted monthly Medicare premium."
       },
-      {
-        "question": "What is missing from the free version?",
-        "answer": "The free version does not include detailed reporting and projections."
+      "long_i18n": {
+        "en": "Calculate income-adjusted monthly Medicare premium.",
+        "tr": "Gelire göre ayarlanmış aylık Medicare sağlık sigortası primini hesaplar.",
+        "de": "Calculate income-adjusted monthly Medicare premium.",
+        "fr": "Calculate income-adjusted monthly Medicare premium.",
+        "es": "Calculate income-adjusted monthly Medicare premium.",
+        "ar": "Calculate income-adjusted monthly Medicare premium."
       }
-    ]
-  },
-  "sector": "Finans & Muhasebe",
-  "toolName": "medicare-prim-hesaplama",
-  "sectorId": "genel",
-  "profession": "Professional",
-  "categoryId": "finance"
+    }
+  }
 }

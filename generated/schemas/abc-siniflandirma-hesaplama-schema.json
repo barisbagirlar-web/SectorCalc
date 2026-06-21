@@ -1,0 +1,119 @@
+{
+  "toolName": "abc-siniflandirma-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "yillikTalep",
+      "label": "Yıllık Talep (Adet)",
+      "label_i18n": {
+        "en": "Annual Demand",
+        "tr": "Yıllık Talep (Adet)",
+        "de": "Annual Demand",
+        "fr": "Annual Demand",
+        "es": "Annual Demand",
+        "ar": "Annual Demand"
+      },
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Ürünün yıllık talep miktarı.",
+      "businessContext_i18n": {
+        "en": "Annual demand quantity.",
+        "tr": "Ürünün yıllık talep miktarı.",
+        "de": "Annual demand quantity.",
+        "fr": "Annual demand quantity.",
+        "es": "Annual demand quantity.",
+        "ar": "Annual demand quantity."
+      }
+    },
+    {
+      "id": "birimMaliyet",
+      "label": "Birim Maliyet (TL)",
+      "label_i18n": {
+        "en": "Unit Cost (TRY)",
+        "tr": "Birim Maliyet (TL)",
+        "de": "Unit Cost (TRY)",
+        "fr": "Unit Cost (TRY)",
+        "es": "Unit Cost (TRY)",
+        "ar": "Unit Cost (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Ürünün birim maliyeti.",
+      "businessContext_i18n": {
+        "en": "Unit product cost.",
+        "tr": "Ürünün birim maliyeti.",
+        "de": "Unit product cost.",
+        "fr": "Unit product cost.",
+        "es": "Unit product cost.",
+        "ar": "Unit product cost."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "yillikDeger": "yillikTalep * birimMaliyet",
+    "sonuc": "yillikTalep * birimMaliyet"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Yıllık Stok Değeri"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllık Stok Değeri",
+        "tr": "Yıllık Stok Değeri",
+        "de": "Yıllık Stok Değeri",
+        "fr": "Yıllık Stok Değeri",
+        "es": "Yıllık Stok Değeri",
+        "ar": "Yıllık Stok Değeri"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Classify inventory items by financial value (ABC analysis).",
+      "long": "Classify inventory items by financial value (ABC analysis).",
+      "short_i18n": {
+        "en": "Classify inventory items by financial value (ABC analysis).",
+        "tr": "Stok kalemlerini finansal önemine göre A/B/C sınıflarına ayırır.",
+        "de": "Classify inventory items by financial value (ABC analysis).",
+        "fr": "Classify inventory items by financial value (ABC analysis).",
+        "es": "Classify inventory items by financial value (ABC analysis).",
+        "ar": "Classify inventory items by financial value (ABC analysis)."
+      },
+      "long_i18n": {
+        "en": "Classify inventory items by financial value (ABC analysis).",
+        "tr": "Stok kalemlerini finansal önemine göre A/B/C sınıflarına ayırır.",
+        "de": "Classify inventory items by financial value (ABC analysis).",
+        "fr": "Classify inventory items by financial value (ABC analysis).",
+        "es": "Classify inventory items by financial value (ABC analysis).",
+        "ar": "Classify inventory items by financial value (ABC analysis)."
+      }
+    }
+  }
+}

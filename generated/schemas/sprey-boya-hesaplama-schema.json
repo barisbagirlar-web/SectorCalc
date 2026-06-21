@@ -1,0 +1,143 @@
+{
+  "toolName": "sprey-boya-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "alan",
+      "label": "Yüzey Alanı (m²)",
+      "label_i18n": {
+        "en": "Surface Area (m²)",
+        "tr": "Yüzey Alanı (m²)",
+        "de": "Surface Area (m²)",
+        "fr": "Surface Area (m²)",
+        "es": "Surface Area (m²)",
+        "ar": "Surface Area (m²)"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Boyanacak alan.",
+      "businessContext_i18n": {
+        "en": "Area to paint.",
+        "tr": "Boyanacak alan.",
+        "de": "Area to paint.",
+        "fr": "Area to paint.",
+        "es": "Area to paint.",
+        "ar": "Area to paint."
+      }
+    },
+    {
+      "id": "katSayisi",
+      "label": "Kat Sayısı",
+      "label_i18n": {
+        "en": "Number of Coats",
+        "tr": "Kat Sayısı",
+        "de": "Number of Coats",
+        "fr": "Number of Coats",
+        "es": "Number of Coats",
+        "ar": "Number of Coats"
+      },
+      "type": "number",
+      "unit": "coats",
+      "default": 2,
+      "min": 1,
+      "businessContext": "Uygulanacak boya katı.",
+      "businessContext_i18n": {
+        "en": "Number of paint coats.",
+        "tr": "Uygulanacak boya katı.",
+        "de": "Number of paint coats.",
+        "fr": "Number of paint coats.",
+        "es": "Number of paint coats.",
+        "ar": "Number of paint coats."
+      }
+    },
+    {
+      "id": "ortmeOrani",
+      "label": "Örtme Oranı (m²/L)",
+      "label_i18n": {
+        "en": "Coverage Rate (m²/L)",
+        "tr": "Örtme Oranı (m²/L)",
+        "de": "Coverage Rate (m²/L)",
+        "fr": "Coverage Rate (m²/L)",
+        "es": "Coverage Rate (m²/L)",
+        "ar": "Coverage Rate (m²/L)"
+      },
+      "type": "number",
+      "unit": "m2/L",
+      "default": 8,
+      "min": 0,
+      "businessContext": "1 litrenin örttüğü alan.",
+      "businessContext_i18n": {
+        "en": "Coverage per liter.",
+        "tr": "1 litrenin örttüğü alan.",
+        "de": "Coverage per liter.",
+        "fr": "Coverage per liter.",
+        "es": "Coverage per liter.",
+        "ar": "Coverage per liter."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(alan * katSayisi) / Math.max(0.0001, ortmeOrani)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "L",
+    "breakdown": {
+      "sonuc": "Gerekli Sprey Boya"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Sprey Boya",
+        "tr": "Gerekli Sprey Boya",
+        "de": "Gerekli Sprey Boya",
+        "fr": "Gerekli Sprey Boya",
+        "es": "Gerekli Sprey Boya",
+        "ar": "Gerekli Sprey Boya"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "L"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate spray paint volume needed for a surface.",
+      "long": "Calculate spray paint volume needed for a surface.",
+      "short_i18n": {
+        "en": "Calculate spray paint volume needed for a surface.",
+        "tr": "Yüzeyi boyamak için gereken sprey boya hacmini hesaplar.",
+        "de": "Calculate spray paint volume needed for a surface.",
+        "fr": "Calculate spray paint volume needed for a surface.",
+        "es": "Calculate spray paint volume needed for a surface.",
+        "ar": "Calculate spray paint volume needed for a surface."
+      },
+      "long_i18n": {
+        "en": "Calculate spray paint volume needed for a surface.",
+        "tr": "Yüzeyi boyamak için gereken sprey boya hacmini hesaplar.",
+        "de": "Calculate spray paint volume needed for a surface.",
+        "fr": "Calculate spray paint volume needed for a surface.",
+        "es": "Calculate spray paint volume needed for a surface.",
+        "ar": "Calculate spray paint volume needed for a surface."
+      }
+    }
+  }
+}

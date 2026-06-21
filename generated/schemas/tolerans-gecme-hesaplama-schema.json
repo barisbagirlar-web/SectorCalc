@@ -1,0 +1,118 @@
+{
+  "toolName": "tolerans-gecme-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "delikCap",
+      "label": "Delik Çapı (m)",
+      "label_i18n": {
+        "en": "Hole Diameter (m)",
+        "tr": "Delik Çapı (m)",
+        "de": "Hole Diameter (m)",
+        "fr": "Hole Diameter (m)",
+        "es": "Hole Diameter (m)",
+        "ar": "Hole Diameter (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.0501,
+      "min": 0,
+      "businessContext": "Delik nominal çapı.",
+      "businessContext_i18n": {
+        "en": "Hole nominal diameter.",
+        "tr": "Delik nominal çapı.",
+        "de": "Hole nominal diameter.",
+        "fr": "Hole nominal diameter.",
+        "es": "Hole nominal diameter.",
+        "ar": "Hole nominal diameter."
+      }
+    },
+    {
+      "id": "milCap",
+      "label": "Mil Çapı (m)",
+      "label_i18n": {
+        "en": "Shaft Diameter (m)",
+        "tr": "Mil Çapı (m)",
+        "de": "Shaft Diameter (m)",
+        "fr": "Shaft Diameter (m)",
+        "es": "Shaft Diameter (m)",
+        "ar": "Shaft Diameter (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "min": 0,
+      "businessContext": "Mil nominal çapı.",
+      "businessContext_i18n": {
+        "en": "Shaft nominal diameter.",
+        "tr": "Mil nominal çapı.",
+        "de": "Shaft nominal diameter.",
+        "fr": "Shaft nominal diameter.",
+        "es": "Shaft nominal diameter.",
+        "ar": "Shaft nominal diameter."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "delikCap - milCap"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Geçme/Boşluk Miktarı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Geçme/Boşluk Miktarı",
+        "tr": "Geçme/Boşluk Miktarı",
+        "de": "Geçme/Boşluk Miktarı",
+        "fr": "Geçme/Boşluk Miktarı",
+        "es": "Geçme/Boşluk Miktarı",
+        "ar": "Geçme/Boşluk Miktarı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate clearance or interference between hole and shaft.",
+      "long": "Calculate clearance or interference between hole and shaft.",
+      "short_i18n": {
+        "en": "Calculate clearance or interference between hole and shaft.",
+        "tr": "Delik ve mil arasındaki boşluk/geçme miktarını hesaplar.",
+        "de": "Calculate clearance or interference between hole and shaft.",
+        "fr": "Calculate clearance or interference between hole and shaft.",
+        "es": "Calculate clearance or interference between hole and shaft.",
+        "ar": "Calculate clearance or interference between hole and shaft."
+      },
+      "long_i18n": {
+        "en": "Calculate clearance or interference between hole and shaft.",
+        "tr": "Delik ve mil arasındaki boşluk/geçme miktarını hesaplar.",
+        "de": "Calculate clearance or interference between hole and shaft.",
+        "fr": "Calculate clearance or interference between hole and shaft.",
+        "es": "Calculate clearance or interference between hole and shaft.",
+        "ar": "Calculate clearance or interference between hole and shaft."
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "toolName": "atalet-momenti-dikdortgen-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "genislik",
+      "label": "Kesit Genişliği (m)",
+      "label_i18n": {
+        "en": "Section Width (m)",
+        "tr": "Kesit Genişliği (m)",
+        "de": "Section Width (m)",
+        "fr": "Section Width (m)",
+        "es": "Section Width (m)",
+        "ar": "Section Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Dikdörtgen kesitin genişliği.",
+      "businessContext_i18n": {
+        "en": "Rectangle section width.",
+        "tr": "Dikdörtgen kesitin genişliği.",
+        "de": "Rectangle section width.",
+        "fr": "Rectangle section width.",
+        "es": "Rectangle section width.",
+        "ar": "Rectangle section width."
+      }
+    },
+    {
+      "id": "yukseklik",
+      "label": "Kesit Yüksekliği (m)",
+      "label_i18n": {
+        "en": "Section Height (m)",
+        "tr": "Kesit Yüksekliği (m)",
+        "de": "Section Height (m)",
+        "fr": "Section Height (m)",
+        "es": "Section Height (m)",
+        "ar": "Section Height (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.4,
+      "min": 0,
+      "businessContext": "Dikdörtgen kesitin yüksekliği.",
+      "businessContext_i18n": {
+        "en": "Rectangle section height.",
+        "tr": "Dikdörtgen kesitin yüksekliği.",
+        "de": "Rectangle section height.",
+        "fr": "Rectangle section height.",
+        "es": "Rectangle section height.",
+        "ar": "Rectangle section height."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(genislik * Math.pow(yukseklik, 3)) / 12"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m4",
+    "breakdown": {
+      "sonuc": "Atalet Momenti (I)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Atalet Momenti (I)",
+        "tr": "Atalet Momenti (I)",
+        "de": "Atalet Momenti (I)",
+        "fr": "Atalet Momenti (I)",
+        "es": "Atalet Momenti (I)",
+        "ar": "Atalet Momenti (I)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m4"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate rectangular section moment of inertia.",
+      "long": "Calculate rectangular section moment of inertia.",
+      "short_i18n": {
+        "en": "Calculate rectangular section moment of inertia.",
+        "tr": "Dikdörtgen kesitin eğilmeye karşı gösterdiği geometrik direnci (atalet momenti) hesaplar.",
+        "de": "Calculate rectangular section moment of inertia.",
+        "fr": "Calculate rectangular section moment of inertia.",
+        "es": "Calculate rectangular section moment of inertia.",
+        "ar": "Calculate rectangular section moment of inertia."
+      },
+      "long_i18n": {
+        "en": "Calculate rectangular section moment of inertia.",
+        "tr": "Dikdörtgen kesitin eğilmeye karşı gösterdiği geometrik direnci (atalet momenti) hesaplar.",
+        "de": "Calculate rectangular section moment of inertia.",
+        "fr": "Calculate rectangular section moment of inertia.",
+        "es": "Calculate rectangular section moment of inertia.",
+        "ar": "Calculate rectangular section moment of inertia."
+      }
+    }
+  }
+}

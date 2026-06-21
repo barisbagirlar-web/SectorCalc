@@ -1,0 +1,143 @@
+{
+  "toolName": "capm-ozsermaye-maliyeti-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "risksizFaiz",
+      "label": "Risksiz Faiz (%)",
+      "label_i18n": {
+        "en": "Risk-Free Rate (%)",
+        "tr": "Risksiz Faiz (%)",
+        "de": "Risk-Free Rate (%)",
+        "fr": "Risk-Free Rate (%)",
+        "es": "Risk-Free Rate (%)",
+        "ar": "Risk-Free Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "businessContext": "Devlet tahvili gibi risksiz yatırım getirisi.",
+      "businessContext_i18n": {
+        "en": "Return on risk-free assets (e.g., government bonds).",
+        "tr": "Devlet tahvili gibi risksiz yatırım getirisi.",
+        "de": "Return on risk-free assets (e.g., government bonds).",
+        "fr": "Return on risk-free assets (e.g., government bonds).",
+        "es": "Return on risk-free assets (e.g., government bonds).",
+        "ar": "Return on risk-free assets (e.g., government bonds)."
+      }
+    },
+    {
+      "id": "beta",
+      "label": "Beta (Sayı)",
+      "label_i18n": {
+        "en": "Beta (Number)",
+        "tr": "Beta (Sayı)",
+        "de": "Beta (Number)",
+        "fr": "Beta (Number)",
+        "es": "Beta (Number)",
+        "ar": "Beta (Number)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "min": 0,
+      "businessContext": "Hissenin piyasaya duyarlılık katsayısı.",
+      "businessContext_i18n": {
+        "en": "Stock's sensitivity to market movements.",
+        "tr": "Hissenin piyasaya duyarlılık katsayısı.",
+        "de": "Stock's sensitivity to market movements.",
+        "fr": "Stock's sensitivity to market movements.",
+        "es": "Stock's sensitivity to market movements.",
+        "ar": "Stock's sensitivity to market movements."
+      }
+    },
+    {
+      "id": "piyasaPrimi",
+      "label": "Piyasa Risk Primi (%)",
+      "label_i18n": {
+        "en": "Market Risk Premium (%)",
+        "tr": "Piyasa Risk Primi (%)",
+        "de": "Market Risk Premium (%)",
+        "fr": "Market Risk Premium (%)",
+        "es": "Market Risk Premium (%)",
+        "ar": "Market Risk Premium (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "min": 0,
+      "businessContext": "Piyasanın risksiz faiz üzerindeki getiri fazlası.",
+      "businessContext_i18n": {
+        "en": "Excess return of market over risk-free rate.",
+        "tr": "Piyasanın risksiz faiz üzerindeki getiri fazlası.",
+        "de": "Excess return of market over risk-free rate.",
+        "fr": "Excess return of market over risk-free rate.",
+        "es": "Excess return of market over risk-free rate.",
+        "ar": "Excess return of market over risk-free rate."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "risksizFaiz + beta * piyasaPrimi"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Özsermaye Maliyeti (CAPM)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Özsermaye Maliyeti (CAPM)",
+        "tr": "Özsermaye Maliyeti (CAPM)",
+        "de": "Özsermaye Maliyeti (CAPM)",
+        "fr": "Özsermaye Maliyeti (CAPM)",
+        "es": "Özsermaye Maliyeti (CAPM)",
+        "ar": "Özsermaye Maliyeti (CAPM)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+      "long": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+      "short_i18n": {
+        "en": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+        "tr": "Hissedarların risk profiline göre beklediği minimum getiriyi (CAPM) hesaplar.",
+        "de": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+        "fr": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+        "es": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+        "ar": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM)."
+      },
+      "long_i18n": {
+        "en": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+        "tr": "Hissedarların risk profiline göre beklediği minimum getiriyi (CAPM) hesaplar.",
+        "de": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+        "fr": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+        "es": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
+        "ar": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM)."
+      }
+    }
+  }
+}

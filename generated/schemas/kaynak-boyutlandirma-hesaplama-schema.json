@@ -1,0 +1,143 @@
+{
+  "toolName": "kaynak-boyutlandirma-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "yuk",
+      "label": "Uygulanan Yük (N)",
+      "label_i18n": {
+        "en": "Applied Load (N)",
+        "tr": "Uygulanan Yük (N)",
+        "de": "Applied Load (N)",
+        "fr": "Applied Load (N)",
+        "es": "Applied Load (N)",
+        "ar": "Applied Load (N)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Kaynağa etkiyen kuvvet.",
+      "businessContext_i18n": {
+        "en": "Force on weld.",
+        "tr": "Kaynağa etkiyen kuvvet.",
+        "de": "Force on weld.",
+        "fr": "Force on weld.",
+        "es": "Force on weld.",
+        "ar": "Force on weld."
+      }
+    },
+    {
+      "id": "kaynakBoyu",
+      "label": "Kaynak Boyu (m)",
+      "label_i18n": {
+        "en": "Weld Length (m)",
+        "tr": "Kaynak Boyu (m)",
+        "de": "Weld Length (m)",
+        "fr": "Weld Length (m)",
+        "es": "Weld Length (m)",
+        "ar": "Weld Length (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "min": 0,
+      "businessContext": "Kaynak dikiş uzunluğu.",
+      "businessContext_i18n": {
+        "en": "Weld seam length.",
+        "tr": "Kaynak dikiş uzunluğu.",
+        "de": "Weld seam length.",
+        "fr": "Weld seam length.",
+        "es": "Weld seam length.",
+        "ar": "Weld seam length."
+      }
+    },
+    {
+      "id": "kaynakGerilmesi",
+      "label": "İzin Verilen Kaynak Gerilmesi (Pa)",
+      "label_i18n": {
+        "en": "Allowable Weld Stress (Pa)",
+        "tr": "İzin Verilen Kaynak Gerilmesi (Pa)",
+        "de": "Allowable Weld Stress (Pa)",
+        "fr": "Allowable Weld Stress (Pa)",
+        "es": "Allowable Weld Stress (Pa)",
+        "ar": "Allowable Weld Stress (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 120000000,
+      "min": 0,
+      "businessContext": "Kaynak metalinin emniyet gerilmesi.",
+      "businessContext_i18n": {
+        "en": "Weld metal allowable stress.",
+        "tr": "Kaynak metalinin emniyet gerilmesi.",
+        "de": "Weld metal allowable stress.",
+        "fr": "Weld metal allowable stress.",
+        "es": "Weld metal allowable stress.",
+        "ar": "Weld metal allowable stress."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "yuk / Math.max(0.0001, (kaynakBoyu * kaynakGerilmesi))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Min. Kaynak Boğaz Kalınlığı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Min. Kaynak Boğaz Kalınlığı",
+        "tr": "Min. Kaynak Boğaz Kalınlığı",
+        "de": "Min. Kaynak Boğaz Kalınlığı",
+        "fr": "Min. Kaynak Boğaz Kalınlığı",
+        "es": "Min. Kaynak Boğaz Kalınlığı",
+        "ar": "Min. Kaynak Boğaz Kalınlığı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum weld throat thickness for given load.",
+      "long": "Calculate minimum weld throat thickness for given load.",
+      "short_i18n": {
+        "en": "Calculate minimum weld throat thickness for given load.",
+        "tr": "Çalışma yükünü taşıyacak minimum kaynak boğaz kalınlığını hesaplar.",
+        "de": "Calculate minimum weld throat thickness for given load.",
+        "fr": "Calculate minimum weld throat thickness for given load.",
+        "es": "Calculate minimum weld throat thickness for given load.",
+        "ar": "Calculate minimum weld throat thickness for given load."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum weld throat thickness for given load.",
+        "tr": "Çalışma yükünü taşıyacak minimum kaynak boğaz kalınlığını hesaplar.",
+        "de": "Calculate minimum weld throat thickness for given load.",
+        "fr": "Calculate minimum weld throat thickness for given load.",
+        "es": "Calculate minimum weld throat thickness for given load.",
+        "ar": "Calculate minimum weld throat thickness for given load."
+      }
+    }
+  }
+}

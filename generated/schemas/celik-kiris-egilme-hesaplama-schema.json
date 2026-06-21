@@ -1,0 +1,118 @@
+{
+  "toolName": "celik-kiris-egilme-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "moment",
+      "label": "Eğilme Momenti (N.m)",
+      "label_i18n": {
+        "en": "Bending Moment (N.m)",
+        "tr": "Eğilme Momenti (N.m)",
+        "de": "Bending Moment (N.m)",
+        "fr": "Bending Moment (N.m)",
+        "es": "Bending Moment (N.m)",
+        "ar": "Bending Moment (N.m)"
+      },
+      "type": "number",
+      "unit": "N.m",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Kirişe etkiyen eğilme momenti.",
+      "businessContext_i18n": {
+        "en": "Bending moment on beam.",
+        "tr": "Kirişe etkiyen eğilme momenti.",
+        "de": "Bending moment on beam.",
+        "fr": "Bending moment on beam.",
+        "es": "Bending moment on beam.",
+        "ar": "Bending moment on beam."
+      }
+    },
+    {
+      "id": "kesitModulu",
+      "label": "Kesit Modülü (m³)",
+      "label_i18n": {
+        "en": "Section Modulus (m³)",
+        "tr": "Kesit Modülü (m³)",
+        "de": "Section Modulus (m³)",
+        "fr": "Section Modulus (m³)",
+        "es": "Section Modulus (m³)",
+        "ar": "Section Modulus (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.00025,
+      "min": 0,
+      "businessContext": "Profilin elastik kesit modülü.",
+      "businessContext_i18n": {
+        "en": "Elastic section modulus.",
+        "tr": "Profilin elastik kesit modülü.",
+        "de": "Elastic section modulus.",
+        "fr": "Elastic section modulus.",
+        "es": "Elastic section modulus.",
+        "ar": "Elastic section modulus."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "moment / Math.max(0.0001, kesitModulu)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Maks. Eğilme Gerilmesi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maks. Eğilme Gerilmesi",
+        "tr": "Maks. Eğilme Gerilmesi",
+        "de": "Maks. Eğilme Gerilmesi",
+        "fr": "Maks. Eğilme Gerilmesi",
+        "es": "Maks. Eğilme Gerilmesi",
+        "ar": "Maks. Eğilme Gerilmesi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate maximum bending stress in a steel beam section.",
+      "long": "Calculate maximum bending stress in a steel beam section.",
+      "short_i18n": {
+        "en": "Calculate maximum bending stress in a steel beam section.",
+        "tr": "Çelik profilin dış liflerindeki maksimum eğilme (normal) gerilmesini hesaplar.",
+        "de": "Calculate maximum bending stress in a steel beam section.",
+        "fr": "Calculate maximum bending stress in a steel beam section.",
+        "es": "Calculate maximum bending stress in a steel beam section.",
+        "ar": "Calculate maximum bending stress in a steel beam section."
+      },
+      "long_i18n": {
+        "en": "Calculate maximum bending stress in a steel beam section.",
+        "tr": "Çelik profilin dış liflerindeki maksimum eğilme (normal) gerilmesini hesaplar.",
+        "de": "Calculate maximum bending stress in a steel beam section.",
+        "fr": "Calculate maximum bending stress in a steel beam section.",
+        "es": "Calculate maximum bending stress in a steel beam section.",
+        "ar": "Calculate maximum bending stress in a steel beam section."
+      }
+    }
+  }
+}

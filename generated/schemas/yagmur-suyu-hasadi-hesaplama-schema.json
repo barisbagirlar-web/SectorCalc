@@ -1,0 +1,143 @@
+{
+  "toolName": "yagmur-suyu-hasadi-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "İnşaat ve Yapı",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "catiAlani",
+      "label": "Çatı Alanı (m²)",
+      "label_i18n": {
+        "en": "Roof Area (m²)",
+        "tr": "Çatı Alanı (m²)",
+        "de": "Roof Area (m²)",
+        "fr": "Roof Area (m²)",
+        "es": "Roof Area (m²)",
+        "ar": "Roof Area (m²)"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 150,
+      "min": 0,
+      "businessContext": "Toplanan çatı alanı.",
+      "businessContext_i18n": {
+        "en": "Collection roof area.",
+        "tr": "Toplanan çatı alanı.",
+        "de": "Collection roof area.",
+        "fr": "Collection roof area.",
+        "es": "Collection roof area.",
+        "ar": "Collection roof area."
+      }
+    },
+    {
+      "id": "yillikYagis",
+      "label": "Yıllık Yağış (mm)",
+      "label_i18n": {
+        "en": "Annual Rainfall (mm)",
+        "tr": "Yıllık Yağış (mm)",
+        "de": "Annual Rainfall (mm)",
+        "fr": "Annual Rainfall (mm)",
+        "es": "Annual Rainfall (mm)",
+        "ar": "Annual Rainfall (mm)"
+      },
+      "type": "number",
+      "unit": "mm",
+      "default": 600,
+      "min": 0,
+      "businessContext": "Bölgenin yıllık yağış miktarı.",
+      "businessContext_i18n": {
+        "en": "Annual precipitation.",
+        "tr": "Bölgenin yıllık yağış miktarı.",
+        "de": "Annual precipitation.",
+        "fr": "Annual precipitation.",
+        "es": "Annual precipitation.",
+        "ar": "Annual precipitation."
+      }
+    },
+    {
+      "id": "verim",
+      "label": "Toplama Verimi (%)",
+      "label_i18n": {
+        "en": "Collection Efficiency (%)",
+        "tr": "Toplama Verimi (%)",
+        "de": "Collection Efficiency (%)",
+        "fr": "Collection Efficiency (%)",
+        "es": "Collection Efficiency (%)",
+        "ar": "Collection Efficiency (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "businessContext": "Sistem verimi.",
+      "businessContext_i18n": {
+        "en": "System efficiency.",
+        "tr": "Sistem verimi.",
+        "de": "System efficiency.",
+        "fr": "System efficiency.",
+        "es": "System efficiency.",
+        "ar": "System efficiency."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(catiAlani * (yillikYagis / 1000)) * (verim / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m3",
+    "breakdown": {
+      "sonuc": "Yıllık Toplanan Su"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllık Toplanan Su",
+        "tr": "Yıllık Toplanan Su",
+        "de": "Yıllık Toplanan Su",
+        "fr": "Yıllık Toplanan Su",
+        "es": "Yıllık Toplanan Su",
+        "ar": "Yıllık Toplanan Su"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m3"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Order 5-10% extra material for waste.",
+      "Verify local building codes before purchasing."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate annual rainwater harvest volume from roof area.",
+      "long": "Calculate annual rainwater harvest volume from roof area.",
+      "short_i18n": {
+        "en": "Calculate annual rainwater harvest volume from roof area.",
+        "tr": "Yılda biriktirilebilecek net yağmur suyu miktarını hesaplar.",
+        "de": "Calculate annual rainwater harvest volume from roof area.",
+        "fr": "Calculate annual rainwater harvest volume from roof area.",
+        "es": "Calculate annual rainwater harvest volume from roof area.",
+        "ar": "Calculate annual rainwater harvest volume from roof area."
+      },
+      "long_i18n": {
+        "en": "Calculate annual rainwater harvest volume from roof area.",
+        "tr": "Yılda biriktirilebilecek net yağmur suyu miktarını hesaplar.",
+        "de": "Calculate annual rainwater harvest volume from roof area.",
+        "fr": "Calculate annual rainwater harvest volume from roof area.",
+        "es": "Calculate annual rainwater harvest volume from roof area.",
+        "ar": "Calculate annual rainwater harvest volume from roof area."
+      }
+    }
+  }
+}

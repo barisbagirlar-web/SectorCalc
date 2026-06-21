@@ -1,0 +1,197 @@
+{
+  "toolName": "antrenman-yuku-trimp-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "sure",
+      "label": "Antrenman Süresi (Dk)",
+      "label_i18n": {
+        "en": "Session Duration (Min)",
+        "tr": "Antrenman Süresi (Dk)",
+        "de": "Session Duration (Min)",
+        "fr": "Session Duration (Min)",
+        "es": "Session Duration (Min)",
+        "ar": "Session Duration (Min)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "min": 0,
+      "businessContext": "Antrenman süresi.",
+      "businessContext_i18n": {
+        "en": "Training duration.",
+        "tr": "Antrenman süresi.",
+        "de": "Training duration.",
+        "fr": "Training duration.",
+        "es": "Training duration.",
+        "ar": "Training duration."
+      }
+    },
+    {
+      "id": "ortalamaNabiz",
+      "label": "Ortalama Nabız (BPM)",
+      "label_i18n": {
+        "en": "Average Heart Rate (BPM)",
+        "tr": "Ortalama Nabız (BPM)",
+        "de": "Average Heart Rate (BPM)",
+        "fr": "Average Heart Rate (BPM)",
+        "es": "Average Heart Rate (BPM)",
+        "ar": "Average Heart Rate (BPM)"
+      },
+      "type": "number",
+      "unit": "bpm",
+      "default": 145,
+      "min": 0,
+      "businessContext": "Seans ortalama kalp hızı.",
+      "businessContext_i18n": {
+        "en": "Session average HR.",
+        "tr": "Seans ortalama kalp hızı.",
+        "de": "Session average HR.",
+        "fr": "Session average HR.",
+        "es": "Session average HR.",
+        "ar": "Session average HR."
+      }
+    },
+    {
+      "id": "dinlenmeNabzi",
+      "label": "Dinlenme Nabzı (BPM)",
+      "label_i18n": {
+        "en": "Resting HR (BPM)",
+        "tr": "Dinlenme Nabzı (BPM)",
+        "de": "Resting HR (BPM)",
+        "fr": "Resting HR (BPM)",
+        "es": "Resting HR (BPM)",
+        "ar": "Resting HR (BPM)"
+      },
+      "type": "number",
+      "unit": "bpm",
+      "default": 65,
+      "min": 0,
+      "businessContext": "Bazal kalp hızı.",
+      "businessContext_i18n": {
+        "en": "Baseline heart rate.",
+        "tr": "Bazal kalp hızı.",
+        "de": "Baseline heart rate.",
+        "fr": "Baseline heart rate.",
+        "es": "Baseline heart rate.",
+        "ar": "Baseline heart rate."
+      }
+    },
+    {
+      "id": "maksNabiz",
+      "label": "Maksimum Nabız (BPM)",
+      "label_i18n": {
+        "en": "Max HR (BPM)",
+        "tr": "Maksimum Nabız (BPM)",
+        "de": "Max HR (BPM)",
+        "fr": "Max HR (BPM)",
+        "es": "Max HR (BPM)",
+        "ar": "Max HR (BPM)"
+      },
+      "type": "number",
+      "unit": "bpm",
+      "default": 190,
+      "min": 0,
+      "businessContext": "Kişinin maksimum kalp hızı.",
+      "businessContext_i18n": {
+        "en": "Individual max HR.",
+        "tr": "Kişinin maksimum kalp hızı.",
+        "de": "Individual max HR.",
+        "fr": "Individual max HR.",
+        "es": "Individual max HR.",
+        "ar": "Individual max HR."
+      }
+    },
+    {
+      "id": "cinsiyet",
+      "label": "Cinsiyet (1=Erkek, 0=Kadın)",
+      "label_i18n": {
+        "en": "Sex (1=Male, 0=Female)",
+        "tr": "Cinsiyet (1=Erkek, 0=Kadın)",
+        "de": "Sex (1=Male, 0=Female)",
+        "fr": "Sex (1=Male, 0=Female)",
+        "es": "Sex (1=Male, 0=Female)",
+        "ar": "Sex (1=Male, 0=Female)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Cinsiyet.",
+      "businessContext_i18n": {
+        "en": "Gender.",
+        "tr": "Cinsiyet.",
+        "de": "Gender.",
+        "fr": "Gender.",
+        "es": "Gender.",
+        "ar": "Gender."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "Y": "cinsiyet === 1 ? 1.92 : 1.67",
+    "sonuc": "60 * ((145-65)/Math.max(1,(190-65))) * 0.64 * Math.exp((cinsiyet === 1 ? 1.92 : 1.67) * ((145-65)/Math.max(1,(190-65))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRIMP",
+    "breakdown": {
+      "sonuc": "TRIMP Değeri"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "TRIMP Değeri",
+        "tr": "TRIMP Değeri",
+        "de": "TRIMP Değeri",
+        "fr": "TRIMP Değeri",
+        "es": "TRIMP Değeri",
+        "ar": "TRIMP Değeri"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRIMP"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate training impulse (TRIMP) using Banister's model.",
+      "long": "Calculate training impulse (TRIMP) using Banister's model.",
+      "short_i18n": {
+        "en": "Calculate training impulse (TRIMP) using Banister's model.",
+        "tr": "Banister modeline göre antrenmanın fizyolojik stres yükünü (TRIMP) hesaplar.",
+        "de": "Calculate training impulse (TRIMP) using Banister's model.",
+        "fr": "Calculate training impulse (TRIMP) using Banister's model.",
+        "es": "Calculate training impulse (TRIMP) using Banister's model.",
+        "ar": "Calculate training impulse (TRIMP) using Banister's model."
+      },
+      "long_i18n": {
+        "en": "Calculate training impulse (TRIMP) using Banister's model.",
+        "tr": "Banister modeline göre antrenmanın fizyolojik stres yükünü (TRIMP) hesaplar.",
+        "de": "Calculate training impulse (TRIMP) using Banister's model.",
+        "fr": "Calculate training impulse (TRIMP) using Banister's model.",
+        "es": "Calculate training impulse (TRIMP) using Banister's model.",
+        "ar": "Calculate training impulse (TRIMP) using Banister's model."
+      }
+    }
+  }
+}

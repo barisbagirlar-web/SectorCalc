@@ -1,0 +1,143 @@
+{
+  "toolName": "orneklem-buyuklugu-hesaplama",
+  "catalogCategory": "mathematics-statistics",
+  "categorySlug": "mathematics-statistics",
+  "sector": "Veri ve İstatistik",
+  "sectorId": "mathematics-statistics",
+  "inputs": [
+    {
+      "id": "Z",
+      "label": "Z Değeri",
+      "label_i18n": {
+        "en": "Z Value",
+        "tr": "Z Değeri",
+        "de": "Z Value",
+        "fr": "Z Value",
+        "es": "Z Value",
+        "ar": "Z Value"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1.96,
+      "min": 0,
+      "businessContext": "Güven seviyesine karşılık Z (1.96=%95).",
+      "businessContext_i18n": {
+        "en": "Z-score for confidence level.",
+        "tr": "Güven seviyesine karşılık Z (1.96=%95).",
+        "de": "Z-score for confidence level.",
+        "fr": "Z-score for confidence level.",
+        "es": "Z-score for confidence level.",
+        "ar": "Z-score for confidence level."
+      }
+    },
+    {
+      "id": "stdSapma",
+      "label": "Tahmini Standart Sapma",
+      "label_i18n": {
+        "en": "Estimated Std Dev",
+        "tr": "Tahmini Standart Sapma",
+        "de": "Estimated Std Dev",
+        "fr": "Estimated Std Dev",
+        "es": "Estimated Std Dev",
+        "ar": "Estimated Std Dev"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Popülasyon standart sapması.",
+      "businessContext_i18n": {
+        "en": "Population standard deviation.",
+        "tr": "Popülasyon standart sapması.",
+        "de": "Population standard deviation.",
+        "fr": "Population standard deviation.",
+        "es": "Population standard deviation.",
+        "ar": "Population standard deviation."
+      }
+    },
+    {
+      "id": "hataPayi",
+      "label": "Kabul Edilebilir Hata Payı",
+      "label_i18n": {
+        "en": "Margin of Error",
+        "tr": "Kabul Edilebilir Hata Payı",
+        "de": "Margin of Error",
+        "fr": "Margin of Error",
+        "es": "Margin of Error",
+        "ar": "Margin of Error"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "min": 0,
+      "businessContext": "İzin verilen maksimum hata.",
+      "businessContext_i18n": {
+        "en": "Maximum allowable error.",
+        "tr": "İzin verilen maksimum hata.",
+        "de": "Maximum allowable error.",
+        "fr": "Maximum allowable error.",
+        "es": "Maximum allowable error.",
+        "ar": "Maximum allowable error."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.ceil(Math.pow((Z * stdSapma / Math.max(0.0001, hataPayi)), 2))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "samples",
+    "breakdown": {
+      "sonuc": "Gereken Minimum Örneklem"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gereken Minimum Örneklem",
+        "tr": "Gereken Minimum Örneklem",
+        "de": "Gereken Minimum Örneklem",
+        "fr": "Gereken Minimum Örneklem",
+        "es": "Gereken Minimum Örneklem",
+        "ar": "Gereken Minimum Örneklem"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "samples"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify statistical assumptions before making decisions.",
+      "Use larger sample sizes for better accuracy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum sample size for statistical significance.",
+      "long": "Calculate minimum sample size for statistical significance.",
+      "short_i18n": {
+        "en": "Calculate minimum sample size for statistical significance.",
+        "tr": "İstatistiksel anlamlılık için gereken minimum örneklem sayısını hesaplar.",
+        "de": "Calculate minimum sample size for statistical significance.",
+        "fr": "Calculate minimum sample size for statistical significance.",
+        "es": "Calculate minimum sample size for statistical significance.",
+        "ar": "Calculate minimum sample size for statistical significance."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum sample size for statistical significance.",
+        "tr": "İstatistiksel anlamlılık için gereken minimum örneklem sayısını hesaplar.",
+        "de": "Calculate minimum sample size for statistical significance.",
+        "fr": "Calculate minimum sample size for statistical significance.",
+        "es": "Calculate minimum sample size for statistical significance.",
+        "ar": "Calculate minimum sample size for statistical significance."
+      }
+    }
+  }
+}

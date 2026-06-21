@@ -1,0 +1,119 @@
+{
+  "toolName": "hsa-saglik-tasarruf-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yillikKatki",
+      "label": "Yıllık Katkı (TL)",
+      "label_i18n": {
+        "en": "Annual Contribution (TRY)",
+        "tr": "Yıllık Katkı (TL)",
+        "de": "Annual Contribution (TRY)",
+        "fr": "Annual Contribution (TRY)",
+        "es": "Annual Contribution (TRY)",
+        "ar": "Annual Contribution (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 30000,
+      "min": 0,
+      "businessContext": "HSA'ya yatırılan yıllık tutar.",
+      "businessContext_i18n": {
+        "en": "Annual HSA contribution.",
+        "tr": "HSA'ya yatırılan yıllık tutar.",
+        "de": "Annual HSA contribution.",
+        "fr": "Annual HSA contribution.",
+        "es": "Annual HSA contribution.",
+        "ar": "Annual HSA contribution."
+      }
+    },
+    {
+      "id": "marjinalVergi",
+      "label": "Marjinal Vergi Oranı (%)",
+      "label_i18n": {
+        "en": "Marginal Tax Rate (%)",
+        "tr": "Marjinal Vergi Oranı (%)",
+        "de": "Marginal Tax Rate (%)",
+        "fr": "Marginal Tax Rate (%)",
+        "es": "Marginal Tax Rate (%)",
+        "ar": "Marginal Tax Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Vergi dilimi oranı.",
+      "businessContext_i18n": {
+        "en": "Tax bracket rate.",
+        "tr": "Vergi dilimi oranı.",
+        "de": "Tax bracket rate.",
+        "fr": "Tax bracket rate.",
+        "es": "Tax bracket rate.",
+        "ar": "Tax bracket rate."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "yillikKatki * (marjinalVergi / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Yıllık Vergi Avantajı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllık Vergi Avantajı",
+        "tr": "Yıllık Vergi Avantajı",
+        "de": "Yıllık Vergi Avantajı",
+        "fr": "Yıllık Vergi Avantajı",
+        "es": "Yıllık Vergi Avantajı",
+        "ar": "Yıllık Vergi Avantajı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate tax savings from health savings account (HSA) contributions.",
+      "long": "Calculate tax savings from health savings account (HSA) contributions.",
+      "short_i18n": {
+        "en": "Calculate tax savings from health savings account (HSA) contributions.",
+        "tr": "Sağlık tasarruf hesabından (HSA) sağlanan vergi avantajını hesaplar.",
+        "de": "Calculate tax savings from health savings account (HSA) contributions.",
+        "fr": "Calculate tax savings from health savings account (HSA) contributions.",
+        "es": "Calculate tax savings from health savings account (HSA) contributions.",
+        "ar": "Calculate tax savings from health savings account (HSA) contributions."
+      },
+      "long_i18n": {
+        "en": "Calculate tax savings from health savings account (HSA) contributions.",
+        "tr": "Sağlık tasarruf hesabından (HSA) sağlanan vergi avantajını hesaplar.",
+        "de": "Calculate tax savings from health savings account (HSA) contributions.",
+        "fr": "Calculate tax savings from health savings account (HSA) contributions.",
+        "es": "Calculate tax savings from health savings account (HSA) contributions.",
+        "ar": "Calculate tax savings from health savings account (HSA) contributions."
+      }
+    }
+  }
+}

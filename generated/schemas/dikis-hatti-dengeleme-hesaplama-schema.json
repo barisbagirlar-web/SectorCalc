@@ -1,0 +1,143 @@
+{
+  "toolName": "dikis-hatti-dengeleme-hesaplama",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "smvToplam",
+      "label": "Toplam SMV (Dk)",
+      "label_i18n": {
+        "en": "Total SMV (Min)",
+        "tr": "Toplam SMV (Dk)",
+        "de": "Total SMV (Min)",
+        "fr": "Total SMV (Min)",
+        "es": "Total SMV (Min)",
+        "ar": "Total SMV (Min)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 120,
+      "min": 0,
+      "businessContext": "Ürünün toplam standart dakikası.",
+      "businessContext_i18n": {
+        "en": "Total standard minutes per product.",
+        "tr": "Ürünün toplam standart dakikası.",
+        "de": "Total standard minutes per product.",
+        "fr": "Total standard minutes per product.",
+        "es": "Total standard minutes per product.",
+        "ar": "Total standard minutes per product."
+      }
+    },
+    {
+      "id": "taktTime",
+      "label": "Hedef Takt Süresi (Dk)",
+      "label_i18n": {
+        "en": "Target Takt Time (Min)",
+        "tr": "Hedef Takt Süresi (Dk)",
+        "de": "Target Takt Time (Min)",
+        "fr": "Target Takt Time (Min)",
+        "es": "Target Takt Time (Min)",
+        "ar": "Target Takt Time (Min)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Birim üretim için hedef süre.",
+      "businessContext_i18n": {
+        "en": "Target time per unit.",
+        "tr": "Birim üretim için hedef süre.",
+        "de": "Target time per unit.",
+        "fr": "Target time per unit.",
+        "es": "Target time per unit.",
+        "ar": "Target time per unit."
+      }
+    },
+    {
+      "id": "operator",
+      "label": "Operatör Sayısı",
+      "label_i18n": {
+        "en": "Operator Count",
+        "tr": "Operatör Sayısı",
+        "de": "Operator Count",
+        "fr": "Operator Count",
+        "es": "Operator Count",
+        "ar": "Operator Count"
+      },
+      "type": "number",
+      "unit": "operators",
+      "default": 15,
+      "min": 1,
+      "businessContext": "Hattaki toplam operatör.",
+      "businessContext_i18n": {
+        "en": "Total operators on line.",
+        "tr": "Hattaki toplam operatör.",
+        "de": "Total operators on line.",
+        "fr": "Total operators on line.",
+        "es": "Total operators on line.",
+        "ar": "Total operators on line."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(smvToplam / Math.max(0.0001, (operator * taktTime))) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Dikiş Hattı Verimliliği"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Dikiş Hattı Verimliliği",
+        "tr": "Dikiş Hattı Verimliliği",
+        "de": "Dikiş Hattı Verimliliği",
+        "fr": "Dikiş Hattı Verimliliği",
+        "es": "Dikiş Hattı Verimliliği",
+        "ar": "Dikiş Hattı Verimliliği"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate sewing line balancing efficiency per operator.",
+      "long": "Calculate sewing line balancing efficiency per operator.",
+      "short_i18n": {
+        "en": "Calculate sewing line balancing efficiency per operator.",
+        "tr": "Konfeksiyon dikim hattının operatör bazlı verimliliğini hesaplar.",
+        "de": "Calculate sewing line balancing efficiency per operator.",
+        "fr": "Calculate sewing line balancing efficiency per operator.",
+        "es": "Calculate sewing line balancing efficiency per operator.",
+        "ar": "Calculate sewing line balancing efficiency per operator."
+      },
+      "long_i18n": {
+        "en": "Calculate sewing line balancing efficiency per operator.",
+        "tr": "Konfeksiyon dikim hattının operatör bazlı verimliliğini hesaplar.",
+        "de": "Calculate sewing line balancing efficiency per operator.",
+        "fr": "Calculate sewing line balancing efficiency per operator.",
+        "es": "Calculate sewing line balancing efficiency per operator.",
+        "ar": "Calculate sewing line balancing efficiency per operator."
+      }
+    }
+  }
+}

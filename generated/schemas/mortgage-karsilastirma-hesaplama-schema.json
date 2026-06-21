@@ -1,0 +1,215 @@
+{
+  "toolName": "mortgage-karsilastirma-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "kredi1",
+      "label": "1. Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan 1 Amount (TRY)",
+        "tr": "1. Kredi Tutarı (₺)",
+        "de": "Loan 1 Amount (TRY)",
+        "fr": "Loan 1 Amount (TRY)",
+        "es": "Loan 1 Amount (TRY)",
+        "ar": "Loan 1 Amount (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Birinci kredi teklifinin tutarı.",
+      "businessContext_i18n": {
+        "en": "First loan amount.",
+        "tr": "Birinci kredi teklifinin tutarı.",
+        "de": "First loan amount.",
+        "fr": "First loan amount.",
+        "es": "First loan amount.",
+        "ar": "First loan amount."
+      }
+    },
+    {
+      "id": "faiz1",
+      "label": "1. Faiz (%)",
+      "label_i18n": {
+        "en": "Loan 1 Interest (%)",
+        "tr": "1. Faiz (%)",
+        "de": "Loan 1 Interest (%)",
+        "fr": "Loan 1 Interest (%)",
+        "es": "Loan 1 Interest (%)",
+        "ar": "Loan 1 Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Birinci kredinin faiz oranı.",
+      "businessContext_i18n": {
+        "en": "First loan interest rate.",
+        "tr": "Birinci kredinin faiz oranı.",
+        "de": "First loan interest rate.",
+        "fr": "First loan interest rate.",
+        "es": "First loan interest rate.",
+        "ar": "First loan interest rate."
+      }
+    },
+    {
+      "id": "kredi2",
+      "label": "2. Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan 2 Amount (TRY)",
+        "tr": "2. Kredi Tutarı (₺)",
+        "de": "Loan 2 Amount (TRY)",
+        "fr": "Loan 2 Amount (TRY)",
+        "es": "Loan 2 Amount (TRY)",
+        "ar": "Loan 2 Amount (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "İkinci kredi teklifinin tutarı.",
+      "businessContext_i18n": {
+        "en": "Second loan amount.",
+        "tr": "İkinci kredi teklifinin tutarı.",
+        "de": "Second loan amount.",
+        "fr": "Second loan amount.",
+        "es": "Second loan amount.",
+        "ar": "Second loan amount."
+      }
+    },
+    {
+      "id": "faiz2",
+      "label": "2. Faiz (%)",
+      "label_i18n": {
+        "en": "Loan 2 Interest (%)",
+        "tr": "2. Faiz (%)",
+        "de": "Loan 2 Interest (%)",
+        "fr": "Loan 2 Interest (%)",
+        "es": "Loan 2 Interest (%)",
+        "ar": "Loan 2 Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "İkinci kredinin faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Second loan interest rate.",
+        "tr": "İkinci kredinin faiz oranı.",
+        "de": "Second loan interest rate.",
+        "fr": "Second loan interest rate.",
+        "es": "Second loan interest rate.",
+        "ar": "Second loan interest rate."
+      }
+    },
+    {
+      "id": "vade",
+      "label": "Vade (Ay)",
+      "label_i18n": {
+        "en": "Term (Months)",
+        "tr": "Vade (Ay)",
+        "de": "Term (Months)",
+        "fr": "Term (Months)",
+        "es": "Term (Months)",
+        "ar": "Term (Months)"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 120,
+      "min": 1,
+      "businessContext": "Kredilerin vadesi.",
+      "businessContext_i18n": {
+        "en": "Common loan term.",
+        "tr": "Kredilerin vadesi.",
+        "de": "Common loan term.",
+        "fr": "Common loan term.",
+        "es": "Common loan term.",
+        "ar": "Common loan term."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "taksit1": "faiz1 === 0 ? kredi1 / Math.max(1, vade) : kredi1 * ((faiz1 / 1200) / (1 - Math.pow(1 + faiz1 / 1200, -vade)))",
+    "taksit2": "faiz2 === 0 ? kredi2 / Math.max(1, vade) : kredi2 * ((faiz2 / 1200) / (1 - Math.pow(1 + faiz2 / 1200, -vade)))",
+    "sonuc": "(faiz1 === 0 ? kredi1 / Math.max(1, vade) : kredi1 * ((faiz1 / 1200) / (1 - Math.pow(1 + faiz1 / 1200, -vade)))) - (faiz2 === 0 ? kredi2 / Math.max(1, vade) : kredi2 * ((faiz2 / 1200) / (1 - Math.pow(1 + faiz2 / 1200, -vade))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Aylık Taksit Farkı",
+      "taksit1": "1. Kredi Taksiti",
+      "taksit2": "2. Kredi Taksiti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Aylık Taksit Farkı",
+        "tr": "Aylık Taksit Farkı",
+        "de": "Aylık Taksit Farkı",
+        "fr": "Aylık Taksit Farkı",
+        "es": "Aylık Taksit Farkı",
+        "ar": "Aylık Taksit Farkı"
+      },
+      "taksit1": {
+        "en": "1. Kredi Taksiti",
+        "tr": "1. Kredi Taksiti",
+        "de": "1. Kredi Taksiti",
+        "fr": "1. Kredi Taksiti",
+        "es": "1. Kredi Taksiti",
+        "ar": "1. Kredi Taksiti"
+      },
+      "taksit2": {
+        "en": "2. Kredi Taksiti",
+        "tr": "2. Kredi Taksiti",
+        "de": "2. Kredi Taksiti",
+        "fr": "2. Kredi Taksiti",
+        "es": "2. Kredi Taksiti",
+        "ar": "2. Kredi Taksiti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY",
+      "taksit1": "TRY",
+      "taksit2": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Compare monthly payments between two mortgage offers.",
+      "long": "Compare monthly payments between two mortgage offers.",
+      "short_i18n": {
+        "en": "Compare monthly payments between two mortgage offers.",
+        "tr": "İki kredi teklifinin aylık taksit farkını hesaplar.",
+        "de": "Compare monthly payments between two mortgage offers.",
+        "fr": "Compare monthly payments between two mortgage offers.",
+        "es": "Compare monthly payments between two mortgage offers.",
+        "ar": "Compare monthly payments between two mortgage offers."
+      },
+      "long_i18n": {
+        "en": "Compare monthly payments between two mortgage offers.",
+        "tr": "İki kredi teklifinin aylık taksit farkını hesaplar.",
+        "de": "Compare monthly payments between two mortgage offers.",
+        "fr": "Compare monthly payments between two mortgage offers.",
+        "es": "Compare monthly payments between two mortgage offers.",
+        "ar": "Compare monthly payments between two mortgage offers."
+      }
+    }
+  }
+}

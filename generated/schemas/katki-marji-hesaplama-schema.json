@@ -1,0 +1,119 @@
+{
+  "toolName": "katki-marji-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "satisFiyati",
+      "label": "Satış Fiyatı (TL)",
+      "label_i18n": {
+        "en": "Selling Price (TRY)",
+        "tr": "Satış Fiyatı (TL)",
+        "de": "Selling Price (TRY)",
+        "fr": "Selling Price (TRY)",
+        "es": "Selling Price (TRY)",
+        "ar": "Selling Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Ürünün birim satış fiyatı.",
+      "businessContext_i18n": {
+        "en": "Unit selling price.",
+        "tr": "Ürünün birim satış fiyatı.",
+        "de": "Unit selling price.",
+        "fr": "Unit selling price.",
+        "es": "Unit selling price.",
+        "ar": "Unit selling price."
+      }
+    },
+    {
+      "id": "degiskenMaliyet",
+      "label": "Değişken Maliyet (TL)",
+      "label_i18n": {
+        "en": "Variable Cost (TRY)",
+        "tr": "Değişken Maliyet (TL)",
+        "de": "Variable Cost (TRY)",
+        "fr": "Variable Cost (TRY)",
+        "es": "Variable Cost (TRY)",
+        "ar": "Variable Cost (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 60,
+      "min": 0,
+      "businessContext": "Birim başı değişken maliyet.",
+      "businessContext_i18n": {
+        "en": "Unit variable cost.",
+        "tr": "Birim başı değişken maliyet.",
+        "de": "Unit variable cost.",
+        "fr": "Unit variable cost.",
+        "es": "Unit variable cost.",
+        "ar": "Unit variable cost."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "katki": "satisFiyati - degiskenMaliyet",
+    "sonuc": "((satisFiyati - degiskenMaliyet) / Math.max(0.0001, satisFiyati)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Katkı Marjı Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Katkı Marjı Oranı",
+        "tr": "Katkı Marjı Oranı",
+        "de": "Katkı Marjı Oranı",
+        "fr": "Katkı Marjı Oranı",
+        "es": "Katkı Marjı Oranı",
+        "ar": "Katkı Marjı Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate contribution margin per unit and ratio.",
+      "long": "Calculate contribution margin per unit and ratio.",
+      "short_i18n": {
+        "en": "Calculate contribution margin per unit and ratio.",
+        "tr": "Sabit giderleri karşılayan birim başına katkı payını hesaplar.",
+        "de": "Calculate contribution margin per unit and ratio.",
+        "fr": "Calculate contribution margin per unit and ratio.",
+        "es": "Calculate contribution margin per unit and ratio.",
+        "ar": "Calculate contribution margin per unit and ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate contribution margin per unit and ratio.",
+        "tr": "Sabit giderleri karşılayan birim başına katkı payını hesaplar.",
+        "de": "Calculate contribution margin per unit and ratio.",
+        "fr": "Calculate contribution margin per unit and ratio.",
+        "es": "Calculate contribution margin per unit and ratio.",
+        "ar": "Calculate contribution margin per unit and ratio."
+      }
+    }
+  }
+}

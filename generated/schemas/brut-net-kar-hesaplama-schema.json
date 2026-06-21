@@ -1,0 +1,179 @@
+{
+  "toolName": "brut-net-kar-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "ciro",
+      "label": "Ciro (TL)",
+      "label_i18n": {
+        "en": "Revenue (TRY)",
+        "tr": "Ciro (TL)",
+        "de": "Revenue (TRY)",
+        "fr": "Revenue (TRY)",
+        "es": "Revenue (TRY)",
+        "ar": "Revenue (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Toplam satış geliri.",
+      "businessContext_i18n": {
+        "en": "Total revenue.",
+        "tr": "Toplam satış geliri.",
+        "de": "Total revenue.",
+        "fr": "Total revenue.",
+        "es": "Total revenue.",
+        "ar": "Total revenue."
+      }
+    },
+    {
+      "id": "cogs",
+      "label": "SMM (TL)",
+      "label_i18n": {
+        "en": "COGS (TRY)",
+        "tr": "SMM (TL)",
+        "de": "COGS (TRY)",
+        "fr": "COGS (TRY)",
+        "es": "COGS (TRY)",
+        "ar": "COGS (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 600000,
+      "min": 0,
+      "businessContext": "Satılan mal maliyeti.",
+      "businessContext_i18n": {
+        "en": "Cost of goods sold.",
+        "tr": "Satılan mal maliyeti.",
+        "de": "Cost of goods sold.",
+        "fr": "Cost of goods sold.",
+        "es": "Cost of goods sold.",
+        "ar": "Cost of goods sold."
+      }
+    },
+    {
+      "id": "isletmeGideri",
+      "label": "İşletme Gideri (TL)",
+      "label_i18n": {
+        "en": "Operating Expense (TRY)",
+        "tr": "İşletme Gideri (TL)",
+        "de": "Operating Expense (TRY)",
+        "fr": "Operating Expense (TRY)",
+        "es": "Operating Expense (TRY)",
+        "ar": "Operating Expense (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Faaliyet giderleri.",
+      "businessContext_i18n": {
+        "en": "Operating expenses.",
+        "tr": "Faaliyet giderleri.",
+        "de": "Operating expenses.",
+        "fr": "Operating expenses.",
+        "es": "Operating expenses.",
+        "ar": "Operating expenses."
+      }
+    },
+    {
+      "id": "vergi",
+      "label": "Vergi (TL)",
+      "label_i18n": {
+        "en": "Tax (TRY)",
+        "tr": "Vergi (TL)",
+        "de": "Tax (TRY)",
+        "fr": "Tax (TRY)",
+        "es": "Tax (TRY)",
+        "ar": "Tax (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Vergi gideri.",
+      "businessContext_i18n": {
+        "en": "Tax expense.",
+        "tr": "Vergi gideri.",
+        "de": "Tax expense.",
+        "fr": "Tax expense.",
+        "es": "Tax expense.",
+        "ar": "Tax expense."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "brut": "ciro - cogs",
+    "sonuc": "(ciro - cogs) - isletmeGideri - vergi"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "brut": "Brüt Kâr",
+      "sonuc": "Net Kâr"
+    },
+    "breakdown_i18n": {
+      "brut": {
+        "en": "Brüt Kâr",
+        "tr": "Brüt Kâr",
+        "de": "Brüt Kâr",
+        "fr": "Brüt Kâr",
+        "es": "Brüt Kâr",
+        "ar": "Brüt Kâr"
+      },
+      "sonuc": {
+        "en": "Net Kâr",
+        "tr": "Net Kâr",
+        "de": "Net Kâr",
+        "fr": "Net Kâr",
+        "es": "Net Kâr",
+        "ar": "Net Kâr"
+      }
+    },
+    "breakdownUnits": {
+      "brut": "TRY",
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate gross profit and net profit after all expenses.",
+      "long": "Calculate gross profit and net profit after all expenses.",
+      "short_i18n": {
+        "en": "Calculate gross profit and net profit after all expenses.",
+        "tr": "Üretim ve tüm giderler sonrası brüt ve net kârı hesaplar.",
+        "de": "Calculate gross profit and net profit after all expenses.",
+        "fr": "Calculate gross profit and net profit after all expenses.",
+        "es": "Calculate gross profit and net profit after all expenses.",
+        "ar": "Calculate gross profit and net profit after all expenses."
+      },
+      "long_i18n": {
+        "en": "Calculate gross profit and net profit after all expenses.",
+        "tr": "Üretim ve tüm giderler sonrası brüt ve net kârı hesaplar.",
+        "de": "Calculate gross profit and net profit after all expenses.",
+        "fr": "Calculate gross profit and net profit after all expenses.",
+        "es": "Calculate gross profit and net profit after all expenses.",
+        "ar": "Calculate gross profit and net profit after all expenses."
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "toolName": "konteyner-yukleme-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "konteynerHacim",
+      "label": "Konteyner Hacmi (m³)",
+      "label_i18n": {
+        "en": "Container Volume (m³)",
+        "tr": "Konteyner Hacmi (m³)",
+        "de": "Container Volume (m³)",
+        "fr": "Container Volume (m³)",
+        "es": "Container Volume (m³)",
+        "ar": "Container Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 33,
+      "min": 0,
+      "businessContext": "Konteynerin iç hacmi.",
+      "businessContext_i18n": {
+        "en": "Container internal volume.",
+        "tr": "Konteynerin iç hacmi.",
+        "de": "Container internal volume.",
+        "fr": "Container internal volume.",
+        "es": "Container internal volume.",
+        "ar": "Container internal volume."
+      }
+    },
+    {
+      "id": "kutuHacim",
+      "label": "Kutu Hacmi (m³)",
+      "label_i18n": {
+        "en": "Box Volume (m³)",
+        "tr": "Kutu Hacmi (m³)",
+        "de": "Box Volume (m³)",
+        "fr": "Box Volume (m³)",
+        "es": "Box Volume (m³)",
+        "ar": "Box Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.036,
+      "min": 0,
+      "businessContext": "Bir kutunun hacmi.",
+      "businessContext_i18n": {
+        "en": "Volume per box.",
+        "tr": "Bir kutunun hacmi.",
+        "de": "Volume per box.",
+        "fr": "Volume per box.",
+        "es": "Volume per box.",
+        "ar": "Volume per box."
+      }
+    },
+    {
+      "id": "istifleme",
+      "label": "İstifleme Verimi (%)",
+      "label_i18n": {
+        "en": "Stacking Efficiency (%)",
+        "tr": "İstifleme Verimi (%)",
+        "de": "Stacking Efficiency (%)",
+        "fr": "Stacking Efficiency (%)",
+        "es": "Stacking Efficiency (%)",
+        "ar": "Stacking Efficiency (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Kullanılabilir hacim yüzdesi.",
+      "businessContext_i18n": {
+        "en": "Usable volume percentage.",
+        "tr": "Kullanılabilir hacim yüzdesi.",
+        "de": "Usable volume percentage.",
+        "fr": "Usable volume percentage.",
+        "es": "Usable volume percentage.",
+        "ar": "Usable volume percentage."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.floor((konteynerHacim * (istifleme / 100)) / Math.max(0.0001, kutuHacim))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "boxes",
+    "breakdown": {
+      "sonuc": "Maksimum Kutu Sayısı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maksimum Kutu Sayısı",
+        "tr": "Maksimum Kutu Sayısı",
+        "de": "Maksimum Kutu Sayısı",
+        "fr": "Maksimum Kutu Sayısı",
+        "es": "Maksimum Kutu Sayısı",
+        "ar": "Maksimum Kutu Sayısı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "boxes"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate maximum boxes that fit in a shipping container.",
+      "long": "Calculate maximum boxes that fit in a shipping container.",
+      "short_i18n": {
+        "en": "Calculate maximum boxes that fit in a shipping container.",
+        "tr": "Konteynere sığabilecek maksimum kutu sayısını hesaplar.",
+        "de": "Calculate maximum boxes that fit in a shipping container.",
+        "fr": "Calculate maximum boxes that fit in a shipping container.",
+        "es": "Calculate maximum boxes that fit in a shipping container.",
+        "ar": "Calculate maximum boxes that fit in a shipping container."
+      },
+      "long_i18n": {
+        "en": "Calculate maximum boxes that fit in a shipping container.",
+        "tr": "Konteynere sığabilecek maksimum kutu sayısını hesaplar.",
+        "de": "Calculate maximum boxes that fit in a shipping container.",
+        "fr": "Calculate maximum boxes that fit in a shipping container.",
+        "es": "Calculate maximum boxes that fit in a shipping container.",
+        "ar": "Calculate maximum boxes that fit in a shipping container."
+      }
+    }
+  }
+}

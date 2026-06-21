@@ -1,0 +1,168 @@
+{
+  "toolName": "etsy-ucret-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "E-Ticaret",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "satis",
+      "label": "Satış Tutarı (TL)",
+      "label_i18n": {
+        "en": "Sale Amount (TRY)",
+        "tr": "Satış Tutarı (TL)",
+        "de": "Sale Amount (TRY)",
+        "fr": "Sale Amount (TRY)",
+        "es": "Sale Amount (TRY)",
+        "ar": "Sale Amount (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Ürün satış fiyatı.",
+      "businessContext_i18n": {
+        "en": "Product sale amount.",
+        "tr": "Ürün satış fiyatı.",
+        "de": "Product sale amount.",
+        "fr": "Product sale amount.",
+        "es": "Product sale amount.",
+        "ar": "Product sale amount."
+      }
+    },
+    {
+      "id": "listeleme",
+      "label": "Listeleme Ücreti (TL)",
+      "label_i18n": {
+        "en": "Listing Fee (TRY)",
+        "tr": "Listeleme Ücreti (TL)",
+        "de": "Listing Fee (TRY)",
+        "fr": "Listing Fee (TRY)",
+        "es": "Listing Fee (TRY)",
+        "ar": "Listing Fee (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 3.5,
+      "min": 0,
+      "businessContext": "Ürün listeleme ücreti.",
+      "businessContext_i18n": {
+        "en": "Listing fee.",
+        "tr": "Ürün listeleme ücreti.",
+        "de": "Listing fee.",
+        "fr": "Listing fee.",
+        "es": "Listing fee.",
+        "ar": "Listing fee."
+      }
+    },
+    {
+      "id": "islem",
+      "label": "İşlem Ücreti (%)",
+      "label_i18n": {
+        "en": "Transaction Fee (%)",
+        "tr": "İşlem Ücreti (%)",
+        "de": "Transaction Fee (%)",
+        "fr": "Transaction Fee (%)",
+        "es": "Transaction Fee (%)",
+        "ar": "Transaction Fee (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 6.5,
+      "min": 0,
+      "businessContext": "İşlem komisyonu.",
+      "businessContext_i18n": {
+        "en": "Transaction commission.",
+        "tr": "İşlem komisyonu.",
+        "de": "Transaction commission.",
+        "fr": "Transaction commission.",
+        "es": "Transaction commission.",
+        "ar": "Transaction commission."
+      }
+    },
+    {
+      "id": "odeme",
+      "label": "Ödeme Ücreti (%)",
+      "label_i18n": {
+        "en": "Payment Fee (%)",
+        "tr": "Ödeme Ücreti (%)",
+        "de": "Payment Fee (%)",
+        "fr": "Payment Fee (%)",
+        "es": "Payment Fee (%)",
+        "ar": "Payment Fee (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Ödeme işleme ücreti.",
+      "businessContext_i18n": {
+        "en": "Payment processing fee.",
+        "tr": "Ödeme işleme ücreti.",
+        "de": "Payment processing fee.",
+        "fr": "Payment processing fee.",
+        "es": "Payment processing fee.",
+        "ar": "Payment processing fee."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "listeleme + (satis * islem / 100) + (satis * odeme / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Toplam Etsy Kesintisi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Etsy Kesintisi",
+        "tr": "Toplam Etsy Kesintisi",
+        "de": "Toplam Etsy Kesintisi",
+        "fr": "Toplam Etsy Kesintisi",
+        "es": "Toplam Etsy Kesintisi",
+        "ar": "Toplam Etsy Kesintisi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Factor in return rates and chargebacks.",
+      "Review platform fee schedules regularly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+      "long": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+      "short_i18n": {
+        "en": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+        "tr": "Etsy platformuna ödenen toplam komisyon ve kesintileri hesaplar.",
+        "de": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+        "fr": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+        "es": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+        "ar": "Calculate total Etsy fees including listing, transaction, and payment fees."
+      },
+      "long_i18n": {
+        "en": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+        "tr": "Etsy platformuna ödenen toplam komisyon ve kesintileri hesaplar.",
+        "de": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+        "fr": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+        "es": "Calculate total Etsy fees including listing, transaction, and payment fees.",
+        "ar": "Calculate total Etsy fees including listing, transaction, and payment fees."
+      }
+    }
+  }
+}

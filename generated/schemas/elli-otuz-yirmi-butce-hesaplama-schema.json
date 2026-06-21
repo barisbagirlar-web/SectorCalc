@@ -1,0 +1,115 @@
+{
+  "toolName": "elli-otuz-yirmi-butce-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "netGelir",
+      "label": "Net Gelir (₺)",
+      "label_i18n": {
+        "en": "Net Income (TRY)",
+        "tr": "Net Gelir (₺)",
+        "de": "Net Income (TRY)",
+        "fr": "Net Income (TRY)",
+        "es": "Net Income (TRY)",
+        "ar": "Net Income (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 30000,
+      "min": 0,
+      "businessContext": "Vergi sonrası aylık net gelir.",
+      "businessContext_i18n": {
+        "en": "Monthly net income after taxes.",
+        "tr": "Vergi sonrası aylık net gelir.",
+        "de": "Monthly net income after taxes.",
+        "fr": "Monthly net income after taxes.",
+        "es": "Monthly net income after taxes.",
+        "ar": "Monthly net income after taxes."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "ihtiyac": "netGelir * 0.5",
+    "istek": "netGelir * 0.3",
+    "sonuc": "netGelir * 0.2"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "ihtiyac": "İhtiyaçlar (%50)",
+      "istek": "İstekler (%30)",
+      "sonuc": "Birikim (%20)"
+    },
+    "breakdown_i18n": {
+      "ihtiyac": {
+        "en": "İhtiyaçlar (%50)",
+        "tr": "İhtiyaçlar (%50)",
+        "de": "İhtiyaçlar (%50)",
+        "fr": "İhtiyaçlar (%50)",
+        "es": "İhtiyaçlar (%50)",
+        "ar": "İhtiyaçlar (%50)"
+      },
+      "istek": {
+        "en": "İstekler (%30)",
+        "tr": "İstekler (%30)",
+        "de": "İstekler (%30)",
+        "fr": "İstekler (%30)",
+        "es": "İstekler (%30)",
+        "ar": "İstekler (%30)"
+      },
+      "sonuc": {
+        "en": "Birikim (%20)",
+        "tr": "Birikim (%20)",
+        "de": "Birikim (%20)",
+        "fr": "Birikim (%20)",
+        "es": "Birikim (%20)",
+        "ar": "Birikim (%20)"
+      }
+    },
+    "breakdownUnits": {
+      "ihtiyac": "TRY",
+      "istek": "TRY",
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+      "long": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+      "short_i18n": {
+        "en": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+        "tr": "Net gelirin %50'sini ihtiyaçlara, %30'unu isteklere, %20'sini birikime ayırır.",
+        "de": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+        "fr": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+        "es": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+        "ar": "Allocate 50% of income to needs, 30% to wants, and 20% to savings."
+      },
+      "long_i18n": {
+        "en": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+        "tr": "Net gelirin %50'sini ihtiyaçlara, %30'unu isteklere, %20'sini birikime ayırır.",
+        "de": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+        "fr": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+        "es": "Allocate 50% of income to needs, 30% to wants, and 20% to savings.",
+        "ar": "Allocate 50% of income to needs, 30% to wants, and 20% to savings."
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { BRAND_ASSETS } from "@/config/brand";
@@ -18,46 +19,40 @@ export function SiteLogo({
   className = "",
 }: SiteLogoProps) {
   const t = useTranslations("a11y");
-
-  if (variant === "on-dark") {
-    const wordmark = BRAND_ASSETS.logo.headerOnDark;
-    return (
-      <Link
-        href="/"
-        prefetch={false}
-        className={`site-logo sc-site-logo site-logo--on-dark sc-logo ${className}`.trim()}
-        aria-label={t("logoHome")}
-      >
-        <img
-          src={wordmark}
-          alt={t("logoAlt")}
-          width={BRAND_ASSETS.logo.displayWidth}
-          height={BRAND_ASSETS.logo.displayHeight}
-          className="site-logo__img sc-site-logo__wordmark"
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          fetchPriority={priority ? "high" : undefined}
-        />
-      </Link>
-    );
-  }
+  const wordmark =
+    variant === "on-dark" ? BRAND_ASSETS.logo.onDark : BRAND_ASSETS.logo.default;
 
   return (
     <Link
       href="/"
       prefetch={false}
-      className={`site-logo sc-site-logo sc-logo ${className}`.trim()}
-      aria-label={t("logoHome")}
+      className={`site-logo sc-site-logo site-logo--${variant} sc-logo ${className}`.trim()}
+      aria-label="SectorCalc home"
     >
-      <img
-        src={BRAND_ASSETS.logo.symbolBoldSvg}
-        alt={t("logoAlt")}
-        width={BRAND_ASSETS.logo.displaySymbolWidth}
-        height={BRAND_ASSETS.logo.displaySymbolHeight}
-        className="sc-site-logo__symbol"
-        loading={priority ? "eager" : "lazy"}
-        decoding="async"
-        fetchPriority={priority ? "high" : undefined}
+      <Image
+        src={BRAND_ASSETS.favicon.master}
+        alt=""
+        width={48}
+        height={48}
+        priority={priority}
+        unoptimized
+        className="sc-site-logo__mark"
+        aria-hidden
+      />
+      <span className="sc-site-logo__combo">
+        <span className="sc-site-logo__text">
+          <span className="sc-site-logo__text-sector">Sector</span>
+          <span className="sc-site-logo__text-calc">Calc</span>
+        </span>
+      </span>
+      <Image
+        src={wordmark}
+        alt="SectorCalc"
+        width={160}
+        height={42}
+        priority={priority}
+        unoptimized
+        className="site-logo__img sc-site-logo__wordmark sr-only"
       />
     </Link>
   );

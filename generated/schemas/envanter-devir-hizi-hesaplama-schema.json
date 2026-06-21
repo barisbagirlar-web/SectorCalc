@@ -1,0 +1,118 @@
+{
+  "toolName": "envanter-devir-hizi-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "yillikCOGS",
+      "label": "Yıllık SMM (TL)",
+      "label_i18n": {
+        "en": "Annual COGS (TRY)",
+        "tr": "Yıllık SMM (TL)",
+        "de": "Annual COGS (TRY)",
+        "fr": "Annual COGS (TRY)",
+        "es": "Annual COGS (TRY)",
+        "ar": "Annual COGS (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Yıllık satılan mal maliyeti.",
+      "businessContext_i18n": {
+        "en": "Annual cost of goods sold.",
+        "tr": "Yıllık satılan mal maliyeti.",
+        "de": "Annual cost of goods sold.",
+        "fr": "Annual cost of goods sold.",
+        "es": "Annual cost of goods sold.",
+        "ar": "Annual cost of goods sold."
+      }
+    },
+    {
+      "id": "ortStok",
+      "label": "Ortalama Stok (TL)",
+      "label_i18n": {
+        "en": "Average Inventory (TRY)",
+        "tr": "Ortalama Stok (TL)",
+        "de": "Average Inventory (TRY)",
+        "fr": "Average Inventory (TRY)",
+        "es": "Average Inventory (TRY)",
+        "ar": "Average Inventory (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Dönem ortalama stok değeri.",
+      "businessContext_i18n": {
+        "en": "Average inventory value.",
+        "tr": "Dönem ortalama stok değeri.",
+        "de": "Average inventory value.",
+        "fr": "Average inventory value.",
+        "es": "Average inventory value.",
+        "ar": "Average inventory value."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "yillikCOGS / Math.max(0.0001, ortStok)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "times",
+    "breakdown": {
+      "sonuc": "Envanter Devir Hızı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Envanter Devir Hızı",
+        "tr": "Envanter Devir Hızı",
+        "de": "Envanter Devir Hızı",
+        "fr": "Envanter Devir Hızı",
+        "es": "Envanter Devir Hızı",
+        "ar": "Envanter Devir Hızı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "times"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate inventory turnover rate.",
+      "long": "Calculate inventory turnover rate.",
+      "short_i18n": {
+        "en": "Calculate inventory turnover rate.",
+        "tr": "Stokların bir yılda kaç kez satılıp yenilendiğini hesaplar.",
+        "de": "Calculate inventory turnover rate.",
+        "fr": "Calculate inventory turnover rate.",
+        "es": "Calculate inventory turnover rate.",
+        "ar": "Calculate inventory turnover rate."
+      },
+      "long_i18n": {
+        "en": "Calculate inventory turnover rate.",
+        "tr": "Stokların bir yılda kaç kez satılıp yenilendiğini hesaplar.",
+        "de": "Calculate inventory turnover rate.",
+        "fr": "Calculate inventory turnover rate.",
+        "es": "Calculate inventory turnover rate.",
+        "ar": "Calculate inventory turnover rate."
+      }
+    }
+  }
+}

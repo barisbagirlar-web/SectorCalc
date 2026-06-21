@@ -1,0 +1,170 @@
+{
+  "toolName": "vakumlu-paketleme-sure-hesaplama",
+  "catalogCategory": "textile-print-lab",
+  "categorySlug": "textile-print-lab",
+  "sector": "Tekstil, Gıda ve Plastik",
+  "sectorId": "textile-print-lab",
+  "inputs": [
+    {
+      "id": "posetHacim",
+      "label": "Poşet Hacmi (m³)",
+      "label_i18n": {
+        "en": "Bag Volume (m³)",
+        "tr": "Poşet Hacmi (m³)",
+        "de": "Bag Volume (m³)",
+        "fr": "Bag Volume (m³)",
+        "es": "Bag Volume (m³)",
+        "ar": "Bag Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.01,
+      "min": 0,
+      "businessContext": "Paket hacmi.",
+      "businessContext_i18n": {
+        "en": "Package volume.",
+        "tr": "Paket hacmi.",
+        "de": "Package volume.",
+        "fr": "Package volume.",
+        "es": "Package volume.",
+        "ar": "Package volume."
+      }
+    },
+    {
+      "id": "pompaDebi",
+      "label": "Pompa Debisi (m³/s)",
+      "label_i18n": {
+        "en": "Pump Flow (m³/s)",
+        "tr": "Pompa Debisi (m³/s)",
+        "de": "Pump Flow (m³/s)",
+        "fr": "Pump Flow (m³/s)",
+        "es": "Pump Flow (m³/s)",
+        "ar": "Pump Flow (m³/s)"
+      },
+      "type": "number",
+      "unit": "m3/s",
+      "default": 0.0005,
+      "min": 0,
+      "businessContext": "Vakum pompası debisi.",
+      "businessContext_i18n": {
+        "en": "Vacuum pump flow.",
+        "tr": "Vakum pompası debisi.",
+        "de": "Vacuum pump flow.",
+        "fr": "Vacuum pump flow.",
+        "es": "Vacuum pump flow.",
+        "ar": "Vacuum pump flow."
+      }
+    },
+    {
+      "id": "baslangicBasinc",
+      "label": "Başlangıç Basıncı (Pa)",
+      "label_i18n": {
+        "en": "Initial Pressure (Pa)",
+        "tr": "Başlangıç Basıncı (Pa)",
+        "de": "Initial Pressure (Pa)",
+        "fr": "Initial Pressure (Pa)",
+        "es": "Initial Pressure (Pa)",
+        "ar": "Initial Pressure (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "min": 0,
+      "businessContext": "Atmosfer basıncı.",
+      "businessContext_i18n": {
+        "en": "Atmospheric pressure.",
+        "tr": "Atmosfer basıncı.",
+        "de": "Atmospheric pressure.",
+        "fr": "Atmospheric pressure.",
+        "es": "Atmospheric pressure.",
+        "ar": "Atmospheric pressure."
+      }
+    },
+    {
+      "id": "hedefBasinc",
+      "label": "Hedef Basınç (Pa)",
+      "label_i18n": {
+        "en": "Target Pressure (Pa)",
+        "tr": "Hedef Basınç (Pa)",
+        "de": "Target Pressure (Pa)",
+        "fr": "Target Pressure (Pa)",
+        "es": "Target Pressure (Pa)",
+        "ar": "Target Pressure (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Hedef vakum basıncı.",
+      "businessContext_i18n": {
+        "en": "Target vacuum pressure.",
+        "tr": "Hedef vakum basıncı.",
+        "de": "Target vacuum pressure.",
+        "fr": "Target vacuum pressure.",
+        "es": "Target vacuum pressure.",
+        "ar": "Target vacuum pressure."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(posetHacim / Math.max(0.0001, pompaDebi)) * Math.log(Math.max(0.0001, baslangicBasinc / Math.max(0.0001, hedefBasinc)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "s",
+    "breakdown": {
+      "sonuc": "Vakum Süresi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Vakum Süresi",
+        "tr": "Vakum Süresi",
+        "de": "Vakum Süresi",
+        "fr": "Vakum Süresi",
+        "es": "Vakum Süresi",
+        "ar": "Vakum Süresi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "s"
+    },
+    "hiddenLossDrivers": [
+      "Waste in material or time indicates process improvement opportunity."
+    ],
+    "suggestedActions": [
+      "Optimize drying/cooling parameters for cycle time reduction.",
+      "Monitor defects and adjust process conditions accordingly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate vacuum pump time to reach target pressure.",
+      "long": "Calculate vacuum pump time to reach target pressure.",
+      "short_i18n": {
+        "en": "Calculate vacuum pump time to reach target pressure.",
+        "tr": "İstenen vakum seviyesine ulaşmak için gereken pompa çalışma süresini hesaplar.",
+        "de": "Calculate vacuum pump time to reach target pressure.",
+        "fr": "Calculate vacuum pump time to reach target pressure.",
+        "es": "Calculate vacuum pump time to reach target pressure.",
+        "ar": "Calculate vacuum pump time to reach target pressure."
+      },
+      "long_i18n": {
+        "en": "Calculate vacuum pump time to reach target pressure.",
+        "tr": "İstenen vakum seviyesine ulaşmak için gereken pompa çalışma süresini hesaplar.",
+        "de": "Calculate vacuum pump time to reach target pressure.",
+        "fr": "Calculate vacuum pump time to reach target pressure.",
+        "es": "Calculate vacuum pump time to reach target pressure.",
+        "ar": "Calculate vacuum pump time to reach target pressure."
+      }
+    }
+  }
+}

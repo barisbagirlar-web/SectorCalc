@@ -1,0 +1,118 @@
+{
+  "toolName": "statik-basinc-akiskan-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "yogunluk",
+      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label_i18n": {
+        "en": "Fluid Density (kg/m³)",
+        "tr": "Akışkan Yoğunluğu (kg/m³)",
+        "de": "Fluid Density (kg/m³)",
+        "fr": "Fluid Density (kg/m³)",
+        "es": "Fluid Density (kg/m³)",
+        "ar": "Fluid Density (kg/m³)"
+      },
+      "type": "number",
+      "unit": "kg/m3",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext_i18n": {
+        "en": "Fluid density.",
+        "tr": "Akışkanın yoğunluğu.",
+        "de": "Fluid density.",
+        "fr": "Fluid density.",
+        "es": "Fluid density.",
+        "ar": "Fluid density."
+      }
+    },
+    {
+      "id": "derinlik",
+      "label": "Derinlik (m)",
+      "label_i18n": {
+        "en": "Depth (m)",
+        "tr": "Derinlik (m)",
+        "de": "Depth (m)",
+        "fr": "Depth (m)",
+        "es": "Depth (m)",
+        "ar": "Depth (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Sıvı yüzeyinden derinlik.",
+      "businessContext_i18n": {
+        "en": "Depth below fluid surface.",
+        "tr": "Sıvı yüzeyinden derinlik.",
+        "de": "Depth below fluid surface.",
+        "fr": "Depth below fluid surface.",
+        "es": "Depth below fluid surface.",
+        "ar": "Depth below fluid surface."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "yogunluk * 9.81 * derinlik"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Hidrostatik Basınç"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Hidrostatik Basınç",
+        "tr": "Hidrostatik Basınç",
+        "de": "Hidrostatik Basınç",
+        "fr": "Hidrostatik Basınç",
+        "es": "Hidrostatik Basınç",
+        "ar": "Hidrostatik Basınç"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+      "long": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+      "short_i18n": {
+        "en": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+        "tr": "Akışkan sütununun tabanında oluşturduğu hidrostatik basıncı hesaplar.",
+        "de": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+        "fr": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+        "es": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+        "ar": "Calculate hydrostatic pressure at the bottom of a fluid column."
+      },
+      "long_i18n": {
+        "en": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+        "tr": "Akışkan sütununun tabanında oluşturduğu hidrostatik basıncı hesaplar.",
+        "de": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+        "fr": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+        "es": "Calculate hydrostatic pressure at the bottom of a fluid column.",
+        "ar": "Calculate hydrostatic pressure at the bottom of a fluid column."
+      }
+    }
+  }
+}

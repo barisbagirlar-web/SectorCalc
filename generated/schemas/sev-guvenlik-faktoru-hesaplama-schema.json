@@ -1,0 +1,171 @@
+{
+  "toolName": "sev-guvenlik-faktoru-hesaplama",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "kohezyon",
+      "label": "Kohezyon (kPa)",
+      "label_i18n": {
+        "en": "Cohesion (kPa)",
+        "tr": "Kohezyon (kPa)",
+        "de": "Cohesion (kPa)",
+        "fr": "Cohesion (kPa)",
+        "es": "Cohesion (kPa)",
+        "ar": "Cohesion (kPa)"
+      },
+      "type": "number",
+      "unit": "kPa",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Zemin kohezyonu.",
+      "businessContext_i18n": {
+        "en": "Soil cohesion.",
+        "tr": "Zemin kohezyonu.",
+        "de": "Soil cohesion.",
+        "fr": "Soil cohesion.",
+        "es": "Soil cohesion.",
+        "ar": "Soil cohesion."
+      }
+    },
+    {
+      "id": "normalGerilme",
+      "label": "Normal Gerilme (kPa)",
+      "label_i18n": {
+        "en": "Normal Stress (kPa)",
+        "tr": "Normal Gerilme (kPa)",
+        "de": "Normal Stress (kPa)",
+        "fr": "Normal Stress (kPa)",
+        "es": "Normal Stress (kPa)",
+        "ar": "Normal Stress (kPa)"
+      },
+      "type": "number",
+      "unit": "kPa",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Kayma düzlemine dik gerilme.",
+      "businessContext_i18n": {
+        "en": "Normal stress on slip plane.",
+        "tr": "Kayma düzlemine dik gerilme.",
+        "de": "Normal stress on slip plane.",
+        "fr": "Normal stress on slip plane.",
+        "es": "Normal stress on slip plane.",
+        "ar": "Normal stress on slip plane."
+      }
+    },
+    {
+      "id": "icSuratmeAcisi",
+      "label": "İçsel Sürtünme Açısı (Derece)",
+      "label_i18n": {
+        "en": "Internal Friction Angle (Deg)",
+        "tr": "İçsel Sürtünme Açısı (Derece)",
+        "de": "Internal Friction Angle (Deg)",
+        "fr": "Internal Friction Angle (Deg)",
+        "es": "Internal Friction Angle (Deg)",
+        "ar": "Internal Friction Angle (Deg)"
+      },
+      "type": "number",
+      "unit": "degrees",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Zeminin içsel sürtünme açısı.",
+      "businessContext_i18n": {
+        "en": "Soil friction angle.",
+        "tr": "Zeminin içsel sürtünme açısı.",
+        "de": "Soil friction angle.",
+        "fr": "Soil friction angle.",
+        "es": "Soil friction angle.",
+        "ar": "Soil friction angle."
+      }
+    },
+    {
+      "id": "kaymaGerilmesi",
+      "label": "Kayma Gerilmesi (kPa)",
+      "label_i18n": {
+        "en": "Shear Stress (kPa)",
+        "tr": "Kayma Gerilmesi (kPa)",
+        "de": "Shear Stress (kPa)",
+        "fr": "Shear Stress (kPa)",
+        "es": "Shear Stress (kPa)",
+        "ar": "Shear Stress (kPa)"
+      },
+      "type": "number",
+      "unit": "kPa",
+      "default": 80,
+      "min": 0,
+      "businessContext": "Kayma düzlemindeki sürükleyici gerilme.",
+      "businessContext_i18n": {
+        "en": "Driving shear stress on slip plane.",
+        "tr": "Kayma düzlemindeki sürükleyici gerilme.",
+        "de": "Driving shear stress on slip plane.",
+        "fr": "Driving shear stress on slip plane.",
+        "es": "Driving shear stress on slip plane.",
+        "ar": "Driving shear stress on slip plane."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "dayanim": "kohezyon + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))",
+    "sonuc": "(kohezyon + (normalGerilme * Math.tan(icSuratmeAcisi * Math.PI / 180))) / Math.max(0.0001, kaymaGerilmesi)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "safety",
+    "breakdown": {
+      "sonuc": "Emniyet Faktörü (FS)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Emniyet Faktörü (FS)",
+        "tr": "Emniyet Faktörü (FS)",
+        "de": "Emniyet Faktörü (FS)",
+        "fr": "Emniyet Faktörü (FS)",
+        "es": "Emniyet Faktörü (FS)",
+        "ar": "Emniyet Faktörü (FS)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "safety"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate slope stability factor of safety against sliding.",
+      "long": "Calculate slope stability factor of safety against sliding.",
+      "short_i18n": {
+        "en": "Calculate slope stability factor of safety against sliding.",
+        "tr": "Şevin kaymaya karşı emniyet katsayısını (FS) hesaplar.",
+        "de": "Calculate slope stability factor of safety against sliding.",
+        "fr": "Calculate slope stability factor of safety against sliding.",
+        "es": "Calculate slope stability factor of safety against sliding.",
+        "ar": "Calculate slope stability factor of safety against sliding."
+      },
+      "long_i18n": {
+        "en": "Calculate slope stability factor of safety against sliding.",
+        "tr": "Şevin kaymaya karşı emniyet katsayısını (FS) hesaplar.",
+        "de": "Calculate slope stability factor of safety against sliding.",
+        "fr": "Calculate slope stability factor of safety against sliding.",
+        "es": "Calculate slope stability factor of safety against sliding.",
+        "ar": "Calculate slope stability factor of safety against sliding."
+      }
+    }
+  }
+}

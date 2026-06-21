@@ -1,0 +1,143 @@
+{
+  "toolName": "nakliye-maliyeti-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "mesafe",
+      "label": "Mesafe (km)",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Mesafe (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      },
+      "type": "number",
+      "unit": "km",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Taşıma mesafesi.",
+      "businessContext_i18n": {
+        "en": "Transport distance.",
+        "tr": "Taşıma mesafesi.",
+        "de": "Transport distance.",
+        "fr": "Transport distance.",
+        "es": "Transport distance.",
+        "ar": "Transport distance."
+      }
+    },
+    {
+      "id": "tonaj",
+      "label": "Tonaj (Ton)",
+      "label_i18n": {
+        "en": "Weight (Tons)",
+        "tr": "Tonaj (Ton)",
+        "de": "Weight (Tons)",
+        "fr": "Weight (Tons)",
+        "es": "Weight (Tons)",
+        "ar": "Weight (Tons)"
+      },
+      "type": "number",
+      "unit": "tons",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Taşınan yük miktarı.",
+      "businessContext_i18n": {
+        "en": "Cargo weight.",
+        "tr": "Taşınan yük miktarı.",
+        "de": "Cargo weight.",
+        "fr": "Cargo weight.",
+        "es": "Cargo weight.",
+        "ar": "Cargo weight."
+      }
+    },
+    {
+      "id": "birimFiyat",
+      "label": "Birim Fiyat (TL/Ton-km)",
+      "label_i18n": {
+        "en": "Unit Price (TRY/ton-km)",
+        "tr": "Birim Fiyat (TL/Ton-km)",
+        "de": "Unit Price (TRY/ton-km)",
+        "fr": "Unit Price (TRY/ton-km)",
+        "es": "Unit Price (TRY/ton-km)",
+        "ar": "Unit Price (TRY/ton-km)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1.5,
+      "min": 0,
+      "businessContext": "Ton-km başı navlun fiyatı.",
+      "businessContext_i18n": {
+        "en": "Rate per ton-km.",
+        "tr": "Ton-km başı navlun fiyatı.",
+        "de": "Rate per ton-km.",
+        "fr": "Rate per ton-km.",
+        "es": "Rate per ton-km.",
+        "ar": "Rate per ton-km."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "mesafe * tonaj * birimFiyat"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Toplam Navlun"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Navlun",
+        "tr": "Toplam Navlun",
+        "de": "Toplam Navlun",
+        "fr": "Toplam Navlun",
+        "es": "Toplam Navlun",
+        "ar": "Toplam Navlun"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total road freight cost based on distance and tonnage.",
+      "long": "Calculate total road freight cost based on distance and tonnage.",
+      "short_i18n": {
+        "en": "Calculate total road freight cost based on distance and tonnage.",
+        "tr": "Karayolu taşımacılığının toplam navlun bedelini hesaplar.",
+        "de": "Calculate total road freight cost based on distance and tonnage.",
+        "fr": "Calculate total road freight cost based on distance and tonnage.",
+        "es": "Calculate total road freight cost based on distance and tonnage.",
+        "ar": "Calculate total road freight cost based on distance and tonnage."
+      },
+      "long_i18n": {
+        "en": "Calculate total road freight cost based on distance and tonnage.",
+        "tr": "Karayolu taşımacılığının toplam navlun bedelini hesaplar.",
+        "de": "Calculate total road freight cost based on distance and tonnage.",
+        "fr": "Calculate total road freight cost based on distance and tonnage.",
+        "es": "Calculate total road freight cost based on distance and tonnage.",
+        "ar": "Calculate total road freight cost based on distance and tonnage."
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "toolName": "serbest-calisan-saat-ucreti-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "hedefNet",
+      "label": "Hedef Net Gelir (TL)",
+      "label_i18n": {
+        "en": "Target Net Income (TRY)",
+        "tr": "Hedef Net Gelir (TL)",
+        "de": "Target Net Income (TRY)",
+        "fr": "Target Net Income (TRY)",
+        "es": "Target Net Income (TRY)",
+        "ar": "Target Net Income (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 300000,
+      "min": 0,
+      "businessContext": "Vergi sonrası hedef gelir.",
+      "businessContext_i18n": {
+        "en": "After-tax target income.",
+        "tr": "Vergi sonrası hedef gelir.",
+        "de": "After-tax target income.",
+        "fr": "After-tax target income.",
+        "es": "After-tax target income.",
+        "ar": "After-tax target income."
+      }
+    },
+    {
+      "id": "vergi",
+      "label": "Vergi Oranı (%)",
+      "label_i18n": {
+        "en": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
+        "de": "Tax Rate (%)",
+        "fr": "Tax Rate (%)",
+        "es": "Tax Rate (%)",
+        "ar": "Tax Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Ortalama vergi yükü.",
+      "businessContext_i18n": {
+        "en": "Average tax burden.",
+        "tr": "Ortalama vergi yükü.",
+        "de": "Average tax burden.",
+        "fr": "Average tax burden.",
+        "es": "Average tax burden.",
+        "ar": "Average tax burden."
+      }
+    },
+    {
+      "id": "gider",
+      "label": "Yıllık Gider (TL)",
+      "label_i18n": {
+        "en": "Annual Expense (TRY)",
+        "tr": "Yıllık Gider (TL)",
+        "de": "Annual Expense (TRY)",
+        "fr": "Annual Expense (TRY)",
+        "es": "Annual Expense (TRY)",
+        "ar": "Annual Expense (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "İşletme giderleri.",
+      "businessContext_i18n": {
+        "en": "Business expenses.",
+        "tr": "İşletme giderleri.",
+        "de": "Business expenses.",
+        "fr": "Business expenses.",
+        "es": "Business expenses.",
+        "ar": "Business expenses."
+      }
+    },
+    {
+      "id": "calismaSaati",
+      "label": "Yıllık Çalışma Saati",
+      "label_i18n": {
+        "en": "Annual Work Hours",
+        "tr": "Yıllık Çalışma Saati",
+        "de": "Annual Work Hours",
+        "fr": "Annual Work Hours",
+        "es": "Annual Work Hours",
+        "ar": "Annual Work Hours"
+      },
+      "type": "number",
+      "unit": "hours",
+      "default": 1800,
+      "min": 1,
+      "businessContext": "Toplam çalışma saati.",
+      "businessContext_i18n": {
+        "en": "Total work hours.",
+        "tr": "Toplam çalışma saati.",
+        "de": "Total work hours.",
+        "fr": "Total work hours.",
+        "es": "Total work hours.",
+        "ar": "Total work hours."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "brutHedef": "(hedefNet + gider) / Math.max(0.0001, (1 - vergi / 100))",
+    "sonuc": "((hedefNet + gider) / Math.max(0.0001, (1 - vergi / 100))) / Math.max(1, calismaSaati)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY/hour",
+    "breakdown": {
+      "sonuc": "Saatlik Serbest Çalışan Ücreti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Saatlik Serbest Çalışan Ücreti",
+        "tr": "Saatlik Serbest Çalışan Ücreti",
+        "de": "Saatlik Serbest Çalışan Ücreti",
+        "fr": "Saatlik Serbest Çalışan Ücreti",
+        "es": "Saatlik Serbest Çalışan Ücreti",
+        "ar": "Saatlik Serbest Çalışan Ücreti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY/hour"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate freelancer hourly rate including tax and overhead.",
+      "long": "Calculate freelancer hourly rate including tax and overhead.",
+      "short_i18n": {
+        "en": "Calculate freelancer hourly rate including tax and overhead.",
+        "tr": "Vergi ve giderler dahil edilmesi gereken saatlik serbest çalışan ücretini hesaplar.",
+        "de": "Calculate freelancer hourly rate including tax and overhead.",
+        "fr": "Calculate freelancer hourly rate including tax and overhead.",
+        "es": "Calculate freelancer hourly rate including tax and overhead.",
+        "ar": "Calculate freelancer hourly rate including tax and overhead."
+      },
+      "long_i18n": {
+        "en": "Calculate freelancer hourly rate including tax and overhead.",
+        "tr": "Vergi ve giderler dahil edilmesi gereken saatlik serbest çalışan ücretini hesaplar.",
+        "de": "Calculate freelancer hourly rate including tax and overhead.",
+        "fr": "Calculate freelancer hourly rate including tax and overhead.",
+        "es": "Calculate freelancer hourly rate including tax and overhead.",
+        "ar": "Calculate freelancer hourly rate including tax and overhead."
+      }
+    }
+  }
+}

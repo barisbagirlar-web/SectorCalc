@@ -1,0 +1,120 @@
+{
+  "toolName": "kumas-cekme-carpani-hesaplama",
+  "catalogCategory": "textile-print-lab",
+  "categorySlug": "textile-print-lab",
+  "sector": "Tekstil, Gıda ve Plastik",
+  "sectorId": "textile-print-lab",
+  "inputs": [
+    {
+      "id": "hamOlcu",
+      "label": "Ham Ölçü (cm)",
+      "label_i18n": {
+        "en": "Greige Dimension (cm)",
+        "tr": "Ham Ölçü (cm)",
+        "de": "Greige Dimension (cm)",
+        "fr": "Greige Dimension (cm)",
+        "es": "Greige Dimension (cm)",
+        "ar": "Greige Dimension (cm)"
+      },
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "min": 0,
+      "businessContext": "İşlem öncesi kumaş ölçüsü.",
+      "businessContext_i18n": {
+        "en": "Pre-processing fabric size.",
+        "tr": "İşlem öncesi kumaş ölçüsü.",
+        "de": "Pre-processing fabric size.",
+        "fr": "Pre-processing fabric size.",
+        "es": "Pre-processing fabric size.",
+        "ar": "Pre-processing fabric size."
+      }
+    },
+    {
+      "id": "bitmisOlcu",
+      "label": "Bitmiş Ölçü (cm)",
+      "label_i18n": {
+        "en": "Finished Dimension (cm)",
+        "tr": "Bitmiş Ölçü (cm)",
+        "de": "Finished Dimension (cm)",
+        "fr": "Finished Dimension (cm)",
+        "es": "Finished Dimension (cm)",
+        "ar": "Finished Dimension (cm)"
+      },
+      "type": "number",
+      "unit": "cm",
+      "default": 96,
+      "min": 0,
+      "businessContext": "İşlem sonrası kumaş ölçüsü.",
+      "businessContext_i18n": {
+        "en": "Post-processing fabric size.",
+        "tr": "İşlem sonrası kumaş ölçüsü.",
+        "de": "Post-processing fabric size.",
+        "fr": "Post-processing fabric size.",
+        "es": "Post-processing fabric size.",
+        "ar": "Post-processing fabric size."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "((hamOlcu - bitmisOlcu) / Math.max(0.0001, hamOlcu)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Çekme Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Çekme Oranı",
+        "tr": "Çekme Oranı",
+        "de": "Çekme Oranı",
+        "fr": "Çekme Oranı",
+        "es": "Çekme Oranı",
+        "ar": "Çekme Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [
+      "Waste in material or time indicates process improvement opportunity."
+    ],
+    "suggestedActions": [
+      "Optimize drying/cooling parameters for cycle time reduction.",
+      "Monitor defects and adjust process conditions accordingly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate fabric shrinkage percentage after processing.",
+      "long": "Calculate fabric shrinkage percentage after processing.",
+      "short_i18n": {
+        "en": "Calculate fabric shrinkage percentage after processing.",
+        "tr": "Proses sonrası kumaştaki boyutsal daralma oranını (çekme) hesaplar.",
+        "de": "Calculate fabric shrinkage percentage after processing.",
+        "fr": "Calculate fabric shrinkage percentage after processing.",
+        "es": "Calculate fabric shrinkage percentage after processing.",
+        "ar": "Calculate fabric shrinkage percentage after processing."
+      },
+      "long_i18n": {
+        "en": "Calculate fabric shrinkage percentage after processing.",
+        "tr": "Proses sonrası kumaştaki boyutsal daralma oranını (çekme) hesaplar.",
+        "de": "Calculate fabric shrinkage percentage after processing.",
+        "fr": "Calculate fabric shrinkage percentage after processing.",
+        "es": "Calculate fabric shrinkage percentage after processing.",
+        "ar": "Calculate fabric shrinkage percentage after processing."
+      }
+    }
+  }
+}

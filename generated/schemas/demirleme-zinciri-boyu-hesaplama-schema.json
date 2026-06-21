@@ -1,0 +1,145 @@
+{
+  "toolName": "demirleme-zinciri-boyu-hesaplama",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "suDerinligi",
+      "label": "Su Derinliği (m)",
+      "label_i18n": {
+        "en": "Water Depth (m)",
+        "tr": "Su Derinliği (m)",
+        "de": "Water Depth (m)",
+        "fr": "Water Depth (m)",
+        "es": "Water Depth (m)",
+        "ar": "Water Depth (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 15,
+      "min": 0,
+      "businessContext": "Demirleme noktasındaki derinlik.",
+      "businessContext_i18n": {
+        "en": "Depth at anchorage.",
+        "tr": "Demirleme noktasındaki derinlik.",
+        "de": "Depth at anchorage.",
+        "fr": "Depth at anchorage.",
+        "es": "Depth at anchorage.",
+        "ar": "Depth at anchorage."
+      }
+    },
+    {
+      "id": "ruzgarHizi",
+      "label": "Tahmini Rüzgar Hızı (m/s)",
+      "label_i18n": {
+        "en": "Expected Wind Speed (m/s)",
+        "tr": "Tahmini Rüzgar Hızı (m/s)",
+        "de": "Expected Wind Speed (m/s)",
+        "fr": "Expected Wind Speed (m/s)",
+        "es": "Expected Wind Speed (m/s)",
+        "ar": "Expected Wind Speed (m/s)"
+      },
+      "type": "number",
+      "unit": "m/s",
+      "default": 15,
+      "min": 0,
+      "businessContext": "En kötü senaryo rüzgar hızı.",
+      "businessContext_i18n": {
+        "en": "Worst-case wind speed.",
+        "tr": "En kötü senaryo rüzgar hızı.",
+        "de": "Worst-case wind speed.",
+        "fr": "Worst-case wind speed.",
+        "es": "Worst-case wind speed.",
+        "ar": "Worst-case wind speed."
+      }
+    },
+    {
+      "id": "dipKatsayisi",
+      "label": "Dip Katsayısı",
+      "label_i18n": {
+        "en": "Bottom Coefficient",
+        "tr": "Dip Katsayısı",
+        "de": "Bottom Coefficient",
+        "fr": "Bottom Coefficient",
+        "es": "Bottom Coefficient",
+        "ar": "Bottom Coefficient"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "min": 0,
+      "businessContext": "Zemin tipine bağlı düzeltme.",
+      "businessContext_i18n": {
+        "en": "Seabed type correction.",
+        "tr": "Zemin tipine bağlı düzeltme.",
+        "de": "Seabed type correction.",
+        "fr": "Seabed type correction.",
+        "es": "Seabed type correction.",
+        "ar": "Seabed type correction."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(suDerinligi * (3 + (ruzgarHizi / 10))) * dipKatsayisi"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Min. Zincir Boyu"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Min. Zincir Boyu",
+        "tr": "Min. Zincir Boyu",
+        "de": "Min. Zincir Boyu",
+        "fr": "Min. Zincir Boyu",
+        "es": "Min. Zincir Boyu",
+        "ar": "Min. Zincir Boyu"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum anchor chain length to prevent dragging.",
+      "long": "Calculate minimum anchor chain length to prevent dragging.",
+      "short_i18n": {
+        "en": "Calculate minimum anchor chain length to prevent dragging.",
+        "tr": "Demirin taramasını önlemek için gereken minimum zincir boyunu hesaplar.",
+        "de": "Calculate minimum anchor chain length to prevent dragging.",
+        "fr": "Calculate minimum anchor chain length to prevent dragging.",
+        "es": "Calculate minimum anchor chain length to prevent dragging.",
+        "ar": "Calculate minimum anchor chain length to prevent dragging."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum anchor chain length to prevent dragging.",
+        "tr": "Demirin taramasını önlemek için gereken minimum zincir boyunu hesaplar.",
+        "de": "Calculate minimum anchor chain length to prevent dragging.",
+        "fr": "Calculate minimum anchor chain length to prevent dragging.",
+        "es": "Calculate minimum anchor chain length to prevent dragging.",
+        "ar": "Calculate minimum anchor chain length to prevent dragging."
+      }
+    }
+  }
+}

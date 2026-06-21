@@ -1,0 +1,143 @@
+{
+  "toolName": "yillik-getiri-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "baslangic",
+      "label": "Başlangıç Değeri (₺)",
+      "label_i18n": {
+        "en": "Starting Value (TRY)",
+        "tr": "Başlangıç Değeri (₺)",
+        "de": "Starting Value (TRY)",
+        "fr": "Starting Value (TRY)",
+        "es": "Starting Value (TRY)",
+        "ar": "Starting Value (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Dönem başı yatırım değeri.",
+      "businessContext_i18n": {
+        "en": "Investment value at start of period.",
+        "tr": "Dönem başı yatırım değeri.",
+        "de": "Investment value at start of period.",
+        "fr": "Investment value at start of period.",
+        "es": "Investment value at start of period.",
+        "ar": "Investment value at start of period."
+      }
+    },
+    {
+      "id": "bitis",
+      "label": "Bitiş Değeri (₺)",
+      "label_i18n": {
+        "en": "Ending Value (TRY)",
+        "tr": "Bitiş Değeri (₺)",
+        "de": "Ending Value (TRY)",
+        "fr": "Ending Value (TRY)",
+        "es": "Ending Value (TRY)",
+        "ar": "Ending Value (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 20000,
+      "min": 0,
+      "businessContext": "Dönem sonu yatırım değeri.",
+      "businessContext_i18n": {
+        "en": "Investment value at end of period.",
+        "tr": "Dönem sonu yatırım değeri.",
+        "de": "Investment value at end of period.",
+        "fr": "Investment value at end of period.",
+        "es": "Investment value at end of period.",
+        "ar": "Investment value at end of period."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Süre (Yıl)",
+      "label_i18n": {
+        "en": "Period (Years)",
+        "tr": "Süre (Yıl)",
+        "de": "Period (Years)",
+        "fr": "Period (Years)",
+        "es": "Period (Years)",
+        "ar": "Period (Years)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Toplam yatırım süresi.",
+      "businessContext_i18n": {
+        "en": "Total investment period.",
+        "tr": "Toplam yatırım süresi.",
+        "de": "Total investment period.",
+        "fr": "Total investment period.",
+        "es": "Total investment period.",
+        "ar": "Total investment period."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(Math.pow(bitis / Math.max(1, baslangic), 1 / Math.max(1, yil)) - 1) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Yıllıklandırılmış Getiri"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllıklandırılmış Getiri",
+        "tr": "Yıllıklandırılmış Getiri",
+        "de": "Yıllıklandırılmış Getiri",
+        "fr": "Yıllıklandırılmış Getiri",
+        "es": "Yıllıklandırılmış Getiri",
+        "ar": "Yıllıklandırılmış Getiri"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the annualized rate of return on an investment.",
+      "long": "Calculate the annualized rate of return on an investment.",
+      "short_i18n": {
+        "en": "Calculate the annualized rate of return on an investment.",
+        "tr": "Yatırımın yıllıklandırılmış ortalama büyüme hızını hesaplar.",
+        "de": "Calculate the annualized rate of return on an investment.",
+        "fr": "Calculate the annualized rate of return on an investment.",
+        "es": "Calculate the annualized rate of return on an investment.",
+        "ar": "Calculate the annualized rate of return on an investment."
+      },
+      "long_i18n": {
+        "en": "Calculate the annualized rate of return on an investment.",
+        "tr": "Yatırımın yıllıklandırılmış ortalama büyüme hızını hesaplar.",
+        "de": "Calculate the annualized rate of return on an investment.",
+        "fr": "Calculate the annualized rate of return on an investment.",
+        "es": "Calculate the annualized rate of return on an investment.",
+        "ar": "Calculate the annualized rate of return on an investment."
+      }
+    }
+  }
+}

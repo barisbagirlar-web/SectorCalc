@@ -1,0 +1,118 @@
+{
+  "toolName": "ira-rmd-asgari-dagitim-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "bakiye",
+      "label": "IRA Bakiyesi (TL)",
+      "label_i18n": {
+        "en": "IRA Balance (TRY)",
+        "tr": "IRA Bakiyesi (TL)",
+        "de": "IRA Balance (TRY)",
+        "fr": "IRA Balance (TRY)",
+        "es": "IRA Balance (TRY)",
+        "ar": "IRA Balance (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Yıl sonu IRA bakiyesi.",
+      "businessContext_i18n": {
+        "en": "Year-end IRA balance.",
+        "tr": "Yıl sonu IRA bakiyesi.",
+        "de": "Year-end IRA balance.",
+        "fr": "Year-end IRA balance.",
+        "es": "Year-end IRA balance.",
+        "ar": "Year-end IRA balance."
+      }
+    },
+    {
+      "id": "yasamBeklentisi",
+      "label": "Yaşam Beklentisi (Yıl)",
+      "label_i18n": {
+        "en": "Life Expectancy (Years)",
+        "tr": "Yaşam Beklentisi (Yıl)",
+        "de": "Life Expectancy (Years)",
+        "fr": "Life Expectancy (Years)",
+        "es": "Life Expectancy (Years)",
+        "ar": "Life Expectancy (Years)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "min": 1,
+      "businessContext": "IRS tablosuna göre yaşam beklentisi.",
+      "businessContext_i18n": {
+        "en": "IRS life expectancy factor.",
+        "tr": "IRS tablosuna göre yaşam beklentisi.",
+        "de": "IRS life expectancy factor.",
+        "fr": "IRS life expectancy factor.",
+        "es": "IRS life expectancy factor.",
+        "ar": "IRS life expectancy factor."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "bakiye / Math.max(1, yasamBeklentisi)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Yıllık RMD (Zorunlu Dağıtım)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllık RMD (Zorunlu Dağıtım)",
+        "tr": "Yıllık RMD (Zorunlu Dağıtım)",
+        "de": "Yıllık RMD (Zorunlu Dağıtım)",
+        "fr": "Yıllık RMD (Zorunlu Dağıtım)",
+        "es": "Yıllık RMD (Zorunlu Dağıtım)",
+        "ar": "Yıllık RMD (Zorunlu Dağıtım)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+      "long": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+      "short_i18n": {
+        "en": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+        "tr": "72 yaş sonrası yasal olarak çekilmesi zorunlu minimum yıllık IRA tutarını (RMD) hesaplar.",
+        "de": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+        "fr": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+        "es": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+        "ar": "Calculate required minimum distribution (RMD) from IRA after age 72."
+      },
+      "long_i18n": {
+        "en": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+        "tr": "72 yaş sonrası yasal olarak çekilmesi zorunlu minimum yıllık IRA tutarını (RMD) hesaplar.",
+        "de": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+        "fr": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+        "es": "Calculate required minimum distribution (RMD) from IRA after age 72.",
+        "ar": "Calculate required minimum distribution (RMD) from IRA after age 72."
+      }
+    }
+  }
+}

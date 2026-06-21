@@ -1,0 +1,169 @@
+{
+  "toolName": "lento-boyutlandirma-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "yuk",
+      "label": "Yayılı Yük (N/m)",
+      "label_i18n": {
+        "en": "Uniform Load (N/m)",
+        "tr": "Yayılı Yük (N/m)",
+        "de": "Uniform Load (N/m)",
+        "fr": "Uniform Load (N/m)",
+        "es": "Uniform Load (N/m)",
+        "ar": "Uniform Load (N/m)"
+      },
+      "type": "number",
+      "unit": "N/m",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Lentoya gelen yük.",
+      "businessContext_i18n": {
+        "en": "Load on lintel.",
+        "tr": "Lentoya gelen yük.",
+        "de": "Load on lintel.",
+        "fr": "Load on lintel.",
+        "es": "Load on lintel.",
+        "ar": "Load on lintel."
+      }
+    },
+    {
+      "id": "aciklik",
+      "label": "Açıklık (m)",
+      "label_i18n": {
+        "en": "Span (m)",
+        "tr": "Açıklık (m)",
+        "de": "Span (m)",
+        "fr": "Span (m)",
+        "es": "Span (m)",
+        "ar": "Span (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Lento mesnetler arası mesafe.",
+      "businessContext_i18n": {
+        "en": "Lintel clear span.",
+        "tr": "Lento mesnetler arası mesafe.",
+        "de": "Lintel clear span.",
+        "fr": "Lintel clear span.",
+        "es": "Lintel clear span.",
+        "ar": "Lintel clear span."
+      }
+    },
+    {
+      "id": "genislik",
+      "label": "Lento Genişliği (m)",
+      "label_i18n": {
+        "en": "Lintel Width (m)",
+        "tr": "Lento Genişliği (m)",
+        "de": "Lintel Width (m)",
+        "fr": "Lintel Width (m)",
+        "es": "Lintel Width (m)",
+        "ar": "Lintel Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Lento kesit genişliği.",
+      "businessContext_i18n": {
+        "en": "Lintel section width.",
+        "tr": "Lento kesit genişliği.",
+        "de": "Lintel section width.",
+        "fr": "Lintel section width.",
+        "es": "Lintel section width.",
+        "ar": "Lintel section width."
+      }
+    },
+    {
+      "id": "yukseklik",
+      "label": "Lento Yüksekliği (m)",
+      "label_i18n": {
+        "en": "Lintel Height (m)",
+        "tr": "Lento Yüksekliği (m)",
+        "de": "Lintel Height (m)",
+        "fr": "Lintel Height (m)",
+        "es": "Lintel Height (m)",
+        "ar": "Lintel Height (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "min": 0,
+      "businessContext": "Lento kesit yüksekliği.",
+      "businessContext_i18n": {
+        "en": "Lintel section height.",
+        "tr": "Lento kesit yüksekliği.",
+        "de": "Lintel section height.",
+        "fr": "Lintel section height.",
+        "es": "Lintel section height.",
+        "ar": "Lintel section height."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "moment": "(yuk * aciklik) / 8",
+    "sonuc": "((yuk * aciklik) / 8 * (yukseklik / 2)) / Math.max(0.0001, (genislik * Math.pow(yukseklik, 3) / 12))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Maks. Eğilme Gerilmesi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maks. Eğilme Gerilmesi",
+        "tr": "Maks. Eğilme Gerilmesi",
+        "de": "Maks. Eğilme Gerilmesi",
+        "fr": "Maks. Eğilme Gerilmesi",
+        "es": "Maks. Eğilme Gerilmesi",
+        "ar": "Maks. Eğilme Gerilmesi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate maximum bending stress in a lintel beam.",
+      "long": "Calculate maximum bending stress in a lintel beam.",
+      "short_i18n": {
+        "en": "Calculate maximum bending stress in a lintel beam.",
+        "tr": "Lento kesitindeki maksimum eğilme gerilmesini hesaplar.",
+        "de": "Calculate maximum bending stress in a lintel beam.",
+        "fr": "Calculate maximum bending stress in a lintel beam.",
+        "es": "Calculate maximum bending stress in a lintel beam.",
+        "ar": "Calculate maximum bending stress in a lintel beam."
+      },
+      "long_i18n": {
+        "en": "Calculate maximum bending stress in a lintel beam.",
+        "tr": "Lento kesitindeki maksimum eğilme gerilmesini hesaplar.",
+        "de": "Calculate maximum bending stress in a lintel beam.",
+        "fr": "Calculate maximum bending stress in a lintel beam.",
+        "es": "Calculate maximum bending stress in a lintel beam.",
+        "ar": "Calculate maximum bending stress in a lintel beam."
+      }
+    }
+  }
+}

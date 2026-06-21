@@ -1,0 +1,94 @@
+{
+  "toolName": "compton-kayma-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik ve Kuantum",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "sacilmaAcisi",
+      "label": "Saçılma Açısı (Derece)",
+      "label_i18n": {
+        "en": "Scattering Angle (Deg)",
+        "tr": "Saçılma Açısı (Derece)",
+        "de": "Scattering Angle (Deg)",
+        "fr": "Scattering Angle (Deg)",
+        "es": "Scattering Angle (Deg)",
+        "ar": "Scattering Angle (Deg)"
+      },
+      "type": "number",
+      "unit": "degrees",
+      "default": 90,
+      "min": 0,
+      "max": 180,
+      "businessContext": "Fotonun saçılma açısı.",
+      "businessContext_i18n": {
+        "en": "Photon scattering angle.",
+        "tr": "Fotonun saçılma açısı.",
+        "de": "Photon scattering angle.",
+        "fr": "Photon scattering angle.",
+        "es": "Photon scattering angle.",
+        "ar": "Photon scattering angle."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "2.426e-12 * (1 - Math.cos(sacilmaAcisi * Math.PI / 180))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Compton Kayması"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Compton Kayması",
+        "tr": "Compton Kayması",
+        "de": "Compton Kayması",
+        "fr": "Compton Kayması",
+        "es": "Compton Kayması",
+        "ar": "Compton Kayması"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Quantum effects are only observable at microscopic scales.",
+      "These are idealized models."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate Compton shift in photon wavelength after scattering.",
+      "long": "Calculate Compton shift in photon wavelength after scattering.",
+      "short_i18n": {
+        "en": "Calculate Compton shift in photon wavelength after scattering.",
+        "tr": "Fotonun saçılma sonrası dalga boyundaki değişimi (Compton kayması) hesaplar.",
+        "de": "Calculate Compton shift in photon wavelength after scattering.",
+        "fr": "Calculate Compton shift in photon wavelength after scattering.",
+        "es": "Calculate Compton shift in photon wavelength after scattering.",
+        "ar": "Calculate Compton shift in photon wavelength after scattering."
+      },
+      "long_i18n": {
+        "en": "Calculate Compton shift in photon wavelength after scattering.",
+        "tr": "Fotonun saçılma sonrası dalga boyundaki değişimi (Compton kayması) hesaplar.",
+        "de": "Calculate Compton shift in photon wavelength after scattering.",
+        "fr": "Calculate Compton shift in photon wavelength after scattering.",
+        "es": "Calculate Compton shift in photon wavelength after scattering.",
+        "ar": "Calculate Compton shift in photon wavelength after scattering."
+      }
+    }
+  }
+}

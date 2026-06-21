@@ -1,0 +1,94 @@
+{
+  "toolName": "brinell-rockwell-sertlik-donusum-hesaplama",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "HB",
+      "label": "Brinell Sertlik (HB)",
+      "label_i18n": {
+        "en": "Brinell Hardness (HB)",
+        "tr": "Brinell Sertlik (HB)",
+        "de": "Brinell Hardness (HB)",
+        "fr": "Brinell Hardness (HB)",
+        "es": "Brinell Hardness (HB)",
+        "ar": "Brinell Hardness (HB)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 300,
+      "min": 100,
+      "max": 700,
+      "businessContext": "Brinell sertlik değeri.",
+      "businessContext_i18n": {
+        "en": "Brinell hardness number.",
+        "tr": "Brinell sertlik değeri.",
+        "de": "Brinell hardness number.",
+        "fr": "Brinell hardness number.",
+        "es": "Brinell hardness number.",
+        "ar": "Brinell hardness number."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(HB - 100) / 10"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "HRC",
+    "breakdown": {
+      "sonuc": "Rockwell C (HRC)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Rockwell C (HRC)",
+        "tr": "Rockwell C (HRC)",
+        "de": "Rockwell C (HRC)",
+        "fr": "Rockwell C (HRC)",
+        "es": "Rockwell C (HRC)",
+        "ar": "Rockwell C (HRC)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "HRC"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+      "long": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+      "short_i18n": {
+        "en": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+        "tr": "Brinell sertlik değerini (HB) yaklaşık Rockwell C (HRC) değerine dönüştürür.",
+        "de": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+        "fr": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+        "es": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+        "ar": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value."
+      },
+      "long_i18n": {
+        "en": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+        "tr": "Brinell sertlik değerini (HB) yaklaşık Rockwell C (HRC) değerine dönüştürür.",
+        "de": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+        "fr": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+        "es": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value.",
+        "ar": "Convert Brinell hardness (HB) to approximate Rockwell C (HRC) value."
+      }
+    }
+  }
+}

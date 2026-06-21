@@ -1,0 +1,168 @@
+{
+  "toolName": "kiris-sehimi-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "yuk",
+      "label": "Yayılı Yük (N/m)",
+      "label_i18n": {
+        "en": "Uniform Load (N/m)",
+        "tr": "Yayılı Yük (N/m)",
+        "de": "Uniform Load (N/m)",
+        "fr": "Uniform Load (N/m)",
+        "es": "Uniform Load (N/m)",
+        "ar": "Uniform Load (N/m)"
+      },
+      "type": "number",
+      "unit": "N/m",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Birim boya gelen yük.",
+      "businessContext_i18n": {
+        "en": "Load per unit length.",
+        "tr": "Birim boya gelen yük.",
+        "de": "Load per unit length.",
+        "fr": "Load per unit length.",
+        "es": "Load per unit length.",
+        "ar": "Load per unit length."
+      }
+    },
+    {
+      "id": "uzunluk",
+      "label": "Açıklık (m)",
+      "label_i18n": {
+        "en": "Span (m)",
+        "tr": "Açıklık (m)",
+        "de": "Span (m)",
+        "fr": "Span (m)",
+        "es": "Span (m)",
+        "ar": "Span (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Kiriş mesnetler arası mesafe.",
+      "businessContext_i18n": {
+        "en": "Beam span between supports.",
+        "tr": "Kiriş mesnetler arası mesafe.",
+        "de": "Beam span between supports.",
+        "fr": "Beam span between supports.",
+        "es": "Beam span between supports.",
+        "ar": "Beam span between supports."
+      }
+    },
+    {
+      "id": "elastisiteModulu",
+      "label": "Elastisite Modülü (Pa)",
+      "label_i18n": {
+        "en": "Young's Modulus (Pa)",
+        "tr": "Elastisite Modülü (Pa)",
+        "de": "Young's Modulus (Pa)",
+        "fr": "Young's Modulus (Pa)",
+        "es": "Young's Modulus (Pa)",
+        "ar": "Young's Modulus (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 200000000000,
+      "min": 0,
+      "businessContext": "Malzeme modülü.",
+      "businessContext_i18n": {
+        "en": "Material modulus.",
+        "tr": "Malzeme modülü.",
+        "de": "Material modulus.",
+        "fr": "Material modulus.",
+        "es": "Material modulus.",
+        "ar": "Material modulus."
+      }
+    },
+    {
+      "id": "ataletMomenti",
+      "label": "Atalet Momenti (m⁴)",
+      "label_i18n": {
+        "en": "Moment of Inertia (m⁴)",
+        "tr": "Atalet Momenti (m⁴)",
+        "de": "Moment of Inertia (m⁴)",
+        "fr": "Moment of Inertia (m⁴)",
+        "es": "Moment of Inertia (m⁴)",
+        "ar": "Moment of Inertia (m⁴)"
+      },
+      "type": "number",
+      "unit": "m4",
+      "default": 0.0000083,
+      "min": 0,
+      "businessContext": "Kesitin atalet momenti.",
+      "businessContext_i18n": {
+        "en": "Section moment of inertia.",
+        "tr": "Kesitin atalet momenti.",
+        "de": "Section moment of inertia.",
+        "fr": "Section moment of inertia.",
+        "es": "Section moment of inertia.",
+        "ar": "Section moment of inertia."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(5 * yuk * Math.pow(uzunluk, 4)) / Math.max(0.0001, (384 * elastisiteModulu * ataletMomenti))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Maksimum Sehim"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maksimum Sehim",
+        "tr": "Maksimum Sehim",
+        "de": "Maksimum Sehim",
+        "fr": "Maksimum Sehim",
+        "es": "Maksimum Sehim",
+        "ar": "Maksimum Sehim"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate maximum deflection of a simply supported beam under uniform load.",
+      "long": "Calculate maximum deflection of a simply supported beam under uniform load.",
+      "short_i18n": {
+        "en": "Calculate maximum deflection of a simply supported beam under uniform load.",
+        "tr": "Yayılı yük altındaki basit kirişin maksimum çökmesini (sehim) hesaplar.",
+        "de": "Calculate maximum deflection of a simply supported beam under uniform load.",
+        "fr": "Calculate maximum deflection of a simply supported beam under uniform load.",
+        "es": "Calculate maximum deflection of a simply supported beam under uniform load.",
+        "ar": "Calculate maximum deflection of a simply supported beam under uniform load."
+      },
+      "long_i18n": {
+        "en": "Calculate maximum deflection of a simply supported beam under uniform load.",
+        "tr": "Yayılı yük altındaki basit kirişin maksimum çökmesini (sehim) hesaplar.",
+        "de": "Calculate maximum deflection of a simply supported beam under uniform load.",
+        "fr": "Calculate maximum deflection of a simply supported beam under uniform load.",
+        "es": "Calculate maximum deflection of a simply supported beam under uniform load.",
+        "ar": "Calculate maximum deflection of a simply supported beam under uniform load."
+      }
+    }
+  }
+}

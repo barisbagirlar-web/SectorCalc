@@ -2,14 +2,18 @@
 import * as z from 'zod';
 
 export interface Ebitda_hesaplamaInput {
-  inputA: number;
-  inputB: number;
+  netKar: number;
+  faiz: number;
+  vergi: number;
+  amortisman: number;
   dataConfidence?: number;
 }
 
 export const Ebitda_hesaplamaInputSchema = z.object({
-  inputA: z.number().min(0).default(100),
-  inputB: z.number().min(0).default(50),
+  netKar: z.number().min(0).default(150000),
+  faiz: z.number().min(0).default(20000),
+  vergi: z.number().min(0).default(45000),
+  amortisman: z.number().min(0).default(30000),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -18,8 +22,8 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Ebitda_hesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.inputA / input.inputB * 100 + Math.sqrt(input.inputA * input.inputB) / 10; results["main"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["main"] = Number.NaN; }
-  try { const v = input.inputA / input.inputB * 100 + Math.sqrt(input.inputA * input.inputB) / 10; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.netKar * input.faiz * input.vergi * input.amortisman; results["normalized_product"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["normalized_product"] = Number.NaN; }
+  try { const v = input.netKar * input.faiz * input.vergi * input.amortisman; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 
@@ -28,10 +32,10 @@ export function calculateEbitda_hesaplama(input: Ebitda_hesaplamaInput): Ebitda_
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
-    result: toNumericFormulaValue(values["result"])
+    normalized_product: toNumericFormulaValue(values["normalized_product"])
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Consult with a professional.","Review assumptions regularly."];
+  const hiddenLossDrivers: string[] = ["Model uses normalized input chain — validate units","Assumption-heavy without site benchmark"];
+  const suggestedActions: string[] = ["Cross-check with historical actuals","Run sensitivity on top 2 inputs"];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -42,9 +46,9 @@ export function calculateEbitda_hesaplama(input: Ebitda_hesaplamaInput): Ebitda_
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "",
+    unit: "units",
     premiumRequired: false,
-    premiumFeatures: ["Detailed PDF report","Scenario comparison","Multi-year projections"],
+    premiumFeatures: [],
   };
 }
 
@@ -52,7 +56,7 @@ export function calculateEbitda_hesaplama(input: Ebitda_hesaplamaInput): Ebitda_
 export interface Ebitda_hesaplamaOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { result: number };
+  breakdown: { normalized_product: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -62,7 +66,7 @@ export interface Ebitda_hesaplamaOutput {
 
 export const Ebitda_hesaplamaOutputMeta = {
   primaryKey: "result",
-  unit: "",
-  breakdownKeys: ["result"],
+  unit: "units",
+  breakdownKeys: ["normalized_product"],
 } as const;
 

@@ -1,0 +1,168 @@
+{
+  "toolName": "sikic-gecme-basinici-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "girisim",
+      "label": "Girişim Miktarı (m)",
+      "label_i18n": {
+        "en": "Interference (m)",
+        "tr": "Girişim Miktarı (m)",
+        "de": "Interference (m)",
+        "fr": "Interference (m)",
+        "es": "Interference (m)",
+        "ar": "Interference (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.00005,
+      "min": 0,
+      "businessContext": "Mil-delik arasındaki çap farkı.",
+      "businessContext_i18n": {
+        "en": "Diametral interference.",
+        "tr": "Mil-delik arasındaki çap farkı.",
+        "de": "Diametral interference.",
+        "fr": "Diametral interference.",
+        "es": "Diametral interference.",
+        "ar": "Diametral interference."
+      }
+    },
+    {
+      "id": "cap",
+      "label": "Nominal Çap (m)",
+      "label_i18n": {
+        "en": "Nominal Diameter (m)",
+        "tr": "Nominal Çap (m)",
+        "de": "Nominal Diameter (m)",
+        "fr": "Nominal Diameter (m)",
+        "es": "Nominal Diameter (m)",
+        "ar": "Nominal Diameter (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "min": 0,
+      "businessContext": "Bağlantının nominal çapı.",
+      "businessContext_i18n": {
+        "en": "Joint nominal diameter.",
+        "tr": "Bağlantının nominal çapı.",
+        "de": "Joint nominal diameter.",
+        "fr": "Joint nominal diameter.",
+        "es": "Joint nominal diameter.",
+        "ar": "Joint nominal diameter."
+      }
+    },
+    {
+      "id": "E1",
+      "label": "Malzeme 1 Modülü (Pa)",
+      "label_i18n": {
+        "en": "Material 1 Modulus (Pa)",
+        "tr": "Malzeme 1 Modülü (Pa)",
+        "de": "Material 1 Modulus (Pa)",
+        "fr": "Material 1 Modulus (Pa)",
+        "es": "Material 1 Modulus (Pa)",
+        "ar": "Material 1 Modulus (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 200000000000,
+      "min": 0,
+      "businessContext": "Birinci malzemenin elastisite modülü.",
+      "businessContext_i18n": {
+        "en": "First material modulus.",
+        "tr": "Birinci malzemenin elastisite modülü.",
+        "de": "First material modulus.",
+        "fr": "First material modulus.",
+        "es": "First material modulus.",
+        "ar": "First material modulus."
+      }
+    },
+    {
+      "id": "E2",
+      "label": "Malzeme 2 Modülü (Pa)",
+      "label_i18n": {
+        "en": "Material 2 Modulus (Pa)",
+        "tr": "Malzeme 2 Modülü (Pa)",
+        "de": "Material 2 Modulus (Pa)",
+        "fr": "Material 2 Modulus (Pa)",
+        "es": "Material 2 Modulus (Pa)",
+        "ar": "Material 2 Modulus (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 200000000000,
+      "min": 0,
+      "businessContext": "İkinci malzemenin modülü.",
+      "businessContext_i18n": {
+        "en": "Second material modulus.",
+        "tr": "İkinci malzemenin modülü.",
+        "de": "Second material modulus.",
+        "fr": "Second material modulus.",
+        "es": "Second material modulus.",
+        "ar": "Second material modulus."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "girisim / Math.max(0.0001, (cap * (1 / Math.max(0.0001, E1) + 1 / Math.max(0.0001, E2))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Temas Basıncı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Temas Basıncı",
+        "tr": "Temas Basıncı",
+        "de": "Temas Basıncı",
+        "fr": "Temas Basıncı",
+        "es": "Temas Basıncı",
+        "ar": "Temas Basıncı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate interference fit contact pressure.",
+      "long": "Calculate interference fit contact pressure.",
+      "short_i18n": {
+        "en": "Calculate interference fit contact pressure.",
+        "tr": "Sıkı geçme bağlantısındaki yüzey temas basıncını hesaplar.",
+        "de": "Calculate interference fit contact pressure.",
+        "fr": "Calculate interference fit contact pressure.",
+        "es": "Calculate interference fit contact pressure.",
+        "ar": "Calculate interference fit contact pressure."
+      },
+      "long_i18n": {
+        "en": "Calculate interference fit contact pressure.",
+        "tr": "Sıkı geçme bağlantısındaki yüzey temas basıncını hesaplar.",
+        "de": "Calculate interference fit contact pressure.",
+        "fr": "Calculate interference fit contact pressure.",
+        "es": "Calculate interference fit contact pressure.",
+        "ar": "Calculate interference fit contact pressure."
+      }
+    }
+  }
+}

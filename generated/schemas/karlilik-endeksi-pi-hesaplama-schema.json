@@ -1,0 +1,118 @@
+{
+  "toolName": "karlilik-endeksi-pi-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "gelecekNakitBD",
+      "label": "Gelecek Nakit BD (₺)",
+      "label_i18n": {
+        "en": "Future Cash Flows PV (TRY)",
+        "tr": "Gelecek Nakit BD (₺)",
+        "de": "Future Cash Flows PV (TRY)",
+        "fr": "Future Cash Flows PV (TRY)",
+        "es": "Future Cash Flows PV (TRY)",
+        "ar": "Future Cash Flows PV (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 150000,
+      "min": 0,
+      "businessContext": "Tüm gelecek nakit akışlarının bugünkü değeri.",
+      "businessContext_i18n": {
+        "en": "Present value of all future cash flows.",
+        "tr": "Tüm gelecek nakit akışlarının bugünkü değeri.",
+        "de": "Present value of all future cash flows.",
+        "fr": "Present value of all future cash flows.",
+        "es": "Present value of all future cash flows.",
+        "ar": "Present value of all future cash flows."
+      }
+    },
+    {
+      "id": "yatirim",
+      "label": "Başlangıç Yatırımı (₺)",
+      "label_i18n": {
+        "en": "Initial Investment (TRY)",
+        "tr": "Başlangıç Yatırımı (₺)",
+        "de": "Initial Investment (TRY)",
+        "fr": "Initial Investment (TRY)",
+        "es": "Initial Investment (TRY)",
+        "ar": "Initial Investment (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 100000,
+      "min": 0,
+      "businessContext": "Projenin başlangıç maliyeti.",
+      "businessContext_i18n": {
+        "en": "Initial project cost.",
+        "tr": "Projenin başlangıç maliyeti.",
+        "de": "Initial project cost.",
+        "fr": "Initial project cost.",
+        "es": "Initial project cost.",
+        "ar": "Initial project cost."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "gelecekNakitBD / Math.max(1, yatirim)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "PI (Kârlılık Endeksi)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "PI (Kârlılık Endeksi)",
+        "tr": "PI (Kârlılık Endeksi)",
+        "de": "PI (Kârlılık Endeksi)",
+        "fr": "PI (Kârlılık Endeksi)",
+        "es": "PI (Kârlılık Endeksi)",
+        "ar": "PI (Kârlılık Endeksi)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the profitability index (PI) — value created per unit invested.",
+      "long": "Calculate the profitability index (PI) — value created per unit invested.",
+      "short_i18n": {
+        "en": "Calculate the profitability index (PI) — value created per unit invested.",
+        "tr": "1 birim yatırımın yarattığı bugünkü değeri (Kârlılık Endeksi) hesaplar.",
+        "de": "Calculate the profitability index (PI) — value created per unit invested.",
+        "fr": "Calculate the profitability index (PI) — value created per unit invested.",
+        "es": "Calculate the profitability index (PI) — value created per unit invested.",
+        "ar": "Calculate the profitability index (PI) — value created per unit invested."
+      },
+      "long_i18n": {
+        "en": "Calculate the profitability index (PI) — value created per unit invested.",
+        "tr": "1 birim yatırımın yarattığı bugünkü değeri (Kârlılık Endeksi) hesaplar.",
+        "de": "Calculate the profitability index (PI) — value created per unit invested.",
+        "fr": "Calculate the profitability index (PI) — value created per unit invested.",
+        "es": "Calculate the profitability index (PI) — value created per unit invested.",
+        "ar": "Calculate the profitability index (PI) — value created per unit invested."
+      }
+    }
+  }
+}

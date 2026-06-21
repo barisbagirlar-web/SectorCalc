@@ -1,0 +1,145 @@
+{
+  "toolName": "donel-sondaj-tork-hesaplama",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "matkapCapi",
+      "label": "Matkap Ucu Çapı (m)",
+      "label_i18n": {
+        "en": "Bit Diameter (m)",
+        "tr": "Matkap Ucu Çapı (m)",
+        "de": "Bit Diameter (m)",
+        "fr": "Bit Diameter (m)",
+        "es": "Bit Diameter (m)",
+        "ar": "Bit Diameter (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Sondaj matkabının çapı.",
+      "businessContext_i18n": {
+        "en": "Drill bit diameter.",
+        "tr": "Sondaj matkabının çapı.",
+        "de": "Drill bit diameter.",
+        "fr": "Drill bit diameter.",
+        "es": "Drill bit diameter.",
+        "ar": "Drill bit diameter."
+      }
+    },
+    {
+      "id": "kayaDayanim",
+      "label": "Kaya Basma Dayanımı (MPa)",
+      "label_i18n": {
+        "en": "Rock Compressive Strength (MPa)",
+        "tr": "Kaya Basma Dayanımı (MPa)",
+        "de": "Rock Compressive Strength (MPa)",
+        "fr": "Rock Compressive Strength (MPa)",
+        "es": "Rock Compressive Strength (MPa)",
+        "ar": "Rock Compressive Strength (MPa)"
+      },
+      "type": "number",
+      "unit": "MPa",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Kayanın tek eksenli basma dayanımı.",
+      "businessContext_i18n": {
+        "en": "Uniaxial compressive strength.",
+        "tr": "Kayanın tek eksenli basma dayanımı.",
+        "de": "Uniaxial compressive strength.",
+        "fr": "Uniaxial compressive strength.",
+        "es": "Uniaxial compressive strength.",
+        "ar": "Uniaxial compressive strength."
+      }
+    },
+    {
+      "id": "kesiciKatsayi",
+      "label": "Kesici Katsayısı",
+      "label_i18n": {
+        "en": "Cutter Coefficient",
+        "tr": "Kesici Katsayısı",
+        "de": "Cutter Coefficient",
+        "fr": "Cutter Coefficient",
+        "es": "Cutter Coefficient",
+        "ar": "Cutter Coefficient"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "min": 0,
+      "businessContext": "Matkap tipine bağlı katsayı.",
+      "businessContext_i18n": {
+        "en": "Bit type coefficient.",
+        "tr": "Matkap tipine bağlı katsayı.",
+        "de": "Bit type coefficient.",
+        "fr": "Bit type coefficient.",
+        "es": "Bit type coefficient.",
+        "ar": "Bit type coefficient."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(Math.PI * Math.pow(matkapCapi, 3) * kayaDayanim * 1000000 * kesiciKatsayi) / 12"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "N.m",
+    "breakdown": {
+      "sonuc": "Gerekli Tork"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Tork",
+        "tr": "Gerekli Tork",
+        "de": "Gerekli Tork",
+        "fr": "Gerekli Tork",
+        "es": "Gerekli Tork",
+        "ar": "Gerekli Tork"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "N.m"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum drill string torque for rotary drilling.",
+      "long": "Calculate minimum drill string torque for rotary drilling.",
+      "short_i18n": {
+        "en": "Calculate minimum drill string torque for rotary drilling.",
+        "tr": "Kayacı kırmak için matkap miline uygulanması gereken minimum torku hesaplar.",
+        "de": "Calculate minimum drill string torque for rotary drilling.",
+        "fr": "Calculate minimum drill string torque for rotary drilling.",
+        "es": "Calculate minimum drill string torque for rotary drilling.",
+        "ar": "Calculate minimum drill string torque for rotary drilling."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum drill string torque for rotary drilling.",
+        "tr": "Kayacı kırmak için matkap miline uygulanması gereken minimum torku hesaplar.",
+        "de": "Calculate minimum drill string torque for rotary drilling.",
+        "fr": "Calculate minimum drill string torque for rotary drilling.",
+        "es": "Calculate minimum drill string torque for rotary drilling.",
+        "ar": "Calculate minimum drill string torque for rotary drilling."
+      }
+    }
+  }
+}

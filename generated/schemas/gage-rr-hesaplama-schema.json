@@ -1,0 +1,119 @@
+{
+  "toolName": "gage-rr-hesaplama",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "parcaVaryans",
+      "label": "Parça Varyansı (VP)",
+      "label_i18n": {
+        "en": "Part Variance (VP)",
+        "tr": "Parça Varyansı (VP)",
+        "de": "Part Variance (VP)",
+        "fr": "Part Variance (VP)",
+        "es": "Part Variance (VP)",
+        "ar": "Part Variance (VP)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Parçalar arası gerçek farklılık.",
+      "businessContext_i18n": {
+        "en": "Actual part-to-part variation.",
+        "tr": "Parçalar arası gerçek farklılık.",
+        "de": "Actual part-to-part variation.",
+        "fr": "Actual part-to-part variation.",
+        "es": "Actual part-to-part variation.",
+        "ar": "Actual part-to-part variation."
+      }
+    },
+    {
+      "id": "olcumVaryans",
+      "label": "Ölçüm Varyansı (VGRR)",
+      "label_i18n": {
+        "en": "Gauge R&R Variance",
+        "tr": "Ölçüm Varyansı (VGRR)",
+        "de": "Gauge R&R Variance",
+        "fr": "Gauge R&R Variance",
+        "es": "Gauge R&R Variance",
+        "ar": "Gauge R&R Variance"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 25,
+      "min": 0,
+      "businessContext": "Ölçüm sisteminden kaynaklanan varyans.",
+      "businessContext_i18n": {
+        "en": "Measurement system variance.",
+        "tr": "Ölçüm sisteminden kaynaklanan varyans.",
+        "de": "Measurement system variance.",
+        "fr": "Measurement system variance.",
+        "es": "Measurement system variance.",
+        "ar": "Measurement system variance."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "toplamVaryans": "parcaVaryans + olcumVaryans",
+    "sonuc": "(olcumVaryans / Math.max(0.0001, (parcaVaryans + olcumVaryans))) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Gage R&R Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gage R&R Oranı",
+        "tr": "Gage R&R Oranı",
+        "de": "Gage R&R Oranı",
+        "fr": "Gage R&R Oranı",
+        "es": "Gage R&R Oranı",
+        "ar": "Gage R&R Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+      "long": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+      "short_i18n": {
+        "en": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+        "tr": "Ölçüm sisteminden kaynaklanan hatanın toplam varyansa oranını (Gage R&R) hesaplar.",
+        "de": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+        "fr": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+        "es": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+        "ar": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance."
+      },
+      "long_i18n": {
+        "en": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+        "tr": "Ölçüm sisteminden kaynaklanan hatanın toplam varyansa oranını (Gage R&R) hesaplar.",
+        "de": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+        "fr": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+        "es": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
+        "ar": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance."
+      }
+    }
+  }
+}

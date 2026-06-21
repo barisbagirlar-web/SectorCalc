@@ -1,0 +1,144 @@
+{
+  "toolName": "cap-table-hisse-tablosu-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "kurucu",
+      "label": "Kurucu Hisse (Adet)",
+      "label_i18n": {
+        "en": "Founder Shares",
+        "tr": "Kurucu Hisse (Adet)",
+        "de": "Founder Shares",
+        "fr": "Founder Shares",
+        "es": "Founder Shares",
+        "ar": "Founder Shares"
+      },
+      "type": "number",
+      "unit": "shares",
+      "default": 600000,
+      "min": 0,
+      "businessContext": "Kurucuya ait hisse.",
+      "businessContext_i18n": {
+        "en": "Founder shares.",
+        "tr": "Kurucuya ait hisse.",
+        "de": "Founder shares.",
+        "fr": "Founder shares.",
+        "es": "Founder shares.",
+        "ar": "Founder shares."
+      }
+    },
+    {
+      "id": "yatirimci",
+      "label": "Yatırımcı Hisse (Adet)",
+      "label_i18n": {
+        "en": "Investor Shares",
+        "tr": "Yatırımcı Hisse (Adet)",
+        "de": "Investor Shares",
+        "fr": "Investor Shares",
+        "es": "Investor Shares",
+        "ar": "Investor Shares"
+      },
+      "type": "number",
+      "unit": "shares",
+      "default": 300000,
+      "min": 0,
+      "businessContext": "Yatırımcıya ait hisse.",
+      "businessContext_i18n": {
+        "en": "Investor shares.",
+        "tr": "Yatırımcıya ait hisse.",
+        "de": "Investor shares.",
+        "fr": "Investor shares.",
+        "es": "Investor shares.",
+        "ar": "Investor shares."
+      }
+    },
+    {
+      "id": "opsiyon",
+      "label": "Opsiyon Havuzu (Adet)",
+      "label_i18n": {
+        "en": "Option Pool",
+        "tr": "Opsiyon Havuzu (Adet)",
+        "de": "Option Pool",
+        "fr": "Option Pool",
+        "es": "Option Pool",
+        "ar": "Option Pool"
+      },
+      "type": "number",
+      "unit": "shares",
+      "default": 100000,
+      "min": 0,
+      "businessContext": "Çalışan opsiyon havuzu.",
+      "businessContext_i18n": {
+        "en": "Employee option pool.",
+        "tr": "Çalışan opsiyon havuzu.",
+        "de": "Employee option pool.",
+        "fr": "Employee option pool.",
+        "es": "Employee option pool.",
+        "ar": "Employee option pool."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "toplam": "kurucu + yatirimci + opsiyon",
+    "sonuc": "(kurucu / Math.max(1, (kurucu + yatirimci + opsiyon))) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Kurucu Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Kurucu Oranı",
+        "tr": "Kurucu Oranı",
+        "de": "Kurucu Oranı",
+        "fr": "Kurucu Oranı",
+        "es": "Kurucu Oranı",
+        "ar": "Kurucu Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate ownership percentages in a cap table.",
+      "long": "Calculate ownership percentages in a cap table.",
+      "short_i18n": {
+        "en": "Calculate ownership percentages in a cap table.",
+        "tr": "Her paydaşın güncel mülkiyet oranını hesaplar.",
+        "de": "Calculate ownership percentages in a cap table.",
+        "fr": "Calculate ownership percentages in a cap table.",
+        "es": "Calculate ownership percentages in a cap table.",
+        "ar": "Calculate ownership percentages in a cap table."
+      },
+      "long_i18n": {
+        "en": "Calculate ownership percentages in a cap table.",
+        "tr": "Her paydaşın güncel mülkiyet oranını hesaplar.",
+        "de": "Calculate ownership percentages in a cap table.",
+        "fr": "Calculate ownership percentages in a cap table.",
+        "es": "Calculate ownership percentages in a cap table.",
+        "ar": "Calculate ownership percentages in a cap table."
+      }
+    }
+  }
+}

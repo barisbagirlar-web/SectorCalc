@@ -1,0 +1,146 @@
+{
+  "toolName": "hukuki-zamanasimi-sure-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "olayTarihi",
+      "label": "Olay Tarihi (Yıl)",
+      "label_i18n": {
+        "en": "Event Date (Year)",
+        "tr": "Olay Tarihi (Yıl)",
+        "de": "Event Date (Year)",
+        "fr": "Event Date (Year)",
+        "es": "Event Date (Year)",
+        "ar": "Event Date (Year)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 2020,
+      "min": 0,
+      "businessContext": "Dava konusu olayın gerçekleştiği yıl.",
+      "businessContext_i18n": {
+        "en": "Year the event occurred.",
+        "tr": "Dava konusu olayın gerçekleştiği yıl.",
+        "de": "Year the event occurred.",
+        "fr": "Year the event occurred.",
+        "es": "Year the event occurred.",
+        "ar": "Year the event occurred."
+      }
+    },
+    {
+      "id": "yasalSure",
+      "label": "Yasal Zamanaşımı Süresi (Yıl)",
+      "label_i18n": {
+        "en": "Legal Limitation Period (Years)",
+        "tr": "Yasal Zamanaşımı Süresi (Yıl)",
+        "de": "Legal Limitation Period (Years)",
+        "fr": "Legal Limitation Period (Years)",
+        "es": "Legal Limitation Period (Years)",
+        "ar": "Legal Limitation Period (Years)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Kanunun tanıdığı süre.",
+      "businessContext_i18n": {
+        "en": "Legal limitation period.",
+        "tr": "Kanunun tanıdığı süre.",
+        "de": "Legal limitation period.",
+        "fr": "Legal limitation period.",
+        "es": "Legal limitation period.",
+        "ar": "Legal limitation period."
+      }
+    },
+    {
+      "id": "kesintiDurumu",
+      "label": "Kesinti Var mı? (1=Evet, 0=Hayır)",
+      "label_i18n": {
+        "en": "Tolling? (1=Yes, 0=No)",
+        "tr": "Kesinti Var mı? (1=Evet, 0=Hayır)",
+        "de": "Tolling? (1=Yes, 0=No)",
+        "fr": "Tolling? (1=Yes, 0=No)",
+        "es": "Tolling? (1=Yes, 0=No)",
+        "ar": "Tolling? (1=Yes, 0=No)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "min": 0,
+      "businessContext": "Zamanaşımını kesen bir durum var mı?",
+      "businessContext_i18n": {
+        "en": "Is there a tolling event?",
+        "tr": "Zamanaşımını kesen bir durum var mı?",
+        "de": "Is there a tolling event?",
+        "fr": "Is there a tolling event?",
+        "es": "Is there a tolling event?",
+        "ar": "Is there a tolling event?"
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "kesintiDurumu === 1 ? olayTarihi : olayTarihi + yasalSure"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "year",
+    "breakdown": {
+      "sonuc": "Zamanaşımı Bitiş Yılı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Zamanaşımı Bitiş Yılı",
+        "tr": "Zamanaşımı Bitiş Yılı",
+        "de": "Zamanaşımı Bitiş Yılı",
+        "fr": "Zamanaşımı Bitiş Yılı",
+        "es": "Zamanaşımı Bitiş Yılı",
+        "ar": "Zamanaşımı Bitiş Yılı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "year"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate statute of limitations expiry date for legal action.",
+      "long": "Calculate statute of limitations expiry date for legal action.",
+      "short_i18n": {
+        "en": "Calculate statute of limitations expiry date for legal action.",
+        "tr": "Dava açma hakkının düştüğü son yasal günü (zamanaşımı süresi) hesaplar.",
+        "de": "Calculate statute of limitations expiry date for legal action.",
+        "fr": "Calculate statute of limitations expiry date for legal action.",
+        "es": "Calculate statute of limitations expiry date for legal action.",
+        "ar": "Calculate statute of limitations expiry date for legal action."
+      },
+      "long_i18n": {
+        "en": "Calculate statute of limitations expiry date for legal action.",
+        "tr": "Dava açma hakkının düştüğü son yasal günü (zamanaşımı süresi) hesaplar.",
+        "de": "Calculate statute of limitations expiry date for legal action.",
+        "fr": "Calculate statute of limitations expiry date for legal action.",
+        "es": "Calculate statute of limitations expiry date for legal action.",
+        "ar": "Calculate statute of limitations expiry date for legal action."
+      }
+    }
+  }
+}

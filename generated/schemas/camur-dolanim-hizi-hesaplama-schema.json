@@ -1,0 +1,145 @@
+{
+  "toolName": "camur-dolanim-hizi-hesaplama",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "camurDebi",
+      "label": "Çamur Debisi (m³/s)",
+      "label_i18n": {
+        "en": "Mud Flow Rate (m³/s)",
+        "tr": "Çamur Debisi (m³/s)",
+        "de": "Mud Flow Rate (m³/s)",
+        "fr": "Mud Flow Rate (m³/s)",
+        "es": "Mud Flow Rate (m³/s)",
+        "ar": "Mud Flow Rate (m³/s)"
+      },
+      "type": "number",
+      "unit": "m3/s",
+      "default": 0.01,
+      "min": 0,
+      "businessContext": "Sondaj çamuru debisi.",
+      "businessContext_i18n": {
+        "en": "Mud flow rate.",
+        "tr": "Sondaj çamuru debisi.",
+        "de": "Mud flow rate.",
+        "fr": "Mud flow rate.",
+        "es": "Mud flow rate.",
+        "ar": "Mud flow rate."
+      }
+    },
+    {
+      "id": "kuyuCapi",
+      "label": "Kuyu Çapı (m)",
+      "label_i18n": {
+        "en": "Wellbore Diameter (m)",
+        "tr": "Kuyu Çapı (m)",
+        "de": "Wellbore Diameter (m)",
+        "fr": "Wellbore Diameter (m)",
+        "es": "Wellbore Diameter (m)",
+        "ar": "Wellbore Diameter (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "min": 0,
+      "businessContext": "Kuyu delik çapı.",
+      "businessContext_i18n": {
+        "en": "Hole diameter.",
+        "tr": "Kuyu delik çapı.",
+        "de": "Hole diameter.",
+        "fr": "Hole diameter.",
+        "es": "Hole diameter.",
+        "ar": "Hole diameter."
+      }
+    },
+    {
+      "id": "matkapCapi",
+      "label": "Matkap Borusu Dış Çapı (m)",
+      "label_i18n": {
+        "en": "Drill Pipe OD (m)",
+        "tr": "Matkap Borusu Dış Çapı (m)",
+        "de": "Drill Pipe OD (m)",
+        "fr": "Drill Pipe OD (m)",
+        "es": "Drill Pipe OD (m)",
+        "ar": "Drill Pipe OD (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "min": 0,
+      "businessContext": "Sondaj borusu dış çapı.",
+      "businessContext_i18n": {
+        "en": "Drill pipe outer diameter.",
+        "tr": "Sondaj borusu dış çapı.",
+        "de": "Drill pipe outer diameter.",
+        "fr": "Drill pipe outer diameter.",
+        "es": "Drill pipe outer diameter.",
+        "ar": "Drill pipe outer diameter."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(4 * camurDebi) / Math.max(0.0001, (Math.PI * (kuyuCapi * kuyuCapi - matkapCapi * matkapCapi)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m/s",
+    "breakdown": {
+      "sonuc": "Halkasal Hız"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Halkasal Hız",
+        "tr": "Halkasal Hız",
+        "de": "Halkasal Hız",
+        "fr": "Halkasal Hız",
+        "es": "Halkasal Hız",
+        "ar": "Halkasal Hız"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m/s"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate mud annular velocity in wellbore.",
+      "long": "Calculate mud annular velocity in wellbore.",
+      "short_i18n": {
+        "en": "Calculate mud annular velocity in wellbore.",
+        "tr": "Kuyu-matkap arası halkasal kesitte çamurun yükselme hızını hesaplar.",
+        "de": "Calculate mud annular velocity in wellbore.",
+        "fr": "Calculate mud annular velocity in wellbore.",
+        "es": "Calculate mud annular velocity in wellbore.",
+        "ar": "Calculate mud annular velocity in wellbore."
+      },
+      "long_i18n": {
+        "en": "Calculate mud annular velocity in wellbore.",
+        "tr": "Kuyu-matkap arası halkasal kesitte çamurun yükselme hızını hesaplar.",
+        "de": "Calculate mud annular velocity in wellbore.",
+        "fr": "Calculate mud annular velocity in wellbore.",
+        "es": "Calculate mud annular velocity in wellbore.",
+        "ar": "Calculate mud annular velocity in wellbore."
+      }
+    }
+  }
+}

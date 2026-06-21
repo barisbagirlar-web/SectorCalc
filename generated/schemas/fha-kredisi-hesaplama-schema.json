@@ -1,0 +1,154 @@
+{
+  "toolName": "fha-kredisi-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "kredi",
+      "label": "Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan Amount (TRY)",
+        "tr": "Kredi Tutarı (₺)",
+        "de": "Loan Amount (TRY)",
+        "fr": "Loan Amount (TRY)",
+        "es": "Loan Amount (TRY)",
+        "ar": "Loan Amount (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "FHA kredi tutarı.",
+      "businessContext_i18n": {
+        "en": "FHA loan amount.",
+        "tr": "FHA kredi tutarı.",
+        "de": "FHA loan amount.",
+        "fr": "FHA loan amount.",
+        "es": "FHA loan amount.",
+        "ar": "FHA loan amount."
+      }
+    },
+    {
+      "id": "pesinPrim",
+      "label": "Peşin Sigorta Primi (%)",
+      "label_i18n": {
+        "en": "Upfront MIP Rate (%)",
+        "tr": "Peşin Sigorta Primi (%)",
+        "de": "Upfront MIP Rate (%)",
+        "fr": "Upfront MIP Rate (%)",
+        "es": "Upfront MIP Rate (%)",
+        "ar": "Upfront MIP Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 1.75,
+      "min": 0,
+      "businessContext": "Peşin ödenen sigorta primi.",
+      "businessContext_i18n": {
+        "en": "Upfront mortgage insurance premium.",
+        "tr": "Peşin ödenen sigorta primi.",
+        "de": "Upfront mortgage insurance premium.",
+        "fr": "Upfront mortgage insurance premium.",
+        "es": "Upfront mortgage insurance premium.",
+        "ar": "Upfront mortgage insurance premium."
+      }
+    },
+    {
+      "id": "yillikPrim",
+      "label": "Yıllık Sigorta Primi (%)",
+      "label_i18n": {
+        "en": "Annual MIP Rate (%)",
+        "tr": "Yıllık Sigorta Primi (%)",
+        "de": "Annual MIP Rate (%)",
+        "fr": "Annual MIP Rate (%)",
+        "es": "Annual MIP Rate (%)",
+        "ar": "Annual MIP Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 0.85,
+      "min": 0,
+      "businessContext": "Yıllık mortgage sigorta primi.",
+      "businessContext_i18n": {
+        "en": "Annual mortgage insurance premium.",
+        "tr": "Yıllık mortgage sigorta primi.",
+        "de": "Annual mortgage insurance premium.",
+        "fr": "Annual mortgage insurance premium.",
+        "es": "Annual mortgage insurance premium.",
+        "ar": "Annual mortgage insurance premium."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "pesin": "kredi * pesinPrim / 100",
+    "sonuc": "(kredi * yillikPrim / 100) / 12"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "pesin": "Peşin Sigorta Primi",
+      "sonuc": "Aylık Sigorta Primi"
+    },
+    "breakdown_i18n": {
+      "pesin": {
+        "en": "Peşin Sigorta Primi",
+        "tr": "Peşin Sigorta Primi",
+        "de": "Peşin Sigorta Primi",
+        "fr": "Peşin Sigorta Primi",
+        "es": "Peşin Sigorta Primi",
+        "ar": "Peşin Sigorta Primi"
+      },
+      "sonuc": {
+        "en": "Aylık Sigorta Primi",
+        "tr": "Aylık Sigorta Primi",
+        "de": "Aylık Sigorta Primi",
+        "fr": "Aylık Sigorta Primi",
+        "es": "Aylık Sigorta Primi",
+        "ar": "Aylık Sigorta Primi"
+      }
+    },
+    "breakdownUnits": {
+      "pesin": "TRY",
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+      "long": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+      "short_i18n": {
+        "en": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+        "tr": "Devlet destekli FHA kredisinin başlangıç ve aylık sigorta maliyetini hesaplar.",
+        "de": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+        "fr": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+        "es": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+        "ar": "Calculate FHA loan upfront and annual mortgage insurance premiums."
+      },
+      "long_i18n": {
+        "en": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+        "tr": "Devlet destekli FHA kredisinin başlangıç ve aylık sigorta maliyetini hesaplar.",
+        "de": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+        "fr": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+        "es": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
+        "ar": "Calculate FHA loan upfront and annual mortgage insurance premiums."
+      }
+    }
+  }
+}

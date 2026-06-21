@@ -1,0 +1,143 @@
+{
+  "toolName": "fiber-optik-zayiflama-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik ve Kuantum",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "uzunluk",
+      "label": "Fiber Uzunluğu (km)",
+      "label_i18n": {
+        "en": "Fiber Length (km)",
+        "tr": "Fiber Uzunluğu (km)",
+        "de": "Fiber Length (km)",
+        "fr": "Fiber Length (km)",
+        "es": "Fiber Length (km)",
+        "ar": "Fiber Length (km)"
+      },
+      "type": "number",
+      "unit": "km",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Fiber kablo boyu.",
+      "businessContext_i18n": {
+        "en": "Fiber cable length.",
+        "tr": "Fiber kablo boyu.",
+        "de": "Fiber cable length.",
+        "fr": "Fiber cable length.",
+        "es": "Fiber cable length.",
+        "ar": "Fiber cable length."
+      }
+    },
+    {
+      "id": "birimKayip",
+      "label": "Birim Kayıp (dB/km)",
+      "label_i18n": {
+        "en": "Attenuation (dB/km)",
+        "tr": "Birim Kayıp (dB/km)",
+        "de": "Attenuation (dB/km)",
+        "fr": "Attenuation (dB/km)",
+        "es": "Attenuation (dB/km)",
+        "ar": "Attenuation (dB/km)"
+      },
+      "type": "number",
+      "unit": "dB/km",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Fiberin km başına zayıflaması.",
+      "businessContext_i18n": {
+        "en": "Loss per km.",
+        "tr": "Fiberin km başına zayıflaması.",
+        "de": "Loss per km.",
+        "fr": "Loss per km.",
+        "es": "Loss per km.",
+        "ar": "Loss per km."
+      }
+    },
+    {
+      "id": "ekKayip",
+      "label": "Ek Kayıplar (dB)",
+      "label_i18n": {
+        "en": "Splice Losses (dB)",
+        "tr": "Ek Kayıplar (dB)",
+        "de": "Splice Losses (dB)",
+        "fr": "Splice Losses (dB)",
+        "es": "Splice Losses (dB)",
+        "ar": "Splice Losses (dB)"
+      },
+      "type": "number",
+      "unit": "dB",
+      "default": 1.5,
+      "min": 0,
+      "businessContext": "Konnektör ve ek kayıpları.",
+      "businessContext_i18n": {
+        "en": "Connector and splice losses.",
+        "tr": "Konnektör ve ek kayıpları.",
+        "de": "Connector and splice losses.",
+        "fr": "Connector and splice losses.",
+        "es": "Connector and splice losses.",
+        "ar": "Connector and splice losses."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(uzunluk * birimKayip) + ekKayip"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "dB",
+    "breakdown": {
+      "sonuc": "Toplam Zayıflama"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Zayıflama",
+        "tr": "Toplam Zayıflama",
+        "de": "Toplam Zayıflama",
+        "fr": "Toplam Zayıflama",
+        "es": "Toplam Zayıflama",
+        "ar": "Toplam Zayıflama"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "dB"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Quantum effects are only observable at microscopic scales.",
+      "These are idealized models."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate total optical power loss in fiber optic link.",
+      "long": "Calculate total optical power loss in fiber optic link.",
+      "short_i18n": {
+        "en": "Calculate total optical power loss in fiber optic link.",
+        "tr": "Işık sinyalinin hat sonundaki toplam güç kaybını (fiber optik zayıflama) hesaplar.",
+        "de": "Calculate total optical power loss in fiber optic link.",
+        "fr": "Calculate total optical power loss in fiber optic link.",
+        "es": "Calculate total optical power loss in fiber optic link.",
+        "ar": "Calculate total optical power loss in fiber optic link."
+      },
+      "long_i18n": {
+        "en": "Calculate total optical power loss in fiber optic link.",
+        "tr": "Işık sinyalinin hat sonundaki toplam güç kaybını (fiber optik zayıflama) hesaplar.",
+        "de": "Calculate total optical power loss in fiber optic link.",
+        "fr": "Calculate total optical power loss in fiber optic link.",
+        "es": "Calculate total optical power loss in fiber optic link.",
+        "ar": "Calculate total optical power loss in fiber optic link."
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "toolName": "rsa-sifreleme-guvenlik-hesaplama",
+  "catalogCategory": "technology-ai-cloud-cyber",
+  "categorySlug": "technology-ai-cloud-cyber",
+  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sectorId": "technology-ai-cloud-cyber",
+  "inputs": [
+    {
+      "id": "rsaAnahtarUzunlugu",
+      "label": "RSA Anahtar Uzunluğu (bit)",
+      "label_i18n": {
+        "en": "RSA Key Length (bits)",
+        "tr": "RSA Anahtar Uzunluğu (bit)",
+        "de": "RSA Key Length (bits)",
+        "fr": "RSA Key Length (bits)",
+        "es": "RSA Key Length (bits)",
+        "ar": "RSA Key Length (bits)"
+      },
+      "type": "number",
+      "unit": "bits",
+      "default": 2048,
+      "min": 0,
+      "businessContext": "RSA anahtar boyu.",
+      "businessContext_i18n": {
+        "en": "RSA key size.",
+        "tr": "RSA anahtar boyu.",
+        "de": "RSA key size.",
+        "fr": "RSA key size.",
+        "es": "RSA key size.",
+        "ar": "RSA key size."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "rsaAnahtarUzunlugu >= 15360 ? 256 : rsaAnahtarUzunlugu >= 7680 ? 192 : rsaAnahtarUzunlugu >= 3072 ? 128 : rsaAnahtarUzunlugu >= 2048 ? 112 : rsaAnahtarUzunlugu >= 1024 ? 80 : 56"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "bits",
+    "breakdown": {
+      "sonuc": "Simetrik Eşdeğer"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Simetrik Eşdeğer",
+        "tr": "Simetrik Eşdeğer",
+        "de": "Simetrik Eşdeğer",
+        "fr": "Simetrik Eşdeğer",
+        "es": "Simetrik Eşdeğer",
+        "ar": "Simetrik Eşdeğer"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "bits"
+    },
+    "hiddenLossDrivers": [
+      "Low SLA indicates service reliability issue.",
+      "High latency degrades user experience."
+    ],
+    "suggestedActions": [
+      "Monitor system performance regularly.",
+      "Implement redundancy for critical infrastructure."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Estimate symmetric key equivalent strength for RSA key size.",
+      "long": "Estimate symmetric key equivalent strength for RSA key size.",
+      "short_i18n": {
+        "en": "Estimate symmetric key equivalent strength for RSA key size.",
+        "tr": "RSA anahtar uzunluğunun sağladığı teorik simetrik şifreleme eşdeğerini hesaplar.",
+        "de": "Estimate symmetric key equivalent strength for RSA key size.",
+        "fr": "Estimate symmetric key equivalent strength for RSA key size.",
+        "es": "Estimate symmetric key equivalent strength for RSA key size.",
+        "ar": "Estimate symmetric key equivalent strength for RSA key size."
+      },
+      "long_i18n": {
+        "en": "Estimate symmetric key equivalent strength for RSA key size.",
+        "tr": "RSA anahtar uzunluğunun sağladığı teorik simetrik şifreleme eşdeğerini hesaplar.",
+        "de": "Estimate symmetric key equivalent strength for RSA key size.",
+        "fr": "Estimate symmetric key equivalent strength for RSA key size.",
+        "es": "Estimate symmetric key equivalent strength for RSA key size.",
+        "ar": "Estimate symmetric key equivalent strength for RSA key size."
+      }
+    }
+  }
+}

@@ -1,117 +1,143 @@
 {
-  "slug": "basit-faiz-hesaplama",
-  "name": "Basit Faiz Hesaplama",
-  "description": "Professional basit faiz hesaplama tool for accurate calculations.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "Detailed PDF report",
-    "Scenario comparison",
-    "Multi-year projections"
-  ],
+  "toolName": "basit-faiz-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "principal",
-      "label": "Anapara / Principal",
+      "id": "anapara",
+      "label": "Anapara (₺)",
+      "label_i18n": {
+        "en": "Principal (TRY)",
+        "tr": "Anapara (₺)",
+        "de": "Principal (TRY)",
+        "fr": "Principal (TRY)",
+        "es": "Principal (TRY)",
+        "ar": "Principal (TRY)"
+      },
       "type": "number",
-      "unit": "USD",
+      "unit": "TRY",
       "default": 10000,
       "min": 0,
-      "max": 1000000000,
-      "businessContext": "Initial investment or loan amount.",
-      "label_i18n": {
-        "en": "Principal Amount",
-        "tr": "Anapara"
-      },
+      "businessContext": "Faiz hesaplanacak ana para.",
       "businessContext_i18n": {
-        "en": "Initial investment.",
-        "tr": "Başlangıç yatırımı."
+        "en": "Principal amount for interest calculation.",
+        "tr": "Faiz hesaplanacak ana para.",
+        "de": "Principal amount for interest calculation.",
+        "fr": "Principal amount for interest calculation.",
+        "es": "Principal amount for interest calculation.",
+        "ar": "Principal amount for interest calculation."
       }
     },
     {
-      "id": "rate",
-      "label": "Faiz Oranı / Rate",
+      "id": "faiz",
+      "label": "Faiz Oranı (%)",
+      "label_i18n": {
+        "en": "Interest Rate (%)",
+        "tr": "Faiz Oranı (%)",
+        "de": "Interest Rate (%)",
+        "fr": "Interest Rate (%)",
+        "es": "Interest Rate (%)",
+        "ar": "Interest Rate (%)"
+      },
       "type": "number",
       "unit": "%",
-      "default": 5,
+      "default": 10,
       "min": 0,
-      "max": 100,
-      "businessContext": "Annual interest rate.",
-      "label_i18n": {
-        "en": "Interest Rate",
-        "tr": "Faiz Oranı"
-      },
+      "businessContext": "Yıllık faiz oranı.",
       "businessContext_i18n": {
-        "en": "Annual rate.",
-        "tr": "Yıllık oran."
+        "en": "Annual interest rate.",
+        "tr": "Yıllık faiz oranı.",
+        "de": "Annual interest rate.",
+        "fr": "Annual interest rate.",
+        "es": "Annual interest rate.",
+        "ar": "Annual interest rate."
       }
     },
     {
-      "id": "periods",
-      "label": "Dönem / Periods",
-      "type": "number",
-      "unit": "yıl",
-      "default": 5,
-      "min": 1,
-      "max": 50,
-      "businessContext": "Number of periods.",
+      "id": "sure",
+      "label": "Süre (Yıl)",
       "label_i18n": {
-        "en": "Number of Periods",
-        "tr": "Dönem Sayısı"
+        "en": "Time (Years)",
+        "tr": "Süre (Yıl)",
+        "de": "Time (Years)",
+        "fr": "Time (Years)",
+        "es": "Time (Years)",
+        "ar": "Time (Years)"
       },
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Faiz uygulanacak yıl sayısı.",
       "businessContext_i18n": {
-        "en": "Periods in years.",
-        "tr": "Yıl cinsinden dönem."
+        "en": "Number of years for interest accrual.",
+        "tr": "Faiz uygulanacak yıl sayısı.",
+        "de": "Number of years for interest accrual.",
+        "fr": "Number of years for interest accrual.",
+        "es": "Number of years for interest accrual.",
+        "ar": "Number of years for interest accrual."
       }
     }
   ],
   "validation": {
     "rules": [
-      "All inputs should be positive numbers where applicable."
+      "All numeric inputs must be positive numbers."
     ],
     "thresholds": {}
   },
   "formulas": {
-    "main": "principal * Math.pow(1 + rate/100, periods)",
-    "result": "principal * Math.pow(1 + rate/100, periods)"
+    "sonuc": "anapara * (faiz / 100) * sure"
   },
   "outputs": {
-    "primary": "result",
-    "unit": "USD",
+    "primary": "sonuc",
+    "unit": "TRY",
     "breakdown": {
-      "result": "principal * Math.pow(1 + rate/100, periods)"
+      "sonuc": "Basit Faiz Tutarı"
     },
     "breakdown_i18n": {
-      "result": {
-        "en": "Result",
-        "tr": "Sonuç"
+      "sonuc": {
+        "en": "Basit Faiz Tutarı",
+        "tr": "Basit Faiz Tutarı",
+        "de": "Basit Faiz Tutarı",
+        "fr": "Basit Faiz Tutarı",
+        "es": "Basit Faiz Tutarı",
+        "ar": "Basit Faiz Tutarı"
       }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
-      "Consult with a professional.",
-      "Review assumptions regularly."
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+    "dataConfidenceAdjusted": "sonuc"
   },
+  "premiumRequired": false,
+  "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Quick basit faiz hesaplama calculation.",
-      "long": "This free tool provides a quick basit faiz hesaplama."
-    },
-    "faqs": [
-      {
-        "question": "What does this Basit Faiz Hesaplama include?",
-        "answer": "Basic basit faiz hesaplama calculation."
+      "short": "Calculate simple interest earned on principal only.",
+      "long": "Calculate simple interest earned on principal only.",
+      "short_i18n": {
+        "en": "Calculate simple interest earned on principal only.",
+        "tr": "Sadece anapara üzerinden hesaplanan basit faiz gelirini hesaplar.",
+        "de": "Calculate simple interest earned on principal only.",
+        "fr": "Calculate simple interest earned on principal only.",
+        "es": "Calculate simple interest earned on principal only.",
+        "ar": "Calculate simple interest earned on principal only."
       },
-      {
-        "question": "What is missing from the free version?",
-        "answer": "The free version does not include detailed reporting and projections."
+      "long_i18n": {
+        "en": "Calculate simple interest earned on principal only.",
+        "tr": "Sadece anapara üzerinden hesaplanan basit faiz gelirini hesaplar.",
+        "de": "Calculate simple interest earned on principal only.",
+        "fr": "Calculate simple interest earned on principal only.",
+        "es": "Calculate simple interest earned on principal only.",
+        "ar": "Calculate simple interest earned on principal only."
       }
-    ]
-  },
-  "sector": "Finans & Muhasebe",
-  "toolName": "basit-faiz-hesaplama",
-  "sectorId": "genel",
-  "profession": "Professional",
-  "categoryId": "interest"
+    }
+  }
 }

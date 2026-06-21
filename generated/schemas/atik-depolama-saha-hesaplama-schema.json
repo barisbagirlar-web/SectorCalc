@@ -1,0 +1,146 @@
+{
+  "toolName": "atik-depolama-saha-hesaplama",
+  "catalogCategory": "sustainability-resource-esg",
+  "categorySlug": "sustainability-resource-esg",
+  "sector": "Çevre ve Sürdürülebilirlik",
+  "sectorId": "sustainability-resource-esg",
+  "inputs": [
+    {
+      "id": "atikHacmi",
+      "label": "Atık Hacmi (m³)",
+      "label_i18n": {
+        "en": "Waste Volume (m³)",
+        "tr": "Atık Hacmi (m³)",
+        "de": "Waste Volume (m³)",
+        "fr": "Waste Volume (m³)",
+        "es": "Waste Volume (m³)",
+        "ar": "Waste Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Depolanacak atık hacmi.",
+      "businessContext_i18n": {
+        "en": "Waste volume to store.",
+        "tr": "Depolanacak atık hacmi.",
+        "de": "Waste volume to store.",
+        "fr": "Waste volume to store.",
+        "es": "Waste volume to store.",
+        "ar": "Waste volume to store."
+      }
+    },
+    {
+      "id": "sikistirma",
+      "label": "Sıkıştırma Oranı (%)",
+      "label_i18n": {
+        "en": "Compaction Ratio (%)",
+        "tr": "Sıkıştırma Oranı (%)",
+        "de": "Compaction Ratio (%)",
+        "fr": "Compaction Ratio (%)",
+        "es": "Compaction Ratio (%)",
+        "ar": "Compaction Ratio (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Sıkıştırmayla hacim azalma oranı.",
+      "businessContext_i18n": {
+        "en": "Volume reduction by compaction.",
+        "tr": "Sıkıştırmayla hacim azalma oranı.",
+        "de": "Volume reduction by compaction.",
+        "fr": "Volume reduction by compaction.",
+        "es": "Volume reduction by compaction.",
+        "ar": "Volume reduction by compaction."
+      }
+    },
+    {
+      "id": "derinlik",
+      "label": "Deponi Derinliği (m)",
+      "label_i18n": {
+        "en": "Landfill Depth (m)",
+        "tr": "Deponi Derinliği (m)",
+        "de": "Landfill Depth (m)",
+        "fr": "Landfill Depth (m)",
+        "es": "Landfill Depth (m)",
+        "ar": "Landfill Depth (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Deponi ortalama derinliği.",
+      "businessContext_i18n": {
+        "en": "Average landfill depth.",
+        "tr": "Deponi ortalama derinliği.",
+        "de": "Average landfill depth.",
+        "fr": "Average landfill depth.",
+        "es": "Average landfill depth.",
+        "ar": "Average landfill depth."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(atikHacmi * (1 - sikistirma / 100)) / Math.max(0.0001, derinlik)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m2",
+    "breakdown": {
+      "sonuc": "Gerekli Deponi Alanı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Deponi Alanı",
+        "tr": "Gerekli Deponi Alanı",
+        "de": "Gerekli Deponi Alanı",
+        "fr": "Gerekli Deponi Alanı",
+        "es": "Gerekli Deponi Alanı",
+        "ar": "Gerekli Deponi Alanı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m2"
+    },
+    "hiddenLossDrivers": [
+      "High environmental score may reduce operational costs.",
+      "Low ESG score may increase capital costs."
+    ],
+    "suggestedActions": [
+      "Set improvement targets for each ESG pillar.",
+      "Consider carbon offset programs for residual emissions."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum landfill area required for waste storage.",
+      "long": "Calculate minimum landfill area required for waste storage.",
+      "short_i18n": {
+        "en": "Calculate minimum landfill area required for waste storage.",
+        "tr": "Atığı depolamak için gereken minimum deponi sahası yüzey alanını hesaplar.",
+        "de": "Calculate minimum landfill area required for waste storage.",
+        "fr": "Calculate minimum landfill area required for waste storage.",
+        "es": "Calculate minimum landfill area required for waste storage.",
+        "ar": "Calculate minimum landfill area required for waste storage."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum landfill area required for waste storage.",
+        "tr": "Atığı depolamak için gereken minimum deponi sahası yüzey alanını hesaplar.",
+        "de": "Calculate minimum landfill area required for waste storage.",
+        "fr": "Calculate minimum landfill area required for waste storage.",
+        "es": "Calculate minimum landfill area required for waste storage.",
+        "ar": "Calculate minimum landfill area required for waste storage."
+      }
+    }
+  }
+}

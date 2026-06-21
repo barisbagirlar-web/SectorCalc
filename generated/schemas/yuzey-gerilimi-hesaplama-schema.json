@@ -1,0 +1,118 @@
+{
+  "toolName": "yuzey-gerilimi-hesaplama",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "kuvvet",
+      "label": "Kuvvet (N)",
+      "label_i18n": {
+        "en": "Force (N)",
+        "tr": "Kuvvet (N)",
+        "de": "Force (N)",
+        "fr": "Force (N)",
+        "es": "Force (N)",
+        "ar": "Force (N)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 0.05,
+      "min": 0,
+      "businessContext": "Yüzeye etkiyen kuvvet.",
+      "businessContext_i18n": {
+        "en": "Force on the surface.",
+        "tr": "Yüzeye etkiyen kuvvet.",
+        "de": "Force on the surface.",
+        "fr": "Force on the surface.",
+        "es": "Force on the surface.",
+        "ar": "Force on the surface."
+      }
+    },
+    {
+      "id": "uzunluk",
+      "label": "Uzunluk (m)",
+      "label_i18n": {
+        "en": "Length (m)",
+        "tr": "Uzunluk (m)",
+        "de": "Length (m)",
+        "fr": "Length (m)",
+        "es": "Length (m)",
+        "ar": "Length (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Kuvvetin etki ettiği uzunluk.",
+      "businessContext_i18n": {
+        "en": "Length over which force acts.",
+        "tr": "Kuvvetin etki ettiği uzunluk.",
+        "de": "Length over which force acts.",
+        "fr": "Length over which force acts.",
+        "es": "Length over which force acts.",
+        "ar": "Length over which force acts."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "kuvvet / Math.max(0.0001, uzunluk)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "N/m",
+    "breakdown": {
+      "sonuc": "Yüzey Gerilimi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yüzey Gerilimi",
+        "tr": "Yüzey Gerilimi",
+        "de": "Yüzey Gerilimi",
+        "fr": "Yüzey Gerilimi",
+        "es": "Yüzey Gerilimi",
+        "ar": "Yüzey Gerilimi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "N/m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate surface tension as force per unit length.",
+      "long": "Calculate surface tension as force per unit length.",
+      "short_i18n": {
+        "en": "Calculate surface tension as force per unit length.",
+        "tr": "Sıvı yüzeyindeki birim uzunluğa etkiyen çekme kuvvetini (yüzey gerilimi) hesaplar.",
+        "de": "Calculate surface tension as force per unit length.",
+        "fr": "Calculate surface tension as force per unit length.",
+        "es": "Calculate surface tension as force per unit length.",
+        "ar": "Calculate surface tension as force per unit length."
+      },
+      "long_i18n": {
+        "en": "Calculate surface tension as force per unit length.",
+        "tr": "Sıvı yüzeyindeki birim uzunluğa etkiyen çekme kuvvetini (yüzey gerilimi) hesaplar.",
+        "de": "Calculate surface tension as force per unit length.",
+        "fr": "Calculate surface tension as force per unit length.",
+        "es": "Calculate surface tension as force per unit length.",
+        "ar": "Calculate surface tension as force per unit length."
+      }
+    }
+  }
+}

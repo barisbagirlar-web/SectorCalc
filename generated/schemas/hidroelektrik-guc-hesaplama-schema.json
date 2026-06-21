@@ -1,0 +1,146 @@
+{
+  "toolName": "hidroelektrik-guc-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "debi",
+      "label": "Debi (m³/s)",
+      "label_i18n": {
+        "en": "Flow Rate (m³/s)",
+        "tr": "Debi (m³/s)",
+        "de": "Flow Rate (m³/s)",
+        "fr": "Flow Rate (m³/s)",
+        "es": "Flow Rate (m³/s)",
+        "ar": "Flow Rate (m³/s)"
+      },
+      "type": "number",
+      "unit": "m3/s",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Türbine giren su debisi.",
+      "businessContext_i18n": {
+        "en": "Turbine water flow.",
+        "tr": "Türbine giren su debisi.",
+        "de": "Turbine water flow.",
+        "fr": "Turbine water flow.",
+        "es": "Turbine water flow.",
+        "ar": "Turbine water flow."
+      }
+    },
+    {
+      "id": "dusuYuksekligi",
+      "label": "Düşü Yüksekliği (m)",
+      "label_i18n": {
+        "en": "Head (m)",
+        "tr": "Düşü Yüksekliği (m)",
+        "de": "Head (m)",
+        "fr": "Head (m)",
+        "es": "Head (m)",
+        "ar": "Head (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Su seviyeleri arasındaki düşü.",
+      "businessContext_i18n": {
+        "en": "Water level difference.",
+        "tr": "Su seviyeleri arasındaki düşü.",
+        "de": "Water level difference.",
+        "fr": "Water level difference.",
+        "es": "Water level difference.",
+        "ar": "Water level difference."
+      }
+    },
+    {
+      "id": "turbinVerim",
+      "label": "Türbin Verimi (%)",
+      "label_i18n": {
+        "en": "Turbine Efficiency (%)",
+        "tr": "Türbin Verimi (%)",
+        "de": "Turbine Efficiency (%)",
+        "fr": "Turbine Efficiency (%)",
+        "es": "Turbine Efficiency (%)",
+        "ar": "Turbine Efficiency (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "businessContext": "Türbin verimi.",
+      "businessContext_i18n": {
+        "en": "Turbine efficiency.",
+        "tr": "Türbin verimi.",
+        "de": "Turbine efficiency.",
+        "fr": "Turbine efficiency.",
+        "es": "Turbine efficiency.",
+        "ar": "Turbine efficiency."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "1000 * 9.81 * debi * dusuYuksekligi * (turbinVerim / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "W",
+    "breakdown": {
+      "sonuc": "Hidroelektrik Güç"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Hidroelektrik Güç",
+        "tr": "Hidroelektrik Güç",
+        "de": "Hidroelektrik Güç",
+        "fr": "Hidroelektrik Güç",
+        "es": "Hidroelektrik Güç",
+        "ar": "Hidroelektrik Güç"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "W"
+    },
+    "hiddenLossDrivers": [
+      "Low SNR indicates poor signal quality.",
+      "High Q indicates narrow bandwidth."
+    ],
+    "suggestedActions": [
+      "Use proper shielding for sensitive measurements.",
+      "Consider efficiency losses in energy calculations."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate hydroelectric power from water flow and head.",
+      "long": "Calculate hydroelectric power from water flow and head.",
+      "short_i18n": {
+        "en": "Calculate hydroelectric power from water flow and head.",
+        "tr": "Suyun potansiyel enerjisinden üretilen elektrik gücünü hesaplar.",
+        "de": "Calculate hydroelectric power from water flow and head.",
+        "fr": "Calculate hydroelectric power from water flow and head.",
+        "es": "Calculate hydroelectric power from water flow and head.",
+        "ar": "Calculate hydroelectric power from water flow and head."
+      },
+      "long_i18n": {
+        "en": "Calculate hydroelectric power from water flow and head.",
+        "tr": "Suyun potansiyel enerjisinden üretilen elektrik gücünü hesaplar.",
+        "de": "Calculate hydroelectric power from water flow and head.",
+        "fr": "Calculate hydroelectric power from water flow and head.",
+        "es": "Calculate hydroelectric power from water flow and head.",
+        "ar": "Calculate hydroelectric power from water flow and head."
+      }
+    }
+  }
+}

@@ -20,37 +20,50 @@ export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
   Record<HomepageCoverageId, readonly string[]>
 > = {
   production: [
-    "quality-six-sigma",
-    "cnc-additive-manufacturing",
-    "metal-plastics-forming",
     "lean-production",
+    "process-chemical",
     "textile-print-lab",
   ],
   industrial: [
-    "hse-ergonomics",
-    "maintenance-reliability",
-    "fitness-spor",
+    "mechanical-hvac-energy-loss",
+    "electrical-power-systems",
   ],
   technical: [
     "technology-ai-cloud-cyber",
-    "electrical-power-systems",
-    "process-chemical",
+    "technology",
+    "electrical",
+    "chemistry",
+    "physics",
   ],
   construction: [
+    "construction",
     "project-construction-management",
   ],
   logistics: [
-    "procurement-supply-chain",
+    "logistics",
+    "automotive-transport",
   ],
   energy: [
+    "energy",
+    "environment",
     "sustainability-resource-esg",
   ],
   finance: [
     "finance-sales-working-capital",
-    "workforce-hr",
+    "finance",
+    "investment",
+    "insurance",
+    "budget",
+    "tax",
+    "loan",
+    "interest",
+    "real-estate",
+    "retirement",
+    "business",
   ],
   foodRetail: [
-    "food-cold-chain-hygiene",
+    "food",
+    "agriculture-food-beverage",
   ],
 };
 
@@ -61,14 +74,14 @@ export const HOMEPAGE_COVERAGE_TOOL_MATCHERS: Readonly<
 export const HOMEPAGE_COVERAGE_FILTER_SLUG: Readonly<
   Record<HomepageCoverageId, string>
 > = {
-  production: "quality-six-sigma",
-  industrial: "hse-ergonomics",
-  technical: "technology-ai-cloud-cyber",
+  production: "lean-production",
+  industrial: "mechanical-hvac-energy-loss",
+  technical: "chemistry",
   construction: "project-construction-management",
-  logistics: "procurement-supply-chain",
-  energy: "sustainability-resource-esg",
+  logistics: "logistics",
+  energy: "energy",
   finance: "finance-sales-working-capital",
-  foodRetail: "food-cold-chain-hygiene",
+  foodRetail: "food",
 };
 
 /**

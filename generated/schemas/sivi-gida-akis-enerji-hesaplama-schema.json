@@ -1,0 +1,145 @@
+{
+  "toolName": "sivi-gida-akis-enerji-hesaplama",
+  "catalogCategory": "textile-print-lab",
+  "categorySlug": "textile-print-lab",
+  "sector": "Tekstil, Gıda ve Plastik",
+  "sectorId": "textile-print-lab",
+  "inputs": [
+    {
+      "id": "debi",
+      "label": "Debi (m³/s)",
+      "label_i18n": {
+        "en": "Flow Rate (m³/s)",
+        "tr": "Debi (m³/s)",
+        "de": "Flow Rate (m³/s)",
+        "fr": "Flow Rate (m³/s)",
+        "es": "Flow Rate (m³/s)",
+        "ar": "Flow Rate (m³/s)"
+      },
+      "type": "number",
+      "unit": "m3/s",
+      "default": 0.005,
+      "min": 0,
+      "businessContext": "Sıvının akış debisi.",
+      "businessContext_i18n": {
+        "en": "Liquid flow rate.",
+        "tr": "Sıvının akış debisi.",
+        "de": "Liquid flow rate.",
+        "fr": "Liquid flow rate.",
+        "es": "Liquid flow rate.",
+        "ar": "Liquid flow rate."
+      }
+    },
+    {
+      "id": "basincDusumu",
+      "label": "Basınç Düşümü (Pa)",
+      "label_i18n": {
+        "en": "Pressure Drop (Pa)",
+        "tr": "Basınç Düşümü (Pa)",
+        "de": "Pressure Drop (Pa)",
+        "fr": "Pressure Drop (Pa)",
+        "es": "Pressure Drop (Pa)",
+        "ar": "Pressure Drop (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Borudaki toplam basınç kaybı.",
+      "businessContext_i18n": {
+        "en": "Total pipe pressure loss.",
+        "tr": "Borudaki toplam basınç kaybı.",
+        "de": "Total pipe pressure loss.",
+        "fr": "Total pipe pressure loss.",
+        "es": "Total pipe pressure loss.",
+        "ar": "Total pipe pressure loss."
+      }
+    },
+    {
+      "id": "pompaVerim",
+      "label": "Pompa Verimi (%)",
+      "label_i18n": {
+        "en": "Pump Efficiency (%)",
+        "tr": "Pompa Verimi (%)",
+        "de": "Pump Efficiency (%)",
+        "fr": "Pump Efficiency (%)",
+        "es": "Pump Efficiency (%)",
+        "ar": "Pump Efficiency (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "min": 0,
+      "businessContext": "Pompa verim yüzdesi.",
+      "businessContext_i18n": {
+        "en": "Pump efficiency.",
+        "tr": "Pompa verim yüzdesi.",
+        "de": "Pump efficiency.",
+        "fr": "Pump efficiency.",
+        "es": "Pump efficiency.",
+        "ar": "Pump efficiency."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(debi * basincDusumu) / Math.max(0.0001, (pompaVerim / 100))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "W",
+    "breakdown": {
+      "sonuc": "Gereken Pompa Gücü"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gereken Pompa Gücü",
+        "tr": "Gereken Pompa Gücü",
+        "de": "Gereken Pompa Gücü",
+        "fr": "Gereken Pompa Gücü",
+        "es": "Gereken Pompa Gücü",
+        "ar": "Gereken Pompa Gücü"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "W"
+    },
+    "hiddenLossDrivers": [
+      "Waste in material or time indicates process improvement opportunity."
+    ],
+    "suggestedActions": [
+      "Optimize drying/cooling parameters for cycle time reduction.",
+      "Monitor defects and adjust process conditions accordingly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate pump power for viscous food liquid transfer.",
+      "long": "Calculate pump power for viscous food liquid transfer.",
+      "short_i18n": {
+        "en": "Calculate pump power for viscous food liquid transfer.",
+        "tr": "Viskoz sıvıyı boruda ilerletmek için gereken pompa mil gücünü hesaplar.",
+        "de": "Calculate pump power for viscous food liquid transfer.",
+        "fr": "Calculate pump power for viscous food liquid transfer.",
+        "es": "Calculate pump power for viscous food liquid transfer.",
+        "ar": "Calculate pump power for viscous food liquid transfer."
+      },
+      "long_i18n": {
+        "en": "Calculate pump power for viscous food liquid transfer.",
+        "tr": "Viskoz sıvıyı boruda ilerletmek için gereken pompa mil gücünü hesaplar.",
+        "de": "Calculate pump power for viscous food liquid transfer.",
+        "fr": "Calculate pump power for viscous food liquid transfer.",
+        "es": "Calculate pump power for viscous food liquid transfer.",
+        "ar": "Calculate pump power for viscous food liquid transfer."
+      }
+    }
+  }
+}

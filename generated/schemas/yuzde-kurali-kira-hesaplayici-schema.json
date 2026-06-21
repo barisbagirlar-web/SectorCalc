@@ -1,0 +1,118 @@
+{
+  "toolName": "yuzde-kurali-kira-hesaplayici",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "aylikKira",
+      "label": "Aylık Kira (₺)",
+      "label_i18n": {
+        "en": "Monthly Rent (TRY)",
+        "tr": "Aylık Kira (₺)",
+        "de": "Monthly Rent (TRY)",
+        "fr": "Monthly Rent (TRY)",
+        "es": "Monthly Rent (TRY)",
+        "ar": "Monthly Rent (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Mülkten elde edilen aylık brüt kira geliri.",
+      "businessContext_i18n": {
+        "en": "Monthly gross rental income from the property.",
+        "tr": "Mülkten elde edilen aylık brüt kira geliri.",
+        "de": "Monthly gross rental income from the property.",
+        "fr": "Monthly gross rental income from the property.",
+        "es": "Monthly gross rental income from the property.",
+        "ar": "Monthly gross rental income from the property."
+      }
+    },
+    {
+      "id": "mulkDegeri",
+      "label": "Mülk Değeri (₺)",
+      "label_i18n": {
+        "en": "Property Value (TRY)",
+        "tr": "Mülk Değeri (₺)",
+        "de": "Property Value (TRY)",
+        "fr": "Property Value (TRY)",
+        "es": "Property Value (TRY)",
+        "ar": "Property Value (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Gayrimenkulün güncel piyasa değeri.",
+      "businessContext_i18n": {
+        "en": "Current market value of the real estate property.",
+        "tr": "Gayrimenkulün güncel piyasa değeri.",
+        "de": "Current market value of the real estate property.",
+        "fr": "Current market value of the real estate property.",
+        "es": "Current market value of the real estate property.",
+        "ar": "Current market value of the real estate property."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(aylikKira / Math.max(1, mulkDegeri)) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Kira / Değer Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Kira / Değer Oranı",
+        "tr": "Kira / Değer Oranı",
+        "de": "Kira / Değer Oranı",
+        "fr": "Kira / Değer Oranı",
+        "es": "Kira / Değer Oranı",
+        "ar": "Kira / Değer Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+      "long": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+      "short_i18n": {
+        "en": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+        "tr": "Aylık kira gelirinin mülk değerine oranını hesaplar. Gayrimenkul yatırımının getiri potansiyelini değerlendirir.",
+        "de": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+        "fr": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+        "es": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+        "ar": "Calculate the ratio of monthly rent to property value for real estate investment evaluation."
+      },
+      "long_i18n": {
+        "en": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+        "tr": "Aylık kira gelirinin mülk değerine oranını hesaplar. Gayrimenkul yatırımının getiri potansiyelini değerlendirir.",
+        "de": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+        "fr": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+        "es": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
+        "ar": "Calculate the ratio of monthly rent to property value for real estate investment evaluation."
+      }
+    }
+  }
+}

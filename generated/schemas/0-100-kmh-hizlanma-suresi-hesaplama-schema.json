@@ -1,0 +1,171 @@
+{
+  "toolName": "0-100-kmh-hizlanma-suresi-hesaplama",
+  "catalogCategory": "automotive-transport",
+  "categorySlug": "automotive-transport",
+  "sector": "Mekanik, Otomotiv ve Havacılık",
+  "sectorId": "automotive-transport",
+  "inputs": [
+    {
+      "id": "kutle",
+      "label": "Araç Kütlesi (kg)",
+      "label_i18n": {
+        "en": "Vehicle Mass (kg)",
+        "tr": "Araç Kütlesi (kg)",
+        "de": "Vehicle Mass (kg)",
+        "fr": "Vehicle Mass (kg)",
+        "es": "Vehicle Mass (kg)",
+        "ar": "Vehicle Mass (kg)"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 1500,
+      "min": 0,
+      "businessContext": "Araç ağırlığı.",
+      "businessContext_i18n": {
+        "en": "Vehicle weight.",
+        "tr": "Araç ağırlığı.",
+        "de": "Vehicle weight.",
+        "fr": "Vehicle weight.",
+        "es": "Vehicle weight.",
+        "ar": "Vehicle weight."
+      }
+    },
+    {
+      "id": "tork",
+      "label": "Motor Torku (N.m)",
+      "label_i18n": {
+        "en": "Engine Torque (N.m)",
+        "tr": "Motor Torku (N.m)",
+        "de": "Engine Torque (N.m)",
+        "fr": "Engine Torque (N.m)",
+        "es": "Engine Torque (N.m)",
+        "ar": "Engine Torque (N.m)"
+      },
+      "type": "number",
+      "unit": "N.m",
+      "default": 300,
+      "min": 0,
+      "businessContext": "Motorun ürettiği tork.",
+      "businessContext_i18n": {
+        "en": "Engine torque.",
+        "tr": "Motorun ürettiği tork.",
+        "de": "Engine torque.",
+        "fr": "Engine torque.",
+        "es": "Engine torque.",
+        "ar": "Engine torque."
+      }
+    },
+    {
+      "id": "cekişKatsayisi",
+      "label": "Çekiş Katsayısı",
+      "label_i18n": {
+        "en": "Traction Coefficient",
+        "tr": "Çekiş Katsayısı",
+        "de": "Traction Coefficient",
+        "fr": "Traction Coefficient",
+        "es": "Traction Coefficient",
+        "ar": "Traction Coefficient"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "min": 0,
+      "businessContext": "Lastik-yol tutunma katsayısı.",
+      "businessContext_i18n": {
+        "en": "Tire-road friction.",
+        "tr": "Lastik-yol tutunma katsayısı.",
+        "de": "Tire-road friction.",
+        "fr": "Tire-road friction.",
+        "es": "Tire-road friction.",
+        "ar": "Tire-road friction."
+      }
+    },
+    {
+      "id": "havaDirenci",
+      "label": "Hava Direnci (N)",
+      "label_i18n": {
+        "en": "Aerodynamic Drag (N)",
+        "tr": "Hava Direnci (N)",
+        "de": "Aerodynamic Drag (N)",
+        "fr": "Aerodynamic Drag (N)",
+        "es": "Aerodynamic Drag (N)",
+        "ar": "Aerodynamic Drag (N)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 500,
+      "min": 0,
+      "businessContext": "100 km/h'deki hava direnci.",
+      "businessContext_i18n": {
+        "en": "Aerodynamic drag at 100 km/h.",
+        "tr": "100 km/h'deki hava direnci.",
+        "de": "Aerodynamic drag at 100 km/h.",
+        "fr": "Aerodynamic drag at 100 km/h.",
+        "es": "Aerodynamic drag at 100 km/h.",
+        "ar": "Aerodynamic drag at 100 km/h."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "ivme": "((300 * 0.8) - 500) / Math.max(0.0001, 1500)",
+    "sonuc": "(100 / 3.6) / Math.max(0.0001, ((300 * 0.8) - 500) / Math.max(0.0001, 1500))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "s",
+    "breakdown": {
+      "sonuc": "0-100 km/h Süresi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "0-100 km/h Süresi",
+        "tr": "0-100 km/h Süresi",
+        "de": "0-100 km/h Süresi",
+        "fr": "0-100 km/h Süresi",
+        "es": "0-100 km/h Süresi",
+        "ar": "0-100 km/h Süresi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "s"
+    },
+    "hiddenLossDrivers": [
+      "High fuel/energy consumption indicates efficiency losses."
+    ],
+    "suggestedActions": [
+      "Regular maintenance improves overall equipment efficiency.",
+      "Simulate real-world driving conditions for accurate range estimates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate vehicle 0-100 km/h acceleration time.",
+      "long": "Calculate vehicle 0-100 km/h acceleration time.",
+      "short_i18n": {
+        "en": "Calculate vehicle 0-100 km/h acceleration time.",
+        "tr": "Aracın durgun halden 100 km/h hıza ulaşma süresini hesaplar.",
+        "de": "Calculate vehicle 0-100 km/h acceleration time.",
+        "fr": "Calculate vehicle 0-100 km/h acceleration time.",
+        "es": "Calculate vehicle 0-100 km/h acceleration time.",
+        "ar": "Calculate vehicle 0-100 km/h acceleration time."
+      },
+      "long_i18n": {
+        "en": "Calculate vehicle 0-100 km/h acceleration time.",
+        "tr": "Aracın durgun halden 100 km/h hıza ulaşma süresini hesaplar.",
+        "de": "Calculate vehicle 0-100 km/h acceleration time.",
+        "fr": "Calculate vehicle 0-100 km/h acceleration time.",
+        "es": "Calculate vehicle 0-100 km/h acceleration time.",
+        "ar": "Calculate vehicle 0-100 km/h acceleration time."
+      }
+    }
+  }
+}

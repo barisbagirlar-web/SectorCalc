@@ -1,0 +1,154 @@
+{
+  "toolName": "kiris-mesnet-tepkileri-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik ve Kuantum",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "yuk",
+      "label": "Tekil Yük (N)",
+      "label_i18n": {
+        "en": "Point Load (N)",
+        "tr": "Tekil Yük (N)",
+        "de": "Point Load (N)",
+        "fr": "Point Load (N)",
+        "es": "Point Load (N)",
+        "ar": "Point Load (N)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Kirişe uygulanan tekil kuvvet.",
+      "businessContext_i18n": {
+        "en": "Point force on beam.",
+        "tr": "Kirişe uygulanan tekil kuvvet.",
+        "de": "Point force on beam.",
+        "fr": "Point force on beam.",
+        "es": "Point force on beam.",
+        "ar": "Point force on beam."
+      }
+    },
+    {
+      "id": "uzunluk",
+      "label": "Kiriş Boyu (m)",
+      "label_i18n": {
+        "en": "Beam Length (m)",
+        "tr": "Kiriş Boyu (m)",
+        "de": "Beam Length (m)",
+        "fr": "Beam Length (m)",
+        "es": "Beam Length (m)",
+        "ar": "Beam Length (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "min": 0,
+      "businessContext": "Mesnetler arası mesafe.",
+      "businessContext_i18n": {
+        "en": "Span between supports.",
+        "tr": "Mesnetler arası mesafe.",
+        "de": "Span between supports.",
+        "fr": "Span between supports.",
+        "es": "Span between supports.",
+        "ar": "Span between supports."
+      }
+    },
+    {
+      "id": "yukKonum",
+      "label": "Yükün A Konumuna Uzaklığı (m)",
+      "label_i18n": {
+        "en": "Load Distance from A (m)",
+        "tr": "Yükün A Konumuna Uzaklığı (m)",
+        "de": "Load Distance from A (m)",
+        "fr": "Load Distance from A (m)",
+        "es": "Load Distance from A (m)",
+        "ar": "Load Distance from A (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Yükün sol mesnete uzaklığı.",
+      "businessContext_i18n": {
+        "en": "Distance from left support to load.",
+        "tr": "Yükün sol mesnete uzaklığı.",
+        "de": "Distance from left support to load.",
+        "fr": "Distance from left support to load.",
+        "es": "Distance from left support to load.",
+        "ar": "Distance from left support to load."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "RA": "yuk * Math.max(0, (uzunluk - yukKonum)) / Math.max(0.0001, uzunluk)",
+    "sonuc": "yuk - yuk * Math.max(0, (uzunluk - yukKonum)) / Math.max(0.0001, uzunluk)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "N",
+    "breakdown": {
+      "RA": "Tepki A (Rₐ)",
+      "sonuc": "Tepki B (Rᵦ)"
+    },
+    "breakdown_i18n": {
+      "RA": {
+        "en": "Tepki A (Rₐ)",
+        "tr": "Tepki A (Rₐ)",
+        "de": "Tepki A (Rₐ)",
+        "fr": "Tepki A (Rₐ)",
+        "es": "Tepki A (Rₐ)",
+        "ar": "Tepki A (Rₐ)"
+      },
+      "sonuc": {
+        "en": "Tepki B (Rᵦ)",
+        "tr": "Tepki B (Rᵦ)",
+        "de": "Tepki B (Rᵦ)",
+        "fr": "Tepki B (Rᵦ)",
+        "es": "Tepki B (Rᵦ)",
+        "ar": "Tepki B (Rᵦ)"
+      }
+    },
+    "breakdownUnits": {
+      "RA": "N",
+      "sonuc": "N"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Quantum effects are only observable at microscopic scales.",
+      "These are idealized models."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate vertical reaction forces at simple beam supports.",
+      "long": "Calculate vertical reaction forces at simple beam supports.",
+      "short_i18n": {
+        "en": "Calculate vertical reaction forces at simple beam supports.",
+        "tr": "Basit kiriş mesnetlerindeki düşey tepki kuvvetlerini hesaplar.",
+        "de": "Calculate vertical reaction forces at simple beam supports.",
+        "fr": "Calculate vertical reaction forces at simple beam supports.",
+        "es": "Calculate vertical reaction forces at simple beam supports.",
+        "ar": "Calculate vertical reaction forces at simple beam supports."
+      },
+      "long_i18n": {
+        "en": "Calculate vertical reaction forces at simple beam supports.",
+        "tr": "Basit kiriş mesnetlerindeki düşey tepki kuvvetlerini hesaplar.",
+        "de": "Calculate vertical reaction forces at simple beam supports.",
+        "fr": "Calculate vertical reaction forces at simple beam supports.",
+        "es": "Calculate vertical reaction forces at simple beam supports.",
+        "ar": "Calculate vertical reaction forces at simple beam supports."
+      }
+    }
+  }
+}

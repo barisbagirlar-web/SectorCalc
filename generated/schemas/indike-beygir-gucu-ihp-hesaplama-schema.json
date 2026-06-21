@@ -1,0 +1,170 @@
+{
+  "toolName": "indike-beygir-gucu-ihp-hesaplama",
+  "catalogCategory": "automotive-transport",
+  "categorySlug": "automotive-transport",
+  "sector": "Mekanik, Otomotiv ve Havacılık",
+  "sectorId": "automotive-transport",
+  "inputs": [
+    {
+      "id": "basinc",
+      "label": "Ortalama İndike Basınc (Pa)",
+      "label_i18n": {
+        "en": "Mean Indicated Pressure (Pa)",
+        "tr": "Ortalama İndike Basınc (Pa)",
+        "de": "Mean Indicated Pressure (Pa)",
+        "fr": "Mean Indicated Pressure (Pa)",
+        "es": "Mean Indicated Pressure (Pa)",
+        "ar": "Mean Indicated Pressure (Pa)"
+      },
+      "type": "number",
+      "unit": "Pa",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "Silindir içi ortalama basınç.",
+      "businessContext_i18n": {
+        "en": "Average cylinder pressure.",
+        "tr": "Silindir içi ortalama basınç.",
+        "de": "Average cylinder pressure.",
+        "fr": "Average cylinder pressure.",
+        "es": "Average cylinder pressure.",
+        "ar": "Average cylinder pressure."
+      }
+    },
+    {
+      "id": "strok",
+      "label": "Strok (m)",
+      "label_i18n": {
+        "en": "Stroke (m)",
+        "tr": "Strok (m)",
+        "de": "Stroke (m)",
+        "fr": "Stroke (m)",
+        "es": "Stroke (m)",
+        "ar": "Stroke (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "min": 0,
+      "businessContext": "Pistonun alt-üst ölü nokta mesafesi.",
+      "businessContext_i18n": {
+        "en": "Piston stroke length.",
+        "tr": "Pistonun alt-üst ölü nokta mesafesi.",
+        "de": "Piston stroke length.",
+        "fr": "Piston stroke length.",
+        "es": "Piston stroke length.",
+        "ar": "Piston stroke length."
+      }
+    },
+    {
+      "id": "alan",
+      "label": "Piston Alanı (m²)",
+      "label_i18n": {
+        "en": "Piston Area (m²)",
+        "tr": "Piston Alanı (m²)",
+        "de": "Piston Area (m²)",
+        "fr": "Piston Area (m²)",
+        "es": "Piston Area (m²)",
+        "ar": "Piston Area (m²)"
+      },
+      "type": "number",
+      "unit": "m2",
+      "default": 0.01,
+      "min": 0,
+      "businessContext": "Piston yüzey alanı.",
+      "businessContext_i18n": {
+        "en": "Piston cross-section area.",
+        "tr": "Piston yüzey alanı.",
+        "de": "Piston cross-section area.",
+        "fr": "Piston cross-section area.",
+        "es": "Piston cross-section area.",
+        "ar": "Piston cross-section area."
+      }
+    },
+    {
+      "id": "devir",
+      "label": "Motor Devri (devir/dk)",
+      "label_i18n": {
+        "en": "Engine Speed (RPM)",
+        "tr": "Motor Devri (devir/dk)",
+        "de": "Engine Speed (RPM)",
+        "fr": "Engine Speed (RPM)",
+        "es": "Engine Speed (RPM)",
+        "ar": "Engine Speed (RPM)"
+      },
+      "type": "number",
+      "unit": "rpm",
+      "default": 3000,
+      "min": 0,
+      "businessContext": "Krank mili dönüş hızı.",
+      "businessContext_i18n": {
+        "en": "Crankshaft speed.",
+        "tr": "Krank mili dönüş hızı.",
+        "de": "Crankshaft speed.",
+        "fr": "Crankshaft speed.",
+        "es": "Crankshaft speed.",
+        "ar": "Crankshaft speed."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(1e6 * 0.1 * 0.01 * 3000) / 60000"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kW",
+    "breakdown": {
+      "sonuc": "İndike Beygir Gücü (IHP)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "İndike Beygir Gücü (IHP)",
+        "tr": "İndike Beygir Gücü (IHP)",
+        "de": "İndike Beygir Gücü (IHP)",
+        "fr": "İndike Beygir Gücü (IHP)",
+        "es": "İndike Beygir Gücü (IHP)",
+        "ar": "İndike Beygir Gücü (IHP)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kW"
+    },
+    "hiddenLossDrivers": [
+      "High fuel/energy consumption indicates efficiency losses."
+    ],
+    "suggestedActions": [
+      "Regular maintenance improves overall equipment efficiency.",
+      "Simulate real-world driving conditions for accurate range estimates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+      "long": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+      "short_i18n": {
+        "en": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+        "tr": "Motor silindirleri içinde üretilen brüt teorik gücü (IHP) hesaplar.",
+        "de": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+        "fr": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+        "es": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+        "ar": "Calculate indicated horsepower (IHP) from cylinder parameters."
+      },
+      "long_i18n": {
+        "en": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+        "tr": "Motor silindirleri içinde üretilen brüt teorik gücü (IHP) hesaplar.",
+        "de": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+        "fr": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+        "es": "Calculate indicated horsepower (IHP) from cylinder parameters.",
+        "ar": "Calculate indicated horsepower (IHP) from cylinder parameters."
+      }
+    }
+  }
+}

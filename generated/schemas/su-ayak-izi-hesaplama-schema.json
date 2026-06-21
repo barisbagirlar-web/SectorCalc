@@ -1,75 +1,121 @@
 {
-  "slug": "su-ayak-izi-hesaplama",
-  "name": "Su Ayak İzi Hesaplama",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "PDF report",
-    "Scenario comparison"
-  ],
+  "toolName": "su-ayak-izi-hesaplama",
+  "catalogCategory": "sustainability-resource-esg",
+  "categorySlug": "sustainability-resource-esg",
+  "sector": "Çevre ve Sürdürülebilirlik",
+  "sectorId": "sustainability-resource-esg",
   "inputs": [
     {
-      "id": "flowRate",
-      "label": "Score",
-      "type": "number",
-      "unit": "L/min",
-      "default": 50,
-      "min": 0,
-      "businessContext": "Akış hızı değeri.",
+      "id": "uretimHacmi",
+      "label": "Üretim Hacmi (Ton)",
       "label_i18n": {
-        "en": "Score",
-        "tr": "Puan",
-        "de": "Giriş Değeri",
-        "fr": "Giriş Değeri",
-        "es": "Giriş Değeri",
-        "ar": "Giriş Değeri"
+        "en": "Production Volume (Tons)",
+        "tr": "Üretim Hacmi (Ton)",
+        "de": "Production Volume (Tons)",
+        "fr": "Production Volume (Tons)",
+        "es": "Production Volume (Tons)",
+        "ar": "Production Volume (Tons)"
       },
+      "type": "number",
+      "unit": "tons",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Toplam üretim miktarı.",
       "businessContext_i18n": {
-        "en": "Score.",
-        "tr": "Puan.",
-        "de": "Hesaplama için giriş değeri.",
-        "fr": "Hesaplama için giriş değeri.",
-        "es": "Hesaplama için giriş değeri.",
-        "ar": "Hesaplama için giriş değeri."
+        "en": "Total production quantity.",
+        "tr": "Toplam üretim miktarı.",
+        "de": "Total production quantity.",
+        "fr": "Total production quantity.",
+        "es": "Total production quantity.",
+        "ar": "Total production quantity."
+      }
+    },
+    {
+      "id": "tuketilenSu",
+      "label": "Tüketilen Su (m³)",
+      "label_i18n": {
+        "en": "Water Consumed (m³)",
+        "tr": "Tüketilen Su (m³)",
+        "de": "Water Consumed (m³)",
+        "fr": "Water Consumed (m³)",
+        "es": "Water Consumed (m³)",
+        "ar": "Water Consumed (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 15000,
+      "min": 0,
+      "businessContext": "Üretimde kullanılan toplam su.",
+      "businessContext_i18n": {
+        "en": "Total water used in production.",
+        "tr": "Üretimde kullanılan toplam su.",
+        "de": "Total water used in production.",
+        "fr": "Total water used in production.",
+        "es": "Total water used in production.",
+        "ar": "Total water used in production."
       }
     }
   ],
   "validation": {
     "rules": [
-      "Positive numbers required."
+      "All numeric inputs must be positive numbers."
     ],
     "thresholds": {}
   },
   "formulas": {
-    "main": "flowRate * (1 + flowRate/500) + Math.sqrt(flowRate) * 5",
-    "result": "flowRate * (1 + flowRate/500) + Math.sqrt(flowRate) * 5"
+    "sonuc": "tuketilenSu / Math.max(0.0001, uretimHacmi)"
   },
   "outputs": {
-    "primary": "result",
-    "unit": "",
+    "primary": "sonuc",
+    "unit": "m3/ton",
     "breakdown": {
-      "result": "flowRate"
+      "sonuc": "Su Ayak İzi"
     },
     "breakdown_i18n": {
-      "result": {
-        "en": "Result",
-        "tr": "Sonuç"
+      "sonuc": {
+        "en": "Su Ayak İzi",
+        "tr": "Su Ayak İzi",
+        "de": "Su Ayak İzi",
+        "fr": "Su Ayak İzi",
+        "es": "Su Ayak İzi",
+        "ar": "Su Ayak İzi"
       }
     },
-    "hiddenLossDrivers": [],
-    "suggestedActions": [
-      "Review assumptions."
+    "breakdownUnits": {
+      "sonuc": "m3/ton"
+    },
+    "hiddenLossDrivers": [
+      "High environmental score may reduce operational costs.",
+      "Low ESG score may increase capital costs."
     ],
-    "dataConfidenceAdjusted": "Free-tier estimate."
+    "suggestedActions": [
+      "Set improvement targets for each ESG pillar.",
+      "Consider carbon offset programs for residual emissions."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
   },
+  "premiumRequired": false,
+  "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Quick su ayak i̇zi hesaplama.",
-      "long": "Free su ayak i̇zi hesaplama tool."
+      "short": "Calculate water footprint per unit of production.",
+      "long": "Calculate water footprint per unit of production.",
+      "short_i18n": {
+        "en": "Calculate water footprint per unit of production.",
+        "tr": "Birim ürün başına harcanan tatlı su miktarını (su ayak izi) hesaplar.",
+        "de": "Calculate water footprint per unit of production.",
+        "fr": "Calculate water footprint per unit of production.",
+        "es": "Calculate water footprint per unit of production.",
+        "ar": "Calculate water footprint per unit of production."
+      },
+      "long_i18n": {
+        "en": "Calculate water footprint per unit of production.",
+        "tr": "Birim ürün başına harcanan tatlı su miktarını (su ayak izi) hesaplar.",
+        "de": "Calculate water footprint per unit of production.",
+        "fr": "Calculate water footprint per unit of production.",
+        "es": "Calculate water footprint per unit of production.",
+        "ar": "Calculate water footprint per unit of production."
+      }
     }
-  },
-  "sector": "Çevre",
-  "toolName": "su-ayak-izi-hesaplama",
-  "sectorId": "genel",
-  "profession": "Professional",
-  "categoryId": "environment"
+  }
 }

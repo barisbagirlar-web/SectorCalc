@@ -1,0 +1,121 @@
+{
+  "toolName": "desibel-donusturucu-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "oran",
+      "label": "Oran (Sayı)",
+      "label_i18n": {
+        "en": "Ratio",
+        "tr": "Oran (Sayı)",
+        "de": "Ratio",
+        "fr": "Ratio",
+        "es": "Ratio",
+        "ar": "Ratio"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Sinyal gücü/voltaj oranı.",
+      "businessContext_i18n": {
+        "en": "Signal power/voltage ratio.",
+        "tr": "Sinyal gücü/voltaj oranı.",
+        "de": "Signal power/voltage ratio.",
+        "fr": "Signal power/voltage ratio.",
+        "es": "Signal power/voltage ratio.",
+        "ar": "Signal power/voltage ratio."
+      }
+    },
+    {
+      "id": "tip",
+      "label": "Tip (0=Güç, 1=Voltaj)",
+      "label_i18n": {
+        "en": "Type (0=Power, 1=Voltage)",
+        "tr": "Tip (0=Güç, 1=Voltaj)",
+        "de": "Type (0=Power, 1=Voltage)",
+        "fr": "Type (0=Power, 1=Voltage)",
+        "es": "Type (0=Power, 1=Voltage)",
+        "ar": "Type (0=Power, 1=Voltage)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "min": 0,
+      "businessContext": "Oran tipi.",
+      "businessContext_i18n": {
+        "en": "Ratio type.",
+        "tr": "Oran tipi.",
+        "de": "Ratio type.",
+        "fr": "Ratio type.",
+        "es": "Ratio type.",
+        "ar": "Ratio type."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "tip === 0 ? 10 * Math.log10(Math.max(0.0001, oran)) : 20 * Math.log10(Math.max(0.0001, oran))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "dB",
+    "breakdown": {
+      "sonuc": "Desibel (dB)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Desibel (dB)",
+        "tr": "Desibel (dB)",
+        "de": "Desibel (dB)",
+        "fr": "Desibel (dB)",
+        "es": "Desibel (dB)",
+        "ar": "Desibel (dB)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "dB"
+    },
+    "hiddenLossDrivers": [
+      "Low SNR indicates poor signal quality.",
+      "High Q indicates narrow bandwidth."
+    ],
+    "suggestedActions": [
+      "Use proper shielding for sensitive measurements.",
+      "Consider efficiency losses in energy calculations."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Convert power or voltage ratio to decibels (dB).",
+      "long": "Convert power or voltage ratio to decibels (dB).",
+      "short_i18n": {
+        "en": "Convert power or voltage ratio to decibels (dB).",
+        "tr": "İki sinyal arası oranının logaritmik ifadesini (desibel) hesaplar.",
+        "de": "Convert power or voltage ratio to decibels (dB).",
+        "fr": "Convert power or voltage ratio to decibels (dB).",
+        "es": "Convert power or voltage ratio to decibels (dB).",
+        "ar": "Convert power or voltage ratio to decibels (dB)."
+      },
+      "long_i18n": {
+        "en": "Convert power or voltage ratio to decibels (dB).",
+        "tr": "İki sinyal arası oranının logaritmik ifadesini (desibel) hesaplar.",
+        "de": "Convert power or voltage ratio to decibels (dB).",
+        "fr": "Convert power or voltage ratio to decibels (dB).",
+        "es": "Convert power or voltage ratio to decibels (dB).",
+        "ar": "Convert power or voltage ratio to decibels (dB)."
+      }
+    }
+  }
+}

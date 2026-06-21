@@ -2,14 +2,16 @@
 import * as z from 'zod';
 
 export interface Forex_kar_hesaplamaInput {
-  revenueAmount: number;
-  costAmount: number;
+  lot: number;
+  pipDegeri: number;
+  pipHareketi: number;
   dataConfidence?: number;
 }
 
 export const Forex_kar_hesaplamaInputSchema = z.object({
-  revenueAmount: z.number().min(0).default(100),
-  costAmount: z.number().min(0).default(50),
+  lot: z.number().min(0.01).default(1),
+  pipDegeri: z.number().min(0).default(10),
+  pipHareketi: z.number().min(0).default(50),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -18,20 +20,19 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Forex_kar_hesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.revenueAmount / input.costAmount * 100 + Math.sqrt(input.revenueAmount * input.costAmount) / 10; results["main"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["main"] = Number.NaN; }
-  try { const v = input.revenueAmount / input.costAmount * 100 + Math.sqrt(input.revenueAmount * input.costAmount) / 10; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.lot * input.pipDegeri * input.pipHareketi; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateForex_kar_hesaplama(input: Forex_kar_hesaplamaInput): Forex_kar_hesaplamaOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
   const breakdown = {
-    result: toNumericFormulaValue(values["result"])
+    sonuc: toNumericFormulaValue(values["sonuc"])
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Consult with a professional.","Review assumptions regularly."];
+  const suggestedActions: string[] = ["Verify inputs before making financial decisions.","Consult a licensed financial advisor for personalized advice."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -42,9 +43,9 @@ export function calculateForex_kar_hesaplama(input: Forex_kar_hesaplamaInput): F
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "currency",
+    unit: "TRY",
     premiumRequired: false,
-    premiumFeatures: ["Detailed PDF report","Scenario comparison","Multi-year projections"],
+    premiumFeatures: [],
   };
 }
 
@@ -52,7 +53,7 @@ export function calculateForex_kar_hesaplama(input: Forex_kar_hesaplamaInput): F
 export interface Forex_kar_hesaplamaOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { result: number };
+  breakdown: { sonuc: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -61,8 +62,8 @@ export interface Forex_kar_hesaplamaOutput {
 };
 
 export const Forex_kar_hesaplamaOutputMeta = {
-  primaryKey: "result",
-  unit: "currency",
-  breakdownKeys: ["result"],
+  primaryKey: "sonuc",
+  unit: "TRY",
+  breakdownKeys: ["sonuc"],
 } as const;
 

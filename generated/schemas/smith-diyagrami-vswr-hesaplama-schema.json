@@ -1,0 +1,121 @@
+{
+  "toolName": "smith-diyagrami-vswr-hesaplama",
+  "catalogCategory": "electrical-power-systems",
+  "categorySlug": "electrical-power-systems",
+  "sector": "Yangın, Elektrik ve Elektronik",
+  "sectorId": "electrical-power-systems",
+  "inputs": [
+    {
+      "id": "yukEmpedans",
+      "label": "Yük Empedansı (Ω)",
+      "label_i18n": {
+        "en": "Load Impedance (Ω)",
+        "tr": "Yük Empedansı (Ω)",
+        "de": "Load Impedance (Ω)",
+        "fr": "Load Impedance (Ω)",
+        "es": "Load Impedance (Ω)",
+        "ar": "Load Impedance (Ω)"
+      },
+      "type": "number",
+      "unit": "ohms",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Anten/yük empedansı.",
+      "businessContext_i18n": {
+        "en": "Load/antenna impedance.",
+        "tr": "Anten/yük empedansı.",
+        "de": "Load/antenna impedance.",
+        "fr": "Load/antenna impedance.",
+        "es": "Load/antenna impedance.",
+        "ar": "Load/antenna impedance."
+      }
+    },
+    {
+      "id": "hatEmpedans",
+      "label": "Hat Karakteristik Empedansı (Ω)",
+      "label_i18n": {
+        "en": "Line Characteristic Impedance (Ω)",
+        "tr": "Hat Karakteristik Empedansı (Ω)",
+        "de": "Line Characteristic Impedance (Ω)",
+        "fr": "Line Characteristic Impedance (Ω)",
+        "es": "Line Characteristic Impedance (Ω)",
+        "ar": "Line Characteristic Impedance (Ω)"
+      },
+      "type": "number",
+      "unit": "ohms",
+      "default": 50,
+      "min": 0,
+      "businessContext": "İletim hattı empedansı.",
+      "businessContext_i18n": {
+        "en": "Transmission line impedance.",
+        "tr": "İletim hattı empedansı.",
+        "de": "Transmission line impedance.",
+        "fr": "Transmission line impedance.",
+        "es": "Transmission line impedance.",
+        "ar": "Transmission line impedance."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "yansima": "(yukEmpedans - hatEmpedans) / Math.max(0.0001, (yukEmpedans + hatEmpedans))",
+    "sonuc": "(1 + Math.abs((yukEmpedans - hatEmpedans) / Math.max(0.0001, (yukEmpedans + hatEmpedans)))) / Math.max(0.0001, (1 - Math.abs((yukEmpedans - hatEmpedans) / Math.max(0.0001, (yukEmpedans + hatEmpedans)))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "VSWR",
+    "breakdown": {
+      "sonuc": "VSWR"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "VSWR",
+        "tr": "VSWR",
+        "de": "VSWR",
+        "fr": "VSWR",
+        "es": "VSWR",
+        "ar": "VSWR"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "VSWR"
+    },
+    "hiddenLossDrivers": [
+      "Low Q factor indicates broader frequency response."
+    ],
+    "suggestedActions": [
+      "Verify component tolerances affect circuit performance.",
+      "Use proper safety equipment for high voltage/current work."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+      "long": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+      "short_i18n": {
+        "en": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+        "tr": "İletim hattındaki empedans uyumsuzluk oranını (VSWR) hesaplar.",
+        "de": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+        "fr": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+        "es": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+        "ar": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch."
+      },
+      "long_i18n": {
+        "en": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+        "tr": "İletim hattındaki empedans uyumsuzluk oranını (VSWR) hesaplar.",
+        "de": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+        "fr": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+        "es": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
+        "ar": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch."
+      }
+    }
+  }
+}

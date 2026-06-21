@@ -1,0 +1,168 @@
+{
+  "toolName": "etf-getirisi-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "alisFiyati",
+      "label": "Alış Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Purchase Price (TRY)",
+        "tr": "Alış Fiyatı (₺)",
+        "de": "Purchase Price (TRY)",
+        "fr": "Purchase Price (TRY)",
+        "es": "Purchase Price (TRY)",
+        "ar": "Purchase Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "min": 0,
+      "businessContext": "ETF alış fiyatı.",
+      "businessContext_i18n": {
+        "en": "ETF purchase price.",
+        "tr": "ETF alış fiyatı.",
+        "de": "ETF purchase price.",
+        "fr": "ETF purchase price.",
+        "es": "ETF purchase price.",
+        "ar": "ETF purchase price."
+      }
+    },
+    {
+      "id": "satisFiyati",
+      "label": "Satış Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Sell Price (TRY)",
+        "tr": "Satış Fiyatı (₺)",
+        "de": "Sell Price (TRY)",
+        "fr": "Sell Price (TRY)",
+        "es": "Sell Price (TRY)",
+        "ar": "Sell Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 115,
+      "min": 0,
+      "businessContext": "ETF satış fiyatı.",
+      "businessContext_i18n": {
+        "en": "ETF sell price.",
+        "tr": "ETF satış fiyatı.",
+        "de": "ETF sell price.",
+        "fr": "ETF sell price.",
+        "es": "ETF sell price.",
+        "ar": "ETF sell price."
+      }
+    },
+    {
+      "id": "temettu",
+      "label": "Temettü (₺)",
+      "label_i18n": {
+        "en": "Dividend (TRY)",
+        "tr": "Temettü (₺)",
+        "de": "Dividend (TRY)",
+        "fr": "Dividend (TRY)",
+        "es": "Dividend (TRY)",
+        "ar": "Dividend (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 2,
+      "min": 0,
+      "businessContext": "Dönem boyunca dağıtılan temettü.",
+      "businessContext_i18n": {
+        "en": "Dividend distributed.",
+        "tr": "Dönem boyunca dağıtılan temettü.",
+        "de": "Dividend distributed.",
+        "fr": "Dividend distributed.",
+        "es": "Dividend distributed.",
+        "ar": "Dividend distributed."
+      }
+    },
+    {
+      "id": "giderOrani",
+      "label": "Gider Oranı (%)",
+      "label_i18n": {
+        "en": "Expense Ratio (%)",
+        "tr": "Gider Oranı (%)",
+        "de": "Expense Ratio (%)",
+        "fr": "Expense Ratio (%)",
+        "es": "Expense Ratio (%)",
+        "ar": "Expense Ratio (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "ETF'in yıllık yönetim ücreti.",
+      "businessContext_i18n": {
+        "en": "Annual management fee.",
+        "tr": "ETF'in yıllık yönetim ücreti.",
+        "de": "Annual management fee.",
+        "fr": "Annual management fee.",
+        "es": "Annual management fee.",
+        "ar": "Annual management fee."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "((satisFiyati + temettu - alisFiyati) / Math.max(1, alisFiyati) * 100) - giderOrani"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "Net ETF Getirisi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Net ETF Getirisi",
+        "tr": "Net ETF Getirisi",
+        "de": "Net ETF Getirisi",
+        "fr": "Net ETF Getirisi",
+        "es": "Net ETF Getirisi",
+        "ar": "Net ETF Getirisi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate net ETF return after management expense ratio.",
+      "long": "Calculate net ETF return after management expense ratio.",
+      "short_i18n": {
+        "en": "Calculate net ETF return after management expense ratio.",
+        "tr": "Yönetim ücreti düşülmüş net ETF getirisini hesaplar.",
+        "de": "Calculate net ETF return after management expense ratio.",
+        "fr": "Calculate net ETF return after management expense ratio.",
+        "es": "Calculate net ETF return after management expense ratio.",
+        "ar": "Calculate net ETF return after management expense ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate net ETF return after management expense ratio.",
+        "tr": "Yönetim ücreti düşülmüş net ETF getirisini hesaplar.",
+        "de": "Calculate net ETF return after management expense ratio.",
+        "fr": "Calculate net ETF return after management expense ratio.",
+        "es": "Calculate net ETF return after management expense ratio.",
+        "ar": "Calculate net ETF return after management expense ratio."
+      }
+    }
+  }
+}

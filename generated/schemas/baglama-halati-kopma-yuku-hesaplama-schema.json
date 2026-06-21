@@ -1,0 +1,146 @@
+{
+  "toolName": "baglama-halati-kopma-yuku-hesaplama",
+  "catalogCategory": "agriculture-food-beverage",
+  "categorySlug": "agriculture-food-beverage",
+  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sectorId": "agriculture-food-beverage",
+  "inputs": [
+    {
+      "id": "halatCapi",
+      "label": "Halat Çapı (mm)",
+      "label_i18n": {
+        "en": "Rope Diameter (mm)",
+        "tr": "Halat Çapı (mm)",
+        "de": "Rope Diameter (mm)",
+        "fr": "Rope Diameter (mm)",
+        "es": "Rope Diameter (mm)",
+        "ar": "Rope Diameter (mm)"
+      },
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Halatın mm cinsinden çapı.",
+      "businessContext_i18n": {
+        "en": "Rope diameter in mm.",
+        "tr": "Halatın mm cinsinden çapı.",
+        "de": "Rope diameter in mm.",
+        "fr": "Rope diameter in mm.",
+        "es": "Rope diameter in mm.",
+        "ar": "Rope diameter in mm."
+      }
+    },
+    {
+      "id": "malzemeKatsayisi",
+      "label": "Malzeme Katsayısı (N/mm²)",
+      "label_i18n": {
+        "en": "Material Coefficient (N/mm²)",
+        "tr": "Malzeme Katsayısı (N/mm²)",
+        "de": "Material Coefficient (N/mm²)",
+        "fr": "Material Coefficient (N/mm²)",
+        "es": "Material Coefficient (N/mm²)",
+        "ar": "Material Coefficient (N/mm²)"
+      },
+      "type": "number",
+      "unit": "N/mm2",
+      "default": 800,
+      "min": 0,
+      "businessContext": "Halat malzemesinin çekme dayanımı.",
+      "businessContext_i18n": {
+        "en": "Rope material tensile strength.",
+        "tr": "Halat malzemesinin çekme dayanımı.",
+        "de": "Rope material tensile strength.",
+        "fr": "Rope material tensile strength.",
+        "es": "Rope material tensile strength.",
+        "ar": "Rope material tensile strength."
+      }
+    },
+    {
+      "id": "guvenlikFaktoru",
+      "label": "Güvenlik Faktörü",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Güvenlik Faktörü",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Güvenlik katsayısı.",
+      "businessContext_i18n": {
+        "en": "Safety factor.",
+        "tr": "Güvenlik katsayısı.",
+        "de": "Safety factor.",
+        "fr": "Safety factor.",
+        "es": "Safety factor.",
+        "ar": "Safety factor."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "kopmaYuku": "(Math.PI * Math.pow(halatCapi / 2, 2) * malzemeKatsayisi) / 1000",
+    "sonuc": "kopmaYuku / Math.max(0.0001, guvenlikFaktoru)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kN",
+    "breakdown": {
+      "sonuc": "Emniyetli Yük"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Emniyetli Yük",
+        "tr": "Emniyetli Yük",
+        "de": "Emniyetli Yük",
+        "fr": "Emniyetli Yük",
+        "es": "Emniyetli Yük",
+        "ar": "Emniyetli Yük"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kN"
+    },
+    "hiddenLossDrivers": [
+      "Low efficiency may indicate equipment or process issues."
+    ],
+    "suggestedActions": [
+      "Calibrate all measuring equipment regularly.",
+      "Use site-specific data when available."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate safe working load of mooring line based on breaking strength.",
+      "long": "Calculate safe working load of mooring line based on breaking strength.",
+      "short_i18n": {
+        "en": "Calculate safe working load of mooring line based on breaking strength.",
+        "tr": "Halatın kopmadan taşıyabileceği maksimum emniyetli yükü hesaplar.",
+        "de": "Calculate safe working load of mooring line based on breaking strength.",
+        "fr": "Calculate safe working load of mooring line based on breaking strength.",
+        "es": "Calculate safe working load of mooring line based on breaking strength.",
+        "ar": "Calculate safe working load of mooring line based on breaking strength."
+      },
+      "long_i18n": {
+        "en": "Calculate safe working load of mooring line based on breaking strength.",
+        "tr": "Halatın kopmadan taşıyabileceği maksimum emniyetli yükü hesaplar.",
+        "de": "Calculate safe working load of mooring line based on breaking strength.",
+        "fr": "Calculate safe working load of mooring line based on breaking strength.",
+        "es": "Calculate safe working load of mooring line based on breaking strength.",
+        "ar": "Calculate safe working load of mooring line based on breaking strength."
+      }
+    }
+  }
+}

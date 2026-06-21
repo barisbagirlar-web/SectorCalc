@@ -1,0 +1,118 @@
+{
+  "toolName": "tork-donusturucu-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "deger",
+      "label": "Tork Değeri",
+      "label_i18n": {
+        "en": "Torque Value",
+        "tr": "Tork Değeri",
+        "de": "Torque Value",
+        "fr": "Torque Value",
+        "es": "Torque Value",
+        "ar": "Torque Value"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Dönüştürülecek tork.",
+      "businessContext_i18n": {
+        "en": "Torque to convert.",
+        "tr": "Dönüştürülecek tork.",
+        "de": "Torque to convert.",
+        "fr": "Torque to convert.",
+        "es": "Torque to convert.",
+        "ar": "Torque to convert."
+      }
+    },
+    {
+      "id": "kaynak",
+      "label": "Kaynak (0=N.m, 1=lbft, 2=kgfm)",
+      "label_i18n": {
+        "en": "Source (0=N.m, 1=lbft, 2=kgfm)",
+        "tr": "Kaynak (0=N.m, 1=lbft, 2=kgfm)",
+        "de": "Source (0=N.m, 1=lbft, 2=kgfm)",
+        "fr": "Source (0=N.m, 1=lbft, 2=kgfm)",
+        "es": "Source (0=N.m, 1=lbft, 2=kgfm)",
+        "ar": "Source (0=N.m, 1=lbft, 2=kgfm)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "min": 0,
+      "businessContext": "Girilen birim.",
+      "businessContext_i18n": {
+        "en": "Input unit.",
+        "tr": "Girilen birim.",
+        "de": "Input unit.",
+        "fr": "Input unit.",
+        "es": "Input unit.",
+        "ar": "Input unit."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "kaynak === 1 ? deger * 1.3558 : kaynak === 2 ? deger * 9.8066 : deger"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "N.m",
+    "breakdown": {
+      "sonuc": "N.m Karşılığı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "N.m Karşılığı",
+        "tr": "N.m Karşılığı",
+        "de": "N.m Karşılığı",
+        "fr": "N.m Karşılığı",
+        "es": "N.m Karşılığı",
+        "ar": "N.m Karşılığı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "N.m"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+      "long": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+      "short_i18n": {
+        "en": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+        "tr": "Farklı birimlerdeki tork değerini standart N.m birimine dönüştürür.",
+        "de": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+        "fr": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+        "es": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+        "ar": "Convert torque values (lbft/kgfm) to N.m (SI unit)."
+      },
+      "long_i18n": {
+        "en": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+        "tr": "Farklı birimlerdeki tork değerini standart N.m birimine dönüştürür.",
+        "de": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+        "fr": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+        "es": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
+        "ar": "Convert torque values (lbft/kgfm) to N.m (SI unit)."
+      }
+    }
+  }
+}

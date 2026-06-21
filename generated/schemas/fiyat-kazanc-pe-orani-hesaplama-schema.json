@@ -1,0 +1,118 @@
+{
+  "toolName": "fiyat-kazanc-pe-orani-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "hisseFiyati",
+      "label": "Hisse Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Share Price (TRY)",
+        "tr": "Hisse Fiyatı (₺)",
+        "de": "Share Price (TRY)",
+        "fr": "Share Price (TRY)",
+        "es": "Share Price (TRY)",
+        "ar": "Share Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Hisse senedinin güncel piyasa fiyatı.",
+      "businessContext_i18n": {
+        "en": "Current market price per share.",
+        "tr": "Hisse senedinin güncel piyasa fiyatı.",
+        "de": "Current market price per share.",
+        "fr": "Current market price per share.",
+        "es": "Current market price per share.",
+        "ar": "Current market price per share."
+      }
+    },
+    {
+      "id": "hisseBasiKar",
+      "label": "Hisse Başı Kâr (₺)",
+      "label_i18n": {
+        "en": "Earnings Per Share (TRY)",
+        "tr": "Hisse Başı Kâr (₺)",
+        "de": "Earnings Per Share (TRY)",
+        "fr": "Earnings Per Share (TRY)",
+        "es": "Earnings Per Share (TRY)",
+        "ar": "Earnings Per Share (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Şirketin hisse başına düşen net kârı.",
+      "businessContext_i18n": {
+        "en": "Net earnings per share.",
+        "tr": "Şirketin hisse başına düşen net kârı.",
+        "de": "Net earnings per share.",
+        "fr": "Net earnings per share.",
+        "es": "Net earnings per share.",
+        "ar": "Net earnings per share."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "hisseFiyati / Math.max(0.0001, hisseBasiKar)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "ratio",
+    "breakdown": {
+      "sonuc": "F/K (P/E) Oranı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "F/K (P/E) Oranı",
+        "tr": "F/K (P/E) Oranı",
+        "de": "F/K (P/E) Oranı",
+        "fr": "F/K (P/E) Oranı",
+        "es": "F/K (P/E) Oranı",
+        "ar": "F/K (P/E) Oranı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "ratio"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate the price-to-earnings (P/E) ratio.",
+      "long": "Calculate the price-to-earnings (P/E) ratio.",
+      "short_i18n": {
+        "en": "Calculate the price-to-earnings (P/E) ratio.",
+        "tr": "Yatırımın kâr üzerinden kendini amorti etme süresini (F/K) hesaplar.",
+        "de": "Calculate the price-to-earnings (P/E) ratio.",
+        "fr": "Calculate the price-to-earnings (P/E) ratio.",
+        "es": "Calculate the price-to-earnings (P/E) ratio.",
+        "ar": "Calculate the price-to-earnings (P/E) ratio."
+      },
+      "long_i18n": {
+        "en": "Calculate the price-to-earnings (P/E) ratio.",
+        "tr": "Yatırımın kâr üzerinden kendini amorti etme süresini (F/K) hesaplar.",
+        "de": "Calculate the price-to-earnings (P/E) ratio.",
+        "fr": "Calculate the price-to-earnings (P/E) ratio.",
+        "es": "Calculate the price-to-earnings (P/E) ratio.",
+        "ar": "Calculate the price-to-earnings (P/E) ratio."
+      }
+    }
+  }
+}

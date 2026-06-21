@@ -1,0 +1,145 @@
+{
+  "toolName": "dikis-makinasi-bant-pedi-hesaplama",
+  "catalogCategory": "textile-print-lab",
+  "categorySlug": "textile-print-lab",
+  "sector": "Tekstil, Gıda ve Plastik",
+  "sectorId": "textile-print-lab",
+  "inputs": [
+    {
+      "id": "dikisUzunluk",
+      "label": "Dikiş Uzunluğu (mm)",
+      "label_i18n": {
+        "en": "Seam Length (mm)",
+        "tr": "Dikiş Uzunluğu (mm)",
+        "de": "Seam Length (mm)",
+        "fr": "Seam Length (mm)",
+        "es": "Seam Length (mm)",
+        "ar": "Seam Length (mm)"
+      },
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Dikilecek dikiş boyu.",
+      "businessContext_i18n": {
+        "en": "Seam length.",
+        "tr": "Dikilecek dikiş boyu.",
+        "de": "Seam length.",
+        "fr": "Seam length.",
+        "es": "Seam length.",
+        "ar": "Seam length."
+      }
+    },
+    {
+      "id": "devirSayisi",
+      "label": "Makine Devri (dikiş/dk)",
+      "label_i18n": {
+        "en": "Machine Speed (stitches/min)",
+        "tr": "Makine Devri (dikiş/dk)",
+        "de": "Machine Speed (stitches/min)",
+        "fr": "Machine Speed (stitches/min)",
+        "es": "Machine Speed (stitches/min)",
+        "ar": "Machine Speed (stitches/min)"
+      },
+      "type": "number",
+      "unit": "spm",
+      "default": 4000,
+      "min": 0,
+      "businessContext": "Dikiş makinesinin devir hızı.",
+      "businessContext_i18n": {
+        "en": "Sewing machine speed.",
+        "tr": "Dikiş makinesinin devir hızı.",
+        "de": "Sewing machine speed.",
+        "fr": "Sewing machine speed.",
+        "es": "Sewing machine speed.",
+        "ar": "Sewing machine speed."
+      }
+    },
+    {
+      "id": "dikisSikligi",
+      "label": "Dikiş Sıklığı (dikiş/mm)",
+      "label_i18n": {
+        "en": "Stitch Density (stitches/mm)",
+        "tr": "Dikiş Sıklığı (dikiş/mm)",
+        "de": "Stitch Density (stitches/mm)",
+        "fr": "Stitch Density (stitches/mm)",
+        "es": "Stitch Density (stitches/mm)",
+        "ar": "Stitch Density (stitches/mm)"
+      },
+      "type": "number",
+      "unit": "per_mm",
+      "default": 3,
+      "min": 0,
+      "businessContext": "mm başına düşen dikiş sayısı.",
+      "businessContext_i18n": {
+        "en": "Stitches per mm.",
+        "tr": "mm başına düşen dikiş sayısı.",
+        "de": "Stitches per mm.",
+        "fr": "Stitches per mm.",
+        "es": "Stitches per mm.",
+        "ar": "Stitches per mm."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(dikisUzunluk * dikisSikligi) / Math.max(0.0001, (devirSayisi / 60))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "s",
+    "breakdown": {
+      "sonuc": "Dikiş Süresi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Dikiş Süresi",
+        "tr": "Dikiş Süresi",
+        "de": "Dikiş Süresi",
+        "fr": "Dikiş Süresi",
+        "es": "Dikiş Süresi",
+        "ar": "Dikiş Süresi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "s"
+    },
+    "hiddenLossDrivers": [
+      "Waste in material or time indicates process improvement opportunity."
+    ],
+    "suggestedActions": [
+      "Optimize drying/cooling parameters for cycle time reduction.",
+      "Monitor defects and adjust process conditions accordingly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate sewing machine cycle time for a seam operation.",
+      "long": "Calculate sewing machine cycle time for a seam operation.",
+      "short_i18n": {
+        "en": "Calculate sewing machine cycle time for a seam operation.",
+        "tr": "Bir dikiş operasyonunun saf makine süresini hesaplar.",
+        "de": "Calculate sewing machine cycle time for a seam operation.",
+        "fr": "Calculate sewing machine cycle time for a seam operation.",
+        "es": "Calculate sewing machine cycle time for a seam operation.",
+        "ar": "Calculate sewing machine cycle time for a seam operation."
+      },
+      "long_i18n": {
+        "en": "Calculate sewing machine cycle time for a seam operation.",
+        "tr": "Bir dikiş operasyonunun saf makine süresini hesaplar.",
+        "de": "Calculate sewing machine cycle time for a seam operation.",
+        "fr": "Calculate sewing machine cycle time for a seam operation.",
+        "es": "Calculate sewing machine cycle time for a seam operation.",
+        "ar": "Calculate sewing machine cycle time for a seam operation."
+      }
+    }
+  }
+}

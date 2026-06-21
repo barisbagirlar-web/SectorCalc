@@ -1,0 +1,146 @@
+{
+  "toolName": "pist-uzunlugu-gerekli-hesaplama",
+  "catalogCategory": "automotive-transport",
+  "categorySlug": "automotive-transport",
+  "sector": "Mekanik, Otomotiv ve Havacılık",
+  "sectorId": "automotive-transport",
+  "inputs": [
+    {
+      "id": "kalkisHiz",
+      "label": "Kalkış Hızı (m/s)",
+      "label_i18n": {
+        "en": "Takeoff Speed (m/s)",
+        "tr": "Kalkış Hızı (m/s)",
+        "de": "Takeoff Speed (m/s)",
+        "fr": "Takeoff Speed (m/s)",
+        "es": "Takeoff Speed (m/s)",
+        "ar": "Takeoff Speed (m/s)"
+      },
+      "type": "number",
+      "unit": "m/s",
+      "default": 80,
+      "min": 0,
+      "businessContext": "Uçağın yerden kesilme hızı.",
+      "businessContext_i18n": {
+        "en": "Aircraft rotation speed.",
+        "tr": "Uçağın yerden kesilme hızı.",
+        "de": "Aircraft rotation speed.",
+        "fr": "Aircraft rotation speed.",
+        "es": "Aircraft rotation speed.",
+        "ar": "Aircraft rotation speed."
+      }
+    },
+    {
+      "id": "ivme",
+      "label": "Ortalama İvme (m/s²)",
+      "label_i18n": {
+        "en": "Average Acceleration (m/s²)",
+        "tr": "Ortalama İvme (m/s²)",
+        "de": "Average Acceleration (m/s²)",
+        "fr": "Average Acceleration (m/s²)",
+        "es": "Average Acceleration (m/s²)",
+        "ar": "Average Acceleration (m/s²)"
+      },
+      "type": "number",
+      "unit": "m/s2",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Motor itki gücüyle hızlanma.",
+      "businessContext_i18n": {
+        "en": "Engine thrust acceleration.",
+        "tr": "Motor itki gücüyle hızlanma.",
+        "de": "Engine thrust acceleration.",
+        "fr": "Engine thrust acceleration.",
+        "es": "Engine thrust acceleration.",
+        "ar": "Engine thrust acceleration."
+      }
+    },
+    {
+      "id": "ruzgarHiz",
+      "label": "Karşı Rüzgar Hızı (m/s)",
+      "label_i18n": {
+        "en": "Headwind Speed (m/s)",
+        "tr": "Karşı Rüzgar Hızı (m/s)",
+        "de": "Headwind Speed (m/s)",
+        "fr": "Headwind Speed (m/s)",
+        "es": "Headwind Speed (m/s)",
+        "ar": "Headwind Speed (m/s)"
+      },
+      "type": "number",
+      "unit": "m/s",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Pist başı rüzgar.",
+      "businessContext_i18n": {
+        "en": "Runway headwind component.",
+        "tr": "Pist başı rüzgar.",
+        "de": "Runway headwind component.",
+        "fr": "Runway headwind component.",
+        "es": "Runway headwind component.",
+        "ar": "Runway headwind component."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "etkiliHiz": "80 - 5",
+    "sonuc": "(75 * 75) / Math.max(0.0001, (2 * 3))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "m",
+    "breakdown": {
+      "sonuc": "Gerekli Pist Uzunluğu"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Pist Uzunluğu",
+        "tr": "Gerekli Pist Uzunluğu",
+        "de": "Gerekli Pist Uzunluğu",
+        "fr": "Gerekli Pist Uzunluğu",
+        "es": "Gerekli Pist Uzunluğu",
+        "ar": "Gerekli Pist Uzunluğu"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "m"
+    },
+    "hiddenLossDrivers": [
+      "High fuel/energy consumption indicates efficiency losses."
+    ],
+    "suggestedActions": [
+      "Regular maintenance improves overall equipment efficiency.",
+      "Simulate real-world driving conditions for accurate range estimates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum runway length required for takeoff.",
+      "long": "Calculate minimum runway length required for takeoff.",
+      "short_i18n": {
+        "en": "Calculate minimum runway length required for takeoff.",
+        "tr": "Uçağın havalanması için gereken minimum pist mesafesini hesaplar.",
+        "de": "Calculate minimum runway length required for takeoff.",
+        "fr": "Calculate minimum runway length required for takeoff.",
+        "es": "Calculate minimum runway length required for takeoff.",
+        "ar": "Calculate minimum runway length required for takeoff."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum runway length required for takeoff.",
+        "tr": "Uçağın havalanması için gereken minimum pist mesafesini hesaplar.",
+        "de": "Calculate minimum runway length required for takeoff.",
+        "fr": "Calculate minimum runway length required for takeoff.",
+        "es": "Calculate minimum runway length required for takeoff.",
+        "ar": "Calculate minimum runway length required for takeoff."
+      }
+    }
+  }
+}

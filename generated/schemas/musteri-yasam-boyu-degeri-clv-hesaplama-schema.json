@@ -1,0 +1,169 @@
+{
+  "toolName": "musteri-yasam-boyu-degeri-clv-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "ortSiparis",
+      "label": "Ortalama Sipariş (TL)",
+      "label_i18n": {
+        "en": "Avg Order Value (TRY)",
+        "tr": "Ortalama Sipariş (TL)",
+        "de": "Avg Order Value (TRY)",
+        "fr": "Avg Order Value (TRY)",
+        "es": "Avg Order Value (TRY)",
+        "ar": "Avg Order Value (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Müşteri başına ortalama sipariş.",
+      "businessContext_i18n": {
+        "en": "Average order value.",
+        "tr": "Müşteri başına ortalama sipariş.",
+        "de": "Average order value.",
+        "fr": "Average order value.",
+        "es": "Average order value.",
+        "ar": "Average order value."
+      }
+    },
+    {
+      "id": "siklik",
+      "label": "Yıllık Sipariş Sıklığı",
+      "label_i18n": {
+        "en": "Orders per Year",
+        "tr": "Yıllık Sipariş Sıklığı",
+        "de": "Orders per Year",
+        "fr": "Orders per Year",
+        "es": "Orders per Year",
+        "ar": "Orders per Year"
+      },
+      "type": "number",
+      "unit": "per year",
+      "default": 12,
+      "min": 1,
+      "businessContext": "Müşterinin yıllık alışveriş sayısı.",
+      "businessContext_i18n": {
+        "en": "Purchase frequency per year.",
+        "tr": "Müşterinin yıllık alışveriş sayısı.",
+        "de": "Purchase frequency per year.",
+        "fr": "Purchase frequency per year.",
+        "es": "Purchase frequency per year.",
+        "ar": "Purchase frequency per year."
+      }
+    },
+    {
+      "id": "omur",
+      "label": "Müşteri Ömrü (Yıl)",
+      "label_i18n": {
+        "en": "Customer Lifetime (Years)",
+        "tr": "Müşteri Ömrü (Yıl)",
+        "de": "Customer Lifetime (Years)",
+        "fr": "Customer Lifetime (Years)",
+        "es": "Customer Lifetime (Years)",
+        "ar": "Customer Lifetime (Years)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "min": 0,
+      "businessContext": "Ortalama müşteri sadakat süresi.",
+      "businessContext_i18n": {
+        "en": "Average customer retention.",
+        "tr": "Ortalama müşteri sadakat süresi.",
+        "de": "Average customer retention.",
+        "fr": "Average customer retention.",
+        "es": "Average customer retention.",
+        "ar": "Average customer retention."
+      }
+    },
+    {
+      "id": "marj",
+      "label": "Kâr Marjı (%)",
+      "label_i18n": {
+        "en": "Profit Margin (%)",
+        "tr": "Kâr Marjı (%)",
+        "de": "Profit Margin (%)",
+        "fr": "Profit Margin (%)",
+        "es": "Profit Margin (%)",
+        "ar": "Profit Margin (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Net kâr marjı.",
+      "businessContext_i18n": {
+        "en": "Net profit margin.",
+        "tr": "Net kâr marjı.",
+        "de": "Net profit margin.",
+        "fr": "Net profit margin.",
+        "es": "Net profit margin.",
+        "ar": "Net profit margin."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "ortSiparis * siklik * omur * (marj / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Müşteri Yaşam Boyu Değeri (CLV)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Müşteri Yaşam Boyu Değeri (CLV)",
+        "tr": "Müşteri Yaşam Boyu Değeri (CLV)",
+        "de": "Müşteri Yaşam Boyu Değeri (CLV)",
+        "fr": "Müşteri Yaşam Boyu Değeri (CLV)",
+        "es": "Müşteri Yaşam Boyu Değeri (CLV)",
+        "ar": "Müşteri Yaşam Boyu Değeri (CLV)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate customer lifetime value (CLV).",
+      "long": "Calculate customer lifetime value (CLV).",
+      "short_i18n": {
+        "en": "Calculate customer lifetime value (CLV).",
+        "tr": "Müşterinin ömrü boyunca kazandırdığı net kârı (CLV) hesaplar.",
+        "de": "Calculate customer lifetime value (CLV).",
+        "fr": "Calculate customer lifetime value (CLV).",
+        "es": "Calculate customer lifetime value (CLV).",
+        "ar": "Calculate customer lifetime value (CLV)."
+      },
+      "long_i18n": {
+        "en": "Calculate customer lifetime value (CLV).",
+        "tr": "Müşterinin ömrü boyunca kazandırdığı net kârı (CLV) hesaplar.",
+        "de": "Calculate customer lifetime value (CLV).",
+        "fr": "Calculate customer lifetime value (CLV).",
+        "es": "Calculate customer lifetime value (CLV).",
+        "ar": "Calculate customer lifetime value (CLV)."
+      }
+    }
+  }
+}

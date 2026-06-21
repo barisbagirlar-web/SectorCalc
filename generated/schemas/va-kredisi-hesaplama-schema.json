@@ -1,0 +1,118 @@
+{
+  "toolName": "va-kredisi-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "kredi",
+      "label": "Kredi Tutarı (₺)",
+      "label_i18n": {
+        "en": "Loan Amount (TRY)",
+        "tr": "Kredi Tutarı (₺)",
+        "de": "Loan Amount (TRY)",
+        "fr": "Loan Amount (TRY)",
+        "es": "Loan Amount (TRY)",
+        "ar": "Loan Amount (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000000,
+      "min": 0,
+      "businessContext": "VA kredi tutarı.",
+      "businessContext_i18n": {
+        "en": "VA loan amount.",
+        "tr": "VA kredi tutarı.",
+        "de": "VA loan amount.",
+        "fr": "VA loan amount.",
+        "es": "VA loan amount.",
+        "ar": "VA loan amount."
+      }
+    },
+    {
+      "id": "finansmanUcreti",
+      "label": "Fonlama Ücreti (%)",
+      "label_i18n": {
+        "en": "Funding Fee Rate (%)",
+        "tr": "Fonlama Ücreti (%)",
+        "de": "Funding Fee Rate (%)",
+        "fr": "Funding Fee Rate (%)",
+        "es": "Funding Fee Rate (%)",
+        "ar": "Funding Fee Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 2.3,
+      "min": 0,
+      "businessContext": "VA fonlama ücreti oranı.",
+      "businessContext_i18n": {
+        "en": "VA funding fee percentage.",
+        "tr": "VA fonlama ücreti oranı.",
+        "de": "VA funding fee percentage.",
+        "fr": "VA funding fee percentage.",
+        "es": "VA funding fee percentage.",
+        "ar": "VA funding fee percentage."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "kredi * (1 + finansmanUcreti / 100)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Finanse Edilen Toplam Tutar"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Finanse Edilen Toplam Tutar",
+        "tr": "Finanse Edilen Toplam Tutar",
+        "de": "Finanse Edilen Toplam Tutar",
+        "fr": "Finanse Edilen Toplam Tutar",
+        "es": "Finanse Edilen Toplam Tutar",
+        "ar": "Finanse Edilen Toplam Tutar"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate VA loan funding fee added to the financed amount.",
+      "long": "Calculate VA loan funding fee added to the financed amount.",
+      "short_i18n": {
+        "en": "Calculate VA loan funding fee added to the financed amount.",
+        "tr": "Gaziler için peşinatsız kredinin faize eklenen fon maliyetini hesaplar.",
+        "de": "Calculate VA loan funding fee added to the financed amount.",
+        "fr": "Calculate VA loan funding fee added to the financed amount.",
+        "es": "Calculate VA loan funding fee added to the financed amount.",
+        "ar": "Calculate VA loan funding fee added to the financed amount."
+      },
+      "long_i18n": {
+        "en": "Calculate VA loan funding fee added to the financed amount.",
+        "tr": "Gaziler için peşinatsız kredinin faize eklenen fon maliyetini hesaplar.",
+        "de": "Calculate VA loan funding fee added to the financed amount.",
+        "fr": "Calculate VA loan funding fee added to the financed amount.",
+        "es": "Calculate VA loan funding fee added to the financed amount.",
+        "ar": "Calculate VA loan funding fee added to the financed amount."
+      }
+    }
+  }
+}

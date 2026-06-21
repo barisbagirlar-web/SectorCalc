@@ -1,0 +1,118 @@
+{
+  "toolName": "su-tuketim-ihtiyaci-hesaplama",
+  "catalogCategory": "health-fitness-daily-life",
+  "categorySlug": "health-fitness-daily-life",
+  "sector": "Sağlık ve Fitness",
+  "sectorId": "health-fitness-daily-life",
+  "inputs": [
+    {
+      "id": "agirlik",
+      "label": "Ağırlık (kg)",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Ağırlık (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "min": 0,
+      "businessContext": "Vücut ağırlığı.",
+      "businessContext_i18n": {
+        "en": "Body weight.",
+        "tr": "Vücut ağırlığı.",
+        "de": "Body weight.",
+        "fr": "Body weight.",
+        "es": "Body weight.",
+        "ar": "Body weight."
+      }
+    },
+    {
+      "id": "aktiviteSure",
+      "label": "Günlük Egzersiz Süresi (Dk)",
+      "label_i18n": {
+        "en": "Daily Exercise (Min)",
+        "tr": "Günlük Egzersiz Süresi (Dk)",
+        "de": "Daily Exercise (Min)",
+        "fr": "Daily Exercise (Min)",
+        "es": "Daily Exercise (Min)",
+        "ar": "Daily Exercise (Min)"
+      },
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Günlük fiziksel aktivite.",
+      "businessContext_i18n": {
+        "en": "Daily physical activity.",
+        "tr": "Günlük fiziksel aktivite.",
+        "de": "Daily physical activity.",
+        "fr": "Daily physical activity.",
+        "es": "Daily physical activity.",
+        "ar": "Daily physical activity."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(agirlik * 0.033) + (aktiviteSure / 30 * 0.35)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "liters",
+    "breakdown": {
+      "sonuc": "Günlük Su İhtiyacı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Günlük Su İhtiyacı",
+        "tr": "Günlük Su İhtiyacı",
+        "de": "Günlük Su İhtiyacı",
+        "fr": "Günlük Su İhtiyacı",
+        "es": "Günlük Su İhtiyacı",
+        "ar": "Günlük Su İhtiyacı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "liters"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult a healthcare professional before starting any diet or exercise program.",
+      "Individual results may vary."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate daily water intake needs based on weight and activity.",
+      "long": "Calculate daily water intake needs based on weight and activity.",
+      "short_i18n": {
+        "en": "Calculate daily water intake needs based on weight and activity.",
+        "tr": "Günlük baz ve aktivite kaynaklı su kaybını telafi eden minimum su miktarını hesaplar.",
+        "de": "Calculate daily water intake needs based on weight and activity.",
+        "fr": "Calculate daily water intake needs based on weight and activity.",
+        "es": "Calculate daily water intake needs based on weight and activity.",
+        "ar": "Calculate daily water intake needs based on weight and activity."
+      },
+      "long_i18n": {
+        "en": "Calculate daily water intake needs based on weight and activity.",
+        "tr": "Günlük baz ve aktivite kaynaklı su kaybını telafi eden minimum su miktarını hesaplar.",
+        "de": "Calculate daily water intake needs based on weight and activity.",
+        "fr": "Calculate daily water intake needs based on weight and activity.",
+        "es": "Calculate daily water intake needs based on weight and activity.",
+        "ar": "Calculate daily water intake needs based on weight and activity."
+      }
+    }
+  }
+}

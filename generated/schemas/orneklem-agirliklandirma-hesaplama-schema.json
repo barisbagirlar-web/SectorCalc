@@ -1,0 +1,171 @@
+{
+  "toolName": "orneklem-agirliklandirma-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "tabakaPopulasyon",
+      "label": "Tabaka Popülasyonu (N_h)",
+      "label_i18n": {
+        "en": "Stratum Population (N_h)",
+        "tr": "Tabaka Popülasyonu (N_h)",
+        "de": "Stratum Population (N_h)",
+        "fr": "Stratum Population (N_h)",
+        "es": "Stratum Population (N_h)",
+        "ar": "Stratum Population (N_h)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Tabakadaki toplam birey.",
+      "businessContext_i18n": {
+        "en": "Total individuals in stratum.",
+        "tr": "Tabakadaki toplam birey.",
+        "de": "Total individuals in stratum.",
+        "fr": "Total individuals in stratum.",
+        "es": "Total individuals in stratum.",
+        "ar": "Total individuals in stratum."
+      }
+    },
+    {
+      "id": "toplamPopulasyon",
+      "label": "Toplam Popülasyon (N)",
+      "label_i18n": {
+        "en": "Total Population (N)",
+        "tr": "Toplam Popülasyon (N)",
+        "de": "Total Population (N)",
+        "fr": "Total Population (N)",
+        "es": "Total Population (N)",
+        "ar": "Total Population (N)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Evren büyüklüğü.",
+      "businessContext_i18n": {
+        "en": "Population size.",
+        "tr": "Evren büyüklüğü.",
+        "de": "Population size.",
+        "fr": "Population size.",
+        "es": "Population size.",
+        "ar": "Population size."
+      }
+    },
+    {
+      "id": "tabakaOrneklem",
+      "label": "Tabaka Örneklemi (n_h)",
+      "label_i18n": {
+        "en": "Stratum Sample (n_h)",
+        "tr": "Tabaka Örneklemi (n_h)",
+        "de": "Stratum Sample (n_h)",
+        "fr": "Stratum Sample (n_h)",
+        "es": "Stratum Sample (n_h)",
+        "ar": "Stratum Sample (n_h)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Tabakadan alınan örneklem.",
+      "businessContext_i18n": {
+        "en": "Sample drawn from stratum.",
+        "tr": "Tabakadan alınan örneklem.",
+        "de": "Sample drawn from stratum.",
+        "fr": "Sample drawn from stratum.",
+        "es": "Sample drawn from stratum.",
+        "ar": "Sample drawn from stratum."
+      }
+    },
+    {
+      "id": "toplamOrneklem",
+      "label": "Toplam Örneklem (n)",
+      "label_i18n": {
+        "en": "Total Sample (n)",
+        "tr": "Toplam Örneklem (n)",
+        "de": "Total Sample (n)",
+        "fr": "Total Sample (n)",
+        "es": "Total Sample (n)",
+        "ar": "Total Sample (n)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 500,
+      "min": 0,
+      "businessContext": "Tüm örneklem büyüklüğü.",
+      "businessContext_i18n": {
+        "en": "Total sample size.",
+        "tr": "Tüm örneklem büyüklüğü.",
+        "de": "Total sample size.",
+        "fr": "Total sample size.",
+        "es": "Total sample size.",
+        "ar": "Total sample size."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(tabakaPopulasyon / Math.max(1, toplamPopulasyon)) / Math.max(0.0001, (tabakaOrneklem / Math.max(1, toplamOrneklem)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "weight",
+    "breakdown": {
+      "sonuc": "Ağırlık Katsayısı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Ağırlık Katsayısı",
+        "tr": "Ağırlık Katsayısı",
+        "de": "Ağırlık Katsayısı",
+        "fr": "Ağırlık Katsayısı",
+        "es": "Ağırlık Katsayısı",
+        "ar": "Ağırlık Katsayısı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "weight"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate sampling weight for each stratum in stratified sampling.",
+      "long": "Calculate sampling weight for each stratum in stratified sampling.",
+      "short_i18n": {
+        "en": "Calculate sampling weight for each stratum in stratified sampling.",
+        "tr": "Tabakalı örneklemede her tabakanın ağırlıklandırma katsayısını hesaplar.",
+        "de": "Calculate sampling weight for each stratum in stratified sampling.",
+        "fr": "Calculate sampling weight for each stratum in stratified sampling.",
+        "es": "Calculate sampling weight for each stratum in stratified sampling.",
+        "ar": "Calculate sampling weight for each stratum in stratified sampling."
+      },
+      "long_i18n": {
+        "en": "Calculate sampling weight for each stratum in stratified sampling.",
+        "tr": "Tabakalı örneklemede her tabakanın ağırlıklandırma katsayısını hesaplar.",
+        "de": "Calculate sampling weight for each stratum in stratified sampling.",
+        "fr": "Calculate sampling weight for each stratum in stratified sampling.",
+        "es": "Calculate sampling weight for each stratum in stratified sampling.",
+        "ar": "Calculate sampling weight for each stratum in stratified sampling."
+      }
+    }
+  }
+}

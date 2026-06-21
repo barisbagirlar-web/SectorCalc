@@ -1,0 +1,120 @@
+{
+  "toolName": "ampere-yasasi-manyetik-alan-hesaplama",
+  "catalogCategory": "electrical-power-systems",
+  "categorySlug": "electrical-power-systems",
+  "sector": "Yangın, Elektrik ve Elektronik",
+  "sectorId": "electrical-power-systems",
+  "inputs": [
+    {
+      "id": "akim",
+      "label": "Telden Geçen Akım (A)",
+      "label_i18n": {
+        "en": "Current in Wire (A)",
+        "tr": "Telden Geçen Akım (A)",
+        "de": "Current in Wire (A)",
+        "fr": "Current in Wire (A)",
+        "es": "Current in Wire (A)",
+        "ar": "Current in Wire (A)"
+      },
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "min": 0,
+      "businessContext": "İletkendeki akım.",
+      "businessContext_i18n": {
+        "en": "Conductor current.",
+        "tr": "İletkendeki akım.",
+        "de": "Conductor current.",
+        "fr": "Conductor current.",
+        "es": "Conductor current.",
+        "ar": "Conductor current."
+      }
+    },
+    {
+      "id": "mesafe",
+      "label": "Telden Uzaklık (m)",
+      "label_i18n": {
+        "en": "Distance from Wire (m)",
+        "tr": "Telden Uzaklık (m)",
+        "de": "Distance from Wire (m)",
+        "fr": "Distance from Wire (m)",
+        "es": "Distance from Wire (m)",
+        "ar": "Distance from Wire (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "min": 0,
+      "businessContext": "Ölçüm noktasının tele uzaklığı.",
+      "businessContext_i18n": {
+        "en": "Measurement distance from wire.",
+        "tr": "Ölçüm noktasının tele uzaklığı.",
+        "de": "Measurement distance from wire.",
+        "fr": "Measurement distance from wire.",
+        "es": "Measurement distance from wire.",
+        "ar": "Measurement distance from wire."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(4 * Math.PI * 1e-7 * akim) / Math.max(0.0001, (2 * Math.PI * mesafe))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "T",
+    "breakdown": {
+      "sonuc": "Manyetik Alan (B)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Manyetik Alan (B)",
+        "tr": "Manyetik Alan (B)",
+        "de": "Manyetik Alan (B)",
+        "fr": "Manyetik Alan (B)",
+        "es": "Manyetik Alan (B)",
+        "ar": "Manyetik Alan (B)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "T"
+    },
+    "hiddenLossDrivers": [
+      "Low Q factor indicates broader frequency response."
+    ],
+    "suggestedActions": [
+      "Verify component tolerances affect circuit performance.",
+      "Use proper safety equipment for high voltage/current work."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate magnetic flux density around a long straight wire.",
+      "long": "Calculate magnetic flux density around a long straight wire.",
+      "short_i18n": {
+        "en": "Calculate magnetic flux density around a long straight wire.",
+        "tr": "Sonsuz telin belirli mesafesindeki manyetik akı yoğunluğunu Ampere yasası ile hesaplar.",
+        "de": "Calculate magnetic flux density around a long straight wire.",
+        "fr": "Calculate magnetic flux density around a long straight wire.",
+        "es": "Calculate magnetic flux density around a long straight wire.",
+        "ar": "Calculate magnetic flux density around a long straight wire."
+      },
+      "long_i18n": {
+        "en": "Calculate magnetic flux density around a long straight wire.",
+        "tr": "Sonsuz telin belirli mesafesindeki manyetik akı yoğunluğunu Ampere yasası ile hesaplar.",
+        "de": "Calculate magnetic flux density around a long straight wire.",
+        "fr": "Calculate magnetic flux density around a long straight wire.",
+        "es": "Calculate magnetic flux density around a long straight wire.",
+        "ar": "Calculate magnetic flux density around a long straight wire."
+      }
+    }
+  }
+}

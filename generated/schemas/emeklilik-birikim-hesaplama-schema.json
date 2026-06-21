@@ -1,0 +1,168 @@
+{
+  "toolName": "emeklilik-birikim-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "mevcutBirikim",
+      "label": "Mevcut Birikim (TL)",
+      "label_i18n": {
+        "en": "Current Savings (TRY)",
+        "tr": "Mevcut Birikim (TL)",
+        "de": "Current Savings (TRY)",
+        "fr": "Current Savings (TRY)",
+        "es": "Current Savings (TRY)",
+        "ar": "Current Savings (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Bugüne kadar biriken tasarruf.",
+      "businessContext_i18n": {
+        "en": "Accumulated savings to date.",
+        "tr": "Bugüne kadar biriken tasarruf.",
+        "de": "Accumulated savings to date.",
+        "fr": "Accumulated savings to date.",
+        "es": "Accumulated savings to date.",
+        "ar": "Accumulated savings to date."
+      }
+    },
+    {
+      "id": "aylikKatki",
+      "label": "Aylık Katkı (TL)",
+      "label_i18n": {
+        "en": "Monthly Contribution (TRY)",
+        "tr": "Aylık Katkı (TL)",
+        "de": "Monthly Contribution (TRY)",
+        "fr": "Monthly Contribution (TRY)",
+        "es": "Monthly Contribution (TRY)",
+        "ar": "Monthly Contribution (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Aylık düzenli yatırım.",
+      "businessContext_i18n": {
+        "en": "Regular monthly investment.",
+        "tr": "Aylık düzenli yatırım.",
+        "de": "Regular monthly investment.",
+        "fr": "Regular monthly investment.",
+        "es": "Regular monthly investment.",
+        "ar": "Regular monthly investment."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Getiri (%)",
+      "label_i18n": {
+        "en": "Annual Return (%)",
+        "tr": "Yıllık Getiri (%)",
+        "de": "Annual Return (%)",
+        "fr": "Annual Return (%)",
+        "es": "Annual Return (%)",
+        "ar": "Annual Return (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "businessContext": "Portföyün beklenen yıllık getirisi.",
+      "businessContext_i18n": {
+        "en": "Expected annual portfolio return.",
+        "tr": "Portföyün beklenen yıllık getirisi.",
+        "de": "Expected annual portfolio return.",
+        "fr": "Expected annual portfolio return.",
+        "es": "Expected annual portfolio return.",
+        "ar": "Expected annual portfolio return."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Emekliliğe Kalan Yıl",
+      "label_i18n": {
+        "en": "Years to Retirement",
+        "tr": "Emekliliğe Kalan Yıl",
+        "de": "Years to Retirement",
+        "fr": "Years to Retirement",
+        "es": "Years to Retirement",
+        "ar": "Years to Retirement"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Kalan çalışma süresi.",
+      "businessContext_i18n": {
+        "en": "Remaining working years.",
+        "tr": "Kalan çalışma süresi.",
+        "de": "Remaining working years.",
+        "fr": "Remaining working years.",
+        "es": "Remaining working years.",
+        "ar": "Remaining working years."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(mevcutBirikim * Math.pow(1 + faiz / 100, yil)) + (aylikKatki * ((Math.pow(1 + faiz / 1200, yil * 12) - 1) / Math.max(0.0001, (faiz / 1200))))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Emeklilik Portföy Değeri"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Emeklilik Portföy Değeri",
+        "tr": "Emeklilik Portföy Değeri",
+        "de": "Emeklilik Portföy Değeri",
+        "fr": "Emeklilik Portföy Değeri",
+        "es": "Emeklilik Portföy Değeri",
+        "ar": "Emeklilik Portföy Değeri"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate estimated retirement portfolio value at retirement.",
+      "long": "Calculate estimated retirement portfolio value at retirement.",
+      "short_i18n": {
+        "en": "Calculate estimated retirement portfolio value at retirement.",
+        "tr": "Emeklilik tarihinde ulaşılacak tahmini portföy değerini hesaplar.",
+        "de": "Calculate estimated retirement portfolio value at retirement.",
+        "fr": "Calculate estimated retirement portfolio value at retirement.",
+        "es": "Calculate estimated retirement portfolio value at retirement.",
+        "ar": "Calculate estimated retirement portfolio value at retirement."
+      },
+      "long_i18n": {
+        "en": "Calculate estimated retirement portfolio value at retirement.",
+        "tr": "Emeklilik tarihinde ulaşılacak tahmini portföy değerini hesaplar.",
+        "de": "Calculate estimated retirement portfolio value at retirement.",
+        "fr": "Calculate estimated retirement portfolio value at retirement.",
+        "es": "Calculate estimated retirement portfolio value at retirement.",
+        "ar": "Calculate estimated retirement portfolio value at retirement."
+      }
+    }
+  }
+}

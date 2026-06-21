@@ -1,0 +1,179 @@
+{
+  "toolName": "geleneksel-vs-roth-ira-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "katki",
+      "label": "Yıllık Katkı (TL)",
+      "label_i18n": {
+        "en": "Annual Contribution (TRY)",
+        "tr": "Yıllık Katkı (TL)",
+        "de": "Annual Contribution (TRY)",
+        "fr": "Annual Contribution (TRY)",
+        "es": "Annual Contribution (TRY)",
+        "ar": "Annual Contribution (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 15000,
+      "min": 0,
+      "businessContext": "IRA'ya yıllık katkı.",
+      "businessContext_i18n": {
+        "en": "Annual IRA contribution.",
+        "tr": "IRA'ya yıllık katkı.",
+        "de": "Annual IRA contribution.",
+        "fr": "Annual IRA contribution.",
+        "es": "Annual IRA contribution.",
+        "ar": "Annual IRA contribution."
+      }
+    },
+    {
+      "id": "vergiOrani",
+      "label": "Vergi Oranı (%)",
+      "label_i18n": {
+        "en": "Tax Rate (%)",
+        "tr": "Vergi Oranı (%)",
+        "de": "Tax Rate (%)",
+        "fr": "Tax Rate (%)",
+        "es": "Tax Rate (%)",
+        "ar": "Tax Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "businessContext": "Yürürlükteki vergi oranı.",
+      "businessContext_i18n": {
+        "en": "Current/expected tax rate.",
+        "tr": "Yürürlükteki vergi oranı.",
+        "de": "Current/expected tax rate.",
+        "fr": "Current/expected tax rate.",
+        "es": "Current/expected tax rate.",
+        "ar": "Current/expected tax rate."
+      }
+    },
+    {
+      "id": "buyumeOrani",
+      "label": "Yıllık Büyüme (%)",
+      "label_i18n": {
+        "en": "Annual Growth (%)",
+        "tr": "Yıllık Büyüme (%)",
+        "de": "Annual Growth (%)",
+        "fr": "Annual Growth (%)",
+        "es": "Annual Growth (%)",
+        "ar": "Annual Growth (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "min": 0,
+      "businessContext": "Yatırımın büyüme oranı.",
+      "businessContext_i18n": {
+        "en": "Investment growth rate.",
+        "tr": "Yatırımın büyüme oranı.",
+        "de": "Investment growth rate.",
+        "fr": "Investment growth rate.",
+        "es": "Investment growth rate.",
+        "ar": "Investment growth rate."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Yıl Sayısı",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Yıl Sayısı",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Birikim süresi.",
+      "businessContext_i18n": {
+        "en": "Accumulation period.",
+        "tr": "Birikim süresi.",
+        "de": "Accumulation period.",
+        "fr": "Accumulation period.",
+        "es": "Accumulation period.",
+        "ar": "Accumulation period."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "geleneksel": "(katki * Math.pow(1 + buyumeOrani / 100, yil)) * (1 - vergiOrani / 100)",
+    "sonuc": "(katki * (1 - vergiOrani / 100)) * Math.pow(1 + buyumeOrani / 100, yil)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "geleneksel": "Geleneksel IRA Net",
+      "sonuc": "Roth IRA Net"
+    },
+    "breakdown_i18n": {
+      "geleneksel": {
+        "en": "Geleneksel IRA Net",
+        "tr": "Geleneksel IRA Net",
+        "de": "Geleneksel IRA Net",
+        "fr": "Geleneksel IRA Net",
+        "es": "Geleneksel IRA Net",
+        "ar": "Geleneksel IRA Net"
+      },
+      "sonuc": {
+        "en": "Roth IRA Net",
+        "tr": "Roth IRA Net",
+        "de": "Roth IRA Net",
+        "fr": "Roth IRA Net",
+        "es": "Roth IRA Net",
+        "ar": "Roth IRA Net"
+      }
+    },
+    "breakdownUnits": {
+      "geleneksel": "TRY",
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Compare traditional vs Roth IRA after-tax retirement savings.",
+      "long": "Compare traditional vs Roth IRA after-tax retirement savings.",
+      "short_i18n": {
+        "en": "Compare traditional vs Roth IRA after-tax retirement savings.",
+        "tr": "Geleneksel ve Roth IRA arasında karşılaştırmalı net emeklilik birikimini hesaplar.",
+        "de": "Compare traditional vs Roth IRA after-tax retirement savings.",
+        "fr": "Compare traditional vs Roth IRA after-tax retirement savings.",
+        "es": "Compare traditional vs Roth IRA after-tax retirement savings.",
+        "ar": "Compare traditional vs Roth IRA after-tax retirement savings."
+      },
+      "long_i18n": {
+        "en": "Compare traditional vs Roth IRA after-tax retirement savings.",
+        "tr": "Geleneksel ve Roth IRA arasında karşılaştırmalı net emeklilik birikimini hesaplar.",
+        "de": "Compare traditional vs Roth IRA after-tax retirement savings.",
+        "fr": "Compare traditional vs Roth IRA after-tax retirement savings.",
+        "es": "Compare traditional vs Roth IRA after-tax retirement savings.",
+        "ar": "Compare traditional vs Roth IRA after-tax retirement savings."
+      }
+    }
+  }
+}

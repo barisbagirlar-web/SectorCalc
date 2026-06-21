@@ -2,12 +2,14 @@
 import * as z from 'zod';
 
 export interface Su_ayak_izi_hesaplamaInput {
-  flowRate: number;
+  uretimHacmi: number;
+  tuketilenSu: number;
   dataConfidence?: number;
 }
 
 export const Su_ayak_izi_hesaplamaInputSchema = z.object({
-  flowRate: z.number().min(0).default(50),
+  uretimHacmi: z.number().min(0).default(5000),
+  tuketilenSu: z.number().min(0).default(15000),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -16,20 +18,19 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Su_ayak_izi_hesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.flowRate * (1 + input.flowRate/500) + Math.sqrt(input.flowRate) * 5; results["main"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["main"] = Number.NaN; }
-  try { const v = input.flowRate * (1 + input.flowRate/500) + Math.sqrt(input.flowRate) * 5; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.tuketilenSu / Math.max(0.0001, input.uretimHacmi); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateSu_ayak_izi_hesaplama(input: Su_ayak_izi_hesaplamaInput): Su_ayak_izi_hesaplamaOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
   const breakdown = {
-    result: toNumericFormulaValue(values["result"])
+    sonuc: toNumericFormulaValue(values["sonuc"])
   };
-  const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Review assumptions."];
+  const hiddenLossDrivers: string[] = ["High environmental score may reduce operational costs.","Low ESG score may increase capital costs."];
+  const suggestedActions: string[] = ["Set improvement targets for each ESG pillar.","Consider carbon offset programs for residual emissions."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -40,9 +41,9 @@ export function calculateSu_ayak_izi_hesaplama(input: Su_ayak_izi_hesaplamaInput
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "L/min",
+    unit: "m3/ton",
     premiumRequired: false,
-    premiumFeatures: ["PDF report","Scenario comparison"],
+    premiumFeatures: [],
   };
 }
 
@@ -50,7 +51,7 @@ export function calculateSu_ayak_izi_hesaplama(input: Su_ayak_izi_hesaplamaInput
 export interface Su_ayak_izi_hesaplamaOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { result: number };
+  breakdown: { sonuc: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -59,8 +60,8 @@ export interface Su_ayak_izi_hesaplamaOutput {
 };
 
 export const Su_ayak_izi_hesaplamaOutputMeta = {
-  primaryKey: "result",
-  unit: "L/min",
-  breakdownKeys: ["result"],
+  primaryKey: "sonuc",
+  unit: "m3/ton",
+  breakdownKeys: ["sonuc"],
 } as const;
 

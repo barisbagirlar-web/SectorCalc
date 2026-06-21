@@ -1,75 +1,118 @@
 {
-  "slug": "stok-devir-hizi-hesaplama",
-  "name": "Stok Devir Hızı Hesaplama",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "PDF report",
-    "Scenario comparison"
-  ],
+  "toolName": "stok-devir-hizi-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "warehouseArea",
-      "label": "Score",
-      "type": "number",
-      "unit": "m²",
-      "default": 50,
-      "min": 0,
-      "businessContext": "Toplam depo alanı.",
+      "id": "yillikCOGS",
+      "label": "Yıllık SMM (TL)",
       "label_i18n": {
-        "en": "Score",
-        "tr": "Puan",
-        "de": "Giriş Değeri",
-        "fr": "Giriş Değeri",
-        "es": "Giriş Değeri",
-        "ar": "Giriş Değeri"
+        "en": "Annual COGS (TRY)",
+        "tr": "Yıllık SMM (TL)",
+        "de": "Annual COGS (TRY)",
+        "fr": "Annual COGS (TRY)",
+        "es": "Annual COGS (TRY)",
+        "ar": "Annual COGS (TRY)"
       },
+      "type": "number",
+      "unit": "TRY",
+      "default": 1200000,
+      "min": 0,
+      "businessContext": "Yıllık satılan mal maliyeti.",
       "businessContext_i18n": {
-        "en": "Score.",
-        "tr": "Puan.",
-        "de": "Hesaplama için giriş değeri.",
-        "fr": "Hesaplama için giriş değeri.",
-        "es": "Hesaplama için giriş değeri.",
-        "ar": "Hesaplama için giriş değeri."
+        "en": "Annual COGS.",
+        "tr": "Yıllık satılan mal maliyeti.",
+        "de": "Annual COGS.",
+        "fr": "Annual COGS.",
+        "es": "Annual COGS.",
+        "ar": "Annual COGS."
+      }
+    },
+    {
+      "id": "ortStok",
+      "label": "Ortalama Stok (TL)",
+      "label_i18n": {
+        "en": "Avg Inventory (TRY)",
+        "tr": "Ortalama Stok (TL)",
+        "de": "Avg Inventory (TRY)",
+        "fr": "Avg Inventory (TRY)",
+        "es": "Avg Inventory (TRY)",
+        "ar": "Avg Inventory (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 200000,
+      "min": 0,
+      "businessContext": "Dönem ortalama stok seviyesi.",
+      "businessContext_i18n": {
+        "en": "Average inventory level.",
+        "tr": "Dönem ortalama stok seviyesi.",
+        "de": "Average inventory level.",
+        "fr": "Average inventory level.",
+        "es": "Average inventory level.",
+        "ar": "Average inventory level."
       }
     }
   ],
   "validation": {
     "rules": [
-      "Positive numbers required."
+      "All numeric inputs must be positive numbers."
     ],
     "thresholds": {}
   },
   "formulas": {
-    "main": "warehouseArea * (1 + warehouseArea/500) + Math.sqrt(warehouseArea) * 5",
-    "result": "warehouseArea * (1 + warehouseArea/500) + Math.sqrt(warehouseArea) * 5"
+    "sonuc": "365 / Math.max(0.0001, yillikCOGS / Math.max(0.0001, ortStok))"
   },
   "outputs": {
-    "primary": "result",
-    "unit": "",
+    "primary": "sonuc",
+    "unit": "days",
     "breakdown": {
-      "result": "warehouseArea"
+      "sonuc": "Stokta Kalma Süresi"
     },
     "breakdown_i18n": {
-      "result": {
-        "en": "Result",
-        "tr": "Sonuç"
+      "sonuc": {
+        "en": "Stokta Kalma Süresi",
+        "tr": "Stokta Kalma Süresi",
+        "de": "Stokta Kalma Süresi",
+        "fr": "Stokta Kalma Süresi",
+        "es": "Stokta Kalma Süresi",
+        "ar": "Stokta Kalma Süresi"
       }
+    },
+    "breakdownUnits": {
+      "sonuc": "days"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
-      "Review assumptions."
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
     ],
-    "dataConfidenceAdjusted": "Free-tier estimate."
+    "dataConfidenceAdjusted": "sonuc"
   },
+  "premiumRequired": false,
+  "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Quick stok devir hızı hesaplama.",
-      "long": "Free stok devir hızı hesaplama tool."
+      "short": "Calculate inventory turnover in days.",
+      "long": "Calculate inventory turnover in days.",
+      "short_i18n": {
+        "en": "Calculate inventory turnover in days.",
+        "tr": "Stokların satılıp yenilenme ortalama süresini (gün) hesaplar.",
+        "de": "Calculate inventory turnover in days.",
+        "fr": "Calculate inventory turnover in days.",
+        "es": "Calculate inventory turnover in days.",
+        "ar": "Calculate inventory turnover in days."
+      },
+      "long_i18n": {
+        "en": "Calculate inventory turnover in days.",
+        "tr": "Stokların satılıp yenilenme ortalama süresini (gün) hesaplar.",
+        "de": "Calculate inventory turnover in days.",
+        "fr": "Calculate inventory turnover in days.",
+        "es": "Calculate inventory turnover in days.",
+        "ar": "Calculate inventory turnover in days."
+      }
     }
-  },
-  "sector": "Ev & Bahçe",
-  "toolName": "stok-devir-hizi-hesaplama",
-  "sectorId": "genel",
-  "profession": "Professional",
-  "categoryId": "home"
+  }
 }

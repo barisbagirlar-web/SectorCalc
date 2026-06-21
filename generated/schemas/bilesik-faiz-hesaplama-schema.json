@@ -1,0 +1,168 @@
+{
+  "toolName": "bilesik-faiz-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "anapara",
+      "label": "Anapara (₺)",
+      "label_i18n": {
+        "en": "Principal (TRY)",
+        "tr": "Anapara (₺)",
+        "de": "Principal (TRY)",
+        "fr": "Principal (TRY)",
+        "es": "Principal (TRY)",
+        "ar": "Principal (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Başlangıç yatırım tutarı.",
+      "businessContext_i18n": {
+        "en": "Initial investment amount.",
+        "tr": "Başlangıç yatırım tutarı.",
+        "de": "Initial investment amount.",
+        "fr": "Initial investment amount.",
+        "es": "Initial investment amount.",
+        "ar": "Initial investment amount."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Annual Interest (%)",
+        "fr": "Annual Interest (%)",
+        "es": "Annual Interest (%)",
+        "ar": "Annual Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Yıllık nominal faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Annual nominal interest rate.",
+        "tr": "Yıllık nominal faiz oranı.",
+        "de": "Annual nominal interest rate.",
+        "fr": "Annual nominal interest rate.",
+        "es": "Annual nominal interest rate.",
+        "ar": "Annual nominal interest rate."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Vade (Yıl)",
+      "label_i18n": {
+        "en": "Term (Years)",
+        "tr": "Vade (Yıl)",
+        "de": "Term (Years)",
+        "fr": "Term (Years)",
+        "es": "Term (Years)",
+        "ar": "Term (Years)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Toplam yatırım süresi.",
+      "businessContext_i18n": {
+        "en": "Total investment period.",
+        "tr": "Toplam yatırım süresi.",
+        "de": "Total investment period.",
+        "fr": "Total investment period.",
+        "es": "Total investment period.",
+        "ar": "Total investment period."
+      }
+    },
+    {
+      "id": "siklik",
+      "label": "Bileşim Sıklığı (Adet/Yıl)",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Bileşim Sıklığı (Adet/Yıl)",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      },
+      "type": "number",
+      "unit": "per year",
+      "default": 12,
+      "min": 1,
+      "businessContext": "Faizin yılda kaç kez eklendiği (12: aylık).",
+      "businessContext_i18n": {
+        "en": "Number of compounding periods per year (12=monthly).",
+        "tr": "Faizin yılda kaç kez eklendiği (12: aylık).",
+        "de": "Number of compounding periods per year (12=monthly).",
+        "fr": "Number of compounding periods per year (12=monthly).",
+        "es": "Number of compounding periods per year (12=monthly).",
+        "ar": "Number of compounding periods per year (12=monthly)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "anapara * Math.pow(1 + (faiz / 100) / Math.max(1, siklik), siklik * yil)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Vade Sonu Değer"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Vade Sonu Değer",
+        "tr": "Vade Sonu Değer",
+        "de": "Vade Sonu Değer",
+        "fr": "Vade Sonu Değer",
+        "es": "Vade Sonu Değer",
+        "ar": "Vade Sonu Değer"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate compound interest future value with periodic compounding.",
+      "long": "Calculate compound interest future value with periodic compounding.",
+      "short_i18n": {
+        "en": "Calculate compound interest future value with periodic compounding.",
+        "tr": "Faizin anaparaya eklendiği bileşik faizin vade sonu değerini hesaplar.",
+        "de": "Calculate compound interest future value with periodic compounding.",
+        "fr": "Calculate compound interest future value with periodic compounding.",
+        "es": "Calculate compound interest future value with periodic compounding.",
+        "ar": "Calculate compound interest future value with periodic compounding."
+      },
+      "long_i18n": {
+        "en": "Calculate compound interest future value with periodic compounding.",
+        "tr": "Faizin anaparaya eklendiği bileşik faizin vade sonu değerini hesaplar.",
+        "de": "Calculate compound interest future value with periodic compounding.",
+        "fr": "Calculate compound interest future value with periodic compounding.",
+        "es": "Calculate compound interest future value with periodic compounding.",
+        "ar": "Calculate compound interest future value with periodic compounding."
+      }
+    }
+  }
+}

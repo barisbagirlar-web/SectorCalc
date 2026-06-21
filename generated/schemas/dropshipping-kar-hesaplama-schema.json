@@ -1,113 +1,168 @@
 {
-  "slug": "dropshipping-kar-hesaplama",
-  "name": "Dropshipping Kâr Hesaplama",
-  "description": "Professional dropshipping kâr hesaplama tool for accurate calculations.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "Detailed PDF report",
-    "Scenario comparison",
-    "Multi-year projections"
-  ],
+  "toolName": "dropshipping-kar-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "E-Ticaret",
+  "sectorId": "other",
   "inputs": [
     {
-      "id": "revenueAmount",
-      "label": "Value 1",
-      "type": "number",
-      "unit": "currency",
-      "default": 100,
-      "min": 0,
-      "businessContext": "Toplam gelir.",
+      "id": "satis",
+      "label": "Satış Fiyatı (TL)",
       "label_i18n": {
-        "en": "Value 1",
-        "tr": "Değer 1",
-        "de": "Giriş Değeri",
-        "fr": "Giriş Değeri",
-        "es": "Giriş Değeri",
-        "ar": "Giriş Değeri"
+        "en": "Selling Price (TRY)",
+        "tr": "Satış Fiyatı (TL)",
+        "de": "Selling Price (TRY)",
+        "fr": "Selling Price (TRY)",
+        "es": "Selling Price (TRY)",
+        "ar": "Selling Price (TRY)"
       },
+      "type": "number",
+      "unit": "TRY",
+      "default": 300,
+      "min": 0,
+      "businessContext": "Ürün satış fiyatı.",
       "businessContext_i18n": {
-        "en": "First value.",
-        "tr": "Birinci değer.",
-        "de": "Hesaplama için giriş değeri.",
-        "fr": "Hesaplama için giriş değeri.",
-        "es": "Hesaplama için giriş değeri.",
-        "ar": "Hesaplama için giriş değeri."
+        "en": "Product selling price.",
+        "tr": "Ürün satış fiyatı.",
+        "de": "Product selling price.",
+        "fr": "Product selling price.",
+        "es": "Product selling price.",
+        "ar": "Product selling price."
       }
     },
     {
-      "id": "costAmount",
-      "label": "Value 2",
-      "type": "number",
-      "unit": "currency",
-      "default": 50,
-      "min": 0,
-      "businessContext": "Toplam maliyet.",
+      "id": "tedarik",
+      "label": "Tedarik Maliyeti (TL)",
       "label_i18n": {
-        "en": "Value 2",
-        "tr": "Değer 2",
-        "de": "Giriş Faktörü",
-        "fr": "Giriş Faktörü",
-        "es": "Giriş Faktörü",
-        "ar": "Giriş Faktörü"
+        "en": "Supplier Cost (TRY)",
+        "tr": "Tedarik Maliyeti (TL)",
+        "de": "Supplier Cost (TRY)",
+        "fr": "Supplier Cost (TRY)",
+        "es": "Supplier Cost (TRY)",
+        "ar": "Supplier Cost (TRY)"
       },
+      "type": "number",
+      "unit": "TRY",
+      "default": 120,
+      "min": 0,
+      "businessContext": "Tedarikçiye ödenen tutar.",
       "businessContext_i18n": {
-        "en": "Second value.",
-        "tr": "İkinci değer.",
-        "de": "Hesaplama için giriş faktörü.",
-        "fr": "Hesaplama için giriş faktörü.",
-        "es": "Hesaplama için giriş faktörü.",
-        "ar": "Hesaplama için giriş faktörü."
+        "en": "Supplier cost.",
+        "tr": "Tedarikçiye ödenen tutar.",
+        "de": "Supplier cost.",
+        "fr": "Supplier cost.",
+        "es": "Supplier cost.",
+        "ar": "Supplier cost."
+      }
+    },
+    {
+      "id": "kargo",
+      "label": "Kargo (TL)",
+      "label_i18n": {
+        "en": "Shipping (TRY)",
+        "tr": "Kargo (TL)",
+        "de": "Shipping (TRY)",
+        "fr": "Shipping (TRY)",
+        "es": "Shipping (TRY)",
+        "ar": "Shipping (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Müşteriye kargo ücreti.",
+      "businessContext_i18n": {
+        "en": "Shipping cost.",
+        "tr": "Müşteriye kargo ücreti.",
+        "de": "Shipping cost.",
+        "fr": "Shipping cost.",
+        "es": "Shipping cost.",
+        "ar": "Shipping cost."
+      }
+    },
+    {
+      "id": "reklam",
+      "label": "Reklam Maliyeti (TL)",
+      "label_i18n": {
+        "en": "Ad Cost (TRY)",
+        "tr": "Reklam Maliyeti (TL)",
+        "de": "Ad Cost (TRY)",
+        "fr": "Ad Cost (TRY)",
+        "es": "Ad Cost (TRY)",
+        "ar": "Ad Cost (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 40,
+      "min": 0,
+      "businessContext": "Facebook/Google reklam maliyeti.",
+      "businessContext_i18n": {
+        "en": "Facebook/Google ad cost.",
+        "tr": "Facebook/Google reklam maliyeti.",
+        "de": "Facebook/Google ad cost.",
+        "fr": "Facebook/Google ad cost.",
+        "es": "Facebook/Google ad cost.",
+        "ar": "Facebook/Google ad cost."
       }
     }
   ],
   "validation": {
     "rules": [
-      "All inputs should be positive numbers where applicable."
+      "All numeric inputs must be positive numbers."
     ],
     "thresholds": {}
   },
   "formulas": {
-    "main": "revenueAmount / costAmount * 100 + Math.sqrt(revenueAmount * costAmount) / 10",
-    "result": "revenueAmount / costAmount * 100 + Math.sqrt(revenueAmount * costAmount) / 10"
+    "sonuc": "satis - tedarik - kargo - reklam"
   },
   "outputs": {
-    "primary": "result",
-    "unit": "",
+    "primary": "sonuc",
+    "unit": "TRY",
     "breakdown": {
-      "result": "revenueAmount * costAmount"
+      "sonuc": "Net Dropshipping Kârı"
     },
     "breakdown_i18n": {
-      "result": {
-        "en": "Result",
-        "tr": "Sonuç"
+      "sonuc": {
+        "en": "Net Dropshipping Kârı",
+        "tr": "Net Dropshipping Kârı",
+        "de": "Net Dropshipping Kârı",
+        "fr": "Net Dropshipping Kârı",
+        "es": "Net Dropshipping Kârı",
+        "ar": "Net Dropshipping Kârı"
       }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
-      "Consult with a professional.",
-      "Review assumptions regularly."
+      "Factor in return rates and chargebacks.",
+      "Review platform fee schedules regularly."
     ],
-    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+    "dataConfidenceAdjusted": "sonuc"
   },
+  "premiumRequired": false,
+  "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Quick dropshipping kâr hesaplama calculation.",
-      "long": "This free tool provides a quick dropshipping kâr hesaplama."
-    },
-    "faqs": [
-      {
-        "question": "What does this Dropshipping Kâr Hesaplama include?",
-        "answer": "Basic dropshipping kâr hesaplama calculation."
+      "short": "Calculate dropshipping net profit after all costs.",
+      "long": "Calculate dropshipping net profit after all costs.",
+      "short_i18n": {
+        "en": "Calculate dropshipping net profit after all costs.",
+        "tr": "Stoksuz ticarette tüm giderler sonrası net kârı hesaplar.",
+        "de": "Calculate dropshipping net profit after all costs.",
+        "fr": "Calculate dropshipping net profit after all costs.",
+        "es": "Calculate dropshipping net profit after all costs.",
+        "ar": "Calculate dropshipping net profit after all costs."
       },
-      {
-        "question": "What is missing from the free version?",
-        "answer": "The free version does not include detailed reporting and projections."
+      "long_i18n": {
+        "en": "Calculate dropshipping net profit after all costs.",
+        "tr": "Stoksuz ticarette tüm giderler sonrası net kârı hesaplar.",
+        "de": "Calculate dropshipping net profit after all costs.",
+        "fr": "Calculate dropshipping net profit after all costs.",
+        "es": "Calculate dropshipping net profit after all costs.",
+        "ar": "Calculate dropshipping net profit after all costs."
       }
-    ]
-  },
-  "sector": "Lojistik",
-  "toolName": "dropshipping-kar-hesaplama",
-  "sectorId": "genel",
-  "profession": "Professional",
-  "categoryId": "logistics"
+    }
+  }
 }

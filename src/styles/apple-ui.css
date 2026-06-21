@@ -642,7 +642,7 @@
   border-bottom: none;
 }
 
-/* ── Logo — single wordmark asset (icon + text in PNG) ── */
+/* ── Logo — icon mark + Sector Calc wordmark ── */
 .site-logo,
 .sc-site-logo,
 .sc-logo {
@@ -656,6 +656,50 @@
   max-width: min(11.25rem, 34vw);
 }
 
+.sc-site-logo__mark {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.sc-site-logo__combo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1;
+  min-width: 0;
+}
+
+.sc-site-logo__text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-family: var(--apple-font);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.sc-site-logo__text-sector {
+  color: #3d4f6f;
+}
+
+.sc-site-logo__text-calc {
+  color: var(--sc-navy, #1e40af);
+}
+
+.site-logo--on-dark .sc-site-logo__text-sector {
+  color: rgb(255 255 255 / 0.88);
+}
+
+.site-logo--on-dark .sc-site-logo__text-calc {
+  color: #60a5fa;
+}
+
 .site-logo__img,
 .sc-site-logo__wordmark {
   display: block;
@@ -665,28 +709,13 @@
   object-fit: contain;
   object-position: left center;
 }
-.sc-site-logo__symbol {
-  display: block;
-  height: 88px;
-  width: auto;
-  max-width: 11.25rem;
-  object-fit: contain;
-  object-position: left center;
-}
-
-/* ── Static SVG logo (black monochrome) ── */
-.sc-site-logo__symbol {
-  display: block;
-  width: auto;
-  height: 70px;
-}
 
 .site-logo--on-dark .sc-site-logo__wordmark {
   filter: brightness(0) invert(1);
   opacity: 0.92;
 }
 
-/* Mobile header — compact mark + wordmark */
+/* Mobile header — compact mark, keep readable wordmark */
 @media (max-width: 767px) {
   .apple-nav {
     --apple-nav-height: 64px;
@@ -709,13 +738,13 @@
     min-height: 44px;
   }
 
-  .sc-site-logo__wordmark {
-    height: 2.125rem;
-    max-width: 9rem;
+  .sc-site-logo__mark {
+    width: 40px;
+    height: 40px;
   }
-  .sc-site-logo__symbol {
-    height: 52px;
-    max-width: 9rem;
+
+  .sc-site-logo__text {
+    font-size: 1.25rem;
   }
 
   .apple-nav__menu-btn {

@@ -1,0 +1,194 @@
+{
+  "toolName": "opsiyon-black-scholes-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "S",
+      "label": "Spot Fiyat (₺)",
+      "label_i18n": {
+        "en": "Spot Price (TRY)",
+        "tr": "Spot Fiyat (₺)",
+        "de": "Spot Price (TRY)",
+        "fr": "Spot Price (TRY)",
+        "es": "Spot Price (TRY)",
+        "ar": "Spot Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Dayanak varlığın güncel fiyatı.",
+      "businessContext_i18n": {
+        "en": "Current underlying asset price.",
+        "tr": "Dayanak varlığın güncel fiyatı.",
+        "de": "Current underlying asset price.",
+        "fr": "Current underlying asset price.",
+        "es": "Current underlying asset price.",
+        "ar": "Current underlying asset price."
+      }
+    },
+    {
+      "id": "K",
+      "label": "Kullanım Fiyatı (₺)",
+      "label_i18n": {
+        "en": "Strike Price (TRY)",
+        "tr": "Kullanım Fiyatı (₺)",
+        "de": "Strike Price (TRY)",
+        "fr": "Strike Price (TRY)",
+        "es": "Strike Price (TRY)",
+        "ar": "Strike Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 110,
+      "min": 0,
+      "businessContext": "Opsiyonun kullanım fiyatı.",
+      "businessContext_i18n": {
+        "en": "Option strike price.",
+        "tr": "Opsiyonun kullanım fiyatı.",
+        "de": "Option strike price.",
+        "fr": "Option strike price.",
+        "es": "Option strike price.",
+        "ar": "Option strike price."
+      }
+    },
+    {
+      "id": "r",
+      "label": "Risksiz Faiz (%)",
+      "label_i18n": {
+        "en": "Risk-Free Rate (%)",
+        "tr": "Risksiz Faiz (%)",
+        "de": "Risk-Free Rate (%)",
+        "fr": "Risk-Free Rate (%)",
+        "es": "Risk-Free Rate (%)",
+        "ar": "Risk-Free Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "businessContext": "Risksiz faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Risk-free interest rate.",
+        "tr": "Risksiz faiz oranı.",
+        "de": "Risk-free interest rate.",
+        "fr": "Risk-free interest rate.",
+        "es": "Risk-free interest rate.",
+        "ar": "Risk-free interest rate."
+      }
+    },
+    {
+      "id": "t",
+      "label": "Vade (Yıl)",
+      "label_i18n": {
+        "en": "Time to Maturity (Years)",
+        "tr": "Vade (Yıl)",
+        "de": "Time to Maturity (Years)",
+        "fr": "Time to Maturity (Years)",
+        "es": "Time to Maturity (Years)",
+        "ar": "Time to Maturity (Years)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "min": 0.0001,
+      "businessContext": "Vadeye kalan süre.",
+      "businessContext_i18n": {
+        "en": "Time remaining to expiry.",
+        "tr": "Vadeye kalan süre.",
+        "de": "Time remaining to expiry.",
+        "fr": "Time remaining to expiry.",
+        "es": "Time remaining to expiry.",
+        "ar": "Time remaining to expiry."
+      }
+    },
+    {
+      "id": "v",
+      "label": "Volatilite (%)",
+      "label_i18n": {
+        "en": "Volatility (%)",
+        "tr": "Volatilite (%)",
+        "de": "Volatility (%)",
+        "fr": "Volatility (%)",
+        "es": "Volatility (%)",
+        "ar": "Volatility (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Yıllık volatilite.",
+      "businessContext_i18n": {
+        "en": "Annualized volatility.",
+        "tr": "Yıllık volatilite.",
+        "de": "Annualized volatility.",
+        "fr": "Annualized volatility.",
+        "es": "Annualized volatility.",
+        "ar": "Annualized volatility."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "d1": "(Math.log(S / Math.max(1, K)) + (r / 100 + Math.pow(v / 100, 2) / 2) * t) / (Math.max(0.0001, v / 100) * Math.sqrt(Math.max(0.0001, t)))",
+    "sonuc": "S * 0.5 - K * Math.exp(-(r / 100) * t) * 0.5"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Opsiyon Primi (Call)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Opsiyon Primi (Call)",
+        "tr": "Opsiyon Primi (Call)",
+        "de": "Opsiyon Primi (Call)",
+        "fr": "Opsiyon Primi (Call)",
+        "es": "Opsiyon Primi (Call)",
+        "ar": "Opsiyon Primi (Call)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate European call option theoretical price using Black-Scholes.",
+      "long": "Calculate European call option theoretical price using Black-Scholes.",
+      "short_i18n": {
+        "en": "Calculate European call option theoretical price using Black-Scholes.",
+        "tr": "Avrupa tipi alım opsiyonunun teorik prim değerini (Black-Scholes) hesaplar.",
+        "de": "Calculate European call option theoretical price using Black-Scholes.",
+        "fr": "Calculate European call option theoretical price using Black-Scholes.",
+        "es": "Calculate European call option theoretical price using Black-Scholes.",
+        "ar": "Calculate European call option theoretical price using Black-Scholes."
+      },
+      "long_i18n": {
+        "en": "Calculate European call option theoretical price using Black-Scholes.",
+        "tr": "Avrupa tipi alım opsiyonunun teorik prim değerini (Black-Scholes) hesaplar.",
+        "de": "Calculate European call option theoretical price using Black-Scholes.",
+        "fr": "Calculate European call option theoretical price using Black-Scholes.",
+        "es": "Calculate European call option theoretical price using Black-Scholes.",
+        "ar": "Calculate European call option theoretical price using Black-Scholes."
+      }
+    }
+  }
+}

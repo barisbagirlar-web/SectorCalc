@@ -1,0 +1,145 @@
+{
+  "toolName": "kalip-cekme-acisi-hesaplama",
+  "catalogCategory": "textile-print-lab",
+  "categorySlug": "textile-print-lab",
+  "sector": "Tekstil, Gıda ve Plastik",
+  "sectorId": "textile-print-lab",
+  "inputs": [
+    {
+      "id": "parcaDerinlik",
+      "label": "Parça Derinliği (mm)",
+      "label_i18n": {
+        "en": "Part Depth (mm)",
+        "tr": "Parça Derinliği (mm)",
+        "de": "Part Depth (mm)",
+        "fr": "Part Depth (mm)",
+        "es": "Part Depth (mm)",
+        "ar": "Part Depth (mm)"
+      },
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Parçanın kalıp hareket yönündeki derinliği.",
+      "businessContext_i18n": {
+        "en": "Part depth in mold direction.",
+        "tr": "Parçanın kalıp hareket yönündeki derinliği.",
+        "de": "Part depth in mold direction.",
+        "fr": "Part depth in mold direction.",
+        "es": "Part depth in mold direction.",
+        "ar": "Part depth in mold direction."
+      }
+    },
+    {
+      "id": "buzulmeOrani",
+      "label": "Büzülme Oranı (%)",
+      "label_i18n": {
+        "en": "Shrinkage Rate (%)",
+        "tr": "Büzülme Oranı (%)",
+        "de": "Shrinkage Rate (%)",
+        "fr": "Shrinkage Rate (%)",
+        "es": "Shrinkage Rate (%)",
+        "ar": "Shrinkage Rate (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0,
+      "businessContext": "Polimerin çekme oranı.",
+      "businessContext_i18n": {
+        "en": "Polymer shrinkage rate.",
+        "tr": "Polimerin çekme oranı.",
+        "de": "Polymer shrinkage rate.",
+        "fr": "Polymer shrinkage rate.",
+        "es": "Polymer shrinkage rate.",
+        "ar": "Polymer shrinkage rate."
+      }
+    },
+    {
+      "id": "yanYuzeyUzunluk",
+      "label": "Yan Yüzey Uzunluğu (mm)",
+      "label_i18n": {
+        "en": "Side Wall Length (mm)",
+        "tr": "Yan Yüzey Uzunluğu (mm)",
+        "de": "Side Wall Length (mm)",
+        "fr": "Side Wall Length (mm)",
+        "es": "Side Wall Length (mm)",
+        "ar": "Side Wall Length (mm)"
+      },
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Kalıp yan yüzey uzunluğu.",
+      "businessContext_i18n": {
+        "en": "Mold side wall length.",
+        "tr": "Kalıp yan yüzey uzunluğu.",
+        "de": "Mold side wall length.",
+        "fr": "Mold side wall length.",
+        "es": "Mold side wall length.",
+        "ar": "Mold side wall length."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.atan((parcaDerinlik * (buzulmeOrani / 100)) / Math.max(0.0001, yanYuzeyUzunluk)) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "degrees",
+    "breakdown": {
+      "sonuc": "Gerekli Draft Açısı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Gerekli Draft Açısı",
+        "tr": "Gerekli Draft Açısı",
+        "de": "Gerekli Draft Açısı",
+        "fr": "Gerekli Draft Açısı",
+        "es": "Gerekli Draft Açısı",
+        "ar": "Gerekli Draft Açısı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "degrees"
+    },
+    "hiddenLossDrivers": [
+      "Waste in material or time indicates process improvement opportunity."
+    ],
+    "suggestedActions": [
+      "Optimize drying/cooling parameters for cycle time reduction.",
+      "Monitor defects and adjust process conditions accordingly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate minimum draft angle for part ejection from mold.",
+      "long": "Calculate minimum draft angle for part ejection from mold.",
+      "short_i18n": {
+        "en": "Calculate minimum draft angle for part ejection from mold.",
+        "tr": "Parçanın kalıptan sıyrılması için gereken minimum koniklik/draft açısını hesaplar.",
+        "de": "Calculate minimum draft angle for part ejection from mold.",
+        "fr": "Calculate minimum draft angle for part ejection from mold.",
+        "es": "Calculate minimum draft angle for part ejection from mold.",
+        "ar": "Calculate minimum draft angle for part ejection from mold."
+      },
+      "long_i18n": {
+        "en": "Calculate minimum draft angle for part ejection from mold.",
+        "tr": "Parçanın kalıptan sıyrılması için gereken minimum koniklik/draft açısını hesaplar.",
+        "de": "Calculate minimum draft angle for part ejection from mold.",
+        "fr": "Calculate minimum draft angle for part ejection from mold.",
+        "es": "Calculate minimum draft angle for part ejection from mold.",
+        "ar": "Calculate minimum draft angle for part ejection from mold."
+      }
+    }
+  }
+}

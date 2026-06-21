@@ -1,0 +1,118 @@
+{
+  "toolName": "archimedes-kaldirma-kuvveti-hesaplama",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "yogunluk",
+      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label_i18n": {
+        "en": "Fluid Density (kg/m³)",
+        "tr": "Akışkan Yoğunluğu (kg/m³)",
+        "de": "Fluid Density (kg/m³)",
+        "fr": "Fluid Density (kg/m³)",
+        "es": "Fluid Density (kg/m³)",
+        "ar": "Fluid Density (kg/m³)"
+      },
+      "type": "number",
+      "unit": "kg/m3",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext_i18n": {
+        "en": "Fluid density.",
+        "tr": "Akışkanın yoğunluğu.",
+        "de": "Fluid density.",
+        "fr": "Fluid density.",
+        "es": "Fluid density.",
+        "ar": "Fluid density."
+      }
+    },
+    {
+      "id": "hacim",
+      "label": "Batan Hacim (m³)",
+      "label_i18n": {
+        "en": "Submerged Volume (m³)",
+        "tr": "Batan Hacim (m³)",
+        "de": "Submerged Volume (m³)",
+        "fr": "Submerged Volume (m³)",
+        "es": "Submerged Volume (m³)",
+        "ar": "Submerged Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.01,
+      "min": 0,
+      "businessContext": "Cismin batan kısmının hacmi.",
+      "businessContext_i18n": {
+        "en": "Volume of displaced fluid.",
+        "tr": "Cismin batan kısmının hacmi.",
+        "de": "Volume of displaced fluid.",
+        "fr": "Volume of displaced fluid.",
+        "es": "Volume of displaced fluid.",
+        "ar": "Volume of displaced fluid."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "yogunluk * 9.81 * hacim"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "N",
+    "breakdown": {
+      "sonuc": "Kaldırma Kuvveti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Kaldırma Kuvveti",
+        "tr": "Kaldırma Kuvveti",
+        "de": "Kaldırma Kuvveti",
+        "fr": "Kaldırma Kuvveti",
+        "es": "Kaldırma Kuvveti",
+        "ar": "Kaldırma Kuvveti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "N"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate buoyant force on an object submerged in a fluid.",
+      "long": "Calculate buoyant force on an object submerged in a fluid.",
+      "short_i18n": {
+        "en": "Calculate buoyant force on an object submerged in a fluid.",
+        "tr": "Akışkanın cisme uyguladığı yukarı yönlü kaldırma kuvvetini hesaplar.",
+        "de": "Calculate buoyant force on an object submerged in a fluid.",
+        "fr": "Calculate buoyant force on an object submerged in a fluid.",
+        "es": "Calculate buoyant force on an object submerged in a fluid.",
+        "ar": "Calculate buoyant force on an object submerged in a fluid."
+      },
+      "long_i18n": {
+        "en": "Calculate buoyant force on an object submerged in a fluid.",
+        "tr": "Akışkanın cisme uyguladığı yukarı yönlü kaldırma kuvvetini hesaplar.",
+        "de": "Calculate buoyant force on an object submerged in a fluid.",
+        "fr": "Calculate buoyant force on an object submerged in a fluid.",
+        "es": "Calculate buoyant force on an object submerged in a fluid.",
+        "ar": "Calculate buoyant force on an object submerged in a fluid."
+      }
+    }
+  }
+}

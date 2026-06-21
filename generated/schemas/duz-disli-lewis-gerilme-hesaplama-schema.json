@@ -1,0 +1,168 @@
+{
+  "toolName": "duz-disli-lewis-gerilme-hesaplama",
+  "catalogCategory": "mechanical-hvac-energy-loss",
+  "categorySlug": "mechanical-hvac-energy-loss",
+  "sector": "Makine Mühendisliği",
+  "sectorId": "mechanical-hvac-energy-loss",
+  "inputs": [
+    {
+      "id": "yuk",
+      "label": "Teğetsel Kuvvet (N)",
+      "label_i18n": {
+        "en": "Tangential Force (N)",
+        "tr": "Teğetsel Kuvvet (N)",
+        "de": "Tangential Force (N)",
+        "fr": "Tangential Force (N)",
+        "es": "Tangential Force (N)",
+        "ar": "Tangential Force (N)"
+      },
+      "type": "number",
+      "unit": "N",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Dişliye etkiyen teğetsel kuvvet.",
+      "businessContext_i18n": {
+        "en": "Tangential gear force.",
+        "tr": "Dişliye etkiyen teğetsel kuvvet.",
+        "de": "Tangential gear force.",
+        "fr": "Tangential gear force.",
+        "es": "Tangential gear force.",
+        "ar": "Tangential gear force."
+      }
+    },
+    {
+      "id": "modul",
+      "label": "Modül (m)",
+      "label_i18n": {
+        "en": "Module (m)",
+        "tr": "Modül (m)",
+        "de": "Module (m)",
+        "fr": "Module (m)",
+        "es": "Module (m)",
+        "ar": "Module (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.005,
+      "min": 0,
+      "businessContext": "Dişli modülü.",
+      "businessContext_i18n": {
+        "en": "Gear module.",
+        "tr": "Dişli modülü.",
+        "de": "Gear module.",
+        "fr": "Gear module.",
+        "es": "Gear module.",
+        "ar": "Gear module."
+      }
+    },
+    {
+      "id": "genislik",
+      "label": "Dişli Genişliği (m)",
+      "label_i18n": {
+        "en": "Face Width (m)",
+        "tr": "Dişli Genişliği (m)",
+        "de": "Face Width (m)",
+        "fr": "Face Width (m)",
+        "es": "Face Width (m)",
+        "ar": "Face Width (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 0.04,
+      "min": 0,
+      "businessContext": "Dişlinin yüz genişliği.",
+      "businessContext_i18n": {
+        "en": "Gear face width.",
+        "tr": "Dişlinin yüz genişliği.",
+        "de": "Gear face width.",
+        "fr": "Gear face width.",
+        "es": "Gear face width.",
+        "ar": "Gear face width."
+      }
+    },
+    {
+      "id": "formFaktoru",
+      "label": "Lewis Form Faktörü (Y)",
+      "label_i18n": {
+        "en": "Lewis Form Factor (Y)",
+        "tr": "Lewis Form Faktörü (Y)",
+        "de": "Lewis Form Factor (Y)",
+        "fr": "Lewis Form Factor (Y)",
+        "es": "Lewis Form Factor (Y)",
+        "ar": "Lewis Form Factor (Y)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 0.35,
+      "min": 0,
+      "businessContext": "Diş sayısına bağlı faktör.",
+      "businessContext_i18n": {
+        "en": "Tooth count factor.",
+        "tr": "Diş sayısına bağlı faktör.",
+        "de": "Tooth count factor.",
+        "fr": "Tooth count factor.",
+        "es": "Tooth count factor.",
+        "ar": "Tooth count factor."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "yuk / Math.max(0.0001, (modul * genislik * formFaktoru))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "Pa",
+    "breakdown": {
+      "sonuc": "Diş Kökü Gerilmesi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Diş Kökü Gerilmesi",
+        "tr": "Diş Kökü Gerilmesi",
+        "de": "Diş Kökü Gerilmesi",
+        "fr": "Diş Kökü Gerilmesi",
+        "es": "Diş Kökü Gerilmesi",
+        "ar": "Diş Kökü Gerilmesi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "Pa"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify calculations with FEA or physical testing.",
+      "Use appropriate safety factors for design."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate gear root bending stress using Lewis formula.",
+      "long": "Calculate gear root bending stress using Lewis formula.",
+      "short_i18n": {
+        "en": "Calculate gear root bending stress using Lewis formula.",
+        "tr": "Dişli kökündeki maksimum eğilme gerilmesini Lewis formülü ile hesaplar.",
+        "de": "Calculate gear root bending stress using Lewis formula.",
+        "fr": "Calculate gear root bending stress using Lewis formula.",
+        "es": "Calculate gear root bending stress using Lewis formula.",
+        "ar": "Calculate gear root bending stress using Lewis formula."
+      },
+      "long_i18n": {
+        "en": "Calculate gear root bending stress using Lewis formula.",
+        "tr": "Dişli kökündeki maksimum eğilme gerilmesini Lewis formülü ile hesaplar.",
+        "de": "Calculate gear root bending stress using Lewis formula.",
+        "fr": "Calculate gear root bending stress using Lewis formula.",
+        "es": "Calculate gear root bending stress using Lewis formula.",
+        "ar": "Calculate gear root bending stress using Lewis formula."
+      }
+    }
+  }
+}

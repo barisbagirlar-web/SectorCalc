@@ -1,0 +1,143 @@
+{
+  "toolName": "surekli-bilesik-faiz-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "anapara",
+      "label": "Anapara (₺)",
+      "label_i18n": {
+        "en": "Principal (TRY)",
+        "tr": "Anapara (₺)",
+        "de": "Principal (TRY)",
+        "fr": "Principal (TRY)",
+        "es": "Principal (TRY)",
+        "ar": "Principal (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Başlangıç yatırım tutarı.",
+      "businessContext_i18n": {
+        "en": "Initial investment.",
+        "tr": "Başlangıç yatırım tutarı.",
+        "de": "Initial investment.",
+        "fr": "Initial investment.",
+        "es": "Initial investment.",
+        "ar": "Initial investment."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Yıllık Faiz (%)",
+      "label_i18n": {
+        "en": "Annual Interest (%)",
+        "tr": "Yıllık Faiz (%)",
+        "de": "Annual Interest (%)",
+        "fr": "Annual Interest (%)",
+        "es": "Annual Interest (%)",
+        "ar": "Annual Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Sürekli bileşik faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Continuous compounding interest rate.",
+        "tr": "Sürekli bileşik faiz oranı.",
+        "de": "Continuous compounding interest rate.",
+        "fr": "Continuous compounding interest rate.",
+        "es": "Continuous compounding interest rate.",
+        "ar": "Continuous compounding interest rate."
+      }
+    },
+    {
+      "id": "yil",
+      "label": "Vade (Yıl)",
+      "label_i18n": {
+        "en": "Term (Years)",
+        "tr": "Vade (Yıl)",
+        "de": "Term (Years)",
+        "fr": "Term (Years)",
+        "es": "Term (Years)",
+        "ar": "Term (Years)"
+      },
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Yatırım süresi.",
+      "businessContext_i18n": {
+        "en": "Investment period.",
+        "tr": "Yatırım süresi.",
+        "de": "Investment period.",
+        "fr": "Investment period.",
+        "es": "Investment period.",
+        "ar": "Investment period."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "anapara * Math.exp((faiz / 100) * yil)"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Sürekli Bileşik Değer"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Sürekli Bileşik Değer",
+        "tr": "Sürekli Bileşik Değer",
+        "de": "Sürekli Bileşik Değer",
+        "fr": "Sürekli Bileşik Değer",
+        "es": "Sürekli Bileşik Değer",
+        "ar": "Sürekli Bileşik Değer"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate continuous compounding future value — the theoretical maximum.",
+      "long": "Calculate continuous compounding future value — the theoretical maximum.",
+      "short_i18n": {
+        "en": "Calculate continuous compounding future value — the theoretical maximum.",
+        "tr": "Sonsuz frekansta bileşikleşen teorik maksimum vade sonu değerini hesaplar.",
+        "de": "Calculate continuous compounding future value — the theoretical maximum.",
+        "fr": "Calculate continuous compounding future value — the theoretical maximum.",
+        "es": "Calculate continuous compounding future value — the theoretical maximum.",
+        "ar": "Calculate continuous compounding future value — the theoretical maximum."
+      },
+      "long_i18n": {
+        "en": "Calculate continuous compounding future value — the theoretical maximum.",
+        "tr": "Sonsuz frekansta bileşikleşen teorik maksimum vade sonu değerini hesaplar.",
+        "de": "Calculate continuous compounding future value — the theoretical maximum.",
+        "fr": "Calculate continuous compounding future value — the theoretical maximum.",
+        "es": "Calculate continuous compounding future value — the theoretical maximum.",
+        "ar": "Calculate continuous compounding future value — the theoretical maximum."
+      }
+    }
+  }
+}

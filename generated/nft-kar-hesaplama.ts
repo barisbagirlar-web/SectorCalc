@@ -2,14 +2,18 @@
 import * as z from 'zod';
 
 export interface Nft_kar_hesaplamaInput {
-  revenueAmount: number;
-  costAmount: number;
+  alis: number;
+  satis: number;
+  gas: number;
+  royalty: number;
   dataConfidence?: number;
 }
 
 export const Nft_kar_hesaplamaInputSchema = z.object({
-  revenueAmount: z.number().min(0).default(100),
-  costAmount: z.number().min(0).default(50),
+  alis: z.number().min(0).default(1),
+  satis: z.number().min(0).default(2.5),
+  gas: z.number().min(0).default(0.05),
+  royalty: z.number().min(0).default(5),
 });
 
 function toNumericFormulaValue(value: number): number {
@@ -18,20 +22,19 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Nft_kar_hesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.revenueAmount / input.costAmount * 100 + Math.sqrt(input.revenueAmount * input.costAmount) / 10; results["main"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["main"] = Number.NaN; }
-  try { const v = input.revenueAmount / input.costAmount * 100 + Math.sqrt(input.revenueAmount * input.costAmount) / 10; results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = input.satis - input.alis - input.gas - (input.satis * input.royalty / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
 
 
 export function calculateNft_kar_hesaplama(input: Nft_kar_hesaplamaInput): Nft_kar_hesaplamaOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
   const breakdown = {
-    result: toNumericFormulaValue(values["result"])
+    sonuc: toNumericFormulaValue(values["sonuc"])
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Consult with a professional.","Review assumptions regularly."];
+  const suggestedActions: string[] = ["Verify inputs before making financial decisions.","Consult a licensed financial advisor for personalized advice."];
   const dataConfidenceAdjusted =
     typeof input.dataConfidence === "number"
       ? totalWasteCost * (input.dataConfidence / 100)
@@ -42,9 +45,9 @@ export function calculateNft_kar_hesaplama(input: Nft_kar_hesaplamaInput): Nft_k
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    unit: "currency",
+    unit: "ETH",
     premiumRequired: false,
-    premiumFeatures: ["Detailed PDF report","Scenario comparison","Multi-year projections"],
+    premiumFeatures: [],
   };
 }
 
@@ -52,7 +55,7 @@ export function calculateNft_kar_hesaplama(input: Nft_kar_hesaplamaInput): Nft_k
 export interface Nft_kar_hesaplamaOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { result: number };
+  breakdown: { sonuc: number };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -61,8 +64,8 @@ export interface Nft_kar_hesaplamaOutput {
 };
 
 export const Nft_kar_hesaplamaOutputMeta = {
-  primaryKey: "result",
-  unit: "currency",
-  breakdownKeys: ["result"],
+  primaryKey: "sonuc",
+  unit: "ETH",
+  breakdownKeys: ["sonuc"],
 } as const;
 

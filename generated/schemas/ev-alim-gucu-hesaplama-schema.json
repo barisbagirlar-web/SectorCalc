@@ -1,0 +1,195 @@
+{
+  "toolName": "ev-alim-gucu-hesaplama",
+  "catalogCategory": "project-construction-management",
+  "categorySlug": "project-construction-management",
+  "sector": "Gayrimenkul",
+  "sectorId": "project-construction-management",
+  "inputs": [
+    {
+      "id": "aylikGelir",
+      "label": "Aylık Gelir (₺)",
+      "label_i18n": {
+        "en": "Monthly Income (TRY)",
+        "tr": "Aylık Gelir (₺)",
+        "de": "Monthly Income (TRY)",
+        "fr": "Monthly Income (TRY)",
+        "es": "Monthly Income (TRY)",
+        "ar": "Monthly Income (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 50000,
+      "min": 0,
+      "businessContext": "Brüt aylık gelir.",
+      "businessContext_i18n": {
+        "en": "Gross monthly income.",
+        "tr": "Brüt aylık gelir.",
+        "de": "Gross monthly income.",
+        "fr": "Gross monthly income.",
+        "es": "Gross monthly income.",
+        "ar": "Gross monthly income."
+      }
+    },
+    {
+      "id": "maxDTI",
+      "label": "Maks DTI Oranı (%)",
+      "label_i18n": {
+        "en": "Max DTI Ratio (%)",
+        "tr": "Maks DTI Oranı (%)",
+        "de": "Max DTI Ratio (%)",
+        "fr": "Max DTI Ratio (%)",
+        "es": "Max DTI Ratio (%)",
+        "ar": "Max DTI Ratio (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Bankanın izin verdiği maksimum borç/gelir oranı.",
+      "businessContext_i18n": {
+        "en": "Maximum debt-to-income ratio allowed.",
+        "tr": "Bankanın izin verdiği maksimum borç/gelir oranı.",
+        "de": "Maximum debt-to-income ratio allowed.",
+        "fr": "Maximum debt-to-income ratio allowed.",
+        "es": "Maximum debt-to-income ratio allowed.",
+        "ar": "Maximum debt-to-income ratio allowed."
+      }
+    },
+    {
+      "id": "aylikBorc",
+      "label": "Mevcut Aylık Borç (₺)",
+      "label_i18n": {
+        "en": "Existing Monthly Debt (TRY)",
+        "tr": "Mevcut Aylık Borç (₺)",
+        "de": "Existing Monthly Debt (TRY)",
+        "fr": "Existing Monthly Debt (TRY)",
+        "es": "Existing Monthly Debt (TRY)",
+        "ar": "Existing Monthly Debt (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000,
+      "min": 0,
+      "businessContext": "Kredi kartı, taşıt kredisi gibi mevcut borçlar.",
+      "businessContext_i18n": {
+        "en": "Existing monthly debt obligations.",
+        "tr": "Kredi kartı, taşıt kredisi gibi mevcut borçlar.",
+        "de": "Existing monthly debt obligations.",
+        "fr": "Existing monthly debt obligations.",
+        "es": "Existing monthly debt obligations.",
+        "ar": "Existing monthly debt obligations."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Tahmini Faiz (%)",
+      "label_i18n": {
+        "en": "Estimated Interest (%)",
+        "tr": "Tahmini Faiz (%)",
+        "de": "Estimated Interest (%)",
+        "fr": "Estimated Interest (%)",
+        "es": "Estimated Interest (%)",
+        "ar": "Estimated Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "businessContext": "Kredi faiz oranı.",
+      "businessContext_i18n": {
+        "en": "Expected mortgage rate.",
+        "tr": "Kredi faiz oranı.",
+        "de": "Expected mortgage rate.",
+        "fr": "Expected mortgage rate.",
+        "es": "Expected mortgage rate.",
+        "ar": "Expected mortgage rate."
+      }
+    },
+    {
+      "id": "vade",
+      "label": "Vade (Ay)",
+      "label_i18n": {
+        "en": "Term (Months)",
+        "tr": "Vade (Ay)",
+        "de": "Term (Months)",
+        "fr": "Term (Months)",
+        "es": "Term (Months)",
+        "ar": "Term (Months)"
+      },
+      "type": "number",
+      "unit": "months",
+      "default": 120,
+      "min": 1,
+      "businessContext": "Kredi vadesi.",
+      "businessContext_i18n": {
+        "en": "Loan term.",
+        "tr": "Kredi vadesi.",
+        "de": "Loan term.",
+        "fr": "Loan term.",
+        "es": "Loan term.",
+        "ar": "Loan term."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "maxTaksit": "(aylikGelir * maxDTI / 100) - aylikBorc",
+    "sonuc": "(aylikGelir * maxDTI / 100 - aylikBorc) * ((1 - Math.pow(1 + faiz / 1200, -vade)) / (faiz / 1200))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Maksimum Kredi Tutarı"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Maksimum Kredi Tutarı",
+        "tr": "Maksimum Kredi Tutarı",
+        "de": "Maksimum Kredi Tutarı",
+        "fr": "Maksimum Kredi Tutarı",
+        "es": "Maksimum Kredi Tutarı",
+        "ar": "Maksimum Kredi Tutarı"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify all property data with official documents.",
+      "Consult a mortgage broker for personalized rates."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate maximum mortgage amount based on income and DTI limits.",
+      "long": "Calculate maximum mortgage amount based on income and DTI limits.",
+      "short_i18n": {
+        "en": "Calculate maximum mortgage amount based on income and DTI limits.",
+        "tr": "Gelire göre bankadan çekilebilecek maksimum kredi tutarını hesaplar.",
+        "de": "Calculate maximum mortgage amount based on income and DTI limits.",
+        "fr": "Calculate maximum mortgage amount based on income and DTI limits.",
+        "es": "Calculate maximum mortgage amount based on income and DTI limits.",
+        "ar": "Calculate maximum mortgage amount based on income and DTI limits."
+      },
+      "long_i18n": {
+        "en": "Calculate maximum mortgage amount based on income and DTI limits.",
+        "tr": "Gelire göre bankadan çekilebilecek maksimum kredi tutarını hesaplar.",
+        "de": "Calculate maximum mortgage amount based on income and DTI limits.",
+        "fr": "Calculate maximum mortgage amount based on income and DTI limits.",
+        "es": "Calculate maximum mortgage amount based on income and DTI limits.",
+        "ar": "Calculate maximum mortgage amount based on income and DTI limits."
+      }
+    }
+  }
+}

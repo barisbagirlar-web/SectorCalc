@@ -1,0 +1,143 @@
+{
+  "toolName": "eoq-ekonomik-siparis-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Lojistik",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "yillikTalep",
+      "label": "Yıllık Talep (Adet)",
+      "label_i18n": {
+        "en": "Annual Demand",
+        "tr": "Yıllık Talep (Adet)",
+        "de": "Annual Demand",
+        "fr": "Annual Demand",
+        "es": "Annual Demand",
+        "ar": "Annual Demand"
+      },
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 1,
+      "businessContext": "Yıllık toplam talep.",
+      "businessContext_i18n": {
+        "en": "Annual total demand.",
+        "tr": "Yıllık toplam talep.",
+        "de": "Annual total demand.",
+        "fr": "Annual total demand.",
+        "es": "Annual total demand.",
+        "ar": "Annual total demand."
+      }
+    },
+    {
+      "id": "siparisMaliyeti",
+      "label": "Sipariş Maliyeti (TL)",
+      "label_i18n": {
+        "en": "Order Cost (TRY)",
+        "tr": "Sipariş Maliyeti (TL)",
+        "de": "Order Cost (TRY)",
+        "fr": "Order Cost (TRY)",
+        "es": "Order Cost (TRY)",
+        "ar": "Order Cost (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Her siparişin sabit maliyeti.",
+      "businessContext_i18n": {
+        "en": "Fixed cost per order.",
+        "tr": "Her siparişin sabit maliyeti.",
+        "de": "Fixed cost per order.",
+        "fr": "Fixed cost per order.",
+        "es": "Fixed cost per order.",
+        "ar": "Fixed cost per order."
+      }
+    },
+    {
+      "id": "tasimaMaliyeti",
+      "label": "Taşıma Maliyeti (TL/Adet-Yıl)",
+      "label_i18n": {
+        "en": "Holding Cost (TRY/Unit/yr)",
+        "tr": "Taşıma Maliyeti (TL/Adet-Yıl)",
+        "de": "Holding Cost (TRY/Unit/yr)",
+        "fr": "Holding Cost (TRY/Unit/yr)",
+        "es": "Holding Cost (TRY/Unit/yr)",
+        "ar": "Holding Cost (TRY/Unit/yr)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Birim başı yıllık depolama maliyeti.",
+      "businessContext_i18n": {
+        "en": "Annual holding cost per unit.",
+        "tr": "Birim başı yıllık depolama maliyeti.",
+        "de": "Annual holding cost per unit.",
+        "fr": "Annual holding cost per unit.",
+        "es": "Annual holding cost per unit.",
+        "ar": "Annual holding cost per unit."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "Math.sqrt(Math.max(0, (2 * yillikTalep * siparisMaliyeti) / Math.max(0.0001, tasimaMaliyeti)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "units",
+    "breakdown": {
+      "sonuc": "EOQ (Optimum Sipariş Miktarı)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "EOQ (Optimum Sipariş Miktarı)",
+        "tr": "EOQ (Optimum Sipariş Miktarı)",
+        "de": "EOQ (Optimum Sipariş Miktarı)",
+        "fr": "EOQ (Optimum Sipariş Miktarı)",
+        "es": "EOQ (Optimum Sipariş Miktarı)",
+        "ar": "EOQ (Optimum Sipariş Miktarı)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "units"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inventory turnover metrics monthly.",
+      "Factor in seasonality for safety stock."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+      "long": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+      "short_i18n": {
+        "en": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+        "tr": "Toplam envanter maliyetini minimize eden optimum sipariş miktarını (EOQ) hesaplar.",
+        "de": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+        "fr": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+        "es": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+        "ar": "Calculate economic order quantity (EOQ) minimizing total inventory costs."
+      },
+      "long_i18n": {
+        "en": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+        "tr": "Toplam envanter maliyetini minimize eden optimum sipariş miktarını (EOQ) hesaplar.",
+        "de": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+        "fr": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+        "es": "Calculate economic order quantity (EOQ) minimizing total inventory costs.",
+        "ar": "Calculate economic order quantity (EOQ) minimizing total inventory costs."
+      }
+    }
+  }
+}

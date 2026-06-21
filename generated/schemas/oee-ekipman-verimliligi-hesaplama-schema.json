@@ -1,0 +1,146 @@
+{
+  "toolName": "oee-ekipman-verimliligi-hesaplama",
+  "catalogCategory": "lean-production",
+  "categorySlug": "lean-production",
+  "sector": "Endüstri Mühendisliği",
+  "sectorId": "lean-production",
+  "inputs": [
+    {
+      "id": "kullanilabilirlik",
+      "label": "Kullanılabilirlik (%)",
+      "label_i18n": {
+        "en": "Availability (%)",
+        "tr": "Kullanılabilirlik (%)",
+        "de": "Availability (%)",
+        "fr": "Availability (%)",
+        "es": "Availability (%)",
+        "ar": "Availability (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Makinenin planlı sürede çalıştığı zaman.",
+      "businessContext_i18n": {
+        "en": "Machine uptime vs planned time.",
+        "tr": "Makinenin planlı sürede çalıştığı zaman.",
+        "de": "Machine uptime vs planned time.",
+        "fr": "Machine uptime vs planned time.",
+        "es": "Machine uptime vs planned time.",
+        "ar": "Machine uptime vs planned time."
+      }
+    },
+    {
+      "id": "performans",
+      "label": "Performans (%)",
+      "label_i18n": {
+        "en": "Performance (%)",
+        "tr": "Performans (%)",
+        "de": "Performance (%)",
+        "fr": "Performance (%)",
+        "es": "Performance (%)",
+        "ar": "Performance (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Makinenin ideal hıza göre performansı.",
+      "businessContext_i18n": {
+        "en": "Speed efficiency vs ideal.",
+        "tr": "Makinenin ideal hıza göre performansı.",
+        "de": "Speed efficiency vs ideal.",
+        "fr": "Speed efficiency vs ideal.",
+        "es": "Speed efficiency vs ideal.",
+        "ar": "Speed efficiency vs ideal."
+      }
+    },
+    {
+      "id": "kalite",
+      "label": "Kalite (%)",
+      "label_i18n": {
+        "en": "Quality (%)",
+        "tr": "Kalite (%)",
+        "de": "Quality (%)",
+        "fr": "Quality (%)",
+        "es": "Quality (%)",
+        "ar": "Quality (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 98,
+      "min": 0,
+      "max": 100,
+      "businessContext": "İlk seferde hatasız ürün oranı.",
+      "businessContext_i18n": {
+        "en": "First-pass yield.",
+        "tr": "İlk seferde hatasız ürün oranı.",
+        "de": "First-pass yield.",
+        "fr": "First-pass yield.",
+        "es": "First-pass yield.",
+        "ar": "First-pass yield."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "(kullanilabilirlik / 100) * (performans / 100) * (kalite / 100) * 100"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "%",
+    "breakdown": {
+      "sonuc": "OEE Skoru"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "OEE Skoru",
+        "tr": "OEE Skoru",
+        "de": "OEE Skoru",
+        "fr": "OEE Skoru",
+        "es": "OEE Skoru",
+        "ar": "OEE Skoru"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "%"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Conduct regular OEE audits for improvement.",
+      "Use SMED to reduce setup times."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate overall equipment effectiveness (OEE) score.",
+      "long": "Calculate overall equipment effectiveness (OEE) score.",
+      "short_i18n": {
+        "en": "Calculate overall equipment effectiveness (OEE) score.",
+        "tr": "Üretim hattının toplam verimlilik skorunu (OEE) hesaplar.",
+        "de": "Calculate overall equipment effectiveness (OEE) score.",
+        "fr": "Calculate overall equipment effectiveness (OEE) score.",
+        "es": "Calculate overall equipment effectiveness (OEE) score.",
+        "ar": "Calculate overall equipment effectiveness (OEE) score."
+      },
+      "long_i18n": {
+        "en": "Calculate overall equipment effectiveness (OEE) score.",
+        "tr": "Üretim hattının toplam verimlilik skorunu (OEE) hesaplar.",
+        "de": "Calculate overall equipment effectiveness (OEE) score.",
+        "fr": "Calculate overall equipment effectiveness (OEE) score.",
+        "es": "Calculate overall equipment effectiveness (OEE) score.",
+        "ar": "Calculate overall equipment effectiveness (OEE) score."
+      }
+    }
+  }
+}

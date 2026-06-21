@@ -1,113 +1,143 @@
 {
-  "slug": "forex-kar-hesaplama",
-  "name": "Forex Kâr Hesaplama",
-  "description": "Professional forex kâr hesaplama tool for accurate calculations.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "Detailed PDF report",
-    "Scenario comparison",
-    "Multi-year projections"
-  ],
+  "toolName": "forex-kar-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Finans",
+  "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "revenueAmount",
-      "label": "Value 1",
-      "type": "number",
-      "unit": "currency",
-      "default": 100,
-      "min": 0,
-      "businessContext": "Toplam gelir.",
+      "id": "lot",
+      "label": "Lot (Adet)",
       "label_i18n": {
-        "en": "Value 1",
-        "tr": "Değer 1",
-        "de": "Giriş Değeri",
-        "fr": "Giriş Değeri",
-        "es": "Giriş Değeri",
-        "ar": "Giriş Değeri"
+        "en": "Lot (Number)",
+        "tr": "Lot (Adet)",
+        "de": "Lot (Number)",
+        "fr": "Lot (Number)",
+        "es": "Lot (Number)",
+        "ar": "Lot (Number)"
       },
+      "type": "number",
+      "unit": "lots",
+      "default": 1,
+      "min": 0.01,
+      "businessContext": "İşlem büyüklüğü.",
       "businessContext_i18n": {
-        "en": "First value.",
-        "tr": "Birinci değer.",
-        "de": "Hesaplama için giriş değeri.",
-        "fr": "Hesaplama için giriş değeri.",
-        "es": "Hesaplama için giriş değeri.",
-        "ar": "Hesaplama için giriş değeri."
+        "en": "Trade size in lots.",
+        "tr": "İşlem büyüklüğü.",
+        "de": "Trade size in lots.",
+        "fr": "Trade size in lots.",
+        "es": "Trade size in lots.",
+        "ar": "Trade size in lots."
       }
     },
     {
-      "id": "costAmount",
-      "label": "Value 2",
+      "id": "pipDegeri",
+      "label": "Pip Değeri (₺)",
+      "label_i18n": {
+        "en": "Pip Value (TRY)",
+        "tr": "Pip Değeri (₺)",
+        "de": "Pip Value (TRY)",
+        "fr": "Pip Value (TRY)",
+        "es": "Pip Value (TRY)",
+        "ar": "Pip Value (TRY)"
+      },
       "type": "number",
-      "unit": "currency",
+      "unit": "TRY",
+      "default": 10,
+      "min": 0,
+      "businessContext": "Her pip'in TL karşılığı.",
+      "businessContext_i18n": {
+        "en": "TRY value per pip.",
+        "tr": "Her pip'in TL karşılığı.",
+        "de": "TRY value per pip.",
+        "fr": "TRY value per pip.",
+        "es": "TRY value per pip.",
+        "ar": "TRY value per pip."
+      }
+    },
+    {
+      "id": "pipHareketi",
+      "label": "Pip Hareketi",
+      "label_i18n": {
+        "en": "Pip Movement",
+        "tr": "Pip Hareketi",
+        "de": "Pip Movement",
+        "fr": "Pip Movement",
+        "es": "Pip Movement",
+        "ar": "Pip Movement"
+      },
+      "type": "number",
+      "unit": "pips",
       "default": 50,
       "min": 0,
-      "businessContext": "Toplam maliyet.",
-      "label_i18n": {
-        "en": "Value 2",
-        "tr": "Değer 2",
-        "de": "Giriş Faktörü",
-        "fr": "Giriş Faktörü",
-        "es": "Giriş Faktörü",
-        "ar": "Giriş Faktörü"
-      },
+      "businessContext": "Fiyatın hareket ettiği pip sayısı.",
       "businessContext_i18n": {
-        "en": "Second value.",
-        "tr": "İkinci değer.",
-        "de": "Hesaplama için giriş faktörü.",
-        "fr": "Hesaplama için giriş faktörü.",
-        "es": "Hesaplama için giriş faktörü.",
-        "ar": "Hesaplama için giriş faktörü."
+        "en": "Number of pips the price moved.",
+        "tr": "Fiyatın hareket ettiği pip sayısı.",
+        "de": "Number of pips the price moved.",
+        "fr": "Number of pips the price moved.",
+        "es": "Number of pips the price moved.",
+        "ar": "Number of pips the price moved."
       }
     }
   ],
   "validation": {
     "rules": [
-      "All inputs should be positive numbers where applicable."
+      "All numeric inputs must be positive numbers."
     ],
     "thresholds": {}
   },
   "formulas": {
-    "main": "revenueAmount / costAmount * 100 + Math.sqrt(revenueAmount * costAmount) / 10",
-    "result": "revenueAmount / costAmount * 100 + Math.sqrt(revenueAmount * costAmount) / 10"
+    "sonuc": "lot * pipDegeri * pipHareketi"
   },
   "outputs": {
-    "primary": "result",
-    "unit": "",
+    "primary": "sonuc",
+    "unit": "TRY",
     "breakdown": {
-      "result": "revenueAmount * costAmount"
+      "sonuc": "Forex Kâr/Zarar"
     },
     "breakdown_i18n": {
-      "result": {
-        "en": "Result",
-        "tr": "Sonuç"
+      "sonuc": {
+        "en": "Forex Kâr/Zarar",
+        "tr": "Forex Kâr/Zarar",
+        "de": "Forex Kâr/Zarar",
+        "fr": "Forex Kâr/Zarar",
+        "es": "Forex Kâr/Zarar",
+        "ar": "Forex Kâr/Zarar"
       }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
-      "Consult with a professional.",
-      "Review assumptions regularly."
+      "Verify inputs before making financial decisions.",
+      "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+    "dataConfidenceAdjusted": "sonuc"
   },
+  "premiumRequired": false,
+  "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Quick forex kâr hesaplama calculation.",
-      "long": "This free tool provides a quick forex kâr hesaplama."
-    },
-    "faqs": [
-      {
-        "question": "What does this Forex Kâr Hesaplama include?",
-        "answer": "Basic forex kâr hesaplama calculation."
+      "short": "Calculate forex profit/loss in account currency from pip movement.",
+      "long": "Calculate forex profit/loss in account currency from pip movement.",
+      "short_i18n": {
+        "en": "Calculate forex profit/loss in account currency from pip movement.",
+        "tr": "Parite hareketinin hesap para birimindeki kâr/zarar karşılığını hesaplar.",
+        "de": "Calculate forex profit/loss in account currency from pip movement.",
+        "fr": "Calculate forex profit/loss in account currency from pip movement.",
+        "es": "Calculate forex profit/loss in account currency from pip movement.",
+        "ar": "Calculate forex profit/loss in account currency from pip movement."
       },
-      {
-        "question": "What is missing from the free version?",
-        "answer": "The free version does not include detailed reporting and projections."
+      "long_i18n": {
+        "en": "Calculate forex profit/loss in account currency from pip movement.",
+        "tr": "Parite hareketinin hesap para birimindeki kâr/zarar karşılığını hesaplar.",
+        "de": "Calculate forex profit/loss in account currency from pip movement.",
+        "fr": "Calculate forex profit/loss in account currency from pip movement.",
+        "es": "Calculate forex profit/loss in account currency from pip movement.",
+        "ar": "Calculate forex profit/loss in account currency from pip movement."
       }
-    ]
-  },
-  "sector": "Finans & Muhasebe",
-  "toolName": "forex-kar-hesaplama",
-  "sectorId": "genel",
-  "profession": "Professional",
-  "categoryId": "finance"
+    }
+  }
 }

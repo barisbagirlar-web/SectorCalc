@@ -1,0 +1,169 @@
+{
+  "toolName": "kargo-navlu-maliyeti-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "E-Ticaret",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "agirlik",
+      "label": "Gerçek Ağırlık (kg)",
+      "label_i18n": {
+        "en": "Actual Weight (kg)",
+        "tr": "Gerçek Ağırlık (kg)",
+        "de": "Actual Weight (kg)",
+        "fr": "Actual Weight (kg)",
+        "es": "Actual Weight (kg)",
+        "ar": "Actual Weight (kg)"
+      },
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Kargonun gerçek ağırlığı.",
+      "businessContext_i18n": {
+        "en": "Actual shipment weight.",
+        "tr": "Kargonun gerçek ağırlığı.",
+        "de": "Actual shipment weight.",
+        "fr": "Actual shipment weight.",
+        "es": "Actual shipment weight.",
+        "ar": "Actual shipment weight."
+      }
+    },
+    {
+      "id": "hacim",
+      "label": "Hacim (m³)",
+      "label_i18n": {
+        "en": "Volume (m³)",
+        "tr": "Hacim (m³)",
+        "de": "Volume (m³)",
+        "fr": "Volume (m³)",
+        "es": "Volume (m³)",
+        "ar": "Volume (m³)"
+      },
+      "type": "number",
+      "unit": "m3",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Kargonun kapladığı hacim.",
+      "businessContext_i18n": {
+        "en": "Package volume.",
+        "tr": "Kargonun kapladığı hacim.",
+        "de": "Package volume.",
+        "fr": "Package volume.",
+        "es": "Package volume.",
+        "ar": "Package volume."
+      }
+    },
+    {
+      "id": "mesafe",
+      "label": "Mesafe (km)",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Mesafe (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      },
+      "type": "number",
+      "unit": "km",
+      "default": 1000,
+      "min": 0,
+      "businessContext": "Taşıma mesafesi.",
+      "businessContext_i18n": {
+        "en": "Transport distance.",
+        "tr": "Taşıma mesafesi.",
+        "de": "Transport distance.",
+        "fr": "Transport distance.",
+        "es": "Transport distance.",
+        "ar": "Transport distance."
+      }
+    },
+    {
+      "id": "birimFiyat",
+      "label": "Birim Fiyat (TL)",
+      "label_i18n": {
+        "en": "Unit Price (TRY)",
+        "tr": "Birim Fiyat (TL)",
+        "de": "Unit Price (TRY)",
+        "fr": "Unit Price (TRY)",
+        "es": "Unit Price (TRY)",
+        "ar": "Unit Price (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 0.5,
+      "min": 0,
+      "businessContext": "Birim başı navlun fiyatı.",
+      "businessContext_i18n": {
+        "en": "Unit freight price.",
+        "tr": "Birim başı navlun fiyatı.",
+        "de": "Unit freight price.",
+        "fr": "Unit freight price.",
+        "es": "Unit freight price.",
+        "ar": "Unit freight price."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "desi": "hacim * 167",
+    "sonuc": "Math.max(agirlik, (hacim * 167)) * mesafe * birimFiyat"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Toplam Navlun Maliyeti"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Toplam Navlun Maliyeti",
+        "tr": "Toplam Navlun Maliyeti",
+        "de": "Toplam Navlun Maliyeti",
+        "fr": "Toplam Navlun Maliyeti",
+        "es": "Toplam Navlun Maliyeti",
+        "ar": "Toplam Navlun Maliyeti"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Factor in return rates and chargebacks.",
+      "Review platform fee schedules regularly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate shipping cost comparing volumetric weight and actual weight.",
+      "long": "Calculate shipping cost comparing volumetric weight and actual weight.",
+      "short_i18n": {
+        "en": "Calculate shipping cost comparing volumetric weight and actual weight.",
+        "tr": "Desi ve ağırlık karşılaştırmalı toplam taşıma bedelini hesaplar.",
+        "de": "Calculate shipping cost comparing volumetric weight and actual weight.",
+        "fr": "Calculate shipping cost comparing volumetric weight and actual weight.",
+        "es": "Calculate shipping cost comparing volumetric weight and actual weight.",
+        "ar": "Calculate shipping cost comparing volumetric weight and actual weight."
+      },
+      "long_i18n": {
+        "en": "Calculate shipping cost comparing volumetric weight and actual weight.",
+        "tr": "Desi ve ağırlık karşılaştırmalı toplam taşıma bedelini hesaplar.",
+        "de": "Calculate shipping cost comparing volumetric weight and actual weight.",
+        "fr": "Calculate shipping cost comparing volumetric weight and actual weight.",
+        "es": "Calculate shipping cost comparing volumetric weight and actual weight.",
+        "ar": "Calculate shipping cost comparing volumetric weight and actual weight."
+      }
+    }
+  }
+}

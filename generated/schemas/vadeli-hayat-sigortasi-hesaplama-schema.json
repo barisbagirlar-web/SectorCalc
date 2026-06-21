@@ -1,0 +1,145 @@
+{
+  "toolName": "vadeli-hayat-sigortasi-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "Sigorta ve Emeklilik",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "teminat",
+      "label": "Teminat Tutarı (TL)",
+      "label_i18n": {
+        "en": "Coverage Amount (TRY)",
+        "tr": "Teminat Tutarı (TL)",
+        "de": "Coverage Amount (TRY)",
+        "fr": "Coverage Amount (TRY)",
+        "es": "Coverage Amount (TRY)",
+        "ar": "Coverage Amount (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Sigorta teminatı.",
+      "businessContext_i18n": {
+        "en": "Insurance coverage.",
+        "tr": "Sigorta teminatı.",
+        "de": "Insurance coverage.",
+        "fr": "Insurance coverage.",
+        "es": "Insurance coverage.",
+        "ar": "Insurance coverage."
+      }
+    },
+    {
+      "id": "olumOlasiligi",
+      "label": "Ölüm Olasılığı (%)",
+      "label_i18n": {
+        "en": "Mortality Probability (%)",
+        "tr": "Ölüm Olasılığı (%)",
+        "de": "Mortality Probability (%)",
+        "fr": "Mortality Probability (%)",
+        "es": "Mortality Probability (%)",
+        "ar": "Mortality Probability (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 0.2,
+      "min": 0,
+      "businessContext": "Yaş ve sağlık durumuna göre risk.",
+      "businessContext_i18n": {
+        "en": "Age/health-based risk.",
+        "tr": "Yaş ve sağlık durumuna göre risk.",
+        "de": "Age/health-based risk.",
+        "fr": "Age/health-based risk.",
+        "es": "Age/health-based risk.",
+        "ar": "Age/health-based risk."
+      }
+    },
+    {
+      "id": "giderMarji",
+      "label": "Gider Marjı (%)",
+      "label_i18n": {
+        "en": "Expense Load (%)",
+        "tr": "Gider Marjı (%)",
+        "de": "Expense Load (%)",
+        "fr": "Expense Load (%)",
+        "es": "Expense Load (%)",
+        "ar": "Expense Load (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Şirket gider ve kâr marjı.",
+      "businessContext_i18n": {
+        "en": "Company expense and profit margin.",
+        "tr": "Şirket gider ve kâr marjı.",
+        "de": "Company expense and profit margin.",
+        "fr": "Company expense and profit margin.",
+        "es": "Company expense and profit margin.",
+        "ar": "Company expense and profit margin."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "netPrim": "teminat * (olumOlasiligi / 100)",
+    "sonuc": "(teminat * (olumOlasiligi / 100)) / Math.max(0.0001, (1 - giderMarji / 100))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "TRY",
+    "breakdown": {
+      "sonuc": "Yıllık Brüt Prim"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yıllık Brüt Prim",
+        "tr": "Yıllık Brüt Prim",
+        "de": "Yıllık Brüt Prim",
+        "fr": "Yıllık Brüt Prim",
+        "es": "Yıllık Brüt Prim",
+        "ar": "Yıllık Brüt Prim"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "TRY"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review insurance coverage annually.",
+      "Consult a retirement planner for personalized strategy."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate annual term life insurance premium.",
+      "long": "Calculate annual term life insurance premium.",
+      "short_i18n": {
+        "en": "Calculate annual term life insurance premium.",
+        "tr": "Ödenmesi gereken yıllık vadeli hayat sigortası primini hesaplar.",
+        "de": "Calculate annual term life insurance premium.",
+        "fr": "Calculate annual term life insurance premium.",
+        "es": "Calculate annual term life insurance premium.",
+        "ar": "Calculate annual term life insurance premium."
+      },
+      "long_i18n": {
+        "en": "Calculate annual term life insurance premium.",
+        "tr": "Ödenmesi gereken yıllık vadeli hayat sigortası primini hesaplar.",
+        "de": "Calculate annual term life insurance premium.",
+        "fr": "Calculate annual term life insurance premium.",
+        "es": "Calculate annual term life insurance premium.",
+        "ar": "Calculate annual term life insurance premium."
+      }
+    }
+  }
+}

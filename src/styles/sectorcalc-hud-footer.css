@@ -43,15 +43,49 @@
 .sch-logo {
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   text-decoration: none;
   min-width: 0;
 }
 
-.sch-logo-svg {
-  display: block;
-  width: 40px;
-  height: 40px;
+.sch-logo-icon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: 18px;
+  height: 18px;
   flex: 0 0 auto;
+}
+
+.sch-sq {
+  width: 8px;
+  height: 8px;
+}
+
+.sch-sq-1 {
+  background: #e2e8f0;
+}
+
+.sch-sq-2 {
+  background: #cbd5e1;
+}
+
+.sch-sq-3 {
+  background: #94a3b8;
+}
+
+.sch-sq-4 {
+  background: #4a5cf5;
+}
+
+.sch-logo-text {
+  font-family: "Syne", sans-serif;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  color: #0f172a;
+  text-transform: none;
+  white-space: nowrap;
 }
 
 .sch-footer-tagline {
@@ -502,7 +536,7 @@
   }
 
   .sch-logo-text {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .sch-footer-tagline {

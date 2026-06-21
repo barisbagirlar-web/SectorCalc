@@ -1,0 +1,143 @@
+{
+  "toolName": "nakit-donusum-dongusu-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "stokGun",
+      "label": "Stok Gün",
+      "label_i18n": {
+        "en": "DIO (Days)",
+        "tr": "Stok Gün",
+        "de": "DIO (Days)",
+        "fr": "DIO (Days)",
+        "es": "DIO (Days)",
+        "ar": "DIO (Days)"
+      },
+      "type": "number",
+      "unit": "days",
+      "default": 60,
+      "min": 0,
+      "businessContext": "Stokta kalma süresi.",
+      "businessContext_i18n": {
+        "en": "Days inventory outstanding.",
+        "tr": "Stokta kalma süresi.",
+        "de": "Days inventory outstanding.",
+        "fr": "Days inventory outstanding.",
+        "es": "Days inventory outstanding.",
+        "ar": "Days inventory outstanding."
+      }
+    },
+    {
+      "id": "alacakGun",
+      "label": "Alacak Gün",
+      "label_i18n": {
+        "en": "DSO (Days)",
+        "tr": "Alacak Gün",
+        "de": "DSO (Days)",
+        "fr": "DSO (Days)",
+        "es": "DSO (Days)",
+        "ar": "DSO (Days)"
+      },
+      "type": "number",
+      "unit": "days",
+      "default": 45,
+      "min": 0,
+      "businessContext": "Tahsilat süresi.",
+      "businessContext_i18n": {
+        "en": "Days sales outstanding.",
+        "tr": "Tahsilat süresi.",
+        "de": "Days sales outstanding.",
+        "fr": "Days sales outstanding.",
+        "es": "Days sales outstanding.",
+        "ar": "Days sales outstanding."
+      }
+    },
+    {
+      "id": "borcGun",
+      "label": "Borç Gün",
+      "label_i18n": {
+        "en": "DPO (Days)",
+        "tr": "Borç Gün",
+        "de": "DPO (Days)",
+        "fr": "DPO (Days)",
+        "es": "DPO (Days)",
+        "ar": "DPO (Days)"
+      },
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 0,
+      "businessContext": "Ödeme süresi.",
+      "businessContext_i18n": {
+        "en": "Days payable outstanding.",
+        "tr": "Ödeme süresi.",
+        "de": "Days payable outstanding.",
+        "fr": "Days payable outstanding.",
+        "es": "Days payable outstanding.",
+        "ar": "Days payable outstanding."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "stokGun + alacakGun - borcGun"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "days",
+    "breakdown": {
+      "sonuc": "Nakit Dönüşüm Döngüsü (CCC)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Nakit Dönüşüm Döngüsü (CCC)",
+        "tr": "Nakit Dönüşüm Döngüsü (CCC)",
+        "de": "Nakit Dönüşüm Döngüsü (CCC)",
+        "fr": "Nakit Dönüşüm Döngüsü (CCC)",
+        "es": "Nakit Dönüşüm Döngüsü (CCC)",
+        "ar": "Nakit Dönüşüm Döngüsü (CCC)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "days"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate cash conversion cycle (CCC).",
+      "long": "Calculate cash conversion cycle (CCC).",
+      "short_i18n": {
+        "en": "Calculate cash conversion cycle (CCC).",
+        "tr": "Nakit çıkışı ile tahsilat arasındaki geçen süreyi (CCC) hesaplar.",
+        "de": "Calculate cash conversion cycle (CCC).",
+        "fr": "Calculate cash conversion cycle (CCC).",
+        "es": "Calculate cash conversion cycle (CCC).",
+        "ar": "Calculate cash conversion cycle (CCC)."
+      },
+      "long_i18n": {
+        "en": "Calculate cash conversion cycle (CCC).",
+        "tr": "Nakit çıkışı ile tahsilat arasındaki geçen süreyi (CCC) hesaplar.",
+        "de": "Calculate cash conversion cycle (CCC).",
+        "fr": "Calculate cash conversion cycle (CCC).",
+        "es": "Calculate cash conversion cycle (CCC).",
+        "ar": "Calculate cash conversion cycle (CCC)."
+      }
+    }
+  }
+}

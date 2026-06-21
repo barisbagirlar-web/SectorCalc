@@ -1,0 +1,170 @@
+{
+  "toolName": "donusturulebilir-not-hesaplama",
+  "catalogCategory": "finance-sales-working-capital",
+  "categorySlug": "finance-sales-working-capital",
+  "sector": "İşletme",
+  "sectorId": "finance-sales-working-capital",
+  "inputs": [
+    {
+      "id": "yatirim",
+      "label": "Yatırım Tutarı (TL)",
+      "label_i18n": {
+        "en": "Investment (TRY)",
+        "tr": "Yatırım Tutarı (TL)",
+        "de": "Investment (TRY)",
+        "fr": "Investment (TRY)",
+        "es": "Investment (TRY)",
+        "ar": "Investment (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 500000,
+      "min": 0,
+      "businessContext": "Nota yatırılan tutar.",
+      "businessContext_i18n": {
+        "en": "Note investment amount.",
+        "tr": "Nota yatırılan tutar.",
+        "de": "Note investment amount.",
+        "fr": "Note investment amount.",
+        "es": "Note investment amount.",
+        "ar": "Note investment amount."
+      }
+    },
+    {
+      "id": "degerleme",
+      "label": "Değerleme Tavanı (TL)",
+      "label_i18n": {
+        "en": "Valuation Cap (TRY)",
+        "tr": "Değerleme Tavanı (TL)",
+        "de": "Valuation Cap (TRY)",
+        "fr": "Valuation Cap (TRY)",
+        "es": "Valuation Cap (TRY)",
+        "ar": "Valuation Cap (TRY)"
+      },
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000000,
+      "min": 0,
+      "businessContext": "Dönüşümdeki tavan değerleme.",
+      "businessContext_i18n": {
+        "en": "Conversion valuation cap.",
+        "tr": "Dönüşümdeki tavan değerleme.",
+        "de": "Conversion valuation cap.",
+        "fr": "Conversion valuation cap.",
+        "es": "Conversion valuation cap.",
+        "ar": "Conversion valuation cap."
+      }
+    },
+    {
+      "id": "iskonto",
+      "label": "İskonto (%)",
+      "label_i18n": {
+        "en": "Discount (%)",
+        "tr": "İskonto (%)",
+        "de": "Discount (%)",
+        "fr": "Discount (%)",
+        "es": "Discount (%)",
+        "ar": "Discount (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Dönüşüm iskontosu.",
+      "businessContext_i18n": {
+        "en": "Conversion discount.",
+        "tr": "Dönüşüm iskontosu.",
+        "de": "Conversion discount.",
+        "fr": "Conversion discount.",
+        "es": "Conversion discount.",
+        "ar": "Conversion discount."
+      }
+    },
+    {
+      "id": "faiz",
+      "label": "Faiz (%)",
+      "label_i18n": {
+        "en": "Interest (%)",
+        "tr": "Faiz (%)",
+        "de": "Interest (%)",
+        "fr": "Interest (%)",
+        "es": "Interest (%)",
+        "ar": "Interest (%)"
+      },
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "businessContext": "Notun birikmiş faizi.",
+      "businessContext_i18n": {
+        "en": "Accrued interest.",
+        "tr": "Notun birikmiş faizi.",
+        "de": "Accrued interest.",
+        "fr": "Accrued interest.",
+        "es": "Accrued interest.",
+        "ar": "Accrued interest."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "donusumFiyati": "degerleme * (1 - iskonto / 100)",
+    "sonuc": "(yatirim * (1 + faiz / 100)) / Math.max(0.0001, (degerleme * (1 - iskonto / 100)))"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "shares",
+    "breakdown": {
+      "sonuc": "Dönüşüm Sonrası Hisse"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Dönüşüm Sonrası Hisse",
+        "tr": "Dönüşüm Sonrası Hisse",
+        "de": "Dönüşüm Sonrası Hisse",
+        "fr": "Dönüşüm Sonrası Hisse",
+        "es": "Dönüşüm Sonrası Hisse",
+        "ar": "Dönüşüm Sonrası Hisse"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "shares"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Verify financial projections with actual data.",
+      "Review assumptions quarterly."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate shares received from convertible note conversion.",
+      "long": "Calculate shares received from convertible note conversion.",
+      "short_i18n": {
+        "en": "Calculate shares received from convertible note conversion.",
+        "tr": "Borç senedinin hisseye dönüşmesiyle alınan hisse adedini hesaplar.",
+        "de": "Calculate shares received from convertible note conversion.",
+        "fr": "Calculate shares received from convertible note conversion.",
+        "es": "Calculate shares received from convertible note conversion.",
+        "ar": "Calculate shares received from convertible note conversion."
+      },
+      "long_i18n": {
+        "en": "Calculate shares received from convertible note conversion.",
+        "tr": "Borç senedinin hisseye dönüşmesiyle alınan hisse adedini hesaplar.",
+        "de": "Calculate shares received from convertible note conversion.",
+        "fr": "Calculate shares received from convertible note conversion.",
+        "es": "Calculate shares received from convertible note conversion.",
+        "ar": "Calculate shares received from convertible note conversion."
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "toolName": "bina-gunuslenme-analiz-hesaplama",
+  "catalogCategory": "other",
+  "categorySlug": "other",
+  "sector": "Spor, Mimari, Robotik ve Hukuk",
+  "sectorId": "other",
+  "inputs": [
+    {
+      "id": "enlem",
+      "label": "Enlem (Derece)",
+      "label_i18n": {
+        "en": "Latitude (Deg)",
+        "tr": "Enlem (Derece)",
+        "de": "Latitude (Deg)",
+        "fr": "Latitude (Deg)",
+        "es": "Latitude (Deg)",
+        "ar": "Latitude (Deg)"
+      },
+      "type": "number",
+      "unit": "degrees",
+      "default": 41,
+      "min": 0,
+      "businessContext": "Binanın bulunduğu enlem.",
+      "businessContext_i18n": {
+        "en": "Building latitude.",
+        "tr": "Binanın bulunduğu enlem.",
+        "de": "Building latitude.",
+        "fr": "Building latitude.",
+        "es": "Building latitude.",
+        "ar": "Building latitude."
+      }
+    },
+    {
+      "id": "gunSayisi",
+      "label": "Yılın Günü (1-365)",
+      "label_i18n": {
+        "en": "Day of Year (1-365)",
+        "tr": "Yılın Günü (1-365)",
+        "de": "Day of Year (1-365)",
+        "fr": "Day of Year (1-365)",
+        "es": "Day of Year (1-365)",
+        "ar": "Day of Year (1-365)"
+      },
+      "type": "number",
+      "unit": "day",
+      "default": 172,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Hesaplanan gün.",
+      "businessContext_i18n": {
+        "en": "Target day.",
+        "tr": "Hesaplanan gün.",
+        "de": "Target day.",
+        "fr": "Target day.",
+        "es": "Target day.",
+        "ar": "Target day."
+      }
+    },
+    {
+      "id": "engelYukseklik",
+      "label": "Engel Yüksekliği (m)",
+      "label_i18n": {
+        "en": "Obstacle Height (m)",
+        "tr": "Engel Yüksekliği (m)",
+        "de": "Obstacle Height (m)",
+        "fr": "Obstacle Height (m)",
+        "es": "Obstacle Height (m)",
+        "ar": "Obstacle Height (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "min": 0,
+      "businessContext": "Komşu bina/engel yüksekliği.",
+      "businessContext_i18n": {
+        "en": "Neighboring building height.",
+        "tr": "Komşu bina/engel yüksekliği.",
+        "de": "Neighboring building height.",
+        "fr": "Neighboring building height.",
+        "es": "Neighboring building height.",
+        "ar": "Neighboring building height."
+      }
+    },
+    {
+      "id": "mesafe",
+      "label": "Engel-Bina Mesafesi (m)",
+      "label_i18n": {
+        "en": "Obstacle-Building Distance (m)",
+        "tr": "Engel-Bina Mesafesi (m)",
+        "de": "Obstacle-Building Distance (m)",
+        "fr": "Obstacle-Building Distance (m)",
+        "es": "Obstacle-Building Distance (m)",
+        "ar": "Obstacle-Building Distance (m)"
+      },
+      "type": "number",
+      "unit": "m",
+      "default": 15,
+      "min": 0,
+      "businessContext": "İki bina arası mesafe.",
+      "businessContext_i18n": {
+        "en": "Distance between buildings.",
+        "tr": "İki bina arası mesafe.",
+        "de": "Distance between buildings.",
+        "fr": "Distance between buildings.",
+        "es": "Distance between buildings.",
+        "ar": "Distance between buildings."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "golgeAcisi": "Math.atan(engelYukseklik / Math.max(0.0001, mesafe))",
+    "sonuc": "(Math.atan(engelYukseklik / Math.max(0.0001, mesafe)) * 180 / Math.PI) / 15 * 2"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "hours",
+    "breakdown": {
+      "sonuc": "Tahmini Gölge Süresi"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Tahmini Gölge Süresi",
+        "tr": "Tahmini Gölge Süresi",
+        "de": "Tahmini Gölge Süresi",
+        "fr": "Tahmini Gölge Süresi",
+        "es": "Tahmini Gölge Süresi",
+        "ar": "Tahmini Gölge Süresi"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "hours"
+    },
+    "hiddenLossDrivers": [
+      "High asymmetry increases injury risk.",
+      "Low H-index may indicate limited academic impact."
+    ],
+    "suggestedActions": [
+      "Balance training for injury prevention.",
+      "Use peer review to validate research quality."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Calculate daily shadow duration on building facade due to obstacles.",
+      "long": "Calculate daily shadow duration on building facade due to obstacles.",
+      "short_i18n": {
+        "en": "Calculate daily shadow duration on building facade due to obstacles.",
+        "tr": "Engel nedeniyle cephenin güneşsiz kaldığı toplam süreyi (günışığı analizi) hesaplar.",
+        "de": "Calculate daily shadow duration on building facade due to obstacles.",
+        "fr": "Calculate daily shadow duration on building facade due to obstacles.",
+        "es": "Calculate daily shadow duration on building facade due to obstacles.",
+        "ar": "Calculate daily shadow duration on building facade due to obstacles."
+      },
+      "long_i18n": {
+        "en": "Calculate daily shadow duration on building facade due to obstacles.",
+        "tr": "Engel nedeniyle cephenin güneşsiz kaldığı toplam süreyi (günışığı analizi) hesaplar.",
+        "de": "Calculate daily shadow duration on building facade due to obstacles.",
+        "fr": "Calculate daily shadow duration on building facade due to obstacles.",
+        "es": "Calculate daily shadow duration on building facade due to obstacles.",
+        "ar": "Calculate daily shadow duration on building facade due to obstacles."
+      }
+    }
+  }
+}

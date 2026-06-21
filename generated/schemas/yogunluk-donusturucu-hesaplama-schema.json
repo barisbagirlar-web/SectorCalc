@@ -1,0 +1,118 @@
+{
+  "toolName": "yogunluk-donusturucu-hesaplama",
+  "catalogCategory": "process-chemical",
+  "categorySlug": "process-chemical",
+  "sector": "Fizik, Kimya ve Malzeme",
+  "sectorId": "process-chemical",
+  "inputs": [
+    {
+      "id": "deger",
+      "label": "Yoğunluk Değeri",
+      "label_i18n": {
+        "en": "Density Value",
+        "tr": "Yoğunluk Değeri",
+        "de": "Density Value",
+        "fr": "Density Value",
+        "es": "Density Value",
+        "ar": "Density Value"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Dönüştürülecek yoğunluk değeri.",
+      "businessContext_i18n": {
+        "en": "Density value to convert.",
+        "tr": "Dönüştürülecek yoğunluk değeri.",
+        "de": "Density value to convert.",
+        "fr": "Density value to convert.",
+        "es": "Density value to convert.",
+        "ar": "Density value to convert."
+      }
+    },
+    {
+      "id": "kaynak",
+      "label": "Kaynak Birim (kgm3/gcm3/lbft3)",
+      "label_i18n": {
+        "en": "Source Unit (kgm3/gcm3/lbft3)",
+        "tr": "Kaynak Birim (kgm3/gcm3/lbft3)",
+        "de": "Source Unit (kgm3/gcm3/lbft3)",
+        "fr": "Source Unit (kgm3/gcm3/lbft3)",
+        "es": "Source Unit (kgm3/gcm3/lbft3)",
+        "ar": "Source Unit (kgm3/gcm3/lbft3)"
+      },
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "businessContext": "Girilen değerin birimi.",
+      "businessContext_i18n": {
+        "en": "Unit of input value.",
+        "tr": "Girilen değerin birimi.",
+        "de": "Unit of input value.",
+        "fr": "Unit of input value.",
+        "es": "Unit of input value.",
+        "ar": "Unit of input value."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be positive numbers."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "sonuc": "kaynak === 1 ? deger : kaynak === 2 ? deger * 1000 : deger * 16.018"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "unit": "kg/m3",
+    "breakdown": {
+      "sonuc": "Yoğunluk (kg/m³)"
+    },
+    "breakdown_i18n": {
+      "sonuc": {
+        "en": "Yoğunluk (kg/m³)",
+        "tr": "Yoğunluk (kg/m³)",
+        "de": "Yoğunluk (kg/m³)",
+        "fr": "Yoğunluk (kg/m³)",
+        "es": "Yoğunluk (kg/m³)",
+        "ar": "Yoğunluk (kg/m³)"
+      }
+    },
+    "breakdownUnits": {
+      "sonuc": "kg/m3"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Use calibrated equipment for measurements.",
+      "Consider temperature effects on material properties."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumRequired": false,
+  "premiumFeatures": [],
+  "about": {
+    "description": {
+      "short": "Convert density values from various units to kg/m³.",
+      "long": "Convert density values from various units to kg/m³.",
+      "short_i18n": {
+        "en": "Convert density values from various units to kg/m³.",
+        "tr": "Farklı birimlerdeki yoğunluk değerini kg/m³ SI birimine dönüştürür.",
+        "de": "Convert density values from various units to kg/m³.",
+        "fr": "Convert density values from various units to kg/m³.",
+        "es": "Convert density values from various units to kg/m³.",
+        "ar": "Convert density values from various units to kg/m³."
+      },
+      "long_i18n": {
+        "en": "Convert density values from various units to kg/m³.",
+        "tr": "Farklı birimlerdeki yoğunluk değerini kg/m³ SI birimine dönüştürür.",
+        "de": "Convert density values from various units to kg/m³.",
+        "fr": "Convert density values from various units to kg/m³.",
+        "es": "Convert density values from various units to kg/m³.",
+        "ar": "Convert density values from various units to kg/m³."
+      }
+    }
+  }
+}
