@@ -24,7 +24,7 @@ const DEFAULT_DOMAIN = "https://www.sectorcalc.com";
 
 function ToolListItems({ tools }: { tools: readonly ToolListItem[] }) {
   return (
-    <div className="grid grid-cols-1 gap-x-6 gap-y-[10px] md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-x-6 gap-y-[10px] sm:grid-cols-2 lg:grid-cols-3">
       {tools.map((tool) => (
         <div key={tool.slug} className="flex items-baseline gap-1.5 min-w-0">
           <span className="text-gray-400 shrink-0 select-none text-sm leading-5" aria-hidden="true">

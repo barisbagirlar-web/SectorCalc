@@ -34,7 +34,7 @@ const MARKERS = {
   ar: [/[\u0600-\u06FF]/],
 };
 
-const LEAK_SUFFIX_RE = /^(?:[\s\-–—]*)(?:hesaplama|hesaplayıcı|hesaplayici|araci|aracı|dönüştürücü|donusturucu|dengeleyici|kontrol|tahmincisi|tahminci|analizoru|analizörü|rechner|umrechner|calculator|converter|calculateur|calculadora|convertisseur|convertidor|محول|حاسبة|تحويل|آلة حاسبة|конвертер|калькулятор)[\s\-–—]*$/i;
+const LEAK_SUFFIX_RE = /^(?:[\s\-–—]*)(?:hesaplama|hesaplayıcı|hesaplayici|araci|aracı|dönüştürücü|donusturucu|dengeleyici|kontrol|tahmincisi|tahminci|analizoru|analizörü)[\s\-–—]*$/i;
 
 /**
  * Check if a locale value looks properly localized.

@@ -1,0 +1,43 @@
+---
+description: Permanent listing DNA — 3-column bullet list for all tool catalogs
+globs: src/**/*.{tsx,ts}
+alwaysApply: true
+---
+
+# Tool listing bullet DNA (permanent — locked)
+
+All tool catalog listing (`free-tools`, `pro-tools`, category pages, industry hubs, search results) must use the **bullet list** style as the default listing DNA.
+
+## Grid specification (locked)
+
+```
+grid grid-cols-1 gap-x-6 gap-y-[10px] sm:grid-cols-2 lg:grid-cols-3
+```
+
+Breakpoints:
+- **Mobile** (default): 1 column
+- **Small** (`sm`): 2 columns
+- **Large** (`lg`): 3 columns — maximum width
+
+## Required components
+
+- **`ToolAlphaList`** (`src/components/tools/ToolAlphaList.tsx`) — single bullet-list component for tool lists
+- Use `ToolAlphaList` via `ToolListItems` inner component for the bullet grid
+
+## Rules
+
+- Every tool listing section must display tools in **3-column grid** (`lg:grid-cols-3`) as the maximum width.
+- Never use single-column vertical stacks for tool lists.
+- Never use 2-column-only grids (`md:grid-cols-2` without `lg:grid-cols-3`).
+- The A-Z index sections already use `lg:grid-cols-3` — keep them in sync.
+- `ToolAlphaList` is the single source of truth for bullet list grid; change it once, all listings update.
+
+## Visual style
+
+- Each tool: bullet (`&bull;`) + link with `text-blue-700 hover:text-blue-800 hover:underline truncate`
+- No card backgrounds, no borders, no arrow icons in listing sections
+- The category detail panel in `CategoryCatalogView` may use card-style items, but the main catalog listing goes through `ToolAlphaList`
+
+## Component source
+
+`src/components/tools/ToolAlphaList.tsx` — edit grid classes here for global change.
