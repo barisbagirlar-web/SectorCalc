@@ -1,0 +1,300 @@
+{
+  "slug": "hurda-orani-optimize",
+  "name": "HURDA ORANI OPTİMİZE",
+  "description": "HURDA ORANI OPTİMİZE premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "girdiHurda",
+      "label": "Girdi/Hurda",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Girdi/Hurda",
+        "tr": "Girdi/Hurda",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "nedenler",
+      "label": "Nedenler",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Nedenler",
+        "tr": "Nedenler",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hammaddeMakine",
+      "label": "Hammadde/Makine",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hammadde/Makine",
+        "tr": "Hammadde/Makine",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "salvage",
+      "label": "Salvage",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Salvage",
+        "tr": "Salvage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hedef",
+      "label": "Hedef",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hedef",
+        "tr": "Hedef",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "marj",
+      "label": "Marj",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Marj",
+        "tr": "Marj",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "scrapRate",
+      "label": "ScrapRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ScrapRate",
+        "tr": "ScrapRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "costMat",
+      "label": "Cost_Mat",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Mat",
+        "tr": "Cost_Mat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "costLab",
+      "label": "Cost_Lab",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Lab",
+        "tr": "Cost_Lab",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "costOH",
+      "label": "Cost_OH",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_OH",
+        "tr": "Cost_OH",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "oppCost",
+      "label": "OppCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OppCost",
+        "tr": "OppCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "totalCost",
+      "label": "TotalCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalCost",
+        "tr": "TotalCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "pareto",
+      "label": "Pareto",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Pareto",
+        "tr": "Pareto",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "7": {
+      "id": "target",
+      "label": "Target",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Target",
+        "tr": "Target",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "scrap",
+  "formulas": {
+    "normalized_product": "girdiHurda * nedenler * hammaddeMakine * salvage",
+    "result": "girdiHurda * nedenler * hammaddeMakine * salvage * (hedef * marj)",
+    "adjustment_factor": "hedef * marj"
+  }
+}

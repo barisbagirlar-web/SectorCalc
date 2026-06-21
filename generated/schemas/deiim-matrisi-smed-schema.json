@@ -1,0 +1,280 @@
+{
+  "slug": "deiim-matrisi-smed",
+  "name": "DEĞİŞİM MATRİSİ SMED",
+  "description": "DEĞİŞİM MATRİSİ SMED premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "IcDısAyarSuresi",
+      "label": "İç/Dış Ayar Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İç/Dış Ayar Süresi",
+        "tr": "İç/Dış Ayar Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "aylıkDegisim",
+      "label": "Aylık Değişim",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Aylık Değişim",
+        "tr": "Aylık Değişim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "donusturmeOranı",
+      "label": "Dönüştürme Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Dönüştürme Oranı",
+        "tr": "Dönüştürme Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yıllıkTalep",
+      "label": "Yıllık Talep",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık Talep",
+        "tr": "Yıllık Talep",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tasımaMaliyeti",
+      "label": "Taşıma Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Taşıma Maliyeti",
+        "tr": "Taşıma Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "makine Ucreti",
+      "label": "Makine Ücreti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Makine Ücreti",
+        "tr": "Makine Ücreti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tInternal",
+      "label": "T_internal",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "T_internal",
+        "tr": "T_internal",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tExternal",
+      "label": "T_external",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "T_external",
+        "tr": "T_external",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tTotal",
+      "label": "T_total",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "T_total",
+        "tr": "T_total",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tTarget",
+      "label": "T_target",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "T_target",
+        "tr": "T_target",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "eBQ",
+      "label": "EBQ",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EBQ",
+        "tr": "EBQ",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "setupCost",
+      "label": "SetupCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SetupCost",
+        "tr": "SetupCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "annualSavings",
+      "label": "AnnualSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AnnualSavings",
+        "tr": "AnnualSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "capacityGain",
+      "label": "CapacityGain",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CapacityGain",
+        "tr": "CapacityGain",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "time"
+}

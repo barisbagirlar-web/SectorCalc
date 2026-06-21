@@ -1,0 +1,486 @@
+{
+  "slug": "oee-six-big-losses-analyzer",
+  "name": "OEE & Six Big Losses Analyzer",
+  "description": "Ekipman verimliliği OEE, TEEP ve Altı Büyük Kayıp analizi olmadan gerçek üretim kaybı tespit edilemez.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "plannedTime",
+      "label": "Planlanan Üretim Süresi",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Planlanan Üretim Süresi",
+        "tr": "Planlanan Üretim Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "downtime",
+      "label": "Toplam Durma Süresi",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Durma Süresi",
+        "tr": "Toplam Durma Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "idealCycleTime",
+      "label": "İdeal Çevrim Süresi",
+      "type": "number",
+      "unit": "dk/adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İdeal Çevrim Süresi",
+        "tr": "İdeal Çevrim Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalCount",
+      "label": "Toplam Üretim Adedi",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Üretim Adedi",
+        "tr": "Toplam Üretim Adedi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "goodCount",
+      "label": "Sağlam Parça Adedi",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sağlam Parça Adedi",
+        "tr": "Sağlam Parça Adedi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "allTime",
+      "label": "Toplam Kullanılabilir Süre",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Kullanılabilir Süre",
+        "tr": "Toplam Kullanılabilir Süre",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "breakdownCount",
+      "label": "Arıza Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Arıza Sayısı",
+        "tr": "Arıza Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "operatingTime",
+      "label": "Çalışma Süresi",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çalışma Süresi",
+        "tr": "Çalışma Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "setupLoss",
+      "label": "Setup/Adjustman Kaybı",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Setup/Adjustman Kaybı",
+        "tr": "Setup/Adjustman Kaybı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "breakdownLoss",
+      "label": "Arıza Kaybı",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Arıza Kaybı",
+        "tr": "Arıza Kaybı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "speedLoss",
+      "label": "Hız Kaybı",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hız Kaybı",
+        "tr": "Hız Kaybı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "minorStopLoss",
+      "label": "Küçük Duruş Kaybı",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Küçük Duruş Kaybı",
+        "tr": "Küçük Duruş Kaybı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "defectLoss",
+      "label": "Hatalı Ürün Kaybı",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hatalı Ürün Kaybı",
+        "tr": "Hatalı Ürün Kaybı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yieldLoss",
+      "label": "Verim Kaybı",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Verim Kaybı",
+        "tr": "Verim Kaybı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "oee",
+      "label": "OEE",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "OEE",
+        "tr": "OEE",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "availability",
+      "label": "Kullanılabilirlik (A)",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "Kullanılabilirlik (A)",
+        "tr": "Kullanılabilirlik (A)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "performance",
+      "label": "Performans (P)",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "Performans (P)",
+        "tr": "Performans (P)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "quality",
+      "label": "Kalite (Q)",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "Kalite (Q)",
+        "tr": "Kalite (Q)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "teep",
+      "label": "TEEP",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "TEEP",
+        "tr": "TEEP",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "mtbf",
+      "label": "MTBF",
+      "unit": "dk",
+      "format": "number",
+      "label_i18n": {
+        "en": "MTBF",
+        "tr": "MTBF",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "mttr",
+      "label": "MTTR",
+      "unit": "dk",
+      "format": "number",
+      "label_i18n": {
+        "en": "MTTR",
+        "tr": "MTTR",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "oee",
+  "formulas": {
+    "normalized_product": "plannedTime * downtime * idealCycleTime * totalCount",
+    "result": "plannedTime * downtime * idealCycleTime * totalCount * (goodCount * allTime * breakdownCount * operatingTime * setupLoss * breakdownLoss * speedLoss * minorStopLoss * defectLoss * yieldLoss)",
+    "adjustment_factor": "goodCount * allTime * breakdownCount * operatingTime * setupLoss * breakdownLoss * speedLoss * minorStopLoss * defectLoss * yieldLoss"
+  }
+}

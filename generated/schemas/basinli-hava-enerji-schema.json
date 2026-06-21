@@ -1,0 +1,238 @@
+{
+  "slug": "basinli-hava-enerji",
+  "name": "BASINÇLI HAVA ENERJİ",
+  "description": "BASINÇLI HAVA ENERJİ premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "kompresorGucu",
+      "label": "Kompresör Gücü",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kompresör Gücü",
+        "tr": "Kompresör Gücü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CalısmaSaati",
+      "label": "Çalışma Saati",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çalışma Saati",
+        "tr": "Çalışma Saati",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yukOranı",
+      "label": "Yük Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yük Oranı",
+        "tr": "Yük Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IzotermalMotorVerimi",
+      "label": "İzotermal/Motor Verimi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İzotermal/Motor Verimi",
+        "tr": "İzotermal/Motor Verimi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "elektrikTarifesi",
+      "label": "Elektrik Tarifesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Elektrik Tarifesi",
+        "tr": "Elektrik Tarifesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "asırıBasıncDusumu",
+      "label": "Aşırı Basınç Düşümü",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Aşırı Basınç Düşümü",
+        "tr": "Aşırı Basınç Düşümü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "compressorPower",
+      "label": "CompressorPower",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CompressorPower",
+        "tr": "CompressorPower",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "specificPower",
+      "label": "SpecificPower",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SpecificPower",
+        "tr": "SpecificPower",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "annualEnergyCost",
+      "label": "AnnualEnergyCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AnnualEnergyCost",
+        "tr": "AnnualEnergyCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "leakageCost",
+      "label": "LeakageCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LeakageCost",
+        "tr": "LeakageCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalAnnualCost",
+      "label": "TotalAnnualCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalAnnualCost",
+        "tr": "TotalAnnualCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

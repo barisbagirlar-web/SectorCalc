@@ -1,0 +1,227 @@
+{
+  "slug": "cbam-maruziyet",
+  "name": "CBAM MARUZİYET",
+  "description": "CBAM MARUZİYET premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "UretimHacmi",
+      "label": "Üretim Hacmi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Üretim Hacmi",
+        "tr": "Üretim Hacmi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gazKomurElektrikTuketimi",
+      "label": "Gaz/Kömür/Elektrik Tüketimi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gaz/Kömür/Elektrik Tüketimi",
+        "tr": "Gaz/Kömür/Elektrik Tüketimi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "prosesEmisyonu",
+      "label": "Proses Emisyonu",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Proses Emisyonu",
+        "tr": "Proses Emisyonu",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yenilenebilirOranı",
+      "label": "Yenilenebilir Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yenilenebilir Oranı",
+        "tr": "Yenilenebilir Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "eUETSFiyatı",
+      "label": "EU ETS Fiyatı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "EU ETS Fiyatı",
+        "tr": "EU ETS Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "directEmissions",
+      "label": "DirectEmissions",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DirectEmissions",
+        "tr": "DirectEmissions",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "indirectEmissions",
+      "label": "IndirectEmissions",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "IndirectEmissions",
+        "tr": "IndirectEmissions",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "carbonIntensity",
+      "label": "CarbonIntensity",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CarbonIntensity",
+        "tr": "CarbonIntensity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cBAMCertificateCost",
+      "label": "CBAMCertificateCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CBAMCertificateCost",
+        "tr": "CBAMCertificateCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "freeAllowance",
+      "label": "FreeAllowance",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FreeAllowance",
+        "tr": "FreeAllowance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "complianceScore",
+      "label": "ComplianceScore",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ComplianceScore",
+        "tr": "ComplianceScore",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

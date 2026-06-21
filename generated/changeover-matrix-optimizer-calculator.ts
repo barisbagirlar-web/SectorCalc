@@ -33,7 +33,7 @@ function evaluateAllFormulas(input: Changeover_matrix_optimizer_calculatorInput)
   try { const v = input.number_of_changeovers_per_month * input.changeover_time_matrix; results["total_changeover_downtime"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["total_changeover_downtime"] = Number.NaN; }
   try { const v = input.setup_internal_time - (input.setup_external_time * 0.5); results["smed_reduction_potential"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["smed_reduction_potential"] = Number.NaN; }
   try { const v = (input.changeover_time_matrix - input.setup_internal_time) / (input.standard_deviation_changeover_time + 0.001); results["six_sigma_sigma_level"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["six_sigma_sigma_level"] = Number.NaN; }
-  try { const v = (toNumericFormulaValue(results["total_changeover_downtime"])) * (1 - (input.lean_smed_implemented === 'yes' ? 0.3 : 0)) * (1 + (input.product_family_count - 1) * 0.05) * (1 + (input.standard_deviation_changeover_time / (input.changeover_time_matrix + 0.001)) * 0.2); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
+  try { const v = (toNumericFormulaValue(results["total_changeover_downtime"])) * (1 - (input.lean_smed_implemented ? 0.3 : 0)) * (1 + (input.product_family_count - 1) * 0.05) * (1 + (input.standard_deviation_changeover_time / (input.changeover_time_matrix + 0.001)) * 0.2); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
   return results;
 }
 

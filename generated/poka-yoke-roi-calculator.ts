@@ -1,84 +1,40 @@
-// Auto-generated from poka-yoke-roi-calculator-schema.json
+// Auto-generated premium calculator: poka-yoke-roi
 import * as z from 'zod';
 
-export interface Poka_yoke_roi_calculatorInput {
-  annual_units: number;
-  current_defect_rate: number;
-  defect_cost_per_unit: number;
-  poka_yoke_effectiveness: string;
-  implementation_cost: number;
-  annual_maintenance_cost: number;
-  labor_hours_saved_per_year: number;
-  labor_rate: number;
-  dataConfidence?: number;
+export interface PokaYokeRoiInput {
+  mevcutHataOranı: number;
+  hataBasınaMaliyet: number;
+  etkililik: number;
+  yıllık Uretim: number;
+  tasarımUygulamaEgitimMaliyeti: number;
+  yıllıkBakımMaliyeti: number;
 }
 
-export const Poka_yoke_roi_calculatorInputSchema = z.object({
-  annual_units: z.number().min(1000).max(10000000).default(100000),
-  current_defect_rate: z.number().min(10).max(100000).default(5000),
-  defect_cost_per_unit: z.number().min(0.5).max(5000).default(25),
-  poka_yoke_effectiveness: z.enum(['80', '90', '95', '99']).default('95'),
-  implementation_cost: z.number().min(500).max(500000).default(15000),
-  annual_maintenance_cost: z.number().min(0).max(50000).default(2000),
-  labor_hours_saved_per_year: z.number().min(0).max(10000).default(500),
-  labor_rate: z.number().min(10).max(150).default(35),
+export const PokaYokeRoiInputSchema = z.object({
+  mevcutHataOranı: z.number().min(0).default(0),
+  hataBasınaMaliyet: z.number().min(0).default(0),
+  etkililik: z.number().min(0).default(0),
+  yıllık Uretim: z.number().min(0).default(0),
+  tasarımUygulamaEgitimMaliyeti: z.number().min(0).default(0),
+  yıllıkBakımMaliyeti: z.number().min(0).default(0),
 });
 
-function toNumericFormulaValue(value: number): number {
+function toNumericFormulaValue(value) {
   return Number.isFinite(value) ? value : Number.NaN;
 }
 
-function evaluateAllFormulas(input: Poka_yoke_roi_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.annual_units * input.defect_cost_per_unit; results["base_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["base_cost"] = Number.NaN; }
-  try { const v = input.annual_units * input.defect_cost_per_unit * (1 + (input.current_defect_rate / 100)); results["adjusted_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["adjusted_cost"] = Number.NaN; }
-  try { const v = input.annual_units * input.defect_cost_per_unit * (1 + (input.current_defect_rate / 100)) * (input.implementation_cost); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.implementation_cost; results["factor_implementation_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_implementation_cost"] = Number.NaN; }
+function evaluateAllFormulas(input) {
+  const results = {};
+  try { const v = input.defects * input.totalUnits; results["currentDefectRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["currentDefectRate"] = Number.NaN; }
+  try { const v = input.currentDefectRate * input.totalUnits * input.costPerDefect; results["defectCostAnnual"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["defectCostAnnual"] = Number.NaN; }
+  try { const v = input.design * input.implementation * input.training * input.maintenance; results["pokaYokeCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["pokaYokeCost"] = Number.NaN; }
+  try { const v = input.currentDefectRate * input.effectiveness; results["newDefectRate"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["newDefectRate"] = Number.NaN; }
+  try { const v = input.currentDefectRate * input.newDefectRate * input.totalUnits * input.costPerDefect; results["savings"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["savings"] = Number.NaN; }
+  try { const v = input.savings * input.pokaYokeCost; results["rOI"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["rOI"] = Number.NaN; }
+  try { const v = input.pokaYokeCost * input.savings; results["paybackMonths"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["paybackMonths"] = Number.NaN; }
   return results;
 }
 
-
-export function calculatePoka_yoke_roi_calculator(input: Poka_yoke_roi_calculatorInput): Poka_yoke_roi_calculatorOutput {
-  const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
-  const breakdown = {
-    base_cost: toNumericFormulaValue(values["base_cost"]),
-    adjusted_cost: toNumericFormulaValue(values["adjusted_cost"]),
-    factor_implementation_cost: toNumericFormulaValue(values["factor_implementation_cost"])
-  };
-  const hiddenLossDrivers: string[] = ["Scrap and rework not in unit price","Volume discount not applied"];
-  const suggestedActions: string[] = ["Reconcile unit cost with last PO","Stress-test with +10% waste"];
-  const dataConfidenceAdjusted =
-    typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
-      : totalWasteCost;
-  return {
-    totalWasteCost,
-    breakdown,
-    hiddenLossDrivers,
-    suggestedActions,
-    dataConfidenceAdjusted,
-    unit: "USD",
-    premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario comparison","Custom dashboard"],
-  };
+export function calculatePokaYokeRoi(input) {
+  return evaluateAllFormulas(input);
 }
-
-
-export interface Poka_yoke_roi_calculatorOutput {
-  totalWasteCost: number;
-  unit: string;
-  breakdown: { base_cost: number; adjusted_cost: number; factor_implementation_cost: number };
-  hiddenLossDrivers: string[];
-  suggestedActions: string[];
-  dataConfidenceAdjusted: number;
-  premiumRequired: boolean;
-  premiumFeatures: string[];
-};
-
-export const Poka_yoke_roi_calculatorOutputMeta = {
-  primaryKey: "result",
-  unit: "USD",
-  breakdownKeys: ["base_cost","adjusted_cost","factor_implementation_cost"],
-} as const;
-

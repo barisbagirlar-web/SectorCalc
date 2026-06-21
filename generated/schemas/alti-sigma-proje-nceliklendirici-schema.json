@@ -1,0 +1,277 @@
+{
+  "slug": "alti-sigma-proje-nceliklendirici",
+  "name": "ALTI SİGMA PROJE ÖNCELİKLENDİRİCİ",
+  "description": "ALTI SİGMA PROJE ÖNCELİKLENDİRİCİ premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "UretimHacmi",
+      "label": "Üretim Hacmi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Üretim Hacmi",
+        "tr": "Üretim Hacmi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hatalıBirim",
+      "label": "Hatalı Birim",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hatalı Birim",
+        "tr": "Hatalı Birim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hataFırsatı",
+      "label": "Hata Fırsatı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hata Fırsatı",
+        "tr": "Hata Fırsatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IcDısBasarısızlıkMaliyeti",
+      "label": "İç/Dış Başarısızlık Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İç/Dış Başarısızlık Maliyeti",
+        "tr": "İç/Dış Başarısızlık Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mevcutZbench",
+      "label": "Mevcut Z_bench",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mevcut Z_bench",
+        "tr": "Mevcut Z_bench",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hedefSigma",
+      "label": "Hedef Sigma",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hedef Sigma",
+        "tr": "Hedef Sigma",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kurtarmaOlasılıgı",
+      "label": "Kurtarma Olasılığı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kurtarma Olasılığı",
+        "tr": "Kurtarma Olasılığı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dPMO",
+      "label": "DPMO",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DPMO",
+        "tr": "DPMO",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yield",
+      "label": "Yield",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Yield",
+        "tr": "Yield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "zBench",
+      "label": "Z_bench",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Z_bench",
+        "tr": "Z_bench",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sigmaLevel",
+      "label": "SigmaLevel",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SigmaLevel",
+        "tr": "SigmaLevel",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cOPQ",
+      "label": "COPQ",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "COPQ",
+        "tr": "COPQ",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "projectScore",
+      "label": "ProjectScore",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ProjectScore",
+        "tr": "ProjectScore",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

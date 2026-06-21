@@ -269,7 +269,7 @@
     "total_changeover_downtime": "number_of_changeovers_per_month * changeover_time_matrix",
     "smed_reduction_potential": "setup_internal_time - (setup_external_time * 0.5)",
     "six_sigma_sigma_level": "(changeover_time_matrix - setup_internal_time) / (standard_deviation_changeover_time + 0.001)",
-    "result": "total_changeover_downtime * (1 - (lean_smed_implemented === 'yes' ? 0.3 : 0)) * (1 + (product_family_count - 1) * 0.05) * (1 + (standard_deviation_changeover_time / (changeover_time_matrix + 0.001)) * 0.2)"
+    "result": "total_changeover_downtime * (1 - (lean_smed_implemented ? 0.3 : 0)) * (1 + (product_family_count - 1) * 0.05) * (1 + (standard_deviation_changeover_time / (changeover_time_matrix + 0.001)) * 0.2)"
   },
   "outputs": {
     "primary": "result",

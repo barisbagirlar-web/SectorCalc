@@ -1,84 +1,41 @@
-// Auto-generated from overtime-vs-hiring-breakeven-calculator-schema.json
+// Auto-generated premium calculator: overtime-vs-hiring-breakeven
 import * as z from 'zod';
 
-export interface Overtime_vs_hiring_breakeven_calculatorInput {
-  current_headcount: number;
-  avg_hourly_wage: number;
-  overtime_premium: number;
-  overtime_hours_per_week: number;
-  hiring_cost_per_fte: number;
-  annual_benefits_cost_per_fte: number;
-  productivity_factor_overtime: number;
-  productivity_factor_new_hire: number;
-  dataConfidence?: number;
+export interface OvertimeVsHiringBreakevenInput {
+  IseAlımEgitimMaliyeti: number;
+  yanHaklar: number;
+  normalFazlaMesai Ucreti: number;
+  mesai Carpanı: number;
+  yorgunlukHataOranı: number;
+  hataMaliyeti: number;
+  beklenenMesaiSaati: number;
 }
 
-export const Overtime_vs_hiring_breakeven_calculatorInputSchema = z.object({
-  current_headcount: z.number().min(1).max(10000).default(50),
-  avg_hourly_wage: z.number().min(7.25).max(200).default(25),
-  overtime_premium: z.number().min(1).max(3).default(1.5),
-  overtime_hours_per_week: z.number().min(0).max(60).default(10),
-  hiring_cost_per_fte: z.number().min(0).max(100000).default(5000),
-  annual_benefits_cost_per_fte: z.number().min(0).max(100000).default(12000),
-  productivity_factor_overtime: z.number().min(50).max(100).default(85),
-  productivity_factor_new_hire: z.number().min(10).max(100).default(70),
+export const OvertimeVsHiringBreakevenInputSchema = z.object({
+  IseAlımEgitimMaliyeti: z.number().min(0).default(0),
+  yanHaklar: z.number().min(0).default(0),
+  normalFazlaMesai Ucreti: z.number().min(0).default(0),
+  mesai Carpanı: z.number().min(0).default(0),
+  yorgunlukHataOranı: z.number().min(0).default(0),
+  hataMaliyeti: z.number().min(0).default(0),
+  beklenenMesaiSaati: z.number().min(0).default(0),
 });
 
-function toNumericFormulaValue(value: number): number {
+function toNumericFormulaValue(value) {
   return Number.isFinite(value) ? value : Number.NaN;
 }
 
-function evaluateAllFormulas(input: Overtime_vs_hiring_breakeven_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.overtime_hours_per_week * 52; results["annual_exposure_hours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annual_exposure_hours"] = Number.NaN; }
-  try { const v = input.current_headcount * 1 * input.avg_hourly_wage * input.avg_hourly_wage; results["direct_labor_cost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["direct_labor_cost"] = Number.NaN; }
-  try { const v = input.current_headcount * 1 * input.avg_hourly_wage * input.avg_hourly_wage * input.productivity_factor_new_hire * (input.overtime_premium); results["result"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["result"] = Number.NaN; }
-  try { const v = input.overtime_premium; results["factor_overtime_premium"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["factor_overtime_premium"] = Number.NaN; }
+function evaluateAllFormulas(input) {
+  const results = {};
+  try { const v = input.regularRate * input.overtimeMultiplier * input.burdenRate; results["overtimeCostHour"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["overtimeCostHour"] = Number.NaN; }
+  try { const v = input.recruitment * input.onboarding * input.training * input.rampUpProductivityLoss; results["hiringCostTotal"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hiringCostTotal"] = Number.NaN; }
+  try { const v = input.regularRate * input.annualHours * input.burdenRate * input.benefits; results["annualNewHireCost"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["annualNewHireCost"] = Number.NaN; }
+  try { const v = input.hiringCostTotal * input.annualNewHireCost * input.annualHours * input.overtimeCostHour; results["breakevenHours"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["breakevenHours"] = Number.NaN; }
+  try { const v = input.expectedOvertimeHours * input.breakevenHours * input.hire * input.overtime; results["decision"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["decision"] = Number.NaN; }
+  try { const v = input.overtimeHours * input.fatigueDefectRate * input.defectCost; results["qualityCostOT"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["qualityCostOT"] = Number.NaN; }
   return results;
 }
 
-
-export function calculateOvertime_vs_hiring_breakeven_calculator(input: Overtime_vs_hiring_breakeven_calculatorInput): Overtime_vs_hiring_breakeven_calculatorOutput {
-  const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
-  const breakdown = {
-    annual_exposure_hours: toNumericFormulaValue(values["annual_exposure_hours"]),
-    direct_labor_cost: toNumericFormulaValue(values["direct_labor_cost"]),
-    factor_overtime_premium: toNumericFormulaValue(values["factor_overtime_premium"])
-  };
-  const hiddenLossDrivers: string[] = ["Composite model — validate each cost leg against actuals","Physical exposure factors are normalized estimates"];
-  const suggestedActions: string[] = ["Reconcile labor and maintenance legs separately","Benchmark noise/vibration factors with site measurement"];
-  const dataConfidenceAdjusted =
-    typeof input.dataConfidence === "number"
-      ? totalWasteCost * (input.dataConfidence / 100)
-      : totalWasteCost;
-  return {
-    totalWasteCost,
-    breakdown,
-    hiddenLossDrivers,
-    suggestedActions,
-    dataConfidenceAdjusted,
-    unit: "USD",
-    premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Scenario simulation","Multi-site comparison"],
-  };
+export function calculateOvertimeVsHiringBreakeven(input) {
+  return evaluateAllFormulas(input);
 }
-
-
-export interface Overtime_vs_hiring_breakeven_calculatorOutput {
-  totalWasteCost: number;
-  unit: string;
-  breakdown: { annual_exposure_hours: number; direct_labor_cost: number; factor_overtime_premium: number };
-  hiddenLossDrivers: string[];
-  suggestedActions: string[];
-  dataConfidenceAdjusted: number;
-  premiumRequired: boolean;
-  premiumFeatures: string[];
-};
-
-export const Overtime_vs_hiring_breakeven_calculatorOutputMeta = {
-  primaryKey: "result",
-  unit: "USD",
-  breakdownKeys: ["annual_exposure_hours","direct_labor_cost","factor_overtime_premium"],
-} as const;
-

@@ -1,0 +1,266 @@
+{
+  "slug": "rota-optimizasyonu-analizr",
+  "name": "Rota Optimizasyonu Analizörü",
+  "description": "Rota Optimizasyonu Analizörü premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "durakSayısıKoordinatlar",
+      "label": "Durak Sayısı/Koordinatlar",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Durak Sayısı/Koordinatlar",
+        "tr": "Durak Sayısı/Koordinatlar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "depoKonumu",
+      "label": "Depo Konumu",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Depo Konumu",
+        "tr": "Depo Konumu",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "aracKapasitesi",
+      "label": "Araç Kapasitesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Araç Kapasitesi",
+        "tr": "Araç Kapasitesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "zamanPencereleri",
+      "label": "Zaman Pencereleri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Zaman Pencereleri",
+        "tr": "Zaman Pencereleri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gecikmeCezaOranı",
+      "label": "Gecikme Ceza Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gecikme Ceza Oranı",
+        "tr": "Gecikme Ceza Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "bazRotaMaliyeti",
+      "label": "Baz Rota Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Baz Rota Maliyeti",
+        "tr": "Baz Rota Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "nearestNeighborDist",
+      "label": "NearestNeighbor_Dist",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NearestNeighbor_Dist",
+        "tr": "NearestNeighbor_Dist",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "savingsClarkeWright",
+      "label": "Savings_ClarkeWright",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Savings_ClarkeWright",
+        "tr": "Savings_ClarkeWright",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "routeEfficiency",
+      "label": "RouteEfficiency",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RouteEfficiency",
+        "tr": "RouteEfficiency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "dropDensity",
+      "label": "DropDensity",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DropDensity",
+        "tr": "DropDensity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "timeWindowPenalty",
+      "label": "TimeWindowPenalty",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TimeWindowPenalty",
+        "tr": "TimeWindowPenalty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "vehicleUtilization",
+      "label": "VehicleUtilization",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "VehicleUtilization",
+        "tr": "VehicleUtilization",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalSavings",
+      "label": "TotalSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalSavings",
+        "tr": "TotalSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "route"
+}

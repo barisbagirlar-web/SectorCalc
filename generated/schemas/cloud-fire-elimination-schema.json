@@ -1,0 +1,202 @@
+{
+  "slug": "cloud-fire-elimination",
+  "name": "CLOUD FIRE ELIMINATION",
+  "description": "CLOUD FIRE ELIMINATION premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "bagımsızDiskAtılSnapshot",
+      "label": "Bağımsız Disk/Atıl Snapshot",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Bağımsız Disk/Atıl Snapshot",
+        "tr": "Bağımsız Disk/Atıl Snapshot",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mevcutRightSizedMaliyet",
+      "label": "Mevcut/Right-Sized Maliyet",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mevcut/Right-Sized Maliyet",
+        "tr": "Mevcut/Right-Sized Maliyet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "spotOranı",
+      "label": "Spot Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Spot Oranı",
+        "tr": "Spot Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mesaiDısıSunucu",
+      "label": "Mesai Dışı Sunucu",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mesai Dışı Sunucu",
+        "tr": "Mesai Dışı Sunucu",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "zombieCost",
+      "label": "ZombieCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ZombieCost",
+        "tr": "ZombieCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "oversizingSavings",
+      "label": "OversizingSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OversizingSavings",
+        "tr": "OversizingSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "spotSavings",
+      "label": "SpotSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SpotSavings",
+        "tr": "SpotSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "reservedSavings",
+      "label": "ReservedSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ReservedSavings",
+        "tr": "ReservedSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "idleHoursCost",
+      "label": "IdleHoursCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "IdleHoursCost",
+        "tr": "IdleHoursCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalWaste",
+      "label": "TotalWaste",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalWaste",
+        "tr": "TotalWaste",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "scrap"
+}

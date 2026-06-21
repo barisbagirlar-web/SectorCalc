@@ -1,0 +1,311 @@
+{
+  "slug": "sulama-maliyet-check",
+  "name": "Sulama Maliyet Check",
+  "description": "Sulama Maliyet Check premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "eTcMmgun",
+      "label": "ETc mm/gün",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "ETc mm/gün",
+        "tr": "ETc mm/gün",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "alanDekar",
+      "label": "Alan dekar",
+      "type": "number",
+      "unit": "m²",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Alan dekar",
+        "tr": "Alan dekar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "efektifYagısMm",
+      "label": "Efektif Yağış mm",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Efektif Yağış mm",
+        "tr": "Efektif Yağış mm",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "toplamManometrikYukseklikM",
+      "label": "Toplam Manometrik Yükseklik m",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Manometrik Yükseklik m",
+        "tr": "Toplam Manometrik Yükseklik m",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "pompaMotorVerimi",
+      "label": "Pompa/Motor Verimi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Pompa/Motor Verimi",
+        "tr": "Pompa/Motor Verimi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "elektrikTarifesiCurrencykWh",
+      "label": "Elektrik Tarifesi currency/kWh",
+      "type": "number",
+      "unit": "kWh",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Elektrik Tarifesi currency/kWh",
+        "tr": "Elektrik Tarifesi currency/kWh",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "bakımCurrencyda",
+      "label": "Bakım currency/da",
+      "type": "number",
+      "unit": "currency",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Bakım currency/da",
+        "tr": "Bakım currency/da",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "waterRequirement",
+      "label": "WaterRequirement",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "WaterRequirement",
+        "tr": "WaterRequirement",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "pumpEnergy",
+      "label": "PumpEnergy",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PumpEnergy",
+        "tr": "PumpEnergy",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "energyCost",
+      "label": "EnergyCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EnergyCost",
+        "tr": "EnergyCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "maintCost",
+      "label": "MaintCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MaintCost",
+        "tr": "MaintCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "totalIrrigationCost",
+      "label": "TotalIrrigationCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalIrrigationCost",
+        "tr": "TotalIrrigationCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "costPerM3",
+      "label": "CostPerM3",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CostPerM3",
+        "tr": "CostPerM3",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "waterUseEfficiency",
+      "label": "WaterUseEfficiency",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "WaterUseEfficiency",
+        "tr": "WaterUseEfficiency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "USD",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "cost",
+  "formulas": {
+    "normalized_product": "eTcMmgun * alanDekar * efektifYagısMm * toplamManometrikYukseklikM",
+    "result": "eTcMmgun * alanDekar * efektifYagısMm * toplamManometrikYukseklikM * (pompaMotorVerimi * elektrikTarifesiCurrencykWh * bakımCurrencyda)",
+    "adjustment_factor": "pompaMotorVerimi * elektrikTarifesiCurrencykWh * bakımCurrencyda"
+  }
+}

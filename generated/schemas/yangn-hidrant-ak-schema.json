@@ -1,0 +1,277 @@
+{
+  "slug": "yangn-hidrant-ak",
+  "name": "Yangın Hidrantı Akış",
+  "description": "Yangın Hidrantı Akış premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "hidrant CapıMm",
+      "label": "Hidrant Çapı mm",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hidrant Çapı mm",
+        "tr": "Hidrant Çapı mm",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "statikPitotBasıncBar",
+      "label": "Statik/Pitot Basınç bar",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Statik/Pitot Basınç bar",
+        "tr": "Statik/Pitot Basınç bar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "akısKatsayısıCd",
+      "label": "Akış Katsayısı c_d",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Akış Katsayısı c_d",
+        "tr": "Akış Katsayısı c_d",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "boruUzunluguCapı",
+      "label": "Boru Uzunluğu/Çapı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Boru Uzunluğu/Çapı",
+        "tr": "Boru Uzunluğu/Çapı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "surtunmeKatsayısıF",
+      "label": "Sürtünme Katsayısı f",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sürtünme Katsayısı f",
+        "tr": "Sürtünme Katsayısı f",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gerekliAkısLmin",
+      "label": "Gerekli Akış L/min",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gerekli Akış L/min",
+        "tr": "Gerekli Akış L/min",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gerekliBasıncBar",
+      "label": "Gerekli Basınç bar",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gerekli Basınç bar",
+        "tr": "Gerekli Basınç bar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "flowRateQ",
+      "label": "FlowRate_Q",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FlowRate_Q",
+        "tr": "FlowRate_Q",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "residualPressure",
+      "label": "ResidualPressure",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ResidualPressure",
+        "tr": "ResidualPressure",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "availableFlowAt20psi",
+      "label": "AvailableFlow_At20psi",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AvailableFlow_At20psi",
+        "tr": "AvailableFlow_At20psi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "frictionLoss",
+      "label": "FrictionLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FrictionLoss",
+        "tr": "FrictionLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "requiredPumpHead",
+      "label": "RequiredPumpHead",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RequiredPumpHead",
+        "tr": "RequiredPumpHead",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "compliance",
+      "label": "Compliance",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Compliance",
+        "tr": "Compliance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

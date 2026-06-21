@@ -1,0 +1,305 @@
+{
+  "slug": "project-maliyet-tahmin",
+  "name": "Project Maliyet Tahmin",
+  "description": "Project Maliyet Tahmin premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "IscilikSaatleriUcretleri",
+      "label": "İşçilik Saatleri/Ücretleri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşçilik Saatleri/Ücretleri",
+        "tr": "İşçilik Saatleri/Ücretleri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "malzemeListesi",
+      "label": "Malzeme Listesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Malzeme Listesi",
+        "tr": "Malzeme Listesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ekipmanKiralama",
+      "label": "Ekipman Kiralama",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ekipman Kiralama",
+        "tr": "Ekipman Kiralama",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taseronTeklifleri",
+      "label": "Taşeron Teklifleri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Taşeron Teklifleri",
+        "tr": "Taşeron Teklifleri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "overheadOranı",
+      "label": "Overhead Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Overhead Oranı",
+        "tr": "Overhead Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "riskKontenjansı",
+      "label": "Risk Kontenjansı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Risk Kontenjansı",
+        "tr": "Risk Kontenjansı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "onaylanmısButce",
+      "label": "Onaylanmış Bütçe",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Onaylanmış Bütçe",
+        "tr": "Onaylanmış Bütçe",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "directLabor",
+      "label": "DirectLabor",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DirectLabor",
+        "tr": "DirectLabor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "directMaterial",
+      "label": "DirectMaterial",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DirectMaterial",
+        "tr": "DirectMaterial",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "equipment",
+      "label": "Equipment",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Equipment",
+        "tr": "Equipment",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "subcontractor",
+      "label": "Subcontractor",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Subcontractor",
+        "tr": "Subcontractor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "overhead",
+      "label": "Overhead",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Overhead",
+        "tr": "Overhead",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "contingency",
+      "label": "Contingency",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Contingency",
+        "tr": "Contingency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalEstimate",
+      "label": "TotalEstimate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalEstimate",
+        "tr": "TotalEstimate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costVariance",
+      "label": "CostVariance",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CostVariance",
+        "tr": "CostVariance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

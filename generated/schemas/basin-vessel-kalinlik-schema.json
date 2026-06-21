@@ -1,0 +1,302 @@
+{
+  "slug": "basin-vessel-kalinlik",
+  "name": "BASINÇ VESSEL KALINLIK",
+  "description": "BASINÇ VESSEL KALINLIK premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "IcBasıncP",
+      "label": "İç Basınç P",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İç Basınç P",
+        "tr": "İç Basınç P",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IcYarıcapR",
+      "label": "İç Yarıçap R",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İç Yarıçap R",
+        "tr": "İç Yarıçap R",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kapakTipi",
+      "label": "Kapak Tipi",
+      "type": "string",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kapak Tipi",
+        "tr": "Kapak Tipi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "malzeme",
+      "label": "Malzeme",
+      "type": "string",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Malzeme",
+        "tr": "Malzeme",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tasarımSıcaklıgı",
+      "label": "Tasarım Sıcaklığı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tasarım Sıcaklığı",
+        "tr": "Tasarım Sıcaklığı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gerilmeS",
+      "label": "Gerilme S",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gerilme S",
+        "tr": "Gerilme S",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kaynakVerimiE",
+      "label": "Kaynak Verimi E",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kaynak Verimi E",
+        "tr": "Kaynak Verimi E",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "korozyonPayıCA",
+      "label": "Korozyon Payı C_A",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Korozyon Payı C_A",
+        "tr": "Korozyon Payı C_A",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tShell",
+      "label": "t_shell",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "t_shell",
+        "tr": "t_shell",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tSphere",
+      "label": "t_sphere",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "t_sphere",
+        "tr": "t_sphere",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tHeadEllip",
+      "label": "t_head_ellip",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "t_head_ellip",
+        "tr": "t_head_ellip",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "m",
+      "label": "M",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "M",
+        "tr": "M",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tHeadTori",
+      "label": "t_head_tori",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "t_head_tori",
+        "tr": "t_head_tori",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mAWP",
+      "label": "MAWP",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MAWP",
+        "tr": "MAWP",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

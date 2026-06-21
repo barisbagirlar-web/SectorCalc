@@ -1,0 +1,277 @@
+{
+  "slug": "moq-stok-denge",
+  "name": "MOQ Stok Denge",
+  "description": "MOQ Stok Denge premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "yıllıkTalep",
+      "label": "Yıllık Talep",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık Talep",
+        "tr": "Yıllık Talep",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "siparisMaliyeti",
+      "label": "Sipariş Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sipariş Maliyeti",
+        "tr": "Sipariş Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mOQ",
+      "label": "MOQ",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "MOQ",
+        "tr": "MOQ",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "standartMOQBirimFiyat",
+      "label": "Standart/MOQ Birim Fiyat",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Standart/MOQ Birim Fiyat",
+        "tr": "Standart/MOQ Birim Fiyat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "birimTasımaMaliyeti",
+      "label": "Birim Taşıma Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Birim Taşıma Maliyeti",
+        "tr": "Birim Taşıma Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tedarikSuresi",
+      "label": "Tedarik Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tedarik Süresi",
+        "tr": "Tedarik Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "stokAlanıKısıtı",
+      "label": "Stok Alanı Kısıtı",
+      "type": "number",
+      "unit": "m²",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Stok Alanı Kısıtı",
+        "tr": "Stok Alanı Kısıtı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "eOQ",
+      "label": "EOQ",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EOQ",
+        "tr": "EOQ",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mOQPenalty",
+      "label": "MOQ_Penalty",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MOQ_Penalty",
+        "tr": "MOQ_Penalty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "priceBreakSavings",
+      "label": "PriceBreakSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PriceBreakSavings",
+        "tr": "PriceBreakSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "netBenefit",
+      "label": "NetBenefit",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NetBenefit",
+        "tr": "NetBenefit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "optimalOrderQty",
+      "label": "OptimalOrderQty",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OptimalOrderQty",
+        "tr": "OptimalOrderQty",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cycleStockCost",
+      "label": "CycleStock_Cost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CycleStock_Cost",
+        "tr": "CycleStock_Cost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "lean"
+}

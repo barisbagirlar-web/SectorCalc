@@ -1,0 +1,252 @@
+{
+  "slug": "kaynak-maliyeti",
+  "name": "Kaynak Maliyeti",
+  "description": "Kaynak Maliyeti premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "toplamKaynakMetresi",
+      "label": "Toplam Kaynak Metresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Kaynak Metresi",
+        "tr": "Toplam Kaynak Metresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "vardiyaSuresi",
+      "label": "Vardiya Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Vardiya Süresi",
+        "tr": "Vardiya Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IlerlemeHızıCmmin",
+      "label": "İlerleme Hızı cm/min",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İlerleme Hızı cm/min",
+        "tr": "İlerleme Hızı cm/min",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "arkSuresiOranı",
+      "label": "Ark Süresi Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ark Süresi Oranı",
+        "tr": "Ark Süresi Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "dolguGazEnerjiMaliyeti",
+      "label": "Dolgu/Gaz/Enerji Maliyeti",
+      "type": "number",
+      "unit": "kWh",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Dolgu/Gaz/Enerji Maliyeti",
+        "tr": "Dolgu/Gaz/Enerji Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IscilikOverhead",
+      "label": "İşçilik/Overhead",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşçilik/Overhead",
+        "tr": "İşçilik/Overhead",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "operatingFactor",
+      "label": "OperatingFactor",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OperatingFactor",
+        "tr": "OperatingFactor",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "depositionRate",
+      "label": "DepositionRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DepositionRate",
+        "tr": "DepositionRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalJointCost",
+      "label": "TotalJointCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalJointCost",
+        "tr": "TotalJointCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costPerMeter",
+      "label": "CostPerMeter",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CostPerMeter",
+        "tr": "CostPerMeter",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "consumableCostPct",
+      "label": "ConsumableCostPct",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ConsumableCostPct",
+        "tr": "ConsumableCostPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "laborCostPct",
+      "label": "LaborCostPct",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LaborCostPct",
+        "tr": "LaborCostPct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

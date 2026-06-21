@@ -1,0 +1,305 @@
+{
+  "slug": "su-kullanm-optimize-edici",
+  "name": "Su Kullanımı Optimize Edici",
+  "description": "Su Kullanımı Optimize Edici premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "toplamTuketimGeriDonusumM3",
+      "label": "Toplam Tüketim/Geri Dönüşüm m3",
+      "type": "number",
+      "unit": "m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Tüketim/Geri Dönüşüm m3",
+        "tr": "Toplam Tüketim/Geri Dönüşüm m3",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UretimHacmi",
+      "label": "Üretim Hacmi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Üretim Hacmi",
+        "tr": "Üretim Hacmi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "SebekeAtıksuBirimFiyatıCurrencym3",
+      "label": "Şebeke/Atıksu Birim Fiyatı currency/m3",
+      "type": "number",
+      "unit": "m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Şebeke/Atıksu Birim Fiyatı currency/m3",
+        "tr": "Şebeke/Atıksu Birim Fiyatı currency/m3",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "suEnerjiYogunluguKWhm3",
+      "label": "Su Enerji Yoğunluğu kWh/m3",
+      "type": "number",
+      "unit": "m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Su Enerji Yoğunluğu kWh/m3",
+        "tr": "Su Enerji Yoğunluğu kWh/m3",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kacakMiktarıM3",
+      "label": "Kaçak Miktarı m3",
+      "type": "number",
+      "unit": "m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kaçak Miktarı m3",
+        "tr": "Kaçak Miktarı m3",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ekipmanYatırımı",
+      "label": "Ekipman Yatırımı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ekipman Yatırımı",
+        "tr": "Ekipman Yatırımı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IskontoOranı",
+      "label": "İskonto Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İskonto Oranı",
+        "tr": "İskonto Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "waterIntensity",
+      "label": "WaterIntensity",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "WaterIntensity",
+        "tr": "WaterIntensity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "baselineConsumption",
+      "label": "BaselineConsumption",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "BaselineConsumption",
+        "tr": "BaselineConsumption",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "waterSavings",
+      "label": "WaterSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "WaterSavings",
+        "tr": "WaterSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costSavings",
+      "label": "CostSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CostSavings",
+        "tr": "CostSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "recycleRate",
+      "label": "RecycleRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RecycleRate",
+        "tr": "RecycleRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "leakLoss",
+      "label": "LeakLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LeakLoss",
+        "tr": "LeakLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rOIWater",
+      "label": "ROI_Water",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ROI_Water",
+        "tr": "ROI_Water",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "carbonFootprintWater",
+      "label": "CarbonFootprint_Water",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CarbonFootprint_Water",
+        "tr": "CarbonFootprint_Water",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "carbon"
+}

@@ -1,0 +1,277 @@
+{
+  "slug": "tedarik-zinciri-kesintisi-risk-deerlendirmesi",
+  "name": "Tedarik Zinciri Kesintisi Risk Değerlendirmesi",
+  "description": "Tedarik Zinciri Kesintisi Risk Değerlendirmesi premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "kesintiOlasılıgı",
+      "label": "Kesinti Olasılığı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kesinti Olasılığı",
+        "tr": "Kesinti Olasılığı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gunlukGelir",
+      "label": "Günlük Gelir",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Günlük Gelir",
+        "tr": "Günlük Gelir",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tamamlanmaSuresiGun",
+      "label": "Tamamlanma Süresi gün",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tamamlanma Süresi gün",
+        "tr": "Tamamlanma Süresi gün",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tamponKapasite",
+      "label": "Tampon Kapasite",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tampon Kapasite",
+        "tr": "Tampon Kapasite",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CiftKaynakPrimMaliyeti",
+      "label": "Çift Kaynak Prim Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çift Kaynak Prim Maliyeti",
+        "tr": "Çift Kaynak Prim Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sigortaPrimi",
+      "label": "Sigorta Primi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sigorta Primi",
+        "tr": "Sigorta Primi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "guvenlikStoguMaliyeti",
+      "label": "Güvenlik Stoğu Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Güvenlik Stoğu Maliyeti",
+        "tr": "Güvenlik Stoğu Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "riskExposure",
+      "label": "RiskExposure",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RiskExposure",
+        "tr": "RiskExposure",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "timeToRecover",
+      "label": "TimeToRecover",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TimeToRecover",
+        "tr": "TimeToRecover",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "revenueLoss",
+      "label": "RevenueLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RevenueLoss",
+        "tr": "RevenueLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mitigationCost",
+      "label": "MitigationCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MitigationCost",
+        "tr": "MitigationCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "riskAdjustedCost",
+      "label": "RiskAdjustedCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RiskAdjustedCost",
+        "tr": "RiskAdjustedCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "resilienceIndex",
+      "label": "ResilienceIndex",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ResilienceIndex",
+        "tr": "ResilienceIndex",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "benchmark"
+}

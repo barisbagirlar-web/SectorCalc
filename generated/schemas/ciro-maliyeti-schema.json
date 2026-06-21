@@ -1,0 +1,252 @@
+{
+  "slug": "ciro-maliyeti",
+  "name": "CİRO MALİYETİ",
+  "description": "CİRO MALİYETİ premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "ayrılanSayısı",
+      "label": "Ayrılan Sayısı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ayrılan Sayısı",
+        "tr": "Ayrılan Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tazminat",
+      "label": "Tazminat",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tazminat",
+        "tr": "Tazminat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IseAlımSuresi",
+      "label": "İşe Alım Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşe Alım Süresi",
+        "tr": "İşe Alım Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mulakatEgitimSuresi",
+      "label": "Mülakat/Eğitim Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mülakat/Eğitim Süresi",
+        "tr": "Mülakat/Eğitim Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tamVerimSuresi",
+      "label": "Tam Verim Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tam Verim Süresi",
+        "tr": "Tam Verim Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gunlukCiro",
+      "label": "Günlük Ciro",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Günlük Ciro",
+        "tr": "Günlük Ciro",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "separationCost",
+      "label": "SeparationCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SeparationCost",
+        "tr": "SeparationCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "vacancyCost",
+      "label": "VacancyCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "VacancyCost",
+        "tr": "VacancyCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "replacementCost",
+      "label": "ReplacementCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ReplacementCost",
+        "tr": "ReplacementCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "trainingCost",
+      "label": "TrainingCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TrainingCost",
+        "tr": "TrainingCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "productivityLoss",
+      "label": "ProductivityLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ProductivityLoss",
+        "tr": "ProductivityLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalTurnoverCost",
+      "label": "TotalTurnoverCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalTurnoverCost",
+        "tr": "TotalTurnoverCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

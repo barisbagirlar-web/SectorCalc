@@ -1,0 +1,497 @@
+{
+  "slug": "belt-pulley-gear-calculator",
+  "name": "Belt-Pulley & Gear Ratio (AGMA/Lewis) Calculator",
+  "description": "Dişli oranı, Lewis eğilme gerilmesi ve kayış gerginlik oranı hesaplanmadan güç aktarma sistemi güvenli tasarlanamaz.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "power",
+      "label": "İletilen Güç",
+      "type": "number",
+      "unit": "kW",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İletilen Güç",
+        "tr": "İletilen Güç",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rpm",
+      "label": "Tahrik Devri (RPM)",
+      "type": "number",
+      "unit": "rpm",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tahrik Devri (RPM)",
+        "tr": "Tahrik Devri (RPM)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "teethDriver",
+      "label": "Tahrik Dişli Diş Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tahrik Dişli Diş Sayısı",
+        "tr": "Tahrik Dişli Diş Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "teethDriven",
+      "label": "Tahrik Edilen Dişli Diş Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tahrik Edilen Dişli Diş Sayısı",
+        "tr": "Tahrik Edilen Dişli Diş Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "module",
+      "label": "Modül (m)",
+      "type": "number",
+      "unit": "mm",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Modül (m)",
+        "tr": "Modül (m)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "faceWidth",
+      "label": "Dişli Yüz Genişliği (b)",
+      "type": "number",
+      "unit": "mm",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Dişli Yüz Genişliği (b)",
+        "tr": "Dişli Yüz Genişliği (b)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "frictionCoeff",
+      "label": "Sürtünme Katsayısı (μ)",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sürtünme Katsayısı (μ)",
+        "tr": "Sürtünme Katsayısı (μ)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "wrapAngle",
+      "label": "Sarma Açısı (θ)",
+      "type": "number",
+      "unit": "rad",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sarma Açısı (θ)",
+        "tr": "Sarma Açısı (θ)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "pressureAngle",
+      "label": "Basınç Açısı (α)",
+      "type": "number",
+      "unit": "°",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Basınç Açısı (α)",
+        "tr": "Basınç Açısı (α)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "pitchDiameter",
+      "label": "Tahrik Kasnak Çapı (D)",
+      "type": "number",
+      "unit": "mm",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tahrik Kasnak Çapı (D)",
+        "tr": "Tahrik Kasnak Çapı (D)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "dynamicFactor",
+      "label": "Dinamik Faktör (Kv)",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Dinamik Faktör (Kv)",
+        "tr": "Dinamik Faktör (Kv)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tensionT1",
+      "label": "Gergin Taraf Gerilmesi (T1)",
+      "type": "number",
+      "unit": "N",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gergin Taraf Gerilmesi (T1)",
+        "tr": "Gergin Taraf Gerilmesi (T1)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tensionT2",
+      "label": "Gevşek Taraf Gerilmesi (T2)",
+      "type": "number",
+      "unit": "N",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gevşek Taraf Gerilmesi (T2)",
+        "tr": "Gevşek Taraf Gerilmesi (T2)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "vDriver",
+      "label": "Tahrik Çizgisel Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tahrik Çizgisel Hızı",
+        "tr": "Tahrik Çizgisel Hızı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "vDriven",
+      "label": "Tahrik Edilen Çizgisel Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tahrik Edilen Çizgisel Hızı",
+        "tr": "Tahrik Edilen Çizgisel Hızı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "gearRatio",
+      "label": "Dişli Oranı (i)",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Dişli Oranı (i)",
+        "tr": "Dişli Oranı (i)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "pitchLineVelocity",
+      "label": "Taksimat Dairesi Hızı",
+      "unit": "m/s",
+      "format": "number",
+      "label_i18n": {
+        "en": "Taksimat Dairesi Hızı",
+        "tr": "Taksimat Dairesi Hızı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "transmittedLoad",
+      "label": "İletilen Yük (Wt)",
+      "unit": "kN",
+      "format": "number",
+      "label_i18n": {
+        "en": "İletilen Yük (Wt)",
+        "tr": "İletilen Yük (Wt)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "bendingStress",
+      "label": "Lewis Eğilme Gerilmesi",
+      "unit": "MPa",
+      "format": "number",
+      "label_i18n": {
+        "en": "Lewis Eğilme Gerilmesi",
+        "tr": "Lewis Eğilme Gerilmesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "beltTensionRatio",
+      "label": "Kayış Gerginlik Oranı",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Kayış Gerginlik Oranı",
+        "tr": "Kayış Gerginlik Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "slipPct",
+      "label": "Kayma Yüzdesi",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "Kayma Yüzdesi",
+        "tr": "Kayma Yüzdesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "measurement",
+  "formulas": {
+    "normalized_product": "power * rpm * teethDriver * teethDriven",
+    "result": "power * rpm * teethDriver * teethDriven * (module * faceWidth * frictionCoeff * wrapAngle * pressureAngle * pitchDiameter * dynamicFactor * tensionT1 * tensionT2 * vDriver * vDriven)",
+    "adjustment_factor": "module * faceWidth * frictionCoeff * wrapAngle * pressureAngle * pitchDiameter * dynamicFactor * tensionT1 * tensionT2 * vDriver * vDriven"
+  }
+}

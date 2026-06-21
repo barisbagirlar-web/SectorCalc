@@ -1,0 +1,252 @@
+{
+  "slug": "taeron-marj-sznt-dedektr",
+  "name": "Taşeron Marj Sızıntı Dedektörü",
+  "description": "Taşeron Marj Sızıntı Dedektörü premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "sozlesmeBedeli",
+      "label": "Sözleşme Bedeli",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sözleşme Bedeli",
+        "tr": "Sözleşme Bedeli",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taseronTeklifBedeli",
+      "label": "Taşeron Teklif Bedeli",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Taşeron Teklif Bedeli",
+        "tr": "Taşeron Teklif Bedeli",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gerceklesenTaseronHakedisi",
+      "label": "Gerçekleşen Taşeron Hakedişi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gerçekleşen Taşeron Hakedişi",
+        "tr": "Gerçekleşen Taşeron Hakedişi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "changeOrderTutarları",
+      "label": "Change Order Tutarları",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Change Order Tutarları",
+        "tr": "Change Order Tutarları",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "reworkMaliyeti",
+      "label": "Rework Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Rework Maliyeti",
+        "tr": "Rework Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gecikmeCezaları",
+      "label": "Gecikme Cezaları",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gecikme Cezaları",
+        "tr": "Gecikme Cezaları",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "quotedMargin",
+      "label": "QuotedMargin",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "QuotedMargin",
+        "tr": "QuotedMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "actualMargin",
+      "label": "ActualMargin",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ActualMargin",
+        "tr": "ActualMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "marginLeak",
+      "label": "MarginLeak",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MarginLeak",
+        "tr": "MarginLeak",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "changeOrderCost",
+      "label": "ChangeOrderCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ChangeOrderCost",
+        "tr": "ChangeOrderCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "unbilledWork",
+      "label": "UnbilledWork",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "UnbilledWork",
+        "tr": "UnbilledWork",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "leakagePct",
+      "label": "LeakagePct",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LeakagePct",
+        "tr": "LeakagePct",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

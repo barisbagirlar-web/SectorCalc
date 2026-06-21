@@ -1,0 +1,397 @@
+{
+  "slug": "standard-time-work-study-calculator",
+  "name": "Standard Time & Work Study (MTM/MOST)",
+  "description": "İş etüdü ve standart zaman hesaplaması yapılmadan gerçekçi üretim hedefleri ve verimlilik ölçümü mümkün değildir.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "cycleTimes",
+      "label": "Çevrim Süreleri (virgülle)",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çevrim Süreleri (virgülle)",
+        "tr": "Çevrim Süreleri (virgülle)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "performanceRating",
+      "label": "Performans Değerlendirme Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Performans Değerlendirme Oranı",
+        "tr": "Performans Değerlendirme Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "pfdAllowance",
+      "label": "PFD Ödeneği",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "PFD Ödeneği",
+        "tr": "PFD Ödeneği",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fatigueAllowance",
+      "label": "Yorgunluk Ödeneği",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yorgunluk Ödeneği",
+        "tr": "Yorgunluk Ödeneği",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "delayAllowance",
+      "label": "Gecikme Ödeneği",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gecikme Ödeneği",
+        "tr": "Gecikme Ödeneği",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "n",
+      "label": "Gözlem Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gözlem Sayısı",
+        "tr": "Gözlem Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "confidenceLevelZ",
+      "label": "Z Değeri (Güven Düzeyi)",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Z Değeri (Güven Düzeyi)",
+        "tr": "Z Değeri (Güven Düzeyi)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sampleStdDev",
+      "label": "Örneklem Standart Sapması",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Örneklem Standart Sapması",
+        "tr": "Örneklem Standart Sapması",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "accuracyA",
+      "label": "Doğruluk Payı (%)",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Doğruluk Payı (%)",
+        "tr": "Doğruluk Payı (%)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sampleMean",
+      "label": "Örneklem Ortalaması",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Örneklem Ortalaması",
+        "tr": "Örneklem Ortalaması",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "shiftTime",
+      "label": "Vardiya Süresi",
+      "type": "number",
+      "unit": "dk",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Vardiya Süresi",
+        "tr": "Vardiya Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "standardTime",
+      "label": "Standart Zaman",
+      "unit": "dk",
+      "format": "number",
+      "label_i18n": {
+        "en": "Standart Zaman",
+        "tr": "Standart Zaman",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "observedTime",
+      "label": "Gözlemlenen Süre",
+      "unit": "dk",
+      "format": "number",
+      "label_i18n": {
+        "en": "Gözlemlenen Süre",
+        "tr": "Gözlemlenen Süre",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "normalTime",
+      "label": "Normal Süre",
+      "unit": "dk",
+      "format": "number",
+      "label_i18n": {
+        "en": "Normal Süre",
+        "tr": "Normal Süre",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "tmu",
+      "label": "TMU",
+      "unit": "TMU",
+      "format": "number",
+      "label_i18n": {
+        "en": "TMU",
+        "tr": "TMU",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "expectedOutput",
+      "label": "Beklenen Çıktı (vardiya)",
+      "unit": "adet",
+      "format": "number",
+      "label_i18n": {
+        "en": "Beklenen Çıktı (vardiya)",
+        "tr": "Beklenen Çıktı (vardiya)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "requiredSampleSize",
+      "label": "Gerekli Örneklem Sayısı",
+      "unit": "adet",
+      "format": "number",
+      "label_i18n": {
+        "en": "Gerekli Örneklem Sayısı",
+        "tr": "Gerekli Örneklem Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "%",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "time",
+  "formulas": {
+    "normalized_product": "cycleTimes * (performanceRating / 100) * (pfdAllowance / 100) * (fatigueAllowance / 100)",
+    "result": "cycleTimes * (performanceRating / 100) * (pfdAllowance / 100) * (fatigueAllowance / 100) * ((delayAllowance / 100) * n * confidenceLevelZ * sampleStdDev * (accuracyA / 100) * sampleMean * shiftTime)",
+    "adjustment_factor": "(delayAllowance / 100) * n * confidenceLevelZ * sampleStdDev * (accuracyA / 100) * sampleMean * shiftTime"
+  }
+}

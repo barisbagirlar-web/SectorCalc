@@ -1,0 +1,227 @@
+{
+  "slug": "tekrarlayan-maliyet-rca",
+  "name": "Tekrarlayan Maliyet (RCA)",
+  "description": "Tekrarlayan Maliyet (RCA) premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "yıllıkFrekans",
+      "label": "Yıllık Frekans",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık Frekans",
+        "tr": "Yıllık Frekans",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "olayBasınaMaliyet",
+      "label": "Olay Başına Maliyet",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Olay Başına Maliyet",
+        "tr": "Olay Başına Maliyet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "duzelticiAksiyonYatırımı",
+      "label": "Düzeltici Aksiyon Yatırımı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Düzeltici Aksiyon Yatırımı",
+        "tr": "Düzeltici Aksiyon Yatırımı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IskontoOranıR",
+      "label": "İskonto Oranı r",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İskonto Oranı r",
+        "tr": "İskonto Oranı r",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "analiz OmruNYıl",
+      "label": "Analiz Ömrü n yıl",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Analiz Ömrü n yıl",
+        "tr": "Analiz Ömrü n yıl",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "recurringCostAnnual",
+      "label": "RecurringCost_Annual",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RecurringCost_Annual",
+        "tr": "RecurringCost_Annual",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "presentValueRecurring",
+      "label": "PresentValue_Recurring",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PresentValue_Recurring",
+        "tr": "PresentValue_Recurring",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rootCauseInvestment",
+      "label": "RootCauseInvestment",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RootCauseInvestment",
+        "tr": "RootCauseInvestment",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "paybackPeriod",
+      "label": "PaybackPeriod",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PaybackPeriod",
+        "tr": "PaybackPeriod",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "nPVElimination",
+      "label": "NPV_Elimination",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NPV_Elimination",
+        "tr": "NPV_Elimination",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "breakevenFrequency",
+      "label": "BreakevenFrequency",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "BreakevenFrequency",
+        "tr": "BreakevenFrequency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

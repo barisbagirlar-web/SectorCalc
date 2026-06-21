@@ -1,0 +1,294 @@
+{
+  "slug": "istatistiksel-proses-kontrol",
+  "name": "İSTATİSTİKSEL PROSES KONTROL",
+  "description": "İSTATİSTİKSEL PROSES KONTROL premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "altGrupN",
+      "label": "Alt Grup n",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Alt Grup n",
+        "tr": "Alt Grup n",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "veri",
+      "label": "Veri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Veri",
+        "tr": "Veri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "uSL",
+      "label": "USL",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "USL",
+        "tr": "USL",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lSL",
+      "label": "LSL",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LSL",
+        "tr": "LSL",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tip",
+      "label": "Tip",
+      "type": "string",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tip",
+        "tr": "Tip",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hedef",
+      "label": "Hedef",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hedef",
+        "tr": "Hedef",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "xBarBar",
+      "label": "X_Bar_Bar",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "X_Bar_Bar",
+        "tr": "X_Bar_Bar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rBar",
+      "label": "R_Bar",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "R_Bar",
+        "tr": "R_Bar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sBar",
+      "label": "S_Bar",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "S_Bar",
+        "tr": "S_Bar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "uCLX",
+      "label": "UCL_X",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "UCL_X",
+        "tr": "UCL_X",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lCLX",
+      "label": "LCL_X",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LCL_X",
+        "tr": "LCL_X",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "uCLR",
+      "label": "UCL_R",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "UCL_R",
+        "tr": "UCL_R",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lCLR",
+      "label": "LCL_R",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LCL_R",
+        "tr": "LCL_R",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sigma",
+      "label": "Sigma",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Sigma",
+        "tr": "Sigma",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cp",
+      "label": "Cp",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cp",
+        "tr": "Cp",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "measurement"
+}

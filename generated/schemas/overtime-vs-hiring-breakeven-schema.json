@@ -1,0 +1,277 @@
+{
+  "slug": "overtime-vs-hiring-breakeven",
+  "name": "Overtime vs. Hiring Breakeven",
+  "description": "Overtime vs. Hiring Breakeven premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "IseAlımEgitimMaliyeti",
+      "label": "İşe Alım/Eğitim Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşe Alım/Eğitim Maliyeti",
+        "tr": "İşe Alım/Eğitim Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yanHaklar",
+      "label": "Yan Haklar",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yan Haklar",
+        "tr": "Yan Haklar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "normalFazlaMesai Ucreti",
+      "label": "Normal/Fazla Mesai Ücreti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Normal/Fazla Mesai Ücreti",
+        "tr": "Normal/Fazla Mesai Ücreti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mesai Carpanı",
+      "label": "Mesai Çarpanı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mesai Çarpanı",
+        "tr": "Mesai Çarpanı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yorgunlukHataOranı",
+      "label": "Yorgunluk Hata Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yorgunluk Hata Oranı",
+        "tr": "Yorgunluk Hata Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hataMaliyeti",
+      "label": "Hata Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hata Maliyeti",
+        "tr": "Hata Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "beklenenMesaiSaati",
+      "label": "Beklenen Mesai Saati",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Beklenen Mesai Saati",
+        "tr": "Beklenen Mesai Saati",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "overtimeCostHour",
+      "label": "OvertimeCost_Hour",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OvertimeCost_Hour",
+        "tr": "OvertimeCost_Hour",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hiringCostTotal",
+      "label": "HiringCost_Total",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "HiringCost_Total",
+        "tr": "HiringCost_Total",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "annualNewHireCost",
+      "label": "AnnualNewHireCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AnnualNewHireCost",
+        "tr": "AnnualNewHireCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "breakevenHours",
+      "label": "BreakevenHours",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "BreakevenHours",
+        "tr": "BreakevenHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "decision",
+      "label": "Decision",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Decision",
+        "tr": "Decision",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "qualityCostOT",
+      "label": "QualityCost_OT",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "QualityCost_OT",
+        "tr": "QualityCost_OT",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}
