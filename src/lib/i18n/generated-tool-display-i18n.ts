@@ -1,5 +1,5 @@
-import titlesBundle from "@/data/generated-tool-titles-i18n.generated.json";
-import descriptionsBundle from "@/data/generated-tool-descriptions-i18n.generated.json";
+import titlesBundle from "@/data/generated-tool-titles-i18n.generated";
+import descriptionsBundle from "@/data/generated-tool-descriptions-i18n.generated";
 import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-config";
 
 type LocaleTitleMap = Partial<Record<SupportedLocale, string>> & { readonly en?: string };
@@ -17,7 +17,6 @@ function findBundleEntry(
 ): LocaleTitleMap | undefined {
   const direct = bundle[slug];
   if (direct) return direct;
-  // Try slug + "-calculator" for tools whose bundle key has the suffix
   const withSuffix = bundle[`${slug}-calculator`];
   if (withSuffix) return withSuffix;
   return undefined;
