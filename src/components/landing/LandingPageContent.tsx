@@ -3,7 +3,62 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import type { LandingContent } from "@/types/landing";
-import { BRAND_ASSETS } from "@/config/brand";
+
+import {
+  Factory,
+  TrendingUp,
+  Target,
+  Zap,
+  Truck,
+  Wrench,
+  Pen,
+  FileText,
+  TriangleAlert,
+  ShieldCheck,
+  Building2,
+  BarChart3,
+  CheckCircle,
+  Cog,
+  PlusCircle,
+  ClipboardList,
+  Download,
+  Save,
+  Activity,
+  Globe,
+  Sparkles,
+  Gauge,
+  Package,
+  Thermometer,
+  GitFork,
+  Timer,
+  RotateCw,
+  Box,
+  TrendingDown,
+  LayoutGrid,
+  Droplets,
+  Leaf,
+  Wind,
+  Percent,
+  Hexagon,
+} from "lucide-react";
+
+const iconProps = {
+  size: 22,
+  strokeWidth: 1.5,
+  "aria-hidden": "true" as const,
+};
+
+const smallIconProps = {
+  size: 12,
+  strokeWidth: 1.5,
+  "aria-hidden": "true" as const,
+};
+
+const pricingIconProps = {
+  size: 14,
+  strokeWidth: 1.5,
+  "aria-hidden": "true" as const,
+};
 
 export function LandingPageContent({
   content,
@@ -125,13 +180,33 @@ export function LandingPageContent({
         <div className="wrap">
           <div className="nav__inner">
             <a href="/" className="nav__logo" aria-label="SectorCalc home">
-              <img
-                src={BRAND_ASSETS.logo.headerDefault}
-                alt="SectorCalc"
-                width={BRAND_ASSETS.logo.displayWidth}
-                height={BRAND_ASSETS.logo.displayHeight}
-                className="nav__logo-img"
-              />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 50 2478 527" fill="none" aria-label="SectorCalc" role="img" style={{height:'44px',width:'auto',display:'block'}}>
+                <defs>
+                  <linearGradient id="navGN" x1="52" y1="72" x2="222" y2="242" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stopColor="#0B4A92"/><stop offset="1" stopColor="#001C4E"/>
+                  </linearGradient>
+                  <linearGradient id="navGB" x1="246" y1="72" x2="416" y2="242" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stopColor="#2C8DFF"/><stop offset="1" stopColor="#1A6EF5"/>
+                  </linearGradient>
+                  <linearGradient id="navGT" x1="52" y1="266" x2="222" y2="436" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stopColor="#21D5C7"/><stop offset="1" stopColor="#16BDB8"/>
+                  </linearGradient>
+                  <linearGradient id="navGC" x1="246" y1="266" x2="416" y2="436" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stopColor="#35C4F3"/><stop offset="1" stopColor="#20B4E9"/>
+                  </linearGradient>
+                </defs>
+                <rect x="52"  y="72"  width="170" height="170" rx="28" fill="url(#navGN)"/>
+                <rect x="246" y="72"  width="170" height="170" rx="28" fill="url(#navGB)"/>
+                <rect x="52"  y="266" width="170" height="170" rx="28" fill="url(#navGT)"/>
+                <rect x="246" y="266" width="170" height="170" rx="28" fill="url(#navGC)"/>
+                <text x="137" y="157" fill="#fff" fontFamily="Arial,sans-serif" fontSize="92" fontWeight="700" textAnchor="middle" dominantBaseline="middle">+</text>
+                <text x="331" y="157" fill="#fff" fontFamily="Arial,sans-serif" fontSize="92" fontWeight="700" textAnchor="middle" dominantBaseline="middle">{'\u2212'}</text>
+                <text x="137" y="351" fill="#fff" fontFamily="Arial,sans-serif" fontSize="92" fontWeight="700" textAnchor="middle" dominantBaseline="middle">{'\u00D7'}</text>
+                <text x="331" y="351" fill="#fff" fontFamily="Arial,sans-serif" fontSize="92" fontWeight="700" textAnchor="middle" dominantBaseline="middle">=</text>
+                <text x="520" y="313.5" fontFamily="Arial,Helvetica,sans-serif" fontSize="276" fontWeight="400" dominantBaseline="middle">
+                  <tspan fill="#141413">Sector</tspan><tspan fill="#1A6EF5">Calc</tspan>
+                </text>
+              </svg>
             </a>
 
             <ul className="nav__links" role="list">
@@ -139,7 +214,7 @@ export function LandingPageContent({
               <li><a href="/categories" className="nav__link">{content.nav.categories}</a></li>
               <li><a href="/methodology" className="nav__link">{content.nav.methodology}</a></li>
               <li><a href="/pricing" className="nav__link">{content.nav.pro}</a></li>
-              <li><a href="/blog" className="nav__link">{content.nav.blog}</a></li>
+              <li><a href="/about" className="nav__link">{content.nav.blog}</a></li>
             </ul>
 
             <div className="nav__actions">
@@ -193,12 +268,24 @@ export function LandingPageContent({
             </div>
             <div className="search-hints" aria-label="Suggested searches">
               <span className="search-hint-label">{content.hero.tryLabel}</span>
-              <button className="chip" aria-label="OEE" onClick={() => handleSearchChip(content.hero.chipOee)}>{content.hero.chipOee}</button>
-              <button className="chip" aria-label="EOQ" onClick={() => handleSearchChip(content.hero.chipEoq)}>{content.hero.chipEoq}</button>
-              <button className="chip" aria-label="IRR" onClick={() => handleSearchChip(content.hero.chipIrr)}>{content.hero.chipIrr}</button>
-              <button className="chip" aria-label="Cpk" onClick={() => handleSearchChip(content.hero.chipCpk)}>{content.hero.chipCpk}</button>
-              <button className="chip" aria-label="LMTD" onClick={() => handleSearchChip(content.hero.chipLmtd)}>{content.hero.chipLmtd}</button>
-              <button className="chip" aria-label="MTBF" onClick={() => handleSearchChip(content.hero.chipMtbf)}>{content.hero.chipMtbf}</button>
+              <button className="chip" aria-label="OEE" onClick={() => handleSearchChip(content.hero.chipOee)}>
+                <BarChart3 {...smallIconProps} />{content.hero.chipOee}
+              </button>
+              <button className="chip" aria-label="EOQ" onClick={() => handleSearchChip(content.hero.chipEoq)}>
+                <Package {...smallIconProps} />{content.hero.chipEoq}
+              </button>
+              <button className="chip" aria-label="IRR" onClick={() => handleSearchChip(content.hero.chipIrr)}>
+                <TrendingUp {...smallIconProps} />{content.hero.chipIrr}
+              </button>
+              <button className="chip" aria-label="Cpk" onClick={() => handleSearchChip(content.hero.chipCpk)}>
+                <Target {...smallIconProps} />{content.hero.chipCpk}
+              </button>
+              <button className="chip" aria-label="LMTD" onClick={() => handleSearchChip(content.hero.chipLmtd)}>
+                <Thermometer {...smallIconProps} />{content.hero.chipLmtd}
+              </button>
+              <button className="chip" aria-label="MTBF" onClick={() => handleSearchChip(content.hero.chipMtbf)}>
+                <Wrench {...smallIconProps} />{content.hero.chipMtbf}
+              </button>
             </div>
           </div>
 
@@ -232,20 +319,48 @@ export function LandingPageContent({
           <div className="ticker__inner">
             <div className="ticker__label" aria-hidden="true">{content.ticker.label}</div>
             <div className="ticker__scroll" role="list">
-              <button className="tool-tag" role="listitem">{content.ticker.toolOee} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolEoq} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolIrrNpv} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolCpkSigma} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolTaktTime} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolBoltTorque} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolLmtd} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolMtbfMttr} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolBreakEven} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolKanban} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolPipePressure} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolCarbon} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolCompressor} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span></button>
-              <button className="tool-tag" role="listitem">{content.ticker.toolPertCpm} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span></button>
+              <button className="tool-tag" role="listitem">
+                <Gauge {...smallIconProps} />{content.ticker.toolOee} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <Box {...smallIconProps} />{content.ticker.toolEoq} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <TrendingUp {...smallIconProps} />{content.ticker.toolIrrNpv} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <Hexagon {...smallIconProps} />{content.ticker.toolCpkSigma} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <Timer {...smallIconProps} />{content.ticker.toolTaktTime} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <RotateCw {...smallIconProps} />{content.ticker.toolBoltTorque} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <Thermometer {...smallIconProps} />{content.ticker.toolLmtd} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <Activity {...smallIconProps} />{content.ticker.toolMtbfMttr} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <TrendingDown {...smallIconProps} />{content.ticker.toolBreakEven} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <LayoutGrid {...smallIconProps} />{content.ticker.toolKanban} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <Droplets {...smallIconProps} />{content.ticker.toolPipePressure} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <Leaf {...smallIconProps} />{content.ticker.toolCarbon} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <Wind {...smallIconProps} />{content.ticker.toolCompressor} <span className="tool-tag__badge tool-tag__badge--pro">{content.ticker.badgePro}</span>
+              </button>
+              <button className="tool-tag" role="listitem">
+                <GitFork {...smallIconProps} />{content.ticker.toolPertCpm} <span className="tool-tag__badge tool-tag__badge--free">{content.ticker.badgeFree}</span>
+              </button>
             </div>
           </div>
         </div>
@@ -418,7 +533,7 @@ export function LandingPageContent({
       </div>
 
       {/* ═══════════════════════════════════════════════════════════
-          6 CATEGORIES
+          6 CATEGORIES — each with a unique SVG icon
           ═══════════════════════════════════════════════════════════ */}
       <section className="cat-section section" aria-labelledby="cat-title">
         <div className="wrap">
@@ -432,8 +547,10 @@ export function LandingPageContent({
 
           <div className="cat-grid" role="list">
             {/* Feature card — Manufacturing */}
-            <a href="/categories/manufacturing" className="cat-card cat-card--feature reveal" role="listitem">
-              <div className="cat-card__icon" aria-hidden="true">🏭</div>
+            <a href="/free-tools?category=manufacturing-workshop" className="cat-card cat-card--feature reveal" role="listitem">
+              <div className="cat-card__icon" aria-hidden="true">
+                <Factory {...iconProps} />
+              </div>
               <div className="cat-card__body">
                 <div className="cat-card__name">{content.categories.manufacturingName}</div>
                 <div className="cat-card__desc">{content.categories.manufacturingDesc}</div>
@@ -450,8 +567,10 @@ export function LandingPageContent({
             </a>
 
             {/* Finance */}
-            <a href="/categories/finance" className="cat-card reveal" role="listitem">
-              <div className="cat-card__icon" aria-hidden="true">💹</div>
+            <a href="/free-tools?category=finance-business" className="cat-card reveal" role="listitem">
+              <div className="cat-card__icon" aria-hidden="true">
+                <TrendingUp {...iconProps} />
+              </div>
               <div className="cat-card__body">
                 <div className="cat-card__name">{content.categories.financeName}</div>
                 <div className="cat-card__desc">{content.categories.financeDesc}</div>
@@ -463,8 +582,10 @@ export function LandingPageContent({
             </a>
 
             {/* Quality */}
-            <a href="/categories/quality" className="cat-card reveal" role="listitem">
-              <div className="cat-card__icon" aria-hidden="true">🎯</div>
+            <a href="/free-tools?category=quality-six-sigma" className="cat-card reveal" role="listitem">
+              <div className="cat-card__icon" aria-hidden="true">
+                <Target {...iconProps} />
+              </div>
               <div className="cat-card__body">
                 <div className="cat-card__name">{content.categories.qualityName}</div>
                 <div className="cat-card__desc">{content.categories.qualityDesc}</div>
@@ -476,8 +597,10 @@ export function LandingPageContent({
             </a>
 
             {/* Energy */}
-            <a href="/categories/energy" className="cat-card reveal" role="listitem">
-              <div className="cat-card__icon" aria-hidden="true">⚡</div>
+            <a href="/free-tools?category=energy-carbon" className="cat-card reveal" role="listitem">
+              <div className="cat-card__icon" aria-hidden="true">
+                <Zap {...iconProps} />
+              </div>
               <div className="cat-card__body">
                 <div className="cat-card__name">{content.categories.energyName}</div>
                 <div className="cat-card__desc">{content.categories.energyDesc}</div>
@@ -489,8 +612,10 @@ export function LandingPageContent({
             </a>
 
             {/* Logistics */}
-            <a href="/categories/logistics" className="cat-card reveal" role="listitem">
-              <div className="cat-card__icon" aria-hidden="true">🚚</div>
+            <a href="/free-tools?category=logistics-travel" className="cat-card reveal" role="listitem">
+              <div className="cat-card__icon" aria-hidden="true">
+                <Truck {...iconProps} />
+              </div>
               <div className="cat-card__body">
                 <div className="cat-card__name">{content.categories.logisticsName}</div>
                 <div className="cat-card__desc">{content.categories.logisticsDesc}</div>
@@ -502,8 +627,10 @@ export function LandingPageContent({
             </a>
 
             {/* Mechanical */}
-            <a href="/categories/engineering" className="cat-card reveal" role="listitem">
-              <div className="cat-card__icon" aria-hidden="true">🔩</div>
+            <a href="/free-tools?category=manufacturing-workshop" className="cat-card reveal" role="listitem">
+              <div className="cat-card__icon" aria-hidden="true">
+                <Wrench {...iconProps} />
+              </div>
               <div className="cat-card__body">
                 <div className="cat-card__name">{content.categories.mechanicalName}</div>
                 <div className="cat-card__desc">{content.categories.mechanicalDesc}</div>
@@ -527,7 +654,7 @@ export function LandingPageContent({
       <hr className="section-rule" />
 
       {/* ═══════════════════════════════════════════════════════════
-          METHODOLOGY
+          METHODOLOGY — flat 2×2 grid
           ═══════════════════════════════════════════════════════════ */}
       <section className="method-section section" aria-labelledby="method-title">
         <div className="wrap">
@@ -540,26 +667,32 @@ export function LandingPageContent({
           <div className="method-layout reveal">
             <div className="method-card method-card--highlight">
               <div className="method-card__tag">{content.methodology.card1Tag}</div>
-              <div className="method-card__icon" aria-hidden="true">📐</div>
+              <div className="method-card__icon" aria-hidden="true">
+                <Pen {...iconProps} />
+              </div>
               <div className="method-card__title">{content.methodology.card1Title}</div>
               <div className="method-card__desc">{content.methodology.card1Desc}</div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--sp-4)' }}>
-              <div className="method-card">
-                <div className="method-card__icon" aria-hidden="true">📋</div>
-                <div className="method-card__title">{content.methodology.card2Title}</div>
-                <div className="method-card__desc">{content.methodology.card2Desc}</div>
+            <div className="method-card">
+              <div className="method-card__icon" aria-hidden="true">
+                <FileText {...iconProps} />
               </div>
-              <div className="method-card">
-                <div className="method-card__icon" aria-hidden="true">⚠️</div>
-                <div className="method-card__title">{content.methodology.card3Title}</div>
-                <div className="method-card__desc">{content.methodology.card3Desc}</div>
+              <div className="method-card__title">{content.methodology.card2Title}</div>
+              <div className="method-card__desc">{content.methodology.card2Desc}</div>
+            </div>
+            <div className="method-card">
+              <div className="method-card__icon" aria-hidden="true">
+                <TriangleAlert {...iconProps} />
               </div>
-              <div className="method-card">
-                <div className="method-card__icon" aria-hidden="true">🔒</div>
-                <div className="method-card__title">{content.methodology.card4Title}</div>
-                <div className="method-card__desc">{content.methodology.card4Desc}</div>
+              <div className="method-card__title">{content.methodology.card3Title}</div>
+              <div className="method-card__desc">{content.methodology.card3Desc}</div>
+            </div>
+            <div className="method-card">
+              <div className="method-card__icon" aria-hidden="true">
+                <ShieldCheck {...iconProps} />
               </div>
+              <div className="method-card__title">{content.methodology.card4Title}</div>
+              <div className="method-card__desc">{content.methodology.card4Desc}</div>
             </div>
           </div>
         </div>
@@ -568,7 +701,7 @@ export function LandingPageContent({
       <hr className="section-rule" />
 
       {/* ═══════════════════════════════════════════════════════════
-          AUDIENCE
+          AUDIENCE — 4 personas
           ═══════════════════════════════════════════════════════════ */}
       <section className="audience-section section" aria-labelledby="audience-title">
         <div className="wrap">
@@ -579,7 +712,9 @@ export function LandingPageContent({
 
           <div className="audience-grid reveal" role="list">
             <div className="persona" role="listitem">
-              <div className="persona__icon" aria-hidden="true">🏗️</div>
+              <div className="persona__icon" aria-hidden="true">
+                <Building2 {...iconProps} />
+              </div>
               <div className="persona__role">{content.audience.persona1Role}</div>
               <div className="persona__desc">{content.audience.persona1Desc}</div>
               <div className="persona__tools" aria-label="Related tools">
@@ -587,7 +722,9 @@ export function LandingPageContent({
               </div>
             </div>
             <div className="persona" role="listitem">
-              <div className="persona__icon" aria-hidden="true">📊</div>
+              <div className="persona__icon" aria-hidden="true">
+                <BarChart3 {...iconProps} />
+              </div>
               <div className="persona__role">{content.audience.persona2Role}</div>
               <div className="persona__desc">{content.audience.persona2Desc}</div>
               <div className="persona__tools" aria-label="Related tools">
@@ -595,7 +732,9 @@ export function LandingPageContent({
               </div>
             </div>
             <div className="persona" role="listitem">
-              <div className="persona__icon" aria-hidden="true">🔬</div>
+              <div className="persona__icon" aria-hidden="true">
+                <CheckCircle {...iconProps} />
+              </div>
               <div className="persona__role">{content.audience.persona3Role}</div>
               <div className="persona__desc">{content.audience.persona3Desc}</div>
               <div className="persona__tools" aria-label="Related tools">
@@ -603,7 +742,9 @@ export function LandingPageContent({
               </div>
             </div>
             <div className="persona" role="listitem">
-              <div className="persona__icon" aria-hidden="true">⚙️</div>
+              <div className="persona__icon" aria-hidden="true">
+                <Cog {...iconProps} />
+              </div>
               <div className="persona__role">{content.audience.persona4Role}</div>
               <div className="persona__desc">{content.audience.persona4Desc}</div>
               <div className="persona__tools" aria-label="Related tools">
@@ -617,7 +758,7 @@ export function LandingPageContent({
       <hr className="section-rule" />
 
       {/* ═══════════════════════════════════════════════════════════
-          PRO vs FREE
+          PRO vs FREE — SVG feature icons
           ═══════════════════════════════════════════════════════════ */}
       <section className="pricing-section section" aria-labelledby="pricing-title">
         <div className="wrap">
@@ -633,53 +774,160 @@ export function LandingPageContent({
                 <span>{content.pricing.compareLabel}</span>
               </div>
               <div className="pricing-col-head pricing-col-head--pro" role="columnheader">
-              <div className="tier-tag tier-tag--pro">{content.pricing.proTag}</div>
-              <div className="tier-count tier-count--terra">{content.pricing.proCount}</div>
-              <div className="tier-sub">{content.pricing.proSub}</div>
-              <a href="/pricing" className="btn-terra">{content.pricing.proCta}</a>
+                <div className="tier-tag tier-tag--pro">
+                  <Zap size={11} strokeWidth={2} aria-hidden="true" /> {content.pricing.proTag}
+                </div>
+                <div className="tier-count tier-count--terra">{content.pricing.proCount}</div>
+                <div className="tier-sub">{content.pricing.proSub}</div>
+                <a href="/pricing" className="btn-terra">{content.pricing.proCta}</a>
               </div>
               <div className="pricing-col-head" role="columnheader">
-              <div className="tier-tag tier-tag--free">{content.pricing.freeTag}</div>
-              <div className="tier-count">{content.pricing.freeCount}</div>
-              <div className="tier-sub">{content.pricing.freeSub}</div>
-              <a href="/free-tools" className="btn-outline">{content.pricing.freeCta}</a>
+                <div className="tier-tag tier-tag--free">{content.pricing.freeTag}</div>
+                <div className="tier-count">{content.pricing.freeCount}</div>
+                <div className="tier-sub">{content.pricing.freeSub}</div>
+                <a href="/free-tools" className="btn-outline">{content.pricing.freeCta}</a>
               </div>
             </div>
 
             <div className="pricing-row" role="row">
-              <div className="pricing-row__feat" role="cell"><span className="pricing-row__feat-icon">{content.pricing.feat1Icon}</span>{content.pricing.feat1Label}</div>
-              <div className="pricing-row__cell pricing-row__cell--pro" role="cell"><div className="check-y" aria-label="Included">✓</div></div>
-              <div className="pricing-row__cell" role="cell"><div className="check-y check-y--cobalt" aria-label="Included">✓</div></div>
+              <div className="pricing-row__feat" role="cell">
+                <span className="pricing-row__feat-icon"><PlusCircle {...pricingIconProps} /></span>
+                {content.pricing.feat1Label}
+              </div>
+              <div className="pricing-row__cell pricing-row__cell--pro" role="cell">
+                <div className="check-y" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="pricing-row__cell" role="cell">
+                <div className="check-y check-y--cobalt" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div className="pricing-row" role="row">
-              <div className="pricing-row__feat" role="cell"><span className="pricing-row__feat-icon">{content.pricing.feat2Icon}</span>{content.pricing.feat2Label}</div>
-              <div className="pricing-row__cell pricing-row__cell--pro" role="cell"><div className="check-y" aria-label="Included">✓</div></div>
-              <div className="pricing-row__cell" role="cell"><div className="check-n" aria-label="Not included">–</div></div>
+              <div className="pricing-row__feat" role="cell">
+                <span className="pricing-row__feat-icon"><ClipboardList {...pricingIconProps} /></span>
+                {content.pricing.feat2Label}
+              </div>
+              <div className="pricing-row__cell pricing-row__cell--pro" role="cell">
+                <div className="check-y" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="pricing-row__cell" role="cell">
+                <div className="check-n" aria-label="Not included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <line x1="3" y1="7" x2="11" y2="7" />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div className="pricing-row" role="row">
-              <div className="pricing-row__feat" role="cell"><span className="pricing-row__feat-icon">{content.pricing.feat3Icon}</span>{content.pricing.feat3Label}</div>
-              <div className="pricing-row__cell pricing-row__cell--pro" role="cell"><div className="check-y" aria-label="Included">✓</div></div>
-              <div className="pricing-row__cell" role="cell"><div className="check-n" aria-label="Not included">–</div></div>
+              <div className="pricing-row__feat" role="cell">
+                <span className="pricing-row__feat-icon"><Download {...pricingIconProps} /></span>
+                {content.pricing.feat3Label}
+              </div>
+              <div className="pricing-row__cell pricing-row__cell--pro" role="cell">
+                <div className="check-y" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="pricing-row__cell" role="cell">
+                <div className="check-n" aria-label="Not included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <line x1="3" y1="7" x2="11" y2="7" />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div className="pricing-row" role="row">
-              <div className="pricing-row__feat" role="cell"><span className="pricing-row__feat-icon">{content.pricing.feat4Icon}</span>{content.pricing.feat4Label}</div>
-              <div className="pricing-row__cell pricing-row__cell--pro" role="cell"><div className="check-y" aria-label="Included">✓</div></div>
-              <div className="pricing-row__cell" role="cell"><div className="check-n" aria-label="Not included">–</div></div>
+              <div className="pricing-row__feat" role="cell">
+                <span className="pricing-row__feat-icon"><Save {...pricingIconProps} /></span>
+                {content.pricing.feat4Label}
+              </div>
+              <div className="pricing-row__cell pricing-row__cell--pro" role="cell">
+                <div className="check-y" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="pricing-row__cell" role="cell">
+                <div className="check-n" aria-label="Not included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <line x1="3" y1="7" x2="11" y2="7" />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div className="pricing-row" role="row">
-              <div className="pricing-row__feat" role="cell"><span className="pricing-row__feat-icon">{content.pricing.feat5Icon}</span>{content.pricing.feat5Label}</div>
-              <div className="pricing-row__cell pricing-row__cell--pro" role="cell"><div className="check-y" aria-label="Included">✓</div></div>
-              <div className="pricing-row__cell" role="cell"><div className="check-n" aria-label="Not included">–</div></div>
+              <div className="pricing-row__feat" role="cell">
+                <span className="pricing-row__feat-icon"><Activity {...pricingIconProps} /></span>
+                {content.pricing.feat5Label}
+              </div>
+              <div className="pricing-row__cell pricing-row__cell--pro" role="cell">
+                <div className="check-y" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="pricing-row__cell" role="cell">
+                <div className="check-n" aria-label="Not included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <line x1="3" y1="7" x2="11" y2="7" />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div className="pricing-row" role="row">
-              <div className="pricing-row__feat" role="cell"><span className="pricing-row__feat-icon">{content.pricing.feat6Icon}</span>{content.pricing.feat6Label}</div>
-              <div className="pricing-row__cell pricing-row__cell--pro" role="cell"><div className="check-y" aria-label="Included">✓</div></div>
-              <div className="pricing-row__cell" role="cell"><div className="check-y check-y--cobalt" aria-label="Included">✓</div></div>
+              <div className="pricing-row__feat" role="cell">
+                <span className="pricing-row__feat-icon"><Globe {...pricingIconProps} /></span>
+                {content.pricing.feat6Label}
+              </div>
+              <div className="pricing-row__cell pricing-row__cell--pro" role="cell">
+                <div className="check-y" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="pricing-row__cell" role="cell">
+                <div className="check-y check-y--cobalt" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div className="pricing-row" role="row">
-              <div className="pricing-row__feat" role="cell"><span className="pricing-row__feat-icon">{content.pricing.feat7Icon}</span>{content.pricing.feat7Label}</div>
-              <div className="pricing-row__cell pricing-row__cell--pro" role="cell"><div className="check-y" aria-label="Included">✓</div></div>
-              <div className="pricing-row__cell" role="cell"><div className="check-y check-y--cobalt" aria-label="Included">✓</div></div>
+              <div className="pricing-row__feat" role="cell">
+                <span className="pricing-row__feat-icon"><Sparkles {...pricingIconProps} /></span>
+                {content.pricing.feat7Label}
+              </div>
+              <div className="pricing-row__cell pricing-row__cell--pro" role="cell">
+                <div className="check-y" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
+              <div className="pricing-row__cell" role="cell">
+                <div className="check-y check-y--cobalt" aria-label="Included">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="2,7 5.5,10.5 12,3" />
+                  </svg>
+                </div>
+              </div>
             </div>
 
             <div className="pricing-footer" role="row">
@@ -703,13 +951,33 @@ export function LandingPageContent({
           <div className="footer-grid">
             <div className="footer-brand">
               <div className="footer-brand__logo">
-                <img
-                  src={BRAND_ASSETS.logo.onDark}
-                  alt="SectorCalc"
-                  width={BRAND_ASSETS.logo.displayWidth}
-                  height={BRAND_ASSETS.logo.displayHeight}
-                  className="footer-brand__logo-img"
-                />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 50 2478 527" fill="none" aria-label="SectorCalc" role="img" style={{height:'40px',width:'auto',display:'block'}}>
+                  <defs>
+                    <linearGradient id="ftGN" x1="52" y1="72" x2="222" y2="242" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stopColor="#0B4A92"/><stop offset="1" stopColor="#001C4E"/>
+                    </linearGradient>
+                    <linearGradient id="ftGB" x1="246" y1="72" x2="416" y2="242" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stopColor="#2C8DFF"/><stop offset="1" stopColor="#1A6EF5"/>
+                    </linearGradient>
+                    <linearGradient id="ftGT" x1="52" y1="266" x2="222" y2="436" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stopColor="#21D5C7"/><stop offset="1" stopColor="#16BDB8"/>
+                    </linearGradient>
+                    <linearGradient id="ftGC" x1="246" y1="266" x2="416" y2="436" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stopColor="#35C4F3"/><stop offset="1" stopColor="#20B4E9"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="52"  y="72"  width="170" height="170" rx="28" fill="url(#ftGN)"/>
+                  <rect x="246" y="72"  width="170" height="170" rx="28" fill="url(#ftGB)"/>
+                  <rect x="52"  y="266" width="170" height="170" rx="28" fill="url(#ftGT)"/>
+                  <rect x="246" y="266" width="170" height="170" rx="28" fill="url(#ftGC)"/>
+                  <text x="137" y="157" fill="#fff" fontFamily="Arial,sans-serif" fontSize="92" fontWeight="700" textAnchor="middle" dominantBaseline="middle">+</text>
+                  <text x="331" y="157" fill="#fff" fontFamily="Arial,sans-serif" fontSize="92" fontWeight="700" textAnchor="middle" dominantBaseline="middle">{'\u2212'}</text>
+                  <text x="137" y="351" fill="#fff" fontFamily="Arial,sans-serif" fontSize="92" fontWeight="700" textAnchor="middle" dominantBaseline="middle">{'\u00D7'}</text>
+                  <text x="331" y="351" fill="#fff" fontFamily="Arial,sans-serif" fontSize="92" fontWeight="700" textAnchor="middle" dominantBaseline="middle">=</text>
+                  <text x="520" y="313.5" fontFamily="Arial,Helvetica,sans-serif" fontSize="276" fontWeight="400" dominantBaseline="middle">
+                    <tspan fill="rgba(250,249,245,0.92)">Sector</tspan><tspan fill="#4A8FFF">Calc</tspan>
+                  </text>
+                </svg>
               </div>
               <p className="footer-brand__desc">{content.footer.brandDesc}</p>
               <div className="footer-tags">
@@ -726,11 +994,11 @@ export function LandingPageContent({
             <div>
               <div className="footer-col__title">{content.footer.colCalculators}</div>
               <ul className="footer-col__links" role="list">
-                <li><a href="/categories/manufacturing" className="footer-col__link">{content.footer.linkManufacturing}</a></li>
-                <li><a href="/categories/finance" className="footer-col__link">{content.footer.linkFinance}</a></li>
-                <li><a href="/categories/quality" className="footer-col__link">{content.footer.linkQuality}</a></li>
-                <li><a href="/categories/energy" className="footer-col__link">{content.footer.linkEnergy}</a></li>
-                <li><a href="/categories/logistics" className="footer-col__link">{content.footer.linkLogistics}</a></li>
+                <li><a href="/free-tools?category=manufacturing-workshop" className="footer-col__link">{content.footer.linkManufacturing}</a></li>
+                <li><a href="/free-tools?category=finance-business" className="footer-col__link">{content.footer.linkFinance}</a></li>
+                <li><a href="/free-tools?category=quality-six-sigma" className="footer-col__link">{content.footer.linkQuality}</a></li>
+                <li><a href="/free-tools?category=energy-carbon" className="footer-col__link">{content.footer.linkEnergy}</a></li>
+                <li><a href="/free-tools?category=logistics-travel" className="footer-col__link">{content.footer.linkLogistics}</a></li>
                 <li><a href="/free-tools" className="footer-col__link">{content.footer.linkAllTools}</a></li>
               </ul>
             </div>
@@ -742,7 +1010,7 @@ export function LandingPageContent({
                 <li><a href="/methodology" className="footer-col__link">{content.footer.linkFormulaNotes}</a></li>
                 <li><a href="/pricing" className="footer-col__link">{content.footer.linkPricing}</a></li>
                 <li><a href="/about" className="footer-col__link">{content.footer.linkDocs}</a></li>
-                <li><a href="/blog" className="footer-col__link">{content.footer.linkChangelog}</a></li>
+                <li><a href="/about" className="footer-col__link">{content.footer.linkChangelog}</a></li>
               </ul>
             </div>
 
@@ -752,7 +1020,7 @@ export function LandingPageContent({
                 <li><a href="/disclaimer" className="footer-col__link">{content.footer.linkDisclaimer}</a></li>
                 <li><a href="/privacy" className="footer-col__link">{content.footer.linkPrivacy}</a></li>
                 <li><a href="/terms" className="footer-col__link">{content.footer.linkTerms}</a></li>
-                <li><a href="/cookies" className="footer-col__link">{content.footer.linkCookies}</a></li>
+                <li><a href="/privacy" className="footer-col__link">{content.footer.linkCookies}</a></li>
               </ul>
             </div>
 
@@ -761,7 +1029,7 @@ export function LandingPageContent({
               <ul className="footer-col__links" role="list">
                 <li><a href="/about" className="footer-col__link">{content.footer.linkAbout}</a></li>
                 <li><a href="/about" className="footer-col__link">{content.footer.linkContact}</a></li>
-                <li><a href="/blog" className="footer-col__link">{content.footer.linkBlog}</a></li>
+                <li><a href="/about" className="footer-col__link">{content.footer.linkBlog}</a></li>
                 <li><span className="footer-col__link">{content.footer.linkLocation}</span></li>
               </ul>
             </div>
@@ -779,7 +1047,7 @@ export function LandingPageContent({
       </footer>
 
       {/* ═══════════════════════════════════════════════════════════
-          TRACE AI WIDGET
+          TRACE AI WIDGET — SVG chip icons
           ═══════════════════════════════════════════════════════════ */}
       <div className="trace" id="trace" aria-label="Trace AI">
         <div
@@ -804,11 +1072,21 @@ export function LandingPageContent({
           </div>
           <p className="trace__msg">{content.trace.msg}</p>
           <div className="trace__chips">
-            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipOee)}>{content.trace.chipOee}</button>
-            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipScrap)}>{content.trace.chipScrap}</button>
-            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipEnergy)}>{content.trace.chipEnergy}</button>
-            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipPayback)}>{content.trace.chipPayback}</button>
-            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipBolt)}>{content.trace.chipBolt}</button>
+            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipOee)}>
+              <Gauge {...smallIconProps} />{content.trace.chipOee}
+            </button>
+            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipScrap)}>
+              <Percent {...smallIconProps} />{content.trace.chipScrap}
+            </button>
+            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipEnergy)}>
+              <Zap {...smallIconProps} />{content.trace.chipEnergy}
+            </button>
+            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipPayback)}>
+              <TrendingUp {...smallIconProps} />{content.trace.chipPayback}
+            </button>
+            <button className="trace-chip" onClick={() => handleTraceChip(content.trace.chipBolt)}>
+              <RotateCw {...smallIconProps} />{content.trace.chipBolt}
+            </button>
           </div>
           <div className="trace__inputrow">
             <input
