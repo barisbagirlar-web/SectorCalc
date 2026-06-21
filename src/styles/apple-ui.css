@@ -651,6 +651,7 @@
   flex-shrink: 0;
   line-height: 1;
   text-decoration: none;
+  column-gap: 0.5rem;
   min-height: 44px;
   height: auto;
   max-width: min(11.25rem, 34vw);
@@ -658,8 +659,8 @@
 
 .sc-site-logo__mark {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   object-fit: contain;
 }
@@ -739,8 +740,8 @@
   }
 
   .sc-site-logo__mark {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 
   .sc-site-logo__text {
