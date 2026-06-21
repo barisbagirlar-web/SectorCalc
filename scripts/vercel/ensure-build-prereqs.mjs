@@ -2,9 +2,14 @@
 /**
  * Vercel / CI build gate — ensures clean-slate clones have required dirs
  * before test:generated and next build (generated/ is gitignored).
+ *
+ * After pruning orphan generated tool files, the calculator registry is
+ * automatically regenerated to maintain parity and prevent Vercel build
+ * failures (schemas vs tools vs registry loader count mismatch).
  */
 import * as fs from "node:fs";
 import * as path from "node:path";
+import { execSync } from "node:child_process";
 
 const root = process.cwd();
 const generatedDir = path.join(root, "generated");
@@ -85,10 +90,10 @@ function removeDuplicateBareSchemas() {
   }
 }
 
-/** Remove generated/*.ts files with no matching schema JSON (stale bare-slug artifacts). */
+/** Remove generated/*.ts files with no matching schema JSON (stale bare-slug artifacts). Returns count of pruned files. */
 function pruneOrphanGeneratedTools() {
   if (!fs.existsSync(schemasDir) || !fs.existsSync(generatedDir)) {
-    return;
+    return 0;
   }
 
   const schemaSlugs = new Set(
@@ -114,6 +119,19 @@ function pruneOrphanGeneratedTools() {
   if (removed > 0) {
     console.log(`ensure-build-prereqs: pruned ${removed} orphan generated tool file(s)`);
   }
+  return removed;
+}
+
+/**
+ * Regenerate calculator-registry.ts to match the current generated/ directory.
+ * Keeps parity between schema count, generated tool count, and registry loaders.
+ */
+function regenerateRegistry() {
+  console.log("ensure-build-prereqs: regenerating calculator registry for parity");
+  execSync("npx tsx scripts/deepseek/generate-calculator-registry.ts", {
+    stdio: "inherit",
+    cwd: root,
+  });
 }
 
 for (const dir of [generatedDir, schemasDir, publicDiagramsDir]) {
@@ -123,6 +141,9 @@ for (const dir of [generatedDir, schemasDir, publicDiagramsDir]) {
 assertTsconfigTarget();
 assertNoDotAllRegexFlags();
 removeDuplicateBareSchemas();
-pruneOrphanGeneratedTools();
+const pruned = pruneOrphanGeneratedTools();
+if (pruned > 0) {
+  regenerateRegistry();
+}
 
 console.log("ensure-build-prereqs: generated/schemas + public/generated/schemas ready");
