@@ -53,12 +53,13 @@ function main() {
     // Build test input values: use default or positive value
     const testInput = {};
     for (const input of schema.inputs) {
+      const normalizedKey = toSafeVarName(input.id);
       if (input.default !== undefined && typeof input.default === "number" && input.default > 0) {
-        testInput[input.id] = input.default;
+        testInput[normalizedKey] = input.default;
       } else if (input.type === "number" || input.type === "percent" || input.type === "currency") {
-        testInput[input.id] = 100; // positive default test value
+        testInput[normalizedKey] = 100; // positive default test value
       } else {
-        testInput[input.id] = 1;
+        testInput[normalizedKey] = 1;
       }
     }
 
