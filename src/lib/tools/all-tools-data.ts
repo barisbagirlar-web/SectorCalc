@@ -4,8 +4,6 @@ import fs from "fs";
 import path from "path";
 import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
 import { buildCategorizedToolIndex, type CategorizedToolItem } from "@/lib/catalog/build-categorized-tool-index";
-import { PREMIUM_CALCULATOR_SCHEMAS } from "@/lib/premium-schema/schema-registry";
-import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import {
   resolveGeneratedToolTitle,
@@ -317,44 +315,11 @@ const PREMIUM_SECTOR_SLUG_TO_TAXONOMY: Record<string, string> = {
   "it-cloud": "bilisim",
 };
 
-/** Map FormulaFamilyId → FreeToolCategorySlug for category grouping on pro-tools. */
-const FORMULA_CATEGORY_TO_CATALOG: Record<string, string> = {
-  measurement: "conversion-measurement",
-  calibration: "quality-six-sigma",
-  scrap: "quality-six-sigma",
-  oee: "digital-factory-automation",
-  time: "lean-production",
-  route: "procurement-supply-chain",
-  cost: "finance-sales-working-capital",
-  energy: "electrical-power-systems",
-  carbon: "sustainability-resource-esg",
-  benchmark: "quality-six-sigma",
-  finance: "finance-sales-working-capital",
-  fluid: "mechanical-hvac-energy-loss",
-  lean: "lean-production",
-};
-
 function resolvePremiumSectorKey(sectorSlug: string): string {
   return PREMIUM_SECTOR_SLUG_TO_TAXONOMY[sectorSlug] ?? "diger";
 }
 
-function schemaToToolData(schema: PremiumCalculatorSchema, locale: string): ToolData {
-  const title = schema.name_i18n?.[locale] ?? schema.name;
-  const desc = schema.painStatement_i18n?.[locale] ?? schema.painStatement;
-  const sectorKey = resolvePremiumSectorKey(schema.sectorSlug);
-  const catalogCategory = FORMULA_CATEGORY_TO_CATALOG[schema.category] ?? "other";
-  return {
-    slug: schema.id,
-    name: title,
-    category: resolveSchemaCatalogCategoryLabel(catalogCategory, locale),
-    categoryKey: catalogCategory,
-    sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
-    sectorKey,
-    description: desc,
-    premiumRequired: true,
-    href: `/tools/premium-schema/${schema.id}`,
-  };
-}
+
 
 function categorizedToToolData(
   item: CategorizedToolItem,
@@ -392,17 +357,13 @@ function categorizedToToolData(
 export function getPremiumTools(locale = "tr"): ToolData[] {
   const bySlug = new Map<string, ToolData>();
 
-  // 1. Premium schemas from schema-registry (56 registered PremiumCalculatorSchema).
-  //    These are the definitive set of truly premium calculators.
-  for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
-    bySlug.set(schema.id, schemaToToolData(schema, locale));
-  }
-
-  // 2. Premium-152 seed tools (152 items from buildCategorizedToolIndex).
-  //    Only include items NOT already represented by a premium schema.
+  // Premium-152 seed tools (152 items from buildCategorizedToolIndex).
+  // Only these user-uploaded pro tools appear on the pro-tools page.
+  // PREMIUM_CALCULATOR_SCHEMAS are NOT listed here — they include legacy
+  // formulas that would mix free/pro boundaries.
   const index = buildCategorizedToolIndex();
   for (const item of index) {
-    if ((item.tier === "premium" || item.tier === "premium-schema") && !bySlug.has(item.slug)) {
+    if (item.tier === "premium" || item.tier === "premium-schema") {
       bySlug.set(item.slug, categorizedToToolData(item, locale));
     }
   }
