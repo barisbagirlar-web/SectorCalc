@@ -22,6 +22,7 @@ import {
   getPremiumSchemaRoutePath,
 } from "@/lib/seo/build-sitemap";
 import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
+import { isFreeToolMigratedToPremium } from "@/lib/freemium/resolve-free-to-premium-migration";
 import {
   assertPublicCatalogCopySafe,
   containsForbiddenPublicCatalogTerm,
@@ -41,7 +42,7 @@ import {
   FREE_TRAFFIC_TOOLS,
   listFreeTrafficSlugs,
 } from "@/lib/tools/free-traffic-catalog";
-import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+import { listPublicFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
 
 const PREMIUM_PRINT_ROUTE = /\/premium-schema\/[^/]+\/print(?:\?|$|\/)/;
@@ -99,8 +100,8 @@ describe("launch-readiness", () => {
   });
 
   test("PREMIUM_SCHEMAS length === 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(50);
-    expect(listPremiumSchemaSlugs().length).toBe(50);
+    expect(PREMIUM_SCHEMAS.length).toBe(81);
+    expect(listPremiumSchemaSlugs().length).toBe(81);
   });
 
   test("pricing copy is consistent and not ambiguous", () => {
@@ -114,7 +115,7 @@ describe("launch-readiness", () => {
 
   test("premium catalog has 27 items with no forbidden public terms", () => {
     const items = getPremiumSchemaCatalogItems("en");
-    expect(items.length).toBe(50);
+    expect(items.length).toBe(81);
     for (const item of items) {
       expect(assertPublicCatalogCopySafe(item)).toBe(true);
       expect(containsForbiddenPublicCatalogTerm(item.title)).toBe(false);
@@ -170,6 +171,9 @@ describe("launch-readiness", () => {
     }
 
     for (const slug of listFreeTrafficSlugs()) {
+      if (isFreeToolMigratedToPremium(slug)) {
+        continue;
+      }
       expect(urls.some((url) => url.includes(`/tools/free/${slug}`))).toBe(true);
     }
 
@@ -209,7 +213,7 @@ describe("launch-readiness", () => {
 
   test("all routable free slugs including revenue overlap are in sitemap", () => {
     const urls = buildSitemapEntries().map((entry) => entry.url);
-    for (const slug of listAllFreeToolSlugs()) {
+    for (const slug of listPublicFreeToolSlugs()) {
       expect(urls.some((url) => url.includes(`/tools/free/${slug}`))).toBe(true);
     }
   });

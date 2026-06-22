@@ -1,0 +1,100 @@
+import type { ToolDefinition } from "@/data/tool-schema";
+
+export const indicatedHorsepowerCalculatorDefinition: ToolDefinition = {
+  id: "indicated-horsepower-calculator",
+  slug: "indicated-horsepower-calculator",
+  tier: "generated",
+  industryId: "auto-repair-shop",
+  title: "Indicated Horsepower (IHP) Calculator",
+  shortDescription:
+    "Calculate the theoretical power developed inside the engine cylinders using MEP, stroke, bore and RPM.",
+  longDescription:
+    "Determine the indicated horsepower (IHP) of 2-stroke or 4-stroke piston engines. Enter the cylinder bore, piston stroke, mean effective pressure (MEP), RPM, and cylinder count to compute thermodynamic power, displacement and mean piston speed.",
+  inputs: [
+    {
+      id: "meanEffectivePressure",
+      label: "Mean Effective Pressure",
+      type: "number",
+      unit: "bar",
+      defaultValue: 8.5,
+      min: 0.1,
+      step: 0.1,
+      helperText: "Mean indicated pressure inside the cylinder during the stroke.",
+      required: true,
+    },
+    {
+      id: "strokeLength",
+      label: "Piston Stroke",
+      type: "number",
+      unit: "mm",
+      defaultValue: 90,
+      min: 10,
+      step: 1,
+      helperText: "Total travel distance of the piston from TDC to BDC.",
+      required: true,
+    },
+    {
+      id: "cylinderBore",
+      label: "Cylinder Bore Diameter",
+      type: "number",
+      unit: "mm",
+      defaultValue: 80,
+      min: 10,
+      step: 1,
+      helperText: "Internal diameter of the engine cylinder.",
+      required: true,
+    },
+    {
+      id: "engineRpm",
+      label: "Engine Speed (RPM)",
+      type: "number",
+      unit: "rpm",
+      defaultValue: 3200,
+      min: 100,
+      step: 50,
+      helperText: "Rotational speed of the crankshaft.",
+      required: true,
+    },
+    {
+      id: "cylinderCount",
+      label: "Number of Cylinders",
+      type: "number",
+      defaultValue: 4,
+      min: 1,
+      step: 1,
+      helperText: "Total number of combustion cylinders.",
+      required: true,
+    },
+    {
+      id: "cycleType",
+      label: "Engine Cycle Type",
+      type: "select",
+      defaultValue: 4,
+      helperText: "Number of strokes per power cycle (2-stroke or 4-stroke).",
+      required: true,
+      options: [
+        { value: "2", label: "2-Stroke Cycle" },
+        { value: "4", label: "4-Stroke Cycle" },
+      ],
+    },
+  ],
+  outputs: [
+    { id: "indicatedHorsepower", label: "Indicated Horsepower", unit: "hp" },
+    { id: "powerOutputKw", label: "Indicated Power", unit: "kW" },
+    { id: "totalDisplacement", label: "Engine Displacement", unit: "L" },
+    { id: "pistonSpeed", label: "Mean Piston Speed", unit: "m/s" },
+  ],
+  relatedToolIds: [
+    "machine-hour-estimator",
+    "project-cost-estimator",
+  ],
+  seo: {
+    title: "Indicated Horsepower (IHP) Calculator",
+    description:
+      "Free indicated horsepower calculator. Compute engine cylinder power, displacement and piston speed using MEP, stroke, bore and RPM.",
+    canonicalPath: "/tools/generated/indicated-horsepower-calculator",
+  },
+  calculatorId: "indicated-horsepower-calculator",
+  interpretationNote:
+    "Indicated Horsepower (IHP) represents the theoretical power developed inside the cylinders, which is higher than Brake Horsepower (BHP) due to friction, pumping and mechanical losses.",
+};

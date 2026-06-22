@@ -36,7 +36,7 @@ function getNumber(values: FreeToolInputValues, key: string): number {
  }
 
  if (typeof raw === "string") {
- const parsed = Number(raw);
+ const parsed = Number(raw.replace(/,/g, '.'));
  return Number.isFinite(parsed) ? parsed : 0;
  }
 

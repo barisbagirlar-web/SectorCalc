@@ -28,7 +28,7 @@ import {
   FREE_TRAFFIC_TOOLS,
   listFreeTrafficSlugs,
 } from "@/lib/tools/free-traffic-catalog";
-import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+import { listPublicFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { PREVIEW_ENTITLEMENT } from "@/lib/entitlements/premium-entitlements";
 import { gatePremiumReportExportPayload } from "@/lib/premium-schema/premium-report-gate";
 import { buildPremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
@@ -97,9 +97,9 @@ describe("production-hardening", () => {
   });
 
   test("PREMIUM_SCHEMAS length === 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(50);
-    expect(listPremiumSchemaSlugs().length).toBe(50);
-    expect(new Set(listPremiumSchemaSlugs()).size).toBe(50);
+    expect(PREMIUM_SCHEMAS.length).toBe(81);
+    expect(listPremiumSchemaSlugs().length).toBe(81);
+    expect(new Set(listPremiumSchemaSlugs()).size).toBe(81);
   });
 
   test("sitemap includes core public routes and expected minimum count", () => {
@@ -117,7 +117,7 @@ describe("production-hardening", () => {
       );
     }
 
-    for (const slug of listAllFreeToolSlugs()) {
+    for (const slug of listPublicFreeToolSlugs()) {
       expect(urls.some((url) => url.includes(`/tools/free/${slug}`))).toBe(true);
     }
 

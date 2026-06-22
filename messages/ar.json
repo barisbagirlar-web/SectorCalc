@@ -516,7 +516,9 @@
       "reportBullet1": "ملخص تنفيذي مع حالة العتبات",
       "reportBullet2": "تفصيل عوامل الخسارة الخفية",
       "reportBullet3": "إجراءات مقترحة وملاحظات الافتراضات",
-      "reportBullet4": "PDF وCSV جاهزان للتصدير مع الوصول المدفوع"
+      "reportBullet4": "PDF وCSV جاهزان للتصدير مع الوصول المدفوع",
+      "faqIsFreeTitle": "Is this calculator free?",
+      "faqIsFreeAnswer": "This tool is part of the premium analysis scope. Full results and decision summaries require credits or an active Pro subscription."
     }
   },
   "trust": {
@@ -581,12 +583,12 @@
   },
   "locale": {
     "label": "اللغة",
-    "en": "الإنجليزية",
+    "en": "English",
     "tr": "Türkçe",
-    "es": "الإسبانية",
-    "de": "الألمانية",
+    "es": "Español",
+    "de": "Deutsch",
     "ar": "العربية",
-    "fr": "الفرنسية"
+    "fr": "Français"
   },
   "common": {
     "learnMore": "اعرف المزيد",
@@ -3029,7 +3031,16 @@
     "result": "كيف تحل الأداة المشكلة",
     "decisionImpact": "أثر القرار",
     "representativeNote": "مشهد تمثيلي — تعرض نمذجي وليس نتيجة عميل موثقة.",
-    "viewRelatedTool": "فتح الأداة ذات الصلة"
+    "viewRelatedTool": "فتح الأداة ذات الصلة",
+    "featuredTitle": "First five sector scenarios",
+    "featuredSubtitle": "Representative format: problem, inputs, hidden loss, calculation result, suggested action, and related calculator — not a verified customer outcome.",
+    "moreTitle": "More representative scenarios",
+    "inputSet": "Input set",
+    "hiddenLoss": "Hidden loss",
+    "calculationResult": "Calculation result",
+    "suggestedAction": "Suggested action",
+    "estimatedImpact": "Estimated impact",
+    "methodologyNote": "Methodology note"
   },
   "fieldMode": {
     "eyebrow": "وضع الميدان",
@@ -9407,10 +9418,17 @@
       "formula-suggestion": "Formula suggestion",
       "unit-error": "Unit error",
       "translation-error": "Translation error",
-      "other": "Other"
+      "other": "Other",
+      "wrong_result": "Wrong result",
+      "missing_input": "Missing input",
+      "unit_issue": "Unit issue",
+      "unclear_explanation": "Unclear explanation",
+      "sector_assumption_issue": "Sector assumption issue",
+      "improvement_request": "Improvement request"
     },
     "error": {
-      "submitFailed": "Could not send feedback. Try again shortly."
+      "submitFailed": "Could not send feedback. Try again shortly.",
+      "messageTooShort": "Please add at least 10 characters."
     }
   },
   "resultLayers": {
@@ -9484,6 +9502,126 @@
     "plumbing-job-margin-verdict": {
       "title": "حكم هامش السباكة",
       "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "3d-print-job-margin-tool": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "auto-shop-margin-leak-detector": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "crop-yield-loss-analyzer": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "dairy-profit-detector": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "doviz-pozisyonu-kur-farki-riski-hesabi": {
+      "title": "Amper — Kilowatt (KW) Converter",
+      "description": "Amper — Kilowatt (KW) Converter"
+    },
+    "feed-efficiency-analyzer": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "heat-loss-calculator": {
+      "title": "Age Calculator",
+      "description": "Age Calculator"
+    },
+    "material-waste-calculator": {
+      "title": "Age Calculator",
+      "description": "Age Calculator"
+    },
+    "meal-planning-verdict": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "millwork-bid-risk-analyzer": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "painting-job-profit-verdict": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "panel-shop-margin-verdict": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "profit-margin-calculator": {
+      "title": "Loan Payment Calculator",
+      "description": "Loan Payment Calculator"
+    },
+    "return-profit-erosion-tool": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "roofing-contract-margin-guard": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "route-optimization-analyzer": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "scrap-rate-calculator": {
+      "title": "Age Calculator",
+      "description": "Age Calculator"
+    },
+    "water-optimization-verdict": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "indicated-horsepower-calculator": {
+      "title": "حاسبة القوة الحصانية البيانية (IHP)",
+      "description": "احسب القدرة النظرية المتولدة داخل أسطوانات المحرك باستخدام متوسط الضغط الفعال، الشوط، القطر، وعدد الدورات في الدقيقة."
+    }
+  },
+  "runtimeReadiness": {
+    "eyebrow": "Quality review",
+    "title": "Calculation temporarily unavailable",
+    "body": "This calculator is under quality review. Full calculation is temporarily disabled to avoid unreliable output.",
+    "browsePremiumCta": "Browse other premium tools"
+  },
+  "runtimeTrust": {
+    "eyebrow": "Quality review",
+    "title": "Calculator under quality review",
+    "body": "A runtime quality check detected a condition that may affect reliable output. Full calculation and payment are temporarily disabled to prevent unreliable results or incorrect payment.",
+    "browsePremiumCta": "Browse other premium tools"
+  },
+  "inputGuide": {
+    "shape": {
+      "title": "Input guide",
+      "description": "This guide maps measurement fields to their physical counterpart on the object."
+    },
+    "costBreakdown": {
+      "description": "This guide visually maps cost drivers to quote price and safe margin impact."
+    },
+    "processFlow": {
+      "description": "This guide shows how operational inputs convert into process loss and monetary impact."
+    },
+    "quoteRisk": {
+      "description": "This guide links machine time, OEE drivers and quote inputs to minimum safe price risk."
+    },
+    "tools": {
+      "cncQuoteRisk": {
+        "title": "CNC quote & OEE input map"
+      },
+      "changeOrder": {
+        "title": "Change order cost stack"
+      },
+      "officeCleaning": {
+        "title": "Cleaning bid cost drivers"
+      },
+      "routeOptimization": {
+        "title": "Route & freight loss flow"
+      },
+      "compressorLeak": {
+        "title": "Compressor leak energy flow"
+      }
     }
   }
 }

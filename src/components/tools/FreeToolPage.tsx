@@ -433,8 +433,8 @@ export function FreeToolPage({
  }
  continue;
  }
- const numeric =
- typeof value === "number" ? value : Number(value);
+ const numericString = typeof value === "string" ? value.replace(/,/g, '.') : String(value);
+ const numeric = typeof value === "number" ? value : Number(numericString);
  if (
  typeof numeric !== "number" ||
  !Number.isFinite(numeric) ||

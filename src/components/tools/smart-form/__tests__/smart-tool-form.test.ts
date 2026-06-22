@@ -34,7 +34,7 @@ describe("SmartToolForm", () => {
     expect(source).not.toContain("PremiumPaywall");
     expect(source).not.toContain("usePremiumToolAccess");
     expect(source).toContain("buildSmartFormFieldSpecsFromContract");
-    expect(source).toContain("grid-cols-1 gap-3 md:grid-cols-2");
+    expect(source).toContain("grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3");
   });
 
   test("component files export smart form building blocks", async () => {

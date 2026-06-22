@@ -2,13 +2,13 @@ import { describe, expect, test } from "vitest";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
 
-const SLUG = "project-cost-estimator";
-const PAID_ROUTE_SLUG = "project-cost-estimator";
+const SLUG = "change-order-impact-analyzer";
+const PAID_ROUTE_SLUG = "change-order-impact-analyzer";
 
-describe("project-cost-estimator global sanity", () => {
+describe("change-order-impact-analyzer global sanity", () => {
   test("schema and contract resolve for paid route", () => {
     expect(getPremiumCalculatorSchema(SLUG)).toBeDefined();
     expect(getFormulaContractBySlug(SLUG)).toBeDefined();
-    expect(PAID_ROUTE_SLUG).toBe("project-cost-estimator");
+    expect(PAID_ROUTE_SLUG).toBe("change-order-impact-analyzer");
   });
 });

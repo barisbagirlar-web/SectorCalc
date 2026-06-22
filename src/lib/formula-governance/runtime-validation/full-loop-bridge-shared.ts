@@ -32,7 +32,7 @@ export function normalizeInputNumber(value: number | string | undefined): number
   if (value === undefined || value === null || value === "") {
     return undefined;
   }
-  const parsed = typeof value === "number" ? value : Number(String(value).trim());
+  const parsed = typeof value === "number" ? value : Number(String(value).replace(/,/g, '.').trim());
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 

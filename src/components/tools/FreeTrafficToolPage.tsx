@@ -250,7 +250,8 @@ export function FreeTrafficToolPage({
         }
         continue;
       }
-      const numeric = typeof raw === "number" ? raw : Number(raw);
+      const numericString = typeof raw === "string" ? raw.replace(/,/g, '.') : String(raw);
+      const numeric = typeof raw === "number" ? raw : Number(numericString);
       if (raw === "" || !Number.isFinite(numeric)) {
         nextErrors[input.key] = t("validation.number");
         continue;

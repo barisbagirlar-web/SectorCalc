@@ -8,7 +8,7 @@ import {
   INDEXABLE_LOCALES,
   isPathIndexable,
 } from "@/lib/seo/indexable-url-manifest";
-import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+import { listAllFreeToolSlugs, listPublicFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 
 function pathsForLocale(locale: "en" | "tr" | "de" | "fr" | "es" | "ar"): string[] {
@@ -61,7 +61,7 @@ describe("indexable URL manifest", () => {
 
   test("free tool path count matches catalog (EN root)", () => {
     const enFreePaths = pathsForLocale("en").filter((path) => path.startsWith("/tools/free/"));
-    expect(enFreePaths.length).toBe(listAllFreeToolSlugs().length);
+    expect(enFreePaths.length).toBe(listPublicFreeToolSlugs().length);
     expect(enFreePaths.length).toBeGreaterThanOrEqual(100);
   });
 
@@ -70,7 +70,7 @@ describe("indexable URL manifest", () => {
       path.startsWith("/tools/premium-schema/"),
     );
     expect(enPremiumPaths.length).toBe(listPremiumSchemaSlugs().length);
-    expect(enPremiumPaths.length).toBe(50);
+    expect(enPremiumPaths.length).toBe(81);
   });
 
   test("SEO landing pathleri var", () => {
@@ -108,7 +108,7 @@ describe("indexable URL manifest", () => {
   test("critical GSC paths included in EN manifest", () => {
     const enPaths = getManifestEnPathSet();
     expect(enPaths.has("/")).toBe(true);
-    expect(enPaths.has("/tools/free/oee-calculator")).toBe(true);
+    expect(enPaths.has("/tools/free/area-converter")).toBe(true);
     expect(enPaths.has("/tools/premium-schema/cnc-oee-loss")).toBe(true);
     expect(enPaths.has("/guides/what-is-oee-and-how-to-calculate-it")).toBe(true);
   });

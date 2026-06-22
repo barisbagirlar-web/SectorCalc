@@ -10,6 +10,7 @@ import { changeOrderImpactAnalyzerDefinition } from "@/data/tool-definitions/cha
 import { officeCleaningBidOptimizerDefinition } from "@/data/tool-definitions/office-cleaning-bid-optimizer";
 import { menuProfitLeakDetectorDefinition } from "@/data/tool-definitions/menu-profit-leak-detector";
 import { returnRateProfitErosionToolDefinition } from "@/data/tool-definitions/return-rate-profit-erosion-tool";
+import { indicatedHorsepowerCalculatorDefinition } from "@/data/tool-definitions/indicated-horsepower-calculator";
 
 const TOOL_DEFINITIONS: ToolDefinition[] = [
  machineHourEstimatorDefinition,
@@ -22,6 +23,7 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
  officeCleaningBidOptimizerDefinition,
  menuProfitLeakDetectorDefinition,
  returnRateProfitErosionToolDefinition,
+ indicatedHorsepowerCalculatorDefinition,
 ];
 
 const definitionKey = (tier: ToolTier, slug: ToolSlug): string =>
@@ -43,5 +45,5 @@ export function getAllToolDefinitions(): ToolDefinition[] {
 }
 
 export function isValidToolTier(tier: string): tier is ToolTier {
- return tier === "free" || tier === "premium";
+  return tier === "free" || tier === "premium" || tier === "generated";
 }

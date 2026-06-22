@@ -67,9 +67,9 @@ const BATCH3_FORMULA_IDS = [
 ] as const;
 
 describe("premium-schema-batch3", () => {
-  test("PREMIUM_SCHEMAS length === 50", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(50);
-    expect(listPremiumSchemaIds().length).toBe(51);
+  test("PREMIUM_SCHEMAS length === 81", () => {
+    expect(PREMIUM_SCHEMAS.length).toBe(81);
+    expect(listPremiumSchemaIds().length).toBe(81);
   });
 
   test("new 15 slugs exist in schema index", () => {

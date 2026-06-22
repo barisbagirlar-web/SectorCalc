@@ -92,8 +92,8 @@ describe("seo-authority architecture", () => {
   });
 
   test("PREMIUM_SCHEMAS count is 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(50);
-    expect(listPremiumSchemaSlugs().length).toBe(50);
+    expect(PREMIUM_SCHEMAS.length).toBe(81);
+    expect(listPremiumSchemaSlugs().length).toBe(81);
   });
 
   test("sitemap helper produces indexable public routes", () => {

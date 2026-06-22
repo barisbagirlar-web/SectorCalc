@@ -50,7 +50,7 @@ export type FreeTrafficResult = {
 let _activeFormatLocale: SupportedLocale = "en";
 
 export function normalizeNumber(value: string | number): number {
-  const parsed = typeof value === "number" ? value : Number(String(value).trim());
+  const parsed = typeof value === "number" ? value : Number(String(value).replace(/,/g, '.').trim());
   return Number.isFinite(parsed) ? parsed : NaN;
 }
 

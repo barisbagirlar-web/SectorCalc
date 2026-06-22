@@ -31,6 +31,7 @@ export async function generateStaticParams(): Promise<ToolPageParams[]> {
  // Legacy premium slugs only — revenue tools use /tools/premium/[paidSlug].
  { tier: "premium", slug: "cnc-minimum-safe-quote-analyzer" },
  { tier: "premium", slug: "return-rate-profit-erosion-tool" },
+ { tier: "generated", slug: "indicated-horsepower-calculator" },
  ];
 }
 

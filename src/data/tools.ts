@@ -1,7 +1,7 @@
 import { getToolHref } from "@/lib/tools/paths";
 import { revenueToolRegistry } from "@/lib/tools/revenue-tools";
 
-export type ToolTier = "free" | "premium";
+export type ToolTier = "free" | "premium" | "generated";
 
 export type ToolSlug = string;
 

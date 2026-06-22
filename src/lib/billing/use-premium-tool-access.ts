@@ -15,6 +15,19 @@ export type UsePremiumToolAccessState = {
  isSuperUser: boolean;
  hasSinglePurchase: boolean;
  canAccessAnalyzer: boolean;
+ creditBalance: number;
+ hasCredits: boolean;
+ needsCreditLoad: boolean;
+ requiresCreditConsume: boolean;
+ creditPending: boolean;
+ consumeCreditForRun: (slug: string) => Promise<{ ok: boolean }>;
+ startCreditPackCheckout: (params: {
+  toolSlug: string;
+  returnPath: string;
+  locale: string;
+  creditPackSize: number;
+ }) => Promise<void>;
+ resetCreditRunSession: (slug: string) => void;
 };
 
 export function usePremiumToolAccess(toolSlug: string): UsePremiumToolAccessState {
@@ -45,5 +58,13 @@ export function usePremiumToolAccess(toolSlug: string): UsePremiumToolAccessStat
  isSuperUser,
  hasSinglePurchase,
  canAccessAnalyzer,
+ creditBalance: 0,
+ hasCredits: false,
+ needsCreditLoad: false,
+ requiresCreditConsume: false,
+ creditPending: false,
+ consumeCreditForRun: async () => ({ ok: true }),
+ startCreditPackCheckout: async () => {},
+ resetCreditRunSession: () => {},
  };
 }

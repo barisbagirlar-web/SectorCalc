@@ -401,14 +401,14 @@ export function resolvePremiumAnalyzerHref(legacyOrSchemaSlug: string): string {
     return "/premium-tools";
   }
 
-  const schemaFromRegistry = getPremiumCalculatorSchema(trimmed);
-  if (schemaFromRegistry) {
-    return `/tools/premium-schema/${schemaFromRegistry.id}`;
-  }
-
   const mappedSchemaId = PREMIUM_SCHEMA_SLUG_MAP[trimmed];
   if (mappedSchemaId && getPremiumCalculatorSchema(mappedSchemaId)) {
     return `/tools/premium-schema/${mappedSchemaId}`;
+  }
+
+  const schemaFromRegistry = getPremiumCalculatorSchema(trimmed);
+  if (schemaFromRegistry) {
+    return `/tools/premium-schema/${schemaFromRegistry.id}`;
   }
 
   if (getRevenueToolByPaidSlug(trimmed)) {

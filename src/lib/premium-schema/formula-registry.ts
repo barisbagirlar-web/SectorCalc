@@ -925,6 +925,54 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   {
+    id: "finance.net_position",
+    family: "cost",
+    label: "Net foreign currency position",
+    fn: (inputs) => {
+      const assets = num(inputs, "assets");
+      const liabilities = num(inputs, "liabilities");
+      return assertFinite(assets - liabilities);
+    },
+  },
+  {
+    id: "finance.fx_exposure_loss",
+    family: "cost",
+    label: "FX Exposure Loss (Unhedged)",
+    fn: (inputs) => {
+      const netPosition = num(inputs, "netPosition");
+      const currentRate = num(inputs, "currentRate");
+      const shockRate = num(inputs, "shockRate");
+      const hedgeRatio = num(inputs, "hedgeRatio");
+      
+      const rateDiff = shockRate - currentRate;
+      const unhedgedRatio = Math.max(0, 1 - (hedgeRatio / 100));
+      
+      const loss = (netPosition < 0 && rateDiff > 0) || (netPosition > 0 && rateDiff < 0) 
+        ? Math.abs(netPosition * rateDiff) 
+        : 0;
+      return assertFinite(loss * unhedgedRatio);
+    },
+  },
+  {
+    id: "finance.hedge_savings",
+    family: "cost",
+    label: "Savings from FX Hedge",
+    fn: (inputs) => {
+      const netPosition = num(inputs, "netPosition");
+      const currentRate = num(inputs, "currentRate");
+      const shockRate = num(inputs, "shockRate");
+      const hedgeRatio = num(inputs, "hedgeRatio");
+      
+      const rateDiff = shockRate - currentRate;
+      const hedgeFactor = Math.min(100, Math.max(0, hedgeRatio)) / 100;
+      
+      const loss = (netPosition < 0 && rateDiff > 0) || (netPosition > 0 && rateDiff < 0) 
+        ? Math.abs(netPosition * rateDiff) 
+        : 0;
+      return assertFinite(loss * hedgeFactor);
+    },
+  },
+  {
     id: "finance.annual_yield_percent",
     family: "cost",
     label: "Annual cash flow as percent of investment",
@@ -1599,6 +1647,21 @@ const FORMULA_META_DETAILS: Record<
   "finance.simple_npv": {
     description: "NPV with fixed annual cash flow and discount rate.",
     requiredInputs: ["initialInvestment", "annualCashFlow", "discountRatePercent", "horizonYears"],
+    outputHint: "currency",
+  },
+  "finance.net_position": {
+    description: "Net position from foreign assets and liabilities.",
+    requiredInputs: ["assets", "liabilities"],
+    outputHint: "number",
+  },
+  "finance.fx_exposure_loss": {
+    description: "Unhedged financial loss under exchange rate shock.",
+    requiredInputs: ["netPosition", "currentRate", "shockRate", "hedgeRatio"],
+    outputHint: "currency",
+  },
+  "finance.hedge_savings": {
+    description: "Financial savings due to hedging ratio.",
+    requiredInputs: ["netPosition", "currentRate", "shockRate", "hedgeRatio"],
     outputHint: "currency",
   },
   "finance.annual_yield_percent": {

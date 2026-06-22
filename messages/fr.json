@@ -521,7 +521,9 @@
       "reportBullet1": "Résumé exécutif avec statut de seuil",
       "reportBullet2": "Décomposition des facteurs de perte cachés",
       "reportBullet3": "Actions suggérées et notes d'hypothèses",
-      "reportBullet4": "PDF et CSV exportables avec accès payant"
+      "reportBullet4": "PDF et CSV exportables avec accès payant",
+      "faqIsFreeTitle": "Is this calculator free?",
+      "faqIsFreeAnswer": "This tool is part of the premium analysis scope. Full results and decision summaries require credits or an active Pro subscription."
     }
   },
   "trust": {
@@ -3034,7 +3036,16 @@
     "result": "Comment l'outil le résout",
     "decisionImpact": "Impact sur la décision",
     "representativeNote": "Scénario représentatif — exposition modélisée, pas un résultat client vérifié.",
-    "viewRelatedTool": "Ouvrir l'outil associé"
+    "viewRelatedTool": "Ouvrir l'outil associé",
+    "featuredTitle": "First five sector scenarios",
+    "featuredSubtitle": "Representative format: problem, inputs, hidden loss, calculation result, suggested action, and related calculator — not a verified customer outcome.",
+    "moreTitle": "More representative scenarios",
+    "inputSet": "Input set",
+    "hiddenLoss": "Hidden loss",
+    "calculationResult": "Calculation result",
+    "suggestedAction": "Suggested action",
+    "estimatedImpact": "Estimated impact",
+    "methodologyNote": "Methodology note"
   },
   "fieldMode": {
     "eyebrow": "Mode terrain",
@@ -9412,10 +9423,17 @@
       "formula-suggestion": "Formula suggestion",
       "unit-error": "Unit error",
       "translation-error": "Translation error",
-      "other": "Other"
+      "other": "Other",
+      "wrong_result": "Wrong result",
+      "missing_input": "Missing input",
+      "unit_issue": "Unit issue",
+      "unclear_explanation": "Unclear explanation",
+      "sector_assumption_issue": "Sector assumption issue",
+      "improvement_request": "Improvement request"
     },
     "error": {
-      "submitFailed": "Could not send feedback. Try again shortly."
+      "submitFailed": "Could not send feedback. Try again shortly.",
+      "messageTooShort": "Please add at least 10 characters."
     }
   },
   "resultLayers": {
@@ -9489,6 +9507,126 @@
     "plumbing-job-margin-verdict": {
       "title": "Verdict marge plomberie",
       "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "3d-print-job-margin-tool": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "auto-shop-margin-leak-detector": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "crop-yield-loss-analyzer": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "dairy-profit-detector": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "doviz-pozisyonu-kur-farki-riski-hesabi": {
+      "title": "Amper — Kilowatt (KW) Converter",
+      "description": "Amper — Kilowatt (KW) Converter"
+    },
+    "feed-efficiency-analyzer": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "heat-loss-calculator": {
+      "title": "Age Calculator",
+      "description": "Age Calculator"
+    },
+    "material-waste-calculator": {
+      "title": "Age Calculator",
+      "description": "Age Calculator"
+    },
+    "meal-planning-verdict": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "millwork-bid-risk-analyzer": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "painting-job-profit-verdict": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "panel-shop-margin-verdict": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "profit-margin-calculator": {
+      "title": "Loan Payment Calculator",
+      "description": "Loan Payment Calculator"
+    },
+    "return-profit-erosion-tool": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "roofing-contract-margin-guard": {
+      "title": "Concrete / Project Cost Calculator",
+      "description": "Concrete / Project Cost Calculator"
+    },
+    "route-optimization-analyzer": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "scrap-rate-calculator": {
+      "title": "Age Calculator",
+      "description": "Age Calculator"
+    },
+    "water-optimization-verdict": {
+      "title": "Route & Freight Loss Analyzer",
+      "description": "Route & Freight Loss Analyzer"
+    },
+    "indicated-horsepower-calculator": {
+      "title": "Calculateur de puissance indiquée (IHP)",
+      "description": "Calculez la puissance théorique développée à l'intérieur des cylindres du moteur à l'aide de la PMI, de la course, de l'alésage et du régime."
+    }
+  },
+  "runtimeReadiness": {
+    "eyebrow": "Quality review",
+    "title": "Calculation temporarily unavailable",
+    "body": "This calculator is under quality review. Full calculation is temporarily disabled to avoid unreliable output.",
+    "browsePremiumCta": "Browse other premium tools"
+  },
+  "runtimeTrust": {
+    "eyebrow": "Quality review",
+    "title": "Calculator under quality review",
+    "body": "A runtime quality check detected a condition that may affect reliable output. Full calculation and payment are temporarily disabled to prevent unreliable results or incorrect payment.",
+    "browsePremiumCta": "Browse other premium tools"
+  },
+  "inputGuide": {
+    "shape": {
+      "title": "Input guide",
+      "description": "This guide maps measurement fields to their physical counterpart on the object."
+    },
+    "costBreakdown": {
+      "description": "This guide visually maps cost drivers to quote price and safe margin impact."
+    },
+    "processFlow": {
+      "description": "This guide shows how operational inputs convert into process loss and monetary impact."
+    },
+    "quoteRisk": {
+      "description": "This guide links machine time, OEE drivers and quote inputs to minimum safe price risk."
+    },
+    "tools": {
+      "cncQuoteRisk": {
+        "title": "CNC quote & OEE input map"
+      },
+      "changeOrder": {
+        "title": "Change order cost stack"
+      },
+      "officeCleaning": {
+        "title": "Cleaning bid cost drivers"
+      },
+      "routeOptimization": {
+        "title": "Route & freight loss flow"
+      },
+      "compressorLeak": {
+        "title": "Compressor leak energy flow"
+      }
     }
   }
 }
