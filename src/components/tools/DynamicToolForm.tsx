@@ -392,7 +392,7 @@ export function DynamicToolForm({
 
   const machineRateSection = showMachineRateSelector ? (
     isPro ? (
-      <section className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
+      <section className="rounded-xl border border-technical-gray bg-kil-surface p-4 shadow-sm sm:p-5">
         <MachineRateSelector
           onSelect={handleMachineSelect}
           currentValues={formValues}
@@ -405,7 +405,7 @@ export function DynamicToolForm({
         ) : null}
       </section>
     ) : (
-      <section className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
+      <section className="rounded-xl border border-technical-gray bg-kil-surface p-4 shadow-sm sm:p-5">
         <h3 className="text-lg font-semibold text-premium-velvet">{tMachineRate("label")}</h3>
         <p className="mt-2 text-sm text-body-charcoal">
           {tMachineRate("lockedMessage")}{" "}
@@ -428,7 +428,7 @@ export function DynamicToolForm({
           primaryOutputKey={scenarioComparison.primaryOutputKey}
         />
       ) : (
-        <section className="mt-8 rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
+        <section className="mt-8 rounded-xl border border-technical-gray bg-kil-surface p-4 shadow-sm sm:p-5">
           <h3 className="text-lg font-semibold text-premium-velvet">{tScenario("title")}</h3>
           <p className="mt-2 text-sm text-body-charcoal">
             {tScenario("lockedMessage")}{" "}

@@ -73,18 +73,18 @@ const PRINT_PAGE_GLOBAL_OVERRIDES = `
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    background: #0B1628;
+    background: #1A1915;
     z-index: 9999;
     padding: 0;
     margin: 0;
   }
   .sc-print-full-page body {
-    background: #0B1628;
+    background: #1A1915;
   }
   @media print {
     .sc-print-full-page {
       position: static;
-      background: #0B1628;
+      background: #1A1915;
     }
   }
 `;

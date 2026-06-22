@@ -20,7 +20,7 @@ export const PROJECT_OVERRUN_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "spi", label: "Program Performans Endeksi (SPI)", label_i18n: {"en":"Program Performans Endeksi (SPI)","tr":"Program Performans Endeksi (SPI)"}, unit: "", format: "number" },
     { id: "cpi", label: "Maliyet Performans Endeksi (CPI)", label_i18n: {"en":"Maliyet Performans Endeksi (CPI)","tr":"Maliyet Performans Endeksi (CPI)"}, unit: "", format: "number" },
     { id: "eac", label: "Tahmini Tamamlanma Maliyeti (EAC)", label_i18n: {"en":"Tahmini Tamamlanma Maliyeti (EAC)","tr":"Tahmini Tamamlanma Maliyeti (EAC)"}, unit: "USD", format: "currency", isBigNumber: true },
-    { id: "expectedOverrun", label: "Beklenen Aşım", label_i18n: {"en":"Beklenen Aşım","tr":"Beklenen Aşım"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "expectedOverrun", label: "Beklenen Aşım", label_i18n: {"en":"Beklenen Asm","tr":"Beklenen Aşım"}, unit: "USD", format: "currency", isBigNumber: true },
     { id: "scheduleDelay", label: "Program Gecikmesi", label_i18n: {"en":"Program Gecikmesi","tr":"Program Gecikmesi"}, unit: "gün", format: "number" },
     { id: "riskExposure", label: "Risk Maruziyeti", label_i18n: {"en":"Risk Maruziyeti","tr":"Risk Maruziyeti"}, unit: "USD", format: "currency" },
     { id: "mitigationCost", label: "Azaltma Maliyeti", label_i18n: {"en":"Mitigation Cost","tr":"Azaltma Maliyeti"}, unit: "USD", format: "currency" },

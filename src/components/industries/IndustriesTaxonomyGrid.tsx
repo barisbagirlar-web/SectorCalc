@@ -46,7 +46,7 @@ function TaxonomySectorTile({
       scroll={false}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "group flex min-h-[148px] flex-col items-center justify-center rounded-xl border bg-white px-3 py-5 text-center transition",
+        "group flex min-h-[148px] flex-col items-center justify-center rounded-xl border bg-kil-surface px-3 py-5 text-center transition",
         "shadow-sm hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
         tone.hoverBorder,
         tone.focusRing,

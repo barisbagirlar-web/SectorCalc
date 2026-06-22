@@ -15,8 +15,8 @@ export const CONTRACT_INCENTIVE_ANALYZER: PremiumCalculatorSchema = {
     { id: "maxFee", label: "Maksimum Ücret", label_i18n: {"en":"Maximum Fee","tr":"Maksimum Ücret"}, type: "number", unit: "USD", required: false, smartDefault: 800000, validation: { min: 0 }, helper: "", expertMeaning: "Maximum fee cap", expertMeaning_i18n: {"en":"Maximum fee cap","tr":"Maksimum ücret tavanı"} },
   ],
   outputs: [
-    { id: "incentiveTargetFee", label: "Hedef Teşvik Ücreti", label_i18n: {"en":"Hedef Teşvik Ücreti","tr":"Hedef Teşvik Ücreti"}, unit: "USD", format: "currency" },
-    { id: "incentiveActualFee", label: "Gerçekleşen Teşvik Ücreti", label_i18n: {"en":"Gerçekleşen Teşvik Ücreti","tr":"Gerçekleşen Teşvik Ücreti"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "incentiveTargetFee", label: "Hedef Teşvik Ücreti", label_i18n: {"en":"Hedef Tesvik Ucreti","tr":"Hedef Teşvik Ücreti"}, unit: "USD", format: "currency" },
+    { id: "incentiveActualFee", label: "Gerçekleşen Teşvik Ücreti", label_i18n: {"en":"Gerceklesen Tesvik Ucreti","tr":"Gerçekleşen Teşvik Ücreti"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "incentiveActualFee", warning: 600000, critical: 300000, direction: "lower_is_bad", warningMessage: "Teşvik ücreti <$600K — yüklenici motivasyonu düşebilir.", warningMessage_i18n: {"en":"Incentive fee <$600K — contractor motivation may decrease.","tr":"Teşvik ücreti <$600K — yüklenici motivasyonu düşebilir."}, criticalMessage: "Teşvik ücreti <$300K — sözleşme yapısı gözden geçirilmeli.", criticalMessage_i18n: {"en":"Incentive fee <$300K — review contract structure.","tr":"Teşvik ücreti <$300K — sözleşme yapısı gözden geçirilmeli."} }],
   formulaPipeline: [

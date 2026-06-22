@@ -26,12 +26,12 @@ export const BOLT_TORQUE_SCHEMA: PremiumCalculatorSchema = {
     { id: "calibrationError", label: "Tork Anahtarı Kalibrasyon Hatası", label_i18n: {"en":"Torque Wrench Calibration Error","tr":"Tork Anahtarı Kalibrasyon Hatası"}, type: "number", unit: "%", required: false, smartDefault: 5, validation: { min: 0, max: 50 }, helper: "", expertMeaning: "Wrench calibration uncertainty", expertMeaning_i18n: {"en":"Wrench calibration uncertainty","tr":"Anahtar kalibrasyon belirsizliği"} },
   ],
   outputs: [
-    { id: "pitchDiameter", label: "Kavrama Çapı (d₂)", label_i18n: {"en":"Kavrama Çapı (d₂)","tr":"Kavrama Çapı (d₂)"}, unit: "mm", format: "number" },
-    { id: "rootDiameter", label: "Kök Çapı (d₃)", label_i18n: {"en":"Kök Çapı (d₃)","tr":"Kök Çapı (d₃)"}, unit: "mm", format: "number" },
-    { id: "tensileArea", label: "Çekme Gerilme Alanı (A_t)", label_i18n: {"en":"Çekme Gerilme Alanı (A_t)","tr":"Çekme Gerilme Alanı (A_t)"}, unit: "mm²", format: "number" },
-    { id: "preloadForce", label: "Öngerilme Kuvveti (F)", label_i18n: {"en":"Öngerilme Kuvveti (F)","tr":"Öngerilme Kuvveti (F)"}, unit: "kN", format: "number" },
-    { id: "torque", label: "Sıkma Torku (T)", label_i18n: {"en":"Sıkma Torku (T)","tr":"Sıkma Torku (T)"}, unit: "Nm", format: "number" },
-    { id: "yieldCheck", label: "Akma Kontrolü", label_i18n: {"en":"Akma Kontrolü","tr":"Akma Kontrolü"}, unit: "", format: "score", isBigNumber: true },
+    { id: "pitchDiameter", label: "Kavrama Çapı (d₂)", label_i18n: {"en":"Kavrama Cap (d2)","tr":"Kavrama Çapı (d₂)"}, unit: "mm", format: "number" },
+    { id: "rootDiameter", label: "Kök Çapı (d₃)", label_i18n: {"en":"Kok Cap (d3)","tr":"Kök Çapı (d₃)"}, unit: "mm", format: "number" },
+    { id: "tensileArea", label: "Çekme Gerilme Alanı (A_t)", label_i18n: {"en":"Cekme Gerilme Alan (A_t)","tr":"Çekme Gerilme Alanı (A_t)"}, unit: "mm²", format: "number" },
+    { id: "preloadForce", label: "Öngerilme Kuvveti (F)", label_i18n: {"en":"Ongerilme Kuvveti (F)","tr":"Öngerilme Kuvveti (F)"}, unit: "kN", format: "number" },
+    { id: "torque", label: "Sıkma Torku (T)", label_i18n: {"en":"Skma Torku (T)","tr":"Sıkma Torku (T)"}, unit: "Nm", format: "number" },
+    { id: "yieldCheck", label: "Akma Kontrolü", label_i18n: {"en":"Akma Kontrolu","tr":"Akma Kontrolü"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "yieldCheck", warning: 0.8, critical: 1, direction: "higher_is_bad", warningMessage: "Öngerilme akma dayanımının %80'ine yaklaşıyor.", warningMessage_i18n: {"en":"Öngerilme akma dayanımının %80'ine yaklaşıyor.","tr":"Öngerilme akma dayanımının %80'ine yaklaşıyor."}, criticalMessage: "Öngerilme akma dayanımını aşıyor — bağlantı risk altında.", criticalMessage_i18n: {"en":"Öngerilme akma dayanımını aşıyor — bağlantı risk altında.","tr":"Öngerilme akma dayanımını aşıyor — bağlantı risk altında."} },

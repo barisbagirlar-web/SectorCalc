@@ -1,28 +1,22 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
-import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
-import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
+import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { createPageMetadata } from "@/lib/metadata";
 import { getFreeTools } from "@/lib/tools/all-tools-data";
-import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
+import {
+  buildTaxonomySectorCards,
+  withTaxonomyCountLabels,
+} from "@/lib/tools/build-taxonomy-sector-cards";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
 import type { AppLocale } from "@/i18n/routing";
 import {
   getAllToolsGroupedByCategory,
   getOrderedCategorySlugsWithTools,
 } from "@/lib/tools/getToolsByCategory";
-import { resolveFreeToolCategoryTitle } from "@/lib/free-tools/free-tool-categories";
-import {
-  SectorFilteredToolSections,
-  type CategorySectorData,
-} from "@/components/free-tools/SectorFilteredToolSections";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -55,22 +49,10 @@ export default async function FreeToolsPage({ params }: PageProps) {
     (count) => tCatalog("labels.free-tools.countLabel", { count }),
   );
 
-  // ── Group free tools by canonical category for ToolAlphaList sections ──
+  // Flat tool list from grouped categories
   const groupedByCategory = getAllToolsGroupedByCategory(locale, false);
   const orderedCategorySlugs = getOrderedCategorySlugsWithTools(groupedByCategory);
-
-  // Pre-compute category sections data for the filterable client component
-  const categorySections: CategorySectorData[] = orderedCategorySlugs
-    .map((catSlug) => {
-      const catTools = groupedByCategory[catSlug];
-      if (!catTools || catTools.length === 0) return null;
-      return {
-        slug: catSlug,
-        title: resolveFreeToolCategoryTitle(catSlug, locale),
-        tools: catTools,
-      } as CategorySectorData;
-    })
-    .filter(Boolean) as CategorySectorData[];
+  const allTools = orderedCategorySlugs.flatMap((slug) => groupedByCategory[slug] ?? []);
 
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
@@ -90,42 +72,21 @@ export default async function FreeToolsPage({ params }: PageProps) {
     ),
   ];
 
+  const proToolsHref = locale === "en" ? "/pro-tools" : `/${locale}/pro-tools`;
+
   return (
     <PageLayout>
       <JsonLd data={jsonLd} />
       <section className="sc-pro-section sc-pro-section--border">
-        <ToolsPageSearchProvider>
-          <Suspense fallback={null}>
-            <CatalogSearchUrlSync />
-          </Suspense>
-          <ToolsPageLayout
-            title={tPage("title")}
-            subtitle={tPage("subtitle")}
-            searchPlaceholder={tPage("searchPlaceholder")}
-            categoryTitle={tPage("categoryTitle")}
-          >
-            <div className="mb-8">
-              <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-                <IndustriesTaxonomyGrid
-                  basePath="/free-tools"
-                  sectors={taxonomySectorCards}
-                  variant="free"
-                />
-              </Suspense>
-            </div>
-
-            {/* ── Sector-filtered alphabetical tool lists ── */}
-            {categorySections.length > 0 && (
-              <Suspense fallback={<div className="min-h-[8rem]" aria-hidden="true" />}>
-                <SectorFilteredToolSections
-                  categorySections={categorySections}
-                  locale={locale}
-                  byCategoryTitle={tPage("byCategoryTitle")}
-                />
-              </Suspense>
-            )}
-          </ToolsPageLayout>
-        </ToolsPageSearchProvider>
+        <CatalogPageShell
+          tools={allTools}
+          sectors={taxonomySectorCards}
+          title={tPage("title")}
+          subtitle={tPage("subtitle")}
+          searchPlaceholder={tPage("searchPlaceholder")}
+          categoryTitle={tPage("categoryTitle")}
+          proToolsHref={proToolsHref}
+        />
       </section>
     </PageLayout>
   );

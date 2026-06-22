@@ -19,7 +19,7 @@ export const SCRAP_OPTIMIZE_SCHEMA: PremiumCalculatorSchema = {
     { id: "impFactor", label: "İyileştirme Faktörü", label_i18n: {"en":"Improvement Factor","tr":"İyileştirme Faktörü"}, type: "number", unit: "%", required: false, smartDefault: 20, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Expected improvement", expertMeaning_i18n: {"en":"Expected improvement","tr":"Beklenen iyileştirme"} },
   ],
   outputs: [
-    { id: "currentScrapRate", label: "Mevcut Hurda Oranı", label_i18n: {"en":"Mevcut Hurda Oranı","tr":"Mevcut Hurda Oranı"}, unit: "%", format: "percentage" },
+    { id: "currentScrapRate", label: "Mevcut Hurda Oranı", label_i18n: {"en":"Mevcut Hurda Oran","tr":"Mevcut Hurda Oranı"}, unit: "%", format: "percentage" },
     { id: "totalScrapCost", label: "Toplam Hurda Maliyeti", label_i18n: {"en":"Toplam Hurda Maliyeti","tr":"Toplam Hurda Maliyeti"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "currentScrapRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Hurda oranı > %5 — iyileştirme programı başlatılmalı.", warningMessage_i18n: {"en":"Scrap rate > 5% — initiate improvement program.","tr":"Hurda oranı > %5 — iyileştirme programı başlatılmalı."}, criticalMessage: "Hurda oranı > %10 — acil proses iyileştirme.", criticalMessage_i18n: {"en":"Scrap rate > 10% — urgent process improvement.","tr":"Hurda oranı > %10 — acil proses iyileştirme."} }],

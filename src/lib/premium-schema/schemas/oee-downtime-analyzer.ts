@@ -16,14 +16,14 @@ export const OEE_DOWNTIME_SCHEMA: PremiumCalculatorSchema = {
     { id: "numShiftsYear", label: "Yıllık Vardiya Sayısı", label_i18n: {"en":"Annual Shift Count","tr":"Yıllık Vardiya Sayısı"}, type: "number", unit: "vardiya/yıl", required: false, smartDefault: 720, validation: { min: 1 }, helper: "", expertMeaning: "Shifts per year", expertMeaning_i18n: {"en":"Shifts per year","tr":"Yıllık vardiya sayısı"} },
   ],
   outputs: [
-    { id: "oeeAvailability", label: "OEE Kullanılabilirlik", label_i18n: {"en":"OEE Kullanılabilirlik","tr":"OEE Kullanılabilirlik"}, unit: "%", format: "number" },
+    { id: "oeeAvailability", label: "OEE Kullanılabilirlik", label_i18n: {"en":"OEE Kullanlabilirlik","tr":"OEE Kullanılabilirlik"}, unit: "%", format: "number" },
     { id: "oeePerformance", label: "OEE Performans", label_i18n: {"en":"OEE Performans","tr":"OEE Performans"}, unit: "%", format: "number" },
     { id: "oeeQuality", label: "OEE Kalite", label_i18n: {"en":"OEE Kalite","tr":"OEE Kalite"}, unit: "%", format: "number" },
     { id: "oeeScore", label: "OEE Skoru", label_i18n: {"en":"OEE Skoru","tr":"OEE Skoru"}, unit: "%", format: "number" },
     { id: "teepScore", label: "TEEP Skoru", label_i18n: {"en":"TEEP Skoru","tr":"TEEP Skoru"}, unit: "%", format: "number" },
     { id: "downtimeCost", label: "Durma Maliyeti", label_i18n: {"en":"Durma Maliyeti","tr":"Durma Maliyeti"}, unit: "USD/yıl", format: "currency" },
-    { id: "speedLossCost", label: "Hız Kaybı Maliyeti", label_i18n: {"en":"Hız Kaybı Maliyeti","tr":"Hız Kaybı Maliyeti"}, unit: "USD/yıl", format: "currency" },
-    { id: "qualityLossCost", label: "Kalite Kaybı Maliyeti", label_i18n: {"en":"Kalite Kaybı Maliyeti","tr":"Kalite Kaybı Maliyeti"}, unit: "USD/yıl", format: "currency" },
+    { id: "speedLossCost", label: "Hız Kaybı Maliyeti", label_i18n: {"en":"Hz Kayb Maliyeti","tr":"Hız Kaybı Maliyeti"}, unit: "USD/yıl", format: "currency" },
+    { id: "qualityLossCost", label: "Kalite Kaybı Maliyeti", label_i18n: {"en":"Kalite Kayb Maliyeti","tr":"Kalite Kaybı Maliyeti"}, unit: "USD/yıl", format: "currency" },
   ],
   thresholds: [{ fieldId: "oeeScore", warning: 75, critical: 55, direction: "lower_is_bad", warningMessage: "OEE < %75 — iyileştirme fırsatı mevcut.", warningMessage_i18n: {"en":"OEE < 75% — improvement opportunity exists.","tr":"OEE < %75 — iyileştirme fırsatı mevcut."}, criticalMessage: "OEE < %55 — acil iyileştirme programı gerekiyor.", criticalMessage_i18n: {"en":"OEE < 55% — urgent improvement program required.","tr":"OEE < %55 — acil iyileştirme programı gerekiyor."} }],
   formulaPipeline: [

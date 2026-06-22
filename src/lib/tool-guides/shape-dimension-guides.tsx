@@ -8,9 +8,9 @@ export type ShapeDimensionGuide = {
   Svg: (props: { locale: string }) => JSX.Element;
 };
 
-const LINE = "#1a1a1a";
+const LINE = "#1a1915";
 const ACCENT = "#003366";
-const BG = "#ffffff";
+const BG = "#faf9f5";
 
 function ArrowDefs({ id }: { id: string }) {
   return (

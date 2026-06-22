@@ -19,10 +19,10 @@ export const AUTO_REPAIR_QUOTE_SCHEMA: PremiumCalculatorSchema = {
     { id: "shopHourlyRate", label: "Mağaza Saatlik Ücreti", label_i18n: {"en":"Shop Hourly Rate","tr":"Mağaza Saatlik Ücreti"}, type: "number", unit: "USD/saat", required: false, smartDefault: 85, validation: { min: 0 }, helper: "", expertMeaning: "Shop labor rate", expertMeaning_i18n: {"en":"Shop labor rate","tr":"Atölye işçilik ücreti"} },
   ],
   outputs: [
-    { id: "quoteVariance", label: "Teklif Varyansı (CV)", label_i18n: {"en":"Teklif Varyansı (CV)","tr":"Teklif Varyansı (CV)"}, unit: "", format: "number" },
-    { id: "partPriceDeviation", label: "Parça Fiyat Sapması", label_i18n: {"en":"Parça Fiyat Sapması","tr":"Parça Fiyat Sapması"}, unit: "%", format: "percentage" },
-    { id: "consistencyScore", label: "Tutarlılık Skoru", label_i18n: {"en":"Tutarlılık Skoru","tr":"Tutarlılık Skoru"}, unit: "", format: "score", isBigNumber: true },
-    { id: "marginLeak", label: "Marj Kaçağı", label_i18n: {"en":"Marj Kaçağı","tr":"Marj Kaçağı"}, unit: "USD", format: "currency" },
+    { id: "quoteVariance", label: "Teklif Varyansı (CV)", label_i18n: {"en":"Teklif Varyans (CV)","tr":"Teklif Varyansı (CV)"}, unit: "", format: "number" },
+    { id: "partPriceDeviation", label: "Parça Fiyat Sapması", label_i18n: {"en":"Parca Fiyat Sapmas","tr":"Parça Fiyat Sapması"}, unit: "%", format: "percentage" },
+    { id: "consistencyScore", label: "Tutarlılık Skoru", label_i18n: {"en":"Tutarllk Skoru","tr":"Tutarlılık Skoru"}, unit: "", format: "score", isBigNumber: true },
+    { id: "marginLeak", label: "Marj Kaçağı", label_i18n: {"en":"Marj Kacag","tr":"Marj Kaçağı"}, unit: "USD", format: "currency" },
   ],
   thresholds: [
     { fieldId: "consistencyScore", warning: 70, critical: 50, direction: "lower_is_bad", warningMessage: "Tutarlılık < 70 — iyileştirme alanı var.", warningMessage_i18n: {"en":"Tutarlılık < 70 — iyileştirme alanı var.","tr":"Tutarlılık < 70 — iyileştirme alanı var."}, criticalMessage: "Tutarlılık < 50 — fiyatlama politikası revize edilmeli.", criticalMessage_i18n: {"en":"Tutarlılık < 50 — fiyatlama politikası revize edilmeli.","tr":"Tutarlılık < 50 — fiyatlama politikası revize edilmeli."} },

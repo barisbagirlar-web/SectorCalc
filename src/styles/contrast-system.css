@@ -6,9 +6,9 @@
 
 /* Dark surface tokens — inverse contrast (white copy) */
 :root {
-  --sc-inverse-bg: #111111;
-  --sc-inverse-text: #ffffff;
-  --sc-inverse-muted: rgb(255 255 255 / 0.78);
+  --sc-inverse-bg: #1a1915;
+  --sc-inverse-text: #faf9f5;
+  --sc-inverse-muted: rgba(250, 249, 245, 0.78);
 }
 
 /* ── Light surfaces ── */

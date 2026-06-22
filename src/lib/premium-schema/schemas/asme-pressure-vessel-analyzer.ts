@@ -6,7 +6,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 const HEAD_TYPE_OPTIONS = [
   { value: "cylindrical", label: "Silindirik (Shell)", label_i18n: {"en":"Silindirik (Shell)","tr":"Silindirik (Shell)"} },
-  { value: "spherical", label: "Küresel (Sphere)", label_i18n: {"en":"Küresel (Sphere)","tr":"Küresel (Sphere)"} },
+  { value: "spherical", label: "Küresel (Sphere)", label_i18n: {"en":"Kuresel (Sphere)","tr":"Küresel (Sphere)"} },
   { value: "elliptical", label: "Eliptik (2:1 Head)", label_i18n: {"en":"Eliptik (2:1 Head)","tr":"Eliptik (2:1 Head)"} },
   { value: "torispherical", label: "Torisferik (Head)", label_i18n: {"en":"Torisferik (Head)","tr":"Torisferik (Head)"} },
 ] as const;
@@ -36,10 +36,10 @@ export const ASME_VESSEL_SCHEMA: PremiumCalculatorSchema = {
     { id: "knuckleRadiusMm", label: "Büküm Yarıçapı (r) — Torisferik", label_i18n: {"en":"Knuckle Radius (r) — Torispherical","tr":"Büküm Yarıçapı (r) — Torisferik"}, type: "number", unit: "mm", required: false, smartDefault: 100, validation: { min: 0 }, helper: "", expertMeaning: "Knuckle radius for torispherical head", expertMeaning_i18n: {"en":"Knuckle radius for torispherical head","tr":"Torisferik kapak için büküm yarıçapı"} },
   ],
   outputs: [
-    { id: "requiredThickness", label: "Gerekli Cidar Kalınlığı", label_i18n: {"en":"Gerekli Cidar Kalınlığı","tr":"Gerekli Cidar Kalınlığı"}, unit: "mm", format: "number" },
+    { id: "requiredThickness", label: "Gerekli Cidar Kalınlığı", label_i18n: {"en":"Gerekli Cidar Kalnlg","tr":"Gerekli Cidar Kalınlığı"}, unit: "mm", format: "number" },
     { id: "mawp", label: "MAWP (Max. Allowable Working Pressure)", label_i18n: {"en":"MAWP (Max. Allowable Working Pressure)","tr":"MAWP (Max. Allowable Working Pressure)"}, unit: "MPa", format: "number" },
-    { id: "vesselWeight", label: "Kap Ağırlığı", label_i18n: {"en":"Kap Ağırlığı","tr":"Kap Ağırlığı"}, unit: "kg", format: "number" },
-    { id: "designVerdict", label: "Tasarım Kararı", label_i18n: {"en":"Tasarım Kararı","tr":"Tasarım Kararı"}, unit: "", format: "score", isBigNumber: true },
+    { id: "vesselWeight", label: "Kap Ağırlığı", label_i18n: {"en":"Kap Agrlg","tr":"Kap Ağırlığı"}, unit: "kg", format: "number" },
+    { id: "designVerdict", label: "Tasarım Kararı", label_i18n: {"en":"Tasarm Karar","tr":"Tasarım Kararı"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "requiredThickness", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Gerekli kalınlık > 10 mm — ağırlık ve maliyet artıyor.", warningMessage_i18n: {"en":"Gerekli kalınlık > 10 mm — ağırlık ve maliyet artıyor.","tr":"Gerekli kalınlık > 10 mm — ağırlık ve maliyet artıyor."}, criticalMessage: "Gerekli kalınlık > 25 mm — alternatif malzeme değerlendirilmeli.", criticalMessage_i18n: {"en":"Gerekli kalınlık > 25 mm — alternatif malzeme değerlendirilmeli.","tr":"Gerekli kalınlık > 25 mm — alternatif malzeme değerlendirilmeli."} },

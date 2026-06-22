@@ -20,11 +20,11 @@ export const BOTTLENECK_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
     { id: "monthlyGain", label: "Aylık Kâr Artışı", label_i18n: {"en":"Monthly Profit Increase","tr":"Aylık Kâr Artışı"}, type: "number", unit: "USD", required: false, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Expected monthly profit increase", expertMeaning_i18n: {"en":"Expected monthly profit increase","tr":"Beklenen aylık kâr artışı"} },
   ],
   outputs: [
-    { id: "utilization", label: "Kapasite Kullanımı", label_i18n: {"en":"Kapasite Kullanımı","tr":"Kapasite Kullanımı"}, unit: "%", format: "percentage" },
-    { id: "taktTime", label: "Takt Süresi", label_i18n: {"en":"Takt Süresi","tr":"Takt Süresi"}, unit: "sn", format: "number" },
-    { id: "constraintCost", label: "Kısıt Maliyeti (Günlük)", label_i18n: {"en":"Kısıt Maliyeti (Günlük)","tr":"Kısıt Maliyeti (Günlük)"}, unit: "USD/gün", format: "currency" },
-    { id: "roi", label: "Yatırım ROI", label_i18n: {"en":"Yatırım ROI","tr":"Yatırım ROI"}, unit: "%", format: "percentage" },
-    { id: "paybackMonths", label: "Geri Ödeme Süresi", label_i18n: {"en":"Geri Ödeme Süresi","tr":"Geri Ödeme Süresi"}, unit: "ay", format: "number", isBigNumber: true },
+    { id: "utilization", label: "Kapasite Kullanımı", label_i18n: {"en":"Kapasite Kullanm","tr":"Kapasite Kullanımı"}, unit: "%", format: "percentage" },
+    { id: "taktTime", label: "Takt Süresi", label_i18n: {"en":"Takt Suresi","tr":"Takt Süresi"}, unit: "sn", format: "number" },
+    { id: "constraintCost", label: "Kısıt Maliyeti (Günlük)", label_i18n: {"en":"Kst Maliyeti (Gunluk)","tr":"Kısıt Maliyeti (Günlük)"}, unit: "USD/gün", format: "currency" },
+    { id: "roi", label: "Yatırım ROI", label_i18n: {"en":"Yatrm ROI","tr":"Yatırım ROI"}, unit: "%", format: "percentage" },
+    { id: "paybackMonths", label: "Geri Ödeme Süresi", label_i18n: {"en":"Geri Odeme Suresi","tr":"Geri Ödeme Süresi"}, unit: "ay", format: "number", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "roi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatırım alternatifleri değerlendirilmeli.", warningMessage_i18n: {"en":"ROI < %50 — yatırım alternatifleri değerlendirilmeli.","tr":"ROI < %50 — yatırım alternatifleri değerlendirilmeli."}, criticalMessage: "ROI < %20 — yatırım fizibilitesi zayıf.", criticalMessage_i18n: {"en":"ROI < %20 — yatırım fizibilitesi zayıf.","tr":"ROI < %20 — yatırım fizibilitesi zayıf."} }],
   formulaPipeline: [

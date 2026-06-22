@@ -137,9 +137,6 @@ export default async function PremiumSchemaPilotPage({
           <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <FormulaGateToolStatus slug={slug} locale={locale} surface="premium" />
           </div>
-          <p className="mt-3 max-w-2xl text-sm text-body-charcoal sm:text-base">
-            {displayPain}
-          </p>
         </Container>
       </section>
       <Container className="pb-4 pt-6 sm:pt-8">

@@ -1,12 +1,12 @@
 export const GUIDANCE_COLORS = {
-  surface: "#ffffff",
-  border: "#cbd5e1",
-  mutedLine: "#94a3b8",
-  line: "#0f172a",
-  active: "#4a5cf5",
-  accent: "#c2410c",
-  softFill: "rgba(74, 92, 245, 0.08)",
-  softOrange: "rgba(194, 65, 12, 0.10)",
+  surface: "#faf9f5",
+  border: "rgba(26, 25, 21, 0.10)",
+  mutedLine: "#696764",
+  line: "#1a1915",
+  active: "#bd5d3a",
+  accent: "#bd5d3a",
+  softFill: "rgba(189, 93, 58, 0.08)",
+  softOrange: "rgba(189, 93, 58, 0.10)",
 } as const;
 
 export type TemplateGraphicProps = {

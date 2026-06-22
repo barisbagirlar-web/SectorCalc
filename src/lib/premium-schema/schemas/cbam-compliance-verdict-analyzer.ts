@@ -28,10 +28,10 @@ export const CBAM_COMPLIANCE_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalEmbeddedInput", label: "Toplam Gömülü Emisyon", label_i18n: {"en":"Total Embedded Emissions","tr":"Toplam Gömülü Emisyon"}, type: "number", unit: "tCO₂e", required: true, smartDefault: 500, validation: { min: 0 }, helper: "İthalatın Scope 1+2 toplam emisyonu.", helper_i18n: {"en":"İthalatın Scope 1+2 toplam emisyonu.","tr":"İthalatın Scope 1+2 toplam emisyonu."}, expertMeaning: "Total embedded emissions", expertMeaning_i18n: {"en":"Total embedded emissions","tr":"Toplam gömülü emisyon"} },
   ],
   outputs: [
-    { id: "specificEmbedded", label: "Spesifik Gömülü Emisyon", label_i18n: {"en":"Spesifik Gömülü Emisyon","tr":"Spesifik Gömülü Emisyon"}, unit: "tCO₂e/ton", format: "number" },
-    { id: "actualVsDefault", label: "Gerçek / Varsayılan Oranı", label_i18n: {"en":"Gerçek / Varsayılan Oranı","tr":"Gerçek / Varsayılan Oranı"}, unit: "", format: "number" },
-    { id: "financialLiability", label: "Net CBAM Finansal Yükümlülük", label_i18n: {"en":"Net CBAM Finansal Yükümlülük","tr":"Net CBAM Finansal Yükümlülük"}, unit: "USD", format: "currency" },
-    { id: "complianceDecision", label: "Uyum Kararı", label_i18n: {"en":"Uyum Kararı","tr":"Uyum Kararı"}, unit: "", format: "score", isBigNumber: true },
+    { id: "specificEmbedded", label: "Spesifik Gömülü Emisyon", label_i18n: {"en":"Spesifik Gomulu Emisyon","tr":"Spesifik Gömülü Emisyon"}, unit: "tCO₂e/ton", format: "number" },
+    { id: "actualVsDefault", label: "Gerçek / Varsayılan Oranı", label_i18n: {"en":"Gercek / Varsaylan Oran","tr":"Gerçek / Varsayılan Oranı"}, unit: "", format: "number" },
+    { id: "financialLiability", label: "Net CBAM Finansal Yükümlülük", label_i18n: {"en":"Net CBAM Finansal Yukumluluk","tr":"Net CBAM Finansal Yükümlülük"}, unit: "USD", format: "currency" },
+    { id: "complianceDecision", label: "Uyum Kararı", label_i18n: {"en":"Uyum Karar","tr":"Uyum Kararı"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "actualVsDefault", warning: 1, critical: 1.2, direction: "higher_is_bad", warningMessage: "Emisyonlar AB varsayılan değerine yakın — doğrulama gerekli.", warningMessage_i18n: {"en":"Emissions close to EU default — verification required.","tr":"Emisyonlar AB varsayılan değerine yakın — doğrulama gerekli."}, criticalMessage: "Emisyonlar AB varsayılanını aşıyor — tedarik zinciri risk altında.", criticalMessage_i18n: {"en":"Emissions exceed EU default — supply chain at risk.","tr":"Emisyonlar AB varsayılanını aşıyor — tedarik zinciri risk altında."} },

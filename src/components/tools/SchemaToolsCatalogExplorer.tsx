@@ -157,7 +157,7 @@ export function SchemaToolsCatalogExplorer({
             onChange={(event) => setSearchQuery(event.target.value)}
             placeholder={t(`search.placeholder.${variant}`)}
             aria-label={t("search.label")}
-            className="w-full min-h-[44px] rounded border border-technical-gray bg-white py-2.5 pl-10 pr-10 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
+            className="w-full min-h-[44px] rounded border border-technical-gray bg-kil-surface py-2.5 pl-10 pr-10 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
           />
           {isSearching ? (
             <button

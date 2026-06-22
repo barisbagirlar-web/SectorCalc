@@ -4,17 +4,17 @@
  */
 
 :root {
-  --sc-tier-free-bg: #dbeafe;
-  --sc-tier-free-border: #93c5fd;
-  --sc-tier-free-title: #1e3a8a;
-  --sc-tier-free-text: #1d4ed8;
-  --sc-tier-free-accent: #2563eb;
+  --sc-tier-free-bg: #ece9e0;
+  --sc-tier-free-border: rgba(26, 25, 21, 0.10);
+  --sc-tier-free-title: #1a1915;
+  --sc-tier-free-text: #696764;
+  --sc-tier-free-accent: #696764;
 
-  --sc-tier-premium-bg: #dcfce7;
-  --sc-tier-premium-border: #86efac;
-  --sc-tier-premium-title: #14532d;
-  --sc-tier-premium-text: #166534;
-  --sc-tier-premium-accent: #059669;
+  --sc-tier-premium-bg: rgba(189, 93, 58, 0.06);
+  --sc-tier-premium-border: rgba(189, 93, 58, 0.18);
+  --sc-tier-premium-title: #1a1915;
+  --sc-tier-premium-text: #696764;
+  --sc-tier-premium-accent: #bd5d3a;
 }
 
 .sc-tool-tier-band {

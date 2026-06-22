@@ -6,7 +6,6 @@ export const REVENUE_ELIGIBLE_ALLOWLIST = new Set([
   "dairy-profit-detector",
   "hvac-project-margin-guard",
   "landscaping-contract-profit-tool",
-  "lawn-care-cost-check",
   "meal-planning-verdict",
   "menu-profit-leak-detector",
   "millwork-bid-risk-analyzer",
@@ -14,7 +13,6 @@ export const REVENUE_ELIGIBLE_ALLOWLIST = new Set([
   "painting-job-profit-verdict",
   "panel-shop-margin-verdict",
   "plumbing-job-margin-verdict",
-  "print-job-cost-check",
   "return-profit-erosion-tool",
   "roofing-contract-margin-guard",
   "sheet-metal-quote-risk-tool",
@@ -24,8 +22,8 @@ export const REVENUE_ELIGIBLE_ALLOWLIST = new Set([
 ]);
 
 export const EXPECTED_REVENUE_ELIGIBLE_COUNTS = {
-  paymentEligible: 22,
-  formulaGateEligible: 22,
+  paymentEligible: 20,
+  formulaGateEligible: 20,
   freePaymentEligible: 0,
 };
 

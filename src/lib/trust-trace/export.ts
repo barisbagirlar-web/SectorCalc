@@ -86,7 +86,7 @@ export function buildApprovedReportHtml(
     escapeHtml(report.reportId) +
     "</title>\n" +
     "<style>\n" +
-    "body{font-family:system-ui,sans-serif;color:#1a1a1a;margin:0;padding:24px}\n" +
+    "body{font-family:system-ui,sans-serif;color:#1a1915;margin:0;padding:24px}\n" +
     "h1{font-size:1.25rem;margin-bottom:4px}\n" +
     ".stamp{display:inline-block;background:#f0fdf4;color:#15803d;border:1px solid #86efac;border-radius:4px;padding:2px 10px;font-size:0.8rem;font-weight:600}\n" +
     "table{border-collapse:collapse;width:100%;margin-bottom:16px}\n" +

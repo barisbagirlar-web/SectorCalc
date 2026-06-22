@@ -23,7 +23,7 @@ export const CNC_MACHINING_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   outputs: [
     { id: "materialCost", label: "Malzeme Maliyeti", label_i18n: {"en":"Malzeme Maliyeti","tr":"Malzeme Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "machiningCost", label: "İşleme Maliyeti", label_i18n: {"en":"İşleme Maliyeti","tr":"İşleme Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "machiningCost", label: "İşleme Maliyeti", label_i18n: {"en":"Isleme Maliyeti","tr":"İşleme Maliyeti"}, unit: "USD", format: "currency" },
     { id: "toolingCost", label: "Takım Maliyeti", label_i18n: {"en":"Tool Cost","tr":"Takım Maliyeti"}, unit: "USD", format: "currency" },
     { id: "energyCost", label: "Enerji Maliyeti", label_i18n: {"en":"Enerji Maliyeti","tr":"Enerji Maliyeti"}, unit: "USD", format: "currency" },
     { id: "overheadCost", label: "Genel Gider", label_i18n: {"en":"Genel Gider","tr":"Genel Gider"}, unit: "USD", format: "currency" },

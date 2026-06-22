@@ -18,11 +18,11 @@ export const CUTTING_TOOL_LIFE_SCHEMA: PremiumCalculatorSchema = {
     { id: "machiningTime", label: "İşleme Süresi", label_i18n: {"en":"Machining Time","tr":"İşleme Süresi"}, type: "number", unit: "dk", required: true, smartDefault: 10, validation: { min: 0.1 }, helper: "", expertMeaning: "Machining time per part", expertMeaning_i18n: {"en":"Machining time per part","tr":"Parça başı işleme süresi"} },
   ],
   outputs: [
-    { id: "toolLife", label: "Takım Ömrü (Taylor)", label_i18n: {"en":"Takım Ömrü (Taylor)","tr":"Takım Ömrü (Taylor)"}, unit: "dk", format: "number" },
-    { id: "costPerPartTool", label: "Parça Başı Takım Maliyeti", label_i18n: {"en":"Parça Başı Takım Maliyeti","tr":"Parça Başı Takım Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "optimalToolLife", label: "Optimum Takım Ömrü", label_i18n: {"en":"Optimum Takım Ömrü","tr":"Optimum Takım Ömrü"}, unit: "dk", format: "number" },
-    { id: "optimalVc", label: "Optimum Kesme Hızı", label_i18n: {"en":"Optimum Kesme Hızı","tr":"Optimum Kesme Hızı"}, unit: "m/dk", format: "number" },
-    { id: "productionRate", label: "Üretim Hızı", label_i18n: {"en":"Üretim Hızı","tr":"Üretim Hızı"}, unit: "parça/saat", format: "number" },
+    { id: "toolLife", label: "Takım Ömrü (Taylor)", label_i18n: {"en":"Takm Omru (Taylor)","tr":"Takım Ömrü (Taylor)"}, unit: "dk", format: "number" },
+    { id: "costPerPartTool", label: "Parça Başı Takım Maliyeti", label_i18n: {"en":"Parca Bas Takm Maliyeti","tr":"Parça Başı Takım Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "optimalToolLife", label: "Optimum Takım Ömrü", label_i18n: {"en":"Optimum Takm Omru","tr":"Optimum Takım Ömrü"}, unit: "dk", format: "number" },
+    { id: "optimalVc", label: "Optimum Kesme Hızı", label_i18n: {"en":"Optimum Kesme Hz","tr":"Optimum Kesme Hızı"}, unit: "m/dk", format: "number" },
+    { id: "productionRate", label: "Üretim Hızı", label_i18n: {"en":"Uretim Hz","tr":"Üretim Hızı"}, unit: "parça/saat", format: "number" },
   ],
   thresholds: [{ fieldId: "toolLife", warning: 30, critical: 5, direction: "lower_is_bad", warningMessage: "Takım ömrü < 30dk — kesme parametreleri agresif.", warningMessage_i18n: {"en":"Tool life < 30 min — cutting parameters aggressive.","tr":"Takım ömrü < 30dk — kesme parametreleri agresif."}, criticalMessage: "Takım ömrü < 5dk — acil parametre revizyonu.", criticalMessage_i18n: {"en":"Tool life < 5 min — urgent parameter revision.","tr":"Takım ömrü < 5dk — acil parametre revizyonu."} }],
   formulaPipeline: [

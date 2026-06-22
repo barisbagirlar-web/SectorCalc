@@ -19,10 +19,10 @@ export const MACHINING_STRATEGY_SCHEMA: PremiumCalculatorSchema = {
     { id: "roughnessTol", label: "Pürüzlülük Toleransı (Ra)", label_i18n: {"en":"Roughness Tolerance (Ra)","tr":"Pürüzlülük Toleransı (Ra)"}, type: "number", unit: "µm", required: false, smartDefault: 3.2, validation: { min: 0.1 }, helper: "", expertMeaning: "Surface roughness limit", expertMeaning_i18n: {"en":"Surface roughness limit","tr":"Yüzey pürüzlülük limiti"} },
   ],
   outputs: [
-    { id: "mrr", label: "MRR (Talaş Kaldırma Oranı)", label_i18n: {"en":"MRR (Talaş Kaldırma Oranı)","tr":"MRR (Talaş Kaldırma Oranı)"}, unit: "cm³/dak", format: "number" },
-    { id: "powerRequired", label: "Güç İhtiyacı", label_i18n: {"en":"Güç İhtiyacı","tr":"Güç İhtiyacı"}, unit: "kW", format: "number" },
+    { id: "mrr", label: "MRR (Talaş Kaldırma Oranı)", label_i18n: {"en":"MRR (Talas Kaldrma Oran)","tr":"MRR (Talaş Kaldırma Oranı)"}, unit: "cm³/dak", format: "number" },
+    { id: "powerRequired", label: "Güç İhtiyacı", label_i18n: {"en":"Guc Ihtiyac","tr":"Güç İhtiyacı"}, unit: "kW", format: "number" },
     { id: "toolLife", label: "Takım Ömrü", label_i18n: {"en":"Tool Life","tr":"Takım Ömrü"}, unit: "dak", format: "number" },
-    { id: "constraintPass", label: "Kısıt Kontrolü (1=Geçer)", label_i18n: {"en":"Kısıt Kontrolü (1=Geçer)","tr":"Kısıt Kontrolü (1=Geçer)"}, unit: "", format: "number", isBigNumber: true },
+    { id: "constraintPass", label: "Kısıt Kontrolü (1=Geçer)", label_i18n: {"en":"Kst Kontrolu (1=Gecer)","tr":"Kısıt Kontrolü (1=Geçer)"}, unit: "", format: "number", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "constraintPass", warning: 1, critical: 0, direction: "lower_is_bad", warningMessage: "Kısıtlar sağlanmıyor (güç/pürüzlülük) — parametreler düşürülmeli.", warningMessage_i18n: {"en":"Constraints not met (power/roughness) — reduce parameters.","tr":"Kısıtlar sağlanmıyor (güç/pürüzlülük) — parametreler düşürülmeli."}, criticalMessage: "Kısıt hatası — mevcut parametreler kullanılamaz.", criticalMessage_i18n: {"en":"Constraint error — current parameters unusable.","tr":"Kısıt hatası — mevcut parametreler kullanılamaz."} }],
   formulaPipeline: [

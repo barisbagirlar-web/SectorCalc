@@ -24,9 +24,9 @@ export const ABSENTEEISM_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "hrRate", label: "İK Saatlik Maliyeti", label_i18n: {"en":"HR Hourly Cost","tr":"İK Saatlik Maliyeti"}, type: "number", unit: "USD", required: false, smartDefault: 30, validation: { min: 0 }, helper: "", expertMeaning: "HR hourly cost", expertMeaning_i18n: {"en":"HR hourly cost","tr":"İK saatlik maliyeti"} },
   ],
   outputs: [
-    { id: "directLaborLoss", label: "Direkt İşçilik Kaybı", label_i18n: {"en":"Direkt İşçilik Kaybı","tr":"Direkt İşçilik Kaybı"}, unit: "USD", format: "currency" },
-    { id: "prodLoss", label: "Üretim Kaybı", label_i18n: {"en":"Üretim Kaybı","tr":"Üretim Kaybı"}, unit: "USD", format: "currency" },
-    { id: "totalAbsenteeismCost", label: "Toplam Devamsızlık Maliyeti", label_i18n: {"en":"Toplam Devamsızlık Maliyeti","tr":"Toplam Devamsızlık Maliyeti"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "directLaborLoss", label: "Direkt İşçilik Kaybı", label_i18n: {"en":"Direkt Iscilik Kayb","tr":"Direkt İşçilik Kaybı"}, unit: "USD", format: "currency" },
+    { id: "prodLoss", label: "Üretim Kaybı", label_i18n: {"en":"Uretim Kayb","tr":"Üretim Kaybı"}, unit: "USD", format: "currency" },
+    { id: "totalAbsenteeismCost", label: "Toplam Devamsızlık Maliyeti", label_i18n: {"en":"Toplam Devamszlk Maliyeti","tr":"Toplam Devamsızlık Maliyeti"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "totalAbsenteeismCost", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Maliyet > $25K — devamsızlık yönetimi programı başlatılmalı.", warningMessage_i18n: {"en":"Maliyet > $25K — devamsızlık yönetimi programı başlatılmalı.","tr":"Maliyet > $25K — devamsızlık yönetimi programı başlatılmalı."}, criticalMessage: "Maliyet > $75K — acil müdahale gerekiyor.", criticalMessage_i18n: {"en":"Maliyet > $75K — acil müdahale gerekiyor.","tr":"Maliyet > $75K — acil müdahale gerekiyor."} }],
   formulaPipeline: [

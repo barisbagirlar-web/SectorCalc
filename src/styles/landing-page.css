@@ -6,20 +6,20 @@
 /* ── Design tokens (scoped, not :root) ── */
 .landing-root {
   --cream:          #FAF9F5;
-  --cream-dim:      #F2F0EA;
+  --cream-dim:      #F0EEE6;
   --cream-deep:     #E8E5DC;
-  --ink:            #141413;
-  --ink-75:         rgba(20,20,19,0.75);
-  --ink-45:         rgba(20,20,19,0.45);
-  --ink-18:         rgba(20,20,19,0.18);
-  --ink-08:         rgba(20,20,19,0.08);
-  --ink-04:         rgba(20,20,19,0.04);
+  --ink:            #1A1915;
+  --ink-75:         rgba(26,25,21,0.75);
+  --ink-45:         rgba(26,25,21,0.45);
+  --ink-18:         rgba(26,25,21,0.18);
+  --ink-08:         rgba(26,25,21,0.08);
+  --ink-04:         rgba(26,25,21,0.04);
 
-  --terracotta:     #D97757;
-  --terracotta-dim: #C4623E;
+  --terracotta:     #BD5D3A;
+  --terracotta-dim: #A34D2E;
   --terracotta-pale:#FBF0EB;
-  --terracotta-mid: rgba(217,119,87,0.12);
-  --terracotta-border: rgba(217,119,87,0.25);
+  --terracotta-mid: rgba(189,93,58,0.12);
+  --terracotta-border: rgba(189,93,58,0.25);
 
   --cobalt:         #4A5CF5;
   --cobalt-pale:    rgba(74,92,245,0.08);

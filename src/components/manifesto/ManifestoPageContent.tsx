@@ -79,7 +79,7 @@ export async function ManifestoPageContent({ variant, headline, lead, locale }: 
                 return (
                   <article
                     key={card.id}
-                    className="rounded-xl border border-gray-100 bg-white p-6 text-center"
+                    className="rounded-xl border border-gray-100 bg-kil-surface p-6 text-center"
                   >
                     <Icon className="mx-auto h-12 w-12 text-gray-700" strokeWidth={1.5} aria-hidden="true" />
                     <h2 className="mt-2 text-lg font-semibold text-navy">{card.title}</h2>

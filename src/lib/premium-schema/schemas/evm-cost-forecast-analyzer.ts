@@ -16,12 +16,12 @@ export const EVM_FORECAST_SCHEMA: PremiumCalculatorSchema = {
     { id: "managementReserve", label: "Yönetim Rezervi", label_i18n: {"en":"Management Reserve","tr":"Yönetim Rezervi"}, type: "number", unit: "USD", required: false, smartDefault: 50000, validation: { min: 0 }, helper: "", expertMeaning: "Management reserve", expertMeaning_i18n: {"en":"Management reserve","tr":"Yönetim rezervi"} },
   ],
   outputs: [
-    { id: "sv", label: "SV (Program Sapması)", label_i18n: {"en":"SV (Program Sapması)","tr":"SV (Program Sapması)"}, unit: "USD", format: "currency" },
-    { id: "cv", label: "CV (Maliyet Sapması)", label_i18n: {"en":"CV (Maliyet Sapması)","tr":"CV (Maliyet Sapması)"}, unit: "USD", format: "currency" },
-    { id: "spi", label: "SPI (Program Performansı)", label_i18n: {"en":"SPI (Program Performansı)","tr":"SPI (Program Performansı)"}, unit: "", format: "number" },
-    { id: "cpi", label: "CPI (Maliyet Performansı)", label_i18n: {"en":"CPI (Maliyet Performansı)","tr":"CPI (Maliyet Performansı)"}, unit: "", format: "number" },
+    { id: "sv", label: "SV (Program Sapması)", label_i18n: {"en":"SV (Program Sapmas)","tr":"SV (Program Sapması)"}, unit: "USD", format: "currency" },
+    { id: "cv", label: "CV (Maliyet Sapması)", label_i18n: {"en":"CV (Maliyet Sapmas)","tr":"CV (Maliyet Sapması)"}, unit: "USD", format: "currency" },
+    { id: "spi", label: "SPI (Program Performansı)", label_i18n: {"en":"SPI (Program Performans)","tr":"SPI (Program Performansı)"}, unit: "", format: "number" },
+    { id: "cpi", label: "CPI (Maliyet Performansı)", label_i18n: {"en":"CPI (Maliyet Performans)","tr":"CPI (Maliyet Performansı)"}, unit: "", format: "number" },
     { id: "eac", label: "EAC (Tahmini Tamamlanma)", label_i18n: {"en":"EAC (Tahmini Tamamlanma)","tr":"EAC (Tahmini Tamamlanma)"}, unit: "USD", format: "currency" },
-    { id: "vac", label: "VAC (Tamamlanma Sapması)", label_i18n: {"en":"VAC (Tamamlanma Sapması)","tr":"VAC (Tamamlanma Sapması)"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "vac", label: "VAC (Tamamlanma Sapması)", label_i18n: {"en":"VAC (Tamamlanma Sapmas)","tr":"VAC (Tamamlanma Sapması)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "cpi", warning: 0.9, critical: 0.8, direction: "lower_is_bad", warningMessage: "CPI < 0.9 — maliyet aşımı var, aksiyon alınmalı.", warningMessage_i18n: {"en":"CPI < 0.9 — cost overrun exists, action needed.","tr":"CPI < 0.9 — maliyet aşımı var, aksiyon alınmalı."}, criticalMessage: "CPI < 0.8 — proje maliyet kontrolü kaybedilmiş.", criticalMessage_i18n: {"en":"CPI < 0.8 — project cost control lost.","tr":"CPI < 0.8 — proje maliyet kontrolü kaybedilmiş."} }],
   formulaPipeline: [

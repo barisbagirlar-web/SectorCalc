@@ -36,12 +36,12 @@ export const AI_TOKEN_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "fallbackCost", label: "Fallback Model Maliyeti", label_i18n: {"en":"Fallback Model Cost","tr":"Fallback Model Maliyeti"}, type: "number", unit: "USD/ay", required: false, smartDefault: 300, validation: { min: 0, max: 1_000_000 }, helper: "Backup model API spend.", helper_i18n: {"en":"Backup model API spend.","tr":"Backup model API spend."}, expertMeaning: "Secondary model cost", expertMeaning_i18n: {"en":"Secondary model cost","tr":"İkincil model maliyeti"} },
   ],
   outputs: [
-    { id: "dailyBasePromptCost", label: "Günlük Prompt Maliyeti", label_i18n: {"en":"Günlük Prompt Maliyeti","tr":"Günlük Prompt Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "dailyBaseCompletionCost", label: "Günlük Completion Maliyeti", label_i18n: {"en":"Günlük Completion Maliyeti","tr":"Günlük Completion Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "dailyCacheNetCost", label: "Günlük Cache Net Maliyeti", label_i18n: {"en":"Günlük Cache Net Maliyeti","tr":"Günlük Cache Net Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "dailyBaseCost", label: "Günlük Toplam Baz Maliyet", label_i18n: {"en":"Günlük Toplam Baz Maliyet","tr":"Günlük Toplam Baz Maliyet"}, unit: "USD", format: "currency" },
-    { id: "monthlyProjection", label: "Aylık Projeksiyon", label_i18n: {"en":"Aylık Projeksiyon","tr":"Aylık Projeksiyon"}, unit: "USD", format: "currency" },
-    { id: "tco", label: "TCO (Aylık)", label_i18n: {"en":"TCO (Aylık)","tr":"TCO (Aylık)"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "dailyBasePromptCost", label: "Günlük Prompt Maliyeti", label_i18n: {"en":"Gunluk Prompt Maliyeti","tr":"Günlük Prompt Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "dailyBaseCompletionCost", label: "Günlük Completion Maliyeti", label_i18n: {"en":"Gunluk Completion Maliyeti","tr":"Günlük Completion Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "dailyCacheNetCost", label: "Günlük Cache Net Maliyeti", label_i18n: {"en":"Gunluk Cache Net Maliyeti","tr":"Günlük Cache Net Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "dailyBaseCost", label: "Günlük Toplam Baz Maliyet", label_i18n: {"en":"Gunluk Toplam Baz Maliyet","tr":"Günlük Toplam Baz Maliyet"}, unit: "USD", format: "currency" },
+    { id: "monthlyProjection", label: "Aylık Projeksiyon", label_i18n: {"en":"Aylk Projeksiyon","tr":"Aylık Projeksiyon"}, unit: "USD", format: "currency" },
+    { id: "tco", label: "TCO (Aylık)", label_i18n: {"en":"TCO (Aylk)","tr":"TCO (Aylık)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "tco", warning: 5000, critical: 25000, direction: "higher_is_bad", warningMessage: "TCO > $5K/ay — caching veya model optimizasyonu değerlendir.", warningMessage_i18n: {"en":"TCO > $5K/ay — caching veya model optimizasyonu değerlendir.","tr":"TCO > $5K/ay — caching veya model optimizasyonu değerlendir."}, criticalMessage: "TCO > $25K/ay — acil maliyet optimizasyonu gerekiyor.", criticalMessage_i18n: {"en":"TCO > $25K/ay — acil maliyet optimizasyonu gerekiyor.","tr":"TCO > $25K/ay — acil maliyet optimizasyonu gerekiyor."} },

@@ -14,7 +14,7 @@ export const BEAM_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
     { id: "uniformLoad", label: "Düzgün Yayılı Yük w", label_i18n: {"en":"Uniform Load w","tr":"Düzgün Yayılı Yük w"}, type: "number", unit: "kN/m", required: false, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "Uniform distributed load", expertMeaning_i18n: {"en":"Uniform distributed load","tr":"Düzgün yayılı yük"} },
   ],
   outputs: [
-    { id: "totalWeight", label: "Toplam Ağırlık", label_i18n: {"en":"Toplam Ağırlık","tr":"Toplam Ağırlık"}, unit: "ton", format: "number" },
+    { id: "totalWeight", label: "Toplam Ağırlık", label_i18n: {"en":"Toplam Agrlk","tr":"Toplam Ağırlık"}, unit: "ton", format: "number" },
     { id: "materialCost", label: "Malzeme Maliyeti", label_i18n: {"en":"Malzeme Maliyeti","tr":"Malzeme Maliyeti"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "materialCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Malzeme > $50K — alternatif profil değerlendirilmeli.", warningMessage_i18n: {"en":"Malzeme > $50K — alternatif profil değerlendirilmeli.","tr":"Malzeme > $50K — alternatif profil değerlendirilmeli."}, criticalMessage: "Malzeme > $150K — bütçe revizyonu gerekli.", criticalMessage_i18n: {"en":"Malzeme > $150K — bütçe revizyonu gerekli.","tr":"Malzeme > $150K — bütçe revizyonu gerekli."} }],

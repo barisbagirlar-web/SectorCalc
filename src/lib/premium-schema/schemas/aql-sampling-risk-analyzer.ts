@@ -28,8 +28,8 @@ export const AQL_SAMPLING_SCHEMA: PremiumCalculatorSchema = {
     { id: "detectionRate", label: "Tespit Oranı", label_i18n: {"en":"Detection Rate","tr":"Tespit Oranı"}, type: "number", unit: "%", required: false, smartDefault: 80, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Inspection detection effectiveness", expertMeaning_i18n: {"en":"Inspection detection effectiveness","tr":"Muayene tespit etkinliği"} },
   ],
   outputs: [
-    { id: "alphaRisk", label: "Üretici Riski (α)", label_i18n: {"en":"Üretici Riski (α)","tr":"Üretici Riski (α)"}, unit: "%", format: "percentage" },
-    { id: "betaRisk", label: "Tüketici Riski (β)", label_i18n: {"en":"Tüketici Riski (β)","tr":"Tüketici Riski (β)"}, unit: "%", format: "percentage" },
+    { id: "alphaRisk", label: "Üretici Riski (α)", label_i18n: {"en":"Uretici Riski ()","tr":"Üretici Riski (α)"}, unit: "%", format: "percentage" },
+    { id: "betaRisk", label: "Tüketici Riski (β)", label_i18n: {"en":"Tuketici Riski ()","tr":"Tüketici Riski (β)"}, unit: "%", format: "percentage" },
     { id: "ati", label: "ATI (Ort. Toplam Muayene)", label_i18n: {"en":"ATI (Ort. Toplam Muayene)","tr":"ATI (Ort. Toplam Muayene)"}, unit: "", format: "number" },
     { id: "totalRiskCost", label: "Toplam Risk Maliyeti", label_i18n: {"en":"Toplam Risk Maliyeti","tr":"Toplam Risk Maliyeti"}, unit: "USD", format: "currency", isBigNumber: true },
   ],

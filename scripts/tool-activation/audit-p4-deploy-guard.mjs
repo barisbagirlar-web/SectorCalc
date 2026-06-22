@@ -13,8 +13,8 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const REPORT_PATH = path.join(ROOT, "scripts/.cache/p4-deploy-guard-report.json");
 
 const PROBLEM_SLUG = "abonelik-yazilim-cloud-yillik-maliyet-hesabi";
-const EXPECTED_PAYMENT_ELIGIBLE = 22;
-const EXPECTED_FORMULA_GATE_ELIGIBLE = 22;
+const EXPECTED_PAYMENT_ELIGIBLE = 20;
+const EXPECTED_FORMULA_GATE_ELIGIBLE = 20;
 
 const FORBIDDEN_STAGED_RE =
   /(^\.env|^scripts\/\.cache\/|^public\/ai-|^next-env\.d\.ts$|^functions\/|^apps\/|^src\/lib\/billing\/)/;

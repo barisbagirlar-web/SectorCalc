@@ -70,7 +70,7 @@ function Callout({ type, icon, title, text }: { type: string; icon: string; titl
 /* ─── Mini Card ───────────────────────────────────────────────────── */
 function MiniCard({ label, value, sub, highlight }: { label: string; value: string; sub: string; highlight: boolean }) {
   return (
-    <div className={`rounded-lg p-3 border ${highlight ? "border-amber-300 bg-amber-50/40" : "border-gray-200 bg-white"}`}>
+    <div className={`rounded-lg p-3 border ${highlight ? "border-amber-300 bg-amber-50/40" : "border-gray-200 bg-kil-surface"}`}>
       <div className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1">{label}</div>
       <div className="text-lg font-bold text-gray-900 font-mono leading-tight">{value}</div>
       <div className="text-xs text-gray-400 mt-0.5">{sub}</div>
@@ -187,7 +187,7 @@ export function PremiumResultSummary({ slug, schema, result, onOpenFullReport }:
   const dateStr = now.toLocaleDateString(localeMap[localeTag] || "en-US", { year: "numeric", month: "long", day: "numeric" });
 
   return (
-    <div className="mt-6 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+    <div className="mt-6 rounded-xl border border-gray-200 bg-kil-surface shadow-sm overflow-hidden">
       {/* Header bar */}
       <div className="flex items-center justify-between px-5 py-3.5 bg-gray-50 border-b border-gray-200">
         <div className="flex items-center gap-2.5">

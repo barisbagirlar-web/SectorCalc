@@ -29,9 +29,9 @@ export const CBAM_EXPOSURE_SCHEMA: PremiumCalculatorSchema = {
   ],
   outputs: [
     { id: "totalEmbedded", label: "Toplam Gömülü Emisyon", label_i18n: {"en":"Total Embedded Emissions","tr":"Toplam Gömülü Emisyon"}, unit: "tCO₂e", format: "number" },
-    { id: "carbonIntensity", label: "Karbon Yoğunluğu", label_i18n: {"en":"Karbon Yoğunluğu","tr":"Karbon Yoğunluğu"}, unit: "tCO₂e/ton", format: "number" },
+    { id: "carbonIntensity", label: "Karbon Yoğunluğu", label_i18n: {"en":"Karbon Yogunlugu","tr":"Karbon Yoğunluğu"}, unit: "tCO₂e/ton", format: "number" },
     { id: "cbamCertificateCost", label: "CBAM Sertifika Maliyeti", label_i18n: {"en":"CBAM Sertifika Maliyeti","tr":"CBAM Sertifika Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "complianceScore", label: "Uyum Puanı (0-100)", label_i18n: {"en":"Uyum Puanı (0-100)","tr":"Uyum Puanı (0-100)"}, unit: "", format: "score", isBigNumber: true },
+    { id: "complianceScore", label: "Uyum Puanı (0-100)", label_i18n: {"en":"Uyum Puan (0-100)","tr":"Uyum Puanı (0-100)"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "cbamCertificateCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "CBAM maliyeti > $10K — emisyon azaltım stratejisi geliştirilmeli.", warningMessage_i18n: {"en":"CBAM cost > $10K — develop emission reduction strategy.","tr":"CBAM maliyeti > $10K — emisyon azaltım stratejisi geliştirilmeli."}, criticalMessage: "CBAM maliyeti > $50K — acil uyum eylem planı gerekiyor.", criticalMessage_i18n: {"en":"CBAM cost > $50K — urgent compliance action plan required.","tr":"CBAM maliyeti > $50K — acil uyum eylem planı gerekiyor."} },

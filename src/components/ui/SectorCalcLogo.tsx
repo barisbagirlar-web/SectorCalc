@@ -10,7 +10,7 @@ interface SectorCalcLogoProps {
   inverted?: boolean;
 }
 
-const STROKE_COLOR = "#1a1a1a";
+const STROKE_COLOR = "#1a1915";
 
 /**
  * SectorCalc brand logo — vector bracket/sector symbol.

@@ -16,9 +16,9 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
   ],
   outputs: [
     { id: "baseEstimateOut", label: "Baz Tahmin", label_i18n: {"en":"Base Estimate","tr":"Baz Tahmin"}, unit: "USD", format: "currency" },
-    { id: "contingencyTotal", label: "Toplam Risk Payı", label_i18n: {"en":"Toplam Risk Payı","tr":"Toplam Risk Payı"}, unit: "USD", format: "currency" },
-    { id: "winProbability", label: "Kazanma Olasılığı", label_i18n: {"en":"Kazanma Olasılığı","tr":"Kazanma Olasılığı"}, unit: "%", format: "percentage" },
-    { id: "expectedValueBid", label: "Beklenen Değer", label_i18n: {"en":"Beklenen Değer","tr":"Beklenen Değer"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "contingencyTotal", label: "Toplam Risk Payı", label_i18n: {"en":"Toplam Risk Pay","tr":"Toplam Risk Payı"}, unit: "USD", format: "currency" },
+    { id: "winProbability", label: "Kazanma Olasılığı", label_i18n: {"en":"Kazanma Olaslg","tr":"Kazanma Olasılığı"}, unit: "%", format: "percentage" },
+    { id: "expectedValueBid", label: "Beklenen Değer", label_i18n: {"en":"Beklenen Deger","tr":"Beklenen Değer"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "winProbability", warning: 40, critical: 20, direction: "lower_is_bad", warningMessage: "Kazanma olasılığı < %40 — teklif stratejisi gözden geçirilmeli.", warningMessage_i18n: {"en":"Win probability < 40% — review bid strategy.","tr":"Kazanma olasılığı < %40 — teklif stratejisi gözden geçirilmeli."}, criticalMessage: "Kazanma olasılığı < %20 — teklif vermek riskli.", criticalMessage_i18n: {"en":"Win probability < 20% — bidding is risky.","tr":"Kazanma olasılığı < %20 — teklif vermek riskli."} }],
   formulaPipeline: [

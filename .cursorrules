@@ -1,92 +1,28 @@
-# SECTORCALC — CURSOR ÇALIŞMA PROTOKOLÜ v2.1
-# Tek bağlayıcı davranış protokolü. Önceki .cursorrules ve çelişen eski talimatlar İPTAL.
+# Cursor Asistanı 
+## Davranış
+- Kısa ve öz cevap ver. Gereksiz açıklama, özür, güzelleme, "istersen" tarzı ifadeler YASAK.
+- Sadece sonuç ve gerekli kod. Çıktı: 1-2 cümle ne değişti + dosya adları + test sonucu.
 
-## 0. PROJE GERÇEKLERİ
-Proje: sectorcalc-bf412 | Ürün: SectorCalc | Stack: Next.js + TypeScript + Firebase/Vercel
-Canlı: https://sectorcalc-bf412.web.app
-Locale: en, tr, de, fr, es, ar + sistemde tanımlı tüm diller
-messages/: en.json, tr.json, de.json, fr.json, es.json, ar.json
+## Dürüstlük
+- Bilmiyorsan "Bilmiyorum" de. Tahmin etme, uydurma, ihanet etme.  Eksik bilgi varsa açıkça belirt.
+- Var olmayan API, paket, fonksiyon kullanma. Emin değilsen söyle.
 
-## 1. ANA YASA
-1.1 Eksik iş bırakma. Yanlış kod. Çalışmayan işi tamamlandı deme. Borç bırakma.
-1.2 Tek komut = tek dosya değişikliği (kullanıcı açıkça çoklu dosya istemedikçe).
-1.3 Güzelleme, özür, "istersen" YASAK. Plan + diff + test sonucu.
-1.4 Tahmin etme. Bilinmiyorsa: EKSİK BİLGİ: X — dur.
-1.5 Varsayımı kesin bilgi gibi yazma. Formül kesin değilse: RİSK: Varsayım.
+## Kod Değişikliği
+- Önce ilgili dosyaları oku, sonra kod yaz.
+- Var olan çalışan kodu gereksiz yere değiştirme. Minimal diff uygula (sadece görev için gerekli satırlar).
+- Tip güvenliğini koru: `any` yasak, TypeScript çıkarımına güven.
 
-## 2. İLETİŞİM YASASI (ZORUNLU)
-2.1 Kısa cevap. Uzun açıklama YASAK.
-2.2 Sonuç odaklı çalış. Gereksiz detay ve güzelleme YASAK.
-2.3 Dürüst cevap. Sahte doğruluk YASAK.
-2.4 Çözüm seviyesi: endüstriyel mühendislik + ECMI/ISO 9001/TÜV-certifiable disiplin.
-2.5 Öneri ve patch: ölçülebilir, testli, reversible, production-ready.
+## Test Zorunluluğu
+- Değişiklik sonrası mutlaka şunları çalıştır: `npm run lint && npx tsc --noEmit && npm run build`.
+- Hata varsa düzeltmeden tamamlandı deme.
 
-## 3. MÜHENDİSLİK STANDARDI
-Production-ready, Type-safe, Maintainable, Reversible, Minimal patch,
-Formula-safe, Locale-safe, Build-safe, Deploy-safe.
-3.1 Formül: registry/formulas/ JSON veya FORMULA_REGISTRY — .ts içine gömme.
-3.2 Birim: çıplak number yasak; Value<Unit> veya birim metadata zorunlu.
-3.3 Input: validation + edge-case + risk/assumption.
-3.4 reviewed_by metadata yoksa merge etme.
+## Güvenlik
+- `.env` dosyası, API anahtarları, gizli bilgiler asla kod içinde veya commit'te yer almasın.
 
-## 4. LOCALE ANAYASASI
-4.1 Metin değişiyorsa: en, tr, de, fr, es, ar hepsi güncellenir.
-4.2 Sadece EN/TR = BLOKER.
-4.3 Fallback ile hata gizleme YASAK.
-4.4 UI hardcode YASAK — i18n.
-
-## 5. HESAPLAMA MOTORU
-Input → Validation → Formula → Result → Explanation → Risk → Next Action
-Stub formül (input toplama) production'da sonuç gösterme. WARN/QUARANTINE uyarısı zorunlu.
-
-## 6. DUAL-INTELLIGENCE (Akıl 1 + Akıl 2)
-Akıl 2: hangi input gerekli → input seti
-Hesaplama: deterministik formül
-Akıl 1: oracle + property + scenario → DOĞRU veya HATA
-HATA → geri besleme. Test geçmeyen deploy YASAK.
-Kod: src/lib/formula-governance/**
-
-## 7. GELİŞTİRME
-Önce oku → etki alanı → minimal patch → boundary koru (payment/FormulaGate/revenue).
-Premium/free, Stripe, admin korunan alanlara dokunma (açık izin yoksa).
-
-## 8. TEST ZORUNLU
-npm run typecheck && npm run lint && npm run build
-İlgili audit varsa çalıştır. Test yoksa "geçti" deme.
-git status — .next, .firebase, out, dist commit YASAK.
-
-## 9. ÇIKTI FORMATI
-SONUÇ: | DURUM: KAPAT/BLOKER/SONRAKİ AŞAMA | DEĞİŞEN DOSYALAR: | TEST: | BORÇ: | SONRAKİ ADIM:
-
-## 10. ÜRÜN DNA (ÖZET)
-SectorCalc = ERP'siz KOBİ/birey için kayıp tespiti + karar platformu.
-4 kayıp: parasal, malzeme, zaman, enerji/karbon.
-İkame: Excel, usta defteri, pahalı danışmanlık, ERP, amatör calculator.
-Slogan: Her sektör için özel ölç. Kaybı tespit et. Güvenle karar ver.
-Free = güven + SEO. Premium = kredi/rapor + Trust Trace mühür.
-UX: 3 saniye saha okunabilirliği. Basitlik (hızlı sonuç) ≠ derinlik (Trust Trace) — katmanla.
-
-## 11. TRUST TRACE
-PDF/QR = Report ID + hash + sunucu kaydı eşleşmeli.
-Public verify: sectorcalc.com/verify — tam snapshot açılmaz, metadata doğrulanır.
-
-## 12. KESİN YASAKLAR
-Çalışmayan kodu çalışıyor gösterme. EN/TR-only locale. Stub formül. Gereksiz refactor.
-Kısır döngü. Testsiz production-ready. Kısmi çözüm. Secret repoya (API key .env.local only).
-
-## 13. KOMUT FORMATI
-Kullanıcı: Dosya | İş | Test kriteri
-Agent: 1) 3 madde plan 2) diff 3) test çıktısı
-
-## 14. YOL HARİTASI (ÖNCELİK SIRASI — tek seferde hepsi değil)
-P0: Stub formül temizliği (premium önce) + Trust Trace PDF/verify fix + WARN uyarısı
-P1: p6b formula factory batch | output unit düzeltme | feedback/verification_queue
-P2: JSON-LD CalculateAction | ai.txt/robots.txt | case study | çift standart (AWS/ISO)
-P3: PWA offline | programmatic SEO | embed widget | kredi paketleri
-
-## 15. ROL MODEL
-Tekla Tedds, Simcenter, CalcTree, Maple Flow seviyesi form yapısı hedefi.
-Lucide ikonlar. Küresel ölçek. Apple.com stabilite prensibi.
-
-## 16. NİHAİ EMİR
-Eksik iş yok. Borç yok. 6 dil. Formül doğru. Kısa cevap. Çalışan sistemi bozma.
+## Özel Durumlar 
+- Türkçe arayüz varsa samimi ama profesyonel tonu koru.
+- Finans/hukuk sonuçlarında kesin kazanç, garanti vaat etme.
+- Gereksiz Token harcatma.
+- İnsan yazılım mühendisi gibi düşün Sistemi akıllı ve zekice kullan.
+- Quantum bilgisayar gücü ve kalitesinde kusursuz işler çıkart
+- Claude Fable 5 ve Mythos 5 gücü ile, Eşi benzeri görülmemiş üstün yeteneklerini kullan, karmaşık yazılım projelerini otonom olarak yönet, bilimsel araştırmalarda hipotez üret.

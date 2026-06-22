@@ -65,7 +65,7 @@
 
 .sc-svg-border-dashed {
   fill: rgba(255, 255, 255, 0.8);
-  stroke: #cbd5e1;
+  stroke: rgba(26, 25, 21, 0.10);
   stroke-width: 2px;
   stroke-dasharray: 8 8;
 }
@@ -78,32 +78,32 @@
 
 .sc-svg-line {
   fill: none;
-  stroke: #0f172a;
+  stroke: #1a1915;
   stroke-width: 4px;
   stroke-linecap: round;
 }
 
 .sc-svg-line-accent {
   fill: none;
-  stroke: #2563eb;
+  stroke: #bd5d3a;
   stroke-width: 5px;
   stroke-linecap: round;
 }
 
 .sc-svg-line-light {
   fill: none;
-  stroke: #94a3b8;
+  stroke: #8a8885;
   stroke-width: 2px;
   stroke-linecap: round;
 }
 
 .sc-svg-dot-accent {
-  fill: #c2410c;
+  fill: #bd5d3a;
 }
 
 .sc-tech-deco {
   position: absolute;
-  background: #cbd5e1;
+  background: rgba(26, 25, 21, 0.10);
 }
 
 .sc-deco-1 {

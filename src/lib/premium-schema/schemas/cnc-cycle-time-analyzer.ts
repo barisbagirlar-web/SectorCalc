@@ -25,10 +25,10 @@ export const CNC_CYCLE_TIME_SCHEMA: PremiumCalculatorSchema = {
   ],
   outputs: [
     { id: "cutTime", label: "Kesme Süresi (T_cut)", label_i18n: {"en":"Cutting Time (T_cut)","tr":"Kesme Süresi (T_cut)"}, unit: "dak", format: "number" },
-    { id: "totalCycleTime", label: "Toplam Çevrim Süresi", label_i18n: {"en":"Toplam Çevrim Süresi","tr":"Toplam Çevrim Süresi"}, unit: "dak", format: "number" },
-    { id: "cyclePerPart", label: "Parça Başına Süre", label_i18n: {"en":"Parça Başına Süre","tr":"Parça Başına Süre"}, unit: "dak/adet", format: "number" },
-    { id: "oeeAvailability", label: "OEE Kullanılabilirlik", label_i18n: {"en":"OEE Kullanılabilirlik","tr":"OEE Kullanılabilirlik"}, unit: "%", format: "percentage" },
-    { id: "dailyCapacity", label: "Günlük Kapasite", label_i18n: {"en":"Günlük Kapasite","tr":"Günlük Kapasite"}, unit: "adet", format: "number", isBigNumber: true },
+    { id: "totalCycleTime", label: "Toplam Çevrim Süresi", label_i18n: {"en":"Toplam Cevrim Suresi","tr":"Toplam Çevrim Süresi"}, unit: "dak", format: "number" },
+    { id: "cyclePerPart", label: "Parça Başına Süre", label_i18n: {"en":"Parca Basna Sure","tr":"Parça Başına Süre"}, unit: "dak/adet", format: "number" },
+    { id: "oeeAvailability", label: "OEE Kullanılabilirlik", label_i18n: {"en":"OEE Kullanlabilirlik","tr":"OEE Kullanılabilirlik"}, unit: "%", format: "percentage" },
+    { id: "dailyCapacity", label: "Günlük Kapasite", label_i18n: {"en":"Gunluk Kapasite","tr":"Günlük Kapasite"}, unit: "adet", format: "number", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "oeeAvailability", warning: 85, critical: 70, direction: "lower_is_bad", warningMessage: "OEE < %85 — duruş analizi önerilir.", warningMessage_i18n: {"en":"OEE < 85% — downtime analysis recommended.","tr":"OEE < %85 — duruş analizi önerilir."}, criticalMessage: "OEE < %70 — TPM programı başlatılmalı.", criticalMessage_i18n: {"en":"OEE < 70% — initiate TPM program.","tr":"OEE < %70 — TPM programı başlatılmalı."} },

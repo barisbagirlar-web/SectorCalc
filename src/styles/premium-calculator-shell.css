@@ -5,8 +5,8 @@
 }
 
 .sc-tool-header {
-  border: 1px solid #cbd5e1;
-  background: #ffffff;
+  border: 1px solid rgba(26, 25, 21, 0.10);
+  background: #faf9f5;
   padding: 28px 32px;
   margin-bottom: 24px;
 }
@@ -15,7 +15,7 @@
   display: inline-flex;
   align-items: center;
   margin-bottom: 14px;
-  color: #64748b;
+  color: #696764;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -24,15 +24,16 @@
 
 .sc-tool-header h1 {
   margin: 0;
-  color: #0f172a;
+  color: #1a1915;
   font-size: clamp(28px, 3vw, 42px);
   line-height: 1.1;
+  font-family: var(--font-heading);
 }
 
 .sc-tool-header p {
   margin: 12px 0 0;
   max-width: 760px;
-  color: #475569;
+  color: #696764;
   font-size: 16px;
   line-height: 1.55;
 }
@@ -43,14 +44,14 @@
   gap: 6px;
   margin-top: 22px;
   padding: 4px;
-  border: 1px solid #cbd5e1;
-  background: #f8fafc;
+  border: 1px solid rgba(26, 25, 21, 0.10);
+  background: #f0eee6;
 }
 
 .sc-mode-switch button {
   border: 0;
   background: transparent;
-  color: #64748b;
+  color: #696764;
   padding: 10px 14px;
   font-size: 13px;
   font-weight: 650;
@@ -58,9 +59,9 @@
 }
 
 .sc-mode-switch button.is-active {
-  background: #ffffff;
-  color: #0f172a;
-  box-shadow: 0 0 0 1px #cbd5e1;
+  background: #faf9f5;
+  color: #1a1915;
+  box-shadow: 0 0 0 1px rgba(26, 25, 21, 0.10);
 }
 
 .sc-tool-workspace {
@@ -74,15 +75,15 @@
 }
 
 .sc-tool-panel {
-  border: 1px solid #cbd5e1;
-  background: #ffffff;
+  border: 1px solid rgba(26, 25, 21, 0.10);
+  background: #faf9f5;
   padding: 24px 22px;
   min-width: 0;
 }
 
 .sc-tool-panel h2 {
   margin: 0 0 18px;
-  color: #0f172a;
+  color: #1a1915;
   font-size: 13px;
   font-weight: 750;
   letter-spacing: 0.14em;
@@ -91,7 +92,7 @@
 
 .sc-empty-state {
   margin: 0;
-  color: #64748b;
+  color: #696764;
   font-size: 15px;
   line-height: 1.55;
 }

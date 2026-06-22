@@ -42,6 +42,6 @@ export const SECURITY_TXT = {
   canonical: "https://www.sectorcalc.com/.well-known/security.txt",
 } as const;
 
-export const THEME_COLOR = "#0F172A" as const;
+export const THEME_COLOR = "#F0EEE6" as const;
 
 export const INDEXNOW_KEY_WELL_KNOWN_PATH = "/.well-known/indexnow-key.txt" as const;

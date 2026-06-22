@@ -1,4 +1,4 @@
-import { Barlow, Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { AuthorAuthorityHeadLinks } from "@/components/seo/AuthorAuthorityHeadLinks";
@@ -19,13 +19,6 @@ import { notoSansArabic } from "@/lib/fonts/noto-sans-arabic";
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-barlow",
   display: "swap",
 });
 
@@ -51,7 +44,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
     <html
       lang={locale}
       dir={direction}
-      className={`${inter.variable} ${barlow.variable} ${jetbrainsMono.variable} ${locale === "ar" ? notoSansArabic.variable : ""}`.trim()}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${locale === "ar" ? notoSansArabic.variable : ""}`.trim()}
       data-region={region}
       data-locale={locale}
     >

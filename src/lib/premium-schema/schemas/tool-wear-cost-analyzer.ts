@@ -17,9 +17,9 @@ export const TOOL_WEAR_COST_ANALYZER: PremiumCalculatorSchema = {
     { id: "numToolsPerYear", label: "Yıllık Kullanılan Takım Sayısı", label_i18n: {"en":"Annual Tool Usage","tr":"Yıllık Kullanılan Takım Sayısı"}, type: "number", unit: "adet/yıl", required: false, smartDefault: 100, validation: { min: 1 }, helper: "", expertMeaning: "Number of tools used per year", expertMeaning_i18n: {"en":"Number of tools used per year","tr":"Yıllık kullanılan takım sayısı"} },
   ],
   outputs: [
-    { id: "toolingCostPerPart", label: "Parça Başı Takım Maliyeti", label_i18n: {"en":"Parça Başı Takım Maliyeti","tr":"Parça Başı Takım Maliyeti"}, unit: "USD/parça", format: "currency" },
-    { id: "toolingTotal", label: "Toplam Takım Maliyeti", label_i18n: {"en":"Toplam Takım Maliyeti","tr":"Toplam Takım Maliyeti"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
-    { id: "prematureFailureCost", label: "Erken Kırılma Maliyeti", label_i18n: {"en":"Erken Kırılma Maliyeti","tr":"Erken Kırılma Maliyeti"}, unit: "USD/yıl", format: "currency" },
+    { id: "toolingCostPerPart", label: "Parça Başı Takım Maliyeti", label_i18n: {"en":"Parca Bas Takm Maliyeti","tr":"Parça Başı Takım Maliyeti"}, unit: "USD/parça", format: "currency" },
+    { id: "toolingTotal", label: "Toplam Takım Maliyeti", label_i18n: {"en":"Toplam Takm Maliyeti","tr":"Toplam Takım Maliyeti"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
+    { id: "prematureFailureCost", label: "Erken Kırılma Maliyeti", label_i18n: {"en":"Erken Krlma Maliyeti","tr":"Erken Kırılma Maliyeti"}, unit: "USD/yıl", format: "currency" },
   ],
   thresholds: [{ fieldId: "toolingCostPerPart", warning: 0.15, critical: 0.3, direction: "higher_is_bad", warningMessage: "Parça başı takım maliyeti >$0.15 — takım ömrü iyileştirilmeli.", warningMessage_i18n: {"en":"Per-part tooling cost >$0.15 — tool life should be improved.","tr":"Parça başı takım maliyeti >$0.15 — takım ömrü iyileştirilmeli."}, criticalMessage: "Parça başı takım maliyeti >$0.30 — takım seçimi veya kesme parametreleri gözden geçirilmeli.", criticalMessage_i18n: {"en":"Per-part tooling cost >$0.30 — review tool selection or cutting parameters.","tr":"Parça başı takım maliyeti >$0.30 — takım seçimi veya kesme parametreleri gözden geçirilmeli."} }],
   formulaPipeline: [

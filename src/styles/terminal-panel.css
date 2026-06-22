@@ -4,14 +4,14 @@
  */
 
 .terminal-panel {
-  --tp-black: #0a0a0a;
-  --tp-white: #ffffff;
-  --tp-border: #a0a0a0;
-  --tp-orange: #e65100;
+  --tp-black: #1a1915;
+  --tp-white: #faf9f5;
+  --tp-border: rgba(26, 25, 21, 0.10);
+  --tp-orange: #bd5d3a;
   --tp-red: #dc2626;
   --tp-amber: #f59e0b;
   --tp-green: #10b981;
-  --tp-muted: #2b2b2b;
+  --tp-muted: #696764;
 
   background: var(--tp-white);
   color: var(--tp-black);

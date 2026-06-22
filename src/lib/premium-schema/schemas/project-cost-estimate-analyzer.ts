@@ -23,7 +23,7 @@ export const PROJECT_COST_ESTIMATE_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "projectOverhead", label: "Genel Gider", label_i18n: {"en":"Genel Gider","tr":"Genel Gider"}, unit: "USD", format: "currency" },
     { id: "projectContingency", label: "Beklenmeyen Gider", label_i18n: {"en":"Beklenmeyen Gider","tr":"Beklenmeyen Gider"}, unit: "USD", format: "currency" },
     { id: "projectTotalEstimate", label: "Toplam Tahmini Maliyet", label_i18n: {"en":"Toplam Tahmini Maliyet","tr":"Toplam Tahmini Maliyet"}, unit: "USD", format: "currency", isBigNumber: true },
-    { id: "projectCostVariance", label: "Maliyet Sapması", label_i18n: {"en":"Maliyet Sapması","tr":"Maliyet Sapması"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "projectCostVariance", label: "Maliyet Sapması", label_i18n: {"en":"Maliyet Sapmas","tr":"Maliyet Sapması"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "projectCostVariance", warning: 50000, critical: 100000, direction: "higher_is_bad", warningMessage: "Sapma > $50K — bütçe revizyonu düşünülmeli.", warningMessage_i18n: {"en":"Variance > $50K — consider budget revision.","tr":"Sapma > $50K — bütçe revizyonu düşünülmeli."}, criticalMessage: "Sapma > $100K — proje maliyet kontrolü acil.", criticalMessage_i18n: {"en":"Variance > $100K — urgent project cost control.","tr":"Sapma > $100K — proje maliyet kontrolü acil."} }],
   formulaPipeline: [

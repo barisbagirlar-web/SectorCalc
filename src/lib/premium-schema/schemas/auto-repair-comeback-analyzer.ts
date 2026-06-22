@@ -20,10 +20,10 @@ export const AUTO_REPAIR_COMEBACK_SCHEMA: PremiumCalculatorSchema = {
     { id: "revenuePerBayHour", label: "Körfez Başına Saatlik Gelir", label_i18n: {"en":"Revenue Per Bay Hour","tr":"Körfez Başına Saatlik Gelir"}, type: "number", unit: "USD/saat", required: false, smartDefault: 125, validation: { min: 0 }, helper: "", expertMeaning: "Average revenue per bay hour", expertMeaning_i18n: {"en":"Average revenue per bay hour","tr":"Körfez saati başına ortalama gelir"} },
   ],
   outputs: [
-    { id: "comebackRate", label: "Comeback Oranı", label_i18n: {"en":"Comeback Oranı","tr":"Comeback Oranı"}, unit: "%", format: "percentage" },
-    { id: "comebackCostDirect", label: "Direkt Geri Dönüş Maliyeti", label_i18n: {"en":"Direkt Geri Dönüş Maliyeti","tr":"Direkt Geri Dönüş Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "comebackCostParts", label: "Parça İsraf Maliyeti", label_i18n: {"en":"Parça İsraf Maliyeti","tr":"Parça İsraf Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "comebackCostOpportunity", label: "Fırsat Maliyeti", label_i18n: {"en":"Fırsat Maliyeti","tr":"Fırsat Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "comebackRate", label: "Comeback Oranı", label_i18n: {"en":"Comeback Oran","tr":"Comeback Oranı"}, unit: "%", format: "percentage" },
+    { id: "comebackCostDirect", label: "Direkt Geri Dönüş Maliyeti", label_i18n: {"en":"Direkt Geri Donus Maliyeti","tr":"Direkt Geri Dönüş Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "comebackCostParts", label: "Parça İsraf Maliyeti", label_i18n: {"en":"Parca Israf Maliyeti","tr":"Parça İsraf Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "comebackCostOpportunity", label: "Fırsat Maliyeti", label_i18n: {"en":"Frsat Maliyeti","tr":"Fırsat Maliyeti"}, unit: "USD", format: "currency" },
     { id: "totalComebackCost", label: "Toplam Comeback Maliyeti", label_i18n: {"en":"Toplam Comeback Maliyeti","tr":"Toplam Comeback Maliyeti"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [

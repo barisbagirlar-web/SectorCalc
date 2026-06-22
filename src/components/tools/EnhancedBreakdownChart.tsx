@@ -115,7 +115,7 @@ export function EnhancedBreakdownChart({
     }
 
     return (
-      <div className="max-w-xs rounded-lg border border-technical-gray bg-white p-3 shadow-lg">
+      <div className="max-w-xs rounded-lg border border-technical-gray bg-kil-surface p-3 shadow-lg">
         <p className="font-semibold text-premium-velvet">{item.name}</p>
         <p className="sc-result-nowrap text-sm text-body-charcoal">
           {item.displayValue} ({item.percent}%)
@@ -141,7 +141,7 @@ export function EnhancedBreakdownChart({
 
   if (chartGroups.length === 0) {
     return (
-      <div className="rounded-xl border border-technical-gray bg-white p-4 text-sm text-body-charcoal/70">
+      <div className="rounded-xl border border-technical-gray bg-kil-surface p-4 text-sm text-body-charcoal/70">
         {tChart("noChartData")}
       </div>
     );
@@ -149,7 +149,7 @@ export function EnhancedBreakdownChart({
 
   return (
     <>
-      <div className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm">
+      <div className="rounded-xl border border-technical-gray bg-kil-surface p-4 shadow-sm">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <h3 className="text-lg font-semibold text-premium-velvet">{t("breakdownTitle")}</h3>
           <div className="flex gap-2">
@@ -213,7 +213,7 @@ export function EnhancedBreakdownChart({
           onClick={() => setPendingAction(null)}
         >
           <div
-            className="w-full max-w-md rounded-2xl bg-white p-4 shadow-xl sm:p-5"
+            className="w-full max-w-md rounded-2xl bg-kil-surface p-4 shadow-xl sm:p-5"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-3">

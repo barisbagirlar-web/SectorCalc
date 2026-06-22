@@ -21,10 +21,10 @@ export const AUTO_SHOP_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "netMarginInput", label: "Net Marj (%)", label_i18n: {"en":"Net Margin (%)","tr":"Net Marj (%)"}, type: "number", unit: "%", required: true, smartDefault: 8, validation: { min: 0, max: 100 }, helper: "Mevcut net kâr marjınız.", helper_i18n: {"en":"Mevcut net kâr marjınız.","tr":"Mevcut net kâr marjınız."}, expertMeaning: "Current net profit margin percentage", expertMeaning_i18n: {"en":"Current net profit margin percentage","tr":"Güncel net kâr marjı yüzdesi"} },
   ],
   outputs: [
-    { id: "grossMarginParts", label: "Parça Brüt Marjı", label_i18n: {"en":"Parça Brüt Marjı","tr":"Parça Brüt Marjı"}, unit: "%", format: "percentage" },
-    { id: "effectiveLaborRate", label: "Efektif İşçilik Ücreti", label_i18n: {"en":"Efektif İşçilik Ücreti","tr":"Efektif İşçilik Ücreti"}, unit: "USD/saat", format: "currency" },
+    { id: "grossMarginParts", label: "Parça Brüt Marjı", label_i18n: {"en":"Parca Brut Marj","tr":"Parça Brüt Marjı"}, unit: "%", format: "percentage" },
+    { id: "effectiveLaborRate", label: "Efektif İşçilik Ücreti", label_i18n: {"en":"Efektif Iscilik Ucreti","tr":"Efektif İşçilik Ücreti"}, unit: "USD/saat", format: "currency" },
     { id: "netMargin", label: "Net Marj", label_i18n: {"en":"Net Marj","tr":"Net Marj"}, unit: "%", format: "percentage" },
-    { id: "annualLeakage", label: "Yıllık Marj Kaçağı", label_i18n: {"en":"Yıllık Marj Kaçağı","tr":"Yıllık Marj Kaçağı"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "annualLeakage", label: "Yıllık Marj Kaçağı", label_i18n: {"en":"Yllk Marj Kacag","tr":"Yıllık Marj Kaçağı"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "annualLeakage", warning: 30000, critical: 100000, direction: "higher_is_bad", warningMessage: "Yıllık kaçak > $30K — fiyatlama gözden geçirilmeli.", warningMessage_i18n: {"en":"Yıllık kaçak > $30K — fiyatlama gözden geçirilmeli.","tr":"Yıllık kaçak > $30K — fiyatlama gözden geçirilmeli."}, criticalMessage: "Yıllık kaçak > $100K — acil marj iyileştirme programı başlatılmalı.", criticalMessage_i18n: {"en":"Yıllık kaçak > $100K — acil marj iyileştirme programı başlatılmalı.","tr":"Yıllık kaçak > $100K — acil marj iyileştirme programı başlatılmalı."} },

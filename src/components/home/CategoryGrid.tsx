@@ -64,13 +64,13 @@ export async function CategoryGrid({ locale }: CategoryGridProps) {
                     href={`/free-tools?category=${encodeURIComponent(filterSlug)}`}
                     prefetch={false}
                     className={cn(
-                      "group flex min-h-[148px] flex-col items-center justify-center rounded-xl border border-gray-100 bg-white px-3 py-5 text-center shadow-sm transition",
+                      "group flex min-h-[148px] flex-col items-center justify-center rounded-xl border border-gray-100 bg-kil-surface px-3 py-5 text-center shadow-sm transition",
                       "hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2",
                     )}
                     data-category-icon-name={id}
                   >
                     <Icon
-                      className="mb-3 h-12 w-12 text-[#C45A2C] transition group-hover:text-[#9a3412]"
+                      className="mb-3 h-12 w-12 text-[#BD5D3A] transition group-hover:text-[#A34D2E]"
                       aria-hidden="true"
                       strokeWidth={1.5}
                     />

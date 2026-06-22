@@ -45,9 +45,9 @@
 }
 
 .grg-card {
-  border: 1px solid #cbd5e1;
-  border-radius: 0.375rem;
-  background: #ffffff;
+  border: 1px solid rgba(26, 25, 21, 0.10);
+  border-radius: 0;
+  background: #faf9f5;
   padding: 0.875rem;
 }
 
@@ -55,14 +55,14 @@
   margin: 0;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #1a1915;
 }
 
 .grg-card__description {
   margin: 0.35rem 0 0;
   font-size: 0.75rem;
   line-height: 1.45;
-  color: #475569;
+  color: #696764;
 }
 
 .grg-card__graphic {
@@ -74,7 +74,7 @@
   margin: 0.65rem 0 0;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #2563eb;
+  color: #bd5d3a;
 }
 
 .grg-svg {
@@ -82,12 +82,12 @@
   width: 100%;
   height: auto;
   max-height: 220px;
-  color: #0f172a;
+  color: #1a1915;
 }
 
 .grg-dim {
-  stroke: #94a3b8;
-  color: #94a3b8;
+  stroke: #8a8885;
+  color: #8a8885;
   transition: stroke 0.15s ease, color 0.15s ease;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .rg-line {
-  stroke: #94a3b8;
+  stroke: #8a8885;
 }
 
 .rg-line.is-active,
@@ -113,7 +113,7 @@
 }
 
 .rg-label.is-active {
-  fill: #0f172a;
+  fill: #1a1915;
   font-weight: 700;
 }
 
@@ -133,7 +133,7 @@
 
 .grg-label {
   font-size: 11px;
-  fill: #64748b;
+  fill: #696764;
   transition: fill 0.15s ease;
 }
 
@@ -147,7 +147,7 @@
 }
 
 .grg-region--active {
-  stroke: #2563eb;
+  stroke: #bd5d3a;
 }
 
 @media (max-width: 1023px) {

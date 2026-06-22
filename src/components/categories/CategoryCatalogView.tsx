@@ -400,7 +400,7 @@ export function CategoryCatalogView({
       )}
 
       {/* ── Platform disclaimer ── */}
-      <div className="mt-10 flex flex-wrap items-center gap-3.5 rounded-xl border border-slate-200 bg-white px-6 py-4.5">
+      <div className="mt-10 flex flex-wrap items-center gap-3.5 rounded-xl border border-slate-200 bg-kil-surface px-6 py-4.5">
         <span className="text-[11px] text-gray-400" aria-hidden="true">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <rect x="1" y="3" width="14" height="11" rx="2" stroke="currentColor" strokeWidth="1.2" />

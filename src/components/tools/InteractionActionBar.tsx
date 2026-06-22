@@ -67,18 +67,18 @@ type ShareMenuPosition = {
 };
 
 const shareMenuItemClass =
-  "flex w-full rounded-lg px-3 py-2 text-left text-sm text-[#30343B] hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#30343B]";
+  "flex w-full rounded-lg px-3 py-2 text-left text-sm text-[#1A1915] hover:bg-kil-bg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#1A1915]";
 
 const iconClass = "h-4 w-4";
 
 const actionButtonClass =
-  "inline-flex h-10 min-h-10 w-10 min-w-10 shrink-0 items-center justify-center rounded-lg border border-[#CBD3E1] bg-white text-[#30343B] transition hover:border-slate-400 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#30343B]";
+  "inline-flex h-10 min-h-10 w-10 min-w-10 shrink-0 items-center justify-center rounded-lg border border-[rgba(26,25,21,0.10)] bg-kil-surface text-[#1A1915] transition hover:border-[#696764] hover:bg-kil-bg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A1915]";
 
 const reactionGroupClass =
-  "inline-flex h-10 shrink-0 items-stretch overflow-hidden rounded-lg border border-[#CBD3E1] bg-[#F8FAFC]";
+  "inline-flex h-10 shrink-0 items-stretch overflow-hidden rounded-lg border border-[rgba(26,25,21,0.10)] bg-[#F0EEE6]";
 
 const reactionSideButtonClass =
-  "inline-flex h-10 min-h-10 min-w-10 items-center justify-center px-2 text-[#30343B] transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#30343B]";
+  "inline-flex h-10 min-h-10 min-w-10 items-center justify-center px-2 text-[#1A1915] transition hover:bg-kil-bg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#1A1915]";
 
 export function InteractionActionBar({
   likeCount,
@@ -359,7 +359,7 @@ export function InteractionActionBar({
           </button>
 
           <span
-            className="flex min-w-[2.5rem] items-center justify-center border-x border-[#CBD3E1] px-2 text-xs font-semibold text-[#30343B]"
+            className="flex min-w-[2.5rem] items-center justify-center border-x border-[#CBD3E1] px-2 text-xs font-semibold text-[#1A1915]"
             aria-hidden="true"
           >
             {formattedLikeCount}
@@ -505,19 +505,19 @@ export function InteractionActionBar({
             className="w-full max-w-xl rounded-xl border border-[#CBD3E1] bg-white p-4 shadow-xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <h3 id="interaction-embed-title" className="text-sm font-semibold text-[#30343B]">
+            <h3 id="interaction-embed-title" className="text-sm font-semibold text-[#1A1915]">
               {t("embedModalTitle")}
             </h3>
             <textarea
               readOnly
               value={embedCode}
               rows={4}
-              className="mt-3 w-full rounded-lg border border-[#CBD3E1] bg-[#F8FAFC] p-3 font-mono text-xs text-[#30343B]"
+              className="mt-3 w-full rounded-lg border border-[#CBD3E1] bg-[#F8FAFC] p-3 font-mono text-xs text-[#1A1915]"
             />
             <div className="mt-3 flex justify-end gap-2">
               <button
                 type="button"
-                className="rounded-lg border border-[#CBD3E1] px-3 py-2 text-sm text-[#30343B] hover:bg-slate-50"
+                className="rounded-lg border border-[#CBD3E1] px-3 py-2 text-sm text-[#1A1915] hover:bg-kil-bg"
                 onClick={() => setEmbedOpen(false)}
               >
                 {t("close")}
@@ -547,19 +547,19 @@ export function InteractionActionBar({
             className="w-full max-w-xl rounded-xl border border-[#CBD3E1] bg-white p-4 shadow-xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <h3 id="interaction-quote-title" className="text-sm font-semibold text-[#30343B]">
+            <h3 id="interaction-quote-title" className="text-sm font-semibold text-[#1A1915]">
               {t("quoteModalTitle")}
             </h3>
             <textarea
               readOnly
               value={quoteText}
               rows={5}
-              className="mt-3 w-full rounded-lg border border-[#CBD3E1] bg-[#F8FAFC] p-3 text-sm text-[#30343B]"
+              className="mt-3 w-full rounded-lg border border-[#CBD3E1] bg-[#F8FAFC] p-3 text-sm text-[#1A1915]"
             />
             <div className="mt-3 flex justify-end gap-2">
               <button
                 type="button"
-                className="rounded-lg border border-[#CBD3E1] px-3 py-2 text-sm text-[#30343B] hover:bg-slate-50"
+                className="rounded-lg border border-[#CBD3E1] px-3 py-2 text-sm text-[#1A1915] hover:bg-kil-bg"
                 onClick={() => setQuoteOpen(false)}
               >
                 {t("close")}

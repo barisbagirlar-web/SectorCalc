@@ -21,10 +21,10 @@ export const CALIBRATION_DRIFT_SCHEMA: PremiumCalculatorSchema = {
     { id: "impactPerUnitError", label: "Birim Hata Başına Etki", label_i18n: {"en":"Impact Per Unit Error","tr":"Birim Hata Başına Etki"}, type: "number", unit: "USD", required: false, smartDefault: 50, validation: { min: 0 }, helper: "", expertMeaning: "Cost impact per unit error", expertMeaning_i18n: {"en":"Cost impact per unit error","tr":"Birim hata başına maliyet etkisi"} },
   ],
   outputs: [
-    { id: "driftRate", label: "Günlük Drift Oranı", label_i18n: {"en":"Günlük Drift Oranı","tr":"Günlük Drift Oranı"}, unit: "birim/gün", format: "number" },
-    { id: "currentUncertainty", label: "Güncel Ölçüm Belirsizliği", label_i18n: {"en":"Güncel Ölçüm Belirsizliği","tr":"Güncel Ölçüm Belirsizliği"}, unit: "", format: "number" },
+    { id: "driftRate", label: "Günlük Drift Oranı", label_i18n: {"en":"Gunluk Drift Oran","tr":"Günlük Drift Oranı"}, unit: "birim/gün", format: "number" },
+    { id: "currentUncertainty", label: "Güncel Ölçüm Belirsizliği", label_i18n: {"en":"Guncel Olcum Belirsizligi","tr":"Güncel Ölçüm Belirsizliği"}, unit: "", format: "number" },
     { id: "riskScore", label: "Kalibrasyon Risk Skoru", label_i18n: {"en":"Kalibrasyon Risk Skoru","tr":"Kalibrasyon Risk Skoru"}, unit: "", format: "score" },
-    { id: "optimalInterval", label: "Optimal Kalibrasyon Aralığı", label_i18n: {"en":"Optimal Kalibrasyon Aralığı","tr":"Optimal Kalibrasyon Aralığı"}, unit: "gün", format: "number" },
+    { id: "optimalInterval", label: "Optimal Kalibrasyon Aralığı", label_i18n: {"en":"Optimal Kalibrasyon Aralg","tr":"Optimal Kalibrasyon Aralığı"}, unit: "gün", format: "number" },
     { id: "calibrationVerdict", label: "Kalibrasyon Durumu", label_i18n: {"en":"Kalibrasyon Durumu","tr":"Kalibrasyon Durumu"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [

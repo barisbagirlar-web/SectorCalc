@@ -30,7 +30,7 @@ import {
 import { useEmissionFactors } from "@/lib/emission-factors/use-emission-factors";
 import { fetchSupplierCarbonData, type SupplierCarbonData } from "@/lib/supplier-api";
 
-const SCOPE_COLORS = ["#b45309", "#c2410c", "#1e3a5f"] as const;
+const SCOPE_COLORS = ["#b45309", "#bd5d3a", "#1e3a5f"] as const;
 const CBAM_COLORS = ["#166534", "#94a3b8"] as const;
 
 export type CarbonFootprintReportProps = {
@@ -229,7 +229,7 @@ export function CarbonFootprintReport({
           onChange={(value) => handleChange("purchasedGoodsCo2e", value)}
         />
 
-        <div className="md:col-span-2 rounded-lg border border-technical-gray bg-white p-4">
+        <div className="md:col-span-2 rounded-lg border border-technical-gray bg-kil-surface p-4">
           <h4 className="text-sm font-semibold text-premium-velvet">{t("supplierSectionTitle")}</h4>
           <p className="mt-1 text-xs text-body-charcoal/80">{t("supplierSectionDescription")}</p>
           <p className="mt-2 text-xs text-body-charcoal/70">{t("supplierDemoHint")}</p>
@@ -413,7 +413,7 @@ export function CarbonFootprintReport({
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div className="rounded-lg border border-technical-gray bg-white p-4">
+            <div className="rounded-lg border border-technical-gray bg-kil-surface p-4">
               <h4 className="mb-3 text-sm font-semibold text-premium-velvet">{t("scopeChartTitle")}</h4>
               <div className="h-[260px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
@@ -440,7 +440,7 @@ export function CarbonFootprintReport({
               </div>
             </div>
 
-            <div className="rounded-lg border border-technical-gray bg-white p-4">
+            <div className="rounded-lg border border-technical-gray bg-kil-surface p-4">
               <h4 className="mb-3 text-sm font-semibold text-premium-velvet">{t("cbamAnalysisTitle")}</h4>
               <div className="rounded-lg border border-amber-100 bg-amber-50 p-3 text-sm text-amber-950">
                 <p>
