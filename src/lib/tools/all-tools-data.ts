@@ -4,6 +4,8 @@ import fs from "fs";
 import path from "path";
 import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
 import { buildCategorizedToolIndex, type CategorizedToolItem } from "@/lib/catalog/build-categorized-tool-index";
+import { PREMIUM_CALCULATOR_SCHEMAS } from "@/lib/premium-schema/schema-registry";
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import {
   resolveGeneratedToolTitle,
@@ -281,19 +283,73 @@ export function getFreeTools(locale = "tr"): ToolData[] {
   return getAllTools(locale).filter((tool) => !tool.premiumRequired);
 }
 
+/** Map premium schema sectorSlug → taxonomy sector ID for sector grid display. */
+const PREMIUM_SECTOR_SLUG_TO_TAXONOMY: Record<string, string> = {
+  "general": "diger",
+  "sheet-metal": "metal",
+  "financial-planning": "finans",
+  "hvac": "enerji",
+  "cnc-additive-manufacturing": "makine",
+  "metal-fabrication": "metal",
+  "manufacturing": "makine",
+  "logistics": "lojistik",
+  "lean-production": "makine",
+  "it-cloud": "bilisim",
+};
+
+/** Map FormulaFamilyId → FreeToolCategorySlug for category grouping on pro-tools. */
+const FORMULA_CATEGORY_TO_CATALOG: Record<string, string> = {
+  measurement: "conversion-measurement",
+  calibration: "quality-six-sigma",
+  scrap: "quality-six-sigma",
+  oee: "digital-factory-automation",
+  time: "lean-production",
+  route: "procurement-supply-chain",
+  cost: "finance-sales-working-capital",
+  energy: "electrical-power-systems",
+  carbon: "sustainability-resource-esg",
+  benchmark: "quality-six-sigma",
+  finance: "finance-sales-working-capital",
+  fluid: "mechanical-hvac-energy-loss",
+  lean: "lean-production",
+};
+
+function resolvePremiumSectorKey(sectorSlug: string): string {
+  return PREMIUM_SECTOR_SLUG_TO_TAXONOMY[sectorSlug] ?? "diger";
+}
+
+function schemaToToolData(schema: PremiumCalculatorSchema, locale: string): ToolData {
+  const title = schema.name_i18n?.[locale] ?? schema.name;
+  const desc = schema.painStatement_i18n?.[locale] ?? schema.painStatement;
+  const sectorKey = resolvePremiumSectorKey(schema.sectorSlug);
+  const catalogCategory = FORMULA_CATEGORY_TO_CATALOG[schema.category] ?? "other";
+  return {
+    slug: schema.id,
+    name: title,
+    category: resolveSchemaCatalogCategoryLabel(catalogCategory, locale),
+    categoryKey: catalogCategory,
+    sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
+    sectorKey,
+    description: desc,
+    premiumRequired: true,
+    href: `/tools/premium-schema/${schema.id}`,
+  };
+}
+
 function categorizedToToolData(
   item: CategorizedToolItem,
   locale: string,
 ): ToolData {
   const title = item.title?.[locale] ?? item.title?.en ?? humanizeSlug(item.slug);
   const desc = item.description?.[locale] ?? item.description?.en ?? "";
+  const sectorKey = resolvePremiumSectorKey(item.categorySlug);
   return {
     slug: item.slug,
     name: title,
     category: resolveSchemaCatalogCategoryLabel(item.categorySlug, locale),
     categoryKey: item.categorySlug,
-    sector: resolveSchemaCatalogSectorLabel("diger", locale),
-    sectorKey: "diger",
+    sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
+    sectorKey,
     description: desc,
     premiumRequired: true,
     href: item.routePath ?? `/tools/generated/${item.slug}`,
@@ -301,21 +357,36 @@ function categorizedToToolData(
 }
 
 export function getPremiumTools(locale = "tr"): ToolData[] {
-  const fromSchemas = getAllTools(locale).filter((tool) => tool.premiumRequired);
+  const bySlug = new Map<string, ToolData>();
 
-  if (fromSchemas.length > 0) {
-    return fromSchemas;
+  // 1. Premium-tier items from categorized tool index (covers all 152 premium-152 seed
+  //    tools + canonical premium slugs + premium-schema items)
+  const index = buildCategorizedToolIndex();
+  for (const item of index) {
+    if (item.tier === "premium" || item.tier === "premium-schema") {
+      if (!bySlug.has(item.slug)) {
+        bySlug.set(item.slug, categorizedToToolData(item, locale));
+      }
+    }
   }
 
-  // Fallback: premium tools from categorized index (premium seeds, premium schemas)
-  const index = buildCategorizedToolIndex();
-  const premiumItems = index.filter(
-    (item) =>
-      (item.tier === "premium" || item.tier === "premium-schema") &&
-      item.publicStatus === "active",
-  );
+  // 2. Premium schemas from schema-registry (56 registered PremiumCalculatorSchema).
+  //    Overrides index data with richer schema-level info (name_i18n, painStatement, sectorSlug).
+  for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
+    if (!bySlug.has(schema.id)) {
+      bySlug.set(schema.id, schemaToToolData(schema, locale));
+    }
+  }
 
-  return premiumItems.map((item) => categorizedToToolData(item, locale));
+  // 3. Schema-based premium tools from generated/schemas/*.json (if any have premiumRequired).
+  const schemaPremium = getAllTools(locale).filter((tool) => tool.premiumRequired);
+  for (const t of schemaPremium) {
+    if (!bySlug.has(t.slug)) {
+      bySlug.set(t.slug, t);
+    }
+  }
+
+  return [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, locale));
 }
 
 export function getToolsByCategory(categoryKey: string, locale = "tr"): ToolData[] {
