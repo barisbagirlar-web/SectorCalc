@@ -12,6 +12,7 @@ import type { GeneratedToolInput } from "@/lib/generated-tools/types";
 import { resolveLocalizedGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
 import { translateZodErrorMessage } from "@/lib/i18n/zod-error-translate";
 import { useLocale, useTranslations } from "next-intl";
+import { FitText } from "@/components/ui/FitText";
 
 type PremiumDynamicToolFormFieldProps = {
   readonly input: GeneratedToolInput;
@@ -52,7 +53,7 @@ export function PremiumDynamicToolFormField({
     return (
       <div className="sc-premium-dtf-input-row">
         <div className="sc-premium-dtf-input-label">
-          <div className="sc-premium-dtf-input-title">{label}</div>
+          <FitText as="div" className="sc-premium-dtf-input-title">{label}</FitText>
           {businessContext ? (
             <div className="sc-premium-dtf-input-desc">{businessContext}</div>
           ) : null}
@@ -92,7 +93,7 @@ export function PremiumDynamicToolFormField({
     return (
       <div className="sc-premium-dtf-input-row">
         <div className="sc-premium-dtf-input-label">
-          <div className="sc-premium-dtf-input-title">{label}</div>
+          <FitText as="div" className="sc-premium-dtf-input-title">{label}</FitText>
           {businessContext ? (
             <div className="sc-premium-dtf-input-desc">{businessContext}</div>
           ) : null}
@@ -126,7 +127,7 @@ export function PremiumDynamicToolFormField({
   return (
     <div className="sc-premium-dtf-input-row">
       <div className="sc-premium-dtf-input-label">
-        <div className="sc-premium-dtf-input-title">{label}</div>
+        <FitText as="div" className="sc-premium-dtf-input-title">{label}</FitText>
         {businessContext ? (
           <div className="sc-premium-dtf-input-desc">{businessContext}</div>
         ) : null}

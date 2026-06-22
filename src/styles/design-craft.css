@@ -349,11 +349,8 @@ form[data-calculation-form="true"] {
   display: block;
   max-width: 100%;
   line-height: 1.4;
-  word-break: normal;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  white-space: normal;
-  text-wrap: pretty;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .sc-form-control,

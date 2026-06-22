@@ -155,9 +155,8 @@
   margin-bottom: 0.15rem;
   color: var(--sc-dtf-text);
   line-height: 1.35;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .sc-premium-dtf-input-desc {

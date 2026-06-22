@@ -3,6 +3,7 @@
 import type { Control, FieldErrors } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import { CalculatorUnitSelect } from "@/components/tools/CalculatorUnitCurrencyControls";
+import { FitText } from "@/components/ui/FitText";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
@@ -58,9 +59,7 @@ export function DynamicToolFormField({
         render={({ field }) => (
           <div className="sc-industrial-field sc-form-field">
             <div className="sc-industrial-field__label-row">
-              <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
-                {display.label}
-              </label>
+              <FitText as="label" htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">{display.label}</FitText>
             </div>
             <select
               id={inputId}
@@ -108,7 +107,7 @@ export function DynamicToolFormField({
                 aria-invalid={Boolean(errorMessage)}
                 aria-describedby={errorMessage ? errorId : helperId}
               />
-              <span className="text-sm text-premium-velvet">{display.label}</span>
+              <FitText as="span" className="text-sm text-premium-velvet">{display.label}</FitText>
             </label>
             <p id={helperId} className="sc-ledger-helper sc-industrial-field__helper">
               {display.helper}
@@ -131,9 +130,7 @@ export function DynamicToolFormField({
       render={({ field }) => (
         <div className="sc-industrial-field sc-form-field">
           <div className="sc-industrial-field__label-row">
-            <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
-              {display.label}
-            </label>
+            <FitText as="label" htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">{display.label}</FitText>
             {showStaticUnit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
           </div>
           <div className="flex min-w-0 items-stretch gap-2">
