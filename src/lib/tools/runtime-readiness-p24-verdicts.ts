@@ -81,7 +81,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "chain-drive-calculator": "WARN",
   "chair-rail-calculator": "WARN",
   "chandrasekhar-limit-calculator": "WARN",
-  "change-order-impact-analyzer": "WARN",
   "circular-economy-ratio-calculator": "WARN",
   "clamping-force-calculator": "WARN",
   "cleaning-cost-estimator": "WARN",
@@ -226,7 +225,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "maximum-drawdown-calculator": "WARN",
   "maximum-torsional-shear-stress-circular-calculator": "WARN",
   "mean-median-mode-calculator": "WARN",
-  "menu-profit-leak-detector": "WARN",
   "metacentric-height-calculator": "WARN",
   "minimum-belt-tension-slack-side-calculator": "WARN",
   "minimum-credit-card-payment-calculator": "WARN",
@@ -249,7 +247,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "normal-shock-wave-pressure-jump-calculator": "WARN",
   "normal-stress-force-area-calculator": "WARN",
   "npv-calculator": "WARN",
-  "office-cleaning-bid-optimizer": "WARN",
   "operating-margin-calculator": "WARN",
   "opportunity-cost-calculator": "WARN",
   "ore-reserve-volume-calculator": "WARN",
@@ -385,7 +382,9 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
 
 /** Slugs with explicit P2.4 PASS — required for Formula Gate trust eligibility. */
 export const P24_EXPLICIT_PASS_SLUGS: ReadonlySet<string> = new Set([
-
+  "change-order-impact-analyzer",
+  "menu-profit-leak-detector",
+  "office-cleaning-bid-optimizer",
 ]);
 
 import {
