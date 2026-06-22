@@ -28,10 +28,17 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "cashGap", warning: 20000, critical: 50000, direction: "higher_is_bad", warningMessage: "Nakit açığı > $20K — kredi limiti veya factoring değerlendirilmeli.", warningMessage_i18n: {"en":"Cash gap > $20K — evaluate credit line or factoring.","tr":"Nakit açığı > $20K — kredi limiti veya factoring değerlendirilmeli."}, criticalMessage: "Nakit açığı > $50K — acil nakit yönetimi aksiyonu gerekli.", criticalMessage_i18n: {"en":"Cash gap > $50K — urgent cash management action needed.","tr":"Nakit açığı > $50K — acil nakit yönetimi aksiyonu gerekli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.cash_inflow", inputMap: { monthlyRevenue: "monthlyRevenue" }, outputId: "cashInflow" },
-    { formulaId: "measurement.cash_outflow", inputMap: { monthlyExpenses: "monthlyExpenses" }, outputId: "cashOutflow" },
+    { formulaId: "measurement.cash_inflow", inputMap: {
+        salesRevenue: "monthlyRevenue"
+      }, outputId: "cashInflow" },
+    { formulaId: "measurement.cash_outflow", inputMap: {
+        supplierPayments: "monthlyExpenses"
+      }, outputId: "cashOutflow" },
     { formulaId: "measurement.net_cash_flow", inputMap: { cashInflow: "cashInflow", cashOutflow: "cashOutflow" }, outputId: "netCashFlow" },
-    { formulaId: "measurement.cumulative_cash", inputMap: { netCashFlow: "netCashFlow", numMonths: "numMonths" }, outputId: "cumulativeCash" },
+    { formulaId: "measurement.cumulative_cash", inputMap: {
+        netCashFlow: "netCashFlow",
+        openingBalance: "numMonths"
+      }, outputId: "cumulativeCash" },
     { formulaId: "measurement.cash_gap", inputMap: { cumulativeCash: "cumulativeCash", netCashFlow: "netCashFlow" }, outputId: "cashGap" },
     { formulaId: "measurement.dso", inputMap: { accountsReceivable: "accountsReceivable", monthlyRevenue: "monthlyRevenue" }, outputId: "dso" },
     { formulaId: "measurement.dpo", inputMap: { accountsPayable: "accountsPayable", cogsMonthly: "cogsMonthly" }, outputId: "dpo" },

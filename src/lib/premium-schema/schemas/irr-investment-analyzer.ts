@@ -20,10 +20,20 @@ export const IRR_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "irr", warning: 15, critical: 10, direction: "lower_is_bad", warningMessage: "IRR < %15 — WACC'nin altında olabilir, risk değerlendirmesi yapılmalı.", warningMessage_i18n: {"en":"IRR < %15 — WACC'nin altında olabilir, risk değerlendirmesi yapılmalı.","tr":"IRR < %15 — WACC'nin altında olabilir, risk değerlendirmesi yapılmalı."}, criticalMessage: "IRR < %10 — yatırım fizibilitesi sorgulanmalı.", criticalMessage_i18n: {"en":"IRR < %10 — yatırım fizibilitesi sorgulanmalı.","tr":"IRR < %10 — yatırım fizibilitesi sorgulanmalı."} }],
   formulaPipeline: [
-    { formulaId: "cost.npv", inputMap: { cashFlows: "cashFlows", discountRate: "discountRate" }, outputId: "npv" },
-    { formulaId: "cost.irr_simple", inputMap: { cashFlows: "cashFlows" }, outputId: "irr" },
-    { formulaId: "cost.payback_period", inputMap: { cashFlows: "cashFlows" }, outputId: "payback" },
-    { formulaId: "cost.profitability_index", inputMap: { pvFuture: "pvFuture", initialInvestment: "initialInvestment" }, outputId: "profitabilityIndex" },
+    { formulaId: "cost.npv", inputMap: {
+        discountRate: "discountRate",
+        initialInv: "cashFlows"
+      }, outputId: "npv" },
+    { formulaId: "cost.irr_simple", inputMap: {
+        discountRate: "cashFlows"
+      }, outputId: "irr" },
+    { formulaId: "cost.payback_period", inputMap: {
+        yearBefore: "cashFlows"
+      }, outputId: "payback" },
+    { formulaId: "cost.profitability_index", inputMap: {
+        discountRate: "pvFuture",
+        initialInv: "initialInvestment"
+      }, outputId: "profitabilityIndex" },
   ],
   reportTemplate: { title: "IRR Investment Analysis Report", title_i18n: {"en":"IRR Investment Analysis Report","tr":"IRR Investment Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["NPV = Σ(Cash/(1+r)^t). IRR is the rate where NPV=0.", "Payback = Year_Before + Unrecovered/Cash_Rec.", "PI = PV_Future/InitInv."],assumptionNotes_i18n:[{"en":"NPV = Σ(Cash/(1+r)^t). IRR is the rate where NPV=0.","tr":"NPV = Σ(Cash/(1+r)^t). IRR is the rate where NPV=0."},{"en":"Payback = Year_Before + Unrecovered/Cash_Rec.","tr":"Payback = Year_Before + Unrecovered/Cash_Rec."},{"en":"PI = PV_Future/InitInv.","tr":"PI = PV_Future/InitInv."}] },

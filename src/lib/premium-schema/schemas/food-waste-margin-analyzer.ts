@@ -24,8 +24,15 @@ export const FOOD_WASTE_MARGIN_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "yield", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — fire azaltma programı başlatılmalı.", warningMessage_i18n: {"en":"Verim < %80 — fire azaltma programı başlatılmalı.","tr":"Verim < %80 — fire azaltma programı başlatılmalı."}, criticalMessage: "Verim < %70 — proses iyileştirme acil.", criticalMessage_i18n: {"en":"Verim < %70 — proses iyileştirme acil.","tr":"Verim < %70 — proses iyileştirme acil."} }],
   formulaPipeline: [
-    { formulaId: "measurement.food_yield", inputMap: { finishedWeight: "finishedWeight", rawWeight: "rawWeight" }, outputId: "yield" },
-    { formulaId: "cost.food_margin_leak", inputMap: { shrinkageCost: "rawCost", spoilageCost: "prodCost", overProductionCost: "unitCost" }, outputId: "marginLeak" },
+    { formulaId: "measurement.food_yield", inputMap: {
+        finished: "finishedWeight",
+        raw: "rawWeight"
+      }, outputId: "yield" },
+    { formulaId: "cost.food_margin_leak", inputMap: {
+        shrinkCost: "rawCost",
+        spoilCost: "prodCost",
+        overCost: "unitCost"
+      }, outputId: "marginLeak" },
   ],
   reportTemplate: { title: "Food Waste Margin Report", title_i18n: {"en":"Food Waste Margin Report","tr":"Food Waste Margin Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Yield = Finished/Raw.", "Margin leak = Shrinkage+Spoilage+Overproduction.", "Variance = Actual - Theoretical usage."],assumptionNotes_i18n:[{"en":"Yield = Finished/Raw.","tr":"Yield = Finished/Raw."},{"en":"Margin leak = Shrinkage+Spoilage+Overproduction.","tr":"Margin leak = Shrinkage+Spoilage+Overproduction."},{"en":"Variance = Actual - Theoretical usage.","tr":"Variance = Actual - Theoretical usage."}] },

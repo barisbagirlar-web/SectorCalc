@@ -24,6 +24,7 @@ const SCHEMA_CATEGORY_KEYS: Readonly<Record<string, string>> = {
 };
 
 const SCHEMA_SECTOR_KEYS: Readonly<Record<string, string>> = {
+  // Legacy multi-word classifications
   "Finans & İK": "finans-ik",
   "Üretim & İmalat": "uretim-imalat",
   "Teknik & Mühendislik": "teknik-muhendislik",
@@ -37,6 +38,30 @@ const SCHEMA_SECTOR_KEYS: Readonly<Record<string, string>> = {
   "İSG & Risk": "isg-risk",
   Sürdürülebilirlik: "surdurulebilirlik",
   "Kalite, SPC & Altı Sigma": "kalite-spc-alti-sigma",
+
+  // Schema raw.sector values → taxonomy sector IDs
+  Finans: "finans",
+  "İşletme": "finans",
+  "Makine Mühendisliği": "makine",
+  "Sağlık ve Fitness": "saglik",
+  Gayrimenkul: "emlak",
+  "İnşaat ve Yapı": "insaat",
+  "İleri Fizik ve Kuantum": "fizik",
+  "Kredi ve Borç": "finans",
+  "Spor, Mimari, Robotik ve Hukuk": "fizik",
+  "Sigorta ve Emeklilik": "finans",
+  "Yangın, Elektrik ve Elektronik": "enerji",
+  "Tarım, Denizcilik ve Sondaj": "tarim",
+  "Veri ve İstatistik": "istatistik",
+  "Bilişim, Biyomedikal ve Maden": "bilisim",
+  "İleri Fizik, Kuantum ve Enerji": "fizik",
+  "Fizik, Kimya ve Malzeme": "fizik",
+  "Tekstil, Gıda ve Plastik": "tekstil",
+  "Çevre ve Sürdürülebilirlik": "cevre",
+  "Mekanik, Otomotiv ve Havacılık": "makine",
+  "E-Ticaret": "perakende",
+  "Endüstri Mühendisliği": "makine",
+  Lojistik: "lojistik",
 };
 
 function slugifyLabel(label: string): string {

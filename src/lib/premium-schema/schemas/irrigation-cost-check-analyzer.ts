@@ -24,9 +24,19 @@ export const IRRIGATION_COST_CHECK_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "irrigationTotalCost", warning: 20000, critical: 40000, direction: "higher_is_bad", warningMessage: "Sulama maliyeti >$20K — sistem verimliliği sorgulanmalı.", warningMessage_i18n: {"en":"Sulama maliyeti >$20K — sistem verimliliği sorgulanmalı.","tr":"Sulama maliyeti >$20K — sistem verimliliği sorgulanmalı."}, criticalMessage: "Sulama maliyeti >$40K — alternatif sulama yöntemleri değerlendirilmeli.", criticalMessage_i18n: {"en":"Sulama maliyeti >$40K — alternatif sulama yöntemleri değerlendirilmeli.","tr":"Sulama maliyeti >$40K — alternatif sulama yöntemleri değerlendirilmeli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.irrigation_water_req", inputMap: { areaHectares: "areaHectares", cropWaterNeed: "cropWaterNeed", rainfall: "rainfall", irrigationEfficiency: "irrigationEfficiency" }, outputId: "irrigationWaterReq" },
+    { formulaId: "measurement.irrigation_water_req", inputMap: {
+        cropWaterNeed: "cropWaterNeed",
+        rainfall: "rainfall",
+        area: "areaHectares",
+        irrigationEfficiency: "irrigationEfficiency"
+      }, outputId: "irrigationWaterReq" },
     { formulaId: "cost.irrigation_energy_cost", inputMap: { pumpPower: "pumpPower", pumpHours: "pumpHours", electricityCost: "electricityCost" }, outputId: "irrigationEnergyCost" },
-    { formulaId: "cost.irrigation_total_cost", inputMap: { irrigationWaterReq: "irrigationWaterReq", waterCost: "waterCost", irrigationEnergyCost: "irrigationEnergyCost", laborCost: "laborCost" }, outputId: "irrigationTotalCost" },
+    { formulaId: "cost.irrigation_total_cost", inputMap: {
+        irrigationEnergyCost: "irrigationEnergyCost",
+        irrigationWaterReq: "irrigationWaterReq",
+        laborCost: "laborCost",
+        depreciation: "waterCost"
+      }, outputId: "irrigationTotalCost" },
   ],
   reportTemplate: { title: "Sulama Maliyet Kontrol Raporu", title_i18n: {"en":"Sulama Maliyet Kontrol Raporu","tr":"Sulama Maliyet Kontrol Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Sulama suyu = (bitki ihtiyacı − yağış) × alan × 10 / verimlilik.", "Enerji maliyeti = güç × saat × elektrik birim fiyatı.", "Toplam maliyet = su + enerji + işçilik.", "10 mm = 100 m³/ha dönüşümü kullanılır."],assumptionNotes_i18n:[{"en":"Sulama suyu = (bitki ihtiyacı − yağış) × alan × 10 / verimlilik.","tr":"Sulama suyu = (bitki ihtiyacı − yağış) × alan × 10 / verimlilik."},{"en":"Enerji maliyeti = güç × saat × elektrik birim fiyatı.","tr":"Enerji maliyeti = güç × saat × elektrik birim fiyatı."},{"en":"Toplam maliyet = su + enerji + işçilik.","tr":"Toplam maliyet = su + enerji + işçilik."},{"en":"10 mm = 100 m³/ha dönüşümü kullanılır.","tr":"10 mm = 100 m³/ha dönüşümü kullanılır."}] },

@@ -25,9 +25,20 @@ export const HYDRAULIC_LOSS_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "eff", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — kaçak ve sürtünme kayıpları azaltılmalı.", warningMessage_i18n: {"en":"Verim < %80 — kaçak ve sürtünme kayıpları azaltılmalı.","tr":"Verim < %80 — kaçak ve sürtünme kayıpları azaltılmalı."}, criticalMessage: "Verim < %70 — sistem revizyonu gerekli.", criticalMessage_i18n: {"en":"Verim < %70 — sistem revizyonu gerekli.","tr":"Verim < %70 — sistem revizyonu gerekli."} }],
   formulaPipeline: [
-    { formulaId: "energy.hydraulic_heat_loss", inputMap: { leakLoss: "qLeak", frictionLoss: "deltaPipe", valveLoss: "deltaValve" }, outputId: "heatLoss" },
-    { formulaId: "energy.hydraulic_cost", inputMap: { heatLoss: "heatLoss", operatingHours: "operatingHours", elecRate: "elecRate" }, outputId: "annualEnergyCost" },
-    { formulaId: "energy.hydraulic_eff", inputMap: { powerOut: "powerOut", powerIn: "powerIn" }, outputId: "eff" },
+    { formulaId: "energy.hydraulic_heat_loss", inputMap: {
+        qLeak: "qLeak",
+        p: "deltaPipe",
+        deltaPPipe: "deltaValve"
+      }, outputId: "heatLoss" },
+    { formulaId: "energy.hydraulic_cost", inputMap: {
+        elecRate: "elecRate",
+        heat: "heatLoss",
+        hours: "operatingHours"
+      }, outputId: "annualEnergyCost" },
+    { formulaId: "energy.hydraulic_eff", inputMap: {
+        pOut: "powerOut",
+        pIn: "powerIn"
+      }, outputId: "eff" },
   ],
   reportTemplate: { title: "Hydraulic System Loss Report", title_i18n: {"en":"Hydraulic System Loss Report","tr":"Hydraulic System Loss Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Leak loss = Q_Leak×P/600. Friction = ΔP×Q/600.", "Heat = Leak+Friction+Valve. Cost = Heat×Hours×ElecRate.", "Eff = (P_Out/P_In)×100."],assumptionNotes_i18n:[{"en":"Leak loss = Q_Leak×P/600. Friction = ΔP×Q/600.","tr":"Leak loss = Q_Leak×P/600. Friction = ΔP×Q/600."},{"en":"Heat = Leak+Friction+Valve. Cost = Heat×Hours×ElecRate.","tr":"Heat = Leak+Friction+Valve. Cost = Heat×Hours×ElecRate."},{"en":"Eff = (P_Out/P_In)×100.","tr":"Eff = (P_Out/P_In)×100."}] },

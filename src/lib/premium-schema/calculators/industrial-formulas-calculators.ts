@@ -475,7 +475,7 @@ export function calculateLmtd(inputs: LmtdInputs): LmtdResult {
   const cMin = 1000; // Assumed min heat capacity (simplified)
   const ntu = cMin > 0 ? u * area / cMin : 0;
   const cr = 0.5; // assumed ratio
-  let eps = cr < 1 ? (1 - Math.exp(-ntu * (1 - cr))) / (1 - cr * Math.exp(-ntu * (1 - cr))) : 1 - Math.exp(-ntu);
+  const eps = cr < 1 ? (1 - Math.exp(-ntu * (1 - cr))) / (1 - cr * Math.exp(-ntu * (1 - cr))) : 1 - Math.exp(-ntu);
 
   let verdict: LmtdResult["exchangerVerdict"] = "ACCEPTABLE";
   if (area > 0 && heatDuty > 0) {
@@ -975,7 +975,7 @@ export function calculateAnova(inputs: AnovaInputs): AnovaResult {
 
   let ssBetween = 0;
   let ssWithin = 0;
-  let totalGroups = groupMeans.length;
+  const totalGroups = groupMeans.length;
 
   // Use uniform group sizes if not all provided
   const nPerGroup = N / k;

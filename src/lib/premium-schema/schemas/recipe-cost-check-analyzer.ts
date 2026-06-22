@@ -28,7 +28,9 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.recipe_actual", inputMap: { actualUsage: "actualUsage", ingredientCostPerKg: "ingredientCostPerKg" }, outputId: "recipeActual" },
     { formulaId: "cost.recipe_variance", inputMap: { recipeActual: "recipeActual", recipeTheoretical: "recipeTheoretical" }, outputId: "recipeVariance" },
     { formulaId: "cost.recipe_yield_loss", inputMap: { recipeQty: "recipeQty", ingredientCostPerKg: "ingredientCostPerKg", yieldLossPct: "yieldLossPct" }, outputId: "recipeYieldLoss" },
-    { formulaId: "measurement.recipe_evaporation", inputMap: { evaporationPct: "evaporationPct" }, outputId: "recipeEvaporation" },
+    { formulaId: "measurement.recipe_evaporation", inputMap: {
+        inputWeight: "evaporationPct"
+      }, outputId: "recipeEvaporation" },
     { formulaId: "measurement.recipe_efficiency", inputMap: { recipeTheoretical: "recipeTheoretical", recipeActual: "recipeActual" }, outputId: "recipeEfficiency" },
     { formulaId: "cost.recipe_cost_per_kg", inputMap: { recipeActual: "recipeActual", actualUsage: "actualUsage" }, outputId: "recipeCostPerKg" },
   ],

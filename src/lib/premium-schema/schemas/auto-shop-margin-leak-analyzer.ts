@@ -30,7 +30,10 @@ export const AUTO_SHOP_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "annualLeakage", warning: 30000, critical: 100000, direction: "higher_is_bad", warningMessage: "Yıllık kaçak > $30K — fiyatlama gözden geçirilmeli.", warningMessage_i18n: {"en":"Yıllık kaçak > $30K — fiyatlama gözden geçirilmeli.","tr":"Yıllık kaçak > $30K — fiyatlama gözden geçirilmeli."}, criticalMessage: "Yıllık kaçak > $100K — acil marj iyileştirme programı başlatılmalı.", criticalMessage_i18n: {"en":"Yıllık kaçak > $100K — acil marj iyileştirme programı başlatılmalı.","tr":"Yıllık kaçak > $100K — acil marj iyileştirme programı başlatılmalı."} },
   ],
   formulaPipeline: [
-    { formulaId: "cost.effective_labor_rate", inputMap: { laborRevenue: "monthlyLaborRevenue", flagHours: "totalFlagHours" }, outputId: "effectiveLaborRate" },
+    { formulaId: "cost.effective_labor_rate", inputMap: {
+        totalLaborCost: "monthlyLaborRevenue",
+        billableHours: "totalFlagHours"
+      }, outputId: "effectiveLaborRate" },
     { formulaId: "cost.annual_margin_leakage", inputMap: { totalRevenue: "monthlyLaborRevenue", targetMargin: "industryBenchmarkMargin", actualMargin: "netMarginInput" }, outputId: "annualLeakage" },
   ],
   reportTemplate: { title: "Auto Shop Margin Leak Report", title_i18n: {"en":"Auto Shop Margin Leak Report","tr":"Auto Shop Margin Leak Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

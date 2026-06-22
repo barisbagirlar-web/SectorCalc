@@ -29,8 +29,16 @@ export const INTEREST_RATE_RISK_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "cost.ir_exposure", inputMap: { floatingDebt: "floatingDebt", hedgeRatio: "hedgeRatio" }, outputId: "exposure" },
     { formulaId: "cost.ir_shock_impact", inputMap: { exposure: "exposure", bpsChange: "bpsChange" }, outputId: "shockImpact" },
-    { formulaId: "cost.ir_eve_change", inputMap: { durGap: "durGap", assetValue: "assetValue", rateChange: "rateChange" }, outputId: "eveChange" },
-    { formulaId: "cost.ir_var", inputMap: { portfolioValue: "portfolioValue", volatility: "volatility", zScore: "zScore" }, outputId: "valueAtRisk" },
+    { formulaId: "cost.ir_eve_change", inputMap: {
+        durGap: "durGap",
+        rateChange: "rateChange",
+        assetVal: "assetValue"
+      }, outputId: "eveChange" },
+    { formulaId: "cost.ir_var", inputMap: {
+        volatility: "volatility",
+        zScore: "zScore",
+        portVal: "portfolioValue"
+      }, outputId: "valueAtRisk" },
   ],
   reportTemplate: { title: "Interest Rate Risk Report", title_i18n: {"en":"Interest Rate Risk Report","tr":"Interest Rate Risk Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["Exposure = FloatingDebt×(1-HedgeRatio).", "Shock = Exposure×Bps/10000.", "EVE = -DurGap×Asset×Rate/100.", "VaR = PortVal×Vol×Z."],assumptionNotes_i18n:[{"en":"Exposure = FloatingDebt×(1-HedgeRatio).","tr":"Exposure = FloatingDebt×(1-HedgeRatio)."},{"en":"Shock = Exposure×Bps/10000.","tr":"Shock = Exposure×Bps/10000."},{"en":"EVE = -DurGap×Asset×Rate/100.","tr":"EVE = -DurGap×Asset×Rate/100."},{"en":"VaR = PortVal×Vol×Z.","tr":"VaR = PortVal×Vol×Z."}] },

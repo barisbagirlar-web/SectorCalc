@@ -30,11 +30,20 @@ export const SHOP_HOURLY_RATE_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "cost.shop_direct_labor", inputMap: { technicianWages: "technicianWages" }, outputId: "directLabor" },
     { formulaId: "cost.shop_indirect_labor", inputMap: { managerWages: "managerWages", adminWages: "adminWages" }, outputId: "indirectLabor" },
-    { formulaId: "cost.shop_overhead", inputMap: { rent: "rent", utilities: "utilities", insurance: "insurance", tools: "tools", depreciation: "depreciation" }, outputId: "overhead" },
+    { formulaId: "cost.shop_overhead", inputMap: {
+        depreciation: "depreciation",
+        directLabor: "rent",
+        indirectLabor: "utilities",
+        insurance: "insurance",
+        tools: "tools"
+      }, outputId: "overhead" },
     { formulaId: "cost.shop_total_cost", inputMap: { directLabor: "directLabor", indirectLabor: "indirectLabor", overhead: "overhead" }, outputId: "totalShopCost" },
     { formulaId: "cost.shop_billable_hours", inputMap: { totalAvailableHours: "totalAvailableHours", utilizationRate: "utilizationRate" }, outputId: "billableHours" },
     { formulaId: "cost.shop_hourly_rate", inputMap: { totalShopCost: "totalShopCost", billableHours: "billableHours" }, outputId: "shopHourlyRate" },
-    { formulaId: "cost.shop_effective_margin", inputMap: { actualBillingRate: "actualBillingRate", shopHourlyRate: "shopHourlyRate" }, outputId: "effectiveMargin" },
+    { formulaId: "cost.shop_effective_margin", inputMap: {
+        actualBillingRate: "actualBillingRate",
+        shopHourlyRate: "shopHourlyRate"
+      }, outputId: "effectiveMargin" },
   ],
   reportTemplate: { title: "Atölye Saatlik Ücret Raporu", title_i18n: {"en":"Shop Hourly Rate Report","tr":"Atölye Saatlik Ücret Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 20, assumptionNotes: ["Saatlik ücret = Toplam maliyet / Faturalanabilir saat.", "Marj = (Faturalama - Maliyet) / Faturalama.", "Kullanım oranı fiili doluluğu yansıtır."],assumptionNotes_i18n:[{"en":"Hourly rate = Total cost / Billable hours.","tr":"Saatlik ücret = Toplam maliyet / Faturalanabilir saat."},{"en":"Margin = (Billing - Cost) / Billing.","tr":"Marj = (Faturalama - Maliyet) / Faturalama."},{"en":"Utilization rate reflects actual occupancy.","tr":"Kullanım oranı fiili doluluğu yansıtır."}] },

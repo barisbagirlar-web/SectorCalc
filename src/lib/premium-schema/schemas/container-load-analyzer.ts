@@ -22,10 +22,19 @@ export const CONTAINER_LOAD_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "loadEfficiency", warning: 75, critical: 50, direction: "lower_is_bad", warningMessage: "Verim < %75 — konteyner optimizasyonu önerilir.", warningMessage_i18n: {"en":"Verim < %75 — konteyner optimizasyonu önerilir.","tr":"Verim < %75 — konteyner optimizasyonu önerilir."}, criticalMessage: "Verim < %50 — yükleme planı yenilenmeli.", criticalMessage_i18n: {"en":"Verim < %50 — yükleme planı yenilenmeli.","tr":"Verim < %50 — yükleme planı yenilenmeli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.container_vol_util", inputMap: { itemVolumes: "itemVolumes", containerVol: "containerVol" }, outputId: "volUtil" },
-    { formulaId: "measurement.container_weight_util", inputMap: { itemWeights: "itemWeights", maxPayload: "maxPayload" }, outputId: "weightUtil" },
+    { formulaId: "measurement.container_vol_util", inputMap: {
+        containerVol: "containerVol",
+        cargoVol: "itemVolumes"
+      }, outputId: "volUtil" },
+    { formulaId: "measurement.container_weight_util", inputMap: {
+        maxPayload: "maxPayload",
+        cargoWeight: "itemWeights"
+      }, outputId: "weightUtil" },
     { formulaId: "measurement.container_efficiency", inputMap: { volUtil: "volUtil", weightUtil: "weightUtil" }, outputId: "loadEfficiency" },
-    { formulaId: "cost.container_waste_cost", inputMap: { loadEfficiency: "loadEfficiency", freightCost: "freightCost" }, outputId: "wastedSpaceCost" },
+    { formulaId: "cost.container_waste_cost", inputMap: {
+        volUtil: "loadEfficiency",
+        containerCost: "freightCost"
+      }, outputId: "wastedSpaceCost" },
   ],
   reportTemplate: { title: "Konteyner Yük Raporu", title_i18n: {"en":"Konteyner Yük Raporu","tr":"Konteyner Yük Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Doluluk = min(Hacim%, Ağırlık%).", "Boş alan maliyeti = (1 - Verim) × Navlun."],assumptionNotes_i18n:[{"en":"Doluluk = min(Hacim%, Ağırlık%).","tr":"Doluluk = min(Hacim%, Ağırlık%)."},{"en":"Boş alan maliyeti = (1 - Verim) × Navlun.","tr":"Boş alan maliyeti = (1 - Verim) × Navlun."}] },

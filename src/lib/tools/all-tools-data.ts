@@ -34,6 +34,10 @@ import {
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
 const DEFAULT_LABEL = "Diğer";
 
+/** Module-level cache keyed by locale: tools are built at cold start and stable for the lifetime of the server.
+ *  Prevents flickering caused by redundant filesystem reads during ISR revalidation. */
+const toolsCache = new Map<string, ToolData[]>();
+
 type RawSchemaRecord = Readonly<Record<string, unknown>>;
 
 type SchemaCatalogEntry = {
@@ -245,15 +249,21 @@ function isPremiumTool(
 }
 
 export function getAllTools(locale = "tr"): ToolData[] {
+  const cached = toolsCache.get(locale);
+  if (cached) {
+    return cached;
+  }
+
   const categorized = new Map(
     buildCategorizedToolIndex().map((item) => [item.slug, item] as const),
   );
 
   if (!fs.existsSync(SCHEMAS_DIR)) {
+    toolsCache.set(locale, []);
     return [];
   }
 
-  return fs
+  const tools = fs
     .readdirSync(SCHEMAS_DIR)
     .filter((fileName) => fileName.endsWith(".json"))
     .map((fileName) => {
@@ -297,6 +307,9 @@ export function getAllTools(locale = "tr"): ToolData[] {
     })
     .filter((item): item is ToolData => item !== null)
     .sort((left, right) => left.name.localeCompare(right.name, locale));
+
+  toolsCache.set(locale, tools);
+  return tools;
 }
 
 export function getFreeTools(locale = "tr"): ToolData[] {
@@ -315,6 +328,17 @@ const PREMIUM_SECTOR_SLUG_TO_TAXONOMY: Record<string, string> = {
   "logistics": "lojistik",
   "lean-production": "makine",
   "it-cloud": "bilisim",
+  "auto-repair": "otomotiv",
+  "cnc-manufacturing": "makine",
+  "construction": "insaat",
+  "ecommerce": "perakende",
+  "energy-carbon": "enerji",
+  "energy-consumption": "enerji",
+  "food": "gida",
+  "legal-tax": "finans",
+  "logistics-transport": "lojistik",
+  "quality": "makine",
+  "textile": "tekstil",
 };
 
 /** Map FormulaFamilyId → FreeToolCategorySlug for category grouping on pro-tools. */

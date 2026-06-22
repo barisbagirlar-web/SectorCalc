@@ -24,13 +24,36 @@ export const COMPRESSED_AIR_LEAK_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "totalLeakCost", warning: 5000, critical: 20000, direction: "higher_is_bad", warningMessage: "Kaçak maliyeti > $5K/yıl — onarım programı başlatılmalı.", warningMessage_i18n: {"en":"Kaçak maliyeti > $5K/yıl — onarım programı başlatılmalı.","tr":"Kaçak maliyeti > $5K/yıl — onarım programı başlatılmalı."}, criticalMessage: "Kaçak maliyeti > $20K/yıl — acil müdahale gerekli.", criticalMessage_i18n: {"en":"Kaçak maliyeti > $20K/yıl — acil müdahale gerekli.","tr":"Kaçak maliyeti > $20K/yıl — acil müdahale gerekli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.leak_flow_cfm", inputMap: { leakDiameter: "leakDiameter", linePressure: "linePressure" }, outputId: "leakFlow" },
-    { formulaId: "measurement.leak_power_loss", inputMap: { leakFlow: "leakFlow", linePressure: "linePressure", compressorEff: "compressorEff" }, outputId: "powerLoss" },
-    { formulaId: "measurement.leak_annual_energy", inputMap: { powerLoss: "powerLoss", operatingHours: "operatingHours" }, outputId: "annualEnergyLoss" },
-    { formulaId: "cost.leak_cost", inputMap: { annualEnergyLoss: "annualEnergyLoss", elecRate: "elecRate", leakCount: "leakCount" }, outputId: "costPerLeak" },
-    { formulaId: "cost.leak_total_cost", inputMap: { costPerLeak: "costPerLeak", leakCount: "leakCount" }, outputId: "totalLeakCost" },
-    { formulaId: "measurement.leak_carbon", inputMap: { annualEnergyLoss: "annualEnergyLoss", gridEF: "gridEF" }, outputId: "carbonEmissions" },
-    { formulaId: "cost.leak_payback", inputMap: { repairCost: "repairCost", costPerLeak: "costPerLeak" }, outputId: "paybackMonths" },
+    { formulaId: "measurement.leak_flow_cfm", inputMap: {
+        leakArea: "leakDiameter",
+        pressure: "linePressure"
+      }, outputId: "leakFlow" },
+    { formulaId: "measurement.leak_power_loss", inputMap: {
+        leakFlowCfm: "leakFlow",
+        pressure: "linePressure",
+        compressorEff: "compressorEff"
+      }, outputId: "powerLoss" },
+    { formulaId: "measurement.leak_annual_energy", inputMap: {
+        leakPowerLoss: "powerLoss",
+        runningHours: "operatingHours"
+      }, outputId: "annualEnergyLoss" },
+    { formulaId: "cost.leak_cost", inputMap: {
+        leakAnnualEnergy: "annualEnergyLoss",
+        energyRate: "elecRate",
+        leakCount: "leakCount"
+      }, outputId: "costPerLeak" },
+    { formulaId: "cost.leak_total_cost", inputMap: {
+        leakCount: "leakCount",
+        leakCost: "costPerLeak"
+      }, outputId: "totalLeakCost" },
+    { formulaId: "measurement.leak_carbon", inputMap: {
+        leakAnnualEnergy: "annualEnergyLoss",
+        gridCarbonFactor: "gridEF"
+      }, outputId: "carbonEmissions" },
+    { formulaId: "cost.leak_payback", inputMap: {
+        repairCost: "repairCost",
+        leakCost: "costPerLeak"
+      }, outputId: "paybackMonths" },
   ],
   reportTemplate: { title: "Kompresör Kaçak Raporu", title_i18n: {"en":"Kompresör Kaçak Raporu","tr":"Kompresör Kaçak Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kaçak debisi = 22.4×d²×P/√T.", "Güç kaybı = Q×P×144/(33000×Verim).", "Geri ödeme = Tamir / Yıllık maliyet."],assumptionNotes_i18n:[{"en":"Kaçak debisi = 22.4×d²×P/√T.","tr":"Kaçak debisi = 22.4×d²×P/√T."},{"en":"Güç kaybı = Q×P×144/(33000×Verim).","tr":"Güç kaybı = Q×P×144/(33000×Verim)."},{"en":"Geri ödeme = Tamir / Yıllık maliyet.","tr":"Geri ödeme = Tamir / Yıllık maliyet."}] },

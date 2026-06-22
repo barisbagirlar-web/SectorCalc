@@ -69062,6 +69062,112 @@
       "chipPayback": "💰 Retour sur investissement",
       "chipBolt": "Couple de serrage",
       "placeholder": "ex. calculer MTBF pour 3 machines…"
+    },
+    "heroNew": {
+      "headline": "Calculatrices de niveau ingénierie qui transforment les données industrielles en décisions.",
+      "subtitle": "Calculatrices pour la fabrication, la finance, l’énergie, la logistique et la qualité avec formules transparentes, hypothèses documentées et rapports de décision Pro.",
+      "ctaPrimary": "Essayer une calculatrice gratuite",
+      "ctaSecondary": "Voir un exemple de rapport Pro"
+    },
+    "trustBar": {
+      "items": [
+        "552 calculators planned · 359 free · 193 Pro",
+        "ISO, ASME, IEC referenced formulas",
+        "Browser-side calculations",
+        "6 languages",
+        "PDF export for Pro tools"
+      ]
+    },
+    "whatDoes": {
+      "title": "Du calcul rapide à la décision documentée.",
+      "card1Title": "Calculer",
+      "card1Desc": "Utilisez les calculatrices gratuites pour des estimations opérationnelles rapides.",
+      "card2Title": "Valider",
+      "card2Desc": "Examinez les formules, les hypothèses et les limites connues.",
+      "card3Title": "Compare",
+      "card3Desc": "Exécutez des scénarios Pro et des vérifications de sensibilité.",
+      "card4Title": "Export",
+      "card4Desc": "Téléchargez un rapport PDF prêt à la décision."
+    },
+    "freeVsPro": {
+      "title": "Gratuit pour commencer. Pro pour approfondir.",
+      "freeTitle": "Gratuit",
+      "freeTools": "{freeCount} calculateurs standards",
+      "freeCta": "Parcourir les outils gratuits",
+      "proTitle": "Pro",
+      "proTools": "{proCount} outils techniques avancés",
+      "proCta": "Obtenir l'accès Pro",
+      "feat1": "Formules référencées ISO/ASME",
+      "feat2": "Notes de formule et dérivations",
+      "feat3": "Export de rapport PDF",
+      "feat4": "Analyse de sensibilité et scénarios",
+      "feat5": "6 langues"
+    },
+    "whyPro": {
+      "title": "Pourquoi les professionnels paient pour SectorCalc",
+      "card1Title": "Rapports PDF prêts à décider",
+      "card1Desc": "Exportez un calcul complet avec les entrées, formules, hypothèses, résultats et recommandations. Prêt pour révision ou pièce jointe.",
+      "card2Title": "Transparence des formules",
+      "card2Desc": "Chaque outil Pro renvoie à sa norme source — ISO, ASME, IEC. Vous voyez la dérivation, pas seulement le résultat.",
+      "card3Title": "Sensibilité et scénarios",
+      "card3Desc": "Exécutez des scénarios hypothétiques sur vos variables clés. Voyez comment les changements d'entrée affectent les résultats avant de décider.",
+      "card4Title": "Aucune donnée ne quitte votre navigateur",
+      "card4Desc": "Tous les calculs s'exécutent côté client. Vos données techniques restent sur votre machine. Pas de téléchargement, pas de serveurs, pas de suivi."
+    },
+    "categories2": [
+      {
+        "id": "manufacturing",
+        "name": "Fabrication & OEE",
+        "problem": "OEE inconnu, arrêts non planifiés, lignes déséquilibrées, pertes de capacité cachées.",
+        "tools": "Calculateur OEE, Takt Time, Équilibrage de ligne, SMED, Efficacité globale de cycle",
+        "proOutput": "Analyse PDF des pertes avec classement des facteurs, estimation mensuelle des pertes ($), plan d'action recommandé",
+        "href": "/categories/manufacturing"
+      },
+      {
+        "id": "costing",
+        "name": "Coûts & Devis",
+        "problem": "Estimations incohérentes, répartition des frais généraux manquante, analyse du seuil de rentabilité inexacte.",
+        "tools": "Analyse du seuil de rentabilité, Coût unitaire, Coût cible, Prix coûtant majoré, Modèle de coût estimé",
+        "proOutput": "Rapport de décomposition des coûts avec tableau de sensibilité des marges, fourchette de prix ajustée au risque",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Investissement",
+        "problem": "ROI incertain, VAN floue, hypothèses de budgétisation d'investissement incomplètes.",
+        "tools": "VAN, TRI, Délai de récupération, WACC, Évaluation DCF, Taux de capitalisation, Analyse des flux de trésorerie",
+        "proOutput": "Note d'investissement avec comparaison de scénarios, graphique de sensibilité TRI/VAN, matrice de décision",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "quality",
+        "name": "Qualité & Fiabilité",
+        "problem": "Taux de défauts élevés, capabilité processus inconnue, données fournisseur qualité non fiables.",
+        "tools": "Cpk/Ppk, Six Sigma DPMO, RPN FMEA, Gage R&R, Échantillonnage AQL, MTBF/MTTR",
+        "proOutput": "Rapport de capabilité avec intervalle de confiance Cpk, projection des coûts de défauts, matrice de priorisation d'amélioration",
+        "href": "/categories/quality"
+      },
+      {
+        "id": "energy",
+        "name": "Énergie & Durabilité",
+        "problem": "Coûts énergétiques croissants, empreinte carbone floue, aucune planification de scénario de réduction.",
+        "tools": "Empreinte carbone, Analyse des coûts énergétiques, Échangeur de chaleur DTLM, Charge CVC, Retour sur investissement solaire",
+        "proOutput": "Résumé d'audit énergétique avec scénarios de réduction CO₂, tableau comparatif coûts vs économies",
+        "href": "/categories/energy"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistique & Stock",
+        "problem": "Surstock, ruptures fréquentes, coût de possession élevé, aucune discipline EOQ.",
+        "tools": "EOQ, Stock de sécurité, Point de commande, Rotation des stocks, Espace d'entrepôt, Coût de fret",
+        "proOutput": "Rapport d'optimisation des stocks avec analyse de fréquence de commande, comparaison TCO, recommandation de stock de sécurité",
+        "href": "/categories/logistics"
+      }
+    ],
+    "pricingBridge": {
+      "text": "À partir de 1,99 $ par calcul Pro. Packs de crédits disponibles. Aucun abonnement requis.",
+      "cta": "Voir les tarifs Pro",
+      "ctaHref": "/pricing"
     }
   }
 }

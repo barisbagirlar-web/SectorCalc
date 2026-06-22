@@ -27,13 +27,27 @@ export const MUDA_WASTE_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "mudaTotal", warning: 50000, critical: 120000, direction: "higher_is_bad", warningMessage: "Toplam muda > $50K — yalın dönüşüm programı başlatılmalı.", warningMessage_i18n: {"en":"Toplam muda > $50K — yalın dönüşüm programı başlatılmalı.","tr":"Toplam muda > $50K — yalın dönüşüm programı başlatılmalı."}, criticalMessage: "Toplam muda > $120K — acil kaizen atölyesi planlanmalı.", criticalMessage_i18n: {"en":"Toplam muda > $120K — acil kaizen atölyesi planlanmalı.","tr":"Toplam muda > $120K — acil kaizen atölyesi planlanmalı."} }],
   formulaPipeline: [
-    { formulaId: "cost.muda_overproduction", inputMap: { overproductionCost: "overproductionCost" }, outputId: "mudaOverproduction" },
-    { formulaId: "cost.muda_waiting", inputMap: { waitingCost: "waitingCost" }, outputId: "mudaWaiting" },
-    { formulaId: "cost.muda_transport", inputMap: { transportCost: "transportCost" }, outputId: "mudaTransport" },
-    { formulaId: "cost.muda_overprocessing", inputMap: { overprocessingCost: "overprocessingCost" }, outputId: "mudaOverprocessing" },
-    { formulaId: "cost.muda_inventory", inputMap: { inventoryCost: "inventoryCost" }, outputId: "mudaInventory" },
-    { formulaId: "cost.muda_motion", inputMap: { motionCost: "motionCost" }, outputId: "mudaMotion" },
-    { formulaId: "cost.muda_defects", inputMap: { defectCost: "defectCost" }, outputId: "mudaDefects" },
+    { formulaId: "cost.muda_overproduction", inputMap: {
+        overproducedQty: "overproductionCost"
+      }, outputId: "mudaOverproduction" },
+    { formulaId: "cost.muda_waiting", inputMap: {
+        waitingHours: "waitingCost"
+      }, outputId: "mudaWaiting" },
+    { formulaId: "cost.muda_transport", inputMap: {
+        excessDist: "transportCost"
+      }, outputId: "mudaTransport" },
+    { formulaId: "cost.muda_overprocessing", inputMap: {
+        extraProcessHours: "overprocessingCost"
+      }, outputId: "mudaOverprocessing" },
+    { formulaId: "cost.muda_inventory", inputMap: {
+        excessInventory: "inventoryCost"
+      }, outputId: "mudaInventory" },
+    { formulaId: "cost.muda_motion", inputMap: {
+        excessMotionHours: "motionCost"
+      }, outputId: "mudaMotion" },
+    { formulaId: "cost.muda_defects", inputMap: {
+        defectQty: "defectCost"
+      }, outputId: "mudaDefects" },
     { formulaId: "cost.muda_total", inputMap: { mudaOverproduction: "mudaOverproduction", mudaWaiting: "mudaWaiting", mudaTransport: "mudaTransport", mudaOverprocessing: "mudaOverprocessing", mudaInventory: "mudaInventory", mudaMotion: "mudaMotion", mudaDefects: "mudaDefects" }, outputId: "mudaTotal" },
   ],
   reportTemplate: { title: "Muda Waste Cost Report", title_i18n: {"en":"Muda Waste Cost Report","tr":"Muda Waste Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

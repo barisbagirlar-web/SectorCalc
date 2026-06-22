@@ -27,11 +27,33 @@ export const WIND_TURBINE_INVESTMENT_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "lcoe", warning: 0.06, critical: 0.10, direction: "higher_is_bad", warningMessage: "LCOE > $0.06/kWh — piyasa rekabeti zorlaşabilir.", warningMessage_i18n: {"en":"LCOE > $0.06/kWh — piyasa rekabeti zorlaşabilir.","tr":"LCOE > $0.06/kWh — piyasa rekabeti zorlaşabilir."}, criticalMessage: "LCOE > $0.10/kWh — yatırım fizibilitesi düşük.", criticalMessage_i18n: {"en":"LCOE > $0.10/kWh — yatırım fizibilitesi düşük.","tr":"LCOE > $0.10/kWh — yatırım fizibilitesi düşük."} }],
   formulaPipeline: [
-    { formulaId: "measurement.wind_aep", inputMap: { rotorDiameter: "rotorDiameter", avgWindSpeed: "avgWindSpeed", airDensity: "airDensity", capacityFactor: "capacityFactor" }, outputId: "aep" },
-    { formulaId: "cost.wind_annual_revenue", inputMap: { aep: "aep", electricityPrice: "electricityPrice" }, outputId: "annualRevenue" },
-    { formulaId: "cost.wind_ebitda", inputMap: { annualRevenue: "annualRevenue", opexPerYear: "opexPerYear" }, outputId: "ebitda" },
-    { formulaId: "cost.wind_lcoe", inputMap: { investmentCost: "investmentCost", aep: "aep", opexPerYear: "opexPerYear", projectLife: "projectLife" }, outputId: "lcoe" },
-    { formulaId: "cost.wind_npv", inputMap: { annualRevenue: "annualRevenue", opexPerYear: "opexPerYear", investmentCost: "investmentCost", projectLife: "projectLife", discountRate: "discountRate" }, outputId: "npv" },
+    { formulaId: "measurement.wind_aep", inputMap: {
+        capacityFactor: "capacityFactor",
+        ratedPower: "rotorDiameter",
+        avgWindSpeed: "avgWindSpeed",
+        airDensity: "airDensity"
+      }, outputId: "aep" },
+    { formulaId: "cost.wind_annual_revenue", inputMap: {
+        aep: "aep",
+        feedInTariff: "electricityPrice"
+      }, outputId: "annualRevenue" },
+    { formulaId: "cost.wind_ebitda", inputMap: {
+        annualRevenue: "annualRevenue",
+        opex: "opexPerYear"
+      }, outputId: "ebitda" },
+    { formulaId: "cost.wind_lcoe", inputMap: {
+        projectLife: "projectLife",
+        costPerMW: "investmentCost",
+        opexAnnual: "aep",
+        annualGeneration: "opexPerYear"
+      }, outputId: "lcoe" },
+    { formulaId: "cost.wind_npv", inputMap: {
+        discountRate: "discountRate",
+        projectLife: "projectLife",
+        annualGeneration: "annualRevenue",
+        wacc: "opexPerYear",
+        costPerMW: "investmentCost"
+      }, outputId: "npv" },
   ],
   reportTemplate: { title: "Rüzgar Türbini Yatırım Raporu", title_i18n: {"en":"Rüzgar Türbini Yatırım Raporu","tr":"Rüzgar Türbini Yatırım Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6.", "LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ.", "NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX.", "Rüzgar hızı Weibull dağılımı varsayılmıştır."],assumptionNotes_i18n:[{"en":"AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6.","tr":"AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6."},{"en":"LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ.","tr":"LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ."},{"en":"NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX.","tr":"NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX."},{"en":"Rüzgar hızı Weibull dağılımı varsayılmıştır.","tr":"Rüzgar hızı Weibull dağılımı varsayılmıştır."}] },

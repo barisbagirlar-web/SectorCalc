@@ -24,8 +24,17 @@ export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "fcr", warning: 2.5, critical: 3.0, direction: "higher_is_bad", warningMessage: "FCR > 2.5 — yem verimliliği düşük.", warningMessage_i18n: {"en":"FCR > 2.5 — yem verimliliği düşük.","tr":"FCR > 2.5 — yem verimliliği düşük."}, criticalMessage: "FCR > 3.0 — rasyon optimizasyonu acil.", criticalMessage_i18n: {"en":"FCR > 3.0 — rasyon optimizasyonu acil.","tr":"FCR > 3.0 — rasyon optimizasyonu acil."} }],
   formulaPipeline: [
     { formulaId: "cost.feed_base_cost", inputMap: { inclusionRates: "inclusionRates", prices: "prices" }, outputId: "baseCost" },
-    { formulaId: "measurement.feed_fcr", inputMap: { feedConsumed: "feedConsumed", weightGain: "weightGain" }, outputId: "fcr" },
-    { formulaId: "cost.feed_cost_per_kg", inputMap: { baseCost: "baseCost", procCost: "grindCost", additiveCost: "mixCost", shrinkCost: "shrinkRate", fcr: "fcr" }, outputId: "costPerKgGain" },
+    { formulaId: "measurement.feed_fcr", inputMap: {
+        weightGain: "weightGain",
+        feedCons: "feedConsumed"
+      }, outputId: "fcr" },
+    { formulaId: "cost.feed_cost_per_kg", inputMap: {
+        baseCost: "baseCost",
+        shrinkRate: "shrinkRate",
+        fcr: "fcr",
+        procCost: "grindCost",
+        addCost: "mixCost"
+      }, outputId: "costPerKgGain" },
   ],
   reportTemplate: { title: "Feed Cost Formulation Report", title_i18n: {"en":"Feed Cost Formulation Report","tr":"Feed Cost Formulation Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Base = Σ(Inclusion%×Price/100).", "FCR = FeedConsumed/WeightGain.", "Cost/kg = (Base+Proc+Add+Shrink)×FCR/1000."],assumptionNotes_i18n:[{"en":"Base = Σ(Inclusion%×Price/100).","tr":"Base = Σ(Inclusion%×Price/100)."},{"en":"FCR = FeedConsumed/WeightGain.","tr":"FCR = FeedConsumed/WeightGain."},{"en":"Cost/kg = (Base+Proc+Add+Shrink)×FCR/1000.","tr":"Cost/kg = (Base+Proc+Add+Shrink)×FCR/1000."}] },

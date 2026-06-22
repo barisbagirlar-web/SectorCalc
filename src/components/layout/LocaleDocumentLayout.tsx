@@ -79,9 +79,6 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         <meta name="google-site-verification" content="YC4-K4Q1XVrErVW2UE9eNe4Tni2hhFFmBhF8dZjcVoY" />
         <meta name="msvalidate.01" content="C97289CA0F699D6B9053113A5E8FAD2A" />
 
-        {/* === FAVICON === */}
-        <link rel="icon" href="/img/brand/sectorcalc-favicon.svg" type="image/svg+xml" sizes="any" />
-
         {/* === MOBILE & APP METADATA === */}
         <link
           rel="apple-touch-icon"

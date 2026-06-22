@@ -20,8 +20,18 @@ export const CONTRACT_INCENTIVE_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "incentiveActualFee", warning: 600000, critical: 300000, direction: "lower_is_bad", warningMessage: "Teşvik ücreti <$600K — yüklenici motivasyonu düşebilir.", warningMessage_i18n: {"en":"Incentive fee <$600K — contractor motivation may decrease.","tr":"Teşvik ücreti <$600K — yüklenici motivasyonu düşebilir."}, criticalMessage: "Teşvik ücreti <$300K — sözleşme yapısı gözden geçirilmeli.", criticalMessage_i18n: {"en":"Incentive fee <$300K — review contract structure.","tr":"Teşvik ücreti <$300K — sözleşme yapısı gözden geçirilmeli."} }],
   formulaPipeline: [
-    { formulaId: "cost.incentive_target_fee", inputMap: { targetFee: "targetFee", targetCost: "targetCost" }, outputId: "incentiveTargetFee" },
-    { formulaId: "cost.incentive_actual_fee", inputMap: { targetCost: "targetCost", actualCost: "actualCost", targetFee: "targetFee", shareRatio: "shareRatio", minFee: "minFee", maxFee: "maxFee" }, outputId: "incentiveActualFee" },
+    { formulaId: "cost.incentive_target_fee", inputMap: {
+        targetCost: "targetCost",
+        targetFeePct: "targetFee"
+      }, outputId: "incentiveTargetFee" },
+    { formulaId: "cost.incentive_actual_fee", inputMap: {
+        targetFee: "targetFee",
+        targetCost: "targetCost",
+        actualCost: "actualCost",
+        minFee: "minFee",
+        maxFee: "maxFee",
+        contractorSharePct: "shareRatio"
+      }, outputId: "incentiveActualFee" },
   ],
   reportTemplate: { title: "Sözleşme Teşvik Analiz Raporu", title_i18n: {"en":"Contract Incentive Analysis Report","tr":"Sözleşme Teşvik Analiz Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Fiili ücret = hedef ücret + (hedef − fiili) × yüklenici payı.", "Min ve max ücret sınırlamaları uygulanır.", "Sözleşme FPIF (Fixed Price Incentive Fee) modelidir."],assumptionNotes_i18n:[{"en":"Actual fee = target fee + (target − actual) × contractor share.","tr":"Fiili ücret = hedef ücret + (hedef − fiili) × yüklenici payı."},{"en":"Min and max fee limits apply.","tr":"Min ve max ücret sınırlamaları uygulanır."},{"en":"Contract is FPIF (Fixed Price Incentive Fee) model.","tr":"Sözleşme FPIF (Fixed Price Incentive Fee) modelidir."}]},

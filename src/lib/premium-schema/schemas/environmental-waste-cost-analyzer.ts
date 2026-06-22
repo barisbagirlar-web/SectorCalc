@@ -27,12 +27,37 @@ export const ENVIRONMENTAL_WASTE_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "totalEnvCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Çevre maliyeti > $50K — azaltım programı başlatılmalı.", warningMessage_i18n: {"en":"Çevre maliyeti > $50K — azaltım programı başlatılmalı.","tr":"Çevre maliyeti > $50K — azaltım programı başlatılmalı."}, criticalMessage: "Maliyet > $150K — acil çevre yönetimi aksiyonu.", criticalMessage_i18n: {"en":"Maliyet > $150K — acil çevre yönetimi aksiyonu.","tr":"Maliyet > $150K — acil çevre yönetimi aksiyonu."} }],
   formulaPipeline: [
-    { formulaId: "cost.env_fire_disposal", inputMap: { nonHazWaste: "nonHazWaste", disposalFee: "disposalFee" }, outputId: "disposalCost" },
-    { formulaId: "cost.env_fire_haz", inputMap: { hazMass: "hazMass", hazFee: "hazFee", hazSurcharge: "hazSurcharge" }, outputId: "hazCost" },
-    { formulaId: "cost.env_fire_recycling", inputMap: { recycMass: "recycMass", sortCost: "sortCost", scrapRevenue: "scrapRevenue" }, outputId: "recyclingCost" },
-    { formulaId: "cost.env_fire_emissions", inputMap: { airEmissions: "airEmissions", carbonPrice: "carbonPrice", waterEffluent: "waterEffluent", treatCost: "treatCost" }, outputId: "emissionsCost" },
-    { formulaId: "cost.env_fire_penalty_risk", inputMap: { probViolation: "probViolation", fineAmount: "fineAmount" }, outputId: "penaltyRisk" },
-    { formulaId: "cost.env_fire_total", inputMap: { disposalCost: "disposalCost", hazCost: "hazCost", recyclingCost: "recyclingCost", emissionsCost: "emissionsCost", penaltyRisk: "penaltyRisk" }, outputId: "totalEnvCost" },
+    { formulaId: "cost.env_fire_disposal", inputMap: {
+        waste: "nonHazWaste",
+        dispFee: "disposalFee"
+      }, outputId: "disposalCost" },
+    { formulaId: "cost.env_fire_haz", inputMap: {
+        hazMass: "hazMass",
+        hazFee: "hazFee",
+        surcharge: "hazSurcharge"
+      }, outputId: "hazCost" },
+    { formulaId: "cost.env_fire_recycling", inputMap: {
+        recycMass: "recycMass",
+        sortCost: "sortCost",
+        scrapRev: "scrapRevenue"
+      }, outputId: "recyclingCost" },
+    { formulaId: "cost.env_fire_emissions", inputMap: {
+        carbonPrice: "carbonPrice",
+        treatCost: "treatCost",
+        air: "airEmissions",
+        water: "waterEffluent"
+      }, outputId: "emissionsCost" },
+    { formulaId: "cost.env_fire_penalty_risk", inputMap: {
+        probViolation: "probViolation",
+        fine: "fineAmount"
+      }, outputId: "penaltyRisk" },
+    { formulaId: "cost.env_fire_total", inputMap: {
+        disposalCost: "disposalCost",
+        hazCost: "hazCost",
+        penaltyRisk: "penaltyRisk",
+        recycleCost: "recyclingCost",
+        emisCost: "emissionsCost"
+      }, outputId: "totalEnvCost" },
   ],
   reportTemplate: { title: "Environmental Waste Cost Report", title_i18n: {"en":"Environmental Waste Cost Report","tr":"Environmental Waste Cost Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["Disposal = Waste×Fee. Haz = Mass×(Fee+Surcharge).", "Recycling = Mass×(SortCost-ScrapRev).", "Emissions = Air×CarbonPrice + Water×TreatCost."],assumptionNotes_i18n:[{"en":"Disposal = Waste×Fee. Haz = Mass×(Fee+Surcharge).","tr":"Disposal = Waste×Fee. Haz = Mass×(Fee+Surcharge)."},{"en":"Recycling = Mass×(SortCost-ScrapRev).","tr":"Recycling = Mass×(SortCost-ScrapRev)."},{"en":"Emissions = Air×CarbonPrice + Water×TreatCost.","tr":"Emissions = Air×CarbonPrice + Water×TreatCost."}] },

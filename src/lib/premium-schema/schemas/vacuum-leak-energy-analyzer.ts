@@ -27,7 +27,12 @@ export const VACUUM_LEAK_SCHEMA: PremiumCalculatorSchema = {
   ],
   formulaPipeline: [
     { formulaId: "measurement.vacuum_leak_rate", inputMap: { leakRate: "leakRate", numLeaks: "numLeaks" }, outputId: "vacuumLeakRate" },
-    { formulaId: "cost.vacuum_leak_cost", inputMap: { vacuumLeakRate: "vacuumLeakRate", operatingHours: "operatingHours", energyRate: "energyRate", motorPower: "motorPower" }, outputId: "vacuumLeakCost" },
+    { formulaId: "cost.vacuum_leak_cost", inputMap: {
+        vacuumLeakRate: "vacuumLeakRate",
+        operatingHours: "operatingHours",
+        energyCostPerUnit: "energyRate",
+        motorPower: "motorPower"
+      }, outputId: "vacuumLeakCost" },
     { formulaId: "measurement.vacuum_capacity_waste", inputMap: { capacityWaste: "capacityWaste", motorPower: "motorPower" }, outputId: "vacuumCapacityWaste" },
     { formulaId: "cost.vacuum_savings_potential", inputMap: { vacuumLeakCost: "vacuumLeakCost", capacityWaste: "capacityWaste" }, outputId: "potentialSavings" },
   ],

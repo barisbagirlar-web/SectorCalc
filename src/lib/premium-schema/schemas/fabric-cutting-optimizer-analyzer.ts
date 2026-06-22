@@ -23,11 +23,32 @@ export const FABRIC_CUTTING_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "cutEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — pastal optimizasyonu önerilir.", warningMessage_i18n: {"en":"Verim < %80 — pastal optimizasyonu önerilir.","tr":"Verim < %80 — pastal optimizasyonu önerilir."}, criticalMessage: "Verim < %70 — acil iyileştirme gerekli.", criticalMessage_i18n: {"en":"Verim < %70 — acil iyileştirme gerekli.","tr":"Verim < %70 — acil iyileştirme gerekli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.fabric_marker_eff", inputMap: { patternAreas: "patternAreas", markerLength: "markerLength", fabricWidth: "fabricWidth" }, outputId: "cutEfficiency" },
-    { formulaId: "measurement.fabric_required", inputMap: { patternAreas: "patternAreas", markerEfficiency: "markerEfficiency", endLoss: "endLoss" }, outputId: "fabricRequired" },
-    { formulaId: "cost.fabric_cost", inputMap: { fabricRequired: "fabricRequired", pricePerMeter: "pricePerMeter" }, outputId: "fabricCost" },
-    { formulaId: "cost.fabric_util_gain", inputMap: { oldEfficiency: "oldEfficiency", markerEfficiency: "markerEfficiency", fabricRequired: "fabricRequired", pricePerMeter: "pricePerMeter" }, outputId: "utilGain" },
-    { formulaId: "measurement.fabric_total_yardage", inputMap: { markerLength: "markerLength", endLoss: "endLoss", spliceOverlap: "spliceOverlap", splices: "splices" }, outputId: "totalYardage" },
+    { formulaId: "measurement.fabric_marker_eff", inputMap: {
+        netArea: "patternAreas",
+        grossArea: "markerLength",
+        fabricWidth: "fabricWidth"
+      }, outputId: "cutEfficiency" },
+    { formulaId: "measurement.fabric_required", inputMap: {
+        netArea: "patternAreas",
+        markerEff: "markerEfficiency",
+        endLoss: "endLoss"
+      }, outputId: "fabricRequired" },
+    { formulaId: "cost.fabric_cost", inputMap: {
+        fabricRequired: "fabricRequired",
+        pricePerUnit: "pricePerMeter"
+      }, outputId: "fabricCost" },
+    { formulaId: "cost.fabric_util_gain", inputMap: {
+        oldWaste: "oldEfficiency",
+        newWaste: "markerEfficiency",
+        pricePerUnit: "fabricRequired",
+        totalYards: "pricePerMeter"
+      }, outputId: "utilGain" },
+    { formulaId: "measurement.fabric_total_yardage", inputMap: {
+        pieces: "markerLength",
+        fabricRequired: "endLoss",
+        spliceOverlap: "spliceOverlap",
+        splices: "splices"
+      }, outputId: "totalYardage" },
   ],
   reportTemplate: { title: "Kumaş Kesim Raporu", title_i18n: {"en":"Kumaş Kesim Raporu","tr":"Kumaş Kesim Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Verim = Toplam Parça Alanı / (Pastal × En).", "Gerekli kumaş = Alan / Verim × (1+Fire).", "İyileştirme = (Yeni - Eski) × Kumaş × Fiyat."],assumptionNotes_i18n:[{"en":"Verim = Toplam Parça Alanı / (Pastal × En).","tr":"Verim = Toplam Parça Alanı / (Pastal × En)."},{"en":"Gerekli kumaş = Alan / Verim × (1+Fire).","tr":"Gerekli kumaş = Alan / Verim × (1+Fire)."},{"en":"İyileştirme = (Yeni - Eski) × Kumaş × Fiyat.","tr":"İyileştirme = (Yeni - Eski) × Kumaş × Fiyat."}] },

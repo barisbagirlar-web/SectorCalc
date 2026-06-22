@@ -31,7 +31,10 @@ export const ROBOT_VS_MANUAL_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.manual_cost_annual", inputMap: { manualLaborCost: "manualLaborCost", numWorkers: "numWorkers" }, outputId: "manualCostAnnual" },
     { formulaId: "cost.robot_cost_annual", inputMap: { robotInvestment: "robotInvestment", robotMaintenance: "robotMaintenance", robotEnergy: "robotEnergy", robotLife: "robotLife" }, outputId: "robotCostAnnual" },
     { formulaId: "measurement.robot_output", inputMap: { robotOutput: "robotOutput" }, outputId: "robotOutput" },
-    { formulaId: "measurement.manual_output", inputMap: { manualOutput: "manualOutput", numWorkers: "numWorkers" }, outputId: "manualOutput" },
+    { formulaId: "measurement.manual_output", inputMap: {
+        manualOutput: "manualOutput",
+        numWorkers: "numWorkers"
+      }, outputId: "manualOutput" },
     { formulaId: "cost.cost_per_unit_manual", inputMap: { manualCostAnnual: "manualCostAnnual", manualOutput: "manualOutput" }, outputId: "costPerUnitManual" },
     { formulaId: "cost.cost_per_unit_robot", inputMap: { robotCostAnnual: "robotCostAnnual", robotOutput: "robotOutput" }, outputId: "costPerUnitRobot" },
     { formulaId: "cost.robot_roi", inputMap: { manualCostAnnual: "manualCostAnnual", robotCostAnnual: "robotCostAnnual", robotInvestment: "robotInvestment" }, outputId: "robotRoi" },

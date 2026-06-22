@@ -35,10 +35,21 @@ export const CNC_CYCLE_TIME_SCHEMA: PremiumCalculatorSchema = {
   ],
   formulaPipeline: [
     { formulaId: "measurement.cnc_rpm", inputMap: { cuttingSpeed: "cuttingSpeed", toolDiameter: "toolDiameter" }, outputId: "rpm" },
-    { formulaId: "measurement.cnc_feed_speed", inputMap: { chipLoad: "chipLoad", toothCount: "toothCount", rpm: "rpm" }, outputId: "feedSpeed" },
-    { formulaId: "measurement.cnc_cut_time", inputMap: { cutLength: "cutLength", depthOfCut: "depthOfCut", feedSpeed: "feedSpeed" }, outputId: "cutTime" },
+    { formulaId: "measurement.cnc_feed_speed", inputMap: {
+        rpm: "rpm",
+        feedPerTooth: "chipLoad",
+        teeth: "toothCount"
+      }, outputId: "feedSpeed" },
+    { formulaId: "measurement.cnc_cut_time", inputMap: {
+        feedSpeed: "feedSpeed",
+        length: "cutLength",
+        depth: "depthOfCut"
+      }, outputId: "cutTime" },
     { formulaId: "measurement.cnc_rapid_time", inputMap: { rapidDistance: "rapidDistance", rapidSpeed: "rapidSpeed" }, outputId: "rapidTime" },
-    { formulaId: "measurement.cnc_tool_change_time", inputMap: { toolChanges: "toolChanges", timePerChange: "timePerChange" }, outputId: "toolChangeTime" },
+    { formulaId: "measurement.cnc_tool_change_time", inputMap: {
+        timePerChange: "timePerChange",
+        changeCount: "toolChanges"
+      }, outputId: "toolChangeTime" },
     { formulaId: "measurement.cnc_total_time", inputMap: { cutTime: "cutTime", rapidTime: "rapidTime", toolChangeTime: "toolChangeTime", nonCuttingTime: "nonCuttingTime", loadUnloadTime: "loadUnloadTime" }, outputId: "totalCycleTime" },
     { formulaId: "measurement.cnc_oee_availability", inputMap: { plannedTime: "plannedTime", downtime: "downtime" }, outputId: "oeeAvailability" },
   ],

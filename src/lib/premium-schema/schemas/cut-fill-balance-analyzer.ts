@@ -23,7 +23,13 @@ export const CUT_FILL_BALANCE_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.cut_fill_net", inputMap: { cutVolume: "cutVolume", fillVolume: "fillVolume", shrinkageFactor: "shrinkageFactor" }, outputId: "netBalance" },
     { formulaId: "measurement.cut_fill_borrow", inputMap: { fillVolume: "fillVolume", shrinkageFactor: "shrinkageFactor", cutVolume: "cutVolume" }, outputId: "borrowRequired" },
     { formulaId: "measurement.cut_fill_waste", inputMap: { cutVolume: "cutVolume", fillVolume: "fillVolume", shrinkageFactor: "shrinkageFactor" }, outputId: "wasteRequired" },
-    { formulaId: "cost.cut_fill_haul", inputMap: { borrowRequired: "borrowRequired", borrowDistance: "borrowDistance", wasteRequired: "wasteRequired", wasteDistance: "wasteDistance", haulCost: "haulCost" }, outputId: "totalHaulCost" },
+    { formulaId: "cost.cut_fill_haul", inputMap: {
+        cutVolume: "borrowRequired",
+        fillVolume: "borrowDistance",
+        haulRate: "wasteRequired",
+        wasteDistance: "wasteDistance",
+        haulCost: "haulCost"
+      }, outputId: "totalHaulCost" },
   ],
   reportTemplate: { title: "Kesme-Dolgu Denge Raporu", title_i18n: {"en":"Kesme-Dolgu Denge Raporu","tr":"Kesme-Dolgu Denge Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Net Denge = Kazı - (Dolgu × Sıkışma).", "Ödünç = max(0, Dolgu×Sıkışma - Kazı).", "Nakliye = Hacim × Mesafe × Birim Fiyat."],assumptionNotes_i18n:[{"en":"Net Denge = Kazı - (Dolgu × Sıkışma).","tr":"Net Denge = Kazı - (Dolgu × Sıkışma)."},{"en":"Ödünç = max(0, Dolgu×Sıkışma - Kazı).","tr":"Ödünç = max(0, Dolgu×Sıkışma - Kazı)."},{"en":"Nakliye = Hacim × Mesafe × Birim Fiyat.","tr":"Nakliye = Hacim × Mesafe × Birim Fiyat."}] },

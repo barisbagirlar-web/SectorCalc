@@ -19,7 +19,14 @@ export const HOURLY_RATE_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "burdenedHourlyRate", warning: 50, critical: 80, direction: "higher_is_bad", warningMessage: "Yüklü saatlik ücret >$50 — maliyet avantajı azalıyor.", warningMessage_i18n: {"en":"Yüklü saatlik ücret >$50 — maliyet avantajı azalıyor.","tr":"Yüklü saatlik ücret >$50 — maliyet avantajı azalıyor."}, criticalMessage: "Yüklü saatlik ücret >$80 — rekabetçi fiyatlama zorlaşır.", criticalMessage_i18n: {"en":"Yüklü saatlik ücret >$80 — rekabetçi fiyatlama zorlaşır.","tr":"Yüklü saatlik ücret >$80 — rekabetçi fiyatlama zorlaşır."} }],
   formulaPipeline: [
-    { formulaId: "cost.burdened_hourly_rate", inputMap: { grossSalary: "grossSalary", employerTaxRate: "employerTaxRate", benefitsCost: "benefitsCost", overheadPct: "overheadPct", billableHoursPerMonth: "billableHoursPerMonth", bonusPct: "bonusPct" }, outputId: "burdenedHourlyRate" },
+    { formulaId: "cost.burdened_hourly_rate", inputMap: {
+        grossSalary: "grossSalary",
+        employerTaxes: "employerTaxRate",
+        benefits: "benefitsCost",
+        productiveHours: "overheadPct",
+        billableHoursPerMonth: "billableHoursPerMonth",
+        bonusPct: "bonusPct"
+      }, outputId: "burdenedHourlyRate" },
   ],
   reportTemplate: { title: "Saatlik Ücret Analiz Raporu", title_i18n: {"en":"Saatlik Ücret Analiz Raporu","tr":"Saatlik Ücret Analiz Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Yüklü saatlik ücret = (maaş + vergi + yan hak + genel gider + prim) / faturalanabilir saat.", "Vergi oranı işveren payı ve sosyal güvenlik primini içerir.", "Faturalanabilir saat aylık ortalama üzerinden hesaplanır."],assumptionNotes_i18n:[{"en":"Yüklü saatlik ücret = (maaş + vergi + yan hak + genel gider + prim) / faturalanabilir saat.","tr":"Yüklü saatlik ücret = (maaş + vergi + yan hak + genel gider + prim) / faturalanabilir saat."},{"en":"Vergi oranı işveren payı ve sosyal güvenlik primini içerir.","tr":"Vergi oranı işveren payı ve sosyal güvenlik primini içerir."},{"en":"Faturalanabilir saat aylık ortalama üzerinden hesaplanır.","tr":"Faturalanabilir saat aylık ortalama üzerinden hesaplanır."}] },

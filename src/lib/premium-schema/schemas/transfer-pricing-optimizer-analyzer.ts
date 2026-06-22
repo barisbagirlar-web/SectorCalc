@@ -21,7 +21,12 @@ export const TRANSFER_PRICING_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "transferTaxImpact", warning: 30000, critical: 75000, direction: "higher_is_bad", warningMessage: "Vergi etkisi > $30K — transfer fiyatı optimize edilmeli.", warningMessage_i18n: {"en":"Vergi etkisi > $30K — transfer fiyatı optimize edilmeli.","tr":"Vergi etkisi > $30K — transfer fiyatı optimize edilmeli."}, criticalMessage: "Vergi etkisi > $75K — vergi danışmanlığı önerilir.", criticalMessage_i18n: {"en":"Vergi etkisi > $75K — vergi danışmanlığı önerilir.","tr":"Vergi etkisi > $75K — vergi danışmanlığı önerilir."} }],
   formulaPipeline: [
-    { formulaId: "cost.transfer_tax_impact", inputMap: { transferAmount: "transferAmount", transferPrice: "transferPrice", entityATaxRate: "entityATaxRate", entityBTaxRate: "entityBTaxRate" }, outputId: "transferTaxImpact" },
+    { formulaId: "cost.transfer_tax_impact", inputMap: {
+        transferPrice: "transferPrice",
+        entityATaxRate: "entityATaxRate",
+        armLengthPrice: "transferAmount",
+        entityBTaxRate: "entityBTaxRate"
+      }, outputId: "transferTaxImpact" },
     { formulaId: "cost.transfer_global_profit", inputMap: { transferPrice: "transferPrice", armLengthPrice: "armLengthPrice", transferTaxImpact: "transferTaxImpact" }, outputId: "transferGlobalProfit" },
   ],
   reportTemplate: { title: "Transfer Pricing Optimization Report", title_i18n: {"en":"Transfer Pricing Optimization Report","tr":"Transfer Pricing Optimization Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

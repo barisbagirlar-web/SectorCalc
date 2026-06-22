@@ -25,6 +25,12 @@
   --cobalt-pale:    rgba(74,92,245,0.08);
   --cobalt-border:  rgba(74,92,245,0.20);
 
+  --font-serif:
+    Georgia,
+    'Times New Roman',
+    Times,
+    serif;
+
   --font-system:
     -apple-system,
     BlinkMacSystemFont,
@@ -2004,7 +2010,7 @@
   width: 1000px;
   height: 1000px;
   border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 30%, rgba(217,119,87,0.07) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 30%, rgba(189,93,58,0.07) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -2023,6 +2029,7 @@
 }
 
 :where(.landing-root) .hero-v2__h1 {
+  font-family: var(--font-serif);
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -2213,7 +2220,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--cobalt);
+  color: var(--terracotta);
   margin-bottom: 8px;
 }
 
@@ -2248,13 +2255,13 @@
   padding: 14px 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--cobalt);
+  color: var(--terracotta);
   letter-spacing: -0.01em;
   cursor: pointer;
   transition: background var(--dur-fast);
 }
 :where(.landing-root) .oee-card__export:hover {
-  background: var(--cobalt-pale);
+  background: var(--terracotta-pale);
 }
 
 :where(.landing-root) .oee-card__export svg {
@@ -2358,7 +2365,7 @@
 }
 :where(.landing-root) .what-does__card:hover .what-does__card-icon {
   background: var(--terracotta);
-  border-color: var(--terracotta);
+  border-color: var(--terracotta-border);
   color: #fff;
 }
 
@@ -2426,5 +2433,406 @@
   }
   :where(.landing-root) .what-does__title {
     margin-bottom: 24px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NEW LANDING SECTIONS — Anthropic palette
+   Terracotta accent, cream surfaces, serif titles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Section containers ── */
+:where(.landing-root) .section-white {
+  padding: 72px 0 64px;
+  background: var(--cream);
+}
+:where(.landing-root) .section-light {
+  padding: 72px 0 64px;
+  background: var(--cream-dim);
+}
+
+/* ── Section title (centered, serif) ── */
+:where(.landing-root) .section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--ink);
+  text-align: center;
+  margin: 0 auto 40px;
+  max-width: 520px;
+}
+:where(.landing-root) .section-lead-centered {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--ink-75);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: -24px auto 40px;
+  letter-spacing: -0.01em;
+}
+
+/* ── 4-column grid (What Does / Why Pro) ── */
+:where(.landing-root) .four-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+:where(.landing-root) .four-card {
+  background: var(--cream);
+  border: 1px solid var(--ink-08);
+  border-radius: var(--r-xl);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--dur-base) var(--ease-out);
+}
+:where(.landing-root) .four-card:hover {
+  border-color: var(--ink-18);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+:where(.landing-root) .four-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+:where(.landing-root) .four-card__desc {
+  font-size: 0.8125rem;
+  color: var(--ink-75);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ── Free vs Pro comparison table ── */
+:where(.landing-root) .fvp-table {
+  max-width: 620px;
+  margin: 0 auto;
+  border: 1px solid var(--ink-08);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: var(--cream);
+  box-shadow: var(--shadow-xs);
+}
+:where(.landing-root) .fvp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--ink-08);
+}
+:where(.landing-root) .fvp-row:last-child {
+  border-bottom: none;
+}
+:where(.landing-root) .fvp-row--head {
+  background: var(--ink-04);
+}
+:where(.landing-root) .fvp-cell {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: var(--ink-75);
+  letter-spacing: -0.01em;
+}
+:where(.landing-root) .fvp-cell--label {
+  font-size: 0.8125rem;
+  color: var(--ink);
+}
+:where(.landing-root) .fvp-cell--free {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+:where(.landing-root) .fvp-cell--pro {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--terracotta-mid);
+}
+:where(.landing-root) .fvp-tier-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+:where(.landing-root) .fvp-tier-tag--pro {
+  color: var(--terracotta);
+}
+:where(.landing-root) .fvp-tier-count {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin: 4px 0 6px;
+}
+:where(.landing-root) .fvp-tier-count--pro {
+  color: var(--terracotta);
+}
+:where(.landing-root) .fvp-cell .btn-primary,
+:where(.landing-root) .fvp-cell .btn-outline {
+  font-size: 0.75rem;
+  padding: 6px 14px;
+}
+
+/* ── Category cards v2: Problem → Tools → Pro Output ── */
+:where(.landing-root) .cat2-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+:where(.landing-root) .cat2-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--cream);
+  border: 1px solid var(--ink-08);
+  border-radius: var(--r-xl);
+  text-decoration: none;
+  transition: all var(--dur-base) var(--ease-out);
+  box-shadow: var(--shadow-xs);
+}
+:where(.landing-root) .cat2-card:hover {
+  border-color: var(--terracotta-border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+:where(.landing-root) .cat2-card__name {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+:where(.landing-root) .cat2-card__section {
+  border-left: 2px solid var(--ink-08);
+  padding-left: 10px;
+}
+:where(.landing-root) .cat2-card__section--pro {
+  border-left-color: var(--terracotta);
+}
+:where(.landing-root) .cat2-card__label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  margin-bottom: 3px;
+}
+:where(.landing-root) .cat2-card__label--pro {
+  color: var(--terracotta);
+}
+:where(.landing-root) .cat2-card__text {
+  font-size: 0.75rem;
+  color: var(--ink-75);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ── Methodology cards (trust proof, moved higher) ── */
+:where(.landing-root) .method-items--grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+:where(.landing-root) .method-card {
+  background: var(--cream);
+  border: 1px solid var(--ink-08);
+  border-radius: var(--r-xl);
+  padding: 24px;
+  position: relative;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--dur-base) var(--ease-out);
+}
+:where(.landing-root) .method-card:hover {
+  border-color: var(--terracotta-border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+:where(.landing-root) .method-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  margin-bottom: 8px;
+}
+:where(.landing-root) .method-card__tag--pro {
+  color: var(--terracotta);
+}
+:where(.landing-root) .method-card__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+:where(.landing-root) .method-card__desc {
+  font-size: 0.75rem;
+  color: var(--ink-75);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+:where(.landing-root) .method-link-wrap {
+  text-align: center;
+  margin-top: 32px;
+}
+:where(.landing-root) .method-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--terracotta);
+  text-decoration: none;
+  transition: opacity var(--dur-fast);
+}
+:where(.landing-root) .method-link:hover {
+  opacity: 0.75;
+}
+
+/* ── Pricing Bridge ── */
+:where(.landing-root) .pricing-bridge {
+  padding: 48px 0 64px;
+  background: var(--cream);
+}
+:where(.landing-root) .pricing-bridge__card {
+  max-width: 580px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--cream-dim);
+  border: 1px solid var(--terracotta-border);
+  border-radius: var(--r-xl);
+}
+:where(.landing-root) .pricing-bridge__text {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+/* ── Buttons (terracotta accent) ── */
+:where(.landing-root) .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 10px 22px;
+  border-radius: var(--r-md);
+  background: var(--terracotta);
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  transition: all var(--dur-base) var(--ease-out);
+  cursor: pointer;
+}
+:where(.landing-root) .btn-primary:hover {
+  background: var(--terracotta-dim);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(189,93,58,0.25);
+}
+:where(.landing-root) .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 10px 22px;
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink-18);
+  text-decoration: none;
+  transition: all var(--dur-base) var(--ease-out);
+  cursor: pointer;
+}
+:where(.landing-root) .btn-outline:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+  background: var(--terracotta-pale);
+}
+
+/* ── Check icon ── */
+:where(.landing-root) .check-y {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--r-xs);
+  color: var(--terracotta);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — New sections
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  :where(.landing-root) .four-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  :where(.landing-root) .cat2-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  :where(.landing-root) .method-items--grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :where(.landing-root) .fvp-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  :where(.landing-root) .fvp-cell--label {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--ink-08);
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  :where(.landing-root) .section-white {
+    padding: 48px 0 40px;
+  }
+  :where(.landing-root) .section-light {
+    padding: 48px 0 40px;
+  }
+  :where(.landing-root) .section-title {
+    margin-bottom: 24px;
+  }
+  :where(.landing-root) .four-grid {
+    grid-template-columns: 1fr;
+  }
+  :where(.landing-root) .cat2-grid {
+    grid-template-columns: 1fr;
+  }
+  :where(.landing-root) .method-items--grid {
+    grid-template-columns: 1fr;
+  }
+  :where(.landing-root) .fvp-table {
+    border-radius: var(--r-lg);
+  }
+  :where(.landing-root) .pricing-bridge {
+    padding: 32px 0 40px;
+  }
+  :where(.landing-root) .hero-v2__cta--primary {
+    width: auto;
   }
 }

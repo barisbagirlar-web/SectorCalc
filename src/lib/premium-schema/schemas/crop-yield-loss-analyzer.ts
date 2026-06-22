@@ -23,10 +23,19 @@ export const CROP_YIELD_LOSS_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "yieldGap", warning: 100, critical: 300, direction: "higher_is_bad", warningMessage: "Verim farkı > 100 kg/da — müdahale değerlendirilmeli.", warningMessage_i18n: {"en":"Verim farkı > 100 kg/da — müdahale değerlendirilmeli.","tr":"Verim farkı > 100 kg/da — müdahale değerlendirilmeli."}, criticalMessage: "Verim farkı > 300 kg/da — acil önlem gerekli.", criticalMessage_i18n: {"en":"Verim farkı > 300 kg/da — acil önlem gerekli.","tr":"Verim farkı > 300 kg/da — acil önlem gerekli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.crop_potential_yield", inputMap: { geneticPotential: "geneticPotential", envFactor: "envFactor" }, outputId: "potentialYield" },
-    { formulaId: "measurement.crop_actual_yield", inputMap: { harvestedWeight: "harvestedWeight", area: "area" }, outputId: "actualYield" },
+    { formulaId: "measurement.crop_potential_yield", inputMap: {
+        area: "geneticPotential",
+        potentialPerHa: "envFactor"
+      }, outputId: "potentialYield" },
+    { formulaId: "measurement.crop_actual_yield", inputMap: {
+        area: "area",
+        actualPerHa: "harvestedWeight"
+      }, outputId: "actualYield" },
     { formulaId: "measurement.crop_yield_gap", inputMap: { potentialYield: "potentialYield", actualYield: "actualYield" }, outputId: "yieldGap" },
-    { formulaId: "cost.crop_financial_loss", inputMap: { yieldGap: "yieldGap", marketPrice: "marketPrice" }, outputId: "financialLoss" },
+    { formulaId: "cost.crop_financial_loss", inputMap: {
+        yieldGap: "yieldGap",
+        pricePerTon: "marketPrice"
+      }, outputId: "financialLoss" },
     { formulaId: "cost.crop_roi_intervention", inputMap: { financialLoss: "financialLoss", interventionCost: "interventionCost", pestLossPct: "pestLossPct", weatherLossPct: "weatherLossPct", nutrientLossPct: "nutrientLossPct" }, outputId: "roiIntervention" },
   ],
   reportTemplate: { title: "Mahsul Verim Raporu", title_i18n: {"en":"Mahsul Verim Raporu","tr":"Mahsul Verim Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

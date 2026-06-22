@@ -26,12 +26,32 @@ export const PALLET_RACK_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "floorUtilization", warning: 65, critical: 50, direction: "lower_is_bad", warningMessage: "Alan kullanımı < %65 — yerleşim optimizasyonu önerilir.", warningMessage_i18n: {"en":"Alan kullanımı < %65 — yerleşim optimizasyonu önerilir.","tr":"Alan kullanımı < %65 — yerleşim optimizasyonu önerilir."}, criticalMessage: "Alan kullanımı < %50 — depo düzeni yenilenmeli.", criticalMessage_i18n: {"en":"Alan kullanımı < %50 — depo düzeni yenilenmeli.","tr":"Alan kullanımı < %50 — depo düzeni yenilenmeli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.rack_capacity", inputMap: { loadCapacity: "loadCapacity", numberOfLevels: "numberOfLevels", rackWidth: "rackWidth", rackDepth: "rackDepth" }, outputId: "rackCapacity" },
-    { formulaId: "measurement.floor_utilization_rack", inputMap: { rackWidth: "rackWidth", rackDepth: "rackDepth", warehouseWidth: "warehouseWidth", warehouseLength: "warehouseLength", numberOfLevels: "numberOfLevels" }, outputId: "floorUtilization" },
-    { formulaId: "measurement.rack_throughput", inputMap: { numberOfLevels: "numberOfLevels", rackWidth: "rackWidth" }, outputId: "rackThroughput" },
-    { formulaId: "measurement.rack_safety_factor", inputMap: { loadCapacity: "loadCapacity", rackHeight: "rackHeight" }, outputId: "rackSafetyFactor" },
+    { formulaId: "measurement.rack_capacity", inputMap: {
+        rackQty: "loadCapacity",
+        palletsPerBay: "numberOfLevels",
+        levels: "rackWidth",
+        rackDepth: "rackDepth"
+      }, outputId: "rackCapacity" },
+    { formulaId: "measurement.floor_utilization_rack", inputMap: {
+        rackFootprint: "rackWidth",
+        totalFloorArea: "rackDepth",
+        warehouseWidth: "warehouseWidth",
+        warehouseLength: "warehouseLength",
+        numberOfLevels: "numberOfLevels"
+      }, outputId: "floorUtilization" },
+    { formulaId: "measurement.rack_throughput", inputMap: {
+        totalMoves: "numberOfLevels",
+        availableHours: "rackWidth"
+      }, outputId: "rackThroughput" },
+    { formulaId: "measurement.rack_safety_factor", inputMap: {
+        maxLoadRating: "loadCapacity",
+        actualLoad: "rackHeight"
+      }, outputId: "rackSafetyFactor" },
     { formulaId: "cost.rack_cost_per_position", inputMap: { costPerPosition: "costPerPosition", numberOfLevels: "numberOfLevels" }, outputId: "rackCostPerPosition" },
-    { formulaId: "measurement.rack_retrieval_time", inputMap: { rackHeight: "rackHeight", rackDepth: "rackDepth" }, outputId: "retrievalTime" },
+    { formulaId: "measurement.rack_retrieval_time", inputMap: {
+        totalTravelDist: "rackHeight",
+        forkSpeed: "rackDepth"
+      }, outputId: "retrievalTime" },
   ],
   reportTemplate: { title: "Pallet Rack Optimization Report", title_i18n: {"en":"Pallet Rack Optimization Report","tr":"Pallet Rack Optimization Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Kapasite = kat × pozisyon × yük kapasitesi.", "Alan kullanımı = raf alanı / depo alanı.", "Güvenlik faktörü = yük / dayanım oranı.", "Erişim süresi raf yüksekliği ve derinliğine bağlıdır."],assumptionNotes_i18n:[{"en":"Kapasite = kat × pozisyon × yük kapasitesi.","tr":"Kapasite = kat × pozisyon × yük kapasitesi."},{"en":"Alan kullanımı = raf alanı / depo alanı.","tr":"Alan kullanımı = raf alanı / depo alanı."},{"en":"Güvenlik faktörü = yük / dayanım oranı.","tr":"Güvenlik faktörü = yük / dayanım oranı."},{"en":"Erişim süresi raf yüksekliği ve derinliğine bağlıdır.","tr":"Erişim süresi raf yüksekliği ve derinliğine bağlıdır."}] },

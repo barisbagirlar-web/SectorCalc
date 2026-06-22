@@ -26,9 +26,19 @@ export const RENOVATION_BUDGET_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "renovationTotalBudget", warning: 100000, critical: 250000, direction: "higher_is_bad", warningMessage: "Bütçe > $100K — alternatif teklifler alınmalı.", warningMessage_i18n: {"en":"Budget > $100K — obtain alternative quotes.","tr":"Bütçe > $100K — alternatif teklifler alınmalı."}, criticalMessage: "Bütçe > $250K — fizibilite çalışması gerekli.", criticalMessage_i18n: {"en":"Budget > $250K — feasibility study required.","tr":"Bütçe > $250K — fizibilite çalışması gerekli."} },
   ],
   formulaPipeline: [
-    { formulaId: "cost.renovation_base_cost", inputMap: { renovationScope: "renovationScope", baseCostPerSqm: "baseCostPerSqm" }, outputId: "renovationBaseCost" },
-    { formulaId: "cost.renovation_total_budget", inputMap: { renovationBaseCost: "renovationBaseCost", contingencyPercent: "contingencyPercent" }, outputId: "renovationTotalBudget" },
-    { formulaId: "cost.renovation_roi", inputMap: { expectedValueAfter: "expectedValueAfter", propertyValue: "propertyValue", renovationTotalBudget: "renovationTotalBudget" }, outputId: "renovationRoi" },
+    { formulaId: "cost.renovation_base_cost", inputMap: {
+        areaSqm: "renovationScope",
+        costPerSqm: "baseCostPerSqm"
+      }, outputId: "renovationBaseCost" },
+    { formulaId: "cost.renovation_total_budget", inputMap: {
+        renovationBaseCost: "renovationBaseCost",
+        contingencyBudget: "contingencyPercent"
+      }, outputId: "renovationTotalBudget" },
+    { formulaId: "cost.renovation_roi", inputMap: {
+        renovationTotalBudget: "renovationTotalBudget",
+        valueAfter: "expectedValueAfter",
+        propertyValue: "propertyValue"
+      }, outputId: "renovationRoi" },
     { formulaId: "cost.renovation_budget_breakdown", inputMap: { renovationTotalBudget: "renovationTotalBudget", laborCostPercent: "laborCostPercent", materialCostPercent: "materialCostPercent" }, outputId: "budgetBreakdown" },
   ],
   reportTemplate: { title: "Yenileme Bütçe Optimizasyon Raporu", title_i18n: {"en":"Renovation Budget Optimization Report","tr":"Yenileme Bütçe Optimizasyon Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

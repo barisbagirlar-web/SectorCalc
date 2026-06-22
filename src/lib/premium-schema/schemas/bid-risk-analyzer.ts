@@ -22,10 +22,25 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "winProbability", warning: 40, critical: 20, direction: "lower_is_bad", warningMessage: "Kazanma olasılığı < %40 — teklif stratejisi gözden geçirilmeli.", warningMessage_i18n: {"en":"Win probability < 40% — review bid strategy.","tr":"Kazanma olasılığı < %40 — teklif stratejisi gözden geçirilmeli."}, criticalMessage: "Kazanma olasılığı < %20 — teklif vermek riskli.", criticalMessage_i18n: {"en":"Win probability < 20% — bidding is risky.","tr":"Kazanma olasılığı < %20 — teklif vermek riskli."} }],
   formulaPipeline: [
-    { formulaId: "cost.base_estimate", inputMap: { baseEstimate: "baseEstimate" }, outputId: "baseEstimateOut" },
-    { formulaId: "cost.contingency_total", inputMap: { baseEstimate: "baseEstimate", materialUncertainty: "materialUncertainty", laborUncertainty: "laborUncertainty", overheadContingency: "overheadContingency" }, outputId: "contingencyTotal" },
-    { formulaId: "measurement.win_probability", inputMap: { yourBidPrice: "yourBidPrice", baseEstimate: "baseEstimate", numCompetitors: "numCompetitors" }, outputId: "winProbability" },
-    { formulaId: "cost.expected_value_bid", inputMap: { yourBidPrice: "yourBidPrice", contingencyTotal: "contingencyTotal", winProbability: "winProbability" }, outputId: "expectedValueBid" },
+    { formulaId: "cost.base_estimate", inputMap: {
+        directCost: "baseEstimate"
+      }, outputId: "baseEstimateOut" },
+    { formulaId: "cost.contingency_total", inputMap: {
+        baseEstimate: "baseEstimate",
+        contingencyPct: "materialUncertainty",
+        laborUncertainty: "laborUncertainty",
+        overheadContingency: "overheadContingency"
+      }, outputId: "contingencyTotal" },
+    { formulaId: "measurement.win_probability", inputMap: {
+        competitiveScore: "yourBidPrice",
+        maxScore: "baseEstimate",
+        numCompetitors: "numCompetitors"
+      }, outputId: "winProbability" },
+    { formulaId: "cost.expected_value_bid", inputMap: {
+        contingencyTotal: "contingencyTotal",
+        winProbability: "winProbability",
+        baseEstimate: "yourBidPrice"
+      }, outputId: "expectedValueBid" },
   ],
   reportTemplate: { title: "Bid Risk Analysis Report", title_i18n: {"en":"Bid Risk Analysis Report","tr":"Bid Risk Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 12, targetMarginPercent: 20, assumptionNotes: ["Contingency = weighted uncertainty rates.", "Win probability based on competitor count.", "Expected value = Price × Probability."],assumptionNotes_i18n:[{"en":"Contingency = weighted uncertainty rates.","tr":"Contingency = weighted uncertainty rates."},{"en":"Win probability based on competitor count.","tr":"Win probability based on competitor count."},{"en":"Expected value = Price × Probability.","tr":"Expected value = Price × Probability."}]},

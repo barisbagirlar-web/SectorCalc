@@ -25,7 +25,11 @@ export const SUPPLY_CHAIN_DISRUPTION_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.risk_exposure_sc", inputMap: { annualRevenue: "annualRevenue", disruptionProbability: "disruptionProbability", revenueAtRisk: "revenueAtRisk" }, outputId: "riskExposureSc" },
     { formulaId: "cost.revenue_loss_sc", inputMap: { annualRevenue: "annualRevenue", revenueAtRisk: "revenueAtRisk", recoveryDays: "recoveryDays" }, outputId: "revenueLossSc" },
     { formulaId: "cost.risk_adjusted_cost_sc", inputMap: { riskExposureSc: "riskExposureSc", revenueLossSc: "revenueLossSc", mitigationCost: "mitigationCost" }, outputId: "riskAdjustedCostSc" },
-    { formulaId: "measurement.resilience_index", inputMap: { riskExposureSc: "riskExposureSc", mitigationCost: "mitigationCost", downtimeCostPerDay: "downtimeCostPerDay" }, outputId: "resilienceIndex" },
+    { formulaId: "measurement.resilience_index", inputMap: {
+        recoveryCapacity: "riskExposureSc",
+        normalDemand: "mitigationCost",
+        downtimeCostPerDay: "downtimeCostPerDay"
+      }, outputId: "resilienceIndex" },
   ],
   reportTemplate: { title: "Supply Chain Disruption Risk Report", title_i18n: {"en":"Supply Chain Disruption Risk Report","tr":"Tedarik Zinciri Kesinti Risk Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.25, volatilityPercent: 15, targetMarginPercent: 15, assumptionNotes: ["Risk exposure = Revenue × Probability × AtRisk%.", "Revenue loss = annual × (recovery/365).", "Resilience index weighted from multiple factors."],assumptionNotes_i18n:[{"en":"Risk exposure = Revenue × Probability × AtRisk%.","tr":"Risk maruziyeti = Gelir × Olasılık × RiskAltındaki%."},{"en":"Revenue loss = annual × (recovery/365).","tr":"Gelir kaybı = yıllık × (toparlanma/365)."},{"en":"Resilience index weighted from multiple factors.","tr":"Dayanıklılık endeksi birden çok faktörden ağırlıklandırılır."}] },

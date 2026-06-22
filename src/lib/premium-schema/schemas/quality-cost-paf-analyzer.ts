@@ -34,7 +34,12 @@ export const QUALITY_COST_PAF_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "coqRatio", warning: 0.05, critical: 0.15, direction: "higher_is_bad", warningMessage: "COQ > %5 — kalite yönetimi gözden geçirilmeli.", warningMessage_i18n: {"en":"COQ > 5% — quality management should be reviewed.","tr":"COQ > %5 — kalite yönetimi gözden geçirilmeli."}, criticalMessage: "COQ > %15 — acil kalite iyileştirme programı başlatılmalı.", criticalMessage_i18n: {"en":"COQ > 15% — initiate urgent quality improvement program.","tr":"COQ > %15 — acil kalite iyileştirme programı başlatılmalı."} }],
   formulaPipeline: [
-    { formulaId: "cost.paf_prevention", inputMap: { training: "training", qualityPlanning: "qualityPlanning", supplierScoreRef: "supplierScore", designReview: "designReview" }, outputId: "prevention" },
+    { formulaId: "cost.paf_prevention", inputMap: {
+        training: "training",
+        qualityPlanning: "qualityPlanning",
+        designReview: "designReview",
+        supplierScore: "supplierScore"
+      }, outputId: "prevention" },
     { formulaId: "cost.paf_appraisal", inputMap: { inspection: "inspection", testing: "testing", calibration: "calibration", audit: "audit" }, outputId: "appraisal" },
     { formulaId: "cost.paf_internal_failure", inputMap: { scrap: "scrap", rework: "rework", reinspection: "reinspection", downtime: "downtime" }, outputId: "internalFailure" },
     { formulaId: "cost.paf_external_failure", inputMap: { warranty: "warranty", returns: "returns", recall: "recall", liability: "liability", lostSales: "lostSales" }, outputId: "externalFailure" },

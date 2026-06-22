@@ -26,7 +26,10 @@ export const DYE_RECIPE_COST_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "costPerKg", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Maliyet > $3/kg — optimizasyon potansiyeli var.", warningMessage_i18n: {"en":"Maliyet > $3/kg — optimizasyon potansiyeli var.","tr":"Maliyet > $3/kg — optimizasyon potansiyeli var."}, criticalMessage: "Maliyet > $5/kg — acil reçete optimizasyonu.", criticalMessage_i18n: {"en":"Maliyet > $5/kg — acil reçete optimizasyonu.","tr":"Maliyet > $5/kg — acil reçete optimizasyonu."} }],
   formulaPipeline: [
     { formulaId: "cost.dye_batch", inputMap: { dyeCost: "dyeConcentrations", chemCost: "dosages", waterCost: "waterTariff", energyCost: "heatingCost", wasteCost: "wasteTreatmentCost" }, outputId: "totalBatchCost" },
-    { formulaId: "cost.dye_rft_savings", inputMap: { reworkCost: "reworkCost", rftPct: "rftPct" }, outputId: "rftSavings" },
+    { formulaId: "cost.dye_rft_savings", inputMap: {
+        rework: "reworkCost",
+        rft: "rftPct"
+      }, outputId: "rftSavings" },
     { formulaId: "cost.dye_cost_per_kg", inputMap: { totalBatch: "totalBatchCost", rftSavings: "rftSavings", fabricWeight: "fabricWeight" }, outputId: "costPerKg" },
   ],
   reportTemplate: { title: "Dye Recipe Cost Report", title_i18n: {"en":"Dye Recipe Cost Report","tr":"Dye Recipe Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

@@ -23,9 +23,22 @@ export const TOOL_WEAR_COST_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "toolingCostPerPart", warning: 0.15, critical: 0.3, direction: "higher_is_bad", warningMessage: "Parça başı takım maliyeti >$0.15 — takım ömrü iyileştirilmeli.", warningMessage_i18n: {"en":"Per-part tooling cost >$0.15 — tool life should be improved.","tr":"Parça başı takım maliyeti >$0.15 — takım ömrü iyileştirilmeli."}, criticalMessage: "Parça başı takım maliyeti >$0.30 — takım seçimi veya kesme parametreleri gözden geçirilmeli.", criticalMessage_i18n: {"en":"Per-part tooling cost >$0.30 — review tool selection or cutting parameters.","tr":"Parça başı takım maliyeti >$0.30 — takım seçimi veya kesme parametreleri gözden geçirilmeli."} }],
   formulaPipeline: [
-    { formulaId: "cost.tooling_cost_per_part", inputMap: { toolCost: "toolCost", toolLifeParts: "toolLifeParts" }, outputId: "toolingCostPerPart" },
-    { formulaId: "cost.tooling_total", inputMap: { toolingCostPerPart: "toolingCostPerPart", annualPartVolume: "annualPartVolume", toolChangeTime: "toolChangeTime", machineRate: "machineRate" }, outputId: "toolingTotal" },
-    { formulaId: "cost.premature_failure_cost", inputMap: { prematureFailureRate: "prematureFailureRate", numToolsPerYear: "numToolsPerYear", toolCost: "toolCost", scrapCostPerFail: "scrapCostPerFail" }, outputId: "prematureFailureCost" },
+    { formulaId: "cost.tooling_cost_per_part", inputMap: {
+        toolingCost: "toolCost",
+        partsProduced: "toolLifeParts"
+      }, outputId: "toolingCostPerPart" },
+    { formulaId: "cost.tooling_total", inputMap: {
+        purchaseCost: "toolingCostPerPart",
+        regrindCost: "annualPartVolume",
+        inventoryCost: "toolChangeTime",
+        machineRate: "machineRate"
+      }, outputId: "toolingTotal" },
+    { formulaId: "cost.premature_failure_cost", inputMap: {
+        prematureFailures: "prematureFailureRate",
+        toolingCost: "numToolsPerYear",
+        toolCost: "toolCost",
+        scrapCostPerFail: "scrapCostPerFail"
+      }, outputId: "prematureFailureCost" },
   ],
   reportTemplate: { title: "Takım Aşınma Maliyet Raporu", title_i18n: {"en":"Tool Wear Cost Report","tr":"Takım Aşınma Maliyet Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Parça başı takım maliyeti = takım fiyatı / takım ömrü.", "Toplam maliyet = parça başı × yıllık hacim + değişim maliyeti.", "Erken kırılma maliyeti = kırılma oranı × (takım + hurda) × yıllık takım.", "Takız ömrü Taylor takım ömrü denklemine göre belirlenir."],assumptionNotes_i18n:[{"en":"Per-part tool cost = tool price / tool life.","tr":"Parça başı takım maliyeti = takım fiyatı / takım ömrü."},{"en":"Total cost = per-part × annual volume + changeover cost.","tr":"Toplam maliyet = parça başı × yıllık hacim + değişim maliyeti."},{"en":"Premature failure cost = failure rate × (tool + scrap) × annual tools.","tr":"Erken kırılma maliyeti = kırılma oranı × (takım + hurda) × yıllık takım."},{"en":"Tool life is determined by the Taylor tool life equation.","tr":"Takız ömrü Taylor takım ömrü denklemine göre belirlenir."}]},

@@ -24,7 +24,12 @@ export const GAGE_RNR_COST_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "measurement.grr_combined", inputMap: { ev: "ev", av: "av" }, outputId: "grr" },
     { formulaId: "measurement.grr_pct", inputMap: { grr: "grr", tv: "tv" }, outputId: "pctGrr" },
-    { formulaId: "cost.grr_cost_error", inputMap: { falseAccept: "falseAccept", escapeCost: "escapeCost", falseReject: "falseReject", scrapCost: "scrapCost" }, outputId: "costError" },
+    { formulaId: "cost.grr_cost_error", inputMap: {
+        escapeCost: "escapeCost",
+        scrapCost: "scrapCost",
+        falseAcc: "falseAccept",
+        falseRej: "falseReject"
+      }, outputId: "costError" },
   ],
   reportTemplate: { title: "Gage R&R Cost Report", title_i18n: {"en":"Gage R&R Cost Report","tr":"Gage R&R Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["GRR = √(EV²+AV²). %GRR = (GRR/TV)×100.", "If %GRR < 10%: acceptable. 10-30%: marginal. >30%: unacceptable.", "Cost = FalseAcc×EscapeCost + FalseRej×ScrapCost."],assumptionNotes_i18n:[{"en":"GRR = √(EV²+AV²). %GRR = (GRR/TV)×100.","tr":"GRR = √(EV²+AV²). %GRR = (GRR/TV)×100."},{"en":"If %GRR < 10%: acceptable. 10-30%: marginal. >30%: unacceptable.","tr":"If %GRR < 10%: acceptable. 10-30%: marginal. >30%: unacceptable."},{"en":"Cost = FalseAcc×EscapeCost + FalseRej×ScrapCost.","tr":"Cost = FalseAcc×EscapeCost + FalseRej×ScrapCost."}] },

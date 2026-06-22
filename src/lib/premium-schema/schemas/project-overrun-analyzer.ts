@@ -34,7 +34,9 @@ export const PROJECT_OVERRUN_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.expected_overrun", inputMap: { eac: "eac", plannedValue: "plannedValue" }, outputId: "expectedOverrun" },
     { formulaId: "measurement.schedule_delay", inputMap: { actualDays: "actualDays", scheduleDays: "scheduleDays", spi: "spi" }, outputId: "scheduleDelay" },
     { formulaId: "cost.risk_exposure", inputMap: { riskProbability: "riskProbability", riskImpact: "riskImpact" }, outputId: "riskExposure" },
-    { formulaId: "cost.mitigation_cost", inputMap: { mitigationCost: "mitigationCost" }, outputId: "mitigationCost" },
+    { formulaId: "cost.mitigation_cost", inputMap: {
+        mitigationLabor: "mitigationCost"
+      }, outputId: "mitigationCost" },
     { formulaId: "cost.net_risk", inputMap: { riskExposure: "riskExposure", mitigationCost: "mitigationCost" }, outputId: "netRisk" },
   ],
   reportTemplate: { title: "Project Overrun Risk Report", title_i18n: {"en":"Project Overrun Risk Report","tr":"Project Overrun Risk Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

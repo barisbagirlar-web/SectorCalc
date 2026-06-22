@@ -21,7 +21,14 @@ export const TAGUCHI_QUALITY_LOSS_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "taguchiLossPerUnit", warning: 0.5, critical: 1, direction: "higher_is_bad", warningMessage: "Birim kayıp >$0.50 — süreç iyileştirme fırsatı var.", warningMessage_i18n: {"en":"Unit loss >$0.50 — process improvement opportunity exists.","tr":"Birim kayıp >$0.50 — süreç iyileştirme fırsatı var."}, criticalMessage: "Birim kayıp >$1.00 — tolerans veya süç parametreleri gözden geçirilmeli.", criticalMessage_i18n: {"en":"Unit loss >$1.00 — review tolerance or process parameters.","tr":"Birim kayıp >$1.00 — tolerans veya süç parametreleri gözden geçirilmeli."} }],
   formulaPipeline: [
-    { formulaId: "cost.taguchi_loss_per_unit", inputMap: { targetValue: "targetValue", tolerance: "tolerance", lossAtTolerance: "lossAtTolerance", processMean: "processMean", processStdDev: "processStdDev", annualProductionVolume: "annualProductionVolume" }, outputId: "taguchiLossPerUnit" },
+    { formulaId: "cost.taguchi_loss_per_unit", inputMap: {
+        targetValue: "targetValue",
+        toleranceCost: "tolerance",
+        toleranceLimit: "lossAtTolerance",
+        actualValue: "processMean",
+        processStdDev: "processStdDev",
+        annualProductionVolume: "annualProductionVolume"
+      }, outputId: "taguchiLossPerUnit" },
   ],
   reportTemplate: { title: "Taguchi Kalite Kaybı Raporu", title_i18n: {"en":"Taguchi Quality Loss Report","tr":"Taguchi Kalite Kaybı Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Taguchi kayıp = k × (MSD), MSD = σ² + (μ − T)².", "k = kayıp_tolerans / tolerans² — kalite kaybı katsayısı.", "Nominal-en iyi (NTB) tipi Taguchi fonksiyonu kullanılır.", "Süreç normal dağılım varsayımı altında hesaplanır."],assumptionNotes_i18n:[{"en":"Taguchi loss = k × (MSD), MSD = σ² + (μ − T)².","tr":"Taguchi kayıp = k × (MSD), MSD = σ² + (μ − T)²."},{"en":"k = loss_tolerance / tolerance² — quality loss coefficient.","tr":"k = kayıp_tolerans / tolerans² — kalite kaybı katsayısı."},{"en":"Nominal-the-best (NTB) type Taguchi function is used.","tr":"Nominal-en iyi (NTB) tipi Taguchi fonksiyonu kullanılır."},{"en":"Process is calculated under normal distribution assumption.","tr":"Süreç normal dağılım varsayımı altında hesaplanır."}] },

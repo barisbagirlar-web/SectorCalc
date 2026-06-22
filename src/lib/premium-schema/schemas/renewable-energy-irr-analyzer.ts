@@ -30,8 +30,24 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
   ],
   formulaPipeline: [
     { formulaId: "measurement.renewable_annual_gen", inputMap: { annualGeneration: "annualGeneration", degradationRate: "degradationRate" }, outputId: "renewableAnnualGen" },
-    { formulaId: "cost.renewable_npv", inputMap: { annualGeneration: "annualGeneration", tariffRate: "tariffRate", operatingCost: "operatingCost", discountRate: "discountRate", projectLife: "projectLife", installationCost: "installationCost", incentiveAmount: "incentiveAmount", degradationRate: "degradationRate" }, outputId: "renewableNpv" },
-    { formulaId: "cost.renewable_lcoe", inputMap: { installationCost: "installationCost", operatingCost: "operatingCost", annualGeneration: "annualGeneration", discountRate: "discountRate", projectLife: "projectLife", degradationRate: "degradationRate" }, outputId: "renewableLcoe" },
+    { formulaId: "cost.renewable_npv", inputMap: {
+        discountRate: "discountRate",
+        annualCashFlow: "annualGeneration",
+        lifeYears: "tariffRate",
+        totalInvestment: "operatingCost",
+        projectLife: "projectLife",
+        installationCost: "installationCost",
+        incentiveAmount: "incentiveAmount",
+        degradationRate: "degradationRate"
+      }, outputId: "renewableNpv" },
+    { formulaId: "cost.renewable_lcoe", inputMap: {
+        totalInvestment: "installationCost",
+        annualOpex: "operatingCost",
+        lifeYears: "annualGeneration",
+        annualGen: "discountRate",
+        projectLife: "projectLife",
+        degradationRate: "degradationRate"
+      }, outputId: "renewableLcoe" },
     { formulaId: "cost.renewable_irr", inputMap: { installationCost: "installationCost", annualGeneration: "annualGeneration", tariffRate: "tariffRate", operatingCost: "operatingCost", projectLife: "projectLife", degradationRate: "degradationRate", incentiveAmount: "incentiveAmount" }, outputId: "renewableIrr" },
     { formulaId: "measurement.renewable_payback", inputMap: { installationCost: "installationCost", annualGeneration: "annualGeneration", tariffRate: "tariffRate", operatingCost: "operatingCost", incentiveAmount: "incentiveAmount" }, outputId: "paybackPeriod" },
   ],

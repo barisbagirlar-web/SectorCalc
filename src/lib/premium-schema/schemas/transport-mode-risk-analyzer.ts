@@ -30,7 +30,9 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.transport_sea", inputMap: { seaFreightCost: "seaFreightCost" }, outputId: "transportSea" },
     { formulaId: "cost.transport_road", inputMap: { roadFreightCost: "roadFreightCost" }, outputId: "transportRoad" },
     { formulaId: "cost.transit_time_cost", inputMap: { airTransitDays: "airTransitDays", seaTransitDays: "seaTransitDays", roadTransitDays: "roadTransitDays", dailyCostOfDelay: "dailyCostOfDelay" }, outputId: "transitTimeCost" },
-    { formulaId: "cost.risk_cost_transport", inputMap: { cargoValue: "cargoValue" }, outputId: "riskCostTransport" },
+    { formulaId: "cost.risk_cost_transport", inputMap: {
+        cargoValue: "cargoValue"
+      }, outputId: "riskCostTransport" },
     { formulaId: "cost.total_mode_cost", inputMap: { transportAir: "transportAir", transportSea: "transportSea", transportRoad: "transportRoad", transitTimeCost: "transitTimeCost", riskCostTransport: "riskCostTransport" }, outputId: "totalModeCost" },
   ],
   reportTemplate: { title: "Transport Mode Risk & Cost Report", title_i18n: {"en":"Transport Mode Risk & Cost Report","tr":"Transport Mode Risk & Cost Report"}, sections: ["executive_summary", "thresholds", "sensitivity", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

@@ -29,7 +29,10 @@ export const CPK_PPM_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.cpk_z_usl", inputMap: { usl: "usl", mean: "mean", stdDev: "stdDev" }, outputId: "zUsl" },
     { formulaId: "measurement.cpk_z_lsl", inputMap: { mean: "mean", lsl: "lsl", stdDev: "stdDev" }, outputId: "zLsl" },
     { formulaId: "measurement.cpk_index", inputMap: { zUsl: "zUsl", zLsl: "zLsl" }, outputId: "cpk" },
-    { formulaId: "measurement.cpk_ppm_total", inputMap: { zUsl: "zUsl", zLsl: "zLsl" }, outputId: "totalPpm" },
+    { formulaId: "measurement.cpk_ppm_total", inputMap: {
+        pTotal: "zUsl",
+        zLsl: "zLsl"
+      }, outputId: "totalPpm" },
     { formulaId: "measurement.cpk_sigma_short", inputMap: { cpk: "cpk" }, outputId: "sigmaShort" },
   ],
   reportTemplate: { title: "Cpk & PPM Report", title_i18n: {"en":"Cpk & PPM Report","tr":"Cpk & PPM Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

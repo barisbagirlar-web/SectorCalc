@@ -23,8 +23,16 @@ export const TAKT_TIME_FLEXIBILITY_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "measurement.takt_time", inputMap: { availableTime: "availableTime", customerDemand: "customerDemand" }, outputId: "taktTime" },
     { formulaId: "measurement.cycle_flexibility", inputMap: { cycleTime: "cycleTime", taktTime: "taktTime" }, outputId: "cycleFlexibility" },
-    { formulaId: "cost.balance_loss", inputMap: { cycleTime: "cycleTime", taktTime: "taktTime", numOperators: "numOperators" }, outputId: "balanceLoss" },
-    { formulaId: "cost.flexibility_premium", inputMap: { cycleFlexibility: "cycleFlexibility", targetEfficiency: "targetEfficiency", balanceLoss: "balanceLoss" }, outputId: "flexibilityPremium" },
+    { formulaId: "cost.balance_loss", inputMap: {
+        balanceDelay: "cycleTime",
+        laborRate: "taktTime",
+        numOperators: "numOperators"
+      }, outputId: "balanceLoss" },
+    { formulaId: "cost.flexibility_premium", inputMap: {
+        flexibilityHours: "cycleFlexibility",
+        premiumRate: "targetEfficiency",
+        balanceLoss: "balanceLoss"
+      }, outputId: "flexibilityPremium" },
   ],
   reportTemplate: { title: "Takt Time Flexibility Report", title_i18n: {"en":"Takt Time Flexibility Report","tr":"Takt Süre Esneklik Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 5, targetMarginPercent: 15, assumptionNotes: ["Takt = Available / Demand.", "Flexibility = |Cycle − Takt| / Takt × 100.", "Balance loss = operator × cost variance."],assumptionNotes_i18n:[{"en":"Takt = Available / Demand.","tr":"Takt = Kullanılabilir / Talep."},{"en":"Flexibility = |Cycle − Takt| / Takt × 100.","tr":"Esneklik = |Çevrim − Takt| / Takt × 100."},{"en":"Balance loss = operator × cost variance.","tr":"Denge kaybı = operatör × maliyet farkı."}] },

@@ -25,8 +25,16 @@ export const INFLATION_ESCALATION_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "contingency", warning: 100000, critical: 250000, direction: "higher_is_bad", warningMessage: "Karşılık > $100K — risk yönetimi planı gözden geçirilmeli.", warningMessage_i18n: {"en":"Karşılık > $100K — risk yönetimi planı gözden geçirilmeli.","tr":"Karşılık > $100K — risk yönetimi planı gözden geçirilmeli."}, criticalMessage: "Karşılık > $250K — proje fizibilitesi risk altında.", criticalMessage_i18n: {"en":"Karşılık > $250K — proje fizibilitesi risk altında.","tr":"Karşılık > $250K — proje fizibilitesi risk altında."} }],
   formulaPipeline: [
-    { formulaId: "cost.escalation_material", inputMap: { baseMaterial: "baseMaterial", inflMaterial: "inflMaterial", projectYears: "projectYears" }, outputId: "escalatedMaterial" },
-    { formulaId: "cost.escalation_labor", inputMap: { baseLabor: "baseLabor", inflLabor: "inflLabor", projectYears: "projectYears" }, outputId: "escalatedLabor" },
+    { formulaId: "cost.escalation_material", inputMap: {
+        inflMat: "baseMaterial",
+        years: "inflMaterial",
+        projectYears: "projectYears"
+      }, outputId: "escalatedMaterial" },
+    { formulaId: "cost.escalation_labor", inputMap: {
+        inflLab: "baseLabor",
+        years: "inflLabor",
+        projectYears: "projectYears"
+      }, outputId: "escalatedLabor" },
     { formulaId: "cost.escalation_real_discount", inputMap: { nominalRate: "nominalRate", generalInflation: "generalInflation" }, outputId: "realDiscount" },
     { formulaId: "cost.escalation_contingency", inputMap: { baseAdjusted: "baseMaterial", confidenceFactor: "confidenceFactor" }, outputId: "contingency" },
   ],

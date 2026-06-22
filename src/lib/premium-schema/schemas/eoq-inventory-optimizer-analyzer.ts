@@ -25,10 +25,17 @@ export const EOQ_INVENTORY_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "totalInvCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Maliyet > $10K — EOQ optimizasyonu önerilir.", warningMessage_i18n: {"en":"Maliyet > $10K — EOQ optimizasyonu önerilir.","tr":"Maliyet > $10K — EOQ optimizasyonu önerilir."}, criticalMessage: "Maliyet > $25K — envanter politikası yenilenmeli.", criticalMessage_i18n: {"en":"Maliyet > $25K — envanter politikası yenilenmeli.","tr":"Maliyet > $25K — envanter politikası yenilenmeli."} }],
   formulaPipeline: [
     { formulaId: "cost.eoq", inputMap: { annualDemand: "annualDemand", orderCost: "orderCost", holdingCost: "holdingCost" }, outputId: "eoq" },
-    { formulaId: "measurement.eoq_safety_stock", inputMap: { zScore: "zScore", demandStdDev: "demandStdDev", leadTime: "leadTime" }, outputId: "safetyStock" },
+    { formulaId: "measurement.eoq_safety_stock", inputMap: {
+        zScore: "zScore",
+        leadTime: "leadTime",
+        stdDev: "demandStdDev"
+      }, outputId: "safetyStock" },
     { formulaId: "measurement.eoq_rop", inputMap: { leadTime: "leadTime", dailyDemand: "annualDemand", safetyStock: "safetyStock" }, outputId: "rop" },
     { formulaId: "cost.eoq_total_cost", inputMap: { annualDemand: "annualDemand", eoq: "eoq", orderCost: "orderCost", safetyStock: "safetyStock", holdingCost: "holdingCost" }, outputId: "totalInvCost" },
-    { formulaId: "measurement.eoq_turnover", inputMap: { annualDemand: "annualDemand", avgInventory: "avgInventory" }, outputId: "inventoryTurnover" },
+    { formulaId: "measurement.eoq_turnover", inputMap: {
+        annualDemand: "annualDemand",
+        avgInv: "avgInventory"
+      }, outputId: "inventoryTurnover" },
   ],
   reportTemplate: { title: "EOQ Inventory Report", title_i18n: {"en":"EOQ Inventory Report","tr":"EOQ Inventory Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["EOQ = √(2×Demand×Order/Holding).", "Safety = Z×StdDev×√LT. ROP = LT×DailyDemand+Safety.", "Total = (Demand/EOQ)×Order + (EOQ/2+Safety)×Holding."],assumptionNotes_i18n:[{"en":"EOQ = √(2×Demand×Order/Holding).","tr":"EOQ = √(2×Demand×Order/Holding)."},{"en":"Safety = Z×StdDev×√LT. ROP = LT×DailyDemand+Safety.","tr":"Safety = Z×StdDev×√LT. ROP = LT×DailyDemand+Safety."},{"en":"Total = (Demand/EOQ)×Order + (EOQ/2+Safety)×Holding.","tr":"Total = (Demand/EOQ)×Order + (EOQ/2+Safety)×Holding."}] },

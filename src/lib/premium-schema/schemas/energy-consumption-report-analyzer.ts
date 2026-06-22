@@ -27,11 +27,30 @@ export const ENERGY_CONSUMPTION_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "powerFactor", warning: 90, critical: 85, direction: "lower_is_bad", warningMessage: "PF < %90 — kompanzasyon iyileştirilmeli.", warningMessage_i18n: {"en":"PF < %90 — kompanzasyon iyileştirilmeli.","tr":"PF < %90 — kompanzasyon iyileştirilmeli."}, criticalMessage: "PF < %85 — reaktif ceza riski yüksek.", criticalMessage_i18n: {"en":"PF < %85 — reaktif ceza riski yüksek.","tr":"PF < %85 — reaktif ceza riski yüksek."} }],
   formulaPipeline: [
-    { formulaId: "energy.power_factor", inputMap: { activeKwh: "activeKwh", reactiveKvarh: "reactiveKvarh" }, outputId: "powerFactor" },
-    { formulaId: "energy.reactive_penalty", inputMap: { powerFactor: "powerFactor", pfThreshold: "pfThreshold", activeKwh: "activeKwh", reactiveKvarh: "reactiveKvarh", reactiveTariff: "reactiveTariff" }, outputId: "reactivePenalty" },
+    { formulaId: "energy.power_factor", inputMap: {
+        active: "activeKwh",
+        reactive: "reactiveKvarh"
+      }, outputId: "powerFactor" },
+    { formulaId: "energy.reactive_penalty", inputMap: {
+        pf: "powerFactor",
+        pfThresh: "pfThreshold",
+        reactive: "activeKwh",
+        active: "reactiveKvarh",
+        tariff: "reactiveTariff"
+      }, outputId: "reactivePenalty" },
     { formulaId: "energy.demand_charge", inputMap: { peakKw: "peakKw", demandRate: "demandRate" }, outputId: "demandCharge" },
-    { formulaId: "energy.energy_total_bill", inputMap: { baseAmount: "baseAmount", touAmount: "touAmount", demandCharge: "demandCharge", reactivePenalty: "reactivePenalty", taxAmount: "taxAmount" }, outputId: "totalBill" },
-    { formulaId: "energy.energy_carbon_footprint", inputMap: { activeKwh: "activeKwh", emisFactor: "emisFactor", carbonPrice: "carbonPrice" }, outputId: "carbonFootprint" },
+    { formulaId: "energy.energy_total_bill", inputMap: {
+        demandCharge: "demandCharge",
+        reactivePenalty: "reactivePenalty",
+        baseCharge: "baseAmount",
+        touCharge: "touAmount",
+        tax: "taxAmount"
+      }, outputId: "totalBill" },
+    { formulaId: "energy.energy_carbon_footprint", inputMap: {
+        emisFactor: "emisFactor",
+        active: "activeKwh",
+        carbonPrice: "carbonPrice"
+      }, outputId: "carbonFootprint" },
   ],
   reportTemplate: { title: "Energy Consumption Report", title_i18n: {"en":"Energy Consumption Report","tr":"Energy Consumption Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["PF = Active/√(Active²+Reactive²).", "Reactive penalty if PF < threshold.", "Carbon cost = kWh×EmisFactor×CarbonPrice/1000."],assumptionNotes_i18n:[{"en":"PF = Active/√(Active²+Reactive²).","tr":"PF = Active/√(Active²+Reactive²)."},{"en":"Reactive penalty if PF < threshold.","tr":"Reactive penalty if PF < threshold."},{"en":"Carbon cost = kWh×EmisFactor×CarbonPrice/1000.","tr":"Carbon cost = kWh×EmisFactor×CarbonPrice/1000."}] },

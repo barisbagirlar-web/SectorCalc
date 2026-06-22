@@ -30,7 +30,12 @@ export const NOISE_VIBRATION_COST_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.noise_health_cost", inputMap: { noiseExposure: "noiseExposure", numWorkers: "numWorkers", avgWorkerSalary: "avgWorkerSalary" }, outputId: "healthCost" },
     { formulaId: "cost.noise_productivity_loss", inputMap: { noiseLevelDb: "noiseLevelDb", numWorkers: "numWorkers", avgWorkerSalary: "avgWorkerSalary" }, outputId: "productivityLoss" },
     { formulaId: "cost.noise_rework_cost", inputMap: { noiseLevelDb: "noiseLevelDb", vibrationLevel: "vibrationLevel", avgWorkerSalary: "avgWorkerSalary", numWorkers: "numWorkers" }, outputId: "reworkCost" },
-    { formulaId: "cost.noise_mitigation_roi", inputMap: { healthCost: "healthCost", productivityLoss: "productivityLoss", reworkCost: "reworkCost", mitigationInvestment: "mitigationInvestment" }, outputId: "mitigationRoi" },
+    { formulaId: "cost.noise_mitigation_roi", inputMap: {
+        healthCost: "healthCost",
+        productivityLoss: "productivityLoss",
+        reworkCost: "reworkCost",
+        mitigationInvestment: "mitigationInvestment"
+      }, outputId: "mitigationRoi" },
   ],
   reportTemplate: { title: "Noise & Vibration Cost Report", title_i18n: {"en":"Noise & Vibration Cost Report","tr":"Noise & Vibration Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["85 dB(A) üzeri gürültü sağlık riski oluşturur.", "Titreşim RMS > 2.5 m/s² el-kol vibrasyon riski.", "Sağlık maliyeti = işitme kaybı + tazminat riski."],assumptionNotes_i18n:[{"en":"85 dB(A) üzeri gürültü sağlık riski oluşturur.","tr":"85 dB(A) üzeri gürültü sağlık riski oluşturur."},{"en":"Titreşim RMS > 2.5 m/s² el-kol vibrasyon riski.","tr":"Titreşim RMS > 2.5 m/s² el-kol vibrasyon riski."},{"en":"Sağlık maliyeti = işitme kaybı + tazminat riski.","tr":"Sağlık maliyeti = işitme kaybı + tazminat riski."}] },

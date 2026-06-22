@@ -29,7 +29,9 @@ export const PORTION_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.portion_labor_cost", inputMap: { laborCostPerPortion: "laborCostPerPortion" }, outputId: "portionLaborCost" },
     { formulaId: "cost.portion_overhead", inputMap: { overheadPerPortion: "overheadPerPortion" }, outputId: "portionOverhead" },
     { formulaId: "cost.total_portion_cost", inputMap: { yieldAdjustedCost: "yieldAdjustedCost", portionLaborCost: "portionLaborCost", portionOverhead: "portionOverhead" }, outputId: "totalPortionCost" },
-    { formulaId: "measurement.food_cost_pct", inputMap: { totalPortionCost: "totalPortionCost" }, outputId: "foodCostPct" },
+    { formulaId: "measurement.food_cost_pct", inputMap: {
+        totalPortionCost: "totalPortionCost"
+      }, outputId: "foodCostPct" },
     { formulaId: "measurement.target_menu_price", inputMap: { totalPortionCost: "totalPortionCost", targetFoodCostPct: "targetFoodCostPct" }, outputId: "targetMenuPrice" },
   ],
   reportTemplate: { title: "Portion Cost Analysis Report", title_i18n: {"en":"Portion Cost Analysis Report","tr":"Porsiyon Maliyet Analizi Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

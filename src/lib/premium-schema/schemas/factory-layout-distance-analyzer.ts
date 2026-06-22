@@ -24,8 +24,15 @@ export const FACTORY_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "spaceUtilization", warning: 50, critical: 35, direction: "lower_is_bad", warningMessage: "Alan kullanımı < %50 — yerleşim optimizasyonu önerilir.", warningMessage_i18n: {"en":"Alan kullanımı < %50 — yerleşim optimizasyonu önerilir.","tr":"Alan kullanımı < %50 — yerleşim optimizasyonu önerilir."}, criticalMessage: "Alan kullanımı < %35 — acil yeniden düzenleme.", criticalMessage_i18n: {"en":"Alan kullanımı < %35 — acil yeniden düzenleme.","tr":"Alan kullanımı < %35 — acil yeniden düzenleme."} }],
   formulaPipeline: [
     { formulaId: "measurement.layout_flow_cost", inputMap: { flowMatrix: "flowMatrix", distanceMatrix: "distanceMatrix", costPerDist: "costPerDist" }, outputId: "totalFlowCost" },
-    { formulaId: "measurement.layout_space_util", inputMap: { equipmentArea: "equipmentArea", facilityArea: "facilityArea" }, outputId: "spaceUtilization" },
-    { formulaId: "cost.layout_total_cost", inputMap: { matHandlingCost: "matHandlingCost", spaceCost: "spaceCost", congestionCost: "congestionCost" }, outputId: "totalLayoutCost" },
+    { formulaId: "measurement.layout_space_util", inputMap: {
+        equipArea: "equipmentArea",
+        facArea: "facilityArea"
+      }, outputId: "spaceUtilization" },
+    { formulaId: "cost.layout_total_cost", inputMap: {
+        spaceCost: "spaceCost",
+        matHandCost: "matHandlingCost",
+        spaceUtil: "congestionCost"
+      }, outputId: "totalLayoutCost" },
   ],
   reportTemplate: { title: "Factory Layout Distance Report", title_i18n: {"en":"Factory Layout Distance Report","tr":"Factory Layout Distance Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Flow cost = Σ(Flow×Dist×CostPerDist).", "Space util = EquipArea/FacArea.", "Total = MatHandling+Space+Congestion."],assumptionNotes_i18n:[{"en":"Flow cost = Σ(Flow×Dist×CostPerDist).","tr":"Flow cost = Σ(Flow×Dist×CostPerDist)."},{"en":"Space util = EquipArea/FacArea.","tr":"Space util = EquipArea/FacArea."},{"en":"Total = MatHandling+Space+Congestion.","tr":"Total = MatHandling+Space+Congestion."}] },

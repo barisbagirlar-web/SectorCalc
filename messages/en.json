@@ -68977,7 +68977,7 @@
     "pricing": {
       "eyebrow": "Plans",
       "title": "Free to start. Pro to go deep.",
-      "lead": "359 calculators are free, forever. Pro unlocks 193 advanced engineering tools with formula notes and export.",
+      "lead": "{freeCount} calculators are free, forever. Pro unlocks {proCount} advanced engineering tools with formula notes and export.",
       "compareLabel": "Why upgrade to Pro?",
       "compareDesc": "Free gives you 359 production-ready calculators. Pro adds the engineering depth — formula derivations, PDF export, scenario analysis and priority access to new tools.",
       "proTag": "Pro",
@@ -69060,7 +69060,7 @@
     },
     "trustBar": {
       "items": [
-        "552 calculators planned · 359 free · 193 Pro",
+        "{toolCount} calculators · {freeCount} free · {proCount} Pro",
         "ISO, ASME, IEC referenced formulas",
         "Browser-side calculations",
         "6 languages",
@@ -69077,6 +69077,86 @@
       "card3Desc": "Run Pro scenarios and sensitivity checks.",
       "card4Title": "Export",
       "card4Desc": "Download a decision-ready PDF report."
+    },
+    "freeVsPro": {
+      "title": "Free to start. Pro to go deep.",
+      "freeTitle": "Free",
+      "freeTools": "{freeCount} standard calculators",
+      "freeCta": "Browse Free Tools",
+      "proTitle": "Pro",
+      "proTools": "{proCount} advanced engineering tools",
+      "proCta": "Get Pro Access",
+      "feat1": "ISO/ASME referenced formulas",
+      "feat2": "Formula notes & derivations",
+      "feat3": "PDF decision report export",
+      "feat4": "Sensitivity analysis & scenarios",
+      "feat5": "6 languages"
+    },
+    "whyPro": {
+      "title": "Why professionals pay for SectorCalc",
+      "card1Title": "Decision-ready PDF reports",
+      "card1Desc": "Export a complete calculation with inputs, formulas, assumptions, results and recommendations. Ready for review or attachment.",
+      "card2Title": "Formula transparency",
+      "card2Desc": "Every Pro tool links to its source standard — ISO, ASME, IEC. You see the derivation, not just the result.",
+      "card3Title": "Sensitivity & scenarios",
+      "card3Desc": "Run what-if scenarios across your key variables. See how changes in input affect the bottom line before you decide.",
+      "card4Title": "No data leaves your browser",
+      "card4Desc": "All calculations run client-side. Your engineering data stays on your machine. No uploads, no servers, no tracking."
+    },
+    "categories2": [
+      {
+        "id": "manufacturing",
+        "name": "Manufacturing & OEE",
+        "problem": "Unknown OEE, unplanned downtime, unbalanced lines, hidden capacity losses.",
+        "tools": "OEE Calculator, Takt Time, Line Balancing, SMED, Overall Cycle Efficiency",
+        "proOutput": "PDF loss analysis with driver ranking, monthly loss estimate ($), recommended action plan",
+        "href": "/categories/manufacturing"
+      },
+      {
+        "id": "costing",
+        "name": "Costing & Quotation",
+        "problem": "Inconsistent estimates, missing overhead allocation, inaccurate break-even analysis.",
+        "tools": "Break-Even Analysis, Unit Cost, Target Costing, Cost-Plus Pricing, Should-Cost Model",
+        "proOutput": "Cost breakdown report with margin sensitivity table, risk-adjusted pricing range",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "finance",
+        "name": "Finance & Investment",
+        "problem": "Uncertain ROI, unclear NPV, incomplete capital budgeting assumptions.",
+        "tools": "NPV, IRR, Payback Period, WACC, DCF Valuation, Cap Rate, Cash Flow Analysis",
+        "proOutput": "Investment memo with scenario comparison, IRR/NPV sensitivity chart, decision matrix",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "quality",
+        "name": "Quality & Reliability",
+        "problem": "High defect rates, unknown process capability, unreliable supplier quality data.",
+        "tools": "Cpk/Ppk, Six Sigma DPMO, FMEA RPN, Gage R&R, AQL Sampling, MTBF/MTTR",
+        "proOutput": "Capability report with Cpk confidence interval, defect cost projection, improvement priority matrix",
+        "href": "/categories/quality"
+      },
+      {
+        "id": "energy",
+        "name": "Energy & Sustainability",
+        "problem": "Rising energy costs, unclear carbon footprint, no reduction scenario planning.",
+        "tools": "Carbon Footprint, Energy Cost Analysis, Heat Exchanger LMTD, HVAC Load, Solar Payback",
+        "proOutput": "Energy audit summary with CO₂ reduction scenarios, cost vs. savings comparison table",
+        "href": "/categories/energy"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics & Inventory",
+        "problem": "Overstock, frequent stockouts, high carrying cost, no EOQ discipline.",
+        "tools": "EOQ, Safety Stock, Reorder Point, Inventory Turnover, Warehouse Space, Freight Cost",
+        "proOutput": "Inventory optimization report with order frequency analysis, TCO comparison, risk buffer recommendation",
+        "href": "/categories/logistics"
+      }
+    ],
+    "pricingBridge": {
+      "text": "From $1.99 per Pro calculation. Credit packs available. No subscription required.",
+      "cta": "View Pro Pricing",
+      "ctaHref": "/pricing"
     }
   }
 }

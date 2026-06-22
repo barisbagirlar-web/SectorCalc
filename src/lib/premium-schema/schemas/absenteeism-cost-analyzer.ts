@@ -30,8 +30,17 @@ export const ABSENTEEISM_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "totalAbsenteeismCost", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Maliyet > $25K — devamsızlık yönetimi programı başlatılmalı.", warningMessage_i18n: {"en":"Maliyet > $25K — devamsızlık yönetimi programı başlatılmalı.","tr":"Maliyet > $25K — devamsızlık yönetimi programı başlatılmalı."}, criticalMessage: "Maliyet > $75K — acil müdahale gerekiyor.", criticalMessage_i18n: {"en":"Maliyet > $75K — acil müdahale gerekiyor.","tr":"Maliyet > $75K — acil müdahale gerekiyor."} }],
   formulaPipeline: [
-    { formulaId: "cost.absenteeism_direct", inputMap: { absentHours: "absentHours", hourlyRate: "hourlyRate", burdenRate: "burdenRate" }, outputId: "directLaborLoss" },
-    { formulaId: "cost.absenteeism_prod_loss", inputMap: { absentHours: "absentHours", outputPerHour: "outputPerHour", unitMargin: "unitMargin", effDropPct: "effDropPct" }, outputId: "prodLoss" },
+    { formulaId: "cost.absenteeism_direct", inputMap: {
+        absentHours: "absentHours",
+        hourlyRate: "hourlyRate",
+        burden: "burdenRate"
+      }, outputId: "directLaborLoss" },
+    { formulaId: "cost.absenteeism_prod_loss", inputMap: {
+        absentHours: "absentHours",
+        outputPerHour: "outputPerHour",
+        margin: "unitMargin",
+        effDrop: "effDropPct"
+      }, outputId: "prodLoss" },
     { formulaId: "cost.absenteeism_total", inputMap: { directCost: "directLaborLoss", otPremium: "replaceOtHours", tempCost: "tempHours", prodLoss: "prodLoss", adminCost: "absentEvents" }, outputId: "totalAbsenteeismCost" },
   ],
   reportTemplate: { title: "Absenteeism Cost Report", title_i18n: {"en":"Absenteeism Cost Report","tr":"Absenteeism Cost Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

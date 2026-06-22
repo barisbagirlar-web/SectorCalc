@@ -25,10 +25,22 @@ export const EVM_FORECAST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "cpi", warning: 0.9, critical: 0.8, direction: "lower_is_bad", warningMessage: "CPI < 0.9 — maliyet aşımı var, aksiyon alınmalı.", warningMessage_i18n: {"en":"CPI < 0.9 — cost overrun exists, action needed.","tr":"CPI < 0.9 — maliyet aşımı var, aksiyon alınmalı."}, criticalMessage: "CPI < 0.8 — proje maliyet kontrolü kaybedilmiş.", criticalMessage_i18n: {"en":"CPI < 0.8 — project cost control lost.","tr":"CPI < 0.8 — proje maliyet kontrolü kaybedilmiş."} }],
   formulaPipeline: [
-    { formulaId: "cost.evm_sv", inputMap: { earnedValue: "earnedValue", plannedValue: "plannedValue" }, outputId: "sv" },
-    { formulaId: "cost.evm_cv", inputMap: { earnedValue: "earnedValue", actualCost: "actualCost" }, outputId: "cv" },
-    { formulaId: "cost.evm_spi", inputMap: { earnedValue: "earnedValue", plannedValue: "plannedValue" }, outputId: "spi" },
-    { formulaId: "cost.evm_cpi", inputMap: { earnedValue: "earnedValue", actualCost: "actualCost" }, outputId: "cpi" },
+    { formulaId: "cost.evm_sv", inputMap: {
+        ev: "earnedValue",
+        pv: "plannedValue"
+      }, outputId: "sv" },
+    { formulaId: "cost.evm_cv", inputMap: {
+        ev: "earnedValue",
+        ac: "actualCost"
+      }, outputId: "cv" },
+    { formulaId: "cost.evm_spi", inputMap: {
+        ev: "earnedValue",
+        pv: "plannedValue"
+      }, outputId: "spi" },
+    { formulaId: "cost.evm_cpi", inputMap: {
+        ev: "earnedValue",
+        ac: "actualCost"
+      }, outputId: "cpi" },
     { formulaId: "cost.evm_eac_cpi", inputMap: { bac: "bac", cpi: "cpi" }, outputId: "eac" },
     { formulaId: "cost.evm_vac", inputMap: { bac: "bac", eac: "eac" }, outputId: "vac" },
   ],

@@ -23,10 +23,22 @@ export const DEMAND_FORECAST_STOCK_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "forecastError", warning: 100, critical: 300, direction: "higher_is_bad", warningMessage: "Tahmin hatası > 100 adet — forecast modeli gözden geçirilmeli.", warningMessage_i18n: {"en":"Tahmin hatası > 100 adet — forecast modeli gözden geçirilmeli.","tr":"Tahmin hatası > 100 adet — forecast modeli gözden geçirilmeli."}, criticalMessage: "Tahmin hatası > 300 adet — acil talep tahmini revizyonu gerekli.", criticalMessage_i18n: {"en":"Tahmin hatası > 300 adet — acil talep tahmini revizyonu gerekli.","tr":"Tahmin hatası > 300 adet — acil talep tahmini revizyonu gerekli."} }],
   formulaPipeline: [
     { formulaId: "measurement.forecast_error", inputMap: { actualDemand: "actualDemand", forecastDemand: "forecastDemand" }, outputId: "forecastError" },
-    { formulaId: "measurement.safety_stock_forecast", inputMap: { forecastError: "forecastError", leadTime: "leadTime" }, outputId: "safetyStockForecast" },
-    { formulaId: "cost.forecast_carrying_cost", inputMap: { forecastError: "forecastError", unitCost: "unitCost" }, outputId: "forecastCarryingCost" },
-    { formulaId: "cost.stockout_cost_forecast", inputMap: { forecastError: "forecastError", stockoutCost: "stockoutCost" }, outputId: "stockoutCostForecast" },
-    { formulaId: "cost.total_forecast_cost", inputMap: { forecastCarryingCost: "forecastCarryingCost", stockoutCostForecast: "stockoutCostForecast" }, outputId: "totalForecastCost" },
+    { formulaId: "measurement.safety_stock_forecast", inputMap: {
+        leadTime: "leadTime",
+        serviceFactor: "forecastError"
+      }, outputId: "safetyStockForecast" },
+    { formulaId: "cost.forecast_carrying_cost", inputMap: {
+        safetyStock: "forecastError",
+        holdingCostPerUnit: "unitCost"
+      }, outputId: "forecastCarryingCost" },
+    { formulaId: "cost.stockout_cost_forecast", inputMap: {
+        stockoutUnits: "forecastError",
+        lostMarginPerUnit: "stockoutCost"
+      }, outputId: "stockoutCostForecast" },
+    { formulaId: "cost.total_forecast_cost", inputMap: {
+        carryingCost: "forecastCarryingCost",
+        stockoutCost: "stockoutCostForecast"
+      }, outputId: "totalForecastCost" },
   ],
   reportTemplate: { title: "Demand Forecast Cost Report", title_i18n: {"en":"Demand Forecast Cost Report","tr":"Demand Forecast Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Forecast error = |Actual − Forecast|.", "Safety stock = error × leadTime factor.", "Total = carrying + stockout cost."],assumptionNotes_i18n:[{"en":"Forecast error = |Actual − Forecast|.","tr":"Forecast error = |Actual − Forecast|."},{"en":"Safety stock = error × leadTime factor.","tr":"Safety stock = error × leadTime factor."},{"en":"Total = carrying + stockout cost.","tr":"Total = carrying + stockout cost."}] },

@@ -25,9 +25,20 @@ export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "totalCost", warning: 5000, critical: 10000, direction: "higher_is_bad", warningMessage: "Gübre maliyeti > $5000 — alternatif gübreleme değerlendirilmeli.", warningMessage_i18n: {"en":"Gübre maliyeti > $5000 — alternatif gübreleme değerlendirilmeli.","tr":"Gübre maliyeti > $5000 — alternatif gübreleme değerlendirilmeli."}, criticalMessage: "Maliyet > $10000 — maliyet optimizasyonu acil.", criticalMessage_i18n: {"en":"Maliyet > $10000 — maliyet optimizasyonu acil.","tr":"Maliyet > $10000 — maliyet optimizasyonu acil."} }],
   formulaPipeline: [
-    { formulaId: "measurement.fertilizer_need", inputMap: { yieldTarget: "yieldTarget", removalRate: "removalRate" }, outputId: "fertNeed" },
-    { formulaId: "measurement.fertilizer_application", inputMap: { fertNeed: "fertNeed", nutrientContentPct: "nutrientContentPct", efficiency: "efficiency" }, outputId: "appRate" },
-    { formulaId: "cost.fertilizer_cost", inputMap: { appRate: "appRate", fieldArea: "fieldArea", unitPrice: "unitPrice" }, outputId: "totalCost" },
+    { formulaId: "measurement.fertilizer_need", inputMap: {
+        nutReq: "yieldTarget",
+        soilSupp: "removalRate"
+      }, outputId: "fertNeed" },
+    { formulaId: "measurement.fertilizer_application", inputMap: {
+        fertNeed: "fertNeed",
+        contentPct: "nutrientContentPct",
+        efficiency: "efficiency"
+      }, outputId: "appRate" },
+    { formulaId: "cost.fertilizer_cost", inputMap: {
+        appRate: "appRate",
+        area: "fieldArea",
+        price: "unitPrice"
+      }, outputId: "totalCost" },
   ],
   reportTemplate: { title: "Fertilizer Dosage Report", title_i18n: {"en":"Fertilizer Dosage Report","tr":"Fertilizer Dosage Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Need = YieldTarget×RemovalRate.", "FertNeed = (Need-SoilSupply)/Efficiency.", "AppRate = FertNeed/(Content%/100). Cost = AppRate×Area×Price."],assumptionNotes_i18n:[{"en":"Need = YieldTarget×RemovalRate.","tr":"Need = YieldTarget×RemovalRate."},{"en":"FertNeed = (Need-SoilSupply)/Efficiency.","tr":"FertNeed = (Need-SoilSupply)/Efficiency."},{"en":"AppRate = FertNeed/(Content%/100). Cost = AppRate×Area×Price.","tr":"AppRate = FertNeed/(Content%/100). Cost = AppRate×Area×Price."}] },

@@ -113,9 +113,11 @@ export function CatalogPageShell({
     : sectors.find((s) => s.sector.id === active);
   const activeName = activeCard?.label ?? (active === "all" ? "All" : active);
 
-  // Sorted sectors (exclude "all" from grid display since it's the default)
+  // Sorted sectors (exclude "all" and 0-count from grid)
   const sortedSectors = useMemo(() => sortSectors(sectors), [sectors]);
-  const gridSectors = sortedSectors.filter((s) => s.sector.id !== "all");
+  const gridSectors = sortedSectors.filter(
+    (s) => s.sector.id !== "all" && s.count >= 1,
+  );
 
   return (
     <>

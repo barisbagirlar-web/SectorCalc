@@ -26,12 +26,32 @@ export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "unitCostKwh", warning: 0.15, critical: 0.25, direction: "higher_is_bad", warningMessage: "Birim > $0.15/kWh — enerji verimliliği değerlendirilmeli.", warningMessage_i18n: {"en":"Birim > $0.15/kWh — enerji verimliliği değerlendirilmeli.","tr":"Birim > $0.15/kWh — enerji verimliliği değerlendirilmeli."}, criticalMessage: "Birim > $0.25/kWh — acil enerji tasarrufu programı.", criticalMessage_i18n: {"en":"Birim > $0.25/kWh — acil enerji tasarrufu programı.","tr":"Birim > $0.25/kWh — acil enerji tasarrufu programı."} }],
   formulaPipeline: [
-    { formulaId: "cost.energy_charge", inputMap: { activeEnergy: "activeEnergy", energyRate: "energyRate" }, outputId: "energyCharge" },
+    { formulaId: "cost.energy_charge", inputMap: {
+        consumptionKwh: "activeEnergy",
+        ratePerKwh: "energyRate"
+      }, outputId: "energyCharge" },
     { formulaId: "cost.demand_charge", inputMap: { peakDemand: "peakDemand", demandRate: "demandRate" }, outputId: "demandCharge" },
-    { formulaId: "cost.reactive_penalty_kwh", inputMap: { powerFactor: "powerFactor", pfThreshold: "pfThreshold", reactiveEnergy: "reactiveEnergy", penaltyRate: "penaltyRate" }, outputId: "reactivePenalty" },
-    { formulaId: "cost.total_bill_kwh", inputMap: { energyCharge: "energyCharge", demandCharge: "demandCharge", reactivePenalty: "reactivePenalty", taxRate: "taxRate" }, outputId: "totalBill" },
-    { formulaId: "cost.unit_cost_kwh", inputMap: { totalBill: "totalBill", activeEnergy: "activeEnergy" }, outputId: "unitCostKwh" },
-    { formulaId: "cost.peak_shaving_savings", inputMap: { oldPeak: "oldPeak", newPeak: "newPeak", demandRate: "demandRate" }, outputId: "peakShavingSavings" },
+    { formulaId: "cost.reactive_penalty_kwh", inputMap: {
+        penaltyRate: "penaltyRate",
+        reactivePower: "powerFactor",
+        reactiveAllowance: "pfThreshold",
+        reactiveEnergy: "reactiveEnergy"
+      }, outputId: "reactivePenalty" },
+    { formulaId: "cost.total_bill_kwh", inputMap: {
+        energyCharge: "energyCharge",
+        reactivePenalty: "reactivePenalty",
+        fixedCharge: "demandCharge",
+        tax: "taxRate"
+      }, outputId: "totalBill" },
+    { formulaId: "cost.unit_cost_kwh", inputMap: {
+        totalBill: "totalBill",
+        totalConsumption: "activeEnergy"
+      }, outputId: "unitCostKwh" },
+    { formulaId: "cost.peak_shaving_savings", inputMap: {
+        peakDemand: "oldPeak",
+        shavedDemand: "newPeak",
+        demandCharge: "demandRate"
+      }, outputId: "peakShavingSavings" },
   ],
   reportTemplate: { title: "KWh Maliyet Raporu", title_i18n: {"en":"KWh Maliyet Raporu","tr":"KWh Maliyet Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Reaktif ceza = PF < eşik ise reaktif × ceza oranı.", "Birim maliyet = Toplam / Aktif tüketim.", "Tepe traşlama = (Eski - Yeni) × Güç bedeli."],assumptionNotes_i18n:[{"en":"Reaktif ceza = PF < eşik ise reaktif × ceza oranı.","tr":"Reaktif ceza = PF < eşik ise reaktif × ceza oranı."},{"en":"Birim maliyet = Toplam / Aktif tüketim.","tr":"Birim maliyet = Toplam / Aktif tüketim."},{"en":"Tepe traşlama = (Eski - Yeni) × Güç bedeli.","tr":"Tepe traşlama = (Eski - Yeni) × Güç bedeli."}] },

@@ -20,9 +20,21 @@ export const DELIVERY_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "deliveryEfficiency", warning: 90, critical: 80, direction: "lower_is_bad", warningMessage: "Teslimat verimliliği < %90 — süreç iyileştirme önerilir.", warningMessage_i18n: {"en":"Teslimat verimliliği < %90 — süreç iyileştirme önerilir.","tr":"Teslimat verimliliği < %90 — süreç iyileştirme önerilir."}, criticalMessage: "Teslimat verimliliği < %80 — acil rota optimizasyonu gerekli.", criticalMessage_i18n: {"en":"Teslimat verimliliği < %80 — acil rota optimizasyonu gerekli.","tr":"Teslimat verimliliği < %80 — acil rota optimizasyonu gerekli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.delivery_efficiency", inputMap: { successfulDeliveries: "successfulDeliveries", totalDeliveries: "totalDeliveries" }, outputId: "deliveryEfficiency" },
-    { formulaId: "cost.failed_delivery_cost", inputMap: { totalDeliveries: "totalDeliveries", successfulDeliveries: "successfulDeliveries", failedDeliveryCost: "extraFailedDeliveryCost", returnHandlingCost: "returnHandlingCost" }, outputId: "failedDeliveryCost" },
-    { formulaId: "cost.total_delivery_cost", inputMap: { totalDeliveries: "totalDeliveries", costPerDelivery: "costPerDelivery", failedDeliveryCost: "failedDeliveryCost" }, outputId: "totalDeliveryCost" },
+    { formulaId: "measurement.delivery_efficiency", inputMap: {
+        totalDeliveries: "totalDeliveries",
+        onTimeDeliveries: "successfulDeliveries"
+      }, outputId: "deliveryEfficiency" },
+    { formulaId: "cost.failed_delivery_cost", inputMap: {
+        failedDeliveries: "totalDeliveries",
+        costPerFailedDelivery: "successfulDeliveries",
+        failedDeliveryCost: "extraFailedDeliveryCost",
+        returnHandlingCost: "returnHandlingCost"
+      }, outputId: "failedDeliveryCost" },
+    { formulaId: "cost.total_delivery_cost", inputMap: {
+        failedDeliveryCost: "failedDeliveryCost",
+        successfulDeliveries: "totalDeliveries",
+        costPerSuccessfulDelivery: "costPerDelivery"
+      }, outputId: "totalDeliveryCost" },
   ],
   reportTemplate: { title: "Delivery Cost Analysis Report", title_i18n: {"en":"Delivery Cost Analysis Report","tr":"Delivery Cost Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 5, targetMarginPercent: 12, assumptionNotes: ["Efficiency = Successful / Total.", "Failed cost = Failed × (ExtraCost + Return).", "Total = (Total × CostPer) + FailedCost."],assumptionNotes_i18n:[{"en":"Efficiency = Successful / Total.","tr":"Efficiency = Successful / Total."},{"en":"Failed cost = Failed × (ExtraCost + Return).","tr":"Failed cost = Failed × (ExtraCost + Return)."},{"en":"Total = (Total × CostPer) + FailedCost.","tr":"Total = (Total × CostPer) + FailedCost."}] },

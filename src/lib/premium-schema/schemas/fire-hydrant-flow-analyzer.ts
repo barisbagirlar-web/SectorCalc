@@ -26,9 +26,21 @@ export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "complianceCost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Uyumsuzluk riski > $10K — sigorta gözden geçirilmeli.", warningMessage_i18n: {"en":"Uyumsuzluk riski > $10K — sigorta gözden geçirilmeli.","tr":"Uyumsuzluk riski > $10K — sigorta gözden geçirilmeli."}, criticalMessage: "Uyumsuzluk riski > $30K — yasal yaptırım riski yüksek.", criticalMessage_i18n: {"en":"Uyumsuzluk riski > $30K — yasal yaptırım riski yüksek.","tr":"Uyumsuzluk riski > $30K — yasal yaptırım riski yüksek."} },
   ],
   formulaPipeline: [
-    { formulaId: "measurement.hydrant_flow", inputMap: { hydrantDiameter: "hydrantDiameter", staticPressure: "staticPressure", residualPressure: "residualPressure" }, outputId: "hydrantFlow" },
-    { formulaId: "measurement.available_flow", inputMap: { hydrantFlow: "hydrantFlow", staticPressure: "staticPressure", residualPressure: "residualPressure" }, outputId: "availableFlow" },
-    { formulaId: "cost.hydrant_compliance", inputMap: { hydrantFlow: "hydrantFlow", requiredFlow: "requiredFlow", numHydrants: "numHydrants" }, outputId: "hydrantCompliance" },
+    { formulaId: "measurement.hydrant_flow", inputMap: {
+        hydrantPressure: "hydrantDiameter",
+        orificeCoefficient: "staticPressure",
+        residualPressure: "residualPressure"
+      }, outputId: "hydrantFlow" },
+    { formulaId: "measurement.available_flow", inputMap: {
+        hydrantFlow: "hydrantFlow",
+        requiredFlow: "staticPressure",
+        residualPressure: "residualPressure"
+      }, outputId: "availableFlow" },
+    { formulaId: "cost.hydrant_compliance", inputMap: {
+        deficientHydrants: "hydrantFlow",
+        remediationCost: "requiredFlow",
+        numHydrants: "numHydrants"
+      }, outputId: "hydrantCompliance" },
     { formulaId: "cost.hydrant_compliance_penalty", inputMap: { hydrantCompliance: "hydrantCompliance", complianceFine: "complianceFine", numHydrants: "numHydrants" }, outputId: "complianceCost" },
   ],
   reportTemplate: { title: "Yangın Hidrantı Akış Analiz Raporu", title_i18n: {"en":"Yangın Hidrantı Akış Analiz Raporu","tr":"Yangın Hidrantı Akış Analiz Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

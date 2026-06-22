@@ -26,7 +26,11 @@ export const FLEXIBLE_MFG_ROI_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "roi", warning: 30, critical: 15, direction: "lower_is_bad", warningMessage: "ROI < %30 — yatırım fizibilitesi sorgulanmalı.", warningMessage_i18n: {"en":"ROI < %30 — yatırım fizibilitesi sorgulanmalı.","tr":"ROI < %30 — yatırım fizibilitesi sorgulanmalı."}, criticalMessage: "ROI < %15 — dedicated sistem daha avantajlı olabilir.", criticalMessage_i18n: {"en":"ROI < %15 — dedicated sistem daha avantajlı olabilir.","tr":"ROI < %15 — dedicated sistem daha avantajlı olabilir."} }],
   formulaPipeline: [
-    { formulaId: "cost.flex_mfg_roi", inputMap: { costDedicated: "costDedicated", costFlex: "costFlex", capex: "capex" }, outputId: "roi" },
+    { formulaId: "cost.flex_mfg_roi", inputMap: {
+        capex: "capex",
+        costDed: "costDedicated",
+        costFms: "costFlex"
+      }, outputId: "roi" },
   ],
   reportTemplate: { title: "Flexible Manufacturing ROI Report", title_i18n: {"en":"Flexible Manufacturing ROI Report","tr":"Flexible Manufacturing ROI Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["Compares dedicated vs flexible manufacturing cost.", "Includes flex value (TTM + customer premium), WIP savings, scrap reduction.", "ROI = (CostGap+FlexVal+InvSav+ScrapRed)/Capex."],assumptionNotes_i18n:[{"en":"Compares dedicated vs flexible manufacturing cost.","tr":"Compares dedicated vs flexible manufacturing cost."},{"en":"Includes flex value (TTM + customer premium), WIP savings, scrap reduction.","tr":"Includes flex value (TTM + customer premium), WIP savings, scrap reduction."},{"en":"ROI = (CostGap+FlexVal+InvSav+ScrapRed)/Capex.","tr":"ROI = (CostGap+FlexVal+InvSav+ScrapRed)/Capex."}] },

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { doc, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot, type FirestoreError } from "firebase/firestore";
 import { onAuthStateChanged, type User } from "@/lib/firebase/auth";
 import { getFirebaseAuth } from "@/lib/firebase/auth";
 import { getFirestoreDb } from "@/lib/firebase/client";
@@ -59,6 +59,37 @@ function getStoreSnapshot(): UseUserSubscriptionState {
   return storeState;
 }
 
+/**
+ * Firebase Firestore SDK may throw "Connection closed" from its transport layer
+ * when the WebSocket or long-poll connection drops. These errors are not
+ * always caught by the onSnapshot error callback. We suppress them globally
+ * to prevent the Next.js global-error boundary from replacing the UI.
+ * The onSnapshot error callback already sets a user-visible error state.
+ */
+function suppressFirebaseConnectionErrors() {
+  if (typeof window === "undefined") return;
+
+  function handler(event: PromiseRejectionEvent | ErrorEvent) {
+    const message =
+      event instanceof PromiseRejectionEvent
+        ? event.reason?.message ?? ""
+        : event.message ?? "";
+
+    if (
+      message.includes("Connection closed") ||
+      message.includes("Firebase") ||
+      message.includes("firestore") ||
+      message.includes("online") ||
+      message.includes("channel")
+    ) {
+      event.preventDefault();
+    }
+  }
+
+  window.addEventListener("unhandledrejection", handler);
+  window.addEventListener("error", handler);
+}
+
 function bootstrapAuthStore() {
   if (authBootstrapped) {
     return;
@@ -66,25 +97,12 @@ function bootstrapAuthStore() {
   authBootstrapped = true;
   setStoreState({ ...storeState, loading: true, error: null });
 
-  const auth = getFirebaseAuth();
-  if (!auth) {
-    setStoreState({
-      user: null,
-      subscription: null,
-      isActive: false,
-      loading: false,
-      error: null,
-    });
-    return;
-  }
+  /** Suppress Firebase transport errors from crashing the app. */
+  suppressFirebaseConnectionErrors();
 
-  unsubscribeAuth = onAuthStateChanged(auth, (user) => {
-    if (unsubscribeUserDoc) {
-      unsubscribeUserDoc();
-      unsubscribeUserDoc = null;
-    }
-
-    if (!user) {
+  try {
+    const auth = getFirebaseAuth();
+    if (!auth) {
       setStoreState({
         user: null,
         subscription: null,
@@ -95,63 +113,87 @@ function bootstrapAuthStore() {
       return;
     }
 
-    setStoreState({
-      ...storeState,
-      user,
-      loading: true,
-      error: null,
-    });
+    unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+      if (unsubscribeUserDoc) {
+        unsubscribeUserDoc();
+        unsubscribeUserDoc = null;
+      }
 
-    const db = getFirestoreDb();
-    if (!db) {
+      if (!user) {
+        setStoreState({
+          user: null,
+          subscription: null,
+          isActive: false,
+          loading: false,
+          error: null,
+        });
+        return;
+      }
+
       setStoreState({
+        ...storeState,
         user,
-        subscription: null,
-        isActive: false,
-        loading: false,
-        error: "Firestore is not configured.",
+        loading: true,
+        error: null,
       });
-      return;
-    }
 
-    const userRef = doc(db, "users", user.uid);
-
-    try {
-      unsubscribeUserDoc = onSnapshot(
-        userRef,
-        (snapshot) => {
-          const subscription = normalizeUserSubscription(
-            snapshot.exists() ? snapshot.data().subscription : null,
-          );
-
-          setStoreState({
-            user,
-            subscription,
-            isActive: hasProAccess(subscription, user.email),
-            loading: false,
-            error: null,
-          });
-        },
-        () => {
+      try {
+        const db = getFirestoreDb();
+        if (!db) {
           setStoreState({
             user,
             subscription: null,
-            isActive: hasProAccess(null, user.email),
+            isActive: false,
             loading: false,
-            error: "Subscription status could not be loaded.",
+            error: "Firestore is not configured.",
           });
-        },
-      );
-    } catch {
-      setStoreState({
-        user,
-        subscription: null,
-        isActive: hasProAccess(null, user.email),
-        loading: false,
-        error: null,
-      });
-    }
-  });
+          return;
+        }
+
+        const userRef = doc(db, "users", user.uid);
+
+        unsubscribeUserDoc = onSnapshot(
+          userRef,
+          (snapshot) => {
+            const subscription = normalizeUserSubscription(
+              snapshot.exists() ? snapshot.data().subscription : null,
+            );
+
+            setStoreState({
+              user,
+              subscription,
+              isActive: hasProAccess(subscription, user.email),
+              loading: false,
+              error: null,
+            });
+          },
+          (err: FirestoreError) => {
+            // Firestore subscription failed — set degraded state
+            setStoreState({
+              user,
+              subscription: null,
+              isActive: hasProAccess(null, user.email),
+              loading: false,
+              error: err?.message?.includes("closed")
+                ? null
+                : "Subscription status could not be loaded.",
+            });
+          },
+        );
+      } catch {
+        setStoreState({
+          user,
+          subscription: null,
+          isActive: hasProAccess(null, user.email),
+          loading: false,
+          error: null,
+        });
+      }
+    });
+  } catch {
+    authBootstrapped = false;
+    setStoreState({ ...INITIAL_STATE, loading: false, error: null });
+  }
 }
 
 /** Shared subscription store — one Firebase listener for the whole app. */

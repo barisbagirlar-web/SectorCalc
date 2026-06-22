@@ -34,10 +34,20 @@ export const CNC_MACHINING_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   formulaPipeline: [
     { formulaId: "cost.cnc_material", inputMap: { rawVolume: "rawVolume", density: "density", pricePerKg: "pricePerKg", scrapRate: "scrapRate" }, outputId: "materialCost" },
-    { formulaId: "cost.cnc_machining", inputMap: { totalTime: "totalTime", machineRate: "machineRate" }, outputId: "machiningCost" },
+    { formulaId: "cost.cnc_machining", inputMap: {
+        machineRate: "machineRate",
+        totalCycleTime: "totalTime"
+      }, outputId: "machiningCost" },
     { formulaId: "cost.cnc_tooling", inputMap: { cutTime: "cutTime", toolLife: "toolLife", toolCost: "toolCost" }, outputId: "toolingCost" },
-    { formulaId: "cost.cnc_energy", inputMap: { machinePower: "machinePower", totalTime: "totalTime", elecRate: "elecRate" }, outputId: "energyCost" },
-    { formulaId: "cost.cnc_overhead", inputMap: { totalTime: "totalTime", overheadRate: "overheadRate" }, outputId: "overheadCost" },
+    { formulaId: "cost.cnc_energy", inputMap: {
+        elecRate: "elecRate",
+        power: "machinePower",
+        totalCycleTime: "totalTime"
+      }, outputId: "energyCost" },
+    { formulaId: "cost.cnc_overhead", inputMap: {
+        overheadRate: "overheadRate",
+        totalCycleTime: "totalTime"
+      }, outputId: "overheadCost" },
     { formulaId: "cost.cnc_total_unit", inputMap: { materialCost: "materialCost", machiningCost: "machiningCost", toolingCost: "toolingCost", energyCost: "energyCost", overheadCost: "overheadCost", qualityCost: "qualityCost" }, outputId: "totalUnitCost" },
   ],
   reportTemplate: { title: "CNC Machining Cost Report", title_i18n: {"en":"CNC Machining Cost Report","tr":"CNC Machining Cost Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

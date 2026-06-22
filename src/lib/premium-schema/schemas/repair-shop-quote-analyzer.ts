@@ -21,7 +21,11 @@ export const REPAIR_SHOP_QUOTE_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "grossProfitPct", warning: 30, critical: 15, direction: "lower_is_bad", warningMessage: "Kar marjı < %30 — maliyet yapısı gözden geçirilmeli.", warningMessage_i18n: {"en":"Margin < 30% — review cost structure.","tr":"Kar marjı < %30 — maliyet yapısı gözden geçirilmeli."}, criticalMessage: "Kar marjı < %15 — teklif zarar ediyor olabilir.", criticalMessage_i18n: {"en":"Margin < 15% — quote may be losing money.","tr":"Kar marjı < %15 — teklif zarar ediyor olabilir."} }],
   formulaPipeline: [
     { formulaId: "cost.quote_total", inputMap: { laborHours: "laborHours", hourlyRate: "hourlyRate", partsCost: "partsCost" }, outputId: "quoteTotalOut" },
-    { formulaId: "cost.effective_labor_rate", inputMap: { quoteTotal: "quoteTotal", partsCost: "partsCost", laborHours: "laborHours" }, outputId: "effectiveLaborRate" },
+    { formulaId: "cost.effective_labor_rate", inputMap: {
+        totalLaborCost: "quoteTotal",
+        billableHours: "partsCost",
+        laborHours: "laborHours"
+      }, outputId: "effectiveLaborRate" },
     { formulaId: "cost.gross_profit_pct", inputMap: { quoteTotal: "quoteTotal", quoteTotalOut: "quoteTotalOut" }, outputId: "grossProfitPct" },
   ],
   reportTemplate: { title: "Repair Shop Quote Analysis Report", title_i18n: {"en":"Repair Shop Quote Analysis Report","tr":"Repair Shop Quote Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

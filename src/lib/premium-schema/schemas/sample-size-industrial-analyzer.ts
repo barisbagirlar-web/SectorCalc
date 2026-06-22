@@ -28,11 +28,25 @@ export const SAMPLE_SIZE_INDUSTRIAL_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "measurement.sample_infinite", inputMap: { confidenceLevel: "confidenceLevel", marginError: "marginError", estimatedProportion: "estimatedProportion" }, outputId: "sampleInfinite" },
     { formulaId: "measurement.sample_finite", inputMap: { sampleInfinite: "sampleInfinite", populationSize: "populationSize" }, outputId: "sampleFinite" },
-    { formulaId: "measurement.sample_continuous", inputMap: { confidenceLevel: "confidenceLevel", marginError: "marginError" }, outputId: "sampleContinuous" },
-    { formulaId: "measurement.sample_power_adj", inputMap: { sampleFinite: "sampleFinite", power: "power" }, outputId: "samplePowerAdj" },
-    { formulaId: "measurement.sample_design_effect", inputMap: { samplePowerAdj: "samplePowerAdj", designEffect: "designEffect" }, outputId: "sampleDesignEffect" },
-    { formulaId: "measurement.sample_final_n", inputMap: { sampleDesignEffect: "sampleDesignEffect" }, outputId: "sampleFinalN" },
-    { formulaId: "cost.sampling_total_cost", inputMap: { sampleFinalN: "sampleFinalN", samplingCostPerUnit: "samplingCostPerUnit" }, outputId: "samplingTotalCost" },
+    { formulaId: "measurement.sample_continuous", inputMap: {
+        confidenceLevel: "confidenceLevel",
+        marginError: "marginError"
+      }, outputId: "sampleContinuous" },
+    { formulaId: "measurement.sample_power_adj", inputMap: {
+        sampleFinite: "sampleFinite",
+        power: "power"
+      }, outputId: "samplePowerAdj" },
+    { formulaId: "measurement.sample_design_effect", inputMap: {
+        designEffect: "designEffect",
+        clusterSize: "samplePowerAdj"
+      }, outputId: "sampleDesignEffect" },
+    { formulaId: "measurement.sample_final_n", inputMap: {
+        sampleDesignEffect: "sampleDesignEffect"
+      }, outputId: "sampleFinalN" },
+    { formulaId: "cost.sampling_total_cost", inputMap: {
+        sampleFinalN: "sampleFinalN",
+        costPerSample: "samplingCostPerUnit"
+      }, outputId: "samplingTotalCost" },
   ],
   reportTemplate: { title: "Sample Size Analysis Report", title_i18n: {"en":"Sample Size Analysis Report","tr":"Sample Size Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["Sonsuz = Z² × p(1-p) / e².", "Sonlu = n0 / (1 + (n0-1)/N).", "Güç ayarı = n × f(power).", "Tasarım etkisi = n × DEFF."],assumptionNotes_i18n:[{"en":"Infinite = Z² × p(1-p) / e².","tr":"Sonsuz = Z² × p(1-p) / e²."},{"en":"Finite = n0 / (1 + (n0-1)/N).","tr":"Sonlu = n0 / (1 + (n0-1)/N)."},{"en":"Power adjustment = n × f(power).","tr":"Güç ayarı = n × f(power)."},{"en":"Design effect = n × DEFF.","tr":"Tasarım etkisi = n × DEFF."}] },

@@ -29,13 +29,42 @@ export const HACCP_DEVIATION_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "totalHaccpCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Maliyet > $50K — HACCP planı gözden geçirilmeli.", warningMessage_i18n: {"en":"Maliyet > $50K — HACCP planı gözden geçirilmeli.","tr":"Maliyet > $50K — HACCP planı gözden geçirilmeli."}, criticalMessage: "Maliyet > $150K — tesis denetimi ve düzeltici faaliyet acil.", criticalMessage_i18n: {"en":"Maliyet > $150K — tesis denetimi ve düzeltici faaliyet acil.","tr":"Maliyet > $150K — tesis denetimi ve düzeltici faaliyet acil."} }],
   formulaPipeline: [
-    { formulaId: "cost.haccp_hold", inputMap: { quarantineVolume: "quarantineVolume", holdCostPerUnit: "holdCostPerUnit", holdDays: "holdDays" }, outputId: "holdCost" },
-    { formulaId: "cost.haccp_test", inputMap: { testSamples: "testSamples", labCost: "labCost" }, outputId: "testCost" },
-    { formulaId: "cost.haccp_rework", inputMap: { deviationVolume: "deviationVolume", reworkCost: "reworkCost" }, outputId: "reworkCost" },
-    { formulaId: "cost.haccp_disposal", inputMap: { condemnedVolume: "condemnedVolume", disposalCost: "disposalCost", lostMaterial: "lostMaterial" }, outputId: "disposalCost" },
-    { formulaId: "cost.haccp_recall", inputMap: { notificationCost: "notificationCost", logisticsRecall: "logisticsRecall", retailPenalty: "retailPenalty", brandDamage: "brandDamage" }, outputId: "recallCost" },
-    { formulaId: "cost.haccp_fine", inputMap: { probDetection: "probDetection", fineAmount: "fineAmount" }, outputId: "fine" },
-    { formulaId: "cost.haccp_total", inputMap: { holdCost: "holdCost", testCost: "testCost", reworkCost: "reworkCost", disposalCost: "disposalCost", recallCost: "recallCost", fine: "fine" }, outputId: "totalHaccpCost" },
+    { formulaId: "cost.haccp_hold", inputMap: {
+        quarVol: "quarantineVolume",
+        holdCost: "holdCostPerUnit",
+        days: "holdDays"
+      }, outputId: "holdCost" },
+    { formulaId: "cost.haccp_test", inputMap: {
+        labCost: "labCost",
+        samples: "testSamples"
+      }, outputId: "testCost" },
+    { formulaId: "cost.haccp_rework", inputMap: {
+        reworkCost: "reworkCost",
+        devVol: "deviationVolume"
+      }, outputId: "reworkCost" },
+    { formulaId: "cost.haccp_disposal", inputMap: {
+        condVol: "condemnedVolume",
+        dispCost: "disposalCost",
+        lostMat: "lostMaterial"
+      }, outputId: "disposalCost" },
+    { formulaId: "cost.haccp_recall", inputMap: {
+        notif: "notificationCost",
+        logRev: "logisticsRecall",
+        retailPen: "retailPenalty",
+        brand: "brandDamage"
+      }, outputId: "recallCost" },
+    { formulaId: "cost.haccp_fine", inputMap: {
+        probDet: "probDetection",
+        fineAmt: "fineAmount"
+      }, outputId: "fine" },
+    { formulaId: "cost.haccp_total", inputMap: {
+        holdCost: "holdCost",
+        testCost: "testCost",
+        reworkCost: "reworkCost",
+        recallCost: "recallCost",
+        dispCost: "disposalCost",
+        fineRisk: "fine"
+      }, outputId: "totalHaccpCost" },
   ],
   reportTemplate: { title: "HACCP Deviation Cost Report", title_i18n: {"en":"HACCP Deviation Cost Report","tr":"HACCP Deviation Cost Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["Hold = Vol×Cost×Days. Test = Samples×LabCost.", "Rework = Vol×ReworkCost. Disp = CondVol×DispCost+LostMat.", "Recall = Notif+Log+RetailPen+Brand. Fine = Prob×Fine."],assumptionNotes_i18n:[{"en":"Hold = Vol×Cost×Days. Test = Samples×LabCost.","tr":"Hold = Vol×Cost×Days. Test = Samples×LabCost."},{"en":"Rework = Vol×ReworkCost. Disp = CondVol×DispCost+LostMat.","tr":"Rework = Vol×ReworkCost. Disp = CondVol×DispCost+LostMat."},{"en":"Recall = Notif+Log+RetailPen+Brand. Fine = Prob×Fine.","tr":"Recall = Notif+Log+RetailPen+Brand. Fine = Prob×Fine."}] },

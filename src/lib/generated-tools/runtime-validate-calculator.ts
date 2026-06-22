@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
+import { createRequire } from "node:module";
 import { generatedCalculateExport } from "@/lib/generated-tools/export-names";
 
 export type RuntimeValidationStatus = "PASS" | "FAIL";
@@ -111,8 +111,8 @@ export async function runtimeValidateCalculator(
   const testInput = buildTestInputFromSchema(schema);
 
   try {
-    const moduleUrl = pathToFileURL(modulePath).href;
-    const mod = (await import(moduleUrl)) as Record<string, unknown>;
+    const requireFn = createRequire(modulePath);
+    const mod = requireFn(modulePath) as Record<string, unknown>;
     const calculateKey = generatedCalculateExport(slug);
     const calculateFn = mod[calculateKey] ?? mod.calculate;
 

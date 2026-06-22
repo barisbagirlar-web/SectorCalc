@@ -21,11 +21,27 @@ export const COMPRESSOR_TANK_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "motorStartCheck", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "Motor start limit aşıldı — tank hacmi artırılmalı.", warningMessage_i18n: {"en":"Motor start limit aşıldı — tank hacmi artırılmalı.","tr":"Motor start limit aşıldı — tank hacmi artırılmalı."}, criticalMessage: "" }],
   formulaPipeline: [
-    { formulaId: "measurement.tank_required_vol", inputMap: { fillTimeTarget: "fillTimeTarget", airFlow: "airFlow", maxPressure: "maxPressure", minPressure: "minPressure" }, outputId: "requiredTankVol" },
-    { formulaId: "measurement.tank_cycle_time", inputMap: { requiredTankVol: "requiredTankVol", maxPressure: "maxPressure", minPressure: "minPressure", airFlow: "airFlow" }, outputId: "cycleTime" },
+    { formulaId: "measurement.tank_required_vol", inputMap: {
+        demand: "fillTimeTarget",
+        reserveDays: "airFlow",
+        maxPressure: "maxPressure",
+        minPressure: "minPressure"
+      }, outputId: "requiredTankVol" },
+    { formulaId: "measurement.tank_cycle_time", inputMap: {
+        tankCapacity: "requiredTankVol",
+        feedRate: "maxPressure",
+        minPressure: "minPressure",
+        airFlow: "airFlow"
+      }, outputId: "cycleTime" },
     { formulaId: "measurement.tank_cycles_per_hour", inputMap: { cycleTime: "cycleTime" }, outputId: "cyclesPerHour" },
-    { formulaId: "measurement.tank_motor_check", inputMap: { cyclesPerHour: "cyclesPerHour", maxStartsPerHour: "maxStartsPerHour" }, outputId: "motorStartCheck" },
-    { formulaId: "cost.tank_cost", inputMap: { requiredTankVol: "requiredTankVol", pricePerLiter: "pricePerLiter" }, outputId: "tankCost" },
+    { formulaId: "measurement.tank_motor_check", inputMap: {
+        requiredPower: "cyclesPerHour",
+        motorPower: "maxStartsPerHour"
+      }, outputId: "motorStartCheck" },
+    { formulaId: "cost.tank_cost", inputMap: {
+        tankCapacity: "requiredTankVol",
+        costPerUnitVol: "pricePerLiter"
+      }, outputId: "tankCost" },
   ],
   reportTemplate: { title: "Kompresör Tankı Raporu", title_i18n: {"en":"Kompresör Tankı Raporu","tr":"Kompresör Tankı Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["Tank = t×Q×Patm / (Pmax - Pmin).", "Çevrim = Tank×(Pmax-Pmin) / (Q×Patm).", "Motor start < maxStart/saat."],assumptionNotes_i18n:[{"en":"Tank = t×Q×Patm / (Pmax - Pmin).","tr":"Tank = t×Q×Patm / (Pmax - Pmin)."},{"en":"Çevrim = Tank×(Pmax-Pmin) / (Q×Patm).","tr":"Çevrim = Tank×(Pmax-Pmin) / (Q×Patm)."},{"en":"Motor start < maxStart/saat.","tr":"Motor start < maxStart/saat."}] },

@@ -77,7 +77,7 @@ function normSInv(p: number): number {
   const d = [7.784695709041462e-3, 3.224671290700398e-1,
     2.445134137142996e+0, 3.754408661907416e+0];
   
-  let q = p - 0.5;
+  const q = p - 0.5;
   if (Math.abs(q) <= 0.425) {
     const r = 0.180625 - q * q;
     return q * (((((a[5] * r + a[4]) * r + a[3]) * r + a[2]) * r + a[1]) * r + a[0]) /
@@ -86,7 +86,7 @@ function normSInv(p: number): number {
   const r = q < 0 ? p : 1 - p;
   if (r <= 0) return q < 0 ? -6 : 6;
   const rSqrt = Math.sqrt(-2 * Math.log(r));
-  let z = (((((c[5] * rSqrt + c[4]) * rSqrt + c[3]) * rSqrt + c[2]) * rSqrt + c[1]) * rSqrt + c[0]) /
+  const z = (((((c[5] * rSqrt + c[4]) * rSqrt + c[3]) * rSqrt + c[2]) * rSqrt + c[1]) * rSqrt + c[0]) /
     ((((d[3] * rSqrt + d[2]) * rSqrt + d[1]) * rSqrt + d[0]) * rSqrt + 1);
   return q < 0 ? -z : z;
 }

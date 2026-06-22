@@ -28,11 +28,35 @@ export const ROI_NPV_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "paybackPeriodInv", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Geri ödeme > 3 yıl — nakit akışı dikkatle izlenmeli.", warningMessage_i18n: {"en":"Payback > 3 years — cash flow should be monitored closely.","tr":"Geri ödeme > 3 yıl — nakit akışı dikkatle izlenmeli."}, criticalMessage: "Geri ödeme > 5 yıl — yatırımın likidite riski yüksek.", criticalMessage_i18n: {"en":"Payback > 5 years — investment has high liquidity risk.","tr":"Geri ödeme > 5 yıl — yatırımın likidite riski yüksek."} },
   ],
   formulaPipeline: [
-    { formulaId: "cost.roi_investment", inputMap: { initialInvestment: "initialInvestment", annualCashflow: "annualCashflow", projectLifeYears: "projectLifeYears", operatingCostAnnual: "operatingCostAnnual" }, outputId: "roiInvestment" },
-    { formulaId: "cost.npv_investment", inputMap: { initialInvestment: "initialInvestment", annualCashflow: "annualCashflow", discountRate: "discountRate", projectLifeYears: "projectLifeYears", purchaseResidualAmt: "residualValue", operatingCostAnnual: "operatingCostAnnual" }, outputId: "npvInvestment" },
-    { formulaId: "cost.irr_investment", inputMap: { initialInvestment: "initialInvestment", annualCashflow: "annualCashflow", projectLifeYears: "projectLifeYears", operatingCostAnnual: "operatingCostAnnual" }, outputId: "irrInvestment" },
-    { formulaId: "cost.payback_period_inv", inputMap: { initialInvestment: "initialInvestment", annualCashflow: "annualCashflow", operatingCostAnnual: "operatingCostAnnual" }, outputId: "paybackPeriodInv" },
-    { formulaId: "cost.profitability_index", inputMap: { npvInvestment: "npvInvestment", initialInvestment: "initialInvestment" }, outputId: "profitabilityIndex" },
+    { formulaId: "cost.roi_investment", inputMap: {
+        initialInvestment: "initialInvestment",
+        netProfit: "annualCashflow",
+        projectLifeYears: "projectLifeYears",
+        operatingCostAnnual: "operatingCostAnnual"
+      }, outputId: "roiInvestment" },
+    { formulaId: "cost.npv_investment", inputMap: {
+        initialInvestment: "initialInvestment",
+        annualCashFlowNpv: "annualCashflow",
+        discountRateNpv: "discountRate",
+        lifeYearsNpv: "projectLifeYears",
+        purchaseResidualAmt: "residualValue",
+        operatingCostAnnual: "operatingCostAnnual"
+      }, outputId: "npvInvestment" },
+    { formulaId: "cost.irr_investment", inputMap: {
+        initialInvestment: "initialInvestment",
+        annualCashFlowNpv: "annualCashflow",
+        projectLifeYears: "projectLifeYears",
+        operatingCostAnnual: "operatingCostAnnual"
+      }, outputId: "irrInvestment" },
+    { formulaId: "cost.payback_period_inv", inputMap: {
+        initialInvestment: "initialInvestment",
+        annualCashFlowNpv: "annualCashflow",
+        operatingCostAnnual: "operatingCostAnnual"
+      }, outputId: "paybackPeriodInv" },
+    { formulaId: "cost.profitability_index", inputMap: {
+        discountRate: "npvInvestment",
+        initialInv: "initialInvestment"
+      }, outputId: "profitabilityIndex" },
   ],
   reportTemplate: { title: "YG ve NBD Analiz Raporu", title_i18n: {"en":"ROI and NPV Analysis Report","tr":"YG ve NBD Analiz Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "sensitivity", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["NPV = Σ (nakit akışı / (1+r)^t) - yatırım.", "IRR, NPV'yi sıfırlayan iskonto oranıdır.", "ROI = (toplam net kâr / yatırım) × 100.", "Geri ödeme süresi nakit akışlarının kümülatif toplamına dayanır."],assumptionNotes_i18n:[{"en":"NPV = Σ (cash flow / (1+r)^t) - investment.","tr":"NPV = Σ (nakit akışı / (1+r)^t) - yatırım."},{"en":"IRR is the discount rate that makes NPV zero.","tr":"IRR, NPV'yi sıfırlayan iskonto oranıdır."},{"en":"ROI = (total net profit / investment) × 100.","tr":"ROI = (toplam net kâr / yatırım) × 100."},{"en":"Payback period is based on cumulative cash flows.","tr":"Geri ödeme süresi nakit akışlarının kümülatif toplamına dayanır."}] },

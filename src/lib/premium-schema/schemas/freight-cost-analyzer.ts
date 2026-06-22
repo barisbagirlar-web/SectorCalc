@@ -25,13 +25,31 @@ export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "totalFreightCost", warning: 3000, critical: 8000, direction: "higher_is_bad", warningMessage: "Toplam navlun > $3K — alternatif taşımacılık modları değerlendirilmeli.", warningMessage_i18n: {"en":"Toplam navlun > $3K — alternatif taşımacılık modları değerlendirilmeli.","tr":"Toplam navlun > $3K — alternatif taşımacılık modları değerlendirilmeli."}, criticalMessage: "Toplam navlun > $8K — lojistik ihalesi yenilenmeli.", criticalMessage_i18n: {"en":"Toplam navlun > $8K — lojistik ihalesi yenilenmeli.","tr":"Toplam navlun > $8K — lojistik ihalesi yenilenmeli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.chargeable_weight", inputMap: { grossWeight: "grossWeight", volumeM3: "volumeM3" }, outputId: "chargeableWeight" },
-    { formulaId: "cost.base_freight", inputMap: { chargeableWeight: "chargeableWeight", baseRate: "baseRate" }, outputId: "baseFreight" },
+    { formulaId: "measurement.chargeable_weight", inputMap: {
+        actualWeight: "grossWeight",
+        volumetricWeight: "volumeM3"
+      }, outputId: "chargeableWeight" },
+    { formulaId: "cost.base_freight", inputMap: {
+        chargeableWeight: "chargeableWeight",
+        ratePerKg: "baseRate"
+      }, outputId: "baseFreight" },
     { formulaId: "cost.bunker_surcharge", inputMap: { baseFreight: "baseFreight", bunkerPct: "bunkerPct" }, outputId: "bunkerSurcharge" },
-    { formulaId: "cost.terminal_handling", inputMap: { terminalFee: "terminalFee" }, outputId: "terminalCost" },
-    { formulaId: "cost.customs_clearance", inputMap: { customsFee: "customsFee" }, outputId: "customsCost" },
-    { formulaId: "cost.total_freight_cost", inputMap: { baseFreight: "baseFreight", bunkerSurcharge: "bunkerSurcharge", terminalCost: "terminalCost", customsCost: "customsCost" }, outputId: "totalFreightCost" },
-    { formulaId: "measurement.freight_cost_per_unit", inputMap: { totalFreightCost: "totalFreightCost", chargeableWeight: "chargeableWeight" }, outputId: "costPerUnit" },
+    { formulaId: "cost.terminal_handling", inputMap: {
+        chargeableWeight: "terminalFee"
+      }, outputId: "terminalCost" },
+    { formulaId: "cost.customs_clearance", inputMap: {
+        declaredValue: "customsFee"
+      }, outputId: "customsCost" },
+    { formulaId: "cost.total_freight_cost", inputMap: {
+        baseFreight: "baseFreight",
+        bunkerSurcharge: "bunkerSurcharge",
+        terminalHandling: "terminalCost",
+        customsClearance: "customsCost"
+      }, outputId: "totalFreightCost" },
+    { formulaId: "measurement.freight_cost_per_unit", inputMap: {
+        totalFreightCost: "totalFreightCost",
+        unitCount: "chargeableWeight"
+      }, outputId: "costPerUnit" },
   ],
   reportTemplate: { title: "Freight Cost Analysis Report", title_i18n: {"en":"Freight Cost Analysis Report","tr":"Freight Cost Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Taşınabilir ağırlık = max(brüt ağırlık, hacim × 167).", "Bunker = baz navlun × bunker yüzdesi.", "Toplam = baz + bunker + terminal + gümrük."],assumptionNotes_i18n:[{"en":"Taşınabilir ağırlık = max(brüt ağırlık, hacim × 167).","tr":"Taşınabilir ağırlık = max(brüt ağırlık, hacim × 167)."},{"en":"Bunker = baz navlun × bunker yüzdesi.","tr":"Bunker = baz navlun × bunker yüzdesi."},{"en":"Toplam = baz + bunker + terminal + gümrük.","tr":"Toplam = baz + bunker + terminal + gümrük."}] },

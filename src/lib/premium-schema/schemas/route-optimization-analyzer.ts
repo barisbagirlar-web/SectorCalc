@@ -23,8 +23,14 @@ export const ROUTE_OPTIMIZATION_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "efficiencyScore", warning: 75, critical: 50, direction: "lower_is_bad", warningMessage: "Verimlilik <%75 — rota optimizasyonu önerilir.", warningMessage_i18n: {"en":"Efficiency < 75% — route optimization recommended.","tr":"Verimlilik <%75 — rota optimizasyonu önerilir."}, criticalMessage: "Verimlilik <%50 — acil rota iyileştirmesi gerekli.", criticalMessage_i18n: {"en":"Efficiency < 50% — urgent route improvement needed.","tr":"Verimlilik <%50 — acil rota iyileştirmesi gerekli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.route_nearest_neighbor", inputMap: { numStops: "numStops", totalDistance: "totalDistance" }, outputId: "nearestNeighborDist" },
-    { formulaId: "measurement.route_clarke_wright", inputMap: { numStops: "numStops", totalDistance: "totalDistance" }, outputId: "clarkeWrightDist" },
+    { formulaId: "measurement.route_nearest_neighbor", inputMap: {
+        minDistance: "numStops",
+        totalDistance: "totalDistance"
+      }, outputId: "nearestNeighborDist" },
+    { formulaId: "measurement.route_clarke_wright", inputMap: {
+        depotDistA: "numStops",
+        depotDistB: "totalDistance"
+      }, outputId: "clarkeWrightDist" },
     { formulaId: "measurement.route_efficiency_score", inputMap: { nearestNeighborDist: "nearestNeighborDist", clarkeWrightDist: "clarkeWrightDist" }, outputId: "efficiencyScore" },
     { formulaId: "cost.route_total_savings", inputMap: { totalDistance: "totalDistance", fuelCostPerKm: "fuelCostPerKm", driverCostPerHour: "driverCostPerHour", avgSpeed: "avgSpeed", vehicleCount: "vehicleCount", workingDaysPerYear: "workingDaysPerYear", efficiencyScore: "efficiencyScore" }, outputId: "totalSavings" },
   ],

@@ -27,7 +27,13 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "preheatEnergyCost", warning: 500, critical: 1500, direction: "higher_is_bad", warningMessage: "Ön ısıtma maliyeti > $500 — enerji verimliliği değerlendirilmeli.", warningMessage_i18n: {"en":"Ön ısıtma maliyeti > $500 — enerji verimliliği değerlendirilmeli.","tr":"Ön ısıtma maliyeti > $500 — enerji verimliliği değerlendirilmeli."}, criticalMessage: "Ön ısıtma maliyeti > $1,500 — alternatif kaynak yöntemleri araştırılmalı.", criticalMessage_i18n: {"en":"Ön ısıtma maliyeti > $1,500 — alternatif kaynak yöntemleri araştırılmalı.","tr":"Ön ısıtma maliyeti > $1,500 — alternatif kaynak yöntemleri araştırılmalı."} },
   ],
   formulaPipeline: [
-    { formulaId: "measurement.carbon_equivalent", inputMap: { carbonContent: "carbonContent", manganeseContent: "manganeseContent", chromiumContent: "chromiumContent", molybdenumContent: "molybdenumContent", nickelContent: "nickelContent" }, outputId: "carbonEquivalent" },
+    { formulaId: "measurement.carbon_equivalent", inputMap: {
+        carbonContent: "carbonContent",
+        manganeseContent: "manganeseContent",
+        chromiumContent: "chromiumContent",
+        molybdenumContent: "molybdenumContent",
+        nickelContent: "nickelContent"
+      }, outputId: "carbonEquivalent" },
     { formulaId: "measurement.preheat_required", inputMap: { carbonEquivalent: "carbonEquivalent", materialThickness: "materialThickness" }, outputId: "preheatRequired" },
     { formulaId: "cost.preheat_energy_cost", inputMap: { preheatRequired: "preheatRequired", materialThickness: "materialThickness", energyCostPerKwh: "energyCostPerKwh", weldLength: "weldLength" }, outputId: "preheatEnergyCost" },
     { formulaId: "measurement.crack_risk_score", inputMap: { carbonEquivalent: "carbonEquivalent", materialThickness: "materialThickness" }, outputId: "crackRisk" },

@@ -27,7 +27,12 @@ export const SCAFFOLD_RENTAL_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.scaffold_area", inputMap: { buildingPerimeter: "buildingPerimeter", buildingHeight: "buildingHeight" }, outputId: "scaffoldArea" },
     { formulaId: "cost.scaffold_rental", inputMap: { scaffoldArea: "scaffoldArea", rentalRatePerM2: "rentalRatePerM2", rentalDuration: "rentalDuration" }, outputId: "rental" },
     { formulaId: "cost.scaffold_labor", inputMap: { scaffoldArea: "scaffoldArea", erectionRate: "erectionRate", dismantleRate: "dismantleRate" }, outputId: "laborCost" },
-    { formulaId: "cost.scaffold_total", inputMap: { rental: "rental", laborCost: "laborCost", transportCost: "transportCost", overrunCost: "overrunCost" }, outputId: "total" },
+    { formulaId: "cost.scaffold_total", inputMap: {
+        rental: "rental",
+        laborCost: "laborCost",
+        transportCost: "transportCost",
+        area: "overrunCost"
+      }, outputId: "total" },
   ],
   reportTemplate: { title: "Scaffold Rental Cost Report", title_i18n: {"en":"Scaffold Rental Cost Report","tr":"İskele Kiralama Maliyet Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Area = Perimeter × Height.", "Rental = Area×Rate×Dur. Labor = Area×(Erect+Dism).", "Total = Rental+Labor+Transport+Overrun."],assumptionNotes_i18n:[{"en":"Area = Perimeter × Height.","tr":"Area = Perimeter × Height."},{"en":"Rental = Area×Rate×Dur. Labor = Area×(Erect+Dism).","tr":"Rental = Area×Rate×Dur. Labor = Area×(Erect+Dism)."},{"en":"Total = Rental+Labor+Transport+Overrun.","tr":"Total = Rental+Labor+Transport+Overrun."}] },

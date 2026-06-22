@@ -30,7 +30,11 @@ export const CPM_DELAY_SCHEMA: PremiumCalculatorSchema = {
   ],
   formulaPipeline: [
     { formulaId: "measurement.cpm_critical_delay", inputMap: { actualDuration: "actualDuration", plannedDuration: "plannedDuration", totalFloat: "totalFloat" }, outputId: "criticalDelay" },
-    { formulaId: "measurement.cpm_non_excusable", inputMap: { criticalDelay: "criticalDelay", forceMajeure: "forceMajeure", ownerCaused: "ownerCaused" }, outputId: "nonExcusable" },
+    { formulaId: "measurement.cpm_non_excusable", inputMap: {
+        criticalDelay: "criticalDelay",
+        excusableDelay: "forceMajeure",
+        ownerCaused: "ownerCaused"
+      }, outputId: "nonExcusable" },
     { formulaId: "cost.cpm_liquidated_damages", inputMap: { nonExcusable: "nonExcusable", dailyPenalty: "dailyPenalty" }, outputId: "liquidatedDamages" },
     { formulaId: "cost.cpm_net_penalty", inputMap: { liquidatedDamages: "liquidatedDamages", accelerationCost: "accelerationCost" }, outputId: "netPenalty" },
     { formulaId: "measurement.cpm_eot_claim", inputMap: { excusableDelay: "excusableDelay", effFactor: "effFactor" }, outputId: "eotClaim" },

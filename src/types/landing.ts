@@ -181,7 +181,7 @@ export interface LandingContent {
     placeholder: string;
   };
 
-  /** New two-column hero fields */
+  /** New two-column hero */
   heroNew?: {
     headline: string;
     subtitle: string;
@@ -205,5 +205,51 @@ export interface LandingContent {
     card3Desc: string;
     card4Title: string;
     card4Desc: string;
+  };
+
+  /** Free vs Pro comparison */
+  freeVsPro?: {
+    title: string;
+    freeTitle: string;
+    freeTools: string;
+    freeCta: string;
+    proTitle: string;
+    proTools: string;
+    proCta: string;
+    feat1: string;
+    feat2: string;
+    feat3: string;
+    feat4: string;
+    feat5: string;
+  };
+
+  /** Why Professionals Pay */
+  whyPro?: {
+    title: string;
+    card1Title: string;
+    card1Desc: string;
+    card2Title: string;
+    card2Desc: string;
+    card3Title: string;
+    card3Desc: string;
+    card4Title: string;
+    card4Desc: string;
+  };
+
+  /** Category cards — Problem → Tools → Pro Output */
+  categories2?: Array<{
+    id: string;
+    name: string;
+    problem: string;
+    tools: string;
+    proOutput: string;
+    href: string;
+  }>;
+
+  /** Pricing bridge */
+  pricingBridge?: {
+    text: string;
+    cta: string;
+    ctaHref: string;
   };
 }

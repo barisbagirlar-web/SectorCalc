@@ -68893,11 +68893,11 @@
       "search": "Buscar",
       "tryLabel": "Prueba:",
       "chipOee": "OEE",
-      "chipEoq": "📦 EOQ",
+      "chipEoq": "📦 EOQ (Cantidad Económica de Pedido)",
       "chipIrr": "TIR",
       "chipCpk": "Cpk",
-      "chipLmtd": "🌡️ LMTD",
-      "chipMtbf": "🔧 MTBF"
+      "chipLmtd": "🌡️ DMLT",
+      "chipMtbf": "🔧 MTBF (Tiempo Medio Entre Fallos)"
     },
     "metrics": {
       "proCalculators": "Calculadoras Pro",
@@ -68908,19 +68908,19 @@
     "ticker": {
       "label": "Más usados",
       "toolOee": "Calculadora OEE",
-      "toolEoq": "📦 EOQ",
+      "toolEoq": "📦 EOQ (Cantidad Económica de Pedido)",
       "toolIrrNpv": "TIR / VAN",
-      "toolCpkSigma": "Cpk / Sigma",
+      "toolCpkSigma": "Cpk / Sigma (Índice de Capacidad del Proceso / Sigma)",
       "toolTaktTime": "⏱️ Tiempo de Takt",
       "toolBoltTorque": "Par de apriete",
-      "toolLmtd": "🌡️ LMTD",
-      "toolMtbfMttr": "🔧 MTBF / MTTR",
+      "toolLmtd": "🌡️ DMLT",
+      "toolMtbfMttr": "🔧 MTBF / MTTR (Tiempo Medio Entre Fallos / Tiempo Medio de Reparación)",
       "toolBreakEven": "📉 Punto de equilibrio",
       "toolKanban": "Tarjetas Kanban",
       "toolPipePressure": "💧 Pérdida de carga",
       "toolCarbon": "🌿 Huella de carbono",
       "toolCompressor": "Potencia del compresor",
-      "toolPertCpm": "PERT / CPM",
+      "toolPertCpm": "PERT / CPM (Técnica de Revisión y Evaluación de Programas / Método de la Ruta Crítica)",
       "badgePro": "PRO",
       "badgeFree": "GRATIS"
     },
@@ -68967,16 +68967,16 @@
       "title": "Quién usa Sector<span class=\"audience-title__calc\">Calc</span>",
       "persona1Role": "Ingenieros Industriales",
       "persona1Desc": "OEE, balanceo de línea, estudio de tiempos, SMED, ergonomía y planificación de capacidad en planta.",
-      "persona1Tags": "OEE, Takt Time, NIOSH, REBA, VSM",
+      "persona1Tags": "OEE, Takt Time, NIOSH, REBA, VSM (Eficiencia General de los Equipos, Tiempo Takt, NIOSH, REBA, Mapa de la Cadena de Valor)",
       "persona2Role": "Finanzas & Operaciones",
       "persona2Desc": "ROI, VAN, TIR, capital de trabajo, modelos de costos de inventario y análisis de punto de equilibrio.",
       "persona2Tags": "TIR, VAN, WACC, EOQ, DCF",
       "persona3Role": "Ingenieros de Calidad",
       "persona3Desc": "Capacidad de proceso, puntuación de riesgo FMEA, gráficos de control, análisis de sistemas de medición y muestreo.",
-      "persona3Tags": "Cpk, DPMO, FMEA, AQL, Gage R&R",
+      "persona3Tags": "Cpk, DPMO, FMEA, AQL, Gage R&R (Índice de Capacidad del Proceso, Defectos por Millón de Oportunidades, Análisis de Modos y Efectos de Fallo, Nivel de Calidad Aceptable, Repetibilidad y Reproducibilidad del Sistema de Medición)",
       "persona4Role": "Ingenieros Mecánicos",
       "persona4Desc": "Recipientes a presión, par de apriete, intercambiadores de calor, sistemas hidráulicos y parámetros de corte CNC.",
-      "persona4Tags": "ASME UG-27, LMTD, VDI 2230, CNC"
+      "persona4Tags": "ASME UG-27, DMLT, VDI 2230, CNC"
     },
     "pricing": {
       "eyebrow": "Planes",
@@ -69014,7 +69014,7 @@
       "tagIso": "ISO 9001",
       "tagAsme": "ASME",
       "tagGhg": "Protocolo GEI",
-      "tagAiag": "AIAG FMEA",
+      "tagAiag": "AIAG FMEA (Análisis de Modos y Efectos de Fallo según AIAG)",
       "tagVdi": "VDI 2230",
       "tagEn": "EN 12101",
       "tagIec": "IEC 60890",
@@ -69055,6 +69055,112 @@
       "chipPayback": "💰 Periodo de retorno",
       "chipBolt": "Par de apriete",
       "placeholder": "ej. calcular MTBF para 3 máquinas…"
+    },
+    "heroNew": {
+      "headline": "Calculadoras de calidad técnica que convierten datos industriales en decisiones.",
+      "subtitle": "Calculadoras de fabricación, finanzas, energía, logística y calidad con fórmulas transparentes, supuestos documentados e informes Pro.",
+      "ctaPrimary": "Probar una calculadora gratuita",
+      "ctaSecondary": "Ver un ejemplo de informe Pro"
+    },
+    "trustBar": {
+      "items": [
+        "{toolCount} calculadoras · {freeCount} gratis · {proCount} Pro",
+        "Fórmulas referenciadas ISO, ASME, IEC",
+        "Cálculos del lado del navegador",
+        "6 idiomas",
+        "Exportación PDF para herramientas Pro"
+      ]
+    },
+    "whatDoes": {
+      "title": "Del cálculo rápido a la decisión documentada.",
+      "card1Title": "Calcular",
+      "card1Desc": "Use calculadoras gratuitas para estimaciones operativas rápidas.",
+      "card2Title": "Validar",
+      "card2Desc": "Revise fórmulas, supuestos y límites conocidos.",
+      "card3Title": "Comparar",
+      "card3Desc": "Ejecute escenarios Pro y análisis de sensibilidad.",
+      "card4Title": "Exportar",
+      "card4Desc": "Descargue un informe PDF listo para decisiones."
+    },
+    "freeVsPro": {
+      "title": "Gratis para empezar. Pro para profundizar.",
+      "freeTitle": "Gratis",
+      "freeTools": "{freeCount} calculadoras estándar",
+      "freeCta": "Explorar herramientas gratis",
+      "proTitle": "Pro",
+      "proTools": "{proCount} herramientas técnicas avanzadas",
+      "proCta": "Obtener acceso Pro",
+      "feat1": "Fórmulas referenciadas ISO/ASME",
+      "feat2": "Notas de fórmula y derivaciones",
+      "feat3": "Exportación de informe PDF",
+      "feat4": "Análisis de sensibilidad y escenarios",
+      "feat5": "6 idiomas"
+    },
+    "whyPro": {
+      "title": "Por qué los profesionales pagan por SectorCalc",
+      "card1Title": "Informes PDF listos para decisiones",
+      "card1Desc": "Exporte un cálculo completo con entradas, fórmulas, supuestos, resultados y recomendaciones. Listo para revisión o adjunto.",
+      "card2Title": "Transparencia de fórmulas",
+      "card2Desc": "Cada herramienta Pro enlaza a su estándar fuente — ISO, ASME, IEC. Ve la derivación, no solo el resultado.",
+      "card3Title": "Sensibilidad y escenarios",
+      "card3Desc": "Ejecute escenarios hipotéticos en sus variables clave. Vea cómo los cambios en las entradas afectan los resultados antes de decidir.",
+      "card4Title": "Ningún dato sale de su navegador",
+      "card4Desc": "Todos los cálculos se ejecutan del lado del cliente. Sus datos de ingeniería permanecen en su máquina. Sin subidas, sin servidores, sin seguimiento."
+    },
+    "categories2": [
+      {
+        "id": "manufacturing",
+        "name": "Fabricación & OEE",
+        "problem": "OEE desconocido, paradas no planificadas, líneas desequilibradas, pérdidas de capacidad ocultas.",
+        "tools": "Calculadora OEE, Takt Time, Balanceo de línea, SMED, Eficiencia general de ciclo",
+        "proOutput": "Análisis PDF de pérdidas con clasificación de factores, estimación mensual de pérdidas ($), plan de acción recomendado",
+        "href": "/categories/manufacturing"
+      },
+      {
+        "id": "costing",
+        "name": "Costeo & Cotización",
+        "problem": "Estimaciones inconsistentes, asignación de gastos generales faltante, análisis de punto de equilibrio inexacto.",
+        "tools": "Análisis de punto de equilibrio, Costo unitario, Costeo objetivo, Precio de costo más margen, Modelo de costo estimado",
+        "proOutput": "Informe de desglose de costos con tabla de sensibilidad de margen, rango de precios ajustado al riesgo",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "finance",
+        "name": "Finanzas & Inversión",
+        "problem": "ROI incierto, VAN poco clara, supuestos de presupuesto de capital incompletos.",
+        "tools": "VAN, TIR, Período de recuperación, WACC, Valoración DCF, Tasa de capitalización, Análisis de flujo de caja",
+        "proOutput": "Memo de inversión con comparación de escenarios, gráfico de sensibilidad TIR/VAN, matriz de decisión",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "quality",
+        "name": "Calidad & Confiabilidad",
+        "problem": "Altas tasas de defectos, capacidad de proceso desconocida, datos de calidad de proveedores no confiables.",
+        "tools": "Cpk/Ppk, Six Sigma DPMO, NPR FMEA, Gage R&R, Muestreo AQL, MTBF/MTTR",
+        "proOutput": "Informe de capacidad con intervalo de confianza Cpk, proyección de costos de defectos, matriz de priorización de mejora",
+        "href": "/categories/quality"
+      },
+      {
+        "id": "energy",
+        "name": "Energía & Sostenibilidad",
+        "problem": "Costos energéticos crecientes, huella de carbono poco clara, sin planificación de escenarios de reducción.",
+        "tools": "Huella de carbono, Análisis de costos energéticos, Intercambiador de calor DMLT, Carga HVAC, Retorno solar",
+        "proOutput": "Resumen de auditoría energética con escenarios de reducción de CO₂, tabla comparativa de costos vs ahorros",
+        "href": "/categories/energy"
+      },
+      {
+        "id": "logistics",
+        "name": "Logística & Inventario",
+        "problem": "Sobreinventario, desabastecimientos frecuentes, alto costo de mantenimiento, sin disciplina EOQ.",
+        "tools": "EOQ, Stock de seguridad, Punto de reorden, Rotación de inventario, Espacio de almacén, Costo de flete",
+        "proOutput": "Informe de optimización de inventario con análisis de frecuencia de pedidos, comparación TCO, recomendación de buffer de riesgo",
+        "href": "/categories/logistics"
+      }
+    ],
+    "pricingBridge": {
+      "text": "Desde $1.99 por cálculo Pro. Paquetes de crédito disponibles. Sin suscripción requerida.",
+      "cta": "Ver precios Pro",
+      "ctaHref": "/pricing"
     }
   }
 }

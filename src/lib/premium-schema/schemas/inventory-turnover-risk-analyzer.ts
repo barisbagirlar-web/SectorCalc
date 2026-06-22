@@ -26,7 +26,11 @@ export const INVENTORY_TURNOVER_RISK_ANALYZER: PremiumCalculatorSchema = {
     { formulaId: "measurement.inventory_turnover_ratio", inputMap: { annualCogs: "annualCogs", avgInventory: "avgInventory" }, outputId: "inventoryTurnoverRatio" },
     { formulaId: "measurement.dsi_days", inputMap: { daysInPeriod: "daysInPeriod", inventoryTurnoverRatio: "inventoryTurnoverRatio" }, outputId: "dsiDays" },
     { formulaId: "cost.obsolescence_risk_cost", inputMap: { avgInventory: "avgInventory", obsolescenceRate: "obsolescenceRate" }, outputId: "obsolescenceRiskCost" },
-    { formulaId: "cost.liquidation_loss", inputMap: { inventoryUnitCount: "inventoryUnitCount", avgSellingPrice: "avgSellingPrice", liquidationDiscount: "liquidationDiscount" }, outputId: "liquidationLoss" },
+    { formulaId: "cost.liquidation_loss", inputMap: {
+        slowMovingInv: "inventoryUnitCount",
+        salvagePct: "avgSellingPrice",
+        liquidationDiscount: "liquidationDiscount"
+      }, outputId: "liquidationLoss" },
   ],
   reportTemplate: { title: "Stok Devir Hızı ve Risk Raporu", title_i18n: {"en":"Stok Devir Hızı ve Risk Raporu","tr":"Stok Devir Hızı ve Risk Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Stok devir = SMM / ortalama stok. DSI = gün / devir.", "Eskime risk maliyeti = stok × eskime oranı.", "Tasfiye zararı = adet × fiyat × iskonto oranı.", "OEM stokları ortalama 4-6 tur/yıl hedefler."],assumptionNotes_i18n:[{"en":"Stok devir = SMM / ortalama stok. DSI = gün / devir.","tr":"Stok devir = SMM / ortalama stok. DSI = gün / devir."},{"en":"Eskime risk maliyeti = stok × eskime oranı.","tr":"Eskime risk maliyeti = stok × eskime oranı."},{"en":"Tasfiye zararı = adet × fiyat × iskonto oranı.","tr":"Tasfiye zararı = adet × fiyat × iskonto oranı."},{"en":"OEM stokları ortalama 4-6 tur/yıl hedefler.","tr":"OEM stokları ortalama 4-6 tur/yıl hedefler."}] },

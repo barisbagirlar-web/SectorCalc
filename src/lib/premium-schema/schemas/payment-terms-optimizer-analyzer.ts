@@ -31,7 +31,10 @@ export const PAYMENT_TERMS_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.bad_debt_expense", inputMap: { annualRevenue: "annualRevenue", badDebtRate: "badDebtRate" }, outputId: "badDebtExpense" },
     { formulaId: "cost.discount_cost", inputMap: { annualRevenue: "annualRevenue", discountRate: "discountRate", discountTakeRate: "discountTakeRate" }, outputId: "discountCost" },
     { formulaId: "measurement.cash_flow_impact_terms", inputMap: { currentTerms: "currentTerms", proposedTerms: "proposedTerms", annualRevenue: "annualRevenue" }, outputId: "cashFlowImpact" },
-    { formulaId: "cost.npv_terms", inputMap: { cashFlowImpact: "cashFlowImpact", costOfCapital: "costOfCapital" }, outputId: "npvTerms" },
+    { formulaId: "cost.npv_terms", inputMap: {
+        cashFlowImpact: "cashFlowImpact",
+        discountRate: "costOfCapital"
+      }, outputId: "npvTerms" },
   ],
   reportTemplate: { title: "Payment Terms Optimization Report", title_i18n: {"en":"Payment Terms Optimization Report","tr":"Payment Terms Optimization Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 5, targetMarginPercent: 15, assumptionNotes: ["DSO = (Ort. Alacak / Gelir) × 365.", "Taşıma maliyeti = Alacak × Sermaye Maliyeti.", "İskonto maliyeti = Gelir × İskonto × Kullanım.", "NBD = nakit akış etkisi / (1 + r)^t."],assumptionNotes_i18n:[{"en":"DSO = (Ort. Alacak / Gelir) × 365.","tr":"DSO = (Ort. Alacak / Gelir) × 365."},{"en":"Taşıma maliyeti = Alacak × Sermaye Maliyeti.","tr":"Taşıma maliyeti = Alacak × Sermaye Maliyeti."},{"en":"İskonto maliyeti = Gelir × İskonto × Kullanım.","tr":"İskonto maliyeti = Gelir × İskonto × Kullanım."},{"en":"NBD = nakit akış etkisi / (1 + r)^t.","tr":"NBD = nakit akış etkisi / (1 + r)^t."}] },

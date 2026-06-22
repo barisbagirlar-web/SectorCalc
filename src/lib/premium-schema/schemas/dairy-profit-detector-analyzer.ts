@@ -22,8 +22,18 @@ export const DAIRY_PROFIT_DETECTOR_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "dairyIncomeOverFeed", warning: 3, critical: 1.5, direction: "lower_is_bad", warningMessage: "Yem üzeri gelir <$3/inek/gün — kârlılık daralıyor.", warningMessage_i18n: {"en":"Yem üzeri gelir <$3/inek/gün — kârlılık daralıyor.","tr":"Yem üzeri gelir <$3/inek/gün — kârlılık daralıyor."}, criticalMessage: "Yem üzeri gelir <$1.5/inek/gün — işletme zarar riski yüksek.", criticalMessage_i18n: {"en":"Yem üzeri gelir <$1.5/inek/gün — işletme zarar riski yüksek.","tr":"Yem üzeri gelir <$1.5/inek/gün — işletme zarar riski yüksek."} }],
   formulaPipeline: [
-    { formulaId: "measurement.fcm_milk", inputMap: { milkYieldPerCow: "milkYieldPerCow", milkFatPct: "milkFatPct", milkProteinPct: "milkProteinPct" }, outputId: "fcmMilk" },
-    { formulaId: "cost.dairy_income_over_feed", inputMap: { fcmMilk: "fcmMilk", milkPrice: "milkPrice", dailyFeedCostPerCow: "dailyFeedCostPerCow", herdSize: "herdSize", otherCostsPerCow: "otherCostsPerCow" }, outputId: "dairyIncomeOverFeed" },
+    { formulaId: "measurement.fcm_milk", inputMap: {
+        milkYield: "milkYieldPerCow",
+        fatYield: "milkFatPct",
+        milkProteinPct: "milkProteinPct"
+      }, outputId: "fcmMilk" },
+    { formulaId: "cost.dairy_income_over_feed", inputMap: {
+        milkPrice: "milkPrice",
+        milkYield: "fcmMilk",
+        totalFeedCost: "dailyFeedCostPerCow",
+        herdSize: "herdSize",
+        otherCostsPerCow: "otherCostsPerCow"
+      }, outputId: "dairyIncomeOverFeed" },
   ],
   reportTemplate: { title: "Süt Kâr Dedektörü Raporu", title_i18n: {"en":"Süt Kâr Dedektörü Raporu","tr":"Süt Kâr Dedektörü Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["FCM = verim × (0.4324 + 0.1625 × yağ% + 0.0345 × protein%).", "IOFC = (FCM × süt fiyatı) − (yem maliyeti + diğer maliyetler).", "SCC >400K hücre/mL kalite primi kaybına yol açar.", "NRC 2001 yem standartları baz alınmıştır."],assumptionNotes_i18n:[{"en":"FCM = verim × (0.4324 + 0.1625 × yağ% + 0.0345 × protein%).","tr":"FCM = verim × (0.4324 + 0.1625 × yağ% + 0.0345 × protein%)."},{"en":"IOFC = (FCM × süt fiyatı) − (yem maliyeti + diğer maliyetler).","tr":"IOFC = (FCM × süt fiyatı) − (yem maliyeti + diğer maliyetler)."},{"en":"SCC >400K hücre/mL kalite primi kaybına yol açar.","tr":"SCC >400K hücre/mL kalite primi kaybına yol açar."},{"en":"NRC 2001 yem standartları baz alınmıştır.","tr":"NRC 2001 yem standartları baz alınmıştır."}] },

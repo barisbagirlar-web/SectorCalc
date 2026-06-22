@@ -22,7 +22,11 @@ export const SPC_SIGNAL_DELAY_ANALYZER: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "delayCost", warning: 50000, critical: 100000, direction: "higher_is_bad", warningMessage: "Gecikme maliyeti >$50K — örnekleme sıklığı artırılmalı.", warningMessage_i18n: {"en":"Delay cost >$50K — increase sampling frequency.","tr":"Gecikme maliyeti >$50K — örnekleme sıklığı artırılmalı."}, criticalMessage: "Gecikme maliyeti >$100K — kontrol kartı parametreleri yenilenmeli.", criticalMessage_i18n: {"en":"Delay cost >$100K — renew control chart parameters.","tr":"Gecikme maliyeti >$100K — kontrol kartı parametreleri yenilenmeli."} }],
   formulaPipeline: [
     { formulaId: "measurement.spc_arl_in_control", inputMap: { controlLimit: "controlLimit" }, outputId: "arlInControl" },
-    { formulaId: "measurement.spc_arl_out_of_control", inputMap: { shiftSize: "shiftSize", controlLimit: "controlLimit", sampleSize: "sampleSize" }, outputId: "arlOutOfControl" },
+    { formulaId: "measurement.spc_arl_out_of_control", inputMap: {
+        beta: "shiftSize",
+        controlLimit: "controlLimit",
+        sampleSize: "sampleSize"
+      }, outputId: "arlOutOfControl" },
     { formulaId: "cost.spc_delay_cost", inputMap: { arlOutOfControl: "arlOutOfControl", sampleSize: "sampleSize", productionRate: "productionRate", costPerDefect: "costPerDefect", operatingHoursPerYear: "operatingHoursPerYear" }, outputId: "delayCost" },
   ],
   reportTemplate: { title: "SPC Sinyal Gecikme Raporu", title_i18n: {"en":"SPC Signal Delay Report","tr":"SPC Sinyal Gecikme Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

@@ -27,11 +27,29 @@ export const KAIZEN_SAVINGS_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "sustainment", warning: 70, critical: 50, direction: "lower_is_bad", warningMessage: "Sürdürülebilirlik < %70 — kalıcılık sağlanamamış.", warningMessage_i18n: {"en":"Sürdürülebilirlik < %70 — kalıcılık sağlanamamış.","tr":"Sürdürülebilirlik < %70 — kalıcılık sağlanamamış."}, criticalMessage: "Sürdürülebilirlik < %50 — düzeltici faaliyet gerekli.", criticalMessage_i18n: {"en":"Sürdürülebilirlik < %50 — düzeltici faaliyet gerekli.","tr":"Sürdürülebilirlik < %50 — düzeltici faaliyet gerekli."} }],
   formulaPipeline: [
-    { formulaId: "cost.kaizen_hard_savings", inputMap: { baselineCost: "baselineCost", actualCost: "actualCost", productionVolume: "productionVolume" }, outputId: "hardSavings" },
-    { formulaId: "cost.kaizen_soft_savings", inputMap: { timeSaved: "timeSaved", laborRate: "laborRate", conversionFactor: "conversionFactor" }, outputId: "softSavings" },
-    { formulaId: "cost.kaizen_roi", inputMap: { hardSavings: "hardSavings", softSavings: "softSavings", implementationCost: "implementationCost" }, outputId: "roi" },
-    { formulaId: "cost.kaizen_payback", inputMap: { implementationCost: "implementationCost", monthlySavings: "monthlySavings" }, outputId: "payback" },
-    { formulaId: "cost.kaizen_sustainability", inputMap: { savingsMonth6: "savingsMonth6", savingsMonth1: "savingsMonth1" }, outputId: "sustainment" },
+    { formulaId: "cost.kaizen_hard_savings", inputMap: {
+        baseline: "baselineCost",
+        actual: "actualCost",
+        volume: "productionVolume"
+      }, outputId: "hardSavings" },
+    { formulaId: "cost.kaizen_soft_savings", inputMap: {
+        timeSaved: "timeSaved",
+        labRate: "laborRate",
+        conv: "conversionFactor"
+      }, outputId: "softSavings" },
+    { formulaId: "cost.kaizen_roi", inputMap: {
+        hardSav: "hardSavings",
+        softSav: "softSavings",
+        impCost: "implementationCost"
+      }, outputId: "roi" },
+    { formulaId: "cost.kaizen_payback", inputMap: {
+        impCost: "implementationCost",
+        monthSav: "monthlySavings"
+      }, outputId: "payback" },
+    { formulaId: "cost.kaizen_sustainability", inputMap: {
+        savM6: "savingsMonth6",
+        savM1: "savingsMonth1"
+      }, outputId: "sustainment" },
   ],
   reportTemplate: { title: "Kaizen Savings Report", title_i18n: {"en":"Kaizen Savings Report","tr":"Kaizen Savings Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Hard = (Baseline-Actual)×Volume.", "Soft = TimeSaved×LabRate×Conv%.", "ROI = (Hard+Soft-ImpCost)/ImpCost×100.", "Sustain = Sav_M6/Sav_M1×100."],assumptionNotes_i18n:[{"en":"Hard = (Baseline-Actual)×Volume.","tr":"Hard = (Baseline-Actual)×Volume."},{"en":"Soft = TimeSaved×LabRate×Conv%.","tr":"Soft = TimeSaved×LabRate×Conv%."},{"en":"ROI = (Hard+Soft-ImpCost)/ImpCost×100.","tr":"ROI = (Hard+Soft-ImpCost)/ImpCost×100."},{"en":"Sustain = Sav_M6/Sav_M1×100.","tr":"Sustain = Sav_M6/Sav_M1×100."}] },

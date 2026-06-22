@@ -26,7 +26,13 @@ export const CUTTING_TOOL_LIFE_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "toolLife", warning: 30, critical: 5, direction: "lower_is_bad", warningMessage: "Takım ömrü < 30dk — kesme parametreleri agresif.", warningMessage_i18n: {"en":"Tool life < 30 min — cutting parameters aggressive.","tr":"Takım ömrü < 30dk — kesme parametreleri agresif."}, criticalMessage: "Takım ömrü < 5dk — acil parametre revizyonu.", criticalMessage_i18n: {"en":"Tool life < 5 min — urgent parameter revision.","tr":"Takım ömrü < 5dk — acil parametre revizyonu."} }],
   formulaPipeline: [
-    { formulaId: "measurement.machining_tool_life", inputMap: { cTaylor: "taylorC", vc: "cuttingSpeed", nTaylor: "taylorN", feed: "feed", mTaylor: "taylorM" }, outputId: "toolLife" },
+    { formulaId: "measurement.machining_tool_life", inputMap: {
+        taylorC: "taylorC",
+        cuttingSpeed: "cuttingSpeed",
+        taylorN: "taylorN",
+        taylorM: "taylorM",
+        feedPerRev: "feed"
+      }, outputId: "toolLife" },
     { formulaId: "cost.cnc_tooling", inputMap: { cutTime: "machiningTime", toolLife: "toolLife", toolCost: "toolCost" }, outputId: "costPerPartTool" },
   ],
   reportTemplate: { title: "Takım Ömrü Raporu", title_i18n: {"en":"Tool Life Report","tr":"Takım Ömrü Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

@@ -21,7 +21,10 @@ export const STEAM_TRAP_ENERGY_LOSS_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "annualLoss", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Yıllık kayıp >$10K — arızalı kapaklar tespit edilmeli.", warningMessage_i18n: {"en":"Annual loss >$10K — identify faulty traps.","tr":"Yıllık kayıp >$10K — arızalı kapaklar tespit edilmeli."}, criticalMessage: "Yıllık kayıp >$50K — acil steam trap bakım programı başlatılmalı.", criticalMessage_i18n: {"en":"Annual loss >$50K — initiate urgent steam trap maintenance program.","tr":"Yıllık kayıp >$50K — acil steam trap bakım programı başlatılmalı."} }],
   formulaPipeline: [
-    { formulaId: "measurement.steam_loss_rate", inputMap: { steamPressure: "steamPressure", holeDiameter: "holeDiameter" }, outputId: "steamLossRate" },
+    { formulaId: "measurement.steam_loss_rate", inputMap: {
+        steamPressure: "steamPressure",
+        holeDiameter: "holeDiameter"
+      }, outputId: "steamLossRate" },
     { formulaId: "cost.steam_trap_annual_loss", inputMap: { steamLossRate: "steamLossRate", operatingHoursPerYear: "operatingHoursPerYear", steamCost: "steamCost", faultyTraps: "faultyTraps" }, outputId: "annualLoss" },
     { formulaId: "cost.steam_trap_roi", inputMap: { annualLoss: "annualLoss", faultyTraps: "faultyTraps", replacementCost: "replacementCost" }, outputId: "roi" },
   ],

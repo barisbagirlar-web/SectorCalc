@@ -24,7 +24,13 @@ export const SCRAP_OPTIMIZE_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "currentScrapRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Hurda oranı > %5 — iyileştirme programı başlatılmalı.", warningMessage_i18n: {"en":"Scrap rate > 5% — initiate improvement program.","tr":"Hurda oranı > %5 — iyileştirme programı başlatılmalı."}, criticalMessage: "Hurda oranı > %10 — acil proses iyileştirme.", criticalMessage_i18n: {"en":"Scrap rate > 10% — urgent process improvement.","tr":"Hurda oranı > %10 — acil proses iyileştirme."} }],
   formulaPipeline: [
-    { formulaId: "cost.scrap_optimize_total", inputMap: { scrapMaterialCost: "matCost", scrapLaborCost: "cycleTime", scrapOverhead: "machRate", scrapOpportunity: "unitMargin", scrapSalvage: "salvage" }, outputId: "totalScrapCost" },
+    { formulaId: "cost.scrap_optimize_total", inputMap: {
+        salvage: "salvage",
+        scrapMat: "matCost",
+        scrapLab: "cycleTime",
+        scrapOh: "machRate",
+        oppCost: "unitMargin"
+      }, outputId: "totalScrapCost" },
   ],
   reportTemplate: { title: "Scrap Rate Optimization Report", title_i18n: {"en":"Scrap Rate Optimization Report","tr":"Scrap Rate Optimization Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["ScrapRate = ScrapQty/TotalInput.", "Total = Scrap×(MatCost+Labor+OH+Margin)-Salvage.", "Target = Benchmark×(1-ImpFactor)."],assumptionNotes_i18n:[{"en":"ScrapRate = ScrapQty/TotalInput.","tr":"ScrapRate = ScrapQty/TotalInput."},{"en":"Total = Scrap×(MatCost+Labor+OH+Margin)-Salvage.","tr":"Total = Scrap×(MatCost+Labor+OH+Margin)-Salvage."},{"en":"Target = Benchmark×(1-ImpFactor).","tr":"Target = Benchmark×(1-ImpFactor)."}]},

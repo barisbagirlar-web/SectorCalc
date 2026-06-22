@@ -33,9 +33,17 @@ export const CLV_CAC_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "cost.clv", inputMap: { avgOrderValue: "avgOrderValue", purchaseFreq: "purchaseFreq", lifespan: "lifespan" }, outputId: "clv" },
     { formulaId: "cost.gross_margin_clv", inputMap: { clv: "clv", grossMarginPct: "grossMarginPct" }, outputId: "gmClv" },
-    { formulaId: "cost.discounted_clv", inputMap: { grossMarginClv: "gmClv", retentionRate: "retentionRate", discountRate: "discountRate", lifespan: "lifespan" }, outputId: "discountedClv" },
+    { formulaId: "cost.discounted_clv", inputMap: {
+        discountRate: "discountRate",
+        retention: "gmClv",
+        clv: "retentionRate",
+        lifespan: "lifespan"
+      }, outputId: "discountedClv" },
     { formulaId: "cost.cac", inputMap: { salesMarketing: "salesMarketing", salaries: "salaries", overhead: "overhead", newCustomers: "newCustomers" }, outputId: "cac" },
-    { formulaId: "cost.payback", inputMap: { cac: "cac", avgMonthlyGrossProfit: "avgMonthlyGpInput" }, outputId: "payback" },
+    { formulaId: "cost.payback", inputMap: {
+        cac: "cac",
+        avgOrderValue: "avgMonthlyGpInput"
+      }, outputId: "payback" },
     { formulaId: "cost.ltv_cac", inputMap: { discountedClv: "discountedClv", cac: "cac" }, outputId: "ltvCac" },
   ],
   reportTemplate: { title: "CLV/CAC Ratio Report", title_i18n: {"en":"CLV/CAC Ratio Report","tr":"CLV/CAC Ratio Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

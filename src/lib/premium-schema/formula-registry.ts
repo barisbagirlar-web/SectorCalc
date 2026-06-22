@@ -1246,7 +1246,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   // ═══════════════════════════════════════════════════════════════════════════
 
   // Kalite PAF
-  { id: "cost.paf_prevention", family: "cost", label: "PAF prevention cost", fn: (i) => num(i,"training") + num(i,"qualityPlanning") + num(i,"supplierEvaluation") + num(i,"designReview") },
+  { id: "cost.paf_prevention", family: "cost", label: "PAF prevention cost", fn: (i) => num(i,"training") + num(i,"qualityPlanning") + num(i,"supplierScore") + num(i,"designReview") },
   { id: "cost.paf_appraisal", family: "cost", label: "PAF appraisal cost", fn: (i) => num(i,"inspection") + num(i,"testing") + num(i,"calibration") + num(i,"audit") },
   { id: "cost.paf_internal_failure", family: "cost", label: "PAF internal failure cost", fn: (i) => num(i,"scrap") + num(i,"rework") + num(i,"reinspection") + num(i,"downtime") },
   { id: "cost.paf_external_failure", family: "cost", label: "PAF external failure cost", fn: (i) => num(i,"warranty") + num(i,"returns") + num(i,"recall") + num(i,"liability") + num(i,"lostSales") },
@@ -3433,7 +3433,7 @@ const FORMULA_META_DETAILS: Record<
   "measurement.volumetric_chargeable": { description: "Chargeable weight based on volumetric vs gross.", requiredInputs: ["length","width","height","mode","gross"], outputHint: "number" },
   "measurement.warehouse_pick_efficiency": { description: "Pick efficiency lines per travel time.", requiredInputs: ["lines","travelTime"], outputHint: "number" },
   "measurement.warehouse_throughput_cap": { description: "Door throughput capacity.", requiredInputs: ["doors","turnaroundLoad","turnaroundUnload"], outputHint: "number" },
-  "cost.paf_prevention": { description: "Sum of training, quality planning, supplier evaluation, and design review costs.", requiredInputs: ["training","qualityPlanning","supplierEvaluation","designReview"], outputHint: "currency" },
+  "cost.paf_prevention": { description: "Sum of training, quality planning, supplier evaluation, and design review costs.", requiredInputs: ["training","qualityPlanning","supplierScore","designReview"], outputHint: "currency" },
   "cost.paf_appraisal": { description: "Sum of inspection, testing, calibration, and audit costs.", requiredInputs: ["inspection","testing","calibration","audit"], outputHint: "currency" },
   "cost.paf_internal_failure": { description: "Sum of scrap, rework, reinspection, and downtime costs.", requiredInputs: ["scrap","rework","reinspection","downtime"], outputHint: "currency" },
   "cost.paf_external_failure": { description: "Sum of warranty, returns, recall, liability, and lost sales costs.", requiredInputs: ["warranty","returns","recall","liability","lostSales"], outputHint: "currency" },

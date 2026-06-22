@@ -30,8 +30,17 @@ export const BOTTLENECK_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "measurement.bottleneck_util", inputMap: { actualOutput: "actualOutput", designCapacity: "designCapacity" }, outputId: "utilization" },
     { formulaId: "measurement.bottleneck_takt_time", inputMap: { availableTime: "availableTime", demand: "demand" }, outputId: "taktTime" },
-    { formulaId: "cost.bottleneck_cost", inputMap: { cycleTimeGap: "cycleTimeGap", demand: "demand", unitMargin: "unitMargin" }, outputId: "constraintCost" },
-    { formulaId: "cost.bottleneck_roi", inputMap: { throughputIncrease: "throughputIncrease", unitMargin: "unitMargin", operatingDays: "operatingDays", upgradeCost: "upgradeCost" }, outputId: "roi" },
+    { formulaId: "cost.bottleneck_cost", inputMap: {
+        demand: "demand",
+        unitMargin: "unitMargin",
+        cycleGap: "cycleTimeGap"
+      }, outputId: "constraintCost" },
+    { formulaId: "cost.bottleneck_roi", inputMap: {
+        throughputIncrease: "throughputIncrease",
+        upgradeCost: "upgradeCost",
+        margin: "unitMargin",
+        days: "operatingDays"
+      }, outputId: "roi" },
     { formulaId: "cost.bottleneck_payback", inputMap: { upgradeCost: "upgradeCost", monthlyGain: "monthlyGain" }, outputId: "paybackMonths" },
   ],
   reportTemplate: { title: "Bottleneck Investment Report", title_i18n: {"en":"Bottleneck Investment Report","tr":"Bottleneck Investment Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

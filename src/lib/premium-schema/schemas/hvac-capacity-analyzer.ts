@@ -26,7 +26,12 @@ export const HVAC_CAPACITY_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.hvac_latent", inputMap: { cfm: "cfm", deltaHumidity: "deltaHumidity" }, outputId: "latent" },
     { formulaId: "measurement.hvac_total_btu", inputMap: { sensible: "sensible", latent: "latent" }, outputId: "totalBtu" },
     { formulaId: "measurement.hvac_tons", inputMap: { totalBtu: "totalBtu" }, outputId: "tons" },
-    { formulaId: "cost.hvac_annual_cost", inputMap: { totalBtu: "totalBtu", eer: "eer", operatingHours: "operatingHours", elecRate: "elecRate" }, outputId: "annualCost" },
+    { formulaId: "cost.hvac_annual_cost", inputMap: {
+        eer: "eer",
+        elecRate: "elecRate",
+        totalLoad: "totalBtu",
+        hours: "operatingHours"
+      }, outputId: "annualCost" },
   ],
   reportTemplate: { title: "HVAC Capacity Report", title_i18n: {"en":"HVAC Capacity Report","tr":"HVAC Capacity Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Sensible = 1.08×CFM×ΔT. Latent = 0.68×CFM×ΔW.", "Total = Sensible+Latent. Tons = Total/12000.", "Cost = (Total/EER)×Hours×ElecRate."],assumptionNotes_i18n:[{"en":"Sensible = 1.08×CFM×ΔT. Latent = 0.68×CFM×ΔW.","tr":"Sensible = 1.08×CFM×ΔT. Latent = 0.68×CFM×ΔW."},{"en":"Total = Sensible+Latent. Tons = Total/12000.","tr":"Total = Sensible+Latent. Tons = Total/12000."},{"en":"Cost = (Total/EER)×Hours×ElecRate.","tr":"Cost = (Total/EER)×Hours×ElecRate."}] },

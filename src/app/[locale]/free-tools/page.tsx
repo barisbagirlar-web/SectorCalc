@@ -23,7 +23,6 @@ type PageProps = {
 };
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;

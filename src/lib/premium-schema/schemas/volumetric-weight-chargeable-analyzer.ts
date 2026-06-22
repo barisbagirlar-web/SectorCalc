@@ -22,8 +22,14 @@ export const VOLUMETRIC_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "freightCost", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "Taşıma > $50 — ambalaj optimizasyonu önerilir.", warningMessage_i18n: {"en":"Taşıma > $50 — ambalaj optimizasyonu önerilir.","tr":"Taşıma > $50 — ambalaj optimizasyonu önerilir."}, criticalMessage: "Taşıma > $100 — hacimsel ağırlık fazla, ambalaj küçültülmeli.", criticalMessage_i18n: {"en":"Taşıma > $100 — hacimsel ağırlık fazla, ambalaj küçültülmeli.","tr":"Taşıma > $100 — hacimsel ağırlık fazla, ambalaj küçültülmeli."} }],
   formulaPipeline: [
     { formulaId: "measurement.volumetric_weight_air", inputMap: { length: "length", width: "width", height: "height" }, outputId: "volWeight" },
-    { formulaId: "measurement.volumetric_chargeable", inputMap: { grossWeight: "grossWeight", volWeight: "volWeight" }, outputId: "chargeable" },
-    { formulaId: "cost.volumetric_freight", inputMap: { chargeable: "chargeable", freightRate: "freightRate" }, outputId: "freightCost" },
+    { formulaId: "measurement.volumetric_chargeable", inputMap: {
+        length: "grossWeight",
+        width: "volWeight"
+      }, outputId: "chargeable" },
+    { formulaId: "cost.volumetric_freight", inputMap: {
+        gross: "chargeable",
+        volWeight: "freightRate"
+      }, outputId: "freightCost" },
   ],
   reportTemplate: { title: "Volumetric Weight Report", title_i18n: {"en":"Volumetric Weight Report","tr":"Volumetric Weight Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Air: (L×W×H)/6000. Road: /5000. Sea: /1000.", "Chargeable = MAX(Gross, VolWeight).", "Freight = Chargeable × Rate."],assumptionNotes_i18n:[{"en":"Air: (L×W×H)/6000. Road: /5000. Sea: /1000.","tr":"Air: (L×W×H)/6000. Road: /5000. Sea: /1000."},{"en":"Chargeable = MAX(Gross, VolWeight).","tr":"Chargeable = MAX(Gross, VolWeight)."},{"en":"Freight = Chargeable × Rate.","tr":"Freight = Chargeable × Rate."}] },

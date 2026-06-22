@@ -19,7 +19,13 @@ export const BEAM_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "materialCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Malzeme > $50K — alternatif profil değerlendirilmeli.", warningMessage_i18n: {"en":"Malzeme > $50K — alternatif profil değerlendirilmeli.","tr":"Malzeme > $50K — alternatif profil değerlendirilmeli."}, criticalMessage: "Malzeme > $150K — bütçe revizyonu gerekli.", criticalMessage_i18n: {"en":"Malzeme > $150K — bütçe revizyonu gerekli.","tr":"Malzeme > $150K — bütçe revizyonu gerekli."} }],
   formulaPipeline: [
-    { formulaId: "cost.beam_material", inputMap: { profileSize: "profileSize", beamLength: "beamLength", quantity: "quantity", steelDensity: "steelDensity", pricePerTon: "pricePerTon" }, outputId: "totalWeight" },
+    { formulaId: "cost.beam_material", inputMap: {
+        beamLength: "beamLength",
+        beamWeightPerM: "profileSize",
+        materialPricePerKg: "quantity",
+        steelDensity: "steelDensity",
+        pricePerTon: "pricePerTon"
+      }, outputId: "totalWeight" },
   ],
   reportTemplate: { title: "Kiriş Ağırlık Raporu", title_i18n: {"en":"Kiriş Ağırlık Raporu","tr":"Kiriş Ağırlık Raporu"}, sections: ["executive_summary", "thresholds", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Ağırlık = Kesit × Uzunluk × Adet × Yoğunluk.", "Kesit alanı profil tipine göre lookup tablosundan."],assumptionNotes_i18n:[{"en":"Ağırlık = Kesit × Uzunluk × Adet × Yoğunluk.","tr":"Ağırlık = Kesit × Uzunluk × Adet × Yoğunluk."},{"en":"Kesit alanı profil tipine göre lookup tablosundan.","tr":"Kesit alanı profil tipine göre lookup tablosundan."}]},

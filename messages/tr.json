@@ -64,7 +64,7 @@
     "premiumCalculators": "Pro Hesaplama Araçları",
     "industryCalculators": "Sektör Hesaplayıcıları",
     "calculators": "Hesaplayıcılar",
-    "caseStudies": "Başarı Hikayeleri",
+    "caseStudies": "Case Studies",
     "resources": "Kaynaklar",
     "signUp": "Kayıt Ol",
     "tools": "Ücretsiz Kontroller",
@@ -1822,7 +1822,7 @@
     "premiumCalculators": "Pro Hesaplama Araçları",
     "industryCalculators": "Sektör Hesaplayıcıları",
     "industries": "Sektör Hesaplayıcıları",
-    "caseStudies": "Başarı Hikayeleri",
+    "caseStudies": "Case Studies",
     "pricing": "Fiyatlandırma",
     "resources": "Kaynaklar",
     "login": "Giriş",
@@ -68897,11 +68897,11 @@
       "search": "Ara",
       "tryLabel": "Deneyin:",
       "chipOee": "OEE",
-      "chipEoq": "📦 EOQ",
+      "chipEoq": "📦 EOQ (Ekonomik Sipariş Miktarı)",
       "chipIrr": "IRR",
       "chipCpk": "Cpk",
-      "chipLmtd": "🌡️ LMTD",
-      "chipMtbf": "🔧 MTBF"
+      "chipLmtd": "🌡️ LMTD (Logaritmik Ortalama Sıcaklık Farkı)",
+      "chipMtbf": "🔧 MTBF (Ortalama Arıza Süresi)"
     },
     "metrics": {
       "proCalculators": "Pro Hesap Makinesi",
@@ -68912,19 +68912,19 @@
     "ticker": {
       "label": "En çok kullanılan",
       "toolOee": "OEE Hesaplayıcı",
-      "toolEoq": "📦 EOQ",
-      "toolIrrNpv": "IRR / NPV",
-      "toolCpkSigma": "Cpk / Sigma",
+      "toolEoq": "📦 EOQ (Ekonomik Sipariş Miktarı)",
+      "toolIrrNpv": "IRR / NPV (İç Verim Oranı / Net Bugünkü Değer)",
+      "toolCpkSigma": "Cpk / Sigma (Süreç Yetenek İndeksi / Sigma)",
       "toolTaktTime": "⏱️ Takt Süresi",
       "toolBoltTorque": "Cıvata Torku",
-      "toolLmtd": "🌡️ LMTD",
-      "toolMtbfMttr": "🔧 MTBF / MTTR",
+      "toolLmtd": "🌡️ LMTD (Logaritmik Ortalama Sıcaklık Farkı)",
+      "toolMtbfMttr": "🔧 MTBF / MTTR (Ortalama Arıza Süresi / Ortalama Onarım Süresi)",
       "toolBreakEven": "📉 Başabaş Noktası",
       "toolKanban": "Kanban Kartları",
       "toolPipePressure": "💧 Boru Basınç Düşümü",
       "toolCarbon": "🌿 Karbon Ayak İzi",
       "toolCompressor": "Kompresör Gücü",
-      "toolPertCpm": "PERT / CPM",
+      "toolPertCpm": "PERT / CPM (Program Değerlendirme ve Gözden Geçirme Tekniği / Kritik Yol Yöntemi)",
       "badgePro": "PRO",
       "badgeFree": "ÜCRETSİZ"
     },
@@ -68974,13 +68974,13 @@
       "persona1Tags": "OEE, Takt Süresi, NIOSH, REBA, VSM",
       "persona2Role": "Finans & Operasyon",
       "persona2Desc": "ROI, NPV, IRR, işletme sermayesi, envanter maliyet modelleri ve stratejik kararlar için başabaş analizi.",
-      "persona2Tags": "IRR, NPV, WACC, EOQ, DCF",
+      "persona2Tags": "IRR, NPV, WACC, EOQ, DCF (İç Verim Oranı, Net Bugünkü Değer, Ağırlıklı Ortalama Sermaye Maliyeti, Ekonomik Sipariş Miktarı, İndirgenmiş Nakit Akışı)",
       "persona3Role": "Kalite Mühendisleri",
       "persona3Desc": "Proses yeterliliği, FMEA risk puanlaması, kontrol kartları, ölçüm sistemi analizi ve numune alma.",
-      "persona3Tags": "Cpk, DPMO, FMEA, AQL, Gage R&R",
+      "persona3Tags": "Cpk, DPMO, FMEA, AQL, Gage R&R (Süreç Yetenek İndeksi, Milyonda Hata Sayısı, Hata Türü ve Etkileri Analizi, Kabul Edilebilir Kalite Seviyesi, Ölçüm Sistemi Analizi)",
       "persona4Role": "Makine Mühendisleri",
       "persona4Desc": "Basınçlı kaplar, cıvata torku, ısı değiştiriciler, hidrolik sistemler ve CNC kesme parametreleri.",
-      "persona4Tags": "ASME UG-27, LMTD, VDI 2230, CNC"
+      "persona4Tags": "ASME UG-27, LMTD, VDI 2230, CNC (ASME UG-27, Logaritmik Ortalama Sıcaklık Farkı, VDI 2230, Bilgisayarlı Sayısal Kontrol)"
     },
     "pricing": {
       "eyebrow": "Planlar",
@@ -69015,15 +69015,15 @@
     },
     "footer": {
       "brandDesc": "Mühendislik, üretim, finans ve endüstriyel operasyonlar için profesyonel hesap makinesi platformu. 40'tan fazla ülkede kullanılıyor.",
-      "tagIso": "ISO 9001",
+      "tagIso": "ISO 9001 (ISO 9001)",
       "tagAsme": "ASME",
       "tagGhg": "GHG Protokolü",
-      "tagAiag": "AIAG FMEA",
-      "tagVdi": "VDI 2230",
-      "tagEn": "EN 12101",
-      "tagIec": "IEC 60890",
+      "tagAiag": "AIAG FMEA (AIAG Hata Türü ve Etkileri Analizi)",
+      "tagVdi": "VDI 2230 (VDI 2230)",
+      "tagEn": "EN 12101 (EN 12101)",
+      "tagIec": "IEC 60890 (IEC 60890)",
       "colCalculators": "Hesap Makineleri",
-      "colPlatform": "Platform",
+      "colPlatform": "Platform (Platform)",
       "colLegal": "Yasal",
       "colCompany": "Şirket",
       "linkManufacturing": "Üretim",
@@ -69085,6 +69085,86 @@
       "card3Desc": "Pro senaryoları ve duyarlılık kontrollerini çalıştırın.",
       "card4Title": "Dışa Aktar",
       "card4Desc": "Karara hazır bir PDF raporu indirin."
+    },
+    "freeVsPro": {
+      "title": "Ücretsiz başlayın, derinleşmek için Pro'ya geçin.",
+      "freeTitle": "Ücretsiz",
+      "freeTools": "{freeCount} standart hesap makinesi",
+      "freeCta": "Ücretsiz Araçları Keşfet",
+      "proTitle": "Pro",
+      "proTools": "{proCount} gelişmiş mühendislik aracı",
+      "proCta": "Pro Erişim Alın",
+      "feat1": "ISO/ASME referanslı formüller",
+      "feat2": "Formül notları ve türevler",
+      "feat3": "PDF karar raporu çıktısı",
+      "feat4": "Duyarlılık analizi ve senaryolar",
+      "feat5": "6 dil"
+    },
+    "whyPro": {
+      "title": "Profesyoneller neden SectorCalc'e ödüyor",
+      "card1Title": "Karara hazır PDF raporları",
+      "card1Desc": "Girdileri, formülleri, varsayımları, sonuçları ve önerileriyle eksiksiz hesaplama çıktısı. İncelemeye veya eklemeye hazır.",
+      "card2Title": "Formül şeffaflığı",
+      "card2Desc": "Her Pro araç, kaynak standardına bağlanır — ISO, ASME, IEC. Sadece sonucu değil, türetmeyi de görürsünüz.",
+      "card3Title": "Duyarlılık ve senaryolar",
+      "card3Desc": "Temel değişkenlerinizde ne olursa senaryoları çalıştırın. Karar vermeden önce girdi değişimlerinin etkisini görün.",
+      "card4Title": "Verileriniz tarayıcınızdan çıkmaz",
+      "card4Desc": "Tüm hesaplamalar istemci tarafında çalışır. Mühendislik verileriniz cihazınızda kalır. Sunucu yok, izleme yok."
+    },
+    "categories2": [
+      {
+        "id": "manufacturing",
+        "name": "Üretim & OEE",
+        "problem": "Bilinmeyen OEE, plansız duruşlar, dengesiz hatlar, gizli kapasite kayıpları.",
+        "tools": "OEE Hesaplayıcı, Takt Süresi, Hat Dengeleme, SMED, Çevrim Verimliliği",
+        "proOutput": "Kayıp analizi PDF: kayıp sürücü sıralaması, aylık kayıp tahmini ($), önerilen aksiyon planı",
+        "href": "/categories/manufacturing"
+      },
+      {
+        "id": "costing",
+        "name": "Maliyet & Teklif",
+        "problem": "Tutarsız tahminler, eksik genel gider dağıtımı, hatalı başabaş analizi.",
+        "tools": "Başabaş Analizi, Birim Maliyet, Hedef Maliyetleme, Maliyet-Artı Fiyatlama",
+        "proOutput": "Maliyet dağılım raporu: marj duyarlılık tablosu, risk ayarlı fiyat aralığı",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "finance",
+        "name": "Finans & Yatırım",
+        "problem": "Belirsiz ROI, net olmayan NBD, eksik sermaye bütçeleme varsayımları.",
+        "tools": "NBD, İKO, Geri Ödeme Süresi, AOSM, NBD Analizi, Nakit Akışı",
+        "proOutput": "Yatırım notu: senaryo karşılaştırması, İKO/NBD duyarlılık grafiği, karar matrisi",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "quality",
+        "name": "Kalite & Güvenilirlik",
+        "problem": "Yüksek hata oranları, bilinmeyen proses yeterliliği, güvenilmez tedarikçi kalite verisi.",
+        "tools": "Cpk/Ppk, Altı Sigma DPMO, HMA RÖS, Gage R&R, AQL Örnekleme, OBS/OSB",
+        "proOutput": "Yeterlilik raporu: Cpk güven aralığı, hata maliyeti projeksiyonu, iyileştirme öncelik matrisi",
+        "href": "/categories/quality"
+      },
+      {
+        "id": "energy",
+        "name": "Enerji & Sürdürülebilirlik",
+        "problem": "Artan enerji maliyetleri, belirsiz karbon ayak izi, azaltım senaryosu planlaması yok.",
+        "tools": "Karbon Ayak İzi, Enerji Maliyet Analizi, Isı Değiştirici LMTD, Güneş Geri Ödemesi",
+        "proOutput": "Enerji denetim özeti: CO₂ azaltım senaryoları, maliyet-tasarruf karşılaştırma tablosu",
+        "href": "/categories/energy"
+      },
+      {
+        "id": "logistics",
+        "name": "Lojistik & Envanter",
+        "problem": "Fazla stok, sık stok dışı kalma, yüksek taşıma maliyeti, EİS disiplini yok.",
+        "tools": "EİS, Emniyet Stoku, Sipariş Noktası, Stok Devir Hızı, Depo Alanı, Navlun Maliyeti",
+        "proOutput": "Envanter optimizasyon raporu: sipariş sıklığı analizi, TCO karşılaştırması, risk tampon önerisi",
+        "href": "/categories/logistics"
+      }
+    ],
+    "pricingBridge": {
+      "text": "Pro hesaplama başına $1.99'dan başlayan fiyatlar. Kredi paketleri mevcut. Abonelik gerekmez.",
+      "cta": "Pro Fiyatlandırmayı Gör",
+      "ctaHref": "/pricing"
     }
   }
 }

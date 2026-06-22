@@ -35,7 +35,10 @@ export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.weld_volume", inputMap: { weldArea: "weldArea", weldLength: "weldLength" }, outputId: "weldVolume" },
     { formulaId: "measurement.weld_deposited_weight", inputMap: { weldVolume: "weldVolume", density: "density" }, outputId: "depositedWeight" },
     { formulaId: "measurement.weld_electrode_weight", inputMap: { depositedWeight: "depositedWeight", depEff: "depEff" }, outputId: "electrodeWeight" },
-    { formulaId: "cost.weld_filler_cost", inputMap: { electrodeWeight: "electrodeWeight", pricePerKg: "pricePerKg" }, outputId: "fillerCost" },
+    { formulaId: "cost.weld_filler_cost", inputMap: {
+        weldWeight: "electrodeWeight",
+        fillerPrice: "pricePerKg"
+      }, outputId: "fillerCost" },
     { formulaId: "cost.weld_gas_cost", inputMap: { gasFlowRate: "gasFlowRate", arcTime: "arcTime", gasPrice: "gasPrice" }, outputId: "gasCost" },
     { formulaId: "cost.weld_power_cost", inputMap: { voltage: "voltage", current: "current", arcTime: "arcTime", machineEff: "machineEff", elecRate: "elecRate" }, outputId: "powerCost" },
     { formulaId: "cost.weld_total_cost", inputMap: { fillerCost: "fillerCost", gasCost: "gasCost", powerCost: "powerCost", arcTime: "arcTime", depRate: "depRate", laborRate: "laborRate" }, outputId: "totalWeldCost" },

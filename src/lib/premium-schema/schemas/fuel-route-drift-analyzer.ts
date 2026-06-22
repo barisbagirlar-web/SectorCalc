@@ -27,10 +27,27 @@ export const FUEL_ROUTE_DRIFT_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "totalDriftCost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Sapma maliyeti > $10K — filo yönetim sistemi gözden geçirilmeli.", warningMessage_i18n: {"en":"Sapma maliyeti > $10K — filo yönetim sistemi gözden geçirilmeli.","tr":"Sapma maliyeti > $10K — filo yönetim sistemi gözden geçirilmeli."}, criticalMessage: "Sapma maliyeti > $30K — acil rota optimizasyonu başlatılmalı.", criticalMessage_i18n: {"en":"Sapma maliyeti > $30K — acil rota optimizasyonu başlatılmalı.","tr":"Sapma maliyeti > $30K — acil rota optimizasyonu başlatılmalı."} },
   ],
   formulaPipeline: [
-    { formulaId: "cost.fuel_waste_distance", inputMap: { plannedDistance: "plannedDistance", actualDistance: "actualDistance" }, outputId: "fuelWasteDistance" },
-    { formulaId: "cost.fuel_waste_efficiency", inputMap: { fuelWasteDistance: "fuelWasteDistance", fuelEfficiency: "fuelEfficiency" }, outputId: "fuelWasteEfficiency" },
-    { formulaId: "cost.idle_fuel_cost", inputMap: { idleTimePerTrip: "idleTimePerTrip", driverCostPerHour: "driverCostPerHour", numTrips: "numTrips" }, outputId: "idleFuelCost" },
-    { formulaId: "cost.total_drift_cost", inputMap: { fuelWasteDistance: "fuelWasteDistance", fuelCostPerLiter: "fuelCostPerLiter", fuelEfficiency: "fuelEfficiency", numTrips: "numTrips", idleFuelCost: "idleFuelCost", fleetSize: "fleetSize" }, outputId: "totalDriftCost" },
+    { formulaId: "cost.fuel_waste_distance", inputMap: {
+        actualKm: "plannedDistance",
+        optimalKm: "actualDistance"
+      }, outputId: "fuelWasteDistance" },
+    { formulaId: "cost.fuel_waste_efficiency", inputMap: {
+        actualFuelUsed: "fuelWasteDistance",
+        fuelPrice: "fuelEfficiency"
+      }, outputId: "fuelWasteEfficiency" },
+    { formulaId: "cost.idle_fuel_cost", inputMap: {
+        idleHours: "idleTimePerTrip",
+        fuelCostPerHour: "driverCostPerHour",
+        numTrips: "numTrips"
+      }, outputId: "idleFuelCost" },
+    { formulaId: "cost.total_drift_cost", inputMap: {
+        fuelWasteDistance: "fuelWasteDistance",
+        idleFuelCost: "idleFuelCost",
+        fuelWasteEfficiency: "fuelCostPerLiter",
+        fuelEfficiency: "fuelEfficiency",
+        numTrips: "numTrips",
+        fleetSize: "fleetSize"
+      }, outputId: "totalDriftCost" },
   ],
   reportTemplate: { title: "Yakıt Rota Sapma Maliyeti Raporu", title_i18n: {"en":"Yakıt Rota Sapma Maliyeti Raporu","tr":"Yakıt Rota Sapma Maliyeti Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 10, targetMarginPercent: 12, assumptionNotes: ["Sapma mesafesi = gerçekleşen - planlanan rota.", "Yakıt israfı = sapma mesafesi / yakıt tüketimi.", "Rötar maliyeti sürücü ücreti ve yakıt tüketimini içerir."],assumptionNotes_i18n:[{"en":"Sapma mesafesi = gerçekleşen - planlanan rota.","tr":"Sapma mesafesi = gerçekleşen - planlanan rota."},{"en":"Yakıt israfı = sapma mesafesi / yakıt tüketimi.","tr":"Yakıt israfı = sapma mesafesi / yakıt tüketimi."},{"en":"Rötar maliyeti sürücü ücreti ve yakıt tüketimini içerir.","tr":"Rötar maliyeti sürücü ücreti ve yakıt tüketimini içerir."}] },

@@ -25,12 +25,34 @@ export const CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "unhedgedVaR", warning: 50000, critical: 200000, direction: "higher_is_bad", warningMessage: "Açık VaR > $50K — hedge oranı artırılmalı.", warningMessage_i18n: {"en":"Açık VaR > $50K — hedge oranı artırılmalı.","tr":"Açık VaR > $50K — hedge oranı artırılmalı."}, criticalMessage: "Açık VaR > $200K — acil hedge işlemi gerekli.", criticalMessage_i18n: {"en":"Açık VaR > $200K — acil hedge işlemi gerekli.","tr":"Açık VaR > $200K — acil hedge işlemi gerekli."} }],
   formulaPipeline: [
-    { formulaId: "cost.fx_exposure", inputMap: { fxRevenue: "fxRevenue", fxCost: "fxCost" }, outputId: "fxExposure" },
-    { formulaId: "cost.fx_var_historical", inputMap: { fxExposure: "fxExposure", volatility: "volatility", zScore: "zScore" }, outputId: "varHistorical" },
-    { formulaId: "cost.fx_var_parametric", inputMap: { fxExposure: "fxExposure", volatility: "volatility", timeHorizon: "timeHorizon" }, outputId: "varParametric" },
-    { formulaId: "cost.fx_unhedged_var", inputMap: { varHistorical: "varHistorical", hedgeRatio: "hedgeRatio" }, outputId: "unhedgedVaR" },
-    { formulaId: "cost.fx_hedge_cost", inputMap: { fxExposure: "fxExposure", forwardPoints: "forwardPoints" }, outputId: "costOfHedge" },
-    { formulaId: "cost.fx_net_impact", inputMap: { spotRate: "spotRate", forwardRate: "forwardRate", fxExposure: "fxExposure", hedgeRatio: "hedgeRatio" }, outputId: "netImpact" },
+    { formulaId: "cost.fx_exposure", inputMap: {
+        fxAmount: "fxRevenue",
+        spotRate: "fxCost"
+      }, outputId: "fxExposure" },
+    { formulaId: "cost.fx_var_historical", inputMap: {
+        fxExposure: "fxExposure",
+        historicalVol: "volatility",
+        zScore: "zScore"
+      }, outputId: "varHistorical" },
+    { formulaId: "cost.fx_var_parametric", inputMap: {
+        fxExposure: "fxExposure",
+        stdDev: "volatility",
+        timeHorizon: "timeHorizon"
+      }, outputId: "varParametric" },
+    { formulaId: "cost.fx_unhedged_var", inputMap: {
+        fxExposure: "varHistorical",
+        expectedMove: "hedgeRatio"
+      }, outputId: "unhedgedVaR" },
+    { formulaId: "cost.fx_hedge_cost", inputMap: {
+        fxExposure: "fxExposure",
+        hedgePremiumPct: "forwardPoints"
+      }, outputId: "costOfHedge" },
+    { formulaId: "cost.fx_net_impact", inputMap: {
+        unhedgedVar: "spotRate",
+        hedgeCost: "forwardRate",
+        fxExposure: "fxExposure",
+        hedgeRatio: "hedgeRatio"
+      }, outputId: "netImpact" },
   ],
   reportTemplate: { title: "Kur Riski Raporu", title_i18n: {"en":"Kur Riski Raporu","tr":"Kur Riski Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 15, targetMarginPercent: 10, assumptionNotes: ["VaR = Pozisyon × Volatilite × Z × √T.", "Hedge maliyeti = Notional × Forward puan.", "Net etki = (Spot - Forward) × Hedge edilen."],assumptionNotes_i18n:[{"en":"VaR = Pozisyon × Volatilite × Z × √T.","tr":"VaR = Pozisyon × Volatilite × Z × √T."},{"en":"Hedge maliyeti = Notional × Forward puan.","tr":"Hedge maliyeti = Notional × Forward puan."},{"en":"Net etki = (Spot - Forward) × Hedge edilen.","tr":"Net etki = (Spot - Forward) × Hedge edilen."}] },

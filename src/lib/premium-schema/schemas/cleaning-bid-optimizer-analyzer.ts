@@ -21,8 +21,16 @@ export const CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "cleaningBidPrice", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "Teklif > rakip — rekabetçilik düşebilir.", warningMessage_i18n: {"en":"Teklif > rakip — rekabetçilik düşebilir.","tr":"Teklif > rakip — rekabetçilik düşebilir."}, criticalMessage: "Teklif maliyetin altında — zarar riski var.", criticalMessage_i18n: {"en":"Teklif maliyetin altında — zarar riski var.","tr":"Teklif maliyetin altında — zarar riski var."} }],
   formulaPipeline: [
-    { formulaId: "cost.cleaning_labor_cost", inputMap: { laborRate: "laborRate", hoursPerVisit: "hoursPerVisit", cleaningFrequency: "cleaningFrequency" }, outputId: "cleaningLaborCost" },
-    { formulaId: "cost.cleaning_bid_price", inputMap: { cleaningLaborCost: "cleaningLaborCost", materialCostPerVisit: "materialCostPerVisit", desiredMargin: "desiredMargin" }, outputId: "cleaningBidPrice" },
+    { formulaId: "cost.cleaning_labor_cost", inputMap: {
+        cleaningHours: "laborRate",
+        cleaningRate: "hoursPerVisit",
+        cleaningFrequency: "cleaningFrequency"
+      }, outputId: "cleaningLaborCost" },
+    { formulaId: "cost.cleaning_bid_price", inputMap: {
+        cleaningLaborCost: "cleaningLaborCost",
+        cleaningMaterialCost: "materialCostPerVisit",
+        cleaningOverhead: "desiredMargin"
+      }, outputId: "cleaningBidPrice" },
   ],
   reportTemplate: { title: "Cleaning Bid Optimization Report", title_i18n: {"en":"Cleaning Bid Optimization Report","tr":"Cleaning Bid Optimization Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 5, targetMarginPercent: 25, assumptionNotes: ["Labor cost = Rate × Hours × Visits/month.", "Bid price = (Labor + Material) / (1 − Margin%).", "Competitor benchmark adjusts strategy."],assumptionNotes_i18n:[{"en":"Labor cost = Rate × Hours × Visits/month.","tr":"Labor cost = Rate × Hours × Visits/month."},{"en":"Bid price = (Labor + Material) / (1 − Margin%).","tr":"Bid price = (Labor + Material) / (1 − Margin%)."},{"en":"Competitor benchmark adjusts strategy.","tr":"Competitor benchmark adjusts strategy."}] },

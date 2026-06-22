@@ -26,7 +26,10 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
     { formulaId: "measurement.water_intensity", inputMap: { totalWaterUse: "totalWaterUse", productionOutput: "productionOutput" }, outputId: "waterIntensity" },
     { formulaId: "cost.water_savings_total", inputMap: { waterIntensity: "waterIntensity", targetWaterIntensity: "targetWaterIntensity", productionOutput: "productionOutput" }, outputId: "waterSavingsTotal" },
     { formulaId: "cost.water_cost_savings", inputMap: { waterSavingsTotal: "waterSavingsTotal", waterCostPerM3: "waterCostPerM3", wastewaterCostPerM3: "wastewaterCostPerM3", wastewaterPct: "wastewaterPct" }, outputId: "waterCostSavings" },
-    { formulaId: "cost.water_roi", inputMap: { waterCostSavings: "waterCostSavings", efficiencyInvestment: "efficiencyInvestment" }, outputId: "waterRoi" },
+    { formulaId: "cost.water_roi", inputMap: {
+        waterCostSavings: "waterCostSavings",
+        efficiencyInvestment: "efficiencyInvestment"
+      }, outputId: "waterRoi" },
   ],
   reportTemplate: { title: "Su Kullanım Optimizasyon Raporu", title_i18n: {"en":"Su Kullanım Optimizasyon Raporu","tr":"Su Kullanım Optimizasyon Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Su yoğunluğu = toplam kullanım / üretim miktarı.", "Tasarruf = (mevcut − hedef) yoğunluk × üretim.", "Atık su maliyeti toplam suyun atık su oranı kadar kadarına uygulanır."],assumptionNotes_i18n:[{"en":"Su yoğunluğu = toplam kullanım / üretim miktarı.","tr":"Su yoğunluğu = toplam kullanım / üretim miktarı."},{"en":"Tasarruf = (mevcut − hedef) yoğunluk × üretim.","tr":"Tasarruf = (mevcut − hedef) yoğunluk × üretim."},{"en":"Atık su maliyeti toplam suyun atık su oranı kadar kadarına uygulanır.","tr":"Atık su maliyeti toplam suyun atık su oranı kadar kadarına uygulanır."}] },

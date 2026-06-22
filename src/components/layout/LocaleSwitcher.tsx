@@ -1,8 +1,6 @@
 "use client";
 
-import { useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname } from "@/i18n/routing";
 import { LOCALE_DEFINITION_LIST, getLocaleDefinition } from "@/lib/i18n/locale-config";
 import {
   addLocaleToPath,
@@ -19,21 +17,18 @@ export function LocaleSwitcher({
   variant?: "default" | "compact";
 }) {
   const locale = useLocale() as SupportedLocale;
-  const pathname = usePathname();
   const t = useTranslations("locale");
-  const [pending, startTransition] = useTransition();
 
   const handleChange = (nextLocale: SupportedLocale) => {
     if (nextLocale === locale) {
       return;
     }
 
-    startTransition(() => {
-      setLocaleCookie(nextLocale, { manual: true });
-      const basePath = stripLocaleFromPath(pathname);
-      const nextPath = addLocaleToPath(basePath, nextLocale);
-      window.location.assign(nextPath);
-    });
+    setLocaleCookie(nextLocale, { manual: true });
+    const currentPath = window.location.pathname;
+    const basePath = stripLocaleFromPath(currentPath);
+    const nextPath = addLocaleToPath(basePath, nextLocale);
+    window.location.assign(nextPath);
   };
 
   const currentLabel = t(locale);
@@ -54,7 +49,7 @@ export function LocaleSwitcher({
       <select
         value={locale}
         onChange={(event) => handleChange(event.target.value as SupportedLocale)}
-        disabled={pending}
+        disabled={false}
         aria-label={t("label")}
         className={`apple-locale__select language-selector__select${compact ? " language-selector__select--overlay" : ""}`}
         title={currentLabel}

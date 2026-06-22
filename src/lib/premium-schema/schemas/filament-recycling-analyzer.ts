@@ -24,9 +24,23 @@ export const FILAMENT_RECYCLING_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "roi", warning: 30, critical: 10, direction: "lower_is_bad", warningMessage: "ROI < %30 — geri dönüşüm yatırımı sorgulanmalı.", warningMessage_i18n: {"en":"ROI < %30 — geri dönüşüm yatırımı sorgulanmalı.","tr":"ROI < %30 — geri dönüşüm yatırımı sorgulanmalı."}, criticalMessage: "ROI < %10 — yatırım fizibil değil.", criticalMessage_i18n: {"en":"ROI < %10 — yatırım fizibil değil.","tr":"ROI < %10 — yatırım fizibil değil."} }],
   formulaPipeline: [
-    { formulaId: "cost.filament_virgin", inputMap: { virginPrice: "virginPrice", virginScrapPct: "virginScrapPct", virginTransport: "virginTransport" }, outputId: "virginCost" },
-    { formulaId: "cost.filament_recycled", inputMap: { collectCost: "collectCost", sortCost: "sortCost", pelletCost: "pelletCost", recyclingYield: "recyclingYield" }, outputId: "recycledCost" },
-    { formulaId: "cost.filament_roi", inputMap: { virginCost: "virginCost", recycledCost: "recycledCost", productionVolume: "productionVolume", capex: "capex" }, outputId: "roi" },
+    { formulaId: "cost.filament_virgin", inputMap: {
+        priceV: "virginPrice",
+        scrapV: "virginScrapPct",
+        transpV: "virginTransport"
+      }, outputId: "virginCost" },
+    { formulaId: "cost.filament_recycled", inputMap: {
+        collect: "collectCost",
+        sort: "sortCost",
+        pellet: "pelletCost",
+        yield: "recyclingYield"
+      }, outputId: "recycledCost" },
+    { formulaId: "cost.filament_roi", inputMap: {
+        capex: "capex",
+        costV: "virginCost",
+        totalR: "recycledCost",
+        volume: "productionVolume"
+      }, outputId: "roi" },
   ],
   reportTemplate: { title: "Filament Recycling Report", title_i18n: {"en":"Filament Recycling Report","tr":"Filament Recycling Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Virgin = Price×(1+Scrap%)+Transport.", "Recycled = (Collect+Sort+Pellet)/Yield.", "ROI = (Virgin-Recycled)×Vol/Capex."],assumptionNotes_i18n:[{"en":"Virgin = Price×(1+Scrap%)+Transport.","tr":"Virgin = Price×(1+Scrap%)+Transport."},{"en":"Recycled = (Collect+Sort+Pellet)/Yield.","tr":"Recycled = (Collect+Sort+Pellet)/Yield."},{"en":"ROI = (Virgin-Recycled)×Vol/Capex.","tr":"ROI = (Virgin-Recycled)×Vol/Capex."}] },

@@ -28,8 +28,17 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
   ],
   formulaPipeline: [
     { formulaId: "measurement.complexity_index", inputMap: { numSkus: "numSkus", numPartsPerSku: "numPartsPerSku", setupTime: "setupTime", complexityScore: "complexityScore" }, outputId: "complexityIndex" },
-    { formulaId: "cost.hidden_cost_complexity", inputMap: { complexityIndex: "complexityIndex", hourlyRate: "hourlyRate", batchFrequency: "batchFrequency", numSkus: "numSkus" }, outputId: "hiddenCostComplexity" },
-    { formulaId: "cost.profitability_per_sku", inputMap: { avgMargin: "avgMargin", hiddenCostComplexity: "hiddenCostComplexity", numSkus: "numSkus" }, outputId: "profitabilityPerSku" },
+    { formulaId: "cost.hidden_cost_complexity", inputMap: {
+        complexityIndex: "complexityIndex",
+        annualOverhead: "hourlyRate",
+        batchFrequency: "batchFrequency",
+        numSkus: "numSkus"
+      }, outputId: "hiddenCostComplexity" },
+    { formulaId: "cost.profitability_per_sku", inputMap: {
+        skuRevenue: "avgMargin",
+        skuCost: "hiddenCostComplexity",
+        skuQty: "numSkus"
+      }, outputId: "profitabilityPerSku" },
     { formulaId: "cost.setup_total_cost", inputMap: { setupTime: "setupTime", hourlyRate: "hourlyRate", batchFrequency: "batchFrequency", numSkus: "numSkus" }, outputId: "totalSetupCost" },
     { formulaId: "measurement.waste_percentage", inputMap: { hiddenCostComplexity: "hiddenCostComplexity", numSkus: "numSkus", numPartsPerSku: "numPartsPerSku" }, outputId: "wastePercent" },
   ],

@@ -24,11 +24,25 @@ export const DIGITAL_TWIN_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI < %100 — fizibilite tekrar değerlendirilmeli.", warningMessage_i18n: {"en":"ROI < %100 — fizibilite tekrar değerlendirilmeli.","tr":"ROI < %100 — fizibilite tekrar değerlendirilmeli."}, criticalMessage: "ROI < %50 — yatırım önerilmez.", criticalMessage_i18n: {"en":"ROI < %50 — yatırım önerilmez.","tr":"ROI < %50 — yatırım önerilmez."} }],
   formulaPipeline: [
-    { formulaId: "cost.digital_twin_time_gain", inputMap: { physicalCycle: "physicalCycle", digitalCycle: "digitalCycle", iterations: "iterations" }, outputId: "timeGain" },
-    { formulaId: "cost.digital_twin_revenue_gain", inputMap: { timeGain: "timeGain", dailyRevenue: "dailyRevenue" }, outputId: "revenueGain" },
-    { formulaId: "cost.digital_twin_quality_savings", inputMap: { defectReductionPct: "defectReductionPct", warrantyCost: "warrantyCost", productionVolume: "productionVolume" }, outputId: "qualitySavings" },
+    { formulaId: "cost.digital_twin_time_gain", inputMap: {
+        iterations: "iterations",
+        physCycle: "physicalCycle",
+        digCycle: "digitalCycle"
+      }, outputId: "timeGain" },
+    { formulaId: "cost.digital_twin_revenue_gain", inputMap: {
+        timeGain: "timeGain",
+        dailyRev: "dailyRevenue"
+      }, outputId: "revenueGain" },
+    { formulaId: "cost.digital_twin_quality_savings", inputMap: {
+        warrantyCost: "warrantyCost",
+        defectReduction: "defectReductionPct",
+        volume: "productionVolume"
+      }, outputId: "qualitySavings" },
     { formulaId: "cost.digital_twin_total_savings", inputMap: { traditionalCost: "traditionalCost", dtCost: "dtCost", revenueGain: "revenueGain", qualitySavings: "qualitySavings" }, outputId: "totalSavings" },
-    { formulaId: "cost.digital_twin_roi", inputMap: { totalSavings: "totalSavings", dtCost: "dtCost" }, outputId: "roi" },
+    { formulaId: "cost.digital_twin_roi", inputMap: {
+        costTrad: "totalSavings",
+        costDt: "dtCost"
+      }, outputId: "roi" },
   ],
   reportTemplate: { title: "Digital Twin Cost & ROI Report", title_i18n: {"en":"Digital Twin Cost & ROI Report","tr":"Digital Twin Cost & ROI Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Time gain = (Physical-Digital)×Iterations.", "Quality savings = DefectRed%×Warranty×Volume.", "ROI = (TradCost-DTCost+RevGain+QualSav)/DTCost."],assumptionNotes_i18n:[{"en":"Time gain = (Physical-Digital)×Iterations.","tr":"Time gain = (Physical-Digital)×Iterations."},{"en":"Quality savings = DefectRed%×Warranty×Volume.","tr":"Quality savings = DefectRed%×Warranty×Volume."},{"en":"ROI = (TradCost-DTCost+RevGain+QualSav)/DTCost.","tr":"ROI = (TradCost-DTCost+RevGain+QualSav)/DTCost."}] },

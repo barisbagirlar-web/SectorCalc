@@ -22,9 +22,17 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "breakevenHours", warning: 40, critical: 80, direction: "higher_is_bad", warningMessage: "Eşik > 40 saat — yeni işçi değerlendirilmeli.", warningMessage_i18n: {"en":"Eşik > 40 saat — yeni işçi değerlendirilmeli.","tr":"Eşik > 40 saat — yeni işçi değerlendirilmeli."}, criticalMessage: "Eşik > 80 saat — yeni işçi kaçınılmaz.", criticalMessage_i18n: {"en":"Eşik > 80 saat — yeni işçi kaçınılmaz.","tr":"Eşik > 80 saat — yeni işçi kaçınılmaz."} }],
   formulaPipeline: [
-    { formulaId: "cost.ot_cost_hour", inputMap: { overtimeRate: "overtimeRate", qualityDefectRate: "qualityDefectRate" }, outputId: "otCostHour" },
-    { formulaId: "cost.hiring_total_cost", inputMap: { hiringCost: "hiringCost" }, outputId: "hiringTotalCost" },
-    { formulaId: "cost.annual_new_hire_cost", inputMap: { annualSalary: "annualSalary", hiringTotalCost: "hiringTotalCost" }, outputId: "annualNewHireCost" },
+    { formulaId: "cost.ot_cost_hour", inputMap: {
+        baseRate: "overtimeRate",
+        otMultiplier: "qualityDefectRate"
+      }, outputId: "otCostHour" },
+    { formulaId: "cost.hiring_total_cost", inputMap: {
+        advertising: "hiringCost"
+      }, outputId: "hiringTotalCost" },
+    { formulaId: "cost.annual_new_hire_cost", inputMap: {
+        hiringTotalCost: "hiringTotalCost",
+        salary: "annualSalary"
+      }, outputId: "annualNewHireCost" },
     { formulaId: "measurement.breakeven_hours_base", inputMap: { annualNewHireCost: "annualNewHireCost", otCostHour: "otCostHour" }, outputId: "breakevenHours" },
     { formulaId: "measurement.ot_hire_decision", inputMap: { overtimeHoursPerMonth: "overtimeHoursPerMonth", breakevenHours: "breakevenHours" }, outputId: "otHireDecision" },
   ],

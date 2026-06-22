@@ -27,14 +27,40 @@ export const OEE_DOWNTIME_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "oeeScore", warning: 75, critical: 55, direction: "lower_is_bad", warningMessage: "OEE < %75 — iyileştirme fırsatı mevcut.", warningMessage_i18n: {"en":"OEE < 75% — improvement opportunity exists.","tr":"OEE < %75 — iyileştirme fırsatı mevcut."}, criticalMessage: "OEE < %55 — acil iyileştirme programı gerekiyor.", criticalMessage_i18n: {"en":"OEE < 55% — urgent improvement program required.","tr":"OEE < %55 — acil iyileştirme programı gerekiyor."} }],
   formulaPipeline: [
-    { formulaId: "measurement.oee_availability", inputMap: { plannedProdTime: "plannedProdTime", downtimeMinutes: "downtimeMinutes" }, outputId: "oeeAvailability" },
-    { formulaId: "measurement.oee_performance", inputMap: { idealCycleMinutes: "idealCycleMinutes", totalParts: "totalParts", plannedProdTime: "plannedProdTime", downtimeMinutes: "downtimeMinutes" }, outputId: "oeePerformance" },
+    { formulaId: "measurement.oee_availability", inputMap: {
+        plannedProdTime: "plannedProdTime",
+        operatingTime: "downtimeMinutes"
+      }, outputId: "oeeAvailability" },
+    { formulaId: "measurement.oee_performance", inputMap: {
+        totalParts: "totalParts",
+        idealCycleTime: "idealCycleMinutes",
+        operatingTime: "plannedProdTime",
+        downtimeMinutes: "downtimeMinutes"
+      }, outputId: "oeePerformance" },
     { formulaId: "measurement.oee_quality", inputMap: { goodParts: "goodParts", totalParts: "totalParts" }, outputId: "oeeQuality" },
     { formulaId: "measurement.oee_score", inputMap: { oeeAvailability: "oeeAvailability", oeePerformance: "oeePerformance", oeeQuality: "oeeQuality" }, outputId: "oeeScore" },
-    { formulaId: "measurement.teep_score", inputMap: { oeeScore: "oeeScore" }, outputId: "teepScore" },
-    { formulaId: "cost.oee_downtime_cost", inputMap: { downtimeMinutes: "downtimeMinutes", machineHourlyCost: "machineHourlyCost", numShiftsYear: "numShiftsYear" }, outputId: "downtimeCost" },
-    { formulaId: "cost.oee_speed_loss", inputMap: { idealCycleMinutes: "idealCycleMinutes", totalParts: "totalParts", plannedProdTime: "plannedProdTime", downtimeMinutes: "downtimeMinutes", machineHourlyCost: "machineHourlyCost", numShiftsYear: "numShiftsYear" }, outputId: "speedLossCost" },
-    { formulaId: "cost.oee_quality_loss", inputMap: { goodParts: "goodParts", totalParts: "totalParts", machineHourlyCost: "machineHourlyCost", numShiftsYear: "numShiftsYear" }, outputId: "qualityLossCost" },
+    { formulaId: "measurement.teep_score", inputMap: {
+        operatingTime: "oeeScore"
+      }, outputId: "teepScore" },
+    { formulaId: "cost.oee_downtime_cost", inputMap: {
+        plannedProdTime: "downtimeMinutes",
+        operatingTime: "machineHourlyCost",
+        costPerHour: "numShiftsYear"
+      }, outputId: "downtimeCost" },
+    { formulaId: "cost.oee_speed_loss", inputMap: {
+        totalParts: "totalParts",
+        operatingTime: "idealCycleMinutes",
+        idealCycleTime: "plannedProdTime",
+        costPerHour: "downtimeMinutes",
+        machineHourlyCost: "machineHourlyCost",
+        numShiftsYear: "numShiftsYear"
+      }, outputId: "speedLossCost" },
+    { formulaId: "cost.oee_quality_loss", inputMap: {
+        totalParts: "totalParts",
+        goodParts: "goodParts",
+        costPerPart: "machineHourlyCost",
+        numShiftsYear: "numShiftsYear"
+      }, outputId: "qualityLossCost" },
   ],
   reportTemplate: { title: "OEE & Downtime Report", title_i18n: {"en":"OEE & Downtime Report","tr":"OEE & Downtime Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["OEE = Kullanılabilirlik × Performans × Kalite.", "Dünya-klasmanı OEE > %85.", "Hız kaybı = (ideal × toplam) − (planlanan − durma)."],assumptionNotes_i18n:[{"en":"OEE = Availability × Performance × Quality.","tr":"OEE = Kullanılabilirlik × Performans × Kalite."},{"en":"World-class OEE > 85%.","tr":"Dünya-klasmanı OEE > %85."},{"en":"Speed loss = (ideal × total) − (planned − downtime).","tr":"Hız kaybı = (ideal × toplam) − (planlanan − durma)."}]},

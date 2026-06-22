@@ -68913,11 +68913,11 @@
       "search": "Suchen",
       "tryLabel": "Versuch:",
       "chipOee": "OEE",
-      "chipEoq": "📦 EOQ",
+      "chipEoq": "📦 EOQ (Optimale Bestellmenge)",
       "chipIrr": "IRR",
       "chipCpk": "Cpk",
-      "chipLmtd": "🌡️ LMTD",
-      "chipMtbf": "🔧 MTBF"
+      "chipLmtd": "🌡️ LMTD (Logarithmische Temperaturdifferenz)",
+      "chipMtbf": "🔧 MTBF (Mittlere Betriebsdauer zwischen Ausfällen)"
     },
     "metrics": {
       "proCalculators": "Pro-Rechner",
@@ -68928,19 +68928,19 @@
     "ticker": {
       "label": "Am häufigsten genutzt",
       "toolOee": "OEE Rechner",
-      "toolEoq": "📦 EOQ",
-      "toolIrrNpv": "IRR / NPV",
-      "toolCpkSigma": "Cpk / Sigma",
+      "toolEoq": "📦 EOQ (Optimale Bestellmenge)",
+      "toolIrrNpv": "IRR / NPV (Interner Zinsfuß / Kapitalwert)",
+      "toolCpkSigma": "Cpk / Sigma (Prozessfähigkeitsindex / Sigma)",
       "toolTaktTime": "⏱️ Taktzeit",
       "toolBoltTorque": "Schraubendrehmoment",
-      "toolLmtd": "🌡️ LMTD",
-      "toolMtbfMttr": "🔧 MTBF / MTTR",
+      "toolLmtd": "🌡️ LMTD (Logarithmische Temperaturdifferenz)",
+      "toolMtbfMttr": "🔧 MTBF / MTTR (Mittlere Betriebsdauer zwischen Ausfällen / Mittlere Reparaturzeit)",
       "toolBreakEven": "📉 Gewinnschwelle",
       "toolKanban": "Kanban-Karten",
       "toolPipePressure": "💧 Rohrdruckverlust",
       "toolCarbon": "🌿 CO2-Fußabdruck",
       "toolCompressor": "Kompressorleistung",
-      "toolPertCpm": "PERT / CPM",
+      "toolPertCpm": "PERT / CPM (PERT / CPM)",
       "badgePro": "PRO",
       "badgeFree": "KOSTENLOS"
     },
@@ -68972,7 +68972,7 @@
       "eyebrow": "Methodik",
       "title": "Keine Blackbox. Jede Formel zitiert.",
       "lead": "Technische Werkzeuge, denen Ingenieure vertrauen können. Quellen angegeben, Annahmen genannt, Grenzfälle dokumentiert.",
-      "card1Tag": "Standard",
+      "card1Tag": "Standard (Standard)",
       "card1Title": "Referenziert nach ISO, ASME & IEC",
       "card1Desc": "Jeder Rechner zitiert seine Quelle. ASME UG-27, ISO 5349, NIOSH-Hebegleichung — keine erfundenen Formeln, keine Spekulation.",
       "card2Title": "Formelnotizen",
@@ -68990,13 +68990,13 @@
       "persona1Tags": "OEE, Taktzeit, NIOSH, REBA, VSM",
       "persona2Role": "Finanzen & Betrieb",
       "persona2Desc": "ROI, NPV, IRR, Betriebskapital, Bestandskostenmodelle und Break-Even-Analyse für strategische Entscheidungen.",
-      "persona2Tags": "IRR, NPV, WACC, EOQ, DCF",
+      "persona2Tags": "IRR, NPV, WACC, EOQ, DCF (Interner Zinsfuß, Kapitalwert, gewichtete durchschnittliche Kapitalkosten, Optimale Bestellmenge, Discounted Cashflow)",
       "persona3Role": "Qualitätsingenieure",
       "persona3Desc": "Prozessfähigkeit, FMEA-Risikobewertung, Regelkarten, Messsystemanalyse und Stichprobenprüfung.",
-      "persona3Tags": "Cpk, DPMO, FMEA, AQL, Gage R&R",
+      "persona3Tags": "Cpk, DPMO, FMEA, AQL, Gage R&R (Prozessfähigkeitsindex, Fehler pro Million Möglichkeiten, Fehlermöglichkeits- und Einflussanalyse, Annehmbare Qualitätsgrenzlage, Messsystemanalyse)",
       "persona4Role": "Maschinenbauingenieure",
       "persona4Desc": "Druckbehälter, Schraubendrehmoment, Wärmetauscher, Hydrauliksysteme und CNC-Schnittparameter.",
-      "persona4Tags": "ASME UG-27, LMTD, VDI 2230, CNC"
+      "persona4Tags": "ASME UG-27, LMTD, VDI 2230, CNC (ASME UG-27, Logarithmische Temperaturdifferenz, VDI 2230, CNC)"
     },
     "pricing": {
       "eyebrow": "Tarife",
@@ -69031,13 +69031,13 @@
     },
     "footer": {
       "brandDesc": "Professionelle Rechnerplattform für Technik, Fertigung, Finanzen und industrielle Abläufe. In über 40 Ländern im Einsatz.",
-      "tagIso": "ISO 9001",
+      "tagIso": "ISO 9001 (ISO 9001)",
       "tagAsme": "ASME",
       "tagGhg": "GHG-Protokoll",
-      "tagAiag": "AIAG FMEA",
-      "tagVdi": "VDI 2230",
-      "tagEn": "EN 12101",
-      "tagIec": "IEC 60890",
+      "tagAiag": "AIAG FMEA (AIAG FMEA)",
+      "tagVdi": "VDI 2230 (VDI 2230)",
+      "tagEn": "EN 12101 (EN 12101)",
+      "tagIec": "IEC 60890 (IEC 60890)",
       "colCalculators": "Rechner",
       "colPlatform": "Plattform",
       "colLegal": "Rechtliches",
@@ -69075,6 +69075,112 @@
       "chipPayback": "💰 Amortisation",
       "chipBolt": "Schraubendrehmoment",
       "placeholder": "z.B. MTBF für 3 Maschinen berechnen…"
+    },
+    "heroNew": {
+      "headline": "Technische Rechner in Ingenieursqualität, die Industriedaten in Entscheidungen verwandeln.",
+      "subtitle": "Rechner für Fertigung, Finanzen, Energie, Logistik und Qualität mit transparenten Formeln, dokumentierten Annahmen und Pro-Entscheidungsberichten.",
+      "ctaPrimary": "Kostenlosen Rechner testen",
+      "ctaSecondary": "Beispiel eines Pro-Berichts ansehen"
+    },
+    "trustBar": {
+      "items": [
+        "{toolCount} Rechner · {freeCount} kostenlos · {proCount} Pro",
+        "ISO, ASME, IEC referenced formulas",
+        "Browser-side calculations",
+        "6 languages",
+        "PDF export for Pro tools"
+      ]
+    },
+    "whatDoes": {
+      "title": "Von der schnellen Berechnung zur dokumentierten Entscheidung.",
+      "card1Title": "Berechnen",
+      "card1Desc": "Kostenlose Rechner für schnelle operative Schätzungen nutzen.",
+      "card2Title": "Validieren",
+      "card2Desc": "Formeln, Annahmen und bekannte Grenzen prüfen.",
+      "card3Title": "Compare",
+      "card3Desc": "Pro-Szenarien und Sensitivitätsprüfungen durchführen.",
+      "card4Title": "Export",
+      "card4Desc": "Einen entscheidungsfertigen PDF-Bericht herunterladen."
+    },
+    "freeVsPro": {
+      "title": "Kostenlos starten. Mit Pro in die Tiefe gehen.",
+      "freeTitle": "Free",
+      "freeTools": "{freeCount} standard calculators",
+      "freeCta": "Kostenlose Tools durchsuchen",
+      "proTitle": "Pro",
+      "proTools": "{proCount} advanced engineering tools",
+      "proCta": "Pro-Zugang erhalten",
+      "feat1": "ISO/ASME-referenzierte Formeln",
+      "feat2": "Formelanmerkungen und -ableitungen",
+      "feat3": "PDF-Entscheidungsbericht-Export",
+      "feat4": "Sensitivitätsanalyse und Szenarien",
+      "feat5": "6 Sprachen"
+    },
+    "whyPro": {
+      "title": "Warum Fachleute für SectorCalc bezahlen",
+      "card1Title": "Entscheidungsfertige PDF-Berichte",
+      "card1Desc": "Eine vollständige Berechnung mit Eingaben, Formeln, Annahmen, Ergebnissen und Empfehlungen exportieren. Bereit zur Überprüfung oder zum Anhängen.",
+      "card2Title": "Formeltransparenz",
+      "card2Desc": "Jedes Pro-Tool verlinkt auf seinen Quellstandard – ISO, ASME, IEC. Sie sehen die Ableitung, nicht nur das Ergebnis.",
+      "card3Title": "Sensitivität und Szenarien",
+      "card3Desc": "Was-wäre-wenn-Szenarien über Ihre Schlüsselvariablen durchführen. Sehen Sie, wie sich Änderungen der Eingaben auf das Endergebnis auswirken, bevor Sie entscheiden.",
+      "card4Title": "Keine Daten verlassen Ihren Browser",
+      "card4Desc": "Alle Berechnungen laufen clientseitig. Ihre technischen Daten bleiben auf Ihrem Rechner. Keine Uploads, keine Server, kein Tracking."
+    },
+    "categories2": [
+      {
+        "id": "manufacturing",
+        "name": "Fertigung und OEE",
+        "problem": "Unbekannte OEE, ungeplante Ausfallzeiten, unausgeglichene Linien, versteckte Kapazitätsverluste.",
+        "tools": "OEE-Rechner, Taktzeit, Linienabgleich, SMED, Gesamte Zykluseffizienz",
+        "proOutput": "PDF-Verlustanalyse mit Treiberranking, monatlicher Verlustschätzung ($), empfohlenem Aktionsplan",
+        "href": "/categories/manufacturing"
+      },
+      {
+        "id": "costing",
+        "name": "Kostenrechnung und Angebotserstellung",
+        "problem": "Inkonsistente Schätzungen, fehlende Gemeinkostenzuordnung, ungenaue Break-Even-Analyse.",
+        "tools": "Break-Even-Analyse, Stückkosten, Zielkostenrechnung, Cost-Plus-Preisgestaltung, Sollkostenmodell",
+        "proOutput": "Kostenaufschlüsselungsbericht mit Margensensitivitätstabelle, risikoadjustierter Preisspanne",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "finance",
+        "name": "Finanzen und Investition",
+        "problem": "Unsicherer ROI, unklarer Kapitalwert, unvollständige Kapitalbudgetierungsannahmen.",
+        "tools": "Kapitalwert, IRR, Amortisationszeit, WACC, DCF-Bewertung, Cap Rate, Cashflow-Analyse",
+        "proOutput": "Investment-Memo mit Szenarienvergleich, IRR/NPV-Sensitivitätsdiagramm, Entscheidungsmatrix",
+        "href": "/categories/finance"
+      },
+      {
+        "id": "quality",
+        "name": "Qualität und Zuverlässigkeit",
+        "problem": "Hohe Fehlerraten, unbekannte Prozessfähigkeit, unzuverlässige Lieferantenqualitätsdaten.",
+        "tools": "Cpk/Ppk, Six Sigma DPMO, FMEA RPN, Gage R&R, AQL-Stichprobenprüfung, MTBF/MTTR",
+        "proOutput": "Fähigkeitsbericht mit Cpk-Konfidenzintervall, Fehlerkostenprognose, Priorisierungsmatrix für Verbesserungen",
+        "href": "/categories/quality"
+      },
+      {
+        "id": "energy",
+        "name": "Energie und Nachhaltigkeit",
+        "problem": "Steigende Energiekosten, unklarer CO₂-Fußabdruck, keine Szenarienplanung zur Reduzierung.",
+        "tools": "CO₂-Fußabdruck, Energiekostenanalyse, Wärmetauscher-LMTD, HVAC-Last, Solar-Amortisation",
+        "proOutput": "Energieaudit-Zusammenfassung mit CO₂-Reduktionsszenarien, Kosten-Nutzen-Vergleichstabelle",
+        "href": "/categories/energy"
+      },
+      {
+        "id": "logistics",
+        "name": "Logistik und Lagerbestand",
+        "problem": "Überbestand, häufige Fehlbestände, hohe Lagerkosten, keine EOQ-Disziplin.",
+        "tools": "EOQ, Sicherheitsbestand, Meldebestand, Lagerumschlag, Lagerfläche, Frachtkosten",
+        "proOutput": "Bestandsoptimierungsbericht mit Bestellhäufigkeitsanalyse, TCO-Vergleich, Risikopufferempfehlung",
+        "href": "/categories/logistics"
+      }
+    ],
+    "pricingBridge": {
+      "text": "Ab 1,99 $ pro Pro-Berechnung. Guthabenpakete verfügbar. Kein Abonnement erforderlich.",
+      "cta": "Pro-Preise anzeigen",
+      "ctaHref": "/pricing"
     }
   }
 }
