@@ -124,7 +124,6 @@ export default async function FreeToolsPage({ params }: PageProps) {
                 />
               </Suspense>
             )}
-
           </ToolsPageLayout>
         </ToolsPageSearchProvider>
       </section>

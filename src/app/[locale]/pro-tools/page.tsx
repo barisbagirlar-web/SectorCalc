@@ -12,13 +12,15 @@ import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/b
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import type { AppLocale } from "@/i18n/routing";
-// ── ToolAlphaList imports ──
-import { ToolAlphaList } from "@/components/tools/ToolAlphaList";
 import {
   getAllToolsGroupedByCategory,
   getOrderedCategorySlugsWithTools,
 } from "@/lib/tools/getToolsByCategory";
 import { resolveFreeToolCategoryTitle } from "@/lib/free-tools/free-tool-categories";
+import {
+  SectorFilteredToolSections,
+  type CategorySectorData,
+} from "@/components/free-tools/SectorFilteredToolSections";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -55,6 +57,19 @@ export default async function ProToolsPage({ params }: PageProps) {
   // ── Group premium tools by canonical category ──
   const groupedByCategory = getAllToolsGroupedByCategory(locale, true);
   const orderedCategorySlugs = getOrderedCategorySlugsWithTools(groupedByCategory);
+
+  // Pre-compute category sections for the filterable client component
+  const categorySections: CategorySectorData[] = orderedCategorySlugs
+    .map((catSlug) => {
+      const catTools = groupedByCategory[catSlug];
+      if (!catTools || catTools.length === 0) return null;
+      return {
+        slug: catSlug,
+        title: resolveFreeToolCategoryTitle(catSlug, locale),
+        tools: catTools,
+      } as CategorySectorData;
+    })
+    .filter(Boolean) as CategorySectorData[];
 
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
@@ -95,38 +110,15 @@ export default async function ProToolsPage({ params }: PageProps) {
               </Suspense>
             </div>
 
-            {/* ── Per-category alphabetical tool lists ── */}
-            {orderedCategorySlugs.length > 0 && (
-              <div className="mt-4 space-y-10">
-                <h2 className="text-lg font-bold text-gray-900">
-                  {tPage("byCategoryTitle")}
-                </h2>
-
-                {orderedCategorySlugs.map((catSlug) => {
-                  const catTools = groupedByCategory[catSlug];
-                  if (!catTools || catTools.length === 0) return null;
-                  const catTitle = resolveFreeToolCategoryTitle(catSlug, locale);
-
-                  return (
-                    <section key={catSlug}>
-                      <h3
-                        id={`cat-${catSlug}`}
-                        className="mb-3 text-base font-semibold text-gray-800"
-                      >
-                        {catTitle}
-                        <span className="ml-2 text-sm font-normal text-gray-400">
-                          {tPage("toolsCount", { count: catTools.length })}
-                        </span>
-                      </h3>
-                      <ToolAlphaList
-                        tools={catTools}
-                        locale={locale}
-                        categoryName={catTitle}
-                      />
-                    </section>
-                  );
-                })}
-              </div>
+            {/* ── Sector-filtered alphabetical tool lists ── */}
+            {categorySections.length > 0 && (
+              <Suspense fallback={<div className="min-h-[8rem]" aria-hidden="true" />}>
+                <SectorFilteredToolSections
+                  categorySections={categorySections}
+                  locale={locale}
+                  byCategoryTitle={tPage("byCategoryTitle")}
+                />
+              </Suspense>
             )}
 
           </ToolsPageLayout>

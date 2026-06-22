@@ -359,30 +359,47 @@ function categorizedToToolData(
 export function getPremiumTools(locale = "tr"): ToolData[] {
   const bySlug = new Map<string, ToolData>();
 
-  // 1. Premium-tier items from categorized tool index (covers all 152 premium-152 seed
-  //    tools + canonical premium slugs + premium-schema items)
-  const index = buildCategorizedToolIndex();
-  for (const item of index) {
-    if (item.tier === "premium" || item.tier === "premium-schema") {
-      if (!bySlug.has(item.slug)) {
-        bySlug.set(item.slug, categorizedToToolData(item, locale));
+  // 0. Build sector lookup from premium schema registry (has real sectorSlug).
+  const premiumSectorLookup = new Map<string, string>();
+  for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
+    premiumSectorLookup.set(schema.id, resolvePremiumSectorKey(schema.sectorSlug));
+  }
+
+  // 1. Schema-based premium tools from generated/schemas/*.json (has correct sectorKey
+  //    from schema catalog metadata). Process FIRST so proper sector data is available.
+  const schemaPremium = getAllTools(locale).filter((tool) => tool.premiumRequired);
+  for (const t of schemaPremium) {
+    if (!bySlug.has(t.slug)) {
+      bySlug.set(t.slug, t);
+      // Also populate sector lookup from generated schema sector key.
+      if (!premiumSectorLookup.has(t.slug)) {
+        premiumSectorLookup.set(t.slug, t.sectorKey);
       }
     }
   }
 
-  // 2. Premium schemas from schema-registry (56 registered PremiumCalculatorSchema).
-  //    Overrides index data with richer schema-level info (name_i18n, painStatement, sectorSlug).
+  // 2. Premium schemas from schema-registry. Overrides with richer data (name_i18n,
+  //    painStatement, proper sectorSlug).
   for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
     if (!bySlug.has(schema.id)) {
       bySlug.set(schema.id, schemaToToolData(schema, locale));
     }
   }
 
-  // 3. Schema-based premium tools from generated/schemas/*.json (if any have premiumRequired).
-  const schemaPremium = getAllTools(locale).filter((tool) => tool.premiumRequired);
-  for (const t of schemaPremium) {
-    if (!bySlug.has(t.slug)) {
-      bySlug.set(t.slug, t);
+  // 3. Premium-tier items from categorized tool index. Uses sectorLookup for correct
+  //    sector mapping instead of falling back to "diger" for everything.
+  const index = buildCategorizedToolIndex();
+  for (const item of index) {
+    if (item.tier === "premium" || item.tier === "premium-schema") {
+      if (!bySlug.has(item.slug)) {
+        const sectorKey = premiumSectorLookup.get(item.slug)
+          ?? resolvePremiumSectorKey(item.categorySlug);
+        bySlug.set(item.slug, {
+          ...categorizedToToolData(item, locale),
+          sectorKey,
+          sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
+        });
+      }
     }
   }
 
