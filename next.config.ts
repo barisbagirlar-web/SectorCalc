@@ -9,6 +9,10 @@ const LOCALE_REWRITE_EXCLUDE =
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  eslint: {
+    // Lint CI'da ayrıca çalıştırılıyor; build/deploy sırasında bloklamasın.
+    ignoreDuringBuilds: true,
+  },
   serverExternalPackages: ["@react-pdf/renderer"],
   experimental: {
     staleTimes: {
