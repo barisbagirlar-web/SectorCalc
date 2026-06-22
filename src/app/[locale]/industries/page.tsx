@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
-import { CategoryCatalogView } from "@/components/categories/CategoryCatalogView";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
 import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
@@ -12,10 +11,18 @@ import { createPageMetadata } from "@/lib/metadata";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { getAllTools } from "@/lib/tools/all-tools-data";
-import { buildTaxonomyCategoryCards } from "@/lib/tools/build-taxonomy-category-cards";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
 import type { AppLocale } from "@/i18n/routing";
+import {
+  getAllToolsGroupedByCategory,
+  getOrderedCategorySlugsWithTools,
+} from "@/lib/tools/getToolsByCategory";
+import { resolveFreeToolCategoryTitle } from "@/lib/free-tools/free-tool-categories";
+import {
+  SectorFilteredToolSections,
+  type CategorySectorData,
+} from "@/components/free-tools/SectorFilteredToolSections";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -41,8 +48,8 @@ export default async function IndustriesPage({ params }: PageProps) {
 
   const t = await getTranslations({ locale, namespace: "industries" });
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
+  const tPage = await getTranslations({ locale, namespace: "freeTools" }); // re-use freeTools namespace for toolsCount
   const tools = getAllTools(locale);
-  const toolSlugs = new Set(tools.map(t => t.slug));
   const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
       allLabel: tCatalog("labels.industries.allLabel"),
@@ -50,13 +57,22 @@ export default async function IndustriesPage({ params }: PageProps) {
     (count) => tCatalog("labels.industries.countLabel", { count }),
   );
 
-  // Filter out fringe sectors with < 2 tools — they belong in the category grid below
-  const filteredSectorCards = taxonomySectorCards.filter(
-    (card) => card.sector.id === "all" || card.count >= 2,
-  );
+  // ── Group all tools by canonical category for sector-filtered listing ──
+  const groupedByCategory = getAllToolsGroupedByCategory(locale); // undefined = all tools
+  const orderedCategorySlugs = getOrderedCategorySlugsWithTools(groupedByCategory);
 
-  // Build category cards with premium metadata (field, domain, social purpose)
-  const categoryCards = buildTaxonomyCategoryCards(locale, "all", toolSlugs);
+  // Pre-compute category sections for filterable client component
+  const categorySections: CategorySectorData[] = orderedCategorySlugs
+    .map((catSlug) => {
+      const catTools = groupedByCategory[catSlug];
+      if (!catTools || catTools.length === 0) return null;
+      return {
+        slug: catSlug,
+        title: resolveFreeToolCategoryTitle(catSlug, locale),
+        tools: catTools,
+      } as CategorySectorData;
+    })
+    .filter(Boolean) as CategorySectorData[];
 
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
@@ -90,27 +106,27 @@ export default async function IndustriesPage({ params }: PageProps) {
             searchPlaceholder={t("searchPlaceholder")}
             categoryTitle={t("categoryTitle")}
           >
-            {/* Sector grid — existing */}
             <div className="mb-8">
               <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
                 <IndustriesTaxonomyGrid
                   basePath="/industries"
-                  sectors={filteredSectorCards}
+                  sectors={taxonomySectorCards}
                   variant="industry"
                 />
               </Suspense>
             </div>
 
-            {/* Compact category grid with tabs + search */}
-            <Suspense fallback={<div className="min-h-[20rem] animate-pulse rounded bg-gray-50" aria-hidden="true" />}>
-              <CategoryCatalogView
-                basePath="/industries"
-                categories={categoryCards}
-                tools={tools}
-                locale={locale}
-                pageVariant="industries"
-              />
-            </Suspense>
+            {/* ── Sector-filtered alphabetical tool lists (same pattern as pro-tools) ── */}
+            {categorySections.length > 0 && (
+              <Suspense fallback={<div className="min-h-[8rem]" aria-hidden="true" />}>
+                <SectorFilteredToolSections
+                  categorySections={categorySections}
+                  locale={locale}
+                  byCategoryTitle={tPage("byCategoryTitle")}
+                />
+              </Suspense>
+            )}
+
           </ToolsPageLayout>
         </ToolsPageSearchProvider>
       </section>

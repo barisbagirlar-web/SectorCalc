@@ -218,16 +218,7 @@ function applyAndWrite(
 
       for (let p = 0; p < parts.length; p++) {
         const part = parts[p]!;
-        if (p === parts.length - 1) {
-          const obj = cur as Record<string, string>;
-          for (const [locale, value] of localeMap) {
-            if (obj[locale] !== value) {
-              obj[locale] = value;
-              total++;
-              fileChanged = true;
-            }
-          }
-        } else if (/^\d+$/.test(part)) {
+        if (/^\d+$/.test(part)) {
           const arr = cur as unknown[];
           if (Number(part) >= arr.length) { found = false; break; }
           cur = arr[Number(part)]!;
@@ -235,6 +226,17 @@ function applyAndWrite(
           const obj = cur as Record<string, unknown>;
           if (!(part in obj)) { found = false; break; }
           cur = obj[part]!;
+        }
+      }
+      if (!found) continue;
+
+      // cur now points to the i18n parent object (e.g., title_i18n, inputs[0].label_i18n)
+      const target = cur as Record<string, string>;
+      for (const [locale, value] of localeMap) {
+        if (target[locale] !== value) {
+          target[locale] = value;
+          total++;
+          fileChanged = true;
         }
       }
     }
