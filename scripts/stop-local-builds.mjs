@@ -12,7 +12,6 @@ const MY_PID = process.pid;
 
 const PATTERNS = [
   "next-build-with-500-fallback",
-  "run-vercel-build.mjs",
   "deploy-production.mjs",
   "firebase-hosting-build.mjs",
   "next/dist/bin/next build",

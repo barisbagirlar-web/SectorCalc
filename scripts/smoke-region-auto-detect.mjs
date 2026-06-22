@@ -43,7 +43,7 @@ const REGION_AUTO_DETECT_ROUTES = [
     expectedRegion: "TR",
     expectedCurrency: "TRY",
     expectedSource: "request-country",
-    note: "⚠️  Firebase Hosting doesn't forward CF-IPCountry header. This test requires Cloudflare/Vercel CDN.",
+    note: "⚠️  Firebase Hosting doesn't forward CF-IPCountry header. This test requires Cloudflare CDN.",
     optional: true,
   },
   {

@@ -625,9 +625,8 @@ function auditHostingProduction() {
   const firebasePath = path.join(ROOT, "firebase.json");
   const firebase = readTextIfExists(firebasePath);
   const hosting = {
-    primaryProduction: "www.sectorcalc.com — Vercel (Next.js app)",
+    primaryProduction: "www.sectorcalc.com — Firebase (Next.js app)",
     firebaseHostingRole: "secondary — Firebase frameworks backend / legacy deploy path",
-    vercelConfigPresent: fs.existsSync(path.join(ROOT, "vercel.json")),
     firebaseHostingConfigured: Boolean(firebase?.includes('"hosting"')),
     firebaseFrameworksBackend: Boolean(firebase?.includes("frameworksBackend")),
     note: "Do not treat Firebase Hosting as sole production authority during P2.5 Control Plane setup",

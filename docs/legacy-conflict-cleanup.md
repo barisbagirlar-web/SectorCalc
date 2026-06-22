@@ -52,7 +52,7 @@ Tool recovery tamamlanana kadar ikinci öncelik. P1A bu dosyaları **raporlar**,
 ### 5. Firebase Hosting
 
 - `firebase.json` hosting + `frameworksBackend` yapılandırması mevcut.
-- **Primary production:** `www.sectorcalc.com` — Vercel (Next.js).
+- **Primary production:** `www.sectorcalc.com` — Firebase (Next.js).
 - **Secondary:** Firebase Hosting (legacy / backup deploy path).
 - Control Plane hosting silme yapmaz; Firebase'i sole production sanmaz.
 

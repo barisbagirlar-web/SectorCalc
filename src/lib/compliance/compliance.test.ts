@@ -15,7 +15,7 @@ describe("Regional Compliance", () => {
     expect(countryToRegion(null)).toBe("EN");
   });
 
-  test("detectCountryFromHeaders reads Vercel and Cloudflare headers", () => {
+  test("detectCountryFromHeaders reads Cloudflare and proxy headers", () => {
     const headers = new Headers({
       "x-vercel-ip-country": "TR",
     });

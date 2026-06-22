@@ -15,7 +15,7 @@ import {
   acquireGlobalBuildLock,
   releaseGlobalBuildLock,
 } from "./lib/global-build-lock.mjs";
-import { stripVercelExportMarkers } from "./lib/strip-vercel-export-markers.mjs";
+
 
 /**
  * Pre-flight: run TypeScript syntax validation on all generated tool files.
@@ -41,8 +41,8 @@ const NEXT_DIR = join(ROOT, ".next");
 const WEBPACK_CACHE_DIR = join(ROOT, "node_modules/.cache/webpack");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");
 const BUILD_LOG = join(NEXT_DIR, "last-next-build.log");
-const PERSISTENT_BUILD_LOG = join(ROOT, ".vercel-last-build.log");
-const useGlobalLock = process.env.VERCEL !== "1";
+const PERSISTENT_BUILD_LOG = join(ROOT, ".last-next-build.log");
+const useGlobalLock = true;
 
 /** Minimal routes stub — satisfies next-env.d.ts until Next regenerates types. */
 const ROUTES_D_TS_STUB = `// Auto-generated stub (build recovery). Next.js replaces on successful typegen.
@@ -173,8 +173,7 @@ function readBuildLogTail(maxChars = 200_000) {
 
 function runNextBuild() {
   mkdirSync(NEXT_DIR, { recursive: true });
-  const streamToConsole = process.env.VERCEL === "1";
-  const logFd = streamToConsole ? null : openSync(BUILD_LOG, "w");
+  const logFd = openSync(BUILD_LOG, "w");
 
   const nextCli = join(ROOT, "node_modules/next/dist/bin/next");
   const result = spawnSync(process.execPath, [nextCli, "build", "--no-lint"], {
@@ -190,16 +189,13 @@ function runNextBuild() {
         "--max-old-space-size=8192 --dns-result-order=ipv4first",
       FORCE_COLOR: "0",
     },
-    stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],
+    stdio: ["inherit", logFd, logFd],
   });
   if (logFd !== null) {
     closeSync(logFd);
   }
 
-  const output = streamToConsole ? "" : readBuildLogTail();
-  if (!streamToConsole && process.env.VERCEL === "1" && output) {
-    process.stdout.write(output);
-  }
+  const output = readBuildLogTail();
 
   if (result.error) {
     const message = result.error instanceof Error ? result.error.message : String(result.error);
@@ -233,7 +229,6 @@ function dumpFinalDiagnostics() {
 }
 
 function runValidateOnly() {
-  stripVercelExportMarkers(NEXT_DIR);
   const validate = spawnSync(process.execPath, ["scripts/validate-next-build.mjs"], {
     cwd: ROOT,
     stdio: "inherit",
@@ -254,9 +249,6 @@ function finalizeAndValidate() {
     );
     return false;
   }
-
-  // Last-chance strip between finalize and validate (cached export-marker.json → Vercel NOT_FOUND).
-  stripVercelExportMarkers(NEXT_DIR);
 
   const validate = spawnSync(process.execPath, ["scripts/validate-next-build.mjs"], {
     cwd: ROOT,

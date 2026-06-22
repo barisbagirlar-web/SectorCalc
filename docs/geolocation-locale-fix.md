@@ -13,7 +13,7 @@ Kod açıkça şöyle diyordu:
 ```
 
 Yani:
-- Cloudflare/Vercel'den gelen country code (TR, DE, etc.) **SADECE** region (para birimi) için kullanılıyordu
+- Cloudflare/Firebase'den gelen country code (TR, DE, etc.) **SADECE** region (para birimi) için kullanılıyordu
 - Dil seçimi için country code **KULLANILMIYORDU**
 - Bu yüzden Türkiye'deki kullanıcılar otomatik olarak `/tr` sayfasına yönlendirilmiyordu
 
@@ -27,7 +27,7 @@ Yani:
 
 **YENİ Öncelik Sırası:**
 1. **Manuel cookie** (kullanıcı dil seçtiyse) - en yüksek öncelik
-2. **⭐ Country geolocation** (Cloudflare/Vercel IP detection) - YENİ!
+2. **⭐ Country geolocation** (Cloudflare/Firebase IP detection) - YENİ!
 3. **Accept-Language header** (tarayıcı dili)
 4. **Default İngilizce**
 

@@ -2,23 +2,15 @@
 /**
  * Regenerates generated/*.ts and calculator-registry when schema JSON exists locally.
  * Safe no-op on clean CI clones without generated/schemas content.
- *
- * Env:
- * - SECTORCALC_SKIP_GENERATE_ALL=1 — skip when artifacts complete; regenerate if any schema lacks .ts
- * - SECTORCALC_SKIP_GENERATE_ALL=0 — always regenerate
- * - unset — auto-skip when every schema has a .ts file and registry parity holds
  */
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { execSync } from "node:child_process";
-import {
-  allSchemasHaveGeneratedTools,
-  describeGeneratedArtifactState,
-  registryParityOk,
-} from "../vercel/generated-artifact-parity.mjs";
 
 const root = process.cwd();
 const schemasDir = path.join(root, "generated", "schemas");
+const generatedToolsDir = path.join(root, "generated", "tools");
+const registryPath = path.join(root, "src/lib/calculator-registry.ts");
 
 function hasSchemaFiles() {
   if (!fs.existsSync(schemasDir)) {
@@ -27,11 +19,22 @@ function hasSchemaFiles() {
   return fs.readdirSync(schemasDir).some((name) => name.endsWith("-schema.json"));
 }
 
+function allSchemasHaveGeneratedTools() {
+  if (!fs.existsSync(schemasDir) || !fs.existsSync(generatedToolsDir)) {
+    return false;
+  }
+  const schemas = fs.readdirSync(schemasDir).filter((name) => name.endsWith("-schema.json"));
+  if (schemas.length === 0) return false;
+  const tools = new Set(fs.readdirSync(generatedToolsDir).filter((name) => name.endsWith(".ts")));
+  return schemas.every((schema) => {
+    const toolName = schema.replace("-schema.json", ".ts");
+    return tools.has(toolName);
+  });
+}
+
 function cleanupGeneratedArtifacts() {
   const generatedDir = path.join(root, "generated");
-  if (!fs.existsSync(generatedDir)) {
-    return;
-  }
+  if (!fs.existsSync(generatedDir)) return;
   for (const name of fs.readdirSync(generatedDir)) {
     if (name.endsWith(".log") || name.endsWith(".pid")) {
       fs.unlinkSync(path.join(generatedDir, name));
@@ -40,40 +43,13 @@ function cleanupGeneratedArtifacts() {
 }
 
 function artifactsReady() {
-  return allSchemasHaveGeneratedTools() && registryParityOk();
-}
-
-function isVercelBuild() {
-  return process.env.VERCEL === "1";
-}
-
-function failOnVercelWhenArtifactsIncomplete() {
-  if (!isVercelBuild() || artifactsReady()) {
-    return;
-  }
-
-  const state = describeGeneratedArtifactState();
-  console.error(
-    "ensure-generated-artifacts: FAIL on Vercel — committed generated artifacts are out of sync.",
-  );
-  console.error(
-    `  schemas=${state.schemaCount}, tools=${state.toolCount}, registry loaders=${state.loaderCount}`,
-  );
-  console.error(
-    "  Fix locally: npm run generate:all && npm run generate:registry && commit generated/*.ts + calculator-registry.ts",
-  );
-  console.error("  Vercel must not run generate:all (exceeds build time/memory).");
-  process.exit(1);
+  return allSchemasHaveGeneratedTools() && fs.existsSync(registryPath);
 }
 
 function shouldSkipGenerateAll() {
   const flag = process.env.SECTORCALC_SKIP_GENERATE_ALL;
-  if (flag === "0") {
-    return false;
-  }
-  if (!artifactsReady()) {
-    return false;
-  }
+  if (flag === "0") return false;
+  if (!artifactsReady()) return false;
   return true;
 }
 
@@ -84,12 +60,9 @@ function main() {
     return;
   }
 
-  failOnVercelWhenArtifactsIncomplete();
-
   if (shouldSkipGenerateAll()) {
-    const state = describeGeneratedArtifactState();
     console.log(
-      `ensure-generated-artifacts: up to date — skipping generate:all (${state.toolCount} tools, ${state.schemaCount} schemas)`,
+      `ensure-generated-artifacts: up to date — skipping generate:all`,
     );
     return;
   }

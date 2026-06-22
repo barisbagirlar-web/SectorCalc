@@ -1,6 +1,6 @@
 # P4 — Production Readiness Guard
 
-P4 is a **pre-deploy safety layer**. It runs audits and smoke checks, writes reports under `scripts/.cache/`, and produces a **GO / NO_GO** deploy guard verdict. **P4 does not deploy** anything (no Firebase, no Vercel, no Cloudflare).
+P4 is a **pre-deploy safety layer**. It runs audits and smoke checks, writes reports under `scripts/.cache/`, and produces a **GO / NO_GO** deploy guard verdict. **P4 does not deploy** anything (no Firebase, no Cloudflare).
 
 ## What P4 checks
 

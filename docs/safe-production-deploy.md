@@ -5,7 +5,7 @@
 | Item | Value |
 |------|--------|
 | Live domain | https://www.sectorcalc.com |
-| Primary host | **Vercel** (`server: Vercel`) |
+| Primary host | **Firebase** (`server: Firebase`) |
 | Firebase | Admin, Functions, Firestore, fallback `sectorcalc-bf412.web.app` — **not** primary web deploy for copy/i18n changes |
 | Default branch | `main` |
 
@@ -21,7 +21,7 @@ Deploying with uncommitted files (local `next.config`, half-finished scripts, de
 
 1. Commit on `main`.
 2. `git push origin main`
-3. Let Vercel Git integration build and promote production.
+3. Let Firebase Git integration build and promote production.
 4. Smoke: `npm run smoke:locale-routes` or curl checks below.
 
 No local 35-minute build; no dirty-tree risk.
@@ -54,13 +54,13 @@ Creates a temp worktree at `origin/main`, deploys from there, removes worktree.
 
 - `npm run deploy:vercel` on a **dirty** tree
 - `npm run deploy:hosting` / Firebase for homepage copy (legacy path; local build often OOMs)
-- Parallel deploys (wait for one production build to finish in Vercel dashboard)
+- Parallel deploys (wait for one production build to finish in Firebase dashboard)
 
 ## Pre-deploy checklist
 
 - [ ] Changes committed (or use `DEPLOY_FROM_ORIGIN=1`)
 - [ ] `npm run check:secrets` passes
-- [ ] No other Vercel production build in progress
+- [ ] No other Firebase production build in progress
 - [ ] For large code changes: `npm run lint` and `npx tsc --noEmit` locally
 
 ## Post-deploy smoke (minimum)
@@ -88,7 +88,7 @@ Then re-smoke URLs above.
 
 1. Edit `messages/{tr,en,de,fr,es,ar}.json`
 2. Commit + push `main`
-3. Wait for Vercel production build (~25–40 min for full site)
+3. Wait for Firebase production build (~25–40 min for full site)
 4. Verify locale homepage strings
 
 No `HeroSection.tsx` change needed when keys already exist (`heroTitle`, `heroSub1`, `heroSub2`).

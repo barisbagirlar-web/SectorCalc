@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * release:rollback — Automated Deployment Rollback
+ * release:rollback — Automated Deployment Rollback (Firebase)
  *
  * Reverts the production deployment to the previous stable version:
  *   1. Saves current commit hash for audit trail
@@ -10,7 +10,6 @@
  *
  * Usage: node scripts/release/rollback.mjs              # revert last commit + redeploy
  *        node scripts/release/rollback.mjs --to=abc123  # revert to specific commit
- *        node scripts/release/rollback.mjs --vercel     # Vercel CLI rollback (no code revert)
  *        node scripts/release/rollback.mjs --dry-run    # show plan without executing
  */
 import { execSync, spawnSync } from "node:child_process";
@@ -58,18 +57,8 @@ function isWorkingTreeClean() {
   return status === "";
 }
 
-function checkVercelCLI() {
-  try {
-    run("vercel --version", { silent: true });
-    return true;
-  } catch {
-    return false;
-  }
-}
-
 async function main() {
   const isDryRun = process.argv.includes("--dry-run");
-  const useVercel = process.argv.includes("--vercel");
   const toArg = process.argv.find(a => a.startsWith("--to="));
   const targetCommit = toArg ? toArg.split("=")[1] : null;
 
@@ -83,86 +72,64 @@ async function main() {
   console.log(`Current commit: ${currentCommit}`);
   console.log(`Rollback target: ${lastDeployCommit || "N/A"}`);
   console.log(`Mode: ${isDryRun ? "DRY RUN (no changes)" : "LIVE"}`);
-  console.log(`Method: ${useVercel ? "Vercel CLI rollback (no git revert)" : "Git revert + redeploy"}`);
   console.log("=".repeat(60));
 
   if (isDryRun) {
     console.log("\nRollback plan:");
-    if (useVercel) {
-      console.log("  1. vercel rollback (Vercel CLI)");
-    } else {
-      console.log(`  1. git revert ${currentCommit} (or reset to ${lastDeployCommit})`);
-      console.log("  2. npm run build");
-      console.log("  3. npm run deploy:vercel:safe");
-    }
+    console.log(`  1. git revert ${currentCommit} (or reset to ${lastDeployCommit})`);
+    console.log("  2. npm run build");
+    console.log("  3. Firebase deploy");
     console.log("  4. Run health check post-rollback");
-    console.log("\n✅ DRY RUN COMPLETE — No changes made");
+    console.log("\n\u2705 DRY RUN COMPLETE \u2014 No changes made");
     process.exit(0);
   }
 
   let rollbackSuccessful = false;
   let rollbackCommit = "";
 
-  if (useVercel) {
-    // Vercel CLI rollback — no code changes
-    if (!checkVercelCLI()) {
-      console.error("❌ Vercel CLI not found. Install: npm i -g vercel");
-      process.exit(1);
-    }
+  // Git-based rollback
+  if (!isWorkingTreeClean()) {
+    console.error("\u274c Working tree is not clean. Commit or stash changes first.");
+    console.error("  Run: git stash or git commit before rollback.");
+    process.exit(1);
+  }
 
-    console.log("\n[1] Running Vercel rollback...");
-    try {
-      run("vercel rollback --yes --prod", { timeout: 60000 });
-      console.log("  ✓ Vercel rollback initiated");
-      rollbackSuccessful = true;
-    } catch (err) {
-      console.error(`  ✗ Vercel rollback failed: ${err.message}`);
+  console.log(`\n[1] Reverting to ${lastDeployCommit || "previous commit"}...`);
+  try {
+    if (targetCommit) {
+      run(`git revert --no-commit ${currentCommit}..${targetCommit}`, { timeout: 30000 });
+      run(`git commit -m "rollback: revert to ${targetCommit}"`, { timeout: 10000 });
+    } else {
+      run("git revert --no-edit HEAD", { timeout: 30000 });
     }
-  } else {
-    // Git-based rollback
-    if (!isWorkingTreeClean()) {
-      console.error("❌ Working tree is not clean. Commit or stash changes first.");
-      console.error("  Run: git stash or git commit before rollback.");
-      process.exit(1);
-    }
+    rollbackCommit = getCurrentCommit();
+    console.log(`  \u2713 Reverted to ${rollbackCommit}`);
+    rollbackSuccessful = true;
+  } catch (err) {
+    console.error(`  \u2717 Git revert failed: ${err.message}`);
+    run("git revert --abort", { silent: true, ignoreError: true });
+  }
 
-    console.log(`\n[1] Reverting to ${lastDeployCommit || "previous commit"}...`);
+  if (rollbackSuccessful) {
+    console.log("\n[2] Building rollback version...");
     try {
-      if (targetCommit) {
-        run(`git revert --no-commit ${currentCommit}..${targetCommit}`, { timeout: 30000 });
-        run(`git commit -m "rollback: revert to ${targetCommit}"`, { timeout: 10000 });
-      } else {
-        run("git revert --no-edit HEAD", { timeout: 30000 });
-      }
-      rollbackCommit = getCurrentCommit();
-      console.log(`  ✓ Reverted to ${rollbackCommit}`);
-      rollbackSuccessful = true;
-    } catch (err) {
-      console.error(`  ✗ Git revert failed: ${err.message}`);
+      run("npm run build", { timeout: 300000 });
+      console.log("  \u2713 Build successful");
+    } catch {
+      console.error("  \u2717 Build failed \u2014 rollback code has issues");
       run("git revert --abort", { silent: true, ignoreError: true });
+      rollbackSuccessful = false;
     }
+  }
 
-    if (rollbackSuccessful) {
-      console.log("\n[2] Building rollback version...");
-      try {
-        run("npm run build", { timeout: 300000 });
-        console.log("  ✓ Build successful");
-      } catch {
-        console.error("  ✗ Build failed — rollback code has issues");
-        run("git revert --abort", { silent: true, ignoreError: true });
-        rollbackSuccessful = false;
-      }
-    }
-
-    if (rollbackSuccessful) {
-      console.log("\n[3] Deploying rollback...");
-      try {
-        run("npm run deploy:vercel:safe", { timeout: 300000 });
-        console.log("  ✓ Rollback deployed");
-      } catch {
-        console.error("  ✗ Deploy failed — rollback not live");
-        rollbackSuccessful = false;
-      }
+  if (rollbackSuccessful) {
+    console.log("\n[3] Deploying rollback...");
+    try {
+      run("npm run deploy:hosting", { timeout: 300000 });
+      console.log("  \u2713 Rollback deployed");
+    } catch {
+      console.error("  \u2717 Deploy failed \u2014 rollback not live");
+      rollbackSuccessful = false;
     }
   }
 
@@ -171,22 +138,20 @@ async function main() {
     console.log("\n[4] Running post-rollback health check...");
     try {
       run("node scripts/release/health-check.mjs --wait=15", { timeout: 120000 });
-      console.log("  ✓ Health check passed");
+      console.log("  \u2713 Health check passed");
     } catch {
-      console.error("  ⚠ Health check failed — rollback may have issues");
+      console.error("  \u26a0 Health check failed \u2014 rollback may have issues");
     }
   }
 
   // Summary
   console.log("\n" + "=".repeat(60));
   if (rollbackSuccessful) {
-    console.log("✅ ROLLBACK COMPLETE");
+    console.log("\u2705 ROLLBACK COMPLETE");
     console.log(`  Reverted from ${currentCommit} to ${rollbackCommit || "previous version"}`);
   } else {
-    console.log("❌ ROLLBACK FAILED — Manual intervention required");
-    if (!useVercel) {
-      console.log("  The working tree has been preserved. No code changes were made.");
-    }
+    console.log("\u274c ROLLBACK FAILED \u2014 Manual intervention required");
+    console.log("  The working tree has been preserved. No code changes were made.");
   }
 
   const report = {
@@ -194,7 +159,6 @@ async function main() {
     branch: currentBranch,
     fromCommit: currentCommit,
     toCommit: rollbackCommit || targetCommit || lastDeployCommit,
-    method: useVercel ? "vercel-cli" : "git-revert",
     success: rollbackSuccessful,
   };
   mkdirSync(dirname(REPORT_PATH), { recursive: true });

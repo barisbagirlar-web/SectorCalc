@@ -1,6 +1,6 @@
 /**
  * IndexNow key verification — serves `/{INDEXNOW_KEY}.txt` via next.config rewrite.
- * Configure INDEXNOW_KEY in hosting env (Vercel / Firebase). Local dev may use public/{key}.txt.
+ * Configure INDEXNOW_KEY in hosting env (Firebase). Local dev may use public/{key}.txt.
  */
 
 export function GET(): Response {

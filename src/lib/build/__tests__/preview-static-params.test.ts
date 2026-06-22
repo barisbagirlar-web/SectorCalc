@@ -7,9 +7,6 @@ import {
 const ENV_KEYS = [
   "SECTORCALC_FORCE_FULL_STATIC",
   "SECTORCALC_FAST_PREVIEW_STATIC",
-  "SECTORCALC_VERCEL_BUILD_LIMIT",
-  "VERCEL",
-  "VERCEL_ENV",
 ] as const;
 
 function clearEnv(): void {
@@ -23,27 +20,20 @@ describe("shouldUsePreviewStaticParams", () => {
     clearEnv();
   });
 
-  test("returns true for local full builds by default (Firebase-safe preview default)", () => {
-    clearEnv();
+  test("returns true by default (preview-safe)", () => {
     expect(shouldUsePreviewStaticParams()).toBe(true);
   });
 
-  test("returns true on Vercel when build limit flag is set", () => {
-    process.env.VERCEL = "1";
-    process.env.SECTORCALC_VERCEL_BUILD_LIMIT = "1";
+  test("returns true in preview mode", () => {
     expect(shouldUsePreviewStaticParams()).toBe(true);
   });
 
   test("returns false when force full static is enabled", () => {
-    process.env.VERCEL = "1";
-    process.env.SECTORCALC_VERCEL_BUILD_LIMIT = "1";
     process.env.SECTORCALC_FORCE_FULL_STATIC = "1";
     expect(shouldUsePreviewStaticParams()).toBe(false);
   });
 
-  test("limits generated tool params on Vercel", () => {
-    process.env.VERCEL = "1";
-    process.env.SECTORCALC_VERCEL_BUILD_LIMIT = "1";
+  test("limits generated tool params in preview mode", () => {
 
     const params = limitStaticParamsForPreview(
       [

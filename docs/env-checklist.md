@@ -60,7 +60,7 @@ grep ENABLE_ADMIN_LIGHT .env.local || true
 ## Hosting-specific notes
 
 - **Firebase App Hosting / framework Hosting:** set env vars in the Firebase console for the backend or hosting target before deploy.
-- **Vercel / other:** same `NEXT_PUBLIC_*` names in the project environment UI.
+- **Firebase / other:** same `NEXT_PUBLIC_*` names in the project environment UI.
 - Rebuild after changing any `NEXT_PUBLIC_*` variable (values are inlined at build time).
 
 See also: [deployment-checklist.md](./deployment-checklist.md), [security-notes.md](./security-notes.md).

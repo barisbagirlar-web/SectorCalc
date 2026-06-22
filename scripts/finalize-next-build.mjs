@@ -4,7 +4,6 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { stripVercelExportMarkers } from "./lib/strip-vercel-export-markers.mjs";
 
 const ROOT = process.cwd();
 const NEXT = join(ROOT, ".next");
@@ -66,18 +65,8 @@ function main() {
   }
 
   ensure500StaticFiles();
-
-  // Firebase Hosting expects export markers; Vercel App Router must stay serverless.
-  if (process.env.VERCEL !== "1") {
-    ensureExportMarker();
-    ensureExportDetail();
-  }
-
-  // Strip after all writes — Next.js or cached stubs must not reach Vercel validation.
-  const { removed } = stripVercelExportMarkers(NEXT);
-  if (process.env.VERCEL === "1" && removed.length > 0) {
-    console.log(`finalize-next-build: removed ${removed.join(", ")}`);
-  }
+  ensureExportMarker();
+  ensureExportDetail();
 
   const buildId = readFileSync(join(NEXT, "BUILD_ID"), "utf8").trim();
   console.log(`finalize-next-build: ready (BUILD_ID=${buildId})`);

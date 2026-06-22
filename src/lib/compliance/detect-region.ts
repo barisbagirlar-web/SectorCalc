@@ -32,7 +32,7 @@ export interface RegionResolutionResult {
   source: RegionSource;
 }
 
-/** Read ISO country from Vercel Geo, Cloudflare, or CDN edge headers. */
+/** Read ISO country from Cloudflare, CDN edge, or proxy headers. */
 export function detectCountryFromHeaders(
   headers: Headers | { get(name: string): string | null },
 ): string | null {
@@ -48,7 +48,7 @@ export function detectCountryFromHeaders(
 /**
  * Resolve region with proper priority order:
  * 1. Manual cookie (user explicitly chose a region)
- * 2. Request country header (Cloudflare, Vercel, CDN geo detection)
+ * 2. Request country header (Cloudflare, CDN edge, proxy geo detection)
  * 3. Locale fallback (URL path → region)
  * 4. Global default (EN)
  *

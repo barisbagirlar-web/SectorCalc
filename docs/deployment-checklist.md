@@ -104,7 +104,7 @@ firebase deploy --only hosting
 
 **Before running hosting deploy:**
 
-- Confirm whether you use **Firebase App Hosting**, **framework-aware Hosting (Next.js)**, or another host (e.g. Vercel).
+- Confirm whether you use **Firebase App Hosting**, **framework-aware Hosting (Next.js)**, or another host (e.g. Firebase).
 - Set `NEXT_PUBLIC_SITE_URL` and optional Firebase vars in the hosting environment.
 - Rebuild after changing any `NEXT_PUBLIC_*` variable.
 

@@ -44,7 +44,7 @@ https://sectorcalc-bf412.web.app/{INDEXNOW_KEY}.txt
 
 Should return HTTP 200 with the key as plain text.
 
-**Vercel / dynamic hosting:** set `INDEXNOW_KEY` in hosting env only — `next.config.ts` rewrites `/{key}.txt` and `/.well-known/indexnow-key.txt` to `/api/indexnow-verification`. No committed `public/{key}.txt` required when env is configured.
+**Firebase / dynamic hosting:** set `INDEXNOW_KEY` in hosting env only — `next.config.ts` rewrites `/{key}.txt` and `/.well-known/indexnow-key.txt` to `/api/indexnow-verification`. No committed `public/{key}.txt` required when env is configured.
 
 **Example placeholder in repo:** `public/indexnow-key-example.txt` — replace content with your real key in a separate file named after the key (Firebase static hosting).
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Repo-wide build/deploy lock — prevents parallel `next build` from corrupting `.next`.
- * Used by local Firebase deploy, npm run build, and Vercel build entry (non-CI).
+ * Used by local Firebase deploy, npm run build, and Firebase deploy.
  */
 import { existsSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

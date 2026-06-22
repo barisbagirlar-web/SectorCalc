@@ -105,7 +105,7 @@ const packs = {
       section4: {
         title: "4. Data Sharing",
         content:
-          "We do not sell your personal data. We share data only with trusted third-party services (payment processors — Stripe/Paddle, hosting — Vercel) as necessary to provide our services.",
+          "We do not sell your personal data. We share data only with trusted third-party services (payment processors — Stripe/Paddle, hosting — Firebase) as necessary to provide our services.",
       },
       section5: {
         title: "5. Data Retention & Security",
@@ -290,7 +290,7 @@ const packs = {
       section4: {
         title: "4. Veri Paylaşımı",
         content:
-          "Kişisel verilerinizi satmayız. Verileri yalnızca güvenilir üçüncü taraf hizmet sağlayıcılarla (ödeme işlemcileri — Stripe/Paddle, barındırma — Vercel) hizmetlerimizi sunmak için gerekli olduğu ölçüde paylaşırız.",
+          "Kişisel verilerinizi satmayız. Verileri yalnızca güvenilir üçüncü taraf hizmet sağlayıcılarla (ödeme işlemcileri — Stripe/Paddle, barındırma — Firebase) hizmetlerimizi sunmak için gerekli olduğu ölçüde paylaşırız.",
       },
       section5: {
         title: "5. Veri Saklama ve Güvenlik",
@@ -476,7 +476,7 @@ const packs = {
       section4: {
         title: "4. Datenweitergabe",
         content:
-          "Wir verkaufen Ihre personenbezogenen Daten nicht. Wir geben Daten nur an vertrauenswürdige Drittanbieter weiter (Zahlungsabwickler — Stripe/Paddle, Hosting — Vercel), soweit dies zur Erbringung unserer Dienste erforderlich ist.",
+          "Wir verkaufen Ihre personenbezogenen Daten nicht. Wir geben Daten nur an vertrauenswürdige Drittanbieter weiter (Zahlungsabwickler — Stripe/Paddle, Hosting — Firebase), soweit dies zur Erbringung unserer Dienste erforderlich ist.",
       },
       section5: {
         title: "5. Datenspeicherung und Sicherheit",
@@ -663,7 +663,7 @@ const packs = {
       section4: {
         title: "4. Partage des données",
         content:
-          "Nous ne vendons pas vos données personnelles. Nous les partageons uniquement avec des prestataires tiers de confiance (processeurs de paiement — Stripe/Paddle, hébergement — Vercel) dans la mesure nécessaire à la fourniture de nos services.",
+          "Nous ne vendons pas vos données personnelles. Nous les partageons uniquement avec des prestataires tiers de confiance (processeurs de paiement — Stripe/Paddle, hébergement — Firebase) dans la mesure nécessaire à la fourniture de nos services.",
       },
       section5: {
         title: "5. Conservation et sécurité des données",
@@ -850,7 +850,7 @@ const packs = {
       section4: {
         title: "4. Compartición de datos",
         content:
-          "No vendemos sus datos personales. Solo compartimos datos con servicios de terceros de confianza (procesadores de pago — Stripe/Paddle, alojamiento — Vercel) según sea necesario para prestar nuestros servicios.",
+          "No vendemos sus datos personales. Solo compartimos datos con servicios de terceros de confianza (procesadores de pago — Stripe/Paddle, alojamiento — Firebase) según sea necesario para prestar nuestros servicios.",
       },
       section5: {
         title: "5. Retención y seguridad de datos",
@@ -1037,7 +1037,7 @@ const packs = {
       section4: {
         title: "4. مشاركة البيانات",
         content:
-          "لا نبيع بياناتك الشخصية. نشارك البيانات فقط مع مزودي خدمات خارجيين موثوقين (معالجو الدفع — Stripe/Paddle، الاستضافة — Vercel) بالقدر اللازم لتقديم خدماتنا.",
+          "لا نبيع بياناتك الشخصية. نشارك البيانات فقط مع مزودي خدمات خارجيين موثوقين (معالجو الدفع — Stripe/Paddle، الاستضافة — Firebase) بالقدر اللازم لتقديم خدماتنا.",
       },
       section5: {
         title: "5. الاحتفاظ بالبيانات والأمان",
