@@ -19,7 +19,7 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
   const isFeatured = plan.badge === 'popular'
   const isEnterprise = plan.badge === 'team' || plan.badge === 'bestval'
 
-  const cardClasses = `sc-pro-pricing-card sc-pro-letterpress ${
+  const cardClasses = `flex flex-col h-full relative sc-pro-pricing-card sc-pro-letterpress ${
     isFeatured ? "sc-pro-pricing-card--featured" :
     isEnterprise ? "sc-pro-pricing-card--enterprise" :
     "sc-pro-pricing-card--support"
@@ -50,7 +50,7 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
         <span className="sc-pro-pricing-card__badge">{plan.badgeText}</span>
       )}
       
-      <div className="flex flex-col mb-2">
+      <div className="flex flex-col mb-2 mt-2">
         <h3 className="text-lg font-semibold text-premium-velvet mb-1">{plan.label}</h3>
         <p className="text-sm text-body-charcoal">
           {plan.credits} calculation{plan.credits > 1 ? 's' : ''}
@@ -74,7 +74,7 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
         <div className="mb-4 h-5" />
       )}
 
-      <ul className="sc-pro-pricing-card__features space-y-2 flex-1 mt-2">
+      <ul className="sc-pro-pricing-card__features space-y-2 flex-1 mb-6">
         {plan.features.map((f) => (
           <IconListItem
             key={f}
@@ -87,11 +87,11 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
         ))}
       </ul>
 
-      <div className="sc-pro-pricing-card__cta mt-6">
+      <div className="sc-pro-pricing-card__cta mt-auto">
         <button
           onClick={handleBuy}
           disabled={loading === true || !ready}
-          className={`${btnClass} w-full flex justify-center`}
+          className={`${btnClass} w-full flex justify-center py-2.5 font-medium rounded-md transition-colors`}
         >
           {loading ? "Opening..." : plan.cta}
         </button>

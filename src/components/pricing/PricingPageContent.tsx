@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/Container"
 
 function TrustRow() {
   return (
-    <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-10 text-[11px] text-body-charcoal">
+    <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mt-4 mb-12 text-xs text-slate-500 font-medium">
       {['🔒 Paddle secure checkout','🌍 200+ markets · auto tax','📄 PDF on every calculation','✅ 7-day guarantee','🔁 No auto-renew','💳 Card · PayPal · Apple Pay'].map((t) => <span key={t}>{t}</span>)}
     </div>
   )
@@ -149,12 +149,12 @@ export function PricingPageContent() {
     <div className="sc-pro-section sc-pro-section--alt">
       <EmailCaptureModal open={modalOpen} onClose={() => setModalOpen(false)} onSubmit={handleEmailSubmit} onSkip={() => handleEmailSubmit('')} email={email} setEmail={setEmail} />
       <Container className="sc-pro-container pb-10">
-        <header className="text-center mb-10">
-          <p className="sc-pro-eyebrow">Industrial calculation platform</p>
-          <h1 className="sc-pro-title sc-pro-title--compact mb-4">
+        <header className="text-center mb-12 flex flex-col items-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">Industrial calculation platform</p>
+          <h1 className="text-center mx-auto max-w-4xl font-extrabold text-4xl sm:text-5xl leading-[1.15] mb-6 text-slate-900">
             Pay only for what you calculate.<br className="hidden sm:block"/> No subscription. No commitment.
           </h1>
-          <p className="sc-pro-lead mx-auto mb-4">
+          <p className="text-center text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
             Engineers in 40+ countries use SectorCalc credits to get audit-ready results in minutes.
           </p>
         </header>
