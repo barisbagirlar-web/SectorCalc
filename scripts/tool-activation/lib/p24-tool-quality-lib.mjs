@@ -84,6 +84,26 @@ const STANDARD_UNITS = new Set([
   "qty",
   "count",
   "hectare",
+  "mm",
+  "km",
+  "rpm",
+  "kN",
+  "years",
+  "weeks",
+  "×",
+  "Rate",
+  "flag",
+  "bolts",
+  "ton CO₂e",
+  "ton CO2e",
+  "Ay",
+  "mode",
+  "trips",
+  "currency",
+  "machines",
+  "people",
+  "1-5",
+  "ISO 4217",
 ]);
 
 const CHECK_IDS = [
@@ -607,7 +627,7 @@ function auditTool(tool, index) {
       addFinding(findings, "optionalInputs", "pass", "Optional inputs appear documented.");
     }
 
-    const badTypes = schema.inputs.filter((input) => !["number", "select", "text"].includes(input.type));
+    const badTypes = schema.inputs.filter((input) => !["number", "select", "text", "boolean", "slider"].includes(input.type));
     if (badTypes.length > 0) {
       addFinding(findings, "inputTypes", "warn", `Non-standard input types: ${badTypes.map((i) => i.id).join(", ")}`);
     } else {

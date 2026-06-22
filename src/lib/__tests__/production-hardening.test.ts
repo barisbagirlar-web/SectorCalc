@@ -97,9 +97,9 @@ describe("production-hardening", () => {
   });
 
   test("PREMIUM_SCHEMAS length === 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(81);
-    expect(listPremiumSchemaSlugs().length).toBe(81);
-    expect(new Set(listPremiumSchemaSlugs()).size).toBe(81);
+    expect(PREMIUM_SCHEMAS.length).toBe(82);
+    expect(listPremiumSchemaSlugs().length).toBe(82);
+    expect(new Set(listPremiumSchemaSlugs()).size).toBe(82);
   });
 
   test("sitemap includes core public routes and expected minimum count", () => {

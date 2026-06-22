@@ -12,7 +12,7 @@ import {
 describe("premium-schema-catalog", () => {
   test("getPremiumSchemaCatalogItems returns 27 items", () => {
     const items = getPremiumSchemaCatalogItems("en");
-    expect(items.length).toBe(81);
+    expect(items.length).toBe(82);
   });
 
   test("each item has href, title, pain and promise", () => {
@@ -76,7 +76,7 @@ describe("premium-schema-catalog", () => {
   test("buildPremiumSchemaCatalogGroups includes all analyzers", () => {
     const groups = buildPremiumSchemaCatalogGroups("en");
     const total = groups.reduce((sum, group) => sum + group.items.length, 0);
-    expect(total).toBe(81);
+    expect(total).toBe(82);
   });
 
   test("resolvePremiumAnalyzerHref prefers schema route for mapped legacy slug", () => {

@@ -39,7 +39,7 @@ describe("dual-intelligence runtime coverage audit", () => {
     expect(result.fullLoopRuntimeCount).toBe(132);
     expect(result.stagedCalculationBridge).toBe(0);
     expect(result.governedBuildtimeOnly).toBe(0);
-    expect(result.auditPipelineOnly).toBe(208);
+    expect(result.auditPipelineOnly).toBe(209);
   });
 
   test("only live pilots have partial Mind 1/2 runtime without full loop", () => {

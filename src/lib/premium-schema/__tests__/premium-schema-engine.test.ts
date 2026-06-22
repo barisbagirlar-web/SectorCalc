@@ -34,7 +34,7 @@ describe("premium-schema-engine", () => {
     expect(ids).toContain("cnc-tool-wear-cost");
     expect(ids).toContain("carbon-footprint-compliance-risk");
     expect(ids).toContain("quote-price-profit-margin-calculator");
-    expect(ids.length).toBe(81);
+    expect(ids.length).toBe(82);
   });
 
   test("slug map bridges legacy premium routes", () => {

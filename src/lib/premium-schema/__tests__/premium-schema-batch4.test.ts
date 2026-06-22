@@ -39,8 +39,8 @@ const BATCH4_FORMULA_IDS = [
 
 describe("premium-schema-batch4", () => {
   test("PREMIUM_SCHEMAS length === 81", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(81);
-    expect(listPremiumSchemaIds().length).toBe(81);
+    expect(PREMIUM_SCHEMAS.length).toBe(82);
+    expect(listPremiumSchemaIds().length).toBe(82);
   });
 
   test("batch4 slugs exist in schema index", () => {

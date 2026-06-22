@@ -8854,6 +8854,28 @@
         "placeholder": "Enter data gap",
         "helper": "Data gap"
       }
+    },
+    "six-sigma-project-prioritizer": {
+      "estimatedannualsavings": {
+        "label": "Estimated Annual Savings",
+        "placeholder": "Enter estimated annual savings",
+        "helper": "Projected annual financial benefit from the Six Sigma project."
+      },
+      "probabilityofsuccess": {
+        "label": "Probability of Success",
+        "placeholder": "Enter probability of success",
+        "helper": "Estimated likelihood of achieving the project goals."
+      },
+      "projectdurationmonths": {
+        "label": "Project Duration",
+        "placeholder": "Enter project duration (months)",
+        "helper": "Time required to complete the project in months."
+      },
+      "resourcecost": {
+        "label": "Resource Cost",
+        "placeholder": "Enter resource cost",
+        "helper": "Total investment required for the project resources."
+      }
     }
   },
   "sectorFooter": {

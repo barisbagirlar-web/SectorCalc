@@ -100,8 +100,8 @@ describe("launch-readiness", () => {
   });
 
   test("PREMIUM_SCHEMAS length === 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(81);
-    expect(listPremiumSchemaSlugs().length).toBe(81);
+    expect(PREMIUM_SCHEMAS.length).toBe(82);
+    expect(listPremiumSchemaSlugs().length).toBe(82);
   });
 
   test("pricing copy is consistent and not ambiguous", () => {
@@ -115,7 +115,7 @@ describe("launch-readiness", () => {
 
   test("premium catalog has 27 items with no forbidden public terms", () => {
     const items = getPremiumSchemaCatalogItems("en");
-    expect(items.length).toBe(81);
+    expect(items.length).toBe(82);
     for (const item of items) {
       expect(assertPublicCatalogCopySafe(item)).toBe(true);
       expect(containsForbiddenPublicCatalogTerm(item.title)).toBe(false);

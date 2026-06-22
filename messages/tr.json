@@ -8915,6 +8915,28 @@
         "placeholder": "Enter data gap",
         "helper": "Data gap"
       }
+    },
+    "six-sigma-project-prioritizer": {
+      "estimatedannualsavings": {
+        "label": "Tahmini Yıllık Tasarruf",
+        "placeholder": "Tahmini Yıllık Tasarruf girin",
+        "helper": "Projenin başarıya ulaşması durumunda yıllık olarak sağlanacak finansal getiri."
+      },
+      "probabilityofsuccess": {
+        "label": "Başarı Olasılığı",
+        "placeholder": "Başarı Olasılığı girin",
+        "helper": "Projenin hedeflerine başarıyla ulaşma ihtimali."
+      },
+      "projectdurationmonths": {
+        "label": "Proje Süresi",
+        "placeholder": "Proje Süresi girin",
+        "helper": "Projenin tamamlanması için öngörülen süre (Ay cinsinden)."
+      },
+      "resourcecost": {
+        "label": "Kaynak Maliyeti",
+        "placeholder": "Kaynak Maliyeti girin",
+        "helper": "Eğitim, donanım, personel gibi projeye harcanacak toplam kaynak maliyeti."
+      }
     }
   },
   "freeToolContent": {

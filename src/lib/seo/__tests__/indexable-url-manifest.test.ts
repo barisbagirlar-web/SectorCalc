@@ -70,7 +70,7 @@ describe("indexable URL manifest", () => {
       path.startsWith("/tools/premium-schema/"),
     );
     expect(enPremiumPaths.length).toBe(listPremiumSchemaSlugs().length);
-    expect(enPremiumPaths.length).toBe(81);
+    expect(enPremiumPaths.length).toBe(82);
   });
 
   test("SEO landing pathleri var", () => {
