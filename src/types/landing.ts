@@ -180,4 +180,30 @@ export interface LandingContent {
     chipBolt: string;
     placeholder: string;
   };
+
+  /** New two-column hero fields */
+  heroNew?: {
+    headline: string;
+    subtitle: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+  };
+
+  /** Trust bar below hero */
+  trustBar?: {
+    items: string[];
+  };
+
+  /** "What SectorCalc Does" section */
+  whatDoes?: {
+    title: string;
+    card1Title: string;
+    card1Desc: string;
+    card2Title: string;
+    card2Desc: string;
+    card3Title: string;
+    card3Desc: string;
+    card4Title: string;
+    card4Desc: string;
+  };
 }

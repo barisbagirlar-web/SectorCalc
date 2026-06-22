@@ -4,15 +4,15 @@
  */
 
 :root {
-  --sc-dtf-surface: #faf9f5;
-  --sc-dtf-surface-muted: #f0eee6;
-  --sc-dtf-result-bg: #faf9f5;
-  --sc-dtf-border: rgba(26, 25, 21, 0.10);
-  --sc-dtf-border-strong: rgba(26, 25, 21, 0.18);
-  --sc-dtf-text: #1a1915;
-  --sc-dtf-muted: #696764;
-  --sc-dtf-accent: var(--sc-copper, #bd5d3a);
-  --sc-dtf-accent-hover: #a34d2e;
+  --sc-dtf-surface: #ffffff;
+  --sc-dtf-surface-muted: #fafcff;
+  --sc-dtf-result-bg: #fefcf8;
+  --sc-dtf-border: #e8edf2;
+  --sc-dtf-border-strong: #dbe3ec;
+  --sc-dtf-text: #0f172a;
+  --sc-dtf-muted: #64748b;
+  --sc-dtf-accent: var(--sc-copper, #c2410c);
+  --sc-dtf-accent-hover: #9a3412;
   --sc-dtf-shadow: 0 8px 24px rgb(15 23 42 / 0.05), 0 2px 6px rgb(15 23 42 / 0.03);
   --sc-dtf-radius: 16px;
   --sc-dtf-radius-sm: 12px;
@@ -637,7 +637,7 @@
   align-items: center;
   font-size: 0.625rem;
   font-weight: 500;
-  color: #bd5d3a;
+  color: #2563eb;
   text-decoration: none;
 }
 
@@ -708,7 +708,7 @@
 }
 
 .sc-tool-omni-meta__avatar-link:focus-visible {
-  outline: 2px solid #bd5d3a;
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
@@ -717,19 +717,19 @@
   align-items: center;
   gap: 0.2rem;
   font-weight: 500;
-  color: #bd5d3a;
+  color: #2563eb;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .sc-tool-omni-meta__name-link:hover {
-  color: #bd5d3a;
+  color: #1d4ed8;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .sc-tool-omni-meta__name-link:focus-visible {
-  outline: 2px solid #bd5d3a;
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
   border-radius: 2px;
 }

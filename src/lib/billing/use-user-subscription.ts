@@ -116,31 +116,41 @@ function bootstrapAuthStore() {
 
     const userRef = doc(db, "users", user.uid);
 
-    unsubscribeUserDoc = onSnapshot(
-      userRef,
-      (snapshot) => {
-        const subscription = normalizeUserSubscription(
-          snapshot.exists() ? snapshot.data().subscription : null,
-        );
+    try {
+      unsubscribeUserDoc = onSnapshot(
+        userRef,
+        (snapshot) => {
+          const subscription = normalizeUserSubscription(
+            snapshot.exists() ? snapshot.data().subscription : null,
+          );
 
-        setStoreState({
-          user,
-          subscription,
-          isActive: hasProAccess(subscription, user.email),
-          loading: false,
-          error: null,
-        });
-      },
-      () => {
-        setStoreState({
-          user,
-          subscription: null,
-          isActive: hasProAccess(null, user.email),
-          loading: false,
-          error: "Subscription status could not be loaded.",
-        });
-      },
-    );
+          setStoreState({
+            user,
+            subscription,
+            isActive: hasProAccess(subscription, user.email),
+            loading: false,
+            error: null,
+          });
+        },
+        () => {
+          setStoreState({
+            user,
+            subscription: null,
+            isActive: hasProAccess(null, user.email),
+            loading: false,
+            error: "Subscription status could not be loaded.",
+          });
+        },
+      );
+    } catch {
+      setStoreState({
+        user,
+        subscription: null,
+        isActive: hasProAccess(null, user.email),
+        loading: false,
+        error: null,
+      });
+    }
   });
 }
 

@@ -19,49 +19,6 @@ export function LandingPageContent({
   }, []);
 
   useEffect(() => {
-    const counters = [
-      { id: "c-pro", target: 193 },
-      { id: "c-free", target: 359 },
-      { id: "c-sectors", target: 18 },
-    ] as const;
-
-    function animateCount(el: HTMLElement, target: number) {
-      const start = performance.now();
-      const duration = 1000;
-      function frame(now: number) {
-        const p = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = String(Math.round(eased * target));
-        if (p < 1) requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
-    }
-
-    const cObs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            const cfg = counters.find((c) => c.id === e.target.id);
-            if (cfg) animateCount(e.target as HTMLElement, cfg.target);
-            cObs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    counters.forEach((c) => {
-      const el = document.getElementById(c.id);
-      if (el) {
-        el.textContent = "0";
-        cObs.observe(el);
-      }
-    });
-
-    return () => cObs.disconnect();
-  }, []);
-
-  useEffect(() => {
     const rObs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e, i) => {
@@ -78,20 +35,78 @@ export function LandingPageContent({
     return () => rObs.disconnect();
   }, []);
 
+  const hn = content.heroNew;
+
   return (
     <div className="landing-root">
-      {/* ═══ HERO ═══ */}
-      <section className="hero" aria-labelledby="hero-h1">
+      {/* ═══ HERO (two-column) ═══ */}
+      <section className="hero-v2" aria-labelledby="hero-v2-heading">
         <div className="wrap">
-          <div className="hero__tag" role="note">
-            <span className="hero__tag-dot" aria-hidden="true"></span>
-            {content.hero.tag}
+          <div className="hero-v2__grid">
+            <div className="hero-v2__left">
+              <h1 className="hero-v2__h1" id="hero-v2-heading">
+                {hn?.headline ?? content.hero.headline}
+              </h1>
+              <p className="hero-v2__sub">
+                {hn?.subtitle ?? content.hero.subtitle}
+              </p>
+              <div className="hero-v2__actions">
+                <a href="/free-tools" className="hero-v2__cta hero-v2__cta--primary">
+                  {hn?.ctaPrimary ?? "Try a Free Calculator"}
+                </a>
+                <a href="/pro-tools" className="hero-v2__cta hero-v2__cta--secondary">
+                  {hn?.ctaSecondary ?? "View a Pro Report Example"}
+                </a>
+              </div>
+              {/* Privacy note */}
+              <div className="hero-v2__privacy">
+                <span className="hero-v2__privacy-dot" aria-hidden="true" />
+                <span>Your data stays in your browser. No storage, no tracking.</span>
+              </div>
+            </div>
+            <div className="hero-v2__right" aria-hidden="true">
+              <div className="oee-card">
+                <div className="oee-card__header">
+                  <svg className="oee-card__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="8" width="5" height="12" rx="1" /><rect x="9.5" y="4" width="5" height="16" rx="1" /><rect x="16" y="10" width="5" height="10" rx="1" /></svg>
+                  <span className="oee-card__title">OEE Calculation</span>
+                  <span className="oee-card__badge">LIVE</span>
+                </div>
+                <div className="oee-card__metrics">
+                  <div className="oee-card__metric">
+                    <span className="oee-card__metric-label">Availability</span>
+                    <span className="oee-card__metric-val">87.2%</span>
+                  </div>
+                  <div className="oee-card__metric">
+                    <span className="oee-card__metric-label">Performance</span>
+                    <span className="oee-card__metric-val">91.4%</span>
+                  </div>
+                  <div className="oee-card__metric">
+                    <span className="oee-card__metric-label">Quality</span>
+                    <span className="oee-card__metric-val">96.1%</span>
+                  </div>
+                </div>
+                <div className="oee-card__result">
+                  <span className="oee-card__result-label">Result:</span>
+                  <span className="oee-card__result-val">OEE = 76.6%</span>
+                </div>
+                <div className="oee-card__insight">
+                  <div className="oee-card__insight-title">Pro Insight</div>
+                  <ul className="oee-card__insight-list">
+                    <li>Main loss driver: availability</li>
+                    <li>Estimated monthly loss: $18,420</li>
+                    <li>Recommended action: downtime reduction scenario</li>
+                  </ul>
+                </div>
+                <div className="oee-card__export">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7,10 12,15 17,10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                  PDF Decision Report
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="hero__h1" id="hero-h1" dangerouslySetInnerHTML={{ __html: content.hero.headline }} />
-          <p className="hero__sub">{content.hero.subtitle}</p>
 
-          {/* Search */}
-          <div className="search-wrap" role="search" aria-label="Calculator search">
+          {/* Search bar inside hero */}
+          <div className="hero-v2__search" role="search" aria-label="Calculator search">
             <div className="search-bar">
               <svg className="search-ico" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
                 <circle cx="8" cy="8" r="5.5" />
@@ -110,48 +125,67 @@ export function LandingPageContent({
             </div>
             <div className="search-hints" aria-label="Suggested searches">
               <span className="search-hint-label">{content.hero.tryLabel}</span>
-              <button className="chip" aria-label={content.hero.chipOee} onClick={() => handleSearchChip(content.hero.chipOee)}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="8" width="5" height="12" rx="1" /><rect x="9.5" y="4" width="5" height="16" rx="1" /><rect x="16" y="10" width="5" height="10" rx="1" /></svg> {content.hero.chipOee}
-              </button>
-              <button className="chip" aria-label={content.hero.chipEoq} onClick={() => handleSearchChip(content.hero.chipEoq)}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27,6.96 12,12.01 20.73,6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg> {content.hero.chipEoq}
-              </button>
-              <button className="chip" aria-label={content.hero.chipIrr} onClick={() => handleSearchChip(content.hero.chipIrr)}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 3v18h18" /><path d="m7 16 4-5 4 3 4-6" /></svg> {content.hero.chipIrr}
-              </button>
-              <button className="chip" aria-label={content.hero.chipCpk} onClick={() => handleSearchChip(content.hero.chipCpk)}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg> {content.hero.chipCpk}
-              </button>
-              <button className="chip" aria-label={content.hero.chipLmtd} onClick={() => handleSearchChip(content.hero.chipLmtd)}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" /></svg> {content.hero.chipLmtd}
-              </button>
-              <button className="chip" aria-label={content.hero.chipMtbf} onClick={() => handleSearchChip(content.hero.chipMtbf)}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg> {content.hero.chipMtbf}
-              </button>
+              <button className="chip" onClick={() => handleSearchChip(content.hero.chipOee)}>{content.hero.chipOee}</button>
+              <button className="chip" onClick={() => handleSearchChip(content.hero.chipEoq)}>{content.hero.chipEoq}</button>
+              <button className="chip" onClick={() => handleSearchChip(content.hero.chipIrr)}>{content.hero.chipIrr}</button>
+              <button className="chip" onClick={() => handleSearchChip(content.hero.chipCpk)}>{content.hero.chipCpk}</button>
+              <button className="chip" onClick={() => handleSearchChip(content.hero.chipLmtd)}>{content.hero.chipLmtd}</button>
+              <button className="chip" onClick={() => handleSearchChip(content.hero.chipMtbf)}>{content.hero.chipMtbf}</button>
             </div>
           </div>
 
-          {/* Metrics */}
-          <div className="hero-metrics" role="list" aria-label="Platform statistics">
-            <div className="hero-metric" role="listitem">
-              <span className="hero-metric__val hero-metric__val--terra" id="c-pro">0</span>
-              <span className="hero-metric__label">{content.metrics.proCalculators}</span>
+          {/* Trust bar */}
+          {content.trustBar ? (
+            <div className="trust-bar" role="list" aria-label="Platform highlights">
+              {content.trustBar.items.map((item, i) => (
+                <div key={i} className="trust-bar__item" role="listitem">
+                  <span className="trust-bar__dot" aria-hidden="true" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
-            <div className="hero-metric" role="listitem">
-              <span className="hero-metric__val" id="c-free">0</span>
-              <span className="hero-metric__label">{content.metrics.freeCalculators}</span>
-            </div>
-            <div className="hero-metric" role="listitem">
-              <span className="hero-metric__val" id="c-sectors">0</span>
-              <span className="hero-metric__label">{content.metrics.industrySectors}</span>
-            </div>
-            <div className="hero-metric" role="listitem">
-              <span className="hero-metric__val hero-metric__val--cobalt">6</span>
-              <span className="hero-metric__label">{content.metrics.languages}</span>
-            </div>
-          </div>
+          ) : null}
         </div>
       </section>
+
+      {/* ═══ WHAT SECTORCALC DOES ═══ */}
+      {content.whatDoes ? (
+        <section className="what-does" aria-labelledby="what-does-heading">
+          <div className="wrap">
+            <h2 className="what-does__title" id="what-does-heading">{content.whatDoes.title}</h2>
+            <div className="what-does__grid">
+              <div className="what-does__card">
+                <div className="what-does__card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" /><line x1="4" y1="10" x2="20" y2="10" /><line x1="10" y1="4" x2="10" y2="20" /></svg>
+                </div>
+                <h3 className="what-does__card-title">{content.whatDoes.card1Title}</h3>
+                <p className="what-does__card-desc">{content.whatDoes.card1Desc}</p>
+              </div>
+              <div className="what-does__card">
+                <div className="what-does__card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+                </div>
+                <h3 className="what-does__card-title">{content.whatDoes.card2Title}</h3>
+                <p className="what-does__card-desc">{content.whatDoes.card2Desc}</p>
+              </div>
+              <div className="what-does__card">
+                <div className="what-does__card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
+                </div>
+                <h3 className="what-does__card-title">{content.whatDoes.card3Title}</h3>
+                <p className="what-does__card-desc">{content.whatDoes.card3Desc}</p>
+              </div>
+              <div className="what-does__card">
+                <div className="what-does__card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7,10 12,15 17,10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                </div>
+                <h3 className="what-does__card-title">{content.whatDoes.card4Title}</h3>
+                <p className="what-does__card-desc">{content.whatDoes.card4Desc}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* ═══ TICKER ═══ */}
       <div className="ticker" aria-label="Most used calculators">

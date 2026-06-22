@@ -59,9 +59,6 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         <link rel="preconnect" href="https://firestore.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://identitytoolkit.googleapis.com" crossOrigin="anonymous" />
 
-        {/* === ORIGIN TRIALS & PRELOAD HINTS === */}
-        <link rel="preload" href="/manifest.webmanifest" as="fetch" crossOrigin="anonymous" />
-
         {/* === SEO HEAD LINKS (AI txt, LLMs, etc.) === */}
         <SeoHeadLinks />
         <LlmsTxtLink />
@@ -81,6 +78,9 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         {/* === SEARCH ENGINE VERIFICATION === */}
         <meta name="google-site-verification" content="YC4-K4Q1XVrErVW2UE9eNe4Tni2hhFFmBhF8dZjcVoY" />
         <meta name="msvalidate.01" content="C97289CA0F699D6B9053113A5E8FAD2A" />
+
+        {/* === FAVICON === */}
+        <link rel="icon" href="/img/brand/sectorcalc-favicon.svg" type="image/svg+xml" sizes="any" />
 
         {/* === MOBILE & APP METADATA === */}
         <link
