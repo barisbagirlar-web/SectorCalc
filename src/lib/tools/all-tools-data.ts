@@ -25,6 +25,10 @@ import {
 import { getPremiumCategorySlugForTool } from "@/data/premium-tool-category-map";
 import { resolvePremiumCategoryTitle } from "@/data/premium-categories";
 import type { PremiumCategorySlug } from "@/data/premium-categories";
+import {
+  SECTOR_SLUG_OVERRIDES,
+  SLUG_TOKEN_SECTOR_HINTS,
+} from "@/lib/tools/taxonomy";
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
 const DEFAULT_LABEL = "Diğer";
@@ -181,6 +185,17 @@ function resolveSectorKey(
   const schemaSector = asString(raw.sector);
   if (schemaSector && schemaSector !== DEFAULT_LABEL) {
     return resolveSchemaSectorKey(schemaSector);
+  }
+
+  // Try exact slug override
+  const override = SECTOR_SLUG_OVERRIDES[slug];
+  if (override) return override;
+
+  // Try token-based slug hints (e.g. "drywall-calculator" → "insaat")
+  const slugTokens = slug.split("-");
+  for (const token of slugTokens) {
+    const hint = SLUG_TOKEN_SECTOR_HINTS[token];
+    if (hint) return hint;
   }
 
   return "diger";
@@ -342,7 +357,20 @@ function categorizedToToolData(
 ): ToolData {
   const title = item.title?.[locale] ?? item.title?.en ?? humanizeSlug(item.slug);
   const desc = item.description?.[locale] ?? item.description?.en ?? "";
-  const sectorKey = resolvePremiumSectorKey(item.categorySlug);
+  let sectorKey = resolvePremiumSectorKey(item.categorySlug);
+  // Fallback: try slug-based sector hints
+  if (sectorKey === "diger") {
+    const override = SECTOR_SLUG_OVERRIDES[item.slug];
+    if (override) {
+      sectorKey = override;
+    } else {
+      const slugTokens = item.slug.split("-");
+      for (const token of slugTokens) {
+        const hint = SLUG_TOKEN_SECTOR_HINTS[token];
+        if (hint) { sectorKey = hint; break; }
+      }
+    }
+  }
   return {
     slug: item.slug,
     name: title,
@@ -359,47 +387,18 @@ function categorizedToToolData(
 export function getPremiumTools(locale = "tr"): ToolData[] {
   const bySlug = new Map<string, ToolData>();
 
-  // 0. Build sector lookup from premium schema registry (has real sectorSlug).
-  const premiumSectorLookup = new Map<string, string>();
+  // 1. Premium schemas from schema-registry (56 registered PremiumCalculatorSchema).
+  //    These are the definitive set of truly premium calculators.
   for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
-    premiumSectorLookup.set(schema.id, resolvePremiumSectorKey(schema.sectorSlug));
+    bySlug.set(schema.id, schemaToToolData(schema, locale));
   }
 
-  // 1. Schema-based premium tools from generated/schemas/*.json (has correct sectorKey
-  //    from schema catalog metadata). Process FIRST so proper sector data is available.
-  const schemaPremium = getAllTools(locale).filter((tool) => tool.premiumRequired);
-  for (const t of schemaPremium) {
-    if (!bySlug.has(t.slug)) {
-      bySlug.set(t.slug, t);
-      // Also populate sector lookup from generated schema sector key.
-      if (!premiumSectorLookup.has(t.slug)) {
-        premiumSectorLookup.set(t.slug, t.sectorKey);
-      }
-    }
-  }
-
-  // 2. Premium schemas from schema-registry. Overrides with richer data (name_i18n,
-  //    painStatement, proper sectorSlug).
-  for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
-    if (!bySlug.has(schema.id)) {
-      bySlug.set(schema.id, schemaToToolData(schema, locale));
-    }
-  }
-
-  // 3. Premium-tier items from categorized tool index. Uses sectorLookup for correct
-  //    sector mapping instead of falling back to "diger" for everything.
+  // 2. Premium-152 seed tools (152 items from buildCategorizedToolIndex).
+  //    Only include items NOT already represented by a premium schema.
   const index = buildCategorizedToolIndex();
   for (const item of index) {
-    if (item.tier === "premium" || item.tier === "premium-schema") {
-      if (!bySlug.has(item.slug)) {
-        const sectorKey = premiumSectorLookup.get(item.slug)
-          ?? resolvePremiumSectorKey(item.categorySlug);
-        bySlug.set(item.slug, {
-          ...categorizedToToolData(item, locale),
-          sectorKey,
-          sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
-        });
-      }
+    if ((item.tier === "premium" || item.tier === "premium-schema") && !bySlug.has(item.slug)) {
+      bySlug.set(item.slug, categorizedToToolData(item, locale));
     }
   }
 
