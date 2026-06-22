@@ -335,6 +335,12 @@ function buildFreeCalculatorSlugs() {
       slugs.add(match[1]);
     }
   }
+  const batch2Content = readText("src/lib/tools/roadmap-free-batch2-specs.generated.ts");
+  if (batch2Content) {
+    for (const match of batch2Content.matchAll(/^\s+"([a-z0-9-]+)":\s*\{/gm)) {
+      slugs.add(match[1]);
+    }
+  }
   return slugs;
 }
 

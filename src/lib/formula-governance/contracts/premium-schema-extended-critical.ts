@@ -1166,6 +1166,56 @@ const BeltPulleySpeedLengthCalculatorContract: FormulaContract = buildAssuredCri
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
+const SixSigmaProjectPrioritizerContract: FormulaContract = buildAssuredCriticalContract({
+  toolId: "premium-schema.six-sigma-project-prioritizer",
+  toolName: "Six Sigma Project Prioritizer",
+  slug: "six-sigma-project-prioritizer",
+  purpose: "Project selection happens without a documented ROI/Duration impact baseline.",
+  userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
+  decisionImpact: "pricing",
+  requiredInputs: ["estimatedAnnualSavings", "probabilityOfSuccess", "projectDurationMonths", "resourceCost"],
+  criticalInputs: ["estimatedAnnualSavings", "probabilityOfSuccess", "projectDurationMonths", "resourceCost"],
+  outputs: ["minimumSafePrice", "recommendedPrice", "p90Exposure", "projectScore"],
+  assumptions: [
+    PREMIUM_SCHEMA_DISCLAIMER,
+    calculatorProductionAssumption(
+      "src/lib/premium-schema/premium-schema-engine.ts",
+      "runPremiumSchemaEngine(schema, values) → minimumSafePrice",
+    ),
+    "Premium schema engine — deterministic formula pipeline via formula-registry.",
+    "Oracle mirror reuses runPremiumSchemaEngine for production parity checks.",
+  ],
+  formulaSummary: "Premium schema pipeline for six-sigma-project-prioritizer.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "Governance ontology target recommendedPrice maps to minimumSafePrice.",
+    ],
+    modelLimitations: ["Schema route uses formula-registry — legacy paid slug may differ."],
+    futureExtensions: ["Dedicated legacy paid slug oracle when alias drift resolves."],
+  }),
+  validationRules: [
+    { id: "inputs-finite", description: "Required numeric inputs must be finite.", kind: "edge" },
+    { id: "primary-output-finite", description: "Primary output must be finite when inputs are valid.", kind: "edge" },
+    { id: "units-consistent", description: "Inputs use consistent units per schema labels.", kind: "dimensional" },
+  ],
+  scenarioSpecs: [
+    { id: "golden-valid", description: "Valid baseline inputs produce finite primary output." },
+    { id: "missing-input", description: "Missing required inputs block calculation." },
+    { id: "invalid-negative", description: "Invalid negative inputs rejected where min bound applies." },
+    { id: "boundary-min", description: "Minimum boundary inputs remain finite." },
+    { id: "rogue-key", description: "Non-canonical keys rejected at runtime gate." },
+  ],
+  monotonicityRules: [
+    { id: "primary-non-negative-inputs", description: "Increasing primary cost drivers should not decrease minimum safe price when applicable.", inputKey: "estimatedAnnualSavings", direction: "increase_should_increase", outputKey: "minimumSafePrice" },
+    { id: "output-finite", description: "Minimum safe price remains finite for valid inputs.", inputKey: "estimatedAnnualSavings", direction: "increase_should_increase", outputKey: "minimumSafePrice" },
+    { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "estimatedAnnualSavings", direction: "increase_should_increase", outputKey: "recommendedPrice" },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+});
+
 export const PREMIUM_SCHEMA_EXTENDED_CRITICAL_SLUGS = [
   "annual-leave-severance-notice-calculator",
   "auto-repair-parts-labor-quote-calculator",
@@ -1187,6 +1237,7 @@ export const PREMIUM_SCHEMA_EXTENDED_CRITICAL_SLUGS = [
   "quality-cost-paf-calculator",
   "quote-price-profit-margin-calculator",
   "shop-rate-hourly-cost-calculator",
+  "six-sigma-project-prioritizer",
   "tolerance-stack-up-calculator",
   "value-stream-map-vsm-calculator",
   "welded-bolted-connection-calculator",
@@ -1213,6 +1264,7 @@ export const PREMIUM_SCHEMA_EXTENDED_CRITICAL_FORMULA_CONTRACTS: readonly Formul
   QualityCostPafCalculatorContract,
   QuotePriceProfitMarginCalculatorContract,
   ShopRateHourlyCostCalculatorContract,
+  SixSigmaProjectPrioritizerContract,
   ToleranceStackUpCalculatorContract,
   ValueStreamMapVsmCalculatorContract,
   WeldedBoltedConnectionCalculatorContract,

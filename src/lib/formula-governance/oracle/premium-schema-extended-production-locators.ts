@@ -307,6 +307,18 @@ export const PREMIUM_SCHEMA_EXTENDED_PRODUCTION_FORMULA_LOCATORS: readonly Produ
     comparisonWired: true,
   },
   {
+    slug: "six-sigma-project-prioritizer",
+    toolId: "premium-schema.six-sigma-project-prioritizer",
+    productionFilePath: "src/lib/premium-schema/premium-schema-engine.ts",
+    productionFunctionName: "runPremiumSchemaEngine",
+    productionEntry: 'runPremiumSchemaEngine(schema, values) → minimumSafePrice',
+    oracleFunctionName: "calculatePremiumSchemaExtendedOracle",
+    inputShape: ["estimatedAnnualSavings", "probabilityOfSuccess", "projectDurationMonths", "resourceCost"],
+    productionOutputShape: ["minimumSafePrice", "p90Exposure", "recommendedPrice"],
+    oracleOutputShape: ["minimumSafePrice", "p90Exposure", "recommendedPrice"],
+    comparisonWired: true,
+  },
+  {
     slug: "tolerance-stack-up-calculator",
     toolId: "premium-schema.tolerance-stack-up-calculator",
     productionFilePath: "src/lib/premium-schema/premium-schema-engine.ts",

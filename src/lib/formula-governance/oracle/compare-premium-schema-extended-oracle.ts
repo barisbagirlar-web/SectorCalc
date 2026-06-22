@@ -151,9 +151,8 @@ const SEVEN_MUDA_REV5_ZERO_WASTE_VALUES: SchemaInputValues = {
   expediteCost: 0,
 };
 
-const SCENARIOS_BY_SLUG: Readonly<
-  Record<PremiumSchemaExtendedOracleSchemaId, readonly PremiumSchemaExtendedComparisonScenario[]>
-> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const SCENARIOS_BY_SLUG: Record<string, readonly PremiumSchemaExtendedComparisonScenario[]> = {
   "7-israf-muda-avcisi-parasal-karsilik-calculator": [
     { id: "golden-valid", kind: "normal", values: SEVEN_MUDA_REV5_GOLDEN_VALUES },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
@@ -330,6 +329,14 @@ const SCENARIOS_BY_SLUG: Readonly<
     { id: "boundary-min", kind: "edge", values: {"fixedMonthlyCost":18500,"monthlyMachineHours":320,"variableCostPerHour":12} },
     { id: "rogue-key", kind: "absurd", values: { ...{"fixedMonthlyCost":18500,"monthlyMachineHours":320,"variableCostPerHour":12}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"fixedMonthlyCost":18500,"monthlyMachineHours":320,"variableCostPerHour":12} },
+  ],
+  "six-sigma-project-prioritizer": [
+    { id: "golden-valid", kind: "normal", values: {"estimatedAnnualSavings": 50000, "probabilityOfSuccess": 75, "projectDurationMonths": 6, "resourceCost": 15000} },
+    { id: "missing-input", kind: "edge", values: {}, expectPass: false },
+    { id: "invalid-negative", kind: "edge", values: {"estimatedAnnualSavings": -1, "probabilityOfSuccess": 75, "projectDurationMonths": 6, "resourceCost": 15000}, expectPass: false },
+    { id: "boundary-min", kind: "edge", values: {"estimatedAnnualSavings": 0, "probabilityOfSuccess": 1, "projectDurationMonths": 1, "resourceCost": 1} },
+    { id: "rogue-key", kind: "absurd", values: { ...{"estimatedAnnualSavings": 50000, "probabilityOfSuccess": 75, "projectDurationMonths": 6, "resourceCost": 15000}, rogueKey: 999 } },
+    { id: "valid-success", kind: "normal", values: {"estimatedAnnualSavings": 50000, "probabilityOfSuccess": 75, "projectDurationMonths": 6, "resourceCost": 15000} },
   ],
   "tolerance-stack-up-calculator": [
     { id: "golden-valid", kind: "normal", values: {"t1":0.15,"t2":0.1,"t3":0.08,"t4":0.12,"assemblyLimit":0.35} },

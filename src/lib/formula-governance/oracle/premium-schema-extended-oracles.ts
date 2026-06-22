@@ -29,6 +29,7 @@ export const PREMIUM_SCHEMA_EXTENDED_ORACLE_SCHEMA_IDS = [
   "quality-cost-paf-calculator",
   "quote-price-profit-margin-calculator",
   "shop-rate-hourly-cost-calculator",
+  "six-sigma-project-prioritizer",
   "tolerance-stack-up-calculator",
   "value-stream-map-vsm-calculator",
   "welded-bolted-connection-calculator",

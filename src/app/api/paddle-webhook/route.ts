@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import crypto from 'crypto'
 import { getAdminFirestore } from '@/lib/firebase/admin'
 
+export const dynamic = 'force-dynamic'
+
 const PADDLE_WEBHOOK_SECRET = process.env.PADDLE_WEBHOOK_SECRET ?? ''
 
 function verifyPaddleSignature(rawBody: string, signatureHeader: string, secret: string): boolean {

@@ -169,6 +169,11 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "Atölyelerin çoğu shop rate'i yalnızca işçilik ve elektrikle hesaplar; gerçek yük eksik kalır.",
   },
+  "six-sigma-project-prioritizer": {
+    title: "Altı Sigma Proje Önceliklendirme",
+    painStatement:
+      "Proje yatırımları süresine ve riskine göre puanlanıp en hızlı getiri sağlayanlar belirlenebilir.",
+  },
   "break-even-safety-margin-calculator": {
     title: "Başabaş Noktası ve Güvenlik Marjı Hesaplayıcı",
     painStatement:

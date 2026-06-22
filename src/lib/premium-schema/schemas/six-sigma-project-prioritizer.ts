@@ -12,7 +12,7 @@ export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
   inputs: [
     {
       id: "estimatedAnnualSavings",
-      label: "Tahmini Yıllık Tasarruf (Estimated Annual Savings)",
+      label: "Tahmini Yıllık Tasarruf",
       type: "number",
       unit: "USD",
       required: true,
@@ -23,7 +23,7 @@ export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
     },
     {
       id: "probabilityOfSuccess",
-      label: "Başarı Olasılığı (Probability of Success)",
+      label: "Başarı Olasılığı",
       type: "number",
       unit: "%",
       required: true,
@@ -34,7 +34,7 @@ export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
     },
     {
       id: "projectDurationMonths",
-      label: "Proje Süresi (Duration)",
+      label: "Proje Süresi",
       type: "number",
       unit: "Ay",
       required: true,
@@ -45,7 +45,7 @@ export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
     },
     {
       id: "resourceCost",
-      label: "Kaynak Maliyeti (Resource Cost)",
+      label: "Kaynak Maliyeti",
       type: "number",
       unit: "USD",
       required: true,
@@ -72,7 +72,7 @@ export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
   outputs: [
     {
       id: "projectScore",
-      label: "Proje Öncelik Skoru (Project Priority Score)",
+      label: "Proje Öncelik Skoru",
       unit: "Puan",
       format: "number",
       isBigNumber: true,
