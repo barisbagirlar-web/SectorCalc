@@ -112,12 +112,13 @@ export function DiscoveryCatalogExplorer({
     (tabId: string) => {
       setSelectedTabId(tabId);
       setSearchQuery("");
-      requestAnimationFrame(() => {
-        document.getElementById("tools-list")?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      });
+      setTimeout(() => {
+        const el = document.getElementById("tools-list");
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 120;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 50);
     },
     [],
   );

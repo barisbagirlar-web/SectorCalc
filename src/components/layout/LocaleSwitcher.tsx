@@ -2,11 +2,9 @@
 
 import { useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname } from "@/i18n/routing";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { LOCALE_DEFINITION_LIST, getLocaleDefinition } from "@/lib/i18n/locale-config";
 import {
-  addLocaleToPath,
-  stripLocaleFromPath,
   type SupportedLocale,
 } from "@/lib/i18n/locale-routing";
 import { setLocaleCookie } from "@/lib/i18n/locale-client";
@@ -20,6 +18,7 @@ export function LocaleSwitcher({
 }) {
   const locale = useLocale() as SupportedLocale;
   const pathname = usePathname();
+  const router = useRouter();
   const t = useTranslations("locale");
   const [pending, startTransition] = useTransition();
 
@@ -30,9 +29,7 @@ export function LocaleSwitcher({
 
     startTransition(() => {
       setLocaleCookie(nextLocale, { manual: true });
-      const basePath = stripLocaleFromPath(pathname);
-      const nextPath = addLocaleToPath(basePath, nextLocale);
-      window.location.assign(nextPath);
+      router.replace(pathname, { locale: nextLocale });
     });
   };
 

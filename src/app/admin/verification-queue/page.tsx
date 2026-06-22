@@ -14,6 +14,8 @@ type QueueRow = {
   userId?: string;
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminVerificationQueuePage() {
   const db = getAdminFirestore();
   const items: QueueRow[] = [];

@@ -45,12 +45,13 @@ const DISCOVERY_VARIANTS = new Set<CategoryExplorerVariant>([
 const CATEGORY_ALL = DISCOVERY_TAB_ALL;
 
 function scrollToToolsList() {
-  requestAnimationFrame(() => {
-    document.getElementById("tools-list")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
+  setTimeout(() => {
+    const el = document.getElementById("tools-list");
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }, 50);
 }
 
 type FreeToolsCategoryCardExplorerProps = {

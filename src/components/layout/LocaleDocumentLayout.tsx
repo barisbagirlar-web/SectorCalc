@@ -10,6 +10,7 @@ import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap
 import { RegionProvider } from "@/lib/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
 import { SectorCalcAssistant } from "@/components/assistant/SectorCalcAssistant";
+import { PaddleProvider } from "@/lib/paddle-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,10 +62,12 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         <JsonLd data={buildHomepageJsonLd(locale)} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <RegionProvider region={region} source={source}>
-            <AttributionBootstrap />
-            <ServiceWorkerRegister />
-            {children}
-            <SectorCalcAssistant />
+            <PaddleProvider>
+              <AttributionBootstrap />
+              <ServiceWorkerRegister />
+              {children}
+              <SectorCalcAssistant />
+            </PaddleProvider>
           </RegionProvider>
         </NextIntlClientProvider>
       </body>

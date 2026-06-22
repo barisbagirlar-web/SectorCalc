@@ -1,0 +1,87 @@
+export interface Plan {
+  id: string
+  credits: number
+  label: string
+  badge: 'none' | 'popular' | 'bestval' | 'team'
+  badgeText: string
+  price: number
+  perCredit: number
+  savingPct: number
+  paddlePriceId: string
+  features: string[]
+  cta: string
+  highlighted: boolean
+}
+
+export const PLANS: Plan[] = [
+  {
+    id: 'starter',
+    credits: 1,
+    label: 'Try it',
+    badge: 'none',
+    badgeText: 'No commitment',
+    price: 1.99,
+    perCredit: 1.99,
+    savingPct: 0,
+    paddlePriceId: process.env.NEXT_PUBLIC_PADDLE_PRICE_1 ?? '',
+    features: ['1 pro calculation', 'PDF report included', 'No account required'],
+    cta: 'Buy 1 credit',
+    highlighted: false,
+  },
+  {
+    id: 'essentials',
+    credits: 5,
+    label: 'Essentials',
+    badge: 'none',
+    badgeText: 'Save 50%',
+    price: 4.99,
+    perCredit: 1.00,
+    savingPct: 50,
+    paddlePriceId: process.env.NEXT_PUBLIC_PADDLE_PRICE_5 ?? '',
+    features: ['5 pro calculations', 'PDF export on all', '12-month validity'],
+    cta: 'Get 5 credits',
+    highlighted: false,
+  },
+  {
+    id: 'popular',
+    credits: 15,
+    label: 'Most popular',
+    badge: 'popular',
+    badgeText: 'Most popular',
+    price: 7.99,
+    perCredit: 0.53,
+    savingPct: 73,
+    paddlePriceId: process.env.NEXT_PUBLIC_PADDLE_PRICE_15 ?? '',
+    features: ['15 pro calculations', 'Shareable PDF reports', 'Priority support', '12-month validity'],
+    cta: 'Get 15 credits',
+    highlighted: true,
+  },
+  {
+    id: 'department',
+    credits: 30,
+    label: 'Department',
+    badge: 'team',
+    badgeText: 'Teams',
+    price: 11.99,
+    perCredit: 0.40,
+    savingPct: 80,
+    paddlePriceId: process.env.NEXT_PUBLIC_PADDLE_PRICE_30 ?? '',
+    features: ['30 pro calculations', 'Team PDF sharing', 'Usage dashboard', '12-month validity'],
+    cta: 'Get 30 credits',
+    highlighted: false,
+  },
+  {
+    id: 'enterprise',
+    credits: 100,
+    label: 'Best value',
+    badge: 'bestval',
+    badgeText: 'Best value',
+    price: 24.99,
+    perCredit: 0.25,
+    savingPct: 87,
+    paddlePriceId: process.env.NEXT_PUBLIC_PADDLE_PRICE_100 ?? '',
+    features: ['100 pro calculations', 'Invoice / PO billing', 'API access (beta)', 'Dedicated onboarding', '12-month validity'],
+    cta: 'Get 100 credits',
+    highlighted: false,
+  },
+]
