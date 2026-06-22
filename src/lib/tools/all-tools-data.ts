@@ -28,6 +28,7 @@ import type { PremiumCategorySlug } from "@/data/premium-categories";
 import {
   SECTOR_SLUG_OVERRIDES,
   SLUG_TOKEN_SECTOR_HINTS,
+  SECTORS,
 } from "@/lib/tools/taxonomy";
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
@@ -165,6 +166,9 @@ function resolveCategoryKey(
   return categoryId || "diger";
 }
 
+/** Set of valid taxonomy sector IDs for validation. */
+const TAXONOMY_SECTOR_IDS = new Set(SECTORS.map((s) => s.id));
+
 function resolveSectorKey(
   slug: string,
   raw: RawSchemaRecord,
@@ -173,18 +177,19 @@ function resolveSectorKey(
   // Prefer sectorSlug (e.g. "cnc-manufacturing") over generic sectorId
   // (e.g. "makine") for consistent taxonomy matching.
   const sectorSlug = resolveSectorSlugFallback(slug, raw, normalized);
-  if (sectorSlug) {
+  if (sectorSlug && TAXONOMY_SECTOR_IDS.has(sectorSlug)) {
     return sectorSlug;
   }
 
   const schemaSectorId = asString(raw.sectorId) || normalized?.sectorId;
-  if (schemaSectorId) {
+  if (schemaSectorId && TAXONOMY_SECTOR_IDS.has(schemaSectorId)) {
     return schemaSectorId;
   }
 
   const schemaSector = asString(raw.sector);
   if (schemaSector && schemaSector !== DEFAULT_LABEL) {
-    return resolveSchemaSectorKey(schemaSector);
+    const mapped = resolveSchemaSectorKey(schemaSector);
+    if (TAXONOMY_SECTOR_IDS.has(mapped)) return mapped;
   }
 
   // Try exact slug override
@@ -358,8 +363,8 @@ function categorizedToToolData(
   const title = item.title?.[locale] ?? item.title?.en ?? humanizeSlug(item.slug);
   const desc = item.description?.[locale] ?? item.description?.en ?? "";
   let sectorKey = resolvePremiumSectorKey(item.categorySlug);
-  // Fallback: try slug-based sector hints
-  if (sectorKey === "diger") {
+  // Fallback: try slug-based sector hints only if premium map returned non-taxonomy
+  if (!TAXONOMY_SECTOR_IDS.has(sectorKey)) {
     const override = SECTOR_SLUG_OVERRIDES[item.slug];
     if (override) {
       sectorKey = override;

@@ -2,8 +2,8 @@
 /**
  * DeepSeek bulk i18n translation — schema JSON files.
  *
- * 1. Scan 358 schema files for fields where DE/FR/ES/AR === EN
- * 2. Collect unique English strings
+ * 1. Scan all schema files for fields where DE/FR/ES/AR === EN
+ * 2. Collect unique English strings per locale
  * 3. Translate batches via DeepSeek API
  * 4. Write translations back to schema files
  *
@@ -24,7 +24,7 @@ if (!DEEPSEEK_API_KEY) {
 }
 
 const SCHEMAS_DIR = path.join(PROJECT_ROOT, "generated", "schemas");
-const BATCH_SIZE = 60;
+const BATCH_SIZE = 50;
 const TARGET_LOCALES = ["de", "fr", "es", "ar"] as const;
 type TargetLocale = (typeof TARGET_LOCALES)[number];
 
@@ -35,15 +35,21 @@ const LOCALE_NAMES: Record<TargetLocale, string> = {
   ar: "Arabic",
 };
 
-/* ── Collect all i18n fields that need translation ── */
+/* ── Collect all i18n fields needing translation ── */
 
-type I18nSlot = {
+type Slot = {
   filePath: string;
-  jsonPath: string; // e.g. "inputs.0.label_i18n" or "title_i18n"
+  jsonPath: string;
 };
 
-function collectSlots(): { slots: I18nSlot[]; sourceEnBySlot: Map<string, string>; localeBySlot: Map<string, TargetLocale> } {
-  const slots: I18nSlot[] = [];
+type Collection = {
+  slots: Slot[];
+  sourceEnBySlot: Map<string, string>;
+  localeBySlot: Map<string, TargetLocale>;
+};
+
+function collectSlots(): Collection {
+  const slots: Slot[] = [];
   const sourceEnBySlot = new Map<string, string>();
   const localeBySlot = new Map<string, TargetLocale>();
 
@@ -53,15 +59,15 @@ function collectSlots(): { slots: I18nSlot[]; sourceEnBySlot: Map<string, string
     const filePath = path.join(SCHEMAS_DIR, file);
     const raw = JSON.parse(fs.readFileSync(filePath, "utf-8")) as Record<string, unknown>;
 
-    function check(slot: I18nSlot, i18n: Record<string, string> | undefined, locale: TargetLocale) {
+    function check(slot: Slot, i18n: Record<string, string> | undefined, loc: TargetLocale) {
       if (!i18n) return;
       const en = i18n.en ?? "";
       if (en.length <= 2) return;
-      if (i18n[locale] === en) {
-        const key = `${slot.filePath}::${slot.jsonPath}::${locale}`;
+      if (i18n[loc] === en) {
+        const key = `${slot.filePath}::${slot.jsonPath}::${loc}`;
         slots.push(slot);
         sourceEnBySlot.set(key, en);
-        localeBySlot.set(key, locale);
+        localeBySlot.set(key, loc);
       }
     }
 
@@ -105,23 +111,26 @@ function collectSlots(): { slots: I18nSlot[]; sourceEnBySlot: Map<string, string
   return { slots, sourceEnBySlot, localeBySlot };
 }
 
-/* ── DeepSeek translation ── */
+/* ── DeepSeek API call ── */
 
-async function translateStrings(strings: string[], locale: TargetLocale): Promise<Map<string, string>> {
-  const sysMsg = `You are an industrial/engineering translator. Translate from English to ${LOCALE_NAMES[locale]} (${locale}). Return ONLY valid JSON. No markdown. No explanations.`;
+async function translateBatch(strings: string[], locale: TargetLocale): Promise<Map<string, string>> {
+  const sysMsg = `You are an industrial/engineering translator. Translate from English to ${LOCALE_NAMES[locale]} (${locale}). Return ONLY valid JSON. No markdown. No explanations. No greetings.`;
 
-  const userMsg = `Translate each of these industrial/engineering short phrases to ${LOCALE_NAMES[locale]} (${locale}).
+  const userMsg = `Translate each of the following English strings to ${LOCALE_NAMES[locale]} (${locale}).
 
-RULES:
-- Preserve units in parentheses (kg, USD, N.m, %, mm, etc.) untranslated
-- Preserve variable names, placeholders, and special notation
-- Use correct technical/professional terminology
-- Return ONLY a JSON object mapping numeric index to translated string
+CRITICAL RULES:
+- Translate ALL text. Do NOT leave any English untranslated.
+- Units in parentheses MUST stay EXACTLY as-is and untranslated (examples: (kg), (USD), (N.m), (%), (mm), (m²), (m³), (Rad), (s), (hours), (days), (years)).
+- Variable names, placeholders like {value}, and proper nouns stay untranslated.
+- Use correct industrial/engineering/mathematical terminology.
+- For titles/slugs with hyphens: translate the readable parts only.
+- Return ONLY a flat JSON object mapping numeric index to translated string.
+- Every input string MUST have a corresponding output entry. No skips.
 
-INPUT:
+INPUT (${strings.length} strings):
 ${strings.map((s, i) => `  "${i}": ${JSON.stringify(s)}`).join("\n")}
 
-OUTPUT:`;
+OUTPUT (JSON with numeric keys):`;
 
   const body = JSON.stringify({
     model: "deepseek-chat",
@@ -157,38 +166,85 @@ OUTPUT:`;
 
   const parsed = JSON.parse(cleaned) as Record<string, string>;
   const result = new Map<string, string>();
+
   for (const [k, v] of Object.entries(parsed)) {
     const idx = Number(k);
     if (!isNaN(idx) && idx < strings.length) {
-      result.set(strings[idx]!, v);
+      const src = strings[idx]!;
+      // Only apply if translation is different from source
+      if (v !== src) {
+        result.set(src, v);
+      }
     }
   }
+
   return result;
 }
 
-/* ── Apply translation to a schema file ── */
+/* ── Apply translations and write file ── */
 
-function applyToSchema(filePath: string, jsonPath: string, locale: TargetLocale, value: string): boolean {
-  const raw = JSON.parse(fs.readFileSync(filePath, "utf-8")) as Record<string, unknown>;
-  const parts = jsonPath.split(".");
-  let cur: unknown = raw;
-  for (let p = 0; p < parts.length; p++) {
-    if (p === parts.length - 1) {
-      const obj = cur as Record<string, string>;
-      if (obj[locale] !== value) {
-        obj[locale] = value;
-        return true;
-      }
-      return false;
+function applyAndWrite(
+  changes: Map<string, Map<TargetLocale, string>>, // filePath -> (jsonPath::locale -> value)
+): number {
+  const fileGroups = new Map<string, Map<string, Map<TargetLocale, string>>>();
+
+  // Group by filePath
+  for (const [key, localeMap] of changes) {
+    const [filePath, remainder] = key.split("::") as [string, string];
+    const [jsonPath, locale] = remainder.split("::") as [string, TargetLocale];
+    if (!filePath || !jsonPath || !locale) continue;
+    let fileMap = fileGroups.get(filePath);
+    if (!fileMap) {
+      fileMap = new Map();
+      fileGroups.set(filePath, fileMap);
     }
-    const part = parts[p]!;
-    if (/^\d+$/.test(part)) {
-      cur = (cur as unknown[])[Number(part)];
-    } else {
-      cur = (cur as Record<string, unknown>)[part];
+    let jsonMap = fileMap.get(jsonPath);
+    if (!jsonMap) {
+      jsonMap = new Map() as Map<TargetLocale, string>;
+      fileMap.set(jsonPath, jsonMap);
+    }
+    jsonMap.set(locale, localeMap.get(locale)!);
+  }
+
+  let total = 0;
+  for (const [filePath, jsonMapEntries] of fileGroups) {
+    const raw = JSON.parse(fs.readFileSync(filePath, "utf-8")) as Record<string, unknown>;
+    let fileChanged = false;
+
+    for (const [jsonPath, localeMap] of jsonMapEntries) {
+      const parts = jsonPath.split(".");
+      let cur: unknown = raw;
+      let found = true;
+
+      for (let p = 0; p < parts.length; p++) {
+        const part = parts[p]!;
+        if (p === parts.length - 1) {
+          const obj = cur as Record<string, string>;
+          for (const [locale, value] of localeMap) {
+            if (obj[locale] !== value) {
+              obj[locale] = value;
+              total++;
+              fileChanged = true;
+            }
+          }
+        } else if (/^\d+$/.test(part)) {
+          const arr = cur as unknown[];
+          if (Number(part) >= arr.length) { found = false; break; }
+          cur = arr[Number(part)]!;
+        } else {
+          const obj = cur as Record<string, unknown>;
+          if (!(part in obj)) { found = false; break; }
+          cur = obj[part]!;
+        }
+      }
+    }
+
+    if (fileChanged) {
+      fs.writeFileSync(filePath, `${JSON.stringify(raw, null, 2)}\n`);
     }
   }
-  return false;
+
+  return total;
 }
 
 /* ── Main ── */
@@ -197,9 +253,8 @@ async function main() {
   console.log("═══ DeepSeek Bulk i18n Translation ═══\n");
 
   const { slots, sourceEnBySlot, localeBySlot } = collectSlots();
-  console.log(`Schemas:    ${fs.readdirSync(SCHEMAS_DIR).filter((f) => f.endsWith("-schema.json")).length}`);
-  console.log(`Total slots needing translation: ${slots.length}`);
-  console.log(`  (slots = field x locale combinations)\n`);
+  const schemaCount = fs.readdirSync(SCHEMAS_DIR).filter((f) => f.endsWith("-schema.json")).length;
+  console.log(`Schemas: ${schemaCount} | Slots needing translation: ${slots.length}\n`);
 
   if (slots.length === 0) {
     console.log("✅ All translations complete. Nothing to do.");
@@ -207,25 +262,24 @@ async function main() {
   }
 
   let totalApplied = 0;
-  let filesChanged = new Set<string>();
   let apiCalls = 0;
 
   for (const locale of TARGET_LOCALES) {
-    // Collect unique English source strings for this locale
     const localeSlots = slots.filter((_, i) => localeBySlot.get(`${_.filePath}::${_.jsonPath}::${locale}`) === locale);
-    const uniqueSources = [...new Set(localeSlots.map((slot) => sourceEnBySlot.get(`${slot.filePath}::${slot.jsonPath}::${locale}`) ?? ""))].filter(Boolean);
-    console.log(`\n── [${locale}] ${LOCALE_NAMES[locale]} — ${localeSlots.length} slots, ${uniqueSources.length} unique strings ──`);
+    const uniqueSources = [...new Set(localeSlots.map((s) => sourceEnBySlot.get(`${s.filePath}::${s.jsonPath}::${locale}`) ?? ""))].filter(Boolean);
 
-    // Batch unique strings
+    console.log(`── [${locale}] ${LOCALE_NAMES[locale]} — ${localeSlots.length} slots, ${uniqueSources.length} unique strings ──`);
+
     for (let i = 0; i < uniqueSources.length; i += BATCH_SIZE) {
       const batch = uniqueSources.slice(i, i + BATCH_SIZE);
 
       try {
-        const translationMap = await translateStrings(batch, locale);
+        const translationMap = await translateBatch(batch, locale);
         apiCalls++;
 
-        // Apply to matching slots
-        let batchApplied = 0;
+        // Build changes map
+        const changes = new Map<string, Map<TargetLocale, string>>();
+
         for (const slot of localeSlots) {
           const key = `${slot.filePath}::${slot.jsonPath}::${locale}`;
           const src = sourceEnBySlot.get(key);
@@ -233,42 +287,52 @@ async function main() {
           const translated = translationMap.get(src);
           if (!translated || translated === src) continue;
 
-          if (applyToSchema(slot.filePath, slot.jsonPath, locale, translated)) {
-            batchApplied++;
-            filesChanged.add(slot.filePath);
+          const changeKey = `${slot.filePath}::${slot.jsonPath}::${locale}`;
+          let locMap = changes.get(changeKey);
+          if (!locMap) {
+            locMap = new Map();
+            changes.set(changeKey, locMap);
           }
+          locMap.set(locale, translated);
         }
 
-        totalApplied += batchApplied;
+        // Apply and write
+        const applied = applyAndWrite(changes);
+        totalApplied += applied;
 
         const pct = Math.round(((i + batch.length) / uniqueSources.length) * 100);
-        console.log(`  [${locale}] ${pct}% | batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(uniqueSources.length / BATCH_SIZE)} | +${batchApplied} fields`);
+        console.log(`  ${pct}% | batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(uniqueSources.length / BATCH_SIZE)} | +${applied} fields (API #${apiCalls})`);
 
-        await new Promise((r) => setTimeout(r, 1200));
+        await new Promise((r) => setTimeout(r, 1000));
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err);
-        console.error(`  ERROR batch ${Math.floor(i / BATCH_SIZE) + 1}: ${msg.slice(0, 150)}`);
+        const batchNum = Math.floor(i / BATCH_SIZE) + 1;
+        console.error(`  ERROR batch ${batchNum}: ${msg.slice(0, 150)}`);
         await new Promise((r) => setTimeout(r, 5000));
       }
     }
   }
 
-  // Write changed files
-  for (const filePath of filesChanged) {
-    // Already written inline, no need to re-read/write
-  }
-
+  /* ── Report ── */
   console.log(`\n\n═══ SUMMARY ═══`);
   console.log(`  API calls:       ${apiCalls}`);
   console.log(`  Fields applied:  ${totalApplied}`);
-  console.log(`  Files modified:  ${filesChanged.size}`);
+  console.log(`  Slots remaining: ${slots.length - totalApplied}`);
 
   if (totalApplied === 0) {
-    console.log("\n⚠️  No translations were applied. Check API key and connectivity.");
+    console.log("\n⚠️  No translations applied. Check API key/connectivity.");
     process.exit(1);
   }
 
-  console.log("\n✅ Done.");
+  // Show sample changed files
+  const changedSet = new Set(slots.map((s) => s.filePath));
+  console.log(`\nSample files modified:`);
+  for (const fp of [...changedSet].sort().slice(0, 5)) {
+    console.log(`  ${path.relative(PROJECT_ROOT, fp)}`);
+  }
+  if (changedSet.size > 5) console.log(`  ... +${changedSet.size - 5} more`);
+
+  console.log("\n✅ Done. Run 'npm run audit:schema-field-i18n' to verify.");
 }
 
 main().catch((err) => {
