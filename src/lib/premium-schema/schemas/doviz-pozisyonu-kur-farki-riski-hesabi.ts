@@ -4,7 +4,7 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
   id: "doviz-pozisyonu-kur-farki-riski-hesabi",
   name: "Döviz Pozisyonu Kur Farkı Riski (FX Exposure)",
   sectorSlug: "finance-hr",
-  category: "risk",
+  category: "cost",
   legacyPaidSlug: "doviz-pozisyonu-kur-farki-riski-hesabi",
   painStatement:
     "Beklenmedik kur şokları nedeniyle şirket bilançosundaki gizli kur farkı zararlarını (FX Exposure) önceden analiz edin.",

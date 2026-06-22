@@ -187,6 +187,22 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       assertFinite(num(inputs, "excessKwh") * num(inputs, "energyRate") + num(inputs, "peakCost")),
   },
   {
+    id: "quality.six_sigma_project_score",
+    family: "oee",
+    label: "Six Sigma Project Priority Score",
+    fn: (inputs) => {
+      const savings = num(inputs, "savings");
+      const probability = num(inputs, "probability");
+      const duration = num(inputs, "duration");
+      const cost = num(inputs, "cost");
+      
+      if (duration === 0 || cost === 0) return 0;
+      
+      const probRatio = Math.max(0, Math.min(100, probability)) / 100;
+      return assertFinite((savings * probRatio) / (duration * cost));
+    },
+  },
+  {
     id: "carbon.cbam_exposure",
     family: "carbon",
     label: "CBAM exposure",
@@ -1217,6 +1233,11 @@ const FORMULA_META_DETAILS: Record<
     description: "Excess kWh cost plus peak demand stack.",
     requiredInputs: ["excessKwh", "energyRate", "peakCost"],
     outputHint: "currency",
+  },
+  "quality.six_sigma_project_score": {
+    description: "Calculates priority score based on savings, probability, duration, and cost.",
+    requiredInputs: ["savings", "probability", "duration", "cost"],
+    outputHint: "score",
   },
   "carbon.cbam_exposure": {
     description: "Carbon border adjustment exposure estimate.",

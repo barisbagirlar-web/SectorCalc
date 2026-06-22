@@ -80,8 +80,10 @@ import { SIGNAGE_BID_SAFE_PRICE_TOOL_SCHEMA } from "@/lib/premium-schema/schemas
 import { WATER_OPTIMIZATION_VERDICT_SCHEMA } from "@/lib/premium-schema/schemas/water-optimization-verdict";
 import { WELDING_BID_RISK_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/welding-bid-risk-analyzer";
 import { SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/7-israf-muda-avcisi-parasal-karsilik-calculator";
+import { SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA } from "@/lib/premium-schema/schemas/six-sigma-project-prioritizer";
 
 export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
+  SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA,
   CNC_OEE_LOSS_SCHEMA,
   LOGISTICS_ROUTE_LOSS_SCHEMA,
   ENERGY_PEAK_COST_SCHEMA,
