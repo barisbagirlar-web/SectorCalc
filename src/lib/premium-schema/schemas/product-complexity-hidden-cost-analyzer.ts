@@ -16,7 +16,7 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
     { id: "avgMargin", label: "Ortalama Kâr Marjı", label_i18n: {"en":"Ortalama Kâr Marjı","tr":"Ortalama Kâr Marjı"}, type: "number", unit: "%", required: false, smartDefault: 20, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Average profit margin per SKU", expertMeaning_i18n: {"en":"Average profit margin per SKU","tr":"Average profit margin per SKU"} },
   ],
   outputs: [
-    { id: "complexityIndex", label: "Karmaşıklık Endeksi", label_i18n: {"en":"Karmaşıklık Endeksi","tr":"Karmaşıklık Endeksi"}, unit: "puan", format: "number" },
+    { id: "complexityIndex", label: "Karmaşıklık Endeksi", label_i18n: {"en":"Complexity Index","tr":"Karmaşıklık Endeksi"}, unit: "puan", format: "number" },
     { id: "hiddenCostComplexity", label: "Gizli Karmaşıklık Maliyeti", label_i18n: {"en":"Gizli Karmaşıklık Maliyeti","tr":"Gizli Karmaşıklık Maliyeti"}, unit: "USD/yıl", format: "currency" },
     { id: "profitabilityPerSku", label: "SKU Başına Kârlılık", label_i18n: {"en":"SKU Başına Kârlılık","tr":"SKU Başına Kârlılık"}, unit: "USD/adet", format: "currency" },
     { id: "totalSetupCost", label: "Toplam Hazırlık Maliyeti", label_i18n: {"en":"Toplam Hazırlık Maliyeti","tr":"Toplam Hazırlık Maliyeti"}, unit: "USD/yıl", format: "currency" },

@@ -19,7 +19,7 @@ export const SCAFFOLD_RENTAL_SCHEMA: PremiumCalculatorSchema = {
   outputs: [
     { id: "scaffoldArea", label: "İskele Alanı", label_i18n: {"en":"İskele Alanı","tr":"İskele Alanı"}, unit: "m²", format: "number" },
     { id: "rental", label: "Kiralama Maliyeti", label_i18n: {"en":"Kiralama Maliyeti","tr":"Kiralama Maliyeti"}, unit: "USD", format: "currency" },
-    { id: "laborCost", label: "İşçilik Maliyeti", label_i18n: {"en":"İşçilik Maliyeti","tr":"İşçilik Maliyeti"}, unit: "USD", format: "currency" },
+    { id: "laborCost", label: "İşçilik Maliyeti", label_i18n: {"en":"Labor Cost","tr":"İşçilik Maliyeti"}, unit: "USD", format: "currency" },
     { id: "total", label: "Toplam İskele Maliyeti", label_i18n: {"en":"Toplam İskele Maliyeti","tr":"Toplam İskele Maliyeti"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "total", warning: 50000, critical: 100000, direction: "higher_is_bad", warningMessage: "Maliyet > $50K — kiralama süresi veya alanı optimize edilmeli.", warningMessage_i18n: {"en":"Maliyet > $50K — kiralama süresi veya alanı optimize edilmeli.","tr":"Maliyet > $50K — kiralama süresi veya alanı optimize edilmeli."}, criticalMessage: "Maliyet > $100K — alternatif iskele sistemi değerlendirilmeli.", criticalMessage_i18n: {"en":"Maliyet > $100K — alternatif iskele sistemi değerlendirilmeli.","tr":"Maliyet > $100K — alternatif iskele sistemi değerlendirilmeli."} }],
@@ -29,6 +29,6 @@ export const SCAFFOLD_RENTAL_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.scaffold_labor", inputMap: { scaffoldArea: "scaffoldArea", erectionRate: "erectionRate", dismantleRate: "dismantleRate" }, outputId: "laborCost" },
     { formulaId: "cost.scaffold_total", inputMap: { rental: "rental", laborCost: "laborCost", transportCost: "transportCost", overrunCost: "overrunCost" }, outputId: "total" },
   ],
-  reportTemplate: { title: "Scaffold Rental Cost Report", title_i18n: {"en":"Scaffold Rental Cost Report","tr":"Scaffold Rental Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  reportTemplate: { title: "Scaffold Rental Cost Report", title_i18n: {"en":"Scaffold Rental Cost Report","tr":"İskele Kiralama Maliyet Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Area = Perimeter × Height.", "Rental = Area×Rate×Dur. Labor = Area×(Erect+Dism).", "Total = Rental+Labor+Transport+Overrun."],assumptionNotes_i18n:[{"en":"Area = Perimeter × Height.","tr":"Area = Perimeter × Height."},{"en":"Rental = Area×Rate×Dur. Labor = Area×(Erect+Dism).","tr":"Rental = Area×Rate×Dur. Labor = Area×(Erect+Dism)."},{"en":"Total = Rental+Labor+Transport+Overrun.","tr":"Total = Rental+Labor+Transport+Overrun."}] },
 };
