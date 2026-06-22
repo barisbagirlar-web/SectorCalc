@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Vehicle weight.",
         "tr": "Araç ağırlığı.",
-        "de": "Vehicle weight.",
-        "fr": "Vehicle weight.",
-        "es": "Vehicle weight.",
-        "ar": "Vehicle weight."
+        "de": "Fahrzeuggewicht.",
+        "fr": "Poids du véhicule.",
+        "es": "Peso del vehículo.",
+        "ar": "وزن السيارة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Engine Torque (N.m)",
         "tr": "Motor Torku (N.m)",
-        "de": "Engine Torque (N.m)",
-        "fr": "Engine Torque (N.m)",
-        "es": "Engine Torque (N.m)",
-        "ar": "Engine Torque (N.m)"
+        "de": "Motordrehmoment (N.m)",
+        "fr": "Couple moteur (N.m)",
+        "es": "Par motor (N.m)",
+        "ar": "عزم المحرك (N.m)"
       },
       "type": "number",
       "unit": "N.m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Engine torque.",
         "tr": "Motorun ürettiği tork.",
-        "de": "Engine torque.",
-        "fr": "Engine torque.",
-        "es": "Engine torque.",
-        "ar": "Engine torque."
+        "de": "Motordrehmoment.",
+        "fr": "Couple moteur.",
+        "es": "Par motor.",
+        "ar": "عزم المحرك."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Traction Coefficient",
         "tr": "Çekiş Katsayısı",
-        "de": "Traction Coefficient",
-        "fr": "Traction Coefficient",
-        "es": "Traction Coefficient",
-        "ar": "Traction Coefficient"
+        "de": "Traktionskoeffizient",
+        "fr": "Coefficient de traction",
+        "es": "Coeficiente de tracción",
+        "ar": "معامل الجر"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Tire-road friction.",
         "tr": "Lastik-yol tutunma katsayısı.",
-        "de": "Tire-road friction.",
-        "fr": "Tire-road friction.",
-        "es": "Tire-road friction.",
-        "ar": "Tire-road friction."
+        "de": "Reifen-Straßen-Reibung.",
+        "fr": "Frottement pneu-route.",
+        "es": "Fricción neumático-carretera.",
+        "ar": "احتكاك الإطار بالطريق."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Aerodynamic Drag (N)",
         "tr": "Hava Direnci (N)",
-        "de": "Aerodynamic Drag (N)",
-        "fr": "Aerodynamic Drag (N)",
-        "es": "Aerodynamic Drag (N)",
-        "ar": "Aerodynamic Drag (N)"
+        "de": "Luftwiderstand (N)",
+        "fr": "Traînée aérodynamique (N)",
+        "es": "Arrastre aerodinámico (N)",
+        "ar": "السحب الديناميكي الهوائي (N)"
       },
       "type": "number",
       "unit": "N",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Aerodynamic drag at 100 km/h.",
         "tr": "100 km/h'deki hava direnci.",
-        "de": "Aerodynamic drag at 100 km/h.",
-        "fr": "Aerodynamic drag at 100 km/h.",
-        "es": "Aerodynamic drag at 100 km/h.",
-        "ar": "Aerodynamic drag at 100 km/h."
+        "de": "Luftwiderstand bei 100 km/h.",
+        "fr": "Traînée aérodynamique à 100 km/h.",
+        "es": "Arrastre aerodinámico a 100 km/h.",
+        "ar": "السحب الديناميكي الهوائي عند 100 كم/ساعة."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "0-100 km/h Süresi",
         "tr": "0-100 km/h Süresi",
-        "de": "0-100 km/h Süresi",
-        "fr": "0-100 km/h Süresi",
-        "es": "0-100 km/h Süresi",
-        "ar": "0-100 km/h Süresi"
+        "de": "0-100 km/h Zeit",
+        "fr": "Temps 0-100 km/h",
+        "es": "Tiempo de 0-100 km/h",
+        "ar": "زمن التسارع من 0 إلى 100 كم/ساعة"
       }
     },
     "breakdownUnits": {
@@ -153,18 +153,18 @@
       "short_i18n": {
         "en": "Calculate vehicle 0-100 km/h acceleration time.",
         "tr": "Aracın durgun halden 100 km/h hıza ulaşma süresini hesaplar.",
-        "de": "Calculate vehicle 0-100 km/h acceleration time.",
-        "fr": "Calculate vehicle 0-100 km/h acceleration time.",
-        "es": "Calculate vehicle 0-100 km/h acceleration time.",
-        "ar": "Calculate vehicle 0-100 km/h acceleration time."
+        "de": "Berechnen Sie die Beschleunigungszeit des Fahrzeugs von 0-100 km/h.",
+        "fr": "Calculer le temps d'accélération du véhicule de 0 à 100 km/h.",
+        "es": "Calcular el tiempo de aceleración del vehículo de 0 a 100 km/h.",
+        "ar": "احسب وقت تسارع السيارة من 0 إلى 100 كم/ساعة."
       },
       "long_i18n": {
         "en": "Calculate vehicle 0-100 km/h acceleration time.",
         "tr": "Aracın durgun halden 100 km/h hıza ulaşma süresini hesaplar.",
-        "de": "Calculate vehicle 0-100 km/h acceleration time.",
-        "fr": "Calculate vehicle 0-100 km/h acceleration time.",
-        "es": "Calculate vehicle 0-100 km/h acceleration time.",
-        "ar": "Calculate vehicle 0-100 km/h acceleration time."
+        "de": "Berechnen Sie die Beschleunigungszeit des Fahrzeugs von 0-100 km/h.",
+        "fr": "Calculer le temps d'accélération du véhicule de 0 à 100 km/h.",
+        "es": "Calcular el tiempo de aceleración del vehículo de 0 a 100 km/h.",
+        "ar": "احسب وقت تسارع السيارة من 0 إلى 100 كم/ساعة."
       }
     }
   },

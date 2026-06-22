@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Sum of all operation times.",
         "tr": "Tüm operasyonların toplam süresi.",
-        "de": "Sum of all operation times.",
-        "fr": "Sum of all operation times.",
-        "es": "Sum of all operation times.",
-        "ar": "Sum of all operation times."
+        "de": "Summe aller Bearbeitungszeiten.",
+        "fr": "Somme de tous les temps d'opération.",
+        "es": "Suma de todos los tiempos de operación.",
+        "ar": "مجموع أزمنة جميع العمليات."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Maximum cycle time to meet demand.",
         "tr": "Müşteri talebini karşılayan maksimum çevrim süresi.",
-        "de": "Maximum cycle time to meet demand.",
-        "fr": "Maximum cycle time to meet demand.",
-        "es": "Maximum cycle time to meet demand.",
-        "ar": "Maximum cycle time to meet demand."
+        "de": "Maximale Taktzeit zur Deckung der Nachfrage.",
+        "fr": "Temps de cycle maximum pour répondre à la demande.",
+        "es": "Tiempo de ciclo máximo para satisfacer la demanda.",
+        "ar": "أقصى زمن دورة لتلبية الطلب."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Number of Stations",
         "tr": "İstasyon Sayısı",
-        "de": "Number of Stations",
-        "fr": "Number of Stations",
-        "es": "Number of Stations",
-        "ar": "Number of Stations"
+        "de": "Anzahl der Stationen",
+        "fr": "Nombre de postes de travail",
+        "es": "Número de Estaciones",
+        "ar": "عدد المحطات"
       },
       "type": "number",
       "unit": "stations",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total workstations on the line.",
         "tr": "Hattaki toplam iş istasyonu.",
-        "de": "Total workstations on the line.",
-        "fr": "Total workstations on the line.",
-        "es": "Total workstations on the line.",
-        "ar": "Total workstations on the line."
+        "de": "Gesamtzahl der Arbeitsstationen am Band.",
+        "fr": "Nombre total de postes de travail sur la chaîne.",
+        "es": "Total de estaciones de trabajo en la línea.",
+        "ar": "إجمالي محطات العمل على الخط."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Bant Dengeleme Verimliliği",
         "tr": "Bant Dengeleme Verimliliği",
-        "de": "Bant Dengeleme Verimliliği",
-        "fr": "Bant Dengeleme Verimliliği",
-        "es": "Bant Dengeleme Verimliliği",
-        "ar": "Bant Dengeleme Verimliliği"
+        "de": "Bandabstimmungseffizienz",
+        "fr": "Line Balancing Efficiency",
+        "es": "Eficiencia del Balanceo de Línea",
+        "ar": "كفاءة موازنة الخط"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate assembly line balancing efficiency.",
         "tr": "İş yükü dağılımının dengelilik oranını (bant dengeleme verimliliği) hesaplar.",
-        "de": "Calculate assembly line balancing efficiency.",
-        "fr": "Calculate assembly line balancing efficiency.",
-        "es": "Calculate assembly line balancing efficiency.",
-        "ar": "Calculate assembly line balancing efficiency."
+        "de": "Berechnen Sie die Effizienz der Fließbandabstimmung.",
+        "fr": "Calculer l'efficacité de l'équilibrage de la chaîne d'assemblage.",
+        "es": "Calcular la eficiencia del balanceo de la línea de ensamblaje.",
+        "ar": "حساب كفاءة توازن خط التجميع."
       },
       "long_i18n": {
         "en": "Calculate assembly line balancing efficiency.",
         "tr": "İş yükü dağılımının dengelilik oranını (bant dengeleme verimliliği) hesaplar.",
-        "de": "Calculate assembly line balancing efficiency.",
-        "fr": "Calculate assembly line balancing efficiency.",
-        "es": "Calculate assembly line balancing efficiency.",
-        "ar": "Calculate assembly line balancing efficiency."
+        "de": "Berechnen Sie die Effizienz der Fließbandabstimmung.",
+        "fr": "Calculer l'efficacité de l'équilibrage de la chaîne d'assemblage.",
+        "es": "Calcular la eficiencia del balanceo de la línea de ensamblaje.",
+        "ar": "حساب كفاءة توازن خط التجميع."
       }
     }
   },

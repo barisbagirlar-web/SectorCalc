@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Amount charged to customer.",
         "tr": "Müşteriden tahsil edilen tutar.",
-        "de": "Amount charged to customer.",
-        "fr": "Amount charged to customer.",
-        "es": "Amount charged to customer.",
-        "ar": "Amount charged to customer."
+        "de": "Dem Kunden berechneter Betrag.",
+        "fr": "Montant facturé au client.",
+        "es": "Monto cobrado al cliente.",
+        "ar": "المبلغ المحصل من العميل."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Transaction percentage.",
         "tr": "İşlem yüzdesi.",
-        "de": "Transaction percentage.",
-        "fr": "Transaction percentage.",
-        "es": "Transaction percentage.",
-        "ar": "Transaction percentage."
+        "de": "Transaktionsprozentsatz.",
+        "fr": "Pourcentage de transaction.",
+        "es": "Porcentaje de la transacción.",
+        "ar": "نسبة المعاملة."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Fixed transaction fee.",
         "tr": "Sabit işlem ücreti.",
-        "de": "Fixed transaction fee.",
-        "fr": "Fixed transaction fee.",
-        "es": "Fixed transaction fee.",
-        "ar": "Fixed transaction fee."
+        "de": "Feste Transaktionsgebühr.",
+        "fr": "Frais de transaction fixes.",
+        "es": "Tarifa fija por transacción.",
+        "ar": "رسوم المعاملة الثابتة."
       }
     }
   ],
@@ -101,10 +101,10 @@
       "sonuc": {
         "en": "Net Hesaba Geçen Tutar",
         "tr": "Net Hesaba Geçen Tutar",
-        "de": "Net Hesaba Geçen Tutar",
-        "fr": "Net Hesaba Geçen Tutar",
-        "es": "Net Hesaba Geçen Tutar",
-        "ar": "Net Hesaba Geçen Tutar"
+        "de": "Netto-Gutschriftbetrag",
+        "fr": "Montant net crédité",
+        "es": "Monto Neto Depositado",
+        "ar": "صافي المبلغ المحول"
       }
     },
     "breakdownUnits": {
@@ -126,18 +126,18 @@
       "short_i18n": {
         "en": "Calculate net settlement after Stripe/PayPal payment processor fees.",
         "tr": "Stripe/PayPal kesintisi sonrası hesaba geçen net tutarı hesaplar.",
-        "de": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-        "fr": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-        "es": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-        "ar": "Calculate net settlement after Stripe/PayPal payment processor fees."
+        "de": "Berechnen Sie den Nettobetrag nach Abzug der Gebühren des Zahlungsabwicklers Stripe/PayPal.",
+        "fr": "Calculer le montant net après les frais de traitement des paiements Stripe/PayPal.",
+        "es": "Calcular el monto neto después de las comisiones del procesador de pagos Stripe/PayPal.",
+        "ar": "حساب صافي التسوية بعد رسوم معالج الدفع (Stripe/PayPal)."
       },
       "long_i18n": {
         "en": "Calculate net settlement after Stripe/PayPal payment processor fees.",
         "tr": "Stripe/PayPal kesintisi sonrası hesaba geçen net tutarı hesaplar.",
-        "de": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-        "fr": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-        "es": "Calculate net settlement after Stripe/PayPal payment processor fees.",
-        "ar": "Calculate net settlement after Stripe/PayPal payment processor fees."
+        "de": "Berechnen Sie den Nettobetrag nach Abzug der Gebühren des Zahlungsabwicklers Stripe/PayPal.",
+        "fr": "Calculer le montant net après les frais de traitement des paiements Stripe/PayPal.",
+        "es": "Calcular el monto neto después de las comisiones del procesador de pagos Stripe/PayPal.",
+        "ar": "حساب صافي التسوية بعد رسوم معالج الدفع (Stripe/PayPal)."
       }
     }
   },

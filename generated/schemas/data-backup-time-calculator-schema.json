@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Raw backup data size.",
         "tr": "Yedeklenecek ham veri boyutu.",
-        "de": "Raw backup data size.",
-        "fr": "Raw backup data size.",
-        "es": "Raw backup data size.",
-        "ar": "Raw backup data size."
+        "de": "Rohdaten-Backup-Größe.",
+        "fr": "Taille brute des données de sauvegarde.",
+        "es": "Tamaño bruto de los datos de respaldo.",
+        "ar": "حجم بيانات النسخ الاحتياطي الخام."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Compression Ratio",
         "tr": "Sıkıştırma Oranı",
-        "de": "Compression Ratio",
-        "fr": "Compression Ratio",
-        "es": "Compression Ratio",
-        "ar": "Compression Ratio"
+        "de": "Kompressionsverhältnis",
+        "fr": "Taux de compression",
+        "es": "Relación de Compresión",
+        "ar": "نسبة الضغط"
       },
       "type": "number",
       "unit": "",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Compression factor.",
         "tr": "Sıkıştırma faktörü (2:1=2).",
-        "de": "Compression factor.",
-        "fr": "Compression factor.",
-        "es": "Compression factor.",
-        "ar": "Compression factor."
+        "de": "Kompressionsfaktor.",
+        "fr": "Facteur de compression.",
+        "es": "Factor de compresión.",
+        "ar": "عامل الضغط."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Network Speed (Gbps)",
         "tr": "Ağ Hızı (Gbps)",
-        "de": "Network Speed (Gbps)",
-        "fr": "Network Speed (Gbps)",
-        "es": "Network Speed (Gbps)",
-        "ar": "Network Speed (Gbps)"
+        "de": "Netzwerkgeschwindigkeit (Gbps)",
+        "fr": "Vitesse du réseau (Gbps)",
+        "es": "Velocidad de Red (Gbps)",
+        "ar": "سرعة الشبكة (Gbps)"
       },
       "type": "number",
       "unit": "Gbps",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Data transfer speed.",
         "tr": "Veri aktarım hızı.",
-        "de": "Data transfer speed.",
-        "fr": "Data transfer speed.",
-        "es": "Data transfer speed.",
-        "ar": "Data transfer speed."
+        "de": "Datenübertragungsgeschwindigkeit.",
+        "fr": "Vitesse de transfert des données.",
+        "es": "Velocidad de transferencia de datos.",
+        "ar": "سرعة نقل البيانات."
       }
     }
   ],
@@ -102,18 +102,18 @@
       "hedefBoyut": {
         "en": "Sıkıştırılmış Boyut (TB)",
         "tr": "Sıkıştırılmış Boyut (TB)",
-        "de": "Sıkıştırılmış Boyut (TB)",
-        "fr": "Sıkıştırılmış Boyut (TB)",
-        "es": "Sıkıştırılmış Boyut (TB)",
-        "ar": "Sıkıştırılmış Boyut (TB)"
+        "de": "Komprimierte Größe (TB)",
+        "fr": "Taille compressée (TB)",
+        "es": "Tamaño Comprimido (TB)",
+        "ar": "الحجم المضغوط (TB)"
       },
       "sonuc": {
         "en": "Aktarım Süresi (s)",
         "tr": "Aktarım Süresi (s)",
-        "de": "Aktarım Süresi (s)",
-        "fr": "Aktarım Süresi (s)",
-        "es": "Aktarım Süresi (s)",
-        "ar": "Aktarım Süresi (s)"
+        "de": "Übertragungszeit (s)",
+        "fr": "Temps de transfert (s)",
+        "es": "Tiempo de Transferencia (s)",
+        "ar": "وقت النقل (s)"
       }
     },
     "breakdownUnits": {
@@ -139,18 +139,18 @@
       "short_i18n": {
         "en": "Calculate backup time based on data size, compression, and network speed.",
         "tr": "Sıkıştırma ve ağ hızına göre veri yedekleme için gereken süreyi hesaplar.",
-        "de": "Calculate backup time based on data size, compression, and network speed.",
-        "fr": "Calculate backup time based on data size, compression, and network speed.",
-        "es": "Calculate backup time based on data size, compression, and network speed.",
-        "ar": "Calculate backup time based on data size, compression, and network speed."
+        "de": "Berechnen Sie die Backup-Zeit basierend auf Datengröße, Kompression und Netzwerkgeschwindigkeit.",
+        "fr": "Calculer le temps de sauvegarde en fonction de la taille des données, de la compression et de la vitesse du réseau.",
+        "es": "Calcular el tiempo de respaldo según el tamaño de los datos, la compresión y la velocidad de la red.",
+        "ar": "احسب وقت النسخ الاحتياطي بناءً على حجم البيانات والضغط وسرعة الشبكة."
       },
       "long_i18n": {
         "en": "Calculate backup time based on data size, compression, and network speed.",
         "tr": "Sıkıştırma ve ağ hızına göre veri yedekleme için gereken süreyi hesaplar.",
-        "de": "Calculate backup time based on data size, compression, and network speed.",
-        "fr": "Calculate backup time based on data size, compression, and network speed.",
-        "es": "Calculate backup time based on data size, compression, and network speed.",
-        "ar": "Calculate backup time based on data size, compression, and network speed."
+        "de": "Berechnen Sie die Backup-Zeit basierend auf Datengröße, Kompression und Netzwerkgeschwindigkeit.",
+        "fr": "Calculer le temps de sauvegarde en fonction de la taille des données, de la compression et de la vitesse du réseau.",
+        "es": "Calcular el tiempo de respaldo según el tamaño de los datos, la compresión y la velocidad de la red.",
+        "ar": "احسب وقت النسخ الاحتياطي بناءً على حجم البيانات والضغط وسرعة الشبكة."
       }
     }
   },

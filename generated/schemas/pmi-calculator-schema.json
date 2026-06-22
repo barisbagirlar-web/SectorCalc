@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Mortgage principal.",
         "tr": "Konut kredisi anaparası.",
-        "de": "Mortgage principal.",
-        "fr": "Mortgage principal.",
-        "es": "Mortgage principal.",
-        "ar": "Mortgage principal."
+        "de": "Hypothekenkapital.",
+        "fr": "Principal de l'hypothèque.",
+        "es": "Capital de la hipoteca.",
+        "ar": "أصل الرهن العقاري."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Annual PMI Rate (%)",
         "tr": "Yıllık PMI Oranı (%)",
-        "de": "Annual PMI Rate (%)",
-        "fr": "Annual PMI Rate (%)",
-        "es": "Annual PMI Rate (%)",
-        "ar": "Annual PMI Rate (%)"
+        "de": "Jährlicher PMI-Satz (%)",
+        "fr": "Taux annuel de PMI (%)",
+        "es": "Tasa Anual de PMI (%)",
+        "ar": "معدل PMI السنوي (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "PMI insurance premium rate.",
         "tr": "PMI sigorta prim oranı.",
-        "de": "PMI insurance premium rate.",
-        "fr": "PMI insurance premium rate.",
-        "es": "PMI insurance premium rate.",
-        "ar": "PMI insurance premium rate."
+        "de": "PMI-Versicherungsprämiensatz.",
+        "fr": "Taux de prime d'assurance PMI.",
+        "es": "Tasa de prima del seguro PMI.",
+        "ar": "معدل قسط تأمين PMI."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Aylık PMI Primi",
         "tr": "Aylık PMI Primi",
-        "de": "Aylık PMI Primi",
-        "fr": "Aylık PMI Primi",
-        "es": "Aylık PMI Primi",
-        "ar": "Aylık PMI Primi"
+        "de": "Monatliche PMI-Prämie",
+        "fr": "Prime mensuelle PMI",
+        "es": "Prima Mensual de PMI",
+        "ar": "قسط PMI الشهري"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
         "tr": "Düşük peşinatlarda bankayı koruyan aylık özel mortgage sigortası primini hesaplar.",
-        "de": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
-        "fr": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
-        "es": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
-        "ar": "Calculate monthly private mortgage insurance (PMI) premium for low down payments."
+        "de": "Berechnen Sie die monatliche private Hypothekenversicherungsprämie (PMI) für niedrige Anzahlungen.",
+        "fr": "Calculer la prime mensuelle d'assurance hypothécaire privée (PMI) pour les faibles acomptes.",
+        "es": "Calcular la prima mensual del seguro hipotecario privado (PMI) para pagos iniciales bajos.",
+        "ar": "حساب قسط التأمين العقاري الخاص الشهري (PMI) للدفعات المقدمة المنخفضة."
       },
       "long_i18n": {
         "en": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
         "tr": "Düşük peşinatlarda bankayı koruyan aylık özel mortgage sigortası primini hesaplar.",
-        "de": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
-        "fr": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
-        "es": "Calculate monthly private mortgage insurance (PMI) premium for low down payments.",
-        "ar": "Calculate monthly private mortgage insurance (PMI) premium for low down payments."
+        "de": "Berechnen Sie die monatliche private Hypothekenversicherungsprämie (PMI) für niedrige Anzahlungen.",
+        "fr": "Calculer la prime mensuelle d'assurance hypothécaire privée (PMI) pour les faibles acomptes.",
+        "es": "Calcular la prima mensual del seguro hipotecario privado (PMI) para pagos iniciales bajos.",
+        "ar": "حساب قسط التأمين العقاري الخاص الشهري (PMI) للدفعات المقدمة المنخفضة."
       }
     }
   },

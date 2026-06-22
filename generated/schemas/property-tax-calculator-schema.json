@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Assessed Value (USD)",
         "tr": "Rayiç Bedel (₺)",
-        "de": "Assessed Value (USD)",
-        "fr": "Assessed Value (USD)",
-        "es": "Assessed Value (USD)",
-        "ar": "Assessed Value (USD)"
+        "de": "Steuerlicher Wert (USD)",
+        "fr": "Valeur estimée (USD)",
+        "es": "Valor Tasado (USD)",
+        "ar": "القيمة المقدرة (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Property's tax-assessed value.",
         "tr": "Taşınmazın vergi değeri.",
-        "de": "Property's tax-assessed value.",
-        "fr": "Property's tax-assessed value.",
-        "es": "Property's tax-assessed value.",
-        "ar": "Property's tax-assessed value."
+        "de": "Steuerlich festgestellter Wert der Immobilie.",
+        "fr": "Valeur fiscale estimée du bien.",
+        "es": "Valor tasado de la propiedad para impuestos.",
+        "ar": "القيمة الخاضعة للضريبة للعقار."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Property tax rate per thousand.",
         "tr": "Emlak vergisi binde oranı.",
-        "de": "Property tax rate per thousand.",
-        "fr": "Property tax rate per thousand.",
-        "es": "Property tax rate per thousand.",
-        "ar": "Property tax rate per thousand."
+        "de": "Grundsteuersatz pro Tausend.",
+        "fr": "Taux de taxe foncière par mille.",
+        "es": "Tasa de impuesto a la propiedad por mil.",
+        "ar": "معدل ضريبة الأملاك لكل ألف."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Yıllık Emlak Vergisi",
         "tr": "Yıllık Emlak Vergisi",
-        "de": "Yıllık Emlak Vergisi",
-        "fr": "Yıllık Emlak Vergisi",
-        "es": "Yıllık Emlak Vergisi",
-        "ar": "Yıllık Emlak Vergisi"
+        "de": "Jährliche Grundsteuer",
+        "fr": "Taxe foncière annuelle",
+        "es": "Impuesto Anual a la Propiedad",
+        "ar": "ضريبة الأملاك السنوية"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate annual property tax payable to the municipality.",
         "tr": "Belediyeye ödenmesi gereken yıllık emlak vergisini hesaplar.",
-        "de": "Calculate annual property tax payable to the municipality.",
-        "fr": "Calculate annual property tax payable to the municipality.",
-        "es": "Calculate annual property tax payable to the municipality.",
-        "ar": "Calculate annual property tax payable to the municipality."
+        "de": "Berechnen Sie die jährliche Grundsteuer, die an die Gemeinde zu zahlen ist.",
+        "fr": "Calculer la taxe foncière annuelle payable à la municipalité.",
+        "es": "Calcular el impuesto anual a la propiedad pagadero al municipio.",
+        "ar": "احسب ضريبة الأملاك السنوية المستحقة للبلدية."
       },
       "long_i18n": {
         "en": "Calculate annual property tax payable to the municipality.",
         "tr": "Belediyeye ödenmesi gereken yıllık emlak vergisini hesaplar.",
-        "de": "Calculate annual property tax payable to the municipality.",
-        "fr": "Calculate annual property tax payable to the municipality.",
-        "es": "Calculate annual property tax payable to the municipality.",
-        "ar": "Calculate annual property tax payable to the municipality."
+        "de": "Berechnen Sie die jährliche Grundsteuer, die an die Gemeinde zu zahlen ist.",
+        "fr": "Calculer la taxe foncière annuelle payable à la municipalité.",
+        "es": "Calcular el impuesto anual a la propiedad pagadero al municipio.",
+        "ar": "احسب ضريبة الأملاك السنوية المستحقة للبلدية."
       }
     }
   },

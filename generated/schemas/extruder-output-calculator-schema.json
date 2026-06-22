@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Screw Volume (cm³/rev)",
         "tr": "Vida Hacmi (cm³/devir)",
-        "de": "Screw Volume (cm³/rev)",
-        "fr": "Screw Volume (cm³/rev)",
-        "es": "Screw Volume (cm³/rev)",
-        "ar": "Screw Volume (cm³/rev)"
+        "de": "Schneckenvolumen (cm³/U)",
+        "fr": "Volume de la vis (cm³/tr)",
+        "es": "Volumen del tornillo (cm³/rev)",
+        "ar": "حجم اللولب (cm³/rev)"
       },
       "type": "number",
       "unit": "cm3/rev",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Screw channel volume.",
         "tr": "Vida kanal hacmi.",
-        "de": "Screw channel volume.",
-        "fr": "Screw channel volume.",
-        "es": "Screw channel volume.",
-        "ar": "Screw channel volume."
+        "de": "Schneckenkanalvolumen.",
+        "fr": "Volume du canal de la vis.",
+        "es": "Volumen del canal del tornillo.",
+        "ar": "حجم قناة اللولب."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Screw Speed (RPM)",
         "tr": "Vida Devri (devir/dk)",
-        "de": "Screw Speed (RPM)",
-        "fr": "Screw Speed (RPM)",
-        "es": "Screw Speed (RPM)",
-        "ar": "Screw Speed (RPM)"
+        "de": "Schneckendrehzahl (RPM)",
+        "fr": "Vitesse de la vis (tr/min)",
+        "es": "Velocidad del tornillo (RPM)",
+        "ar": "سرعة اللولب (RPM)"
       },
       "type": "number",
       "unit": "rpm",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Screw rotational speed.",
         "tr": "Vida dönüş hızı.",
-        "de": "Screw rotational speed.",
-        "fr": "Screw rotational speed.",
-        "es": "Screw rotational speed.",
-        "ar": "Screw rotational speed."
+        "de": "Rotationsgeschwindigkeit der Schnecke.",
+        "fr": "Vitesse de rotation de la vis.",
+        "es": "Velocidad de rotación del tornillo.",
+        "ar": "سرعة دوران اللولب."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Melt Density (g/cm³)",
         "tr": "Eriyik Yoğunluğu (g/cm³)",
-        "de": "Melt Density (g/cm³)",
-        "fr": "Melt Density (g/cm³)",
-        "es": "Melt Density (g/cm³)",
-        "ar": "Melt Density (g/cm³)"
+        "de": "Schmelzdichte (g/cm³)",
+        "fr": "Densité du fondu (g/cm³)",
+        "es": "Densidad del fundido (g/cm³)",
+        "ar": "كثافة المنصهر (g/cm³)"
       },
       "type": "number",
       "unit": "g/cm3",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Melt polymer density.",
         "tr": "Eriyik polimer yoğunluğu.",
-        "de": "Melt polymer density.",
-        "fr": "Melt polymer density.",
-        "es": "Melt polymer density.",
-        "ar": "Melt polymer density."
+        "de": "Dichte der Polymerschmelze.",
+        "fr": "Densité du polymère fondu.",
+        "es": "Densidad del polímero fundido.",
+        "ar": "كثافة البوليمر المنصهر."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Extruder efficiency.",
         "tr": "Ekstrüder verimi.",
-        "de": "Extruder efficiency.",
-        "fr": "Extruder efficiency.",
-        "es": "Extruder efficiency.",
-        "ar": "Extruder efficiency."
+        "de": "Extrudereffizienz.",
+        "fr": "Efficacité de l'extrudeuse.",
+        "es": "Eficiencia de la extrusora.",
+        "ar": "كفاءة الطارد."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Ekstrüder Kapasitesi",
         "tr": "Ekstrüder Kapasitesi",
-        "de": "Ekstrüder Kapasitesi",
-        "fr": "Ekstrüder Kapasitesi",
-        "es": "Ekstrüder Kapasitesi",
-        "ar": "Ekstrüder Kapasitesi"
+        "de": "Extruderkapazität",
+        "fr": "Capacité de l'extrudeuse",
+        "es": "Capacidad de la extrusora",
+        "ar": "سعة الطارد"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate extruder hourly polymer melt output capacity.",
         "tr": "Ekstrüderin saatlik net polimer eriyik çıktısını (kapasite) hesaplar.",
-        "de": "Calculate extruder hourly polymer melt output capacity.",
-        "fr": "Calculate extruder hourly polymer melt output capacity.",
-        "es": "Calculate extruder hourly polymer melt output capacity.",
-        "ar": "Calculate extruder hourly polymer melt output capacity."
+        "de": "Berechnen Sie die stündliche Polymerschmelzleistung eines Extruders.",
+        "fr": "Calculer la capacité de production horaire de polymère fondu d'une extrudeuse.",
+        "es": "Calcule la capacidad de producción de polímero fundido por hora de la extrusora.",
+        "ar": "احسب سعة إنتاج البوليمر المنصهر لكل ساعة للطارد."
       },
       "long_i18n": {
         "en": "Calculate extruder hourly polymer melt output capacity.",
         "tr": "Ekstrüderin saatlik net polimer eriyik çıktısını (kapasite) hesaplar.",
-        "de": "Calculate extruder hourly polymer melt output capacity.",
-        "fr": "Calculate extruder hourly polymer melt output capacity.",
-        "es": "Calculate extruder hourly polymer melt output capacity.",
-        "ar": "Calculate extruder hourly polymer melt output capacity."
+        "de": "Berechnen Sie die stündliche Polymerschmelzleistung eines Extruders.",
+        "fr": "Calculer la capacité de production horaire de polymère fondu d'une extrudeuse.",
+        "es": "Calcule la capacidad de producción de polímero fundido por hora de la extrusora.",
+        "ar": "احسب سعة إنتاج البوليمر المنصهر لكل ساعة للطارد."
       }
     }
   },

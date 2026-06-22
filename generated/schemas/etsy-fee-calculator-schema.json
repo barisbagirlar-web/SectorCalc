@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Product sale amount.",
         "tr": "Ürün satış fiyatı.",
-        "de": "Product sale amount.",
-        "fr": "Product sale amount.",
-        "es": "Product sale amount.",
-        "ar": "Product sale amount."
+        "de": "Produktverkaufsbetrag.",
+        "fr": "Montant de la vente du produit.",
+        "es": "Monto de venta del producto.",
+        "ar": "مبلغ بيع المنتج."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Listing Fee (USD)",
         "tr": "Listeleme Ücreti (TL)",
-        "de": "Listing Fee (USD)",
-        "fr": "Listing Fee (USD)",
-        "es": "Listing Fee (USD)",
-        "ar": "Listing Fee (USD)"
+        "de": "Einstellgebühr (USD)",
+        "fr": "Frais de mise en vente (USD)",
+        "es": "Tarifa de listado (USD)",
+        "ar": "رسوم الإدراج (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Listing fee.",
         "tr": "Ürün listeleme ücreti.",
-        "de": "Listing fee.",
-        "fr": "Listing fee.",
-        "es": "Listing fee.",
-        "ar": "Listing fee."
+        "de": "Einstellgebühr.",
+        "fr": "Frais de mise en vente.",
+        "es": "Tarifa de listado.",
+        "ar": "رسوم الإدراج."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Transaction commission.",
         "tr": "İşlem komisyonu.",
-        "de": "Transaction commission.",
-        "fr": "Transaction commission.",
-        "es": "Transaction commission.",
-        "ar": "Transaction commission."
+        "de": "Transaktionsprovision.",
+        "fr": "Commission de transaction.",
+        "es": "Comisión de transacción.",
+        "ar": "عمولة المعاملة."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Payment Fee (%)",
         "tr": "Ödeme Ücreti (%)",
-        "de": "Payment Fee (%)",
-        "fr": "Payment Fee (%)",
-        "es": "Payment Fee (%)",
-        "ar": "Payment Fee (%)"
+        "de": "Zahlungsgebühr (%)",
+        "fr": "Frais de paiement (%)",
+        "es": "Tarifa de pago (%)",
+        "ar": "رسوم الدفع (%)"
       },
       "type": "number",
       "unit": "%",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Payment processing fee.",
         "tr": "Ödeme işleme ücreti.",
-        "de": "Payment processing fee.",
-        "fr": "Payment processing fee.",
-        "es": "Payment processing fee.",
-        "ar": "Payment processing fee."
+        "de": "Zahlungsabwicklungsgebühr.",
+        "fr": "Frais de traitement du paiement.",
+        "es": "Tarifa de procesamiento de pago.",
+        "ar": "رسوم معالجة الدفع."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Toplam Etsy Kesintisi",
         "tr": "Toplam Etsy Kesintisi",
-        "de": "Toplam Etsy Kesintisi",
-        "fr": "Toplam Etsy Kesintisi",
-        "es": "Toplam Etsy Kesintisi",
-        "ar": "Toplam Etsy Kesintisi"
+        "de": "Gesamte Etsy-Gebühren",
+        "fr": "Total des déductions Etsy",
+        "es": "Comisión total de Etsy",
+        "ar": "إجمالي خصم Etsy"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate total Etsy fees including listing, transaction, and payment fees.",
         "tr": "Etsy platformuna ödenen toplam komisyon ve kesintileri hesaplar.",
-        "de": "Calculate total Etsy fees including listing, transaction, and payment fees.",
-        "fr": "Calculate total Etsy fees including listing, transaction, and payment fees.",
-        "es": "Calculate total Etsy fees including listing, transaction, and payment fees.",
-        "ar": "Calculate total Etsy fees including listing, transaction, and payment fees."
+        "de": "Berechnen Sie die gesamten Etsy-Gebühren, einschließlich Einstell-, Transaktions- und Zahlungsgebühren.",
+        "fr": "Calculer les frais Etsy totaux, y compris les frais de mise en vente, de transaction et de paiement.",
+        "es": "Calcule las tarifas totales de Etsy, incluyendo las tarifas de listado, transacción y pago.",
+        "ar": "احسب إجمالي رسوم Etsy بما في ذلك رسوم الإدراج والمعاملات والدفع."
       },
       "long_i18n": {
         "en": "Calculate total Etsy fees including listing, transaction, and payment fees.",
         "tr": "Etsy platformuna ödenen toplam komisyon ve kesintileri hesaplar.",
-        "de": "Calculate total Etsy fees including listing, transaction, and payment fees.",
-        "fr": "Calculate total Etsy fees including listing, transaction, and payment fees.",
-        "es": "Calculate total Etsy fees including listing, transaction, and payment fees.",
-        "ar": "Calculate total Etsy fees including listing, transaction, and payment fees."
+        "de": "Berechnen Sie die gesamten Etsy-Gebühren, einschließlich Einstell-, Transaktions- und Zahlungsgebühren.",
+        "fr": "Calculer les frais Etsy totaux, y compris les frais de mise en vente, de transaction et de paiement.",
+        "es": "Calcule las tarifas totales de Etsy, incluyendo las tarifas de listado, transacción y pago.",
+        "ar": "احسب إجمالي رسوم Etsy بما في ذلك رسوم الإدراج والمعاملات والدفع."
       }
     }
   },

@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Product invoice value.",
         "tr": "Ürünün fatura değeri.",
-        "de": "Product invoice value.",
-        "fr": "Product invoice value.",
-        "es": "Product invoice value.",
-        "ar": "Product invoice value."
+        "de": "Rechnungswert des Produkts.",
+        "fr": "Valeur facture du produit.",
+        "es": "Valor de la factura del producto.",
+        "ar": "قيمة فاتورة المنتج."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Additional Tariff (%)",
         "tr": "Ek Vergi Oranı (%)",
-        "de": "Additional Tariff (%)",
-        "fr": "Additional Tariff (%)",
-        "es": "Additional Tariff (%)",
-        "ar": "Additional Tariff (%)"
+        "de": "Zusätzlicher Zollsatz (%)",
+        "fr": "Tarif additionnel (%)",
+        "es": "Arancel Adicional (%)",
+        "ar": "التعريفة الإضافية (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Origin-based extra tariff rate.",
         "tr": "Menşei bazlı ek vergi oranı.",
-        "de": "Origin-based extra tariff rate.",
-        "fr": "Origin-based extra tariff rate.",
-        "es": "Origin-based extra tariff rate.",
-        "ar": "Origin-based extra tariff rate."
+        "de": "Ursprungsbezogener Zusatzzollsatz.",
+        "fr": "Taux de tarif supplémentaire basé sur l'origine.",
+        "es": "Tasa de arancel adicional basada en el origen.",
+        "ar": "معدل التعريفة الإضافية على أساس المنشأ."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Ek Gümrük Vergisi",
         "tr": "Ek Gümrük Vergisi",
-        "de": "Ek Gümrük Vergisi",
-        "fr": "Ek Gümrük Vergisi",
-        "es": "Ek Gümrük Vergisi",
-        "ar": "Ek Gümrük Vergisi"
+        "de": "Additional Customs Duty",
+        "fr": "Droit de douane supplémentaire",
+        "es": "Arancel Aduanero Adicional",
+        "ar": "الرسوم الجمركية الإضافية"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate additional tariff on specific country of origin.",
         "tr": "Belirli menşeili ürünlere uygulanan ek gümrük vergisini hesaplar.",
-        "de": "Calculate additional tariff on specific country of origin.",
-        "fr": "Calculate additional tariff on specific country of origin.",
-        "es": "Calculate additional tariff on specific country of origin.",
-        "ar": "Calculate additional tariff on specific country of origin."
+        "de": "Berechnen Sie den zusätzlichen Zoll für ein bestimmtes Ursprungsland.",
+        "fr": "Calculer le tarif additionnel sur un pays d'origine spécifique.",
+        "es": "Calcular el arancel adicional sobre el país de origen específico.",
+        "ar": "احسب التعريفة الإضافية على بلد المنشأ المحدد."
       },
       "long_i18n": {
         "en": "Calculate additional tariff on specific country of origin.",
         "tr": "Belirli menşeili ürünlere uygulanan ek gümrük vergisini hesaplar.",
-        "de": "Calculate additional tariff on specific country of origin.",
-        "fr": "Calculate additional tariff on specific country of origin.",
-        "es": "Calculate additional tariff on specific country of origin.",
-        "ar": "Calculate additional tariff on specific country of origin."
+        "de": "Berechnen Sie den zusätzlichen Zoll für ein bestimmtes Ursprungsland.",
+        "fr": "Calculer le tarif additionnel sur un pays d'origine spécifique.",
+        "es": "Calcular el arancel adicional sobre el país de origen específico.",
+        "ar": "احسب التعريفة الإضافية على بلد المنشأ المحدد."
       }
     }
   },

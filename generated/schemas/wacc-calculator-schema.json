@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total equity value.",
         "tr": "Şirketin toplam özsermayesi.",
-        "de": "Total equity value.",
-        "fr": "Total equity value.",
-        "es": "Total equity value.",
-        "ar": "Total equity value."
+        "de": "Gesamter Eigenkapitalwert.",
+        "fr": "Valeur totale des capitaux propres.",
+        "es": "Valor total del patrimonio.",
+        "ar": "إجمالي قيمة حقوق الملكية."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Total debt.",
         "tr": "Şirketin toplam borcu.",
-        "de": "Total debt.",
-        "fr": "Total debt.",
-        "es": "Total debt.",
-        "ar": "Total debt."
+        "de": "Gesamtschulden.",
+        "fr": "Dette totale.",
+        "es": "Deuda total.",
+        "ar": "إجمالي الديون."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Cost of Equity (%)",
         "tr": "Özsermaye Maliyeti (%)",
-        "de": "Cost of Equity (%)",
-        "fr": "Cost of Equity (%)",
-        "es": "Cost of Equity (%)",
-        "ar": "Cost of Equity (%)"
+        "de": "Eigenkapitalkosten (%)",
+        "fr": "Coût des capitaux propres (%)",
+        "es": "Costo del capital (%)",
+        "ar": "تكلفة حقوق الملكية (%)"
       },
       "type": "number",
       "unit": "%",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Expected return for shareholders.",
         "tr": "Hissedarların beklediği getiri.",
-        "de": "Expected return for shareholders.",
-        "fr": "Expected return for shareholders.",
-        "es": "Expected return for shareholders.",
-        "ar": "Expected return for shareholders."
+        "de": "Erwartete Rendite für Aktionäre.",
+        "fr": "Rendement attendu pour les actionnaires.",
+        "es": "Rendimiento esperado para los accionistas.",
+        "ar": "العائد المتوقع للمساهمين."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Cost of Debt (%)",
         "tr": "Borç Maliyeti (%)",
-        "de": "Cost of Debt (%)",
-        "fr": "Cost of Debt (%)",
-        "es": "Cost of Debt (%)",
-        "ar": "Cost of Debt (%)"
+        "de": "Fremdkapitalkosten (%)",
+        "fr": "Coût de la dette (%)",
+        "es": "Costo de la deuda (%)",
+        "ar": "تكلفة الديون (%)"
       },
       "type": "number",
       "unit": "%",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Company's borrowing cost.",
         "tr": "Şirketin borçlanma maliyeti.",
-        "de": "Company's borrowing cost.",
-        "fr": "Company's borrowing cost.",
-        "es": "Company's borrowing cost.",
-        "ar": "Company's borrowing cost."
+        "de": "Fremdkapitalkosten des Unternehmens.",
+        "fr": "Coût d'emprunt de l'entreprise.",
+        "es": "Costo de endeudamiento de la empresa.",
+        "ar": "تكلفة الاقتراض للشركة."
       }
     },
     {
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Corporate tax rate.",
         "tr": "Kurumlar vergisi oranı.",
-        "de": "Corporate tax rate.",
-        "fr": "Corporate tax rate.",
-        "es": "Corporate tax rate.",
-        "ar": "Corporate tax rate."
+        "de": "Körperschaftsteuersatz.",
+        "fr": "Taux d'imposition des sociétés.",
+        "es": "Tasa impositiva corporativa.",
+        "ar": "معدل الضريبة على الشركات."
       }
     }
   ],
@@ -150,11 +150,11 @@
     "breakdown_i18n": {
       "sonuc": {
         "en": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)",
-        "tr": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)",
-        "de": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)",
-        "fr": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)",
-        "es": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)",
-        "ar": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)"
+        "tr": "AOSM (Ağırlıklı Ortalama Sermaye Maliyeti)",
+        "de": "WACC (Weighted Average Cost of Capital)",
+        "fr": "WACC (Coût moyen pondéré du capital)",
+        "es": "WACC (Costo Promedio Ponderado del Capital)",
+        "ar": "المتوسط المرجح لتكلفة رأس المال"
       }
     },
     "breakdownUnits": {
@@ -176,18 +176,18 @@
       "short_i18n": {
         "en": "Calculate weighted average cost of capital (WACC).",
         "tr": "Şirketin borç ve özsermaye ağırlıklı ortalama fon maliyetini (WACC) hesaplar.",
-        "de": "Calculate weighted average cost of capital (WACC).",
-        "fr": "Calculate weighted average cost of capital (WACC).",
-        "es": "Calculate weighted average cost of capital (WACC).",
-        "ar": "Calculate weighted average cost of capital (WACC)."
+        "de": "Berechnen Sie die gewichteten durchschnittlichen Kapitalkosten (WACC).",
+        "fr": "Calculer le coût moyen pondéré du capital (CMPC).",
+        "es": "Calcular el costo promedio ponderado del capital (WACC).",
+        "ar": "حساب متوسط التكلفة المرجح لرأس المال (WACC)."
       },
       "long_i18n": {
         "en": "Calculate weighted average cost of capital (WACC).",
         "tr": "Şirketin borç ve özsermaye ağırlıklı ortalama fon maliyetini (WACC) hesaplar.",
-        "de": "Calculate weighted average cost of capital (WACC).",
-        "fr": "Calculate weighted average cost of capital (WACC).",
-        "es": "Calculate weighted average cost of capital (WACC).",
-        "ar": "Calculate weighted average cost of capital (WACC)."
+        "de": "Berechnen Sie die gewichteten durchschnittlichen Kapitalkosten (WACC).",
+        "fr": "Calculer le coût moyen pondéré du capital (CMPC).",
+        "es": "Calcular el costo promedio ponderado del capital (WACC).",
+        "ar": "حساب متوسط التكلفة المرجح لرأس المال (WACC)."
       }
     }
   },

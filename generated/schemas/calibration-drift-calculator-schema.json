@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Latest Error",
         "tr": "Son Kalibrasyon Hatası (Birim)",
-        "de": "Latest Error",
-        "fr": "Latest Error",
-        "es": "Latest Error",
-        "ar": "Latest Error"
+        "de": "Letzter Fehler",
+        "fr": "Erreur la plus récente",
+        "es": "Último Error",
+        "ar": "أحدث خطأ"
       },
       "type": "number",
       "unit": "unit",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Error at last calibration.",
         "tr": "Son kalibrasyondaki hata.",
-        "de": "Error at last calibration.",
-        "fr": "Error at last calibration.",
-        "es": "Error at last calibration.",
-        "ar": "Error at last calibration."
+        "de": "Fehler bei der letzten Kalibrierung.",
+        "fr": "Erreur lors du dernier étalonnage.",
+        "es": "Error en la última calibración.",
+        "ar": "الخطأ في آخر معايرة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Previous Error",
         "tr": "Önceki Hata (Birim)",
-        "de": "Previous Error",
-        "fr": "Previous Error",
-        "es": "Previous Error",
-        "ar": "Previous Error"
+        "de": "Vorheriger Fehler",
+        "fr": "Erreur précédente",
+        "es": "Error Anterior",
+        "ar": "الخطأ السابق"
       },
       "type": "number",
       "unit": "unit",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Previous calibration error.",
         "tr": "Bir önceki kalibrasyon hatası.",
-        "de": "Previous calibration error.",
-        "fr": "Previous calibration error.",
-        "es": "Previous calibration error.",
-        "ar": "Previous calibration error."
+        "de": "Vorheriger Kalibrierungsfehler.",
+        "fr": "Erreur d'étalonnage précédente.",
+        "es": "Error de calibración anterior.",
+        "ar": "خطأ المعايرة السابق."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Elapsed Time (Days)",
         "tr": "Geçen Süre (Gün)",
-        "de": "Elapsed Time (Days)",
-        "fr": "Elapsed Time (Days)",
-        "es": "Elapsed Time (Days)",
-        "ar": "Elapsed Time (Days)"
+        "de": "Verstrichene Zeit (Days)",
+        "fr": "Temps écoulé (Days)",
+        "es": "Tiempo Transcurrido (Días)",
+        "ar": "الوقت المنقضي (Days)"
       },
       "type": "number",
       "unit": "days",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Time between calibrations.",
         "tr": "İki kalibrasyon arası süre.",
-        "de": "Time between calibrations.",
-        "fr": "Time between calibrations.",
-        "es": "Time between calibrations.",
-        "ar": "Time between calibrations."
+        "de": "Zeit zwischen Kalibrierungen.",
+        "fr": "Temps entre les étalonnages.",
+        "es": "Tiempo entre calibraciones.",
+        "ar": "الوقت بين المعايرات."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Sapma Hızı",
         "tr": "Sapma Hızı",
-        "de": "Sapma Hızı",
-        "fr": "Sapma Hızı",
-        "es": "Sapma Hızı",
-        "ar": "Sapma Hızı"
+        "de": "Abweichungsrate",
+        "fr": "Taux de déviation",
+        "es": "Tasa de Desviación",
+        "ar": "معدل الانحراف"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate measurement instrument drift rate over time.",
         "tr": "Ölçüm cihazının zamanla bozulma hızını (sapma) hesaplar.",
-        "de": "Calculate measurement instrument drift rate over time.",
-        "fr": "Calculate measurement instrument drift rate over time.",
-        "es": "Calculate measurement instrument drift rate over time.",
-        "ar": "Calculate measurement instrument drift rate over time."
+        "de": "Berechnen Sie die Driftrate eines Messgeräts im Zeitverlauf.",
+        "fr": "Calculer le taux de dérive d'un instrument de mesure au fil du temps.",
+        "es": "Calcular la tasa de deriva del instrumento de medición a lo largo del tiempo.",
+        "ar": "حساب معدل انحراف أداة القياس عبر الزمن."
       },
       "long_i18n": {
         "en": "Calculate measurement instrument drift rate over time.",
         "tr": "Ölçüm cihazının zamanla bozulma hızını (sapma) hesaplar.",
-        "de": "Calculate measurement instrument drift rate over time.",
-        "fr": "Calculate measurement instrument drift rate over time.",
-        "es": "Calculate measurement instrument drift rate over time.",
-        "ar": "Calculate measurement instrument drift rate over time."
+        "de": "Berechnen Sie die Driftrate eines Messgeräts im Zeitverlauf.",
+        "fr": "Calculer le taux de dérive d'un instrument de mesure au fil du temps.",
+        "es": "Calcular la tasa de deriva del instrumento de medición a lo largo del tiempo.",
+        "ar": "حساب معدل انحراف أداة القياس عبر الزمن."
       }
     }
   },

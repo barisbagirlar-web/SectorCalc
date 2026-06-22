@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Heat transfer area.",
         "tr": "Isı transfer yüzey alanı.",
-        "de": "Heat transfer area.",
-        "fr": "Heat transfer area.",
-        "es": "Heat transfer area.",
-        "ar": "Heat transfer area."
+        "de": "Wärmeübertragungsfläche.",
+        "fr": "Surface de transfert de chaleur.",
+        "es": "Área de transferencia de calor.",
+        "ar": "مساحة نقل الحرارة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Thermal Conductivity (W/mK)",
         "tr": "Isı İletim Katsayısı (W/mK)",
-        "de": "Thermal Conductivity (W/mK)",
-        "fr": "Thermal Conductivity (W/mK)",
-        "es": "Thermal Conductivity (W/mK)",
-        "ar": "Thermal Conductivity (W/mK)"
+        "de": "Wärmeleitfähigkeit (W/mK)",
+        "fr": "Conductivité thermique (W/mK)",
+        "es": "Conductividad Térmica (W/mK)",
+        "ar": "الموصلية الحرارية (W/mK)"
       },
       "type": "number",
       "unit": "W/mK",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Material thermal conductivity.",
         "tr": "Malzemenin ısıl iletkenliği.",
-        "de": "Material thermal conductivity.",
-        "fr": "Material thermal conductivity.",
-        "es": "Material thermal conductivity.",
-        "ar": "Material thermal conductivity."
+        "de": "Wärmeleitfähigkeit des Materials.",
+        "fr": "Conductivité thermique du matériau.",
+        "es": "Conductividad térmica del material.",
+        "ar": "الموصلية الحرارية للمادة."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Wall thickness.",
         "tr": "Duvar et kalınlığı.",
-        "de": "Wall thickness.",
-        "fr": "Wall thickness.",
-        "es": "Wall thickness.",
-        "ar": "Wall thickness."
+        "de": "Wanddicke.",
+        "fr": "Épaisseur de la paroi.",
+        "es": "Espesor de la pared.",
+        "ar": "سمك الجدار."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Temperature difference between surfaces.",
         "tr": "İki yüzey arası sıcaklık farkı.",
-        "de": "Temperature difference between surfaces.",
-        "fr": "Temperature difference between surfaces.",
-        "es": "Temperature difference between surfaces.",
-        "ar": "Temperature difference between surfaces."
+        "de": "Temperaturdifferenz zwischen den Oberflächen.",
+        "fr": "Différence de température entre les surfaces.",
+        "es": "Diferencia de temperatura entre las superficies.",
+        "ar": "فرق درجة الحرارة بين السطحين."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Isı Transfer Hızı",
         "tr": "Isı Transfer Hızı",
-        "de": "Isı Transfer Hızı",
-        "fr": "Isı Transfer Hızı",
-        "es": "Isı Transfer Hızı",
-        "ar": "Isı Transfer Hızı"
+        "de": "Wärmeübertragungsrate",
+        "fr": "Taux de transfert de chaleur",
+        "es": "Tasa de Transferencia de Calor",
+        "ar": "معدل انتقال الحرارة"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate heat transfer rate through a plane wall using Fourier's law.",
         "tr": "Düzlem duvardan geçen ısı transfer hızını Fourier yasası ile hesaplar.",
-        "de": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "fr": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "es": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "ar": "Calculate heat transfer rate through a plane wall using Fourier's law."
+        "de": "Berechnen Sie die Wärmeübertragungsrate durch eine ebene Wand mit dem Fourier'schen Gesetz.",
+        "fr": "Calculer le taux de transfert de chaleur à travers une paroi plane en utilisant la loi de Fourier.",
+        "es": "Calcular la tasa de transferencia de calor a través de una pared plana usando la ley de Fourier.",
+        "ar": "احسب معدل انتقال الحرارة عبر جدار مستو باستخدام قانون فورييه."
       },
       "long_i18n": {
         "en": "Calculate heat transfer rate through a plane wall using Fourier's law.",
         "tr": "Düzlem duvardan geçen ısı transfer hızını Fourier yasası ile hesaplar.",
-        "de": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "fr": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "es": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "ar": "Calculate heat transfer rate through a plane wall using Fourier's law."
+        "de": "Berechnen Sie die Wärmeübertragungsrate durch eine ebene Wand mit dem Fourier'schen Gesetz.",
+        "fr": "Calculer le taux de transfert de chaleur à travers une paroi plane en utilisant la loi de Fourier.",
+        "es": "Calcular la tasa de transferencia de calor a través de una pared plana usando la ley de Fourier.",
+        "ar": "احسب معدل انتقال الحرارة عبر جدار مستو باستخدام قانون فورييه."
       }
     }
   },

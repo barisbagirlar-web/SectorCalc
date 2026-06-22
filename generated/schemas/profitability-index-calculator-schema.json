@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Future Cash Flows PV (USD)",
         "tr": "Gelecek Nakit BD (₺)",
-        "de": "Future Cash Flows PV (USD)",
-        "fr": "Future Cash Flows PV (USD)",
-        "es": "Future Cash Flows PV (USD)",
-        "ar": "Future Cash Flows PV (USD)"
+        "de": "Barwert zukünftiger Cashflows (USD)",
+        "fr": "VA des flux de trésorerie futurs (USD)",
+        "es": "VP de Flujos de Caja Futuros (USD)",
+        "ar": "القيمة الحالية للتدفقات النقدية المستقبلية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Present value of all future cash flows.",
         "tr": "Tüm gelecek nakit akışlarının bugünkü değeri.",
-        "de": "Present value of all future cash flows.",
-        "fr": "Present value of all future cash flows.",
-        "es": "Present value of all future cash flows.",
-        "ar": "Present value of all future cash flows."
+        "de": "Barwert aller zukünftigen Cashflows.",
+        "fr": "Valeur actuelle de tous les flux de trésorerie futurs.",
+        "es": "Valor presente de todos los flujos de caja futuros.",
+        "ar": "القيمة الحالية لجميع التدفقات النقدية المستقبلية."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Initial project cost.",
         "tr": "Projenin başlangıç maliyeti.",
-        "de": "Initial project cost.",
-        "fr": "Initial project cost.",
-        "es": "Initial project cost.",
-        "ar": "Initial project cost."
+        "de": "Anfängliche Projektkosten.",
+        "fr": "Coût initial du projet.",
+        "es": "Costo inicial del proyecto.",
+        "ar": "التكلفة الأولية للمشروع."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "PI (Kârlılık Endeksi)",
         "tr": "PI (Kârlılık Endeksi)",
-        "de": "PI (Kârlılık Endeksi)",
-        "fr": "PI (Kârlılık Endeksi)",
-        "es": "PI (Kârlılık Endeksi)",
-        "ar": "PI (Kârlılık Endeksi)"
+        "de": "PI (Rentabilitätsindex)",
+        "fr": "PI (Indice de rentabilité)",
+        "es": "PI (Índice de Rentabilidad)",
+        "ar": "مؤشر الربحية (PI)"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate the profitability index (PI) — value created per unit invested.",
         "tr": "1 birim yatırımın yarattığı bugünkü değeri (Kârlılık Endeksi) hesaplar.",
-        "de": "Calculate the profitability index (PI) — value created per unit invested.",
-        "fr": "Calculate the profitability index (PI) — value created per unit invested.",
-        "es": "Calculate the profitability index (PI) — value created per unit invested.",
-        "ar": "Calculate the profitability index (PI) — value created per unit invested."
+        "de": "Berechnen Sie den Rentabilitätsindex (PI) – Wertschöpfung pro investierter Einheit.",
+        "fr": "Calculer l'indice de rentabilité (PI) — valeur créée par unité investie.",
+        "es": "Calcular el índice de rentabilidad (PI) — valor creado por unidad invertida.",
+        "ar": "احسب مؤشر الربحية (PI) — القيمة المولدة لكل وحدة مستثمرة."
       },
       "long_i18n": {
         "en": "Calculate the profitability index (PI) — value created per unit invested.",
         "tr": "1 birim yatırımın yarattığı bugünkü değeri (Kârlılık Endeksi) hesaplar.",
-        "de": "Calculate the profitability index (PI) — value created per unit invested.",
-        "fr": "Calculate the profitability index (PI) — value created per unit invested.",
-        "es": "Calculate the profitability index (PI) — value created per unit invested.",
-        "ar": "Calculate the profitability index (PI) — value created per unit invested."
+        "de": "Berechnen Sie den Rentabilitätsindex (PI) – Wertschöpfung pro investierter Einheit.",
+        "fr": "Calculer l'indice de rentabilité (PI) — valeur créée par unité investie.",
+        "es": "Calcular el índice de rentabilidad (PI) — valor creado por unidad invertida.",
+        "ar": "احسب مؤشر الربحية (PI) — القيمة المولدة لكل وحدة مستثمرة."
       }
     }
   },

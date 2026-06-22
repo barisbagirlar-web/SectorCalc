@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Output Power (W)",
         "tr": "Çıkış Gücü (W)",
-        "de": "Output Power (W)",
-        "fr": "Output Power (W)",
-        "es": "Output Power (W)",
-        "ar": "Output Power (W)"
+        "de": "Ausgangsleistung (W)",
+        "fr": "Puissance de sortie (W)",
+        "es": "Potencia de Salida (W)",
+        "ar": "طاقة الخرج (W)"
       },
       "type": "number",
       "unit": "W",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Shaft mechanical power.",
         "tr": "Milin ürettiği mekanik güç.",
-        "de": "Shaft mechanical power.",
-        "fr": "Shaft mechanical power.",
-        "es": "Shaft mechanical power.",
-        "ar": "Shaft mechanical power."
+        "de": "Mechanische Wellenleistung.",
+        "fr": "Puissance mécanique de l'arbre.",
+        "es": "Potencia mecánica del eje.",
+        "ar": "الطاقة الميكانيكية للعمود."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Input Power (W)",
         "tr": "Giriş Gücü (W)",
-        "de": "Input Power (W)",
-        "fr": "Input Power (W)",
-        "es": "Input Power (W)",
-        "ar": "Input Power (W)"
+        "de": "Eingangsleistung (W)",
+        "fr": "Puissance d'entrée (W)",
+        "es": "Potencia de Entrada (W)",
+        "ar": "طاقة الدخل (W)"
       },
       "type": "number",
       "unit": "W",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Motor electrical power.",
         "tr": "Motorun çektiği elektrik gücü.",
-        "de": "Motor electrical power.",
-        "fr": "Motor electrical power.",
-        "es": "Motor electrical power.",
-        "ar": "Motor electrical power."
+        "de": "Elektrische Motorleistung.",
+        "fr": "Puissance électrique du moteur.",
+        "es": "Potencia eléctrica del motor.",
+        "ar": "الطاقة الكهربائية للمحرك."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Motor Verimi",
         "tr": "Motor Verimi",
-        "de": "Motor Verimi",
-        "fr": "Motor Verimi",
-        "es": "Motor Verimi",
-        "ar": "Motor Verimi"
+        "de": "Motorwirkungsgrad",
+        "fr": "Rendement du moteur",
+        "es": "Eficiencia del Motor",
+        "ar": "كفاءة المحرك"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate electric motor efficiency.",
         "tr": "Elektrik enerjisinin mekanik enerjiye dönüşüm başarısını (motor verimi) hesaplar.",
-        "de": "Calculate electric motor efficiency.",
-        "fr": "Calculate electric motor efficiency.",
-        "es": "Calculate electric motor efficiency.",
-        "ar": "Calculate electric motor efficiency."
+        "de": "Berechnen Sie den Wirkungsgrad eines Elektromotors.",
+        "fr": "Calculer l'efficacité du moteur électrique.",
+        "es": "Calcular la eficiencia del motor eléctrico.",
+        "ar": "حساب كفاءة المحرك الكهربائي."
       },
       "long_i18n": {
         "en": "Calculate electric motor efficiency.",
         "tr": "Elektrik enerjisinin mekanik enerjiye dönüşüm başarısını (motor verimi) hesaplar.",
-        "de": "Calculate electric motor efficiency.",
-        "fr": "Calculate electric motor efficiency.",
-        "es": "Calculate electric motor efficiency.",
-        "ar": "Calculate electric motor efficiency."
+        "de": "Berechnen Sie den Wirkungsgrad eines Elektromotors.",
+        "fr": "Calculer l'efficacité du moteur électrique.",
+        "es": "Calcular la eficiencia del motor eléctrico.",
+        "ar": "حساب كفاءة المحرك الكهربائي."
       }
     }
   },

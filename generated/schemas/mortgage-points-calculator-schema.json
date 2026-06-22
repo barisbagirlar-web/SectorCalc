@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Mortgage amount.",
         "tr": "Konut kredisi tutarı.",
-        "de": "Mortgage amount.",
-        "fr": "Mortgage amount.",
-        "es": "Mortgage amount.",
-        "ar": "Mortgage amount."
+        "de": "Hypothekenbetrag.",
+        "fr": "Montant hypothécaire.",
+        "es": "Monto de la hipoteca.",
+        "ar": "مبلغ الرهن العقاري."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Points Rate (%)",
         "tr": "Puan Oranı (%)",
-        "de": "Points Rate (%)",
-        "fr": "Points Rate (%)",
-        "es": "Points Rate (%)",
-        "ar": "Points Rate (%)"
+        "de": "Punkte-Satz (%)",
+        "fr": "Taux des points (%)",
+        "es": "Tasa de Puntos (%)",
+        "ar": "معدل النقاط (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Prepaid points percentage.",
         "tr": "Peşin ödenen puan yüzdesi.",
-        "de": "Prepaid points percentage.",
-        "fr": "Prepaid points percentage.",
-        "es": "Prepaid points percentage.",
-        "ar": "Prepaid points percentage."
+        "de": "Prozentsatz der vorausbezahlten Punkte.",
+        "fr": "Pourcentage de points prépayés.",
+        "es": "Porcentaje de puntos prepagados.",
+        "ar": "نسبة النقاط المدفوعة مقدمًا."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Monthly Interest Saving (USD)",
         "tr": "Aylık Faiz Tasarrufu (₺)",
-        "de": "Monthly Interest Saving (USD)",
-        "fr": "Monthly Interest Saving (USD)",
-        "es": "Monthly Interest Saving (USD)",
-        "ar": "Monthly Interest Saving (USD)"
+        "de": "Monatliche Zinsersparnis (USD)",
+        "fr": "Économie d'intérêts mensuelle (USD)",
+        "es": "Ahorro Mensual de Intereses (USD)",
+        "ar": "التوفير الشهري في الفائدة (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Monthly saving from lower rate.",
         "tr": "Düşük faiz sayesinde aylık tasarruf.",
-        "de": "Monthly saving from lower rate.",
-        "fr": "Monthly saving from lower rate.",
-        "es": "Monthly saving from lower rate.",
-        "ar": "Monthly saving from lower rate."
+        "de": "Monatliche Ersparnis durch niedrigeren Zinssatz.",
+        "fr": "Économie mensuelle grâce au taux réduit.",
+        "es": "Ahorro mensual por tasa más baja.",
+        "ar": "التوفير الشهري من المعدل الأقل."
       }
     }
   ],
@@ -101,10 +101,10 @@
       "sonuc": {
         "en": "Başabaş Noktası (Ay)",
         "tr": "Başabaş Noktası (Ay)",
-        "de": "Başabaş Noktası (Ay)",
-        "fr": "Başabaş Noktası (Ay)",
-        "es": "Başabaş Noktası (Ay)",
-        "ar": "Başabaş Noktası (Ay)"
+        "de": "Break-even-Punkt (Monate)",
+        "fr": "Seuil de rentabilité (mois)",
+        "es": "Punto de Equilibrio (Meses)",
+        "ar": "نقطة التعادل (شهر)"
       }
     },
     "breakdownUnits": {
@@ -126,18 +126,18 @@
       "short_i18n": {
         "en": "Calculate break-even period for mortgage points paid upfront.",
         "tr": "Peşin ödenen puan maliyetinin faiz indirimiyle amorti süresini hesaplar.",
-        "de": "Calculate break-even period for mortgage points paid upfront.",
-        "fr": "Calculate break-even period for mortgage points paid upfront.",
-        "es": "Calculate break-even period for mortgage points paid upfront.",
-        "ar": "Calculate break-even period for mortgage points paid upfront."
+        "de": "Berechnen Sie die Gewinnschwelle für im Voraus gezahlte Hypothekenpunkte.",
+        "fr": "Calculer le seuil de rentabilité pour les points hypothécaires payés d'avance.",
+        "es": "Calcular el período de equilibrio para puntos hipotecarios pagados por adelantado.",
+        "ar": "حساب فترة التعادل لنقاط الرهن المدفوعة مقدمًا."
       },
       "long_i18n": {
         "en": "Calculate break-even period for mortgage points paid upfront.",
         "tr": "Peşin ödenen puan maliyetinin faiz indirimiyle amorti süresini hesaplar.",
-        "de": "Calculate break-even period for mortgage points paid upfront.",
-        "fr": "Calculate break-even period for mortgage points paid upfront.",
-        "es": "Calculate break-even period for mortgage points paid upfront.",
-        "ar": "Calculate break-even period for mortgage points paid upfront."
+        "de": "Berechnen Sie die Gewinnschwelle für im Voraus gezahlte Hypothekenpunkte.",
+        "fr": "Calculer le seuil de rentabilité pour les points hypothécaires payés d'avance.",
+        "es": "Calcular el período de equilibrio para puntos hipotecarios pagados por adelantado.",
+        "ar": "حساب فترة التعادل لنقاط الرهن المدفوعة مقدمًا."
       }
     }
   },

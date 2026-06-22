@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Total Emissions (ton CO₂)",
         "tr": "Toplam Emisyon (ton CO₂)",
-        "de": "Total Emissions (ton CO₂)",
-        "fr": "Total Emissions (ton CO₂)",
-        "es": "Total Emissions (ton CO₂)",
-        "ar": "Total Emissions (ton CO₂)"
+        "de": "Gesamtemissionen (ton CO₂)",
+        "fr": "Émissions totales (ton CO₂)",
+        "es": "Emisiones Totales (ton CO₂)",
+        "ar": "إجمالي الانبعاثات (ton CO₂)"
       },
       "type": "number",
       "unit": "tons",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Carbon to offset.",
         "tr": "Nötrelenmek istenen karbon.",
-        "de": "Carbon to offset.",
-        "fr": "Carbon to offset.",
-        "es": "Carbon to offset.",
-        "ar": "Carbon to offset."
+        "de": "Zu kompensierender Kohlenstoff.",
+        "fr": "Carbone à compenser.",
+        "es": "Carbono a compensar.",
+        "ar": "الكربون المراد تعويضه."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Tree Annual Uptake (kg CO₂)",
         "tr": "Ağaç Başı Yıllık Yutak (kg CO₂)",
-        "de": "Tree Annual Uptake (kg CO₂)",
-        "fr": "Tree Annual Uptake (kg CO₂)",
-        "es": "Tree Annual Uptake (kg CO₂)",
-        "ar": "Tree Annual Uptake (kg CO₂)"
+        "de": "Jährliche Baumaufnahme (kg CO₂)",
+        "fr": "Absorption annuelle par arbre (kg CO₂)",
+        "es": "Captura Anual por Árbol (kg CO₂)",
+        "ar": "الامتصاص السنوي للشجرة (kg CO₂)"
       },
       "type": "number",
       "unit": "kg",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Annual carbon capture per tree.",
         "tr": "Bir ağacın yıllık karbon tutma kapasitesi.",
-        "de": "Annual carbon capture per tree.",
-        "fr": "Annual carbon capture per tree.",
-        "es": "Annual carbon capture per tree.",
-        "ar": "Annual carbon capture per tree."
+        "de": "Jährliche Kohlenstoffbindung pro Baum.",
+        "fr": "Captage annuel de carbone par arbre.",
+        "es": "Captura anual de carbono por árbol.",
+        "ar": "احتجاز الكربون السنوي لكل شجرة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Gerekli Ağaç Sayısı",
         "tr": "Gerekli Ağaç Sayısı",
-        "de": "Gerekli Ağaç Sayısı",
-        "fr": "Gerekli Ağaç Sayısı",
-        "es": "Gerekli Ağaç Sayısı",
-        "ar": "Gerekli Ağaç Sayısı"
+        "de": "Erforderliche Anzahl Bäume",
+        "fr": "Nombre d'arbres nécessaires",
+        "es": "Número de Árboles Requeridos",
+        "ar": "عدد الأشجار المطلوب"
       }
     },
     "breakdownUnits": {
@@ -103,18 +103,18 @@
       "short_i18n": {
         "en": "Calculate number of trees needed to offset carbon emissions.",
         "tr": "Salınan karbonu nötralize etmek için dikilmesi gereken ağaç sayısını hesaplar.",
-        "de": "Calculate number of trees needed to offset carbon emissions.",
-        "fr": "Calculate number of trees needed to offset carbon emissions.",
-        "es": "Calculate number of trees needed to offset carbon emissions.",
-        "ar": "Calculate number of trees needed to offset carbon emissions."
+        "de": "Berechnen Sie die Anzahl der Bäume, die zur Kompensation der Kohlenstoffemissionen erforderlich sind.",
+        "fr": "Calculer le nombre d'arbres nécessaires pour compenser les émissions de carbone.",
+        "es": "Calcular el número de árboles necesarios para compensar las emisiones de carbono.",
+        "ar": "احسب عدد الأشجار اللازمة لتعويض انبعاثات الكربون."
       },
       "long_i18n": {
         "en": "Calculate number of trees needed to offset carbon emissions.",
         "tr": "Salınan karbonu nötralize etmek için dikilmesi gereken ağaç sayısını hesaplar.",
-        "de": "Calculate number of trees needed to offset carbon emissions.",
-        "fr": "Calculate number of trees needed to offset carbon emissions.",
-        "es": "Calculate number of trees needed to offset carbon emissions.",
-        "ar": "Calculate number of trees needed to offset carbon emissions."
+        "de": "Berechnen Sie die Anzahl der Bäume, die zur Kompensation der Kohlenstoffemissionen erforderlich sind.",
+        "fr": "Calculer le nombre d'arbres nécessaires pour compenser les émissions de carbone.",
+        "es": "Calcular el número de árboles necesarios para compensar las emisiones de carbono.",
+        "ar": "احسب عدد الأشجار اللازمة لتعويض انبعاثات الكربون."
       }
     }
   },

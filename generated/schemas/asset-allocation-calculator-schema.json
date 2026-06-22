@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Total Portfolio (USD)",
         "tr": "Toplam Portföy (₺)",
-        "de": "Total Portfolio (USD)",
-        "fr": "Total Portfolio (USD)",
-        "es": "Total Portfolio (USD)",
-        "ar": "Total Portfolio (USD)"
+        "de": "Gesamtportfolio (USD)",
+        "fr": "Portefeuille total (USD)",
+        "es": "Cartera Total (USD)",
+        "ar": "إجمالي المحفظة (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total investment portfolio value.",
         "tr": "Yatırım portföyünün toplam değeri.",
-        "de": "Total investment portfolio value.",
-        "fr": "Total investment portfolio value.",
-        "es": "Total investment portfolio value.",
-        "ar": "Total investment portfolio value."
+        "de": "Gesamtwert des Anlageportfolios.",
+        "fr": "Valeur totale du portefeuille d'investissement.",
+        "es": "Valor total de la cartera de inversiones.",
+        "ar": "قيمة إجمالي محفظة الاستثمار."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Stocks (%)",
         "tr": "Hisse Senedi (%)",
-        "de": "Stocks (%)",
-        "fr": "Stocks (%)",
-        "es": "Stocks (%)",
-        "ar": "Stocks (%)"
+        "de": "Aktien (%)",
+        "fr": "Actions (%)",
+        "es": "Acciones (%)",
+        "ar": "الأسهم (%)"
       },
       "type": "number",
       "unit": "%",
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Target stock allocation percentage.",
         "tr": "Portföydeki hisse senedi hedef oranı.",
-        "de": "Target stock allocation percentage.",
-        "fr": "Target stock allocation percentage.",
-        "es": "Target stock allocation percentage.",
-        "ar": "Target stock allocation percentage."
+        "de": "Zielprozentsatz der Aktienallokation.",
+        "fr": "Pourcentage d'allocation cible en actions.",
+        "es": "Porcentaje objetivo de asignación de acciones.",
+        "ar": "النسبة المئوية المستهدفة لتخصيص الأسهم."
       }
     },
     {
@@ -62,10 +62,10 @@
       "label_i18n": {
         "en": "Bonds (%)",
         "tr": "Tahvil/Bono (%)",
-        "de": "Bonds (%)",
-        "fr": "Bonds (%)",
-        "es": "Bonds (%)",
-        "ar": "Bonds (%)"
+        "de": "Anleihen (%)",
+        "fr": "Obligations (%)",
+        "es": "Bonos (%)",
+        "ar": "السندات (%)"
       },
       "type": "number",
       "unit": "%",
@@ -76,10 +76,10 @@
       "businessContext_i18n": {
         "en": "Target bond allocation percentage.",
         "tr": "Portföydeki tahvil hedef oranı.",
-        "de": "Target bond allocation percentage.",
-        "fr": "Target bond allocation percentage.",
-        "es": "Target bond allocation percentage.",
-        "ar": "Target bond allocation percentage."
+        "de": "Zielprozentsatz der Anleihenallokation.",
+        "fr": "Pourcentage d'allocation cible en obligations.",
+        "es": "Porcentaje objetivo de asignación de bonos.",
+        "ar": "النسبة المئوية المستهدفة لتخصيص السندات."
       }
     },
     {
@@ -102,10 +102,10 @@
       "businessContext_i18n": {
         "en": "Target cash allocation percentage.",
         "tr": "Portföydeki nakit hedef oranı.",
-        "de": "Target cash allocation percentage.",
-        "fr": "Target cash allocation percentage.",
-        "es": "Target cash allocation percentage.",
-        "ar": "Target cash allocation percentage."
+        "de": "Zielprozentsatz der Bargeldallokation.",
+        "fr": "Pourcentage d'allocation cible en liquidités.",
+        "es": "Porcentaje objetivo de asignación de efectivo.",
+        "ar": "النسبة المئوية المستهدفة لتخصيص النقد."
       }
     }
   ],
@@ -132,26 +132,26 @@
       "hisseTutar": {
         "en": "Hisse Senedi Tutarı",
         "tr": "Hisse Senedi Tutarı",
-        "de": "Hisse Senedi Tutarı",
-        "fr": "Hisse Senedi Tutarı",
-        "es": "Hisse Senedi Tutarı",
-        "ar": "Hisse Senedi Tutarı"
+        "de": "Aktienbetrag",
+        "fr": "Montant des actions",
+        "es": "Monto en Acciones",
+        "ar": "قيمة الأسهم"
       },
       "tahvilTutar": {
         "en": "Tahvil Tutarı",
         "tr": "Tahvil Tutarı",
-        "de": "Tahvil Tutarı",
-        "fr": "Tahvil Tutarı",
-        "es": "Tahvil Tutarı",
-        "ar": "Tahvil Tutarı"
+        "de": "Anleihebetrag",
+        "fr": "Montant des obligations",
+        "es": "Monto en Bonos",
+        "ar": "قيمة السندات"
       },
       "sonuc": {
         "en": "Nakit Tutarı",
         "tr": "Nakit Tutarı",
-        "de": "Nakit Tutarı",
-        "fr": "Nakit Tutarı",
-        "es": "Nakit Tutarı",
-        "ar": "Nakit Tutarı"
+        "de": "Bargeldbetrag",
+        "fr": "Montant des liquidités",
+        "es": "Monto en Efectivo",
+        "ar": "قيمة النقد"
       }
     },
     "breakdownUnits": {
@@ -175,18 +175,18 @@
       "short_i18n": {
         "en": "Allocate portfolio across asset classes based on target percentages.",
         "tr": "Portföyün hedeflenen varlık sınıflarına bölünmesini hesaplar.",
-        "de": "Allocate portfolio across asset classes based on target percentages.",
-        "fr": "Allocate portfolio across asset classes based on target percentages.",
-        "es": "Allocate portfolio across asset classes based on target percentages.",
-        "ar": "Allocate portfolio across asset classes based on target percentages."
+        "de": "Portfolio auf Anlageklassen basierend auf Zielprozentsätzen aufteilen.",
+        "fr": "Allouer le portefeuille entre les classes d'actifs en fonction des pourcentages cibles.",
+        "es": "Asignar la cartera entre clases de activos según porcentajes objetivo.",
+        "ar": "توزيع المحفظة عبر فئات الأصول بناءً على النسب المئوية المستهدفة."
       },
       "long_i18n": {
         "en": "Allocate portfolio across asset classes based on target percentages.",
         "tr": "Portföyün hedeflenen varlık sınıflarına bölünmesini hesaplar.",
-        "de": "Allocate portfolio across asset classes based on target percentages.",
-        "fr": "Allocate portfolio across asset classes based on target percentages.",
-        "es": "Allocate portfolio across asset classes based on target percentages.",
-        "ar": "Allocate portfolio across asset classes based on target percentages."
+        "de": "Portfolio auf Anlageklassen basierend auf Zielprozentsätzen aufteilen.",
+        "fr": "Allouer le portefeuille entre les classes d'actifs en fonction des pourcentages cibles.",
+        "es": "Asignar la cartera entre clases de activos según porcentajes objetivo.",
+        "ar": "توزيع المحفظة عبر فئات الأصول بناءً على النسب المئوية المستهدفة."
       }
     }
   },

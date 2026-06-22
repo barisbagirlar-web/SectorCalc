@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Bending moment on shaft.",
         "tr": "Mile etkiyen eğilme momenti.",
-        "de": "Bending moment on shaft.",
-        "fr": "Bending moment on shaft.",
-        "es": "Bending moment on shaft.",
-        "ar": "Bending moment on shaft."
+        "de": "Biegemoment auf der Welle.",
+        "fr": "Moment de flexion sur l'arbre.",
+        "es": "Momento flector sobre el eje.",
+        "ar": "عزم الانحناء على العمود."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Torque on shaft.",
         "tr": "Mile etkiyen tork.",
-        "de": "Torque on shaft.",
-        "fr": "Torque on shaft.",
-        "es": "Torque on shaft.",
-        "ar": "Torque on shaft."
+        "de": "Drehmoment auf der Welle.",
+        "fr": "Couple sur l'arbre.",
+        "es": "Par en el eje.",
+        "ar": "عزم الالتواء على العمود."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Yield Stress (Pa)",
         "tr": "Akma Gerilmesi (Pa)",
-        "de": "Yield Stress (Pa)",
-        "fr": "Yield Stress (Pa)",
-        "es": "Yield Stress (Pa)",
-        "ar": "Yield Stress (Pa)"
+        "de": "Streckgrenze (Pa)",
+        "fr": "Contrainte d'élasticité (Pa)",
+        "es": "Esfuerzo de Fluencia (Pa)",
+        "ar": "إجهاد الخضوع (Pa)"
       },
       "type": "number",
       "unit": "Pa",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Shaft material yield strength.",
         "tr": "Mil malzemesinin akma dayanımı.",
-        "de": "Shaft material yield strength.",
-        "fr": "Shaft material yield strength.",
-        "es": "Shaft material yield strength.",
-        "ar": "Shaft material yield strength."
+        "de": "Streckgrenze des Wellenmaterials.",
+        "fr": "Limite d'élasticité du matériau de l'arbre.",
+        "es": "Resistencia a la fluencia del material del eje.",
+        "ar": "قوة خضوع مادة العمود."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Min. Mil Çapı",
         "tr": "Min. Mil Çapı",
-        "de": "Min. Mil Çapı",
-        "fr": "Min. Mil Çapı",
-        "es": "Min. Mil Çapı",
-        "ar": "Min. Mil Çapı"
+        "de": "Min. Wellendurchmesser",
+        "fr": "Diamètre minimal de l'arbre",
+        "es": "Diámetro Mínimo del Eje",
+        "ar": "الحد الأدنى لقطر العمود"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate minimum shaft diameter under bending and torsion (ASME).",
         "tr": "Eğilme ve burulma altındaki milin minimum çapını ASME formülü ile hesaplar.",
-        "de": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "fr": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "es": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "ar": "Calculate minimum shaft diameter under bending and torsion (ASME)."
+        "de": "Berechnen Sie den minimalen Wellendurchmesser unter Biegung und Torsion (ASME).",
+        "fr": "Calculer le diamètre minimal de l'arbre sous flexion et torsion (ASME).",
+        "es": "Calcular el diámetro mínimo del eje bajo flexión y torsión (ASME).",
+        "ar": "حساب الحد الأدنى لقطر العمود تحت الانحناء والالتواء (ASME)."
       },
       "long_i18n": {
         "en": "Calculate minimum shaft diameter under bending and torsion (ASME).",
         "tr": "Eğilme ve burulma altındaki milin minimum çapını ASME formülü ile hesaplar.",
-        "de": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "fr": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "es": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "ar": "Calculate minimum shaft diameter under bending and torsion (ASME)."
+        "de": "Berechnen Sie den minimalen Wellendurchmesser unter Biegung und Torsion (ASME).",
+        "fr": "Calculer le diamètre minimal de l'arbre sous flexion et torsion (ASME).",
+        "es": "Calcular el diámetro mínimo del eje bajo flexión y torsión (ASME).",
+        "ar": "حساب الحد الأدنى لقطر العمود تحت الانحناء والالتواء (ASME)."
       }
     }
   },

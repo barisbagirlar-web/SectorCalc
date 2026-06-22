@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Uniform Load (N/m)",
         "tr": "Yayılı Yük (N/m)",
-        "de": "Uniform Load (N/m)",
-        "fr": "Uniform Load (N/m)",
-        "es": "Uniform Load (N/m)",
-        "ar": "Uniform Load (N/m)"
+        "de": "Gleichlast (N/m)",
+        "fr": "Charge uniforme (N/m)",
+        "es": "Carga uniforme (N/m)",
+        "ar": "الحمل المنتظم (N/m)"
       },
       "type": "number",
       "unit": "N/m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Load on lintel.",
         "tr": "Lentoya gelen yük.",
-        "de": "Load on lintel.",
-        "fr": "Load on lintel.",
-        "es": "Load on lintel.",
-        "ar": "Load on lintel."
+        "de": "Last auf dem Sturz.",
+        "fr": "Charge sur le linteau.",
+        "es": "Carga sobre el dintel.",
+        "ar": "الحمل على العتبة."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Lintel clear span.",
         "tr": "Lento mesnetler arası mesafe.",
-        "de": "Lintel clear span.",
-        "fr": "Lintel clear span.",
-        "es": "Lintel clear span.",
-        "ar": "Lintel clear span."
+        "de": "Sturzlichte Weite.",
+        "fr": "Portée libre du linteau.",
+        "es": "Luz libre del dintel.",
+        "ar": "الامتداد الصافي للعتبة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Lintel Width (m)",
         "tr": "Lento Genişliği (m)",
-        "de": "Lintel Width (m)",
-        "fr": "Lintel Width (m)",
-        "es": "Lintel Width (m)",
-        "ar": "Lintel Width (m)"
+        "de": "Sturzbreite (m)",
+        "fr": "Largeur du linteau (m)",
+        "es": "Ancho del dintel (m)",
+        "ar": "عرض العتبة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Lintel section width.",
         "tr": "Lento kesit genişliği.",
-        "de": "Lintel section width.",
-        "fr": "Lintel section width.",
-        "es": "Lintel section width.",
-        "ar": "Lintel section width."
+        "de": "Sturzquerschnittsbreite.",
+        "fr": "Largeur de la section du linteau.",
+        "es": "Ancho de la sección del dintel.",
+        "ar": "عرض مقطع العتبة."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Lintel Height (m)",
         "tr": "Lento Yüksekliği (m)",
-        "de": "Lintel Height (m)",
-        "fr": "Lintel Height (m)",
-        "es": "Lintel Height (m)",
-        "ar": "Lintel Height (m)"
+        "de": "Sturzhöhe (m)",
+        "fr": "Hauteur du linteau (m)",
+        "es": "Altura del dintel (m)",
+        "ar": "ارتفاع العتبة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Lintel section height.",
         "tr": "Lento kesit yüksekliği.",
-        "de": "Lintel section height.",
-        "fr": "Lintel section height.",
-        "es": "Lintel section height.",
-        "ar": "Lintel section height."
+        "de": "Sturzquerschnittshöhe.",
+        "fr": "Hauteur de la section du linteau.",
+        "es": "Altura de la sección del dintel.",
+        "ar": "ارتفاع مقطع العتبة."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "Maks. Eğilme Gerilmesi",
         "tr": "Maks. Eğilme Gerilmesi",
-        "de": "Maks. Eğilme Gerilmesi",
-        "fr": "Maks. Eğilme Gerilmesi",
-        "es": "Maks. Eğilme Gerilmesi",
-        "ar": "Maks. Eğilme Gerilmesi"
+        "de": "Maximale Biegespannung",
+        "fr": "Contrainte de flexion maximale",
+        "es": "Esfuerzo Máximo de Flexión",
+        "ar": "أقصى إجهاد انحناء"
       }
     },
     "breakdownUnits": {
@@ -151,18 +151,18 @@
       "short_i18n": {
         "en": "Calculate maximum bending stress in a lintel beam.",
         "tr": "Lento kesitindeki maksimum eğilme gerilmesini hesaplar.",
-        "de": "Calculate maximum bending stress in a lintel beam.",
-        "fr": "Calculate maximum bending stress in a lintel beam.",
-        "es": "Calculate maximum bending stress in a lintel beam.",
-        "ar": "Calculate maximum bending stress in a lintel beam."
+        "de": "Berechnen Sie die maximale Biegespannung in einem Sturzträger.",
+        "fr": "Calculer la contrainte de flexion maximale dans une poutre de linteau.",
+        "es": "Calcular el esfuerzo máximo de flexión en una viga de dintel.",
+        "ar": "احسب أقصى إجهاد انحناء في عتبة."
       },
       "long_i18n": {
         "en": "Calculate maximum bending stress in a lintel beam.",
         "tr": "Lento kesitindeki maksimum eğilme gerilmesini hesaplar.",
-        "de": "Calculate maximum bending stress in a lintel beam.",
-        "fr": "Calculate maximum bending stress in a lintel beam.",
-        "es": "Calculate maximum bending stress in a lintel beam.",
-        "ar": "Calculate maximum bending stress in a lintel beam."
+        "de": "Berechnen Sie die maximale Biegespannung in einem Sturzträger.",
+        "fr": "Calculer la contrainte de flexion maximale dans une poutre de linteau.",
+        "es": "Calcular el esfuerzo máximo de flexión en una viga de dintel.",
+        "ar": "احسب أقصى إجهاد انحناء في عتبة."
       }
     }
   },

@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Mid-span point load.",
         "tr": "Kiriş ortasındaki yük.",
-        "de": "Mid-span point load.",
-        "fr": "Mid-span point load.",
-        "es": "Mid-span point load.",
-        "ar": "Mid-span point load."
+        "de": "Einzellast in Feldmitte.",
+        "fr": "Charge ponctuelle à mi-portée.",
+        "es": "Carga puntual en el centro del vano.",
+        "ar": "حمل نقطي في منتصف المدى."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Support spacing.",
         "tr": "Mesnetler arası mesafe.",
-        "de": "Support spacing.",
-        "fr": "Support spacing.",
-        "es": "Support spacing.",
-        "ar": "Support spacing."
+        "de": "Stützweite.",
+        "fr": "Espacement des appuis.",
+        "es": "Separación entre apoyos.",
+        "ar": "تباعد الإسناد."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Material modulus.",
         "tr": "Malzeme modülü.",
-        "de": "Material modulus.",
-        "fr": "Material modulus.",
-        "es": "Material modulus.",
-        "ar": "Material modulus."
+        "de": "Materialmodul.",
+        "fr": "Module du matériau.",
+        "es": "Módulo del material.",
+        "ar": "معامل المادة."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Section moment of inertia.",
         "tr": "Kesitin atalet momenti.",
-        "de": "Section moment of inertia.",
-        "fr": "Section moment of inertia.",
-        "es": "Section moment of inertia.",
-        "ar": "Section moment of inertia."
+        "de": "Flächenträgheitsmoment des Querschnitts.",
+        "fr": "Moment d'inertie de la section.",
+        "es": "Momento de inercia de la sección.",
+        "ar": "عزم القصور الذاتي للمقطع."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Orta Nokta Sehimi",
         "tr": "Orta Nokta Sehimi",
-        "de": "Orta Nokta Sehimi",
-        "fr": "Orta Nokta Sehimi",
-        "es": "Orta Nokta Sehimi",
-        "ar": "Orta Nokta Sehimi"
+        "de": "Midpoint Deflection",
+        "fr": "Flèche au point médian",
+        "es": "Desviación del Punto Medio",
+        "ar": "انحراف نقطة المنتصف"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate mid-span deflection of a simply supported beam under point load.",
         "tr": "Tekil yük altındaki basit kirişin orta nokta çökmesini (sehim) hesaplar.",
-        "de": "Calculate mid-span deflection of a simply supported beam under point load.",
-        "fr": "Calculate mid-span deflection of a simply supported beam under point load.",
-        "es": "Calculate mid-span deflection of a simply supported beam under point load.",
-        "ar": "Calculate mid-span deflection of a simply supported beam under point load."
+        "de": "Berechnen Sie die Durchbiegung in Feldmitte eines einfach gelagerten Trägers unter Einzellast.",
+        "fr": "Calculer la flèche à mi-portée d'une poutre simplement appuyée sous une charge ponctuelle.",
+        "es": "Calcular la deflexión en el centro del vano de una viga simplemente apoyada bajo carga puntual.",
+        "ar": "احسب انحراف منتصف المدى لعتبة بسيطة الإسناد تحت حمل نقطي."
       },
       "long_i18n": {
         "en": "Calculate mid-span deflection of a simply supported beam under point load.",
         "tr": "Tekil yük altındaki basit kirişin orta nokta çökmesini (sehim) hesaplar.",
-        "de": "Calculate mid-span deflection of a simply supported beam under point load.",
-        "fr": "Calculate mid-span deflection of a simply supported beam under point load.",
-        "es": "Calculate mid-span deflection of a simply supported beam under point load.",
-        "ar": "Calculate mid-span deflection of a simply supported beam under point load."
+        "de": "Berechnen Sie die Durchbiegung in Feldmitte eines einfach gelagerten Trägers unter Einzellast.",
+        "fr": "Calculer la flèche à mi-portée d'une poutre simplement appuyée sous une charge ponctuelle.",
+        "es": "Calcular la deflexión en el centro del vano de una viga simplemente apoyada bajo carga puntual.",
+        "ar": "احسب انحراف منتصف المدى لعتبة بسيطة الإسناد تحت حمل نقطي."
       }
     }
   },

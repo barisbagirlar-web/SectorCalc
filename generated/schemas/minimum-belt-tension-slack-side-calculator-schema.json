@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Power Transmitted (W)",
         "tr": "İletilen Güç (W)",
-        "de": "Power Transmitted (W)",
-        "fr": "Power Transmitted (W)",
-        "es": "Power Transmitted (W)",
-        "ar": "Power Transmitted (W)"
+        "de": "Übertragene Leistung (W)",
+        "fr": "Puissance transmise (W)",
+        "es": "Potencia transmitida (W)",
+        "ar": "القدرة المنقولة (W)"
       },
       "type": "number",
       "unit": "W",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Belt power transmission.",
         "tr": "Kayışla iletilen güç.",
-        "de": "Belt power transmission.",
-        "fr": "Belt power transmission.",
-        "es": "Belt power transmission.",
-        "ar": "Belt power transmission."
+        "de": "Riemenleistungsübertragung.",
+        "fr": "Transmission de puissance par courroie.",
+        "es": "Transmisión de potencia por correa.",
+        "ar": "نقل قدرة الحزام."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Belt Speed (m/s)",
         "tr": "Kayış Hızı (m/s)",
-        "de": "Belt Speed (m/s)",
-        "fr": "Belt Speed (m/s)",
-        "es": "Belt Speed (m/s)",
-        "ar": "Belt Speed (m/s)"
+        "de": "Riemengeschwindigkeit (m/s)",
+        "fr": "Vitesse de la courroie (m/s)",
+        "es": "Velocidad de la correa (m/s)",
+        "ar": "سرعة الحزام (m/s)"
       },
       "type": "number",
       "unit": "m/s",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Belt linear speed.",
         "tr": "Kayışın lineer hızı.",
-        "de": "Belt linear speed.",
-        "fr": "Belt linear speed.",
-        "es": "Belt linear speed.",
-        "ar": "Belt linear speed."
+        "de": "Lineare Riemengeschwindigkeit.",
+        "fr": "Vitesse linéaire de la courroie.",
+        "es": "Velocidad lineal de la correa.",
+        "ar": "السرعة الخطية للحزام."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Wrap Angle (Rad)",
         "tr": "Sarılma Açısı (Rad)",
-        "de": "Wrap Angle (Rad)",
-        "fr": "Wrap Angle (Rad)",
-        "es": "Wrap Angle (Rad)",
-        "ar": "Wrap Angle (Rad)"
+        "de": "Umschlingungswinkel (Rad)",
+        "fr": "Angle d'enroulement (Rad)",
+        "es": "Ángulo de contacto (Rad)",
+        "ar": "زاوية الالتفاف (Rad)"
       },
       "type": "number",
       "unit": "rad",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Small pulley wrap angle.",
         "tr": "Küçük kasnağa sarılma açısı.",
-        "de": "Small pulley wrap angle.",
-        "fr": "Small pulley wrap angle.",
-        "es": "Small pulley wrap angle.",
-        "ar": "Small pulley wrap angle."
+        "de": "Umschlingungswinkel der kleinen Riemenscheibe.",
+        "fr": "Angle d'enroulement de la petite poulie.",
+        "es": "Ángulo de contacto de la polea pequeña.",
+        "ar": "زاوية التفاف البكرة الصغيرة."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Belt-pulley friction.",
         "tr": "Kayış-kasnak sürtünmesi.",
-        "de": "Belt-pulley friction.",
-        "fr": "Belt-pulley friction.",
-        "es": "Belt-pulley friction.",
-        "ar": "Belt-pulley friction."
+        "de": "Riemen-Scheiben-Reibung.",
+        "fr": "Frottement courroie-poulie.",
+        "es": "Fricción correa-polea.",
+        "ar": "احتكاك الحزام والبكرة."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "Gevşek Kol Gerilimi (F₂)",
         "tr": "Gevşek Kol Gerilimi (F₂)",
-        "de": "Gevşek Kol Gerilimi (F₂)",
-        "fr": "Gevşek Kol Gerilimi (F₂)",
-        "es": "Gevşek Kol Gerilimi (F₂)",
-        "ar": "Gevşek Kol Gerilimi (F₂)"
+        "de": "Leerlaufseilspannung (F₂)",
+        "fr": "Tension du côté mou (F₂)",
+        "es": "Tensión del lado flojo (F₂)",
+        "ar": "شد الجانب المرتخي (F₂)"
       }
     },
     "breakdownUnits": {
@@ -151,18 +151,18 @@
       "short_i18n": {
         "en": "Calculate minimum belt tension on the slack side.",
         "tr": "Kayışın gevşek kolundaki minimum gerilme kuvvetini hesaplar.",
-        "de": "Calculate minimum belt tension on the slack side.",
-        "fr": "Calculate minimum belt tension on the slack side.",
-        "es": "Calculate minimum belt tension on the slack side.",
-        "ar": "Calculate minimum belt tension on the slack side."
+        "de": "Berechnen Sie die minimale Riemenspannung auf der losen Seite.",
+        "fr": "Calculer la tension minimale de la courroie du côté mou.",
+        "es": "Calcular la tensión mínima de la correa en el lado flojo.",
+        "ar": "احسب أقل شد للحزام على الجانب المرتخي."
       },
       "long_i18n": {
         "en": "Calculate minimum belt tension on the slack side.",
         "tr": "Kayışın gevşek kolundaki minimum gerilme kuvvetini hesaplar.",
-        "de": "Calculate minimum belt tension on the slack side.",
-        "fr": "Calculate minimum belt tension on the slack side.",
-        "es": "Calculate minimum belt tension on the slack side.",
-        "ar": "Calculate minimum belt tension on the slack side."
+        "de": "Berechnen Sie die minimale Riemenspannung auf der losen Seite.",
+        "fr": "Calculer la tension minimale de la courroie du côté mou.",
+        "es": "Calcular la tensión mínima de la correa en el lado flojo.",
+        "ar": "احسب أقل شد للحزام على الجانب المرتخي."
       }
     }
   },

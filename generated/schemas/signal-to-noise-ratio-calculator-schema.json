@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Signal Power (W)",
         "tr": "Sinyal Gücü (W)",
-        "de": "Signal Power (W)",
-        "fr": "Signal Power (W)",
-        "es": "Signal Power (W)",
-        "ar": "Signal Power (W)"
+        "de": "Signalleistung (W)",
+        "fr": "Puissance du signal (W)",
+        "es": "Potencia de la Señal (W)",
+        "ar": "قدرة الإشارة (W)"
       },
       "type": "number",
       "unit": "W",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Desired signal power.",
         "tr": "İstenen sinyalin gücü.",
-        "de": "Desired signal power.",
-        "fr": "Desired signal power.",
-        "es": "Desired signal power.",
-        "ar": "Desired signal power."
+        "de": "Gewünschte Signalleistung.",
+        "fr": "Puissance du signal désiré.",
+        "es": "Potencia de la señal deseada.",
+        "ar": "قدرة الإشارة المرغوبة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Noise Power (W)",
         "tr": "Gürültü Gücü (W)",
-        "de": "Noise Power (W)",
-        "fr": "Noise Power (W)",
-        "es": "Noise Power (W)",
-        "ar": "Noise Power (W)"
+        "de": "Rauschleistung (W)",
+        "fr": "Puissance sonore (W)",
+        "es": "Potencia de Ruido (W)",
+        "ar": "قدرة الضوضاء (W)"
       },
       "type": "number",
       "unit": "W",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Background noise power.",
         "tr": "Arka plan gürültü gücü.",
-        "de": "Background noise power.",
-        "fr": "Background noise power.",
-        "es": "Background noise power.",
-        "ar": "Background noise power."
+        "de": "Hintergrundrauschleistung.",
+        "fr": "Puissance du bruit de fond.",
+        "es": "Potencia de ruido de fondo.",
+        "ar": "قدرة ضوضاء الخلفية."
       }
     }
   ],
@@ -74,11 +74,11 @@
     "breakdown_i18n": {
       "sonuc": {
         "en": "SNR",
-        "tr": "SNR",
-        "de": "SNR",
-        "fr": "SNR",
+        "tr": "Sinyal-Gürültü Oranı",
+        "de": "SNR (Signal-Rausch-Verhältnis)",
+        "fr": "Rapport signal sur bruit (SNR)",
         "es": "SNR",
-        "ar": "SNR"
+        "ar": "نسبة الإشارة إلى الضوضاء (SNR)"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
         "tr": "İstenen sinyalin arka plan gürültüsüne baskınlığını (SNR) desibel cinsinden hesaplar.",
-        "de": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
-        "fr": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
-        "es": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
-        "ar": "Calculate Signal-to-Noise Ratio (SNR) in dB."
+        "de": "Berechnen Sie das Signal-Rausch-Verhältnis (SNR) in dB.",
+        "fr": "Calculer le rapport signal sur bruit (SNR) en dB.",
+        "es": "Calcular la Relación Señal-Ruido (SNR) en dB.",
+        "ar": "احسب نسبة الإشارة إلى الضوضاء (SNR) بالديسيبل."
       },
       "long_i18n": {
         "en": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
         "tr": "İstenen sinyalin arka plan gürültüsüne baskınlığını (SNR) desibel cinsinden hesaplar.",
-        "de": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
-        "fr": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
-        "es": "Calculate Signal-to-Noise Ratio (SNR) in dB.",
-        "ar": "Calculate Signal-to-Noise Ratio (SNR) in dB."
+        "de": "Berechnen Sie das Signal-Rausch-Verhältnis (SNR) in dB.",
+        "fr": "Calculer le rapport signal sur bruit (SNR) en dB.",
+        "es": "Calcular la Relación Señal-Ruido (SNR) en dB.",
+        "ar": "احسب نسبة الإشارة إلى الضوضاء (SNR) بالديسيبل."
       }
     }
   },

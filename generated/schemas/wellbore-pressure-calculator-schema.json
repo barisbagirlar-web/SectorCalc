@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Vertical Depth (m)",
         "tr": "Dikey Derinlik (m)",
-        "de": "Vertical Depth (m)",
-        "fr": "Vertical Depth (m)",
-        "es": "Vertical Depth (m)",
-        "ar": "Vertical Depth (m)"
+        "de": "Vertikale Tiefe (m)",
+        "fr": "Profondeur verticale (m)",
+        "es": "Profundidad vertical (m)",
+        "ar": "العمق الرأسي (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "True vertical depth.",
         "tr": "Kuyunun dikey boyu.",
-        "de": "True vertical depth.",
-        "fr": "True vertical depth.",
-        "es": "True vertical depth.",
-        "ar": "True vertical depth."
+        "de": "Wahre vertikale Tiefe.",
+        "fr": "Profondeur verticale réelle.",
+        "es": "Profundidad vertical verdadera.",
+        "ar": "العمق الرأسي الحقيقي."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Mud Density (kg/m³)",
         "tr": "Sondaj Çamuru Yoğunluğu (kg/m³)",
-        "de": "Mud Density (kg/m³)",
-        "fr": "Mud Density (kg/m³)",
-        "es": "Mud Density (kg/m³)",
-        "ar": "Mud Density (kg/m³)"
+        "de": "Schlammdichte (kg/m³)",
+        "fr": "Densité de la boue (kg/m³)",
+        "es": "Densidad del lodo (kg/m³)",
+        "ar": "كثافة الطين (kg/m³)"
       },
       "type": "number",
       "unit": "kg/m3",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Mud weight.",
         "tr": "Çamur yoğunluğu.",
-        "de": "Mud weight.",
-        "fr": "Mud weight.",
-        "es": "Mud weight.",
-        "ar": "Mud weight."
+        "de": "Schlammgewicht.",
+        "fr": "Poids de la boue.",
+        "es": "Peso del lodo.",
+        "ar": "وزن الطين."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Hidrostatik Basınç",
         "tr": "Hidrostatik Basınç",
-        "de": "Hidrostatik Basınç",
-        "fr": "Hidrostatik Basınç",
-        "es": "Hidrostatik Basınç",
-        "ar": "Hidrostatik Basınç"
+        "de": "Hydrostatischer Druck",
+        "fr": "Pression hydrostatique",
+        "es": "Presión hidrostática",
+        "ar": "الضغط الهيدروستاتيكي"
       }
     },
     "breakdownUnits": {
@@ -103,18 +103,18 @@
       "short_i18n": {
         "en": "Calculate hydrostatic pressure of mud column at well depth.",
         "tr": "Kuyu tabanındaki çamur sütununun oluşturduğu hidrostatik basıncı hesaplar.",
-        "de": "Calculate hydrostatic pressure of mud column at well depth.",
-        "fr": "Calculate hydrostatic pressure of mud column at well depth.",
-        "es": "Calculate hydrostatic pressure of mud column at well depth.",
-        "ar": "Calculate hydrostatic pressure of mud column at well depth."
+        "de": "Berechnen Sie den hydrostatischen Druck der Schlammspalte in der Bohrtiefe.",
+        "fr": "Calculer la pression hydrostatique de la colonne de boue à la profondeur du puits.",
+        "es": "Calcular la presión hidrostática de la columna de lodo a la profundidad del pozo.",
+        "ar": "احسب الضغط الهيدروستاتيكي لعمود الطين عند عمق البئر."
       },
       "long_i18n": {
         "en": "Calculate hydrostatic pressure of mud column at well depth.",
         "tr": "Kuyu tabanındaki çamur sütununun oluşturduğu hidrostatik basıncı hesaplar.",
-        "de": "Calculate hydrostatic pressure of mud column at well depth.",
-        "fr": "Calculate hydrostatic pressure of mud column at well depth.",
-        "es": "Calculate hydrostatic pressure of mud column at well depth.",
-        "ar": "Calculate hydrostatic pressure of mud column at well depth."
+        "de": "Berechnen Sie den hydrostatischen Druck der Schlammspalte in der Bohrtiefe.",
+        "fr": "Calculer la pression hydrostatique de la colonne de boue à la profondeur du puits.",
+        "es": "Calcular la presión hidrostática de la columna de lodo a la profundidad del pozo.",
+        "ar": "احسب الضغط الهيدروستاتيكي لعمود الطين عند عمق البئر."
       }
     }
   },

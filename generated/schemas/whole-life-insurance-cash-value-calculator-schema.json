@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Annual Premium (USD)",
         "tr": "Yıllık Prim (TL)",
-        "de": "Annual Premium (USD)",
-        "fr": "Annual Premium (USD)",
-        "es": "Annual Premium (USD)",
-        "ar": "Annual Premium (USD)"
+        "de": "Jahresprämie (USD)",
+        "fr": "Prime annuelle (USD)",
+        "es": "Prima anual (USD)",
+        "ar": "القسط السنوي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Annual insurance premium.",
         "tr": "Ödenen yıllık sigorta primi.",
-        "de": "Annual insurance premium.",
-        "fr": "Annual insurance premium.",
-        "es": "Annual insurance premium.",
-        "ar": "Annual insurance premium."
+        "de": "Jährliche Versicherungsprämie.",
+        "fr": "Prime d'assurance annuelle.",
+        "es": "Prima de seguro anual.",
+        "ar": "القسط السنوي للتأمين."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Accumulation Rate (%)",
         "tr": "Birikim Faizi (%)",
-        "de": "Accumulation Rate (%)",
-        "fr": "Accumulation Rate (%)",
-        "es": "Accumulation Rate (%)",
-        "ar": "Accumulation Rate (%)"
+        "de": "Akkumulationsrate (%)",
+        "fr": "Taux d'accumulation (%)",
+        "es": "Tasa de acumulación (%)",
+        "ar": "معدل التراكم (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Policy cash value growth rate.",
         "tr": "Poliçe birikim faizi.",
-        "de": "Policy cash value growth rate.",
-        "fr": "Policy cash value growth rate.",
-        "es": "Policy cash value growth rate.",
-        "ar": "Policy cash value growth rate."
+        "de": "Wachstumsrate des Policenbarwerts.",
+        "fr": "Taux de croissance de la valeur de rachat de la police.",
+        "es": "Tasa de crecimiento del valor en efectivo de la póliza.",
+        "ar": "معدل نمو القيمة النقدية للوثيقة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Years Elapsed",
         "tr": "Geçen Yıl",
-        "de": "Years Elapsed",
-        "fr": "Years Elapsed",
-        "es": "Years Elapsed",
-        "ar": "Years Elapsed"
+        "de": "Verstrichene Jahre",
+        "fr": "Années écoulées",
+        "es": "Años transcurridos",
+        "ar": "السنوات المنقضية"
       },
       "type": "number",
       "unit": "years",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Years of premium payments.",
         "tr": "Prim ödenen yıl sayısı.",
-        "de": "Years of premium payments.",
-        "fr": "Years of premium payments.",
-        "es": "Years of premium payments.",
-        "ar": "Years of premium payments."
+        "de": "Jahre der Prämienzahlungen.",
+        "fr": "Années de paiement des primes.",
+        "es": "Años de pago de primas.",
+        "ar": "سنوات دفع الأقساط."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Poliçe Nakit Değeri",
         "tr": "Poliçe Nakit Değeri",
-        "de": "Poliçe Nakit Değeri",
-        "fr": "Poliçe Nakit Değeri",
-        "es": "Poliçe Nakit Değeri",
-        "ar": "Poliçe Nakit Değeri"
+        "de": "Policenbarwert",
+        "fr": "Valeur de rachat de la police",
+        "es": "Valor en Efectivo de la Póliza",
+        "ar": "القيمة النقدية للوثيقة"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate whole life insurance cash value accumulation.",
         "tr": "Poliçenin zamanla biriken nakit değerini hesaplar.",
-        "de": "Calculate whole life insurance cash value accumulation.",
-        "fr": "Calculate whole life insurance cash value accumulation.",
-        "es": "Calculate whole life insurance cash value accumulation.",
-        "ar": "Calculate whole life insurance cash value accumulation."
+        "de": "Berechnen Sie die Barwertakkumulation einer lebenslangen Versicherung.",
+        "fr": "Calculer l'accumulation de valeur de rachat d'une assurance vie entière.",
+        "es": "Calcular la acumulación de valor en efectivo de un seguro de vida entera.",
+        "ar": "احسب تراكم القيمة النقدية للتأمين على الحياة مدى الحياة."
       },
       "long_i18n": {
         "en": "Calculate whole life insurance cash value accumulation.",
         "tr": "Poliçenin zamanla biriken nakit değerini hesaplar.",
-        "de": "Calculate whole life insurance cash value accumulation.",
-        "fr": "Calculate whole life insurance cash value accumulation.",
-        "es": "Calculate whole life insurance cash value accumulation.",
-        "ar": "Calculate whole life insurance cash value accumulation."
+        "de": "Berechnen Sie die Barwertakkumulation einer lebenslangen Versicherung.",
+        "fr": "Calculer l'accumulation de valeur de rachat d'une assurance vie entière.",
+        "es": "Calcular la acumulación de valor en efectivo de un seguro de vida entera.",
+        "ar": "احسب تراكم القيمة النقدية للتأمين على الحياة مدى الحياة."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Total Balance (USD)",
         "tr": "Toplam Borç (₺)",
-        "de": "Total Balance (USD)",
-        "fr": "Total Balance (USD)",
-        "es": "Total Balance (USD)",
-        "ar": "Total Balance (USD)"
+        "de": "Gesamtsaldo (USD)",
+        "fr": "Solde total (USD)",
+        "es": "Saldo total (USD)",
+        "ar": "الرصيد الإجمالي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total credit card balance.",
         "tr": "Kredi kartı toplam borcu.",
-        "de": "Total credit card balance.",
-        "fr": "Total credit card balance.",
-        "es": "Total credit card balance.",
-        "ar": "Total credit card balance."
+        "de": "Gesamter Kreditkartensaldo.",
+        "fr": "Solde total de la carte de crédit.",
+        "es": "Saldo total de la tarjeta de crédito.",
+        "ar": "الرصيد الإجمالي لبطاقة الائتمان."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Minimum Payment Rate (%)",
         "tr": "Asgari Ödeme Oranı (%)",
-        "de": "Minimum Payment Rate (%)",
-        "fr": "Minimum Payment Rate (%)",
-        "es": "Minimum Payment Rate (%)",
-        "ar": "Minimum Payment Rate (%)"
+        "de": "Mindestzahlungssatz (%)",
+        "fr": "Taux de paiement minimum (%)",
+        "es": "Tasa de pago mínimo (%)",
+        "ar": "نسبة الحد الأدنى للدفع (%)"
       },
       "type": "number",
       "unit": "%",
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Minimum payment percentage.",
         "tr": "Asgari ödeme yüzdesi.",
-        "de": "Minimum payment percentage.",
-        "fr": "Minimum payment percentage.",
-        "es": "Minimum payment percentage.",
-        "ar": "Minimum payment percentage."
+        "de": "Mindestzahlungsprozentsatz.",
+        "fr": "Pourcentage de paiement minimum.",
+        "es": "Porcentaje de pago mínimo.",
+        "ar": "نسبة الحد الأدنى للدفع."
       }
     }
   ],
@@ -76,10 +76,10 @@
       "sonuc": {
         "en": "Asgari Ödeme Tutarı",
         "tr": "Asgari Ödeme Tutarı",
-        "de": "Asgari Ödeme Tutarı",
-        "fr": "Asgari Ödeme Tutarı",
-        "es": "Asgari Ödeme Tutarı",
-        "ar": "Asgari Ödeme Tutarı"
+        "de": "Mindestzahlungsbetrag",
+        "fr": "Minimum Payment Amount",
+        "es": "Monto de Pago Mínimo",
+        "ar": "مبلغ الحد الأدنى للدفع"
       }
     },
     "breakdownUnits": {
@@ -101,18 +101,18 @@
       "short_i18n": {
         "en": "Calculate minimum credit card payment required by law.",
         "tr": "Yasal olarak ödenmesi gereken asgari kredi kartı ödeme tutarını hesaplar.",
-        "de": "Calculate minimum credit card payment required by law.",
-        "fr": "Calculate minimum credit card payment required by law.",
-        "es": "Calculate minimum credit card payment required by law.",
-        "ar": "Calculate minimum credit card payment required by law."
+        "de": "Berechnen Sie die gesetzlich vorgeschriebene Mindestzahlung für Kreditkarten.",
+        "fr": "Calculer le paiement minimum par carte de crédit requis par la loi.",
+        "es": "Calcular el pago mínimo de la tarjeta de crédito requerido por ley.",
+        "ar": "احسب الحد الأدنى لدفع بطاقة الائتمان المطلوب قانونًا."
       },
       "long_i18n": {
         "en": "Calculate minimum credit card payment required by law.",
         "tr": "Yasal olarak ödenmesi gereken asgari kredi kartı ödeme tutarını hesaplar.",
-        "de": "Calculate minimum credit card payment required by law.",
-        "fr": "Calculate minimum credit card payment required by law.",
-        "es": "Calculate minimum credit card payment required by law.",
-        "ar": "Calculate minimum credit card payment required by law."
+        "de": "Berechnen Sie die gesetzlich vorgeschriebene Mindestzahlung für Kreditkarten.",
+        "fr": "Calculer le paiement minimum par carte de crédit requis par la loi.",
+        "es": "Calcular el pago mínimo de la tarjeta de crédito requerido por ley.",
+        "ar": "احسب الحد الأدنى لدفع بطاقة الائتمان المطلوب قانونًا."
       }
     }
   },

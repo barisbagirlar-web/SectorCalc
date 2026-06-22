@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Reported annual income.",
         "tr": "Beyan edilen yıllık gelir.",
-        "de": "Reported annual income.",
-        "fr": "Reported annual income.",
-        "es": "Reported annual income.",
-        "ar": "Reported annual income."
+        "de": "Gemeldetes Jahreseinkommen.",
+        "fr": "Revenu annuel déclaré.",
+        "es": "Ingreso anual reportado.",
+        "ar": "الدخل السنوي المبلغ عنه."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Base Premium (USD)",
         "tr": "Baz Prim (TL)",
-        "de": "Base Premium (USD)",
-        "fr": "Base Premium (USD)",
-        "es": "Base Premium (USD)",
-        "ar": "Base Premium (USD)"
+        "de": "Basisprämie (USD)",
+        "fr": "Prime de base (USD)",
+        "es": "Prima Base (USD)",
+        "ar": "القسط الأساسي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Standard premium amount.",
         "tr": "Standart prim tutarı.",
-        "de": "Standard premium amount.",
-        "fr": "Standard premium amount.",
-        "es": "Standard premium amount.",
-        "ar": "Standard premium amount."
+        "de": "Standardprämienbetrag.",
+        "fr": "Montant de la prime standard.",
+        "es": "Monto de prima estándar.",
+        "ar": "مبلغ القسط القياسي."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Surcharge Rate (%)",
         "tr": "Ek Prim Oranı (%)",
-        "de": "Surcharge Rate (%)",
-        "fr": "Surcharge Rate (%)",
-        "es": "Surcharge Rate (%)",
-        "ar": "Surcharge Rate (%)"
+        "de": "Zuschlagssatz (%)",
+        "fr": "Taux de surcharge (%)",
+        "es": "Tasa de Recargo (%)",
+        "ar": "معدل الرسوم الإضافية (%)"
       },
       "type": "number",
       "unit": "%",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "High-income surcharge.",
         "tr": "Yüksek gelirlilere uygulanan ek oran.",
-        "de": "High-income surcharge.",
-        "fr": "High-income surcharge.",
-        "es": "High-income surcharge.",
-        "ar": "High-income surcharge."
+        "de": "Zuschlag für hohes Einkommen.",
+        "fr": "Surcharge pour hauts revenus.",
+        "es": "Recargo por ingresos altos.",
+        "ar": "رسوم إضافية على ذوي الدخل المرتفع."
       }
     }
   ],
@@ -101,10 +101,10 @@
       "sonuc": {
         "en": "Aylık Medicare Primi",
         "tr": "Aylık Medicare Primi",
-        "de": "Aylık Medicare Primi",
-        "fr": "Aylık Medicare Primi",
-        "es": "Aylık Medicare Primi",
-        "ar": "Aylık Medicare Primi"
+        "de": "Monatliche Medicare-Prämie",
+        "fr": "Prime Medicare mensuelle",
+        "es": "Prima Mensual de Medicare",
+        "ar": "قسط ميديكير الشهري"
       }
     },
     "breakdownUnits": {
@@ -126,18 +126,18 @@
       "short_i18n": {
         "en": "Calculate income-adjusted monthly Medicare premium.",
         "tr": "Gelire göre ayarlanmış aylık Medicare sağlık sigortası primini hesaplar.",
-        "de": "Calculate income-adjusted monthly Medicare premium.",
-        "fr": "Calculate income-adjusted monthly Medicare premium.",
-        "es": "Calculate income-adjusted monthly Medicare premium.",
-        "ar": "Calculate income-adjusted monthly Medicare premium."
+        "de": "Berechnen Sie die einkommensangepasste monatliche Medicare-Prämie.",
+        "fr": "Calculer la prime Medicare mensuelle ajustée en fonction du revenu.",
+        "es": "Calcular la prima mensual de Medicare ajustada por ingresos.",
+        "ar": "احسب قسط ميديكير الشهري المعدل حسب الدخل."
       },
       "long_i18n": {
         "en": "Calculate income-adjusted monthly Medicare premium.",
         "tr": "Gelire göre ayarlanmış aylık Medicare sağlık sigortası primini hesaplar.",
-        "de": "Calculate income-adjusted monthly Medicare premium.",
-        "fr": "Calculate income-adjusted monthly Medicare premium.",
-        "es": "Calculate income-adjusted monthly Medicare premium.",
-        "ar": "Calculate income-adjusted monthly Medicare premium."
+        "de": "Berechnen Sie die einkommensangepasste monatliche Medicare-Prämie.",
+        "fr": "Calculer la prime Medicare mensuelle ajustée en fonction du revenu.",
+        "es": "Calcular la prima mensual de Medicare ajustada por ingresos.",
+        "ar": "احسب قسط ميديكير الشهري المعدل حسب الدخل."
       }
     }
   },

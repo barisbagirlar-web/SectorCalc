@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Vertical Load (N)",
         "tr": "Düşey Yük (N)",
-        "de": "Vertical Load (N)",
-        "fr": "Vertical Load (N)",
-        "es": "Vertical Load (N)",
-        "ar": "Vertical Load (N)"
+        "de": "Vertikallast (N)",
+        "fr": "Charge verticale (N)",
+        "es": "Carga Vertical (N)",
+        "ar": "الحمل الرأسي (N)"
       },
       "type": "number",
       "unit": "N",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Vertical load on wall.",
         "tr": "Duvara gelen düşey yük.",
-        "de": "Vertical load on wall.",
-        "fr": "Vertical load on wall.",
-        "es": "Vertical load on wall.",
-        "ar": "Vertical load on wall."
+        "de": "Vertikale Last auf die Wand.",
+        "fr": "Charge verticale sur le mur.",
+        "es": "Carga vertical sobre el muro.",
+        "ar": "الحمل الرأسي على الجدار."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Wall Cross-Section (m²)",
         "tr": "Duvar Kesit Alanı (m²)",
-        "de": "Wall Cross-Section (m²)",
-        "fr": "Wall Cross-Section (m²)",
-        "es": "Wall Cross-Section (m²)",
-        "ar": "Wall Cross-Section (m²)"
+        "de": "Wandquerschnitt (m²)",
+        "fr": "Section transversale du mur (m²)",
+        "es": "Sección Transversal del Muro (m²)",
+        "ar": "مقطع الجدار العرضي (m²)"
       },
       "type": "number",
       "unit": "m2",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Wall horizontal section area.",
         "tr": "Duvarın yatay kesit alanı.",
-        "de": "Wall horizontal section area.",
-        "fr": "Wall horizontal section area.",
-        "es": "Wall horizontal section area.",
-        "ar": "Wall horizontal section area."
+        "de": "Horizontale Querschnittsfläche der Wand.",
+        "fr": "Aire de la section horizontale du mur.",
+        "es": "Área de la sección horizontal del muro.",
+        "ar": "مساحة المقطع الأفقي للجدار."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Duvar Basınç Gerilmesi",
         "tr": "Duvar Basınç Gerilmesi",
-        "de": "Duvar Basınç Gerilmesi",
-        "fr": "Duvar Basınç Gerilmesi",
-        "es": "Duvar Basınç Gerilmesi",
-        "ar": "Duvar Basınç Gerilmesi"
+        "de": "Wall Bearing Stress",
+        "fr": "Contrainte de compression du mur",
+        "es": "Esfuerzo de Compresión en el Muro",
+        "ar": "إجهاد ضغط الجدار"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate average axial compressive stress in a load-bearing wall.",
         "tr": "Duvar kesitindeki ortalama eksenel basınç gerilmesini hesaplar.",
-        "de": "Calculate average axial compressive stress in a load-bearing wall.",
-        "fr": "Calculate average axial compressive stress in a load-bearing wall.",
-        "es": "Calculate average axial compressive stress in a load-bearing wall.",
-        "ar": "Calculate average axial compressive stress in a load-bearing wall."
+        "de": "Berechnen Sie die mittlere axiale Druckspannung in einer tragenden Wand.",
+        "fr": "Calculer la contrainte de compression axiale moyenne dans un mur porteur.",
+        "es": "Calcular el esfuerzo de compresión axial promedio en un muro de carga.",
+        "ar": "احسب متوسط إجهاد الضغط المحوري في جدار حامل."
       },
       "long_i18n": {
         "en": "Calculate average axial compressive stress in a load-bearing wall.",
         "tr": "Duvar kesitindeki ortalama eksenel basınç gerilmesini hesaplar.",
-        "de": "Calculate average axial compressive stress in a load-bearing wall.",
-        "fr": "Calculate average axial compressive stress in a load-bearing wall.",
-        "es": "Calculate average axial compressive stress in a load-bearing wall.",
-        "ar": "Calculate average axial compressive stress in a load-bearing wall."
+        "de": "Berechnen Sie die mittlere axiale Druckspannung in einer tragenden Wand.",
+        "fr": "Calculer la contrainte de compression axiale moyenne dans un mur porteur.",
+        "es": "Calcular el esfuerzo de compresión axial promedio en un muro de carga.",
+        "ar": "احسب متوسط إجهاد الضغط المحوري في جدار حامل."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Plaster Area (m²)",
         "tr": "Sıva Alanı (m²)",
-        "de": "Plaster Area (m²)",
-        "fr": "Plaster Area (m²)",
-        "es": "Plaster Area (m²)",
-        "ar": "Plaster Area (m²)"
+        "de": "Putzfläche (m²)",
+        "fr": "Surface de plâtre (m²)",
+        "es": "Área de Yeso (m²)",
+        "ar": "مساحة الجبس (m²)"
       },
       "type": "number",
       "unit": "m2",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Facade area to plaster.",
         "tr": "Sıvanacak cephe alanı.",
-        "de": "Facade area to plaster.",
-        "fr": "Facade area to plaster.",
-        "es": "Facade area to plaster.",
-        "ar": "Facade area to plaster."
+        "de": "Zu verputzende Fassadenfläche.",
+        "fr": "Surface de façade à plâtrer.",
+        "es": "Área de fachada a enyesar.",
+        "ar": "مساحة الواجهة المراد تجبيسها."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Application thickness.",
         "tr": "Uygulama kalınlığı.",
-        "de": "Application thickness.",
-        "fr": "Application thickness.",
-        "es": "Application thickness.",
-        "ar": "Application thickness."
+        "de": "Auftragsdicke.",
+        "fr": "Épaisseur d'application.",
+        "es": "Espesor de aplicación.",
+        "ar": "سمك التطبيق."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Mortar Density (kg/m³)",
         "tr": "Harç Yoğunluğu (kg/m³)",
-        "de": "Mortar Density (kg/m³)",
-        "fr": "Mortar Density (kg/m³)",
-        "es": "Mortar Density (kg/m³)",
-        "ar": "Mortar Density (kg/m³)"
+        "de": "Mörteldichte (kg/m³)",
+        "fr": "Densité du mortier (kg/m³)",
+        "es": "Densidad del Mortero (kg/m³)",
+        "ar": "كثافة الملاط (kg/m³)"
       },
       "type": "number",
       "unit": "kg/m3",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Dry mortar density.",
         "tr": "Kuru harç yoğunluğu.",
-        "de": "Dry mortar density.",
-        "fr": "Dry mortar density.",
-        "es": "Dry mortar density.",
-        "ar": "Dry mortar density."
+        "de": "Trockenmörteldichte.",
+        "fr": "Densité du mortier sec.",
+        "es": "Densidad del mortero seco.",
+        "ar": "كثافة الملاط الجاف."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Gerekli Sıva Harcı",
         "tr": "Gerekli Sıva Harcı",
-        "de": "Gerekli Sıva Harcı",
-        "fr": "Gerekli Sıva Harcı",
-        "es": "Gerekli Sıva Harcı",
-        "ar": "Gerekli Sıva Harcı"
+        "de": "Erforderlicher Putzmörtel",
+        "fr": "Mortier de plâtre requis",
+        "es": "Mortero de Yeso Requerido",
+        "ar": "ملاط الجبس المطلوب"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate dry plaster weight needed for facade application.",
         "tr": "Cepheye uygulanacak kuru sıva harcı ağırlığını hesaplar.",
-        "de": "Calculate dry plaster weight needed for facade application.",
-        "fr": "Calculate dry plaster weight needed for facade application.",
-        "es": "Calculate dry plaster weight needed for facade application.",
-        "ar": "Calculate dry plaster weight needed for facade application."
+        "de": "Berechnen Sie das benötigte Trockenputzgewicht für die Fassadenanwendung.",
+        "fr": "Calculer le poids de plâtre sec nécessaire pour l'application en façade.",
+        "es": "Calcular el peso de yeso seco necesario para la aplicación en fachada.",
+        "ar": "حساب وزن الجبس الجاف اللازم لتطبيق الواجهة."
       },
       "long_i18n": {
         "en": "Calculate dry plaster weight needed for facade application.",
         "tr": "Cepheye uygulanacak kuru sıva harcı ağırlığını hesaplar.",
-        "de": "Calculate dry plaster weight needed for facade application.",
-        "fr": "Calculate dry plaster weight needed for facade application.",
-        "es": "Calculate dry plaster weight needed for facade application.",
-        "ar": "Calculate dry plaster weight needed for facade application."
+        "de": "Berechnen Sie das benötigte Trockenputzgewicht für die Fassadenanwendung.",
+        "fr": "Calculer le poids de plâtre sec nécessaire pour l'application en façade.",
+        "es": "Calcular el peso de yeso seco necesario para la aplicación en fachada.",
+        "ar": "حساب وزن الجبس الجاف اللازم لتطبيق الواجهة."
       }
     }
   },

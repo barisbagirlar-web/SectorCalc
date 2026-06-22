@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Bond's par value at maturity.",
         "tr": "Tahvilin vade sonu anapara değeri.",
-        "de": "Bond's par value at maturity.",
-        "fr": "Bond's par value at maturity.",
-        "es": "Bond's par value at maturity.",
-        "ar": "Bond's par value at maturity."
+        "de": "Nennwert der Anleihe bei Fälligkeit.",
+        "fr": "Valeur nominale de l'obligation à l'échéance.",
+        "es": "Valor nominal del bono al vencimiento.",
+        "ar": "القيمة الاسمية للسند عند الاستحقاق."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Annual coupon payment rate.",
         "tr": "Tahvilin yıllık faiz ödeme oranı.",
-        "de": "Annual coupon payment rate.",
-        "fr": "Annual coupon payment rate.",
-        "es": "Annual coupon payment rate.",
-        "ar": "Annual coupon payment rate."
+        "de": "Jährlicher Kuponzahlungssatz.",
+        "fr": "Taux de coupon annuel.",
+        "es": "Tasa de pago de cupón anual.",
+        "ar": "معدل دفع القسيمة السنوي."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Yield on comparable bonds.",
         "tr": "Benzer riskteki tahvillerin getirisi.",
-        "de": "Yield on comparable bonds.",
-        "fr": "Yield on comparable bonds.",
-        "es": "Yield on comparable bonds.",
-        "ar": "Yield on comparable bonds."
+        "de": "Rendite vergleichbarer Anleihen.",
+        "fr": "Rendement des obligations comparables.",
+        "es": "Rendimiento de bonos comparables.",
+        "ar": "العائد على السندات المماثلة."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Years to maturity.",
         "tr": "Tahvilin vadesine kalan yıl.",
-        "de": "Years to maturity.",
-        "fr": "Years to maturity.",
-        "es": "Years to maturity.",
-        "ar": "Years to maturity."
+        "de": "Jahre bis zur Fälligkeit.",
+        "fr": "Années jusqu'à l'échéance.",
+        "es": "Años hasta el vencimiento.",
+        "ar": "السنوات حتى الاستحقاق."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "Tahvil Fiyatı (Bugünkü Değer)",
         "tr": "Tahvil Fiyatı (Bugünkü Değer)",
-        "de": "Tahvil Fiyatı (Bugünkü Değer)",
-        "fr": "Tahvil Fiyatı (Bugünkü Değer)",
-        "es": "Tahvil Fiyatı (Bugünkü Değer)",
-        "ar": "Tahvil Fiyatı (Bugünkü Değer)"
+        "de": "Bond Price (Present Value)",
+        "fr": "Prix de l'obligation (Valeur actuelle)",
+        "es": "Precio del Bono (Valor Actual)",
+        "ar": "سعر السند (القيمة الحالية)"
       }
     },
     "breakdownUnits": {
@@ -151,18 +151,18 @@
       "short_i18n": {
         "en": "Calculate the fair price of a bond based on market interest rates.",
         "tr": "Tahvilin piyasa faizine göre bugünkü adil fiyatını hesaplar.",
-        "de": "Calculate the fair price of a bond based on market interest rates.",
-        "fr": "Calculate the fair price of a bond based on market interest rates.",
-        "es": "Calculate the fair price of a bond based on market interest rates.",
-        "ar": "Calculate the fair price of a bond based on market interest rates."
+        "de": "Berechnung des fairen Preises einer Anleihe basierend auf den Marktzinssätzen.",
+        "fr": "Calculer le prix équitable d'une obligation en fonction des taux d'intérêt du marché.",
+        "es": "Calcular el precio justo de un bono basado en las tasas de interés del mercado.",
+        "ar": "حساب السعر العادل للسند بناءً على أسعار الفائدة السوقية."
       },
       "long_i18n": {
         "en": "Calculate the fair price of a bond based on market interest rates.",
         "tr": "Tahvilin piyasa faizine göre bugünkü adil fiyatını hesaplar.",
-        "de": "Calculate the fair price of a bond based on market interest rates.",
-        "fr": "Calculate the fair price of a bond based on market interest rates.",
-        "es": "Calculate the fair price of a bond based on market interest rates.",
-        "ar": "Calculate the fair price of a bond based on market interest rates."
+        "de": "Berechnung des fairen Preises einer Anleihe basierend auf den Marktzinssätzen.",
+        "fr": "Calculer le prix équitable d'une obligation en fonction des taux d'intérêt du marché.",
+        "es": "Calcular el precio justo de un bono basado en las tasas de interés del mercado.",
+        "ar": "حساب السعر العادل للسند بناءً على أسعار الفائدة السوقية."
       }
     }
   },

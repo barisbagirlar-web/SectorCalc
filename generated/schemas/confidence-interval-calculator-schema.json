@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Sample Mean",
         "tr": "Örneklem Ortalaması",
-        "de": "Sample Mean",
-        "fr": "Sample Mean",
-        "es": "Sample Mean",
-        "ar": "Sample Mean"
+        "de": "Stichprobenmittelwert",
+        "fr": "Moyenne de l'échantillon",
+        "es": "Media Muestral",
+        "ar": "متوسط العينة"
       },
       "type": "number",
       "unit": "",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Sample average.",
         "tr": "Örneklemin ortalaması.",
-        "de": "Sample average.",
-        "fr": "Sample average.",
-        "es": "Sample average.",
-        "ar": "Sample average."
+        "de": "Stichprobendurchschnitt.",
+        "fr": "Moyenne de l'échantillon.",
+        "es": "Promedio muestral.",
+        "ar": "متوسط العينة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Standard Error",
         "tr": "Standart Hata",
-        "de": "Standard Error",
-        "fr": "Standard Error",
-        "es": "Standard Error",
-        "ar": "Standard Error"
+        "de": "Standardfehler",
+        "fr": "Erreur standard",
+        "es": "Error Estándar",
+        "ar": "الخطأ المعياري"
       },
       "type": "number",
       "unit": "",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Standard error of the mean.",
         "tr": "Ortalamanın standart hatası.",
-        "de": "Standard error of the mean.",
-        "fr": "Standard error of the mean.",
-        "es": "Standard error of the mean.",
-        "ar": "Standard error of the mean."
+        "de": "Standardfehler des Mittelwerts.",
+        "fr": "Erreur standard de la moyenne.",
+        "es": "Error estándar de la media.",
+        "ar": "الخطأ المعياري للمتوسط."
       }
     },
     {
@@ -75,10 +75,10 @@
       "businessContext_i18n": {
         "en": "Statistical confidence level.",
         "tr": "İstatistiksel güven düzeyi.",
-        "de": "Statistical confidence level.",
-        "fr": "Statistical confidence level.",
-        "es": "Statistical confidence level.",
-        "ar": "Statistical confidence level."
+        "de": "Statistisches Konfidenzniveau.",
+        "fr": "Niveau de confiance statistique.",
+        "es": "Nivel de confianza estadística.",
+        "ar": "مستوى الثقة الإحصائي."
       }
     }
   ],
@@ -104,18 +104,18 @@
       "alt": {
         "en": "Alt Sınır",
         "tr": "Alt Sınır",
-        "de": "Alt Sınır",
-        "fr": "Alt Sınır",
-        "es": "Alt Sınır",
-        "ar": "Alt Sınır"
+        "de": "Untergrenze",
+        "fr": "Limite inférieure",
+        "es": "Límite Inferior",
+        "ar": "الحد الأدنى"
       },
       "sonuc": {
         "en": "Üst Sınır",
         "tr": "Üst Sınır",
-        "de": "Üst Sınır",
-        "fr": "Üst Sınır",
-        "es": "Üst Sınır",
-        "ar": "Üst Sınır"
+        "de": "Obergrenze",
+        "fr": "Limite supérieure",
+        "es": "Límite Superior",
+        "ar": "الحد الأعلى"
       }
     },
     "breakdownUnits": {
@@ -138,18 +138,18 @@
       "short_i18n": {
         "en": "Calculate confidence interval for population parameter.",
         "tr": "Popülasyon parametresinin bulunma olasılığı yüksek aralığı (güven aralığı) hesaplar.",
-        "de": "Calculate confidence interval for population parameter.",
-        "fr": "Calculate confidence interval for population parameter.",
-        "es": "Calculate confidence interval for population parameter.",
-        "ar": "Calculate confidence interval for population parameter."
+        "de": "Konfidenzintervall für den Populationsparameter berechnen.",
+        "fr": "Calculer l'intervalle de confiance pour un paramètre de population.",
+        "es": "Calcular el intervalo de confianza para un parámetro poblacional.",
+        "ar": "حساب فاصل الثقة لمعلمة المجتمع."
       },
       "long_i18n": {
         "en": "Calculate confidence interval for population parameter.",
         "tr": "Popülasyon parametresinin bulunma olasılığı yüksek aralığı (güven aralığı) hesaplar.",
-        "de": "Calculate confidence interval for population parameter.",
-        "fr": "Calculate confidence interval for population parameter.",
-        "es": "Calculate confidence interval for population parameter.",
-        "ar": "Calculate confidence interval for population parameter."
+        "de": "Konfidenzintervall für den Populationsparameter berechnen.",
+        "fr": "Calculer l'intervalle de confiance pour un paramètre de population.",
+        "es": "Calcular el intervalo de confianza para un parámetro poblacional.",
+        "ar": "حساب فاصل الثقة لمعلمة المجتمع."
       }
     }
   },

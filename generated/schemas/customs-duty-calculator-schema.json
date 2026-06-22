@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "CIF Value (USD)",
         "tr": "CIF Bedel (TL)",
-        "de": "CIF Value (USD)",
-        "fr": "CIF Value (USD)",
-        "es": "CIF Value (USD)",
-        "ar": "CIF Value (USD)"
+        "de": "CIF-Wert (USD)",
+        "fr": "Valeur CIF (USD)",
+        "es": "Valor CIF (USD)",
+        "ar": "قيمة CIF (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Cost, insurance, freight inclusive value.",
         "tr": "Sigorta ve navlun dahil toplam mal bedeli.",
-        "de": "Cost, insurance, freight inclusive value.",
-        "fr": "Cost, insurance, freight inclusive value.",
-        "es": "Cost, insurance, freight inclusive value.",
-        "ar": "Cost, insurance, freight inclusive value."
+        "de": "Kosten-, Versicherungs- und Fracht-inklusiver Wert.",
+        "fr": "Valeur incluant le coût, l'assurance et le fret.",
+        "es": "Valor que incluye costo, seguro y flete.",
+        "ar": "القيمة شاملة التكلفة والتأمين والشحن."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Customs Duty Rate (%)",
         "tr": "Gümrük Oranı (%)",
-        "de": "Customs Duty Rate (%)",
-        "fr": "Customs Duty Rate (%)",
-        "es": "Customs Duty Rate (%)",
-        "ar": "Customs Duty Rate (%)"
+        "de": "Zollsatz (%)",
+        "fr": "Taux de droit de douane (%)",
+        "es": "Tasa de Arancel Aduanero (%)",
+        "ar": "نسبة الرسوم الجمركية (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "HS code based duty rate.",
         "tr": "GTİP bazlı gümrük vergisi oranı.",
-        "de": "HS code based duty rate.",
-        "fr": "HS code based duty rate.",
-        "es": "HS code based duty rate.",
-        "ar": "HS code based duty rate."
+        "de": "HS-Code-basierter Zollsatz.",
+        "fr": "Taux de droit basé sur le code SH.",
+        "es": "Tasa arancelaria basada en el código SA.",
+        "ar": "نسبة الرسوم بناءً على رمز النظام المنسق."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Gümrük Vergisi",
         "tr": "Gümrük Vergisi",
-        "de": "Gümrük Vergisi",
-        "fr": "Gümrük Vergisi",
-        "es": "Gümrük Vergisi",
-        "ar": "Gümrük Vergisi"
+        "de": "Zollgebühr",
+        "fr": "Droit de douane",
+        "es": "Impuesto de Aduana",
+        "ar": "الرسوم الجمركية"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate customs duty on imports.",
         "tr": "İthalatta hesaplanan gümrük vergisini hesaplar.",
-        "de": "Calculate customs duty on imports.",
-        "fr": "Calculate customs duty on imports.",
-        "es": "Calculate customs duty on imports.",
-        "ar": "Calculate customs duty on imports."
+        "de": "Berechnen Sie den Zoll auf Importe.",
+        "fr": "Calculer les droits de douane sur les importations.",
+        "es": "Calcular el arancel de importación sobre las importaciones.",
+        "ar": "احسب الرسوم الجمركية على الواردات."
       },
       "long_i18n": {
         "en": "Calculate customs duty on imports.",
         "tr": "İthalatta hesaplanan gümrük vergisini hesaplar.",
-        "de": "Calculate customs duty on imports.",
-        "fr": "Calculate customs duty on imports.",
-        "es": "Calculate customs duty on imports.",
-        "ar": "Calculate customs duty on imports."
+        "de": "Berechnen Sie den Zoll auf Importe.",
+        "fr": "Calculer les droits de douane sur les importations.",
+        "es": "Calcular el arancel de importación sobre las importaciones.",
+        "ar": "احسب الرسوم الجمركية على الواردات."
       }
     }
   },

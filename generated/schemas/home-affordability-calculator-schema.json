@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Gross monthly income.",
         "tr": "Brüt aylık gelir.",
-        "de": "Gross monthly income.",
-        "fr": "Gross monthly income.",
-        "es": "Gross monthly income.",
-        "ar": "Gross monthly income."
+        "de": "Bruttomonatseinkommen.",
+        "fr": "Revenu mensuel brut.",
+        "es": "Ingreso bruto mensual.",
+        "ar": "الدخل الشهري الإجمالي."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Max DTI Ratio (%)",
         "tr": "Maks DTI Oranı (%)",
-        "de": "Max DTI Ratio (%)",
-        "fr": "Max DTI Ratio (%)",
-        "es": "Max DTI Ratio (%)",
-        "ar": "Max DTI Ratio (%)"
+        "de": "Maximales DTI-Verhältnis (%)",
+        "fr": "Ratio DTI maximal (%)",
+        "es": "Relación DTI máxima (%)",
+        "ar": "الحد الأقصى لنسبة DTI (%)"
       },
       "type": "number",
       "unit": "%",
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Maximum debt-to-income ratio allowed.",
         "tr": "Bankanın izin verdiği maksimum borç/gelir oranı.",
-        "de": "Maximum debt-to-income ratio allowed.",
-        "fr": "Maximum debt-to-income ratio allowed.",
-        "es": "Maximum debt-to-income ratio allowed.",
-        "ar": "Maximum debt-to-income ratio allowed."
+        "de": "Maximal zulässiges Schulden-Einkommens-Verhältnis.",
+        "fr": "Ratio dette-revenu maximal autorisé.",
+        "es": "Relación máxima deuda-ingreso permitida.",
+        "ar": "الحد الأقصى المسموح به لنسبة الدين إلى الدخل."
       }
     },
     {
@@ -75,10 +75,10 @@
       "businessContext_i18n": {
         "en": "Existing monthly debt obligations.",
         "tr": "Kredi kartı, taşıt kredisi gibi mevcut borçlar.",
-        "de": "Existing monthly debt obligations.",
-        "fr": "Existing monthly debt obligations.",
-        "es": "Existing monthly debt obligations.",
-        "ar": "Existing monthly debt obligations."
+        "de": "Bestehende monatliche Schuldenverpflichtungen.",
+        "fr": "Obligations de dette mensuelles existantes.",
+        "es": "Obligaciones de deuda mensuales existentes.",
+        "ar": "الالتزامات الشهرية الحالية للديون."
       }
     },
     {
@@ -87,10 +87,10 @@
       "label_i18n": {
         "en": "Estimated Interest (%)",
         "tr": "Tahmini Faiz (%)",
-        "de": "Estimated Interest (%)",
-        "fr": "Estimated Interest (%)",
-        "es": "Estimated Interest (%)",
-        "ar": "Estimated Interest (%)"
+        "de": "Geschätzter Zinssatz (%)",
+        "fr": "Intérêt estimé (%)",
+        "es": "Interés estimado (%)",
+        "ar": "الفائدة المقدرة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -100,10 +100,10 @@
       "businessContext_i18n": {
         "en": "Expected mortgage rate.",
         "tr": "Kredi faiz oranı.",
-        "de": "Expected mortgage rate.",
-        "fr": "Expected mortgage rate.",
-        "es": "Expected mortgage rate.",
-        "ar": "Expected mortgage rate."
+        "de": "Erwarteter Hypothekenzins.",
+        "fr": "Taux hypothécaire attendu.",
+        "es": "Tasa hipotecaria esperada.",
+        "ar": "معدل الرهن العقاري المتوقع."
       }
     },
     {
@@ -125,10 +125,10 @@
       "businessContext_i18n": {
         "en": "Loan term.",
         "tr": "Kredi vadesi.",
-        "de": "Loan term.",
-        "fr": "Loan term.",
-        "es": "Loan term.",
-        "ar": "Loan term."
+        "de": "Kreditlaufzeit.",
+        "fr": "Durée du prêt.",
+        "es": "Plazo del préstamo.",
+        "ar": "مدة القرض."
       }
     }
   ],
@@ -152,10 +152,10 @@
       "sonuc": {
         "en": "Maksimum Kredi Tutarı",
         "tr": "Maksimum Kredi Tutarı",
-        "de": "Maksimum Kredi Tutarı",
-        "fr": "Maksimum Kredi Tutarı",
-        "es": "Maksimum Kredi Tutarı",
-        "ar": "Maksimum Kredi Tutarı"
+        "de": "Maximaler Kreditbetrag",
+        "fr": "Montant maximal du prêt",
+        "es": "Monto máximo de crédito",
+        "ar": "الحد الأقصى لمبلغ القرض"
       }
     },
     "breakdownUnits": {
@@ -177,18 +177,18 @@
       "short_i18n": {
         "en": "Calculate maximum mortgage amount based on income and DTI limits.",
         "tr": "Gelire göre bankadan çekilebilecek maksimum kredi tutarını hesaplar.",
-        "de": "Calculate maximum mortgage amount based on income and DTI limits.",
-        "fr": "Calculate maximum mortgage amount based on income and DTI limits.",
-        "es": "Calculate maximum mortgage amount based on income and DTI limits.",
-        "ar": "Calculate maximum mortgage amount based on income and DTI limits."
+        "de": "Berechnen Sie den maximalen Hypothekenbetrag basierend auf Einkommen und DTI-Grenzen.",
+        "fr": "Calculer le montant maximal du prêt hypothécaire en fonction du revenu et des limites DTI.",
+        "es": "Calcular el monto máximo de hipoteca basado en ingresos y límites DTI.",
+        "ar": "احسب الحد الأقصى لمبلغ الرهن العقاري بناءً على الدخل وحدود DTI."
       },
       "long_i18n": {
         "en": "Calculate maximum mortgage amount based on income and DTI limits.",
         "tr": "Gelire göre bankadan çekilebilecek maksimum kredi tutarını hesaplar.",
-        "de": "Calculate maximum mortgage amount based on income and DTI limits.",
-        "fr": "Calculate maximum mortgage amount based on income and DTI limits.",
-        "es": "Calculate maximum mortgage amount based on income and DTI limits.",
-        "ar": "Calculate maximum mortgage amount based on income and DTI limits."
+        "de": "Berechnen Sie den maximalen Hypothekenbetrag basierend auf Einkommen und DTI-Grenzen.",
+        "fr": "Calculer le montant maximal du prêt hypothécaire en fonction du revenu et des limites DTI.",
+        "es": "Calcular el monto máximo de hipoteca basado en ingresos y límites DTI.",
+        "ar": "احسب الحد الأقصى لمبلغ الرهن العقاري بناءً على الدخل وحدود DTI."
       }
     }
   },

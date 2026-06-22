@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Normal stress in x.",
         "tr": "X yönü normal gerilme.",
-        "de": "Normal stress in x.",
-        "fr": "Normal stress in x.",
-        "es": "Normal stress in x.",
-        "ar": "Normal stress in x."
+        "de": "Normalspannung in x.",
+        "fr": "Contrainte normale en x.",
+        "es": "Esfuerzo normal en x.",
+        "ar": "الإجهاد العمودي في x."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Normal stress in y.",
         "tr": "Y yönü normal gerilme.",
-        "de": "Normal stress in y.",
-        "fr": "Normal stress in y.",
-        "es": "Normal stress in y.",
-        "ar": "Normal stress in y."
+        "de": "Normalspannung in y.",
+        "fr": "Contrainte normale en y.",
+        "es": "Esfuerzo normal en y.",
+        "ar": "الإجهاد العمودي في y."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Shear stress in xy.",
         "tr": "Kayma gerilmesi.",
-        "de": "Shear stress in xy.",
-        "fr": "Shear stress in xy.",
-        "es": "Shear stress in xy.",
-        "ar": "Shear stress in xy."
+        "de": "Schubspannung in xy.",
+        "fr": "Contrainte de cisaillement en xy.",
+        "es": "Esfuerzo cortante en xy.",
+        "ar": "إجهاد القص في xy."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Von Mises Gerilmesi (σᵥ)",
         "tr": "Von Mises Gerilmesi (σᵥ)",
-        "de": "Von Mises Gerilmesi (σᵥ)",
-        "fr": "Von Mises Gerilmesi (σᵥ)",
-        "es": "Von Mises Gerilmesi (σᵥ)",
-        "ar": "Von Mises Gerilmesi (σᵥ)"
+        "de": "Von Mises Stress (σᵥ)",
+        "fr": "Contrainte de Von Mises (σᵥ)",
+        "es": "Esfuerzo de Von Mises (σᵥ)",
+        "ar": "إجهاد فون ميزس (σᵥ)"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate Von Mises equivalent stress for multiaxial loading.",
         "tr": "Çok eksenli yüklemedeki eşdeğer akma gerilmesini (Von Mises) hesaplar.",
-        "de": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "fr": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "es": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "ar": "Calculate Von Mises equivalent stress for multiaxial loading."
+        "de": "Berechnen Sie die Von-Mises-Vergleichsspannung für mehrachsige Belastung.",
+        "fr": "Calculer la contrainte équivalente de Von Mises pour un chargement multiaxial.",
+        "es": "Calcular el esfuerzo equivalente de Von Mises para carga multiaxial.",
+        "ar": "حساب الإجهاد المكافئ لفون ميزس للحمل متعدد المحاور."
       },
       "long_i18n": {
         "en": "Calculate Von Mises equivalent stress for multiaxial loading.",
         "tr": "Çok eksenli yüklemedeki eşdeğer akma gerilmesini (Von Mises) hesaplar.",
-        "de": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "fr": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "es": "Calculate Von Mises equivalent stress for multiaxial loading.",
-        "ar": "Calculate Von Mises equivalent stress for multiaxial loading."
+        "de": "Berechnen Sie die Von-Mises-Vergleichsspannung für mehrachsige Belastung.",
+        "fr": "Calculer la contrainte équivalente de Von Mises pour un chargement multiaxial.",
+        "es": "Calcular el esfuerzo equivalente de Von Mises para carga multiaxial.",
+        "ar": "حساب الإجهاد المكافئ لفون ميزس للحمل متعدد المحاور."
       }
     }
   },

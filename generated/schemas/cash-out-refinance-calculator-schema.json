@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Current property value.",
         "tr": "Evin güncel piyasa değeri.",
-        "de": "Current property value.",
-        "fr": "Current property value.",
-        "es": "Current property value.",
-        "ar": "Current property value."
+        "de": "Aktueller Immobilienwert.",
+        "fr": "Valeur actuelle du bien.",
+        "es": "Valor actual de la propiedad.",
+        "ar": "قيمة العقار الحالية."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Remaining Debt (USD)",
         "tr": "Kalan Borç (₺)",
-        "de": "Remaining Debt (USD)",
-        "fr": "Remaining Debt (USD)",
-        "es": "Remaining Debt (USD)",
-        "ar": "Remaining Debt (USD)"
+        "de": "Restverschuldung (USD)",
+        "fr": "Dette restante (USD)",
+        "es": "Deuda restante (USD)",
+        "ar": "الدين المتبقي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Current mortgage balance.",
         "tr": "Mevcut kredi bakiyesi.",
-        "de": "Current mortgage balance.",
-        "fr": "Current mortgage balance.",
-        "es": "Current mortgage balance.",
-        "ar": "Current mortgage balance."
+        "de": "Aktueller Hypothekensaldo.",
+        "fr": "Solde hypothécaire actuel.",
+        "es": "Saldo actual de la hipoteca.",
+        "ar": "رصيد الرهن العقاري الحالي."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "New Loan Amount (USD)",
         "tr": "Yeni Kredi Tutarı (₺)",
-        "de": "New Loan Amount (USD)",
-        "fr": "New Loan Amount (USD)",
-        "es": "New Loan Amount (USD)",
-        "ar": "New Loan Amount (USD)"
+        "de": "Neuer Darlehensbetrag (USD)",
+        "fr": "Montant du nouveau prêt (USD)",
+        "es": "Monto del Nuevo Préstamo (USD)",
+        "ar": "مبلغ القرض الجديد (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total new loan to draw.",
         "tr": "Yeni çekilen toplam kredi.",
-        "de": "Total new loan to draw.",
-        "fr": "Total new loan to draw.",
-        "es": "Total new loan to draw.",
-        "ar": "Total new loan to draw."
+        "de": "Gesamter neuer Kreditbetrag zur Auszahlung.",
+        "fr": "Total du nouveau prêt à tirer.",
+        "es": "Total del nuevo préstamo a retirar.",
+        "ar": "إجمالي القرض الجديد للسحب."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Closing and processing costs.",
         "tr": "Kapatma ve işlem masrafları.",
-        "de": "Closing and processing costs.",
-        "fr": "Closing and processing costs.",
-        "es": "Closing and processing costs.",
-        "ar": "Closing and processing costs."
+        "de": "Abschluss- und Bearbeitungskosten.",
+        "fr": "Frais de clôture et de traitement.",
+        "es": "Costos de cierre y procesamiento.",
+        "ar": "تكاليف الإغلاق والمعالجة."
       }
     }
   ],
@@ -127,18 +127,18 @@
       "ltv": {
         "en": "LTV Oranı (%)",
         "tr": "LTV Oranı (%)",
-        "de": "LTV Oranı (%)",
-        "fr": "LTV Oranı (%)",
-        "es": "LTV Oranı (%)",
-        "ar": "LTV Oranı (%)"
+        "de": "LTV-Verhältnis (%)",
+        "fr": "Ratio LTV (%)",
+        "es": "Relación LTV (%)",
+        "ar": "نسبة LTV (%)"
       },
       "sonuc": {
         "en": "Net Nakit Çıkış",
         "tr": "Net Nakit Çıkış",
-        "de": "Net Nakit Çıkış",
-        "fr": "Net Nakit Çıkış",
-        "es": "Net Nakit Çıkış",
-        "ar": "Net Nakit Çıkış"
+        "de": "Netto-Cash-Abfluss",
+        "fr": "Sortie nette de trésorerie",
+        "es": "Salida Neta de Efectivo",
+        "ar": "صافي التدفق النقدي الخارج"
       }
     },
     "breakdownUnits": {
@@ -161,18 +161,18 @@
       "short_i18n": {
         "en": "Calculate net cash-out from a cash-out refinance.",
         "tr": "Ev sermayesinin nakde çevrilerek ele geçen net tutarı hesaplar.",
-        "de": "Calculate net cash-out from a cash-out refinance.",
-        "fr": "Calculate net cash-out from a cash-out refinance.",
-        "es": "Calculate net cash-out from a cash-out refinance.",
-        "ar": "Calculate net cash-out from a cash-out refinance."
+        "de": "Berechnen Sie den Netto-Cash-Abfluss aus einer Cash-Out-Refinanzierung.",
+        "fr": "Calculer la sortie nette de trésorerie d'un refinancement avec retrait.",
+        "es": "Calcular la salida neta de efectivo de un refinanciamiento con retiro de efectivo.",
+        "ar": "احسب صافي التدفق النقدي الخارج من إعادة التمويل النقدي."
       },
       "long_i18n": {
         "en": "Calculate net cash-out from a cash-out refinance.",
         "tr": "Ev sermayesinin nakde çevrilerek ele geçen net tutarı hesaplar.",
-        "de": "Calculate net cash-out from a cash-out refinance.",
-        "fr": "Calculate net cash-out from a cash-out refinance.",
-        "es": "Calculate net cash-out from a cash-out refinance.",
-        "ar": "Calculate net cash-out from a cash-out refinance."
+        "de": "Berechnen Sie den Netto-Cash-Abfluss aus einer Cash-Out-Refinanzierung.",
+        "fr": "Calculer la sortie nette de trésorerie d'un refinancement avec retrait.",
+        "es": "Calcular la salida neta de efectivo de un refinanciamiento con retiro de efectivo.",
+        "ar": "احسب صافي التدفق النقدي الخارج من إعادة التمويل النقدي."
       }
     }
   },

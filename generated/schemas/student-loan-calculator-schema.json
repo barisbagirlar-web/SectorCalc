@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Student loan principal.",
         "tr": "Öğrenim kredisi anaparası.",
-        "de": "Student loan principal.",
-        "fr": "Student loan principal.",
-        "es": "Student loan principal.",
-        "ar": "Student loan principal."
+        "de": "Studienkreditkapital.",
+        "fr": "Principal du prêt étudiant.",
+        "es": "Capital del préstamo estudiantil.",
+        "ar": "أصل القرض الطلابي."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Loan interest rate.",
         "tr": "Kredinin faiz oranı.",
-        "de": "Loan interest rate.",
-        "fr": "Loan interest rate.",
-        "es": "Loan interest rate.",
-        "ar": "Loan interest rate."
+        "de": "Darlehenszinssatz.",
+        "fr": "Taux d'intérêt du prêt.",
+        "es": "Tasa de interés del préstamo.",
+        "ar": "معدل فائدة القرض."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Repayment term.",
         "tr": "Ödeme vadesi.",
-        "de": "Repayment term.",
-        "fr": "Repayment term.",
-        "es": "Repayment term.",
-        "ar": "Repayment term."
+        "de": "Rückzahlungsdauer.",
+        "fr": "Durée de remboursement.",
+        "es": "Plazo de amortización.",
+        "ar": "مدة السداد."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Grace Period (Months)",
         "tr": "Erteleme Süresi (Ay)",
-        "de": "Grace Period (Months)",
-        "fr": "Grace Period (Months)",
-        "es": "Grace Period (Months)",
-        "ar": "Grace Period (Months)"
+        "de": "Tilgungsfreie Zeit (Monate)",
+        "fr": "Période de grâce (Mois)",
+        "es": "Período de Gracia (Meses)",
+        "ar": "فترة السماح (Months)"
       },
       "type": "number",
       "unit": "months",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Post-graduation deferment period.",
         "tr": "Mezuniyet sonrası ödemesiz dönem.",
-        "de": "Post-graduation deferment period.",
-        "fr": "Post-graduation deferment period.",
-        "es": "Post-graduation deferment period.",
-        "ar": "Post-graduation deferment period."
+        "de": "Stundungszeit nach dem Abschluss.",
+        "fr": "Période de report après l'obtention du diplôme.",
+        "es": "Período de aplazamiento post-graduación.",
+        "ar": "فترة التأجيل بعد التخرج."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Erteleme Sonrası Aylık Taksit",
         "tr": "Erteleme Sonrası Aylık Taksit",
-        "de": "Erteleme Sonrası Aylık Taksit",
-        "fr": "Erteleme Sonrası Aylık Taksit",
-        "es": "Erteleme Sonrası Aylık Taksit",
-        "ar": "Erteleme Sonrası Aylık Taksit"
+        "de": "Monatsrate nach Stundung",
+        "fr": "Mensualité après report",
+        "es": "Cuota Mensual Diferida",
+        "ar": "القسط الشهري بعد التأجيل"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate student loan payment starting after grace period.",
         "tr": "Mezuniyet sonrası erteleme süresi bitince başlayan aylık taksiti hesaplar.",
-        "de": "Calculate student loan payment starting after grace period.",
-        "fr": "Calculate student loan payment starting after grace period.",
-        "es": "Calculate student loan payment starting after grace period.",
-        "ar": "Calculate student loan payment starting after grace period."
+        "de": "Berechnen Sie die monatliche Studienkreditrate nach Ablauf der tilgungsfreien Zeit.",
+        "fr": "Calculer le paiement du prêt étudiant commençant après la période de grâce.",
+        "es": "Calcular el pago del préstamo estudiantil que comienza después del período de gracia.",
+        "ar": "احسب دفعة القرض الطلابي التي تبدأ بعد فترة السماح."
       },
       "long_i18n": {
         "en": "Calculate student loan payment starting after grace period.",
         "tr": "Mezuniyet sonrası erteleme süresi bitince başlayan aylık taksiti hesaplar.",
-        "de": "Calculate student loan payment starting after grace period.",
-        "fr": "Calculate student loan payment starting after grace period.",
-        "es": "Calculate student loan payment starting after grace period.",
-        "ar": "Calculate student loan payment starting after grace period."
+        "de": "Berechnen Sie die monatliche Studienkreditrate nach Ablauf der tilgungsfreien Zeit.",
+        "fr": "Calculer le paiement du prêt étudiant commençant après la période de grâce.",
+        "es": "Calcular el pago del préstamo estudiantil que comienza después del período de gracia.",
+        "ar": "احسب دفعة القرض الطلابي التي تبدأ بعد فترة السماح."
       }
     }
   },

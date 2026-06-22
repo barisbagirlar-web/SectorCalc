@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Max Signal Frequency (Hz)",
         "tr": "Maks. Sinyal Frekansı (Hz)",
-        "de": "Max Signal Frequency (Hz)",
-        "fr": "Max Signal Frequency (Hz)",
-        "es": "Max Signal Frequency (Hz)",
-        "ar": "Max Signal Frequency (Hz)"
+        "de": "Maximale Signalfrequenz (Hz)",
+        "fr": "Fréquence maximale du signal (Hz)",
+        "es": "Frecuencia Máxima de la Señal (Hz)",
+        "ar": "التردد الأقصى للإشارة (Hz)"
       },
       "type": "number",
       "unit": "Hz",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Highest frequency component.",
         "tr": "Sinyaldeki en yüksek frekans bileşeni.",
-        "de": "Highest frequency component.",
-        "fr": "Highest frequency component.",
-        "es": "Highest frequency component.",
-        "ar": "Highest frequency component."
+        "de": "Höchste Frequenzkomponente.",
+        "fr": "Composante de fréquence la plus élevée.",
+        "es": "Componente de frecuencia más alta.",
+        "ar": "أعلى مكون ترددي."
       }
     }
   ],
@@ -50,10 +50,10 @@
       "sonuc": {
         "en": "Min. Örnekleme Hızı",
         "tr": "Min. Örnekleme Hızı",
-        "de": "Min. Örnekleme Hızı",
-        "fr": "Min. Örnekleme Hızı",
-        "es": "Min. Örnekleme Hızı",
-        "ar": "Min. Örnekleme Hızı"
+        "de": "Min. Sampling Rate",
+        "fr": "Vitesse d'échantillonnage min.",
+        "es": "Frecuencia de Muestreo Mínima",
+        "ar": "الحد الأدنى لمعدل أخذ العينات"
       }
     },
     "breakdownUnits": {
@@ -78,18 +78,18 @@
       "short_i18n": {
         "en": "Calculate minimum sampling rate for biological signals (Nyquist theorem).",
         "tr": "Sinyalde örtüşmeyi (aliasing) önleyen minimum ADC örnekleme hızını Nyquist teoremi ile hesaplar.",
-        "de": "Calculate minimum sampling rate for biological signals (Nyquist theorem).",
-        "fr": "Calculate minimum sampling rate for biological signals (Nyquist theorem).",
-        "es": "Calculate minimum sampling rate for biological signals (Nyquist theorem).",
-        "ar": "Calculate minimum sampling rate for biological signals (Nyquist theorem)."
+        "de": "Berechnen Sie die minimale Abtastrate für biologische Signale (Nyquist-Theorem).",
+        "fr": "Calculer la fréquence d'échantillonnage minimale pour les signaux biologiques (théorème de Nyquist).",
+        "es": "Calcular la tasa de muestreo mínima para señales biológicas (teorema de Nyquist).",
+        "ar": "احسب الحد الأدنى لمعدل أخذ العينات للإشارات البيولوجية (نظرية نيكويست)."
       },
       "long_i18n": {
         "en": "Calculate minimum sampling rate for biological signals (Nyquist theorem).",
         "tr": "Sinyalde örtüşmeyi (aliasing) önleyen minimum ADC örnekleme hızını Nyquist teoremi ile hesaplar.",
-        "de": "Calculate minimum sampling rate for biological signals (Nyquist theorem).",
-        "fr": "Calculate minimum sampling rate for biological signals (Nyquist theorem).",
-        "es": "Calculate minimum sampling rate for biological signals (Nyquist theorem).",
-        "ar": "Calculate minimum sampling rate for biological signals (Nyquist theorem)."
+        "de": "Berechnen Sie die minimale Abtastrate für biologische Signale (Nyquist-Theorem).",
+        "fr": "Calculer la fréquence d'échantillonnage minimale pour les signaux biologiques (théorème de Nyquist).",
+        "es": "Calcular la tasa de muestreo mínima para señales biológicas (teorema de Nyquist).",
+        "ar": "احسب الحد الأدنى لمعدل أخذ العينات للإشارات البيولوجية (نظرية نيكويست)."
       }
     }
   },

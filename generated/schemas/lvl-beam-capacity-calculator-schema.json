@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "LVL beam section modulus.",
         "tr": "LVL kirişin kesit modülü.",
-        "de": "LVL beam section modulus.",
-        "fr": "LVL beam section modulus.",
-        "es": "LVL beam section modulus.",
-        "ar": "LVL beam section modulus."
+        "de": "Widerstandsmoment des LVL-Trägerquerschnitts.",
+        "fr": "Module de section de la poutre en LVL.",
+        "es": "Módulo de sección de la viga LVL.",
+        "ar": "معامل مقطع عتبة LVL."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Bending Strength (Pa)",
         "tr": "Eğilme Dayanımı (Pa)",
-        "de": "Bending Strength (Pa)",
-        "fr": "Bending Strength (Pa)",
-        "es": "Bending Strength (Pa)",
-        "ar": "Bending Strength (Pa)"
+        "de": "Biegefestigkeit (Pa)",
+        "fr": "Résistance à la flexion (Pa)",
+        "es": "Resistencia a la flexión (Pa)",
+        "ar": "مقاومة الانحناء (Pa)"
       },
       "type": "number",
       "unit": "Pa",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "LVL allowable bending stress.",
         "tr": "LVL'nin izin verilen eğilme gerilmesi.",
-        "de": "LVL allowable bending stress.",
-        "fr": "LVL allowable bending stress.",
-        "es": "LVL allowable bending stress.",
-        "ar": "LVL allowable bending stress."
+        "de": "Zulässige Biegespannung von LVL.",
+        "fr": "Contrainte de flexion admissible du LVL.",
+        "es": "Esfuerzo admisible de flexión del LVL.",
+        "ar": "إجهاد الانحناء المسموح به لـ LVL."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Maks. Eğilme Momenti",
         "tr": "Maks. Eğilme Momenti",
-        "de": "Maks. Eğilme Momenti",
-        "fr": "Maks. Eğilme Momenti",
-        "es": "Maks. Eğilme Momenti",
-        "ar": "Maks. Eğilme Momenti"
+        "de": "Max. Biegemoment",
+        "fr": "Moment de flexion maximal",
+        "es": "Momento Máximo de Flexión",
+        "ar": "أقصى عزم انحناء"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate maximum bending moment capacity of an LVL beam.",
         "tr": "Lamine ahşap (LVL) kirişin taşıyabileceği maksimum eğilme momentini hesaplar.",
-        "de": "Calculate maximum bending moment capacity of an LVL beam.",
-        "fr": "Calculate maximum bending moment capacity of an LVL beam.",
-        "es": "Calculate maximum bending moment capacity of an LVL beam.",
-        "ar": "Calculate maximum bending moment capacity of an LVL beam."
+        "de": "Berechnen Sie das maximale Biegemoment eines LVL-Trägers.",
+        "fr": "Calculer la capacité de moment de flexion maximale d'une poutre en LVL.",
+        "es": "Calcular la capacidad máxima de momento flector de una viga LVL.",
+        "ar": "احسب أقصى عزم انحناء لعتبة LVL."
       },
       "long_i18n": {
         "en": "Calculate maximum bending moment capacity of an LVL beam.",
         "tr": "Lamine ahşap (LVL) kirişin taşıyabileceği maksimum eğilme momentini hesaplar.",
-        "de": "Calculate maximum bending moment capacity of an LVL beam.",
-        "fr": "Calculate maximum bending moment capacity of an LVL beam.",
-        "es": "Calculate maximum bending moment capacity of an LVL beam.",
-        "ar": "Calculate maximum bending moment capacity of an LVL beam."
+        "de": "Berechnen Sie das maximale Biegemoment eines LVL-Trägers.",
+        "fr": "Calculer la capacité de moment de flexion maximale d'une poutre en LVL.",
+        "es": "Calcular la capacidad máxima de momento flector de una viga LVL.",
+        "ar": "احسب أقصى عزم انحناء لعتبة LVL."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Takeoff Speed (m/s)",
         "tr": "Kalkış Hızı (m/s)",
-        "de": "Takeoff Speed (m/s)",
-        "fr": "Takeoff Speed (m/s)",
-        "es": "Takeoff Speed (m/s)",
-        "ar": "Takeoff Speed (m/s)"
+        "de": "Startgeschwindigkeit (m/s)",
+        "fr": "Vitesse de décollage (m/s)",
+        "es": "Velocidad de despegue (m/s)",
+        "ar": "سرعة الإقلاع (m/s)"
       },
       "type": "number",
       "unit": "m/s",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Aircraft rotation speed.",
         "tr": "Uçağın yerden kesilme hızı.",
-        "de": "Aircraft rotation speed.",
-        "fr": "Aircraft rotation speed.",
-        "es": "Aircraft rotation speed.",
-        "ar": "Aircraft rotation speed."
+        "de": "Drehgeschwindigkeit des Flugzeugs.",
+        "fr": "Vitesse de rotation de l'aéronef.",
+        "es": "Velocidad de rotación de la aeronave.",
+        "ar": "سرعة دوران الطائرة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Average Acceleration (m/s²)",
         "tr": "Ortalama İvme (m/s²)",
-        "de": "Average Acceleration (m/s²)",
-        "fr": "Average Acceleration (m/s²)",
-        "es": "Average Acceleration (m/s²)",
-        "ar": "Average Acceleration (m/s²)"
+        "de": "Durchschnittliche Beschleunigung (m/s²)",
+        "fr": "Accélération moyenne (m/s²)",
+        "es": "Aceleración media (m/s²)",
+        "ar": "متوسط التسارع (m/s²)"
       },
       "type": "number",
       "unit": "m/s2",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Engine thrust acceleration.",
         "tr": "Motor itki gücüyle hızlanma.",
-        "de": "Engine thrust acceleration.",
-        "fr": "Engine thrust acceleration.",
-        "es": "Engine thrust acceleration.",
-        "ar": "Engine thrust acceleration."
+        "de": "Schubbeschleunigung des Triebwerks.",
+        "fr": "Accélération de la poussée du moteur.",
+        "es": "Aceleración del empuje del motor.",
+        "ar": "تسارع دفع المحرك."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Headwind Speed (m/s)",
         "tr": "Karşı Rüzgar Hızı (m/s)",
-        "de": "Headwind Speed (m/s)",
-        "fr": "Headwind Speed (m/s)",
-        "es": "Headwind Speed (m/s)",
-        "ar": "Headwind Speed (m/s)"
+        "de": "Gegenwindgeschwindigkeit (m/s)",
+        "fr": "Vitesse du vent de face (m/s)",
+        "es": "Velocidad del viento en contra (m/s)",
+        "ar": "سرعة الرياح المعاكسة (m/s)"
       },
       "type": "number",
       "unit": "m/s",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Runway headwind component.",
         "tr": "Pist başı rüzgar.",
-        "de": "Runway headwind component.",
-        "fr": "Runway headwind component.",
-        "es": "Runway headwind component.",
-        "ar": "Runway headwind component."
+        "de": "Gegenwindkomponente der Startbahn.",
+        "fr": "Composante du vent de face sur la piste.",
+        "es": "Componente de viento en contra en la pista.",
+        "ar": "مكون الرياح المعاكسة للمدرج."
       }
     }
   ],
@@ -101,10 +101,10 @@
       "sonuc": {
         "en": "Gerekli Pist Uzunluğu",
         "tr": "Gerekli Pist Uzunluğu",
-        "de": "Gerekli Pist Uzunluğu",
-        "fr": "Gerekli Pist Uzunluğu",
-        "es": "Gerekli Pist Uzunluğu",
-        "ar": "Gerekli Pist Uzunluğu"
+        "de": "Erforderliche Startbahnlänge",
+        "fr": "Longueur de piste requise",
+        "es": "Longitud de pista requerida",
+        "ar": "طول المدرج المطلوب"
       }
     },
     "breakdownUnits": {
@@ -128,18 +128,18 @@
       "short_i18n": {
         "en": "Calculate minimum runway length required for takeoff.",
         "tr": "Uçağın havalanması için gereken minimum pist mesafesini hesaplar.",
-        "de": "Calculate minimum runway length required for takeoff.",
-        "fr": "Calculate minimum runway length required for takeoff.",
-        "es": "Calculate minimum runway length required for takeoff.",
-        "ar": "Calculate minimum runway length required for takeoff."
+        "de": "Berechnen Sie die erforderliche Mindeststartbahnlänge.",
+        "fr": "Calculer la longueur minimale de piste requise pour le décollage.",
+        "es": "Calcular la longitud mínima de pista requerida para el despegue.",
+        "ar": "حساب الحد الأدنى لطول المدرج المطلوب للإقلاع."
       },
       "long_i18n": {
         "en": "Calculate minimum runway length required for takeoff.",
         "tr": "Uçağın havalanması için gereken minimum pist mesafesini hesaplar.",
-        "de": "Calculate minimum runway length required for takeoff.",
-        "fr": "Calculate minimum runway length required for takeoff.",
-        "es": "Calculate minimum runway length required for takeoff.",
-        "ar": "Calculate minimum runway length required for takeoff."
+        "de": "Berechnen Sie die erforderliche Mindeststartbahnlänge.",
+        "fr": "Calculer la longueur minimale de piste requise pour le décollage.",
+        "es": "Calcular la longitud mínima de pista requerida para el despegue.",
+        "ar": "حساب الحد الأدنى لطول المدرج المطلوب للإقلاع."
       }
     }
   },

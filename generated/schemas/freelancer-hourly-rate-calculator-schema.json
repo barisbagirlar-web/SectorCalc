@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Target Net Income (USD)",
         "tr": "Hedef Net Gelir (TL)",
-        "de": "Target Net Income (USD)",
-        "fr": "Target Net Income (USD)",
-        "es": "Target Net Income (USD)",
-        "ar": "Target Net Income (USD)"
+        "de": "Ziel-Nettoeinkommen (USD)",
+        "fr": "Revenu net cible (USD)",
+        "es": "Ingreso neto objetivo (USD)",
+        "ar": "صافي الدخل المستهدف (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "After-tax target income.",
         "tr": "Vergi sonrası hedef gelir.",
-        "de": "After-tax target income.",
-        "fr": "After-tax target income.",
-        "es": "After-tax target income.",
-        "ar": "After-tax target income."
+        "de": "Zieleinkommen nach Steuern.",
+        "fr": "Revenu cible après impôt.",
+        "es": "Ingreso objetivo después de impuestos.",
+        "ar": "الدخل المستهدف بعد الضريبة."
       }
     },
     {
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Average tax burden.",
         "tr": "Ortalama vergi yükü.",
-        "de": "Average tax burden.",
-        "fr": "Average tax burden.",
-        "es": "Average tax burden.",
-        "ar": "Average tax burden."
+        "de": "Durchschnittliche Steuerbelastung.",
+        "fr": "Charge fiscale moyenne.",
+        "es": "Carga fiscal promedio.",
+        "ar": "متوسط العبء الضريبي."
       }
     },
     {
@@ -75,10 +75,10 @@
       "businessContext_i18n": {
         "en": "Business expenses.",
         "tr": "İşletme giderleri.",
-        "de": "Business expenses.",
-        "fr": "Business expenses.",
-        "es": "Business expenses.",
-        "ar": "Business expenses."
+        "de": "Geschäftsausgaben.",
+        "fr": "Dépenses professionnelles.",
+        "es": "Gastos comerciales.",
+        "ar": "المصاريف التجارية."
       }
     },
     {
@@ -87,10 +87,10 @@
       "label_i18n": {
         "en": "Annual Work Hours",
         "tr": "Yıllık Çalışma Saati",
-        "de": "Annual Work Hours",
-        "fr": "Annual Work Hours",
-        "es": "Annual Work Hours",
-        "ar": "Annual Work Hours"
+        "de": "Jährliche Arbeitsstunden",
+        "fr": "Heures de travail annuelles",
+        "es": "Horas de trabajo anuales",
+        "ar": "ساعات العمل السنوية"
       },
       "type": "number",
       "unit": "hours",
@@ -100,10 +100,10 @@
       "businessContext_i18n": {
         "en": "Total work hours.",
         "tr": "Toplam çalışma saati.",
-        "de": "Total work hours.",
-        "fr": "Total work hours.",
-        "es": "Total work hours.",
-        "ar": "Total work hours."
+        "de": "Gesamtarbeitsstunden.",
+        "fr": "Total des heures de travail.",
+        "es": "Horas totales de trabajo.",
+        "ar": "إجمالي ساعات العمل."
       }
     }
   ],
@@ -127,10 +127,10 @@
       "sonuc": {
         "en": "Saatlik Serbest Çalışan Ücreti",
         "tr": "Saatlik Serbest Çalışan Ücreti",
-        "de": "Saatlik Serbest Çalışan Ücreti",
-        "fr": "Saatlik Serbest Çalışan Ücreti",
-        "es": "Saatlik Serbest Çalışan Ücreti",
-        "ar": "Saatlik Serbest Çalışan Ücreti"
+        "de": "Stündlicher Honorarsatz für Freiberufler",
+        "fr": "Taux horaire freelance",
+        "es": "Tarifa por hora del freelancer",
+        "ar": "أجر العامل الحر بالساعة"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate freelancer hourly rate including tax and overhead.",
         "tr": "Vergi ve giderler dahil edilmesi gereken saatlik serbest çalışan ücretini hesaplar.",
-        "de": "Calculate freelancer hourly rate including tax and overhead.",
-        "fr": "Calculate freelancer hourly rate including tax and overhead.",
-        "es": "Calculate freelancer hourly rate including tax and overhead.",
-        "ar": "Calculate freelancer hourly rate including tax and overhead."
+        "de": "Berechnen Sie den Stundensatz für Freiberufler inklusive Steuern und Gemeinkosten.",
+        "fr": "Calculer le taux horaire du freelance incluant les taxes et les frais généraux.",
+        "es": "Calcular tarifa por hora de freelancer incluyendo impuestos y gastos generales.",
+        "ar": "حساب السعر بالساعة للعامل الحر شامل الضريبة والتكاليف العامة."
       },
       "long_i18n": {
         "en": "Calculate freelancer hourly rate including tax and overhead.",
         "tr": "Vergi ve giderler dahil edilmesi gereken saatlik serbest çalışan ücretini hesaplar.",
-        "de": "Calculate freelancer hourly rate including tax and overhead.",
-        "fr": "Calculate freelancer hourly rate including tax and overhead.",
-        "es": "Calculate freelancer hourly rate including tax and overhead.",
-        "ar": "Calculate freelancer hourly rate including tax and overhead."
+        "de": "Berechnen Sie den Stundensatz für Freiberufler inklusive Steuern und Gemeinkosten.",
+        "fr": "Calculer le taux horaire du freelance incluant les taxes et les frais généraux.",
+        "es": "Calcular tarifa por hora de freelancer incluyendo impuestos y gastos generales.",
+        "ar": "حساب السعر بالساعة للعامل الحر شامل الضريبة والتكاليف العامة."
       }
     }
   },

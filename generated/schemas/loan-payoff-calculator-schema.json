@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Loan Principal (USD)",
         "tr": "Kredi Anaparası (₺)",
-        "de": "Loan Principal (USD)",
-        "fr": "Loan Principal (USD)",
-        "es": "Loan Principal (USD)",
-        "ar": "Loan Principal (USD)"
+        "de": "Kreditbetrag (USD)",
+        "fr": "Principal du prêt (USD)",
+        "es": "Principal del préstamo (USD)",
+        "ar": "أصل القرض (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Remaining loan balance.",
         "tr": "Kalan kredi borcu.",
-        "de": "Remaining loan balance.",
-        "fr": "Remaining loan balance.",
-        "es": "Remaining loan balance.",
-        "ar": "Remaining loan balance."
+        "de": "Verbleibender Kreditsaldo.",
+        "fr": "Solde restant du prêt.",
+        "es": "Saldo restante del préstamo.",
+        "ar": "الرصيد المتبقي من القرض."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Loan rate.",
         "tr": "Kredi faiz oranı.",
-        "de": "Loan rate.",
-        "fr": "Loan rate.",
-        "es": "Loan rate.",
-        "ar": "Loan rate."
+        "de": "Kreditzinssatz.",
+        "fr": "Taux du prêt.",
+        "es": "Tasa del préstamo.",
+        "ar": "معدل القرض."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Regular Payment (USD)",
         "tr": "Normal Aylık Taksit (₺)",
-        "de": "Regular Payment (USD)",
-        "fr": "Regular Payment (USD)",
-        "es": "Regular Payment (USD)",
-        "ar": "Regular Payment (USD)"
+        "de": "Reguläre Zahlung (USD)",
+        "fr": "Paiement régulier (USD)",
+        "es": "Pago regular (USD)",
+        "ar": "الدفعة المنتظمة (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Standard monthly payment.",
         "tr": "Standart aylık ödeme.",
-        "de": "Standard monthly payment.",
-        "fr": "Standard monthly payment.",
-        "es": "Standard monthly payment.",
-        "ar": "Standard monthly payment."
+        "de": "Standardmäßige monatliche Zahlung.",
+        "fr": "Paiement mensuel standard.",
+        "es": "Pago mensual estándar.",
+        "ar": "الدفعة الشهرية القياسية."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Extra Monthly Payment (USD)",
         "tr": "Ek Aylık Ödeme (₺)",
-        "de": "Extra Monthly Payment (USD)",
-        "fr": "Extra Monthly Payment (USD)",
-        "es": "Extra Monthly Payment (USD)",
-        "ar": "Extra Monthly Payment (USD)"
+        "de": "Zusätzliche monatliche Zahlung (USD)",
+        "fr": "Paiement mensuel supplémentaire (USD)",
+        "es": "Pago mensual extra (USD)",
+        "ar": "الدفعة الشهرية الإضافية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Extra principal payment.",
         "tr": "Anaparaya ek ödeme.",
-        "de": "Extra principal payment.",
-        "fr": "Extra principal payment.",
-        "es": "Extra principal payment.",
-        "ar": "Extra principal payment."
+        "de": "Zusätzliche Tilgungszahlung.",
+        "fr": "Paiement supplémentaire sur le principal.",
+        "es": "Pago extra al principal.",
+        "ar": "دفعة إضافية على أصل القرض."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Kalan Ay (Ek Ödemeyle)",
         "tr": "Kalan Ay (Ek Ödemeyle)",
-        "de": "Kalan Ay (Ek Ödemeyle)",
-        "fr": "Kalan Ay (Ek Ödemeyle)",
-        "es": "Kalan Ay (Ek Ödemeyle)",
-        "ar": "Kalan Ay (Ek Ödemeyle)"
+        "de": "Restmonate (mit Zusatzzahlung)",
+        "fr": "Mois restants (avec paiement supplémentaire)",
+        "es": "Meses Restantes (con Pago Adicional)",
+        "ar": "الأشهر المتبقية (مع الدفعة الإضافية)"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate early loan payoff time with extra payments.",
         "tr": "Ek ödemeyle kredinin kapanacağı kısaltılmış süreyi hesaplar.",
-        "de": "Calculate early loan payoff time with extra payments.",
-        "fr": "Calculate early loan payoff time with extra payments.",
-        "es": "Calculate early loan payoff time with extra payments.",
-        "ar": "Calculate early loan payoff time with extra payments."
+        "de": "Berechnen Sie die vorzeitige Kredittilgungszeit mit Sondertilgungen.",
+        "fr": "Calculer le délai de remboursement anticipé d'un prêt avec des paiements supplémentaires.",
+        "es": "Calcular el tiempo de pago anticipado del préstamo con pagos extra.",
+        "ar": "احسب وقت سداد القرض المبكر مع دفعات إضافية."
       },
       "long_i18n": {
         "en": "Calculate early loan payoff time with extra payments.",
         "tr": "Ek ödemeyle kredinin kapanacağı kısaltılmış süreyi hesaplar.",
-        "de": "Calculate early loan payoff time with extra payments.",
-        "fr": "Calculate early loan payoff time with extra payments.",
-        "es": "Calculate early loan payoff time with extra payments.",
-        "ar": "Calculate early loan payoff time with extra payments."
+        "de": "Berechnen Sie die vorzeitige Kredittilgungszeit mit Sondertilgungen.",
+        "fr": "Calculer le délai de remboursement anticipé d'un prêt avec des paiements supplémentaires.",
+        "es": "Calcular el tiempo de pago anticipado del préstamo con pagos extra.",
+        "ar": "احسب وقت سداد القرض المبكر مع دفعات إضافية."
       }
     }
   },

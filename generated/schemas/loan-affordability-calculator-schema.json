@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Net Monthly Income (USD)",
         "tr": "Net Aylık Gelir (₺)",
-        "de": "Net Monthly Income (USD)",
-        "fr": "Net Monthly Income (USD)",
-        "es": "Net Monthly Income (USD)",
-        "ar": "Net Monthly Income (USD)"
+        "de": "Netto-Monatseinkommen (USD)",
+        "fr": "Revenu mensuel net (USD)",
+        "es": "Ingreso neto mensual (USD)",
+        "ar": "صافي الدخل الشهري (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "After-tax monthly income.",
         "tr": "Vergi sonrası net gelir.",
-        "de": "After-tax monthly income.",
-        "fr": "After-tax monthly income.",
-        "es": "After-tax monthly income.",
-        "ar": "After-tax monthly income."
+        "de": "Monatliches Einkommen nach Steuern.",
+        "fr": "Revenu mensuel après impôts.",
+        "es": "Ingreso mensual después de impuestos.",
+        "ar": "الدخل الشهري بعد الضريبة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Monthly Living Expense (USD)",
         "tr": "Aylık Yaşam Gideri (₺)",
-        "de": "Monthly Living Expense (USD)",
-        "fr": "Monthly Living Expense (USD)",
-        "es": "Monthly Living Expense (USD)",
-        "ar": "Monthly Living Expense (USD)"
+        "de": "Monatliche Lebenshaltungskosten (USD)",
+        "fr": "Dépenses mensuelles de subsistance (USD)",
+        "es": "Gasto mensual de vida (USD)",
+        "ar": "المصروفات المعيشية الشهرية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Basic living expenses.",
         "tr": "Temel yaşam harcamaları.",
-        "de": "Basic living expenses.",
-        "fr": "Basic living expenses.",
-        "es": "Basic living expenses.",
-        "ar": "Basic living expenses."
+        "de": "Grundlegende Lebenshaltungskosten.",
+        "fr": "Dépenses de base pour la vie courante.",
+        "es": "Gastos básicos de vida.",
+        "ar": "المصروفات المعيشية الأساسية."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Max Payment Ratio (%)",
         "tr": "Maks Taksit Oranı (%)",
-        "de": "Max Payment Ratio (%)",
-        "fr": "Max Payment Ratio (%)",
-        "es": "Max Payment Ratio (%)",
-        "ar": "Max Payment Ratio (%)"
+        "de": "Maximaler Zahlungsanteil (%)",
+        "fr": "Ratio de paiement maximal (%)",
+        "es": "Relación de pago máximo (%)",
+        "ar": "نسبة القسط الأقصى (%)"
       },
       "type": "number",
       "unit": "%",
@@ -75,10 +75,10 @@
       "businessContext_i18n": {
         "en": "Maximum percentage of income.",
         "tr": "Gelirin maksimum yüzdesi.",
-        "de": "Maximum percentage of income.",
-        "fr": "Maximum percentage of income.",
-        "es": "Maximum percentage of income.",
-        "ar": "Maximum percentage of income."
+        "de": "Maximaler Prozentsatz des Einkommens.",
+        "fr": "Pourcentage maximal du revenu.",
+        "es": "Porcentaje máximo del ingreso.",
+        "ar": "النسبة المئوية القصوى من الدخل."
       }
     }
   ],
@@ -101,10 +101,10 @@
       "sonuc": {
         "en": "Maksimum Uygun Kredi Taksiti",
         "tr": "Maksimum Uygun Kredi Taksiti",
-        "de": "Maksimum Uygun Kredi Taksiti",
-        "fr": "Maksimum Uygun Kredi Taksiti",
-        "es": "Maksimum Uygun Kredi Taksiti",
-        "ar": "Maksimum Uygun Kredi Taksiti"
+        "de": "Maximaler geeigneter Kreditratenbetrag",
+        "fr": "Paiement de prêt maximum abordable",
+        "es": "Cuota Máxima de Crédito Asequible",
+        "ar": "القسط الشهري الأقصى المناسب للقرض"
       }
     },
     "breakdownUnits": {
@@ -126,18 +126,18 @@
       "short_i18n": {
         "en": "Calculate maximum affordable loan payment based on budget.",
         "tr": "Bütçeyi sarsmadan ödenebilecek maksimum kredi taksitini hesaplar.",
-        "de": "Calculate maximum affordable loan payment based on budget.",
-        "fr": "Calculate maximum affordable loan payment based on budget.",
-        "es": "Calculate maximum affordable loan payment based on budget.",
-        "ar": "Calculate maximum affordable loan payment based on budget."
+        "de": "Berechnen Sie die maximal tragbare Kreditrate basierend auf dem Budget.",
+        "fr": "Calculer le paiement de prêt maximum abordable en fonction du budget.",
+        "es": "Calcular el pago máximo asequible de un préstamo basado en el presupuesto.",
+        "ar": "احسب أقصى قسط قرض ميسور التكلفة بناءً على الميزانية."
       },
       "long_i18n": {
         "en": "Calculate maximum affordable loan payment based on budget.",
         "tr": "Bütçeyi sarsmadan ödenebilecek maksimum kredi taksitini hesaplar.",
-        "de": "Calculate maximum affordable loan payment based on budget.",
-        "fr": "Calculate maximum affordable loan payment based on budget.",
-        "es": "Calculate maximum affordable loan payment based on budget.",
-        "ar": "Calculate maximum affordable loan payment based on budget."
+        "de": "Berechnen Sie die maximal tragbare Kreditrate basierend auf dem Budget.",
+        "fr": "Calculer le paiement de prêt maximum abordable en fonction du budget.",
+        "es": "Calcular el pago máximo asequible de un préstamo basado en el presupuesto.",
+        "ar": "احسب أقصى قسط قرض ميسور التكلفة بناءً على الميزانية."
       }
     }
   },

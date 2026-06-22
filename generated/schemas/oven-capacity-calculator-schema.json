@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Number of Trays",
         "tr": "Tava Sayısı (Adet/lot)",
-        "de": "Number of Trays",
-        "fr": "Number of Trays",
-        "es": "Number of Trays",
-        "ar": "Number of Trays"
+        "de": "Anzahl der Tabletts",
+        "fr": "Nombre de plateaux",
+        "es": "Número de bandejas",
+        "ar": "عدد الصواني"
       },
       "type": "number",
       "unit": "trays",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Trays per batch.",
         "tr": "Fırına giren tava sayısı.",
-        "de": "Trays per batch.",
-        "fr": "Trays per batch.",
-        "es": "Trays per batch.",
-        "ar": "Trays per batch."
+        "de": "Tabletts pro Charge.",
+        "fr": "Plateaux par lot.",
+        "es": "Bandejas por lote.",
+        "ar": "صواني لكل دفعة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Tray Capacity (kg)",
         "tr": "Tava Kapasitesi (kg)",
-        "de": "Tray Capacity (kg)",
-        "fr": "Tray Capacity (kg)",
-        "es": "Tray Capacity (kg)",
-        "ar": "Tray Capacity (kg)"
+        "de": "Tablettkapazität (kg)",
+        "fr": "Capacité du plateau (kg)",
+        "es": "Capacidad de la bandeja (kg)",
+        "ar": "سعة الصينية (kg)"
       },
       "type": "number",
       "unit": "kg",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Product per tray.",
         "tr": "Her tavadaki ürün miktarı.",
-        "de": "Product per tray.",
-        "fr": "Product per tray.",
-        "es": "Product per tray.",
-        "ar": "Product per tray."
+        "de": "Produkt pro Tablett.",
+        "fr": "Produit par plateau.",
+        "es": "Producto por bandeja.",
+        "ar": "المنتج لكل صينية."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Baking Time (min)",
         "tr": "Pişme Süresi (dk)",
-        "de": "Baking Time (min)",
-        "fr": "Baking Time (min)",
-        "es": "Baking Time (min)",
-        "ar": "Baking Time (min)"
+        "de": "Backzeit (min)",
+        "fr": "Temps de cuisson (min)",
+        "es": "Tiempo de horneado (min)",
+        "ar": "وقت الخبز (min)"
       },
       "type": "number",
       "unit": "min",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Baking time per batch.",
         "tr": "Bir lot pişme süresi.",
-        "de": "Baking time per batch.",
-        "fr": "Baking time per batch.",
-        "es": "Baking time per batch.",
-        "ar": "Baking time per batch."
+        "de": "Backzeit pro Charge.",
+        "fr": "Temps de cuisson par lot.",
+        "es": "Tiempo de horneado por lote.",
+        "ar": "وقت الخبز لكل دفعة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Fırın Kapasitesi",
         "tr": "Fırın Kapasitesi",
-        "de": "Fırın Kapasitesi",
-        "fr": "Fırın Kapasitesi",
-        "es": "Fırın Kapasitesi",
-        "ar": "Fırın Kapasitesi"
+        "de": "Ofenkapazität",
+        "fr": "Capacité du four",
+        "es": "Capacidad del Horno",
+        "ar": "سعة الفرن"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate oven hourly baking capacity.",
         "tr": "Fırının saatlik net pişirme çıktısını (kapasite) hesaplar.",
-        "de": "Calculate oven hourly baking capacity.",
-        "fr": "Calculate oven hourly baking capacity.",
-        "es": "Calculate oven hourly baking capacity.",
-        "ar": "Calculate oven hourly baking capacity."
+        "de": "Berechnen Sie die stündliche Backkapazität des Ofens.",
+        "fr": "Calculer la capacité horaire de cuisson du four.",
+        "es": "Calcular la capacidad horaria de horneado del horno.",
+        "ar": "احسب سعة الخبز في الفرن بالساعة."
       },
       "long_i18n": {
         "en": "Calculate oven hourly baking capacity.",
         "tr": "Fırının saatlik net pişirme çıktısını (kapasite) hesaplar.",
-        "de": "Calculate oven hourly baking capacity.",
-        "fr": "Calculate oven hourly baking capacity.",
-        "es": "Calculate oven hourly baking capacity.",
-        "ar": "Calculate oven hourly baking capacity."
+        "de": "Berechnen Sie die stündliche Backkapazität des Ofens.",
+        "fr": "Calculer la capacité horaire de cuisson du four.",
+        "es": "Calcular la capacidad horaria de horneado del horno.",
+        "ar": "احسب سعة الخبز في الفرن بالساعة."
       }
     }
   },

@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "System flow rate.",
         "tr": "Sistem debisi.",
-        "de": "System flow rate.",
-        "fr": "System flow rate.",
-        "es": "System flow rate.",
-        "ar": "System flow rate."
+        "de": "Systemdurchflussrate.",
+        "fr": "Débit du système.",
+        "es": "Caudal del sistema.",
+        "ar": "معدل تدفق النظام."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Required pressure.",
         "tr": "Gerekli basınç.",
-        "de": "Required pressure.",
-        "fr": "Required pressure.",
-        "es": "Required pressure.",
-        "ar": "Required pressure."
+        "de": "Erforderlicher Druck.",
+        "fr": "Pression requise.",
+        "es": "Presión requerida.",
+        "ar": "الضغط المطلوب."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Pump Efficiency (%)",
         "tr": "Pompa Verimi (%)",
-        "de": "Pump Efficiency (%)",
-        "fr": "Pump Efficiency (%)",
-        "es": "Pump Efficiency (%)",
-        "ar": "Pump Efficiency (%)"
+        "de": "Pumpenwirkungsgrad (%)",
+        "fr": "Rendement de la pompe (%)",
+        "es": "Eficiencia de la Bomba (%)",
+        "ar": "كفاءة المضخة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Pump efficiency.",
         "tr": "Pompa verimi.",
-        "de": "Pump efficiency.",
-        "fr": "Pump efficiency.",
-        "es": "Pump efficiency.",
-        "ar": "Pump efficiency."
+        "de": "Pumpenwirkungsgrad.",
+        "fr": "Rendement de la pompe.",
+        "es": "Eficiencia de la bomba.",
+        "ar": "كفاءة المضخة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Pompa Motor Gücü",
         "tr": "Pompa Motor Gücü",
-        "de": "Pompa Motor Gücü",
-        "fr": "Pompa Motor Gücü",
-        "es": "Pompa Motor Gücü",
-        "ar": "Pompa Motor Gücü"
+        "de": "Pumpenmotorleistung",
+        "fr": "Puissance du moteur de la pompe",
+        "es": "Potencia del motor de la bomba",
+        "ar": "قدرة محرك المضخة"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate minimum fire pump motor power for hydrant system.",
         "tr": "Hidrant sistemini besleyecek pompanın minimum motor gücünü hesaplar.",
-        "de": "Calculate minimum fire pump motor power for hydrant system.",
-        "fr": "Calculate minimum fire pump motor power for hydrant system.",
-        "es": "Calculate minimum fire pump motor power for hydrant system.",
-        "ar": "Calculate minimum fire pump motor power for hydrant system."
+        "de": "Berechnen Sie die Mindestmotorleistung der Feuerlöschpumpe für das Hydrantensystem.",
+        "fr": "Calculer la puissance minimale du moteur de la pompe à incendie pour un système de poteaux d'incendie.",
+        "es": "Calcular la potencia mínima del motor de la bomba contra incendios para el sistema de hidrantes.",
+        "ar": "حساب الحد الأدنى لقدرة محرك مضخة الحريق لنظام الحنفيات."
       },
       "long_i18n": {
         "en": "Calculate minimum fire pump motor power for hydrant system.",
         "tr": "Hidrant sistemini besleyecek pompanın minimum motor gücünü hesaplar.",
-        "de": "Calculate minimum fire pump motor power for hydrant system.",
-        "fr": "Calculate minimum fire pump motor power for hydrant system.",
-        "es": "Calculate minimum fire pump motor power for hydrant system.",
-        "ar": "Calculate minimum fire pump motor power for hydrant system."
+        "de": "Berechnen Sie die Mindestmotorleistung der Feuerlöschpumpe für das Hydrantensystem.",
+        "fr": "Calculer la puissance minimale du moteur de la pompe à incendie pour un système de poteaux d'incendie.",
+        "es": "Calcular la potencia mínima del motor de la bomba contra incendios para el sistema de hidrantes.",
+        "ar": "حساب الحد الأدنى لقدرة محرك مضخة الحريق لنظام الحنفيات."
       }
     }
   },

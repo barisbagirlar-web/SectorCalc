@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Water Depth (m)",
         "tr": "Su Derinliği (m)",
-        "de": "Water Depth (m)",
-        "fr": "Water Depth (m)",
-        "es": "Water Depth (m)",
-        "ar": "Water Depth (m)"
+        "de": "Wassertiefe (m)",
+        "fr": "Profondeur d'eau (m)",
+        "es": "Profundidad del Agua (m)",
+        "ar": "عمق الماء (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Depth at anchorage.",
         "tr": "Demirleme noktasındaki derinlik.",
-        "de": "Depth at anchorage.",
-        "fr": "Depth at anchorage.",
-        "es": "Depth at anchorage.",
-        "ar": "Depth at anchorage."
+        "de": "Tiefe am Ankerplatz.",
+        "fr": "Profondeur au mouillage.",
+        "es": "Profundidad en el fondeadero.",
+        "ar": "العمق في مكان الإرساء."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Expected Wind Speed (m/s)",
         "tr": "Tahmini Rüzgar Hızı (m/s)",
-        "de": "Expected Wind Speed (m/s)",
-        "fr": "Expected Wind Speed (m/s)",
-        "es": "Expected Wind Speed (m/s)",
-        "ar": "Expected Wind Speed (m/s)"
+        "de": "Erwartete Windgeschwindigkeit (m/s)",
+        "fr": "Vitesse du vent attendue (m/s)",
+        "es": "Velocidad del Viento Esperada (m/s)",
+        "ar": "سرعة الرياح المتوقعة (m/s)"
       },
       "type": "number",
       "unit": "m/s",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Worst-case wind speed.",
         "tr": "En kötü senaryo rüzgar hızı.",
-        "de": "Worst-case wind speed.",
-        "fr": "Worst-case wind speed.",
-        "es": "Worst-case wind speed.",
-        "ar": "Worst-case wind speed."
+        "de": "Windgeschwindigkeit im schlimmsten Fall.",
+        "fr": "Vitesse du vent dans le pire des cas.",
+        "es": "Velocidad del viento en el peor caso.",
+        "ar": "سرعة الرياح في أسوأ الحالات."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Bottom Coefficient",
         "tr": "Dip Katsayısı",
-        "de": "Bottom Coefficient",
-        "fr": "Bottom Coefficient",
-        "es": "Bottom Coefficient",
-        "ar": "Bottom Coefficient"
+        "de": "Bodenkoeffizient",
+        "fr": "Coefficient de fond",
+        "es": "Coeficiente de Fondo",
+        "ar": "معامل القاع"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Seabed type correction.",
         "tr": "Zemin tipine bağlı düzeltme.",
-        "de": "Seabed type correction.",
-        "fr": "Seabed type correction.",
-        "es": "Seabed type correction.",
-        "ar": "Seabed type correction."
+        "de": "Korrektur des Meeresbodentyps.",
+        "fr": "Correction du type de fond marin.",
+        "es": "Corrección por tipo de lecho marino.",
+        "ar": "تصحيح نوع قاع البحر."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Min. Zincir Boyu",
         "tr": "Min. Zincir Boyu",
-        "de": "Min. Zincir Boyu",
-        "fr": "Min. Zincir Boyu",
-        "es": "Min. Zincir Boyu",
-        "ar": "Min. Zincir Boyu"
+        "de": "Min. Kettenlänge",
+        "fr": "Longueur min. de chaîne",
+        "es": "Longitud Mínima de la Cadena",
+        "ar": "الحد الأدنى لطول السلسلة"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate minimum anchor chain length to prevent dragging.",
         "tr": "Demirin taramasını önlemek için gereken minimum zincir boyunu hesaplar.",
-        "de": "Calculate minimum anchor chain length to prevent dragging.",
-        "fr": "Calculate minimum anchor chain length to prevent dragging.",
-        "es": "Calculate minimum anchor chain length to prevent dragging.",
-        "ar": "Calculate minimum anchor chain length to prevent dragging."
+        "de": "Berechnen Sie die minimale Ankerkettenlänge, um ein Schleifen zu verhindern.",
+        "fr": "Calculer la longueur minimale de chaîne d'ancre pour éviter le dragage.",
+        "es": "Calcular la longitud mínima de la cadena del ancla para evitar el arrastre.",
+        "ar": "احسب الحد الأدنى لطول سلسلة المرساة لمنع الانجراف."
       },
       "long_i18n": {
         "en": "Calculate minimum anchor chain length to prevent dragging.",
         "tr": "Demirin taramasını önlemek için gereken minimum zincir boyunu hesaplar.",
-        "de": "Calculate minimum anchor chain length to prevent dragging.",
-        "fr": "Calculate minimum anchor chain length to prevent dragging.",
-        "es": "Calculate minimum anchor chain length to prevent dragging.",
-        "ar": "Calculate minimum anchor chain length to prevent dragging."
+        "de": "Berechnen Sie die minimale Ankerkettenlänge, um ein Schleifen zu verhindern.",
+        "fr": "Calculer la longueur minimale de chaîne d'ancre pour éviter le dragage.",
+        "es": "Calcular la longitud mínima de la cadena del ancla para evitar el arrastre.",
+        "ar": "احسب الحد الأدنى لطول سلسلة المرساة لمنع الانجراف."
       }
     }
   },

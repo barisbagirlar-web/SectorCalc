@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Number of Bits (N)",
         "tr": "Bit Sayısı (N)",
-        "de": "Number of Bits (N)",
-        "fr": "Number of Bits (N)",
-        "es": "Number of Bits (N)",
-        "ar": "Number of Bits (N)"
+        "de": "Anzahl der Bits (N)",
+        "fr": "Nombre de bits (N)",
+        "es": "Número de Bits (N)",
+        "ar": "عدد البتات (N)"
       },
       "type": "number",
       "unit": "bits",
@@ -25,10 +25,10 @@
       "businessContext_i18n": {
         "en": "ADC resolution bits.",
         "tr": "ADC çözünürlüğü.",
-        "de": "ADC resolution bits.",
-        "fr": "ADC resolution bits.",
-        "es": "ADC resolution bits.",
-        "ar": "ADC resolution bits."
+        "de": "ADC-Auflösungsbits.",
+        "fr": "Bits de résolution de l'ADC.",
+        "es": "Bits de resolución del ADC.",
+        "ar": "بتات دقة محول ADC."
       }
     },
     {
@@ -37,10 +37,10 @@
       "label_i18n": {
         "en": "Reference Voltage (V)",
         "tr": "Referans Voltajı (V)",
-        "de": "Reference Voltage (V)",
-        "fr": "Reference Voltage (V)",
-        "es": "Reference Voltage (V)",
-        "ar": "Reference Voltage (V)"
+        "de": "Referenzspannung (V)",
+        "fr": "Tension de référence (V)",
+        "es": "Tensión de Referencia (V)",
+        "ar": "الجهد المرجعي (V)"
       },
       "type": "number",
       "unit": "V",
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "ADC reference voltage.",
         "tr": "ADC referans gerilimi.",
-        "de": "ADC reference voltage.",
-        "fr": "ADC reference voltage.",
-        "es": "ADC reference voltage.",
-        "ar": "ADC reference voltage."
+        "de": "ADC-Referenzspannung.",
+        "fr": "Tension de référence de l'ADC.",
+        "es": "Tensión de referencia del ADC.",
+        "ar": "الجهد المرجعي لمحول ADC."
       }
     }
   ],
@@ -78,18 +78,18 @@
       "LSB": {
         "en": "LSB (V)",
         "tr": "LSB (V)",
-        "de": "LSB (V)",
+        "de": "NSB (V)",
         "fr": "LSB (V)",
         "es": "LSB (V)",
-        "ar": "LSB (V)"
+        "ar": "البت الأقل أهمية (V)"
       },
       "sonuc": {
         "en": "Dinamik Aralık (dB)",
         "tr": "Dinamik Aralık (dB)",
-        "de": "Dinamik Aralık (dB)",
-        "fr": "Dinamik Aralık (dB)",
-        "es": "Dinamik Aralık (dB)",
-        "ar": "Dinamik Aralık (dB)"
+        "de": "Dynamikbereich (dB)",
+        "fr": "Plage dynamique (dB)",
+        "es": "Rango Dinámico (dB)",
+        "ar": "النطاق الديناميكي (dB)"
       }
     },
     "breakdownUnits": {
@@ -114,18 +114,18 @@
       "short_i18n": {
         "en": "Calculate ADC resolution LSB and dynamic range.",
         "tr": "ADC'nin en küçük algılayabildiği voltaj adımını ve dinamik aralığını hesaplar.",
-        "de": "Calculate ADC resolution LSB and dynamic range.",
-        "fr": "Calculate ADC resolution LSB and dynamic range.",
-        "es": "Calculate ADC resolution LSB and dynamic range.",
-        "ar": "Calculate ADC resolution LSB and dynamic range."
+        "de": "Berechnen Sie die ADC-Auflösung LSB und den Dynamikbereich.",
+        "fr": "Calculer la résolution LSB et la plage dynamique de l'ADC.",
+        "es": "Calcular la resolución LSB y el rango dinámico del ADC.",
+        "ar": "احسب دقة LSB لمحول ADC والنطاق الديناميكي."
       },
       "long_i18n": {
         "en": "Calculate ADC resolution LSB and dynamic range.",
         "tr": "ADC'nin en küçük algılayabildiği voltaj adımını ve dinamik aralığını hesaplar.",
-        "de": "Calculate ADC resolution LSB and dynamic range.",
-        "fr": "Calculate ADC resolution LSB and dynamic range.",
-        "es": "Calculate ADC resolution LSB and dynamic range.",
-        "ar": "Calculate ADC resolution LSB and dynamic range."
+        "de": "Berechnen Sie die ADC-Auflösung LSB und den Dynamikbereich.",
+        "fr": "Calculer la résolution LSB et la plage dynamique de l'ADC.",
+        "es": "Calcular la resolución LSB y el rango dinámico del ADC.",
+        "ar": "احسب دقة LSB لمحول ADC والنطاق الديناميكي."
       }
     }
   },

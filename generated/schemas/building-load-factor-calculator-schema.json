@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Measured peak power demand.",
         "tr": "Ölçülen en yüksek güç talebi.",
-        "de": "Measured peak power demand.",
-        "fr": "Measured peak power demand.",
-        "es": "Measured peak power demand.",
-        "ar": "Measured peak power demand."
+        "de": "Gemessener Spitzenleistungsbedarf.",
+        "fr": "Demande de puissance de pointe mesurée.",
+        "es": "Demanda máxima de potencia medida.",
+        "ar": "ذروة الطلب على الطاقة المقاسة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Installed Capacity (kW)",
         "tr": "Kurulu Güç (kW)",
-        "de": "Installed Capacity (kW)",
-        "fr": "Installed Capacity (kW)",
-        "es": "Installed Capacity (kW)",
-        "ar": "Installed Capacity (kW)"
+        "de": "Installierte Leistung (kW)",
+        "fr": "Capacité installée (kW)",
+        "es": "Capacidad Instalada (kW)",
+        "ar": "السعة المركبة (kW)"
       },
       "type": "number",
       "unit": "kW",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Transformer or panel rating.",
         "tr": "Trafo veya panonun nominal gücü.",
-        "de": "Transformer or panel rating.",
-        "fr": "Transformer or panel rating.",
-        "es": "Transformer or panel rating.",
-        "ar": "Transformer or panel rating."
+        "de": "Transformator- oder Schalttafelleistung.",
+        "fr": "Calibre du transformateur ou du tableau.",
+        "es": "Clasificación del transformador o panel.",
+        "ar": "تصنيف المحول أو اللوحة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Yük Faktörü",
         "tr": "Yük Faktörü",
-        "de": "Yük Faktörü",
-        "fr": "Yük Faktörü",
-        "es": "Yük Faktörü",
-        "ar": "Yük Faktörü"
+        "de": "Load Factor",
+        "fr": "Facteur de charge",
+        "es": "Factor de Carga",
+        "ar": "عامل الحمولة"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate building load factor — actual demand vs installed capacity.",
         "tr": "Binanın trafo kapasitesini anlık kullanma oranını (yük faktörü) hesaplar.",
-        "de": "Calculate building load factor — actual demand vs installed capacity.",
-        "fr": "Calculate building load factor — actual demand vs installed capacity.",
-        "es": "Calculate building load factor — actual demand vs installed capacity.",
-        "ar": "Calculate building load factor — actual demand vs installed capacity."
+        "de": "Berechnen Sie den Gebäudelastfaktor – tatsächlicher Bedarf im Vergleich zur installierten Kapazität.",
+        "fr": "Calculer le facteur de charge du bâtiment — demande réelle par rapport à la capacité installée.",
+        "es": "Calcular el factor de carga del edificio: demanda real frente a capacidad instalada.",
+        "ar": "حساب عامل حمل المبنى — الطلب الفعلي مقابل السعة المركبة."
       },
       "long_i18n": {
         "en": "Calculate building load factor — actual demand vs installed capacity.",
         "tr": "Binanın trafo kapasitesini anlık kullanma oranını (yük faktörü) hesaplar.",
-        "de": "Calculate building load factor — actual demand vs installed capacity.",
-        "fr": "Calculate building load factor — actual demand vs installed capacity.",
-        "es": "Calculate building load factor — actual demand vs installed capacity.",
-        "ar": "Calculate building load factor — actual demand vs installed capacity."
+        "de": "Berechnen Sie den Gebäudelastfaktor – tatsächlicher Bedarf im Vergleich zur installierten Kapazität.",
+        "fr": "Calculer le facteur de charge du bâtiment — demande réelle par rapport à la capacité installée.",
+        "es": "Calcular el factor de carga del edificio: demanda real frente a capacidad instalada.",
+        "ar": "حساب عامل حمل المبنى — الطلب الفعلي مقابل السعة المركبة."
       }
     }
   },

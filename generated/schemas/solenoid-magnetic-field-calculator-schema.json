@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Coil Current (A)",
         "tr": "Sargı Akımı (A)",
-        "de": "Coil Current (A)",
-        "fr": "Coil Current (A)",
-        "es": "Coil Current (A)",
-        "ar": "Coil Current (A)"
+        "de": "Spulenstrom (A)",
+        "fr": "Courant de la bobine (A)",
+        "es": "Corriente de la Bobina (A)",
+        "ar": "تيار الملف (A)"
       },
       "type": "number",
       "unit": "A",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Coil winding current.",
         "tr": "Bobin sargısından geçen akım.",
-        "de": "Coil winding current.",
-        "fr": "Coil winding current.",
-        "es": "Coil winding current.",
-        "ar": "Coil winding current."
+        "de": "Spulenwicklungsstrom.",
+        "fr": "Courant de bobinage de la bobine.",
+        "es": "Corriente de bobinado de la bobina.",
+        "ar": "تيار لف الملف."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Number of Turns",
         "tr": "Toplam Sarım Sayısı",
-        "de": "Number of Turns",
-        "fr": "Number of Turns",
-        "es": "Number of Turns",
-        "ar": "Number of Turns"
+        "de": "Windungszahl",
+        "fr": "Nombre de spires",
+        "es": "Número de vueltas",
+        "ar": "عدد اللفات"
       },
       "type": "number",
       "unit": "turns",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Total coil turns.",
         "tr": "Bobin toplam sarım adedi.",
-        "de": "Total coil turns.",
-        "fr": "Total coil turns.",
-        "es": "Total coil turns.",
-        "ar": "Total coil turns."
+        "de": "Gesamte Spulenwindungen.",
+        "fr": "Nombre total de spires de la bobine.",
+        "es": "Vueltas totales de la bobina.",
+        "ar": "إجمالي لفات الملف."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Coil Length (m)",
         "tr": "Bobin Boyu (m)",
-        "de": "Coil Length (m)",
-        "fr": "Coil Length (m)",
-        "es": "Coil Length (m)",
-        "ar": "Coil Length (m)"
+        "de": "Spulenlänge (m)",
+        "fr": "Longueur de la bobine (m)",
+        "es": "Longitud de la bobina (m)",
+        "ar": "طول الملف (m)"
       },
       "type": "number",
       "unit": "m",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Solenoid physical length.",
         "tr": "Solenoidin fiziksel uzunluğu.",
-        "de": "Solenoid physical length.",
-        "fr": "Solenoid physical length.",
-        "es": "Solenoid physical length.",
-        "ar": "Solenoid physical length."
+        "de": "Physikalische Länge des Solenoids.",
+        "fr": "Longueur physique du solénoïde.",
+        "es": "Longitud física del solenoide.",
+        "ar": "الطول الفعلي للملف اللولبي."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Manyetik Alan (B)",
         "tr": "Manyetik Alan (B)",
-        "de": "Manyetik Alan (B)",
-        "fr": "Manyetik Alan (B)",
-        "es": "Manyetik Alan (B)",
-        "ar": "Manyetik Alan (B)"
+        "de": "Magnetfeld (B)",
+        "fr": "Champ magnétique (B)",
+        "es": "Campo magnético (B)",
+        "ar": "المجال المغناطيسي (B)"
       }
     },
     "breakdownUnits": {
@@ -128,18 +128,18 @@
       "short_i18n": {
         "en": "Calculate magnetic flux density inside a solenoid.",
         "tr": "Bobin içindeki homojen manyetik akı yoğunluğunu (solenoid) hesaplar.",
-        "de": "Calculate magnetic flux density inside a solenoid.",
-        "fr": "Calculate magnetic flux density inside a solenoid.",
-        "es": "Calculate magnetic flux density inside a solenoid.",
-        "ar": "Calculate magnetic flux density inside a solenoid."
+        "de": "Berechnen Sie die magnetische Flussdichte im Inneren einer Spule.",
+        "fr": "Calculer la densité de flux magnétique à l'intérieur d'un solénoïde.",
+        "es": "Calcular la densidad de flujo magnético dentro de un solenoide.",
+        "ar": "حساب كثافة التدفق المغناطيسي داخل ملف لولبي."
       },
       "long_i18n": {
         "en": "Calculate magnetic flux density inside a solenoid.",
         "tr": "Bobin içindeki homojen manyetik akı yoğunluğunu (solenoid) hesaplar.",
-        "de": "Calculate magnetic flux density inside a solenoid.",
-        "fr": "Calculate magnetic flux density inside a solenoid.",
-        "es": "Calculate magnetic flux density inside a solenoid.",
-        "ar": "Calculate magnetic flux density inside a solenoid."
+        "de": "Berechnen Sie die magnetische Flussdichte im Inneren einer Spule.",
+        "fr": "Calculer la densité de flux magnétique à l'intérieur d'un solénoïde.",
+        "es": "Calcular la densidad de flujo magnético dentro de un solenoide.",
+        "ar": "حساب كثافة التدفق المغناطيسي داخل ملف لولبي."
       }
     }
   },

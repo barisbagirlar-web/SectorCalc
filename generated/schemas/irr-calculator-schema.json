@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Initial project cost.",
         "tr": "Projenin başlangıç yatırım maliyeti.",
-        "de": "Initial project cost.",
-        "fr": "Initial project cost.",
-        "es": "Initial project cost.",
-        "ar": "Initial project cost."
+        "de": "Anfängliche Projektkosten.",
+        "fr": "Coût initial du projet.",
+        "es": "Costo inicial del proyecto.",
+        "ar": "التكلفة الأولية للمشروع."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Avg Annual Cash Flow (USD)",
         "tr": "Ortalama Yıllık Nakit Akışı (₺)",
-        "de": "Avg Annual Cash Flow (USD)",
-        "fr": "Avg Annual Cash Flow (USD)",
-        "es": "Avg Annual Cash Flow (USD)",
-        "ar": "Avg Annual Cash Flow (USD)"
+        "de": "Durchschnittlicher jährlicher Cashflow (USD)",
+        "fr": "Flux de trésorerie annuel moyen (USD)",
+        "es": "Flujo de Caja Promedio Anual (USD)",
+        "ar": "متوسط التدفق النقدي السنوي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Average annual cash inflow.",
         "tr": "Projenin ortalama yıllık nakit girişi.",
-        "de": "Average annual cash inflow.",
-        "fr": "Average annual cash inflow.",
-        "es": "Average annual cash inflow.",
-        "ar": "Average annual cash inflow."
+        "de": "Durchschnittlicher jährlicher Mittelzufluss.",
+        "fr": "Entrée de trésorerie annuelle moyenne.",
+        "es": "Entrada de efectivo anual promedio.",
+        "ar": "متوسط التدفق النقدي السنوي الوارد."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Project's economic life.",
         "tr": "Projenin ekonomik ömrü.",
-        "de": "Project's economic life.",
-        "fr": "Project's economic life.",
-        "es": "Project's economic life.",
-        "ar": "Project's economic life."
+        "de": "Wirtschaftliche Nutzungsdauer des Projekts.",
+        "fr": "Durée de vie économique du projet.",
+        "es": "Vida económica del proyecto.",
+        "ar": "العمر الاقتصادي للمشروع."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "IRR (İç Verim Oranı - Yaklaşık)",
         "tr": "IRR (İç Verim Oranı - Yaklaşık)",
-        "de": "IRR (İç Verim Oranı - Yaklaşık)",
-        "fr": "IRR (İç Verim Oranı - Yaklaşık)",
-        "es": "IRR (İç Verim Oranı - Yaklaşık)",
-        "ar": "IRR (İç Verim Oranı - Yaklaşık)"
+        "de": "IRR (interner Zinsfuß - Näherungswert)",
+        "fr": "IRR (Internal Rate of Return - Approximate)",
+        "es": "TIR (Tasa Interna de Retorno - Aproximada)",
+        "ar": "معدل العائد الداخلي (IRR - تقريبي)"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Estimate the internal rate of return (IRR) that zeroes NPV.",
         "tr": "NPV'yi sıfıra eşitleyen proje iç getiri oranını (IRR) tahmin eder.",
-        "de": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "fr": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "es": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "ar": "Estimate the internal rate of return (IRR) that zeroes NPV."
+        "de": "Schätzen Sie den internen Zinsfuß (IRR), der den NPV auf null setzt.",
+        "fr": "Estimer le taux de rendement interne (TRI) qui annule la VAN.",
+        "es": "Estimar la tasa interna de retorno (IRR) que hace cero el VAN.",
+        "ar": "تقدير معدل العائد الداخلي (IRR) الذي يجعل صافي القيمة الحالية (NPV) صفرًا."
       },
       "long_i18n": {
         "en": "Estimate the internal rate of return (IRR) that zeroes NPV.",
         "tr": "NPV'yi sıfıra eşitleyen proje iç getiri oranını (IRR) tahmin eder.",
-        "de": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "fr": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "es": "Estimate the internal rate of return (IRR) that zeroes NPV.",
-        "ar": "Estimate the internal rate of return (IRR) that zeroes NPV."
+        "de": "Schätzen Sie den internen Zinsfuß (IRR), der den NPV auf null setzt.",
+        "fr": "Estimer le taux de rendement interne (TRI) qui annule la VAN.",
+        "es": "Estimar la tasa interna de retorno (IRR) que hace cero el VAN.",
+        "ar": "تقدير معدل العائد الداخلي (IRR) الذي يجعل صافي القيمة الحالية (NPV) صفرًا."
       }
     }
   },

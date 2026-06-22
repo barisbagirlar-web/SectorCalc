@@ -11,9 +11,9 @@
       "label_i18n": {
         "en": "BMR (kcal)",
         "tr": "BMR (kcal)",
-        "de": "BMR (kcal)",
+        "de": "GGR (kcal)",
         "fr": "BMR (kcal)",
-        "es": "BMR (kcal)",
+        "es": "TMB (kcal)",
         "ar": "معدل الأيض الأساسي (كيلو كالوري)"
       },
       "type": "number",
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Physical activity multiplier.",
         "tr": "Fiziksel aktivite çarpanı (1.2=hareketsiz, 2.0=çok aktif).",
-        "de": "Physical activity multiplier.",
-        "fr": "Physical activity multiplier.",
-        "es": "Physical activity multiplier.",
-        "ar": "Physical activity multiplier."
+        "de": "Bewegungsaktivitätsmultiplikator.",
+        "fr": "Multiplicateur d'activité physique.",
+        "es": "Multiplicador de actividad física.",
+        "ar": "مضاعف النشاط البدني."
       }
     }
   ],
@@ -76,10 +76,10 @@
       "sonuc": {
         "en": "TDEE (Günlük Kalori İhtiyacı)",
         "tr": "TDEE (Günlük Kalori İhtiyacı)",
-        "de": "TDEE (Günlük Kalori İhtiyacı)",
-        "fr": "TDEE (Günlük Kalori İhtiyacı)",
-        "es": "TDEE (Günlük Kalori İhtiyacı)",
-        "ar": "TDEE (Günlük Kalori İhtiyacı)"
+        "de": "TDEE (Daily Calorie Requirement)",
+        "fr": "TDEE (Besoins caloriques quotidiens)",
+        "es": "TDEE (Necesidad Calórica Diaria)",
+        "ar": "إجمالي إنفاق الطاقة اليومي (TDEE)"
       }
     },
     "breakdownUnits": {
@@ -101,18 +101,18 @@
       "short_i18n": {
         "en": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
         "tr": "Mevcut kiloyu korumak için günlük alınması gereken toplam kaloriyi (TDEE) hesaplar.",
-        "de": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
-        "fr": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
-        "es": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
-        "ar": "Calculate total daily energy expenditure (TDEE) to maintain weight."
+        "de": "Berechnen Sie den gesamten täglichen Energieverbrauch (TDEE) zur Gewichtserhaltung.",
+        "fr": "Calculer la dépense énergétique totale quotidienne (TDEE) pour maintenir le poids.",
+        "es": "Calcular el gasto energético diario total (TDEE) para mantener el peso.",
+        "ar": "احسب إجمالي إنفاق الطاقة اليومي (TDEE) للحفاظ على الوزن."
       },
       "long_i18n": {
         "en": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
         "tr": "Mevcut kiloyu korumak için günlük alınması gereken toplam kaloriyi (TDEE) hesaplar.",
-        "de": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
-        "fr": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
-        "es": "Calculate total daily energy expenditure (TDEE) to maintain weight.",
-        "ar": "Calculate total daily energy expenditure (TDEE) to maintain weight."
+        "de": "Berechnen Sie den gesamten täglichen Energieverbrauch (TDEE) zur Gewichtserhaltung.",
+        "fr": "Calculer la dépense énergétique totale quotidienne (TDEE) pour maintenir le poids.",
+        "es": "Calcular el gasto energético diario total (TDEE) para mantener el peso.",
+        "ar": "احسب إجمالي إنفاق الطاقة اليومي (TDEE) للحفاظ على الوزن."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Citations 1",
         "tr": "Atıf Sayısı 1",
-        "de": "Citations 1",
+        "de": "Zitationen 1",
         "fr": "Citations 1",
-        "es": "Citations 1",
-        "ar": "Citations 1"
+        "es": "Citas 1",
+        "ar": "الاستشهادات 1"
       },
       "type": "number",
       "unit": "",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Most cited paper.",
         "tr": "En çok atıf alan makale.",
-        "de": "Most cited paper.",
-        "fr": "Most cited paper.",
-        "es": "Most cited paper.",
-        "ar": "Most cited paper."
+        "de": "Meistzitierte Arbeit.",
+        "fr": "Article le plus cité.",
+        "es": "Artículo más citado.",
+        "ar": "الورقة الأكثر استشهادًا."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Citations 2",
         "tr": "Atıf Sayısı 2",
-        "de": "Citations 2",
+        "de": "Zitationen 2",
         "fr": "Citations 2",
-        "es": "Citations 2",
-        "ar": "Citations 2"
+        "es": "Citas 2",
+        "ar": "الاستشهادات 2"
       },
       "type": "number",
       "unit": "",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Second paper.",
         "tr": "İkinci makale.",
-        "de": "Second paper.",
-        "fr": "Second paper.",
-        "es": "Second paper.",
-        "ar": "Second paper."
+        "de": "Zweite Arbeit.",
+        "fr": "Deuxième article.",
+        "es": "Segundo artículo.",
+        "ar": "الورقة الثانية."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Citations 3",
         "tr": "Atıf Sayısı 3",
-        "de": "Citations 3",
+        "de": "Zitationen 3",
         "fr": "Citations 3",
-        "es": "Citations 3",
-        "ar": "Citations 3"
+        "es": "Citas 3",
+        "ar": "الاستشهادات 3"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Third paper.",
         "tr": "Üçüncü makale.",
-        "de": "Third paper.",
-        "fr": "Third paper.",
-        "es": "Third paper.",
-        "ar": "Third paper."
+        "de": "Dritte Arbeit.",
+        "fr": "Troisième article.",
+        "es": "Tercer artículo.",
+        "ar": "الورقة الثالثة."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Citations 4",
         "tr": "Atıf Sayısı 4",
-        "de": "Citations 4",
+        "de": "Zitationen 4",
         "fr": "Citations 4",
-        "es": "Citations 4",
-        "ar": "Citations 4"
+        "es": "Citas 4",
+        "ar": "الاستشهادات 4"
       },
       "type": "number",
       "unit": "",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Fourth paper.",
         "tr": "Dördüncü makale.",
-        "de": "Fourth paper.",
-        "fr": "Fourth paper.",
-        "es": "Fourth paper.",
-        "ar": "Fourth paper."
+        "de": "Vierte Arbeit.",
+        "fr": "Quatrième article.",
+        "es": "Cuarto artículo.",
+        "ar": "الورقة الرابعة."
       }
     },
     {
@@ -111,10 +111,10 @@
       "label_i18n": {
         "en": "Citations 5",
         "tr": "Atıf Sayısı 5",
-        "de": "Citations 5",
+        "de": "Zitationen 5",
         "fr": "Citations 5",
-        "es": "Citations 5",
-        "ar": "Citations 5"
+        "es": "Citas 5",
+        "ar": "الاستشهادات 5"
       },
       "type": "number",
       "unit": "",
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Fifth paper.",
         "tr": "Beşinci makale.",
-        "de": "Fifth paper.",
-        "fr": "Fifth paper.",
-        "es": "Fifth paper.",
-        "ar": "Fifth paper."
+        "de": "Fünfte Arbeit.",
+        "fr": "Cinquième article.",
+        "es": "Quinto artículo.",
+        "ar": "الورقة الخامسة."
       }
     }
   ],
@@ -150,10 +150,10 @@
       "sonuc": {
         "en": "H-İndeksi",
         "tr": "H-İndeksi",
-        "de": "H-İndeksi",
-        "fr": "H-İndeksi",
-        "es": "H-İndeksi",
-        "ar": "H-İndeksi"
+        "de": "H-Index",
+        "fr": "Indice H",
+        "es": "Índice H",
+        "ar": "مؤشر هيرش (H-Index)"
       }
     },
     "breakdownUnits": {
@@ -178,18 +178,18 @@
       "short_i18n": {
         "en": "Calculate H-index from a list of citation counts.",
         "tr": "Akademisyenin h kadar makalesinin en az h atıf aldığı etki skorunu (H-İndeksi) hesaplar.",
-        "de": "Calculate H-index from a list of citation counts.",
-        "fr": "Calculate H-index from a list of citation counts.",
-        "es": "Calculate H-index from a list of citation counts.",
-        "ar": "Calculate H-index from a list of citation counts."
+        "de": "Berechnen Sie den H-Index aus einer Liste von Zitationszahlen.",
+        "fr": "Calculer l'indice H à partir d'une liste de nombres de citations.",
+        "es": "Calcular el índice H a partir de una lista de conteos de citas.",
+        "ar": "احسب مؤشر H من قائمة أعداد الاستشهادات."
       },
       "long_i18n": {
         "en": "Calculate H-index from a list of citation counts.",
         "tr": "Akademisyenin h kadar makalesinin en az h atıf aldığı etki skorunu (H-İndeksi) hesaplar.",
-        "de": "Calculate H-index from a list of citation counts.",
-        "fr": "Calculate H-index from a list of citation counts.",
-        "es": "Calculate H-index from a list of citation counts.",
-        "ar": "Calculate H-index from a list of citation counts."
+        "de": "Berechnen Sie den H-Index aus einer Liste von Zitationszahlen.",
+        "fr": "Calculer l'indice H à partir d'une liste de nombres de citations.",
+        "es": "Calcular el índice H a partir de una lista de conteos de citas.",
+        "ar": "احسب مؤشر H من قائمة أعداد الاستشهادات."
       }
     }
   },

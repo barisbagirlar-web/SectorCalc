@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Trade size in lots.",
         "tr": "İşlem büyüklüğü.",
-        "de": "Trade size in lots.",
-        "fr": "Trade size in lots.",
-        "es": "Trade size in lots.",
-        "ar": "Trade size in lots."
+        "de": "Handelsgröße in Lots.",
+        "fr": "Taille de la transaction en lots.",
+        "es": "Tamaño de la operación en lotes.",
+        "ar": "حجم التداول باللوت."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "TRY value per pip.",
         "tr": "Her pip'in TL karşılığı.",
-        "de": "TRY value per pip.",
-        "fr": "TRY value per pip.",
-        "es": "TRY value per pip.",
-        "ar": "TRY value per pip."
+        "de": "TRY-Wert pro Pip.",
+        "fr": "Valeur TRY par pip.",
+        "es": "Valor de TRY por pip.",
+        "ar": "قيمة TRY لكل نقطة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Pip Movement",
         "tr": "Pip Hareketi",
-        "de": "Pip Movement",
-        "fr": "Pip Movement",
-        "es": "Pip Movement",
-        "ar": "Pip Movement"
+        "de": "Pip-Bewegung",
+        "fr": "Mouvement en pips",
+        "es": "Movimiento de pips",
+        "ar": "حركة النقطة"
       },
       "type": "number",
       "unit": "pips",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Number of pips the price moved.",
         "tr": "Fiyatın hareket ettiği pip sayısı.",
-        "de": "Number of pips the price moved.",
-        "fr": "Number of pips the price moved.",
-        "es": "Number of pips the price moved.",
-        "ar": "Number of pips the price moved."
+        "de": "Anzahl der Pips, die sich der Preis bewegt hat.",
+        "fr": "Nombre de pips dont le prix a bougé.",
+        "es": "Número de pips que se movió el precio.",
+        "ar": "عدد النقاط التي تحركها السعر."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Forex Kâr/Zarar",
         "tr": "Forex Kâr/Zarar",
-        "de": "Forex Kâr/Zarar",
-        "fr": "Forex Kâr/Zarar",
-        "es": "Forex Kâr/Zarar",
-        "ar": "Forex Kâr/Zarar"
+        "de": "Devisengewinn/-verlust",
+        "fr": "Profit/Perte Forex",
+        "es": "Ganancia/Pérdida en Forex",
+        "ar": "ربح/خسارة الفوركس"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate forex profit/loss in account currency from pip movement.",
         "tr": "Parite hareketinin hesap para birimindeki kâr/zarar karşılığını hesaplar.",
-        "de": "Calculate forex profit/loss in account currency from pip movement.",
-        "fr": "Calculate forex profit/loss in account currency from pip movement.",
-        "es": "Calculate forex profit/loss in account currency from pip movement.",
-        "ar": "Calculate forex profit/loss in account currency from pip movement."
+        "de": "Berechnen Sie den Forex-Gewinn/-Verlust in Kontowährung aus der Pip-Bewegung.",
+        "fr": "Calculer le profit/perte de change dans la devise du compte à partir du mouvement en pips.",
+        "es": "Calcular ganancia/pérdida de forex en la moneda de la cuenta a partir del movimiento de pips.",
+        "ar": "حساب الربح/الخسارة في الفوركس بعملة الحساب من حركة النقطة."
       },
       "long_i18n": {
         "en": "Calculate forex profit/loss in account currency from pip movement.",
         "tr": "Parite hareketinin hesap para birimindeki kâr/zarar karşılığını hesaplar.",
-        "de": "Calculate forex profit/loss in account currency from pip movement.",
-        "fr": "Calculate forex profit/loss in account currency from pip movement.",
-        "es": "Calculate forex profit/loss in account currency from pip movement.",
-        "ar": "Calculate forex profit/loss in account currency from pip movement."
+        "de": "Berechnen Sie den Forex-Gewinn/-Verlust in Kontowährung aus der Pip-Bewegung.",
+        "fr": "Calculer le profit/perte de change dans la devise du compte à partir du mouvement en pips.",
+        "es": "Calcular ganancia/pérdida de forex en la moneda de la cuenta a partir del movimiento de pips.",
+        "ar": "حساب الربح/الخسارة في الفوركس بعملة الحساب من حركة النقطة."
       }
     }
   },

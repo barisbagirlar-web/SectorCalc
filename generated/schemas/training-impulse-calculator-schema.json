@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Session Duration (Min)",
         "tr": "Antrenman Süresi (Dk)",
-        "de": "Session Duration (Min)",
-        "fr": "Session Duration (Min)",
-        "es": "Session Duration (Min)",
-        "ar": "Session Duration (Min)"
+        "de": "Sitzungsdauer (Min)",
+        "fr": "Durée de la séance (Min)",
+        "es": "Duración de la Sesión (Min)",
+        "ar": "مدة الجلسة (Min)"
       },
       "type": "number",
       "unit": "min",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Training duration.",
         "tr": "Antrenman süresi.",
-        "de": "Training duration.",
-        "fr": "Training duration.",
-        "es": "Training duration.",
-        "ar": "Training duration."
+        "de": "Trainingsdauer.",
+        "fr": "Durée de l'entraînement.",
+        "es": "Duración del entrenamiento.",
+        "ar": "مدة التدريب."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Average Heart Rate (BPM)",
         "tr": "Ortalama Nabız (BPM)",
-        "de": "Average Heart Rate (BPM)",
-        "fr": "Average Heart Rate (BPM)",
-        "es": "Average Heart Rate (BPM)",
-        "ar": "Average Heart Rate (BPM)"
+        "de": "Durchschnittliche Herzfrequenz (BPM)",
+        "fr": "Fréquence cardiaque moyenne (BPM)",
+        "es": "Frecuencia Cardíaca Promedio (LPM)",
+        "ar": "متوسط معدل ضربات القلب (BPM)"
       },
       "type": "number",
       "unit": "bpm",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Session average HR.",
         "tr": "Seans ortalama kalp hızı.",
-        "de": "Session average HR.",
-        "fr": "Session average HR.",
-        "es": "Session average HR.",
-        "ar": "Session average HR."
+        "de": "Durchschnittliche HF der Sitzung.",
+        "fr": "FC moyenne de la séance.",
+        "es": "FC promedio de la sesión.",
+        "ar": "متوسط معدل ضربات القلب للجلسة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Resting HR (BPM)",
         "tr": "Dinlenme Nabzı (BPM)",
-        "de": "Resting HR (BPM)",
-        "fr": "Resting HR (BPM)",
-        "es": "Resting HR (BPM)",
-        "ar": "Resting HR (BPM)"
+        "de": "Ruheherzfrequenz (BPM)",
+        "fr": "FC au repos (BPM)",
+        "es": "FC en Reposo (LPM)",
+        "ar": "معدل ضربات القلب أثناء الراحة (BPM)"
       },
       "type": "number",
       "unit": "bpm",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Baseline heart rate.",
         "tr": "Bazal kalp hızı.",
-        "de": "Baseline heart rate.",
-        "fr": "Baseline heart rate.",
-        "es": "Baseline heart rate.",
-        "ar": "Baseline heart rate."
+        "de": "Basisherzfrequenz.",
+        "fr": "Fréquence cardiaque de base.",
+        "es": "Frecuencia cardíaca basal.",
+        "ar": "معدل ضربات القلب الأساسي."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Max HR (BPM)",
         "tr": "Maksimum Nabız (BPM)",
-        "de": "Max HR (BPM)",
-        "fr": "Max HR (BPM)",
-        "es": "Max HR (BPM)",
-        "ar": "Max HR (BPM)"
+        "de": "Maximale Herzfrequenz (BPM)",
+        "fr": "FC max (BPM)",
+        "es": "FC Máxima (LPM)",
+        "ar": "أقصى معدل ضربات القلب (BPM)"
       },
       "type": "number",
       "unit": "bpm",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Individual max HR.",
         "tr": "Kişinin maksimum kalp hızı.",
-        "de": "Individual max HR.",
-        "fr": "Individual max HR.",
-        "es": "Individual max HR.",
-        "ar": "Individual max HR."
+        "de": "Individuelle maximale HF.",
+        "fr": "FC max individuelle.",
+        "es": "FC máxima individual.",
+        "ar": "أقصى معدل ضربات القلب الفردي."
       }
     },
     {
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Gender.",
         "tr": "Cinsiyet.",
-        "de": "Gender.",
-        "fr": "Gender.",
-        "es": "Gender.",
-        "ar": "Gender."
+        "de": "Geschlecht.",
+        "fr": "Sexe.",
+        "es": "Género.",
+        "ar": "الجنس."
       }
     }
   ],
@@ -151,10 +151,10 @@
       "sonuc": {
         "en": "TRIMP Değeri",
         "tr": "TRIMP Değeri",
-        "de": "TRIMP Değeri",
-        "fr": "TRIMP Değeri",
-        "es": "TRIMP Değeri",
-        "ar": "TRIMP Değeri"
+        "de": "TRIMP Value",
+        "fr": "Valeur TRIMP",
+        "es": "Valor TRIMP",
+        "ar": "قيمة TRIMP"
       }
     },
     "breakdownUnits": {
@@ -179,18 +179,18 @@
       "short_i18n": {
         "en": "Calculate training impulse (TRIMP) using Banister's model.",
         "tr": "Banister modeline göre antrenmanın fizyolojik stres yükünü (TRIMP) hesaplar.",
-        "de": "Calculate training impulse (TRIMP) using Banister's model.",
-        "fr": "Calculate training impulse (TRIMP) using Banister's model.",
-        "es": "Calculate training impulse (TRIMP) using Banister's model.",
-        "ar": "Calculate training impulse (TRIMP) using Banister's model."
+        "de": "Berechnen Sie den Trainingsimpuls (TRIMP) nach dem Banister-Modell.",
+        "fr": "Calculer l'impulsion d'entraînement (TRIMP) selon le modèle de Banister.",
+        "es": "Calcular el impulso de entrenamiento (TRIMP) usando el modelo de Banister.",
+        "ar": "حساب نبضة التدريب (TRIMP) باستخدام نموذج بانستر."
       },
       "long_i18n": {
         "en": "Calculate training impulse (TRIMP) using Banister's model.",
         "tr": "Banister modeline göre antrenmanın fizyolojik stres yükünü (TRIMP) hesaplar.",
-        "de": "Calculate training impulse (TRIMP) using Banister's model.",
-        "fr": "Calculate training impulse (TRIMP) using Banister's model.",
-        "es": "Calculate training impulse (TRIMP) using Banister's model.",
-        "ar": "Calculate training impulse (TRIMP) using Banister's model."
+        "de": "Berechnen Sie den Trainingsimpuls (TRIMP) nach dem Banister-Modell.",
+        "fr": "Calculer l'impulsion d'entraînement (TRIMP) selon le modèle de Banister.",
+        "es": "Calcular el impulso de entrenamiento (TRIMP) usando el modelo de Banister.",
+        "ar": "حساب نبضة التدريب (TRIMP) باستخدام نموذج بانستر."
       }
     }
   },

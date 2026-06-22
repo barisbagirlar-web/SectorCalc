@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Seam Length (mm)",
         "tr": "Dikiş Uzunluğu (mm)",
-        "de": "Seam Length (mm)",
-        "fr": "Seam Length (mm)",
-        "es": "Seam Length (mm)",
-        "ar": "Seam Length (mm)"
+        "de": "Nahtlänge (mm)",
+        "fr": "Longueur de couture (mm)",
+        "es": "Longitud de la costura (mm)",
+        "ar": "طول الدرز (mm)"
       },
       "type": "number",
       "unit": "mm",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Seam length.",
         "tr": "Dikilecek dikiş boyu.",
-        "de": "Seam length.",
-        "fr": "Seam length.",
-        "es": "Seam length.",
-        "ar": "Seam length."
+        "de": "Nahtlänge.",
+        "fr": "Longueur de la couture.",
+        "es": "Longitud de la costura.",
+        "ar": "طول الدرز."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Machine Speed (stitches/min)",
         "tr": "Makine Devri (dikiş/dk)",
-        "de": "Machine Speed (stitches/min)",
-        "fr": "Machine Speed (stitches/min)",
-        "es": "Machine Speed (stitches/min)",
-        "ar": "Machine Speed (stitches/min)"
+        "de": "Maschinengeschwindigkeit (Stiche/min)",
+        "fr": "Vitesse de la machine (points/min)",
+        "es": "Velocidad de la máquina (puntadas/min)",
+        "ar": "سرعة الماكينة (غرزة/دقيقة)"
       },
       "type": "number",
       "unit": "spm",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Sewing machine speed.",
         "tr": "Dikiş makinesinin devir hızı.",
-        "de": "Sewing machine speed.",
-        "fr": "Sewing machine speed.",
-        "es": "Sewing machine speed.",
-        "ar": "Sewing machine speed."
+        "de": "Nähmaschinengeschwindigkeit.",
+        "fr": "Vitesse de la machine à coudre.",
+        "es": "Velocidad de la máquina de coser.",
+        "ar": "سرعة ماكينة الخياطة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Stitch Density (stitches/mm)",
         "tr": "Dikiş Sıklığı (dikiş/mm)",
-        "de": "Stitch Density (stitches/mm)",
-        "fr": "Stitch Density (stitches/mm)",
-        "es": "Stitch Density (stitches/mm)",
-        "ar": "Stitch Density (stitches/mm)"
+        "de": "Stichdichte (Stiche/mm)",
+        "fr": "Densité de points (points/mm)",
+        "es": "Densidad de puntadas (puntadas/mm)",
+        "ar": "كثافة الغرز (غرزة/mm)"
       },
       "type": "number",
       "unit": "per_mm",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Stitches per mm.",
         "tr": "mm başına düşen dikiş sayısı.",
-        "de": "Stitches per mm.",
-        "fr": "Stitches per mm.",
-        "es": "Stitches per mm.",
-        "ar": "Stitches per mm."
+        "de": "Stiche pro mm.",
+        "fr": "Points par mm.",
+        "es": "Puntadas por mm.",
+        "ar": "الغرز لكل مم."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Dikiş Süresi",
         "tr": "Dikiş Süresi",
-        "de": "Dikiş Süresi",
-        "fr": "Dikiş Süresi",
-        "es": "Dikiş Süresi",
-        "ar": "Dikiş Süresi"
+        "de": "Nähzeit",
+        "fr": "Temps de couture",
+        "es": "Tiempo de costura",
+        "ar": "وقت الخياطة"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate sewing machine cycle time for a seam operation.",
         "tr": "Bir dikiş operasyonunun saf makine süresini hesaplar.",
-        "de": "Calculate sewing machine cycle time for a seam operation.",
-        "fr": "Calculate sewing machine cycle time for a seam operation.",
-        "es": "Calculate sewing machine cycle time for a seam operation.",
-        "ar": "Calculate sewing machine cycle time for a seam operation."
+        "de": "Berechnen Sie die Nähmaschinenzykluszeit für einen Nahtvorgang.",
+        "fr": "Calculer le temps de cycle de la machine à coudre pour une opération de couture.",
+        "es": "Calcular el tiempo de ciclo de la máquina de coser para una operación de costura.",
+        "ar": "احسب وقت دورة ماكينة الخياطة لعملية الدرز."
       },
       "long_i18n": {
         "en": "Calculate sewing machine cycle time for a seam operation.",
         "tr": "Bir dikiş operasyonunun saf makine süresini hesaplar.",
-        "de": "Calculate sewing machine cycle time for a seam operation.",
-        "fr": "Calculate sewing machine cycle time for a seam operation.",
-        "es": "Calculate sewing machine cycle time for a seam operation.",
-        "ar": "Calculate sewing machine cycle time for a seam operation."
+        "de": "Berechnen Sie die Nähmaschinenzykluszeit für einen Nahtvorgang.",
+        "fr": "Calculer le temps de cycle de la machine à coudre pour une opération de couture.",
+        "es": "Calcular el tiempo de ciclo de la máquina de coser para una operación de costura.",
+        "ar": "احسب وقت دورة ماكينة الخياطة لعملية الدرز."
       }
     }
   },

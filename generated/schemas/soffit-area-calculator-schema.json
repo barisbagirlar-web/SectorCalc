@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Building Perimeter (m)",
         "tr": "Bina Çevresi (m)",
-        "de": "Building Perimeter (m)",
-        "fr": "Building Perimeter (m)",
-        "es": "Building Perimeter (m)",
-        "ar": "Building Perimeter (m)"
+        "de": "Gebäudeumfang (m)",
+        "fr": "Périmètre du bâtiment (m)",
+        "es": "Perímetro del Edificio (m)",
+        "ar": "محيط المبنى (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Building perimeter.",
         "tr": "Binanın toplam çevresi.",
-        "de": "Building perimeter.",
-        "fr": "Building perimeter.",
-        "es": "Building perimeter.",
-        "ar": "Building perimeter."
+        "de": "Gebäudeumfang.",
+        "fr": "Périmètre du bâtiment.",
+        "es": "Perímetro del edificio.",
+        "ar": "محيط المبنى."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Eave Width (m)",
         "tr": "Saçak Genişliği (m)",
-        "de": "Eave Width (m)",
-        "fr": "Eave Width (m)",
-        "es": "Eave Width (m)",
-        "ar": "Eave Width (m)"
+        "de": "Traufbreite (m)",
+        "fr": "Largeur de l'avant-toit (m)",
+        "es": "Ancho del Alero (m)",
+        "ar": "عرض الأفريز (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Eave overhang width.",
         "tr": "Saçak çıkıntı genişliği.",
-        "de": "Eave overhang width.",
-        "fr": "Eave overhang width.",
-        "es": "Eave overhang width.",
-        "ar": "Eave overhang width."
+        "de": "Traufüberstandsbreite.",
+        "fr": "Largeur du débord de l'avant-toit.",
+        "es": "Ancho del voladizo del alero.",
+        "ar": "عرض بروز الأفريز."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Saçak Altı Alanı",
         "tr": "Saçak Altı Alanı",
-        "de": "Saçak Altı Alanı",
-        "fr": "Saçak Altı Alanı",
-        "es": "Saçak Altı Alanı",
-        "ar": "Saçak Altı Alanı"
+        "de": "Traufbereichsfläche",
+        "fr": "Surface sous l'avant-toit",
+        "es": "Área Bajo el Alero",
+        "ar": "مساحة تحت الطنف"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate soffit area under roof eaves for cladding.",
         "tr": "Çatı saçak altının kaplanacak net yüzey alanını hesaplar.",
-        "de": "Calculate soffit area under roof eaves for cladding.",
-        "fr": "Calculate soffit area under roof eaves for cladding.",
-        "es": "Calculate soffit area under roof eaves for cladding.",
-        "ar": "Calculate soffit area under roof eaves for cladding."
+        "de": "Berechnen Sie die Untersichtsfläche unter der Dachtraufe für die Verkleidung.",
+        "fr": "Calculer la surface de sous-face sous les avant-toits pour le revêtement.",
+        "es": "Calcular el área de sofito bajo los aleros del techo para revestimiento.",
+        "ar": "حساب مساحة السطح السفلي تحت أفاريز السقف للتكسية."
       },
       "long_i18n": {
         "en": "Calculate soffit area under roof eaves for cladding.",
         "tr": "Çatı saçak altının kaplanacak net yüzey alanını hesaplar.",
-        "de": "Calculate soffit area under roof eaves for cladding.",
-        "fr": "Calculate soffit area under roof eaves for cladding.",
-        "es": "Calculate soffit area under roof eaves for cladding.",
-        "ar": "Calculate soffit area under roof eaves for cladding."
+        "de": "Berechnen Sie die Untersichtsfläche unter der Dachtraufe für die Verkleidung.",
+        "fr": "Calculer la surface de sous-face sous les avant-toits pour le revêtement.",
+        "es": "Calcular el área de sofito bajo los aleros del techo para revestimiento.",
+        "ar": "حساب مساحة السطح السفلي تحت أفاريز السقف للتكسية."
       }
     }
   },

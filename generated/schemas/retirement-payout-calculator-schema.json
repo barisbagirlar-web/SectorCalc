@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Total Savings (USD)",
         "tr": "Toplam Birikim (₺)",
-        "de": "Total Savings (USD)",
-        "fr": "Total Savings (USD)",
-        "es": "Total Savings (USD)",
-        "ar": "Total Savings (USD)"
+        "de": "Gesamtersparnisse (USD)",
+        "fr": "Épargne totale (USD)",
+        "es": "Ahorro Total (USD)",
+        "ar": "إجمالي المدخرات (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total accumulated retirement fund.",
         "tr": "Emeklilikte biriken toplam fon.",
-        "de": "Total accumulated retirement fund.",
-        "fr": "Total accumulated retirement fund.",
-        "es": "Total accumulated retirement fund.",
-        "ar": "Total accumulated retirement fund."
+        "de": "Gesamter angesparter Ruhestandsfonds.",
+        "fr": "Fonds de retraite total accumulé.",
+        "es": "Fondo de jubilación acumulado total.",
+        "ar": "إجمالي صندوق التقاعد المتراكم."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Annual return rate of the fund.",
         "tr": "Fonun yıllık getiri oranı.",
-        "de": "Annual return rate of the fund.",
-        "fr": "Annual return rate of the fund.",
-        "es": "Annual return rate of the fund.",
-        "ar": "Annual return rate of the fund."
+        "de": "Jährliche Rendite des Fonds.",
+        "fr": "Taux de rendement annuel du fonds.",
+        "es": "Tasa de rendimiento anual del fondo.",
+        "ar": "معدل العائد السنوي للصندوق."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Payout Period (Years)",
         "tr": "Ödeme Süresi (Yıl)",
-        "de": "Payout Period (Years)",
-        "fr": "Payout Period (Years)",
-        "es": "Payout Period (Years)",
-        "ar": "Payout Period (Years)"
+        "de": "Auszahlungszeitraum (Jahre)",
+        "fr": "Période de versement (années)",
+        "es": "Período de Pago (Años)",
+        "ar": "فترة السداد (سنوات)"
       },
       "type": "number",
       "unit": "years",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Number of years for payout.",
         "tr": "Gelir dağıtılacak yıl sayısı.",
-        "de": "Number of years for payout.",
-        "fr": "Number of years for payout.",
-        "es": "Number of years for payout.",
-        "ar": "Number of years for payout."
+        "de": "Anzahl der Auszahlungsjahre.",
+        "fr": "Nombre d'années de versement.",
+        "es": "Número de años para el pago.",
+        "ar": "عدد سنوات السداد."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Yıllık Emeklilik Geliri",
         "tr": "Yıllık Emeklilik Geliri",
-        "de": "Yıllık Emeklilik Geliri",
-        "fr": "Yıllık Emeklilik Geliri",
-        "es": "Yıllık Emeklilik Geliri",
-        "ar": "Yıllık Emeklilik Geliri"
+        "de": "Jährliches Ruhestandseinkommen",
+        "fr": "Revenu de retraite annuel",
+        "es": "Ingreso Anual de Jubilación",
+        "ar": "الدخل السنوي للتقاعد"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate the annual payout from a retirement savings pool.",
         "tr": "Emeklilik birikiminin yıllık dağıtım tutarını hesaplar.",
-        "de": "Calculate the annual payout from a retirement savings pool.",
-        "fr": "Calculate the annual payout from a retirement savings pool.",
-        "es": "Calculate the annual payout from a retirement savings pool.",
-        "ar": "Calculate the annual payout from a retirement savings pool."
+        "de": "Berechnen Sie die jährliche Auszahlung aus einem Altersvorsorgepool.",
+        "fr": "Calculer le versement annuel d'un fonds d'épargne retraite.",
+        "es": "Calcular el pago anual de un fondo de ahorro para la jubilación.",
+        "ar": "احسب الدفعة السنوية من صندوق مدخرات التقاعد."
       },
       "long_i18n": {
         "en": "Calculate the annual payout from a retirement savings pool.",
         "tr": "Emeklilik birikiminin yıllık dağıtım tutarını hesaplar.",
-        "de": "Calculate the annual payout from a retirement savings pool.",
-        "fr": "Calculate the annual payout from a retirement savings pool.",
-        "es": "Calculate the annual payout from a retirement savings pool.",
-        "ar": "Calculate the annual payout from a retirement savings pool."
+        "de": "Berechnen Sie die jährliche Auszahlung aus einem Altersvorsorgepool.",
+        "fr": "Calculer le versement annuel d'un fonds d'épargne retraite.",
+        "es": "Calcular el pago anual de un fondo de ahorro para la jubilación.",
+        "ar": "احسب الدفعة السنوية من صندوق مدخرات التقاعد."
       }
     }
   },

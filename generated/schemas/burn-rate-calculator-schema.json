@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Start Cash (USD)",
         "tr": "Dönem Başı Nakit (TL)",
-        "de": "Start Cash (USD)",
-        "fr": "Start Cash (USD)",
-        "es": "Start Cash (USD)",
-        "ar": "Start Cash (USD)"
+        "de": "Anfangsbestand (USD)",
+        "fr": "Trésorerie de départ (USD)",
+        "es": "Efectivo Inicial (USD)",
+        "ar": "النقد الابتدائي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Cash at period start.",
         "tr": "Dönem başı nakit bakiyesi.",
-        "de": "Cash at period start.",
-        "fr": "Cash at period start.",
-        "es": "Cash at period start.",
-        "ar": "Cash at period start."
+        "de": "Bargeld zu Periodenbeginn.",
+        "fr": "Trésorerie en début de période.",
+        "es": "Efectivo al inicio del período.",
+        "ar": "النقد في بداية الفترة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "End Cash (USD)",
         "tr": "Dönem Sonu Nakit (TL)",
-        "de": "End Cash (USD)",
-        "fr": "End Cash (USD)",
-        "es": "End Cash (USD)",
-        "ar": "End Cash (USD)"
+        "de": "Endbestand (USD)",
+        "fr": "Trésorerie de fin (USD)",
+        "es": "Efectivo Final (USD)",
+        "ar": "النقد النهائي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Cash at period end.",
         "tr": "Dönem sonu nakit bakiyesi.",
-        "de": "Cash at period end.",
-        "fr": "Cash at period end.",
-        "es": "Cash at period end.",
-        "ar": "Cash at period end."
+        "de": "Bargeld am Periodenende.",
+        "fr": "Trésorerie en fin de période.",
+        "es": "Efectivo al final del período.",
+        "ar": "النقد في نهاية الفترة."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Calculation period.",
         "tr": "Hesaplama dönemi.",
-        "de": "Calculation period.",
-        "fr": "Calculation period.",
-        "es": "Calculation period.",
-        "ar": "Calculation period."
+        "de": "Berechnungszeitraum.",
+        "fr": "Période de calcul.",
+        "es": "Período de cálculo.",
+        "ar": "فترة الحساب."
       }
     }
   ],
@@ -101,10 +101,10 @@
       "sonuc": {
         "en": "Kalan Süre (Runway)",
         "tr": "Kalan Süre (Runway)",
-        "de": "Kalan Süre (Runway)",
-        "fr": "Kalan Süre (Runway)",
-        "es": "Kalan Süre (Runway)",
-        "ar": "Kalan Süre (Runway)"
+        "de": "Verbleibende Zeit (Runway)",
+        "fr": "Temps restant (Runway)",
+        "es": "Tiempo Restante (Pista)",
+        "ar": "الوقت المتبقي (المدرج)"
       }
     },
     "breakdownUnits": {
@@ -126,18 +126,18 @@
       "short_i18n": {
         "en": "Calculate runway (months until cash runs out) from burn rate.",
         "tr": "Şirketin iflas etmeden önce yaşayabileceği tahmini süreyi hesaplar.",
-        "de": "Calculate runway (months until cash runs out) from burn rate.",
-        "fr": "Calculate runway (months until cash runs out) from burn rate.",
-        "es": "Calculate runway (months until cash runs out) from burn rate.",
-        "ar": "Calculate runway (months until cash runs out) from burn rate."
+        "de": "Berechnen Sie die Start- und Landebahn (Monate bis zur Bargelderschöpfung) aus der Burn-Rate.",
+        "fr": "Calculer la piste (mois jusqu'à épuisement de la trésorerie) à partir du taux de consommation.",
+        "es": "Calcular la pista (meses hasta que se agote el efectivo) a partir de la tasa de consumo.",
+        "ar": "حساب المدرج (الأشهر حتى نفاد النقد) من معدل الحرق."
       },
       "long_i18n": {
         "en": "Calculate runway (months until cash runs out) from burn rate.",
         "tr": "Şirketin iflas etmeden önce yaşayabileceği tahmini süreyi hesaplar.",
-        "de": "Calculate runway (months until cash runs out) from burn rate.",
-        "fr": "Calculate runway (months until cash runs out) from burn rate.",
-        "es": "Calculate runway (months until cash runs out) from burn rate.",
-        "ar": "Calculate runway (months until cash runs out) from burn rate."
+        "de": "Berechnen Sie die Start- und Landebahn (Monate bis zur Bargelderschöpfung) aus der Burn-Rate.",
+        "fr": "Calculer la piste (mois jusqu'à épuisement de la trésorerie) à partir du taux de consommation.",
+        "es": "Calcular la pista (meses hasta que se agote el efectivo) a partir de la tasa de consumo.",
+        "ar": "حساب المدرج (الأشهر حتى نفاد النقد) من معدل الحرق."
       }
     }
   },

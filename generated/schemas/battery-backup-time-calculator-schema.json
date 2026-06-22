@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Battery rated capacity.",
         "tr": "Akü nominal kapasitesi.",
-        "de": "Battery rated capacity.",
-        "fr": "Battery rated capacity.",
-        "es": "Battery rated capacity.",
-        "ar": "Battery rated capacity."
+        "de": "Nennkapazität der Batterie.",
+        "fr": "Capacité nominale de la batterie.",
+        "es": "Capacidad nominal de la batería.",
+        "ar": "السعة المقدرة للبطارية."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Total connected load power.",
         "tr": "Beslenecek cihazların toplam gücü.",
-        "de": "Total connected load power.",
-        "fr": "Total connected load power.",
-        "es": "Total connected load power.",
-        "ar": "Total connected load power."
+        "de": "Gesamtleistung der angeschlossenen Last.",
+        "fr": "Puissance totale de la charge connectée.",
+        "es": "Potencia total de la carga conectada.",
+        "ar": "إجمالي طاقة الحمل المتصل."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "DC System Voltage (V)",
         "tr": "DC Sistem Voltajı (V)",
-        "de": "DC System Voltage (V)",
-        "fr": "DC System Voltage (V)",
-        "es": "DC System Voltage (V)",
-        "ar": "DC System Voltage (V)"
+        "de": "DC-Systemspannung (V)",
+        "fr": "Tension du système CC (V)",
+        "es": "Tensión del Sistema DC (V)",
+        "ar": "جهد نظام التيار المستمر (V)"
       },
       "type": "number",
       "unit": "V",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Battery system voltage.",
         "tr": "Akü sistemi voltajı.",
-        "de": "Battery system voltage.",
-        "fr": "Battery system voltage.",
-        "es": "Battery system voltage.",
-        "ar": "Battery system voltage."
+        "de": "Batteriesystemspannung.",
+        "fr": "Tension du système de batterie.",
+        "es": "Tensión del sistema de baterías.",
+        "ar": "جهد نظام البطارية."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Maximum allowed discharge.",
         "tr": "İzin verilen maksimum deşarj.",
-        "de": "Maximum allowed discharge.",
-        "fr": "Maximum allowed discharge.",
-        "es": "Maximum allowed discharge.",
-        "ar": "Maximum allowed discharge."
+        "de": "Maximal zulässige Entladung.",
+        "fr": "Décharge maximale autorisée.",
+        "es": "Descarga máxima permitida.",
+        "ar": "أقصى تفريغ مسموح به."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Yedekleme Süresi",
         "tr": "Yedekleme Süresi",
-        "de": "Yedekleme Süresi",
-        "fr": "Yedekleme Süresi",
-        "es": "Yedekleme Süresi",
-        "ar": "Yedekleme Süresi"
+        "de": "Sicherungszeit",
+        "fr": "Durée de sauvegarde",
+        "es": "Tiempo de Respaldo",
+        "ar": "مدة النسخ الاحتياطي"
       }
     },
     "breakdownUnits": {
@@ -153,18 +153,18 @@
       "short_i18n": {
         "en": "Calculate battery backup time for a given load.",
         "tr": "Akünün yükü besleyebileceği maksimum kesintisiz süreyi hesaplar.",
-        "de": "Calculate battery backup time for a given load.",
-        "fr": "Calculate battery backup time for a given load.",
-        "es": "Calculate battery backup time for a given load.",
-        "ar": "Calculate battery backup time for a given load."
+        "de": "Batterieüberbrückungszeit für eine gegebene Last berechnen.",
+        "fr": "Calculer le temps de secours de la batterie pour une charge donnée.",
+        "es": "Calcular el tiempo de respaldo de la batería para una carga determinada.",
+        "ar": "حساب وقت النسخ الاحتياطي للبطارية لحمل معين."
       },
       "long_i18n": {
         "en": "Calculate battery backup time for a given load.",
         "tr": "Akünün yükü besleyebileceği maksimum kesintisiz süreyi hesaplar.",
-        "de": "Calculate battery backup time for a given load.",
-        "fr": "Calculate battery backup time for a given load.",
-        "es": "Calculate battery backup time for a given load.",
-        "ar": "Calculate battery backup time for a given load."
+        "de": "Batterieüberbrückungszeit für eine gegebene Last berechnen.",
+        "fr": "Calculer le temps de secours de la batterie pour une charge donnée.",
+        "es": "Calcular el tiempo de respaldo de la batería para una carga determinada.",
+        "ar": "حساب وقت النسخ الاحتياطي للبطارية لحمل معين."
       }
     }
   },

@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Feed per revolution.",
         "tr": "Devir başına ilerleme miktarı.",
-        "de": "Feed per revolution.",
-        "fr": "Feed per revolution.",
-        "es": "Feed per revolution.",
-        "ar": "Feed per revolution."
+        "de": "Vorschub pro Umdrehung.",
+        "fr": "Avance par tour.",
+        "es": "Avance por revolución.",
+        "ar": "التغذية لكل دورة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Nose Radius (mm)",
         "tr": "Uç Radyüsü (mm)",
-        "de": "Nose Radius (mm)",
-        "fr": "Nose Radius (mm)",
-        "es": "Nose Radius (mm)",
-        "ar": "Nose Radius (mm)"
+        "de": "Schneidplattenradius (mm)",
+        "fr": "Rayon de nez (mm)",
+        "es": "Radio de Punta (mm)",
+        "ar": "نصف قطر الأنف (mm)"
       },
       "type": "number",
       "unit": "mm",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Insert nose radius.",
         "tr": "Kesici uç radyüsü.",
-        "de": "Insert nose radius.",
-        "fr": "Insert nose radius.",
-        "es": "Insert nose radius.",
-        "ar": "Insert nose radius."
+        "de": "Schneidplattenradius.",
+        "fr": "Rayon de nez de la plaquette.",
+        "es": "Radio de punta del inserto.",
+        "ar": "نصف قطر أنف القطعة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Yüzey Pürüzlülüğü (Ra)",
         "tr": "Yüzey Pürüzlülüğü (Ra)",
-        "de": "Yüzey Pürüzlülüğü (Ra)",
-        "fr": "Yüzey Pürüzlülüğü (Ra)",
-        "es": "Yüzey Pürüzlülüğü (Ra)",
-        "ar": "Yüzey Pürüzlülüğü (Ra)"
+        "de": "Oberflächenrauheit (Ra)",
+        "fr": "Rugosité de surface (Ra)",
+        "es": "Rugosidad Superficial (Ra)",
+        "ar": "الخشونة السطحية (Ra)"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate theoretical surface roughness (Ra) for turning operation.",
         "tr": "Tornalama işlemindeki teorik yüzey pürüzlülüğünü (Ra) hesaplar.",
-        "de": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "fr": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "es": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "ar": "Calculate theoretical surface roughness (Ra) for turning operation."
+        "de": "Berechnen Sie die theoretische Oberflächenrauheit (Ra) für eine Drehbearbeitung.",
+        "fr": "Calculer la rugosité théorique de surface (Ra) pour une opération de tournage.",
+        "es": "Calcular la rugosidad superficial teórica (Ra) para una operación de torneado.",
+        "ar": "احسب الخشونة السطحية النظرية (Ra) لعملية الخراطة."
       },
       "long_i18n": {
         "en": "Calculate theoretical surface roughness (Ra) for turning operation.",
         "tr": "Tornalama işlemindeki teorik yüzey pürüzlülüğünü (Ra) hesaplar.",
-        "de": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "fr": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "es": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "ar": "Calculate theoretical surface roughness (Ra) for turning operation."
+        "de": "Berechnen Sie die theoretische Oberflächenrauheit (Ra) für eine Drehbearbeitung.",
+        "fr": "Calculer la rugosité théorique de surface (Ra) pour une opération de tournage.",
+        "es": "Calcular la rugosidad superficial teórica (Ra) para una operación de torneado.",
+        "ar": "احسب الخشونة السطحية النظرية (Ra) لعملية الخراطة."
       }
     }
   },

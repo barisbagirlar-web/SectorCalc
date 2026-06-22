@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Electrolysis current.",
         "tr": "Elektroliz akımı.",
-        "de": "Electrolysis current.",
-        "fr": "Electrolysis current.",
-        "es": "Electrolysis current.",
-        "ar": "Electrolysis current."
+        "de": "Elektrolysestrom.",
+        "fr": "Courant d'électrolyse.",
+        "es": "Corriente de electrólisis.",
+        "ar": "تيار التحليل الكهربائي."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Time current applied.",
         "tr": "Akımın uygulandığı süre.",
-        "de": "Time current applied.",
-        "fr": "Time current applied.",
-        "es": "Time current applied.",
-        "ar": "Time current applied."
+        "de": "Zeit, in der der Strom angelegt wird.",
+        "fr": "Durée d'application du courant.",
+        "es": "Tiempo de aplicación de la corriente.",
+        "ar": "زمن تطبيق التيار."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Equivalent Weight (g/mol)",
         "tr": "Eşdeğer Ağırlık (g/mol)",
-        "de": "Equivalent Weight (g/mol)",
-        "fr": "Equivalent Weight (g/mol)",
-        "es": "Equivalent Weight (g/mol)",
-        "ar": "Equivalent Weight (g/mol)"
+        "de": "Äquivalentgewicht (g/mol)",
+        "fr": "Poids équivalent (g/mol)",
+        "es": "Peso Equivalente (g/mol)",
+        "ar": "الوزن المكافئ (g/mol)"
       },
       "type": "number",
       "unit": "g/mol",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Element equivalent mass.",
         "tr": "Maddenin eşdeğer kütlesi.",
-        "de": "Element equivalent mass.",
-        "fr": "Element equivalent mass.",
-        "es": "Element equivalent mass.",
-        "ar": "Element equivalent mass."
+        "de": "Äquivalente Masse des Elements.",
+        "fr": "Masse équivalente de l'élément.",
+        "es": "Masa equivalente del elemento.",
+        "ar": "الكتلة المكافئة للعنصر."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Electron Count (n)",
         "tr": "Elektron Sayısı (n)",
-        "de": "Electron Count (n)",
-        "fr": "Electron Count (n)",
-        "es": "Electron Count (n)",
-        "ar": "Electron Count (n)"
+        "de": "Elektronenzahl (n)",
+        "fr": "Nombre d'électrons (n)",
+        "es": "Número de Electrones (n)",
+        "ar": "عدد الإلكترونات (n)"
       },
       "type": "number",
       "unit": "",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Number of electrons transferred.",
         "tr": "Reaksiyona giren elektron sayısı.",
-        "de": "Number of electrons transferred.",
-        "fr": "Number of electrons transferred.",
-        "es": "Number of electrons transferred.",
-        "ar": "Number of electrons transferred."
+        "de": "Anzahl der übertragenen Elektronen.",
+        "fr": "Nombre d'électrons transférés.",
+        "es": "Número de electrones transferidos.",
+        "ar": "عدد الإلكترونات المنقولة."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Biriken Madde",
         "tr": "Biriken Madde",
-        "de": "Biriken Madde",
-        "fr": "Biriken Madde",
-        "es": "Biriken Madde",
-        "ar": "Biriken Madde"
+        "de": "Akkumulierte Substanz",
+        "fr": "Masse déposée",
+        "es": "Materia acumulada",
+        "ar": "المادة المترسبة"
       }
     },
     "breakdownUnits": {
@@ -153,18 +153,18 @@
       "short_i18n": {
         "en": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
         "tr": "Elektrotta biriken veya çözünen madde miktarını Faraday elektroliz yasasıyla hesaplar.",
-        "de": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "fr": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "es": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "ar": "Calculate mass deposited or dissolved at electrode using Faraday's law."
+        "de": "Berechnen Sie die an der Elektrode abgeschiedene oder gelöste Masse mit dem Faradayschen Gesetz.",
+        "fr": "Calculer la masse déposée ou dissoute à l'électrode en utilisant la loi de Faraday.",
+        "es": "Calcular la masa depositada o disuelta en el electrodo usando la ley de Faraday.",
+        "ar": "حساب الكتلة المترسبة أو المذابة عند القطب باستخدام قانون فاراداي."
       },
       "long_i18n": {
         "en": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
         "tr": "Elektrotta biriken veya çözünen madde miktarını Faraday elektroliz yasasıyla hesaplar.",
-        "de": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "fr": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "es": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "ar": "Calculate mass deposited or dissolved at electrode using Faraday's law."
+        "de": "Berechnen Sie die an der Elektrode abgeschiedene oder gelöste Masse mit dem Faradayschen Gesetz.",
+        "fr": "Calculer la masse déposée ou dissoute à l'électrode en utilisant la loi de Faraday.",
+        "es": "Calcular la masa depositada o disuelta en el electrodo usando la ley de Faraday.",
+        "ar": "حساب الكتلة المترسبة أو المذابة عند القطب باستخدام قانون فاراداي."
       }
     }
   },

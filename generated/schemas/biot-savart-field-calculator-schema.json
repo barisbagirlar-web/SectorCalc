@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Wire current.",
         "tr": "Telden geçen akım.",
-        "de": "Wire current.",
-        "fr": "Wire current.",
-        "es": "Wire current.",
-        "ar": "Wire current."
+        "de": "Leiterstrom.",
+        "fr": "Courant du fil.",
+        "es": "Corriente del cable.",
+        "ar": "تيار السلك."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Wire Segment Length (m)",
         "tr": "Tel Parçası Boyu (m)",
-        "de": "Wire Segment Length (m)",
-        "fr": "Wire Segment Length (m)",
-        "es": "Wire Segment Length (m)",
-        "ar": "Wire Segment Length (m)"
+        "de": "Leitersegmentlänge (m)",
+        "fr": "Longueur du segment de fil (m)",
+        "es": "Longitud del Segmento del Cable (m)",
+        "ar": "طول قطعة السلك (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Differential wire length.",
         "tr": "Diferansiyel tel uzunluğu.",
-        "de": "Differential wire length.",
-        "fr": "Differential wire length.",
-        "es": "Differential wire length.",
-        "ar": "Differential wire length."
+        "de": "Differentielle Leiterlänge.",
+        "fr": "Longueur différentielle du fil.",
+        "es": "Longitud diferencial del cable.",
+        "ar": "طول السلك التفاضلي."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Measurement distance.",
         "tr": "Ölçüm noktası uzaklığı.",
-        "de": "Measurement distance.",
-        "fr": "Measurement distance.",
-        "es": "Measurement distance.",
-        "ar": "Measurement distance."
+        "de": "Messabstand.",
+        "fr": "Distance de mesure.",
+        "es": "Distancia de medición.",
+        "ar": "مسافة القياس."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Angle between wire and direction.",
         "tr": "Tel-doğrultu arası açı.",
-        "de": "Angle between wire and direction.",
-        "fr": "Angle between wire and direction.",
-        "es": "Angle between wire and direction.",
-        "ar": "Angle between wire and direction."
+        "de": "Winkel zwischen Leiter und Richtung.",
+        "fr": "Angle entre le fil et la direction.",
+        "es": "Ángulo entre el cable y la dirección.",
+        "ar": "الزاوية بين السلك والاتجاه."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Diferansiyel Alan (dB)",
         "tr": "Diferansiyel Alan (dB)",
-        "de": "Diferansiyel Alan (dB)",
-        "fr": "Diferansiyel Alan (dB)",
-        "es": "Diferansiyel Alan (dB)",
-        "ar": "Diferansiyel Alan (dB)"
+        "de": "Differential Area (dB)",
+        "fr": "Zone différentielle (dB)",
+        "es": "Área Diferencial (dB)",
+        "ar": "نطاق تفاضلي (dB)"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate differential magnetic field using Biot-Savart law.",
         "tr": "Küçük tel elemanının oluşturduğu diferansiyel manyetik alanı Biot-Savart yasası ile hesaplar.",
-        "de": "Calculate differential magnetic field using Biot-Savart law.",
-        "fr": "Calculate differential magnetic field using Biot-Savart law.",
-        "es": "Calculate differential magnetic field using Biot-Savart law.",
-        "ar": "Calculate differential magnetic field using Biot-Savart law."
+        "de": "Berechnen Sie das differentielle Magnetfeld mit dem Biot-Savart-Gesetz.",
+        "fr": "Calculer le champ magnétique différentiel à l'aide de la loi de Biot-Savart.",
+        "es": "Calcular el campo magnético diferencial usando la ley de Biot-Savart.",
+        "ar": "احسب المجال المغناطيسي التفاضلي باستخدام قانون بيو-سافار."
       },
       "long_i18n": {
         "en": "Calculate differential magnetic field using Biot-Savart law.",
         "tr": "Küçük tel elemanının oluşturduğu diferansiyel manyetik alanı Biot-Savart yasası ile hesaplar.",
-        "de": "Calculate differential magnetic field using Biot-Savart law.",
-        "fr": "Calculate differential magnetic field using Biot-Savart law.",
-        "es": "Calculate differential magnetic field using Biot-Savart law.",
-        "ar": "Calculate differential magnetic field using Biot-Savart law."
+        "de": "Berechnen Sie das differentielle Magnetfeld mit dem Biot-Savart-Gesetz.",
+        "fr": "Calculer le champ magnétique différentiel à l'aide de la loi de Biot-Savart.",
+        "es": "Calcular el campo magnético diferencial usando la ley de Biot-Savart.",
+        "ar": "احسب المجال المغناطيسي التفاضلي باستخدام قانون بيو-سافار."
       }
     }
   },

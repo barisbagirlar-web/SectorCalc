@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Mortgage principal.",
         "tr": "Konut kredisi anaparası.",
-        "de": "Mortgage principal.",
-        "fr": "Mortgage principal.",
-        "es": "Mortgage principal.",
-        "ar": "Mortgage principal."
+        "de": "Hypothekenkapital.",
+        "fr": "Principal de l'hypothèque.",
+        "es": "Capital de la hipoteca.",
+        "ar": "أصل الرهن العقاري."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Loan interest rate.",
         "tr": "Kredi faiz oranı.",
-        "de": "Loan interest rate.",
-        "fr": "Loan interest rate.",
-        "es": "Loan interest rate.",
-        "ar": "Loan interest rate."
+        "de": "Darlehenszinssatz.",
+        "fr": "Taux d'intérêt du prêt.",
+        "es": "Tasa de interés del préstamo.",
+        "ar": "معدل فائدة القرض."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total loan term.",
         "tr": "Kredinin toplam vadesi.",
-        "de": "Total loan term.",
-        "fr": "Total loan term.",
-        "es": "Total loan term.",
-        "ar": "Total loan term."
+        "de": "Gesamte Darlehenslaufzeit.",
+        "fr": "Durée totale du prêt.",
+        "es": "Plazo total del préstamo.",
+        "ar": "إجمالي مدة القرض."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Inquiry Month",
         "tr": "Sorgulanan Ay",
-        "de": "Inquiry Month",
-        "fr": "Inquiry Month",
-        "es": "Inquiry Month",
-        "ar": "Inquiry Month"
+        "de": "Abfragemonat",
+        "fr": "Mois de la demande",
+        "es": "Mes de Consulta",
+        "ar": "شهر الاستعلام"
       },
       "type": "number",
       "unit": "months",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Month to analyze.",
         "tr": "Detayı görüntülenecek ay.",
-        "de": "Month to analyze.",
-        "fr": "Month to analyze.",
-        "es": "Month to analyze.",
-        "ar": "Month to analyze."
+        "de": "Zu analysierender Monat.",
+        "fr": "Mois à analyser.",
+        "es": "Mes a analizar.",
+        "ar": "الشهر المراد تحليله."
       }
     }
   ],
@@ -126,11 +126,11 @@
     "breakdown_i18n": {
       "sonuc": {
         "en": "Belirli Aydaki Anapara/ Faiz Analizi",
-        "tr": "Belirli Aydaki Anapara/ Faiz Analizi",
-        "de": "Belirli Aydaki Anapara/ Faiz Analizi",
-        "fr": "Belirli Aydaki Anapara/ Faiz Analizi",
-        "es": "Belirli Aydaki Anapara/ Faiz Analizi",
-        "ar": "Belirli Aydaki Anapara/ Faiz Analizi"
+        "tr": "Belirli Aydaki Anapara/Faiz Analizi",
+        "de": "Kapital-/Zinsanalyse im bestimmten Monat",
+        "fr": "Analyse du principal/des intérêts pour un mois donné",
+        "es": "Análisis de Capital/Interés en un Mes Específico",
+        "ar": "تحليل أصل الدين/الفائدة لشهر محدد"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate principal and interest portion for a specific mortgage payment.",
         "tr": "Belirli bir aydaki taksitin anapara/faiz dağılımını hesaplar.",
-        "de": "Calculate principal and interest portion for a specific mortgage payment.",
-        "fr": "Calculate principal and interest portion for a specific mortgage payment.",
-        "es": "Calculate principal and interest portion for a specific mortgage payment.",
-        "ar": "Calculate principal and interest portion for a specific mortgage payment."
+        "de": "Berechnen Sie den Kapital- und Zinsanteil für eine bestimmte Hypothekenzahlung.",
+        "fr": "Calculer la part de principal et d'intérêts pour un paiement hypothécaire spécifique.",
+        "es": "Calcular la porción de capital e intereses para un pago hipotecario específico.",
+        "ar": "حساب جزء أصل الدين والفائدة لدفعة رهن عقاري محددة."
       },
       "long_i18n": {
         "en": "Calculate principal and interest portion for a specific mortgage payment.",
         "tr": "Belirli bir aydaki taksitin anapara/faiz dağılımını hesaplar.",
-        "de": "Calculate principal and interest portion for a specific mortgage payment.",
-        "fr": "Calculate principal and interest portion for a specific mortgage payment.",
-        "es": "Calculate principal and interest portion for a specific mortgage payment.",
-        "ar": "Calculate principal and interest portion for a specific mortgage payment."
+        "de": "Berechnen Sie den Kapital- und Zinsanteil für eine bestimmte Hypothekenzahlung.",
+        "fr": "Calculer la part de principal et d'intérêts pour un paiement hypothécaire spécifique.",
+        "es": "Calcular la porción de capital e intereses para un pago hipotecario específico.",
+        "ar": "حساب جزء أصل الدين والفائدة لدفعة رهن عقاري محددة."
       }
     }
   },

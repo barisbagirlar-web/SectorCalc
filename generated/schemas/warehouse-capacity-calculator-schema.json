@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total warehouse floor area.",
         "tr": "Deponun toplam taban alanı.",
-        "de": "Total warehouse floor area.",
-        "fr": "Total warehouse floor area.",
-        "es": "Total warehouse floor area.",
-        "ar": "Total warehouse floor area."
+        "de": "Gesamte Lagerhallenfläche.",
+        "fr": "Surface totale de l'entrepôt.",
+        "es": "Área total del piso del almacén.",
+        "ar": "إجمالي مساحة أرضية المستودع."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Rack Utilization (%)",
         "tr": "Raf Kullanım Oranı (%)",
-        "de": "Rack Utilization (%)",
-        "fr": "Rack Utilization (%)",
-        "es": "Rack Utilization (%)",
-        "ar": "Rack Utilization (%)"
+        "de": "Regalnutzung (%)",
+        "fr": "Utilisation des rayonnages (%)",
+        "es": "Utilización de estanterías (%)",
+        "ar": "استغلال الرفوف (%)"
       },
       "type": "number",
       "unit": "%",
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Rack space to total floor ratio.",
         "tr": "Raf alanının toplam alana oranı.",
-        "de": "Rack space to total floor ratio.",
-        "fr": "Rack space to total floor ratio.",
-        "es": "Rack space to total floor ratio.",
-        "ar": "Rack space to total floor ratio."
+        "de": "Verhältnis von Regalfläche zu Gesamtfläche.",
+        "fr": "Rapport surface de rayonnage / surface totale.",
+        "es": "Relación entre espacio de estanterías y superficie total.",
+        "ar": "نسبة مساحة الرفوف إلى إجمالي الأرضية."
       }
     },
     {
@@ -62,10 +62,10 @@
       "label_i18n": {
         "en": "Pallet Footprint (m²)",
         "tr": "Palet Alanı (m²)",
-        "de": "Pallet Footprint (m²)",
-        "fr": "Pallet Footprint (m²)",
-        "es": "Pallet Footprint (m²)",
-        "ar": "Pallet Footprint (m²)"
+        "de": "Palettenfußabdruck (m²)",
+        "fr": "Emprise au sol d'une palette (m²)",
+        "es": "Huella del palé (m²)",
+        "ar": "بصمة البالتة (m²)"
       },
       "type": "number",
       "unit": "m2",
@@ -75,10 +75,10 @@
       "businessContext_i18n": {
         "en": "Area per pallet.",
         "tr": "Bir paletin kapladığı alan.",
-        "de": "Area per pallet.",
-        "fr": "Area per pallet.",
-        "es": "Area per pallet.",
-        "ar": "Area per pallet."
+        "de": "Fläche pro Palette.",
+        "fr": "Surface par palette.",
+        "es": "Área por palé.",
+        "ar": "المساحة لكل بالته."
       }
     }
   ],
@@ -101,10 +101,10 @@
       "sonuc": {
         "en": "Maksimum Palet Kapasitesi",
         "tr": "Maksimum Palet Kapasitesi",
-        "de": "Maksimum Palet Kapasitesi",
-        "fr": "Maksimum Palet Kapasitesi",
-        "es": "Maksimum Palet Kapasitesi",
-        "ar": "Maksimum Palet Kapasitesi"
+        "de": "Maximale Palettenkapazität",
+        "fr": "Capacité maximale de palettes",
+        "es": "Capacidad Máxima del Palé",
+        "ar": "الطاقة القصوى للوحة التحميل"
       }
     },
     "breakdownUnits": {
@@ -126,18 +126,18 @@
       "short_i18n": {
         "en": "Calculate maximum pallet capacity in a warehouse.",
         "tr": "Depoda barındırılabilecek maksimum palet sayısını hesaplar.",
-        "de": "Calculate maximum pallet capacity in a warehouse.",
-        "fr": "Calculate maximum pallet capacity in a warehouse.",
-        "es": "Calculate maximum pallet capacity in a warehouse.",
-        "ar": "Calculate maximum pallet capacity in a warehouse."
+        "de": "Berechnen Sie die maximale Palettenkapazität in einem Lager.",
+        "fr": "Calculer la capacité maximale de palettes dans un entrepôt.",
+        "es": "Calcular la capacidad máxima de palés en un almacén.",
+        "ar": "حساب السعة القصوى للبالتات في المستودع."
       },
       "long_i18n": {
         "en": "Calculate maximum pallet capacity in a warehouse.",
         "tr": "Depoda barındırılabilecek maksimum palet sayısını hesaplar.",
-        "de": "Calculate maximum pallet capacity in a warehouse.",
-        "fr": "Calculate maximum pallet capacity in a warehouse.",
-        "es": "Calculate maximum pallet capacity in a warehouse.",
-        "ar": "Calculate maximum pallet capacity in a warehouse."
+        "de": "Berechnen Sie die maximale Palettenkapazität in einem Lager.",
+        "fr": "Calculer la capacité maximale de palettes dans un entrepôt.",
+        "es": "Calcular la capacidad máxima de palés en un almacén.",
+        "ar": "حساب السعة القصوى للبالتات في المستودع."
       }
     }
   },

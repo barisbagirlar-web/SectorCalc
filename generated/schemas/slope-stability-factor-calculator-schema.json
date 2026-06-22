@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Soil cohesion.",
         "tr": "Zemin kohezyonu.",
-        "de": "Soil cohesion.",
-        "fr": "Soil cohesion.",
-        "es": "Soil cohesion.",
-        "ar": "Soil cohesion."
+        "de": "Bodenkohäsion.",
+        "fr": "Cohésion du sol.",
+        "es": "Cohesión del suelo.",
+        "ar": "تماسك التربة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Normal Stress (kPa)",
         "tr": "Normal Gerilme (kPa)",
-        "de": "Normal Stress (kPa)",
-        "fr": "Normal Stress (kPa)",
-        "es": "Normal Stress (kPa)",
-        "ar": "Normal Stress (kPa)"
+        "de": "Normalspannung (kPa)",
+        "fr": "Contrainte normale (kPa)",
+        "es": "Esfuerzo Normal (kPa)",
+        "ar": "الإجهاد العمودي (kPa)"
       },
       "type": "number",
       "unit": "kPa",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Normal stress on slip plane.",
         "tr": "Kayma düzlemine dik gerilme.",
-        "de": "Normal stress on slip plane.",
-        "fr": "Normal stress on slip plane.",
-        "es": "Normal stress on slip plane.",
-        "ar": "Normal stress on slip plane."
+        "de": "Normalspannung auf der Gleitebene.",
+        "fr": "Contrainte normale sur le plan de glissement.",
+        "es": "Esfuerzo normal en el plano de deslizamiento.",
+        "ar": "الإجهاد العمودي على مستوى الانزلاق."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Internal Friction Angle (Deg)",
         "tr": "İçsel Sürtünme Açısı (Derece)",
-        "de": "Internal Friction Angle (Deg)",
-        "fr": "Internal Friction Angle (Deg)",
-        "es": "Internal Friction Angle (Deg)",
-        "ar": "Internal Friction Angle (Deg)"
+        "de": "Innerer Reibungswinkel (Grad)",
+        "fr": "Angle de frottement interne (Deg)",
+        "es": "Ángulo de Fricción Interna (Deg)",
+        "ar": "زاوية الاحتكاك الداخلي (Deg)"
       },
       "type": "number",
       "unit": "degrees",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Soil friction angle.",
         "tr": "Zeminin içsel sürtünme açısı.",
-        "de": "Soil friction angle.",
-        "fr": "Soil friction angle.",
-        "es": "Soil friction angle.",
-        "ar": "Soil friction angle."
+        "de": "Bodenreibungswinkel.",
+        "fr": "Angle de frottement du sol.",
+        "es": "Ángulo de fricción del suelo.",
+        "ar": "زاوية احتكاك التربة."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Shear Stress (kPa)",
         "tr": "Kayma Gerilmesi (kPa)",
-        "de": "Shear Stress (kPa)",
-        "fr": "Shear Stress (kPa)",
-        "es": "Shear Stress (kPa)",
-        "ar": "Shear Stress (kPa)"
+        "de": "Schubspannung (kPa)",
+        "fr": "Contrainte de cisaillement (kPa)",
+        "es": "Esfuerzo Cortante (kPa)",
+        "ar": "إجهاد القص (kPa)"
       },
       "type": "number",
       "unit": "kPa",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Driving shear stress on slip plane.",
         "tr": "Kayma düzlemindeki sürükleyici gerilme.",
-        "de": "Driving shear stress on slip plane.",
-        "fr": "Driving shear stress on slip plane.",
-        "es": "Driving shear stress on slip plane.",
-        "ar": "Driving shear stress on slip plane."
+        "de": "Treibende Schubspannung auf der Gleitebene.",
+        "fr": "Contrainte de cisaillement motrice sur le plan de glissement.",
+        "es": "Esfuerzo cortante impulsor en el plano de deslizamiento.",
+        "ar": "إجهاد القص المحرك على مستوى الانزلاق."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "Emniyet Faktörü (FS)",
         "tr": "Emniyet Faktörü (FS)",
-        "de": "Emniyet Faktörü (FS)",
-        "fr": "Emniyet Faktörü (FS)",
-        "es": "Emniyet Faktörü (FS)",
-        "ar": "Emniyet Faktörü (FS)"
+        "de": "Sicherheitsfaktor (SF)",
+        "fr": "Facteur de sécurité (FS)",
+        "es": "Factor de Seguridad (FS)",
+        "ar": "عامل الأمان (FS)"
       }
     },
     "breakdownUnits": {
@@ -153,18 +153,18 @@
       "short_i18n": {
         "en": "Calculate slope stability factor of safety against sliding.",
         "tr": "Şevin kaymaya karşı emniyet katsayısını (FS) hesaplar.",
-        "de": "Calculate slope stability factor of safety against sliding.",
-        "fr": "Calculate slope stability factor of safety against sliding.",
-        "es": "Calculate slope stability factor of safety against sliding.",
-        "ar": "Calculate slope stability factor of safety against sliding."
+        "de": "Berechnen Sie den Standsicherheitsfaktor gegen Gleiten.",
+        "fr": "Calculer le facteur de sécurité de stabilité des pentes contre le glissement.",
+        "es": "Calcular el factor de seguridad de estabilidad de taludes contra deslizamiento.",
+        "ar": "حساب معامل أمان استقرار المنحدر ضد الانزلاق."
       },
       "long_i18n": {
         "en": "Calculate slope stability factor of safety against sliding.",
         "tr": "Şevin kaymaya karşı emniyet katsayısını (FS) hesaplar.",
-        "de": "Calculate slope stability factor of safety against sliding.",
-        "fr": "Calculate slope stability factor of safety against sliding.",
-        "es": "Calculate slope stability factor of safety against sliding.",
-        "ar": "Calculate slope stability factor of safety against sliding."
+        "de": "Berechnen Sie den Standsicherheitsfaktor gegen Gleiten.",
+        "fr": "Calculer le facteur de sécurité de stabilité des pentes contre le glissement.",
+        "es": "Calcular el factor de seguridad de estabilidad de taludes contra deslizamiento.",
+        "ar": "حساب معامل أمان استقرار المنحدر ضد الانزلاق."
       }
     }
   },

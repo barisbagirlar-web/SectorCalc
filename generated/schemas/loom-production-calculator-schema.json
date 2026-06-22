@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Picks per Minute (ppm)",
         "tr": "Atım Sayısı (atım/dk)",
-        "de": "Picks per Minute (ppm)",
-        "fr": "Picks per Minute (ppm)",
-        "es": "Picks per Minute (ppm)",
-        "ar": "Picks per Minute (ppm)"
+        "de": "Schussfaden pro Minute (ppm)",
+        "fr": "Coups par minute (ppm)",
+        "es": "Picks por minuto (ppm)",
+        "ar": "عدد الضربات في الدقيقة (ppm)"
       },
       "type": "number",
       "unit": "ppm",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Loom picks per minute.",
         "tr": "Tezgahın dakikadaki atım adedi.",
-        "de": "Loom picks per minute.",
-        "fr": "Loom picks per minute.",
-        "es": "Loom picks per minute.",
-        "ar": "Loom picks per minute."
+        "de": "Schussfaden pro Minute der Webmaschine.",
+        "fr": "Coups par minute du métier à tisser.",
+        "es": "Picks por minuto del telar.",
+        "ar": "عدد ضربات النول في الدقيقة."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Total downtime per shift.",
         "tr": "Vardiya başı toplam duruş.",
-        "de": "Total downtime per shift.",
-        "fr": "Total downtime per shift.",
-        "es": "Total downtime per shift.",
-        "ar": "Total downtime per shift."
+        "de": "Gesamtstillstandszeit pro Schicht.",
+        "fr": "Temps d'arrêt total par poste.",
+        "es": "Tiempo de inactividad total por turno.",
+        "ar": "إجمالي وقت التوقف لكل وردية."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total shift duration.",
         "tr": "Toplam vardiya süresi.",
-        "de": "Total shift duration.",
-        "fr": "Total shift duration.",
-        "es": "Total shift duration.",
-        "ar": "Total shift duration."
+        "de": "Gesamte Schichtdauer.",
+        "fr": "Durée totale du poste.",
+        "es": "Duración total del turno.",
+        "ar": "مدة الوردية الإجمالية."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Fabric Density (picks/cm)",
         "tr": "Kumaş Sıklığı (atım/cm)",
-        "de": "Fabric Density (picks/cm)",
-        "fr": "Fabric Density (picks/cm)",
-        "es": "Fabric Density (picks/cm)",
-        "ar": "Fabric Density (picks/cm)"
+        "de": "Gewebedichte (Schussfäden/cm)",
+        "fr": "Densité du tissu (coups/cm)",
+        "es": "Densidad de la tela (picks/cm)",
+        "ar": "كثافة النسيج (ضربة/سم)"
       },
       "type": "number",
       "unit": "picks/cm",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Picks per cm.",
         "tr": "cm başına atım sıklığı.",
-        "de": "Picks per cm.",
-        "fr": "Picks per cm.",
-        "es": "Picks per cm.",
-        "ar": "Picks per cm."
+        "de": "Schussfäden pro cm.",
+        "fr": "Coups par cm.",
+        "es": "Picks por cm.",
+        "ar": "عدد الضربات لكل سم."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "Net Kumaş Üretimi",
         "tr": "Net Kumaş Üretimi",
-        "de": "Net Kumaş Üretimi",
-        "fr": "Net Kumaş Üretimi",
-        "es": "Net Kumaş Üretimi",
-        "ar": "Net Kumaş Üretimi"
+        "de": "Nettostoffproduktion",
+        "fr": "Production nette de tissu",
+        "es": "Producción Neta de Tela",
+        "ar": "صافي إنتاج القماش"
       }
     },
     "breakdownUnits": {
@@ -153,18 +153,18 @@
       "short_i18n": {
         "en": "Calculate loom net fabric production per shift.",
         "tr": "Tezgahın bir vardiyada ürettiği net kumaş uzunluğunu hesaplar.",
-        "de": "Calculate loom net fabric production per shift.",
-        "fr": "Calculate loom net fabric production per shift.",
-        "es": "Calculate loom net fabric production per shift.",
-        "ar": "Calculate loom net fabric production per shift."
+        "de": "Berechnen Sie die Netto-Stoffproduktion pro Schicht einer Webmaschine.",
+        "fr": "Calculer la production nette de tissu par poste pour un métier à tisser.",
+        "es": "Calcular la producción neta de tela por turno en un telar.",
+        "ar": "احسب إنتاج النسيج الصافي للنول لكل وردية."
       },
       "long_i18n": {
         "en": "Calculate loom net fabric production per shift.",
         "tr": "Tezgahın bir vardiyada ürettiği net kumaş uzunluğunu hesaplar.",
-        "de": "Calculate loom net fabric production per shift.",
-        "fr": "Calculate loom net fabric production per shift.",
-        "es": "Calculate loom net fabric production per shift.",
-        "ar": "Calculate loom net fabric production per shift."
+        "de": "Berechnen Sie die Netto-Stoffproduktion pro Schicht einer Webmaschine.",
+        "fr": "Calculer la production nette de tissu par poste pour un métier à tisser.",
+        "es": "Calcular la producción neta de tela por turno en un telar.",
+        "ar": "احسب إنتاج النسيج الصافي للنول لكل وردية."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Market Cap (USD)",
         "tr": "Piyasa Değeri (₺)",
-        "de": "Market Cap (USD)",
-        "fr": "Market Cap (USD)",
-        "es": "Market Cap (USD)",
-        "ar": "Market Cap (USD)"
+        "de": "Marktkapitalisierung (USD)",
+        "fr": "Capitalisation boursière (USD)",
+        "es": "Capitalización de mercado (USD)",
+        "ar": "القيمة السوقية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total market capitalization.",
         "tr": "Şirketin toplam piyasa değeri.",
-        "de": "Total market capitalization.",
-        "fr": "Total market capitalization.",
-        "es": "Total market capitalization.",
-        "ar": "Total market capitalization."
+        "de": "Gesamte Marktkapitalisierung.",
+        "fr": "Capitalisation boursière totale.",
+        "es": "Capitalización total del mercado.",
+        "ar": "إجمالي القيمة السوقية."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Shareholders Equity (USD)",
         "tr": "Özsermaye (₺)",
-        "de": "Shareholders Equity (USD)",
-        "fr": "Shareholders Equity (USD)",
-        "es": "Shareholders Equity (USD)",
-        "ar": "Shareholders Equity (USD)"
+        "de": "Eigenkapital (USD)",
+        "fr": "Capitaux propres (USD)",
+        "es": "Patrimonio neto de los accionistas (USD)",
+        "ar": "حقوق المساهمين (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Book value of shareholders equity.",
         "tr": "Şirketin defter değeri.",
-        "de": "Book value of shareholders equity.",
-        "fr": "Book value of shareholders equity.",
-        "es": "Book value of shareholders equity.",
-        "ar": "Book value of shareholders equity."
+        "de": "Buchwert des Eigenkapitals.",
+        "fr": "Valeur comptable des capitaux propres.",
+        "es": "Valor contable del patrimonio neto de los accionistas.",
+        "ar": "القيمة الدفترية لحقوق المساهمين."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "PD/DD (P/B) Oranı",
         "tr": "PD/DD (P/B) Oranı",
-        "de": "PD/DD (P/B) Oranı",
-        "fr": "PD/DD (P/B) Oranı",
-        "es": "PD/DD (P/B) Oranı",
-        "ar": "PD/DD (P/B) Oranı"
+        "de": "Kurs-Buchwert-Verhältnis (P/B)",
+        "fr": "Ratio P/B (Price/Book)",
+        "es": "Relación P/B (Precio/Valor en Libros)",
+        "ar": "نسبة السعر إلى القيمة الدفترية (P/B)"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate the price-to-book (P/B) ratio.",
         "tr": "Piyasanın şirketin defter değerine biçtiği primi (PD/DD) hesaplar.",
-        "de": "Calculate the price-to-book (P/B) ratio.",
-        "fr": "Calculate the price-to-book (P/B) ratio.",
-        "es": "Calculate the price-to-book (P/B) ratio.",
-        "ar": "Calculate the price-to-book (P/B) ratio."
+        "de": "Berechnen Sie das Kurs-Buchwert-Verhältnis (KGV).",
+        "fr": "Calculer le ratio cours/valeur comptable (P/B).",
+        "es": "Calcular la relación precio/valor contable (P/B).",
+        "ar": "حساب نسبة السعر إلى القيمة الدفترية (P/B)."
       },
       "long_i18n": {
         "en": "Calculate the price-to-book (P/B) ratio.",
         "tr": "Piyasanın şirketin defter değerine biçtiği primi (PD/DD) hesaplar.",
-        "de": "Calculate the price-to-book (P/B) ratio.",
-        "fr": "Calculate the price-to-book (P/B) ratio.",
-        "es": "Calculate the price-to-book (P/B) ratio.",
-        "ar": "Calculate the price-to-book (P/B) ratio."
+        "de": "Berechnen Sie das Kurs-Buchwert-Verhältnis (KGV).",
+        "fr": "Calculer le ratio cours/valeur comptable (P/B).",
+        "es": "Calcular la relación precio/valor contable (P/B).",
+        "ar": "حساب نسبة السعر إلى القيمة الدفترية (P/B)."
       }
     }
   },

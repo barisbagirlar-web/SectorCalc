@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Part Variance (VP)",
         "tr": "Parça Varyansı (VP)",
-        "de": "Part Variance (VP)",
-        "fr": "Part Variance (VP)",
-        "es": "Part Variance (VP)",
-        "ar": "Part Variance (VP)"
+        "de": "Teilevarianz (VP)",
+        "fr": "Variance des pièces (VP)",
+        "es": "Varianza de la pieza (VP)",
+        "ar": "تباين القطعة (VP)"
       },
       "type": "number",
       "unit": "",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Actual part-to-part variation.",
         "tr": "Parçalar arası gerçek farklılık.",
-        "de": "Actual part-to-part variation.",
-        "fr": "Actual part-to-part variation.",
-        "es": "Actual part-to-part variation.",
-        "ar": "Actual part-to-part variation."
+        "de": "Tatsächliche Teil-zu-Teil-Variation.",
+        "fr": "Variation réelle pièce à pièce.",
+        "es": "Variación real de pieza a pieza.",
+        "ar": "التباين الفعلي بين القطع."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Gauge R&R Variance",
         "tr": "Ölçüm Varyansı (VGRR)",
-        "de": "Gauge R&R Variance",
-        "fr": "Gauge R&R Variance",
-        "es": "Gauge R&R Variance",
-        "ar": "Gauge R&R Variance"
+        "de": "Messsystem-R&R-Varianz",
+        "fr": "Variance R&R de l'instrument",
+        "es": "Varianza R&R del calibre",
+        "ar": "تباين R&R للمقياس"
       },
       "type": "number",
       "unit": "",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Measurement system variance.",
         "tr": "Ölçüm sisteminden kaynaklanan varyans.",
-        "de": "Measurement system variance.",
-        "fr": "Measurement system variance.",
-        "es": "Measurement system variance.",
-        "ar": "Measurement system variance."
+        "de": "Varianz des Messsystems.",
+        "fr": "Variance du système de mesure.",
+        "es": "Varianza del sistema de medición.",
+        "ar": "تباين نظام القياس."
       }
     }
   ],
@@ -76,10 +76,10 @@
       "sonuc": {
         "en": "Gage R&R Oranı",
         "tr": "Gage R&R Oranı",
-        "de": "Gage R&R Oranı",
-        "fr": "Gage R&R Oranı",
-        "es": "Gage R&R Oranı",
-        "ar": "Gage R&R Oranı"
+        "de": "Gage R&R-Verhältnis",
+        "fr": "Rapport R&R de l'étalon",
+        "es": "Relación Gage R&R",
+        "ar": "نسبة Gage R&R"
       }
     },
     "breakdownUnits": {
@@ -101,18 +101,18 @@
       "short_i18n": {
         "en": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
         "tr": "Ölçüm sisteminden kaynaklanan hatanın toplam varyansa oranını (Gage R&R) hesaplar.",
-        "de": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-        "fr": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-        "es": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-        "ar": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance."
+        "de": "Berechnen Sie die Messwiederholbarkeit und -reproduzierbarkeit (R&R) als Prozentsatz der Gesamtvarianz.",
+        "fr": "Calculer la répétabilité et la reproductibilité (R&R) de l'instrument en % de la variance totale.",
+        "es": "Calcular la repetibilidad y reproducibilidad del calibre (R&R) como % de la varianza total.",
+        "ar": "حساب قابلية التكرار والاستنساخ للمقياس (R&R) كنسبة مئوية من التباين الكلي."
       },
       "long_i18n": {
         "en": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
         "tr": "Ölçüm sisteminden kaynaklanan hatanın toplam varyansa oranını (Gage R&R) hesaplar.",
-        "de": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-        "fr": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-        "es": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance.",
-        "ar": "Calculate gauge repeatability and reproducibility (R&R) as % of total variance."
+        "de": "Berechnen Sie die Messwiederholbarkeit und -reproduzierbarkeit (R&R) als Prozentsatz der Gesamtvarianz.",
+        "fr": "Calculer la répétabilité et la reproductibilité (R&R) de l'instrument en % de la variance totale.",
+        "es": "Calcular la repetibilidad y reproducibilidad del calibre (R&R) como % de la varianza total.",
+        "ar": "حساب قابلية التكرار والاستنساخ للمقياس (R&R) كنسبة مئوية من التباين الكلي."
       }
     }
   },

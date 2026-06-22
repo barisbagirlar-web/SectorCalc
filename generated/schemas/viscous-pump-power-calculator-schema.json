@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Liquid flow rate.",
         "tr": "Sıvının akış debisi.",
-        "de": "Liquid flow rate.",
-        "fr": "Liquid flow rate.",
-        "es": "Liquid flow rate.",
-        "ar": "Liquid flow rate."
+        "de": "Flüssigkeitsdurchflussrate.",
+        "fr": "Débit du liquide.",
+        "es": "Caudal del líquido.",
+        "ar": "معدل تدفق السائل."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Total pipe pressure loss.",
         "tr": "Borudaki toplam basınç kaybı.",
-        "de": "Total pipe pressure loss.",
-        "fr": "Total pipe pressure loss.",
-        "es": "Total pipe pressure loss.",
-        "ar": "Total pipe pressure loss."
+        "de": "Gesamter Rohrleitungsdruckverlust.",
+        "fr": "Perte de charge totale dans la canalisation.",
+        "es": "Pérdida total de presión en la tubería.",
+        "ar": "فقدان الضغط الكلي في الأنبوب."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Pump Efficiency (%)",
         "tr": "Pompa Verimi (%)",
-        "de": "Pump Efficiency (%)",
-        "fr": "Pump Efficiency (%)",
-        "es": "Pump Efficiency (%)",
-        "ar": "Pump Efficiency (%)"
+        "de": "Pumpenwirkungsgrad (%)",
+        "fr": "Rendement de la pompe (%)",
+        "es": "Eficiencia de la Bomba (%)",
+        "ar": "كفاءة المضخة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Pump efficiency.",
         "tr": "Pompa verim yüzdesi.",
-        "de": "Pump efficiency.",
-        "fr": "Pump efficiency.",
-        "es": "Pump efficiency.",
-        "ar": "Pump efficiency."
+        "de": "Pumpenwirkungsgrad.",
+        "fr": "Rendement de la pompe.",
+        "es": "Eficiencia de la bomba.",
+        "ar": "كفاءة المضخة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Gereken Pompa Gücü",
         "tr": "Gereken Pompa Gücü",
-        "de": "Gereken Pompa Gücü",
-        "fr": "Gereken Pompa Gücü",
-        "es": "Gereken Pompa Gücü",
-        "ar": "Gereken Pompa Gücü"
+        "de": "Required Pump Power",
+        "fr": "Puissance de pompe requise",
+        "es": "Potencia de Bomba Requerida",
+        "ar": "قدرة المضخة المطلوبة"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate pump power for viscous food liquid transfer.",
         "tr": "Viskoz sıvıyı boruda ilerletmek için gereken pompa mil gücünü hesaplar.",
-        "de": "Calculate pump power for viscous food liquid transfer.",
-        "fr": "Calculate pump power for viscous food liquid transfer.",
-        "es": "Calculate pump power for viscous food liquid transfer.",
-        "ar": "Calculate pump power for viscous food liquid transfer."
+        "de": "Berechnen Sie die Pumpenleistung für den Transport von viskosen Lebensmittelflüssigkeiten.",
+        "fr": "Calculer la puissance de la pompe pour le transfert de liquide alimentaire visqueux.",
+        "es": "Calcular la potencia de la bomba para la transferencia de líquido alimenticio viscoso.",
+        "ar": "حساب قدرة المضخة لنقل السوائل الغذائية اللزجة."
       },
       "long_i18n": {
         "en": "Calculate pump power for viscous food liquid transfer.",
         "tr": "Viskoz sıvıyı boruda ilerletmek için gereken pompa mil gücünü hesaplar.",
-        "de": "Calculate pump power for viscous food liquid transfer.",
-        "fr": "Calculate pump power for viscous food liquid transfer.",
-        "es": "Calculate pump power for viscous food liquid transfer.",
-        "ar": "Calculate pump power for viscous food liquid transfer."
+        "de": "Berechnen Sie die Pumpenleistung für den Transport von viskosen Lebensmittelflüssigkeiten.",
+        "fr": "Calculer la puissance de la pompe pour le transfert de liquide alimentaire visqueux.",
+        "es": "Calcular la potencia de la bomba para la transferencia de líquido alimenticio viscoso.",
+        "ar": "حساب قدرة المضخة لنقل السوائل الغذائية اللزجة."
       }
     }
   },

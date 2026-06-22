@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Remaining loan balance.",
         "tr": "Kalan kredi borcu.",
-        "de": "Remaining loan balance.",
-        "fr": "Remaining loan balance.",
-        "es": "Remaining loan balance.",
-        "ar": "Remaining loan balance."
+        "de": "Verbleibender Kreditsaldo.",
+        "fr": "Solde restant du prêt.",
+        "es": "Saldo restante del préstamo.",
+        "ar": "الرصيد المتبقي من القرض."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Old Interest (%)",
         "tr": "Eski Faiz (%)",
-        "de": "Old Interest (%)",
-        "fr": "Old Interest (%)",
-        "es": "Old Interest (%)",
-        "ar": "Old Interest (%)"
+        "de": "Alter Zinssatz (%)",
+        "fr": "Ancien intérêt (%)",
+        "es": "Interés Anterior (%)",
+        "ar": "الفائدة القديمة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Current interest rate.",
         "tr": "Mevcut kredinin faizi.",
-        "de": "Current interest rate.",
-        "fr": "Current interest rate.",
-        "es": "Current interest rate.",
-        "ar": "Current interest rate."
+        "de": "Aktueller Zinssatz.",
+        "fr": "Taux d'intérêt actuel.",
+        "es": "Tasa de interés actual.",
+        "ar": "سعر الفائدة الحالي."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Refinanced interest rate.",
         "tr": "Refinansman sonrası faiz.",
-        "de": "Refinanced interest rate.",
-        "fr": "Refinanced interest rate.",
-        "es": "Refinanced interest rate.",
-        "ar": "Refinanced interest rate."
+        "de": "Umschuldungszinssatz.",
+        "fr": "Taux d'intérêt refinancé.",
+        "es": "Tasa de interés refinanciada.",
+        "ar": "سعر الفائدة المعاد تمويله."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Remaining Term (Months)",
         "tr": "Kalan Vade (Ay)",
-        "de": "Remaining Term (Months)",
-        "fr": "Remaining Term (Months)",
-        "es": "Remaining Term (Months)",
-        "ar": "Remaining Term (Months)"
+        "de": "Restlaufzeit (Monate)",
+        "fr": "Durée restante (Mois)",
+        "es": "Plazo Restante (Meses)",
+        "ar": "المدة المتبقية (Months)"
       },
       "type": "number",
       "unit": "months",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Remaining repayment period.",
         "tr": "Kalan ödeme süresi.",
-        "de": "Remaining repayment period.",
-        "fr": "Remaining repayment period.",
-        "es": "Remaining repayment period.",
-        "ar": "Remaining repayment period."
+        "de": "Verbleibende Rückzahlungsdauer.",
+        "fr": "Période de remboursement restante.",
+        "es": "Período de amortización restante.",
+        "ar": "فترة السداد المتبقية."
       }
     }
   ],
@@ -127,10 +127,10 @@
       "sonuc": {
         "en": "Toplam Tasarruf",
         "tr": "Toplam Tasarruf",
-        "de": "Toplam Tasarruf",
-        "fr": "Toplam Tasarruf",
-        "es": "Toplam Tasarruf",
-        "ar": "Toplam Tasarruf"
+        "de": "Gesamtersparnis",
+        "fr": "Économies totales",
+        "es": "Ahorro Total",
+        "ar": "إجمالي التوفير"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate savings from student loan refinancing.",
         "tr": "Faiz düşüşüyle vade sonuna kadar sağlanan net kazancı hesaplar.",
-        "de": "Calculate savings from student loan refinancing.",
-        "fr": "Calculate savings from student loan refinancing.",
-        "es": "Calculate savings from student loan refinancing.",
-        "ar": "Calculate savings from student loan refinancing."
+        "de": "Berechnen Sie die Ersparnis durch Umschuldung eines Studienkredits.",
+        "fr": "Calculer les économies réalisées grâce au refinancement du prêt étudiant.",
+        "es": "Calcular el ahorro por refinanciamiento del préstamo estudiantil.",
+        "ar": "احسب التوفير من إعادة تمويل القرض الطلابي."
       },
       "long_i18n": {
         "en": "Calculate savings from student loan refinancing.",
         "tr": "Faiz düşüşüyle vade sonuna kadar sağlanan net kazancı hesaplar.",
-        "de": "Calculate savings from student loan refinancing.",
-        "fr": "Calculate savings from student loan refinancing.",
-        "es": "Calculate savings from student loan refinancing.",
-        "ar": "Calculate savings from student loan refinancing."
+        "de": "Berechnen Sie die Ersparnis durch Umschuldung eines Studienkredits.",
+        "fr": "Calculer les économies réalisées grâce au refinancement du prêt étudiant.",
+        "es": "Calcular el ahorro por refinanciamiento del préstamo estudiantil.",
+        "ar": "احسب التوفير من إعادة تمويل القرض الطلابي."
       }
     }
   },

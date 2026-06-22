@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "AC signal frequency.",
         "tr": "AC sinyal frekansı.",
-        "de": "AC signal frequency.",
-        "fr": "AC signal frequency.",
-        "es": "AC signal frequency.",
-        "ar": "AC signal frequency."
+        "de": "Frequenz des Wechselstromsignals.",
+        "fr": "Fréquence du signal AC.",
+        "es": "Frecuencia de la señal de CA.",
+        "ar": "تردد الإشارة المترددة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Inductance (H)",
         "tr": "İndüktans (H)",
-        "de": "Inductance (H)",
+        "de": "Induktivität (H)",
         "fr": "Inductance (H)",
-        "es": "Inductance (H)",
-        "ar": "Inductance (H)"
+        "es": "Inductancia (H)",
+        "ar": "الحث (H)"
       },
       "type": "number",
       "unit": "H",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Inductor value.",
         "tr": "Bobin değeri.",
-        "de": "Inductor value.",
-        "fr": "Inductor value.",
-        "es": "Inductor value.",
-        "ar": "Inductor value."
+        "de": "Spulenwert.",
+        "fr": "Valeur de l'inductance.",
+        "es": "Valor del inductor.",
+        "ar": "قيمة الملف."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Endüktif Reaktans (Xl)",
         "tr": "Endüktif Reaktans (Xl)",
-        "de": "Endüktif Reaktans (Xl)",
-        "fr": "Endüktif Reaktans (Xl)",
-        "es": "Endüktif Reaktans (Xl)",
-        "ar": "Endüktif Reaktans (Xl)"
+        "de": "Induktiver Blindwiderstand (Xl)",
+        "fr": "Réactance inductive (Xl)",
+        "es": "Reactancia Inductiva (Xl)",
+        "ar": "المفاعلة الحثية (Xl)"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate inductive reactance of an inductor at given frequency.",
         "tr": "Bobinin alternatif akıma gösterdiği direnci (endüktif reaktans) hesaplar.",
-        "de": "Calculate inductive reactance of an inductor at given frequency.",
-        "fr": "Calculate inductive reactance of an inductor at given frequency.",
-        "es": "Calculate inductive reactance of an inductor at given frequency.",
-        "ar": "Calculate inductive reactance of an inductor at given frequency."
+        "de": "Induktiven Blindwiderstand einer Spule bei gegebener Frequenz berechnen.",
+        "fr": "Calculer la réactance inductive d'une inductance à une fréquence donnée.",
+        "es": "Calcular la reactancia inductiva de un inductor a una frecuencia dada.",
+        "ar": "حساب المفاعلة الحثية لملف عند تردد معين."
       },
       "long_i18n": {
         "en": "Calculate inductive reactance of an inductor at given frequency.",
         "tr": "Bobinin alternatif akıma gösterdiği direnci (endüktif reaktans) hesaplar.",
-        "de": "Calculate inductive reactance of an inductor at given frequency.",
-        "fr": "Calculate inductive reactance of an inductor at given frequency.",
-        "es": "Calculate inductive reactance of an inductor at given frequency.",
-        "ar": "Calculate inductive reactance of an inductor at given frequency."
+        "de": "Induktiven Blindwiderstand einer Spule bei gegebener Frequenz berechnen.",
+        "fr": "Calculer la réactance inductive d'une inductance à une fréquence donnée.",
+        "es": "Calcular la reactancia inductiva de un inductor a una frecuencia dada.",
+        "ar": "حساب المفاعلة الحثية لملف عند تردد معين."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Paving Area (m²)",
         "tr": "Döşeme Alanı (m²)",
-        "de": "Paving Area (m²)",
-        "fr": "Paving Area (m²)",
-        "es": "Paving Area (m²)",
-        "ar": "Paving Area (m²)"
+        "de": "Pflasterfläche (m²)",
+        "fr": "Surface à paver (m²)",
+        "es": "Área de adoquinado (m²)",
+        "ar": "مساحة الرصف (m²)"
       },
       "type": "number",
       "unit": "m2",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Area to pave.",
         "tr": "Döşenecek alan.",
-        "de": "Area to pave.",
-        "fr": "Area to pave.",
-        "es": "Area to pave.",
-        "ar": "Area to pave."
+        "de": "Zu pflasternde Fläche.",
+        "fr": "Surface à paver.",
+        "es": "Área a adoquinar.",
+        "ar": "المساحة المراد رصفها."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Stone Width (m)",
         "tr": "Taş Eni (m)",
-        "de": "Stone Width (m)",
-        "fr": "Stone Width (m)",
-        "es": "Stone Width (m)",
-        "ar": "Stone Width (m)"
+        "de": "Steinbreite (m)",
+        "fr": "Largeur du pavé (m)",
+        "es": "Ancho de la piedra (m)",
+        "ar": "عرض الحجر (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Paver width.",
         "tr": "Kilit taşı eni.",
-        "de": "Paver width.",
-        "fr": "Paver width.",
-        "es": "Paver width.",
-        "ar": "Paver width."
+        "de": "Pflasterbreite.",
+        "fr": "Largeur du pavé.",
+        "es": "Ancho del adoquín.",
+        "ar": "عرض الراصف."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Stone Length (m)",
         "tr": "Taş Boyu (m)",
-        "de": "Stone Length (m)",
-        "fr": "Stone Length (m)",
-        "es": "Stone Length (m)",
-        "ar": "Stone Length (m)"
+        "de": "Steinlänge (m)",
+        "fr": "Longueur du pavé (m)",
+        "es": "Largo de la piedra (m)",
+        "ar": "طول الحجر (m)"
       },
       "type": "number",
       "unit": "m",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Paver length.",
         "tr": "Kilit taşı boyu.",
-        "de": "Paver length.",
-        "fr": "Paver length.",
-        "es": "Paver length.",
-        "ar": "Paver length."
+        "de": "Pflasterlänge.",
+        "fr": "Longueur du pavé.",
+        "es": "Largo del adoquín.",
+        "ar": "طول الراصف."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim kaybı.",
-        "de": "Cutting waste.",
-        "fr": "Cutting waste.",
-        "es": "Cutting waste.",
-        "ar": "Cutting waste."
+        "de": "Schnittverschnitt.",
+        "fr": "Perte de coupe.",
+        "es": "Desperdicio de corte.",
+        "ar": "هدر القطع."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Gerekli Kilit Taşı",
         "tr": "Gerekli Kilit Taşı",
-        "de": "Gerekli Kilit Taşı",
-        "fr": "Gerekli Kilit Taşı",
-        "es": "Gerekli Kilit Taşı",
-        "ar": "Gerekli Kilit Taşı"
+        "de": "Erforderlicher Keystone",
+        "fr": "Pierre angulaire requise",
+        "es": "Piedra Clave Requerida",
+        "ar": "حجر الزاوية المطلوب"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate number of paving stones needed for a patio or driveway.",
         "tr": "Kaldırım döşemesi için gereken kilit taşı sayısını hesaplar.",
-        "de": "Calculate number of paving stones needed for a patio or driveway.",
-        "fr": "Calculate number of paving stones needed for a patio or driveway.",
-        "es": "Calculate number of paving stones needed for a patio or driveway.",
-        "ar": "Calculate number of paving stones needed for a patio or driveway."
+        "de": "Berechnen Sie die Anzahl der benötigten Pflastersteine für eine Terrasse oder Einfahrt.",
+        "fr": "Calculer le nombre de pavés nécessaires pour une terrasse ou une allée.",
+        "es": "Calcular el número de adoquines necesarios para un patio o entrada.",
+        "ar": "حساب عدد أحجار الرصف اللازمة لفناء أو ممر."
       },
       "long_i18n": {
         "en": "Calculate number of paving stones needed for a patio or driveway.",
         "tr": "Kaldırım döşemesi için gereken kilit taşı sayısını hesaplar.",
-        "de": "Calculate number of paving stones needed for a patio or driveway.",
-        "fr": "Calculate number of paving stones needed for a patio or driveway.",
-        "es": "Calculate number of paving stones needed for a patio or driveway.",
-        "ar": "Calculate number of paving stones needed for a patio or driveway."
+        "de": "Berechnen Sie die Anzahl der benötigten Pflastersteine für eine Terrasse oder Einfahrt.",
+        "fr": "Calculer le nombre de pavés nécessaires pour une terrasse ou une allée.",
+        "es": "Calcular el número de adoquines necesarios para un patio o entrada.",
+        "ar": "حساب عدد أحجار الرصف اللازمة لفناء أو ممر."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Total Surface Area (m²)",
         "tr": "Toplam Yüzey Alanı (m²)",
-        "de": "Total Surface Area (m²)",
-        "fr": "Total Surface Area (m²)",
-        "es": "Total Surface Area (m²)",
-        "ar": "Total Surface Area (m²)"
+        "de": "Gesamtoberfläche (m²)",
+        "fr": "Surface totale (m²)",
+        "es": "Área de Superficie Total (m²)",
+        "ar": "إجمالي مساحة السطح (م²)"
       },
       "type": "number",
       "unit": "m2",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Heat transfer area.",
         "tr": "Isı transferine maruz alan.",
-        "de": "Heat transfer area.",
-        "fr": "Heat transfer area.",
-        "es": "Heat transfer area.",
-        "ar": "Heat transfer area."
+        "de": "Wärmeübertragungsfläche.",
+        "fr": "Surface de transfert de chaleur.",
+        "es": "Área de transferencia de calor.",
+        "ar": "مساحة نقل الحرارة."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Insulation U-value.",
         "tr": "Yalıtımın ısı geçiş katsayısı.",
-        "de": "Insulation U-value.",
-        "fr": "Insulation U-value.",
-        "es": "Insulation U-value.",
-        "ar": "Insulation U-value."
+        "de": "U-Wert der Isolierung.",
+        "fr": "Valeur U de l'isolation.",
+        "es": "Valor U del aislamiento.",
+        "ar": "قيمة U للعزل."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Outside air temperature.",
         "tr": "Dış hava sıcaklığı.",
-        "de": "Outside air temperature.",
-        "fr": "Outside air temperature.",
-        "es": "Outside air temperature.",
-        "ar": "Outside air temperature."
+        "de": "Außenlufttemperatur.",
+        "fr": "Température de l'air extérieur.",
+        "es": "Temperatura del aire exterior.",
+        "ar": "درجة حرارة الهواء الخارجي."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Storage Temperature (°C)",
         "tr": "Depo İçi Sıcaklık (°C)",
-        "de": "Storage Temperature (°C)",
-        "fr": "Storage Temperature (°C)",
-        "es": "Storage Temperature (°C)",
-        "ar": "Storage Temperature (°C)"
+        "de": "Lagertemperatur (°C)",
+        "fr": "Température de stockage (°C)",
+        "es": "Temperatura de Almacenamiento (°C)",
+        "ar": "درجة حرارة التخزين (°C)"
       },
       "type": "number",
       "unit": "°C",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Cold storage temperature.",
         "tr": "Soğuk depo sıcaklığı.",
-        "de": "Cold storage temperature.",
-        "fr": "Cold storage temperature.",
-        "es": "Cold storage temperature.",
-        "ar": "Cold storage temperature."
+        "de": "Kühllagertemperatur.",
+        "fr": "Température de l'entrepôt frigorifique.",
+        "es": "Temperatura de almacenamiento en frío.",
+        "ar": "درجة حرارة التخزين البارد."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Soğutma Isı Yükü",
         "tr": "Soğutma Isı Yükü",
-        "de": "Soğutma Isı Yükü",
-        "fr": "Soğutma Isı Yükü",
-        "es": "Soğutma Isı Yükü",
-        "ar": "Soğutma Isı Yükü"
+        "de": "Kühllast",
+        "fr": "Charge thermique de refroidissement",
+        "es": "Carga de Calor de Refrigeración",
+        "ar": "حمل التبريد الحراري"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate heat gain through cold storage insulation.",
         "tr": "Soğuk depo yalıtımından sızan ve soğutma sistemi tarafından atılması gereken ısı yükünü hesaplar.",
-        "de": "Calculate heat gain through cold storage insulation.",
-        "fr": "Calculate heat gain through cold storage insulation.",
-        "es": "Calculate heat gain through cold storage insulation.",
-        "ar": "Calculate heat gain through cold storage insulation."
+        "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kühllagers.",
+        "fr": "Calculer le gain de chaleur à travers l'isolation d'un entrepôt frigorifique.",
+        "es": "Calcular la ganancia de calor a través del aislamiento de almacenamiento en frío.",
+        "ar": "حساب اكتساب الحرارة عبر عزل التخزين البارد."
       },
       "long_i18n": {
         "en": "Calculate heat gain through cold storage insulation.",
         "tr": "Soğuk depo yalıtımından sızan ve soğutma sistemi tarafından atılması gereken ısı yükünü hesaplar.",
-        "de": "Calculate heat gain through cold storage insulation.",
-        "fr": "Calculate heat gain through cold storage insulation.",
-        "es": "Calculate heat gain through cold storage insulation.",
-        "ar": "Calculate heat gain through cold storage insulation."
+        "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kühllagers.",
+        "fr": "Calculer le gain de chaleur à travers l'isolation d'un entrepôt frigorifique.",
+        "es": "Calcular la ganancia de calor a través del aislamiento de almacenamiento en frío.",
+        "ar": "حساب اكتساب الحرارة عبر عزل التخزين البارد."
       }
     }
   },

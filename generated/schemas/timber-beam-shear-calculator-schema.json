@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Shear Force (N)",
         "tr": "Kesme Kuvveti (N)",
-        "de": "Shear Force (N)",
-        "fr": "Shear Force (N)",
-        "es": "Shear Force (N)",
-        "ar": "Shear Force (N)"
+        "de": "Querkraft (N)",
+        "fr": "Effort tranchant (N)",
+        "es": "Fuerza Cortante (N)",
+        "ar": "قوة القص (N)"
       },
       "type": "number",
       "unit": "N",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Beam shear force.",
         "tr": "Kirişe etkiyen kesme kuvveti.",
-        "de": "Beam shear force.",
-        "fr": "Beam shear force.",
-        "es": "Beam shear force.",
-        "ar": "Beam shear force."
+        "de": "Querkraft des Balkens.",
+        "fr": "Effort tranchant de la poutre.",
+        "es": "Fuerza cortante de la viga.",
+        "ar": "قوة قص العارضة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Section Width (m)",
         "tr": "Kesit Genişliği (m)",
-        "de": "Section Width (m)",
-        "fr": "Section Width (m)",
-        "es": "Section Width (m)",
-        "ar": "Section Width (m)"
+        "de": "Querschnittsbreite (m)",
+        "fr": "Largeur de la section (m)",
+        "es": "Ancho de la Sección (m)",
+        "ar": "عرض المقطع (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Timber section width.",
         "tr": "Ahşap kesit genişliği.",
-        "de": "Timber section width.",
-        "fr": "Timber section width.",
-        "es": "Timber section width.",
-        "ar": "Timber section width."
+        "de": "Breite des Holzquerschnitts.",
+        "fr": "Largeur de la section de bois.",
+        "es": "Ancho de la sección de madera.",
+        "ar": "عرض المقطع الخشبي."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Section Height (m)",
         "tr": "Kesit Yüksekliği (m)",
-        "de": "Section Height (m)",
-        "fr": "Section Height (m)",
-        "es": "Section Height (m)",
-        "ar": "Section Height (m)"
+        "de": "Querschnittshöhe (m)",
+        "fr": "Hauteur de la section (m)",
+        "es": "Altura de la Sección (m)",
+        "ar": "ارتفاع المقطع (m)"
       },
       "type": "number",
       "unit": "m",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Timber section height.",
         "tr": "Ahşap kesit yüksekliği.",
-        "de": "Timber section height.",
-        "fr": "Timber section height.",
-        "es": "Timber section height.",
-        "ar": "Timber section height."
+        "de": "Höhe des Holzquerschnitts.",
+        "fr": "Hauteur de la section de bois.",
+        "es": "Altura de la sección de madera.",
+        "ar": "ارتفاع المقطع الخشبي."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Maks. Kayma Gerilmesi (τ)",
         "tr": "Maks. Kayma Gerilmesi (τ)",
-        "de": "Maks. Kayma Gerilmesi (τ)",
-        "fr": "Maks. Kayma Gerilmesi (τ)",
-        "es": "Maks. Kayma Gerilmesi (τ)",
-        "ar": "Maks. Kayma Gerilmesi (τ)"
+        "de": "Max. Schubspannung (τ)",
+        "fr": "Contrainte de cisaillement max. (τ)",
+        "es": "Esfuerzo cortante máximo (τ)",
+        "ar": "أقصى إجهاد قص (τ)"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate maximum shear stress in a rectangular timber beam.",
         "tr": "Dikdörtgen ahşap kesitteki maksimum kayma gerilmesini hesaplar.",
-        "de": "Calculate maximum shear stress in a rectangular timber beam.",
-        "fr": "Calculate maximum shear stress in a rectangular timber beam.",
-        "es": "Calculate maximum shear stress in a rectangular timber beam.",
-        "ar": "Calculate maximum shear stress in a rectangular timber beam."
+        "de": "Berechnen Sie die maximale Schubspannung in einem rechteckigen Holzbalken.",
+        "fr": "Calculer la contrainte de cisaillement maximale dans une poutre rectangulaire en bois.",
+        "es": "Calcular el esfuerzo cortante máximo en una viga rectangular de madera.",
+        "ar": "احسب أقصى إجهاد قص في عارضة خشبية مستطيلة."
       },
       "long_i18n": {
         "en": "Calculate maximum shear stress in a rectangular timber beam.",
         "tr": "Dikdörtgen ahşap kesitteki maksimum kayma gerilmesini hesaplar.",
-        "de": "Calculate maximum shear stress in a rectangular timber beam.",
-        "fr": "Calculate maximum shear stress in a rectangular timber beam.",
-        "es": "Calculate maximum shear stress in a rectangular timber beam.",
-        "ar": "Calculate maximum shear stress in a rectangular timber beam."
+        "de": "Berechnen Sie die maximale Schubspannung in einem rechteckigen Holzbalken.",
+        "fr": "Calculer la contrainte de cisaillement maximale dans une poutre rectangulaire en bois.",
+        "es": "Calcular el esfuerzo cortante máximo en una viga rectangular de madera.",
+        "ar": "احسب أقصى إجهاد قص في عارضة خشبية مستطيلة."
       }
     }
   },

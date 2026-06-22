@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Power Value",
         "tr": "Güç Değeri",
-        "de": "Power Value",
-        "fr": "Power Value",
-        "es": "Power Value",
-        "ar": "Power Value"
+        "de": "Leistungswert",
+        "fr": "Valeur de puissance",
+        "es": "Valor de potencia",
+        "ar": "قيمة القدرة"
       },
       "type": "number",
       "unit": "",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Power to convert.",
         "tr": "Dönüştürülecek güç.",
-        "de": "Power to convert.",
-        "fr": "Power to convert.",
-        "es": "Power to convert.",
-        "ar": "Power to convert."
+        "de": "Umzurechnende Leistung.",
+        "fr": "Puissance à convertir.",
+        "es": "Potencia a convertir.",
+        "ar": "القدرة المراد تحويلها."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Input unit.",
         "tr": "Girilen birim.",
-        "de": "Input unit.",
-        "fr": "Input unit.",
-        "es": "Input unit.",
-        "ar": "Input unit."
+        "de": "Eingabeeinheit.",
+        "fr": "Unité d'entrée.",
+        "es": "Unidad de entrada.",
+        "ar": "وحدة الإدخال."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "kW Karşılığı",
         "tr": "kW Karşılığı",
-        "de": "kW Karşılığı",
-        "fr": "kW Karşılığı",
-        "es": "kW Karşılığı",
-        "ar": "kW Karşılığı"
+        "de": "kW-Äquivalent",
+        "fr": "Équivalent kW",
+        "es": "Equivalente en kW",
+        "ar": "المكافئ بالكيلوواط (kW)"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Convert horsepower (HP/PS) to kilowatts (kW).",
         "tr": "Farklı birimlerdeki güç değerini standart kW birimine dönüştürür.",
-        "de": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "fr": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "es": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "ar": "Convert horsepower (HP/PS) to kilowatts (kW)."
+        "de": "Wandeln Sie Pferdestärken (HP/PS) in Kilowatt (kW) um.",
+        "fr": "Convertir la puissance en chevaux (HP/PS) en kilowatts (kW).",
+        "es": "Convertir caballos de fuerza (HP/PS) a kilovatios (kW).",
+        "ar": "تحويل القدرة الحصانية (HP/PS) إلى كيلوواط (kW)."
       },
       "long_i18n": {
         "en": "Convert horsepower (HP/PS) to kilowatts (kW).",
         "tr": "Farklı birimlerdeki güç değerini standart kW birimine dönüştürür.",
-        "de": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "fr": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "es": "Convert horsepower (HP/PS) to kilowatts (kW).",
-        "ar": "Convert horsepower (HP/PS) to kilowatts (kW)."
+        "de": "Wandeln Sie Pferdestärken (HP/PS) in Kilowatt (kW) um.",
+        "fr": "Convertir la puissance en chevaux (HP/PS) en kilowatts (kW).",
+        "es": "Convertir caballos de fuerza (HP/PS) a kilovatios (kW).",
+        "ar": "تحويل القدرة الحصانية (HP/PS) إلى كيلوواط (kW)."
       }
     }
   },

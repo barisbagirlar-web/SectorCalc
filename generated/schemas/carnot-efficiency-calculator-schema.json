@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Hot Reservoir (K)",
         "tr": "Sıcak Rezervuar (K)",
-        "de": "Hot Reservoir (K)",
-        "fr": "Hot Reservoir (K)",
-        "es": "Hot Reservoir (K)",
-        "ar": "Hot Reservoir (K)"
+        "de": "Heißes Reservoir (K)",
+        "fr": "Réservoir chaud (K)",
+        "es": "Reservorio Caliente (K)",
+        "ar": "المستودع الساخن (K)"
       },
       "type": "number",
       "unit": "K",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Heat source temperature.",
         "tr": "Isı kaynağı sıcaklığı.",
-        "de": "Heat source temperature.",
-        "fr": "Heat source temperature.",
-        "es": "Heat source temperature.",
-        "ar": "Heat source temperature."
+        "de": "Temperatur der Wärmequelle.",
+        "fr": "Température de la source de chaleur.",
+        "es": "Temperatura de la fuente de calor.",
+        "ar": "درجة حرارة مصدر الحرارة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Cold Reservoir (K)",
         "tr": "Soğuk Rezervuar (K)",
-        "de": "Cold Reservoir (K)",
-        "fr": "Cold Reservoir (K)",
-        "es": "Cold Reservoir (K)",
-        "ar": "Cold Reservoir (K)"
+        "de": "Kaltes Reservoir (K)",
+        "fr": "Réservoir froid (K)",
+        "es": "Reservorio Frío (K)",
+        "ar": "المستودع البارد (K)"
       },
       "type": "number",
       "unit": "K",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Heat sink temperature.",
         "tr": "Isı kuyusu sıcaklığı.",
-        "de": "Heat sink temperature.",
-        "fr": "Heat sink temperature.",
-        "es": "Heat sink temperature.",
-        "ar": "Heat sink temperature."
+        "de": "Temperatur der Wärmesenke.",
+        "fr": "Température du puits de chaleur.",
+        "es": "Temperatura del sumidero de calor.",
+        "ar": "درجة حرارة مصرف الحرارة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Carnot Verimi",
         "tr": "Carnot Verimi",
-        "de": "Carnot Verimi",
-        "fr": "Carnot Verimi",
-        "es": "Carnot Verimi",
-        "ar": "Carnot Verimi"
+        "de": "Carnot-Wirkungsgrad",
+        "fr": "Rendement de Carnot",
+        "es": "Rendimiento de Carnot",
+        "ar": "كفاءة كارنو"
       }
     },
     "breakdownUnits": {
@@ -103,18 +103,18 @@
       "short_i18n": {
         "en": "Calculate Carnot efficiency of an ideal heat engine.",
         "tr": "İki sıcaklık rezervuarı arasında çalışan ideal ısı makinesinin maksimum verimini hesaplar.",
-        "de": "Calculate Carnot efficiency of an ideal heat engine.",
-        "fr": "Calculate Carnot efficiency of an ideal heat engine.",
-        "es": "Calculate Carnot efficiency of an ideal heat engine.",
-        "ar": "Calculate Carnot efficiency of an ideal heat engine."
+        "de": "Berechnen Sie den Carnot-Wirkungsgrad einer idealen Wärmekraftmaschine.",
+        "fr": "Calculer le rendement de Carnot d'un moteur thermique idéal.",
+        "es": "Calcular la eficiencia de Carnot de un motor térmico ideal.",
+        "ar": "احسب كفاءة كارنو لمحرك حراري مثالي."
       },
       "long_i18n": {
         "en": "Calculate Carnot efficiency of an ideal heat engine.",
         "tr": "İki sıcaklık rezervuarı arasında çalışan ideal ısı makinesinin maksimum verimini hesaplar.",
-        "de": "Calculate Carnot efficiency of an ideal heat engine.",
-        "fr": "Calculate Carnot efficiency of an ideal heat engine.",
-        "es": "Calculate Carnot efficiency of an ideal heat engine.",
-        "ar": "Calculate Carnot efficiency of an ideal heat engine."
+        "de": "Berechnen Sie den Carnot-Wirkungsgrad einer idealen Wärmekraftmaschine.",
+        "fr": "Calculer le rendement de Carnot d'un moteur thermique idéal.",
+        "es": "Calcular la eficiencia de Carnot de un motor térmico ideal.",
+        "ar": "احسب كفاءة كارنو لمحرك حراري مثالي."
       }
     }
   },

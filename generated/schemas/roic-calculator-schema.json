@@ -14,7 +14,7 @@
         "de": "NOPAT (USD)",
         "fr": "NOPAT (USD)",
         "es": "NOPAT (USD)",
-        "ar": "NOPAT (USD)"
+        "ar": "صافي الربح التشغيلي بعد الضريبة (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Net operating profit after tax.",
         "tr": "Vergi sonrası net faaliyet kârı.",
-        "de": "Net operating profit after tax.",
-        "fr": "Net operating profit after tax.",
-        "es": "Net operating profit after tax.",
-        "ar": "Net operating profit after tax."
+        "de": "Netto-Betriebsgewinn nach Steuern.",
+        "fr": "Bénéfice net d'exploitation après impôts.",
+        "es": "Beneficio operativo neto después de impuestos.",
+        "ar": "صافي الربح التشغيلي بعد الضريبة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Invested Capital (USD)",
         "tr": "Yatırılan Sermaye (₺)",
-        "de": "Invested Capital (USD)",
-        "fr": "Invested Capital (USD)",
-        "es": "Invested Capital (USD)",
-        "ar": "Invested Capital (USD)"
+        "de": "Investiertes Kapital (USD)",
+        "fr": "Capital investi (USD)",
+        "es": "Capital invertido (USD)",
+        "ar": "رأس المال المستثمر (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Total invested capital.",
         "tr": "Toplam yatırılmış sermaye.",
-        "de": "Total invested capital.",
-        "fr": "Total invested capital.",
-        "es": "Total invested capital.",
-        "ar": "Total invested capital."
+        "de": "Gesamtes investiertes Kapital.",
+        "fr": "Capital total investi.",
+        "es": "Capital total invertido.",
+        "ar": "إجمالي رأس المال المستثمر."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "ROIC (Yatırılan Sermaye Getirisi)",
         "tr": "ROIC (Yatırılan Sermaye Getirisi)",
-        "de": "ROIC (Yatırılan Sermaye Getirisi)",
-        "fr": "ROIC (Yatırılan Sermaye Getirisi)",
-        "es": "ROIC (Yatırılan Sermaye Getirisi)",
-        "ar": "ROIC (Yatırılan Sermaye Getirisi)"
+        "de": "ROIC (Rendite auf das investierte Kapital)",
+        "fr": "ROIC (Rendement du capital investi)",
+        "es": "ROIC (Retorno sobre el Capital Invertido)",
+        "ar": "العائد على رأس المال المستثمر (ROIC)"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
         "tr": "Şirketin yatırdığı sermayeden ürettiği vergi sonrası verimi (ROIC) hesaplar.",
-        "de": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
-        "fr": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
-        "es": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
-        "ar": "Calculate return on invested capital (ROIC) — post-tax efficiency."
+        "de": "Berechnen Sie die Rendite auf das investierte Kapital (ROIC) – Nachsteuereffizienz.",
+        "fr": "Calculer le rendement du capital investi (ROIC) — efficacité après impôt.",
+        "es": "Calcular el retorno sobre el capital invertido (ROIC) — eficiencia después de impuestos.",
+        "ar": "حساب العائد على رأس المال المستثمر (ROIC) — الكفاءة بعد الضريبة."
       },
       "long_i18n": {
         "en": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
         "tr": "Şirketin yatırdığı sermayeden ürettiği vergi sonrası verimi (ROIC) hesaplar.",
-        "de": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
-        "fr": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
-        "es": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
-        "ar": "Calculate return on invested capital (ROIC) — post-tax efficiency."
+        "de": "Berechnen Sie die Rendite auf das investierte Kapital (ROIC) – Nachsteuereffizienz.",
+        "fr": "Calculer le rendement du capital investi (ROIC) — efficacité après impôt.",
+        "es": "Calcular el retorno sobre el capital invertido (ROIC) — eficiencia después de impuestos.",
+        "ar": "حساب العائد على رأس المال المستثمر (ROIC) — الكفاءة بعد الضريبة."
       }
     }
   },

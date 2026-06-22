@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Plant installation cost.",
         "tr": "Santralin kurulum maliyeti.",
-        "de": "Plant installation cost.",
-        "fr": "Plant installation cost.",
-        "es": "Plant installation cost.",
-        "ar": "Plant installation cost."
+        "de": "Anlageninstallationskosten.",
+        "fr": "Coût d'installation de l'usine.",
+        "es": "Costo de instalación de la planta.",
+        "ar": "تكلفة تركيب المحطة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Lifetime O&M (USD)",
         "tr": "Ömür Boyu İşletme (TL)",
-        "de": "Lifetime O&M (USD)",
-        "fr": "Lifetime O&M (USD)",
-        "es": "Lifetime O&M (USD)",
-        "ar": "Lifetime O&M (USD)"
+        "de": "Lebensdauer O&M (USD)",
+        "fr": "O&M sur la durée de vie (USD)",
+        "es": "O&M de por vida (USD)",
+        "ar": "تكاليف التشغيل والصيانة طوال العمر (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Operation and maintenance costs.",
         "tr": "Bakım ve işletme giderleri.",
-        "de": "Operation and maintenance costs.",
-        "fr": "Operation and maintenance costs.",
-        "es": "Operation and maintenance costs.",
-        "ar": "Operation and maintenance costs."
+        "de": "Betriebs- und Wartungskosten.",
+        "fr": "Coûts d'exploitation et de maintenance.",
+        "es": "Costos de operación y mantenimiento.",
+        "ar": "تكاليف التشغيل والصيانة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Lifetime Production (kWh)",
         "tr": "Ömür Boyu Üretim (kWh)",
-        "de": "Lifetime Production (kWh)",
-        "fr": "Lifetime Production (kWh)",
-        "es": "Lifetime Production (kWh)",
-        "ar": "Lifetime Production (kWh)"
+        "de": "Lebensdauerproduktion (kWh)",
+        "fr": "Production sur la durée de vie (kWh)",
+        "es": "Producción de por vida (kWh)",
+        "ar": "الإنتاج طوال العمر (kWh)"
       },
       "type": "number",
       "unit": "kWh",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total electricity generation.",
         "tr": "Toplam elektrik üretimi.",
-        "de": "Total electricity generation.",
-        "fr": "Total electricity generation.",
-        "es": "Total electricity generation.",
-        "ar": "Total electricity generation."
+        "de": "Gesamte Stromerzeugung.",
+        "fr": "Production totale d'électricité.",
+        "es": "Generación total de electricidad.",
+        "ar": "إجمالي توليد الكهرباء."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "LCOE (Birim Enerji Maliyeti)",
         "tr": "LCOE (Birim Enerji Maliyeti)",
-        "de": "LCOE (Birim Enerji Maliyeti)",
-        "fr": "LCOE (Birim Enerji Maliyeti)",
-        "es": "LCOE (Birim Enerji Maliyeti)",
-        "ar": "LCOE (Birim Enerji Maliyeti)"
+        "de": "LCOE (Stromgestehungskosten)",
+        "fr": "LCOE (Levelized Cost of Energy)",
+        "es": "LCOE (Costo de Energía Unitaria)",
+        "ar": "التكلفة المعادلة للطاقة (LCOE)"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate levelized cost of energy (LCOE).",
         "tr": "Enerji santralinin ömrü boyunca ürettiği elektriğin birim maliyetini (LCOE) hesaplar.",
-        "de": "Calculate levelized cost of energy (LCOE).",
-        "fr": "Calculate levelized cost of energy (LCOE).",
-        "es": "Calculate levelized cost of energy (LCOE).",
-        "ar": "Calculate levelized cost of energy (LCOE)."
+        "de": "Berechnen Sie die Stromgestehungskosten (LCOE).",
+        "fr": "Calculer le coût actualisé de l'énergie (LCOE).",
+        "es": "Calcular el costo nivelado de la energía (LCOE).",
+        "ar": "حساب التكلفة المعادلة للطاقة (LCOE)."
       },
       "long_i18n": {
         "en": "Calculate levelized cost of energy (LCOE).",
         "tr": "Enerji santralinin ömrü boyunca ürettiği elektriğin birim maliyetini (LCOE) hesaplar.",
-        "de": "Calculate levelized cost of energy (LCOE).",
-        "fr": "Calculate levelized cost of energy (LCOE).",
-        "es": "Calculate levelized cost of energy (LCOE).",
-        "ar": "Calculate levelized cost of energy (LCOE)."
+        "de": "Berechnen Sie die Stromgestehungskosten (LCOE).",
+        "fr": "Calculer le coût actualisé de l'énergie (LCOE).",
+        "es": "Calcular el costo nivelado de la energía (LCOE).",
+        "ar": "حساب التكلفة المعادلة للطاقة (LCOE)."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Z Value",
         "tr": "Z Değeri",
-        "de": "Z Value",
-        "fr": "Z Value",
-        "es": "Z Value",
-        "ar": "Z Value"
+        "de": "Z-Wert",
+        "fr": "Valeur Z",
+        "es": "Valor Z",
+        "ar": "قيمة Z"
       },
       "type": "number",
       "unit": "",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Z-score for confidence level.",
         "tr": "Güven seviyesine karşılık Z (1.96=%95).",
-        "de": "Z-score for confidence level.",
-        "fr": "Z-score for confidence level.",
-        "es": "Z-score for confidence level.",
-        "ar": "Z-score for confidence level."
+        "de": "Z-Score für das Konfidenzniveau.",
+        "fr": "Score Z pour le niveau de confiance.",
+        "es": "Puntuación Z para el nivel de confianza.",
+        "ar": "درجة Z لمستوى الثقة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Estimated Std Dev",
         "tr": "Tahmini Standart Sapma",
-        "de": "Estimated Std Dev",
-        "fr": "Estimated Std Dev",
-        "es": "Estimated Std Dev",
-        "ar": "Estimated Std Dev"
+        "de": "Geschätzte Standardabweichung",
+        "fr": "Écart-type estimé",
+        "es": "Desviación Estándar Estimada",
+        "ar": "الانحراف المعياري المقدر"
       },
       "type": "number",
       "unit": "",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Population standard deviation.",
         "tr": "Popülasyon standart sapması.",
-        "de": "Population standard deviation.",
-        "fr": "Population standard deviation.",
-        "es": "Population standard deviation.",
-        "ar": "Population standard deviation."
+        "de": "Standardabweichung der Grundgesamtheit.",
+        "fr": "Écart type de la population.",
+        "es": "Desviación estándar de la población.",
+        "ar": "الانحراف المعياري للسكان."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Maximum allowable error.",
         "tr": "İzin verilen maksimum hata.",
-        "de": "Maximum allowable error.",
-        "fr": "Maximum allowable error.",
-        "es": "Maximum allowable error.",
-        "ar": "Maximum allowable error."
+        "de": "Maximal zulässiger Fehler.",
+        "fr": "Erreur maximale admissible.",
+        "es": "Error máximo permitido.",
+        "ar": "الخطأ الأقصى المسموح به."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Gereken Minimum Örneklem",
         "tr": "Gereken Minimum Örneklem",
-        "de": "Gereken Minimum Örneklem",
-        "fr": "Gereken Minimum Örneklem",
-        "es": "Gereken Minimum Örneklem",
-        "ar": "Gereken Minimum Örneklem"
+        "de": "Erforderliche Mindeststichprobe",
+        "fr": "Required Minimum Sample",
+        "es": "Muestra Mínima Requerida",
+        "ar": "الحد الأدنى المطلوب للعينة"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate minimum sample size for statistical significance.",
         "tr": "İstatistiksel anlamlılık için gereken minimum örneklem sayısını hesaplar.",
-        "de": "Calculate minimum sample size for statistical significance.",
-        "fr": "Calculate minimum sample size for statistical significance.",
-        "es": "Calculate minimum sample size for statistical significance.",
-        "ar": "Calculate minimum sample size for statistical significance."
+        "de": "Berechnen Sie die minimale Stichprobengröße für statistische Signifikanz.",
+        "fr": "Calculer la taille minimale de l'échantillon pour la signification statistique.",
+        "es": "Calcular el tamaño mínimo de muestra para significancia estadística.",
+        "ar": "حساب الحد الأدنى لحجم العينة للدلالة الإحصائية."
       },
       "long_i18n": {
         "en": "Calculate minimum sample size for statistical significance.",
         "tr": "İstatistiksel anlamlılık için gereken minimum örneklem sayısını hesaplar.",
-        "de": "Calculate minimum sample size for statistical significance.",
-        "fr": "Calculate minimum sample size for statistical significance.",
-        "es": "Calculate minimum sample size for statistical significance.",
-        "ar": "Calculate minimum sample size for statistical significance."
+        "de": "Berechnen Sie die minimale Stichprobengröße für statistische Signifikanz.",
+        "fr": "Calculer la taille minimale de l'échantillon pour la signification statistique.",
+        "es": "Calcular el tamaño mínimo de muestra para significancia estadística.",
+        "ar": "حساب الحد الأدنى لحجم العينة للدلالة الإحصائية."
       }
     }
   },

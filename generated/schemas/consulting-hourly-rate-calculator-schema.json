@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Target Annual Income (USD)",
         "tr": "Hedef Yıllık Gelir (TL)",
-        "de": "Target Annual Income (USD)",
-        "fr": "Target Annual Income (USD)",
-        "es": "Target Annual Income (USD)",
-        "ar": "Target Annual Income (USD)"
+        "de": "Ziel-Jahreseinkommen (USD)",
+        "fr": "Revenu annuel cible (USD)",
+        "es": "Ingreso Anual Objetivo (USD)",
+        "ar": "الدخل السنوي المستهدف (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Consultant's target income.",
         "tr": "Danışmanın hedef geliri.",
-        "de": "Consultant's target income.",
-        "fr": "Consultant's target income.",
-        "es": "Consultant's target income.",
-        "ar": "Consultant's target income."
+        "de": "Zieleinkommen des Beraters.",
+        "fr": "Revenu cible du consultant.",
+        "es": "Ingreso objetivo del consultor.",
+        "ar": "الدخل المستهدف للمستشار."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Office, insurance, travel costs.",
         "tr": "Ofis, sigorta, seyahat giderleri.",
-        "de": "Office, insurance, travel costs.",
-        "fr": "Office, insurance, travel costs.",
-        "es": "Office, insurance, travel costs.",
-        "ar": "Office, insurance, travel costs."
+        "de": "Büro-, Versicherungs- und Reisekosten.",
+        "fr": "Frais de bureau, assurance, déplacements.",
+        "es": "Costos de oficina, seguros y viajes.",
+        "ar": "تكاليف المكتب والتأمين والسفر."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Billable Hours/Year",
         "tr": "Faturalanabilir Saat",
-        "de": "Billable Hours/Year",
-        "fr": "Billable Hours/Year",
-        "es": "Billable Hours/Year",
-        "ar": "Billable Hours/Year"
+        "de": "Abrechenbare Stunden/Jahr",
+        "fr": "Heures facturables/An",
+        "es": "Horas Facturables/Año",
+        "ar": "الساعات القابلة للفوترة/السنة"
       },
       "type": "number",
       "unit": "hours",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Annual billable hours.",
         "tr": "Yıllık faturalanabilir saat.",
-        "de": "Annual billable hours.",
-        "fr": "Annual billable hours.",
-        "es": "Annual billable hours.",
-        "ar": "Annual billable hours."
+        "de": "Jährliche abrechenbare Stunden.",
+        "fr": "Heures facturables annuelles.",
+        "es": "Horas facturables anuales.",
+        "ar": "ساعات العمل القابلة للفوترة سنويًا."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Saatlik Danışmanlık Ücreti",
         "tr": "Saatlik Danışmanlık Ücreti",
-        "de": "Saatlik Danışmanlık Ücreti",
-        "fr": "Saatlik Danışmanlık Ücreti",
-        "es": "Saatlik Danışmanlık Ücreti",
-        "ar": "Saatlik Danışmanlık Ücreti"
+        "de": "Stündlicher Beratungssatz",
+        "fr": "Tarif horaire de conseil",
+        "es": "Tarifa de Consultoría por Hora",
+        "ar": "أتعاب الاستشارات بالساعة"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate minimum hourly consulting rate covering costs and profit.",
         "tr": "Giderleri ve kârı karşılayan minimum saatlik danışmanlık bedelini hesaplar.",
-        "de": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "fr": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "es": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "ar": "Calculate minimum hourly consulting rate covering costs and profit."
+        "de": "Mindeststundensatz für Beratung unter Berücksichtigung von Kosten und Gewinn berechnen.",
+        "fr": "Calculer le taux horaire minimal de conseil couvrant les coûts et le profit.",
+        "es": "Calcular la tarifa mínima por hora de consultoría que cubra costos y ganancias.",
+        "ar": "حساب الحد الأدنى لسعر الاستشارة بالساعة الذي يغطي التكاليف والأرباح."
       },
       "long_i18n": {
         "en": "Calculate minimum hourly consulting rate covering costs and profit.",
         "tr": "Giderleri ve kârı karşılayan minimum saatlik danışmanlık bedelini hesaplar.",
-        "de": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "fr": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "es": "Calculate minimum hourly consulting rate covering costs and profit.",
-        "ar": "Calculate minimum hourly consulting rate covering costs and profit."
+        "de": "Mindeststundensatz für Beratung unter Berücksichtigung von Kosten und Gewinn berechnen.",
+        "fr": "Calculer le taux horaire minimal de conseil couvrant les coûts et le profit.",
+        "es": "Calcular la tarifa mínima por hora de consultoría que cubra costos y ganancias.",
+        "ar": "حساب الحد الأدنى لسعر الاستشارة بالساعة الذي يغطي التكاليف والأرباح."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Pile Diameter (m)",
         "tr": "Kazık Çapı (m)",
-        "de": "Pile Diameter (m)",
-        "fr": "Pile Diameter (m)",
-        "es": "Pile Diameter (m)",
-        "ar": "Pile Diameter (m)"
+        "de": "Pfahldurchmesser (m)",
+        "fr": "Diamètre du pieu (m)",
+        "es": "Diámetro del Pilote (m)",
+        "ar": "قطر الركيزة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Pile diameter.",
         "tr": "Fore kazık çapı.",
-        "de": "Pile diameter.",
-        "fr": "Pile diameter.",
-        "es": "Pile diameter.",
-        "ar": "Pile diameter."
+        "de": "Pfahldurchmesser.",
+        "fr": "Diamètre du pieu.",
+        "es": "Diámetro del pilote.",
+        "ar": "قطر الركيزة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Pile Length (m)",
         "tr": "Kazık Boyu (m)",
-        "de": "Pile Length (m)",
-        "fr": "Pile Length (m)",
-        "es": "Pile Length (m)",
-        "ar": "Pile Length (m)"
+        "de": "Pfahllänge (m)",
+        "fr": "Longueur du pieu (m)",
+        "es": "Longitud del Pilote (m)",
+        "ar": "طول الركيزة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Pile length.",
         "tr": "Kazık boyu.",
-        "de": "Pile length.",
-        "fr": "Pile length.",
-        "es": "Pile length.",
-        "ar": "Pile length."
+        "de": "Pfahllänge.",
+        "fr": "Longueur du pieu.",
+        "es": "Longitud del pilote.",
+        "ar": "طول الركيزة."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Soil cohesion.",
         "tr": "Zemin kohezyonu.",
-        "de": "Soil cohesion.",
-        "fr": "Soil cohesion.",
-        "es": "Soil cohesion.",
-        "ar": "Soil cohesion."
+        "de": "Bodenkohäsion.",
+        "fr": "Cohésion du sol.",
+        "es": "Cohesión del suelo.",
+        "ar": "تماسك التربة."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Skin Friction (kPa)",
         "tr": "Çevre Sürtünmesi (kPa)",
-        "de": "Skin Friction (kPa)",
-        "fr": "Skin Friction (kPa)",
-        "es": "Skin Friction (kPa)",
-        "ar": "Skin Friction (kPa)"
+        "de": "Mantelreibung (kPa)",
+        "fr": "Frottement latéral (kPa)",
+        "es": "Fricción Superficial (kPa)",
+        "ar": "احتكاك الجلد (kPa)"
       },
       "type": "number",
       "unit": "kPa",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Pile-soil skin friction.",
         "tr": "Kazık-zemin arası sürtünme.",
-        "de": "Pile-soil skin friction.",
-        "fr": "Pile-soil skin friction.",
-        "es": "Pile-soil skin friction.",
-        "ar": "Pile-soil skin friction."
+        "de": "Mantelreibung zwischen Pfahl und Boden.",
+        "fr": "Frottement latéral pieu-sol.",
+        "es": "Fricción superficial pilote-suelo.",
+        "ar": "احتكاك الجلد بين الركيزة والتربة."
       }
     }
   ],
@@ -127,10 +127,10 @@
       "sonuc": {
         "en": "Nihai Taşıma Gücü",
         "tr": "Nihai Taşıma Gücü",
-        "de": "Nihai Taşıma Gücü",
-        "fr": "Nihai Taşıma Gücü",
-        "es": "Nihai Taşıma Gücü",
-        "ar": "Nihai Taşıma Gücü"
+        "de": "Grenztragfähigkeit",
+        "fr": "Capacité portante ultime",
+        "es": "Capacidad de Carga Última",
+        "ar": "قدرة التحمل النهائية"
       }
     },
     "breakdownUnits": {
@@ -154,18 +154,18 @@
       "short_i18n": {
         "en": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
         "tr": "Kazığın göçmeden taşıyabileceği maksimum eksenel yükü hesaplar.",
-        "de": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "fr": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "es": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "ar": "Calculate ultimate axial bearing capacity of a cast-in-place pile."
+        "de": "Berechnen Sie die axiale Grenztragfähigkeit eines Ortbetonpfahls.",
+        "fr": "Calculer la capacité portante axiale ultime d'un pieu coulé en place.",
+        "es": "Calcular la capacidad de carga axial última de un pilote colado in situ.",
+        "ar": "حساب قدرة التحمل المحورية النهائية للركيزة المصبوبة في الموقع."
       },
       "long_i18n": {
         "en": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
         "tr": "Kazığın göçmeden taşıyabileceği maksimum eksenel yükü hesaplar.",
-        "de": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "fr": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "es": "Calculate ultimate axial bearing capacity of a cast-in-place pile.",
-        "ar": "Calculate ultimate axial bearing capacity of a cast-in-place pile."
+        "de": "Berechnen Sie die axiale Grenztragfähigkeit eines Ortbetonpfahls.",
+        "fr": "Calculer la capacité portante axiale ultime d'un pieu coulé en place.",
+        "es": "Calcular la capacidad de carga axial última de un pilote colado in situ.",
+        "ar": "حساب قدرة التحمل المحورية النهائية للركيزة المصبوبة في الموقع."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Silo Volume (m³)",
         "tr": "Silo Hacmi (m³)",
-        "de": "Silo Volume (m³)",
-        "fr": "Silo Volume (m³)",
-        "es": "Silo Volume (m³)",
-        "ar": "Silo Volume (m³)"
+        "de": "Silovolumen (m³)",
+        "fr": "Volume du silo (m³)",
+        "es": "Volumen del Silo (m³)",
+        "ar": "حجم الصومعة (m³)"
       },
       "type": "number",
       "unit": "m3",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total silo volume.",
         "tr": "Silonun toplam hacmi.",
-        "de": "Total silo volume.",
-        "fr": "Total silo volume.",
-        "es": "Total silo volume.",
-        "ar": "Total silo volume."
+        "de": "Gesamtsilovolumen.",
+        "fr": "Volume total du silo.",
+        "es": "Volumen total del silo.",
+        "ar": "إجمالي حجم الصومعة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Packing Density (kg/m³)",
         "tr": "Sıkıştırma Yoğunluğu (kg/m³)",
-        "de": "Packing Density (kg/m³)",
-        "fr": "Packing Density (kg/m³)",
-        "es": "Packing Density (kg/m³)",
-        "ar": "Packing Density (kg/m³)"
+        "de": "Packungsdichte (kg/m³)",
+        "fr": "Densité de tassement (kg/m³)",
+        "es": "Densidad de Empaque (kg/m³)",
+        "ar": "كثافة التعبئة (kg/m³)"
       },
       "type": "number",
       "unit": "kg/m3",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Packed silage density.",
         "tr": "Sıkıştırılmış yem yoğunluğu.",
-        "de": "Packed silage density.",
-        "fr": "Packed silage density.",
-        "es": "Packed silage density.",
-        "ar": "Packed silage density."
+        "de": "Dichte der gepressten Silage.",
+        "fr": "Densité de l'ensilage tassé.",
+        "es": "Densidad del ensilaje compactado.",
+        "ar": "كثافة السيلاج المضغوط."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Depolanan Silaj Yem",
         "tr": "Depolanan Silaj Yem",
-        "de": "Depolanan Silaj Yem",
-        "fr": "Depolanan Silaj Yem",
-        "es": "Depolanan Silaj Yem",
-        "ar": "Depolanan Silaj Yem"
+        "de": "Gelagerte Silage",
+        "fr": "Fourrage ensilé stocké",
+        "es": "Ensilage Almacenado",
+        "ar": "علف السيلاج المخزن"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate net dry matter weight stored in silo.",
         "tr": "Siloya depolanan net kuru madde ağırlığını hesaplar.",
-        "de": "Calculate net dry matter weight stored in silo.",
-        "fr": "Calculate net dry matter weight stored in silo.",
-        "es": "Calculate net dry matter weight stored in silo.",
-        "ar": "Calculate net dry matter weight stored in silo."
+        "de": "Berechnen Sie das im Silo gelagerte Netto-Trockenmassegewicht.",
+        "fr": "Calculer le poids net de matière sèche stocké dans le silo.",
+        "es": "Calcular el peso neto de materia seca almacenado en el silo.",
+        "ar": "احسب وزن المادة الجافة الصافية المخزنة في الصومعة."
       },
       "long_i18n": {
         "en": "Calculate net dry matter weight stored in silo.",
         "tr": "Siloya depolanan net kuru madde ağırlığını hesaplar.",
-        "de": "Calculate net dry matter weight stored in silo.",
-        "fr": "Calculate net dry matter weight stored in silo.",
-        "es": "Calculate net dry matter weight stored in silo.",
-        "ar": "Calculate net dry matter weight stored in silo."
+        "de": "Berechnen Sie das im Silo gelagerte Netto-Trockenmassegewicht.",
+        "fr": "Calculer le poids net de matière sèche stocké dans le silo.",
+        "es": "Calcular el peso neto de materia seca almacenado en el silo.",
+        "ar": "احسب وزن المادة الجافة الصافية المخزنة في الصومعة."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Total Load (N)",
         "tr": "Toplam Yük (N)",
-        "de": "Total Load (N)",
-        "fr": "Total Load (N)",
-        "es": "Total Load (N)",
-        "ar": "Total Load (N)"
+        "de": "Gesamtlast (N)",
+        "fr": "Charge totale (N)",
+        "es": "Carga Total (N)",
+        "ar": "الحمل الكلي (N)"
       },
       "type": "number",
       "unit": "N",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total distributed load.",
         "tr": "Kirişe gelen toplam yayılı yük.",
-        "de": "Total distributed load.",
-        "fr": "Total distributed load.",
-        "es": "Total distributed load.",
-        "ar": "Total distributed load."
+        "de": "Gesamte verteilte Last.",
+        "fr": "Charge totale répartie.",
+        "es": "Carga distribuida total.",
+        "ar": "الحمل الموزع الكلي."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Distance from Support (m)",
         "tr": "Mesafe (m)",
-        "de": "Distance from Support (m)",
-        "fr": "Distance from Support (m)",
-        "es": "Distance from Support (m)",
-        "ar": "Distance from Support (m)"
+        "de": "Abstand vom Auflager (m)",
+        "fr": "Distance depuis l'appui (m)",
+        "es": "Distancia desde el Apoyo (m)",
+        "ar": "المسافة من الدعامة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Distance from left support.",
         "tr": "Ölçüm noktasının sol mesnete uzaklığı.",
-        "de": "Distance from left support.",
-        "fr": "Distance from left support.",
-        "es": "Distance from left support.",
-        "ar": "Distance from left support."
+        "de": "Abstand vom linken Auflager.",
+        "fr": "Distance depuis l'appui gauche.",
+        "es": "Distancia desde el apoyo izquierdo.",
+        "ar": "المسافة من الدعامة اليسرى."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total span.",
         "tr": "Toplam açıklık.",
-        "de": "Total span.",
-        "fr": "Total span.",
-        "es": "Total span.",
-        "ar": "Total span."
+        "de": "Gesamtspannweite.",
+        "fr": "Portée totale.",
+        "es": "Luz total.",
+        "ar": "الامتداد الكلي."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Kesme Kuvveti (V)",
         "tr": "Kesme Kuvveti (V)",
-        "de": "Kesme Kuvveti (V)",
-        "fr": "Kesme Kuvveti (V)",
-        "es": "Kesme Kuvveti (V)",
-        "ar": "Kesme Kuvveti (V)"
+        "de": "Querkraft (V)",
+        "fr": "Effort tranchant (V)",
+        "es": "Fuerza Cortante (V)",
+        "ar": "قوة القص (V)"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate shear force at a given section along a beam.",
         "tr": "Kiriş kesitindeki anlık kesme kuvvetini konuma bağlı olarak hesaplar.",
-        "de": "Calculate shear force at a given section along a beam.",
-        "fr": "Calculate shear force at a given section along a beam.",
-        "es": "Calculate shear force at a given section along a beam.",
-        "ar": "Calculate shear force at a given section along a beam."
+        "de": "Berechnen Sie die Scherkraft an einem gegebenen Abschnitt entlang eines Balkens.",
+        "fr": "Calculer l'effort tranchant à une section donnée le long d'une poutre.",
+        "es": "Calcular la fuerza cortante en una sección dada a lo largo de una viga.",
+        "ar": "احسب قوة القص عند مقطع معين على طول العارضة."
       },
       "long_i18n": {
         "en": "Calculate shear force at a given section along a beam.",
         "tr": "Kiriş kesitindeki anlık kesme kuvvetini konuma bağlı olarak hesaplar.",
-        "de": "Calculate shear force at a given section along a beam.",
-        "fr": "Calculate shear force at a given section along a beam.",
-        "es": "Calculate shear force at a given section along a beam.",
-        "ar": "Calculate shear force at a given section along a beam."
+        "de": "Berechnen Sie die Scherkraft an einem gegebenen Abschnitt entlang eines Balkens.",
+        "fr": "Calculer l'effort tranchant à une section donnée le long d'une poutre.",
+        "es": "Calcular la fuerza cortante en una sección dada a lo largo de una viga.",
+        "ar": "احسب قوة القص عند مقطع معين على طول العارضة."
       }
     }
   },

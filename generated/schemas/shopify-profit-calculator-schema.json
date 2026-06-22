@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Product price.",
         "tr": "Ürün satış fiyatı.",
-        "de": "Product price.",
-        "fr": "Product price.",
-        "es": "Product price.",
-        "ar": "Product price."
+        "de": "Produktpreis.",
+        "fr": "Prix du produit.",
+        "es": "Precio del producto.",
+        "ar": "سعر المنتج."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Product cost.",
         "tr": "Tedarik maliyeti.",
-        "de": "Product cost.",
-        "fr": "Product cost.",
-        "es": "Product cost.",
-        "ar": "Product cost."
+        "de": "Produktkosten.",
+        "fr": "Coût du produit.",
+        "es": "Costo del producto.",
+        "ar": "تكلفة المنتج."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Shipping cost.",
         "tr": "Kargo ücreti.",
-        "de": "Shipping cost.",
-        "fr": "Shipping cost.",
-        "es": "Shipping cost.",
-        "ar": "Shipping cost."
+        "de": "Versandkosten.",
+        "fr": "Frais d'expédition.",
+        "es": "Costo de envío.",
+        "ar": "تكلفة الشحن."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Shopify transaction fee.",
         "tr": "Shopify işlem ücreti.",
-        "de": "Shopify transaction fee.",
-        "fr": "Shopify transaction fee.",
-        "es": "Shopify transaction fee.",
-        "ar": "Shopify transaction fee."
+        "de": "Shopify-Transaktionsgebühr.",
+        "fr": "Frais de transaction Shopify.",
+        "es": "Tarifa de transacción de Shopify.",
+        "ar": "رسوم معاملة Shopify."
       }
     },
     {
@@ -111,10 +111,10 @@
       "label_i18n": {
         "en": "Fixed Transaction Fee (USD)",
         "tr": "Sabit İşlem Ücreti (TL)",
-        "de": "Fixed Transaction Fee (USD)",
-        "fr": "Fixed Transaction Fee (USD)",
-        "es": "Fixed Transaction Fee (USD)",
-        "ar": "Fixed Transaction Fee (USD)"
+        "de": "Feste Transaktionsgebühr (USD)",
+        "fr": "Frais de transaction fixes (USD)",
+        "es": "Tarifa Fija de Transacción (USD)",
+        "ar": "رسوم المعاملة الثابتة (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Fixed fee per transaction.",
         "tr": "Sabit işlem ücreti.",
-        "de": "Fixed fee per transaction.",
-        "fr": "Fixed fee per transaction.",
-        "es": "Fixed fee per transaction.",
-        "ar": "Fixed fee per transaction."
+        "de": "Feste Gebühr pro Transaktion.",
+        "fr": "Frais fixes par transaction.",
+        "es": "Tarifa fija por transacción.",
+        "ar": "الرسوم الثابتة لكل معاملة."
       }
     }
   ],
@@ -150,10 +150,10 @@
       "sonuc": {
         "en": "Net Kâr (Shopify)",
         "tr": "Net Kâr (Shopify)",
-        "de": "Net Kâr (Shopify)",
-        "fr": "Net Kâr (Shopify)",
-        "es": "Net Kâr (Shopify)",
-        "ar": "Net Kâr (Shopify)"
+        "de": "Nettogewinn (Shopify)",
+        "fr": "Bénéfice net (Shopify)",
+        "es": "Ganancia Neta (Shopify)",
+        "ar": "صافي الربح (Shopify)"
       }
     },
     "breakdownUnits": {
@@ -175,18 +175,18 @@
       "short_i18n": {
         "en": "Calculate net profit after Shopify platform fees.",
         "tr": "Shopify kesintileri sonrası net e-ticaret kârını hesaplar.",
-        "de": "Calculate net profit after Shopify platform fees.",
-        "fr": "Calculate net profit after Shopify platform fees.",
-        "es": "Calculate net profit after Shopify platform fees.",
-        "ar": "Calculate net profit after Shopify platform fees."
+        "de": "Berechnen Sie den Nettogewinn nach Shopify-Plattformgebühren.",
+        "fr": "Calculer le bénéfice net après les frais de plateforme Shopify.",
+        "es": "Calcular la ganancia neta después de las tarifas de la plataforma Shopify.",
+        "ar": "احسب صافي الربح بعد رسوم منصة Shopify."
       },
       "long_i18n": {
         "en": "Calculate net profit after Shopify platform fees.",
         "tr": "Shopify kesintileri sonrası net e-ticaret kârını hesaplar.",
-        "de": "Calculate net profit after Shopify platform fees.",
-        "fr": "Calculate net profit after Shopify platform fees.",
-        "es": "Calculate net profit after Shopify platform fees.",
-        "ar": "Calculate net profit after Shopify platform fees."
+        "de": "Berechnen Sie den Nettogewinn nach Shopify-Plattformgebühren.",
+        "fr": "Calculer le bénéfice net après les frais de plateforme Shopify.",
+        "es": "Calcular la ganancia neta después de las tarifas de la plataforma Shopify.",
+        "ar": "احسب صافي الربح بعد رسوم منصة Shopify."
       }
     }
   },

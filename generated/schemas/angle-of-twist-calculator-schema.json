@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Torque on shaft.",
         "tr": "Mile etkiyen tork.",
-        "de": "Torque on shaft.",
-        "fr": "Torque on shaft.",
-        "es": "Torque on shaft.",
-        "ar": "Torque on shaft."
+        "de": "Drehmoment auf der Welle.",
+        "fr": "Couple sur l'arbre.",
+        "es": "Par en el eje.",
+        "ar": "عزم الالتواء على العمود."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Shaft Length (m)",
         "tr": "Mil Boyu (m)",
-        "de": "Shaft Length (m)",
-        "fr": "Shaft Length (m)",
-        "es": "Shaft Length (m)",
-        "ar": "Shaft Length (m)"
+        "de": "Wellenlänge (m)",
+        "fr": "Longueur de l'arbre (m)",
+        "es": "Longitud del Eje (m)",
+        "ar": "طول العمود (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Shaft length under torsion.",
         "tr": "Burulmaya maruz mil uzunluğu.",
-        "de": "Shaft length under torsion.",
-        "fr": "Shaft length under torsion.",
-        "es": "Shaft length under torsion.",
-        "ar": "Shaft length under torsion."
+        "de": "Wellenlänge unter Torsion.",
+        "fr": "Longueur de l'arbre sous torsion.",
+        "es": "Longitud del eje bajo torsión.",
+        "ar": "طول العمود تحت عزم الالتواء."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Shear Modulus (Pa)",
         "tr": "Kayma Modülü (Pa)",
-        "de": "Shear Modulus (Pa)",
-        "fr": "Shear Modulus (Pa)",
-        "es": "Shear Modulus (Pa)",
-        "ar": "Shear Modulus (Pa)"
+        "de": "Schubmodul (Pa)",
+        "fr": "Module de cisaillement (Pa)",
+        "es": "Módulo de Corte (Pa)",
+        "ar": "معامل القص (Pa)"
       },
       "type": "number",
       "unit": "Pa",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Material shear modulus.",
         "tr": "Malzemenin kayma modülü.",
-        "de": "Material shear modulus.",
-        "fr": "Material shear modulus.",
-        "es": "Material shear modulus.",
-        "ar": "Material shear modulus."
+        "de": "Schubmodul des Materials.",
+        "fr": "Module de cisaillement du matériau.",
+        "es": "Módulo de corte del material.",
+        "ar": "معامل قص المادة."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Polar Moment (m⁴)",
         "tr": "Kutupsal Atalet Momenti (m⁴)",
-        "de": "Polar Moment (m⁴)",
-        "fr": "Polar Moment (m⁴)",
-        "es": "Polar Moment (m⁴)",
-        "ar": "Polar Moment (m⁴)"
+        "de": "Polares Trägheitsmoment (m⁴)",
+        "fr": "Moment polaire (m⁴)",
+        "es": "Momento Polar (m⁴)",
+        "ar": "العزم القطبي (m⁴)"
       },
       "type": "number",
       "unit": "m4",
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Burulma Açısı (θ)",
         "tr": "Burulma Açısı (θ)",
-        "de": "Burulma Açısı (θ)",
-        "fr": "Burulma Açısı (θ)",
-        "es": "Burulma Açısı (θ)",
-        "ar": "Burulma Açısı (θ)"
+        "de": "Verdrehwinkel (θ)",
+        "fr": "Angle de torsion (θ)",
+        "es": "Ángulo de Torsión (θ)",
+        "ar": "زاوية الالتواء (θ)"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate total angle of twist in a shaft under torsion.",
         "tr": "Milin boyunda oluşan toplam burulma (dönme) miktarını hesaplar.",
-        "de": "Calculate total angle of twist in a shaft under torsion.",
-        "fr": "Calculate total angle of twist in a shaft under torsion.",
-        "es": "Calculate total angle of twist in a shaft under torsion.",
-        "ar": "Calculate total angle of twist in a shaft under torsion."
+        "de": "Berechnen Sie den gesamten Verdrehwinkel einer Welle unter Torsion.",
+        "fr": "Calculer l'angle de torsion total dans un arbre sous torsion.",
+        "es": "Calcular el ángulo total de torsión en un eje bajo torsión.",
+        "ar": "احسب الزاوية الكلية للالتواء في عمود تحت عزم الالتواء."
       },
       "long_i18n": {
         "en": "Calculate total angle of twist in a shaft under torsion.",
         "tr": "Milin boyunda oluşan toplam burulma (dönme) miktarını hesaplar.",
-        "de": "Calculate total angle of twist in a shaft under torsion.",
-        "fr": "Calculate total angle of twist in a shaft under torsion.",
-        "es": "Calculate total angle of twist in a shaft under torsion.",
-        "ar": "Calculate total angle of twist in a shaft under torsion."
+        "de": "Berechnen Sie den gesamten Verdrehwinkel einer Welle unter Torsion.",
+        "fr": "Calculer l'angle de torsion total dans un arbre sous torsion.",
+        "es": "Calcular el ángulo total de torsión en un eje bajo torsión.",
+        "ar": "احسب الزاوية الكلية للالتواء في عمود تحت عزم الالتواء."
       }
     }
   },

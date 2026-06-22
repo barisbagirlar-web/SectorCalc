@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Rotor Diameter (m)",
         "tr": "Rotor Çapı (m)",
-        "de": "Rotor Diameter (m)",
-        "fr": "Rotor Diameter (m)",
-        "es": "Rotor Diameter (m)",
-        "ar": "Rotor Diameter (m)"
+        "de": "Rotordurchmesser (m)",
+        "fr": "Diamètre du rotor (m)",
+        "es": "Diámetro del Rotor (m)",
+        "ar": "قطر الدوار (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Turbine blade diameter.",
         "tr": "Türbin kanat çapı.",
-        "de": "Turbine blade diameter.",
-        "fr": "Turbine blade diameter.",
-        "es": "Turbine blade diameter.",
-        "ar": "Turbine blade diameter."
+        "de": "Durchmesser der Turbinenschaufel.",
+        "fr": "Diamètre des pales de la turbine.",
+        "es": "Diámetro de la pala de la turbina.",
+        "ar": "قطر شفرة التوربين."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Average wind speed.",
         "tr": "Ortalama rüzgar hızı.",
-        "de": "Average wind speed.",
-        "fr": "Average wind speed.",
-        "es": "Average wind speed.",
-        "ar": "Average wind speed."
+        "de": "Durchschnittliche Windgeschwindigkeit.",
+        "fr": "Vitesse moyenne du vent.",
+        "es": "Velocidad media del viento.",
+        "ar": "متوسط سرعة الرياح."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Sea-level air density.",
         "tr": "Deniz seviyesi hava yoğunluğu.",
-        "de": "Sea-level air density.",
-        "fr": "Sea-level air density.",
-        "es": "Sea-level air density.",
-        "ar": "Sea-level air density."
+        "de": "Luftdichte auf Meereshöhe.",
+        "fr": "Densité de l'air au niveau de la mer.",
+        "es": "Densidad del aire a nivel del mar.",
+        "ar": "كثافة الهواء عند مستوى سطح البحر."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Power Coefficient (Cp)",
         "tr": "Güç Katsayısı (Cp)",
-        "de": "Power Coefficient (Cp)",
-        "fr": "Power Coefficient (Cp)",
-        "es": "Power Coefficient (Cp)",
-        "ar": "Power Coefficient (Cp)"
+        "de": "Leistungsbeiwert (Cp)",
+        "fr": "Coefficient de puissance (Cp)",
+        "es": "Coeficiente de Potencia (Cp)",
+        "ar": "معامل القدرة (Cp)"
       },
       "type": "number",
       "unit": "",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Efficiency below Betz limit.",
         "tr": "Betz limiti altındaki verim.",
-        "de": "Efficiency below Betz limit.",
-        "fr": "Efficiency below Betz limit.",
-        "es": "Efficiency below Betz limit.",
-        "ar": "Efficiency below Betz limit."
+        "de": "Wirkungsgrad unterhalb der Betz-Grenze.",
+        "fr": "Rendement en dessous de la limite de Betz.",
+        "es": "Eficiencia por debajo del límite de Betz.",
+        "ar": "الكفاءة أقل من حد بيتز."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "Türbin Gücü",
         "tr": "Türbin Gücü",
-        "de": "Türbin Gücü",
-        "fr": "Türbin Gücü",
-        "es": "Türbin Gücü",
-        "ar": "Türbin Gücü"
+        "de": "Turbine Power",
+        "fr": "Puissance de la turbine",
+        "es": "Potencia de la Turbina",
+        "ar": "قوة التوربين"
       }
     },
     "breakdownUnits": {
@@ -154,18 +154,18 @@
       "short_i18n": {
         "en": "Calculate wind turbine instantaneous power output.",
         "tr": "Rüzgar türbininin rüzgardan mekanik güce dönüştürdüğü anlık enerjiyi hesaplar.",
-        "de": "Calculate wind turbine instantaneous power output.",
-        "fr": "Calculate wind turbine instantaneous power output.",
-        "es": "Calculate wind turbine instantaneous power output.",
-        "ar": "Calculate wind turbine instantaneous power output."
+        "de": "Berechnen Sie die momentane Leistungsabgabe einer Windturbine.",
+        "fr": "Calculer la puissance instantanée de l'éolienne.",
+        "es": "Calcular la potencia instantánea de salida de una turbina eólica.",
+        "ar": "احسب القدرة اللحظية لتوربينات الرياح."
       },
       "long_i18n": {
         "en": "Calculate wind turbine instantaneous power output.",
         "tr": "Rüzgar türbininin rüzgardan mekanik güce dönüştürdüğü anlık enerjiyi hesaplar.",
-        "de": "Calculate wind turbine instantaneous power output.",
-        "fr": "Calculate wind turbine instantaneous power output.",
-        "es": "Calculate wind turbine instantaneous power output.",
-        "ar": "Calculate wind turbine instantaneous power output."
+        "de": "Berechnen Sie die momentane Leistungsabgabe einer Windturbine.",
+        "fr": "Calculer la puissance instantanée de l'éolienne.",
+        "es": "Calcular la potencia instantánea de salida de una turbina eólica.",
+        "ar": "احسب القدرة اللحظية لتوربينات الرياح."
       }
     }
   },

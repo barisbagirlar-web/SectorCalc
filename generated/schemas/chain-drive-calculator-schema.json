@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Small Sprocket Teeth (Z1)",
         "tr": "Küçük Dişli Diş Sayısı (Z1)",
-        "de": "Small Sprocket Teeth (Z1)",
-        "fr": "Small Sprocket Teeth (Z1)",
-        "es": "Small Sprocket Teeth (Z1)",
-        "ar": "Small Sprocket Teeth (Z1)"
+        "de": "Kleine Kettenradzähne (Z1)",
+        "fr": "Petit pignon dents (Z1)",
+        "es": "Dientes del Piñón Pequeño (Z1)",
+        "ar": "أسنان الترس الصغير (Z1)"
       },
       "type": "number",
       "unit": "teeth",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Drive sprocket.",
         "tr": "Motor dişlisi.",
-        "de": "Drive sprocket.",
-        "fr": "Drive sprocket.",
-        "es": "Drive sprocket.",
-        "ar": "Drive sprocket."
+        "de": "Antriebskettenrad.",
+        "fr": "Pignon d'entraînement.",
+        "es": "Piñón motriz.",
+        "ar": "ترس القيادة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Large Sprocket Teeth (Z2)",
         "tr": "Büyük Dişli Diş Sayısı (Z2)",
-        "de": "Large Sprocket Teeth (Z2)",
-        "fr": "Large Sprocket Teeth (Z2)",
-        "es": "Large Sprocket Teeth (Z2)",
-        "ar": "Large Sprocket Teeth (Z2)"
+        "de": "Große Kettenradzähne (Z2)",
+        "fr": "Grand pignon dents (Z2)",
+        "es": "Dientes del Piñón Grande (Z2)",
+        "ar": "أسنان الترس الكبير (Z2)"
       },
       "type": "number",
       "unit": "teeth",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Wheel sprocket.",
         "tr": "Tekerlek dişlisi.",
-        "de": "Wheel sprocket.",
-        "fr": "Wheel sprocket.",
-        "es": "Wheel sprocket.",
-        "ar": "Wheel sprocket."
+        "de": "Radkettenrad.",
+        "fr": "Pignon de roue.",
+        "es": "Piñón de la rueda.",
+        "ar": "ترس العجلة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Chain Pitch (mm)",
         "tr": "Zincir Adımı (mm)",
-        "de": "Chain Pitch (mm)",
-        "fr": "Chain Pitch (mm)",
-        "es": "Chain Pitch (mm)",
-        "ar": "Chain Pitch (mm)"
+        "de": "Kettenteilung (mm)",
+        "fr": "Pas de chaîne (mm)",
+        "es": "Paso de la Cadena (mm)",
+        "ar": "خطوة السلسلة (mm)"
       },
       "type": "number",
       "unit": "mm",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Chain link pitch.",
         "tr": "Zincir bakla arası mesafe.",
-        "de": "Chain link pitch.",
-        "fr": "Chain link pitch.",
-        "es": "Chain link pitch.",
-        "ar": "Chain link pitch."
+        "de": "Kettengliedteilung.",
+        "fr": "Pas du maillon de chaîne.",
+        "es": "Paso del eslabón de la cadena.",
+        "ar": "خطوة رابط السلسلة."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Distance between sprockets.",
         "tr": "Dişliler arası mesafe.",
-        "de": "Distance between sprockets.",
-        "fr": "Distance between sprockets.",
-        "es": "Distance between sprockets.",
-        "ar": "Distance between sprockets."
+        "de": "Abstand zwischen den Kettenrädern.",
+        "fr": "Distance entre les pignons.",
+        "es": "Distancia entre piñones.",
+        "ar": "المسافة بين التروس المسننة."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "Zincir Boyu",
         "tr": "Zincir Boyu",
-        "de": "Zincir Boyu",
-        "fr": "Zincir Boyu",
-        "es": "Zincir Boyu",
-        "ar": "Zincir Boyu"
+        "de": "Kettenlänge",
+        "fr": "Longueur de chaîne",
+        "es": "Longitud de la Cadena",
+        "ar": "طول السلسلة"
       }
     },
     "breakdownUnits": {
@@ -153,18 +153,18 @@
       "short_i18n": {
         "en": "Calculate chain drive length and sprocket ratio.",
         "tr": "Zincir tahrik mekanizmasının toplam zincir boyunu ve dişli oranını hesaplar.",
-        "de": "Calculate chain drive length and sprocket ratio.",
-        "fr": "Calculate chain drive length and sprocket ratio.",
-        "es": "Calculate chain drive length and sprocket ratio.",
-        "ar": "Calculate chain drive length and sprocket ratio."
+        "de": "Berechnen Sie Kettenantriebslänge und Kettenradverhältnis.",
+        "fr": "Calculer la longueur de la chaîne et le rapport de pignon.",
+        "es": "Calcular la longitud de la cadena y la relación de piñones.",
+        "ar": "احسب طول محرك السلسلة ونسبة التروس المسننة."
       },
       "long_i18n": {
         "en": "Calculate chain drive length and sprocket ratio.",
         "tr": "Zincir tahrik mekanizmasının toplam zincir boyunu ve dişli oranını hesaplar.",
-        "de": "Calculate chain drive length and sprocket ratio.",
-        "fr": "Calculate chain drive length and sprocket ratio.",
-        "es": "Calculate chain drive length and sprocket ratio.",
-        "ar": "Calculate chain drive length and sprocket ratio."
+        "de": "Berechnen Sie Kettenantriebslänge und Kettenradverhältnis.",
+        "fr": "Calculer la longueur de la chaîne et le rapport de pignon.",
+        "es": "Calcular la longitud de la cadena y la relación de piñones.",
+        "ar": "احسب طول محرك السلسلة ونسبة التروس المسننة."
       }
     }
   },

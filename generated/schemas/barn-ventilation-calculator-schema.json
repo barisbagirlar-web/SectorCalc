@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Barn Area (m²)",
         "tr": "Ahır Alanı (m²)",
-        "de": "Barn Area (m²)",
-        "fr": "Barn Area (m²)",
-        "es": "Barn Area (m²)",
-        "ar": "Barn Area (m²)"
+        "de": "Stallfläche (m²)",
+        "fr": "Surface du bâtiment (m²)",
+        "es": "Área del Establo (m²)",
+        "ar": "مساحة الحظيرة (m²)"
       },
       "type": "number",
       "unit": "m2",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Barn floor area.",
         "tr": "Ahır taban alanı.",
-        "de": "Barn floor area.",
-        "fr": "Barn floor area.",
-        "es": "Barn floor area.",
-        "ar": "Barn floor area."
+        "de": "Stallgrundfläche.",
+        "fr": "Surface au sol du bâtiment.",
+        "es": "Área del piso del establo.",
+        "ar": "مساحة أرضية الحظيرة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Barn Height (m)",
         "tr": "Ahır Yüksekliği (m)",
-        "de": "Barn Height (m)",
-        "fr": "Barn Height (m)",
-        "es": "Barn Height (m)",
-        "ar": "Barn Height (m)"
+        "de": "Stallhöhe (m)",
+        "fr": "Hauteur du bâtiment (m)",
+        "es": "Altura del Establo (m)",
+        "ar": "ارتفاع الحظيرة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Barn height.",
         "tr": "Ahır yüksekliği.",
-        "de": "Barn height.",
-        "fr": "Barn height.",
-        "es": "Barn height.",
-        "ar": "Barn height."
+        "de": "Stallhöhe.",
+        "fr": "Hauteur du bâtiment.",
+        "es": "Altura del establo.",
+        "ar": "ارتفاع الحظيرة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Air Changes (per hour)",
         "tr": "Hava Değişim Sayısı (adet/saat)",
-        "de": "Air Changes (per hour)",
-        "fr": "Air Changes (per hour)",
-        "es": "Air Changes (per hour)",
-        "ar": "Air Changes (per hour)"
+        "de": "Luftwechsel (pro Stunde)",
+        "fr": "Renouvellements d'air (par heure)",
+        "es": "Cambios de Aire (por hora)",
+        "ar": "تغييرات الهواء (في الساعة)"
       },
       "type": "number",
       "unit": "per_hour",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Hourly air change rate.",
         "tr": "Saatlik hava değişim adedi.",
-        "de": "Hourly air change rate.",
-        "fr": "Hourly air change rate.",
-        "es": "Hourly air change rate.",
-        "ar": "Hourly air change rate."
+        "de": "Stündliche Luftwechselrate.",
+        "fr": "Taux de renouvellement d'air horaire.",
+        "es": "Tasa de cambio de aire por hora.",
+        "ar": "معدل تغيير الهواء في الساعة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Havalandırma Debisi",
         "tr": "Havalandırma Debisi",
-        "de": "Havalandırma Debisi",
-        "fr": "Havalandırma Debisi",
-        "es": "Havalandırma Debisi",
-        "ar": "Havalandırma Debisi"
+        "de": "Lüftungsvolumenstrom",
+        "fr": "Débit de ventilation",
+        "es": "Caudal de Ventilación",
+        "ar": "معدل التهوية"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate ventilation air flow rate needed for animal barn.",
         "tr": "Ahırdan atılması gereken kirli hava debisini hesaplar.",
-        "de": "Calculate ventilation air flow rate needed for animal barn.",
-        "fr": "Calculate ventilation air flow rate needed for animal barn.",
-        "es": "Calculate ventilation air flow rate needed for animal barn.",
-        "ar": "Calculate ventilation air flow rate needed for animal barn."
+        "de": "Lüftungsvolumenstrom für Tierstall berechnen.",
+        "fr": "Calculer le débit d'air de ventilation nécessaire pour un bâtiment d'élevage.",
+        "es": "Calcular el caudal de aire de ventilación necesario para un establo de animales.",
+        "ar": "حساب معدل تدفق هواء التهوية المطلوب لحظيرة الحيوانات."
       },
       "long_i18n": {
         "en": "Calculate ventilation air flow rate needed for animal barn.",
         "tr": "Ahırdan atılması gereken kirli hava debisini hesaplar.",
-        "de": "Calculate ventilation air flow rate needed for animal barn.",
-        "fr": "Calculate ventilation air flow rate needed for animal barn.",
-        "es": "Calculate ventilation air flow rate needed for animal barn.",
-        "ar": "Calculate ventilation air flow rate needed for animal barn."
+        "de": "Lüftungsvolumenstrom für Tierstall berechnen.",
+        "fr": "Calculer le débit d'air de ventilation nécessaire pour un bâtiment d'élevage.",
+        "es": "Calcular el caudal de aire de ventilación necesario para un establo de animales.",
+        "ar": "حساب معدل تدفق هواء التهوية المطلوب لحظيرة الحيوانات."
       }
     }
   },

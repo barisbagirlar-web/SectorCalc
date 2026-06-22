@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Annual COGS (USD)",
         "tr": "Yıllık SMM (TL)",
-        "de": "Annual COGS (USD)",
-        "fr": "Annual COGS (USD)",
-        "es": "Annual COGS (USD)",
-        "ar": "Annual COGS (USD)"
+        "de": "Jährliche COGS (USD)",
+        "fr": "COGS annuel (USD)",
+        "es": "COGS anual (USD)",
+        "ar": "تكلفة البضائع المباعة السنوية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Annual COGS.",
         "tr": "Yıllık satılan mal maliyeti.",
-        "de": "Annual COGS.",
-        "fr": "Annual COGS.",
-        "es": "Annual COGS.",
-        "ar": "Annual COGS."
+        "de": "Jährliche COGS.",
+        "fr": "COGS annuel.",
+        "es": "COGS anual.",
+        "ar": "تكلفة البضائع المباعة السنوية."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Avg Inventory (USD)",
         "tr": "Ortalama Stok (TL)",
-        "de": "Avg Inventory (USD)",
-        "fr": "Avg Inventory (USD)",
-        "es": "Avg Inventory (USD)",
-        "ar": "Avg Inventory (USD)"
+        "de": "Durchschnittlicher Lagerbestand (USD)",
+        "fr": "Stock moyen (USD)",
+        "es": "Inventario Promedio (USD)",
+        "ar": "متوسط المخزون (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Average inventory level.",
         "tr": "Dönem ortalama stok seviyesi.",
-        "de": "Average inventory level.",
-        "fr": "Average inventory level.",
-        "es": "Average inventory level.",
-        "ar": "Average inventory level."
+        "de": "Durchschnittlicher Lagerbestand.",
+        "fr": "Niveau moyen des stocks.",
+        "es": "Nivel de inventario promedio.",
+        "ar": "متوسط مستوى المخزون."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Stokta Kalma Süresi",
         "tr": "Stokta Kalma Süresi",
-        "de": "Stokta Kalma Süresi",
-        "fr": "Stokta Kalma Süresi",
-        "es": "Stokta Kalma Süresi",
-        "ar": "Stokta Kalma Süresi"
+        "de": "Lagerdauer",
+        "fr": "Stock Holding Period",
+        "es": "Tiempo en inventario",
+        "ar": "مدة البقاء في المخزون"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate inventory turnover in days.",
         "tr": "Stokların satılıp yenilenme ortalama süresini (gün) hesaplar.",
-        "de": "Calculate inventory turnover in days.",
-        "fr": "Calculate inventory turnover in days.",
-        "es": "Calculate inventory turnover in days.",
-        "ar": "Calculate inventory turnover in days."
+        "de": "Berechnen Sie den Lagerumschlag in Tagen.",
+        "fr": "Calculer la rotation des stocks en jours.",
+        "es": "Calcular la rotación de inventario en días.",
+        "ar": "حساب معدل دوران المخزون بالأيام."
       },
       "long_i18n": {
         "en": "Calculate inventory turnover in days.",
         "tr": "Stokların satılıp yenilenme ortalama süresini (gün) hesaplar.",
-        "de": "Calculate inventory turnover in days.",
-        "fr": "Calculate inventory turnover in days.",
-        "es": "Calculate inventory turnover in days.",
-        "ar": "Calculate inventory turnover in days."
+        "de": "Berechnen Sie den Lagerumschlag in Tagen.",
+        "fr": "Calculer la rotation des stocks en jours.",
+        "es": "Calcular la rotación de inventario en días.",
+        "ar": "حساب معدل دوران المخزون بالأيام."
       }
     }
   },

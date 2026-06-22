@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Void Volume (m³)",
         "tr": "Boşluk Hacmi (m³)",
-        "de": "Void Volume (m³)",
-        "fr": "Void Volume (m³)",
-        "es": "Void Volume (m³)",
-        "ar": "Void Volume (m³)"
+        "de": "Porenvolumen (m³)",
+        "fr": "Volume des vides (m³)",
+        "es": "Volumen de Vacíos (m³)",
+        "ar": "حجم الفراغات (m³)"
       },
       "type": "number",
       "unit": "m3",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total void volume.",
         "tr": "Malzemedeki boşlukların toplam hacmi.",
-        "de": "Total void volume.",
-        "fr": "Total void volume.",
-        "es": "Total void volume.",
-        "ar": "Total void volume."
+        "de": "Gesamtes Porenvolumen.",
+        "fr": "Volume total des vides.",
+        "es": "Volumen total de vacíos.",
+        "ar": "إجمالي حجم الفراغات."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Total Volume (m³)",
         "tr": "Toplam Hacim (m³)",
-        "de": "Total Volume (m³)",
-        "fr": "Total Volume (m³)",
-        "es": "Total Volume (m³)",
-        "ar": "Total Volume (m³)"
+        "de": "Gesamtvolumen (m³)",
+        "fr": "Volume total (m³)",
+        "es": "Volumen Total (m³)",
+        "ar": "الحجم الكلي (m³)"
       },
       "type": "number",
       "unit": "m3",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Total material volume.",
         "tr": "Malzemenin toplam hacmi.",
-        "de": "Total material volume.",
-        "fr": "Total material volume.",
-        "es": "Total material volume.",
-        "ar": "Total material volume."
+        "de": "Gesamtes Materialvolumen.",
+        "fr": "Volume total du matériau.",
+        "es": "Volumen total de material.",
+        "ar": "الحجم الكلي للمادة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Porozite",
         "tr": "Porozite",
-        "de": "Porozite",
-        "fr": "Porozite",
-        "es": "Porozite",
-        "ar": "Porozite"
+        "de": "Porosität",
+        "fr": "Porosité",
+        "es": "Porosidad",
+        "ar": "المسامية"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate material porosity as percentage of void volume.",
         "tr": "Malzemedeki boşluk oranını (porozite/gözeneklilik) hesaplar.",
-        "de": "Calculate material porosity as percentage of void volume.",
-        "fr": "Calculate material porosity as percentage of void volume.",
-        "es": "Calculate material porosity as percentage of void volume.",
-        "ar": "Calculate material porosity as percentage of void volume."
+        "de": "Berechnen Sie die Materialporosität als Prozentsatz des Porenvolumens.",
+        "fr": "Calculer la porosité du matériau en pourcentage du volume des vides.",
+        "es": "Calcular la porosidad del material como porcentaje del volumen de vacíos.",
+        "ar": "حساب مسامية المادة كنسبة مئوية من حجم الفراغات."
       },
       "long_i18n": {
         "en": "Calculate material porosity as percentage of void volume.",
         "tr": "Malzemedeki boşluk oranını (porozite/gözeneklilik) hesaplar.",
-        "de": "Calculate material porosity as percentage of void volume.",
-        "fr": "Calculate material porosity as percentage of void volume.",
-        "es": "Calculate material porosity as percentage of void volume.",
-        "ar": "Calculate material porosity as percentage of void volume."
+        "de": "Berechnen Sie die Materialporosität als Prozentsatz des Porenvolumens.",
+        "fr": "Calculer la porosité du matériau en pourcentage du volume des vides.",
+        "es": "Calcular la porosidad del material como porcentaje del volumen de vacíos.",
+        "ar": "حساب مسامية المادة كنسبة مئوية من حجم الفراغات."
       }
     }
   },

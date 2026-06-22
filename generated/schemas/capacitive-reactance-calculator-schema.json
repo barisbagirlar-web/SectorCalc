@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "AC signal frequency.",
         "tr": "AC sinyal frekansı.",
-        "de": "AC signal frequency.",
-        "fr": "AC signal frequency.",
-        "es": "AC signal frequency.",
-        "ar": "AC signal frequency."
+        "de": "Frequenz des Wechselstromsignals.",
+        "fr": "Fréquence du signal AC.",
+        "es": "Frecuencia de la señal de CA.",
+        "ar": "تردد الإشارة المترددة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Capacitance (F)",
         "tr": "Kapasite (F)",
-        "de": "Capacitance (F)",
-        "fr": "Capacitance (F)",
-        "es": "Capacitance (F)",
-        "ar": "Capacitance (F)"
+        "de": "Kapazität (F)",
+        "fr": "Capacité (F)",
+        "es": "Capacitancia (F)",
+        "ar": "السعة (F)"
       },
       "type": "number",
       "unit": "F",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Capacitor value.",
         "tr": "Kapasitör değeri.",
-        "de": "Capacitor value.",
-        "fr": "Capacitor value.",
-        "es": "Capacitor value.",
-        "ar": "Capacitor value."
+        "de": "Kondensatorwert.",
+        "fr": "Valeur du condensateur.",
+        "es": "Valor del capacitor.",
+        "ar": "قيمة المكثف."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Kapasitif Reaktans (Xc)",
         "tr": "Kapasitif Reaktans (Xc)",
-        "de": "Kapasitif Reaktans (Xc)",
-        "fr": "Kapasitif Reaktans (Xc)",
-        "es": "Kapasitif Reaktans (Xc)",
-        "ar": "Kapasitif Reaktans (Xc)"
+        "de": "Kapazitiver Blindwiderstand (Xc)",
+        "fr": "Réactance capacitive (Xc)",
+        "es": "Reactancia Capacitiva (Xc)",
+        "ar": "المفاعلة السعوية (Xc)"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate capacitive reactance of a capacitor at given frequency.",
         "tr": "Kapasitörün alternatif akıma gösterdiği direnci (kapasitif reaktans) hesaplar.",
-        "de": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "fr": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "es": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "ar": "Calculate capacitive reactance of a capacitor at given frequency."
+        "de": "Berechnen Sie den kapazitiven Blindwiderstand eines Kondensators bei gegebener Frequenz.",
+        "fr": "Calculer la réactance capacitive d'un condensateur à une fréquence donnée.",
+        "es": "Calcular la reactancia capacitiva de un capacitor a una frecuencia dada.",
+        "ar": "حساب المفاعلة السعوية لمكثف عند تردد معين."
       },
       "long_i18n": {
         "en": "Calculate capacitive reactance of a capacitor at given frequency.",
         "tr": "Kapasitörün alternatif akıma gösterdiği direnci (kapasitif reaktans) hesaplar.",
-        "de": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "fr": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "es": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "ar": "Calculate capacitive reactance of a capacitor at given frequency."
+        "de": "Berechnen Sie den kapazitiven Blindwiderstand eines Kondensators bei gegebener Frequenz.",
+        "fr": "Calculer la réactance capacitive d'un condensateur à une fréquence donnée.",
+        "es": "Calcular la reactancia capacitiva de un capacitor a una frecuencia dada.",
+        "ar": "حساب المفاعلة السعوية لمكثف عند تردد معين."
       }
     }
   },

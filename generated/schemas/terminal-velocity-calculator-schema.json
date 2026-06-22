@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Object mass.",
         "tr": "Cismin kütlesi.",
-        "de": "Object mass.",
-        "fr": "Object mass.",
-        "es": "Object mass.",
-        "ar": "Object mass."
+        "de": "Objektmasse.",
+        "fr": "Masse de l'objet.",
+        "es": "Masa del objeto.",
+        "ar": "كتلة الجسم."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Air density.",
         "tr": "Havanın yoğunluğu.",
-        "de": "Air density.",
-        "fr": "Air density.",
-        "es": "Air density.",
-        "ar": "Air density."
+        "de": "Luftdichte.",
+        "fr": "Densité de l'air.",
+        "es": "Densidad del aire.",
+        "ar": "كثافة الهواء."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Drag Coefficient",
         "tr": "Sürükleme Katsayısı",
-        "de": "Drag Coefficient",
-        "fr": "Drag Coefficient",
-        "es": "Drag Coefficient",
-        "ar": "Drag Coefficient"
+        "de": "Widerstandsbeiwert",
+        "fr": "Coefficient de traînée",
+        "es": "Coeficiente de Arrastre",
+        "ar": "معامل السحب"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Shape-dependent drag coefficient.",
         "tr": "Cismin şekline bağlı sürükleme katsayısı.",
-        "de": "Shape-dependent drag coefficient.",
-        "fr": "Shape-dependent drag coefficient.",
-        "es": "Shape-dependent drag coefficient.",
-        "ar": "Shape-dependent drag coefficient."
+        "de": "Formabhängiger Widerstandsbeiwert.",
+        "fr": "Coefficient de traînée dépendant de la forme.",
+        "es": "Coeficiente de arrastre dependiente de la forma.",
+        "ar": "معامل السحب المعتمد على الشكل."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Projected frontal area.",
         "tr": "Cismin izdüşüm alanı.",
-        "de": "Projected frontal area.",
-        "fr": "Projected frontal area.",
-        "es": "Projected frontal area.",
-        "ar": "Projected frontal area."
+        "de": "Projizierte Stirnfläche.",
+        "fr": "Surface frontale projetée.",
+        "es": "Área frontal proyectada.",
+        "ar": "المساحة الأمامية المسقطة."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Terminal Hız",
         "tr": "Terminal Hız",
-        "de": "Terminal Hız",
-        "fr": "Terminal Hız",
-        "es": "Terminal Hız",
-        "ar": "Terminal Hız"
+        "de": "Endgeschwindigkeit",
+        "fr": "Vitesse terminale",
+        "es": "Velocidad Terminal",
+        "ar": "السرعة النهائية"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate terminal velocity where drag balances gravity.",
         "tr": "Hava direnci ile yerçekiminin dengelendiği sabit terminal hızını hesaplar.",
-        "de": "Calculate terminal velocity where drag balances gravity.",
-        "fr": "Calculate terminal velocity where drag balances gravity.",
-        "es": "Calculate terminal velocity where drag balances gravity.",
-        "ar": "Calculate terminal velocity where drag balances gravity."
+        "de": "Berechnen Sie die Endgeschwindigkeit, bei der der Luftwiderstand die Schwerkraft ausgleicht.",
+        "fr": "Calculer la vitesse terminale où la traînée équilibre la gravité.",
+        "es": "Calcular la velocidad terminal donde la resistencia equilibra la gravedad.",
+        "ar": "احسب السرعة الحدية حيث يتوازن السحب مع الجاذبية."
       },
       "long_i18n": {
         "en": "Calculate terminal velocity where drag balances gravity.",
         "tr": "Hava direnci ile yerçekiminin dengelendiği sabit terminal hızını hesaplar.",
-        "de": "Calculate terminal velocity where drag balances gravity.",
-        "fr": "Calculate terminal velocity where drag balances gravity.",
-        "es": "Calculate terminal velocity where drag balances gravity.",
-        "ar": "Calculate terminal velocity where drag balances gravity."
+        "de": "Berechnen Sie die Endgeschwindigkeit, bei der der Luftwiderstand die Schwerkraft ausgleicht.",
+        "fr": "Calculer la vitesse terminale où la traînée équilibre la gravité.",
+        "es": "Calcular la velocidad terminal donde la resistencia equilibra la gravedad.",
+        "ar": "احسب السرعة الحدية حيث يتوازن السحب مع الجاذبية."
       }
     }
   },

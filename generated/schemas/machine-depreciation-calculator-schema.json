@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Machine purchase cost.",
         "tr": "Makinenin satın alma bedeli.",
-        "de": "Machine purchase cost.",
-        "fr": "Machine purchase cost.",
-        "es": "Machine purchase cost.",
-        "ar": "Machine purchase cost."
+        "de": "Anschaffungskosten der Maschine.",
+        "fr": "Coût d'achat de la machine.",
+        "es": "Costo de compra de la máquina.",
+        "ar": "تكلفة شراء الماكينة."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "End-of-life value.",
         "tr": "Makinenin ömür sonu değeri.",
-        "de": "End-of-life value.",
-        "fr": "End-of-life value.",
-        "es": "End-of-life value.",
-        "ar": "End-of-life value."
+        "de": "Restwert am Ende der Nutzungsdauer.",
+        "fr": "Valeur en fin de vie.",
+        "es": "Valor al final de la vida útil.",
+        "ar": "القيمة في نهاية العمر الافتراضي."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Total Production Capacity",
         "tr": "Toplam Üretim Kapasitesi",
-        "de": "Total Production Capacity",
-        "fr": "Total Production Capacity",
-        "es": "Total Production Capacity",
-        "ar": "Total Production Capacity"
+        "de": "Gesamtproduktionskapazität",
+        "fr": "Capacité de production totale",
+        "es": "Capacidad total de producción",
+        "ar": "إجمالي الطاقة الإنتاجية"
       },
       "type": "number",
       "unit": "units",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total units over machine life.",
         "tr": "Makinenin ömrü boyunca üreteceği toplam ürün.",
-        "de": "Total units over machine life.",
-        "fr": "Total units over machine life.",
-        "es": "Total units over machine life.",
-        "ar": "Total units over machine life."
+        "de": "Gesamteinheiten über die Maschinenlebensdauer.",
+        "fr": "Nombre total d'unités sur la durée de vie de la machine.",
+        "es": "Unidades totales durante la vida útil de la máquina.",
+        "ar": "إجمالي الوحدات على مدى عمر الماكينة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Birim Amortisman",
         "tr": "Birim Amortisman",
-        "de": "Birim Amortisman",
-        "fr": "Birim Amortisman",
-        "es": "Birim Amortisman",
-        "ar": "Birim Amortisman"
+        "de": "Einheitsabschreibung",
+        "fr": "Amortissement unitaire",
+        "es": "Amortización por unidad",
+        "ar": "الإهلاك لكل وحدة"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate depreciation cost per unit based on production capacity.",
         "tr": "Üretilen her bir ürüne yüklenen yıpranma payını (birim amortisman) hesaplar.",
-        "de": "Calculate depreciation cost per unit based on production capacity.",
-        "fr": "Calculate depreciation cost per unit based on production capacity.",
-        "es": "Calculate depreciation cost per unit based on production capacity.",
-        "ar": "Calculate depreciation cost per unit based on production capacity."
+        "de": "Berechnen Sie die Abschreibungskosten pro Einheit basierend auf der Produktionskapazität.",
+        "fr": "Calculer le coût d'amortissement par unité en fonction de la capacité de production.",
+        "es": "Calcular el costo de depreciación por unidad basado en la capacidad de producción.",
+        "ar": "احسب تكلفة الإهلاك لكل وحدة بناءً على الطاقة الإنتاجية."
       },
       "long_i18n": {
         "en": "Calculate depreciation cost per unit based on production capacity.",
         "tr": "Üretilen her bir ürüne yüklenen yıpranma payını (birim amortisman) hesaplar.",
-        "de": "Calculate depreciation cost per unit based on production capacity.",
-        "fr": "Calculate depreciation cost per unit based on production capacity.",
-        "es": "Calculate depreciation cost per unit based on production capacity.",
-        "ar": "Calculate depreciation cost per unit based on production capacity."
+        "de": "Berechnen Sie die Abschreibungskosten pro Einheit basierend auf der Produktionskapazität.",
+        "fr": "Calculer le coût d'amortissement par unité en fonction de la capacité de production.",
+        "es": "Calcular el costo de depreciación por unidad basado en la capacidad de producción.",
+        "ar": "احسب تكلفة الإهلاك لكل وحدة بناءً على الطاقة الإنتاجية."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Sound Power Level (dB)",
         "tr": "Ses Gücü Seviyesi (dB)",
-        "de": "Sound Power Level (dB)",
-        "fr": "Sound Power Level (dB)",
-        "es": "Sound Power Level (dB)",
-        "ar": "Sound Power Level (dB)"
+        "de": "Schallleistungspegel (dB)",
+        "fr": "Niveau de puissance acoustique (dB)",
+        "es": "Nivel de Potencia Sonora (dB)",
+        "ar": "مستوى قدرة الصوت (dB)"
       },
       "type": "number",
       "unit": "dB",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Source sound power.",
         "tr": "Kaynağın ses gücü.",
-        "de": "Source sound power.",
-        "fr": "Source sound power.",
-        "es": "Source sound power.",
-        "ar": "Source sound power."
+        "de": "Quellenschallleistung.",
+        "fr": "Puissance acoustique de la source.",
+        "es": "Potencia sonora de la fuente.",
+        "ar": "قدرة الصوت المصدر."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Distance from Source (m)",
         "tr": "Kaynağa Uzaklık (m)",
-        "de": "Distance from Source (m)",
-        "fr": "Distance from Source (m)",
-        "es": "Distance from Source (m)",
-        "ar": "Distance from Source (m)"
+        "de": "Entfernung von der Quelle (m)",
+        "fr": "Distance de la source (m)",
+        "es": "Distancia desde la Fuente (m)",
+        "ar": "المسافة من المصدر (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Measurement distance.",
         "tr": "Ölçüm noktası uzaklığı.",
-        "de": "Measurement distance.",
-        "fr": "Measurement distance.",
-        "es": "Measurement distance.",
-        "ar": "Measurement distance."
+        "de": "Messabstand.",
+        "fr": "Distance de mesure.",
+        "es": "Distancia de medición.",
+        "ar": "مسافة القياس."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Ground Attenuation (dB)",
         "tr": "Zemin Zayıflaması (dB)",
-        "de": "Ground Attenuation (dB)",
-        "fr": "Ground Attenuation (dB)",
-        "es": "Ground Attenuation (dB)",
-        "ar": "Ground Attenuation (dB)"
+        "de": "Bodendämpfung (dB)",
+        "fr": "Atténuation par le sol (dB)",
+        "es": "Atenuación del Suelo (dB)",
+        "ar": "توهين الأرض (dB)"
       },
       "type": "number",
       "unit": "dB",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Ground absorption.",
         "tr": "Zemin emilimi.",
-        "de": "Ground absorption.",
-        "fr": "Ground absorption.",
-        "es": "Ground absorption.",
-        "ar": "Ground absorption."
+        "de": "Bodenabsorption.",
+        "fr": "Absorption par le sol.",
+        "es": "Absorción del suelo.",
+        "ar": "امتصاص الأرض."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Barrier Attenuation (dB)",
         "tr": "Engel Zayıflaması (dB)",
-        "de": "Barrier Attenuation (dB)",
-        "fr": "Barrier Attenuation (dB)",
-        "es": "Barrier Attenuation (dB)",
-        "ar": "Barrier Attenuation (dB)"
+        "de": "Barrierendämpfung (dB)",
+        "fr": "Atténuation par obstacle (dB)",
+        "es": "Atenuación de Barrera (dB)",
+        "ar": "توهين الحاجز (dB)"
       },
       "type": "number",
       "unit": "dB",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Wall/barrier screening.",
         "tr": "Duvar/bina perdelemesi.",
-        "de": "Wall/barrier screening.",
-        "fr": "Wall/barrier screening.",
-        "es": "Wall/barrier screening.",
-        "ar": "Wall/barrier screening."
+        "de": "Wand-/Barriereabschirmung.",
+        "fr": "Écran mural/barrière.",
+        "es": "Apantallamiento de pared/barrera.",
+        "ar": "تدريع الجدار/الحاجز."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Ses Basınç Seviyesi",
         "tr": "Ses Basınç Seviyesi",
-        "de": "Ses Basınç Seviyesi",
-        "fr": "Ses Basınç Seviyesi",
-        "es": "Ses Basınç Seviyesi",
-        "ar": "Ses Basınç Seviyesi"
+        "de": "Schalldruckpegel",
+        "fr": "Niveau de pression acoustique",
+        "es": "Nivel de Presión Sonora",
+        "ar": "مستوى ضغط الصوت"
       }
     },
     "breakdownUnits": {
@@ -153,18 +153,18 @@
       "short_i18n": {
         "en": "Calculate sound pressure level at a distance from noise source.",
         "tr": "Kaynaktan belirli mesafedeki tahmini ses basınç seviyesini (gürültü yayılımı) hesaplar.",
-        "de": "Calculate sound pressure level at a distance from noise source.",
-        "fr": "Calculate sound pressure level at a distance from noise source.",
-        "es": "Calculate sound pressure level at a distance from noise source.",
-        "ar": "Calculate sound pressure level at a distance from noise source."
+        "de": "Schalldruckpegel in einer Entfernung von der Lärmquelle berechnen.",
+        "fr": "Calculer le niveau de pression acoustique à une distance de la source de bruit.",
+        "es": "Calcular el nivel de presión sonora a una distancia de la fuente de ruido.",
+        "ar": "احسب مستوى ضغط الصوت على مسافة من مصدر الضوضاء."
       },
       "long_i18n": {
         "en": "Calculate sound pressure level at a distance from noise source.",
         "tr": "Kaynaktan belirli mesafedeki tahmini ses basınç seviyesini (gürültü yayılımı) hesaplar.",
-        "de": "Calculate sound pressure level at a distance from noise source.",
-        "fr": "Calculate sound pressure level at a distance from noise source.",
-        "es": "Calculate sound pressure level at a distance from noise source.",
-        "ar": "Calculate sound pressure level at a distance from noise source."
+        "de": "Schalldruckpegel in einer Entfernung von der Lärmquelle berechnen.",
+        "fr": "Calculer le niveau de pression acoustique à une distance de la source de bruit.",
+        "es": "Calcular el nivel de presión sonora a una distancia de la fuente de ruido.",
+        "ar": "احسب مستوى ضغط الصوت على مسافة من مصدر الضوضاء."
       }
     }
   },

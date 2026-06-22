@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Sale amount.",
         "tr": "Ürün satış fiyatı.",
-        "de": "Sale amount.",
-        "fr": "Sale amount.",
-        "es": "Sale amount.",
-        "ar": "Sale amount."
+        "de": "Verkaufsbetrag.",
+        "fr": "Montant de la vente.",
+        "es": "Monto de la venta.",
+        "ar": "مبلغ البيع."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Category Fee (%)",
         "tr": "Kategori Ücreti (%)",
-        "de": "Category Fee (%)",
-        "fr": "Category Fee (%)",
-        "es": "Category Fee (%)",
-        "ar": "Category Fee (%)"
+        "de": "Kategoriegebühr (%)",
+        "fr": "Frais de catégorie (%)",
+        "es": "Tarifa por Categoría (%)",
+        "ar": "رسوم الفئة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Category-based selling fee.",
         "tr": "Kategori bazlı satış ücreti.",
-        "de": "Category-based selling fee.",
-        "fr": "Category-based selling fee.",
-        "es": "Category-based selling fee.",
-        "ar": "Category-based selling fee."
+        "de": "Kategoriebasierte Verkaufsgebühr.",
+        "fr": "Frais de vente basés sur la catégorie.",
+        "es": "Tarifa de venta basada en la categoría.",
+        "ar": "رسوم البيع حسب الفئة."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Fixed transaction fee.",
         "tr": "Sabit işlem ücreti.",
-        "de": "Fixed transaction fee.",
-        "fr": "Fixed transaction fee.",
-        "es": "Fixed transaction fee.",
-        "ar": "Fixed transaction fee."
+        "de": "Feste Transaktionsgebühr.",
+        "fr": "Frais de transaction fixes.",
+        "es": "Tarifa fija por transacción.",
+        "ar": "رسوم المعاملة الثابتة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Toplam eBay Kesintisi",
         "tr": "Toplam eBay Kesintisi",
-        "de": "Toplam eBay Kesintisi",
-        "fr": "Toplam eBay Kesintisi",
-        "es": "Toplam eBay Kesintisi",
-        "ar": "Toplam eBay Kesintisi"
+        "de": "Gesamte eBay-Gebühren",
+        "fr": "Total des frais eBay",
+        "es": "Comisión total de eBay",
+        "ar": "إجمالي خصم eBay"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate eBay final value and fixed fees.",
         "tr": "eBay nihai değer ücreti ve sabit kesintileri hesaplar.",
-        "de": "Calculate eBay final value and fixed fees.",
-        "fr": "Calculate eBay final value and fixed fees.",
-        "es": "Calculate eBay final value and fixed fees.",
-        "ar": "Calculate eBay final value and fixed fees."
+        "de": "Berechnen Sie eBay-Endwert- und Festgebühren.",
+        "fr": "Calculer les frais finaux et fixes eBay.",
+        "es": "Calcular la tarifa final y las tarifas fijas de eBay.",
+        "ar": "احسب رسوم eBay النهائية والثابتة."
       },
       "long_i18n": {
         "en": "Calculate eBay final value and fixed fees.",
         "tr": "eBay nihai değer ücreti ve sabit kesintileri hesaplar.",
-        "de": "Calculate eBay final value and fixed fees.",
-        "fr": "Calculate eBay final value and fixed fees.",
-        "es": "Calculate eBay final value and fixed fees.",
-        "ar": "Calculate eBay final value and fixed fees."
+        "de": "Berechnen Sie eBay-Endwert- und Festgebühren.",
+        "fr": "Calculer les frais finaux et fixes eBay.",
+        "es": "Calcular la tarifa final y las tarifas fijas de eBay.",
+        "ar": "احسب رسوم eBay النهائية والثابتة."
       }
     }
   },

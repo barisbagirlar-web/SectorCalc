@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Scattering Angle (Deg)",
         "tr": "Saçılma Açısı (Derece)",
-        "de": "Scattering Angle (Deg)",
-        "fr": "Scattering Angle (Deg)",
-        "es": "Scattering Angle (Deg)",
-        "ar": "Scattering Angle (Deg)"
+        "de": "Streuwinkel (Deg)",
+        "fr": "Angle de diffusion (Deg)",
+        "es": "Ángulo de Dispersión (Deg)",
+        "ar": "زاوية التشتت (درجة)"
       },
       "type": "number",
       "unit": "degrees",
@@ -25,10 +25,10 @@
       "businessContext_i18n": {
         "en": "Photon scattering angle.",
         "tr": "Fotonun saçılma açısı.",
-        "de": "Photon scattering angle.",
-        "fr": "Photon scattering angle.",
-        "es": "Photon scattering angle.",
-        "ar": "Photon scattering angle."
+        "de": "Photonenstreuwinkel.",
+        "fr": "Angle de diffusion des photons.",
+        "es": "Ángulo de dispersión de fotones.",
+        "ar": "زاوية تشتت الفوتون."
       }
     }
   ],
@@ -51,10 +51,10 @@
       "sonuc": {
         "en": "Compton Kayması",
         "tr": "Compton Kayması",
-        "de": "Compton Kayması",
-        "fr": "Compton Kayması",
-        "es": "Compton Kayması",
-        "ar": "Compton Kayması"
+        "de": "Compton-Kayması",
+        "fr": "Décalage Compton",
+        "es": "Desplazamiento Compton",
+        "ar": "إزاحة كومبتون"
       }
     },
     "breakdownUnits": {
@@ -76,18 +76,18 @@
       "short_i18n": {
         "en": "Calculate Compton shift in photon wavelength after scattering.",
         "tr": "Fotonun saçılma sonrası dalga boyundaki değişimi (Compton kayması) hesaplar.",
-        "de": "Calculate Compton shift in photon wavelength after scattering.",
-        "fr": "Calculate Compton shift in photon wavelength after scattering.",
-        "es": "Calculate Compton shift in photon wavelength after scattering.",
-        "ar": "Calculate Compton shift in photon wavelength after scattering."
+        "de": "Berechnen Sie die Compton-Verschiebung der Photonenwellenlänge nach der Streuung.",
+        "fr": "Calculer le décalage Compton dans la longueur d'onde du photon après diffusion.",
+        "es": "Calcular el desplazamiento Compton en la longitud de onda del fotón después de la dispersión.",
+        "ar": "حساب انزياح كومبتون في طول موجة الفوتون بعد التشتت."
       },
       "long_i18n": {
         "en": "Calculate Compton shift in photon wavelength after scattering.",
         "tr": "Fotonun saçılma sonrası dalga boyundaki değişimi (Compton kayması) hesaplar.",
-        "de": "Calculate Compton shift in photon wavelength after scattering.",
-        "fr": "Calculate Compton shift in photon wavelength after scattering.",
-        "es": "Calculate Compton shift in photon wavelength after scattering.",
-        "ar": "Calculate Compton shift in photon wavelength after scattering."
+        "de": "Berechnen Sie die Compton-Verschiebung der Photonenwellenlänge nach der Streuung.",
+        "fr": "Calculer le décalage Compton dans la longueur d'onde du photon après diffusion.",
+        "es": "Calcular el desplazamiento Compton en la longitud de onda del fotón después de la dispersión.",
+        "ar": "حساب انزياح كومبتون في طول موجة الفوتون بعد التشتت."
       }
     }
   },

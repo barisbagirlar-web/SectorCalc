@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Annual Sales (USD)",
         "tr": "Yıllık Satış (TL)",
-        "de": "Annual Sales (USD)",
-        "fr": "Annual Sales (USD)",
-        "es": "Annual Sales (USD)",
-        "ar": "Annual Sales (USD)"
+        "de": "Jahresumsatz (USD)",
+        "fr": "Ventes annuelles (USD)",
+        "es": "Ventas Anuales (USD)",
+        "ar": "المبيعات السنوية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total annual revenue.",
         "tr": "Toplam yıllık satış.",
-        "de": "Total annual revenue.",
-        "fr": "Total annual revenue.",
-        "es": "Total annual revenue.",
-        "ar": "Total annual revenue."
+        "de": "Gesamter Jahresumsatz.",
+        "fr": "Revenu annuel total.",
+        "es": "Ingresos anuales totales.",
+        "ar": "إجمالي الإيرادات السنوية."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Avg Receivables (USD)",
         "tr": "Ortalama Alacak (TL)",
-        "de": "Avg Receivables (USD)",
-        "fr": "Avg Receivables (USD)",
-        "es": "Avg Receivables (USD)",
-        "ar": "Avg Receivables (USD)"
+        "de": "Durchschnittliche Forderungen (USD)",
+        "fr": "Créances moyennes (USD)",
+        "es": "Promedio de Cuentas por Cobrar (USD)",
+        "ar": "متوسط المستحقات (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Average accounts receivable.",
         "tr": "Dönem ortalama ticari alacak.",
-        "de": "Average accounts receivable.",
-        "fr": "Average accounts receivable.",
-        "es": "Average accounts receivable.",
-        "ar": "Average accounts receivable."
+        "de": "Durchschnittliche Forderungen aus Lieferungen und Leistungen.",
+        "fr": "Comptes clients moyens.",
+        "es": "Promedio de cuentas por cobrar.",
+        "ar": "متوسط الحسابات المدينة."
       }
     }
   ],
@@ -76,10 +76,10 @@
       "sonuc": {
         "en": "Ortalama Tahsilat Süresi",
         "tr": "Ortalama Tahsilat Süresi",
-        "de": "Ortalama Tahsilat Süresi",
-        "fr": "Ortalama Tahsilat Süresi",
-        "es": "Ortalama Tahsilat Süresi",
-        "ar": "Ortalama Tahsilat Süresi"
+        "de": "Durchschnittliche Inkassofrist",
+        "fr": "Période moyenne de recouvrement",
+        "es": "Período Promedio de Cobro",
+        "ar": "متوسط فترة التحصيل"
       }
     },
     "breakdownUnits": {
@@ -101,18 +101,18 @@
       "short_i18n": {
         "en": "Calculate accounts receivable turnover in days.",
         "tr": "Alacakların nakde dönüşme ortalama süresini (gün) hesaplar.",
-        "de": "Calculate accounts receivable turnover in days.",
-        "fr": "Calculate accounts receivable turnover in days.",
-        "es": "Calculate accounts receivable turnover in days.",
-        "ar": "Calculate accounts receivable turnover in days."
+        "de": "Berechnen Sie die Debitorenumschlagshäufigkeit in Tagen.",
+        "fr": "Calculer le délai de rotation des créances clients en jours.",
+        "es": "Calcular la rotación de cuentas por cobrar en días.",
+        "ar": "احسب معدل دوران الحسابات المدينة بالأيام."
       },
       "long_i18n": {
         "en": "Calculate accounts receivable turnover in days.",
         "tr": "Alacakların nakde dönüşme ortalama süresini (gün) hesaplar.",
-        "de": "Calculate accounts receivable turnover in days.",
-        "fr": "Calculate accounts receivable turnover in days.",
-        "es": "Calculate accounts receivable turnover in days.",
-        "ar": "Calculate accounts receivable turnover in days."
+        "de": "Berechnen Sie die Debitorenumschlagshäufigkeit in Tagen.",
+        "fr": "Calculer le délai de rotation des créances clients en jours.",
+        "es": "Calcular la rotación de cuentas por cobrar en días.",
+        "ar": "احسب معدل دوران الحسابات المدينة بالأيام."
       }
     }
   },

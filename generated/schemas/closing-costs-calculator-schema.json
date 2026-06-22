@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Percentage-Based Fee (%)",
         "tr": "Oran Bazlı Masraf (%)",
-        "de": "Percentage-Based Fee (%)",
-        "fr": "Percentage-Based Fee (%)",
-        "es": "Percentage-Based Fee (%)",
-        "ar": "Percentage-Based Fee (%)"
+        "de": "Prozentuale Gebühr (%)",
+        "fr": "Frais basés sur un pourcentage (%)",
+        "es": "Tarifa Basada en Porcentaje (%)",
+        "ar": "الرسوم النسبية (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Percentage-based closing costs.",
         "tr": "Kredi yüzdesiyle hesaplanan masraflar.",
-        "de": "Percentage-based closing costs.",
-        "fr": "Percentage-based closing costs.",
-        "es": "Percentage-based closing costs.",
-        "ar": "Percentage-based closing costs."
+        "de": "Prozentuale Abschlusskosten.",
+        "fr": "Frais de clôture basés sur un pourcentage.",
+        "es": "Costos de cierre basados en porcentaje.",
+        "ar": "تكاليف الإغلاق النسبية."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Fixed Fees (USD)",
         "tr": "Sabit Ücretler (₺)",
-        "de": "Fixed Fees (USD)",
-        "fr": "Fixed Fees (USD)",
-        "es": "Fixed Fees (USD)",
-        "ar": "Fixed Fees (USD)"
+        "de": "Feste Gebühren (USD)",
+        "fr": "Frais fixes (USD)",
+        "es": "Tarifas Fijas (USD)",
+        "ar": "الرسوم الثابتة (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Fixed costs like appraisal and filing fees.",
         "tr": "Ekspertiz, ipotek tescili gibi sabit ücretler.",
-        "de": "Fixed costs like appraisal and filing fees.",
-        "fr": "Fixed costs like appraisal and filing fees.",
-        "es": "Fixed costs like appraisal and filing fees.",
-        "ar": "Fixed costs like appraisal and filing fees."
+        "de": "Feste Kosten wie Bewertungs- und Bearbeitungsgebühren.",
+        "fr": "Frais fixes comme les frais d'évaluation et de dépôt.",
+        "es": "Costos fijos como tasación y tarifas de presentación.",
+        "ar": "التكاليف الثابتة مثل رسوم التقييم والتسجيل."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Toplam Kapanış Maliyeti",
         "tr": "Toplam Kapanış Maliyeti",
-        "de": "Toplam Kapanış Maliyeti",
-        "fr": "Toplam Kapanış Maliyeti",
-        "es": "Toplam Kapanış Maliyeti",
-        "ar": "Toplam Kapanış Maliyeti"
+        "de": "Gesamte Abschlusskosten",
+        "fr": "Coût total de clôture",
+        "es": "Costo Total de Cierre",
+        "ar": "إجمالي تكلفة الإغلاق"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate total closing costs including title, appraisal, and origination fees.",
         "tr": "Tapu, ekspertiz ve dosya masrafları toplamını hesaplar.",
-        "de": "Calculate total closing costs including title, appraisal, and origination fees.",
-        "fr": "Calculate total closing costs including title, appraisal, and origination fees.",
-        "es": "Calculate total closing costs including title, appraisal, and origination fees.",
-        "ar": "Calculate total closing costs including title, appraisal, and origination fees."
+        "de": "Berechnen Sie die gesamten Abschlusskosten einschließlich Grundbuchgebühren, Bewertungs- und Bearbeitungsgebühren.",
+        "fr": "Calculer le total des frais de clôture incluant les frais de titre, d'évaluation et de montage.",
+        "es": "Calcular los costos totales de cierre, incluyendo honorarios de título, tasación y originación.",
+        "ar": "حساب إجمالي تكاليف الإغلاق بما في ذلك رسوم الملكية والتقييم والإنشاء."
       },
       "long_i18n": {
         "en": "Calculate total closing costs including title, appraisal, and origination fees.",
         "tr": "Tapu, ekspertiz ve dosya masrafları toplamını hesaplar.",
-        "de": "Calculate total closing costs including title, appraisal, and origination fees.",
-        "fr": "Calculate total closing costs including title, appraisal, and origination fees.",
-        "es": "Calculate total closing costs including title, appraisal, and origination fees.",
-        "ar": "Calculate total closing costs including title, appraisal, and origination fees."
+        "de": "Berechnen Sie die gesamten Abschlusskosten einschließlich Grundbuchgebühren, Bewertungs- und Bearbeitungsgebühren.",
+        "fr": "Calculer le total des frais de clôture incluant les frais de titre, d'évaluation et de montage.",
+        "es": "Calcular los costos totales de cierre, incluyendo honorarios de título, tasación y originación.",
+        "ar": "حساب إجمالي تكاليف الإغلاق بما في ذلك رسوم الملكية والتقييم والإنشاء."
       }
     }
   },

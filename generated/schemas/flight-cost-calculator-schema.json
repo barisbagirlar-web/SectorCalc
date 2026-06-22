@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Flight Distance (km)",
         "tr": "Uçuş Mesafesi (km)",
-        "de": "Flight Distance (km)",
-        "fr": "Flight Distance (km)",
-        "es": "Flight Distance (km)",
-        "ar": "Flight Distance (km)"
+        "de": "Flugstrecke (km)",
+        "fr": "Distance de vol (km)",
+        "es": "Distancia del Vuelo (km)",
+        "ar": "مسافة الرحلة (km)"
       },
       "type": "number",
       "unit": "km",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Flight length.",
         "tr": "Uçuş uzunluğu.",
-        "de": "Flight length.",
-        "fr": "Flight length.",
-        "es": "Flight length.",
-        "ar": "Flight length."
+        "de": "Fluglänge.",
+        "fr": "Longueur du vol.",
+        "es": "Longitud de vuelo.",
+        "ar": "طول الرحلة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Passenger Count",
         "tr": "Yolcu Sayısı",
-        "de": "Passenger Count",
-        "fr": "Passenger Count",
-        "es": "Passenger Count",
-        "ar": "Passenger Count"
+        "de": "Passagierzahl",
+        "fr": "Nombre de passagers",
+        "es": "Recuento de pasajeros",
+        "ar": "عدد الركاب"
       },
       "type": "number",
       "unit": "passengers",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Number of passengers.",
         "tr": "Uçaktaki yolcu sayısı.",
-        "de": "Number of passengers.",
-        "fr": "Number of passengers.",
-        "es": "Number of passengers.",
-        "ar": "Number of passengers."
+        "de": "Anzahl der Passagiere.",
+        "fr": "Nombre de passagers.",
+        "es": "Número de pasajeros.",
+        "ar": "عدد الركاب."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Cost per Seat-km (USD)",
         "tr": "Koltuk km Maliyeti (TL)",
-        "de": "Cost per Seat-km (USD)",
-        "fr": "Cost per Seat-km (USD)",
-        "es": "Cost per Seat-km (USD)",
-        "ar": "Cost per Seat-km (USD)"
+        "de": "Kosten pro Sitzplatz-km (USD)",
+        "fr": "Coût par siège-km (USD)",
+        "es": "Costo por asiento-km (USD)",
+        "ar": "التكلفة لكل مقعد-كم (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Cost per seat-km.",
         "tr": "Her koltuk-km'nin maliyeti.",
-        "de": "Cost per seat-km.",
-        "fr": "Cost per seat-km.",
-        "es": "Cost per seat-km.",
-        "ar": "Cost per seat-km."
+        "de": "Kosten pro Sitzplatz-km.",
+        "fr": "Coût par siège-km.",
+        "es": "Costo por asiento-km.",
+        "ar": "التكلفة لكل مقعد-كم."
       }
     }
   ],
@@ -101,10 +101,10 @@
       "sonuc": {
         "en": "Yolcu Başı Maliyet",
         "tr": "Yolcu Başı Maliyet",
-        "de": "Yolcu Başı Maliyet",
-        "fr": "Yolcu Başı Maliyet",
-        "es": "Yolcu Başı Maliyet",
-        "ar": "Yolcu Başı Maliyet"
+        "de": "Kosten pro Passagier",
+        "fr": "Coût par passager",
+        "es": "Costo por pasajero",
+        "ar": "التكلفة لكل راكب"
       }
     },
     "breakdownUnits": {
@@ -126,18 +126,18 @@
       "short_i18n": {
         "en": "Calculate per-passenger operational cost for a flight.",
         "tr": "Havayolunda yolcu başına düşen operasyonel maliyeti hesaplar.",
-        "de": "Calculate per-passenger operational cost for a flight.",
-        "fr": "Calculate per-passenger operational cost for a flight.",
-        "es": "Calculate per-passenger operational cost for a flight.",
-        "ar": "Calculate per-passenger operational cost for a flight."
+        "de": "Berechnen Sie die Betriebskosten pro Passagier für einen Flug.",
+        "fr": "Calculer le coût opérationnel par passager pour un vol.",
+        "es": "Calcular el costo operativo por pasajero para un vuelo.",
+        "ar": "حساب التكلفة التشغيلية لكل راكب لرحلة جوية."
       },
       "long_i18n": {
         "en": "Calculate per-passenger operational cost for a flight.",
         "tr": "Havayolunda yolcu başına düşen operasyonel maliyeti hesaplar.",
-        "de": "Calculate per-passenger operational cost for a flight.",
-        "fr": "Calculate per-passenger operational cost for a flight.",
-        "es": "Calculate per-passenger operational cost for a flight.",
-        "ar": "Calculate per-passenger operational cost for a flight."
+        "de": "Berechnen Sie die Betriebskosten pro Passagier für einen Flug.",
+        "fr": "Calculer le coût opérationnel par passager pour un vol.",
+        "es": "Calcular el costo operativo por pasajero para un vuelo.",
+        "ar": "حساب التكلفة التشغيلية لكل راكب لرحلة جوية."
       }
     }
   },

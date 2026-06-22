@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Internal Pressure (Pa)",
         "tr": "İç Basınç (Pa)",
-        "de": "Internal Pressure (Pa)",
-        "fr": "Internal Pressure (Pa)",
-        "es": "Internal Pressure (Pa)",
-        "ar": "Internal Pressure (Pa)"
+        "de": "Innendruck (Pa)",
+        "fr": "Pression interne (Pa)",
+        "es": "Presión Interna (Pa)",
+        "ar": "الضغط الداخلي (Pa)"
       },
       "type": "number",
       "unit": "Pa",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Internal vessel pressure.",
         "tr": "Kap içindeki basınç.",
-        "de": "Internal vessel pressure.",
-        "fr": "Internal vessel pressure.",
-        "es": "Internal vessel pressure.",
-        "ar": "Internal vessel pressure."
+        "de": "Innendruck des Behälters.",
+        "fr": "Pression interne du réservoir.",
+        "es": "Presión interna del recipiente.",
+        "ar": "ضغط الوعاء الداخلي."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Cylinder diameter.",
         "tr": "Silindir çapı.",
-        "de": "Cylinder diameter.",
-        "fr": "Cylinder diameter.",
-        "es": "Cylinder diameter.",
-        "ar": "Cylinder diameter."
+        "de": "Zylinderdurchmesser.",
+        "fr": "Diamètre du cylindre.",
+        "es": "Diámetro del cilindro.",
+        "ar": "قطر الأسطوانة."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Vessel wall thickness.",
         "tr": "Kap et kalınlığı.",
-        "de": "Vessel wall thickness.",
-        "fr": "Vessel wall thickness.",
-        "es": "Vessel wall thickness.",
-        "ar": "Vessel wall thickness."
+        "de": "Wanddicke des Behälters.",
+        "fr": "Épaisseur de la paroi du réservoir.",
+        "es": "Espesor de la pared del recipiente.",
+        "ar": "سمك جدار الوعاء."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Çevresel Gerilme",
         "tr": "Çevresel Gerilme",
-        "de": "Çevresel Gerilme",
-        "fr": "Çevresel Gerilme",
-        "es": "Çevresel Gerilme",
-        "ar": "Çevresel Gerilme"
+        "de": "Umfangsspannung",
+        "fr": "Contrainte circonférentielle",
+        "es": "Esfuerzo Circunferencial",
+        "ar": "الإجهاد المحيطي"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
         "tr": "Silindirik ince cidarlı kaptaki çevresel (teğetsel) membran gerilmesini hesaplar.",
-        "de": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "fr": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "es": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "ar": "Calculate hoop stress in a thin-walled cylindrical pressure vessel."
+        "de": "Berechnen Sie die Umfangsspannung in einem dünnwandigen zylindrischen Druckbehälter.",
+        "fr": "Calculer la contrainte circonférentielle dans un réservoir sous pression cylindrique à paroi mince.",
+        "es": "Calcular el esfuerzo circunferencial en un recipiente a presión cilíndrico de pared delgada.",
+        "ar": "احسب الإجهاد المحيطي في وعاء ضغط أسطواني رقيق الجدران."
       },
       "long_i18n": {
         "en": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
         "tr": "Silindirik ince cidarlı kaptaki çevresel (teğetsel) membran gerilmesini hesaplar.",
-        "de": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "fr": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "es": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "ar": "Calculate hoop stress in a thin-walled cylindrical pressure vessel."
+        "de": "Berechnen Sie die Umfangsspannung in einem dünnwandigen zylindrischen Druckbehälter.",
+        "fr": "Calculer la contrainte circonférentielle dans un réservoir sous pression cylindrique à paroi mince.",
+        "es": "Calcular el esfuerzo circunferencial en un recipiente a presión cilíndrico de pared delgada.",
+        "ar": "احسب الإجهاد المحيطي في وعاء ضغط أسطواني رقيق الجدران."
       }
     }
   },

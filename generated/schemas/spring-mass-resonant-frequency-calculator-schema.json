@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "System mass.",
         "tr": "Sistem kütlesi.",
-        "de": "System mass.",
-        "fr": "System mass.",
-        "es": "System mass.",
-        "ar": "System mass."
+        "de": "Systemmasse.",
+        "fr": "Masse du système.",
+        "es": "Masa del sistema.",
+        "ar": "كتلة النظام."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Spring Constant (N/m)",
         "tr": "Yay Sabiti (N/m)",
-        "de": "Spring Constant (N/m)",
-        "fr": "Spring Constant (N/m)",
-        "es": "Spring Constant (N/m)",
-        "ar": "Spring Constant (N/m)"
+        "de": "Federkonstante (N/m)",
+        "fr": "Constante de raideur (N/m)",
+        "es": "Constante del resorte (N/m)",
+        "ar": "ثابت الزنبرك (N/m)"
       },
       "type": "number",
       "unit": "N/m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Spring stiffness.",
         "tr": "Yayın rijitliği.",
-        "de": "Spring stiffness.",
-        "fr": "Spring stiffness.",
-        "es": "Spring stiffness.",
-        "ar": "Spring stiffness."
+        "de": "Federsteifigkeit.",
+        "fr": "Raideur du ressort.",
+        "es": "Rigidez del resorte.",
+        "ar": "صلابة الزنبرك."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Doğal Frekans",
         "tr": "Doğal Frekans",
-        "de": "Doğal Frekans",
-        "fr": "Doğal Frekans",
-        "es": "Doğal Frekans",
-        "ar": "Doğal Frekans"
+        "de": "Eigenfrequenz",
+        "fr": "Fréquence naturelle",
+        "es": "Frecuencia Natural",
+        "ar": "التردد الطبيعي"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate natural resonant frequency of a spring-mass system.",
         "tr": "Sistemin genliğinin maksimuma ulaştığı doğal titreşim frekansını (rezonans) hesaplar.",
-        "de": "Calculate natural resonant frequency of a spring-mass system.",
-        "fr": "Calculate natural resonant frequency of a spring-mass system.",
-        "es": "Calculate natural resonant frequency of a spring-mass system.",
-        "ar": "Calculate natural resonant frequency of a spring-mass system."
+        "de": "Berechnen Sie die natürliche Resonanzfrequenz eines Feder-Masse-Systems.",
+        "fr": "Calculer la fréquence de résonance naturelle d'un système masse-ressort.",
+        "es": "Calcular la frecuencia de resonancia natural de un sistema masa-resorte.",
+        "ar": "احسب تردد الرنين الطبيعي لنظام كتلة-زنبرك."
       },
       "long_i18n": {
         "en": "Calculate natural resonant frequency of a spring-mass system.",
         "tr": "Sistemin genliğinin maksimuma ulaştığı doğal titreşim frekansını (rezonans) hesaplar.",
-        "de": "Calculate natural resonant frequency of a spring-mass system.",
-        "fr": "Calculate natural resonant frequency of a spring-mass system.",
-        "es": "Calculate natural resonant frequency of a spring-mass system.",
-        "ar": "Calculate natural resonant frequency of a spring-mass system."
+        "de": "Berechnen Sie die natürliche Resonanzfrequenz eines Feder-Masse-Systems.",
+        "fr": "Calculer la fréquence de résonance naturelle d'un système masse-ressort.",
+        "es": "Calcular la frecuencia de resonancia natural de un sistema masa-resorte.",
+        "ar": "احسب تردد الرنين الطبيعي لنظام كتلة-زنبرك."
       }
     }
   },

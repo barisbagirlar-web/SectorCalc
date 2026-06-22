@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Uniform Load (N/m)",
         "tr": "Yayılı Yük (N/m)",
-        "de": "Uniform Load (N/m)",
-        "fr": "Uniform Load (N/m)",
-        "es": "Uniform Load (N/m)",
-        "ar": "Uniform Load (N/m)"
+        "de": "Gleichlast (N/m)",
+        "fr": "Charge uniforme (N/m)",
+        "es": "Carga uniforme (N/m)",
+        "ar": "الحمل المنتظم (N/m)"
       },
       "type": "number",
       "unit": "N/m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Load per unit length.",
         "tr": "Birim boya gelen yük.",
-        "de": "Load per unit length.",
-        "fr": "Load per unit length.",
-        "es": "Load per unit length.",
-        "ar": "Load per unit length."
+        "de": "Last pro Längeneinheit.",
+        "fr": "Charge par unité de longueur.",
+        "es": "Carga por unidad de longitud.",
+        "ar": "الحمل لكل وحدة طول."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Beam span between supports.",
         "tr": "Kiriş mesnetler arası mesafe.",
-        "de": "Beam span between supports.",
-        "fr": "Beam span between supports.",
-        "es": "Beam span between supports.",
-        "ar": "Beam span between supports."
+        "de": "Trägerspannweite zwischen den Auflagern.",
+        "fr": "Portée de la poutre entre les appuis.",
+        "es": "Luz de la viga entre apoyos.",
+        "ar": "امتداد العتبة بين الدعامات."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Material modulus.",
         "tr": "Malzeme modülü.",
-        "de": "Material modulus.",
-        "fr": "Material modulus.",
-        "es": "Material modulus.",
-        "ar": "Material modulus."
+        "de": "Materialmodul.",
+        "fr": "Module du matériau.",
+        "es": "Módulo del material.",
+        "ar": "معامل المادة."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Section moment of inertia.",
         "tr": "Kesitin atalet momenti.",
-        "de": "Section moment of inertia.",
-        "fr": "Section moment of inertia.",
-        "es": "Section moment of inertia.",
-        "ar": "Section moment of inertia."
+        "de": "Flächenträgheitsmoment des Querschnitts.",
+        "fr": "Moment d'inertie de la section.",
+        "es": "Momento de inercia de la sección.",
+        "ar": "عزم القصور الذاتي للمقطع."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Maksimum Sehim",
         "tr": "Maksimum Sehim",
-        "de": "Maksimum Sehim",
-        "fr": "Maksimum Sehim",
-        "es": "Maksimum Sehim",
-        "ar": "Maksimum Sehim"
+        "de": "Maximale Durchbiegung",
+        "fr": "Flèche maximale",
+        "es": "Deflexión Máxima",
+        "ar": "أقصى انحراف"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate maximum deflection of a simply supported beam under uniform load.",
         "tr": "Yayılı yük altındaki basit kirişin maksimum çökmesini (sehim) hesaplar.",
-        "de": "Calculate maximum deflection of a simply supported beam under uniform load.",
-        "fr": "Calculate maximum deflection of a simply supported beam under uniform load.",
-        "es": "Calculate maximum deflection of a simply supported beam under uniform load.",
-        "ar": "Calculate maximum deflection of a simply supported beam under uniform load."
+        "de": "Berechnen Sie die maximale Durchbiegung eines einfach gelagerten Trägers unter gleichmäßiger Last.",
+        "fr": "Calculer la flèche maximale d'une poutre simplement appuyée sous charge uniforme.",
+        "es": "Calcular la deflexión máxima de una viga simplemente apoyada bajo carga uniforme.",
+        "ar": "حساب أقصى انحراف لعتبة بسيطة الإسناد تحت حمل منتظم."
       },
       "long_i18n": {
         "en": "Calculate maximum deflection of a simply supported beam under uniform load.",
         "tr": "Yayılı yük altındaki basit kirişin maksimum çökmesini (sehim) hesaplar.",
-        "de": "Calculate maximum deflection of a simply supported beam under uniform load.",
-        "fr": "Calculate maximum deflection of a simply supported beam under uniform load.",
-        "es": "Calculate maximum deflection of a simply supported beam under uniform load.",
-        "ar": "Calculate maximum deflection of a simply supported beam under uniform load."
+        "de": "Berechnen Sie die maximale Durchbiegung eines einfach gelagerten Trägers unter gleichmäßiger Last.",
+        "fr": "Calculer la flèche maximale d'une poutre simplement appuyée sous charge uniforme.",
+        "es": "Calcular la deflexión máxima de una viga simplemente apoyada bajo carga uniforme.",
+        "ar": "حساب أقصى انحراف لعتبة بسيطة الإسناد تحت حمل منتظم."
       }
     }
   },

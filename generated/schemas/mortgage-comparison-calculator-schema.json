@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Loan 1 Amount (USD)",
         "tr": "1. Kredi Tutarı (₺)",
-        "de": "Loan 1 Amount (USD)",
-        "fr": "Loan 1 Amount (USD)",
-        "es": "Loan 1 Amount (USD)",
-        "ar": "Loan 1 Amount (USD)"
+        "de": "Darlehen 1 Betrag (USD)",
+        "fr": "Montant du prêt 1 (USD)",
+        "es": "Monto del Préstamo 1 (USD)",
+        "ar": "مبلغ القرض 1 (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "First loan amount.",
         "tr": "Birinci kredi teklifinin tutarı.",
-        "de": "First loan amount.",
-        "fr": "First loan amount.",
-        "es": "First loan amount.",
-        "ar": "First loan amount."
+        "de": "Erster Darlehensbetrag.",
+        "fr": "Montant du premier prêt.",
+        "es": "Monto del primer préstamo.",
+        "ar": "مبلغ القرض الأول."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Loan 1 Interest (%)",
         "tr": "1. Faiz (%)",
-        "de": "Loan 1 Interest (%)",
-        "fr": "Loan 1 Interest (%)",
-        "es": "Loan 1 Interest (%)",
-        "ar": "Loan 1 Interest (%)"
+        "de": "Darlehen 1 Zinssatz (%)",
+        "fr": "Intérêt du prêt 1 (%)",
+        "es": "Interés del Préstamo 1 (%)",
+        "ar": "فائدة القرض 1 (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "First loan interest rate.",
         "tr": "Birinci kredinin faiz oranı.",
-        "de": "First loan interest rate.",
-        "fr": "First loan interest rate.",
-        "es": "First loan interest rate.",
-        "ar": "First loan interest rate."
+        "de": "Erster Darlehenszinssatz.",
+        "fr": "Taux d'intérêt du premier prêt.",
+        "es": "Tasa de interés del primer préstamo.",
+        "ar": "معدل فائدة القرض الأول."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Loan 2 Amount (USD)",
         "tr": "2. Kredi Tutarı (₺)",
-        "de": "Loan 2 Amount (USD)",
-        "fr": "Loan 2 Amount (USD)",
-        "es": "Loan 2 Amount (USD)",
-        "ar": "Loan 2 Amount (USD)"
+        "de": "Darlehen 2 Betrag (USD)",
+        "fr": "Montant du prêt 2 (USD)",
+        "es": "Monto del Préstamo 2 (USD)",
+        "ar": "مبلغ القرض 2 (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Second loan amount.",
         "tr": "İkinci kredi teklifinin tutarı.",
-        "de": "Second loan amount.",
-        "fr": "Second loan amount.",
-        "es": "Second loan amount.",
-        "ar": "Second loan amount."
+        "de": "Zweiter Darlehensbetrag.",
+        "fr": "Montant du deuxième prêt.",
+        "es": "Monto del segundo préstamo.",
+        "ar": "مبلغ القرض الثاني."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Loan 2 Interest (%)",
         "tr": "2. Faiz (%)",
-        "de": "Loan 2 Interest (%)",
-        "fr": "Loan 2 Interest (%)",
-        "es": "Loan 2 Interest (%)",
-        "ar": "Loan 2 Interest (%)"
+        "de": "Darlehen 2 Zinssatz (%)",
+        "fr": "Intérêt du prêt 2 (%)",
+        "es": "Interés del Préstamo 2 (%)",
+        "ar": "فائدة القرض 2 (%)"
       },
       "type": "number",
       "unit": "%",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Second loan interest rate.",
         "tr": "İkinci kredinin faiz oranı.",
-        "de": "Second loan interest rate.",
-        "fr": "Second loan interest rate.",
-        "es": "Second loan interest rate.",
-        "ar": "Second loan interest rate."
+        "de": "Zinssatz des zweiten Darlehens.",
+        "fr": "Taux d'intérêt du deuxième prêt.",
+        "es": "Tasa de interés del segundo préstamo.",
+        "ar": "معدل فائدة القرض الثاني."
       }
     },
     {
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Common loan term.",
         "tr": "Kredilerin vadesi.",
-        "de": "Common loan term.",
-        "fr": "Common loan term.",
-        "es": "Common loan term.",
-        "ar": "Common loan term."
+        "de": "Gemeinsame Darlehenslaufzeit.",
+        "fr": "Durée commune du prêt.",
+        "es": "Plazo común del préstamo.",
+        "ar": "مدة القرض المشتركة."
       }
     }
   ],
@@ -154,26 +154,26 @@
       "sonuc": {
         "en": "Aylık Taksit Farkı",
         "tr": "Aylık Taksit Farkı",
-        "de": "Aylık Taksit Farkı",
-        "fr": "Aylık Taksit Farkı",
-        "es": "Aylık Taksit Farkı",
-        "ar": "Aylık Taksit Farkı"
+        "de": "Monatliche Ratenabweichung",
+        "fr": "Différence de mensualité",
+        "es": "Diferencia de Cuota Mensual",
+        "ar": "فرق القسط الشهري"
       },
       "taksit1": {
         "en": "1. Kredi Taksiti",
         "tr": "1. Kredi Taksiti",
-        "de": "1. Kredi Taksiti",
-        "fr": "1. Kredi Taksiti",
-        "es": "1. Kredi Taksiti",
-        "ar": "1. Kredi Taksiti"
+        "de": "1. Kreditrate",
+        "fr": "Mensualité du 1er prêt",
+        "es": "1. Cuota del Préstamo",
+        "ar": "1. قسط القرض"
       },
       "taksit2": {
         "en": "2. Kredi Taksiti",
         "tr": "2. Kredi Taksiti",
-        "de": "2. Kredi Taksiti",
-        "fr": "2. Kredi Taksiti",
-        "es": "2. Kredi Taksiti",
-        "ar": "2. Kredi Taksiti"
+        "de": "2. Kreditrate",
+        "fr": "Mensualité du 2e prêt",
+        "es": "2. Cuota del Préstamo",
+        "ar": "2. قسط القرض"
       }
     },
     "breakdownUnits": {
@@ -197,18 +197,18 @@
       "short_i18n": {
         "en": "Compare monthly payments between two mortgage offers.",
         "tr": "İki kredi teklifinin aylık taksit farkını hesaplar.",
-        "de": "Compare monthly payments between two mortgage offers.",
-        "fr": "Compare monthly payments between two mortgage offers.",
-        "es": "Compare monthly payments between two mortgage offers.",
-        "ar": "Compare monthly payments between two mortgage offers."
+        "de": "Vergleichen Sie monatliche Zahlungen zwischen zwei Hypothekenangeboten.",
+        "fr": "Comparer les paiements mensuels entre deux offres hypothécaires.",
+        "es": "Comparar pagos mensuales entre dos ofertas de hipoteca.",
+        "ar": "مقارنة الدفعات الشهرية بين عرضي رهن عقاري."
       },
       "long_i18n": {
         "en": "Compare monthly payments between two mortgage offers.",
         "tr": "İki kredi teklifinin aylık taksit farkını hesaplar.",
-        "de": "Compare monthly payments between two mortgage offers.",
-        "fr": "Compare monthly payments between two mortgage offers.",
-        "es": "Compare monthly payments between two mortgage offers.",
-        "ar": "Compare monthly payments between two mortgage offers."
+        "de": "Vergleichen Sie monatliche Zahlungen zwischen zwei Hypothekenangeboten.",
+        "fr": "Comparer les paiements mensuels entre deux offres hypothécaires.",
+        "es": "Comparar pagos mensuales entre dos ofertas de hipoteca.",
+        "ar": "مقارنة الدفعات الشهرية بين عرضي رهن عقاري."
       }
     }
   },

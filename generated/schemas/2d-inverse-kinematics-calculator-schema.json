@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Target X (m)",
         "tr": "Hedef X (m)",
-        "de": "Target X (m)",
-        "fr": "Target X (m)",
-        "es": "Target X (m)",
-        "ar": "Target X (m)"
+        "de": "Ziel-X (m)",
+        "fr": "Cible X (m)",
+        "es": "Objetivo X (m)",
+        "ar": "الهدف X (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "End effector x position.",
         "tr": "Uç noktanın x koordinatı.",
-        "de": "End effector x position.",
-        "fr": "End effector x position.",
-        "es": "End effector x position.",
-        "ar": "End effector x position."
+        "de": "Endeffektor x-Position.",
+        "fr": "Position x de l'effecteur.",
+        "es": "Posición x del efector final.",
+        "ar": "موضع نهاية المؤثر x."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "End effector y position.",
         "tr": "Uç noktanın y koordinatı.",
-        "de": "End effector y position.",
-        "fr": "End effector y position.",
-        "es": "End effector y position.",
-        "ar": "End effector y position."
+        "de": "Endeffektor y-Position.",
+        "fr": "Position y de l'effecteur.",
+        "es": "Posición y del efector final.",
+        "ar": "موضع نهاية المؤثر y."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Link 1 Length (m)",
         "tr": "Kol 1 Uzunluğu (m)",
-        "de": "Link 1 Length (m)",
-        "fr": "Link 1 Length (m)",
-        "es": "Link 1 Length (m)",
-        "ar": "Link 1 Length (m)"
+        "de": "Glied 1 Länge (m)",
+        "fr": "Longueur du lien 1 (m)",
+        "es": "Longitud del eslabón 1 (m)",
+        "ar": "طول الوصلة 1 (m)"
       },
       "type": "number",
       "unit": "m",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "First arm segment.",
         "tr": "Birinci kol segmenti.",
-        "de": "First arm segment.",
-        "fr": "First arm segment.",
-        "es": "First arm segment.",
-        "ar": "First arm segment."
+        "de": "Erstes Armsegment.",
+        "fr": "Premier segment du bras.",
+        "es": "Primer segmento del brazo.",
+        "ar": "الجزء الأول من الذراع."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Link 2 Length (m)",
         "tr": "Kol 2 Uzunluğu (m)",
-        "de": "Link 2 Length (m)",
-        "fr": "Link 2 Length (m)",
-        "es": "Link 2 Length (m)",
-        "ar": "Link 2 Length (m)"
+        "de": "Glied 2 Länge (m)",
+        "fr": "Longueur du lien 2 (m)",
+        "es": "Longitud del eslabón 2 (m)",
+        "ar": "طول الوصلة 2 (m)"
       },
       "type": "number",
       "unit": "m",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Second arm segment.",
         "tr": "İkinci kol segmenti.",
-        "de": "Second arm segment.",
-        "fr": "Second arm segment.",
-        "es": "Second arm segment.",
-        "ar": "Second arm segment."
+        "de": "Zweites Armsegment.",
+        "fr": "Deuxième segment du bras.",
+        "es": "Segundo segmento del brazo.",
+        "ar": "الجزء الثاني من الذراع."
       }
     }
   ],
@@ -127,18 +127,18 @@
       "aci2": {
         "en": "Eklem 2 (θ₂)",
         "tr": "Eklem 2 (θ₂)",
-        "de": "Eklem 2 (θ₂)",
-        "fr": "Eklem 2 (θ₂)",
-        "es": "Eklem 2 (θ₂)",
-        "ar": "Eklem 2 (θ₂)"
+        "de": "Gelenk 2 (θ₂)",
+        "fr": "Articulation 2 (θ₂)",
+        "es": "Articulación 2 (θ₂)",
+        "ar": "المفصل 2 (θ₂)"
       },
       "sonuc": {
         "en": "Eklem 1 (θ₁)",
         "tr": "Eklem 1 (θ₁)",
-        "de": "Eklem 1 (θ₁)",
-        "fr": "Eklem 1 (θ₁)",
-        "es": "Eklem 1 (θ₁)",
-        "ar": "Eklem 1 (θ₁)"
+        "de": "Gelenk 1 (θ₁)",
+        "fr": "Articulation 1 (θ₁)",
+        "es": "Articulación 1 (θ₁)",
+        "ar": "المفصل 1 (θ₁)"
       }
     },
     "breakdownUnits": {
@@ -164,18 +164,18 @@
       "short_i18n": {
         "en": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
         "tr": "2D robot kolun uc noktaya ulaşması için gereken eklem açılarını (ters kinematik) hesaplar.",
-        "de": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "fr": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "es": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "ar": "Calculate 2D inverse kinematics joint angles for a robotic arm."
+        "de": "Berechnen Sie die 2D-inversen kinematischen Gelenkwinkel für einen Roboterarm.",
+        "fr": "Calculer les angles articulaires de cinématique inverse 2D pour un bras robotique.",
+        "es": "Calcular los ángulos de las articulaciones de cinemática inversa 2D para un brazo robótico.",
+        "ar": "احسب زوايا المفاصل العكسية ثنائية الأبعاد لذراع آلية."
       },
       "long_i18n": {
         "en": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
         "tr": "2D robot kolun uc noktaya ulaşması için gereken eklem açılarını (ters kinematik) hesaplar.",
-        "de": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "fr": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "es": "Calculate 2D inverse kinematics joint angles for a robotic arm.",
-        "ar": "Calculate 2D inverse kinematics joint angles for a robotic arm."
+        "de": "Berechnen Sie die 2D-inversen kinematischen Gelenkwinkel für einen Roboterarm.",
+        "fr": "Calculer les angles articulaires de cinématique inverse 2D pour un bras robotique.",
+        "es": "Calcular los ángulos de las articulaciones de cinemática inversa 2D para un brazo robótico.",
+        "ar": "احسب زوايا المفاصل العكسية ثنائية الأبعاد لذراع آلية."
       }
     }
   },

@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Maximum engine power.",
         "tr": "Maksimum motor gücü.",
-        "de": "Maximum engine power.",
-        "fr": "Maximum engine power.",
-        "es": "Maximum engine power.",
-        "ar": "Maximum engine power."
+        "de": "Maximale Motorleistung.",
+        "fr": "Puissance maximale du moteur.",
+        "es": "Potencia máxima del motor.",
+        "ar": "أقصى قوة للمحرك."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Vehicle weight.",
         "tr": "Araç ağırlığı.",
-        "de": "Vehicle weight.",
-        "fr": "Vehicle weight.",
-        "es": "Vehicle weight.",
-        "ar": "Vehicle weight."
+        "de": "Fahrzeuggewicht.",
+        "fr": "Poids du véhicule.",
+        "es": "Peso del vehículo.",
+        "ar": "وزن السيارة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Rolling Friction Coefficient",
         "tr": "Yuvarlanma Sürtünme Katsayısı",
-        "de": "Rolling Friction Coefficient",
-        "fr": "Rolling Friction Coefficient",
-        "es": "Rolling Friction Coefficient",
-        "ar": "Rolling Friction Coefficient"
+        "de": "Rollreibungskoeffizient",
+        "fr": "Coefficient de frottement de roulement",
+        "es": "Coeficiente de fricción de rodadura",
+        "ar": "معامل الاحتكاك المتدحرج"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Tire rolling resistance.",
         "tr": "Lastik-yol sürtünme katsayısı.",
-        "de": "Tire rolling resistance.",
-        "fr": "Tire rolling resistance.",
-        "es": "Tire rolling resistance.",
-        "ar": "Tire rolling resistance."
+        "de": "Rollwiderstand der Reifen.",
+        "fr": "Résistance au roulement des pneus.",
+        "es": "Resistencia a la rodadura del neumático.",
+        "ar": "مقاومة دوران الإطار."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Maksimum Hız",
         "tr": "Maksimum Hız",
-        "de": "Maksimum Hız",
-        "fr": "Maksimum Hız",
-        "es": "Maksimum Hız",
-        "ar": "Maksimum Hız"
+        "de": "Maximum Speed",
+        "fr": "Vitesse maximale",
+        "es": "Velocidad Máxima",
+        "ar": "السرعة القصوى"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate vehicle top speed where engine power equals total drag.",
         "tr": "Motor gücünün direnç kuvvetlerini yendiği denge hızını (maksimum hız) hesaplar.",
-        "de": "Calculate vehicle top speed where engine power equals total drag.",
-        "fr": "Calculate vehicle top speed where engine power equals total drag.",
-        "es": "Calculate vehicle top speed where engine power equals total drag.",
-        "ar": "Calculate vehicle top speed where engine power equals total drag."
+        "de": "Berechnen Sie die Höchstgeschwindigkeit des Fahrzeugs, bei der die Motorleistung dem Gesamtwiderstand entspricht.",
+        "fr": "Calculer la vitesse maximale du véhicule lorsque la puissance du moteur égale la traînée totale.",
+        "es": "Calcular la velocidad máxima del vehículo donde la potencia del motor iguala la resistencia total.",
+        "ar": "حساب السرعة القصوى للمركبة حيث تساوي قوة المحرك إجمالي السحب."
       },
       "long_i18n": {
         "en": "Calculate vehicle top speed where engine power equals total drag.",
         "tr": "Motor gücünün direnç kuvvetlerini yendiği denge hızını (maksimum hız) hesaplar.",
-        "de": "Calculate vehicle top speed where engine power equals total drag.",
-        "fr": "Calculate vehicle top speed where engine power equals total drag.",
-        "es": "Calculate vehicle top speed where engine power equals total drag.",
-        "ar": "Calculate vehicle top speed where engine power equals total drag."
+        "de": "Berechnen Sie die Höchstgeschwindigkeit des Fahrzeugs, bei der die Motorleistung dem Gesamtwiderstand entspricht.",
+        "fr": "Calculer la vitesse maximale du véhicule lorsque la puissance du moteur égale la traînée totale.",
+        "es": "Calcular la velocidad máxima del vehículo donde la potencia del motor iguala la resistencia total.",
+        "ar": "حساب السرعة القصوى للمركبة حيث تساوي قوة المحرك إجمالي السحب."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Gross Dividend (USD)",
         "tr": "Brüt Temettü (₺)",
-        "de": "Gross Dividend (USD)",
-        "fr": "Gross Dividend (USD)",
-        "es": "Gross Dividend (USD)",
-        "ar": "Gross Dividend (USD)"
+        "de": "Bruttodividende (USD)",
+        "fr": "Dividende Brut (USD)",
+        "es": "Dividendo Bruto (USD)",
+        "ar": "الأرباح الإجمالية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Dividend amount before tax.",
         "tr": "Vergi kesintisi öncesi temettü tutarı.",
-        "de": "Dividend amount before tax.",
-        "fr": "Dividend amount before tax.",
-        "es": "Dividend amount before tax.",
-        "ar": "Dividend amount before tax."
+        "de": "Dividendenbetrag vor Steuern.",
+        "fr": "Montant du dividende avant impôt.",
+        "es": "Monto del dividendo antes de impuestos.",
+        "ar": "مبلغ الأرباح قبل الضريبة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Withholding Rate (%)",
         "tr": "Stopaj Oranı (%)",
-        "de": "Withholding Rate (%)",
-        "fr": "Withholding Rate (%)",
-        "es": "Withholding Rate (%)",
-        "ar": "Withholding Rate (%)"
+        "de": "Quellensteuersatz (%)",
+        "fr": "Taux de Retenue à la Source (%)",
+        "es": "Tasa de Retención (%)",
+        "ar": "نسبة الاستقطاع (%)"
       },
       "type": "number",
       "unit": "%",
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Dividend withholding tax rate.",
         "tr": "Temettüye uygulanan stopaj vergisi.",
-        "de": "Dividend withholding tax rate.",
-        "fr": "Dividend withholding tax rate.",
-        "es": "Dividend withholding tax rate.",
-        "ar": "Dividend withholding tax rate."
+        "de": "Quellensteuersatz auf Dividenden.",
+        "fr": "Taux de retenue à la source sur les dividendes.",
+        "es": "Tasa de impuesto de retención sobre dividendos.",
+        "ar": "نسبة ضريبة الاستقطاع على الأرباح."
       }
     }
   ],
@@ -76,10 +76,10 @@
       "sonuc": {
         "en": "Net Temettü",
         "tr": "Net Temettü",
-        "de": "Net Temettü",
-        "fr": "Net Temettü",
-        "es": "Net Temettü",
-        "ar": "Net Temettü"
+        "de": "Nettodividende",
+        "fr": "Dividende Net",
+        "es": "Dividendo Neto",
+        "ar": "صافي الأرباح"
       }
     },
     "breakdownUnits": {
@@ -101,18 +101,18 @@
       "short_i18n": {
         "en": "Calculate net dividend after withholding tax deduction.",
         "tr": "Stopaj kesintisi sonrası ele geçen net temettü tutarını hesaplar.",
-        "de": "Calculate net dividend after withholding tax deduction.",
-        "fr": "Calculate net dividend after withholding tax deduction.",
-        "es": "Calculate net dividend after withholding tax deduction.",
-        "ar": "Calculate net dividend after withholding tax deduction."
+        "de": "Berechnen Sie die Nettodividende nach Abzug der Quellensteuer.",
+        "fr": "Calculez le dividende net après déduction de la retenue à la source.",
+        "es": "Calcular el dividendo neto después de la deducción del impuesto de retención.",
+        "ar": "احسب صافي الأرباح بعد خصم ضريبة الاستقطاع."
       },
       "long_i18n": {
         "en": "Calculate net dividend after withholding tax deduction.",
         "tr": "Stopaj kesintisi sonrası ele geçen net temettü tutarını hesaplar.",
-        "de": "Calculate net dividend after withholding tax deduction.",
-        "fr": "Calculate net dividend after withholding tax deduction.",
-        "es": "Calculate net dividend after withholding tax deduction.",
-        "ar": "Calculate net dividend after withholding tax deduction."
+        "de": "Berechnen Sie die Nettodividende nach Abzug der Quellensteuer.",
+        "fr": "Calculez le dividende net après déduction de la retenue à la source.",
+        "es": "Calcular el dividendo neto después de la deducción del impuesto de retención.",
+        "ar": "احسب صافي الأرباح بعد خصم ضريبة الاستقطاع."
       }
     }
   },

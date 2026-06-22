@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Product Mass (kg)",
         "tr": "Ürün Kütlesi (kg)",
-        "de": "Product Mass (kg)",
-        "fr": "Product Mass (kg)",
-        "es": "Product Mass (kg)",
-        "ar": "Product Mass (kg)"
+        "de": "Produktmasse (kg)",
+        "fr": "Masse du produit (kg)",
+        "es": "Masa del Producto (kg)",
+        "ar": "كتلة المنتج (kg)"
       },
       "type": "number",
       "unit": "kg",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Product to dry.",
         "tr": "Kurutulacak ürün.",
-        "de": "Product to dry.",
-        "fr": "Product to dry.",
-        "es": "Product to dry.",
-        "ar": "Product to dry."
+        "de": "Zu trocknendes Produkt.",
+        "fr": "Produit à sécher.",
+        "es": "Producto a secar.",
+        "ar": "المنتج المراد تجفيفه."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Initial Moisture (%)",
         "tr": "Başlangıç Nemi (%)",
-        "de": "Initial Moisture (%)",
-        "fr": "Initial Moisture (%)",
-        "es": "Initial Moisture (%)",
-        "ar": "Initial Moisture (%)"
+        "de": "Anfangsfeuchte (%)",
+        "fr": "Humidité initiale (%)",
+        "es": "Humedad Inicial (%)",
+        "ar": "الرطوبة الأولية (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Initial moisture content.",
         "tr": "Ürünün ilk nem oranı.",
-        "de": "Initial moisture content.",
-        "fr": "Initial moisture content.",
-        "es": "Initial moisture content.",
-        "ar": "Initial moisture content."
+        "de": "Anfänglicher Feuchtigkeitsgehalt.",
+        "fr": "Teneur en humidité initiale.",
+        "es": "Contenido de humedad inicial.",
+        "ar": "محتوى الرطوبة الأولي."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Target Moisture (%)",
         "tr": "Hedef Nem (%)",
-        "de": "Target Moisture (%)",
-        "fr": "Target Moisture (%)",
-        "es": "Target Moisture (%)",
-        "ar": "Target Moisture (%)"
+        "de": "Ziel-Feuchte (%)",
+        "fr": "Humidité cible (%)",
+        "es": "Humedad Objetivo (%)",
+        "ar": "الرطوبة المستهدفة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Target moisture content.",
         "tr": "Hedeflenen nem oranı.",
-        "de": "Target moisture content.",
-        "fr": "Target moisture content.",
-        "es": "Target moisture content.",
-        "ar": "Target moisture content."
+        "de": "Ziel-Feuchtigkeitsgehalt.",
+        "fr": "Teneur en humidité cible.",
+        "es": "Contenido de humedad objetivo.",
+        "ar": "محتوى الرطوبة المستهدف."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Air Flow Rate (kg/s)",
         "tr": "Hava Debisi (kg/s)",
-        "de": "Air Flow Rate (kg/s)",
-        "fr": "Air Flow Rate (kg/s)",
-        "es": "Air Flow Rate (kg/s)",
-        "ar": "Air Flow Rate (kg/s)"
+        "de": "Luftdurchsatz (kg/s)",
+        "fr": "Débit d'air (kg/s)",
+        "es": "Caudal de Aire (kg/s)",
+        "ar": "معدل تدفق الهواء (kg/s)"
       },
       "type": "number",
       "unit": "kg/s",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Drying air flow rate.",
         "tr": "Kurutma havası debisi.",
-        "de": "Drying air flow rate.",
-        "fr": "Drying air flow rate.",
-        "es": "Drying air flow rate.",
-        "ar": "Drying air flow rate."
+        "de": "Trocknungsluft-Durchsatz.",
+        "fr": "Débit d'air de séchage.",
+        "es": "Caudal de aire de secado.",
+        "ar": "معدل تدفق هواء التجفيف."
       }
     },
     {
@@ -111,10 +111,10 @@
       "label_i18n": {
         "en": "Humidity Difference (kg/kg)",
         "tr": "Nem Farkı (kg/kg)",
-        "de": "Humidity Difference (kg/kg)",
-        "fr": "Humidity Difference (kg/kg)",
-        "es": "Humidity Difference (kg/kg)",
-        "ar": "Humidity Difference (kg/kg)"
+        "de": "Feuchtedifferenz (kg/kg)",
+        "fr": "Différence d'humidité (kg/kg)",
+        "es": "Diferencia de Humedad (kg/kg)",
+        "ar": "فرق الرطوبة (kg/kg)"
       },
       "type": "number",
       "unit": "",
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Air inlet-outlet humidity difference.",
         "tr": "Hava giriş-çıkış nem farkı.",
-        "de": "Air inlet-outlet humidity difference.",
-        "fr": "Air inlet-outlet humidity difference.",
-        "es": "Air inlet-outlet humidity difference.",
-        "ar": "Air inlet-outlet humidity difference."
+        "de": "Luft-Einlass-Auslass-Feuchtedifferenz.",
+        "fr": "Différence d'humidité entrée-sortie d'air.",
+        "es": "Diferencia de humedad entre entrada y salida de aire.",
+        "ar": "فرق الرطوبة بين مدخل ومخرج الهواء."
       }
     }
   ],
@@ -151,10 +151,10 @@
       "sonuc": {
         "en": "Kurutma Süresi",
         "tr": "Kurutma Süresi",
-        "de": "Kurutma Süresi",
-        "fr": "Kurutma Süresi",
-        "es": "Kurutma Süresi",
-        "ar": "Kurutma Süresi"
+        "de": "Trocknungszeit",
+        "fr": "Temps de séchage",
+        "es": "Tiempo de Secado",
+        "ar": "وقت التجفيف"
       }
     },
     "breakdownUnits": {
@@ -178,18 +178,18 @@
       "short_i18n": {
         "en": "Calculate theoretical drying time to reach target moisture content.",
         "tr": "Ürünün hedef neme ulaşması için gereken teorik kurutma süresini hesaplar.",
-        "de": "Calculate theoretical drying time to reach target moisture content.",
-        "fr": "Calculate theoretical drying time to reach target moisture content.",
-        "es": "Calculate theoretical drying time to reach target moisture content.",
-        "ar": "Calculate theoretical drying time to reach target moisture content."
+        "de": "Berechnen Sie die theoretische Trocknungszeit, um den Ziel-Feuchtigkeitsgehalt zu erreichen.",
+        "fr": "Calculer le temps de séchage théorique pour atteindre la teneur en humidité cible.",
+        "es": "Calcular el tiempo de secado teórico para alcanzar el contenido de humedad objetivo.",
+        "ar": "احسب وقت التجفيف النظري للوصول إلى محتوى الرطوبة المستهدف."
       },
       "long_i18n": {
         "en": "Calculate theoretical drying time to reach target moisture content.",
         "tr": "Ürünün hedef neme ulaşması için gereken teorik kurutma süresini hesaplar.",
-        "de": "Calculate theoretical drying time to reach target moisture content.",
-        "fr": "Calculate theoretical drying time to reach target moisture content.",
-        "es": "Calculate theoretical drying time to reach target moisture content.",
-        "ar": "Calculate theoretical drying time to reach target moisture content."
+        "de": "Berechnen Sie die theoretische Trocknungszeit, um den Ziel-Feuchtigkeitsgehalt zu erreichen.",
+        "fr": "Calculer le temps de séchage théorique pour atteindre la teneur en humidité cible.",
+        "es": "Calcular el tiempo de secado teórico para alcanzar el contenido de humedad objetivo.",
+        "ar": "احسب وقت التجفيف النظري للوصول إلى محتوى الرطوبة المستهدف."
       }
     }
   },

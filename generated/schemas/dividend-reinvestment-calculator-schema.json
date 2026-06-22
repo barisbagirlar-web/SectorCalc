@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Shares Held",
         "tr": "Mevcut Hisse (Adet)",
-        "de": "Shares Held",
-        "fr": "Shares Held",
-        "es": "Shares Held",
-        "ar": "Shares Held"
+        "de": "Gehaltene Aktien",
+        "fr": "Actions Détenues",
+        "es": "Acciones en Cartera",
+        "ar": "الأسهم المملوكة"
       },
       "type": "number",
       "unit": "shares",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Number of shares owned.",
         "tr": "Sahip olunan hisse adedi.",
-        "de": "Number of shares owned.",
-        "fr": "Number of shares owned.",
-        "es": "Number of shares owned.",
-        "ar": "Number of shares owned."
+        "de": "Anzahl der gehaltenen Aktien.",
+        "fr": "Nombre d'actions possédées.",
+        "es": "Número de acciones en propiedad.",
+        "ar": "عدد الأسهم المملوكة."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Annual dividend per share.",
         "tr": "Hisse başına ödenen yıllık temettü.",
-        "de": "Annual dividend per share.",
-        "fr": "Annual dividend per share.",
-        "es": "Annual dividend per share.",
-        "ar": "Annual dividend per share."
+        "de": "Jährliche Dividende pro Aktie.",
+        "fr": "Dividende annuel par action.",
+        "es": "Dividendo anual por acción.",
+        "ar": "الأرباح السنوية لكل سهم."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Current share price.",
         "tr": "Hisse senedinin güncel fiyatı.",
-        "de": "Current share price.",
-        "fr": "Current share price.",
-        "es": "Current share price.",
-        "ar": "Current share price."
+        "de": "Aktueller Aktienkurs.",
+        "fr": "Prix actuel de l'action.",
+        "es": "Precio actual de la acción.",
+        "ar": "سعر السهم الحالي."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "DRIP strategy duration.",
         "tr": "DRIP stratejisinin uygulanacağı süre.",
-        "de": "DRIP strategy duration.",
-        "fr": "DRIP strategy duration.",
-        "es": "DRIP strategy duration.",
-        "ar": "DRIP strategy duration."
+        "de": "DRIP-Strategiedauer.",
+        "fr": "Durée de la stratégie DRIP.",
+        "es": "Duración de la estrategia DRIP.",
+        "ar": "مدة استراتيجية DRIP."
       }
     },
     {
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Expected annual price appreciation.",
         "tr": "Hisse fiyatının yıllık büyüme beklentisi.",
-        "de": "Expected annual price appreciation.",
-        "fr": "Expected annual price appreciation.",
-        "es": "Expected annual price appreciation.",
-        "ar": "Expected annual price appreciation."
+        "de": "Erwartete jährliche Kurssteigerung.",
+        "fr": "Appréciation annuelle attendue du prix.",
+        "es": "Apreciación anual esperada del precio.",
+        "ar": "الارتفاع السنوي المتوقع في السعر."
       }
     }
   ],
@@ -151,10 +151,10 @@
       "sonuc": {
         "en": "DRIP Portföy Değeri",
         "tr": "DRIP Portföy Değeri",
-        "de": "DRIP Portföy Değeri",
-        "fr": "DRIP Portföy Değeri",
-        "es": "DRIP Portföy Değeri",
-        "ar": "DRIP Portföy Değeri"
+        "de": "DRIP-Portfoliowert",
+        "fr": "Valeur du Portefeuille DRIP",
+        "es": "Valor de la Cartera DRIP",
+        "ar": "قيمة محفظة DRIP"
       }
     },
     "breakdownUnits": {
@@ -176,18 +176,18 @@
       "short_i18n": {
         "en": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
         "tr": "Temettülerin hisseye dönüşmesiyle oluşan kartopu etkisini hesaplar.",
-        "de": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "fr": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "es": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "ar": "Calculate the compound growth effect of dividend reinvestment (DRIP)."
+        "de": "Berechnen Sie den Zinseszinseffekt der Dividendenwiederanlage (DRIP).",
+        "fr": "Calculez l'effet de croissance composée du réinvestissement des dividendes (DRIP).",
+        "es": "Calcular el efecto de crecimiento compuesto de la reinversión de dividendos (DRIP).",
+        "ar": "احسب تأثير النمو المركب لإعادة استثمار الأرباح (DRIP)."
       },
       "long_i18n": {
         "en": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
         "tr": "Temettülerin hisseye dönüşmesiyle oluşan kartopu etkisini hesaplar.",
-        "de": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "fr": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "es": "Calculate the compound growth effect of dividend reinvestment (DRIP).",
-        "ar": "Calculate the compound growth effect of dividend reinvestment (DRIP)."
+        "de": "Berechnen Sie den Zinseszinseffekt der Dividendenwiederanlage (DRIP).",
+        "fr": "Calculez l'effet de croissance composée du réinvestissement des dividendes (DRIP).",
+        "es": "Calcular el efecto de crecimiento compuesto de la reinversión de dividendos (DRIP).",
+        "ar": "احسب تأثير النمو المركب لإعادة استثمار الأرباح (DRIP)."
       }
     }
   },

@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Wall area.",
         "tr": "Kaplanacak duvar.",
-        "de": "Wall area.",
-        "fr": "Wall area.",
-        "es": "Wall area.",
-        "ar": "Wall area."
+        "de": "Wandfläche.",
+        "fr": "Surface du mur.",
+        "es": "Área de la pared.",
+        "ar": "مساحة الجدار."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Roll Width (m)",
         "tr": "Rulo Eni (m)",
-        "de": "Roll Width (m)",
-        "fr": "Roll Width (m)",
-        "es": "Roll Width (m)",
-        "ar": "Roll Width (m)"
+        "de": "Rollenbreite (m)",
+        "fr": "Largeur du rouleau (m)",
+        "es": "Ancho del Rollo (m)",
+        "ar": "عرض اللفة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Wallpaper roll width.",
         "tr": "Duvar kağıdı rulo eni.",
-        "de": "Wallpaper roll width.",
-        "fr": "Wallpaper roll width.",
-        "es": "Wallpaper roll width.",
-        "ar": "Wallpaper roll width."
+        "de": "Tapetenrollenbreite.",
+        "fr": "Largeur du rouleau de papier peint.",
+        "es": "Ancho del rollo de papel tapiz.",
+        "ar": "عرض لفة ورق الحائط."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Roll Length (m)",
         "tr": "Rulo Boyu (m)",
-        "de": "Roll Length (m)",
-        "fr": "Roll Length (m)",
-        "es": "Roll Length (m)",
-        "ar": "Roll Length (m)"
+        "de": "Rollenlänge (m)",
+        "fr": "Longueur du rouleau (m)",
+        "es": "Longitud del rollo (m)",
+        "ar": "طول اللفة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Roll length.",
         "tr": "Rulo uzunluğu.",
-        "de": "Roll length.",
-        "fr": "Roll length.",
-        "es": "Roll length.",
-        "ar": "Roll length."
+        "de": "Rollenlänge.",
+        "fr": "Longueur du rouleau.",
+        "es": "Longitud del rollo.",
+        "ar": "طول اللفة."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Pattern Repeat (m)",
         "tr": "Desen Tekrarı (m)",
-        "de": "Pattern Repeat (m)",
-        "fr": "Pattern Repeat (m)",
-        "es": "Pattern Repeat (m)",
-        "ar": "Pattern Repeat (m)"
+        "de": "Musterrapport (m)",
+        "fr": "Raccord du motif (m)",
+        "es": "Repetición del patrón (m)",
+        "ar": "تكرار النمط (m)"
       },
       "type": "number",
       "unit": "m",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Pattern repeat length.",
         "tr": "Desen eşleşme aralığı.",
-        "de": "Pattern repeat length.",
-        "fr": "Pattern repeat length.",
-        "es": "Pattern repeat length.",
-        "ar": "Pattern repeat length."
+        "de": "Musterrapportlänge.",
+        "fr": "Longueur du raccord du motif.",
+        "es": "Longitud de repetición del patrón.",
+        "ar": "طول تكرار النمط."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Gerekli Duvar Kağıdı Rulosu",
         "tr": "Gerekli Duvar Kağıdı Rulosu",
-        "de": "Gerekli Duvar Kağıdı Rulosu",
-        "fr": "Gerekli Duvar Kağıdı Rulosu",
-        "es": "Gerekli Duvar Kağıdı Rulosu",
-        "ar": "Gerekli Duvar Kağıdı Rulosu"
+        "de": "Required Wallpaper Roll",
+        "fr": "Rouleau de papier peint nécessaire",
+        "es": "Rollo de Papel Tapiz Requerido",
+        "ar": "عدد لفات ورق الحائط المطلوبة"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate wallpaper rolls needed including pattern repeat waste.",
         "tr": "Desen eşleşme fireleri dahil gereken duvar kağıdı rulo sayısını hesaplar.",
-        "de": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "fr": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "es": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "ar": "Calculate wallpaper rolls needed including pattern repeat waste."
+        "de": "Berechnen Sie die benötigten Tapetenrollen inklusive Musterrapport-Verschwendung.",
+        "fr": "Calculer le nombre de rouleaux de papier peint nécessaires en incluant les pertes dues au raccord du motif.",
+        "es": "Calcular los rollos de papel tapiz necesarios incluyendo el desperdicio por repetición del patrón.",
+        "ar": "حساب اللفائف المطلوبة من ورق الحائط بما في ذلك هدر تكرار النمط."
       },
       "long_i18n": {
         "en": "Calculate wallpaper rolls needed including pattern repeat waste.",
         "tr": "Desen eşleşme fireleri dahil gereken duvar kağıdı rulo sayısını hesaplar.",
-        "de": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "fr": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "es": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "ar": "Calculate wallpaper rolls needed including pattern repeat waste."
+        "de": "Berechnen Sie die benötigten Tapetenrollen inklusive Musterrapport-Verschwendung.",
+        "fr": "Calculer le nombre de rouleaux de papier peint nécessaires en incluant les pertes dues au raccord du motif.",
+        "es": "Calcular los rollos de papel tapiz necesarios incluyendo el desperdicio por repetición del patrón.",
+        "ar": "حساب اللفائف المطلوبة من ورق الحائط بما في ذلك هدر تكرار النمط."
       }
     }
   },

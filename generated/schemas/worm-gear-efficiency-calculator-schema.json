@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Helix Angle (Rad)",
         "tr": "Helis Açısı (Rad)",
-        "de": "Helix Angle (Rad)",
-        "fr": "Helix Angle (Rad)",
-        "es": "Helix Angle (Rad)",
-        "ar": "Helix Angle (Rad)"
+        "de": "Steigungswinkel (Rad)",
+        "fr": "Angle d'hélice (Rad)",
+        "es": "Ángulo de Hélice (Rad)",
+        "ar": "زاوية الحلزون (Rad)"
       },
       "type": "number",
       "unit": "rad",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Worm helix angle.",
         "tr": "Vidanın helis açısı.",
-        "de": "Worm helix angle.",
-        "fr": "Worm helix angle.",
-        "es": "Worm helix angle.",
-        "ar": "Worm helix angle."
+        "de": "Steigungswinkel der Schnecke.",
+        "fr": "Angle d'hélice de la vis sans fin.",
+        "es": "Ángulo de hélice del tornillo sin fin.",
+        "ar": "زاوية حلزون الدودة."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Arctan of friction coefficient.",
         "tr": "Sürtünme katsayısının arctan'ı.",
-        "de": "Arctan of friction coefficient.",
-        "fr": "Arctan of friction coefficient.",
-        "es": "Arctan of friction coefficient.",
-        "ar": "Arctan of friction coefficient."
+        "de": "Arkustangens des Reibungskoeffizienten.",
+        "fr": "Arctan du coefficient de frottement.",
+        "es": "Arcotangente del coeficiente de fricción.",
+        "ar": "ظل زاوية معامل الاحتكاك."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Mekanik Verim",
         "tr": "Mekanik Verim",
-        "de": "Mekanik Verim",
-        "fr": "Mekanik Verim",
-        "es": "Mekanik Verim",
-        "ar": "Mekanik Verim"
+        "de": "Mechanical Efficiency",
+        "fr": "Rendement mécanique",
+        "es": "Eficiencia Mecánica",
+        "ar": "الكفاءة الميكانيكية"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate worm gear mechanical efficiency.",
         "tr": "Sonsuz vida mekanizmasının mekanik verimini hesaplar.",
-        "de": "Calculate worm gear mechanical efficiency.",
-        "fr": "Calculate worm gear mechanical efficiency.",
-        "es": "Calculate worm gear mechanical efficiency.",
-        "ar": "Calculate worm gear mechanical efficiency."
+        "de": "Berechnen Sie den mechanischen Wirkungsgrad eines Schneckengetriebes.",
+        "fr": "Calculer le rendement mécanique de l'engrenage à vis sans fin.",
+        "es": "Calcular la eficiencia mecánica de un engranaje de tornillo sin fin.",
+        "ar": "حساب الكفاءة الميكانيكية للترس الدودي."
       },
       "long_i18n": {
         "en": "Calculate worm gear mechanical efficiency.",
         "tr": "Sonsuz vida mekanizmasının mekanik verimini hesaplar.",
-        "de": "Calculate worm gear mechanical efficiency.",
-        "fr": "Calculate worm gear mechanical efficiency.",
-        "es": "Calculate worm gear mechanical efficiency.",
-        "ar": "Calculate worm gear mechanical efficiency."
+        "de": "Berechnen Sie den mechanischen Wirkungsgrad eines Schneckengetriebes.",
+        "fr": "Calculer le rendement mécanique de l'engrenage à vis sans fin.",
+        "es": "Calcular la eficiencia mecánica de un engranaje de tornillo sin fin.",
+        "ar": "حساب الكفاءة الميكانيكية للترس الدودي."
       }
     }
   },

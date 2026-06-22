@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Distance between rows.",
         "tr": "Sıralar arası mesafe.",
-        "de": "Distance between rows.",
-        "fr": "Distance between rows.",
-        "es": "Distance between rows.",
-        "ar": "Distance between rows."
+        "de": "Reihenabstand.",
+        "fr": "Distance entre les rangs.",
+        "es": "Distancia entre hileras.",
+        "ar": "المسافة بين الصفوف."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "In-Row Spacing (m)",
         "tr": "Sıra Üzeri Mesafe (m)",
-        "de": "In-Row Spacing (m)",
-        "fr": "In-Row Spacing (m)",
-        "es": "In-Row Spacing (m)",
-        "ar": "In-Row Spacing (m)"
+        "de": "Pflanzenabstand in der Reihe (m)",
+        "fr": "Espacement sur le rang (m)",
+        "es": "Espaciado entre plantas (m)",
+        "ar": "المسافة بين النباتات (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Distance between plants.",
         "tr": "Bitkiler arası mesafe.",
-        "de": "Distance between plants.",
-        "fr": "Distance between plants.",
-        "es": "Distance between plants.",
-        "ar": "Distance between plants."
+        "de": "Abstand zwischen den Pflanzen.",
+        "fr": "Distance entre les plants.",
+        "es": "Distancia entre plantas.",
+        "ar": "المسافة بين النباتات."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Thousand Grain Weight (g)",
         "tr": "Bin Tane Ağırlığı (g)",
-        "de": "Thousand Grain Weight (g)",
-        "fr": "Thousand Grain Weight (g)",
-        "es": "Thousand Grain Weight (g)",
-        "ar": "Thousand Grain Weight (g)"
+        "de": "Tausendkorngewicht (g)",
+        "fr": "Poids de mille grains (g)",
+        "es": "Peso de mil granos (g)",
+        "ar": "وزن الألف حبة (g)"
       },
       "type": "number",
       "unit": "g",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Weight of 1000 seeds.",
         "tr": "1000 adet tohumun ağırlığı.",
-        "de": "Weight of 1000 seeds.",
-        "fr": "Weight of 1000 seeds.",
-        "es": "Weight of 1000 seeds.",
-        "ar": "Weight of 1000 seeds."
+        "de": "Gewicht von 1000 Samen.",
+        "fr": "Poids de 1000 graines.",
+        "es": "Peso de 1000 semillas.",
+        "ar": "وزن 1000 بذرة."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Germination percentage.",
         "tr": "Tohumun çimlenme yüzdesi.",
-        "de": "Germination percentage.",
-        "fr": "Germination percentage.",
-        "es": "Germination percentage.",
-        "ar": "Germination percentage."
+        "de": "Keimprozentsatz.",
+        "fr": "Pourcentage de germination.",
+        "es": "Porcentaje de germinación.",
+        "ar": "نسبة الإنبات."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Tohum İhtiyacı",
         "tr": "Tohum İhtiyacı",
-        "de": "Tohum İhtiyacı",
-        "fr": "Tohum İhtiyacı",
-        "es": "Tohum İhtiyacı",
-        "ar": "Tohum İhtiyacı"
+        "de": "Saatgutbedarf",
+        "fr": "Besoin en semences",
+        "es": "Requerimiento de semilla",
+        "ar": "احتياج البذور"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate seed rate per decare (kg/da) for planting.",
         "tr": "Dekara düşen net tohumluk ihtiyacını hesaplar.",
-        "de": "Calculate seed rate per decare (kg/da) for planting.",
-        "fr": "Calculate seed rate per decare (kg/da) for planting.",
-        "es": "Calculate seed rate per decare (kg/da) for planting.",
-        "ar": "Calculate seed rate per decare (kg/da) for planting."
+        "de": "Berechnen Sie die Saatgutmenge pro Dekar (kg/da) für die Aussaat.",
+        "fr": "Calculer le taux de semis par décare (kg/da) pour la plantation.",
+        "es": "Calcular la tasa de siembra por decárea (kg/da) para la plantación.",
+        "ar": "احسب معدل البذار لكل دونم (kg/da) للزراعة."
       },
       "long_i18n": {
         "en": "Calculate seed rate per decare (kg/da) for planting.",
         "tr": "Dekara düşen net tohumluk ihtiyacını hesaplar.",
-        "de": "Calculate seed rate per decare (kg/da) for planting.",
-        "fr": "Calculate seed rate per decare (kg/da) for planting.",
-        "es": "Calculate seed rate per decare (kg/da) for planting.",
-        "ar": "Calculate seed rate per decare (kg/da) for planting."
+        "de": "Berechnen Sie die Saatgutmenge pro Dekar (kg/da) für die Aussaat.",
+        "fr": "Calculer le taux de semis par décare (kg/da) pour la plantation.",
+        "es": "Calcular la tasa de siembra por decárea (kg/da) para la plantación.",
+        "ar": "احسب معدل البذار لكل دونم (kg/da) للزراعة."
       }
     }
   },

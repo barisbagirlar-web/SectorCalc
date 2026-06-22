@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Welding Current (A)",
         "tr": "Kaynak Akımı (A)",
-        "de": "Welding Current (A)",
-        "fr": "Welding Current (A)",
-        "es": "Welding Current (A)",
-        "ar": "Welding Current (A)"
+        "de": "Schweißstrom (A)",
+        "fr": "Courant de soudage (A)",
+        "es": "Corriente de soldadura (A)",
+        "ar": "تيار اللحام (A)"
       },
       "type": "number",
       "unit": "A",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Arc current.",
         "tr": "Ark akımı.",
-        "de": "Arc current.",
-        "fr": "Arc current.",
-        "es": "Arc current.",
-        "ar": "Arc current."
+        "de": "Lichtbogenstrom.",
+        "fr": "Courant d'arc.",
+        "es": "Corriente del arco.",
+        "ar": "تيار القوس."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Arc Voltage (V)",
         "tr": "Ark Gerilimi (V)",
-        "de": "Arc Voltage (V)",
-        "fr": "Arc Voltage (V)",
-        "es": "Arc Voltage (V)",
-        "ar": "Arc Voltage (V)"
+        "de": "Lichtbogenspannung (V)",
+        "fr": "Tension d'arc (V)",
+        "es": "Tensión del arco (V)",
+        "ar": "جهد القوس (V)"
       },
       "type": "number",
       "unit": "V",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Arc voltage.",
         "tr": "Ark voltajı.",
-        "de": "Arc voltage.",
-        "fr": "Arc voltage.",
-        "es": "Arc voltage.",
-        "ar": "Arc voltage."
+        "de": "Lichtbogenspannung.",
+        "fr": "Tension d'arc.",
+        "es": "Tensión del arco.",
+        "ar": "جهد القوس."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Travel Speed (mm/s)",
         "tr": "İlerleme Hızı (mm/s)",
-        "de": "Travel Speed (mm/s)",
-        "fr": "Travel Speed (mm/s)",
-        "es": "Travel Speed (mm/s)",
-        "ar": "Travel Speed (mm/s)"
+        "de": "Vorschubgeschwindigkeit (mm/s)",
+        "fr": "Vitesse de déplacement (mm/s)",
+        "es": "Velocidad de avance (mm/s)",
+        "ar": "سرعة السير (mm/s)"
       },
       "type": "number",
       "unit": "mm/s",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Welding speed.",
         "tr": "Kaynak hızı.",
-        "de": "Welding speed.",
-        "fr": "Welding speed.",
-        "es": "Welding speed.",
-        "ar": "Welding speed."
+        "de": "Schweißgeschwindigkeit.",
+        "fr": "Vitesse de soudage.",
+        "es": "Velocidad de soldadura.",
+        "ar": "سرعة اللحام."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Thermal Efficiency",
         "tr": "Isıl Verim",
-        "de": "Thermal Efficiency",
-        "fr": "Thermal Efficiency",
-        "es": "Thermal Efficiency",
-        "ar": "Thermal Efficiency"
+        "de": "Thermischer Wirkungsgrad",
+        "fr": "Rendement thermique",
+        "es": "Eficiencia térmica",
+        "ar": "الكفاءة الحرارية"
       },
       "type": "number",
       "unit": "",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Arc efficiency (0.6-0.9).",
         "tr": "Ark verimi (0.6-0.9).",
-        "de": "Arc efficiency (0.6-0.9).",
-        "fr": "Arc efficiency (0.6-0.9).",
-        "es": "Arc efficiency (0.6-0.9).",
-        "ar": "Arc efficiency (0.6-0.9)."
+        "de": "Lichtbogenwirkungsgrad (0,6-0,9).",
+        "fr": "Rendement d'arc (0,6-0,9).",
+        "es": "Eficiencia del arco (0.6-0.9).",
+        "ar": "كفاءة القوس (0.6-0.9)."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Isı Girdisi",
         "tr": "Isı Girdisi",
-        "de": "Isı Girdisi",
-        "fr": "Isı Girdisi",
-        "es": "Isı Girdisi",
-        "ar": "Isı Girdisi"
+        "de": "Wärmeeintrag",
+        "fr": "Apport de chaleur",
+        "es": "Aporte de Calor",
+        "ar": "مدخلات الحرارة"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate weld heat input per unit length.",
         "tr": "Kaynak dikişine aktarılan birim enerji miktarını (ısı girdisi) hesaplar.",
-        "de": "Calculate weld heat input per unit length.",
-        "fr": "Calculate weld heat input per unit length.",
-        "es": "Calculate weld heat input per unit length.",
-        "ar": "Calculate weld heat input per unit length."
+        "de": "Berechnen Sie den Wärmeeintrag pro Längeneinheit beim Schweißen.",
+        "fr": "Calculer l'apport de chaleur de soudage par unité de longueur.",
+        "es": "Calcular el aporte térmico de soldadura por unidad de longitud.",
+        "ar": "احسب مدخلات الحرارة في اللحام لكل وحدة طول."
       },
       "long_i18n": {
         "en": "Calculate weld heat input per unit length.",
         "tr": "Kaynak dikişine aktarılan birim enerji miktarını (ısı girdisi) hesaplar.",
-        "de": "Calculate weld heat input per unit length.",
-        "fr": "Calculate weld heat input per unit length.",
-        "es": "Calculate weld heat input per unit length.",
-        "ar": "Calculate weld heat input per unit length."
+        "de": "Berechnen Sie den Wärmeeintrag pro Längeneinheit beim Schweißen.",
+        "fr": "Calculer l'apport de chaleur de soudage par unité de longueur.",
+        "es": "Calcular el aporte térmico de soldadura por unidad de longitud.",
+        "ar": "احسب مدخلات الحرارة في اللحام لكل وحدة طول."
       }
     }
   },

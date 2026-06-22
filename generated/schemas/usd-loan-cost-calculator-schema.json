@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Loan principal in USD.",
         "tr": "USD cinsinden kredi anaparası.",
-        "de": "Loan principal in USD.",
-        "fr": "Loan principal in USD.",
-        "es": "Loan principal in USD.",
-        "ar": "Loan principal in USD."
+        "de": "Darlehensbetrag in USD.",
+        "fr": "Principal du prêt en USD.",
+        "es": "Principal del préstamo en USD.",
+        "ar": "أصل القرض بالدولار."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Loan interest rate.",
         "tr": "Kredi faiz oranı.",
-        "de": "Loan interest rate.",
-        "fr": "Loan interest rate.",
-        "es": "Loan interest rate.",
-        "ar": "Loan interest rate."
+        "de": "Darlehenszinssatz.",
+        "fr": "Taux d'intérêt du prêt.",
+        "es": "Tasa de interés del préstamo.",
+        "ar": "معدل فائدة القرض."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Loan term.",
         "tr": "Kredi vadesi.",
-        "de": "Loan term.",
-        "fr": "Loan term.",
-        "es": "Loan term.",
-        "ar": "Loan term."
+        "de": "Kreditlaufzeit.",
+        "fr": "Durée du prêt.",
+        "es": "Plazo del préstamo.",
+        "ar": "مدة القرض."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "FX Expected Change (%)",
         "tr": "Kur Beklentisi (%)",
-        "de": "FX Expected Change (%)",
-        "fr": "FX Expected Change (%)",
-        "es": "FX Expected Change (%)",
-        "ar": "FX Expected Change (%)"
+        "de": "FX Erwartete Änderung (%)",
+        "fr": "Variation attendue du taux de change (%)",
+        "es": "Cambio Esperado en FX (%)",
+        "ar": "التغير المتوقع في سعر الصرف (%)"
       },
       "type": "number",
       "unit": "%",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Expected annual FX rate increase.",
         "tr": "Kurun yıllık artış beklentisi.",
-        "de": "Expected annual FX rate increase.",
-        "fr": "Expected annual FX rate increase.",
-        "es": "Expected annual FX rate increase.",
-        "ar": "Expected annual FX rate increase."
+        "de": "Erwarteter jährlicher Wechselkursanstieg.",
+        "fr": "Augmentation annuelle attendue du taux de change.",
+        "es": "Incremento anual esperado del tipo de cambio.",
+        "ar": "الزيادة السنوية المتوقعة في سعر الصرف."
       }
     },
     {
@@ -111,10 +111,10 @@
       "label_i18n": {
         "en": "Current FX Rate (USD/USD)",
         "tr": "Mevcut Kur (₺/$)",
-        "de": "Current FX Rate (USD/USD)",
-        "fr": "Current FX Rate (USD/USD)",
-        "es": "Current FX Rate (USD/USD)",
-        "ar": "Current FX Rate (USD/USD)"
+        "de": "Aktueller Wechselkurs (USD/USD)",
+        "fr": "Taux de change actuel (USD/USD)",
+        "es": "Tipo de Cambio Actual (USD/USD)",
+        "ar": "سعر الصرف الحالي (USD/USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Current USD/TRY rate.",
         "tr": "Güncel dolar kuru.",
-        "de": "Current USD/TRY rate.",
-        "fr": "Current USD/TRY rate.",
-        "es": "Current USD/TRY rate.",
-        "ar": "Current USD/TRY rate."
+        "de": "Aktueller USD/TRY-Kurs.",
+        "fr": "Taux actuel USD/TRY.",
+        "es": "Tipo de cambio actual USD/TRY.",
+        "ar": "سعر USD/TRY الحالي."
       }
     }
   ],
@@ -151,10 +151,10 @@
       "sonuc": {
         "en": "Tahmini TL Aylık Taksit",
         "tr": "Tahmini TL Aylık Taksit",
-        "de": "Tahmini TL Aylık Taksit",
-        "fr": "Tahmini TL Aylık Taksit",
-        "es": "Tahmini TL Aylık Taksit",
-        "ar": "Tahmini TL Aylık Taksit"
+        "de": "Estimated Monthly Installment in TRY",
+        "fr": "Mensualité estimée en TL",
+        "es": "Cuota Mensual Estimada en TL",
+        "ar": "القسط الشهري المقدر بالليرة التركية"
       }
     },
     "breakdownUnits": {
@@ -176,18 +176,18 @@
       "short_i18n": {
         "en": "Calculate estimated TRY cost of a USD loan with FX risk.",
         "tr": "Döviz kredisinin kur riskiyle artırılmış tahmini TL maliyetini hesaplar.",
-        "de": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "fr": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "es": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "ar": "Calculate estimated TRY cost of a USD loan with FX risk."
+        "de": "Berechnen Sie die geschätzten TRY-Kosten eines USD-Darlehens mit Wechselkursrisiko.",
+        "fr": "Calculer le coût estimé en TRY d'un prêt en USD avec risque de change.",
+        "es": "Calcular el costo estimado en TRY de un préstamo en USD con riesgo cambiario.",
+        "ar": "حساب التكلفة المقدرة بالليرة التركية لقرض بالدولار مع مخاطر سعر الصرف."
       },
       "long_i18n": {
         "en": "Calculate estimated TRY cost of a USD loan with FX risk.",
         "tr": "Döviz kredisinin kur riskiyle artırılmış tahmini TL maliyetini hesaplar.",
-        "de": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "fr": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "es": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "ar": "Calculate estimated TRY cost of a USD loan with FX risk."
+        "de": "Berechnen Sie die geschätzten TRY-Kosten eines USD-Darlehens mit Wechselkursrisiko.",
+        "fr": "Calculer le coût estimé en TRY d'un prêt en USD avec risque de change.",
+        "es": "Calcular el costo estimado en TRY de un préstamo en USD con riesgo cambiario.",
+        "ar": "حساب التكلفة المقدرة بالليرة التركية لقرض بالدولار مع مخاطر سعر الصرف."
       }
     }
   },

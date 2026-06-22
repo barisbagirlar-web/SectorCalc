@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Energy absorbed by tissue.",
         "tr": "Doku tarafından emilen enerji.",
-        "de": "Energy absorbed by tissue.",
-        "fr": "Energy absorbed by tissue.",
-        "es": "Energy absorbed by tissue.",
-        "ar": "Energy absorbed by tissue."
+        "de": "Vom Gewebe absorbierte Energie.",
+        "fr": "Énergie absorbée par le tissu.",
+        "es": "Energía absorbida por el tejido.",
+        "ar": "الطاقة الممتصة بواسطة الأنسجة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Tissue Weighting Factor",
         "tr": "Doku Ağırlık Faktörü",
-        "de": "Tissue Weighting Factor",
-        "fr": "Tissue Weighting Factor",
-        "es": "Tissue Weighting Factor",
-        "ar": "Tissue Weighting Factor"
+        "de": "Gewebe-Wichtungsfaktor",
+        "fr": "Facteur de pondération tissulaire",
+        "es": "Factor de Ponderación del Tejido",
+        "ar": "عامل ترجيح الأنسجة"
       },
       "type": "number",
       "unit": "",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Tissue radiation sensitivity.",
         "tr": "Dokunun radyasyon hassasiyeti.",
-        "de": "Tissue radiation sensitivity.",
-        "fr": "Tissue radiation sensitivity.",
-        "es": "Tissue radiation sensitivity.",
-        "ar": "Tissue radiation sensitivity."
+        "de": "Strahlungsempfindlichkeit des Gewebes.",
+        "fr": "Sensibilité du tissu aux rayonnements.",
+        "es": "Sensibilidad del tejido a la radiación.",
+        "ar": "حساسية الأنسجة للإشعاع."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Radiation Type Factor",
         "tr": "Radyasyon Türü Faktörü",
-        "de": "Radiation Type Factor",
-        "fr": "Radiation Type Factor",
-        "es": "Radiation Type Factor",
-        "ar": "Radiation Type Factor"
+        "de": "Strahlungsartfaktor",
+        "fr": "Facteur de type de rayonnement",
+        "es": "Factor de Tipo de Radiación",
+        "ar": "عامل نوع الإشعاع"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Radiation type effectiveness.",
         "tr": "Radyasyon türünün biyolojik etkinliği.",
-        "de": "Radiation type effectiveness.",
-        "fr": "Radiation type effectiveness.",
-        "es": "Radiation type effectiveness.",
-        "ar": "Radiation type effectiveness."
+        "de": "Wirksamkeit der Strahlungsart.",
+        "fr": "Efficacité du type de rayonnement.",
+        "es": "Efectividad del tipo de radiación.",
+        "ar": "فعالية نوع الإشعاع."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Etkin Doz (mSv)",
         "tr": "Etkin Doz (mSv)",
-        "de": "Etkin Doz (mSv)",
-        "fr": "Etkin Doz (mSv)",
-        "es": "Etkin Doz (mSv)",
-        "ar": "Etkin Doz (mSv)"
+        "de": "Effektive Dosis (mSv)",
+        "fr": "Dose effective (mSv)",
+        "es": "Dosis Efectiva (mSv)",
+        "ar": "الجرعة الفعالة (mSv)"
       }
     },
     "breakdownUnits": {
@@ -128,18 +128,18 @@
       "short_i18n": {
         "en": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
         "tr": "Biyolojik hasar riskini yansıtan toplam eşdeğer radyasyon dozunu (mSv) hesaplar.",
-        "de": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
-        "fr": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
-        "es": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
-        "ar": "Calculate effective radiation dose in mSv considering tissue and radiation weighting."
+        "de": "Berechnen Sie die effektive Strahlendosis in mSv unter Berücksichtigung von Gewebe- und Strahlungswichtungsfaktoren.",
+        "fr": "Calculer la dose de rayonnement effective en mSv en tenant compte des facteurs de pondération tissulaire et de rayonnement.",
+        "es": "Calcular la dosis de radiación efectiva en mSv considerando la ponderación de tejido y radiación.",
+        "ar": "حساب جرعة الإشعاع الفعالة بوحدة mSv مع مراعاة ترجيح الأنسجة والإشعاع."
       },
       "long_i18n": {
         "en": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
         "tr": "Biyolojik hasar riskini yansıtan toplam eşdeğer radyasyon dozunu (mSv) hesaplar.",
-        "de": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
-        "fr": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
-        "es": "Calculate effective radiation dose in mSv considering tissue and radiation weighting.",
-        "ar": "Calculate effective radiation dose in mSv considering tissue and radiation weighting."
+        "de": "Berechnen Sie die effektive Strahlendosis in mSv unter Berücksichtigung von Gewebe- und Strahlungswichtungsfaktoren.",
+        "fr": "Calculer la dose de rayonnement effective en mSv en tenant compte des facteurs de pondération tissulaire et de rayonnement.",
+        "es": "Calcular la dosis de radiación efectiva en mSv considerando la ponderación de tejido y radiación.",
+        "ar": "حساب جرعة الإشعاع الفعالة بوحدة mSv مع مراعاة ترجيح الأنسجة والإشعاع."
       }
     }
   },

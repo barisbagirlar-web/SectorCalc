@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Sale Proceeds (USD)",
         "tr": "Satış Bedeli (₺)",
-        "de": "Sale Proceeds (USD)",
-        "fr": "Sale Proceeds (USD)",
-        "es": "Sale Proceeds (USD)",
-        "ar": "Sale Proceeds (USD)"
+        "de": "Verkaufserlös (USD)",
+        "fr": "Produit de la vente (USD)",
+        "es": "Ingresos por Venta (USD)",
+        "ar": "حصيلة البيع (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Asset sale proceeds.",
         "tr": "Varlığın satış bedeli.",
-        "de": "Asset sale proceeds.",
-        "fr": "Asset sale proceeds.",
-        "es": "Asset sale proceeds.",
-        "ar": "Asset sale proceeds."
+        "de": "Verkaufserlös des Vermögenswerts.",
+        "fr": "Produit de la vente d'actifs.",
+        "es": "Ingresos por venta de activos.",
+        "ar": "حصيلة بيع الأصل."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Asset purchase cost.",
         "tr": "Varlığın satın alma maliyeti.",
-        "de": "Asset purchase cost.",
-        "fr": "Asset purchase cost.",
-        "es": "Asset purchase cost.",
-        "ar": "Asset purchase cost."
+        "de": "Anschaffungskosten des Vermögenswerts.",
+        "fr": "Coût d'achat de l'actif.",
+        "es": "Costo de compra del activo.",
+        "ar": "تكلفة شراء الأصل."
       }
     },
     {
@@ -75,10 +75,10 @@
       "businessContext_i18n": {
         "en": "Capital gains tax rate.",
         "tr": "Sermaye kazancı vergi oranı.",
-        "de": "Capital gains tax rate.",
-        "fr": "Capital gains tax rate.",
-        "es": "Capital gains tax rate.",
-        "ar": "Capital gains tax rate."
+        "de": "Kapitalertragssteuersatz.",
+        "fr": "Taux d'imposition des plus-values.",
+        "es": "Tasa impositiva sobre ganancias de capital.",
+        "ar": "معدل ضريبة أرباح رأس المال."
       }
     },
     {
@@ -100,10 +100,10 @@
       "businessContext_i18n": {
         "en": "Tax-free allowance.",
         "tr": "Vergiden muaf kısım.",
-        "de": "Tax-free allowance.",
-        "fr": "Tax-free allowance.",
-        "es": "Tax-free allowance.",
-        "ar": "Tax-free allowance."
+        "de": "Steuerfreibetrag.",
+        "fr": "Abattement fiscal.",
+        "es": "Exención fiscal.",
+        "ar": "الإعفاء الضريبي."
       }
     }
   ],
@@ -127,10 +127,10 @@
       "sonuc": {
         "en": "Ödenecek Sermaye Kazancı Vergisi",
         "tr": "Ödenecek Sermaye Kazancı Vergisi",
-        "de": "Ödenecek Sermaye Kazancı Vergisi",
-        "fr": "Ödenecek Sermaye Kazancı Vergisi",
-        "es": "Ödenecek Sermaye Kazancı Vergisi",
-        "ar": "Ödenecek Sermaye Kazancı Vergisi"
+        "de": "Zahlbare Kapitalertragssteuer",
+        "fr": "Impôt sur les plus-values à payer",
+        "es": "Impuesto a Pagar sobre Ganancias de Capital",
+        "ar": "ضريبة أرباح رأس المال المستحقة الدفع"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate capital gains tax liability from asset sales.",
         "tr": "Varlık satışından doğan yasal vergi yükümlülüğünü hesaplar.",
-        "de": "Calculate capital gains tax liability from asset sales.",
-        "fr": "Calculate capital gains tax liability from asset sales.",
-        "es": "Calculate capital gains tax liability from asset sales.",
-        "ar": "Calculate capital gains tax liability from asset sales."
+        "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermögensverkäufen.",
+        "fr": "Calculer l'impôt sur les plus-values provenant de la vente d'actifs.",
+        "es": "Calcular la obligación tributaria por ganancias de capital por venta de activos.",
+        "ar": "حساب ضريبة أرباح رأس المال المستحقة من بيع الأصول."
       },
       "long_i18n": {
         "en": "Calculate capital gains tax liability from asset sales.",
         "tr": "Varlık satışından doğan yasal vergi yükümlülüğünü hesaplar.",
-        "de": "Calculate capital gains tax liability from asset sales.",
-        "fr": "Calculate capital gains tax liability from asset sales.",
-        "es": "Calculate capital gains tax liability from asset sales.",
-        "ar": "Calculate capital gains tax liability from asset sales."
+        "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermögensverkäufen.",
+        "fr": "Calculer l'impôt sur les plus-values provenant de la vente d'actifs.",
+        "es": "Calcular la obligación tributaria por ganancias de capital por venta de activos.",
+        "ar": "حساب ضريبة أرباح رأس المال المستحقة من بيع الأصول."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Start NAV (USD)",
         "tr": "Dönem Başı NAV (₺)",
-        "de": "Start NAV (USD)",
-        "fr": "Start NAV (USD)",
-        "es": "Start NAV (USD)",
-        "ar": "Start NAV (USD)"
+        "de": "Start-NAV (USD)",
+        "fr": "VNI de départ (USD)",
+        "es": "NAV inicial (USD)",
+        "ar": "صافي قيمة الأصول الابتدائية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Fund unit price at period start.",
         "tr": "Dönem başındaki fon pay fiyatı.",
-        "de": "Fund unit price at period start.",
-        "fr": "Fund unit price at period start.",
-        "es": "Fund unit price at period start.",
-        "ar": "Fund unit price at period start."
+        "de": "Fondspreis zu Periodenbeginn.",
+        "fr": "Prix unitaire du fonds en début de période.",
+        "es": "Precio de la unidad del fondo al inicio del período.",
+        "ar": "سعر وحدة الصندوق في بداية الفترة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "End NAV (USD)",
         "tr": "Dönem Sonu NAV (₺)",
-        "de": "End NAV (USD)",
-        "fr": "End NAV (USD)",
-        "es": "End NAV (USD)",
-        "ar": "End NAV (USD)"
+        "de": "End-NAV (USD)",
+        "fr": "VNI de fin (USD)",
+        "es": "NAV final (USD)",
+        "ar": "صافي قيمة الأصول النهائية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Fund unit price at period end.",
         "tr": "Dönem sonundaki fon pay fiyatı.",
-        "de": "Fund unit price at period end.",
-        "fr": "Fund unit price at period end.",
-        "es": "Fund unit price at period end.",
-        "ar": "Fund unit price at period end."
+        "de": "Fondspreis am Periodenende.",
+        "fr": "Prix unitaire du fonds en fin de période.",
+        "es": "Precio de la unidad del fondo al final del período.",
+        "ar": "سعر وحدة الصندوق في نهاية الفترة."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Dividend distributed during period.",
         "tr": "Dönem boyunca dağıtılan temettü.",
-        "de": "Dividend distributed during period.",
-        "fr": "Dividend distributed during period.",
-        "es": "Dividend distributed during period.",
-        "ar": "Dividend distributed during period."
+        "de": "Während der Periode ausgeschüttete Dividende.",
+        "fr": "Dividende distribué pendant la période.",
+        "es": "Dividendo distribuido durante el período.",
+        "ar": "الأرباح الموزعة خلال الفترة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Fon Getirisi",
         "tr": "Fon Getirisi",
-        "de": "Fon Getirisi",
-        "fr": "Fon Getirisi",
-        "es": "Fon Getirisi",
-        "ar": "Fon Getirisi"
+        "de": "Fondsrendite",
+        "fr": "Rendement du fonds",
+        "es": "Rendimiento del fondo",
+        "ar": "عائد الصندوق"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate total investor return of a mutual fund.",
         "tr": "Fonun dönemsel toplam yatırımcı getirisini hesaplar.",
-        "de": "Calculate total investor return of a mutual fund.",
-        "fr": "Calculate total investor return of a mutual fund.",
-        "es": "Calculate total investor return of a mutual fund.",
-        "ar": "Calculate total investor return of a mutual fund."
+        "de": "Berechnen Sie die Gesamtrendite eines Investmentfonds für Anleger.",
+        "fr": "Calculer le rendement total d'un investisseur dans un fonds commun de placement.",
+        "es": "Calcular el rendimiento total de un inversor de un fondo mutuo.",
+        "ar": "حساب العائد الإجمالي للمستثمر لصندوق استثمار مشترك."
       },
       "long_i18n": {
         "en": "Calculate total investor return of a mutual fund.",
         "tr": "Fonun dönemsel toplam yatırımcı getirisini hesaplar.",
-        "de": "Calculate total investor return of a mutual fund.",
-        "fr": "Calculate total investor return of a mutual fund.",
-        "es": "Calculate total investor return of a mutual fund.",
-        "ar": "Calculate total investor return of a mutual fund."
+        "de": "Berechnen Sie die Gesamtrendite eines Investmentfonds für Anleger.",
+        "fr": "Calculer le rendement total d'un investisseur dans un fonds commun de placement.",
+        "es": "Calcular el rendimiento total de un inversor de un fondo mutuo.",
+        "ar": "حساب العائد الإجمالي للمستثمر لصندوق استثمار مشترك."
       }
     }
   },

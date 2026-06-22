@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Inherent Risk (%)",
         "tr": "Doğuştan Risk (%)",
-        "de": "Inherent Risk (%)",
-        "fr": "Inherent Risk (%)",
-        "es": "Inherent Risk (%)",
-        "ar": "Inherent Risk (%)"
+        "de": "Inhärentes Risiko (%)",
+        "fr": "Risque inhérent (%)",
+        "es": "Riesgo Inherente (%)",
+        "ar": "المخاطر الجوهرية (%)"
       },
       "type": "number",
       "unit": "%",
@@ -25,10 +25,10 @@
       "businessContext_i18n": {
         "en": "Risk inherent in the business operations.",
         "tr": "İşletmenin yapısından kaynaklanan hata riski.",
-        "de": "Risk inherent in the business operations.",
-        "fr": "Risk inherent in the business operations.",
-        "es": "Risk inherent in the business operations.",
-        "ar": "Risk inherent in the business operations."
+        "de": "Risiko, das in den Geschäftsabläufen inhärent ist.",
+        "fr": "Risque inhérent aux opérations commerciales.",
+        "es": "Riesgo inherente en las operaciones del negocio.",
+        "ar": "المخاطر الكامنة في عمليات الأعمال."
       }
     },
     {
@@ -37,10 +37,10 @@
       "label_i18n": {
         "en": "Control Risk (%)",
         "tr": "Kontrol Riski (%)",
-        "de": "Control Risk (%)",
-        "fr": "Control Risk (%)",
-        "es": "Control Risk (%)",
-        "ar": "Control Risk (%)"
+        "de": "Kontrollrisiko (%)",
+        "fr": "Risque de contrôle (%)",
+        "es": "Riesgo de Control (%)",
+        "ar": "مخاطر الرقابة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -51,10 +51,10 @@
       "businessContext_i18n": {
         "en": "Risk that internal controls fail to prevent errors.",
         "tr": "İç kontrollerin hatayı önleyememe riski.",
-        "de": "Risk that internal controls fail to prevent errors.",
-        "fr": "Risk that internal controls fail to prevent errors.",
-        "es": "Risk that internal controls fail to prevent errors.",
-        "ar": "Risk that internal controls fail to prevent errors."
+        "de": "Risiko, dass interne Kontrollen Fehler nicht verhindern.",
+        "fr": "Risque que les contrôles internes ne parviennent pas à prévenir les erreurs.",
+        "es": "Riesgo de que los controles internos no prevengan errores.",
+        "ar": "المخاطر التي تفشل فيها الضوابط الداخلية في منع الأخطاء."
       }
     },
     {
@@ -63,10 +63,10 @@
       "label_i18n": {
         "en": "Detection Risk (%)",
         "tr": "Tespit Riski (%)",
-        "de": "Detection Risk (%)",
-        "fr": "Detection Risk (%)",
-        "es": "Detection Risk (%)",
-        "ar": "Detection Risk (%)"
+        "de": "Entdeckungsrisiko (%)",
+        "fr": "Risque de détection (%)",
+        "es": "Riesgo de Detección (%)",
+        "ar": "مخاطر الاكتشاف (%)"
       },
       "type": "number",
       "unit": "%",
@@ -77,10 +77,10 @@
       "businessContext_i18n": {
         "en": "Risk that the auditor fails to detect errors.",
         "tr": "Denetçinin hatayı bulamama riski.",
-        "de": "Risk that the auditor fails to detect errors.",
-        "fr": "Risk that the auditor fails to detect errors.",
-        "es": "Risk that the auditor fails to detect errors.",
-        "ar": "Risk that the auditor fails to detect errors."
+        "de": "Risiko, dass der Prüfer Fehler nicht erkennt.",
+        "fr": "Risque que l'auditeur ne parvienne pas à détecter les erreurs.",
+        "es": "Riesgo de que el auditor no detecte errores.",
+        "ar": "المخاطر التي يفشل فيها المراجع في اكتشاف الأخطاء."
       }
     }
   ],
@@ -103,10 +103,10 @@
       "sonuc": {
         "en": "Toplam Denetim Riski",
         "tr": "Toplam Denetim Riski",
-        "de": "Toplam Denetim Riski",
-        "fr": "Toplam Denetim Riski",
-        "es": "Toplam Denetim Riski",
-        "ar": "Toplam Denetim Riski"
+        "de": "Gesamtprüfungsrisiko",
+        "fr": "Risque d'audit total",
+        "es": "Riesgo Total de Auditoría",
+        "ar": "إجمالي مخاطر المراجعة"
       }
     },
     "breakdownUnits": {
@@ -128,18 +128,18 @@
       "short_i18n": {
         "en": "Calculate audit risk — the probability of not detecting material misstatement.",
         "tr": "Mali tabloda maddi hata bulunamama olasılığını (denetim riski) hesaplar.",
-        "de": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "fr": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "es": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "ar": "Calculate audit risk — the probability of not detecting material misstatement."
+        "de": "Prüfungsrisiko berechnen – die Wahrscheinlichkeit, wesentliche falsche Darstellungen nicht zu erkennen.",
+        "fr": "Calculer le risque d'audit — la probabilité de ne pas détecter une anomalie significative.",
+        "es": "Calcular el riesgo de auditoría: la probabilidad de no detectar una incorrección material.",
+        "ar": "حساب مخاطر المراجعة — احتمال عدم اكتشاف تحريف جوهري."
       },
       "long_i18n": {
         "en": "Calculate audit risk — the probability of not detecting material misstatement.",
         "tr": "Mali tabloda maddi hata bulunamama olasılığını (denetim riski) hesaplar.",
-        "de": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "fr": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "es": "Calculate audit risk — the probability of not detecting material misstatement.",
-        "ar": "Calculate audit risk — the probability of not detecting material misstatement."
+        "de": "Prüfungsrisiko berechnen – die Wahrscheinlichkeit, wesentliche falsche Darstellungen nicht zu erkennen.",
+        "fr": "Calculer le risque d'audit — la probabilité de ne pas détecter une anomalie significative.",
+        "es": "Calcular el riesgo de auditoría: la probabilidad de no detectar una incorrección material.",
+        "ar": "حساب مخاطر المراجعة — احتمال عدم اكتشاف تحريف جوهري."
       }
     }
   },

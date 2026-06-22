@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Property purchase price.",
         "tr": "Mülkün satın alma fiyatı.",
-        "de": "Property purchase price.",
-        "fr": "Property purchase price.",
-        "es": "Property purchase price.",
-        "ar": "Property purchase price."
+        "de": "Kaufpreis der Immobilie.",
+        "fr": "Prix d'achat de la propriété.",
+        "es": "Precio de compra de la propiedad.",
+        "ar": "سعر شراء العقار."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Rehab Cost (USD)",
         "tr": "Yenileme Maliyeti (₺)",
-        "de": "Rehab Cost (USD)",
-        "fr": "Rehab Cost (USD)",
-        "es": "Rehab Cost (USD)",
-        "ar": "Rehab Cost (USD)"
+        "de": "Sanierungskosten (USD)",
+        "fr": "Coût de rénovation (USD)",
+        "es": "Costo de Rehabilitación (USD)",
+        "ar": "تكلفة التجديد (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Renovation costs.",
         "tr": "Tadilat ve yenileme giderleri.",
-        "de": "Renovation costs.",
-        "fr": "Renovation costs.",
-        "es": "Renovation costs.",
-        "ar": "Renovation costs."
+        "de": "Renovierungskosten.",
+        "fr": "Coûts de rénovation.",
+        "es": "Costos de renovación.",
+        "ar": "تكاليف التجديد."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "After-Repair Value (USD)",
         "tr": "Yenilenmiş Değer (₺)",
-        "de": "After-Repair Value (USD)",
-        "fr": "After-Repair Value (USD)",
-        "es": "After-Repair Value (USD)",
-        "ar": "After-Repair Value (USD)"
+        "de": "Wert nach Reparatur (USD)",
+        "fr": "Valeur après réparation (USD)",
+        "es": "Valor posterior a la reparación (USD)",
+        "ar": "القيمة بعد الإصلاح (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Post-renovation property value.",
         "tr": "Tadilat sonrası mülk değeri.",
-        "de": "Post-renovation property value.",
-        "fr": "Post-renovation property value.",
-        "es": "Post-renovation property value.",
-        "ar": "Post-renovation property value."
+        "de": "Wert der Immobilie nach der Renovierung.",
+        "fr": "Valeur du bien après rénovation.",
+        "es": "Valor de la propiedad después de la renovación.",
+        "ar": "قيمة العقار بعد التجديد."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Refinance Loan (USD)",
         "tr": "Kredi Tutarı (₺)",
-        "de": "Refinance Loan (USD)",
-        "fr": "Refinance Loan (USD)",
-        "es": "Refinance Loan (USD)",
-        "ar": "Refinance Loan (USD)"
+        "de": "Refinanzierungsdarlehen (USD)",
+        "fr": "Prêt de refinancement (USD)",
+        "es": "Préstamo de refinanciamiento (USD)",
+        "ar": "قرض إعادة التمويل (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Cash-out refinance loan.",
         "tr": "Refinansman ile çekilen kredi.",
-        "de": "Cash-out refinance loan.",
-        "fr": "Cash-out refinance loan.",
-        "es": "Cash-out refinance loan.",
-        "ar": "Cash-out refinance loan."
+        "de": "Cash-out-Refinanzierungsdarlehen.",
+        "fr": "Prêt de refinancement avec sortie de fonds.",
+        "es": "Préstamo de refinanciamiento con retiro de efectivo.",
+        "ar": "قرض إعادة التمويل النقدي."
       }
     },
     {
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Monthly rental income.",
         "tr": "Aylık kira geliri.",
-        "de": "Monthly rental income.",
-        "fr": "Monthly rental income.",
-        "es": "Monthly rental income.",
-        "ar": "Monthly rental income."
+        "de": "Monatliche Mieteinnahmen.",
+        "fr": "Revenu locatif mensuel.",
+        "es": "Ingreso mensual por alquiler.",
+        "ar": "الدخل الإيجاري الشهري."
       }
     }
   ],
@@ -154,26 +154,26 @@
       "zorunluSermaye": {
         "en": "Sermaye (₺)",
         "tr": "Sermaye (₺)",
-        "de": "Sermaye (₺)",
-        "fr": "Sermaye (₺)",
-        "es": "Sermaye (₺)",
-        "ar": "Sermaye (₺)"
+        "de": "Capital (₺)",
+        "fr": "Capital (₺)",
+        "es": "Capital (₺)",
+        "ar": "رأس المال (₺)"
       },
       "coc": {
         "en": "Nakit Getiri (%)",
         "tr": "Nakit Getiri (%)",
-        "de": "Nakit Getiri (%)",
-        "fr": "Nakit Getiri (%)",
-        "es": "Nakit Getiri (%)",
-        "ar": "Nakit Getiri (%)"
+        "de": "Cash Yield (%)",
+        "fr": "Rendement en espèces (%)",
+        "es": "Rendimiento en Efectivo (%)",
+        "ar": "العائد النقدي (%)"
       },
       "sonuc": {
         "en": "Toplam Getiri (%)",
         "tr": "Toplam Getiri (%)",
-        "de": "Toplam Getiri (%)",
-        "fr": "Toplam Getiri (%)",
-        "es": "Toplam Getiri (%)",
-        "ar": "Toplam Getiri (%)"
+        "de": "Total Return (%)",
+        "fr": "Rendement total (%)",
+        "es": "Rendimiento Total (%)",
+        "ar": "العائد الإجمالي (%)"
       }
     },
     "breakdownUnits": {
@@ -197,18 +197,18 @@
       "short_i18n": {
         "en": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy.",
         "tr": "Al-Yenile-Kirala-Refinanse Et (BRRRR) modelinin sermaye getirisini hesaplar.",
-        "de": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy.",
-        "fr": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy.",
-        "es": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy.",
-        "ar": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy."
+        "de": "Berechnung des ROI der Buy-Rehab-Rent-Refinance-Repeat (BRRRR)-Strategie.",
+        "fr": "Calculer le ROI de la stratégie Acheter-Rénover-Louer-Refinancer-Répéter (BRRRR).",
+        "es": "Calcular el ROI de la estrategia Comprar-Rehabilitar-Alquilar-Refinanciar-Repetir (BRRRR).",
+        "ar": "حساب العائد على الاستثمار لاستراتيجية الشراء-التجديد-التأجير-إعادة التمويل-التكرار (BRRRR)."
       },
       "long_i18n": {
         "en": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy.",
         "tr": "Al-Yenile-Kirala-Refinanse Et (BRRRR) modelinin sermaye getirisini hesaplar.",
-        "de": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy.",
-        "fr": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy.",
-        "es": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy.",
-        "ar": "Calculate ROI of the Buy-Rehab-Rent-Refinance-Repeat (BRRRR) strategy."
+        "de": "Berechnung des ROI der Buy-Rehab-Rent-Refinance-Repeat (BRRRR)-Strategie.",
+        "fr": "Calculer le ROI de la stratégie Acheter-Rénover-Louer-Refinancer-Répéter (BRRRR).",
+        "es": "Calcular el ROI de la estrategia Comprar-Rehabilitar-Alquilar-Refinanciar-Repetir (BRRRR).",
+        "ar": "حساب العائد على الاستثمار لاستراتيجية الشراء-التجديد-التأجير-إعادة التمويل-التكرار (BRRRR)."
       }
     }
   },

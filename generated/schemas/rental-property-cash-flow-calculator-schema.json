@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Gross Monthly Rent (USD)",
         "tr": "Brüt Aylık Kira (₺)",
-        "de": "Gross Monthly Rent (USD)",
-        "fr": "Gross Monthly Rent (USD)",
-        "es": "Gross Monthly Rent (USD)",
-        "ar": "Gross Monthly Rent (USD)"
+        "de": "Bruttomonatsmiete (USD)",
+        "fr": "Loyer brut mensuel (USD)",
+        "es": "Alquiler Bruto Mensual (USD)",
+        "ar": "الإيجار الشهري الإجمالي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total monthly rental income.",
         "tr": "Toplam aylık kira geliri.",
-        "de": "Total monthly rental income.",
-        "fr": "Total monthly rental income.",
-        "es": "Total monthly rental income.",
-        "ar": "Total monthly rental income."
+        "de": "Gesamtes monatliches Mieteinkommen.",
+        "fr": "Revenu locatif mensuel total.",
+        "es": "Ingreso total mensual por alquiler.",
+        "ar": "إجمالي دخل الإيجار الشهري."
       }
     },
     {
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Annual vacancy percentage.",
         "tr": "Yıllık boş geçen süre oranı.",
-        "de": "Annual vacancy percentage.",
-        "fr": "Annual vacancy percentage.",
-        "es": "Annual vacancy percentage.",
-        "ar": "Annual vacancy percentage."
+        "de": "Jährliche Leerstandsquote.",
+        "fr": "Pourcentage de vacance annuelle.",
+        "es": "Porcentaje anual de desocupación.",
+        "ar": "نسبة الشغور السنوية."
       }
     },
     {
@@ -62,10 +62,10 @@
       "label_i18n": {
         "en": "Monthly Operating Cost (USD)",
         "tr": "Aylık İşletme Gideri (₺)",
-        "de": "Monthly Operating Cost (USD)",
-        "fr": "Monthly Operating Cost (USD)",
-        "es": "Monthly Operating Cost (USD)",
-        "ar": "Monthly Operating Cost (USD)"
+        "de": "Monatliche Betriebskosten (USD)",
+        "fr": "Coût d'exploitation mensuel (USD)",
+        "es": "Costo Operativo Mensual (USD)",
+        "ar": "تكلفة التشغيل الشهرية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -75,10 +75,10 @@
       "businessContext_i18n": {
         "en": "Taxes, insurance, maintenance.",
         "tr": "Vergi, sigorta, bakım giderleri.",
-        "de": "Taxes, insurance, maintenance.",
-        "fr": "Taxes, insurance, maintenance.",
-        "es": "Taxes, insurance, maintenance.",
-        "ar": "Taxes, insurance, maintenance."
+        "de": "Steuern, Versicherung, Instandhaltung.",
+        "fr": "Taxes, assurances, entretien.",
+        "es": "Impuestos, seguros, mantenimiento.",
+        "ar": "الضرائب والتأمين والصيانة."
       }
     },
     {
@@ -100,10 +100,10 @@
       "businessContext_i18n": {
         "en": "Monthly debt service.",
         "tr": "Kredinin aylık geri ödemesi.",
-        "de": "Monthly debt service.",
-        "fr": "Monthly debt service.",
-        "es": "Monthly debt service.",
-        "ar": "Monthly debt service."
+        "de": "Monatlicher Schuldendienst.",
+        "fr": "Service de la dette mensuel.",
+        "es": "Servicio de deuda mensual.",
+        "ar": "خدمة الدين الشهرية."
       }
     }
   ],
@@ -126,10 +126,10 @@
       "sonuc": {
         "en": "Aylık Net Nakit Akışı",
         "tr": "Aylık Net Nakit Akışı",
-        "de": "Aylık Net Nakit Akışı",
-        "fr": "Aylık Net Nakit Akışı",
-        "es": "Aylık Net Nakit Akışı",
-        "ar": "Aylık Net Nakit Akışı"
+        "de": "Monatlicher Netto-Cashflow",
+        "fr": "Flux de trésorerie net mensuel",
+        "es": "Flujo de Caja Neto Mensual",
+        "ar": "صافي التدفق النقدي الشهري"
       }
     },
     "breakdownUnits": {
@@ -151,18 +151,18 @@
       "short_i18n": {
         "en": "Calculate monthly net cash flow from rental property after all expenses.",
         "tr": "Tüm giderler ve kredi sonrası aylık net nakit akışını hesaplar.",
-        "de": "Calculate monthly net cash flow from rental property after all expenses.",
-        "fr": "Calculate monthly net cash flow from rental property after all expenses.",
-        "es": "Calculate monthly net cash flow from rental property after all expenses.",
-        "ar": "Calculate monthly net cash flow from rental property after all expenses."
+        "de": "Berechnung des monatlichen Netto-Cashflows aus Mietobjekten nach allen Ausgaben.",
+        "fr": "Calculer le flux de trésorerie net mensuel d'un bien locatif après toutes les dépenses.",
+        "es": "Calcular el flujo de caja neto mensual de una propiedad en alquiler después de todos los gastos.",
+        "ar": "احسب صافي التدفق النقدي الشهري من العقار المؤجر بعد جميع المصروفات."
       },
       "long_i18n": {
         "en": "Calculate monthly net cash flow from rental property after all expenses.",
         "tr": "Tüm giderler ve kredi sonrası aylık net nakit akışını hesaplar.",
-        "de": "Calculate monthly net cash flow from rental property after all expenses.",
-        "fr": "Calculate monthly net cash flow from rental property after all expenses.",
-        "es": "Calculate monthly net cash flow from rental property after all expenses.",
-        "ar": "Calculate monthly net cash flow from rental property after all expenses."
+        "de": "Berechnung des monatlichen Netto-Cashflows aus Mietobjekten nach allen Ausgaben.",
+        "fr": "Calculer le flux de trésorerie net mensuel d'un bien locatif après toutes les dépenses.",
+        "es": "Calcular el flujo de caja neto mensual de una propiedad en alquiler después de todos los gastos.",
+        "ar": "احسب صافي التدفق النقدي الشهري من العقار المؤجر بعد جميع المصروفات."
       }
     }
   },

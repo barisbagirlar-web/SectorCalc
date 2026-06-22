@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Statement Balance (USD)",
         "tr": "Dönem Borcu (₺)",
-        "de": "Statement Balance (USD)",
-        "fr": "Statement Balance (USD)",
-        "es": "Statement Balance (USD)",
-        "ar": "Statement Balance (USD)"
+        "de": "Kontostand (USD)",
+        "fr": "Solde du relevé (USD)",
+        "es": "Saldo del Estado de Cuenta (USD)",
+        "ar": "رصيد كشف الحساب (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Credit card statement balance.",
         "tr": "Kredi kartı ekstre borcu.",
-        "de": "Credit card statement balance.",
-        "fr": "Credit card statement balance.",
-        "es": "Credit card statement balance.",
-        "ar": "Credit card statement balance."
+        "de": "Kreditkarten-Abrechnungssaldo.",
+        "fr": "Solde du relevé de carte de crédit.",
+        "es": "Saldo del estado de cuenta de la tarjeta de crédito.",
+        "ar": "رصيد كشف حساب بطاقة الائتمان."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Annual credit card interest rate.",
         "tr": "Kredi kartı yıllık faiz oranı.",
-        "de": "Annual credit card interest rate.",
-        "fr": "Annual credit card interest rate.",
-        "es": "Annual credit card interest rate.",
-        "ar": "Annual credit card interest rate."
+        "de": "Jährlicher Kreditkartenzinssatz.",
+        "fr": "Taux d'intérêt annuel de la carte de crédit.",
+        "es": "Tasa de interés anual de la tarjeta de crédito.",
+        "ar": "معدل الفائدة السنوي لبطاقة الائتمان."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Days Overdue",
         "tr": "Gecikme Günü",
-        "de": "Days Overdue",
-        "fr": "Days Overdue",
-        "es": "Days Overdue",
-        "ar": "Days Overdue"
+        "de": "Überfällige Tage",
+        "fr": "Jours de retard",
+        "es": "Días de Vencimiento",
+        "ar": "أيام التأخير"
       },
       "type": "number",
       "unit": "days",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Number of days past due.",
         "tr": "Ödemesiz geçen gün sayısı.",
-        "de": "Number of days past due.",
-        "fr": "Number of days past due.",
-        "es": "Number of days past due.",
-        "ar": "Number of days past due."
+        "de": "Anzahl der überfälligen Tage.",
+        "fr": "Nombre de jours de retard.",
+        "es": "Número de días de retraso.",
+        "ar": "عدد الأيام المتأخرة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "İşlemiş Faiz",
         "tr": "İşlemiş Faiz",
-        "de": "İşlemiş Faiz",
-        "fr": "İşlemiş Faiz",
-        "es": "İşlemiş Faiz",
-        "ar": "İşlemiş Faiz"
+        "de": "Aufgelaufene Zinsen",
+        "fr": "Intérêts courus",
+        "es": "Interés Devengado",
+        "ar": "الفائدة المستحقة"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate daily credit card interest between statement and payment.",
         "tr": "Ekstre kesiminden ödeme gününe kadar işleyen günlük faizi hesaplar.",
-        "de": "Calculate daily credit card interest between statement and payment.",
-        "fr": "Calculate daily credit card interest between statement and payment.",
-        "es": "Calculate daily credit card interest between statement and payment.",
-        "ar": "Calculate daily credit card interest between statement and payment."
+        "de": "Tägliche Kreditkartenzinsen zwischen Abrechnung und Zahlung berechnen.",
+        "fr": "Calculer les intérêts quotidiens de la carte de crédit entre le relevé et le paiement.",
+        "es": "Calcular el interés diario de la tarjeta de crédito entre el estado de cuenta y el pago.",
+        "ar": "احسب الفائدة اليومية لبطاقة الائتمان بين كشف الحساب والدفع."
       },
       "long_i18n": {
         "en": "Calculate daily credit card interest between statement and payment.",
         "tr": "Ekstre kesiminden ödeme gününe kadar işleyen günlük faizi hesaplar.",
-        "de": "Calculate daily credit card interest between statement and payment.",
-        "fr": "Calculate daily credit card interest between statement and payment.",
-        "es": "Calculate daily credit card interest between statement and payment.",
-        "ar": "Calculate daily credit card interest between statement and payment."
+        "de": "Tägliche Kreditkartenzinsen zwischen Abrechnung und Zahlung berechnen.",
+        "fr": "Calculer les intérêts quotidiens de la carte de crédit entre le relevé et le paiement.",
+        "es": "Calcular el interés diario de la tarjeta de crédito entre el estado de cuenta y el pago.",
+        "ar": "احسب الفائدة اليومية لبطاقة الائتمان بين كشف الحساب والدفع."
       }
     }
   },

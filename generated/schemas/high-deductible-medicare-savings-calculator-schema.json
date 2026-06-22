@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Low Premium Plan (USD)",
         "tr": "Düşük Primli Plan (TL)",
-        "de": "Low Premium Plan (USD)",
-        "fr": "Low Premium Plan (USD)",
-        "es": "Low Premium Plan (USD)",
-        "ar": "Low Premium Plan (USD)"
+        "de": "Niedrigprämienplan (USD)",
+        "fr": "Régime à prime faible (USD)",
+        "es": "Plan de prima baja (USD)",
+        "ar": "خطة القسط المنخفض (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Standard plan monthly premium.",
         "tr": "Standart plan aylık primi.",
-        "de": "Standard plan monthly premium.",
-        "fr": "Standard plan monthly premium.",
-        "es": "Standard plan monthly premium.",
-        "ar": "Standard plan monthly premium."
+        "de": "Monatliche Prämie des Standardplans.",
+        "fr": "Prime mensuelle du régime standard.",
+        "es": "Prima mensual del plan estándar.",
+        "ar": "القسط الشهري للخطة القياسية."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "High Premium Plan (USD)",
         "tr": "Yüksek Primli Plan (TL)",
-        "de": "High Premium Plan (USD)",
-        "fr": "High Premium Plan (USD)",
-        "es": "High Premium Plan (USD)",
-        "ar": "High Premium Plan (USD)"
+        "de": "Hochprämienplan (USD)",
+        "fr": "Régime à prime élevée (USD)",
+        "es": "Plan de prima alta (USD)",
+        "ar": "خطة القسط المرتفع (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Comprehensive plan premium.",
         "tr": "Kapsamlı plan aylık primi.",
-        "de": "Comprehensive plan premium.",
-        "fr": "Comprehensive plan premium.",
-        "es": "Comprehensive plan premium.",
-        "ar": "Comprehensive plan premium."
+        "de": "Prämie des umfassenden Plans.",
+        "fr": "Prime du régime complet.",
+        "es": "Prima del plan integral.",
+        "ar": "قسط الخطة الشاملة."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Deductible Difference (USD)",
         "tr": "Muafiyet Farkı (TL)",
-        "de": "Deductible Difference (USD)",
-        "fr": "Deductible Difference (USD)",
-        "es": "Deductible Difference (USD)",
-        "ar": "Deductible Difference (USD)"
+        "de": "Selbstbehaltsdifferenz (USD)",
+        "fr": "Différence de franchise (USD)",
+        "es": "Diferencia de deducible (USD)",
+        "ar": "فرق الخصم (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Deductible gap between plans.",
         "tr": "İki plan arasındaki muafiyet farkı.",
-        "de": "Deductible gap between plans.",
-        "fr": "Deductible gap between plans.",
-        "es": "Deductible gap between plans.",
-        "ar": "Deductible gap between plans."
+        "de": "Selbstbehaltslücke zwischen den Plänen.",
+        "fr": "Écart de franchise entre les régimes.",
+        "es": "Brecha de deducible entre planes.",
+        "ar": "الفجوة في الخصم بين الخطط."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Yıllık Net Tasarruf",
         "tr": "Yıllık Net Tasarruf",
-        "de": "Yıllık Net Tasarruf",
-        "fr": "Yıllık Net Tasarruf",
-        "es": "Yıllık Net Tasarruf",
-        "ar": "Yıllık Net Tasarruf"
+        "de": "Jährliche Nettoeinsparung",
+        "fr": "Économies nettes annuelles",
+        "es": "Ahorro Neto Anual",
+        "ar": "التوفير السنوي الصافي"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate annual savings from choosing a high-deductible Medicare plan.",
         "tr": "Yüksek muafiyetli plan seçmenin yıllık net avantajını hesaplar.",
-        "de": "Calculate annual savings from choosing a high-deductible Medicare plan.",
-        "fr": "Calculate annual savings from choosing a high-deductible Medicare plan.",
-        "es": "Calculate annual savings from choosing a high-deductible Medicare plan.",
-        "ar": "Calculate annual savings from choosing a high-deductible Medicare plan."
+        "de": "Berechnen Sie die jährlichen Einsparungen durch die Wahl eines Medicare-Plans mit hohem Selbstbehalt.",
+        "fr": "Calculer les économies annuelles en choisissant un régime Medicare à franchise élevée.",
+        "es": "Calcular el ahorro anual al elegir un plan Medicare de deducible alto.",
+        "ar": "احسب المدخرات السنوية من اختيار خطة ميديكير ذات الخصم العالي."
       },
       "long_i18n": {
         "en": "Calculate annual savings from choosing a high-deductible Medicare plan.",
         "tr": "Yüksek muafiyetli plan seçmenin yıllık net avantajını hesaplar.",
-        "de": "Calculate annual savings from choosing a high-deductible Medicare plan.",
-        "fr": "Calculate annual savings from choosing a high-deductible Medicare plan.",
-        "es": "Calculate annual savings from choosing a high-deductible Medicare plan.",
-        "ar": "Calculate annual savings from choosing a high-deductible Medicare plan."
+        "de": "Berechnen Sie die jährlichen Einsparungen durch die Wahl eines Medicare-Plans mit hohem Selbstbehalt.",
+        "fr": "Calculer les économies annuelles en choisissant un régime Medicare à franchise élevée.",
+        "es": "Calcular el ahorro anual al elegir un plan Medicare de deducible alto.",
+        "ar": "احسب المدخرات السنوية من اختيار خطة ميديكير ذات الخصم العالي."
       }
     }
   },

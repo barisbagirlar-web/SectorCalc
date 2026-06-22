@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Room Perimeter (m)",
         "tr": "Oda Çevresi (m)",
-        "de": "Room Perimeter (m)",
-        "fr": "Room Perimeter (m)",
-        "es": "Room Perimeter (m)",
-        "ar": "Room Perimeter (m)"
+        "de": "Raumumfang (m)",
+        "fr": "Périmètre de la pièce (m)",
+        "es": "Perímetro de la Habitación (m)",
+        "ar": "محيط الغرفة (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total room perimeter.",
         "tr": "Odanın toplam çevre uzunluğu.",
-        "de": "Total room perimeter.",
-        "fr": "Total room perimeter.",
-        "es": "Total room perimeter.",
-        "ar": "Total room perimeter."
+        "de": "Gesamtraumumfang.",
+        "fr": "Périmètre total de la pièce.",
+        "es": "Perímetro total de la habitación.",
+        "ar": "إجمالي محيط الغرفة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Door Width (m)",
         "tr": "Kapı Genişliği (m)",
-        "de": "Door Width (m)",
-        "fr": "Door Width (m)",
-        "es": "Door Width (m)",
-        "ar": "Door Width (m)"
+        "de": "Türbreite (m)",
+        "fr": "Largeur de porte (m)",
+        "es": "Ancho de Puerta (m)",
+        "ar": "عرض الباب (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Standard door width.",
         "tr": "Standart kapı genişliği.",
-        "de": "Standard door width.",
-        "fr": "Standard door width.",
-        "es": "Standard door width.",
-        "ar": "Standard door width."
+        "de": "Standardtürbreite.",
+        "fr": "Largeur standard de porte.",
+        "es": "Ancho estándar de puerta.",
+        "ar": "عرض الباب القياسي."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Number of Doors",
         "tr": "Kapı Sayısı",
-        "de": "Number of Doors",
-        "fr": "Number of Doors",
-        "es": "Number of Doors",
-        "ar": "Number of Doors"
+        "de": "Anzahl der Türen",
+        "fr": "Nombre de portes",
+        "es": "Número de Puertas",
+        "ar": "عدد الأبواب"
       },
       "type": "number",
       "unit": "doors",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Number of doors.",
         "tr": "Odadaki kapı sayısı.",
-        "de": "Number of doors.",
-        "fr": "Number of doors.",
-        "es": "Number of doors.",
-        "ar": "Number of doors."
+        "de": "Anzahl der Türen.",
+        "fr": "Nombre de portes.",
+        "es": "Número de puertas.",
+        "ar": "عدد الأبواب."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Gerekli Süpürgelik",
         "tr": "Gerekli Süpürgelik",
-        "de": "Gerekli Süpürgelik",
-        "fr": "Gerekli Süpürgelik",
-        "es": "Gerekli Süpürgelik",
-        "ar": "Gerekli Süpürgelik"
+        "de": "Erforderliche Fußleiste",
+        "fr": "Plinthe nécessaire",
+        "es": "Zócalo Requerido",
+        "ar": "اللوح الأساسي المطلوب"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate baseboard length needed excluding door openings.",
         "tr": "Duvar dibine döşenecek net süpürgelik metreajını hesaplar.",
-        "de": "Calculate baseboard length needed excluding door openings.",
-        "fr": "Calculate baseboard length needed excluding door openings.",
-        "es": "Calculate baseboard length needed excluding door openings.",
-        "ar": "Calculate baseboard length needed excluding door openings."
+        "de": "Erforderliche Sockelleistenlänge ohne Türöffnungen berechnen.",
+        "fr": "Calculer la longueur de plinthe nécessaire en excluant les ouvertures de portes.",
+        "es": "Calcular la longitud de rodapié necesaria excluyendo las aberturas de puertas.",
+        "ar": "حساب طول اللوح الأساسي المطلوب باستثناء فتحات الأبواب."
       },
       "long_i18n": {
         "en": "Calculate baseboard length needed excluding door openings.",
         "tr": "Duvar dibine döşenecek net süpürgelik metreajını hesaplar.",
-        "de": "Calculate baseboard length needed excluding door openings.",
-        "fr": "Calculate baseboard length needed excluding door openings.",
-        "es": "Calculate baseboard length needed excluding door openings.",
-        "ar": "Calculate baseboard length needed excluding door openings."
+        "de": "Erforderliche Sockelleistenlänge ohne Türöffnungen berechnen.",
+        "fr": "Calculer la longueur de plinthe nécessaire en excluant les ouvertures de portes.",
+        "es": "Calcular la longitud de rodapié necesaria excluyendo las aberturas de puertas.",
+        "ar": "حساب طول اللوح الأساسي المطلوب باستثناء فتحات الأبواب."
       }
     }
   },

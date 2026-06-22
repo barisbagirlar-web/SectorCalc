@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Sale price of relinquished property.",
         "tr": "Eski mülkün satış fiyatı.",
-        "de": "Sale price of relinquished property.",
-        "fr": "Sale price of relinquished property.",
-        "es": "Sale price of relinquished property.",
-        "ar": "Sale price of relinquished property."
+        "de": "Verkaufspreis der aufgegebenen Immobilie.",
+        "fr": "Prix de vente du bien cédé.",
+        "es": "Precio de venta de la propiedad cedida.",
+        "ar": "سعر بيع العقار المتنازل عنه."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Remaining Debt (USD)",
         "tr": "Kalan Borç (₺)",
-        "de": "Remaining Debt (USD)",
-        "fr": "Remaining Debt (USD)",
-        "es": "Remaining Debt (USD)",
-        "ar": "Remaining Debt (USD)"
+        "de": "Restverschuldung (USD)",
+        "fr": "Dette restante (USD)",
+        "es": "Deuda restante (USD)",
+        "ar": "الدين المتبقي (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Remaining mortgage balance.",
         "tr": "Satılan mülkün kalan ipotek borcu.",
-        "de": "Remaining mortgage balance.",
-        "fr": "Remaining mortgage balance.",
-        "es": "Remaining mortgage balance.",
-        "ar": "Remaining mortgage balance."
+        "de": "Resthypothekensaldo.",
+        "fr": "Solde hypothécaire restant.",
+        "es": "Saldo restante de la hipoteca.",
+        "ar": "رصيد الرهن العقاري المتبقي."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "New Investment (USD)",
         "tr": "Yeni Yatırım (₺)",
-        "de": "New Investment (USD)",
-        "fr": "New Investment (USD)",
-        "es": "New Investment (USD)",
-        "ar": "New Investment (USD)"
+        "de": "Neuinvestition (USD)",
+        "fr": "Nouvel investissement (USD)",
+        "es": "Nueva inversión (USD)",
+        "ar": "الاستثمار الجديد (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total cost of replacement property.",
         "tr": "Yeni mülkün toplam maliyeti.",
-        "de": "Total cost of replacement property.",
-        "fr": "Total cost of replacement property.",
-        "es": "Total cost of replacement property.",
-        "ar": "Total cost of replacement property."
+        "de": "Gesamtkosten der Ersatzimmobilie.",
+        "fr": "Coût total du bien de remplacement.",
+        "es": "Costo total de la propiedad de reemplazo.",
+        "ar": "التكلفة الإجمالية للعقار البديل."
       }
     }
   ],
@@ -102,18 +102,18 @@
       "sonuc": {
         "en": "Vergiye Tabi Tutar",
         "tr": "Vergiye Tabi Tutar",
-        "de": "Vergiye Tabi Tutar",
-        "fr": "Vergiye Tabi Tutar",
-        "es": "Vergiye Tabi Tutar",
-        "ar": "Vergiye Tabi Tutar"
+        "de": "Steuerpflichtiger Betrag",
+        "fr": "Montant imposable",
+        "es": "Monto sujeto a impuestos",
+        "ar": "المبلغ الخاضع للضريبة"
       },
       "nakitCikis": {
         "en": "Toplam Nakit Çıkış",
         "tr": "Toplam Nakit Çıkış",
-        "de": "Toplam Nakit Çıkış",
-        "fr": "Toplam Nakit Çıkış",
-        "es": "Toplam Nakit Çıkış",
-        "ar": "Toplam Nakit Çıkış"
+        "de": "Gesamter Mittelabfluss",
+        "fr": "Sortie de trésorerie totale",
+        "es": "Salida total de efectivo",
+        "ar": "إجمالي التدفق النقدي الخارج"
       }
     },
     "breakdownUnits": {
@@ -136,18 +136,18 @@
       "short_i18n": {
         "en": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
         "tr": "Gayrimenkul satışında 1031 takasında vergiye tabi nakit çıkışını hesaplar.",
-        "de": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
-        "fr": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
-        "es": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
-        "ar": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate."
+        "de": "Berechnen Sie den steuerpflichtigen Barauszahlungsbetrag bei einem 1031-Artgleichtausch für Immobilien.",
+        "fr": "Calculer le montant imposable en espèces dans un échange de biens similaires 1031 pour l'immobilier.",
+        "es": "Calcular el monto de efectivo sujeto a impuestos en un intercambio de bienes raíces de tipo similar 1031.",
+        "ar": "احسب مبلغ التدفق النقدي الخاضع للضريبة في تبادل مماثل 1031 للعقارات."
       },
       "long_i18n": {
         "en": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
         "tr": "Gayrimenkul satışında 1031 takasında vergiye tabi nakit çıkışını hesaplar.",
-        "de": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
-        "fr": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
-        "es": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
-        "ar": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate."
+        "de": "Berechnen Sie den steuerpflichtigen Barauszahlungsbetrag bei einem 1031-Artgleichtausch für Immobilien.",
+        "fr": "Calculer le montant imposable en espèces dans un échange de biens similaires 1031 pour l'immobilier.",
+        "es": "Calcular el monto de efectivo sujeto a impuestos en un intercambio de bienes raíces de tipo similar 1031.",
+        "ar": "احسب مبلغ التدفق النقدي الخاضع للضريبة في تبادل مماثل 1031 للعقارات."
       }
     }
   },

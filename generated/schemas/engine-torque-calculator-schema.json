@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Engine output power.",
         "tr": "Motorun ürettiği güç.",
-        "de": "Engine output power.",
-        "fr": "Engine output power.",
-        "es": "Engine output power.",
-        "ar": "Engine output power."
+        "de": "Motorausgangsleistung.",
+        "fr": "Puissance de sortie du moteur.",
+        "es": "Potencia de salida del motor.",
+        "ar": "قدرة خرج المحرك."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Engine Speed (RPM)",
         "tr": "Motor Devri (devir/dk)",
-        "de": "Engine Speed (RPM)",
-        "fr": "Engine Speed (RPM)",
-        "es": "Engine Speed (RPM)",
-        "ar": "Engine Speed (RPM)"
+        "de": "Motordrehzahl (RPM)",
+        "fr": "Régime moteur (RPM)",
+        "es": "Velocidad del Motor (RPM)",
+        "ar": "سرعة المحرك (RPM)"
       },
       "type": "number",
       "unit": "rpm",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Crankshaft speed.",
         "tr": "Krank mili devri.",
-        "de": "Crankshaft speed.",
-        "fr": "Crankshaft speed.",
-        "es": "Crankshaft speed.",
-        "ar": "Crankshaft speed."
+        "de": "Kurbelwellendrehzahl.",
+        "fr": "Vitesse du vilebrequin.",
+        "es": "Velocidad del cigüeñal.",
+        "ar": "سرعة العمود المرفقي."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Motor Torku",
         "tr": "Motor Torku",
-        "de": "Motor Torku",
-        "fr": "Motor Torku",
-        "es": "Motor Torku",
-        "ar": "Motor Torku"
+        "de": "Motordrehmoment",
+        "fr": "Couple moteur",
+        "es": "Par Motor",
+        "ar": "عزم المحرك"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate engine torque at a given power and RPM.",
         "tr": "Motorun belirli bir devirde ürettiği döndürme momentini (tork) hesaplar.",
-        "de": "Calculate engine torque at a given power and RPM.",
-        "fr": "Calculate engine torque at a given power and RPM.",
-        "es": "Calculate engine torque at a given power and RPM.",
-        "ar": "Calculate engine torque at a given power and RPM."
+        "de": "Berechnen Sie das Motordrehmoment bei gegebener Leistung und Drehzahl.",
+        "fr": "Calculer le couple moteur à une puissance et un régime donnés.",
+        "es": "Calcular el par motor a una potencia y RPM dadas.",
+        "ar": "حساب عزم المحرك عند قدرة وسرعة دوران معينة."
       },
       "long_i18n": {
         "en": "Calculate engine torque at a given power and RPM.",
         "tr": "Motorun belirli bir devirde ürettiği döndürme momentini (tork) hesaplar.",
-        "de": "Calculate engine torque at a given power and RPM.",
-        "fr": "Calculate engine torque at a given power and RPM.",
-        "es": "Calculate engine torque at a given power and RPM.",
-        "ar": "Calculate engine torque at a given power and RPM."
+        "de": "Berechnen Sie das Motordrehmoment bei gegebener Leistung und Drehzahl.",
+        "fr": "Calculer le couple moteur à une puissance et un régime donnés.",
+        "es": "Calcular el par motor a una potencia y RPM dadas.",
+        "ar": "حساب عزم المحرك عند قدرة وسرعة دوران معينة."
       }
     }
   },

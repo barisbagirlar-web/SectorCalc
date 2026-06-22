@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Contract entry price.",
         "tr": "Kontratın açılış fiyatı.",
-        "de": "Contract entry price.",
-        "fr": "Contract entry price.",
-        "es": "Contract entry price.",
-        "ar": "Contract entry price."
+        "de": "Einstiegspreis des Kontrakts.",
+        "fr": "Prix d'entrée du contrat.",
+        "es": "Precio de entrada del contrato.",
+        "ar": "سعر دخول العقد."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Contract exit price.",
         "tr": "Kontratın kapanış fiyatı.",
-        "de": "Contract exit price.",
-        "fr": "Contract exit price.",
-        "es": "Contract exit price.",
-        "ar": "Contract exit price."
+        "de": "Ausstiegspreis des Kontrakts.",
+        "fr": "Prix de sortie du contrat.",
+        "es": "Precio de salida del contrato.",
+        "ar": "سعر خروج العقد."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Contract Multiplier",
         "tr": "Kontrat Çarpanı",
-        "de": "Contract Multiplier",
-        "fr": "Contract Multiplier",
-        "es": "Contract Multiplier",
-        "ar": "Contract Multiplier"
+        "de": "Kontraktmultiplikator",
+        "fr": "Multiplicateur du contrat",
+        "es": "Multiplicador del contrato",
+        "ar": "مضاعف العقد"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Contract size multiplier.",
         "tr": "Kontratın büyüklük çarpanı.",
-        "de": "Contract size multiplier.",
-        "fr": "Contract size multiplier.",
-        "es": "Contract size multiplier.",
-        "ar": "Contract size multiplier."
+        "de": "Multiplikator der Kontraktgröße.",
+        "fr": "Multiplicateur de taille du contrat.",
+        "es": "Multiplicador del tamaño del contrato.",
+        "ar": "مضاعف حجم العقد."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Number of contracts traded.",
         "tr": "İşlem miktarı.",
-        "de": "Number of contracts traded.",
-        "fr": "Number of contracts traded.",
-        "es": "Number of contracts traded.",
-        "ar": "Number of contracts traded."
+        "de": "Anzahl der gehandelten Kontrakte.",
+        "fr": "Nombre de contrats négociés.",
+        "es": "Número de contratos negociados.",
+        "ar": "عدد العقود المتداولة."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Kâr / Zarar",
         "tr": "Kâr / Zarar",
-        "de": "Kâr / Zarar",
-        "fr": "Kâr / Zarar",
-        "es": "Kâr / Zarar",
-        "ar": "Kâr / Zarar"
+        "de": "Gewinn / Verlust",
+        "fr": "Profit / Loss",
+        "es": "Ganancia / Pérdida",
+        "ar": "ربح / خسارة"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate profit/loss from futures contract price movement.",
         "tr": "Vadeli kontratın fiyat hareketinden doğan nakit kâr/zararını hesaplar.",
-        "de": "Calculate profit/loss from futures contract price movement.",
-        "fr": "Calculate profit/loss from futures contract price movement.",
-        "es": "Calculate profit/loss from futures contract price movement.",
-        "ar": "Calculate profit/loss from futures contract price movement."
+        "de": "Berechnen Sie Gewinn/Verlust aus der Preisbewegung eines Futures-Kontrakts.",
+        "fr": "Calculer le profit/perte d'un contrat à terme à partir du mouvement de prix.",
+        "es": "Calcular ganancia/pérdida del movimiento del precio de un contrato de futuros.",
+        "ar": "حساب الربح/الخسارة من حركة سعر عقد مستقبلي."
       },
       "long_i18n": {
         "en": "Calculate profit/loss from futures contract price movement.",
         "tr": "Vadeli kontratın fiyat hareketinden doğan nakit kâr/zararını hesaplar.",
-        "de": "Calculate profit/loss from futures contract price movement.",
-        "fr": "Calculate profit/loss from futures contract price movement.",
-        "es": "Calculate profit/loss from futures contract price movement.",
-        "ar": "Calculate profit/loss from futures contract price movement."
+        "de": "Berechnen Sie Gewinn/Verlust aus der Preisbewegung eines Futures-Kontrakts.",
+        "fr": "Calculer le profit/perte d'un contrat à terme à partir du mouvement de prix.",
+        "es": "Calcular ganancia/pérdida del movimiento del precio de un contrato de futuros.",
+        "ar": "حساب الربح/الخسارة من حركة سعر عقد مستقبلي."
       }
     }
   },

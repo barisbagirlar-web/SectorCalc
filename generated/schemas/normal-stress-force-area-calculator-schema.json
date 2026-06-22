@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Axial Force (N)",
         "tr": "Eksenel Kuvvet (N)",
-        "de": "Axial Force (N)",
-        "fr": "Axial Force (N)",
-        "es": "Axial Force (N)",
-        "ar": "Axial Force (N)"
+        "de": "Axialkraft (N)",
+        "fr": "Force axiale (N)",
+        "es": "Fuerza Axial (N)",
+        "ar": "القوة المحورية (N)"
       },
       "type": "number",
       "unit": "N",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Force perpendicular to section.",
         "tr": "Kesite dik etkiyen kuvvet.",
-        "de": "Force perpendicular to section.",
-        "fr": "Force perpendicular to section.",
-        "es": "Force perpendicular to section.",
-        "ar": "Force perpendicular to section."
+        "de": "Kraft senkrecht zum Querschnitt.",
+        "fr": "Force perpendiculaire à la section.",
+        "es": "Fuerza perpendicular a la sección.",
+        "ar": "القوة العمودية على المقطع."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Area over which force acts.",
         "tr": "Kuvvetin etki ettiği alan.",
-        "de": "Area over which force acts.",
-        "fr": "Area over which force acts.",
-        "es": "Area over which force acts.",
-        "ar": "Area over which force acts."
+        "de": "Fläche, auf die die Kraft wirkt.",
+        "fr": "Surface sur laquelle la force agit.",
+        "es": "Área sobre la que actúa la fuerza.",
+        "ar": "المساحة التي تؤثر عليها القوة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Normal Gerilme (σ)",
         "tr": "Normal Gerilme (σ)",
-        "de": "Normal Gerilme (σ)",
-        "fr": "Normal Gerilme (σ)",
-        "es": "Normal Gerilme (σ)",
-        "ar": "Normal Gerilme (σ)"
+        "de": "Normalspannung (σ)",
+        "fr": "Contrainte normale (σ)",
+        "es": "Esfuerzo normal (σ)",
+        "ar": "الإجهاد الطبيعي (σ)"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate normal stress as force divided by cross-sectional area.",
         "tr": "Birim alana etkiyen iç kuvvet yoğunluğunu (gerilme/Stress) hesaplar.",
-        "de": "Calculate normal stress as force divided by cross-sectional area.",
-        "fr": "Calculate normal stress as force divided by cross-sectional area.",
-        "es": "Calculate normal stress as force divided by cross-sectional area.",
-        "ar": "Calculate normal stress as force divided by cross-sectional area."
+        "de": "Normalspannung als Kraft geteilt durch Querschnittsfläche berechnen.",
+        "fr": "Calculer la contrainte normale comme la force divisée par la section transversale.",
+        "es": "Calcular el esfuerzo normal como fuerza dividida por el área de la sección transversal.",
+        "ar": "احسب الإجهاد الطبيعي كقوة مقسومة على مساحة المقطع العرضي."
       },
       "long_i18n": {
         "en": "Calculate normal stress as force divided by cross-sectional area.",
         "tr": "Birim alana etkiyen iç kuvvet yoğunluğunu (gerilme/Stress) hesaplar.",
-        "de": "Calculate normal stress as force divided by cross-sectional area.",
-        "fr": "Calculate normal stress as force divided by cross-sectional area.",
-        "es": "Calculate normal stress as force divided by cross-sectional area.",
-        "ar": "Calculate normal stress as force divided by cross-sectional area."
+        "de": "Normalspannung als Kraft geteilt durch Querschnittsfläche berechnen.",
+        "fr": "Calculer la contrainte normale comme la force divisée par la section transversale.",
+        "es": "Calcular el esfuerzo normal como fuerza dividida por el área de la sección transversal.",
+        "ar": "احسب الإجهاد الطبيعي كقوة مقسومة على مساحة المقطع العرضي."
       }
     }
   },

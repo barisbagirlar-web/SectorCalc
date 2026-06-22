@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Torque on shaft.",
         "tr": "Mile etkiyen tork.",
-        "de": "Torque on shaft.",
-        "fr": "Torque on shaft.",
-        "es": "Torque on shaft.",
-        "ar": "Torque on shaft."
+        "de": "Drehmoment auf der Welle.",
+        "fr": "Couple sur l'arbre.",
+        "es": "Par en el eje.",
+        "ar": "عزم الالتواء على العمود."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Section Radius (m)",
         "tr": "Kesit Yarıçapı (m)",
-        "de": "Section Radius (m)",
-        "fr": "Section Radius (m)",
-        "es": "Section Radius (m)",
-        "ar": "Section Radius (m)"
+        "de": "Querschnittsradius (m)",
+        "fr": "Rayon de la section (m)",
+        "es": "Radio de la sección (m)",
+        "ar": "نصف قطر المقطع (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Shaft outer radius.",
         "tr": "Milin dış yarıçapı.",
-        "de": "Shaft outer radius.",
-        "fr": "Shaft outer radius.",
-        "es": "Shaft outer radius.",
-        "ar": "Shaft outer radius."
+        "de": "Außenradius der Welle.",
+        "fr": "Rayon extérieur de l'arbre.",
+        "es": "Radio exterior del eje.",
+        "ar": "نصف القطر الخارجي للعمود."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Polar Moment of Inertia (m⁴)",
         "tr": "Kutupsal Atalet Momenti (m⁴)",
-        "de": "Polar Moment of Inertia (m⁴)",
-        "fr": "Polar Moment of Inertia (m⁴)",
-        "es": "Polar Moment of Inertia (m⁴)",
-        "ar": "Polar Moment of Inertia (m⁴)"
+        "de": "Polares Flächenträgheitsmoment (m⁴)",
+        "fr": "Moment d'inertie polaire (m⁴)",
+        "es": "Momento polar de inercia (m⁴)",
+        "ar": "عزم القصور الذاتي القطبي (m⁴)"
       },
       "type": "number",
       "unit": "m4",
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Maks. Kayma Gerilmesi (τ)",
         "tr": "Maks. Kayma Gerilmesi (τ)",
-        "de": "Maks. Kayma Gerilmesi (τ)",
-        "fr": "Maks. Kayma Gerilmesi (τ)",
-        "es": "Maks. Kayma Gerilmesi (τ)",
-        "ar": "Maks. Kayma Gerilmesi (τ)"
+        "de": "Max. Schubspannung (τ)",
+        "fr": "Contrainte de cisaillement max. (τ)",
+        "es": "Esfuerzo cortante máximo (τ)",
+        "ar": "أقصى إجهاد قص (τ)"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate maximum torsional shear stress in a circular section.",
         "tr": "Dairesel kesitteki maksimum burulma (torsiyonel) kayma gerilmesini hesaplar.",
-        "de": "Calculate maximum torsional shear stress in a circular section.",
-        "fr": "Calculate maximum torsional shear stress in a circular section.",
-        "es": "Calculate maximum torsional shear stress in a circular section.",
-        "ar": "Calculate maximum torsional shear stress in a circular section."
+        "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisförmigen Querschnitt.",
+        "fr": "Calculer la contrainte de cisaillement de torsion maximale dans une section circulaire.",
+        "es": "Calcular el esfuerzo cortante torsional máximo en una sección circular.",
+        "ar": "احسب أقصى إجهاد قص الالتوائي في مقطع دائري."
       },
       "long_i18n": {
         "en": "Calculate maximum torsional shear stress in a circular section.",
         "tr": "Dairesel kesitteki maksimum burulma (torsiyonel) kayma gerilmesini hesaplar.",
-        "de": "Calculate maximum torsional shear stress in a circular section.",
-        "fr": "Calculate maximum torsional shear stress in a circular section.",
-        "es": "Calculate maximum torsional shear stress in a circular section.",
-        "ar": "Calculate maximum torsional shear stress in a circular section."
+        "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisförmigen Querschnitt.",
+        "fr": "Calculer la contrainte de cisaillement de torsion maximale dans une section circulaire.",
+        "es": "Calcular el esfuerzo cortante torsional máximo en una sección circular.",
+        "ar": "احسب أقصى إجهاد قص الالتوائي في مقطع دائري."
       }
     }
   },

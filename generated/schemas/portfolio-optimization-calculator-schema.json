@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Target portfolio return expectation.",
         "tr": "Portföyün hedef getiri beklentisi.",
-        "de": "Target portfolio return expectation.",
-        "fr": "Target portfolio return expectation.",
-        "es": "Target portfolio return expectation.",
-        "ar": "Target portfolio return expectation."
+        "de": "Erwartete Portfoliorendite.",
+        "fr": "Espérance de rendement du portefeuille cible.",
+        "es": "Expectativa de rendimiento objetivo de la cartera.",
+        "ar": "توقع العائد المستهدف للمحفظة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Expected Risk (%)",
         "tr": "Beklenen Risk (%)",
-        "de": "Expected Risk (%)",
-        "fr": "Expected Risk (%)",
-        "es": "Expected Risk (%)",
-        "ar": "Expected Risk (%)"
+        "de": "Erwartetes Risiko (%)",
+        "fr": "Risque attendu (%)",
+        "es": "Riesgo Esperado (%)",
+        "ar": "المخاطرة المتوقعة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Estimated portfolio risk/volatility.",
         "tr": "Portföyün tahmini volatilitesi.",
-        "de": "Estimated portfolio risk/volatility.",
-        "fr": "Estimated portfolio risk/volatility.",
-        "es": "Estimated portfolio risk/volatility.",
-        "ar": "Estimated portfolio risk/volatility."
+        "de": "Geschätztes Portfoliorisiko/Volatilität.",
+        "fr": "Risque/volatilité estimé du portefeuille.",
+        "es": "Riesgo/volatilidad estimada de la cartera.",
+        "ar": "المخاطرة/التقلب المقدر للمحفظة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Getiri/Risk Oranı",
         "tr": "Getiri/Risk Oranı",
-        "de": "Getiri/Risk Oranı",
-        "fr": "Getiri/Risk Oranı",
-        "es": "Getiri/Risk Oranı",
-        "ar": "Getiri/Risk Oranı"
+        "de": "Rendite/Risiko-Verhältnis",
+        "fr": "Ratio rendement/risque",
+        "es": "Relación Retorno/Riesgo",
+        "ar": "نسبة العائد إلى المخاطرة"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Simple portfolio optimization along the efficient frontier.",
         "tr": "Verimli sınır üzerinde basit portföy optimizasyonu yapar.",
-        "de": "Simple portfolio optimization along the efficient frontier.",
-        "fr": "Simple portfolio optimization along the efficient frontier.",
-        "es": "Simple portfolio optimization along the efficient frontier.",
-        "ar": "Simple portfolio optimization along the efficient frontier."
+        "de": "Einfache Portfoliooptimierung entlang der Effizienzgrenze.",
+        "fr": "Optimisation simple de portefeuille le long de la frontière efficiente.",
+        "es": "Optimización simple de cartera a lo largo de la frontera eficiente.",
+        "ar": "تحسين بسيط للمحفظة على طول الحدود الفعالة."
       },
       "long_i18n": {
         "en": "Simple portfolio optimization along the efficient frontier.",
         "tr": "Verimli sınır üzerinde basit portföy optimizasyonu yapar.",
-        "de": "Simple portfolio optimization along the efficient frontier.",
-        "fr": "Simple portfolio optimization along the efficient frontier.",
-        "es": "Simple portfolio optimization along the efficient frontier.",
-        "ar": "Simple portfolio optimization along the efficient frontier."
+        "de": "Einfache Portfoliooptimierung entlang der Effizienzgrenze.",
+        "fr": "Optimisation simple de portefeuille le long de la frontière efficiente.",
+        "es": "Optimización simple de cartera a lo largo de la frontera eficiente.",
+        "ar": "تحسين بسيط للمحفظة على طول الحدود الفعالة."
       }
     }
   },

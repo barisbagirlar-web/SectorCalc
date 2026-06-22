@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Average part wall thickness.",
         "tr": "Parçanın ortalama et kalınlığı.",
-        "de": "Average part wall thickness.",
-        "fr": "Average part wall thickness.",
-        "es": "Average part wall thickness.",
-        "ar": "Average part wall thickness."
+        "de": "Durchschnittliche Wanddicke des Teils.",
+        "fr": "Épaisseur moyenne de la paroi de la pièce.",
+        "es": "Espesor promedio de la pared de la pieza.",
+        "ar": "متوسط سمك جدار الجزء."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Thermal Diffusivity (mm²/s)",
         "tr": "Termal Difüzyon (mm²/s)",
-        "de": "Thermal Diffusivity (mm²/s)",
-        "fr": "Thermal Diffusivity (mm²/s)",
-        "es": "Thermal Diffusivity (mm²/s)",
-        "ar": "Thermal Diffusivity (mm²/s)"
+        "de": "Temperaturleitfähigkeit (mm²/s)",
+        "fr": "Diffusivité thermique (mm²/s)",
+        "es": "Difusividad Térmica (mm²/s)",
+        "ar": "الانتشارية الحرارية (mm²/s)"
       },
       "type": "number",
       "unit": "mm2/s",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Polymer thermal diffusivity.",
         "tr": "Polimerin termal difüzyonu.",
-        "de": "Polymer thermal diffusivity.",
-        "fr": "Polymer thermal diffusivity.",
-        "es": "Polymer thermal diffusivity.",
-        "ar": "Polymer thermal diffusivity."
+        "de": "Temperaturleitfähigkeit des Polymers.",
+        "fr": "Diffusivité thermique du polymère.",
+        "es": "Difusividad térmica del polímero.",
+        "ar": "الانتشارية الحرارية للبوليمر."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Melt Temperature (°C)",
         "tr": "Erime Sıcaklığı (°C)",
-        "de": "Melt Temperature (°C)",
-        "fr": "Melt Temperature (°C)",
-        "es": "Melt Temperature (°C)",
-        "ar": "Melt Temperature (°C)"
+        "de": "Schmelztemperatur (°C)",
+        "fr": "Température de fusion (°C)",
+        "es": "Temperatura de Fusión (°C)",
+        "ar": "درجة حرارة الذوبان (°C)"
       },
       "type": "number",
       "unit": "°C",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Melt temperature.",
         "tr": "Polimerin ergime sıcaklığı.",
-        "de": "Melt temperature.",
-        "fr": "Melt temperature.",
-        "es": "Melt temperature.",
-        "ar": "Melt temperature."
+        "de": "Schmelztemperatur.",
+        "fr": "Température de fusion.",
+        "es": "Temperatura de fusión.",
+        "ar": "درجة حرارة الذوبان."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Mold Temperature (°C)",
         "tr": "Kalıp Sıcaklığı (°C)",
-        "de": "Mold Temperature (°C)",
-        "fr": "Mold Temperature (°C)",
-        "es": "Mold Temperature (°C)",
-        "ar": "Mold Temperature (°C)"
+        "de": "Werkzeugtemperatur (°C)",
+        "fr": "Température du moule (°C)",
+        "es": "Temperatura del Molde (°C)",
+        "ar": "درجة حرارة القالب (°C)"
       },
       "type": "number",
       "unit": "°C",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Mold surface temperature.",
         "tr": "Kalıp yüzey sıcaklığı.",
-        "de": "Mold surface temperature.",
-        "fr": "Mold surface temperature.",
-        "es": "Mold surface temperature.",
-        "ar": "Mold surface temperature."
+        "de": "Werkzeugoberflächentemperatur.",
+        "fr": "Température de surface du moule.",
+        "es": "Temperatura de la superficie del molde.",
+        "ar": "درجة حرارة سطح القالب."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Soğutma Süresi",
         "tr": "Soğutma Süresi",
-        "de": "Soğutma Süresi",
-        "fr": "Soğutma Süresi",
-        "es": "Soğutma Süresi",
-        "ar": "Soğutma Süresi"
+        "de": "Kühlzeit",
+        "fr": "Temps de refroidissement",
+        "es": "Tiempo de Enfriamiento",
+        "ar": "وقت التبريد"
       }
     },
     "breakdownUnits": {
@@ -152,18 +152,18 @@
       "short_i18n": {
         "en": "Calculate cooling time for plastic part to reach ejection temperature.",
         "tr": "Parçanın kalıptan çıkarılabilir sıcaklığa inme süresini hesaplar.",
-        "de": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "fr": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "es": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "ar": "Calculate cooling time for plastic part to reach ejection temperature."
+        "de": "Berechnen Sie die Kühlzeit für ein Kunststoffteil bis zur Entformungstemperatur.",
+        "fr": "Calculer le temps de refroidissement d'une pièce en plastique pour atteindre la température d'éjection.",
+        "es": "Calcular el tiempo de enfriamiento para que una pieza de plástico alcance la temperatura de expulsión.",
+        "ar": "حساب وقت التبريد للجزء البلاستيكي للوصول إلى درجة حرارة القذف."
       },
       "long_i18n": {
         "en": "Calculate cooling time for plastic part to reach ejection temperature.",
         "tr": "Parçanın kalıptan çıkarılabilir sıcaklığa inme süresini hesaplar.",
-        "de": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "fr": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "es": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "ar": "Calculate cooling time for plastic part to reach ejection temperature."
+        "de": "Berechnen Sie die Kühlzeit für ein Kunststoffteil bis zur Entformungstemperatur.",
+        "fr": "Calculer le temps de refroidissement d'une pièce en plastique pour atteindre la température d'éjection.",
+        "es": "Calcular el tiempo de enfriamiento para que una pieza de plástico alcance la temperatura de expulsión.",
+        "ar": "حساب وقت التبريد للجزء البلاستيكي للوصول إلى درجة حرارة القذف."
       }
     }
   },

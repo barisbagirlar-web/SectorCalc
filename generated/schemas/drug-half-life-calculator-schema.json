@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Half-Life (Hours)",
         "tr": "Yarılanma Ömrü (Saat)",
-        "de": "Half-Life (Hours)",
-        "fr": "Half-Life (Hours)",
-        "es": "Half-Life (Hours)",
-        "ar": "Half-Life (Hours)"
+        "de": "Halbwertszeit (Stunden)",
+        "fr": "Demi-Vie (Heures)",
+        "es": "Vida Media (Horas)",
+        "ar": "نصف العمر (ساعات)"
       },
       "type": "number",
       "unit": "h",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Drug elimination half-life.",
         "tr": "İlacın vücuttan yarılanma süresi.",
-        "de": "Drug elimination half-life.",
-        "fr": "Drug elimination half-life.",
-        "es": "Drug elimination half-life.",
-        "ar": "Drug elimination half-life."
+        "de": "Arzneimittel-Eliminationshalbwertszeit.",
+        "fr": "Demi-vie d'élimination du médicament.",
+        "es": "Vida media de eliminación del fármaco.",
+        "ar": "نصف عمر التخلص من الدواء."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Dosing Interval (Hours)",
         "tr": "Doz Aralığı (Saat)",
-        "de": "Dosing Interval (Hours)",
-        "fr": "Dosing Interval (Hours)",
-        "es": "Dosing Interval (Hours)",
-        "ar": "Dosing Interval (Hours)"
+        "de": "Dosierungsintervall (Stunden)",
+        "fr": "Intervalle de Dosage (Heures)",
+        "es": "Intervalo de Dosificación (Horas)",
+        "ar": "فترة الجرعات (ساعات)"
       },
       "type": "number",
       "unit": "h",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Time between doses.",
         "tr": "İlaç alma sıklığı.",
-        "de": "Time between doses.",
-        "fr": "Time between doses.",
-        "es": "Time between doses.",
-        "ar": "Time between doses."
+        "de": "Zeit zwischen den Dosen.",
+        "fr": "Temps entre les doses.",
+        "es": "Tiempo entre dosis.",
+        "ar": "الوقت بين الجرعات."
       }
     }
   ],
@@ -76,10 +76,10 @@
       "sonuc": {
         "en": "Birikim Faktörü",
         "tr": "Birikim Faktörü",
-        "de": "Birikim Faktörü",
-        "fr": "Birikim Faktörü",
-        "es": "Birikim Faktörü",
-        "ar": "Birikim Faktörü"
+        "de": "Akkumulationsfaktor",
+        "fr": "Facteur d'Accumulation",
+        "es": "Factor de Acumulación",
+        "ar": "عامل التراكم"
       }
     },
     "breakdownUnits": {
@@ -104,18 +104,18 @@
       "short_i18n": {
         "en": "Calculate drug accumulation factor based on half-life and dosing interval.",
         "tr": "Kararlı durumda ilacın vücutta birikim faktörünü yarılanma ömrüne göre hesaplar.",
-        "de": "Calculate drug accumulation factor based on half-life and dosing interval.",
-        "fr": "Calculate drug accumulation factor based on half-life and dosing interval.",
-        "es": "Calculate drug accumulation factor based on half-life and dosing interval.",
-        "ar": "Calculate drug accumulation factor based on half-life and dosing interval."
+        "de": "Berechnen Sie den Arzneimittelakkumulationsfaktor basierend auf Halbwertszeit und Dosierungsintervall.",
+        "fr": "Calculez le facteur d'accumulation du médicament en fonction de la demi-vie et de l'intervalle de dosage.",
+        "es": "Calcular el factor de acumulación del fármaco basado en la vida media y el intervalo de dosificación.",
+        "ar": "احسب عامل تراكم الدواء بناءً على نصف العمر وفترة الجرعات."
       },
       "long_i18n": {
         "en": "Calculate drug accumulation factor based on half-life and dosing interval.",
         "tr": "Kararlı durumda ilacın vücutta birikim faktörünü yarılanma ömrüne göre hesaplar.",
-        "de": "Calculate drug accumulation factor based on half-life and dosing interval.",
-        "fr": "Calculate drug accumulation factor based on half-life and dosing interval.",
-        "es": "Calculate drug accumulation factor based on half-life and dosing interval.",
-        "ar": "Calculate drug accumulation factor based on half-life and dosing interval."
+        "de": "Berechnen Sie den Arzneimittelakkumulationsfaktor basierend auf Halbwertszeit und Dosierungsintervall.",
+        "fr": "Calculez le facteur d'accumulation du médicament en fonction de la demi-vie et de l'intervalle de dosage.",
+        "es": "Calcular el factor de acumulación del fármaco basado en la vida media y el intervalo de dosificación.",
+        "ar": "احسب عامل تراكم الدواء بناءً على نصف العمر وفترة الجرعات."
       }
     }
   },

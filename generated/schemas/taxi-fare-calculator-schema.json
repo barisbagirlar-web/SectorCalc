@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Base Fare (USD)",
         "tr": "Açılış Ücreti (TL)",
-        "de": "Base Fare (USD)",
-        "fr": "Base Fare (USD)",
-        "es": "Base Fare (USD)",
-        "ar": "Base Fare (USD)"
+        "de": "Grundtarif (USD)",
+        "fr": "Tarif de base (USD)",
+        "es": "Tarifa Base (USD)",
+        "ar": "الأجرة الأساسية (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Flag-fall charge.",
         "tr": "Taksimetre açılış ücreti.",
-        "de": "Flag-fall charge.",
-        "fr": "Flag-fall charge.",
-        "es": "Flag-fall charge.",
-        "ar": "Flag-fall charge."
+        "de": "Grundgebühr.",
+        "fr": "Frais de prise en charge.",
+        "es": "Cargo por bajada de bandera.",
+        "ar": "رسوم البدء."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Per km Rate (USD)",
         "tr": "Km Başı Ücret (TL)",
-        "de": "Per km Rate (USD)",
-        "fr": "Per km Rate (USD)",
-        "es": "Per km Rate (USD)",
-        "ar": "Per km Rate (USD)"
+        "de": "Preis pro km (USD)",
+        "fr": "Tarif par km (USD)",
+        "es": "Tarifa por km (USD)",
+        "ar": "السعر لكل كيلومتر (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Charge per km.",
         "tr": "Her km için ücret.",
-        "de": "Charge per km.",
-        "fr": "Charge per km.",
-        "es": "Charge per km.",
-        "ar": "Charge per km."
+        "de": "Gebühr pro km.",
+        "fr": "Frais par km.",
+        "es": "Cargo por km.",
+        "ar": "الرسوم لكل كيلومتر."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Per Minute Rate (USD)",
         "tr": "Dakika Başı Ücret (TL)",
-        "de": "Per Minute Rate (USD)",
-        "fr": "Per Minute Rate (USD)",
-        "es": "Per Minute Rate (USD)",
-        "ar": "Per Minute Rate (USD)"
+        "de": "Preis pro Minute (USD)",
+        "fr": "Tarif par minute (USD)",
+        "es": "Tarifa por minuto (USD)",
+        "ar": "السعر لكل دقيقة (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Waiting or slow traffic rate.",
         "tr": "Bekleme veya yavaş trafik ücreti.",
-        "de": "Waiting or slow traffic rate.",
-        "fr": "Waiting or slow traffic rate.",
-        "es": "Waiting or slow traffic rate.",
-        "ar": "Waiting or slow traffic rate."
+        "de": "Warte- oder Staugebühr.",
+        "fr": "Tarif d'attente ou de circulation lente.",
+        "es": "Tarifa por espera o tráfico lento.",
+        "ar": "معدل الانتظار أو حركة المرور البطيئة."
       }
     },
     {
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Trip distance.",
         "tr": "Yolculuk mesafesi.",
-        "de": "Trip distance.",
-        "fr": "Trip distance.",
-        "es": "Trip distance.",
-        "ar": "Trip distance."
+        "de": "Fahrtstrecke.",
+        "fr": "Distance du trajet.",
+        "es": "Distancia del viaje.",
+        "ar": "مسافة الرحلة."
       }
     },
     {
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Estimated trip duration.",
         "tr": "Tahmini yolculuk süresi.",
-        "de": "Estimated trip duration.",
-        "fr": "Estimated trip duration.",
-        "es": "Estimated trip duration.",
-        "ar": "Estimated trip duration."
+        "de": "Geschätzte Fahrtdauer.",
+        "fr": "Durée estimée du trajet.",
+        "es": "Duración estimada del viaje.",
+        "ar": "المدة المقدرة للرحلة."
       }
     }
   ],
@@ -150,10 +150,10 @@
       "sonuc": {
         "en": "Tahmini Yolculuk Ücreti",
         "tr": "Tahmini Yolculuk Ücreti",
-        "de": "Tahmini Yolculuk Ücreti",
-        "fr": "Tahmini Yolculuk Ücreti",
-        "es": "Tahmini Yolculuk Ücreti",
-        "ar": "Tahmini Yolculuk Ücreti"
+        "de": "Geschätzte Fahrkosten",
+        "fr": "Frais de voyage estimés",
+        "es": "Tarifa Estimada del Viaje",
+        "ar": "أجرة الرحلة المقدرة"
       }
     },
     "breakdownUnits": {
@@ -175,18 +175,18 @@
       "short_i18n": {
         "en": "Calculate estimated taxi/Uber fare based on distance and time.",
         "tr": "Mesafe ve süreye bağlı tahmini taksi/Über yolculuk maliyetini hesaplar.",
-        "de": "Calculate estimated taxi/Uber fare based on distance and time.",
-        "fr": "Calculate estimated taxi/Uber fare based on distance and time.",
-        "es": "Calculate estimated taxi/Uber fare based on distance and time.",
-        "ar": "Calculate estimated taxi/Uber fare based on distance and time."
+        "de": "Berechnen Sie den geschätzten Taxi-/Uber-Fahrpreis basierend auf Entfernung und Zeit.",
+        "fr": "Calculer le tarif estimé d'un taxi/Uber en fonction de la distance et du temps.",
+        "es": "Calcular la tarifa estimada de taxi/Uber basada en la distancia y el tiempo.",
+        "ar": "احسب الأجرة المقدرة لسيارة الأجرة/أوبر بناءً على المسافة والوقت."
       },
       "long_i18n": {
         "en": "Calculate estimated taxi/Uber fare based on distance and time.",
         "tr": "Mesafe ve süreye bağlı tahmini taksi/Über yolculuk maliyetini hesaplar.",
-        "de": "Calculate estimated taxi/Uber fare based on distance and time.",
-        "fr": "Calculate estimated taxi/Uber fare based on distance and time.",
-        "es": "Calculate estimated taxi/Uber fare based on distance and time.",
-        "ar": "Calculate estimated taxi/Uber fare based on distance and time."
+        "de": "Berechnen Sie den geschätzten Taxi-/Uber-Fahrpreis basierend auf Entfernung und Zeit.",
+        "fr": "Calculer le tarif estimé d'un taxi/Uber en fonction de la distance et du temps.",
+        "es": "Calcular la tarifa estimada de taxi/Uber basada en la distancia y el tiempo.",
+        "ar": "احسب الأجرة المقدرة لسيارة الأجرة/أوبر بناءً على المسافة والوقت."
       }
     }
   },

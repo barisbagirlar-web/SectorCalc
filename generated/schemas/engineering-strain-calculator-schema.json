@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Original Length (m)",
         "tr": "İlk Boy (m)",
-        "de": "Original Length (m)",
-        "fr": "Original Length (m)",
-        "es": "Original Length (m)",
-        "ar": "Original Length (m)"
+        "de": "Ursprüngliche Länge (m)",
+        "fr": "Longueur originale (m)",
+        "es": "Longitud Original (m)",
+        "ar": "الطول الأصلي (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Original dimension.",
         "tr": "Malzemenin ilk boyutu.",
-        "de": "Original dimension.",
-        "fr": "Original dimension.",
-        "es": "Original dimension.",
-        "ar": "Original dimension."
+        "de": "Ursprüngliche Abmessung.",
+        "fr": "Dimension originale.",
+        "es": "Dimensión original.",
+        "ar": "البعد الأصلي."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Final Length (m)",
         "tr": "Son Boy (m)",
-        "de": "Final Length (m)",
-        "fr": "Final Length (m)",
-        "es": "Final Length (m)",
-        "ar": "Final Length (m)"
+        "de": "Endlänge (m)",
+        "fr": "Longueur finale (m)",
+        "es": "Longitud Final (m)",
+        "ar": "الطول النهائي (m)"
       },
       "type": "number",
       "unit": "m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Dimension after loading.",
         "tr": "Yükleme sonrası boyut.",
-        "de": "Dimension after loading.",
-        "fr": "Dimension after loading.",
-        "es": "Dimension after loading.",
-        "ar": "Dimension after loading."
+        "de": "Abmessung nach Belastung.",
+        "fr": "Dimension après chargement.",
+        "es": "Dimensión después de la carga.",
+        "ar": "البعد بعد التحميل."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Birim Şekil Değiştirme (ε)",
         "tr": "Birim Şekil Değiştirme (ε)",
-        "de": "Birim Şekil Değiştirme (ε)",
-        "fr": "Birim Şekil Değiştirme (ε)",
-        "es": "Birim Şekil Değiştirme (ε)",
-        "ar": "Birim Şekil Değiştirme (ε)"
+        "de": "Dehnung (ε)",
+        "fr": "Déformation (ε)",
+        "es": "Deformación Unitaria (ε)",
+        "ar": "الانفعال الهندسي (ε)"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate engineering strain as change in length divided by original length.",
         "tr": "Malzemenin boyundaki oransal uzama/kısalma miktarını (birim şekil değiştirme) hesaplar.",
-        "de": "Calculate engineering strain as change in length divided by original length.",
-        "fr": "Calculate engineering strain as change in length divided by original length.",
-        "es": "Calculate engineering strain as change in length divided by original length.",
-        "ar": "Calculate engineering strain as change in length divided by original length."
+        "de": "Berechnen Sie die technische Dehnung als Längenänderung geteilt durch die ursprüngliche Länge.",
+        "fr": "Calculer la déformation technique comme le changement de longueur divisé par la longueur originale.",
+        "es": "Calcular la deformación unitaria ingenieril como el cambio de longitud dividido por la longitud original.",
+        "ar": "حساب الانفعال الهندسي كتغير في الطول مقسومًا على الطول الأصلي."
       },
       "long_i18n": {
         "en": "Calculate engineering strain as change in length divided by original length.",
         "tr": "Malzemenin boyundaki oransal uzama/kısalma miktarını (birim şekil değiştirme) hesaplar.",
-        "de": "Calculate engineering strain as change in length divided by original length.",
-        "fr": "Calculate engineering strain as change in length divided by original length.",
-        "es": "Calculate engineering strain as change in length divided by original length.",
-        "ar": "Calculate engineering strain as change in length divided by original length."
+        "de": "Berechnen Sie die technische Dehnung als Längenänderung geteilt durch die ursprüngliche Länge.",
+        "fr": "Calculer la déformation technique comme le changement de longueur divisé par la longueur originale.",
+        "es": "Calcular la deformación unitaria ingenieril como el cambio de longitud dividido por la longitud original.",
+        "ar": "حساب الانفعال الهندسي كتغير في الطول مقسومًا على الطول الأصلي."
       }
     }
   },

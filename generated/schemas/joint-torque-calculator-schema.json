@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Inertia about joint.",
         "tr": "Eklem etrafındaki atalet.",
-        "de": "Inertia about joint.",
-        "fr": "Inertia about joint.",
-        "es": "Inertia about joint.",
-        "ar": "Inertia about joint."
+        "de": "Trägheit um das Gelenk.",
+        "fr": "Inertie autour de l'articulation.",
+        "es": "Inercia respecto a la articulación.",
+        "ar": "عزم القصور الذاتي حول المفصل."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Angular Acceleration (rad/s²)",
         "tr": "Açısal İvme (rad/s²)",
-        "de": "Angular Acceleration (rad/s²)",
-        "fr": "Angular Acceleration (rad/s²)",
-        "es": "Angular Acceleration (rad/s²)",
-        "ar": "Angular Acceleration (rad/s²)"
+        "de": "Winkelbeschleunigung (rad/s²)",
+        "fr": "Accélération angulaire (rad/s²)",
+        "es": "Aceleración Angular (rad/s²)",
+        "ar": "التسارع الزاوي (rad/s²)"
       },
       "type": "number",
       "unit": "rad/s2",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Target angular acceleration.",
         "tr": "Hedef açısal ivme.",
-        "de": "Target angular acceleration.",
-        "fr": "Target angular acceleration.",
-        "es": "Target angular acceleration.",
-        "ar": "Target angular acceleration."
+        "de": "Zielwinkelbeschleunigung.",
+        "fr": "Accélération angulaire cible.",
+        "es": "Aceleración angular objetivo.",
+        "ar": "التسارع الزاوي المستهدف."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Eylem Torku",
         "tr": "Eylem Torku",
-        "de": "Eylem Torku",
-        "fr": "Eylem Torku",
-        "es": "Eylem Torku",
-        "ar": "Eylem Torku"
+        "de": "Betätigungsdrehmoment",
+        "fr": "Action Torque",
+        "es": "Par de Acción",
+        "ar": "عزم الدوران الفعال"
       }
     },
     "breakdownUnits": {
@@ -103,18 +103,18 @@
       "short_i18n": {
         "en": "Calculate joint torque from moment of inertia and angular acceleration.",
         "tr": "Bir robot ekleminin etrafında üretilen net döndürme momentini (tork) hesaplar.",
-        "de": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "fr": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "es": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "ar": "Calculate joint torque from moment of inertia and angular acceleration."
+        "de": "Berechnen Sie das Gelenkmoment aus Trägheitsmoment und Winkelbeschleunigung.",
+        "fr": "Calculer le couple articulaire à partir du moment d'inertie et de l'accélération angulaire.",
+        "es": "Calcular el torque en la articulación a partir del momento de inercia y la aceleración angular.",
+        "ar": "حساب عزم الدوران المشترك من عزم القصور الذاتي والتسارع الزاوي."
       },
       "long_i18n": {
         "en": "Calculate joint torque from moment of inertia and angular acceleration.",
         "tr": "Bir robot ekleminin etrafında üretilen net döndürme momentini (tork) hesaplar.",
-        "de": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "fr": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "es": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "ar": "Calculate joint torque from moment of inertia and angular acceleration."
+        "de": "Berechnen Sie das Gelenkmoment aus Trägheitsmoment und Winkelbeschleunigung.",
+        "fr": "Calculer le couple articulaire à partir du moment d'inertie et de l'accélération angulaire.",
+        "es": "Calcular el torque en la articulación a partir del momento de inercia y la aceleración angular.",
+        "ar": "حساب عزم الدوران المشترك من عزم القصور الذاتي والتسارع الزاوي."
       }
     }
   },

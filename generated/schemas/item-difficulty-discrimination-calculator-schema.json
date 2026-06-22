@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Correct Answers",
         "tr": "Doğru Cevap Sayısı",
-        "de": "Correct Answers",
-        "fr": "Correct Answers",
-        "es": "Correct Answers",
-        "ar": "Correct Answers"
+        "de": "Richtige Antworten",
+        "fr": "Réponses correctes",
+        "es": "Respuestas Correctas",
+        "ar": "الإجابات الصحيحة"
       },
       "type": "number",
       "unit": "students",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Students answering correctly.",
         "tr": "Soruyu doğru cevaplayan öğrenci.",
-        "de": "Students answering correctly.",
-        "fr": "Students answering correctly.",
-        "es": "Students answering correctly.",
-        "ar": "Students answering correctly."
+        "de": "Anzahl der Schüler mit richtiger Antwort.",
+        "fr": "Étudiants répondant correctement.",
+        "es": "Estudiantes que responden correctamente.",
+        "ar": "الطلاب الذين أجابوا بشكل صحيح."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Total Students",
         "tr": "Toplam Öğrenci Sayısı",
-        "de": "Total Students",
-        "fr": "Total Students",
-        "es": "Total Students",
-        "ar": "Total Students"
+        "de": "Gesamtschülerzahl",
+        "fr": "Nombre total d'étudiants",
+        "es": "Total de Estudiantes",
+        "ar": "إجمالي الطلاب"
       },
       "type": "number",
       "unit": "students",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Total test takers.",
         "tr": "Sınava giren toplam öğrenci.",
-        "de": "Total test takers.",
-        "fr": "Total test takers.",
-        "es": "Total test takers.",
-        "ar": "Total test takers."
+        "de": "Gesamtzahl der Testteilnehmer.",
+        "fr": "Nombre total de participants au test.",
+        "es": "Total de examinados.",
+        "ar": "إجمالي المتقدمين للاختبار."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Upper Group Correct",
         "tr": "Üst Grupta Doğru",
-        "de": "Upper Group Correct",
-        "fr": "Upper Group Correct",
-        "es": "Upper Group Correct",
-        "ar": "Upper Group Correct"
+        "de": "Richtige Antworten der oberen Gruppe",
+        "fr": "Groupe supérieur correct",
+        "es": "Grupo Superior Correcto",
+        "ar": "إجابات المجموعة العليا الصحيحة"
       },
       "type": "number",
       "unit": "students",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Top 27% correct count.",
         "tr": "En başarılı %27'nin doğru sayısı.",
-        "de": "Top 27% correct count.",
-        "fr": "Top 27% correct count.",
-        "es": "Top 27% correct count.",
-        "ar": "Top 27% correct count."
+        "de": "Anzahl der richtigen Antworten der oberen 27%.",
+        "fr": "Nombre de réponses correctes des 27 % supérieurs.",
+        "es": "Conteo correcto del 27% superior.",
+        "ar": "عدد الإجابات الصحيحة لأفضل 27%."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Lower Group Correct",
         "tr": "Alt Grupta Doğru",
-        "de": "Lower Group Correct",
-        "fr": "Lower Group Correct",
-        "es": "Lower Group Correct",
-        "ar": "Lower Group Correct"
+        "de": "Richtige Antworten der unteren Gruppe",
+        "fr": "Groupe inférieur correct",
+        "es": "Grupo Inferior Correcto",
+        "ar": "إجابات المجموعة الدنيا الصحيحة"
       },
       "type": "number",
       "unit": "students",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Bottom 27% correct count.",
         "tr": "En düşük %27'nin doğru sayısı.",
-        "de": "Bottom 27% correct count.",
-        "fr": "Bottom 27% correct count.",
-        "es": "Bottom 27% correct count.",
-        "ar": "Bottom 27% correct count."
+        "de": "Anzahl der richtigen Antworten der unteren 27%.",
+        "fr": "Nombre de réponses correctes des 27 % inférieurs.",
+        "es": "Conteo correcto del 27% inferior.",
+        "ar": "عدد الإجابات الصحيحة لأدنى 27%."
       }
     },
     {
@@ -124,10 +124,10 @@
       "businessContext_i18n": {
         "en": "Each group's student count.",
         "tr": "Her grubun öğrenci sayısı.",
-        "de": "Each group's student count.",
-        "fr": "Each group's student count.",
-        "es": "Each group's student count.",
-        "ar": "Each group's student count."
+        "de": "Schülerzahl jeder Gruppe.",
+        "fr": "Nombre d'étudiants par groupe.",
+        "es": "Número de estudiantes por grupo.",
+        "ar": "عدد الطلاب في كل مجموعة."
       }
     }
   ],
@@ -152,18 +152,18 @@
       "p": {
         "en": "Madde Güçlüğü (p)",
         "tr": "Madde Güçlüğü (p)",
-        "de": "Madde Güçlüğü (p)",
-        "fr": "Madde Güçlüğü (p)",
-        "es": "Madde Güçlüğü (p)",
-        "ar": "Madde Güçlüğü (p)"
+        "de": "Itemschwierigkeit (p)",
+        "fr": "Item Difficulty (p)",
+        "es": "Dificultad del Ítem (p)",
+        "ar": "صعوبة الفقرة (p)"
       },
       "sonuc": {
         "en": "Ayırt Edicilik (r)",
         "tr": "Ayırt Edicilik (r)",
-        "de": "Ayırt Edicilik (r)",
-        "fr": "Ayırt Edicilik (r)",
-        "es": "Ayırt Edicilik (r)",
-        "ar": "Ayırt Edicilik (r)"
+        "de": "Trennschärfe (r)",
+        "fr": "Discrimination (r)",
+        "es": "Discriminación (r)",
+        "ar": "التمييز (r)"
       }
     },
     "breakdownUnits": {
@@ -189,18 +189,18 @@
       "short_i18n": {
         "en": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
         "tr": "Test sorusunun zorluk (p) ve ayırt edicilik (r) değerlerini hesaplar.",
-        "de": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
-        "fr": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
-        "es": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
-        "ar": "Calculate item difficulty (p) and discrimination index (r) for test questions."
+        "de": "Berechnen Sie die Aufgabenschwierigkeit (p) und den Trennschärfeindex (r) für Testfragen.",
+        "fr": "Calculer la difficulté de l'item (p) et l'indice de discrimination (r) pour les questions de test.",
+        "es": "Calcular la dificultad del ítem (p) y el índice de discriminación (r) para preguntas de examen.",
+        "ar": "حساب صعوبة الفقرة (p) ومؤشر التمييز (r) لأسئلة الاختبار."
       },
       "long_i18n": {
         "en": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
         "tr": "Test sorusunun zorluk (p) ve ayırt edicilik (r) değerlerini hesaplar.",
-        "de": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
-        "fr": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
-        "es": "Calculate item difficulty (p) and discrimination index (r) for test questions.",
-        "ar": "Calculate item difficulty (p) and discrimination index (r) for test questions."
+        "de": "Berechnen Sie die Aufgabenschwierigkeit (p) und den Trennschärfeindex (r) für Testfragen.",
+        "fr": "Calculer la difficulté de l'item (p) et l'indice de discrimination (r) pour les questions de test.",
+        "es": "Calcular la dificultad del ítem (p) y el índice de discriminación (r) para preguntas de examen.",
+        "ar": "حساب صعوبة الفقرة (p) ومؤشر التمييز (r) لأسئلة الاختبار."
       }
     }
   },

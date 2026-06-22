@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Bobbin Weight (g)",
         "tr": "Bobin Ağırlığı (g)",
-        "de": "Bobbin Weight (g)",
-        "fr": "Bobbin Weight (g)",
-        "es": "Bobbin Weight (g)",
-        "ar": "Bobbin Weight (g)"
+        "de": "Spulengewicht (g)",
+        "fr": "Poids de la bobine (g)",
+        "es": "Peso de la Bobina (g)",
+        "ar": "وزن البكرة (g)"
       },
       "type": "number",
       "unit": "g",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Bobbin weight.",
         "tr": "Bobinin ağırlığı.",
-        "de": "Bobbin weight.",
-        "fr": "Bobbin weight.",
-        "es": "Bobbin weight.",
-        "ar": "Bobbin weight."
+        "de": "Spulengewicht.",
+        "fr": "Poids de la bobine.",
+        "es": "Peso de la bobina.",
+        "ar": "وزن البكرة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Yarn Count (Nm)",
         "tr": "İplik Numarası (Nm)",
-        "de": "Yarn Count (Nm)",
-        "fr": "Yarn Count (Nm)",
-        "es": "Yarn Count (Nm)",
-        "ar": "Yarn Count (Nm)"
+        "de": "Garnfeinheit (Nm)",
+        "fr": "Numéro métrique du fil (Nm)",
+        "es": "Título del Hilo (Nm)",
+        "ar": "رقم الخيط (Nm)"
       },
       "type": "number",
       "unit": "Nm",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Yarn count (metric).",
         "tr": "İplik numara değeri.",
-        "de": "Yarn count (metric).",
-        "fr": "Yarn count (metric).",
-        "es": "Yarn count (metric).",
-        "ar": "Yarn count (metric)."
+        "de": "Garnfeinheit (metrisch).",
+        "fr": "Numéro métrique du fil.",
+        "es": "Número de hilo (métrico).",
+        "ar": "رقم الخيط (متري)."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "İplik Uzunluğu",
         "tr": "İplik Uzunluğu",
-        "de": "İplik Uzunluğu",
-        "fr": "İplik Uzunluğu",
-        "es": "İplik Uzunluğu",
-        "ar": "İplik Uzunluğu"
+        "de": "Thread Length",
+        "fr": "Longueur du fil",
+        "es": "Longitud del Hilo",
+        "ar": "طول الخيط"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate total yarn length on a bobbin.",
         "tr": "Bobine sarılı toplam iplik metreajını hesaplar.",
-        "de": "Calculate total yarn length on a bobbin.",
-        "fr": "Calculate total yarn length on a bobbin.",
-        "es": "Calculate total yarn length on a bobbin.",
-        "ar": "Calculate total yarn length on a bobbin."
+        "de": "Berechnung der gesamten Garnlänge auf einer Spule.",
+        "fr": "Calculer la longueur totale du fil sur une bobine.",
+        "es": "Calcular la longitud total del hilo en una bobina.",
+        "ar": "حساب الطول الإجمالي للخيط على بكرة."
       },
       "long_i18n": {
         "en": "Calculate total yarn length on a bobbin.",
         "tr": "Bobine sarılı toplam iplik metreajını hesaplar.",
-        "de": "Calculate total yarn length on a bobbin.",
-        "fr": "Calculate total yarn length on a bobbin.",
-        "es": "Calculate total yarn length on a bobbin.",
-        "ar": "Calculate total yarn length on a bobbin."
+        "de": "Berechnung der gesamten Garnlänge auf einer Spule.",
+        "fr": "Calculer la longueur totale du fil sur une bobine.",
+        "es": "Calcular la longitud total del hilo en una bobina.",
+        "ar": "حساب الطول الإجمالي للخيط على بكرة."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Start Customers",
         "tr": "Dönem Başı Müşteri",
-        "de": "Start Customers",
-        "fr": "Start Customers",
-        "es": "Start Customers",
-        "ar": "Start Customers"
+        "de": "Startkunden",
+        "fr": "Clients de départ",
+        "es": "Clientes Iniciales",
+        "ar": "العملاء في البداية"
       },
       "type": "number",
       "unit": "customers",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Active customers at start.",
         "tr": "Dönem başı aktif müşteri.",
-        "de": "Active customers at start.",
-        "fr": "Active customers at start.",
-        "es": "Active customers at start.",
-        "ar": "Active customers at start."
+        "de": "Aktive Kunden zu Beginn.",
+        "fr": "Clients actifs au début.",
+        "es": "Clientes activos al inicio.",
+        "ar": "العملاء النشطون في البداية."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Lost Customers",
         "tr": "Kaybedilen Müşteri",
-        "de": "Lost Customers",
-        "fr": "Lost Customers",
-        "es": "Lost Customers",
-        "ar": "Lost Customers"
+        "de": "Verlorene Kunden",
+        "fr": "Clients perdus",
+        "es": "Clientes Perdidos",
+        "ar": "العملاء المفقودون"
       },
       "type": "number",
       "unit": "customers",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Customers lost during period.",
         "tr": "Dönemde kaybedilen müşteri.",
-        "de": "Customers lost during period.",
-        "fr": "Customers lost during period.",
-        "es": "Customers lost during period.",
-        "ar": "Customers lost during period."
+        "de": "Im Zeitraum verlorene Kunden.",
+        "fr": "Clients perdus pendant la période.",
+        "es": "Clientes perdidos durante el período.",
+        "ar": "العملاء المفقودون خلال الفترة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Müşteri Kaybı (Churn)",
         "tr": "Müşteri Kaybı (Churn)",
-        "de": "Müşteri Kaybı (Churn)",
-        "fr": "Müşteri Kaybı (Churn)",
-        "es": "Müşteri Kaybı (Churn)",
-        "ar": "Müşteri Kaybı (Churn)"
+        "de": "Kundenabwanderung (Churn)",
+        "fr": "Taux d'attrition client (Churn)",
+        "es": "Tasa de Abandono (Churn)",
+        "ar": "معدل تراجع العملاء (Churn)"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate customer churn rate.",
         "tr": "Aboneliğini iptal eden müşteri oranını (churn) hesaplar.",
-        "de": "Calculate customer churn rate.",
-        "fr": "Calculate customer churn rate.",
-        "es": "Calculate customer churn rate.",
-        "ar": "Calculate customer churn rate."
+        "de": "Kundenabwanderungsrate berechnen.",
+        "fr": "Calculer le taux d'attrition client.",
+        "es": "Calcular la tasa de abandono de clientes.",
+        "ar": "احسب معدل تراجع العملاء."
       },
       "long_i18n": {
         "en": "Calculate customer churn rate.",
         "tr": "Aboneliğini iptal eden müşteri oranını (churn) hesaplar.",
-        "de": "Calculate customer churn rate.",
-        "fr": "Calculate customer churn rate.",
-        "es": "Calculate customer churn rate.",
-        "ar": "Calculate customer churn rate."
+        "de": "Kundenabwanderungsrate berechnen.",
+        "fr": "Calculer le taux d'attrition client.",
+        "es": "Calcular la tasa de abandono de clientes.",
+        "ar": "احسب معدل تراجع العملاء."
       }
     }
   },

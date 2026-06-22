@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Point force on beam.",
         "tr": "Kirişe uygulanan tekil kuvvet.",
-        "de": "Point force on beam.",
-        "fr": "Point force on beam.",
-        "es": "Point force on beam.",
-        "ar": "Point force on beam."
+        "de": "Einzelkraft auf den Träger.",
+        "fr": "Force ponctuelle sur la poutre.",
+        "es": "Fuerza puntual sobre la viga.",
+        "ar": "قوة نقطية على العتبة."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Span between supports.",
         "tr": "Mesnetler arası mesafe.",
-        "de": "Span between supports.",
-        "fr": "Span between supports.",
-        "es": "Span between supports.",
-        "ar": "Span between supports."
+        "de": "Stützweite.",
+        "fr": "Portée entre appuis.",
+        "es": "Vano entre apoyos.",
+        "ar": "المدى بين الإسناد."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Load Distance from A (m)",
         "tr": "Yükün A Konumuna Uzaklığı (m)",
-        "de": "Load Distance from A (m)",
-        "fr": "Load Distance from A (m)",
-        "es": "Load Distance from A (m)",
-        "ar": "Load Distance from A (m)"
+        "de": "Lastabstand von A (m)",
+        "fr": "Distance de la charge depuis A (m)",
+        "es": "Distancia de la carga desde A (m)",
+        "ar": "مسافة الحمل من A (m)"
       },
       "type": "number",
       "unit": "m",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Distance from left support to load.",
         "tr": "Yükün sol mesnete uzaklığı.",
-        "de": "Distance from left support to load.",
-        "fr": "Distance from left support to load.",
-        "es": "Distance from left support to load.",
-        "ar": "Distance from left support to load."
+        "de": "Abstand vom linken Auflager zur Last.",
+        "fr": "Distance de l'appui gauche à la charge.",
+        "es": "Distancia desde el apoyo izquierdo hasta la carga.",
+        "ar": "المسافة من الإسناد الأيسر إلى الحمل."
       }
     }
   ],
@@ -102,18 +102,18 @@
       "RA": {
         "en": "Tepki A (Rₐ)",
         "tr": "Tepki A (Rₐ)",
-        "de": "Tepki A (Rₐ)",
-        "fr": "Tepki A (Rₐ)",
-        "es": "Tepki A (Rₐ)",
-        "ar": "Tepki A (Rₐ)"
+        "de": "Reaction A (Rₐ)",
+        "fr": "Réaction A (Rₐ)",
+        "es": "Respuesta A (Rₐ)",
+        "ar": "رد الفعل A (Rₐ)"
       },
       "sonuc": {
         "en": "Tepki B (Rᵦ)",
         "tr": "Tepki B (Rᵦ)",
-        "de": "Tepki B (Rᵦ)",
-        "fr": "Tepki B (Rᵦ)",
-        "es": "Tepki B (Rᵦ)",
-        "ar": "Tepki B (Rᵦ)"
+        "de": "Reaction B (Rᵦ)",
+        "fr": "Réaction B (Rᵦ)",
+        "es": "Respuesta B (Rᵦ)",
+        "ar": "رد الفعل B (Rᵦ)"
       }
     },
     "breakdownUnits": {
@@ -136,18 +136,18 @@
       "short_i18n": {
         "en": "Calculate vertical reaction forces at simple beam supports.",
         "tr": "Basit kiriş mesnetlerindeki düşey tepki kuvvetlerini hesaplar.",
-        "de": "Calculate vertical reaction forces at simple beam supports.",
-        "fr": "Calculate vertical reaction forces at simple beam supports.",
-        "es": "Calculate vertical reaction forces at simple beam supports.",
-        "ar": "Calculate vertical reaction forces at simple beam supports."
+        "de": "Berechnen Sie die vertikalen Auflagerreaktionen an den Auflagern eines Einfeldträgers.",
+        "fr": "Calculer les réactions verticales aux appuis d'une poutre simple.",
+        "es": "Calcular las fuerzas de reacción vertical en los apoyos de una viga simple.",
+        "ar": "احسب قوى رد الفعل الرأسية عند إسناد العتبة البسيطة."
       },
       "long_i18n": {
         "en": "Calculate vertical reaction forces at simple beam supports.",
         "tr": "Basit kiriş mesnetlerindeki düşey tepki kuvvetlerini hesaplar.",
-        "de": "Calculate vertical reaction forces at simple beam supports.",
-        "fr": "Calculate vertical reaction forces at simple beam supports.",
-        "es": "Calculate vertical reaction forces at simple beam supports.",
-        "ar": "Calculate vertical reaction forces at simple beam supports."
+        "de": "Berechnen Sie die vertikalen Auflagerreaktionen an den Auflagern eines Einfeldträgers.",
+        "fr": "Calculer les réactions verticales aux appuis d'une poutre simple.",
+        "es": "Calcular las fuerzas de reacción vertical en los apoyos de una viga simple.",
+        "ar": "احسب قوى رد الفعل الرأسية عند إسناد العتبة البسيطة."
       }
     }
   },

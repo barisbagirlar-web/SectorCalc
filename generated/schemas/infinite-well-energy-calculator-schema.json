@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Well Width (m)",
         "tr": "Kuyu Genişliği (m)",
-        "de": "Well Width (m)",
-        "fr": "Well Width (m)",
-        "es": "Well Width (m)",
-        "ar": "Well Width (m)"
+        "de": "Topfbreite (m)",
+        "fr": "Largeur du puits (m)",
+        "es": "Ancho del Pozo (m)",
+        "ar": "عرض البئر (م)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Infinite well width.",
         "tr": "Sonsuz kuyunun genişliği.",
-        "de": "Infinite well width.",
-        "fr": "Infinite well width.",
-        "es": "Infinite well width.",
-        "ar": "Infinite well width."
+        "de": "Unendliche Topfbreite.",
+        "fr": "Largeur du puits infini.",
+        "es": "Ancho del pozo infinito.",
+        "ar": "عرض البئر اللانهائي."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Particle Mass (kg)",
         "tr": "Parçacık Kütlesi (kg)",
-        "de": "Particle Mass (kg)",
-        "fr": "Particle Mass (kg)",
-        "es": "Particle Mass (kg)",
-        "ar": "Particle Mass (kg)"
+        "de": "Partikelmasse (kg)",
+        "fr": "Masse de la particule (kg)",
+        "es": "Masa de la Partícula (kg)",
+        "ar": "كتلة الجسيم (kg)"
       },
       "type": "number",
       "unit": "kg",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Particle mass.",
         "tr": "Parçacığın kütlesi.",
-        "de": "Particle mass.",
-        "fr": "Particle mass.",
-        "es": "Particle mass.",
-        "ar": "Particle mass."
+        "de": "Partikelmasse.",
+        "fr": "Masse de la particule.",
+        "es": "Masa de la partícula.",
+        "ar": "كتلة الجسيم."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Quantum Number (n)",
         "tr": "Kuantum Sayısı (n)",
-        "de": "Quantum Number (n)",
-        "fr": "Quantum Number (n)",
-        "es": "Quantum Number (n)",
-        "ar": "Quantum Number (n)"
+        "de": "Quantenzahl (n)",
+        "fr": "Nombre quantique (n)",
+        "es": "Número Cuántico (n)",
+        "ar": "العدد الكمي (n)"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Energy level quantum number.",
         "tr": "Enerji seviye numarası.",
-        "de": "Energy level quantum number.",
-        "fr": "Energy level quantum number.",
-        "es": "Energy level quantum number.",
-        "ar": "Energy level quantum number."
+        "de": "Quantenzahl des Energieniveaus.",
+        "fr": "Nombre quantique du niveau d'énergie.",
+        "es": "Número cuántico del nivel de energía.",
+        "ar": "العدد الكمي لمستوى الطاقة."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Enerji (Eₙ)",
         "tr": "Enerji (Eₙ)",
-        "de": "Enerji (Eₙ)",
-        "fr": "Enerji (Eₙ)",
-        "es": "Enerji (Eₙ)",
-        "ar": "Enerji (Eₙ)"
+        "de": "Energie (Eₙ)",
+        "fr": "Énergie (Eₙ)",
+        "es": "Energía (Eₙ)",
+        "ar": "الطاقة (Eₙ)"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate allowed energy level in an infinite potential well (1D).",
         "tr": "Sonsuz potansiyel kuyusundaki parçacığın izin verilen enerji seviyesini hesaplar.",
-        "de": "Calculate allowed energy level in an infinite potential well (1D).",
-        "fr": "Calculate allowed energy level in an infinite potential well (1D).",
-        "es": "Calculate allowed energy level in an infinite potential well (1D).",
-        "ar": "Calculate allowed energy level in an infinite potential well (1D)."
+        "de": "Zulässiges Energieniveau in einem unendlichen Potentialtopf (1D) berechnen.",
+        "fr": "Calculer le niveau d'énergie autorisé dans un puits de potentiel infini (1D).",
+        "es": "Calcular el nivel de energía permitido en un pozo de potencial infinito (1D).",
+        "ar": "حساب مستوى الطاقة المسموح به في بئر كمون لانهائي (أحادي البعد)."
       },
       "long_i18n": {
         "en": "Calculate allowed energy level in an infinite potential well (1D).",
         "tr": "Sonsuz potansiyel kuyusundaki parçacığın izin verilen enerji seviyesini hesaplar.",
-        "de": "Calculate allowed energy level in an infinite potential well (1D).",
-        "fr": "Calculate allowed energy level in an infinite potential well (1D).",
-        "es": "Calculate allowed energy level in an infinite potential well (1D).",
-        "ar": "Calculate allowed energy level in an infinite potential well (1D)."
+        "de": "Zulässiges Energieniveau in einem unendlichen Potentialtopf (1D) berechnen.",
+        "fr": "Calculer le niveau d'énergie autorisé dans un puits de potentiel infini (1D).",
+        "es": "Calcular el nivel de energía permitido en un pozo de potencial infinito (1D).",
+        "ar": "حساب مستوى الطاقة المسموح به في بئر كمون لانهائي (أحادي البعد)."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Ore Block Volume (m³)",
         "tr": "Cevher Blok Hacmi (m³)",
-        "de": "Ore Block Volume (m³)",
-        "fr": "Ore Block Volume (m³)",
-        "es": "Ore Block Volume (m³)",
-        "ar": "Ore Block Volume (m³)"
+        "de": "Erzblockvolumen (m³)",
+        "fr": "Volume du bloc de minerai (m³)",
+        "es": "Volumen del Bloque de Mineral (m³)",
+        "ar": "حجم كتلة الخام (m³)"
       },
       "type": "number",
       "unit": "m3",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Ore body volume.",
         "tr": "Cevher kütlesinin hacmi.",
-        "de": "Ore body volume.",
-        "fr": "Ore body volume.",
-        "es": "Ore body volume.",
-        "ar": "Ore body volume."
+        "de": "Erzkörpervolumen.",
+        "fr": "Volume du corps minéralisé.",
+        "es": "Volumen del cuerpo mineral.",
+        "ar": "حجم جسم الخام."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Ore Density (ton/m³)",
         "tr": "Cevher Yoğunluğu (ton/m³)",
-        "de": "Ore Density (ton/m³)",
-        "fr": "Ore Density (ton/m³)",
-        "es": "Ore Density (ton/m³)",
-        "ar": "Ore Density (ton/m³)"
+        "de": "Erzdichte (ton/m³)",
+        "fr": "Densité du minerai (ton/m³)",
+        "es": "Densidad del Mineral (ton/m³)",
+        "ar": "كثافة الخام (ton/m³)"
       },
       "type": "number",
       "unit": "ton/m3",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Ore density.",
         "tr": "Cevherin yoğunluğu.",
-        "de": "Ore density.",
-        "fr": "Ore density.",
-        "es": "Ore density.",
-        "ar": "Ore density."
+        "de": "Erzdichte.",
+        "fr": "Densité du minerai.",
+        "es": "Densidad del mineral.",
+        "ar": "كثافة الخام."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Metal grade in ore.",
         "tr": "Cevherin metal içeriği.",
-        "de": "Metal grade in ore.",
-        "fr": "Metal grade in ore.",
-        "es": "Metal grade in ore.",
-        "ar": "Metal grade in ore."
+        "de": "Metallgehalt im Erz.",
+        "fr": "Teneur en métal dans le minerai.",
+        "es": "Ley del metal en el mineral.",
+        "ar": "درجة المعدن في الخام."
       }
     }
   ],
@@ -102,18 +102,18 @@
       "tonaj": {
         "en": "Toplam Cevher (ton)",
         "tr": "Toplam Cevher (ton)",
-        "de": "Toplam Cevher (ton)",
-        "fr": "Toplam Cevher (ton)",
-        "es": "Toplam Cevher (ton)",
-        "ar": "Toplam Cevher (ton)"
+        "de": "Gesamterz (t)",
+        "fr": "Minerai total (tonne)",
+        "es": "Mineral Total (ton)",
+        "ar": "إجمالي الخام (طن)"
       },
       "sonuc": {
         "en": "Metal Miktarı (ton)",
         "tr": "Metal Miktarı (ton)",
-        "de": "Metal Miktarı (ton)",
-        "fr": "Metal Miktarı (ton)",
-        "es": "Metal Miktarı (ton)",
-        "ar": "Metal Miktarı (ton)"
+        "de": "Metallmenge (t)",
+        "fr": "Quantité de métal (tonne)",
+        "es": "Cantidad de Metal (ton)",
+        "ar": "كمية المعدن (طن)"
       }
     },
     "breakdownUnits": {
@@ -139,18 +139,18 @@
       "short_i18n": {
         "en": "Calculate ore tonnage and metal content in a mining block.",
         "tr": "Sahadaki net cevher ve saf metal ağırlığını (rezerv hacim) hesaplar.",
-        "de": "Calculate ore tonnage and metal content in a mining block.",
-        "fr": "Calculate ore tonnage and metal content in a mining block.",
-        "es": "Calculate ore tonnage and metal content in a mining block.",
-        "ar": "Calculate ore tonnage and metal content in a mining block."
+        "de": "Erztonnage und Metallgehalt in einem Bergbaublock berechnen.",
+        "fr": "Calculer le tonnage de minerai et la teneur en métal dans un bloc minier.",
+        "es": "Calcular el tonelaje de mineral y el contenido metálico en un bloque minero.",
+        "ar": "احسب حمولة الخام ومحتوى المعدن في كتلة تعدين."
       },
       "long_i18n": {
         "en": "Calculate ore tonnage and metal content in a mining block.",
         "tr": "Sahadaki net cevher ve saf metal ağırlığını (rezerv hacim) hesaplar.",
-        "de": "Calculate ore tonnage and metal content in a mining block.",
-        "fr": "Calculate ore tonnage and metal content in a mining block.",
-        "es": "Calculate ore tonnage and metal content in a mining block.",
-        "ar": "Calculate ore tonnage and metal content in a mining block."
+        "de": "Erztonnage und Metallgehalt in einem Bergbaublock berechnen.",
+        "fr": "Calculer le tonnage de minerai et la teneur en métal dans un bloc minier.",
+        "es": "Calcular el tonelaje de mineral y el contenido metálico en un bloque minero.",
+        "ar": "احسب حمولة الخام ومحتوى المعدن في كتلة تعدين."
       }
     }
   },

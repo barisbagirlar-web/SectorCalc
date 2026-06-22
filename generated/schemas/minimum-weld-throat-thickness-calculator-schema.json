@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Force on weld.",
         "tr": "Kaynağa etkiyen kuvvet.",
-        "de": "Force on weld.",
-        "fr": "Force on weld.",
-        "es": "Force on weld.",
-        "ar": "Force on weld."
+        "de": "Kraft auf die Schweißnaht.",
+        "fr": "Force sur la soudure.",
+        "es": "Fuerza sobre la soldadura.",
+        "ar": "القوة على اللحام."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Weld seam length.",
         "tr": "Kaynak dikiş uzunluğu.",
-        "de": "Weld seam length.",
-        "fr": "Weld seam length.",
-        "es": "Weld seam length.",
-        "ar": "Weld seam length."
+        "de": "Schweißnahtlänge.",
+        "fr": "Longueur du cordon de soudure.",
+        "es": "Longitud del cordón de soldadura.",
+        "ar": "طول خط اللحام."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Allowable Weld Stress (Pa)",
         "tr": "İzin Verilen Kaynak Gerilmesi (Pa)",
-        "de": "Allowable Weld Stress (Pa)",
-        "fr": "Allowable Weld Stress (Pa)",
-        "es": "Allowable Weld Stress (Pa)",
-        "ar": "Allowable Weld Stress (Pa)"
+        "de": "Zulässige Schweißspannung (Pa)",
+        "fr": "Contrainte de soudure admissible (Pa)",
+        "es": "Esfuerzo Admisible de Soldadura (Pa)",
+        "ar": "إجهاد اللحام المسموح به (Pa)"
       },
       "type": "number",
       "unit": "Pa",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Weld metal allowable stress.",
         "tr": "Kaynak metalinin emniyet gerilmesi.",
-        "de": "Weld metal allowable stress.",
-        "fr": "Weld metal allowable stress.",
-        "es": "Weld metal allowable stress.",
-        "ar": "Weld metal allowable stress."
+        "de": "Zulässige Spannung des Schweißmetalls.",
+        "fr": "Contrainte admissible du métal de soudure.",
+        "es": "Esfuerzo admisible del metal de soldadura.",
+        "ar": "إجهاد معدن اللحام المسموح به."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Min. Kaynak Boğaz Kalınlığı",
         "tr": "Min. Kaynak Boğaz Kalınlığı",
-        "de": "Min. Kaynak Boğaz Kalınlığı",
-        "fr": "Min. Kaynak Boğaz Kalınlığı",
-        "es": "Min. Kaynak Boğaz Kalınlığı",
-        "ar": "Min. Kaynak Boğaz Kalınlığı"
+        "de": "Min. Schweißnahtdicke",
+        "fr": "Min. Weld Throat Thickness",
+        "es": "Grosor Mínimo de Garganta de Soldadura",
+        "ar": "الحد الأدنى لسمك حلق اللحام"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate minimum weld throat thickness for given load.",
         "tr": "Çalışma yükünü taşıyacak minimum kaynak boğaz kalınlığını hesaplar.",
-        "de": "Calculate minimum weld throat thickness for given load.",
-        "fr": "Calculate minimum weld throat thickness for given load.",
-        "es": "Calculate minimum weld throat thickness for given load.",
-        "ar": "Calculate minimum weld throat thickness for given load."
+        "de": "Berechnen Sie die minimale Schweißnahtdicke für eine gegebene Belastung.",
+        "fr": "Calculer l'épaisseur minimale de la gorge de soudure pour une charge donnée.",
+        "es": "Calcular el espesor mínimo de garganta de soldadura para una carga dada.",
+        "ar": "حساب الحد الأدنى لسمك حلق اللحام لحمل معين."
       },
       "long_i18n": {
         "en": "Calculate minimum weld throat thickness for given load.",
         "tr": "Çalışma yükünü taşıyacak minimum kaynak boğaz kalınlığını hesaplar.",
-        "de": "Calculate minimum weld throat thickness for given load.",
-        "fr": "Calculate minimum weld throat thickness for given load.",
-        "es": "Calculate minimum weld throat thickness for given load.",
-        "ar": "Calculate minimum weld throat thickness for given load."
+        "de": "Berechnen Sie die minimale Schweißnahtdicke für eine gegebene Belastung.",
+        "fr": "Calculer l'épaisseur minimale de la gorge de soudure pour une charge donnée.",
+        "es": "Calcular el espesor mínimo de garganta de soldadura para una carga dada.",
+        "ar": "حساب الحد الأدنى لسمك حلق اللحام لحمل معين."
       }
     }
   },

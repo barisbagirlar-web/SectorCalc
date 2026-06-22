@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "VA loan amount.",
         "tr": "VA kredi tutarı.",
-        "de": "VA loan amount.",
-        "fr": "VA loan amount.",
-        "es": "VA loan amount.",
-        "ar": "VA loan amount."
+        "de": "VA-Darlehensbetrag.",
+        "fr": "Montant du prêt VA.",
+        "es": "Monto del préstamo VA.",
+        "ar": "مبلغ قرض VA."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Funding Fee Rate (%)",
         "tr": "Fonlama Ücreti (%)",
-        "de": "Funding Fee Rate (%)",
-        "fr": "Funding Fee Rate (%)",
-        "es": "Funding Fee Rate (%)",
-        "ar": "Funding Fee Rate (%)"
+        "de": "Gebührensatz (%)",
+        "fr": "Taux des frais de financement (%)",
+        "es": "Tasa de Comisión de Financiamiento (%)",
+        "ar": "نسبة رسوم التمويل (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "VA funding fee percentage.",
         "tr": "VA fonlama ücreti oranı.",
-        "de": "VA funding fee percentage.",
-        "fr": "VA funding fee percentage.",
-        "es": "VA funding fee percentage.",
-        "ar": "VA funding fee percentage."
+        "de": "VA-Gebührenprozentsatz.",
+        "fr": "Pourcentage des frais de financement VA.",
+        "es": "Porcentaje de la tarifa de financiamiento VA.",
+        "ar": "نسبة رسوم تمويل VA."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Finanse Edilen Toplam Tutar",
         "tr": "Finanse Edilen Toplam Tutar",
-        "de": "Finanse Edilen Toplam Tutar",
-        "fr": "Finanse Edilen Toplam Tutar",
-        "es": "Finanse Edilen Toplam Tutar",
-        "ar": "Finanse Edilen Toplam Tutar"
+        "de": "Total Financed Amount",
+        "fr": "Montant total financé",
+        "es": "Monto Total Financiado",
+        "ar": "إجمالي المبلغ الممول"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate VA loan funding fee added to the financed amount.",
         "tr": "Gaziler için peşinatsız kredinin faize eklenen fon maliyetini hesaplar.",
-        "de": "Calculate VA loan funding fee added to the financed amount.",
-        "fr": "Calculate VA loan funding fee added to the financed amount.",
-        "es": "Calculate VA loan funding fee added to the financed amount.",
-        "ar": "Calculate VA loan funding fee added to the financed amount."
+        "de": "Berechnen Sie die VA-Darlehensgebühr, die dem finanzierten Betrag hinzugefügt wird.",
+        "fr": "Calculer les frais de financement du prêt VA ajoutés au montant financé.",
+        "es": "Calcular la tarifa de financiamiento del préstamo VA añadida al monto financiado.",
+        "ar": "حساب رسوم تمويل قرض VA المضافة إلى المبلغ الممول."
       },
       "long_i18n": {
         "en": "Calculate VA loan funding fee added to the financed amount.",
         "tr": "Gaziler için peşinatsız kredinin faize eklenen fon maliyetini hesaplar.",
-        "de": "Calculate VA loan funding fee added to the financed amount.",
-        "fr": "Calculate VA loan funding fee added to the financed amount.",
-        "es": "Calculate VA loan funding fee added to the financed amount.",
-        "ar": "Calculate VA loan funding fee added to the financed amount."
+        "de": "Berechnen Sie die VA-Darlehensgebühr, die dem finanzierten Betrag hinzugefügt wird.",
+        "fr": "Calculer les frais de financement du prêt VA ajoutés au montant financé.",
+        "es": "Calcular la tarifa de financiamiento del préstamo VA añadida al monto financiado.",
+        "ar": "حساب رسوم تمويل قرض VA المضافة إلى المبلغ الممول."
       }
     }
   },

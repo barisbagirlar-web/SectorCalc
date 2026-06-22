@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Photon Frequency (Hz)",
         "tr": "Foton Frekansı (Hz)",
-        "de": "Photon Frequency (Hz)",
-        "fr": "Photon Frequency (Hz)",
-        "es": "Photon Frequency (Hz)",
-        "ar": "Photon Frequency (Hz)"
+        "de": "Photonenfrequenz (Hz)",
+        "fr": "Fréquence du photon (Hz)",
+        "es": "Frecuencia del fotón (Hz)",
+        "ar": "تردد الفوتون (Hz)"
       },
       "type": "number",
       "unit": "Hz",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Incident photon frequency.",
         "tr": "Gelen fotonun frekansı.",
-        "de": "Incident photon frequency.",
-        "fr": "Incident photon frequency.",
-        "es": "Incident photon frequency.",
-        "ar": "Incident photon frequency."
+        "de": "Einfallende Photonenfrequenz.",
+        "fr": "Fréquence du photon incident.",
+        "es": "Frecuencia del fotón incidente.",
+        "ar": "تردد الفوتون الساقط."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Work Function (J)",
         "tr": "Eşik Enerjisi (J)",
-        "de": "Work Function (J)",
-        "fr": "Work Function (J)",
-        "es": "Work Function (J)",
-        "ar": "Work Function (J)"
+        "de": "Austrittsarbeit (J)",
+        "fr": "Fonction de travail (J)",
+        "es": "Función de Trabajo (J)",
+        "ar": "دالة الشغل (J)"
       },
       "type": "number",
       "unit": "J",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Minimum energy to eject electron.",
         "tr": "Metalden elektron koparmak için gereken minimum enerji.",
-        "de": "Minimum energy to eject electron.",
-        "fr": "Minimum energy to eject electron.",
-        "es": "Minimum energy to eject electron.",
-        "ar": "Minimum energy to eject electron."
+        "de": "Mindestenergie zum Ausstoßen eines Elektrons.",
+        "fr": "Énergie minimale pour éjecter un électron.",
+        "es": "Energía mínima para expulsar un electrón.",
+        "ar": "الحد الأدنى من الطاقة لطرد الإلكترون."
       }
     }
   ],
@@ -76,10 +76,10 @@
       "sonuc": {
         "en": "Maks. Kinetik Enerji",
         "tr": "Maks. Kinetik Enerji",
-        "de": "Maks. Kinetik Enerji",
-        "fr": "Maks. Kinetik Enerji",
-        "es": "Maks. Kinetik Enerji",
-        "ar": "Maks. Kinetik Enerji"
+        "de": "Maximale kinetische Energie",
+        "fr": "Énergie cinétique maximale",
+        "es": "Máx. Energía Cinética",
+        "ar": "الطاقة الحركية القصوى"
       }
     },
     "breakdownUnits": {
@@ -101,18 +101,18 @@
       "short_i18n": {
         "en": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
         "tr": "Fotonun metal yüzeyden kopardığı elektronun maksimum kinetik enerjisini hesaplar.",
-        "de": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
-        "fr": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
-        "es": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
-        "ar": "Calculate maximum kinetic energy of emitted electron in photoelectric effect."
+        "de": "Berechnen Sie die maximale kinetische Energie des emittierten Elektrons beim photoelektrischen Effekt.",
+        "fr": "Calculer l'énergie cinétique maximale de l'électron émis dans l'effet photoélectrique.",
+        "es": "Calcular la energía cinética máxima del electrón emitido en el efecto fotoeléctrico.",
+        "ar": "حساب أقصى طاقة حركية للإلكترون المنبعث في التأثير الكهروضوئي."
       },
       "long_i18n": {
         "en": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
         "tr": "Fotonun metal yüzeyden kopardığı elektronun maksimum kinetik enerjisini hesaplar.",
-        "de": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
-        "fr": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
-        "es": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
-        "ar": "Calculate maximum kinetic energy of emitted electron in photoelectric effect."
+        "de": "Berechnen Sie die maximale kinetische Energie des emittierten Elektrons beim photoelektrischen Effekt.",
+        "fr": "Calculer l'énergie cinétique maximale de l'électron émis dans l'effet photoélectrique.",
+        "es": "Calcular la energía cinética máxima del electrón emitido en el efecto fotoeléctrico.",
+        "ar": "حساب أقصى طاقة حركية للإلكترون المنبعث في التأثير الكهروضوئي."
       }
     }
   },

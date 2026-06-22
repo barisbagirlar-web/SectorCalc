@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Pipe material modulus.",
         "tr": "Boru malzemesi modülü.",
-        "de": "Pipe material modulus.",
-        "fr": "Pipe material modulus.",
-        "es": "Pipe material modulus.",
-        "ar": "Pipe material modulus."
+        "de": "Elastizitätsmodul des Rohrmaterials.",
+        "fr": "Module du matériau du tuyau.",
+        "es": "Módulo del material de la tubería.",
+        "ar": "معامل مرونة مادة الأنبوب."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Linear expansion coefficient.",
         "tr": "Malzemenin lineer genleşme katsayısı.",
-        "de": "Linear expansion coefficient.",
-        "fr": "Linear expansion coefficient.",
-        "es": "Linear expansion coefficient.",
-        "ar": "Linear expansion coefficient."
+        "de": "Linearer Ausdehnungskoeffizient.",
+        "fr": "Coefficient de dilatation linéaire.",
+        "es": "Coeficiente de expansión lineal.",
+        "ar": "معامل التمدد الخطي."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Installation vs operating temperature difference.",
         "tr": "Montaj ve işletme sıcaklık farkı.",
-        "de": "Installation vs operating temperature difference.",
-        "fr": "Installation vs operating temperature difference.",
-        "es": "Installation vs operating temperature difference.",
-        "ar": "Installation vs operating temperature difference."
+        "de": "Temperaturdifferenz zwischen Einbau- und Betriebszustand.",
+        "fr": "Différence de température entre installation et fonctionnement.",
+        "es": "Diferencia de temperatura entre instalación y operación.",
+        "ar": "فرق درجة الحرارة بين التركيب والتشغيل."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Termal Gerilme",
         "tr": "Termal Gerilme",
-        "de": "Termal Gerilme",
-        "fr": "Termal Gerilme",
-        "es": "Termal Gerilme",
-        "ar": "Termal Gerilme"
+        "de": "Thermische Spannung",
+        "fr": "Contrainte thermique",
+        "es": "Esfuerzo Térmico",
+        "ar": "الإجهاد الحراري"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate axial thermal stress in a constrained pipe.",
         "tr": "Sıcaklık değişiminin sabit boruda yarattığı eksenel termal gerilmeyi hesaplar.",
-        "de": "Calculate axial thermal stress in a constrained pipe.",
-        "fr": "Calculate axial thermal stress in a constrained pipe.",
-        "es": "Calculate axial thermal stress in a constrained pipe.",
-        "ar": "Calculate axial thermal stress in a constrained pipe."
+        "de": "Axiale thermische Spannung in einem eingespannten Rohr berechnen.",
+        "fr": "Calculer la contrainte thermique axiale dans un tuyau contraint.",
+        "es": "Calcular la tensión térmica axial en una tubería restringida.",
+        "ar": "حساب الإجهاد الحراري المحوري في أنبوب مقيد."
       },
       "long_i18n": {
         "en": "Calculate axial thermal stress in a constrained pipe.",
         "tr": "Sıcaklık değişiminin sabit boruda yarattığı eksenel termal gerilmeyi hesaplar.",
-        "de": "Calculate axial thermal stress in a constrained pipe.",
-        "fr": "Calculate axial thermal stress in a constrained pipe.",
-        "es": "Calculate axial thermal stress in a constrained pipe.",
-        "ar": "Calculate axial thermal stress in a constrained pipe."
+        "de": "Axiale thermische Spannung in einem eingespannten Rohr berechnen.",
+        "fr": "Calculer la contrainte thermique axiale dans un tuyau contraint.",
+        "es": "Calcular la tensión térmica axial en una tubería restringida.",
+        "ar": "حساب الإجهاد الحراري المحوري في أنبوب مقيد."
       }
     }
   },

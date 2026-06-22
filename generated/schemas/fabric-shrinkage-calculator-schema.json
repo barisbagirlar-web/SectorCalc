@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Greige Dimension (cm)",
         "tr": "Ham Ölçü (cm)",
-        "de": "Greige Dimension (cm)",
-        "fr": "Greige Dimension (cm)",
-        "es": "Greige Dimension (cm)",
-        "ar": "Greige Dimension (cm)"
+        "de": "Rohmaß (cm)",
+        "fr": "Dimension grège (cm)",
+        "es": "Dimensión en crudo (cm)",
+        "ar": "البعد الخام (cm)"
       },
       "type": "number",
       "unit": "cm",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Pre-processing fabric size.",
         "tr": "İşlem öncesi kumaş ölçüsü.",
-        "de": "Pre-processing fabric size.",
-        "fr": "Pre-processing fabric size.",
-        "es": "Pre-processing fabric size.",
-        "ar": "Pre-processing fabric size."
+        "de": "Stoffgröße vor der Verarbeitung.",
+        "fr": "Taille du tissu avant traitement.",
+        "es": "Tamaño de la tela antes del procesamiento.",
+        "ar": "حجم القماش قبل المعالجة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Finished Dimension (cm)",
         "tr": "Bitmiş Ölçü (cm)",
-        "de": "Finished Dimension (cm)",
-        "fr": "Finished Dimension (cm)",
-        "es": "Finished Dimension (cm)",
-        "ar": "Finished Dimension (cm)"
+        "de": "Endmaß (cm)",
+        "fr": "Dimension finie (cm)",
+        "es": "Dimensión acabada (cm)",
+        "ar": "البعد النهائي (cm)"
       },
       "type": "number",
       "unit": "cm",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Post-processing fabric size.",
         "tr": "İşlem sonrası kumaş ölçüsü.",
-        "de": "Post-processing fabric size.",
-        "fr": "Post-processing fabric size.",
-        "es": "Post-processing fabric size.",
-        "ar": "Post-processing fabric size."
+        "de": "Stoffgröße nach der Verarbeitung.",
+        "fr": "Taille du tissu après traitement.",
+        "es": "Tamaño de la tela después del procesamiento.",
+        "ar": "حجم القماش بعد المعالجة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Çekme Oranı",
         "tr": "Çekme Oranı",
-        "de": "Çekme Oranı",
-        "fr": "Çekme Oranı",
-        "es": "Çekme Oranı",
-        "ar": "Çekme Oranı"
+        "de": "Ziehverhältnis",
+        "fr": "Taux de retrait",
+        "es": "Relación de estirado",
+        "ar": "نسبة الانكماش"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate fabric shrinkage percentage after processing.",
         "tr": "Proses sonrası kumaştaki boyutsal daralma oranını (çekme) hesaplar.",
-        "de": "Calculate fabric shrinkage percentage after processing.",
-        "fr": "Calculate fabric shrinkage percentage after processing.",
-        "es": "Calculate fabric shrinkage percentage after processing.",
-        "ar": "Calculate fabric shrinkage percentage after processing."
+        "de": "Berechnen Sie den Stoffschrumpfprozentsatz nach der Verarbeitung.",
+        "fr": "Calculer le pourcentage de retrait du tissu après traitement.",
+        "es": "Calcule el porcentaje de encogimiento de la tela después del procesamiento.",
+        "ar": "احسب نسبة انكماش القماش بعد المعالجة."
       },
       "long_i18n": {
         "en": "Calculate fabric shrinkage percentage after processing.",
         "tr": "Proses sonrası kumaştaki boyutsal daralma oranını (çekme) hesaplar.",
-        "de": "Calculate fabric shrinkage percentage after processing.",
-        "fr": "Calculate fabric shrinkage percentage after processing.",
-        "es": "Calculate fabric shrinkage percentage after processing.",
-        "ar": "Calculate fabric shrinkage percentage after processing."
+        "de": "Berechnen Sie den Stoffschrumpfprozentsatz nach der Verarbeitung.",
+        "fr": "Calculer le pourcentage de retrait du tissu après traitement.",
+        "es": "Calcule el porcentaje de encogimiento de la tela después del procesamiento.",
+        "ar": "احسب نسبة انكماش القماش بعد المعالجة."
       }
     }
   },

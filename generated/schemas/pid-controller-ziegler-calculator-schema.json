@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Ultimate Gain (Ku)",
         "tr": "Kritik Kazanç (Ku)",
-        "de": "Ultimate Gain (Ku)",
-        "fr": "Ultimate Gain (Ku)",
-        "es": "Ultimate Gain (Ku)",
-        "ar": "Ultimate Gain (Ku)"
+        "de": "Grenzverstärkung (Ku)",
+        "fr": "Gain ultime (Ku)",
+        "es": "Ganancia Última (Ku)",
+        "ar": "الكسب النهائي (Ku)"
       },
       "type": "number",
       "unit": "",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Gain at onset of oscillation.",
         "tr": "Salınım başladığı andaki kazanç.",
-        "de": "Gain at onset of oscillation.",
-        "fr": "Gain at onset of oscillation.",
-        "es": "Gain at onset of oscillation.",
-        "ar": "Gain at onset of oscillation."
+        "de": "Verstärkung beim Einsetzen der Schwingung.",
+        "fr": "Gain au début de l'oscillation.",
+        "es": "Ganancia al inicio de la oscilación.",
+        "ar": "الكسب عند بداية التذبذب."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Ultimate Period (Tu sec)",
         "tr": "Kritik Periyot (Tu sn)",
-        "de": "Ultimate Period (Tu sec)",
-        "fr": "Ultimate Period (Tu sec)",
-        "es": "Ultimate Period (Tu sec)",
-        "ar": "Ultimate Period (Tu sec)"
+        "de": "Grenzperiode (Tu sec)",
+        "fr": "Période ultime (Tu sec)",
+        "es": "Período Último (Tu seg)",
+        "ar": "الفترة النهائية (Tu sec)"
       },
       "type": "number",
       "unit": "s",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Oscillation period.",
         "tr": "Salınım periyodu.",
-        "de": "Oscillation period.",
-        "fr": "Oscillation period.",
-        "es": "Oscillation period.",
-        "ar": "Oscillation period."
+        "de": "Schwingungsperiode.",
+        "fr": "Période d'oscillation.",
+        "es": "Período de oscilación.",
+        "ar": "فترة التذبذب."
       }
     }
   ],
@@ -79,26 +79,26 @@
       "Kp": {
         "en": "Oransal (Kp)",
         "tr": "Oransal (Kp)",
-        "de": "Oransal (Kp)",
-        "fr": "Oransal (Kp)",
-        "es": "Oransal (Kp)",
-        "ar": "Oransal (Kp)"
+        "de": "Proportional (Kp)",
+        "fr": "Proportionnel (Kp)",
+        "es": "Proporcional (Kp)",
+        "ar": "أورانسال (Kp)"
       },
       "Ki": {
         "en": "İntegral (Ki)",
         "tr": "İntegral (Ki)",
-        "de": "İntegral (Ki)",
-        "fr": "İntegral (Ki)",
-        "es": "İntegral (Ki)",
-        "ar": "İntegral (Ki)"
+        "de": "Integral (Ki)",
+        "fr": "Intégral (Ki)",
+        "es": "Integral (Ki)",
+        "ar": "تكامل (Ki)"
       },
       "sonuc": {
         "en": "Türev (Kd)",
         "tr": "Türev (Kd)",
-        "de": "Türev (Kd)",
-        "fr": "Türev (Kd)",
-        "es": "Türev (Kd)",
-        "ar": "Türev (Kd)"
+        "de": "Differential (Kd)",
+        "fr": "Dérivé (Kd)",
+        "es": "Derivativo (Kd)",
+        "ar": "مشتق (Kd)"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate PID controller gains using Ziegler-Nichols method.",
         "tr": "Ziegler-Nichols yöntemine göre PID kontrolör katsayılarını (Kp, Ki, Kd) hesaplar.",
-        "de": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "fr": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "es": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "ar": "Calculate PID controller gains using Ziegler-Nichols method."
+        "de": "Berechnen Sie die PID-Reglerverstärkungen mit der Ziegler-Nichols-Methode.",
+        "fr": "Calculer les gains du régulateur PID en utilisant la méthode de Ziegler-Nichols.",
+        "es": "Calcular las ganancias del controlador PID utilizando el método de Ziegler-Nichols.",
+        "ar": "حساب كسب المتحكم PID باستخدام طريقة Ziegler-Nichols."
       },
       "long_i18n": {
         "en": "Calculate PID controller gains using Ziegler-Nichols method.",
         "tr": "Ziegler-Nichols yöntemine göre PID kontrolör katsayılarını (Kp, Ki, Kd) hesaplar.",
-        "de": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "fr": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "es": "Calculate PID controller gains using Ziegler-Nichols method.",
-        "ar": "Calculate PID controller gains using Ziegler-Nichols method."
+        "de": "Berechnen Sie die PID-Reglerverstärkungen mit der Ziegler-Nichols-Methode.",
+        "fr": "Calculer les gains du régulateur PID en utilisant la méthode de Ziegler-Nichols.",
+        "es": "Calcular las ganancias del controlador PID utilizando el método de Ziegler-Nichols.",
+        "ar": "حساب كسب المتحكم PID باستخدام طريقة Ziegler-Nichols."
       }
     }
   },

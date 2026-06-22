@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Current in Wire (A)",
         "tr": "Telden Geçen Akım (A)",
-        "de": "Current in Wire (A)",
-        "fr": "Current in Wire (A)",
-        "es": "Current in Wire (A)",
-        "ar": "Current in Wire (A)"
+        "de": "Strom im Draht (A)",
+        "fr": "Courant dans le fil (A)",
+        "es": "Corriente en el cable (A)",
+        "ar": "تيار السلك (A)"
       },
       "type": "number",
       "unit": "A",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Conductor current.",
         "tr": "İletkendeki akım.",
-        "de": "Conductor current.",
-        "fr": "Conductor current.",
-        "es": "Conductor current.",
-        "ar": "Conductor current."
+        "de": "Leiterstrom.",
+        "fr": "Courant conducteur.",
+        "es": "Corriente del conductor.",
+        "ar": "تيار الموصل."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Measurement distance from wire.",
         "tr": "Ölçüm noktasının tele uzaklığı.",
-        "de": "Measurement distance from wire.",
-        "fr": "Measurement distance from wire.",
-        "es": "Measurement distance from wire.",
-        "ar": "Measurement distance from wire."
+        "de": "Messabstand vom Draht.",
+        "fr": "Distance de mesure par rapport au fil.",
+        "es": "Distancia de medición desde el cable.",
+        "ar": "مسافة القياس من السلك."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Manyetik Alan (B)",
         "tr": "Manyetik Alan (B)",
-        "de": "Manyetik Alan (B)",
-        "fr": "Manyetik Alan (B)",
-        "es": "Manyetik Alan (B)",
-        "ar": "Manyetik Alan (B)"
+        "de": "Magnetfeld (B)",
+        "fr": "Champ magnétique (B)",
+        "es": "Campo magnético (B)",
+        "ar": "المجال المغناطيسي (B)"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate magnetic flux density around a long straight wire.",
         "tr": "Sonsuz telin belirli mesafesindeki manyetik akı yoğunluğunu Ampere yasası ile hesaplar.",
-        "de": "Calculate magnetic flux density around a long straight wire.",
-        "fr": "Calculate magnetic flux density around a long straight wire.",
-        "es": "Calculate magnetic flux density around a long straight wire.",
-        "ar": "Calculate magnetic flux density around a long straight wire."
+        "de": "Berechnen Sie die magnetische Flussdichte um einen langen geraden Draht.",
+        "fr": "Calculer la densité de flux magnétique autour d'un long fil droit.",
+        "es": "Calcular la densidad de flujo magnético alrededor de un cable largo y recto.",
+        "ar": "احسب كثافة التدفق المغناطيسي حول سلك طويل مستقيم."
       },
       "long_i18n": {
         "en": "Calculate magnetic flux density around a long straight wire.",
         "tr": "Sonsuz telin belirli mesafesindeki manyetik akı yoğunluğunu Ampere yasası ile hesaplar.",
-        "de": "Calculate magnetic flux density around a long straight wire.",
-        "fr": "Calculate magnetic flux density around a long straight wire.",
-        "es": "Calculate magnetic flux density around a long straight wire.",
-        "ar": "Calculate magnetic flux density around a long straight wire."
+        "de": "Berechnen Sie die magnetische Flussdichte um einen langen geraden Draht.",
+        "fr": "Calculer la densité de flux magnétique autour d'un long fil droit.",
+        "es": "Calcular la densidad de flujo magnético alrededor de un cable largo y recto.",
+        "ar": "احسب كثافة التدفق المغناطيسي حول سلك طويل مستقيم."
       }
     }
   },

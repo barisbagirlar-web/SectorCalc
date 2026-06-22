@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "FHA loan amount.",
         "tr": "FHA kredi tutarı.",
-        "de": "FHA loan amount.",
-        "fr": "FHA loan amount.",
-        "es": "FHA loan amount.",
-        "ar": "FHA loan amount."
+        "de": "FHA-Darlehensbetrag.",
+        "fr": "Montant du prêt FHA.",
+        "es": "Monto del préstamo FHA.",
+        "ar": "مبلغ قرض FHA."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Upfront MIP Rate (%)",
         "tr": "Peşin Sigorta Primi (%)",
-        "de": "Upfront MIP Rate (%)",
-        "fr": "Upfront MIP Rate (%)",
-        "es": "Upfront MIP Rate (%)",
-        "ar": "Upfront MIP Rate (%)"
+        "de": "Vorauszahlungssatz der MIP (%)",
+        "fr": "Taux de MIP initial (%)",
+        "es": "Tasa de MIP Inicial (%)",
+        "ar": "معدل قسط التأمين المقدم (%)"
       },
       "type": "number",
       "unit": "%",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Upfront mortgage insurance premium.",
         "tr": "Peşin ödenen sigorta primi.",
-        "de": "Upfront mortgage insurance premium.",
-        "fr": "Upfront mortgage insurance premium.",
-        "es": "Upfront mortgage insurance premium.",
-        "ar": "Upfront mortgage insurance premium."
+        "de": "Vorab-Hypothekenversicherungsprämie.",
+        "fr": "Prime d'assurance hypothécaire initiale.",
+        "es": "Prima de seguro hipotecario inicial.",
+        "ar": "قسط التأمين على الرهن العقاري المقدم."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Annual mortgage insurance premium.",
         "tr": "Yıllık mortgage sigorta primi.",
-        "de": "Annual mortgage insurance premium.",
-        "fr": "Annual mortgage insurance premium.",
-        "es": "Annual mortgage insurance premium.",
-        "ar": "Annual mortgage insurance premium."
+        "de": "Jährliche Hypothekenversicherungsprämie.",
+        "fr": "Prime d'assurance hypothécaire annuelle.",
+        "es": "Prima de seguro hipotecario anual.",
+        "ar": "قسط التأمين على الرهن العقاري السنوي."
       }
     }
   ],
@@ -102,18 +102,18 @@
       "pesin": {
         "en": "Peşin Sigorta Primi",
         "tr": "Peşin Sigorta Primi",
-        "de": "Peşin Sigorta Primi",
-        "fr": "Peşin Sigorta Primi",
-        "es": "Peşin Sigorta Primi",
-        "ar": "Peşin Sigorta Primi"
+        "de": "Vorauszahlung der Versicherungsprämie",
+        "fr": "Prime d'assurance initiale",
+        "es": "Prima de seguro por adelantado",
+        "ar": "قسط التأمين المقدم"
       },
       "sonuc": {
         "en": "Aylık Sigorta Primi",
         "tr": "Aylık Sigorta Primi",
-        "de": "Aylık Sigorta Primi",
-        "fr": "Aylık Sigorta Primi",
-        "es": "Aylık Sigorta Primi",
-        "ar": "Aylık Sigorta Primi"
+        "de": "Monatliche Versicherungsprämie",
+        "fr": "Prime d'assurance mensuelle",
+        "es": "Prima de seguro mensual",
+        "ar": "قسط التأمين الشهري"
       }
     },
     "breakdownUnits": {
@@ -136,18 +136,18 @@
       "short_i18n": {
         "en": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
         "tr": "Devlet destekli FHA kredisinin başlangıç ve aylık sigorta maliyetini hesaplar.",
-        "de": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
-        "fr": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
-        "es": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
-        "ar": "Calculate FHA loan upfront and annual mortgage insurance premiums."
+        "de": "Berechnen Sie die Vorab- und jährlichen Hypothekenversicherungsprämien für FHA-Darlehen.",
+        "fr": "Calculer les primes d'assurance hypothécaire initiale et annuelle pour un prêt FHA.",
+        "es": "Calcular las primas de seguro hipotecario inicial y anual del préstamo FHA.",
+        "ar": "حساب أقساط التأمين على الرهن العقاري المقدمة والسنوية لقرض FHA."
       },
       "long_i18n": {
         "en": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
         "tr": "Devlet destekli FHA kredisinin başlangıç ve aylık sigorta maliyetini hesaplar.",
-        "de": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
-        "fr": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
-        "es": "Calculate FHA loan upfront and annual mortgage insurance premiums.",
-        "ar": "Calculate FHA loan upfront and annual mortgage insurance premiums."
+        "de": "Berechnen Sie die Vorab- und jährlichen Hypothekenversicherungsprämien für FHA-Darlehen.",
+        "fr": "Calculer les primes d'assurance hypothécaire initiale et annuelle pour un prêt FHA.",
+        "es": "Calcular las primas de seguro hipotecario inicial y anual del préstamo FHA.",
+        "ar": "حساب أقساط التأمين على الرهن العقاري المقدمة والسنوية لقرض FHA."
       }
     }
   },

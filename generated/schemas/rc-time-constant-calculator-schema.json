@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Circuit resistance.",
         "tr": "Devre direnci.",
-        "de": "Circuit resistance.",
-        "fr": "Circuit resistance.",
-        "es": "Circuit resistance.",
-        "ar": "Circuit resistance."
+        "de": "Schaltungswiderstand.",
+        "fr": "Résistance du circuit.",
+        "es": "Resistencia del circuito.",
+        "ar": "مقاومة الدائرة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Capacitance (F)",
         "tr": "Kapasite (F)",
-        "de": "Capacitance (F)",
-        "fr": "Capacitance (F)",
-        "es": "Capacitance (F)",
-        "ar": "Capacitance (F)"
+        "de": "Kapazität (F)",
+        "fr": "Capacité (F)",
+        "es": "Capacitancia (F)",
+        "ar": "السعة (F)"
       },
       "type": "number",
       "unit": "F",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Circuit capacitance.",
         "tr": "Devre kapasitesi.",
-        "de": "Circuit capacitance.",
-        "fr": "Circuit capacitance.",
-        "es": "Circuit capacitance.",
-        "ar": "Circuit capacitance."
+        "de": "Schaltungskapazität.",
+        "fr": "Capacité du circuit.",
+        "es": "Capacitancia del circuito.",
+        "ar": "سعة الدائرة."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Zaman Sabiti (τ)",
         "tr": "Zaman Sabiti (τ)",
-        "de": "Zaman Sabiti (τ)",
-        "fr": "Zaman Sabiti (τ)",
-        "es": "Zaman Sabiti (τ)",
-        "ar": "Zaman Sabiti (τ)"
+        "de": "Zeitkonstante (τ)",
+        "fr": "Constante de temps (τ)",
+        "es": "Constante de Tiempo (τ)",
+        "ar": "ثابت الزمن (τ)"
       }
     },
     "breakdownUnits": {
@@ -102,18 +102,18 @@
       "short_i18n": {
         "en": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
         "tr": "Kapasitörün %63,2 şarj/deşarj olması için geçen süreyi (RC zaman sabiti) hesaplar.",
-        "de": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "fr": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "es": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "ar": "Calculate RC time constant — time to reach 63.2% charge/discharge."
+        "de": "Berechnung der RC-Zeitkonstante — Zeit bis 63,2% Ladung/Entladung.",
+        "fr": "Calculer la constante de temps RC — temps pour atteindre 63,2 % de charge/décharge.",
+        "es": "Calcular la constante de tiempo RC — tiempo para alcanzar el 63.2% de carga/descarga.",
+        "ar": "احسب ثابت الوقت RC — الوقت للوصول إلى 63.2% شحن/تفريغ."
       },
       "long_i18n": {
         "en": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
         "tr": "Kapasitörün %63,2 şarj/deşarj olması için geçen süreyi (RC zaman sabiti) hesaplar.",
-        "de": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "fr": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "es": "Calculate RC time constant — time to reach 63.2% charge/discharge.",
-        "ar": "Calculate RC time constant — time to reach 63.2% charge/discharge."
+        "de": "Berechnung der RC-Zeitkonstante — Zeit bis 63,2% Ladung/Entladung.",
+        "fr": "Calculer la constante de temps RC — temps pour atteindre 63,2 % de charge/décharge.",
+        "es": "Calcular la constante de tiempo RC — tiempo para alcanzar el 63.2% de carga/descarga.",
+        "ar": "احسب ثابت الوقت RC — الوقت للوصول إلى 63.2% شحن/تفريغ."
       }
     }
   },

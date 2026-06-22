@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "System mass.",
         "tr": "Sistem kütlesi.",
-        "de": "System mass.",
-        "fr": "System mass.",
-        "es": "System mass.",
-        "ar": "System mass."
+        "de": "Systemmasse.",
+        "fr": "Masse du système.",
+        "es": "Masa del sistema.",
+        "ar": "كتلة النظام."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Spring Constant (N/m)",
         "tr": "Yay Sabiti (N/m)",
-        "de": "Spring Constant (N/m)",
-        "fr": "Spring Constant (N/m)",
-        "es": "Spring Constant (N/m)",
-        "ar": "Spring Constant (N/m)"
+        "de": "Federkonstante (N/m)",
+        "fr": "Constante de raideur (N/m)",
+        "es": "Constante del resorte (N/m)",
+        "ar": "ثابت الزنبرك (N/m)"
       },
       "type": "number",
       "unit": "N/m",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Spring stiffness.",
         "tr": "Yay rijitliği.",
-        "de": "Spring stiffness.",
-        "fr": "Spring stiffness.",
-        "es": "Spring stiffness.",
-        "ar": "Spring stiffness."
+        "de": "Federsteifigkeit.",
+        "fr": "Raideur du ressort.",
+        "es": "Rigidez del resorte.",
+        "ar": "صلابة الزنبرك."
       }
     }
   ],
@@ -75,10 +75,10 @@
       "sonuc": {
         "en": "Açısal Frekans (ω)",
         "tr": "Açısal Frekans (ω)",
-        "de": "Açısal Frekans (ω)",
-        "fr": "Açısal Frekans (ω)",
-        "es": "Açısal Frekans (ω)",
-        "ar": "Açısal Frekans (ω)"
+        "de": "Angular Frequency (ω)",
+        "fr": "Pulsation (ω)",
+        "es": "Frecuencia Angular (ω)",
+        "ar": "التردد الزاوي (ω)"
       }
     },
     "breakdownUnits": {
@@ -100,18 +100,18 @@
       "short_i18n": {
         "en": "Calculate undamped natural angular frequency of spring-mass system.",
         "tr": "Sönümsüz yay-kütle sisteminin doğal açısal frekansını (ω) hesaplar.",
-        "de": "Calculate undamped natural angular frequency of spring-mass system.",
-        "fr": "Calculate undamped natural angular frequency of spring-mass system.",
-        "es": "Calculate undamped natural angular frequency of spring-mass system.",
-        "ar": "Calculate undamped natural angular frequency of spring-mass system."
+        "de": "Berechnen Sie die ungedämpfte Eigenkreisfrequenz eines Feder-Masse-Systems.",
+        "fr": "Calculer la pulsation naturelle non amortie d'un système masse-ressort.",
+        "es": "Calcular la frecuencia angular natural no amortiguada de un sistema masa-resorte.",
+        "ar": "حساب التردد الزاوي الطبيعي غير المخمد لنظام كتلة-نابض."
       },
       "long_i18n": {
         "en": "Calculate undamped natural angular frequency of spring-mass system.",
         "tr": "Sönümsüz yay-kütle sisteminin doğal açısal frekansını (ω) hesaplar.",
-        "de": "Calculate undamped natural angular frequency of spring-mass system.",
-        "fr": "Calculate undamped natural angular frequency of spring-mass system.",
-        "es": "Calculate undamped natural angular frequency of spring-mass system.",
-        "ar": "Calculate undamped natural angular frequency of spring-mass system."
+        "de": "Berechnen Sie die ungedämpfte Eigenkreisfrequenz eines Feder-Masse-Systems.",
+        "fr": "Calculer la pulsation naturelle non amortie d'un système masse-ressort.",
+        "es": "Calcular la frecuencia angular natural no amortiguada de un sistema masa-resorte.",
+        "ar": "حساب التردد الزاوي الطبيعي غير المخمد لنظام كتلة-نابض."
       }
     }
   },

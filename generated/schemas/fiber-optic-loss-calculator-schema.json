@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Fiber Length (km)",
         "tr": "Fiber Uzunluğu (km)",
-        "de": "Fiber Length (km)",
-        "fr": "Fiber Length (km)",
-        "es": "Fiber Length (km)",
-        "ar": "Fiber Length (km)"
+        "de": "Faserlänge (km)",
+        "fr": "Longueur de fibre (km)",
+        "es": "Longitud de Fibra (km)",
+        "ar": "طول الألياف (km)"
       },
       "type": "number",
       "unit": "km",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Fiber cable length.",
         "tr": "Fiber kablo boyu.",
-        "de": "Fiber cable length.",
-        "fr": "Fiber cable length.",
-        "es": "Fiber cable length.",
-        "ar": "Fiber cable length."
+        "de": "Länge des Glasfaserkabels.",
+        "fr": "Longueur du câble à fibre optique.",
+        "es": "Longitud del cable de fibra.",
+        "ar": "طول كابل الألياف."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Attenuation (dB/km)",
         "tr": "Birim Kayıp (dB/km)",
-        "de": "Attenuation (dB/km)",
-        "fr": "Attenuation (dB/km)",
-        "es": "Attenuation (dB/km)",
-        "ar": "Attenuation (dB/km)"
+        "de": "Dämpfung (dB/km)",
+        "fr": "Atténuation (dB/km)",
+        "es": "Atenuación (dB/km)",
+        "ar": "التوهين (dB/km)"
       },
       "type": "number",
       "unit": "dB/km",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Loss per km.",
         "tr": "Fiberin km başına zayıflaması.",
-        "de": "Loss per km.",
-        "fr": "Loss per km.",
-        "es": "Loss per km.",
-        "ar": "Loss per km."
+        "de": "Verlust pro km.",
+        "fr": "Perte par km.",
+        "es": "Pérdida por km.",
+        "ar": "الفقد لكل كيلومتر."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Splice Losses (dB)",
         "tr": "Ek Kayıplar (dB)",
-        "de": "Splice Losses (dB)",
-        "fr": "Splice Losses (dB)",
-        "es": "Splice Losses (dB)",
-        "ar": "Splice Losses (dB)"
+        "de": "Spleißverluste (dB)",
+        "fr": "Pertes d'épissure (dB)",
+        "es": "Pérdidas por Empalme (dB)",
+        "ar": "فقد الوصلات (dB)"
       },
       "type": "number",
       "unit": "dB",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Connector and splice losses.",
         "tr": "Konnektör ve ek kayıpları.",
-        "de": "Connector and splice losses.",
-        "fr": "Connector and splice losses.",
-        "es": "Connector and splice losses.",
-        "ar": "Connector and splice losses."
+        "de": "Stecker- und Spleißverluste.",
+        "fr": "Pertes de connecteurs et d'épissures.",
+        "es": "Pérdidas por conectores y empalmes.",
+        "ar": "فقد الموصلات والوصلات."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Toplam Zayıflama",
         "tr": "Toplam Zayıflama",
-        "de": "Toplam Zayıflama",
-        "fr": "Toplam Zayıflama",
-        "es": "Toplam Zayıflama",
-        "ar": "Toplam Zayıflama"
+        "de": "Gesamtdämpfung",
+        "fr": "Atténuation totale",
+        "es": "Atenuación total",
+        "ar": "إجمالي التوهين"
       }
     },
     "breakdownUnits": {
@@ -125,18 +125,18 @@
       "short_i18n": {
         "en": "Calculate total optical power loss in fiber optic link.",
         "tr": "Işık sinyalinin hat sonundaki toplam güç kaybını (fiber optik zayıflama) hesaplar.",
-        "de": "Calculate total optical power loss in fiber optic link.",
-        "fr": "Calculate total optical power loss in fiber optic link.",
-        "es": "Calculate total optical power loss in fiber optic link.",
-        "ar": "Calculate total optical power loss in fiber optic link."
+        "de": "Berechnen Sie den gesamten optischen Leistungsverlust in einer Glasfaserverbindung.",
+        "fr": "Calculer la perte de puissance optique totale dans une liaison par fibre optique.",
+        "es": "Calcular la pérdida total de potencia óptica en un enlace de fibra óptica.",
+        "ar": "حساب إجمالي فقدان الطاقة الضوئية في وصلة الألياف الضوئية."
       },
       "long_i18n": {
         "en": "Calculate total optical power loss in fiber optic link.",
         "tr": "Işık sinyalinin hat sonundaki toplam güç kaybını (fiber optik zayıflama) hesaplar.",
-        "de": "Calculate total optical power loss in fiber optic link.",
-        "fr": "Calculate total optical power loss in fiber optic link.",
-        "es": "Calculate total optical power loss in fiber optic link.",
-        "ar": "Calculate total optical power loss in fiber optic link."
+        "de": "Berechnen Sie den gesamten optischen Leistungsverlust in einer Glasfaserverbindung.",
+        "fr": "Calculer la perte de puissance optique totale dans une liaison par fibre optique.",
+        "es": "Calcular la pérdida total de potencia óptica en un enlace de fibra óptica.",
+        "ar": "حساب إجمالي فقدان الطاقة الضوئية في وصلة الألياف الضوئية."
       }
     }
   },

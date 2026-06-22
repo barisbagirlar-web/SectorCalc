@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "RSU Shares Granted",
         "tr": "Verilen Hisse (Adet)",
-        "de": "RSU Shares Granted",
-        "fr": "RSU Shares Granted",
-        "es": "RSU Shares Granted",
-        "ar": "RSU Shares Granted"
+        "de": "Gewährte RSU-Aktien",
+        "fr": "Actions RSU attribuées",
+        "es": "Acciones RSU Concedidas",
+        "ar": "أسهم RSU الممنوحة"
       },
       "type": "number",
       "unit": "shares",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Vested RSU shares.",
         "tr": "Hak kazanılan RSU hisse adedi.",
-        "de": "Vested RSU shares.",
-        "fr": "Vested RSU shares.",
-        "es": "Vested RSU shares.",
-        "ar": "Vested RSU shares."
+        "de": "Unverfallbare RSU-Aktien.",
+        "fr": "Actions RSU acquises.",
+        "es": "Acciones RSU adquiridas.",
+        "ar": "أسهم RSU المستحقة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Vesting Percentage (%)",
         "tr": "Hak Kazanma (%)",
-        "de": "Vesting Percentage (%)",
-        "fr": "Vesting Percentage (%)",
-        "es": "Vesting Percentage (%)",
-        "ar": "Vesting Percentage (%)"
+        "de": "Unverfallbarkeitsprozentsatz (%)",
+        "fr": "Pourcentage d'acquisition (%)",
+        "es": "Porcentaje de Adquisición (%)",
+        "ar": "نسبة الاستحقاق (%)"
       },
       "type": "number",
       "unit": "%",
@@ -50,10 +50,10 @@
       "businessContext_i18n": {
         "en": "Vesting percentage.",
         "tr": "Dönemde hak kazanılan yüzde.",
-        "de": "Vesting percentage.",
-        "fr": "Vesting percentage.",
-        "es": "Vesting percentage.",
-        "ar": "Vesting percentage."
+        "de": "Unverfallbarkeitsprozentsatz.",
+        "fr": "Pourcentage d'acquisition.",
+        "es": "Porcentaje de adquisición.",
+        "ar": "نسبة الاستحقاق."
       }
     },
     {
@@ -62,10 +62,10 @@
       "label_i18n": {
         "en": "Tax Withholding (%)",
         "tr": "Vergi Kesintisi (%)",
-        "de": "Tax Withholding (%)",
-        "fr": "Tax Withholding (%)",
-        "es": "Tax Withholding (%)",
-        "ar": "Tax Withholding (%)"
+        "de": "Steuereinbehalt (%)",
+        "fr": "Retenue d'impôt (%)",
+        "es": "Retención de Impuestos (%)",
+        "ar": "نسبة خصم الضريبة (%)"
       },
       "type": "number",
       "unit": "%",
@@ -76,10 +76,10 @@
       "businessContext_i18n": {
         "en": "Withholding tax rate.",
         "tr": "Stopaj oranı.",
-        "de": "Withholding tax rate.",
-        "fr": "Withholding tax rate.",
-        "es": "Withholding tax rate.",
-        "ar": "Withholding tax rate."
+        "de": "Steuereinbehaltssatz.",
+        "fr": "Taux de retenue d'impôt.",
+        "es": "Tasa de retención de impuestos.",
+        "ar": "معدل ضريبة الخصم."
       }
     }
   ],
@@ -102,10 +102,10 @@
       "sonuc": {
         "en": "Net Hisse",
         "tr": "Net Hisse",
-        "de": "Net Hisse",
-        "fr": "Net Hisse",
-        "es": "Net Hisse",
-        "ar": "Net Hisse"
+        "de": "Nettoaktien",
+        "fr": "Actions nettes",
+        "es": "Acciones Netas",
+        "ar": "صافي الأسهم"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate net RSU shares after tax withholding.",
         "tr": "Vergi kesintisi sonrası ele geçen net hisse sayısını hesaplar.",
-        "de": "Calculate net RSU shares after tax withholding.",
-        "fr": "Calculate net RSU shares after tax withholding.",
-        "es": "Calculate net RSU shares after tax withholding.",
-        "ar": "Calculate net RSU shares after tax withholding."
+        "de": "Berechnen Sie die Netto-RSU-Aktien nach Steuereinbehalt.",
+        "fr": "Calculer les actions RSU nettes après retenue d'impôt.",
+        "es": "Calcular las acciones netas de RSU después de la retención de impuestos.",
+        "ar": "حساب صافي أسهم RSU بعد خصم الضريبة."
       },
       "long_i18n": {
         "en": "Calculate net RSU shares after tax withholding.",
         "tr": "Vergi kesintisi sonrası ele geçen net hisse sayısını hesaplar.",
-        "de": "Calculate net RSU shares after tax withholding.",
-        "fr": "Calculate net RSU shares after tax withholding.",
-        "es": "Calculate net RSU shares after tax withholding.",
-        "ar": "Calculate net RSU shares after tax withholding."
+        "de": "Berechnen Sie die Netto-RSU-Aktien nach Steuereinbehalt.",
+        "fr": "Calculer les actions RSU nettes après retenue d'impôt.",
+        "es": "Calcular las acciones netas de RSU después de la retención de impuestos.",
+        "ar": "حساب صافي أسهم RSU بعد خصم الضريبة."
       }
     }
   },

@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Surface Tension (N/m)",
         "tr": "Yüzey Gerilimi (N/m)",
-        "de": "Surface Tension (N/m)",
-        "fr": "Surface Tension (N/m)",
-        "es": "Surface Tension (N/m)",
-        "ar": "Surface Tension (N/m)"
+        "de": "Oberflächenspannung (N/m)",
+        "fr": "Tension superficielle (N/m)",
+        "es": "Tensión Superficial (N/m)",
+        "ar": "التوتر السطحي (N/m)"
       },
       "type": "number",
       "unit": "N/m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Liquid surface tension.",
         "tr": "Sıvının yüzey gerilimi.",
-        "de": "Liquid surface tension.",
-        "fr": "Liquid surface tension.",
-        "es": "Liquid surface tension.",
-        "ar": "Liquid surface tension."
+        "de": "Oberflächenspannung der Flüssigkeit.",
+        "fr": "Tension superficielle du liquide.",
+        "es": "Tensión superficial del líquido.",
+        "ar": "التوتر السطحي للسائل."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Contact Angle (Deg)",
         "tr": "Temas Açısı (Derece)",
-        "de": "Contact Angle (Deg)",
-        "fr": "Contact Angle (Deg)",
-        "es": "Contact Angle (Deg)",
-        "ar": "Contact Angle (Deg)"
+        "de": "Kontaktwinkel (Deg)",
+        "fr": "Angle de contact (Deg)",
+        "es": "Ángulo de Contacto (Grados)",
+        "ar": "زاوية التلامس (Deg)"
       },
       "type": "number",
       "unit": "degrees",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Liquid-solid contact angle.",
         "tr": "Sıvı-katı temas açısı.",
-        "de": "Liquid-solid contact angle.",
-        "fr": "Liquid-solid contact angle.",
-        "es": "Liquid-solid contact angle.",
-        "ar": "Liquid-solid contact angle."
+        "de": "Kontaktwinkel zwischen Flüssigkeit und Feststoff.",
+        "fr": "Angle de contact liquide-solide.",
+        "es": "Ángulo de contacto líquido-sólido.",
+        "ar": "زاوية التلامس بين السائل والصلب."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Tube Radius (m)",
         "tr": "Borun Yarıçap (m)",
-        "de": "Tube Radius (m)",
-        "fr": "Tube Radius (m)",
-        "es": "Tube Radius (m)",
-        "ar": "Tube Radius (m)"
+        "de": "Rohrradius (m)",
+        "fr": "Rayon du tube (m)",
+        "es": "Radio del Tubo (m)",
+        "ar": "نصف قطر الأنبوب (m)"
       },
       "type": "number",
       "unit": "m",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Capillary tube inner radius.",
         "tr": "Kılcal borunun iç yarıçapı.",
-        "de": "Capillary tube inner radius.",
-        "fr": "Capillary tube inner radius.",
-        "es": "Capillary tube inner radius.",
-        "ar": "Capillary tube inner radius."
+        "de": "Innerer Radius des Kapillarrohrs.",
+        "fr": "Rayon intérieur du tube capillaire.",
+        "es": "Radio interno del tubo capilar.",
+        "ar": "نصف القطر الداخلي للأنبوب الشعري."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Liquid Density (kg/m³)",
         "tr": "Sıvı Yoğunluğu (kg/m³)",
-        "de": "Liquid Density (kg/m³)",
-        "fr": "Liquid Density (kg/m³)",
-        "es": "Liquid Density (kg/m³)",
-        "ar": "Liquid Density (kg/m³)"
+        "de": "Flüssigkeitsdichte (kg/m³)",
+        "fr": "Masse volumique du liquide (kg/m³)",
+        "es": "Densidad del Líquido (kg/m³)",
+        "ar": "كثافة السائل (kg/m³)"
       },
       "type": "number",
       "unit": "kg/m3",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Liquid density.",
         "tr": "Sıvının yoğunluğu.",
-        "de": "Liquid density.",
-        "fr": "Liquid density.",
-        "es": "Liquid density.",
-        "ar": "Liquid density."
+        "de": "Flüssigkeitsdichte.",
+        "fr": "Masse volumique du liquide.",
+        "es": "Densidad del líquido.",
+        "ar": "كثافة السائل."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Kılcal Yükselme",
         "tr": "Kılcal Yükselme",
-        "de": "Kılcal Yükselme",
-        "fr": "Kılcal Yükselme",
-        "es": "Kılcal Yükselme",
-        "ar": "Kılcal Yükselme"
+        "de": "Kapillarer Aufstieg",
+        "fr": "Ascension capillaire",
+        "es": "Ascenso Capilar",
+        "ar": "الارتفاع الشعري"
       }
     },
     "breakdownUnits": {
@@ -150,18 +150,18 @@
       "short_i18n": {
         "en": "Calculate capillary rise height of liquid in a narrow tube.",
         "tr": "Sıvının dar bir boruda kılcal yükselme yüksekliğini hesaplar.",
-        "de": "Calculate capillary rise height of liquid in a narrow tube.",
-        "fr": "Calculate capillary rise height of liquid in a narrow tube.",
-        "es": "Calculate capillary rise height of liquid in a narrow tube.",
-        "ar": "Calculate capillary rise height of liquid in a narrow tube."
+        "de": "Berechnen Sie die kapillare Steighöhe einer Flüssigkeit in einem engen Rohr.",
+        "fr": "Calculer la hauteur de remontée capillaire d'un liquide dans un tube étroit.",
+        "es": "Calcular la altura de ascenso capilar de un líquido en un tubo estrecho.",
+        "ar": "حساب ارتفاع الصعود الشعري للسائل في أنبوب ضيق."
       },
       "long_i18n": {
         "en": "Calculate capillary rise height of liquid in a narrow tube.",
         "tr": "Sıvının dar bir boruda kılcal yükselme yüksekliğini hesaplar.",
-        "de": "Calculate capillary rise height of liquid in a narrow tube.",
-        "fr": "Calculate capillary rise height of liquid in a narrow tube.",
-        "es": "Calculate capillary rise height of liquid in a narrow tube.",
-        "ar": "Calculate capillary rise height of liquid in a narrow tube."
+        "de": "Berechnen Sie die kapillare Steighöhe einer Flüssigkeit in einem engen Rohr.",
+        "fr": "Calculer la hauteur de remontée capillaire d'un liquide dans un tube étroit.",
+        "es": "Calcular la altura de ascenso capilar de un líquido en un tubo estrecho.",
+        "ar": "حساب ارتفاع الصعود الشعري للسائل في أنبوب ضيق."
       }
     }
   },

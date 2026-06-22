@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Stratum Population (N_h)",
         "tr": "Tabaka Popülasyonu (N_h)",
-        "de": "Stratum Population (N_h)",
-        "fr": "Stratum Population (N_h)",
-        "es": "Stratum Population (N_h)",
-        "ar": "Stratum Population (N_h)"
+        "de": "Schichtpopulation (N_h)",
+        "fr": "Population de la strate (N_h)",
+        "es": "Población del estrato (N_h)",
+        "ar": "عدد أفراد الطبقة (N_h)"
       },
       "type": "number",
       "unit": "",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total individuals in stratum.",
         "tr": "Tabakadaki toplam birey.",
-        "de": "Total individuals in stratum.",
-        "fr": "Total individuals in stratum.",
-        "es": "Total individuals in stratum.",
-        "ar": "Total individuals in stratum."
+        "de": "Gesamtzahl der Personen in der Schicht.",
+        "fr": "Nombre total d'individus dans la strate.",
+        "es": "Total de individuos en el estrato.",
+        "ar": "إجمالي الأفراد في الطبقة."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Total Population (N)",
         "tr": "Toplam Popülasyon (N)",
-        "de": "Total Population (N)",
-        "fr": "Total Population (N)",
-        "es": "Total Population (N)",
-        "ar": "Total Population (N)"
+        "de": "Gesamtpopulation (N)",
+        "fr": "Population totale (N)",
+        "es": "Población total (N)",
+        "ar": "إجمالي عدد السكان (N)"
       },
       "type": "number",
       "unit": "",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Population size.",
         "tr": "Evren büyüklüğü.",
-        "de": "Population size.",
-        "fr": "Population size.",
-        "es": "Population size.",
-        "ar": "Population size."
+        "de": "Populationsgröße.",
+        "fr": "Taille de la population.",
+        "es": "Tamaño de la población.",
+        "ar": "حجم السكان."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Stratum Sample (n_h)",
         "tr": "Tabaka Örneklemi (n_h)",
-        "de": "Stratum Sample (n_h)",
-        "fr": "Stratum Sample (n_h)",
-        "es": "Stratum Sample (n_h)",
-        "ar": "Stratum Sample (n_h)"
+        "de": "Schichtstichprobe (n_h)",
+        "fr": "Échantillon de la strate (n_h)",
+        "es": "Muestra del estrato (n_h)",
+        "ar": "عينة الطبقة (n_h)"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Sample drawn from stratum.",
         "tr": "Tabakadan alınan örneklem.",
-        "de": "Sample drawn from stratum.",
-        "fr": "Sample drawn from stratum.",
-        "es": "Sample drawn from stratum.",
-        "ar": "Sample drawn from stratum."
+        "de": "Aus der Schicht gezogene Stichprobe.",
+        "fr": "Échantillon prélevé dans la strate.",
+        "es": "Muestra extraída del estrato.",
+        "ar": "العينة المسحوبة من الطبقة."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Total Sample (n)",
         "tr": "Toplam Örneklem (n)",
-        "de": "Total Sample (n)",
-        "fr": "Total Sample (n)",
-        "es": "Total Sample (n)",
-        "ar": "Total Sample (n)"
+        "de": "Gesamtstichprobe (n)",
+        "fr": "Échantillon total (n)",
+        "es": "Muestra total (n)",
+        "ar": "إجمالي العينة (n)"
       },
       "type": "number",
       "unit": "",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Total sample size.",
         "tr": "Tüm örneklem büyüklüğü.",
-        "de": "Total sample size.",
-        "fr": "Total sample size.",
-        "es": "Total sample size.",
-        "ar": "Total sample size."
+        "de": "Gesamtstichprobengröße.",
+        "fr": "Taille totale de l'échantillon.",
+        "es": "Tamaño total de la muestra.",
+        "ar": "حجم العينة الإجمالي."
       }
     }
   ],
@@ -125,10 +125,10 @@
       "sonuc": {
         "en": "Ağırlık Katsayısı",
         "tr": "Ağırlık Katsayısı",
-        "de": "Ağırlık Katsayısı",
-        "fr": "Ağırlık Katsayısı",
-        "es": "Ağırlık Katsayısı",
-        "ar": "Ağırlık Katsayısı"
+        "de": "Gewichtungskoeffizient",
+        "fr": "Coefficient de pondération",
+        "es": "Coeficiente de ponderación",
+        "ar": "معامل الوزن"
       }
     },
     "breakdownUnits": {
@@ -153,18 +153,18 @@
       "short_i18n": {
         "en": "Calculate sampling weight for each stratum in stratified sampling.",
         "tr": "Tabakalı örneklemede her tabakanın ağırlıklandırma katsayısını hesaplar.",
-        "de": "Calculate sampling weight for each stratum in stratified sampling.",
-        "fr": "Calculate sampling weight for each stratum in stratified sampling.",
-        "es": "Calculate sampling weight for each stratum in stratified sampling.",
-        "ar": "Calculate sampling weight for each stratum in stratified sampling."
+        "de": "Berechnen Sie das Stichprobengewicht für jede Schicht bei geschichteter Stichprobenziehung.",
+        "fr": "Calculer le poids d'échantillonnage pour chaque strate dans un échantillonnage stratifié.",
+        "es": "Calcular el peso de muestreo para cada estrato en el muestreo estratificado.",
+        "ar": "احسب وزن العينة لكل طبقة في أخذ العينات الطبقي."
       },
       "long_i18n": {
         "en": "Calculate sampling weight for each stratum in stratified sampling.",
         "tr": "Tabakalı örneklemede her tabakanın ağırlıklandırma katsayısını hesaplar.",
-        "de": "Calculate sampling weight for each stratum in stratified sampling.",
-        "fr": "Calculate sampling weight for each stratum in stratified sampling.",
-        "es": "Calculate sampling weight for each stratum in stratified sampling.",
-        "ar": "Calculate sampling weight for each stratum in stratified sampling."
+        "de": "Berechnen Sie das Stichprobengewicht für jede Schicht bei geschichteter Stichprobenziehung.",
+        "fr": "Calculer le poids d'échantillonnage pour chaque strate dans un échantillonnage stratifié.",
+        "es": "Calcular el peso de muestreo para cada estrato en el muestreo estratificado.",
+        "ar": "احسب وزن العينة لكل طبقة في أخذ العينات الطبقي."
       }
     }
   },

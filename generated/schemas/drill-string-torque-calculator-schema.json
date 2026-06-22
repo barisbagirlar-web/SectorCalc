@@ -11,10 +11,10 @@
       "label_i18n": {
         "en": "Bit Diameter (m)",
         "tr": "Matkap Ucu Çapı (m)",
-        "de": "Bit Diameter (m)",
-        "fr": "Bit Diameter (m)",
-        "es": "Bit Diameter (m)",
-        "ar": "Bit Diameter (m)"
+        "de": "Bohrmeißeldurchmesser (m)",
+        "fr": "Diamètre du Trépan (m)",
+        "es": "Diámetro de la Broca (m)",
+        "ar": "قطر المثقاب (m)"
       },
       "type": "number",
       "unit": "m",
@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Drill bit diameter.",
         "tr": "Sondaj matkabının çapı.",
-        "de": "Drill bit diameter.",
-        "fr": "Drill bit diameter.",
-        "es": "Drill bit diameter.",
-        "ar": "Drill bit diameter."
+        "de": "Bohrmeißeldurchmesser.",
+        "fr": "Diamètre du trépan.",
+        "es": "Diámetro de la broca de perforación.",
+        "ar": "قطر لقمة الحفر."
       }
     },
     {
@@ -36,10 +36,10 @@
       "label_i18n": {
         "en": "Rock Compressive Strength (MPa)",
         "tr": "Kaya Basma Dayanımı (MPa)",
-        "de": "Rock Compressive Strength (MPa)",
-        "fr": "Rock Compressive Strength (MPa)",
-        "es": "Rock Compressive Strength (MPa)",
-        "ar": "Rock Compressive Strength (MPa)"
+        "de": "Gesteinsdruckfestigkeit (MPa)",
+        "fr": "Résistance à la Compression de la Roche (MPa)",
+        "es": "Resistencia a la Compresión de la Roca (MPa)",
+        "ar": "مقاومة الصخور للضغط (MPa)"
       },
       "type": "number",
       "unit": "MPa",
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Uniaxial compressive strength.",
         "tr": "Kayanın tek eksenli basma dayanımı.",
-        "de": "Uniaxial compressive strength.",
-        "fr": "Uniaxial compressive strength.",
-        "es": "Uniaxial compressive strength.",
-        "ar": "Uniaxial compressive strength."
+        "de": "Einaxiale Druckfestigkeit.",
+        "fr": "Résistance à la compression uniaxiale.",
+        "es": "Resistencia a la compresión uniaxial.",
+        "ar": "مقاومة الضغط أحادية المحور."
       }
     },
     {
@@ -61,10 +61,10 @@
       "label_i18n": {
         "en": "Cutter Coefficient",
         "tr": "Kesici Katsayısı",
-        "de": "Cutter Coefficient",
-        "fr": "Cutter Coefficient",
-        "es": "Cutter Coefficient",
-        "ar": "Cutter Coefficient"
+        "de": "Schneidkoeffizient",
+        "fr": "Coefficient de l'Outil de Coupe",
+        "es": "Coeficiente de Corte",
+        "ar": "معامل القاطع"
       },
       "type": "number",
       "unit": "",
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Bit type coefficient.",
         "tr": "Matkap tipine bağlı katsayı.",
-        "de": "Bit type coefficient.",
-        "fr": "Bit type coefficient.",
-        "es": "Bit type coefficient.",
-        "ar": "Bit type coefficient."
+        "de": "Bohrmeißeltypkoeffizient.",
+        "fr": "Coefficient du type de trépan.",
+        "es": "Coeficiente del tipo de broca.",
+        "ar": "معامل نوع لقمة الحفر."
       }
     }
   ],
@@ -100,10 +100,10 @@
       "sonuc": {
         "en": "Gerekli Tork",
         "tr": "Gerekli Tork",
-        "de": "Gerekli Tork",
-        "fr": "Gerekli Tork",
-        "es": "Gerekli Tork",
-        "ar": "Gerekli Tork"
+        "de": "Erforderliches Drehmoment",
+        "fr": "Couple Requis",
+        "es": "Torque Requerido",
+        "ar": "عزم الدوران المطلوب"
       }
     },
     "breakdownUnits": {
@@ -127,18 +127,18 @@
       "short_i18n": {
         "en": "Calculate minimum drill string torque for rotary drilling.",
         "tr": "Kayacı kırmak için matkap miline uygulanması gereken minimum torku hesaplar.",
-        "de": "Calculate minimum drill string torque for rotary drilling.",
-        "fr": "Calculate minimum drill string torque for rotary drilling.",
-        "es": "Calculate minimum drill string torque for rotary drilling.",
-        "ar": "Calculate minimum drill string torque for rotary drilling."
+        "de": "Berechnen Sie das minimale Bohrstrangdrehmoment für das Rotarybohren.",
+        "fr": "Calculez le couple minimal du train de tiges pour le forage rotatif.",
+        "es": "Calcular el torque mínimo de la sarta de perforación para perforación rotatoria.",
+        "ar": "احسب عزم دوران سلسلة الحفر الأدنى للحفر الدوار."
       },
       "long_i18n": {
         "en": "Calculate minimum drill string torque for rotary drilling.",
         "tr": "Kayacı kırmak için matkap miline uygulanması gereken minimum torku hesaplar.",
-        "de": "Calculate minimum drill string torque for rotary drilling.",
-        "fr": "Calculate minimum drill string torque for rotary drilling.",
-        "es": "Calculate minimum drill string torque for rotary drilling.",
-        "ar": "Calculate minimum drill string torque for rotary drilling."
+        "de": "Berechnen Sie das minimale Bohrstrangdrehmoment für das Rotarybohren.",
+        "fr": "Calculez le couple minimal du train de tiges pour le forage rotatif.",
+        "es": "Calcular el torque mínimo de la sarta de perforación para perforación rotatoria.",
+        "ar": "احسب عزم دوران سلسلة الحفر الأدنى للحفر الدوار."
       }
     }
   },

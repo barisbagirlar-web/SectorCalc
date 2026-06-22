@@ -24,10 +24,10 @@
       "businessContext_i18n": {
         "en": "Total loan principal.",
         "tr": "Çekilen toplam kredi anaparası.",
-        "de": "Total loan principal.",
-        "fr": "Total loan principal.",
-        "es": "Total loan principal.",
-        "ar": "Total loan principal."
+        "de": "Gesamter Darlehensbetrag.",
+        "fr": "Principal total du prêt.",
+        "es": "Capital total del préstamo.",
+        "ar": "إجمالي المبلغ الأساسي للقرض."
       }
     },
     {
@@ -49,10 +49,10 @@
       "businessContext_i18n": {
         "en": "Annual nominal interest rate.",
         "tr": "Kredinin yıllık nominal faiz oranı.",
-        "de": "Annual nominal interest rate.",
-        "fr": "Annual nominal interest rate.",
-        "es": "Annual nominal interest rate.",
-        "ar": "Annual nominal interest rate."
+        "de": "Jährlicher nominaler Zinssatz.",
+        "fr": "Taux d'intérêt nominal annuel.",
+        "es": "Tasa de interés nominal anual.",
+        "ar": "معدل الفائدة الاسمي السنوي."
       }
     },
     {
@@ -74,10 +74,10 @@
       "businessContext_i18n": {
         "en": "Total loan term.",
         "tr": "Kredinin toplam vadesi.",
-        "de": "Total loan term.",
-        "fr": "Total loan term.",
-        "es": "Total loan term.",
-        "ar": "Total loan term."
+        "de": "Gesamte Darlehenslaufzeit.",
+        "fr": "Durée totale du prêt.",
+        "es": "Plazo total del préstamo.",
+        "ar": "إجمالي مدة القرض."
       }
     },
     {
@@ -86,10 +86,10 @@
       "label_i18n": {
         "en": "Total Fees (USD)",
         "tr": "Toplam Masraf (₺)",
-        "de": "Total Fees (USD)",
-        "fr": "Total Fees (USD)",
-        "es": "Total Fees (USD)",
-        "ar": "Total Fees (USD)"
+        "de": "Gesamtgebühren (USD)",
+        "fr": "Frais totaux (USD)",
+        "es": "Tarifas Totales (USD)",
+        "ar": "إجمالي الرسوم (USD)"
       },
       "type": "number",
       "unit": "USD",
@@ -99,10 +99,10 @@
       "businessContext_i18n": {
         "en": "Origination, appraisal and insurance fees.",
         "tr": "Dosya, ekspertiz ve sigorta masrafları.",
-        "de": "Origination, appraisal and insurance fees.",
-        "fr": "Origination, appraisal and insurance fees.",
-        "es": "Origination, appraisal and insurance fees.",
-        "ar": "Origination, appraisal and insurance fees."
+        "de": "Bearbeitungs-, Bewertungs- und Versicherungsgebühren.",
+        "fr": "Frais de mise en place, d'évaluation et d'assurance.",
+        "es": "Tarifas de originación, tasación y seguro.",
+        "ar": "رسوم الإنشاء والتقييم والتأمين."
       }
     }
   ],
@@ -128,18 +128,18 @@
       "sonuc": {
         "en": "APR (Yıllık Maliyet Oranı)",
         "tr": "APR (Yıllık Maliyet Oranı)",
-        "de": "APR (Yıllık Maliyet Oranı)",
-        "fr": "APR (Yıllık Maliyet Oranı)",
-        "es": "APR (Yıllık Maliyet Oranı)",
-        "ar": "APR (Yıllık Maliyet Oranı)"
+        "de": "APR (Effektiver Jahreszins)",
+        "fr": "TAEG (Taux Annuel Effectif Global)",
+        "es": "APR (Tasa de Costo Anual)",
+        "ar": "معدل النسبة السنوية (APR)"
       },
       "aylikTaksit": {
         "en": "Aylık Taksit",
         "tr": "Aylık Taksit",
-        "de": "Aylık Taksit",
-        "fr": "Aylık Taksit",
-        "es": "Aylık Taksit",
-        "ar": "Aylık Taksit"
+        "de": "Monatliche Rate",
+        "fr": "Paiement mensuel",
+        "es": "Cuota Mensual",
+        "ar": "القسط الشهري"
       }
     },
     "breakdownUnits": {
@@ -162,18 +162,18 @@
       "short_i18n": {
         "en": "Calculate the true annual percentage rate including all fees.",
         "tr": "Masraflar dahil kredinin gerçek yıllık maliyet oranını hesaplar.",
-        "de": "Calculate the true annual percentage rate including all fees.",
-        "fr": "Calculate the true annual percentage rate including all fees.",
-        "es": "Calculate the true annual percentage rate including all fees.",
-        "ar": "Calculate the true annual percentage rate including all fees."
+        "de": "Berechnen Sie den effektiven Jahreszins einschließlich aller Gebühren.",
+        "fr": "Calculer le taux annuel effectif global incluant tous les frais.",
+        "es": "Calcular la tasa de porcentaje anual real incluyendo todas las tarifas.",
+        "ar": "حساب معدل النسبة المئوية السنوي الحقيقي شاملًا جميع الرسوم."
       },
       "long_i18n": {
         "en": "Calculate the true annual percentage rate including all fees.",
         "tr": "Masraflar dahil kredinin gerçek yıllık maliyet oranını hesaplar.",
-        "de": "Calculate the true annual percentage rate including all fees.",
-        "fr": "Calculate the true annual percentage rate including all fees.",
-        "es": "Calculate the true annual percentage rate including all fees.",
-        "ar": "Calculate the true annual percentage rate including all fees."
+        "de": "Berechnen Sie den effektiven Jahreszins einschließlich aller Gebühren.",
+        "fr": "Calculer le taux annuel effectif global incluant tous les frais.",
+        "es": "Calcular la tasa de porcentaje anual real incluyendo todas las tarifas.",
+        "ar": "حساب معدل النسبة المئوية السنوي الحقيقي شاملًا جميع الرسوم."
       }
     }
   },
