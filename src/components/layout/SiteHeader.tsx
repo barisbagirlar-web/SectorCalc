@@ -67,6 +67,14 @@ const T = {
     res_blog:'Engineering-Blog', res_blog_d:'Methoden & Fallstudien',
     res_docs:'Formel-Referenz', res_docs_d:'Normen & Quellen',
     res_api:'API-Zugang', res_api_d:'Berechnungen integrieren',
+        grp_production:'Production', grp_engineering:'Engineering', grp_operations:'Operations',
+    ind_manufacturing:'Manufacturing', ind_lean_oee:'Lean & OEE', ind_quality_spc:'Quality & SPC',
+    ind_mechanical_hvac:'Mechanical & HVAC', ind_electrical_power:'Electrical & Power', ind_construction:'Construction',
+    ind_supply_chain:'Supply Chain', ind_energy_esg:'Energy & ESG', ind_technology_cloud:'Technology & AI',
+        grp_production:'Produktion', grp_engineering:'Ingenieurwesen', grp_operations:'Betrieb',
+    ind_manufacturing:'Fertigung', ind_lean_oee:'Lean & OEE', ind_quality_spc:'Qualität & SPC',
+    ind_mechanical_hvac:'Mechanik & HLK', ind_electrical_power:'Elektrik & Energie', ind_construction:'Bauwesen',
+    ind_supply_chain:'Lieferkette', ind_energy_esg:'Energie & ESG', ind_technology_cloud:'Technologie & KI',
     tools:'Tools', lang_note:'Alle Preise in USD',
   },
   fr: {
@@ -79,7 +87,10 @@ const T = {
     res_blog:"Blog d'ingénierie", res_blog_d:'Méthodes & études de cas',
     res_docs:'Référence des formules', res_docs_d:'Normes & sources',
     res_api:'Accès API', res_api_d:'Intégrer les calculs',
-    tools:'outils', lang_note:'Tous les prix en USD',
+        grp_production:'Production', grp_engineering:'Ingénierie', grp_operations:'Opérations',
+    ind_manufacturing:'Fabrication', ind_lean_oee:'Lean & TRS', ind_quality_spc:'Qualité & MSP',
+    ind_mechanical_hvac:'Mécanique & CVC', ind_electrical_power:'Électricité & Énergie', ind_construction:'Construction',
+    ind_supply_chain:'Chaîne logistique', ind_energy_esg:'Énergie & ESG', ind_technology_cloud:'Technologie & IA', lang_note:'Tous les prix en USD',
   },
   es: {
     products:'Productos', industries:'Sectores', pricing:'Precios', resources:'Recursos',
@@ -91,6 +102,10 @@ const T = {
     res_blog:'Blog de ingeniería', res_blog_d:'Métodos y casos de estudio',
     res_docs:'Referencia de fórmulas', res_docs_d:'Normas y fuentes',
     res_api:'Acceso API', res_api_d:'Integrar cálculos',
+        grp_production:'Producción', grp_engineering:'Ingeniería', grp_operations:'Operaciones',
+    ind_manufacturing:'Fabricación', ind_lean_oee:'Lean & OEE', ind_quality_spc:'Calidad y CEP',
+    ind_mechanical_hvac:'Mecánica y HVAC', ind_electrical_power:'Eléctrica y Energía', ind_construction:'Construcción',
+    ind_supply_chain:'Cadena de Suministro', ind_energy_esg:'Energía y ESG', ind_technology_cloud:'Tecnología e IA',
     tools:'herramientas', lang_note:'Todos los precios en USD',
   },
   ar: {
@@ -103,32 +118,35 @@ const T = {
     res_blog:'مدونة هندسية', res_blog_d:'طرق ودراسات حالة',
     res_docs:'مرجع الصيغ', res_docs_d:'المعايير والمصادر',
     res_api:'وصول API', res_api_d:'دمج الحسابات',
-    tools:'أدوات', lang_note:'جميع الأسعار بالدولار الأمريكي',
+        grp_production:'إنتاج', grp_engineering:'هندسة', grp_operations:'عمليات',
+    ind_manufacturing:'تصنيع', ind_lean_oee:'لين و OEE', ind_quality_spc:'جودة و SPC',
+    ind_mechanical_hvac:'ميكانيكا وتكييف', ind_electrical_power:'كهرباء وطاقة', ind_construction:'بناء',
+    ind_supply_chain:'سلسلة التوريد', ind_energy_esg:'طاقة و ESG', ind_technology_cloud:'تكنولوجيا وذكاء اصطناعي', lang_note:'جميع الأسعار بالدولار الأمريكي',
   },
 };
 
 const INDUSTRY_GROUPS = [
-  { groupEn:'Production', groupTr:'Üretim', items:[
-    { slug:'manufacturing', icon:'🏭', en:'Manufacturing', count:40 },
-    { slug:'lean-oee',      icon:'📊', en:'Lean & OEE',     count:33 },
-    { slug:'quality-spc',   icon:'🎯', en:'Quality & SPC',  count:14 },
+  { groupKey:'grp_production', items:[
+    { slug:'manufacturing', icon:'🏭', key:'ind_manufacturing', count:40 },
+    { slug:'lean-oee',      icon:'📊', key:'ind_lean_oee',     count:33 },
+    { slug:'quality-spc',   icon:'🎯', key:'ind_quality_spc',  count:14 },
   ]},
-  { groupEn:'Engineering', groupTr:'Mühendislik', items:[
-    { slug:'mechanical-hvac',  icon:'⚙️', en:'Mechanical & HVAC', count:48 },
-    { slug:'electrical-power', icon:'⚡', en:'Electrical & Power', count:16 },
-    { slug:'construction',     icon:'🏗️', en:'Construction',       count:28 },
+  { groupKey:'grp_engineering', items:[
+    { slug:'mechanical-hvac',  icon:'⚙️', key:'ind_mechanical_hvac', count:48 },
+    { slug:'electrical-power', icon:'⚡', key:'ind_electrical_power', count:16 },
+    { slug:'construction',     icon:'🏗️', key:'ind_construction',       count:28 },
   ]},
-  { groupEn:'Operations', groupTr:'Operasyon', items:[
-    { slug:'supply-chain',     icon:'🚚', en:'Supply Chain',   count:17 },
-    { slug:'energy-esg',       icon:'🌱', en:'Energy & ESG',    count:16 },
-    { slug:'technology-cloud', icon:'☁️', en:'Technology & AI', count:17 },
+  { groupKey:'grp_operations', items:[
+    { slug:'supply-chain',     icon:'🚚', key:'ind_supply_chain',   count:17 },
+    { slug:'energy-esg',       icon:'🌱', key:'ind_energy_esg',    count:16 },
+    { slug:'technology-cloud', icon:'☁️', key:'ind_technology_cloud', count:17 },
   ]},
 ];
 
-function getLocale(p){ const m=p.match(/^\/(tr|de|fr|es|ar)(\/|$)/); return m?m[1]:'en'; }
-function href(loc,slug){ return loc==='en'?`/${slug}`:`/${loc}/${slug}`; }
-function rootHref(loc){ return loc==='en'?'/':`/${loc}`; }
-function buildLocalePath(p,target){
+function getLocale(p: string){ const m=p.match(/^\/(tr|de|fr|es|ar)(\/|$)/); return m?m[1]:'en'; }
+function href(loc: string,slug: string){ return loc==='en'?`/${slug}`:`/${loc}/${slug}`; }
+function rootHref(loc: string){ return loc==='en'?'/':`/${loc}`; }
+function buildLocalePath(p: string,target: string){
   const s=p.replace(/^\/(tr|de|fr|es|ar)(?=\/|$)/,'')||'/';
   return target==='en'?s:`/${target}${s==='/'?'':s}`;
 }
@@ -138,32 +156,32 @@ export function SiteHeader({ isAuthenticated = false }) {
   const router   = useRouter();
   const locale   = useLocale();
   const dir      = LOCALES.find((l)=>l.code===locale)?.dir || 'ltr';
-  const t        = T[locale] || T.en;
+  const t        = T[locale as keyof typeof T] || T.en;
 
-  const [openMenu,setOpenMenu]=useState(null);
+  const [openMenu,setOpenMenu]=useState<string|null>(null);
   const [langOpen,setLangOpen]=useState(false);
   const [mobileOpen,setMobileOpen]=useState(false);
   const [mobileSection,setMobileSection]=useState(null);
 
-  const navRef=useRef(null);
-  const langRef=useRef(null);
-  const closeTimer=useRef(null);
+  const navRef=useRef<any>(null);
+  const langRef=useRef<any>(null);
+  const closeTimer=useRef<any>(null);
 
-  const openWithIntent=useCallback((m)=>{ if(closeTimer.current)clearTimeout(closeTimer.current); setOpenMenu(m); setLangOpen(false); },[]);
+  const openWithIntent=useCallback((m: string)=>{ if(closeTimer.current)clearTimeout(closeTimer.current); setOpenMenu(m); setLangOpen(false); },[]);
   const closeWithIntent=useCallback(()=>{ if(closeTimer.current)clearTimeout(closeTimer.current); closeTimer.current=setTimeout(()=>setOpenMenu(null),120); },[]);
 
   useEffect(()=>{
-    function onClick(e){
+    function onClick(e: any){
       if(navRef.current && !navRef.current.contains(e.target)) setOpenMenu(null);
       if(langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
     }
-    function onKey(e){ if(e.key==='Escape'){ setOpenMenu(null); setLangOpen(false); } }
+    function onKey(e: any){ if(e.key==='Escape'){ setOpenMenu(null); setLangOpen(false); } }
     document.addEventListener('mousedown',onClick);
     document.addEventListener('keydown',onKey);
     return ()=>{ document.removeEventListener('mousedown',onClick); document.removeEventListener('keydown',onKey); };
   },[]);
 
-  const switchLocale=(code)=>{
+  const switchLocale=(code: string)=>{
     setLangOpen(false);
     document.cookie=`NEXT_LOCALE=${code};path=/;max-age=31536000;samesite=lax`;
     router.push(buildLocalePath(pathname,code));
@@ -323,12 +341,12 @@ export function SiteHeader({ isAuthenticated = false }) {
                   <div className="sc-mega sc-mega-industries">
                     <div className="sc-mega-grid">
                       {INDUSTRY_GROUPS.map((g)=>(
-                        <div className="sc-mega-col" key={g.groupEn}>
-                          <h4>{locale==='tr'?g.groupTr:g.groupEn}</h4>
+                        <div className="sc-mega-col" key={g.groupKey}>
+                          <h4>{t[g.groupKey as keyof typeof t]}</h4>
                           {g.items.map((it)=>(
                             <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} className="sc-mega-item">
                               <span className="ico">{it.icon}</span>
-                              <span className="txt"><b>{it.en}</b><span>{it.count} {t.tools}</span></span>
+                              <span className="txt"><b>{t[it.key]}</b><span>{it.count} {t.tools}</span></span>
                             </Link>
                           ))}
                         </div>
@@ -409,7 +427,7 @@ export function SiteHeader({ isAuthenticated = false }) {
               <div className="sc-draw-body">
                 {INDUSTRY_GROUPS.flatMap((g)=>g.items).map((it)=>(
                   <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} onClick={()=>setMobileOpen(false)}>
-                    {it.icon} {it.en} <span className="c">{it.count}</span>
+                    {it.icon} {t[it.key as keyof typeof t]} <span className="c">{it.count}</span>
                   </Link>
                 ))}
                 <Link href={href(locale,'industries')} onClick={()=>setMobileOpen(false)} style={{color:'var(--accent)',fontWeight:600}}>{t.view_all_industries} →</Link>
