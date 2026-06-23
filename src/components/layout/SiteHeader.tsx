@@ -153,7 +153,7 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
           --hint:#94A3B8;--accent:#2563EB;--accent-dk:#1D4ED8;
           --border:rgba(15,23,42,0.08);--border-2:rgba(15,23,42,0.14);
           --mega-shadow:0 16px 48px rgba(15,23,42,0.14);
-          font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+          font-family:'DM Sans','SF Pro Text',-apple-system,BlinkMacSystemFont,sans-serif;
           position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);
         }
         .sc-h *,.sc-h *::before,.sc-h *::after{box-sizing:border-box;}
@@ -236,8 +236,12 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
         <div className="sc-inner">
 
           <Link href="/" className="sc-logo" aria-label="SectorCalc home">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/img/brand/sectorcalc-logo-mark.png" alt="SectorCalc Logo" className="sc-logo-mark" style={{ width: 30, height: 30, objectFit: 'contain' }} />
+            <svg className="sc-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true" style={{ width: 30, height: 30 }}>
+              <rect x="2"  y="2"  width="13" height="13" rx="3" fill="#0F172A"/>
+              <rect x="17" y="2"  width="13" height="13" rx="3" fill="#2563EB"/>
+              <rect x="2"  y="17" width="13" height="13" rx="3" fill="#10B981"/>
+              <rect x="17" y="17" width="13" height="13" rx="3" fill="#F59E0B"/>
+            </svg>
             <span className="sc-logo-text">Sector<span className="a">Calc</span></span>
           </Link>
 
