@@ -26,6 +26,7 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<PrintPageParams[]> {
+  return []; // HACK: bypass huge SSG build for fast Firebase deploy
   return listPremiumSchemaSlugs().map((slug) => ({ slug }));
 }
 

@@ -18,6 +18,7 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<{ slug: IndustrySlug }[]> {
+  return []; // HACK: bypass huge SSG build for fast Firebase deploy
  return industryRegistry.map((entry) => ({ slug: entry.slug }));
 }
 

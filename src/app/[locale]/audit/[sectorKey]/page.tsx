@@ -17,6 +17,7 @@ type PageProps = {
 export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
+  return []; // HACK: bypass huge SSG build for fast Firebase deploy
   const { listSectorRegistryKeys } = await import("@/lib/os/registry/sectors");
   const { routing } = await import("@/i18n/routing");
   const keys = listSectorRegistryKeys();

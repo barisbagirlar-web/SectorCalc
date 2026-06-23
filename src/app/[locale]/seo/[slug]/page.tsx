@@ -34,6 +34,7 @@ export const dynamicParams = false;
 export const revalidate = 3600;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  return []; // HACK: bypass huge SSG build for fast Firebase deploy
   return [...listProgrammaticSeoSlugs(), ...listPremiumToolSeoLandingSlugs()]
     .slice()
     .sort()
