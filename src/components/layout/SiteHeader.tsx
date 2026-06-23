@@ -19,7 +19,9 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
+import { getFreeToolCount, getPremiumToolCount } from "@/lib/tools/tool-counts";
 
 const LOCALES = [
   { code: 'en', label: 'English',  short: 'EN', dir: 'ltr' },
@@ -131,10 +133,10 @@ function buildLocalePath(p,target){
   return target==='en'?s:`/${target}${s==='/'?'':s}`;
 }
 
-export default function Header({ isAuthenticated = false }) {
+export function SiteHeader({ isAuthenticated = false }) {
   const pathname = usePathname() || '/';
   const router   = useRouter();
-  const locale   = getLocale(pathname);
+  const locale   = useLocale();
   const dir      = LOCALES.find((l)=>l.code===locale)?.dir || 'ltr';
   const t        = T[locale] || T.en;
 
@@ -167,7 +169,10 @@ export default function Header({ isAuthenticated = false }) {
     router.push(buildLocalePath(pathname,code));
   };
 
-  const accountHref = isAuthenticated ? href(locale,'account') : href(locale,'signin');
+  const accountHref = isAuthenticated ? '/account' : '/signin';
+  
+  const freeToolsCount = getFreeToolCount();
+  const proToolsCount = getPremiumToolCount();
 
   return (
     <>
@@ -305,12 +310,12 @@ export default function Header({ isAuthenticated = false }) {
                     <Link href={href(locale,'free-tools')} className="sc-mega-panel">
                       <div className="pt"><span className="pico">🧮</span><span className="ph">{t.col_free}</span></div>
                       <div className="pd">{t.products_free_desc}</div>
-                      <div className="pcount">140+ {t.tools}</div>
+                      <div className="pcount">{freeToolsCount}+ {t.tools}</div>
                     </Link>
                     <Link href={href(locale,'pro-tools')} className="sc-mega-panel">
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
-                      <div className="pcount">161 {t.tools}</div>
+                      <div className="pcount">{proToolsCount} {t.tools}</div>
                     </Link>
                   </div>
                 )}
@@ -391,8 +396,8 @@ export default function Header({ isAuthenticated = false }) {
             </button>
             {mobileSection==='products' && (
               <div className="sc-draw-body">
-                <Link href={href(locale,'free-tools')} onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">140+</span></Link>
-                <Link href={href(locale,'pro-tools')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">161</span></Link>
+                <Link href={href(locale,'free-tools')} onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
+                <Link href={href(locale,'pro-tools')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
               </div>
             )}
           </div>
