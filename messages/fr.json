@@ -10413,5 +10413,133 @@
     "mobileNav": "Navigation Mobile",
     "openMenu": "Ouvrir le menu",
     "close": "Fermer"
+  },
+  "pricing_v2": {
+    "badgePlatform": "Plateforme de calcul industriel",
+    "titleBr": "Ne payez que ce que vous calculez.<br/> Pas d'abonnement. Sans engagement.",
+    "subtitle": "Des ingénieurs dans plus de 40 pays utilisent les crédits SectorCalc pour obtenir des résultats prêts pour l'audit en quelques minutes.",
+    "trust": {
+      "paddle": "🔒 Paiement sécurisé Paddle",
+      "markets": "🌍 200+ marchés · taxe auto",
+      "pdf": "📄 PDF sur chaque calcul",
+      "guarantee": "✅ Garantie 7 jours",
+      "noAutoRenew": "🔁 Pas de renouvellement automatique",
+      "cards": "💳 Carte · PayPal · Apple Pay"
+    },
+    "stats": {
+      "engineersActive": "Ingénieurs actifs",
+      "sectors": "Secteurs industriels",
+      "proTools": "Outils Pro",
+      "countries": "Pays"
+    },
+    "guarantee": {
+      "title": "Garantie de satisfaction de 7 jours",
+      "desc": "Si votre premier crédit ne fournit pas un résultat utilisable, envoyez-nous un e-mail dans les 7 jours — nous le restaurerons. Pas de formulaires, pas de friction."
+    },
+    "testimonial": {
+      "quote": "« Nous avons remplacé une licence logicielle à 600 €/an par des crédits SectorCalc. Mêmes résultats, une fraction du coût. »",
+      "author": "— Directeur de production, fournisseur automobile, Allemagne"
+    },
+    "useCases": {
+      "title": "Ce qu'un crédit vous offre",
+      "manufacturing": "Fabrication",
+      "costing": "Chiffrage",
+      "finance": "Finance",
+      "quality": "Qualité",
+      "investment": "Investissement",
+      "logistics": "Logistique",
+      "oee": "Calculateur TRS",
+      "oeeDesc": "Disponibilité, performance, répartition de la qualité avec estimation des pertes mensuelles",
+      "mhr": "Taux horaire machine",
+      "mhrDesc": "Amortissement + énergie + base de coût de main-d'œuvre — prêt pour devis",
+      "breakeven": "Seuil de rentabilité",
+      "breakevenDesc": "Modèle de coûts fixes/variables avec graphique de sensibilité",
+      "scrap": "Rebuts et perte de matériel",
+      "scrapDesc": "Coût annuel du gaspillage quantifié et évalué",
+      "npv": "Calculateur VAN / TRI",
+      "npvDesc": "Mémorandum d'investissement avec comparaison de scénarios et matrice de décision",
+      "eoq": "QEC et Stock de sécurité",
+      "eoqDesc": "Quantité de commande optimale avec comparaison TCO"
+    },
+    "faq": {
+      "title": "Questions courantes",
+      "q1": "Les crédits expirent-ils ?",
+      "a1": "Les crédits sont valables 12 mois à compter de l'achat. Ils ne se renouvellent jamais automatiquement.",
+      "q2": "Quels modes de paiement sont acceptés ?",
+      "a2": "Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay via Paddle. Taxes gérées automatiquement pour plus de 200 pays.",
+      "q3": "Puis-je obtenir une facture ou payer par virement bancaire ?",
+      "a3": "Oui — le pack Enterprise de 100 crédits prend en charge la facturation sur facture et bon de commande. Envoyez un e-mail à info@sectorcalc.com.",
+      "q4": "Puis-je partager des crédits avec mon équipe ?",
+      "a4": "Les packs Department (30) et Enterprise (100) permettent le partage de crédits en équipe. Envoyez-nous un e-mail après l'achat pour la configuration.",
+      "q5": "Quelle est la garantie de 7 jours ?",
+      "a5": "Si votre premier crédit ne produit pas un résultat utilisable, envoyez-nous un e-mail dans les 7 jours et nous le restaurerons.",
+      "q6": "Que faire si le calculateur dont j'ai besoin n'est pas disponible ?",
+      "a6": "Soumettez une demande d'outil — nous développons par ordre de priorité. Votre crédit n'est pas consommé si l'outil n'est pas encore en ligne."
+    },
+    "footer": {
+      "pricingDisclaimer": "Prix en {currency} · Paddle localise la monnaie au moment du paiement · Taxes incluses · Crédits valables 12 mois",
+      "companyInfo": "Sector Calculator · N° TVA 25403091318 · Folkart Towers Yanyolu No:47, 35530 Bayraklı/İzmir",
+      "terms": "Conditions",
+      "privacy": "Confidentialité",
+      "refund": "Politique de remboursement"
+    },
+    "card": {
+      "credit": "crédit",
+      "credits": "crédits",
+      "perCalculation": "par calcul",
+      "saveVsSingle": "Économisez {pct}% vs l'unité",
+      "opening": "Ouverture…"
+    },
+    "plans": {
+      "starter": {
+        "badgeText": "Sans engagement",
+        "cta": "Acheter 1 crédit",
+        "features": {
+          "f1": "1 calcul pro",
+          "f2": "Rapport PDF inclus",
+          "f3": "Aucun compte requis"
+        }
+      },
+      "essentials": {
+        "badgeText": "Économisez 50%",
+        "cta": "Obtenir 5 crédits",
+        "features": {
+          "f1": "5 calculs pro",
+          "f2": "Export PDF sur tous",
+          "f3": "Validité de 12 mois"
+        }
+      },
+      "popular": {
+        "badgeText": "Le plus populaire",
+        "cta": "Obtenir 15 crédits",
+        "features": {
+          "f1": "15 calculs pro",
+          "f2": "Rapports PDF partageables",
+          "f3": "Support prioritaire",
+          "f4": "Validité de 12 mois"
+        }
+      },
+      "department": {
+        "badgeText": "Équipes",
+        "cta": "Obtenir 30 crédits",
+        "features": {
+          "f1": "30 calculs pro",
+          "f2": "Partage PDF en équipe",
+          "f3": "Tableau de bord",
+          "f4": "Validité de 12 mois"
+        }
+      },
+      "enterprise": {
+        "badgeText": "Meilleure valeur",
+        "cta": "Obtenir 100 crédits",
+        "features": {
+          "f1": "100 calculs pro",
+          "f2": "Facturation sur facture / BC",
+          "f3": "Accès API (bêta)",
+          "f4": "Intégration dédiée",
+          "f5": "Validité de 12 mois"
+        }
+      }
+    }
   }
 }

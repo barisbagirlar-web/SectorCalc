@@ -9998,5 +9998,133 @@
     "mobileNav": "Mobile Navigation",
     "openMenu": "Open menu",
     "close": "Close"
+  },
+  "pricing_v2": {
+    "badgePlatform": "Industrial calculation platform",
+    "titleBr": "Pay only for what you calculate.<br/> No subscription. No commitment.",
+    "subtitle": "Engineers in 40+ countries use SectorCalc credits to get audit-ready results in minutes.",
+    "trust": {
+      "paddle": "🔒 Paddle secure checkout",
+      "markets": "🌍 200+ markets · auto tax",
+      "pdf": "📄 PDF on every calculation",
+      "guarantee": "✅ 7-day guarantee",
+      "noAutoRenew": "🔁 No auto-renew",
+      "cards": "💳 Card · PayPal · Apple Pay"
+    },
+    "stats": {
+      "engineersActive": "Engineers active",
+      "sectors": "Industry sectors",
+      "proTools": "Pro tools",
+      "countries": "Countries"
+    },
+    "guarantee": {
+      "title": "7-day satisfaction guarantee",
+      "desc": "If your first credit doesn't deliver a usable result, email us within 7 days — we'll restore it. No forms, no friction."
+    },
+    "testimonial": {
+      "quote": "“We replaced a €600/year software license with SectorCalc credits. Same results, a fraction of the cost.”",
+      "author": "— Production Manager, automotive supplier, Germany"
+    },
+    "useCases": {
+      "title": "What 1 credit gets you",
+      "manufacturing": "Manufacturing",
+      "costing": "Costing",
+      "finance": "Finance",
+      "quality": "Quality",
+      "investment": "Investment",
+      "logistics": "Logistics",
+      "oee": "OEE Calculator",
+      "oeeDesc": "Availability, performance, quality breakdown with monthly loss estimate",
+      "mhr": "Machine Hourly Rate",
+      "mhrDesc": "Depreciation + energy + labor cost basis — ready for quoting",
+      "breakeven": "Break-Even Analysis",
+      "breakevenDesc": "Fixed/variable cost model with sensitivity graph",
+      "scrap": "Scrap & Material Loss",
+      "scrapDesc": "Annual cost of waste quantified and benchmarked",
+      "npv": "NPV / IRR Calculator",
+      "npvDesc": "Investment memo with scenario comparison and decision matrix",
+      "eoq": "EOQ & Safety Stock",
+      "eoqDesc": "Optimal order quantity with TCO comparison"
+    },
+    "faq": {
+      "title": "Common questions",
+      "q1": "Do credits expire?",
+      "a1": "Credits are valid for 12 months from purchase. They never auto-renew.",
+      "q2": "Which payment methods are accepted?",
+      "a2": "Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay via Paddle. Tax handled automatically for 200+ countries.",
+      "q3": "Can I get an invoice or pay by bank transfer?",
+      "a3": "Yes — the 100-credit Enterprise pack supports invoice and PO billing. Email info@sectorcalc.com.",
+      "q4": "Can I share credits with my team?",
+      "a4": "Department (30) and Enterprise (100) packs support team credit sharing. Email us after purchase to set up.",
+      "q5": "What is the 7-day guarantee?",
+      "a5": "If your first credit doesn't produce a usable result, email us within 7 days and we'll restore it.",
+      "q6": "What if the calculator I need isn't available?",
+      "a6": "Submit a tool request — we build in priority order. Your credit is not consumed if the tool isn't live yet."
+    },
+    "footer": {
+      "pricingDisclaimer": "Prices in {currency} · Paddle localizes currency at checkout · Tax included · Credits valid 12 months",
+      "companyInfo": "Sector Calculator · Tax ID 25403091318 · Folkart Towers Yanyolu No:47, 35530 Bayraklı/İzmir",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "refund": "Refund Policy"
+    },
+    "card": {
+      "credit": "credit",
+      "credits": "credits",
+      "perCalculation": "per calculation",
+      "saveVsSingle": "Save {pct}% vs single",
+      "opening": "Opening…"
+    },
+    "plans": {
+      "starter": {
+        "badgeText": "No commitment",
+        "cta": "Buy 1 credit",
+        "features": {
+          "f1": "1 pro calculation",
+          "f2": "PDF report included",
+          "f3": "No account required"
+        }
+      },
+      "essentials": {
+        "badgeText": "Save 50%",
+        "cta": "Get 5 credits",
+        "features": {
+          "f1": "5 pro calculations",
+          "f2": "PDF export on all",
+          "f3": "12-month validity"
+        }
+      },
+      "popular": {
+        "badgeText": "Most popular",
+        "cta": "Get 15 credits",
+        "features": {
+          "f1": "15 pro calculations",
+          "f2": "Shareable PDF reports",
+          "f3": "Priority support",
+          "f4": "12-month validity"
+        }
+      },
+      "department": {
+        "badgeText": "Teams",
+        "cta": "Get 30 credits",
+        "features": {
+          "f1": "30 pro calculations",
+          "f2": "Team PDF sharing",
+          "f3": "Usage dashboard",
+          "f4": "12-month validity"
+        }
+      },
+      "enterprise": {
+        "badgeText": "Best value",
+        "cta": "Get 100 credits",
+        "features": {
+          "f1": "100 pro calculations",
+          "f2": "Invoice / PO billing",
+          "f3": "API access (beta)",
+          "f4": "Dedicated onboarding",
+          "f5": "12-month validity"
+        }
+      }
+    }
   }
 }

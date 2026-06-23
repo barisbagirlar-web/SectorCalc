@@ -43,6 +43,10 @@ const T = {
     res_blog:'Engineering blog', res_blog_d:'Methods & case studies',
     res_docs:'Formula reference', res_docs_d:'Standards & sources',
     res_api:'API access', res_api_d:'Integrate calculations',
+    grp_production:'Production', grp_engineering:'Engineering', grp_operations:'Operations',
+    ind_manufacturing:'Manufacturing', ind_lean_oee:'Lean & OEE', ind_quality_spc:'Quality & SPC',
+    ind_mechanical_hvac:'Mechanical & HVAC', ind_electrical_power:'Electrical & Power', ind_construction:'Construction',
+    ind_supply_chain:'Supply Chain', ind_energy_esg:'Energy & ESG', ind_technology_cloud:'Technology & AI',
     tools:'tools', lang_note:'All prices shown in USD',
   },
   tr: {
@@ -55,6 +59,10 @@ const T = {
     res_blog:'Mühendislik blogu', res_blog_d:'Yöntemler & vaka analizleri',
     res_docs:'Formül referansı', res_docs_d:'Standartlar & kaynaklar',
     res_api:'API erişimi', res_api_d:'Hesaplamaları entegre et',
+    grp_production:'Üretim', grp_engineering:'Mühendislik', grp_operations:'Operasyonlar',
+    ind_manufacturing:'Üretim', ind_lean_oee:'Yalın & OEE', ind_quality_spc:'Kalite & İPK',
+    ind_mechanical_hvac:'Mekanik & İklimlendirme', ind_electrical_power:'Elektrik & Güç', ind_construction:'İnşaat',
+    ind_supply_chain:'Tedarik Zinciri', ind_energy_esg:'Enerji & ÇYS', ind_technology_cloud:'Teknoloji & YZ',
     tools:'araç', lang_note:'Tüm fiyatlar USD cinsindendir',
   },
   de: {
@@ -67,10 +75,6 @@ const T = {
     res_blog:'Engineering-Blog', res_blog_d:'Methoden & Fallstudien',
     res_docs:'Formel-Referenz', res_docs_d:'Normen & Quellen',
     res_api:'API-Zugang', res_api_d:'Berechnungen integrieren',
-        grp_production:'Production', grp_engineering:'Engineering', grp_operations:'Operations',
-    ind_manufacturing:'Manufacturing', ind_lean_oee:'Lean & OEE', ind_quality_spc:'Quality & SPC',
-    ind_mechanical_hvac:'Mechanical & HVAC', ind_electrical_power:'Electrical & Power', ind_construction:'Construction',
-    ind_supply_chain:'Supply Chain', ind_energy_esg:'Energy & ESG', ind_technology_cloud:'Technology & AI',
         grp_production:'Produktion', grp_engineering:'Ingenieurwesen', grp_operations:'Betrieb',
     ind_manufacturing:'Fertigung', ind_lean_oee:'Lean & OEE', ind_quality_spc:'Qualität & SPC',
     ind_mechanical_hvac:'Mechanik & HLK', ind_electrical_power:'Elektrik & Energie', ind_construction:'Bauwesen',
@@ -90,7 +94,7 @@ const T = {
         grp_production:'Production', grp_engineering:'Ingénierie', grp_operations:'Opérations',
     ind_manufacturing:'Fabrication', ind_lean_oee:'Lean & TRS', ind_quality_spc:'Qualité & MSP',
     ind_mechanical_hvac:'Mécanique & CVC', ind_electrical_power:'Électricité & Énergie', ind_construction:'Construction',
-    ind_supply_chain:'Chaîne logistique', ind_energy_esg:'Énergie & ESG', ind_technology_cloud:'Technologie & IA', lang_note:'Tous les prix en USD',
+    ind_supply_chain:'Chaîne logistique', ind_energy_esg:'Énergie & ESG', ind_technology_cloud:'Technologie & IA', tools:'Outils', lang_note:'Tous les prix en USD',
   },
   es: {
     products:'Productos', industries:'Sectores', pricing:'Precios', resources:'Recursos',
@@ -121,7 +125,7 @@ const T = {
         grp_production:'إنتاج', grp_engineering:'هندسة', grp_operations:'عمليات',
     ind_manufacturing:'تصنيع', ind_lean_oee:'لين و OEE', ind_quality_spc:'جودة و SPC',
     ind_mechanical_hvac:'ميكانيكا وتكييف', ind_electrical_power:'كهرباء وطاقة', ind_construction:'بناء',
-    ind_supply_chain:'سلسلة التوريد', ind_energy_esg:'طاقة و ESG', ind_technology_cloud:'تكنولوجيا وذكاء اصطناعي', lang_note:'جميع الأسعار بالدولار الأمريكي',
+    ind_supply_chain:'سلسلة التوريد', ind_energy_esg:'طاقة و ESG', ind_technology_cloud:'تكنولوجيا وذكاء اصطناعي', tools:'أدوات', lang_note:'جميع الأسعار بالدولار الأمريكي',
   },
 };
 
@@ -158,10 +162,10 @@ export function SiteHeader({ isAuthenticated = false }) {
   const dir      = LOCALES.find((l)=>l.code===locale)?.dir || 'ltr';
   const t        = T[locale as keyof typeof T] || T.en;
 
-  const [openMenu,setOpenMenu]=useState<string|null>(null);
+  const [openMenu,setOpenMenu]=useState<string | null>(null);
   const [langOpen,setLangOpen]=useState(false);
   const [mobileOpen,setMobileOpen]=useState(false);
-  const [mobileSection,setMobileSection]=useState(null);
+  const [mobileSection,setMobileSection]=useState<string | null>(null);
 
   const navRef=useRef<any>(null);
   const langRef=useRef<any>(null);
@@ -346,7 +350,7 @@ export function SiteHeader({ isAuthenticated = false }) {
                           {g.items.map((it)=>(
                             <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} className="sc-mega-item">
                               <span className="ico">{it.icon}</span>
-                              <span className="txt"><b>{t[it.key]}</b><span>{it.count} {t.tools}</span></span>
+                              <span className="txt"><b>{t[it.key as keyof typeof t]}</b><span>{it.count} {t.tools}</span></span>
                             </Link>
                           ))}
                         </div>

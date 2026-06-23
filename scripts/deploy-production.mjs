@@ -7,6 +7,7 @@ import {
   existsSync,
   openSync,
   readFileSync,
+  renameSync,
   symlinkSync,
   unlinkSync,
   writeFileSync,
@@ -149,6 +150,22 @@ try {
   shimInstalled = true;
 
   console.log("deploy-production: deploying Firebase Hosting + Firestore rules…");
+
+  // HACK: Hide the massive .next/cache directory so Firebase CLI doesn't copy/zip 3.5GB+ of useless cache.
+  // Next.js runtime (Cloud Run) does not need .next/cache.
+  let cacheHidden = false;
+  const cachePath = join(ROOT, ".next/cache");
+  const cacheBackupPath = join(ROOT, ".next-cache-backup");
+  try {
+    if (existsSync(cachePath)) {
+      renameSync(cachePath, cacheBackupPath);
+      cacheHidden = true;
+      console.log("deploy-production: temporarily hid .next/cache (saves massive upload time).");
+    }
+  } catch (e) {
+    console.error("deploy-production: failed to hide cache", e.message);
+  }
+
   const deployStatus = run("firebase", [
     "deploy",
     "--only",
@@ -175,6 +192,16 @@ try {
 } finally {
   if (shimInstalled) {
     restoreNextBin();
+  }
+  if (typeof cacheHidden !== 'undefined' && cacheHidden) {
+    try {
+      if (existsSync(cacheBackupPath)) {
+        renameSync(cacheBackupPath, cachePath);
+        console.log("deploy-production: restored .next/cache.");
+      }
+    } catch (e) {
+      console.error("deploy-production: failed to restore cache", e.message);
+    }
   }
   releaseDeployLock();
 }

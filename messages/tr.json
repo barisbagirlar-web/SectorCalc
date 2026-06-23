@@ -10475,5 +10475,133 @@
     "mobileNav": "Mobil Navigasyon",
     "openMenu": "Menüyü aç",
     "close": "Kapat"
+  },
+  "pricing_v2": {
+    "badgePlatform": "Endüstriyel hesaplama platformu",
+    "titleBr": "Sadece hesapladığınız kadar ödeyin.<br/> Abonelik yok. Taahhüt yok.",
+    "subtitle": "40'tan fazla ülkede mühendisler, dakikalar içinde denetime hazır sonuçlar almak için SectorCalc kredilerini kullanıyor.",
+    "trust": {
+      "paddle": "🔒 Paddle güvenli ödeme",
+      "markets": "🌍 200+ pazar · otomatik vergi",
+      "pdf": "📄 Her hesaplamada PDF",
+      "guarantee": "✅ 7 gün garanti",
+      "noAutoRenew": "🔁 Otomatik yenileme yok",
+      "cards": "💳 Kart · PayPal · Apple Pay"
+    },
+    "stats": {
+      "engineersActive": "Aktif mühendis",
+      "sectors": "Endüstri sektörü",
+      "proTools": "Pro araç",
+      "countries": "Ülke"
+    },
+    "guarantee": {
+      "title": "7 günlük memnuniyet garantisi",
+      "desc": "Eğer ilk krediniz kullanılabilir bir sonuç sağlamazsa, 7 gün içinde bize e-posta gönderin — kredinizi iade edelim. Form yok, zorluk yok."
+    },
+    "testimonial": {
+      "quote": "“Yılda €600 ödediğimiz yazılım lisansını SectorCalc kredileri ile değiştirdik. Aynı sonuçlar, maliyetin sadece bir kısmı.”",
+      "author": "— Üretim Müdürü, otomotiv yan sanayi, Almanya"
+    },
+    "useCases": {
+      "title": "1 kredi ile ne elde edersiniz?",
+      "manufacturing": "Üretim",
+      "costing": "Maliyet",
+      "finance": "Finans",
+      "quality": "Kalite",
+      "investment": "Yatırım",
+      "logistics": "Lojistik",
+      "oee": "OEE Hesaplayıcı",
+      "oeeDesc": "Aylık kayıp tahmini ile kullanılabilirlik, performans ve kalite kırılımı",
+      "mhr": "Makine Saat Ücreti",
+      "mhrDesc": "Amortisman + enerji + işçilik maliyeti tabanı — teklif vermek için hazır",
+      "breakeven": "Başabaş Analizi",
+      "breakevenDesc": "Duyarlılık grafiği ile sabit/değişken maliyet modeli",
+      "scrap": "Fire ve Malzeme Kaybı",
+      "scrapDesc": "Yıllık israf maliyeti hesaplanmış ve karşılaştırmalı analizi yapılmış",
+      "npv": "NBD / İGKO Hesaplayıcı",
+      "npvDesc": "Senaryo karşılaştırması ve karar matrisi içeren yatırım notu",
+      "eoq": "EOM ve Güvenlik Stoğu",
+      "eoqDesc": "TCO karşılaştırması ile optimum sipariş miktarı"
+    },
+    "faq": {
+      "title": "Sıkça sorulan sorular",
+      "q1": "Kredilerin süresi doluyor mu?",
+      "a1": "Krediler satın alma tarihinden itibaren 12 ay boyunca geçerlidir. Hiçbir zaman otomatik yenilenmezler.",
+      "q2": "Hangi ödeme yöntemleri kabul ediliyor?",
+      "a2": "Paddle aracılığıyla Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay. Vergi 200'den fazla ülke için otomatik olarak işlenir.",
+      "q3": "Fatura alabilir miyim veya banka havalesiyle ödeyebilir miyim?",
+      "a3": "Evet — 100 kredilik Enterprise paketi fatura ve PO ile ödemeyi destekler. info@sectorcalc.com adresine e-posta gönderin.",
+      "q4": "Kredileri ekibimle paylaşabilir miyim?",
+      "a4": "Department (30) ve Enterprise (100) paketleri ekip kredi paylaşımını destekler. Satın aldıktan sonra kurulum için bize e-posta gönderin.",
+      "q5": "7 günlük garanti nedir?",
+      "a5": "Eğer ilk krediniz kullanılabilir bir sonuç üretmezse, 7 gün içinde bize e-posta gönderin, kredinizi iade edelim.",
+      "q6": "İhtiyacım olan hesaplayıcı mevcut değilse ne olur?",
+      "a6": "Araç talebinde bulunun — öncelik sırasına göre geliştiriyoruz. Araç henüz yayında değilse krediniz harcanmaz."
+    },
+    "footer": {
+      "pricingDisclaimer": "Fiyatlar {currency} cinsindendir · Paddle ödeme sırasında yerel para birimine çevirir · Vergi dahildir · Krediler 12 ay geçerlidir",
+      "companyInfo": "Sector Calculator · Vergi No 25403091318 · Folkart Towers Yanyolu No:47, 35530 Bayraklı/İzmir",
+      "terms": "Şartlar",
+      "privacy": "Gizlilik",
+      "refund": "İade Politikası"
+    },
+    "card": {
+      "credit": "kredi",
+      "credits": "kredi",
+      "perCalculation": "hesaplama başı",
+      "saveVsSingle": "Tekliye göre %{pct} tasarruf",
+      "opening": "Açılıyor…"
+    },
+    "plans": {
+      "starter": {
+        "badgeText": "Taahhüt yok",
+        "cta": "1 Kredi Al",
+        "features": {
+          "f1": "1 pro hesaplama",
+          "f2": "PDF raporu dahil",
+          "f3": "Hesap gerekmez"
+        }
+      },
+      "essentials": {
+        "badgeText": "%50 Tasarruf",
+        "cta": "5 Kredi Al",
+        "features": {
+          "f1": "5 pro hesaplama",
+          "f2": "Tümünde PDF dışa aktarma",
+          "f3": "12 ay geçerlilik"
+        }
+      },
+      "popular": {
+        "badgeText": "En popüler",
+        "cta": "15 Kredi Al",
+        "features": {
+          "f1": "15 pro hesaplama",
+          "f2": "Paylaşılabilir PDF raporları",
+          "f3": "Öncelikli destek",
+          "f4": "12 ay geçerlilik"
+        }
+      },
+      "department": {
+        "badgeText": "Ekipler",
+        "cta": "30 Kredi Al",
+        "features": {
+          "f1": "30 pro hesaplama",
+          "f2": "Ekip PDF paylaşımı",
+          "f3": "Kullanım panosu",
+          "f4": "12 ay geçerlilik"
+        }
+      },
+      "enterprise": {
+        "badgeText": "En iyi değer",
+        "cta": "100 Kredi Al",
+        "features": {
+          "f1": "100 pro hesaplama",
+          "f2": "Fatura / PO ödeme",
+          "f3": "API erişimi (beta)",
+          "f4": "Özel katılım",
+          "f5": "12 ay geçerlilik"
+        }
+      }
+    }
   }
 }

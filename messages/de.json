@@ -10413,5 +10413,133 @@
     "mobileNav": "Mobile Navigation",
     "openMenu": "Menü öffnen",
     "close": "Schließen"
+  },
+  "pricing_v2": {
+    "badgePlatform": "Industrielle Berechnungsplattform",
+    "titleBr": "Zahlen Sie nur für das, was Sie berechnen.<br/> Kein Abo. Keine Verpflichtung.",
+    "subtitle": "Ingenieure in über 40 Ländern nutzen SectorCalc-Credits, um in Minuten prüffähige Ergebnisse zu erhalten.",
+    "trust": {
+      "paddle": "🔒 Paddle sicherer Checkout",
+      "markets": "🌍 200+ Märkte · Auto-Steuer",
+      "pdf": "📄 PDF bei jeder Berechnung",
+      "guarantee": "✅ 7-Tage-Garantie",
+      "noAutoRenew": "🔁 Keine automatische Verlängerung",
+      "cards": "💳 Karte · PayPal · Apple Pay"
+    },
+    "stats": {
+      "engineersActive": "Aktive Ingenieure",
+      "sectors": "Industriesektoren",
+      "proTools": "Pro-Tools",
+      "countries": "Länder"
+    },
+    "guarantee": {
+      "title": "7-Tage-Zufriedenheitsgarantie",
+      "desc": "Wenn Ihr erster Credit kein verwertbares Ergebnis liefert, schreiben Sie uns innerhalb von 7 Tagen — wir erstatten ihn. Keine Formulare, keine Reibung."
+    },
+    "testimonial": {
+      "quote": "„Wir haben eine Softwarelizenz für 600 €/Jahr durch SectorCalc-Credits ersetzt. Gleiche Ergebnisse, ein Bruchteil der Kosten.“",
+      "author": "— Produktionsleiter, Automobilzulieferer, Deutschland"
+    },
+    "useCases": {
+      "title": "Was 1 Credit Ihnen bringt",
+      "manufacturing": "Fertigung",
+      "costing": "Kalkulation",
+      "finance": "Finanzen",
+      "quality": "Qualität",
+      "investment": "Investition",
+      "logistics": "Logistik",
+      "oee": "OEE Rechner",
+      "oeeDesc": "Verfügbarkeit, Leistung, Qualitätsaufschlüsselung mit geschätztem monatlichen Verlust",
+      "mhr": "Maschinenstundensatz",
+      "mhrDesc": "Abschreibung + Energie + Lohnkostenbasis — bereit zur Angebotserstellung",
+      "breakeven": "Break-Even-Analyse",
+      "breakevenDesc": "Fixe/variable Kostenmodell mit Sensitivitätsdiagramm",
+      "scrap": "Ausschuss & Materialverlust",
+      "scrapDesc": "Jährliche Kosten der Verschwendung quantifiziert und verglichen",
+      "npv": "Kapitalwert / IZF Rechner",
+      "npvDesc": "Investitionsmemorandum mit Szenariovergleich und Entscheidungsmatrix",
+      "eoq": "EOQ & Sicherheitsbestand",
+      "eoqDesc": "Optimale Bestellmenge mit TCO-Vergleich"
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "q1": "Verfallen Credits?",
+      "a1": "Credits sind ab Kauf 12 Monate gültig. Sie verlängern sich nie automatisch.",
+      "q2": "Welche Zahlungsmethoden werden akzeptiert?",
+      "a2": "Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay über Paddle. Steuern werden für über 200 Länder automatisch berechnet.",
+      "q3": "Kann ich eine Rechnung erhalten oder per Überweisung bezahlen?",
+      "a3": "Ja — das 100-Credit-Enterprise-Paket unterstützt den Kauf auf Rechnung. Senden Sie eine E-Mail an info@sectorcalc.com.",
+      "q4": "Kann ich Credits mit meinem Team teilen?",
+      "a4": "Department (30) und Enterprise (100) Pakete unterstützen die gemeinsame Nutzung von Credits. Kontaktieren Sie uns nach dem Kauf für die Einrichtung.",
+      "q5": "Was ist die 7-Tage-Garantie?",
+      "a5": "Wenn Ihr erster Credit kein brauchbares Ergebnis liefert, schreiben Sie uns innerhalb von 7 Tagen und wir erstatten ihn.",
+      "q6": "Was passiert, wenn der von mir benötigte Rechner nicht verfügbar ist?",
+      "a6": "Reichen Sie eine Anfrage ein — wir entwickeln nach Priorität. Ihr Credit wird nicht verbraucht, wenn das Tool noch nicht live ist."
+    },
+    "footer": {
+      "pricingDisclaimer": "Preise in {currency} · Paddle lokalisiert die Währung beim Checkout · Inkl. Steuern · Credits 12 Monate gültig",
+      "companyInfo": "Sector Calculator · Steuernummer 25403091318 · Folkart Towers Yanyolu No:47, 35530 Bayraklı/İzmir",
+      "terms": "Bedingungen",
+      "privacy": "Datenschutz",
+      "refund": "Rückerstattung"
+    },
+    "card": {
+      "credit": "Credit",
+      "credits": "Credits",
+      "perCalculation": "pro Berechnung",
+      "saveVsSingle": "Sparen Sie {pct}% ggü. Einzelkauf",
+      "opening": "Öffnen…"
+    },
+    "plans": {
+      "starter": {
+        "badgeText": "Keine Verpflichtung",
+        "cta": "1 Credit kaufen",
+        "features": {
+          "f1": "1 Pro-Berechnung",
+          "f2": "PDF-Bericht inklusive",
+          "f3": "Kein Konto erforderlich"
+        }
+      },
+      "essentials": {
+        "badgeText": "50% sparen",
+        "cta": "5 Credits holen",
+        "features": {
+          "f1": "5 Pro-Berechnungen",
+          "f2": "PDF-Export für alle",
+          "f3": "12 Monate Gültigkeit"
+        }
+      },
+      "popular": {
+        "badgeText": "Am beliebtesten",
+        "cta": "15 Credits holen",
+        "features": {
+          "f1": "15 Pro-Berechnungen",
+          "f2": "Teilbare PDF-Berichte",
+          "f3": "Prioritäts-Support",
+          "f4": "12 Monate Gültigkeit"
+        }
+      },
+      "department": {
+        "badgeText": "Teams",
+        "cta": "30 Credits holen",
+        "features": {
+          "f1": "30 Pro-Berechnungen",
+          "f2": "Team PDF-Teilung",
+          "f3": "Nutzungs-Dashboard",
+          "f4": "12 Monate Gültigkeit"
+        }
+      },
+      "enterprise": {
+        "badgeText": "Bester Wert",
+        "cta": "100 Credits holen",
+        "features": {
+          "f1": "100 Pro-Berechnungen",
+          "f2": "Rechnung / PO",
+          "f3": "API-Zugang (Beta)",
+          "f4": "Dediziertes Onboarding",
+          "f5": "12 Monate Gültigkeit"
+        }
+      }
+    }
   }
 }

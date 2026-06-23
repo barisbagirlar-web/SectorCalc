@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   const body = await req.text();
 
   try {
-    const eventData = paddle.webhooks.unmarshal(body, process.env.PADDLE_WEBHOOK_SECRET!, signature);
+    const eventData = await paddle.webhooks.unmarshal(body, process.env.PADDLE_WEBHOOK_SECRET!, signature);
 
     if (eventData?.eventType === 'transaction.completed') {
       const transactionData = eventData.data as any;
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
       
       const creditsToAdd = creditMap[priceId] || 0;
 
-      if (userId && creditsToAdd > 0) {
+      if (db && userId && creditsToAdd > 0) {
         // Firestore'da kullanıcının kredisini artır
         await db.collection('users').doc(userId).update({
           creditBalance: admin.firestore.FieldValue.increment(creditsToAdd),
