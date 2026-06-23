@@ -25,6 +25,17 @@ const nextConfig: NextConfig = {
     return [
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
+      // Fallback redirects for legacy or broken nav links
+      { source: "/pro-tools", destination: "/premium-tools", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/pro-tools", destination: "/:locale/premium-tools", permanent: true },
+      { source: "/blog", destination: "/guides", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/blog", destination: "/:locale/guides", permanent: true },
+      { source: "/formulas", destination: "/calculator-library", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/formulas", destination: "/:locale/calculator-library", permanent: true },
+      { source: "/api", destination: "/developer-showcase", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/api", destination: "/:locale/developer-showcase", permanent: true },
+      { source: "/signup", destination: "/login", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/signup", destination: "/:locale/login", permanent: true },
     ];
   },
   async rewrites() {
