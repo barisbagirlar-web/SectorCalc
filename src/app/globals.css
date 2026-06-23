@@ -17,17 +17,18 @@
 @import "../styles/premium-calculator-shell.css";
 @import "../styles/premium-category-catalog.css";
 @import "../styles/sectorcalc-calculator-cards.css";
+@import "../styles/tool-link-grid.css";
 
 @layer base {
   :root {
-    /* Industrial Ledger v1.1 — see design-craft.css for full token set */
-    --sc-bg: #faf7f2;
-    --sc-surface: #ffffff;
-    --sc-text: #1a1a1a;
-    --sc-muted: #6b6b6b;
-    --sc-border: #d1d1d1;
-    --sc-copper: #c2410c;
-    --sc-navy: #1e40af;
+    /* Anthropic Aesthetic */
+    --sc-bg: #F0EEE6;
+    --sc-surface: #FAF9F5;
+    --sc-text: #1A1915;
+    --sc-muted: rgba(26, 25, 21, 0.65);
+    --sc-border: rgba(26, 25, 21, 0.1);
+    --sc-copper: #BD5D3A;
+    --sc-navy: #1A1915;
     --sc-success: #166534;
     --sc-warning: #d97706;
     --sc-danger: #991b1b;
@@ -36,9 +37,9 @@
     --text-body-charcoal: var(--sc-muted);
     --border-technical-gray: var(--sc-border);
     --action-industrial-orange: var(--sc-copper);
-    /* Typography stack — Inter / Barlow / JetBrains Mono */
+    /* Typography stack */
     --font-sans: var(--font-inter);
-    --font-display: var(--font-barlow);
+    --font-display: "Georgia", "Cambria", "Times New Roman", "Times", serif;
     --font-mono-os: var(--font-jetbrains);
   }
 
@@ -96,9 +97,9 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-barlow), "Barlow", sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display), "Georgia", serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
     line-height: 1.15;
     color: var(--text-premium-velvet);
   }

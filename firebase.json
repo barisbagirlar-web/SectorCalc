@@ -19,19 +19,82 @@
   ],
   "hosting": {
     "source": ".",
+    "build": {
+      "command": "node scripts/firebase-hosting-build.mjs"
+    },
     "ignore": [
       "firebase.json",
+      "service-account.json",
       "**/.*",
       "**/node_modules/**",
       "**/debug.log",
       "**/*.log",
-      ".git/**"
+      ".git/**",
+      ".next/cache/**",
+      ".next-deploy.lock",
+      "functions/node_modules/**",
+      "vitest.config.ts"
+    ],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/tr",
+        "type": 301
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+      {
+        "source": "/**",
+        "headers": [
+          {
+            "key": "X-Frame-Options",
+            "value": "SAMEORIGIN"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-XSS-Protection",
+            "value": "1; mode=block"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Strict-Transport-Security",
+            "value": "max-age=31536000; includeSubDomains; preload"
+          }
+        ]
+      },
+      {
+        "source": "/(images|icons|img)/**/*",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/(sw.js|manifest.json|manifest.webmanifest)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      }
     ],
     "frameworksBackend": {
       "region": "us-central1",
       "memory": "512MiB",
-      "concurrency": 20,
-      "maxInstances": 3
+      "concurrency": 80,
+      "maxInstances": 5,
+      "minInstances": 0
     }
   }
 }

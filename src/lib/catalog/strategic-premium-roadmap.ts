@@ -4,7 +4,7 @@ import {
   type RoadmapStatus,
   type StrategicPremiumCalculator,
 } from "@/data/strategic-premium-calculators";
-import catalogData from "@/lib/tools/free-traffic-catalog.generated.json";
+import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
 import { listPremiumSchemaIds } from "@/lib/premium-schema/schema-registry";
 import { revenueTools } from "@/lib/tools/revenue-tools";
 import {
@@ -13,7 +13,7 @@ import {
 } from "@/lib/tools/tool-links";
 
 const FREE_TRAFFIC_SLUGS = new Set(
-  (catalogData as readonly { slug: string }[]).map((tool) => tool.slug),
+  FREE_TRAFFIC_TOOLS.map((tool) => tool.slug),
 );
 const REVENUE_FREE_SLUGS = new Set(revenueTools.map((tool) => tool.freeSlug));
 const REVENUE_PAID_SLUGS = new Set(revenueTools.map((tool) => tool.paidSlug));

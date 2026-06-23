@@ -42,7 +42,6 @@ export type { OntologyValidationResult } from "@/lib/formula-governance/calculat
 
 export { ROOFING_CONTRACT_MARGIN_ONTOLOGY } from "@/lib/formula-governance/calculation-ontology/fixtures/roofing-contract-margin-ontology";
 export { CNC_QUOTE_RISK_ONTOLOGY } from "@/lib/formula-governance/calculation-ontology/fixtures/cnc-quote-risk-ontology";
-
 export {
   getFixtureOntologyForSlug,
   hasFixtureOntologyForSlug,

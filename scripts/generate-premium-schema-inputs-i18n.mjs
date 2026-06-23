@@ -26,6 +26,32 @@ const PLACEHOLDER_TEMPLATES = {
 };
 
 const PREMIUM_MANUAL_TR = {
+  "Estimated Annual Savings": "Tahmini Yıllık Tasarruf",
+  "Probability of Success": "Başarı Olasılığı",
+  "Project Duration Months": "Proje Süresi (Ay)",
+  "Resource Cost": "Kaynak Maliyeti",
+  "Foreign currency assets": "Döviz varlıkları",
+  "Foreign currency liabilities": "Döviz yükümlülükleri",
+  "Hedging ratio": "Hedging (Korunma) oranı",
+  "Data completeness": "Veri bütünlüğü",
+  "Currency code": "Para birimi kodu",
+  "Data confidence": "Veri güvenilirliği",
+  "Implementation difficulty": "Uygulama zorluğu",
+  "Unused space": "Kullanılmayan alan",
+  "Embedded emissions": "Gömülü emisyonlar",
+  "Declared emissions": "Beyan edilen emisyonlar",
+  "Affected operators": "Etkilenen operatörler",
+  "Affected machines": "Etkilenen makineler",
+  "Waiting opportunity mode": "Bekleme fırsat maliyeti yöntemi",
+  "Motion affected operators": "Hareketten etkilenen operatörler",
+
+  "Projected annual financial benefit from the Six Sigma project.": "Projenin başarıya ulaşması durumunda yıllık olarak sağlanacak finansal getiri.",
+  "Estimated likelihood of achieving the project goals.": "Projenin hedeflerine başarıyla ulaşma ihtimali.",
+  "Time required to complete the project (months).": "Projenin tamamlanması için öngörülen süre (Ay cinsinden).",
+  "Total investment required for the project resources.": "Eğitim, donanım, personel gibi projeye harcanacak toplam kaynak maliyeti.",
+  "Shop supplies and consumables on parts subtotal.": "Parça ara toplamı üzerinden atölye malzemeleri ve sarf malzemeleri.",
+  "Choose how waiting opportunity cost is excluded, entered manually, or derived from throughput.": "Bekleme fırsat maliyetinin nasıl hariç tutulacağını, manuel olarak girileceğini veya üretim miktarından türetileceğini seçin.",
+
   "Weld throat": "Kaynak boğazı",
   "Weld length": "Kaynak uzunluğu",
   "Bolt diameter": "Cıvata çapı",
@@ -190,7 +216,10 @@ function translatePhrase(text, locale) {
   }
   let result = text;
   for (const [en, localized] of sortedGlossaryEntries(locale)) {
-    const re = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+    const pattern = /^\w+$/.test(en)
+      ? "\\b" + en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b"
+      : en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(pattern, "gi");
     result = result.replace(re, localized);
   }
   return result;

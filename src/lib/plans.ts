@@ -45,7 +45,7 @@ export const PLANS: Plan[] = [
   {
     id: 'popular',
     credits: 15,
-    label: 'Professional',
+    label: 'Most popular',
     badge: 'popular',
     badgeText: 'Most popular',
     price: 7.99,
@@ -73,7 +73,7 @@ export const PLANS: Plan[] = [
   {
     id: 'enterprise',
     credits: 100,
-    label: 'Enterprise',
+    label: 'Best value',
     badge: 'bestval',
     badgeText: 'Best value',
     price: 24.99,

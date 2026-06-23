@@ -22,17 +22,7 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<ToolPageParams[]> {
- return [
- { tier: "free", slug: "machine-hour-estimator" },
- { tier: "free", slug: "project-cost-estimator" },
- { tier: "free", slug: "cleaning-cost-estimator" },
- { tier: "free", slug: "food-cost-calculator" },
- { tier: "free", slug: "product-margin-calculator" },
- // Legacy premium slugs only — revenue tools use /tools/premium/[paidSlug].
- { tier: "premium", slug: "cnc-minimum-safe-quote-analyzer" },
- { tier: "premium", slug: "return-rate-profit-erosion-tool" },
- { tier: "generated", slug: "indicated-horsepower-calculator" },
- ];
+ return [];
 }
 
 export async function generateMetadata({

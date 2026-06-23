@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
+import { useTranslations } from "next-intl";
 import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { MobileHeaderNav } from "@/components/layout/HeaderNav";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
@@ -25,6 +26,7 @@ function readHeaderBottomOffset(): number {
 }
 
 export function MobileNav() {
+  const tA11y = useTranslations("a11y");
   const panelId = useId();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -82,14 +84,14 @@ export function MobileNav() {
             <button
               type="button"
               className="sc-mobile-drawer__backdrop"
-              aria-label="Close menu"
+              aria-label={tA11y("closeMenu")}
               onClick={closeMenu}
             />
             <nav
               id={panelId}
               className="sc-mobile-drawer__panel"
               role="navigation"
-              aria-label="Mobile"
+              aria-label={tA11y("mobileNav")}
               style={{ top: panelTop }}
             >
               <div className="sc-mobile-drawer__section sc-mobile-drawer__section--locale">
@@ -120,7 +122,7 @@ export function MobileNav() {
         <button
           type="button"
           className="apple-nav__menu-btn sc-mobile-menu-trigger min-h-[44px] min-w-[44px]"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? tA11y("closeMenu") : tA11y("openMenu")}
           aria-expanded={open}
           aria-controls={panelId}
           onClick={toggleMenu}

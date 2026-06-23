@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface Props {
   open: boolean
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export function EmailCaptureModal({ open, onClose, onSubmit, onSkip, email, setEmail }: Props) {
+  const t = useTranslations("emailCaptureModal")
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -35,10 +37,10 @@ export function EmailCaptureModal({ open, onClose, onSubmit, onSkip, email, setE
       <div className="w-full max-w-sm sc-pro-pricing-card sc-pro-letterpress p-6 shadow-xl border border-technical-gray bg-white relative">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h2 className="text-base font-semibold text-premium-velvet">Where should we send your PDF?</h2>
-            <p className="text-sm text-body-charcoal mt-1">We&apos;ll email your calculation report after purchase.</p>
+            <h2 className="text-base font-semibold text-premium-velvet">{t("title")}</h2>
+            <p className="text-sm text-body-charcoal mt-1">{t("subtitle")}</p>
           </div>
-          <button onClick={onClose} className="text-body-charcoal hover:text-sc-navy text-xl leading-none ml-3" aria-label="Close">×</button>
+          <button onClick={onClose} className="text-body-charcoal hover:text-sc-navy text-xl leading-none ml-3" aria-label={t("close")}>×</button>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -46,19 +48,19 @@ export function EmailCaptureModal({ open, onClose, onSubmit, onSkip, email, setE
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="your@email.com"
+            placeholder={t("emailPlaceholder")}
             autoComplete="email"
             className="w-full border border-technical-gray bg-industrial-matte px-4 py-2.5 text-sm text-premium-velvet placeholder-body-charcoal focus:outline-none focus:ring-2 focus:ring-sc-navy rounded-none"
           />
           <button type="submit" className="sc-cta-primary w-full py-2.5 flex justify-center">
-            Continue to payment →
+            {t("submitCta")}
           </button>
           <button type="button" onClick={onSkip} className="w-full text-xs text-body-charcoal hover:text-premium-velvet transition-colors mt-2 flex justify-center">
-            Skip &mdash; I don&apos;t need an email receipt
+            {t("skipCta")}
           </button>
         </form>
         <div className="mt-5 pt-4 border-t border-technical-gray flex justify-center gap-4 text-[11px] text-body-charcoal">
-          <span>🔒 Paddle secure</span><span>·</span><span>No auto-renew</span><span>·</span><span>7-day guarantee</span>
+          <span>🔒 {t("secure")}</span><span>·</span><span>{t("noAutoRenew")}</span><span>·</span><span>{t("guarantee")}</span>
         </div>
       </div>
     </div>

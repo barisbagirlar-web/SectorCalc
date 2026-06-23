@@ -11,7 +11,6 @@ import {
   resolvePremiumSchemaDisplayName,
   resolvePremiumSchemaPainStatement,
 } from "@/lib/i18n/premium-schema-display-i18n";
-import { getPremium152Tools, validatePremium152Seed } from "@/lib/premium/premium-152-seed-reader";
 import { getPremiumSchemaBySlug, listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
 import { listRevenueFreeSlugs } from "@/lib/tools/free-traffic-routes";
@@ -291,36 +290,6 @@ function buildPremiumSchemaItems(): CategorizedToolItem[] {
   });
 }
 
-function buildPremium152Items(): CategorizedToolItem[] {
-  return getPremium152Tools().map((tool) => {
-    const routePath = resolveSeedRoutePath(tool.slug);
-    const hasContract = Boolean(getFormulaContractBySlug(tool.slug));
-
-    return {
-      slug: tool.slug,
-      seedId: tool.id,
-      title: fillLocaleRecord((locale) =>
-        locale === "tr" ? tool.trTitle : humanizeSlug(tool.slug),
-      ),
-      description: fillLocaleRecord(() => tool.pain),
-      tier: "premium" as const,
-      categorySlug: resolveToolCategory({
-        slug: tool.slug,
-        title: tool.trTitle,
-        description: tool.pain,
-        tier: "premium",
-        source: "user-premium-152",
-        seedCategorySlug: tool.categorySlug,
-      }),
-      source: "user-premium-152" as const,
-      routePath,
-      formulaContractStatus: hasContract ? "ready" : "missing",
-      publicStatus:
-        routePath && hasContract ? "active" : "active-after-contract-validation",
-    };
-  });
-}
-
 function mergeCategorizedItems(items: readonly CategorizedToolItem[]): readonly CategorizedToolItem[] {
   const bySlug = new Map<string, CategorizedToolItem>();
   const priority: Record<CategorizedToolSource, number> = {
@@ -399,15 +368,12 @@ export function buildCategorizedToolIndex(): readonly CategorizedToolItem[] {
     return cachedIndex;
   }
 
-  validatePremium152Seed();
-
   const merged = mergeCategorizedItems([
     ...buildRevenueFreeItems(),
     ...buildFreeTrafficItems(),
     ...buildMigratedFreePremiumItems(),
     ...buildRevenuePremiumItems(),
     ...buildPremiumSchemaItems(),
-    ...buildPremium152Items(),
   ]);
 
   const uncategorized = merged.filter((item) =>

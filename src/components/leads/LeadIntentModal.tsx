@@ -2,7 +2,7 @@
 
 import Link from "@/lib/navigation/next-link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { PremiumPaywall } from "@/components/subscription/PremiumPaywall";
 import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
 import {
@@ -80,15 +80,16 @@ function planLabel(plan: LeadPlan | undefined): string | null {
  return labels[plan] ?? null;
 }
 
-function modalTitle(context: LeadModalOpenContext | null, phase: "form" | "success"): string {
- if (phase === "success") return "Request received.";
- if (context?.flow === "verdict_unlock") return "Send my full verdict";
- if (context?.flow === "paywall") return "Unlock full verdict";
- return "Request this decision report";
+function modalTitle(context: LeadModalOpenContext | null, phase: "form" | "success", t: (key: string, values?: Record<string, string | number>) => string): string {
+  if (phase === "success") return t("titleSuccess");
+  if (context?.flow === "verdict_unlock") return t("titleVerdict");
+  if (context?.flow === "paywall") return t("titlePaywall");
+  return t("titleRequest");
 }
 
 export function LeadIntentModal() {
  const locale = useLocale();
+ const t = useTranslations("leadIntentModal");
  const { isOpen, context, closeLeadModal } = useLeadIntent();
  const titleId = useId();
  const dialogRef = useRef<HTMLDivElement>(null);
@@ -347,12 +348,11 @@ export function LeadIntentModal() {
  flow === "paywall" ? "text-white" : "text-text-primary"
  }`}
  >
- {modalTitle(context, phase)}
+ {modalTitle(context, phase, t)}
  </h2>
  {phase === "form" && flow === "default" && (
  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
- Tell us what you need. Premium unlock and export are not live yet —
- we record your intent for the next release.
+ {t("tellUs")}
  {planName ? (
  <span className="mt-1 block font-medium text-text-primary">
  Plan interest: {planName}
@@ -362,8 +362,7 @@ export function LeadIntentModal() {
  )}
  {phase === "form" && flow === "verdict_unlock" && (
  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
- Enter your email to receive checkout access for the full margin
- verdict — safe price, leak breakdown and recommended action.
+ {t("enterEmail")}
  </p>
  )}
  </div>
@@ -375,7 +374,7 @@ export function LeadIntentModal() {
  ? "text-text-secondary hover:bg-white/10 hover:text-white"
  : "text-text-secondary hover:bg-bg-subtle hover:text-text-primary"
  }`}
- aria-label="Close"
+ aria-label={t("close")}
  >
  <span aria-hidden className="text-xl leading-none">
  ×
@@ -395,9 +394,7 @@ export function LeadIntentModal() {
  {flow !== "paywall" && phase === "success" ? (
  <div className="space-y-6">
  <p className="text-sm leading-relaxed text-text-secondary sm:text-base">
- Thanks. We recorded your report request. In the next release,
- premium report unlock and export will be available directly inside
- SectorCalc.
+ {t("recorded")}
  </p>
  <Link
  href="/free-tools"
@@ -421,7 +418,7 @@ export function LeadIntentModal() {
  id="unlock-email"
  type="email"
  autoComplete="email"
- placeholder="Send my verdict to this email"
+ placeholder={t("placeholderSendVerdict")}
  value={unlockEmail}
  onChange={(e) => {
  setUnlockEmail(e.target.value);
@@ -444,11 +441,10 @@ export function LeadIntentModal() {
  disabled={loading || checkoutPending}
  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg border border-amber/40 bg-amber px-6 text-sm font-semibold text-deep-navy transition-colors hover:bg-amber/90 disabled:opacity-60"
  >
- {loading || checkoutPending ? "Redirecting to checkout…" : "Continue to checkout"}
+ {loading || checkoutPending ? t("submittingRedirect") : t("btnCheckout")}
  </button>
  <p className="text-xs leading-relaxed text-text-secondary">
- You may be asked to sign in before secure payment. Digital product —
- estimates only.
+ {t("askSignIn")}
  </p>
  </form>
  ) : null}
@@ -588,7 +584,7 @@ export function LeadIntentModal() {
  onChange={(e) => updateField("message", e.target.value)}
  aria-invalid={Boolean(errors.message)}
  className={`${inputClass} min-h-[120px] resize-y py-3 ${errors.message ? inputErrorClass : inputOkClass}`}
- placeholder="Timeline, client context, or questions (max 500 characters)"
+ placeholder={t("placeholderTimeline")}
  />
  </Field>
 
@@ -606,7 +602,7 @@ export function LeadIntentModal() {
  disabled={loading}
  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-6 text-sm font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
  >
- {loading ? "Submitting…" : "Submit request"}
+ {loading ? t("submitting") : t("btnSubmit")}
  </button>
  </form>
  ) : null}

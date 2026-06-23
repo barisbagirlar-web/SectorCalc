@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 type FooterTrustBarProps = {
   readonly badges: readonly {
     readonly icon: string;
@@ -6,8 +8,10 @@ type FooterTrustBarProps = {
 };
 
 export function FooterTrustBar({ badges }: FooterTrustBarProps) {
+  const t = useTranslations("footer");
+
   return (
-    <div className="trust-bar" role="list" aria-label="Trust and compliance signals">
+    <div className="trust-bar" role="list" aria-label={t("trustAndCompliance")}>
       {badges.map((badge) => (
         <div key={badge.label} className="trust-badge" role="listitem">
           <span className="trust-badge-icon" aria-hidden>

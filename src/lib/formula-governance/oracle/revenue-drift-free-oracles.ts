@@ -149,7 +149,7 @@ export function calculateProductMarginDtcFreeOracle(
     returnRatePercent: returnRate,
   });
   if ("error" in margin) {
-    throw new OracleValidationError("INVALID_PRICE", margin.error);
+    throw new OracleValidationError("INVALID_PRICE", margin.error || "Unknown margin error");
   }
 
   return {

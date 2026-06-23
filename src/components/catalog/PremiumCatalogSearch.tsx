@@ -5,7 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
-import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
+import { ToolLinkGrid } from "@/components/catalog/ToolLinkGrid";
+import type { ToolLinkItem } from "@/components/catalog/ToolLinkGrid";
 import {
   buildPremiumCatalogSearchEntries,
 } from "@/lib/catalog/premium-catalog-source";
@@ -234,44 +235,14 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
             <p className="mt-1 text-xs text-body-charcoal">{t("noResultsHint")}</p>
           </div>
         ) : (
-          <div className="sc-premium-tool-grid">
-            {visibleTools.map((tool) =>
-              tool.isActive && tool.routePath ? (
-                <article
-                  key={tool.slug}
-                  id={"tool-" + tool.slug}
-                  className="sc-premium-tool-card sc-premium-tool-card--active"
-                >
-                  <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
-                    <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
-                    <p className="sc-premium-tool-card__description">{tool.description}</p>
-                    <FormulaGateCatalogMeta
-                      slug={tool.slug}
-                      locale={locale}
-                      openLabel={t("openCalculator")}
-                      isClickable
-                    />
-                  </Link>
-                </article>
-              ) : (
-                <article
-                  key={tool.slug}
-                  id={"tool-" + tool.slug}
-                  className="sc-premium-tool-card sc-premium-tool-card--pending"
-                  aria-disabled="true"
-                >
-                  <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
-                  <p className="sc-premium-tool-card__description">{tool.description}</p>
-                  <FormulaGateCatalogMeta
-                    slug={tool.slug}
-                    locale={locale}
-                    openLabel={t("openCalculator")}
-                    isClickable={false}
-                  />
-                </article>
-              ),
-            )}
-          </div>
+          <ToolLinkGrid
+            items={visibleTools
+              .filter((tool) => tool.isActive && tool.routePath)
+              .map((tool) => ({
+                title: tool.title,
+                href: tool.routePath!,
+              }))}
+          />
         )}
       </section>
     </div>

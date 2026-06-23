@@ -25,8 +25,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function PricingPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const t = await getTranslations("pricing");
 
   return (
     <PageLayout>

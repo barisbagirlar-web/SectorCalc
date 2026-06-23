@@ -1,12 +1,15 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
 import { Search, X } from "lucide-react";
 import { CatalogGroupedSearch } from "@/components/catalog/CatalogGroupedSearch";
 import { CategoryExplorer } from "@/components/catalog/CategoryExplorer";
 import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
+import { ToolLinkGrid } from "@/components/catalog/ToolLinkGrid";
+import type { ToolLinkItem } from "@/components/catalog/ToolLinkGrid";
 import { CalculatorCard } from "@/components/catalog/CalculatorCard";
 import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
 import { DiscoveryCatalogExplorer } from "@/components/catalog/DiscoveryCatalogExplorer";
@@ -58,12 +61,33 @@ type FreeToolsCategoryCardExplorerProps = {
   groups: readonly CatalogGroup[];
 };
 
+const SECTOR_TO_TAB: Record<string, string> = {
+  "manufacturing": "scrap-oee",
+  "lean-oee": "scrap-oee",
+  "quality-spc": "scrap-oee",
+  "mechanical-hvac": "construction-field",
+  "electrical-power": "construction-field",
+  "construction": "construction-field",
+  "supply-chain": "routing-logistics",
+  "energy-esg": "energy-carbon",
+  "technology-cloud": "cost-margin",
+};
+
 function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorerProps) {
   const t = useTranslations("catalogExplorer");
   const tCards = useTranslations("calculatorCards");
   const locale = useLocale();
   const [selectedCategoryId, setSelectedCategoryId] = useState(CATEGORY_ALL);
   const [searchQuery, setSearchQuery] = useState("");
+  
+  const sectorParam = useClientSearchParam("sector");
+
+  useEffect(() => {
+    if (sectorParam && SECTOR_TO_TAB[sectorParam]) {
+      setSelectedCategoryId(SECTOR_TO_TAB[sectorParam]);
+      scrollToToolsList();
+    }
+  }, [sectorParam]);
 
   const discoveryTabs = useMemo(
     () => getDiscoveryTabsForVariant("free-tools", groups),
@@ -129,8 +153,15 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
   const isSearching = searchQuery.trim().length > 0;
 
   const countSuffix = locale === "tr" ? "ücretsiz araç" : "free tool";
-  const badgeFree = t("search.badgeFree");
-  const badgePremium = t("search.badgePremium");
+
+  const linkItems: ToolLinkItem[] = useMemo(
+    () =>
+      visibleItems.map((item) => ({
+        title: item.title,
+        href: item.href,
+      })),
+    [visibleItems],
+  );
 
   return (
     <div className="sc-catalog-explorer-stack flex min-w-0 flex-col gap-6">
@@ -181,31 +212,7 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
             {t("search.noResults")}
           </p>
         ) : (
-          <CalculatorCardGrid className="mt-4">
-            {visibleItems.map((item) => (
-              <li key={item.href} className="min-w-0">
-                <CalculatorCard
-                  title={item.title}
-                  description={item.description}
-                  href={item.href}
-                  categoryLabel={item.groupLabel}
-                  tier="free"
-                  variant="calculator"
-                  inputCount={item.inputCount}
-                  freeToolCount={item.freeToolCount}
-                  premiumToolCount={item.premiumToolCount}
-                  accent={resolveCalculatorCardAccent(item.groupId, "free")}
-                  badgeFreeLabel={badgeFree}
-                  badgePremiumLabel={badgePremium}
-                  ctaLabel={item.ctaLabel ?? tCards("ctaCalculate")}
-                  inputCountLabel={(count) => tCards("inputCount", { count })}
-                  sectorCountLabel={(free, premium) =>
-                    tCards("sectorToolCounts", { free, premium })
-                  }
-                />
-              </li>
-            ))}
-          </CalculatorCardGrid>
+          <ToolLinkGrid items={linkItems} className="mt-4" />
         )}
       </section>
     </div>

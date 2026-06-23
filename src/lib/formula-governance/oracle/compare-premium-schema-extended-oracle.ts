@@ -151,7 +151,6 @@ const SEVEN_MUDA_REV5_ZERO_WASTE_VALUES: SchemaInputValues = {
   expediteCost: 0,
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SCENARIOS_BY_SLUG: Record<string, readonly PremiumSchemaExtendedComparisonScenario[]> = {
   "7-israf-muda-avcisi-parasal-karsilik-calculator": [
     { id: "golden-valid", kind: "normal", values: SEVEN_MUDA_REV5_GOLDEN_VALUES },

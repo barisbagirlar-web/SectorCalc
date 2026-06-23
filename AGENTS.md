@@ -209,3 +209,15 @@ Endüstriyel hesaplama ve karar platformu algısı korunur:
 - UI değişikliğinde desktop + mobile + console + network kontrolü
 
 Detay: `.cursor/rules/02-ui-quality/RULE.md`
+
+## 12. Claude Tasarımı (Claude Design)
+
+"Claude Tasarım" veya "Claude Tasarımı" dendiğinde aşağıdaki spesifikasyonlar ve tasarım kuralları her zaman hatırlanacak ve uygulanacaktır:
+- **Genel Yapı**: En son `main` branch'inde (commit `9fafb0918` ve sonrasındaki renk paleti güncellemeleriyle) geliştirilmiş olan, Barlow serif/sans başlık yazı tiplerini, JetBrains Mono font-mono'sunu ve terracotta/copper tonlarındaki aksan renklerini kullanan ferah, dengeli ve kurumsal arayüz şablonudur.
+- **Dosya Konumları**:
+  - Bileşen: `src/components/landing/LandingPageContent.tsx`
+  - Stil: `src/styles/landing-page.css`
+  - Sayfa: `src/app/[locale]/page.tsx`
+- **Link Standartları**: Sitedeki linkler mutlaka gerçek ve ilgili aktif sayfaları (örneğin pro-tools yerine `/premium-tools`) temsil edecek şekilde doğru yönlendirilmelidir. Asla kırık veya geçici (`#`) link kullanılmamalıdır.
+- **İyileştirmeler**: Tasarım yerleşimlerinde veya ikonlarda görsel uyumsuzluk ya da hata görüldüğünde, sistem kalitesini artırmak için inisiyatif alınarak hizalamalar ve görsel detaylar en premium standartlarda düzenlenmelidir.
+

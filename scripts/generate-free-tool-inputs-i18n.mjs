@@ -60,7 +60,10 @@ function translatePhrase(text, locale) {
   }
   let result = text;
   for (const [en, localized] of sortedGlossaryEntries(locale)) {
-    const re = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+    const pattern = /^\w+$/.test(en)
+      ? "\\b" + en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b"
+      : en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(pattern, "gi");
     result = result.replace(re, localized);
   }
   return result;

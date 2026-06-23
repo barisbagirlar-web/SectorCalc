@@ -12,6 +12,62 @@ const OUT = join(ROOT, "src/data/calculator-phrase-glossary.json");
 /** Shared EN terms → per-locale (extend as catalog grows). */
 const MASTER = {
   tr: {
+    // Basic words
+    "amount": "tutar",
+    "Amount": "Tutar",
+    "unit": "birim",
+    "Unit": "Birim",
+    "error": "hata",
+    "Error": "Hata",
+    "rate": "oran",
+    "Rate": "Oran",
+    "time": "zaman",
+    "Time": "Zaman",
+    "hourly": "saatlik",
+    "Hourly": "Saatlik",
+    "optional": "isteğe bağlı",
+    "Optional": "İsteğe bağlı",
+    "input": "girdi",
+    "Input": "Girdi",
+    
+    // Explicit phrases to prevent leak
+    "Unit rate": "Birim oran",
+    "Loan amount": "Kredi tutarı",
+    "Enter loan amount": "Kredi tutarını girin",
+    "Starting amount": "Başlangıç tutarı",
+    "Time horizon": "Zaman aralığı",
+    "Machine or spindle time allocated to the quote.": "Teklife ayrılan makine veya iş mili süresi.",
+    "Optional customer discount applied on the target sales price.": "Hedef satış fiyatına uygulanan isteğe bağlı müşteri indirimi.",
+    "Unit price": "Birim fiyat",
+    "Enter unit price": "Birim fiyatını girin",
+    "Return amount": "Getiri tutarı",
+    "Hourly machine rate": "Saatlik makine ücreti",
+    "Machining time per part": "Parça başına işleme süresi",
+    "Hourly labor rate": "Saatlik işçilik ücreti",
+    "Printer hourly rate": "Saatlik yazıcı ücreti",
+    "Unit tariff": "Birim tarife",
+    "Fuel input": "Yakıt girdisi",
+    "Enter fuel input": "Yakıt girdisini girin",
+    "Driving time": "Sürüş süresi",
+    "Hourly rate": "Saatlik ücret",
+    "Run time": "Çalışma süresi",
+    "Amount saved per month": "Aylık biriktirilen tutar",
+    "Margin of error": "Hata marjı",
+    "Enter margin of error": "Hata marjını girin",
+    "Amount to convert": "Dönüştürülecek miktar",
+    "Source unit": "Kaynak birim",
+    "Enter hourly rate": "Saatlik ücreti girin",
+    "Base hourly rate": "Taban saatlik ücret",
+    "net invoice amount": "net fatura tutarı",
+    "Unit weight": "Birim ağırlık",
+    "Enter unit weight": "Birim ağırlığını girin",
+    "Unit weight for calculation": "Hesaplama için birim ağırlık",
+    "equipment hourly rate": "ekipman saatlik ücreti",
+    "Blended hourly attendee cost": "Katılımcıların ortalama saatlik maliyeti",
+    "Running time vs planned time.": "Çalışma süresi ve planlanan süre karşılaştırması.",
+    "Hourly cost": "Saatlik maliyet",
+    "Enter hourly cost": "Saatlik maliyeti girin",
+
     "Concrete bags": "Beton torba sayısı",
     "Floor area": "Zemin alanı",
     "Pour volume": "Döküm hacmi",
@@ -386,7 +442,10 @@ function composePhraseTranslation(phrase, locale) {
   }
   let result = phrase;
   for (const [en, localized] of sortedGlossaryEntries(locale)) {
-    const re = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+    const pattern = /^\w+$/.test(en)
+      ? "\\b" + en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b"
+      : en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(pattern, "gi");
     result = result.replace(re, localized);
   }
   return result === phrase ? null : result;

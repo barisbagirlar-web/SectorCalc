@@ -91,7 +91,10 @@ function composePhrase(phrase, locale) {
   }
   let result = phrase;
   for (const [en, localized] of sortedEntries(locale)) {
-    const re = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+    const pattern = /^\w+$/.test(en)
+      ? "\\b" + en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b"
+      : en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(pattern, "gi");
     result = result.replace(re, localized);
   }
   return result === phrase ? null : result;

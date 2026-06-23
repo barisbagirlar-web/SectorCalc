@@ -9712,5 +9712,768 @@
       "title": "İndike Beygir Gücü (IHP) Hesaplayıcı",
       "description": "Ortalama efektif basınç, strok, silindir çapı ve RPM değerlerini kullanarak silindirlerin içinde üretilen teorik gücü hesaplayın."
     }
+  },
+  "claude2Landing": {
+    "hero": {
+      "eyebrow": "Kayıp Keşif Motoru · 300+ Mühendislik Hesaplaması",
+      "headline": "Rakamların Senden Önce",
+      "headlineEm": "Kayıplarını Keşfetmesini Durdur.",
+      "subtitle": "Çoğu işletme geliri takip eder. Operasyonel kayıpları sayısallaştıran pek azdır. SectorCalc, hangi hesabı yapacağını bilmeden önce bile neyi kaybettiğini gösterir.",
+      "qualifierLabel": "Hangi kayıplarla karşı karşıyasın?",
+      "sectorLabel": "Sektör",
+      "challengeLabel": "Ana Sorun",
+      "sizeLabel": "Büyüklük",
+      "sectorOptions": [
+        "Üretim / CNC",
+        "Gıda & Ambalaj",
+        "Enerji",
+        "İnşaat",
+        "Lojistik"
+      ],
+      "challengeOptions": [
+        {
+          "value": "scrap",
+          "label": "Hurda & Fire"
+        },
+        {
+          "value": "energy",
+          "label": "Enerji Maliyeti"
+        },
+        {
+          "value": "capacity",
+          "label": "Kapasite Kaybı"
+        },
+        {
+          "value": "oee",
+          "label": "OEE / Verimlilik"
+        },
+        {
+          "value": "pricing",
+          "label": "Fiyatlama Hatası"
+        }
+      ],
+      "sizeOptions": [
+        "11–50 Çalışan",
+        "51–250 Çalışan",
+        "250+ Çalışan",
+        "1–10 Çalışan"
+      ],
+      "opportunityTitle": "Tespit edilen fırsat alanları",
+      "cta": "İlgili Hesaplamaları Göster",
+      "micro": "Kredi kartı yok · Excel yok · 60 saniyede sonuç",
+      "areas": "Alan"
+    },
+    "pain": {
+      "ticker": "Sen bu sayfayı okurken Avrupa'daki üretim tesislerinde yanlış hesaplanan hurda oranı nedeniyle operasyonel kayıp birikmeye devam ediyor.",
+      "label": "Sorun Nerede?",
+      "title": "İşletmeler Parayı Sandıkları\nYerde Kaybetmiyor.",
+      "cards": [
+        {
+          "label": "Hurda & Fire",
+          "title": "Çoğu üretici %8 sanır, gerçek %14 çıkar.",
+          "body": "Bu 6 puanlık fark, orta ölçekli bir tesiste yıllık €40.000–80.000 fark oluşturur. Ve bu fark P&L'de görünmez.",
+          "link": "Hurda hesaplamalarını gör →"
+        },
+        {
+          "label": "Makine Verimliliği",
+          "title": "OEE %70 gibi görünür. Gerçek maliyet etkisi hesaplanmamıştır.",
+          "body": "Downtime, hız kaybı ve kalite reddinin €'ya çevrilmesi olmadan optimizasyon kararı verilemez.",
+          "link": "OEE araçlarını gör →"
+        },
+        {
+          "label": "Fiyatlama Hatası",
+          "title": "Teklif verirken makine saati maliyetini doğru hesaplayan az.",
+          "body": "VDI 2067, ASHRAE ve ISO standartlarına göre hesaplanmayan makine saati → her teklifte kar yenir.",
+          "link": "Makine saati hesapla →"
+        },
+        {
+          "label": "Enerji Maliyeti",
+          "title": "Enerji faturaları ödeniyor, spesifik tüketim analiz edilmiyor.",
+          "body": "Ürün başına, proses adımı başına enerji maliyeti bilinmeden sürdürülebilirlik iddiası niyet olarak kalır.",
+          "link": "Enerji araçlarını gör →"
+        }
+      ]
+    },
+    "calc": {
+      "label": "Şimdi Hesapla",
+      "title": "Kendi Kaybını Gör.",
+      "subtitle": "3 input. 60 saniye. Yıllık hurda maliyetini ve geri kazanım potansiyelini anında gör.",
+      "headerTitle": "Hurda Maliyet Analizi — Hızlı Değerlendirme",
+      "headerBadge": "CANLI",
+      "progressLabel": "İlerleme: %{pct} — {remaining} adım kaldı",
+      "progressComplete": "İlerleme: %100 — Hesap tamamlandı",
+      "input1Label": "Aylık Üretim (kg/adet)",
+      "input1Tip": "Aylık toplam çıktı miktarı",
+      "input2Label": "Gerçek Hurda Oranı (%)",
+      "input2Tip": "Çoğu firma %8 sanır, ölçümde %12–15 çıkar",
+      "input3Label": "Birim Maliyet (€)",
+      "input3Tip": "Hammadde + işçilik + enerji dahil tam maliyet",
+      "resultLoss": "Yıllık Kayıp",
+      "resultRecovery": "Geri Kazanım Pot.",
+      "resultRoi": "YG (Pro)",
+      "aiTitle": "AI Yorum · Pro Özellik",
+      "aiText": "%{rate} hurda oranı, üretim ortalaması olan %6–8 aralığının üzerinde. Bu sapma tek başına aylık ≈{monthly} operasyonel kayba işaret ediyor.",
+      "aiBlurText": "Benzer ölçekteki tesislerde hurda oranını %2 düşürmek için en kritik üç müdahale noktası şunlardır: (1) Proses parametresi optimizasyonu — özellikle kalıp sıcaklığı toleransları. (2) Operatör hata analizi — shift başı kalibrasyon prosedürü. (3) Malzeme kabul kriterleri — gelen kalite kontrol eşik değerleri.",
+      "aiGateCta": "Pro ile Kilidini Aç →",
+      "cta": "Tam Analizi & PDF Raporu Al →",
+      "micro": "Sadece sonucu mu istiyorsun?",
+      "microLink": "Ücretsiz araçlar burada →"
+    },
+    "social": {
+      "trustLabel": "Metodoloji",
+      "trustItems": [
+        "ISO",
+        "ASME",
+        "VDI 2067",
+        "ASHRAE",
+        "IEC",
+        "Yalın / Altı Sigma"
+      ],
+      "label": "Gerçek Sonuçlar",
+      "title": "Sayı Değil, Karar.",
+      "cases": [
+        {
+          "sector": "CNC Atölyesi · Almanya",
+          "problem": "Teklif fiyatlarında makine saati maliyeti yanlış hesaplanıyordu. Her iş emrinde kar yeniyordu.",
+          "result": "+%8,4",
+          "resultLabel": "marj iyileşmesi"
+        },
+        {
+          "sector": "Gıda Üreticisi · Türkiye",
+          "problem": "Hammadde fire oranı görünür değildi. Yıllık kayıp büyüklüğü bilinmiyordu.",
+          "result": "€67.000",
+          "resultLabel": "yıllık geri kazanım"
+        },
+        {
+          "sector": "Ambalaj Tesisi · Polonya",
+          "problem": "Downtime ve hız kaybı ayrı izleniyordu. Toplam OEE etkisi para olarak görünmüyordu.",
+          "result": "+%11",
+          "resultLabel": "kullanılabilirlik artışı"
+        }
+      ],
+      "quoteText": "Bu tür hesapları Excel'de elle yapıyorduk. Hata oranı yüksekti, zaman kaybıydı. SectorCalc'ı kullandıktan sonra teklif sürecimiz %40 hızlandı ve fiyatlarımız gerçek maliyeti yansıtmaya başladı.",
+      "quoteAuthor": "Üretim Müdürü, Orta Ölçekli CNC İşletmesi, Türkiye"
+    },
+    "compare": {
+      "label": "Neden Pro?",
+      "title": "Sayının Ötesine Geç.",
+      "subtitle": "Ücretsiz araçlar sana rakamı verir. Pro, rakamın ne anlama geldiğini ve ne yapman gerektiğini söyler.",
+      "free": {
+        "tier": "Ücretsiz",
+        "price": "€0",
+        "desc": "Rakam al. Karar verme sürecini başlat.",
+        "features": [
+          {
+            "text": "300+ hesaplama aracı",
+            "sub": "Tüm sektörler, temel formüller"
+          },
+          {
+            "text": "Anlık sonuç",
+            "sub": "Input gir, değer al"
+          },
+          {
+            "text": "AI Yorum",
+            "sub": "Rakamın iş etkisi analizi"
+          },
+          {
+            "text": "Senaryo Karşılaştırma",
+            "sub": "Ya oranı %2 düşürürsem?"
+          },
+          {
+            "text": "PDF Raporu",
+            "sub": "İmzalı, kaynak göstergeli"
+          }
+        ],
+        "cta": "Ücretsiz Başla"
+      },
+      "pro": {
+        "tier": "Pro",
+        "price": "Kredi bazlı",
+        "desc": "Karar ver. Kayıpları durdur. ROI yaz.",
+        "badge": "En Popüler",
+        "features": [
+          {
+            "text": "300+ hesaplama aracı",
+            "sub": "Tüm sektörler, ISO/VDI formüller"
+          },
+          {
+            "text": "AI Yorum & Öneri",
+            "sub": "Rakamın iş dilinde açıklaması"
+          },
+          {
+            "text": "Senaryo Analizi",
+            "sub": "En iyi/kötü/hedef karşılaştırma"
+          },
+          {
+            "text": "Sektör Benchmark",
+            "sub": "Rakiplerle karşılaştır"
+          },
+          {
+            "text": "PDF Raporu",
+            "sub": "İmzalı, kaynak göstergeli, paylaşılabilir"
+          }
+        ],
+        "cta": "Kaybımı Durdurmaya Başla →"
+      }
+    },
+    "method": {
+      "stats": [
+        {
+          "num": "300+",
+          "label": "ISO/ASME/VDI referanslı hesaplama aracı"
+        },
+        {
+          "num": "18",
+          "label": "Endüstri sektörü kapsamı"
+        },
+        {
+          "num": "161",
+          "label": "Doğrulanmış premium formül, güvenlik koşullu"
+        }
+      ],
+      "label": "Metodoloji Altyapısı",
+      "title": "Tanınan Standartlar Üzerine İnşa Edildi.",
+      "badges": [
+        {
+          "name": "ISO",
+          "sub": "Uluslararası Standartlar"
+        },
+        {
+          "name": "VDI 2067",
+          "sub": "Makine Saati Maliyeti"
+        },
+        {
+          "name": "ASHRAE",
+          "sub": "Enerji & HVAC"
+        },
+        {
+          "name": "ASME",
+          "sub": "Mekanik Mühendislik"
+        },
+        {
+          "name": "IEC",
+          "sub": "Elektrik & Elektronik"
+        },
+        {
+          "name": "EN 13306",
+          "sub": "Bakım Terminolojisi"
+        },
+        {
+          "name": "Lean",
+          "sub": "Süreç İyileştirme"
+        },
+        {
+          "name": "Altı Sigma",
+          "sub": "Kalite Metodolojisi"
+        }
+      ]
+    },
+    "final": {
+      "countdownPrefix": "Bu ayın fiyat garantisi",
+      "title": "Tek Hesapla Başla.\nDaha İyi Kararlarla Çık.",
+      "subtitle": "VDI 2067'yi doğru uygulayan mühendis sayısı sınırlı. Platforma erişim kredi bazlı — abonelik yok, bağlılık yok. Bugünkü analiz yarın farklı bir tablo gösterebilir.",
+      "cta": "Kaybımı Durdur →",
+      "secCta": "Önce ücretsiz araçlara bak",
+      "note": "Güvenli ödeme · Paddle Billing · Abonelik yok"
+    },
+    "oppMap": {
+      "scrap": [
+        "Hurda Maliyeti",
+        "Malzeme Verimi",
+        "Kalite Kaybı",
+        "Fiyatlama Marjı"
+      ],
+      "energy": [
+        "Spesifik Tüketim",
+        "Enerji Yoğunluğu",
+        "CO₂ Maliyet",
+        "Tarife Optimizasyonu"
+      ],
+      "capacity": [
+        "OEE Etkisi",
+        "Darboğaz Analizi",
+        "Kapasite Maliyeti",
+        "Setup Süresi"
+      ],
+      "oee": [
+        "Durma Süresi €",
+        "Hız Kaybı €",
+        "Kalite Reddi €",
+        "Toplam OEE Etkisi"
+      ],
+      "pricing": [
+        "Makine Saati",
+        "İşçilik Maliyeti",
+        "Overhead Oranı",
+        "Teklif Marjı"
+      ]
+    }
+  },
+  "landingPage": {
+    "nav": {
+      "calculators": "Hesap Makineleri",
+      "categories": "Kategoriler",
+      "methodology": "Metodoloji",
+      "pro": "Pro",
+      "blog": "Blog",
+      "signIn": "Giriş Yap",
+      "getPro": "Pro'yu Al"
+    },
+    "hero": {
+      "tag": "Profesyonel Hesap Makinesi Platformu",
+      "headline": "Endüstriyel hesaplamalar,<br><em>tam</em> istendiği gibi.",
+      "subtitle": "Üretim, finans, enerji, lojistik ve kalite için 552 mühendislik sınıfı hesap makinesi. ISO & ASME referanslı formüller.",
+      "searchPlaceholder": "552 hesap makinesini ara — OEE, IRR, EOQ, Cpk…",
+      "trace": "Trace",
+      "search": "Ara",
+      "tryLabel": "Deneyin:",
+      "chipOee": "OEE",
+      "chipEoq": "📦 EOQ",
+      "chipIrr": "IRR",
+      "chipCpk": "Cpk",
+      "chipLmtd": "🌡️ LMTD",
+      "chipMtbf": "🔧 MTBF"
+    },
+    "metrics": {
+      "proCalculators": "Pro Hesap Makinesi",
+      "freeCalculators": "Ücretsiz Hesap Makinesi",
+      "industrySectors": "Sektör",
+      "languages": "Dil"
+    },
+    "ticker": {
+      "label": "En çok kullanılan",
+      "toolOee": "OEE Hesaplayıcı",
+      "toolEoq": "📦 EOQ",
+      "toolIrrNpv": "IRR / NPV",
+      "toolCpkSigma": "Cpk / Sigma",
+      "toolTaktTime": "⏱️ Takt Süresi",
+      "toolBoltTorque": "Cıvata Torku",
+      "toolLmtd": "🌡️ LMTD",
+      "toolMtbfMttr": "🔧 MTBF / MTTR",
+      "toolBreakEven": "📉 Başabaş Noktası",
+      "toolKanban": "Kanban Kartları",
+      "toolPipePressure": "💧 Boru Basınç Düşümü",
+      "toolCarbon": "🌿 Karbon Ayak İzi",
+      "toolCompressor": "Kompresör Gücü",
+      "toolPertCpm": "PERT / CPM",
+      "badgePro": "PRO",
+      "badgeFree": "ÜCRETSİZ"
+    },
+    "categories": {
+      "eyebrow": "Hesap Makinesi Kataloğu",
+      "title": "Hesap makinenizi bulun",
+      "lead": "18 sektörde 552 araç. Bir kategoriyle başlayın veya yukarıdan arayın.",
+      "manufacturingName": "Üretim & İmalat",
+      "manufacturingDesc": "OEE, çevrim süresi, hat dengeleme, SMED, takt süresi, yalın metrikler, öğrenme eğrisi, standart süre ve üretim çizelgeleme.",
+      "manufacturingTools": "84 hesap makinesi · 31 Pro",
+      "financeName": "Finans & Yatırım",
+      "financeDesc": "NPV, IRR, WACC, DCF, başabaş noktası, ROI ve maliyet analizi.",
+      "financeTools": "96 araç · 42 Pro",
+      "qualityName": "Kalite & Güvenilirlik",
+      "qualityDesc": "Cpk, Altı Sigma, FMEA RPN, İSK, Gage R&R, MTBF ve AQL.",
+      "qualityTools": "68 araç · 39 Pro",
+      "energyName": "Enerji & Sürdürülebilirlik",
+      "energyDesc": "Karbon ayak izi, F-Gaz, HVAC, ısı değiştiriciler ve ISO 50001 enerji denetimleri.",
+      "energyTools": "71 araç · 28 Pro",
+      "logisticsName": "Lojistik & Tedarik Zinciri",
+      "logisticsDesc": "EOQ, emniyet stoğu, teslim süresi, depo düzeni ve envanter TCO.",
+      "logisticsTools": "62 araç · 25 Pro",
+      "mechanicalName": "Makine Mühendisliği",
+      "mechanicalDesc": "Cıvata torku (VDI 2230), ASME basınçlı kaplar, hidrolik, yaylar ve CNC.",
+      "mechanicalTools": "58 araç · 28 Pro",
+      "browseAll": "18 kategorinin tümünü gör"
+    },
+    "methodology": {
+      "eyebrow": "Metodoloji",
+      "title": "Kara kutu yok. Her formül kaynakçasıyla birlikte.",
+      "lead": "Mühendislerin güvenebileceği mühendislik araçları. Kaynaklar gösterilir, varsayımlar belirtilir, uç durumlar belgelenir.",
+      "card1Tag": "Standart",
+      "card1Title": "ISO, ASME ve IEC'ye referanslı",
+      "card1Desc": "Her hesap makinesi kaynağını belirtir. ASME UG-27, ISO 5349, NIOSH kaldırma denklemi — uydurma formül yok, tahmin yok.",
+      "card2Title": "Formül Notları",
+      "card2Desc": "Her araç, tam türetimine, koruma koşullarına ve bilinen sınırlamalarına bağlantı verir. Tam olarak ne hesapladığınızı bilirsiniz.",
+      "card3Title": "Tasarım Gereği Uyarı",
+      "card3Desc": "Sonuçlar karar desteğidir, onay değildir. Her araç kapsamını net olarak belirtir. Yanıltıcı kesinlik yok.",
+      "card4Title": "Öncelik Gizlilik",
+      "card4Desc": "Tüm hesaplamalar tarayıcınızda çalışır. Hiçbir girdi verisi cihazınızdan ayrılmaz. Mühendislik verileri izlenmez."
+    },
+    "audience": {
+      "eyebrow": "Kitle",
+      "title": "SectorCalc'ı kimler kullanıyor",
+      "persona1Role": "Endüstri Mühendisleri",
+      "persona1Desc": "Fabrika sahasında OEE, hat dengeleme, zaman etüdü, SMED, ergonomi ve kapasite planlaması.",
+      "persona1Tags": "OEE, Takt Süresi, NIOSH, REBA, VSM",
+      "persona2Role": "Finans & Operasyon",
+      "persona2Desc": "ROI, NPV, IRR, işletme sermayesi, envanter maliyet modelleri ve stratejik kararlar için başabaş analizi.",
+      "persona2Tags": "IRR, NPV, WACC, EOQ, DCF",
+      "persona3Role": "Kalite Mühendisleri",
+      "persona3Desc": "Proses yeterliliği, FMEA risk puanlaması, kontrol kartları, ölçüm sistemi analizi ve numune alma.",
+      "persona3Tags": "Cpk, DPMO, FMEA, AQL, Gage R&R",
+      "persona4Role": "Makine Mühendisleri",
+      "persona4Desc": "Basınçlı kaplar, cıvata torku, ısı değiştiriciler, hidrolik sistemler ve CNC kesme parametreleri.",
+      "persona4Tags": "ASME UG-27, LMTD, VDI 2230, CNC"
+    },
+    "pricing": {
+      "eyebrow": "Planlar",
+      "title": "Ücretsiz başlayın. Derinlemesine Pro.",
+      "lead": "359 hesap makinesi sonsuza kadar ücretsiz. Pro, formül notları ve dışa aktarma ile 193 gelişmiş mühendislik aracının kilidini açar.",
+      "compareLabel": "Planları karşılaştır",
+      "proTag": "Pro",
+      "proCount": "193",
+      "proSub": "Gelişmiş hesap makineleri",
+      "proCta": "Pro Erişim Al",
+      "freeTag": "Ücretsiz",
+      "freeCount": "359",
+      "freeSub": "Standart hesap makineleri",
+      "freeCta": "Ücretsiz Araçları Keşfet",
+      "feat1Icon": "",
+      "feat1Label": "ISO/ASME referanslı formüller",
+      "feat2Icon": "",
+      "feat2Label": "Formül notları ve türetmeler",
+      "feat3Icon": "",
+      "feat3Label": "PDF rapor dışa aktarma",
+      "feat4Icon": "",
+      "feat4Label": "Hesaplamaları kaydet ve paylaş",
+      "feat5Icon": "",
+      "feat5Label": "Duyarlılık analizi ve senaryolar",
+      "feat6Icon": "",
+      "feat6Label": "6 dil",
+      "feat7Icon": "",
+      "feat7Label": "Trace AI hesap makinesi yönlendirici",
+      "footerProCta": "Pro'ya Geç →",
+      "footerFreeCta": "Ücretsiz Başla →"
+    },
+    "footer": {
+      "brandDesc": "Mühendislik, üretim, finans ve endüstriyel operasyonlar için profesyonel hesap makinesi platformu. 40'tan fazla ülkede kullanılıyor.",
+      "tagIso": "ISO 9001",
+      "tagAsme": "ASME",
+      "tagGhg": "GHG Protokolü",
+      "tagAiag": "AIAG FMEA",
+      "tagVdi": "VDI 2230",
+      "tagEn": "EN 12101",
+      "tagIec": "IEC 60890",
+      "colCalculators": "Hesap Makineleri",
+      "colPlatform": "Platform",
+      "colLegal": "Yasal",
+      "colCompany": "Şirket",
+      "linkManufacturing": "Üretim",
+      "linkFinance": "Finans",
+      "linkQuality": "Kalite",
+      "linkEnergy": "Enerji",
+      "linkLogistics": "Lojistik",
+      "linkAllTools": "552 aracın tümü →",
+      "linkMethodology": "Metodoloji",
+      "linkFormulaNotes": "Formül Notları",
+      "linkPricing": "Fiyatlandırma",
+      "linkDocs": "Dokümantasyon",
+      "linkChangelog": "Değişiklik Günlüğü",
+      "linkDisclaimer": "Sorumluluk Reddi",
+      "linkPrivacy": "Gizlilik Politikası",
+      "linkTerms": "Kullanım Şartları",
+      "linkCookies": "Çerez Politikası",
+      "linkAbout": "Hakkımızda",
+      "linkContact": "İletişim",
+      "linkBlog": "Blog",
+      "linkLocation": "📍 İzmir, Türkiye",
+      "copyright": "© 2025 SectorCalc. Tüm hakları saklıdır. Folkart Towers, Bayraklı, İzmir.",
+      "sitemap": "Site Haritası",
+      "accessibility": "Erişilebilirlik"
+    },
+    "trace": {
+      "name": "Trace Asistan",
+      "status": "Çevrimiçi · Hazır",
+      "msg": "Ne hesaplamak istediğinizi söyleyin, sizi doğru araca yönlendireyim.",
+      "chipOee": "OEE",
+      "chipScrap": "📦 Fire oranı",
+      "chipEnergy": "Enerji maliyeti",
+      "chipPayback": "💰 Geri ödeme süresi",
+      "chipBolt": "Cıvata torku",
+      "placeholder": "örn. 3 makine için MTBF hesapla…"
+    }
+  },
+  "landingV3": {
+    "hero": {
+      "eyebrow": "Kayıp Keşif Motoru · {toolCount}+ Mühendislik Hesaplaması",
+      "headline": "Rakamların Senden Önce",
+      "headlineEm": "Kayıplarını Keşfetmesini Durdur.",
+      "subtitle": "Çoğu işletme geliri takip eder. Operasyonel kayıpları sayısallaştıran pek azdır. SectorCalc, hangi hesabı yapacağını bilmeden önce bile neyi kaybettiğini gösterir.",
+      "qualifierLabel": "Hangi kayıplarla karşı karşıyasın? →",
+      "sector": "Sektör",
+      "sectors": {
+        "cnc": "Üretim / CNC",
+        "food": "Gıda & Ambalaj",
+        "energy": "Enerji",
+        "construction": "İnşaat",
+        "logistics": "Lojistik"
+      },
+      "challenge": "Ana Sorun",
+      "challenges": {
+        "scrap": "Hurda & Fire",
+        "energy": "Enerji Maliyeti",
+        "capacity": "Kapasite Kaybı",
+        "oee": "OEE / Verimlilik",
+        "pricing": "Fiyatlama Hatası"
+      },
+      "size": "Büyüklük",
+      "sizes": [
+        "11–50 Çalışan",
+        "51–250 Çalışan",
+        "250+ Çalışan",
+        "1–10 Çalışan"
+      ],
+      "detectedAreas": "Tespit edilen fırsat alanları",
+      "areaCount": "{count} Alan",
+      "showCalculations": "İlgili Hesaplamaları Göster →",
+      "micro": "Kredi kartı yok · Excel yok · 60 saniyede sonuç"
+    },
+    "oppMap": {
+      "scrap": [
+        "Hurda Maliyeti",
+        "Malzeme Verimi",
+        "Kalite Kaybı",
+        "Fiyatlama Marjı"
+      ],
+      "energy": [
+        "Spesifik Tüketim",
+        "Enerji Yoğunluğu",
+        "CO₂ Maliyet",
+        "Tarife Optimizasyonu"
+      ],
+      "capacity": [
+        "OEE Etkisi",
+        "Darboğaz Analizi",
+        "Kapasite Maliyeti",
+        "Setup Süresi"
+      ],
+      "oee": [
+        "Downtime €",
+        "Hız Kaybı €",
+        "Kalite Reddi €",
+        "Toplam OEE Etkisi"
+      ],
+      "pricing": [
+        "Makine Saati",
+        "İşçilik Maliyeti",
+        "Overhead Oranı",
+        "Teklif Marjı"
+      ]
+    },
+    "pain": {
+      "ticker": "Sen bu sayfayı okurken Avrupa'daki üretim tesislerinde yanlış hesaplanan hurda oranı nedeniyle operasyonel kayıp birikmeye devam ediyor.",
+      "tickerHighlight": "yanlış hesaplanan hurda oranı",
+      "label": "Sorun Nerede?",
+      "h2Line1": "İşletmeler Parayı Sandıkları",
+      "h2Line2": "Yerde Kaybetmiyor.",
+      "cards": [
+        {
+          "label": "Hurda & Fire",
+          "title": "Çoğu üretici %8 sanır, gerçek %14 çıkar.",
+          "body": "Bu 6 puanlık fark, orta ölçekli bir tesiste yıllık €40.000–80.000 fark oluşturur. Ve bu fark P&L'de görünmez.",
+          "link": "Hurda hesaplamalarını gör →",
+          "href": "/tools/manufacturing"
+        },
+        {
+          "label": "Makine Verimliliği",
+          "title": "OEE %70 gibi görünür. Gerçek maliyet etkisi hesaplanmamıştır.",
+          "body": "Downtime, hız kaybı ve kalite reddinin €'ya çevrilmesi olmadan optimizasyon kararı verilemez.",
+          "link": "OEE araçlarını gör →",
+          "href": "/tools/oee"
+        },
+        {
+          "label": "Fiyatlama Hatası",
+          "title": "Teklif verirken makine saati maliyetini doğru hesaplayan az.",
+          "body": "VDI 2067, ASHRAE ve ISO standartlarına göre hesaplanmayan makine saati → her teklifte kar yenir.",
+          "link": "Makine saati hesapla →",
+          "href": "/tools/machine-hour-rate"
+        },
+        {
+          "label": "Enerji Maliyeti",
+          "title": "Enerji faturaları ödeniyor, spesifik tüketim analiz edilmiyor.",
+          "body": "Ürün başına, proses adımı başına enerji maliyeti bilinmeden sürdürülebilirlik iddiası niyet olarak kalır.",
+          "link": "Enerji araçlarını gör →",
+          "href": "/tools/energy"
+        }
+      ]
+    },
+    "calc": {
+      "label": "Şimdi Hesapla",
+      "h2": "Kendi Kaybını Gör.",
+      "subhead": "3 input. 60 saniye. Yıllık hurda maliyetini ve geri kazanım potansiyelini anında gör.",
+      "headerTitle": "Hurda Maliyet Analizi — Hızlı Değerlendirme",
+      "badge": "CANLI",
+      "progress": "İlerleme: %{pct} — {remaining} adım kaldı",
+      "progressDone": "İlerleme: %100 — Hesap tamamlandı",
+      "inpProd": "Aylık Üretim (kg/adet)",
+      "inpScrap": "Gerçek Hurda Oranı (%)",
+      "inpCost": "Birim Maliyet (€)",
+      "resLoss": "Yıllık Kayıp",
+      "resRec": "Geri Kazanım Pot.",
+      "resRoi": "ROI (Pro)",
+      "aiHeader": "AI Yorum · Pro Özellik",
+      "aiTextAbove": "%{rate} hurda oranı, üretim ortalaması olan %6–8 aralığının üzerinde. Bu sapma tek başına aylık ≈{monthlyLoss} operasyonel kayba işaret ediyor.",
+      "aiTextBelow": "%{rate} hurda oranı, üretim ortalaması olan %6–8 aralığının içinde.",
+      "above": "üzerinde",
+      "below": "içinde",
+      "aiBlur": "Benzer ölçekteki tesislerde hurda oranını %2 düşürmek için en kritik üç müdahale noktası şunlardır: (1) Proses parametresi optimizasyonu — özellikle kalıp sıcaklığı toleransları. (2) Operatör hata analizi — shift başı kalibrasyon prosedürü. (3) Malzeme kabul kriterleri — gelen kalite kontrol eşik değerleri.",
+      "aiGateBtn": "Pro ile Kilidini Aç →",
+      "btnFullReport": "Tam Analizi & PDF Raporu Al →",
+      "microText": "Sadece sonucu mu istiyorsun?",
+      "microLink": "Ücretsiz araçlar burada →"
+    },
+    "social": {
+      "labelMethod": "Metodoloji",
+      "labelResults": "Gerçek Sonuçlar",
+      "h2": "Sayı Değil, Karar.",
+      "cases": [
+        {
+          "sector": "CNC Atölyesi · Almanya",
+          "problem": "Teklif fiyatlarında makine saati maliyeti yanlış hesaplanıyordu. Her iş emrinde kar yeniyordu.",
+          "result": "+8,4%",
+          "resultLabel": "marj iyileşmesi"
+        },
+        {
+          "sector": "Gıda Üreticisi · Türkiye",
+          "problem": "Hammadde fire oranı görünür değildi. Yıllık kayıp büyüklüğü bilinmiyordu.",
+          "result": "€67.000",
+          "resultLabel": "yıllık geri kazanım"
+        },
+        {
+          "sector": "Ambalaj Tesisi · Polonya",
+          "problem": "Downtime ve hız kaybı ayrı izleniyordu. Toplam OEE etkisi para olarak görünmüyordu.",
+          "result": "+11%",
+          "resultLabel": "kullanılabilirlik artışı"
+        }
+      ],
+      "quote": "\"Bu tür hesapları Excel'de elle yapıyorduk. Hata oranı yüksekti, zaman kaybıydı. SectorCalc'ı kullandıktan sonra teklif sürecimiz %40 hızlandı ve fiyatlarımız gerçek maliyeti yansıtmaya başladı.\"",
+      "quoteAuthor": "— Üretim Müdürü, Orta Ölçekli CNC İşletmesi, Türkiye"
+    },
+    "compare": {
+      "label": "Neden Pro?",
+      "h2": "Sayının Ötesine Geç.",
+      "subhead": "Ücretsiz araçlar sana rakamı verir. Pro, rakamın ne anlama geldiğini ve ne yapman gerektiğini söyler.",
+      "free": {
+        "tier": "Ücretsiz",
+        "desc": "Rakam al. Karar verme sürecini başlat.",
+        "btn": "Ücretsiz Başla"
+      },
+      "pro": {
+        "tier": "Pro",
+        "badge": "En Popüler",
+        "desc": "Karar ver. Kayıpları durdur. ROI yaz.",
+        "btn": "Kaybımı Durdurmaya Başla →"
+      },
+      "rows": [
+        {
+          "text": "{count}+ hesaplama aracı",
+          "sub": "Tüm sektörler, temel formüller",
+          "proSub": "Tüm sektörler, ISO/VDI formüller",
+          "free": true,
+          "pro": true
+        },
+        {
+          "text": "Anlık sonuç",
+          "sub": "Input gir, değer al",
+          "proSub": "Input gir, değer al",
+          "free": true,
+          "pro": true
+        },
+        {
+          "text": "AI Yorum & Öneri",
+          "sub": "Rakamın iş etkisi analizi",
+          "proSub": "Rakamın iş dilinde açıklaması",
+          "free": false,
+          "pro": true
+        },
+        {
+          "text": "Senaryo Karşılaştırma",
+          "sub": "Ya oranı %2 düşürürsem?",
+          "proSub": "En iyi/kötü/hedef karşılaştırma",
+          "free": false,
+          "pro": true
+        },
+        {
+          "text": "Sektör Benchmark",
+          "sub": "Rakiplerle karşılaştır",
+          "proSub": "Rakiplerle karşılaştır",
+          "free": false,
+          "pro": true
+        },
+        {
+          "text": "PDF Raporu",
+          "sub": "İmzalı, kaynak göstergeli",
+          "proSub": "İmzalı, kaynak göstergeli, paylaşılabilir",
+          "free": false,
+          "pro": true
+        }
+      ]
+    },
+    "method": {
+      "stats": [
+        {
+          "num": "{count}+",
+          "label": "ISO/ASME/VDI referanslı hesaplama aracı"
+        },
+        {
+          "num": "18",
+          "label": "Endüstri sektörü kapsamı"
+        },
+        {
+          "num": "161",
+          "label": "Doğrulanmış premium formül, güvenlik koşullu"
+        }
+      ],
+      "label": "Metodoloji Altyapısı",
+      "h2": "Tanınan Standartlar Üzerine İnşa Edildi.",
+      "badges": [
+        {
+          "name": "ISO",
+          "sub": "Uluslararası Standartlar"
+        },
+        {
+          "name": "VDI 2067",
+          "sub": "Makine Saati Maliyeti"
+        },
+        {
+          "name": "ASHRAE",
+          "sub": "Enerji & HVAC"
+        },
+        {
+          "name": "ASME",
+          "sub": "Mekanik Mühendislik"
+        },
+        {
+          "name": "IEC",
+          "sub": "Elektrik & Elektronik"
+        },
+        {
+          "name": "EN 13306",
+          "sub": "Bakım Terminolojisi"
+        },
+        {
+          "name": "Lean",
+          "sub": "Süreç İyileştirme"
+        },
+        {
+          "name": "Six Sigma",
+          "sub": "Kalite Metodolojisi"
+        }
+      ]
+    },
+    "final": {
+      "timerPrefix": "⏱ Bu ayın fiyat garantisi:",
+      "h2Line1": "Tek Hesapla Başla.",
+      "h2Line2": "Daha İyi Kararlarla Çık.",
+      "p": "VDI 2067'yi doğru uygulayan mühendis sayısı sınırlı. Platforma erişim kredi bazlı — abonelik yok, bağlılık yok. Bugünkü analiz yarın farklı bir tablo gösterebilir.",
+      "cta": "Kaybımı Durdur →",
+      "secBtn": "Önce ücretsiz araçlara bak",
+      "note": "Güvenli ödeme · Paddle Billing · Abonelik yok"
+    }
+  },
+  "a11y": {
+    "regionAndLanguage": "Bölge ve dil",
+    "closeMenu": "Menüyü kapat",
+    "mobileNav": "Mobil Navigasyon",
+    "openMenu": "Menüyü aç",
+    "close": "Kapat"
   }
 }

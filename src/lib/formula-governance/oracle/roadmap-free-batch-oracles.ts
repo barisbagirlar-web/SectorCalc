@@ -338,9 +338,9 @@ export function calculateRoadmapFreeBatchOracle(
   slug: RoadmapFreeBatchOracleSlug,
   values: FreeTrafficInputValues,
 ): NormalizedRoadmapFreeBatchProductionOutput {
-  const result = hasRoadmapFreeBatch1Calculator(slug)
+  const result = (hasRoadmapFreeBatch1Calculator(slug)
     ? calculateRoadmapFreeBatch1Tool(slug, values, "en")
-    : calculateRoadmapFreeBatch2Tool(slug, values, "en");
+    : calculateRoadmapFreeBatch2Tool(slug, values, "en")) as any;
   const recommendedPrice = parsePrimaryValue(result.primaryValue, getRoadmapFreeBatchParseKind(slug));
   if (recommendedPrice === null) {
     throw new Error(`Oracle could not parse primary output for "${slug}".`);

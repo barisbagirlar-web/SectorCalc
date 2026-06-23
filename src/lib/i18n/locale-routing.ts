@@ -98,14 +98,15 @@ export function stripLocaleFromPath(pathname: string | null | undefined): string
   if (!pathname) {
     return "/";
   }
-  const locale = parseLocaleFromPath(pathname);
+  const normalized = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const locale = parseLocaleFromPath(normalized);
   if (!locale) {
-    return pathname;
+    return normalized;
   }
-  if (pathname === `/${locale}`) {
+  if (normalized === `/${locale}`) {
     return "/";
   }
-  const rest = pathname.slice(locale.length + 1);
+  const rest = normalized.slice(locale.length + 1);
   return rest.length > 0 ? rest : "/";
 }
 

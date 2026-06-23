@@ -44,7 +44,7 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    if ((window as unknown as { Paddle?: PaddleInstance }).Paddle) { initPaddle(); return }
+    if ((window as any).Paddle) { initPaddle(); return }
     const script = document.createElement('script')
     script.src = 'https://cdn.paddle.com/paddle/v2/paddle.js'
     script.async = true
@@ -53,7 +53,7 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
   }, [])
 
   function initPaddle() {
-    const Paddle = (window as unknown as { Paddle?: PaddleInstance }).Paddle
+    const Paddle = (window as any).Paddle as PaddleInstance
     if (!Paddle) return
     const env = process.env.NEXT_PUBLIC_PADDLE_ENV as 'sandbox' | 'production'
     if (env === 'sandbox') Paddle.Environment.set('sandbox')

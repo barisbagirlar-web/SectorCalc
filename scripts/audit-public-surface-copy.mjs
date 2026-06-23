@@ -88,16 +88,19 @@ for (const rule of [".sch-social-grid", ".sch-meta-info", ".sch-legal-links"]) {
 pass("footer social/meta/legal CSS rules present");
 
 const tr = JSON.parse(read("messages/tr.json"));
-if (tr.sectorFooter.metaReg.includes("KAYIT")) {
-  fail("TR footer metaReg still uses KAYIT prefix");
+const en = JSON.parse(read("messages/en.json"));
+
+if (!tr.sectorFooter?.metaCopyright || !en.sectorFooter?.metaCopyright) {
+  fail("sectorFooter.metaCopyright missing in en/tr messages");
 } else {
-  pass("TR footer metaReg updated");
+  pass("sectorFooter.metaCopyright present in en/tr");
 }
 
-if (tr.sectorFooter.metaCur.startsWith("CUR:")) {
-  fail("TR footer metaCur still uses CUR: prefix");
+const trFooterBlob = JSON.stringify(tr.sectorFooter ?? {});
+if (trFooterBlob.includes("KAYIT") || trFooterBlob.includes("CUR: TRY")) {
+  fail("TR sectorFooter still contains legacy KAYIT/CUR footer leak strings");
 } else {
-  pass("TR footer metaCur updated");
+  pass("TR sectorFooter free of legacy KAYIT/CUR prefixes");
 }
 
 if (!tr.catalogExplorer.discoveryTabs.premiumToolsAll?.includes("premium")) {

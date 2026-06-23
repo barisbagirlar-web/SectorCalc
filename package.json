@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/ensure-500-export.mjs",
+    "deploy:hosting": "DEPLOY_FORCE_REBUILD=1 node scripts/deploy-production.mjs",
+    "stop:builds": "node scripts/stop-local-builds.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",

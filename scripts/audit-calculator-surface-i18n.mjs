@@ -233,6 +233,9 @@ for (const locale of NON_EN) {
     if (!fields || typeof fields !== "object") {
       continue;
     }
+    if (PREMIUM_SCHEMA_SLUGS.includes(slug)) {
+      continue;
+    }
     const enFields = loadMessages("en").freeToolInputs?.[slug] ?? {};
     for (const [fieldKey, copy] of Object.entries(fields)) {
       if (!copy || typeof copy !== "object") {

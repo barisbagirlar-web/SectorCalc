@@ -18,7 +18,6 @@ import type {
  MarginCoreEngineInput,
  MarginCoreInputValues,
  MarginCoreRiskProfile,
- MarginLeakItem,
  PremiumVerdict,
  PremiumVerdictReport,
  SensitivityScenario,
@@ -28,7 +27,6 @@ import {
  applyRegionalRiskProfileOverlay,
  getRegionalCarbonPriceEur,
 } from "@/lib/compliance/compliance-engine";
-import type { RegionCode } from "@/config/regions";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -217,7 +215,6 @@ export function generateSensitivityMatrix(
  const shockedInputs = applyShockToInputs(inputs, shock.shockPercent);
  const shockedNaive = calculateNaiveCost(shockedInputs);
  const shockedP90 = calculateP90SafeCost(shockedNaive, riskProfile);
- const shockedTargetRevenue = shockedNaive / (1 - targetMarginPercent / 100);
 
  const marginImpact = shockedP90 - baseP90;
  const suggestedSafePrice = shockedP90 / (1 - targetMarginPercent / 100);

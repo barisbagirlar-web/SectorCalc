@@ -9650,5 +9650,768 @@
         "title": "Compressor leak energy flow"
       }
     }
+  },
+  "claude2Landing": {
+    "hero": {
+      "eyebrow": "Motor de descubrimiento de pérdidas · 300+ calculadoras técnicas",
+      "headline": "Evita que tus números",
+      "headlineEm": "descubran tus pérdidas antes que tú.",
+      "subtitle": "La mayoría de las empresas rastrean ingresos. Pocas cuantifican pérdidas operativas. SectorCalc muestra lo que estás perdiendo — incluso antes de saber qué cálculo ejecutar.",
+      "qualifierLabel": "¿A qué pérdidas te enfrentas?",
+      "sectorLabel": "Sector",
+      "challengeLabel": "Problema principal",
+      "sizeLabel": "Tamaño de empresa",
+      "sectorOptions": [
+        "Fabricación / CNC",
+        "Alimentos & Empaque",
+        "Energía",
+        "Construcción",
+        "Logística"
+      ],
+      "challengeOptions": [
+        {
+          "value": "scrap",
+          "label": "Desperdicio & Merma"
+        },
+        {
+          "value": "energy",
+          "label": "Costo energético"
+        },
+        {
+          "value": "capacity",
+          "label": "Pérdida de capacidad"
+        },
+        {
+          "value": "oee",
+          "label": "OEE / Productividad"
+        },
+        {
+          "value": "pricing",
+          "label": "Error de precios"
+        }
+      ],
+      "sizeOptions": [
+        "11–50 empleados",
+        "51–250 empleados",
+        "250+ empleados",
+        "1–10 empleados"
+      ],
+      "opportunityTitle": "Áreas de oportunidad detectadas",
+      "cta": "Mostrar calculadoras relevantes",
+      "micro": "Sin tarjeta de crédito · Sin Excel · Resultados en 60 segundos",
+      "areas": "Áreas"
+    },
+    "pain": {
+      "ticker": "Mientras lees esta página, se acumulan pérdidas operativas en plantas de fabricación europeas debido a tasas de desperdicio mal calculadas.",
+      "label": "¿Dónde está el problema?",
+      "title": "Las empresas no pierden\ndinero donde creen.",
+      "cards": [
+        {
+          "label": "Desperdicio & Merma",
+          "title": "La mayoría de los productores creen que es 8%, el promedio real es 14%.",
+          "body": "Esta brecha de 6 puntos crea una diferencia anual de 40.000–80.000 € en una planta mediana. Y es invisible en el P&L.",
+          "link": "Ver calculadoras de desperdicio →"
+        },
+        {
+          "label": "Productividad de máquina",
+          "title": "El OEE parece 70%. El impacto real del costo no está calculado.",
+          "body": "Sin convertir el tiempo de inactividad, la pérdida de velocidad y los rechazos de calidad en efectivo, no se puede tomar ninguna decisión de optimización.",
+          "link": "Ver herramientas OEE →"
+        },
+        {
+          "label": "Errores de precios",
+          "title": "Pocos calculan correctamente el costo por hora máquina al cotizar.",
+          "body": "La tarifa por hora máquina calculada sin los estándares VDI 2067, ASHRAE e ISO significa margen perdido en cada cotización.",
+          "link": "Calcular tarifa por hora máquina →"
+        },
+        {
+          "label": "Costo energético",
+          "title": "Las facturas de energía se pagan, el consumo específico no se analiza.",
+          "body": "Sin costo energético por unidad y paso de proceso, cualquier afirmación de sostenibilidad sigue siendo una intención.",
+          "link": "Ver herramientas energéticas →"
+        }
+      ]
+    },
+    "calc": {
+      "label": "Calcular ahora",
+      "title": "Ve tu propia pérdida.",
+      "subtitle": "3 entradas. 60 segundos. Ve tu costo anual de desperdicio y el potencial de recuperación al instante.",
+      "headerTitle": "Análisis de costo de desperdicio — Evaluación rápida",
+      "headerBadge": "EN VIVO",
+      "progressLabel": "Progreso: %{pct} — {remaining} pasos restantes",
+      "progressComplete": "Progreso: 100% — Cálculo completado",
+      "input1Label": "Producción mensual (kg/unidades)",
+      "input1Tip": "Cantidad total de producción mensual",
+      "input2Label": "Tasa de desperdicio real (%)",
+      "input2Tip": "La mayoría de las empresas estima 8%, la medición real muestra 12–15%",
+      "input3Label": "Costo unitario (€)",
+      "input3Tip": "Costo completo incluyendo material + mano de obra + energía",
+      "resultLoss": "Pérdida anual",
+      "resultRecovery": "Potencial de recuperación",
+      "resultRoi": "ROI (Pro)",
+      "aiTitle": "Comentario IA · Función Pro",
+      "aiText": "La tasa de desperdicio de {rate}% está por encima del promedio industrial de 6–8%. Esta desviación por sí sola indica una pérdida operativa mensual de aproximadamente {monthly}.",
+      "aiBlurText": "Los tres puntos de intervención más críticos para reducir la tasa de desperdicio en un 2% en instalaciones similares: (1) Optimización de parámetros de proceso — especialmente tolerancias de temperatura de molde. (2) Análisis de errores del operador — procedimientos de calibración por turno. (3) Criterios de aceptación de materiales — umbrales de control de calidad entrante.",
+      "aiGateCta": "Desbloquear con Pro →",
+      "cta": "Obtener análisis completo e informe PDF →",
+      "micro": "¿Solo quieres el resultado?",
+      "microLink": "Herramientas gratuitas aquí →"
+    },
+    "social": {
+      "trustLabel": "Metodología",
+      "trustItems": [
+        "ISO",
+        "ASME",
+        "VDI 2067",
+        "ASHRAE",
+        "IEC",
+        "Lean / Six Sigma"
+      ],
+      "label": "Resultados reales",
+      "title": "No números. Decisiones.",
+      "cases": [
+        {
+          "sector": "Taller CNC · Alemania",
+          "problem": "El costo por hora máquina se calculaba mal en las cotizaciones. Se perdía margen en cada pedido.",
+          "result": "+8,4%",
+          "resultLabel": "mejora de margen"
+        },
+        {
+          "sector": "Productor de alimentos · Turquía",
+          "problem": "La tasa de desperdicio de materia prima no era visible. Se desconocía la magnitud de la pérdida anual.",
+          "result": "67.000 €",
+          "resultLabel": "recuperación anual"
+        },
+        {
+          "sector": "Planta de empaque · Polonia",
+          "problem": "El tiempo de inactividad y la pérdida de velocidad se monitoreaban por separado. El impacto total del OEE no era visible como efectivo.",
+          "result": "+11%",
+          "resultLabel": "aumento de disponibilidad"
+        }
+      ],
+      "quoteText": "Solíamos hacer estos cálculos manualmente en Excel. La tasa de error era alta, era una pérdida de tiempo. Después de usar SectorCalc, nuestro proceso de cotización se aceleró un 40% y nuestros precios comenzaron a reflejar los costos reales.",
+      "quoteAuthor": "Gerente de producción, taller CNC mediano, Turquía"
+    },
+    "compare": {
+      "label": "¿Por qué Pro?",
+      "title": "Ve más allá del número.",
+      "subtitle": "Las herramientas gratuitas te dan el número. Pro te dice qué significa y qué hacer al respecto.",
+      "free": {
+        "tier": "Gratis",
+        "price": "€0",
+        "desc": "Obtén el número. Inicia el proceso de decisión.",
+        "features": [
+          {
+            "text": "300+ calculadoras",
+            "sub": "Todos los sectores, fórmulas estándar"
+          },
+          {
+            "text": "Resultados instantáneos",
+            "sub": "Ingresa valores, obtén resultados"
+          },
+          {
+            "text": "Comentario IA",
+            "sub": "Análisis de impacto empresarial"
+          },
+          {
+            "text": "Comparación de escenarios",
+            "sub": "¿Y si reduzco la tasa un 2%?"
+          },
+          {
+            "text": "Informe PDF",
+            "sub": "Firmado, con referencias"
+          }
+        ],
+        "cta": "Comenzar gratis"
+      },
+      "pro": {
+        "tier": "Pro",
+        "price": "Basado en créditos",
+        "desc": "Decide. Detén pérdidas. Escribe tu ROI.",
+        "badge": "Más popular",
+        "features": [
+          {
+            "text": "300+ calculadoras",
+            "sub": "Todos los sectores, fórmulas ISO/VDI"
+          },
+          {
+            "text": "Comentario y recomendación IA",
+            "sub": "Explicación en lenguaje empresarial"
+          },
+          {
+            "text": "Análisis de escenarios",
+            "sub": "Comparación mejor/peor/objetivo"
+          },
+          {
+            "text": "Referencia sectorial",
+            "sub": "Compara con competidores"
+          },
+          {
+            "text": "Informe PDF",
+            "sub": "Firmado, referenciado, compartible"
+          }
+        ],
+        "cta": "Comienza a detener tus pérdidas →"
+      }
+    },
+    "method": {
+      "stats": [
+        {
+          "num": "300+",
+          "label": "Herramientas de cálculo referenciadas ISO/ASME/VDI"
+        },
+        {
+          "num": "18",
+          "label": "Sectores industriales cubiertos"
+        },
+        {
+          "num": "161",
+          "label": "Fórmulas premium verificadas con condiciones de seguridad"
+        }
+      ],
+      "label": "Base metodológica",
+      "title": "Construido sobre estándares reconocidos.",
+      "badges": [
+        {
+          "name": "ISO",
+          "sub": "Estándares internacionales"
+        },
+        {
+          "name": "VDI 2067",
+          "sub": "Costo por hora máquina"
+        },
+        {
+          "name": "ASHRAE",
+          "sub": "Energía & HVAC"
+        },
+        {
+          "name": "ASME",
+          "sub": "Ingeniería mecánica"
+        },
+        {
+          "name": "IEC",
+          "sub": "Eléctrica & Electrónica"
+        },
+        {
+          "name": "EN 13306",
+          "sub": "Terminología de mantenimiento"
+        },
+        {
+          "name": "Lean",
+          "sub": "Mejora de procesos"
+        },
+        {
+          "name": "Six Sigma",
+          "sub": "Metodología de calidad"
+        }
+      ]
+    },
+    "final": {
+      "countdownPrefix": "La garantía de precio de este mes vence en",
+      "title": "Comienza con un cálculo.\nVete con mejores decisiones.",
+      "subtitle": "Los ingenieros que aplican correctamente la VDI 2067 son limitados. El acceso a la plataforma es basado en créditos — sin suscripción, sin compromiso. El análisis de hoy podría mostrar un panorama diferente mañana.",
+      "cta": "Detener mi pérdida →",
+      "secCta": "Primero ver herramientas gratuitas",
+      "note": "Pago seguro · Paddle Billing · Sin suscripción"
+    },
+    "oppMap": {
+      "scrap": [
+        "Costo de desperdicio",
+        "Rendimiento de material",
+        "Pérdida de calidad",
+        "Margen de precio"
+      ],
+      "energy": [
+        "Consumo específico",
+        "Intensidad energética",
+        "Costo CO₂",
+        "Optimización tarifaria"
+      ],
+      "capacity": [
+        "Impacto OEE",
+        "Análisis de cuellos de botella",
+        "Costo de capacidad",
+        "Tiempo de preparación"
+      ],
+      "oee": [
+        "€ inactividad",
+        "€ pérdida velocidad",
+        "€ rechazo calidad",
+        "Impacto OEE total"
+      ],
+      "pricing": [
+        "Hora máquina",
+        "Costo laboral",
+        "Tasa de gastos generales",
+        "Margen de cotización"
+      ]
+    }
+  },
+  "landingPage": {
+    "nav": {
+      "calculators": "Calculadoras",
+      "categories": "Categorías",
+      "methodology": "Metodología",
+      "pro": "Pro",
+      "blog": "Blog",
+      "signIn": "Iniciar sesión",
+      "getPro": "Obtener Pro"
+    },
+    "hero": {
+      "tag": "Plataforma de Cálculo Profesional",
+      "headline": "Cálculos industriales,<br><em>hechos</em> con precisión.",
+      "subtitle": "552 calculadoras de grado técnico para fabricación, finanzas, energía, logística y calidad. Fórmulas referenciadas ISO y ASME.",
+      "searchPlaceholder": "Buscar 552 calculadoras — OEE, TIR, EOQ, Cpk…",
+      "trace": "Trace",
+      "search": "Buscar",
+      "tryLabel": "Prueba:",
+      "chipOee": "OEE",
+      "chipEoq": "📦 EOQ",
+      "chipIrr": "TIR",
+      "chipCpk": "Cpk",
+      "chipLmtd": "🌡️ LMTD",
+      "chipMtbf": "🔧 MTBF"
+    },
+    "metrics": {
+      "proCalculators": "Calculadoras Pro",
+      "freeCalculators": "Calculadoras Gratis",
+      "industrySectors": "Sectores",
+      "languages": "Idiomas"
+    },
+    "ticker": {
+      "label": "Más usados",
+      "toolOee": "Calculadora OEE",
+      "toolEoq": "📦 EOQ",
+      "toolIrrNpv": "TIR / VAN",
+      "toolCpkSigma": "Cpk / Sigma",
+      "toolTaktTime": "⏱️ Tiempo de Takt",
+      "toolBoltTorque": "Par de apriete",
+      "toolLmtd": "🌡️ LMTD",
+      "toolMtbfMttr": "🔧 MTBF / MTTR",
+      "toolBreakEven": "📉 Punto de equilibrio",
+      "toolKanban": "Tarjetas Kanban",
+      "toolPipePressure": "💧 Pérdida de carga",
+      "toolCarbon": "🌿 Huella de carbono",
+      "toolCompressor": "Potencia del compresor",
+      "toolPertCpm": "PERT / CPM",
+      "badgePro": "PRO",
+      "badgeFree": "GRATIS"
+    },
+    "categories": {
+      "eyebrow": "Catálogo de Calculadoras",
+      "title": "Encuentra tu calculadora",
+      "lead": "552 herramientas en 18 sectores. Comienza con una categoría o busca arriba.",
+      "manufacturingName": "Fabricación & Producción",
+      "manufacturingDesc": "OEE, tiempo de ciclo, balanceo de línea, SMED, takt time, métricas lean, curva de aprendizaje, tiempo estándar y programación.",
+      "manufacturingTools": "84 calculadoras · 31 Pro",
+      "financeName": "Finanzas & Inversión",
+      "financeDesc": "VAN, TIR, WACC, DCF, punto de equilibrio, ROI y análisis de costos.",
+      "financeTools": "96 herramientas · 42 Pro",
+      "qualityName": "Calidad & Confiabilidad",
+      "qualityDesc": "Cpk, Six Sigma, NPR FMEA, SPC, Gage R&R, MTBF y AQL.",
+      "qualityTools": "68 herramientas · 39 Pro",
+      "energyName": "Energía & Sostenibilidad",
+      "energyDesc": "Huella de carbono, F-Gas, HVAC, intercambiadores de calor y auditorías energéticas ISO 50001.",
+      "energyTools": "71 herramientas · 28 Pro",
+      "logisticsName": "Logística & Cadena de Suministro",
+      "logisticsDesc": "EOQ, stock de seguridad, plazo de entrega, layout de almacén y TCO de inventario.",
+      "logisticsTools": "62 herramientas · 25 Pro",
+      "mechanicalName": "Ingeniería Mecánica",
+      "mechanicalDesc": "Par de apriete (VDI 2230), recipientes a presión ASME, hidráulica, resortes y CNC.",
+      "mechanicalTools": "58 herramientas · 28 Pro",
+      "browseAll": "Explorar las 18 categorías"
+    },
+    "methodology": {
+      "eyebrow": "Metodología",
+      "title": "Sin cajas negras. Cada fórmula citada.",
+      "lead": "Herramientas técnicas en las que los ingenieros pueden confiar. Fuentes mostradas, supuestos indicados, casos límite documentados.",
+      "card1Tag": "Estándar",
+      "card1Title": "Referenciado a ISO, ASME e IEC",
+      "card1Desc": "Cada calculadora cita su fuente. ASME UG-27, ISO 5349, ecuación de levantamiento NIOSH — sin fórmulas inventadas, sin suposiciones.",
+      "card2Title": "Notas de Fórmula",
+      "card2Desc": "Cada herramienta enlaza a su derivación completa, condiciones de protección y limitaciones conocidas. Sabes exactamente lo que estás calculando.",
+      "card3Title": "Descargo Integrado",
+      "card3Desc": "Los resultados son apoyo a la decisión, no una aprobación. Cada herramienta establece su alcance claramente. Sin falsa precisión.",
+      "card4Title": "Privacidad Primero",
+      "card4Desc": "Todos los cálculos se ejecutan en tu navegador. Ningún dato de entrada sale de tu dispositivo. Sin seguimiento de datos técnicos."
+    },
+    "audience": {
+      "eyebrow": "Audiencia",
+      "title": "Quién usa SectorCalc",
+      "persona1Role": "Ingenieros Industriales",
+      "persona1Desc": "OEE, balanceo de línea, estudio de tiempos, SMED, ergonomía y planificación de capacidad en planta.",
+      "persona1Tags": "OEE, Takt Time, NIOSH, REBA, VSM",
+      "persona2Role": "Finanzas & Operaciones",
+      "persona2Desc": "ROI, VAN, TIR, capital de trabajo, modelos de costos de inventario y análisis de punto de equilibrio.",
+      "persona2Tags": "TIR, VAN, WACC, EOQ, DCF",
+      "persona3Role": "Ingenieros de Calidad",
+      "persona3Desc": "Capacidad de proceso, puntuación de riesgo FMEA, gráficos de control, análisis de sistemas de medición y muestreo.",
+      "persona3Tags": "Cpk, DPMO, FMEA, AQL, Gage R&R",
+      "persona4Role": "Ingenieros Mecánicos",
+      "persona4Desc": "Recipientes a presión, par de apriete, intercambiadores de calor, sistemas hidráulicos y parámetros de corte CNC.",
+      "persona4Tags": "ASME UG-27, LMTD, VDI 2230, CNC"
+    },
+    "pricing": {
+      "eyebrow": "Planes",
+      "title": "Empieza gratis. Pro para profundizar.",
+      "lead": "359 calculadoras son gratuitas para siempre. Pro desbloquea 193 herramientas técnicas avanzadas con notas de fórmula y exportación.",
+      "compareLabel": "Comparar planes",
+      "proTag": "Pro",
+      "proCount": "193",
+      "proSub": "Calculadoras avanzadas",
+      "proCta": "Obtener acceso Pro",
+      "freeTag": "Gratis",
+      "freeCount": "359",
+      "freeSub": "Calculadoras estándar",
+      "freeCta": "Explorar herramientas gratis",
+      "feat1Icon": "",
+      "feat1Label": "Fórmulas referenciadas ISO/ASME",
+      "feat2Icon": "",
+      "feat2Label": "Notas de fórmula y derivaciones",
+      "feat3Icon": "",
+      "feat3Label": "Exportación de informes PDF",
+      "feat4Icon": "",
+      "feat4Label": "Guardar y compartir cálculos",
+      "feat5Icon": "",
+      "feat5Label": "Análisis de sensibilidad y escenarios",
+      "feat6Icon": "",
+      "feat6Label": "6 idiomas",
+      "feat7Icon": "",
+      "feat7Label": "Enrutador Trace AI",
+      "footerProCta": "Ir a Pro →",
+      "footerFreeCta": "Empezar gratis →"
+    },
+    "footer": {
+      "brandDesc": "Plataforma de cálculo profesional para ingeniería, fabricación, finanzas y operaciones industriales. Utilizada en más de 40 países.",
+      "tagIso": "ISO 9001",
+      "tagAsme": "ASME",
+      "tagGhg": "Protocolo GEI",
+      "tagAiag": "AIAG FMEA",
+      "tagVdi": "VDI 2230",
+      "tagEn": "EN 12101",
+      "tagIec": "IEC 60890",
+      "colCalculators": "Calculadoras",
+      "colPlatform": "Plataforma",
+      "colLegal": "Legal",
+      "colCompany": "Empresa",
+      "linkManufacturing": "Fabricación",
+      "linkFinance": "Finanzas",
+      "linkQuality": "Calidad",
+      "linkEnergy": "Energía",
+      "linkLogistics": "Logística",
+      "linkAllTools": "Todas las 552 herramientas →",
+      "linkMethodology": "Metodología",
+      "linkFormulaNotes": "Notas de Fórmula",
+      "linkPricing": "Precios",
+      "linkDocs": "Documentación",
+      "linkChangelog": "Registro de cambios",
+      "linkDisclaimer": "Descargo de responsabilidad",
+      "linkPrivacy": "Política de privacidad",
+      "linkTerms": "Términos de uso",
+      "linkCookies": "Política de cookies",
+      "linkAbout": "Acerca de",
+      "linkContact": "Contacto",
+      "linkBlog": "Blog",
+      "linkLocation": "📍 Izmir, Turquía",
+      "copyright": "© 2025 SectorCalc. Todos los derechos reservados. Folkart Towers, Bayraklı, İzmir.",
+      "sitemap": "Mapa del sitio",
+      "accessibility": "Accesibilidad"
+    },
+    "trace": {
+      "name": "Asistente Trace",
+      "status": "En línea · Listo",
+      "msg": "Dime qué necesitas calcular — te dirigiré a la herramienta correcta.",
+      "chipOee": "OEE",
+      "chipScrap": "📦 Tasa de desperdicio",
+      "chipEnergy": "Costo de energía",
+      "chipPayback": "💰 Periodo de retorno",
+      "chipBolt": "Par de apriete",
+      "placeholder": "ej. calcular MTBF para 3 máquinas…"
+    }
+  },
+  "landingV3": {
+    "hero": {
+      "eyebrow": "Loss Discovery Engine · {toolCount} Engineering Calculations",
+      "headline": "Stop the Numbers from Discovering Your Losses",
+      "headlineEm": "Before You Do.",
+      "subtitle": "Most businesses track revenue. Few digitize operational losses. SectorCalc shows you what you're losing before you even know which calculation to make.",
+      "qualifierLabel": "Which losses are you facing? →",
+      "sector": "Sector",
+      "sectors": {
+        "cnc": "Manufacturing / CNC",
+        "food": "Food & Packaging",
+        "energy": "Energy",
+        "construction": "Construction",
+        "logistics": "Logistics"
+      },
+      "challenge": "Main Challenge",
+      "challenges": {
+        "scrap": "Scrap & Waste",
+        "energy": "Energy Cost",
+        "capacity": "Capacity Loss",
+        "oee": "OEE / Efficiency",
+        "pricing": "Pricing Error"
+      },
+      "size": "Size",
+      "sizes": [
+        "11–50 Employees",
+        "51–250 Employees",
+        "250+ Employees",
+        "1–10 Employees"
+      ],
+      "detectedAreas": "Detected opportunity areas",
+      "areaCount": "{count} Areas",
+      "showCalculations": "Show Related Calculations →",
+      "micro": "No credit card · No Excel · Results in 60 seconds"
+    },
+    "oppMap": {
+      "scrap": [
+        "Scrap Cost",
+        "Material Yield",
+        "Quality Loss",
+        "Pricing Margin"
+      ],
+      "energy": [
+        "Specific Consumption",
+        "Energy Intensity",
+        "CO₂ Cost",
+        "Tariff Optimization"
+      ],
+      "capacity": [
+        "OEE Impact",
+        "Bottleneck Analysis",
+        "Capacity Cost",
+        "Setup Time"
+      ],
+      "oee": [
+        "Downtime €",
+        "Speed Loss €",
+        "Quality Reject €",
+        "Total OEE Impact"
+      ],
+      "pricing": [
+        "Machine Hour",
+        "Labor Cost",
+        "Overhead Rate",
+        "Quotation Margin"
+      ]
+    },
+    "pain": {
+      "ticker": "While you're reading this page, operational losses continue to accumulate in manufacturing plants across Europe due to miscalculated scrap rates.",
+      "tickerHighlight": "miscalculated scrap rates",
+      "label": "Where's the Problem?",
+      "h2Line1": "Businesses Aren't Losing Money",
+      "h2Line2": "Where They Think They Are.",
+      "cards": [
+        {
+          "label": "Scrap & Waste",
+          "title": "Most manufacturers assume 8%, actual is 14%.",
+          "body": "This 6-point difference creates an annual gap of €40,000–80,000 in a mid-sized plant. And it doesn't show up on the P&L.",
+          "link": "See scrap calculations →",
+          "href": "/tools/manufacturing"
+        },
+        {
+          "label": "Machine Efficiency",
+          "title": "OEE looks like 70%. The real cost impact is uncalculated.",
+          "body": "Optimization decisions cannot be made without converting downtime, speed loss, and quality rejects into €.",
+          "link": "See OEE tools →",
+          "href": "/tools/oee"
+        },
+        {
+          "label": "Pricing Error",
+          "title": "Few calculate machine hour costs correctly when quoting.",
+          "body": "Machine hours not calculated according to VDI 2067, ASHRAE, and ISO standards → margins are eaten on every quote.",
+          "link": "Calculate machine hour →",
+          "href": "/tools/machine-hour-rate"
+        },
+        {
+          "label": "Energy Cost",
+          "title": "Energy bills are paid, specific consumption is ignored.",
+          "body": "Without knowing the energy cost per product and per process step, sustainability claims remain mere intentions.",
+          "link": "See energy tools →",
+          "href": "/tools/energy"
+        }
+      ]
+    },
+    "calc": {
+      "label": "Calculate Now",
+      "h2": "See Your Own Loss.",
+      "subhead": "3 inputs. 60 seconds. See your annual scrap cost and recovery potential instantly.",
+      "headerTitle": "Scrap Cost Analysis — Quick Assessment",
+      "badge": "LIVE",
+      "progress": "Progress: {pct}% — {remaining} steps left",
+      "progressDone": "Progress: 100% — Calculation complete",
+      "inpProd": "Monthly Production (kg/pcs)",
+      "inpScrap": "Actual Scrap Rate (%)",
+      "inpCost": "Unit Cost (€)",
+      "resLoss": "Annual Loss",
+      "resRec": "Recovery Pot.",
+      "resRoi": "ROI (Pro)",
+      "aiHeader": "AI Insight · Pro Feature",
+      "aiTextAbove": "Your scrap rate of {rate}% is above the manufacturing average of 6–8%. This deviation alone indicates a monthly operational loss of ≈{monthlyLoss}.",
+      "aiTextBelow": "Your scrap rate of {rate}% is within the manufacturing average of 6–8%.",
+      "above": "above",
+      "below": "within",
+      "aiBlur": "To reduce the scrap rate by 2% in facilities of similar scale, the three most critical intervention points are: (1) Process parameter optimization — especially mold temperature tolerances. (2) Operator error analysis — per-shift calibration procedure. (3) Material acceptance criteria — incoming quality control thresholds.",
+      "aiGateBtn": "Unlock with Pro →",
+      "btnFullReport": "Get Full Analysis & PDF Report →",
+      "microText": "Just want the result?",
+      "microLink": "Free tools are here →"
+    },
+    "social": {
+      "labelMethod": "Methodology",
+      "labelResults": "Real Results",
+      "h2": "Not Numbers, Decisions.",
+      "cases": [
+        {
+          "sector": "CNC Shop · Germany",
+          "problem": "Machine hour costs were miscalculated in quotes. Margins were eaten on every work order.",
+          "result": "+8.4%",
+          "resultLabel": "margin improvement"
+        },
+        {
+          "sector": "Food Manufacturer · Turkey",
+          "problem": "Raw material waste rate was invisible. The magnitude of annual loss was unknown.",
+          "result": "€67,000",
+          "resultLabel": "annual recovery"
+        },
+        {
+          "sector": "Packaging Plant · Poland",
+          "problem": "Downtime and speed loss were tracked separately. Total OEE impact wasn't visible in currency.",
+          "result": "+11%",
+          "resultLabel": "availability increase"
+        }
+      ],
+      "quote": "\"We used to do these calculations manually in Excel. The error rate was high, it was a waste of time. After using SectorCalc, our quotation process accelerated by 40% and our prices started reflecting actual costs.\"",
+      "quoteAuthor": "— Production Manager, Mid-Sized CNC Business, Turkey"
+    },
+    "compare": {
+      "label": "Why Pro?",
+      "h2": "Go Beyond the Number.",
+      "subhead": "Free tools give you the number. Pro tells you what the number means and what you need to do.",
+      "free": {
+        "tier": "Free",
+        "desc": "Get the number. Start the decision process.",
+        "btn": "Start Free"
+      },
+      "pro": {
+        "tier": "Pro",
+        "badge": "Most Popular",
+        "desc": "Make a decision. Stop the losses. Write ROI.",
+        "btn": "Start Stopping My Loss →"
+      },
+      "rows": [
+        {
+          "text": "{count}+ calculation tools",
+          "sub": "All sectors, base formulas",
+          "proSub": "All sectors, ISO/VDI formulas",
+          "free": true,
+          "pro": true
+        },
+        {
+          "text": "Instant result",
+          "sub": "Input value, get value",
+          "proSub": "Input value, get value",
+          "free": true,
+          "pro": true
+        },
+        {
+          "text": "AI Insight & Recommendation",
+          "sub": "Business impact analysis",
+          "proSub": "Business explanation of the number",
+          "free": false,
+          "pro": true
+        },
+        {
+          "text": "Scenario Analysis",
+          "sub": "What if I reduce the rate by 2%?",
+          "proSub": "Best/worst/target comparison",
+          "free": false,
+          "pro": true
+        },
+        {
+          "text": "Industry Benchmark",
+          "sub": "Compare with competitors",
+          "proSub": "Compare with competitors",
+          "free": false,
+          "pro": true
+        },
+        {
+          "text": "PDF Report",
+          "sub": "Signed, referenced",
+          "proSub": "Signed, referenced, shareable",
+          "free": false,
+          "pro": true
+        }
+      ]
+    },
+    "method": {
+      "stats": [
+        {
+          "num": "{count}+",
+          "label": "ISO/ASME/VDI referenced calculation tools"
+        },
+        {
+          "num": "18",
+          "label": "Industry sectors covered"
+        },
+        {
+          "num": "161",
+          "label": "Verified premium formulas with safety bounds"
+        }
+      ],
+      "label": "Methodology Infrastructure",
+      "h2": "Built on Recognized Standards.",
+      "badges": [
+        {
+          "name": "ISO",
+          "sub": "International Standards"
+        },
+        {
+          "name": "VDI 2067",
+          "sub": "Machine Hour Cost"
+        },
+        {
+          "name": "ASHRAE",
+          "sub": "Energy & HVAC"
+        },
+        {
+          "name": "ASME",
+          "sub": "Mechanical Eng."
+        },
+        {
+          "name": "IEC",
+          "sub": "Electrical & Electronics"
+        },
+        {
+          "name": "EN 13306",
+          "sub": "Maintenance Terms"
+        },
+        {
+          "name": "Lean",
+          "sub": "Process Improvement"
+        },
+        {
+          "name": "Six Sigma",
+          "sub": "Quality Methodology"
+        }
+      ]
+    },
+    "final": {
+      "timerPrefix": "⏱ This month's price guarantee ends in:",
+      "h2Line1": "Start with One Calculation.",
+      "h2Line2": "Leave with Better Decisions.",
+      "p": "The number of engineers who apply VDI 2067 correctly is limited. Platform access is credit-based — no subscription, no commitment. Today's analysis might show a different picture tomorrow.",
+      "cta": "Stop My Loss →",
+      "secBtn": "Check free tools first",
+      "note": "Secure checkout · Paddle Billing · No subscriptions"
+    }
+  },
+  "a11y": {
+    "regionAndLanguage": "Región e idioma",
+    "closeMenu": "Cerrar menú",
+    "mobileNav": "Navegación Móvil",
+    "openMenu": "Abrir menú",
+    "close": "Cerrar"
   }
 }
