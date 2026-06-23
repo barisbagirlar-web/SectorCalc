@@ -236,6 +236,7 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
         <div className="sc-inner">
 
           <Link href="/" className="sc-logo" aria-label="SectorCalc home">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/img/brand/sectorcalc-logo-mark.png" alt="SectorCalc Logo" className="sc-logo-mark" style={{ width: 30, height: 30, objectFit: 'contain' }} />
             <span className="sc-logo-text">Sector<span className="a">Calc</span></span>
           </Link>

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 'use client'
 
 import { useState, useCallback } from 'react'
@@ -32,7 +33,7 @@ function Guarantee() {
     <div className="mt-8 mb-10 rounded-2xl border border-emerald-100 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40 p-5 text-center max-w-xl mx-auto">
       <p className="text-sm font-semibold text-emerald-700 dark:text-emerald-400 mb-1">7-day satisfaction guarantee</p>
       <p className="text-xs text-emerald-600 dark:text-emerald-500 leading-relaxed">
-        If your first credit doesn't deliver a usable result, email us within 7 days — we'll restore it. No forms, no friction.
+        If your first credit doesn&apos;t deliver a usable result, email us within 7 days — we&apos;ll restore it. No forms, no friction.
       </p>
     </div>
   )
@@ -172,6 +173,7 @@ export function PricingPageContent() {
           <Testimonial />
           <UseCaseGrid />
           <FAQ />
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <footer className="text-center text-[11px] text-gray-400 dark:text-gray-500 leading-7 border-t border-gray-100 dark:border-gray-800 pt-8 mt-4">
             Sector Calculator · Tax ID 25403091318 · Folkart Towers Yanyolu No:47, 35530 Bayraklı/İzmir<br/>
             <a href="mailto:info@sectorcalc.com" className="hover:text-blue-500">info@sectorcalc.com</a>
