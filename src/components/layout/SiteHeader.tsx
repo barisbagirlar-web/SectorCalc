@@ -1,8 +1,7 @@
 'use client';
-
 /**
  * SectorCalc — Premium Global Header
- * Drop-in: src/components/layout/SiteHeader.tsx
+ * Drop into: /src/components/Header.jsx
  *
  * Built to the standard of Stripe / Datadog / Linear navigation.
  *
@@ -19,7 +18,8 @@
  */
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Link, usePathname, useRouter } from '@/i18n/routing';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 const LOCALES = [
   { code: 'en', label: 'English',  short: 'EN', dir: 'ltr' },
@@ -30,7 +30,7 @@ const LOCALES = [
   { code: 'ar', label: 'العربية',  short: 'AR', dir: 'rtl' },
 ];
 
-const T: Record<string, Record<string, string>> = {
+const T = {
   en: {
     products:'Products', industries:'Industries', pricing:'Pricing', resources:'Resources',
     signin:'Sign in', getStarted:'Get started',
@@ -123,66 +123,51 @@ const INDUSTRY_GROUPS = [
   ]},
 ];
 
-function getLocale(p: string): string {
-  const m = p.match(/^\/(tr|de|fr|es|ar)(\/|$)/);
-  return m ? m[1] : 'en';
+function getLocale(p){ const m=p.match(/^\/(tr|de|fr|es|ar)(\/|$)/); return m?m[1]:'en'; }
+function href(loc,slug){ return loc==='en'?`/${slug}`:`/${loc}/${slug}`; }
+function rootHref(loc){ return loc==='en'?'/':`/${loc}`; }
+function buildLocalePath(p,target){
+  const s=p.replace(/^\/(tr|de|fr|es|ar)(?=\/|$)/,'')||'/';
+  return target==='en'?s:`/${target}${s==='/'?'':s}`;
 }
 
-function buildLocalePath(p: string, target: string): string {
-  const s = p.replace(/^\/(tr|de|fr|es|ar)(?=\/|$)/, '') || '/';
-  return target === 'en' ? s : `/${target}${s === '/' ? '' : s}`;
-}
-
-export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: boolean }) {
+export default function Header({ isAuthenticated = false }) {
   const pathname = usePathname() || '/';
   const router   = useRouter();
   const locale   = getLocale(pathname);
-  const dir      = LOCALES.find((l) => l.code === locale)?.dir || 'ltr';
+  const dir      = LOCALES.find((l)=>l.code===locale)?.dir || 'ltr';
   const t        = T[locale] || T.en;
 
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [langOpen, setLangOpen] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const [openMenu,setOpenMenu]=useState(null);
+  const [langOpen,setLangOpen]=useState(false);
+  const [mobileOpen,setMobileOpen]=useState(false);
+  const [mobileSection,setMobileSection]=useState(null);
 
-  const navRef = useRef<HTMLDivElement>(null);
-  const langRef = useRef<HTMLDivElement>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navRef=useRef(null);
+  const langRef=useRef(null);
+  const closeTimer=useRef(null);
 
-  const openWithIntent = useCallback((m: string) => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setOpenMenu(m);
-    setLangOpen(false);
-  }, []);
+  const openWithIntent=useCallback((m)=>{ if(closeTimer.current)clearTimeout(closeTimer.current); setOpenMenu(m); setLangOpen(false); },[]);
+  const closeWithIntent=useCallback(()=>{ if(closeTimer.current)clearTimeout(closeTimer.current); closeTimer.current=setTimeout(()=>setOpenMenu(null),120); },[]);
 
-  const closeWithIntent = useCallback(() => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setOpenMenu(null), 120);
-  }, []);
-
-  useEffect(() => {
-    function onClick(e: MouseEvent) {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenMenu(null);
-      if (langRef.current && !langRef.current.contains(e.target as Node)) setLangOpen(false);
+  useEffect(()=>{
+    function onClick(e){
+      if(navRef.current && !navRef.current.contains(e.target)) setOpenMenu(null);
+      if(langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
     }
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') { setOpenMenu(null); setLangOpen(false); }
-    }
-    document.addEventListener('mousedown', onClick);
-    document.addEventListener('keydown', onKey);
-    return () => {
-      document.removeEventListener('mousedown', onClick);
-      document.removeEventListener('keydown', onKey);
-    };
-  }, []);
+    function onKey(e){ if(e.key==='Escape'){ setOpenMenu(null); setLangOpen(false); } }
+    document.addEventListener('mousedown',onClick);
+    document.addEventListener('keydown',onKey);
+    return ()=>{ document.removeEventListener('mousedown',onClick); document.removeEventListener('keydown',onKey); };
+  },[]);
 
-  const switchLocale = (code: string) => {
+  const switchLocale=(code)=>{
     setLangOpen(false);
-    document.cookie = `NEXT_LOCALE=${code};path=/;max-age=31536000;samesite=lax`;
-    router.push(buildLocalePath(pathname, code));
+    document.cookie=`NEXT_LOCALE=${code};path=/;max-age=31536000;samesite=lax`;
+    router.push(buildLocalePath(pathname,code));
   };
 
-  const accountHref = isAuthenticated ? '/account' : '/login';
+  const accountHref = isAuthenticated ? href(locale,'account') : href(locale,'signin');
 
   return (
     <>
@@ -285,7 +270,7 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
       <header className="sc-h" dir={dir}>
         <div className="sc-inner">
 
-          <Link href="/" className="sc-logo" aria-label="SectorCalc home">
+          <Link href={rootHref(locale)} className="sc-logo" aria-label="SectorCalc home">
             <svg className="sc-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <rect x="2"  y="2"  width="13" height="13" rx="3" fill="#0F172A"/>
               <rect x="17" y="2"  width="13" height="13" rx="3" fill="#2563EB"/>
@@ -296,47 +281,47 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
           </Link>
 
           <nav className="sc-nav" ref={navRef}>
-            <div onMouseEnter={() => openWithIntent('products')} onMouseLeave={closeWithIntent}>
-              <button className={`sc-navbtn${openMenu === 'products' ? ' open' : ''}`} onClick={() => setOpenMenu(openMenu === 'products' ? null : 'products')} aria-expanded={openMenu === 'products'}>
+            <div onMouseEnter={()=>openWithIntent('products')} onMouseLeave={closeWithIntent}>
+              <button className={`sc-navbtn${openMenu==='products'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='products'?null:'products')} aria-expanded={openMenu==='products'}>
                 {t.products} <span className="chev">▼</span>
               </button>
             </div>
-            <div onMouseEnter={() => openWithIntent('industries')} onMouseLeave={closeWithIntent}>
-              <button className={`sc-navbtn${openMenu === 'industries' ? ' open' : ''}`} onClick={() => setOpenMenu(openMenu === 'industries' ? null : 'industries')} aria-expanded={openMenu === 'industries'}>
+            <div onMouseEnter={()=>openWithIntent('industries')} onMouseLeave={closeWithIntent}>
+              <button className={`sc-navbtn${openMenu==='industries'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='industries'?null:'industries')} aria-expanded={openMenu==='industries'}>
                 {t.industries} <span className="chev">▼</span>
               </button>
             </div>
-            <Link href="/pricing" className="sc-navbtn">{t.pricing}</Link>
-            <div onMouseEnter={() => openWithIntent('resources')} onMouseLeave={closeWithIntent}>
-              <button className={`sc-navbtn${openMenu === 'resources' ? ' open' : ''}`} onClick={() => setOpenMenu(openMenu === 'resources' ? null : 'resources')} aria-expanded={openMenu === 'resources'}>
+            <Link href={href(locale,'pricing')} className="sc-navbtn">{t.pricing}</Link>
+            <div onMouseEnter={()=>openWithIntent('resources')} onMouseLeave={closeWithIntent}>
+              <button className={`sc-navbtn${openMenu==='resources'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='resources'?null:'resources')} aria-expanded={openMenu==='resources'}>
                 {t.resources} <span className="chev">▼</span>
               </button>
             </div>
 
             {openMenu && (
-              <div className="sc-megawrap" onMouseEnter={() => openWithIntent(openMenu)} onMouseLeave={closeWithIntent}>
-                {openMenu === 'products' && (
+              <div className="sc-megawrap" onMouseEnter={()=>openWithIntent(openMenu)} onMouseLeave={closeWithIntent}>
+                {openMenu==='products' && (
                   <div className="sc-mega sc-mega-products">
-                    <Link href="/free-tools" className="sc-mega-panel">
+                    <Link href={href(locale,'free-tools')} className="sc-mega-panel">
                       <div className="pt"><span className="pico">🧮</span><span className="ph">{t.col_free}</span></div>
                       <div className="pd">{t.products_free_desc}</div>
-                      <div className="pcount">358 {t.tools}</div>
+                      <div className="pcount">140+ {t.tools}</div>
                     </Link>
-                    <Link href="/pro-tools" className="sc-mega-panel">
+                    <Link href={href(locale,'pro-tools')} className="sc-mega-panel">
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
-                      <div className="pcount">130 {t.tools}</div>
+                      <div className="pcount">161 {t.tools}</div>
                     </Link>
                   </div>
                 )}
-                {openMenu === 'industries' && (
+                {openMenu==='industries' && (
                   <div className="sc-mega sc-mega-industries">
                     <div className="sc-mega-grid">
-                      {INDUSTRY_GROUPS.map((g) => (
+                      {INDUSTRY_GROUPS.map((g)=>(
                         <div className="sc-mega-col" key={g.groupEn}>
-                          <h4>{locale === 'tr' ? g.groupTr : g.groupEn}</h4>
-                          {g.items.map((it) => (
-                            <Link key={it.slug} href={`/free-tools?sector=${it.slug}`} className="sc-mega-item">
+                          <h4>{locale==='tr'?g.groupTr:g.groupEn}</h4>
+                          {g.items.map((it)=>(
+                            <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} className="sc-mega-item">
                               <span className="ico">{it.icon}</span>
                               <span className="txt"><b>{it.en}</b><span>{it.count} {t.tools}</span></span>
                             </Link>
@@ -345,20 +330,20 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
                       ))}
                     </div>
                     <div className="sc-mega-foot">
-                      <Link href="/industries">{t.view_all_industries} →</Link>
-                      <span className="promo">27 sectors · 488 {t.tools}</span>
+                      <Link href={href(locale,'industries')}>{t.view_all_industries} →</Link>
+                      <span className="promo">18 sectors · 300+ {t.tools}</span>
                     </div>
                   </div>
                 )}
-                {openMenu === 'resources' && (
+                {openMenu==='resources' && (
                   <div className="sc-mega sc-mega-resources">
-                    <Link href="/blog" className="sc-res-item">
+                    <Link href={href(locale,'blog')} className="sc-res-item">
                       <span className="rico">📝</span><span className="rt"><b>{t.res_blog}</b><span>{t.res_blog_d}</span></span>
                     </Link>
-                    <Link href="/formulas" className="sc-res-item">
+                    <Link href={href(locale,'formulas')} className="sc-res-item">
                       <span className="rico">📐</span><span className="rt"><b>{t.res_docs}</b><span>{t.res_docs_d}</span></span>
                     </Link>
-                    <Link href="/api" className="sc-res-item">
+                    <Link href={href(locale,'api')} className="sc-res-item">
                       <span className="rico">🔌</span><span className="rt"><b>{t.res_api}</b><span>{t.res_api_d}</span></span>
                     </Link>
                   </div>
@@ -369,17 +354,17 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
 
           <div className="sc-right">
             <div className="sc-lang" ref={langRef}>
-              <button className="sc-langbtn" onClick={() => { setLangOpen(!langOpen); setOpenMenu(null); }} aria-haspopup="true" aria-expanded={langOpen} aria-label="Select language">
+              <button className="sc-langbtn" onClick={()=>{setLangOpen(!langOpen);setOpenMenu(null);}} aria-haspopup="true" aria-expanded={langOpen} aria-label="Select language">
                 <svg className="sc-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                 </svg>
-                <span>{LOCALES.find((l) => l.code === locale)?.short}</span><span className="sc-langchev">▼</span>
+                <span>{LOCALES.find((l)=>l.code===locale)?.short}</span><span className="sc-langchev">▼</span>
               </button>
               {langOpen && (
                 <div className="sc-langmenu">
-                  {LOCALES.map((l) => (
-                    <button key={l.code} className={`sc-langitem${l.code === locale ? ' active' : ''}`} onClick={() => switchLocale(l.code)}>
+                  {LOCALES.map((l)=>(
+                    <button key={l.code} className={`sc-langitem${l.code===locale?' active':''}`} onClick={()=>switchLocale(l.code)}>
                       <span>{l.label}</span><span className="sh">{l.short}</span>
                     </button>
                   ))}
@@ -388,8 +373,8 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
               )}
             </div>
             <Link href={accountHref} className="sc-signin">{t.signin}</Link>
-            <Link href="/signup" className="sc-getstarted">{t.getStarted}</Link>
-            <button className="sc-burger" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen}>
+            <Link href={href(locale,'signup')} className="sc-getstarted">{t.getStarted}</Link>
+            <button className="sc-burger" onClick={()=>setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 {mobileOpen
                   ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>
@@ -399,53 +384,53 @@ export function SiteHeader({ isAuthenticated = false }: { isAuthenticated?: bool
           </div>
         </div>
 
-        <div className={`sc-drawer${mobileOpen ? ' open' : ''}`} dir={dir}>
+        <div className={`sc-drawer${mobileOpen?' open':''}`} dir={dir}>
           <div className="sc-draw-sec">
-            <button className={`sc-draw-head${mobileSection === 'products' ? ' open' : ''}`} onClick={() => setMobileSection(mobileSection === 'products' ? null : 'products')}>
+            <button className={`sc-draw-head${mobileSection==='products'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='products'?null:'products')}>
               {t.products} <span className="dchev">▼</span>
             </button>
-            {mobileSection === 'products' && (
+            {mobileSection==='products' && (
               <div className="sc-draw-body">
-                <Link href="/free-tools" onClick={() => setMobileOpen(false)}>🧮 {t.col_free} <span className="c">358</span></Link>
-                <Link href="/pro-tools" onClick={() => setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">130</span></Link>
+                <Link href={href(locale,'free-tools')} onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">140+</span></Link>
+                <Link href={href(locale,'pro-tools')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">161</span></Link>
               </div>
             )}
           </div>
           <div className="sc-draw-sec">
-            <button className={`sc-draw-head${mobileSection === 'industries' ? ' open' : ''}`} onClick={() => setMobileSection(mobileSection === 'industries' ? null : 'industries')}>
+            <button className={`sc-draw-head${mobileSection==='industries'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='industries'?null:'industries')}>
               {t.industries} <span className="dchev">▼</span>
             </button>
-            {mobileSection === 'industries' && (
+            {mobileSection==='industries' && (
               <div className="sc-draw-body">
-                {INDUSTRY_GROUPS.flatMap((g) => g.items).map((it) => (
-                  <Link key={it.slug} href={`/free-tools?sector=${it.slug}`} onClick={() => setMobileOpen(false)}>
+                {INDUSTRY_GROUPS.flatMap((g)=>g.items).map((it)=>(
+                  <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} onClick={()=>setMobileOpen(false)}>
                     {it.icon} {it.en} <span className="c">{it.count}</span>
                   </Link>
                 ))}
-                <Link href="/industries" onClick={() => setMobileOpen(false)} style={{ color: 'var(--accent)', fontWeight: 600 }}>{t.view_all_industries} →</Link>
+                <Link href={href(locale,'industries')} onClick={()=>setMobileOpen(false)} style={{color:'var(--accent)',fontWeight:600}}>{t.view_all_industries} →</Link>
               </div>
             )}
           </div>
-          <Link href="/pricing" className="sc-draw-link" onClick={() => setMobileOpen(false)}>{t.pricing}</Link>
+          <Link href={href(locale,'pricing')} className="sc-draw-link" onClick={()=>setMobileOpen(false)}>{t.pricing}</Link>
           <div className="sc-draw-sec">
-            <button className={`sc-draw-head${mobileSection === 'resources' ? ' open' : ''}`} onClick={() => setMobileSection(mobileSection === 'resources' ? null : 'resources')}>
+            <button className={`sc-draw-head${mobileSection==='resources'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='resources'?null:'resources')}>
               {t.resources} <span className="dchev">▼</span>
             </button>
-            {mobileSection === 'resources' && (
+            {mobileSection==='resources' && (
               <div className="sc-draw-body">
-                <Link href="/blog" onClick={() => setMobileOpen(false)}>📝 {t.res_blog}</Link>
-                <Link href="/formulas" onClick={() => setMobileOpen(false)}>📐 {t.res_docs}</Link>
-                <Link href="/api" onClick={() => setMobileOpen(false)}>🔌 {t.res_api}</Link>
+                <Link href={href(locale,'blog')} onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
+                <Link href={href(locale,'formulas')} onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
+                <Link href={href(locale,'api')} onClick={()=>setMobileOpen(false)}>🔌 {t.res_api}</Link>
               </div>
             )}
           </div>
           <div className="sc-draw-cta">
-            <Link href="/signup" className="sc-getstarted" onClick={() => setMobileOpen(false)}>{t.getStarted}</Link>
-            <Link href={accountHref} className="sc-signin" onClick={() => setMobileOpen(false)}>{t.signin}</Link>
+            <Link href={href(locale,'signup')} className="sc-getstarted" onClick={()=>setMobileOpen(false)}>{t.getStarted}</Link>
+            <Link href={accountHref} className="sc-signin" onClick={()=>setMobileOpen(false)}>{t.signin}</Link>
           </div>
           <div className="sc-draw-lang">
-            {LOCALES.map((l) => (
-              <button key={l.code} className={l.code === locale ? 'active' : ''} onClick={() => { switchLocale(l.code); setMobileOpen(false); }}>{l.short}</button>
+            {LOCALES.map((l)=>(
+              <button key={l.code} className={l.code===locale?'active':''} onClick={()=>{switchLocale(l.code);setMobileOpen(false);}}>{l.short}</button>
             ))}
           </div>
         </div>
