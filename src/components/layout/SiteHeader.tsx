@@ -334,7 +334,7 @@ export function SiteHeader({ isAuthenticated = false }) {
                       <div className="pd">{t.products_free_desc}</div>
                       <div className="pcount">{freeToolsCount}+ {t.tools}</div>
                     </Link>
-                    <Link href={href(locale,'premium-tools')} className="sc-mega-panel">
+                    <Link href={href(locale,'pro-tools')} className="sc-mega-panel">
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
                       <div className="pcount">{proToolsCount} {t.tools}</div>
@@ -364,7 +364,7 @@ export function SiteHeader({ isAuthenticated = false }) {
                 )}
                 {openMenu==='resources' && (
                   <div className="sc-mega sc-mega-resources">
-                    <Link href={href(locale,'guides')} className="sc-res-item">
+                    <Link href={href(locale,'case-studies')} className="sc-res-item">
                       <span className="rico">📝</span><span className="rt"><b>{t.res_blog}</b><span>{t.res_blog_d}</span></span>
                     </Link>
                     <Link href={href(locale,'calculator-library')} className="sc-res-item">
@@ -419,7 +419,7 @@ export function SiteHeader({ isAuthenticated = false }) {
             {mobileSection==='products' && (
               <div className="sc-draw-body">
                 <Link href={href(locale,'free-tools')} onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
-                <Link href={href(locale,'premium-tools')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
+                <Link href={href(locale,'pro-tools')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
               </div>
             )}
           </div>
@@ -445,7 +445,7 @@ export function SiteHeader({ isAuthenticated = false }) {
             </button>
             {mobileSection==='resources' && (
               <div className="sc-draw-body">
-                <Link href={href(locale,'guides')} onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
+                <Link href={href(locale,'case-studies')} onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
                 <Link href={href(locale,'calculator-library')} onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
                 <Link href={href(locale,'developer-showcase')} onClick={()=>setMobileOpen(false)}>🔌 {t.res_api}</Link>
               </div>
