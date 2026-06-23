@@ -11,6 +11,8 @@ import { getLocalizedAllTools } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
+export const dynamic = "force-dynamic";
+
 type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

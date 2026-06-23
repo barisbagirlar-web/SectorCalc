@@ -42,7 +42,7 @@ export function CategoryFilterSidebar({
     formatCount ? formatCount(count) : String(count);
 
   const handleFilterClick = (value: string, active: boolean) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     if (value === allFilterValue) {
       params.set(filterParamKey, allFilterValue);
     } else {

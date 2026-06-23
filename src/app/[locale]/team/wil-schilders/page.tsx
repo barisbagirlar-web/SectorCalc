@@ -9,6 +9,8 @@ import type { AppLocale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/semantic/site-url";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
 
+export const dynamic = "force-dynamic";
+
 type PageProps = { params: Promise<{ locale: string }> };
 
 function buildWilSchildersProfileJsonLd(locale: AppLocale, bio: string, role: string): JsonLdRecord {

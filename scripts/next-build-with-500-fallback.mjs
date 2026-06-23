@@ -309,6 +309,7 @@ try {
 
   ensureNextTypeAndBuildManifestStubs();
 
+  console.error("=== DEBUG: entering build loop ===");
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
     if (attempt > 1) {
       console.warn(`next-build-with-500-fallback: retry ${attempt}/${MAX_ATTEMPTS}…`);

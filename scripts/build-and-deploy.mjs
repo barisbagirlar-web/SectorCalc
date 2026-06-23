@@ -4,7 +4,7 @@
  * Restores the real Next.js binary after deploy.
  */
 import { spawnSync } from "node:child_process";
-import { copyFileSync, chmodSync, existsSync, unlinkSync, symlinkSync, writeFileSync } from "node:fs";
+import { copyFileSync, chmodSync, existsSync, unlinkSync, symlinkSync, writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
@@ -71,9 +71,9 @@ function restoreBinary() {
   console.log("build-and-deploy: restored original Next.js binary.");
 }
 
-// Step 1: Build
-console.log("build-and-deploy: building...");
-run("node", [NEXT_DIST_BIN, "build", "--no-lint"], {
+// Step 1: Build with retry (handles manifest race condition in Next.js 15.5)
+console.log("build-and-deploy: building (with retry)...");
+run("node", ["scripts/next-build-with-500-fallback.mjs"], {
   env: {
     ...process.env,
     NODE_OPTIONS: "--max-old-space-size=8192 --dns-result-order=ipv4first",
@@ -85,7 +85,7 @@ if (!existsSync(BUILD_ID_PATH)) {
   console.error("build-and-deploy: build did not produce BUILD_ID");
   process.exit(1);
 }
-console.log(`build-and-deploy: build OK (BUILD_ID=${require("fs").readFileSync(BUILD_ID_PATH,"utf8").trim()})`);
+console.log(`build-and-deploy: build OK (BUILD_ID=${readFileSync(BUILD_ID_PATH,"utf8").trim()})`);
 
 // Step 2: Finalize + Validate
 run("node", ["scripts/finalize-next-build.mjs"]);

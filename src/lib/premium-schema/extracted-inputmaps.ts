@@ -21,7 +21,7 @@ export const FORMULA_INPUT_MAP_KEYS: Record<string, string[]> = {
   "measurement.oee_score": ["oeeAvailability","oeePerformance","oeeQuality"],
   "measurement.teep_score": ["oeeScore"],
   "cost.scrap_optimize_total": ["scrapMaterialCost","scrapLaborCost","scrapOverhead","scrapOpportunity","scrapSalvage"],
-  "cost.paf_prevention": ["training","qualityPlanning","supplierScoreRef","designReview"],
+  "cost.paf_prevention": ["training","qualityPlanning","supplierScore","designReview"],
   "cost.paf_appraisal": ["inspection","testing","calibration","audit"],
   "cost.paf_internal_failure": ["scrap","rework","reinspection","downtime"],
   "cost.paf_external_failure": ["warranty","returns","recall","liability","lostSales"],

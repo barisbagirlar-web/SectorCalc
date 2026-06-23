@@ -34,6 +34,7 @@ class EnsureManifestStubsPlugin {
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  output: "standalone",
   serverExternalPackages: ["@react-pdf/renderer"],
   eslint: {
     // Firebase `next build` runs lint inline; skip here (use `npm run lint` in CI/local).
@@ -184,13 +185,30 @@ const nextConfig: NextConfig = {
   },
 };
 
+/**
+ * Unwrap ES module interop wrapper injected by HOCs (next-intl, Sentry)
+ * in standalone/Firebase builds — strips {__esModule, default} so the
+ * Next.js config validator doesn't reject them.
+ */
+function unwrapNextConfig<T>(maybeWrapped: T): T {
+  if (
+    maybeWrapped &&
+    typeof maybeWrapped === "object" &&
+    "__esModule" in (maybeWrapped as Record<string, unknown>) &&
+    "default" in (maybeWrapped as Record<string, unknown>)
+  ) {
+    return (maybeWrapped as Record<string, unknown>).default as T;
+  }
+  return maybeWrapped;
+}
+
 const sentryEnabled = Boolean(
   process.env.NEXT_PUBLIC_SENTRY_DSN ?? process.env.SENTRY_DSN,
 );
 
 const configWithIntl = withNextIntl(nextConfig);
 
-export default sentryEnabled
+const finalConfig = sentryEnabled
   ? withSentryConfig(configWithIntl, {
       org: "sectorcalc",
       project: "sectorcalc",
@@ -200,3 +218,5 @@ export default sentryEnabled
       disableLogger: true,
     })
   : configWithIntl;
+
+export default unwrapNextConfig(finalConfig);

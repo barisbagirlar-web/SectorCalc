@@ -58,7 +58,7 @@ export function CategoryCardGrid({
   const useLinks = onSelect == null;
 
   const handleFilterClick = (slug: string, active: boolean) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     if (slug === allFilterValue) {
       params.set(filterParamKey, allFilterValue);
     } else {
