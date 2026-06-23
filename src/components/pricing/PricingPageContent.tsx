@@ -130,10 +130,18 @@ export function PricingPageContent() {
     }
     if (pendingPlan) {
       setLoadingPlanId(pendingPlan.id)
+      
+      // TEST: Entegrasyon testi için geçici bir userId tanımlıyoruz. (Canlıda Auth sisteminizden gelecek)
+      const testUserId = "ornek_kullanici_abc123";
+
       openCheckout({
         items: [{ priceId: pendingPlan.paddlePriceId, quantity: 1 }],
         ...(resolvedEmail ? { customer: { email: resolvedEmail } } : {}),
-        customData: { planId: pendingPlan.id, credits: String(pendingPlan.credits) },
+        customData: { 
+          planId: pendingPlan.id, 
+          credits: String(pendingPlan.credits),
+          userId: testUserId 
+        },
         settings: {
           displayMode: 'overlay',
           theme: 'light',
