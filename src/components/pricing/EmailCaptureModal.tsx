@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useTranslations } from 'next-intl'
 
 interface Props {
   open: boolean
@@ -13,7 +12,6 @@ interface Props {
 }
 
 export function EmailCaptureModal({ open, onClose, onSubmit, onSkip, email, setEmail }: Props) {
-  const t = useTranslations("emailCaptureModal")
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -34,33 +32,33 @@ export function EmailCaptureModal({ open, onClose, onSubmit, onSkip, email, setE
       aria-modal="true"
       onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
     >
-      <div className="w-full max-w-sm sc-pro-pricing-card sc-pro-letterpress p-6 shadow-xl border border-technical-gray bg-white relative">
+      <div className="w-full max-w-sm rounded-2xl bg-white dark:bg-gray-900 p-6 shadow-xl">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h2 className="text-base font-semibold text-premium-velvet">{t("title")}</h2>
-            <p className="text-sm text-body-charcoal mt-1">{t("subtitle")}</p>
+            <h2 className="text-base font-semibold text-gray-900 dark:text-gray-50">Where should we send your PDF?</h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">We'll email your calculation report after purchase.</p>
           </div>
-          <button onClick={onClose} className="text-body-charcoal hover:text-sc-navy text-xl leading-none ml-3" aria-label={t("close")}>×</button>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl leading-none ml-3" aria-label="Close">×</button>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3">
           <input
             ref={inputRef}
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder={t("emailPlaceholder")}
+            placeholder="your@email.com"
             autoComplete="email"
-            className="w-full border border-technical-gray bg-industrial-matte px-4 py-2.5 text-sm text-premium-velvet placeholder-body-charcoal focus:outline-none focus:ring-2 focus:ring-sc-navy rounded-none"
+            className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button type="submit" className="sc-cta-primary w-full py-2.5 flex justify-center">
-            {t("submitCta")}
+          <button type="submit" className="w-full rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2.5 transition-colors">
+            Continue to payment →
           </button>
-          <button type="button" onClick={onSkip} className="w-full text-xs text-body-charcoal hover:text-premium-velvet transition-colors mt-2 flex justify-center">
-            {t("skipCta")}
+          <button type="button" onClick={onSkip} className="w-full text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 py-1 transition-colors">
+            Skip — I don't need an email receipt
           </button>
         </form>
-        <div className="mt-5 pt-4 border-t border-technical-gray flex justify-center gap-4 text-[11px] text-body-charcoal">
-          <span>🔒 {t("secure")}</span><span>·</span><span>{t("noAutoRenew")}</span><span>·</span><span>{t("guarantee")}</span>
+        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 flex justify-center gap-4 text-[11px] text-gray-400">
+          <span>🔒 Paddle secure</span><span>·</span><span>No auto-renew</span><span>·</span><span>7-day guarantee</span>
         </div>
       </div>
     </div>
