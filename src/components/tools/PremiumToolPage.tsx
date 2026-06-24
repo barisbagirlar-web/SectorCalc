@@ -38,6 +38,7 @@ import {
 import {
  PremiumAnalyzerReportPanel,
 } from "@/components/tools/PremiumAnalyzerReportPanel";
+import { ProDecisionPanel } from "@/components/tools/ProDecisionPanel";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { buildGuidanceFieldsFromKeys } from "@/lib/guidance/build-guidance-fields";
@@ -69,12 +70,12 @@ import {
 } from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
 import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
 import {
- arePremiumToolInputsValid,
- calculatePremiumDecisionReport,
- calculatePremiumToolResult,
- type PremiumToolInputValues,
- type PremiumToolResult,
+  arePremiumToolInputsValid,
+  calculatePremiumToolResult,
+  type PremiumToolInputValues,
+  type PremiumToolResult,
 } from "@/lib/tools/premium-tool-results";
+import { calculatePremiumDecisionReport } from "@/lib/tools/premium-decision-engine";
 import {
  type RevenueTool,
  type RevenueToolInput,
@@ -239,6 +240,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   const locale = useLocale();
   const tAuthority = useTranslations("contentAuthority.premium");
   const tPage = useTranslations("premiumSchemaPage");
+  const t = useTranslations("freeTrafficCatalog");
   const categorySlug = useMemo(() => resolveToolCategory({ slug: tool.paidSlug }), [tool.paidSlug]);
   const categoryDetail = useMemo(() => getPremiumCatalogCategoryDetail(categorySlug, locale), [categorySlug, locale]);
   const categoryTitle = categoryDetail?.title ?? "Category";
@@ -300,12 +302,12 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const usePremiumSmartForm = hasPremiumSmartFormDefinition(runtimeSlug);
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
  const schemaPilot = getPremiumSchemaForPaidSlug(tool.paidSlug);
- const showSchemaPilot = Boolean(schemaPilot) && !useFullLoopRuntime;
  const smartFormAdapter = useMemo(
   () =>
    buildSmartFormForTool(runtimeSlug, { kind: "revenue", inputs: tool.paidInputs }),
   [runtimeSlug, tool.paidInputs],
  );
+ const showSchemaPilot = Boolean(schemaPilot) && (!useFullLoopRuntime || !smartFormAdapter.ok);
 
  const experience = useMemo(() => {
   const base = resolveCalculatorExperience({
@@ -324,10 +326,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   return base;
  }, [runtimeSlug, tool.paidInputs, tool.sector, smartFormAdapter]);
 
- const visiblePaidInputs = useMemo(
-  () => filterVisibleCalculatorFields(tool.paidInputs, experience, mode),
-  [tool.paidInputs, experience, mode],
- );
+ const visiblePaidInputs = tool.paidInputs;
 
  const premiumGuidanceFields = useMemo(() => {
   if (smartFormAdapter.ok) {
@@ -402,7 +401,12 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  return calculatePremiumToolResult(tool, values);
  }, [useFullLoopRuntime, fullLoopResult, decisionReport, tool, values]);
 
- const hasCalculated = submitted && Boolean(result) && !isCalculating;
+  const submitDisabled = isCalculating || needsCreditLoad;
+  const submitText = needsCreditLoad
+    ? (locale === "tr" ? "Hesaplama İçin Kredi Yükleyin" : "Load credits to calculate")
+    : (isCalculating ? (locale === "tr" ? "Hesaplanıyor…" : "Calculating…") : (locale === "tr" ? "Run calculation" : "Run calculation"));
+
+  const hasCalculated = submitted && Boolean(result) && !isCalculating;
 
  const verdictReportData = useMemo(() => {
  if (!result) {
@@ -763,6 +767,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  ) : showSchemaPilot ? (
  <>
  <DynamicPremiumCalculator schema={schemaPilot!} />
+ {tool.paidInputs.length > 0 && (
  <details className="mt-4 sc-industrial-panel p-4">
  <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wider text-body-charcoal">
  Legacy contract engine (PDF-compatible)
@@ -783,17 +788,18 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  onChange={handleChange}
  />
  ))}
- <div className="sc-industrial-form-actions">
- <button type="submit" disabled={isCalculating} className="sc-cta-primary disabled:opacity-60">
- {isCalculating ? "Calculating…" : "Run legacy calculation"}
- </button>
- </div>
+  <div className="sc-industrial-form-actions">
+  <button type="submit" disabled={submitDisabled || creditPending} className="sc-cta-primary min-h-[48px] disabled:opacity-60">
+  {submitText}
+  </button>
+  </div>
  </form>
  <div className="sc-tool-workspace__result min-w-0 space-y-4">
  {renderAnalysisOutput("legacy")}
  </div>
  </div>
  </details>
+ )}
  </>
  ) : (
  <>
@@ -807,7 +813,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   hasCalculated={hasCalculated}
   fallback={useFullLoopRuntime || !smartFormAdapter.ok}
   formContent={wrapPremiumGuidance(
-   useFullLoopRuntime ? (
+   (useFullLoopRuntime && smartFormAdapter.ok) ? (
     usePremiumSmartForm ? (
      <DynamicSmartFormPilot
       slug={runtimeSlug}
@@ -815,8 +821,9 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
       errors={errors}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      calculateLabel={isCalculating ? "Calculating…" : "Run calculation"}
+      calculateLabel={submitText}
       isCalculating={isCalculating}
+      disabled={submitDisabled}
      />
     ) : (
      <SmartToolForm
@@ -825,12 +832,13 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
       errors={errors}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      calculateLabel={isCalculating ? "Calculating…" : "Run calculation"}
+      calculateLabel={submitText}
       blocked={submitted && fullLoopResult?.status === "blocked"}
       blockers={
        submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
       }
       isCalculating={isCalculating}
+      disabled={submitDisabled}
      />
     )
    ) : (
@@ -852,10 +860,10 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
      <div className="sc-industrial-form-actions">
       <button
        type="submit"
-       disabled={isCalculating || creditPending || needsCreditLoad}
+       disabled={submitDisabled || creditPending}
        className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
       >
-       {isCalculating ? "Calculating…" : "Run calculation"}
+       {submitText}
       </button>
      </div>
     </form>
@@ -863,28 +871,41 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   )}
   resultContent={
    hasCalculated ? (
-    <ResultLayerTabs
-     quickContent={
-      <SmartResultPanel
-       calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
-       trustTraceSlot={
-        useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
-         <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-        ) : undefined
+      <ResultLayerTabs
+       quickContent={
+        <SmartResultPanel
+         calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
+         trustTraceSlot={
+          useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
+           <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+          ) : undefined
+         }
+        >
+         <div className="min-w-0 space-y-4">{renderAnalysisOutput("primary")}</div>
+        </SmartResultPanel>
        }
-      >
-       <div className="min-w-0 space-y-4">{renderAnalysisOutput("primary")}</div>
-      </SmartResultPanel>
-     }
-     deepContent={
-      useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
-       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-      ) : undefined
-     }
-    />
+       deepContent={
+         <div className="space-y-4">
+          {useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
+           <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+          ) : undefined}
+         </div>
+        }
+      />
    ) : undefined
   }
  />
+ {hasCalculated && decisionReport && result ? (
+  <div className="mt-12">
+    <ProDecisionPanel
+      values={values}
+      result={result}
+      locale={locale}
+      toolSlug={tool.paidSlug}
+      toolTitle={tool.paidTitle}
+    />
+  </div>
+ ) : null}
  </>
  )}
  </>
