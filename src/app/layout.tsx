@@ -1,13 +1,7 @@
-import { PaddleProvider } from '@/lib/paddle-provider'
-
 export default function RootLayout({
- children,
+  children,
 }: Readonly<{
- children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
- return (
-    <PaddleProvider>
-      {children}
-    </PaddleProvider>
- );
+  return children;
 }

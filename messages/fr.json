@@ -10488,7 +10488,11 @@
       "credits": "crédits",
       "perCalculation": "par calcul",
       "saveVsSingle": "Économisez {pct}% vs l'unité",
-      "opening": "Ouverture…"
+      "opening": "Ouverture…",
+      "calculationCredits": "{count} calculs pro",
+      "currency": "USD",
+      "perCredit": "{currency}{price} par crédit",
+      "loading": "Chargement..."
     },
     "plans": {
       "starter": {
@@ -10498,7 +10502,8 @@
           "f1": "1 calcul pro",
           "f2": "Rapport PDF inclus",
           "f3": "Aucun compte requis"
-        }
+        },
+        "name": "Essayer"
       },
       "essentials": {
         "badgeText": "Économisez 50%",
@@ -10507,7 +10512,8 @@
           "f1": "5 calculs pro",
           "f2": "Export PDF sur tous",
           "f3": "Validité de 12 mois"
-        }
+        },
+        "name": "Essentiels"
       },
       "popular": {
         "badgeText": "Le plus populaire",
@@ -10517,7 +10523,8 @@
           "f2": "Rapports PDF partageables",
           "f3": "Support prioritaire",
           "f4": "Validité de 12 mois"
-        }
+        },
+        "name": "Le plus populaire"
       },
       "department": {
         "badgeText": "Équipes",
@@ -10527,7 +10534,8 @@
           "f2": "Partage PDF en équipe",
           "f3": "Tableau de bord",
           "f4": "Validité de 12 mois"
-        }
+        },
+        "name": "Département"
       },
       "enterprise": {
         "badgeText": "Meilleure valeur",
@@ -10538,7 +10546,8 @@
           "f3": "Accès API (bêta)",
           "f4": "Intégration dédiée",
           "f5": "Validité de 12 mois"
-        }
+        },
+        "name": "Meilleure valeur"
       }
     }
   }

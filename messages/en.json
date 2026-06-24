@@ -10073,7 +10073,11 @@
       "credits": "credits",
       "perCalculation": "per calculation",
       "saveVsSingle": "Save {pct}% vs single",
-      "opening": "Opening…"
+      "opening": "Opening…",
+      "calculationCredits": "{count} pro calculations",
+      "currency": "USD",
+      "perCredit": "{currency}{price} per credit",
+      "loading": "Loading..."
     },
     "plans": {
       "starter": {
@@ -10083,7 +10087,8 @@
           "f1": "1 pro calculation",
           "f2": "PDF report included",
           "f3": "No account required"
-        }
+        },
+        "name": "Try it"
       },
       "essentials": {
         "badgeText": "Save 50%",
@@ -10092,7 +10097,8 @@
           "f1": "5 pro calculations",
           "f2": "PDF export on all",
           "f3": "12-month validity"
-        }
+        },
+        "name": "Essentials"
       },
       "popular": {
         "badgeText": "Most popular",
@@ -10102,7 +10108,8 @@
           "f2": "Shareable PDF reports",
           "f3": "Priority support",
           "f4": "12-month validity"
-        }
+        },
+        "name": "Most popular"
       },
       "department": {
         "badgeText": "Teams",
@@ -10112,7 +10119,8 @@
           "f2": "Team PDF sharing",
           "f3": "Usage dashboard",
           "f4": "12-month validity"
-        }
+        },
+        "name": "Department"
       },
       "enterprise": {
         "badgeText": "Best value",
@@ -10123,7 +10131,8 @@
           "f3": "API access (beta)",
           "f4": "Dedicated onboarding",
           "f5": "12-month validity"
-        }
+        },
+        "name": "Best value"
       }
     }
   }

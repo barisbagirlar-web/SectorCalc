@@ -90,16 +90,16 @@ function resolveFormulaContractStatus(slug: string): CategorizedToolFormulaStatu
 
 function resolveSeedRoutePath(slug: string): string | null {
   if (listPremiumSchemaSlugs().includes(slug)) {
-    return `/tools/premium-schema/${slug}`;
+    return `/pro-tools/${slug}`;
   }
   if (getPremiumRevenueRouteSlugs().includes(slug)) {
-    return `/tools/premium/${slug}`;
+    return `/pro-tools/${slug}`;
   }
   if (listRevenueFreeSlugs().includes(slug)) {
     return `/tools/free/${slug}`;
   }
   if (getFormulaContractBySlug(slug)) {
-    return `/tools/premium/${slug}`;
+    return `/pro-tools/${slug}`;
   }
   return null;
 }
@@ -193,7 +193,7 @@ function buildMigratedFreePremiumItems(): CategorizedToolItem[] {
         categorySlug: match.categorySlug,
         source: "existing-free-migrated" as const,
         migrationSources: ["existing-free-migrated"] as const,
-        routePath: `/tools/premium/${match.slug}`,
+        routePath: `/pro-tools/${match.slug}`,
         formulaContractStatus: hasContract ? "ready" : "missing",
         publicStatus: "active" as const,
       };
@@ -212,7 +212,7 @@ function buildMigratedFreePremiumItems(): CategorizedToolItem[] {
         categorySlug: match.categorySlug,
         source: "existing-free-migrated" as const,
         migrationSources: ["existing-free-migrated"] as const,
-        routePath: `/tools/premium/${match.slug}`,
+        routePath: `/pro-tools/${match.slug}`,
         formulaContractStatus: hasContract ? "ready" : "missing",
         publicStatus: "active" as const,
       };
@@ -246,7 +246,7 @@ function buildRevenuePremiumItems(): CategorizedToolItem[] {
       tier: "premium" as const,
       categorySlug,
       source: "existing-premium" as const,
-      routePath: `/tools/premium/${tool.paidSlug}`,
+      routePath: `/pro-tools/${tool.paidSlug}`,
       formulaContractStatus: resolveFormulaContractStatus(tool.paidSlug),
       publicStatus: "active" as const,
     };
@@ -283,7 +283,7 @@ function buildPremiumSchemaItems(): CategorizedToolItem[] {
       tier: "premium-schema" as const,
       categorySlug,
       source: "existing-premium-schema" as const,
-      routePath: `/tools/premium-schema/${slug}`,
+      routePath: `/pro-tools/${slug}`,
       formulaContractStatus: resolveFormulaContractStatus(slug),
       publicStatus: "active" as const,
     };

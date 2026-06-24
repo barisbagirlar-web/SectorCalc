@@ -1,5 +1,5 @@
 "use client";
-import { usePaddle } from "./paddle-provider";
+import { usePaddle } from "@/lib/paddle-provider";
 
 interface CheckoutButtonProps {
   priceId: string;
@@ -8,13 +8,21 @@ interface CheckoutButtonProps {
 }
 
 export default function CheckoutButton({ priceId, userId, buttonText }: CheckoutButtonProps) {
-  const paddle = usePaddle();
+  const { ready, openCheckout } = usePaddle();
 
   const handleCheckout = () => {
-    if (!paddle) return alert("Ödeme sistemi yükleniyor, lütfen bekleyin...");
+    console.log("Gönderilen Price ID:", priceId);
+    console.log("Kullanılan Paddle Token:", process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN);
+
+    if (!priceId) {
+      console.error("[SectorCalc] Critical Error: Price ID is missing in CheckoutButton!");
+      return;
+    }
+
+    if (!ready) return alert("Ödeme sistemi yükleniyor, lütfen bekleyin...");
     
     // Paddle penceresini aç ve Firebase'in tanıması için kullanıcı ID'sini (userId) gizlice yolla
-    paddle.Checkout.open({
+    openCheckout({
       items: [{ priceId: priceId, quantity: 1 }],
       customData: { userId: userId }, 
     });

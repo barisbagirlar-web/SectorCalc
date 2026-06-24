@@ -188,7 +188,7 @@ export function SiteHeader({ isAuthenticated = false }) {
   const switchLocale=(code: string)=>{
     setLangOpen(false);
     document.cookie=`NEXT_LOCALE=${code};path=/;max-age=31536000;samesite=lax`;
-    router.push(buildLocalePath(pathname,code));
+    router.push(pathname, { locale: code as any });
   };
 
   const accountHref = isAuthenticated ? '/account' : '/login';

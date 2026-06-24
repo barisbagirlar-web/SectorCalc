@@ -64,13 +64,17 @@
 .sc-micro { font-size: 12px; color: var(--sc-ink-muted); margin-top: 10px; text-align: center; }
 
 /* PAIN SECTION */
+.sc-pain-header { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+.sc-pain-header .sc-ticker { display: inline-flex; max-width: 520px; text-align: left; margin-bottom: 32px; }
+.sc-pain-header .sc-label { display: block; margin-bottom: 8px; }
 .sc-ticker { background: rgba(192,57,43,.12); border: 0.5px solid rgba(192,57,43,.3); border-radius: 8px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
-.sc-pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.sc-dark-card { background: rgba(240,238,230,.06); border: 0.5px solid rgba(240,238,230,.15); border-radius: 10px; padding: 24px; }
+.sc-pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.sc-dark-card { background: rgba(240,238,230,.06); border: 0.5px solid rgba(240,238,230,.15); border-radius: 10px; padding: 28px; display: flex; flex-direction: column; }
 .sc-dark-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--sc-terra); margin-bottom: 10px; }
-.sc-dark-card-title { font-size: 17px; font-weight: 600; color: #F0EEE6; margin-bottom: 8px; line-height: 1.35; }
-.sc-dark-card-body { font-size: 13px; color: rgba(240,238,230,.6); line-height: 1.6; margin-bottom: 14px; }
-.sc-dark-card-link { font-size: 12px; color: var(--sc-terra); font-weight: 500; cursor: pointer; }
+.sc-dark-card-title { font-size: 17px; font-weight: 600; color: #F0EEE6; margin-bottom: 10px; line-height: 1.35; }
+.sc-dark-card-body { font-size: 13px; color: rgba(240,238,230,.6); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+.sc-dark-card-link { font-size: 12px; color: var(--sc-terra); font-weight: 600; cursor: pointer; transition: color .15s; }
+.sc-dark-card-link:hover { color: var(--sc-terra-light, #F5E8E2); }
 
 /* CALCULATOR */
 .sc-calc-wrap { background: var(--sc-surface); border: 0.5px solid var(--sc-border-s); border-radius: 14px; overflow: hidden; }
@@ -158,6 +162,11 @@
 
 /* BADGE */
 .sc-badge-pop { background: var(--sc-terra); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: .06em; }
+
+@media(max-width: 900px) {
+  .sc-pain-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .sc-pain-header { max-width: 480px; margin-bottom: 36px; }
+}
 
 /* RESPONSIVE */
 @media(max-width: 640px) {

@@ -30,7 +30,11 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
   const btnClass = isFeatured ? "sc-cta-primary" : "sc-cta-secondary"
 
   function handleBuy() {
-    if (!ready || !plan.paddlePriceId) return
+    if (!ready) return
+    if (!plan.paddlePriceId) {
+      console.error("[SectorCalc] Critical Error: Paddle Price ID is undefined for plan:", plan.id);
+      return;
+    }
     if (!email) { onEmailNeeded(); return }
     setLoading(plan.id)
     openCheckout({
@@ -40,7 +44,6 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
       settings: {
         displayMode: 'overlay',
         theme: 'light',
-        successUrl: typeof window !== 'undefined' ? `${window.location.origin}/account/credits?payment=success&credits=${plan.credits}` : '',
       },
     })
     setTimeout(() => setLoading(null), 1500)
@@ -53,38 +56,38 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
       )}
       
       <div className="flex flex-col mb-2 mt-2">
-        <h3 className="text-lg font-semibold text-premium-velvet mb-1">{t(`plans.${plan.id}.name`)}</h3>
+        <h3 className="text-lg font-semibold text-premium-velvet mb-1">{plan.label}</h3>
         <p className="text-sm text-body-charcoal">
-          {t('card.calculationCredits', { count: plan.credits })}
+          {plan.credits} {plan.credits === 1 ? (t.has('card.credit') ? t('card.credit') : 'credit') : (t.has('card.credits') ? t('card.credits') : 'credits')}
         </p>
       </div>
 
       <div className="flex items-end gap-1 mb-1">
         <span className="sc-pro-pricing-card__price">${plan.price.toFixed(2)}</span>
-        <span className="text-sm text-body-charcoal mb-2">{t('card.currency')}</span>
+        <span className="text-sm text-body-charcoal mb-2">USD</span>
       </div>
       
       <p className="text-sm text-body-charcoal mb-1">
-        {t('card.perCredit', { price: plan.perCredit.toFixed(2), currency: '$' })}
+        ${plan.perCredit.toFixed(2)} / {t.has('card.credit') ? t('card.credit') : 'credit'}
       </p>
       
       {plan.savingPct > 0 ? (
         <p className="text-sm font-semibold text-emerald-600 mb-4">
-          {t('card.saveVsSingle', { pct: plan.savingPct })}
+          {t.has('card.saveVsSingle') ? t('card.saveVsSingle', { pct: plan.savingPct }) : `Save ${plan.savingPct}%`}
         </p>
       ) : (
         <div className="mb-4 h-5" />
       )}
 
       <ul className="sc-pro-pricing-card__features space-y-2 flex-1 mb-6">
-        {plan.features.map((_, idx) => (
+        {plan.features.map((feature, idx) => (
           <IconListItem
             key={idx}
             icon={UI_ICON.check}
             iconClassName="text-sc-navy"
             className="text-body-charcoal"
           >
-            {t(`plans.${plan.id}.features.f${idx + 1}`)}
+            {t.has(`plans.${plan.id}.features.f${idx + 1}`) ? t(`plans.${plan.id}.features.f${idx + 1}`) : feature}
           </IconListItem>
         ))}
       </ul>
@@ -95,7 +98,7 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
           disabled={loading === true || !ready}
           className={`${btnClass} w-full flex justify-center py-2.5 font-medium rounded-md transition-colors`}
         >
-          {loading ? t('card.loading') : t(`plans.${plan.id}.cta`)}
+          {loading ? (t.has('card.opening') ? t('card.opening') : 'Opening...') : (t.has(`plans.${plan.id}.cta`) ? t(`plans.${plan.id}.cta`) : plan.cta)}
         </button>
       </div>
     </article>

@@ -10488,7 +10488,11 @@
       "credits": "Credits",
       "perCalculation": "pro Berechnung",
       "saveVsSingle": "Sparen Sie {pct}% ggü. Einzelkauf",
-      "opening": "Öffnen…"
+      "opening": "Öffnen…",
+      "calculationCredits": "{count} pro Berechnungen",
+      "currency": "USD",
+      "perCredit": "{currency}{price} pro Credit",
+      "loading": "Wird geladen..."
     },
     "plans": {
       "starter": {
@@ -10498,7 +10502,8 @@
           "f1": "1 Pro-Berechnung",
           "f2": "PDF-Bericht inklusive",
           "f3": "Kein Konto erforderlich"
-        }
+        },
+        "name": "Ausprobieren"
       },
       "essentials": {
         "badgeText": "50% sparen",
@@ -10507,7 +10512,8 @@
           "f1": "5 Pro-Berechnungen",
           "f2": "PDF-Export für alle",
           "f3": "12 Monate Gültigkeit"
-        }
+        },
+        "name": "Grundlagen"
       },
       "popular": {
         "badgeText": "Am beliebtesten",
@@ -10517,7 +10523,8 @@
           "f2": "Teilbare PDF-Berichte",
           "f3": "Prioritäts-Support",
           "f4": "12 Monate Gültigkeit"
-        }
+        },
+        "name": "Am beliebtesten"
       },
       "department": {
         "badgeText": "Teams",
@@ -10527,7 +10534,8 @@
           "f2": "Team PDF-Teilung",
           "f3": "Nutzungs-Dashboard",
           "f4": "12 Monate Gültigkeit"
-        }
+        },
+        "name": "Abteilung"
       },
       "enterprise": {
         "badgeText": "Bester Wert",
@@ -10538,7 +10546,8 @@
           "f3": "API-Zugang (Beta)",
           "f4": "Dediziertes Onboarding",
           "f5": "12 Monate Gültigkeit"
-        }
+        },
+        "name": "Bester Wert"
       }
     }
   }

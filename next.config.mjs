@@ -1,12 +1,11 @@
-import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   eslint: {
-    // Lint CI'da ayrıca çalıştırılıyor; build/deploy sırasında bloklamasın.
     ignoreDuringBuilds: true,
   },
   typescript: {
@@ -25,9 +24,12 @@ const nextConfig: NextConfig = {
     return [
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
-      // Fallback redirects for legacy or broken nav links
       { source: "/premium-tools", destination: "/pro-tools", permanent: true },
       { source: "/:locale(tr|de|fr|es|ar)/premium-tools", destination: "/:locale/pro-tools", permanent: true },
+      { source: "/tools/premium/:slug", destination: "/pro-tools/:slug", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/tools/premium/:slug", destination: "/:locale/pro-tools/:slug", permanent: true },
+      { source: "/tools/premium-schema/:slug", destination: "/pro-tools/:slug", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/tools/premium-schema/:slug", destination: "/:locale/pro-tools/:slug", permanent: true },
       { source: "/blog", destination: "/case-studies", permanent: true },
       { source: "/:locale(tr|de|fr|es|ar)/blog", destination: "/:locale/case-studies", permanent: true },
       { source: "/formulas", destination: "/calculator-library", permanent: true },

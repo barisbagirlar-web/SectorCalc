@@ -6,7 +6,7 @@ import { LocaleDocumentLayout } from "@/components/layout/LocaleDocumentLayout";
 import { RootLocaleAutoRedirect } from "@/components/i18n/RootLocaleAutoRedirect";
 import { createPageMetadata } from "@/lib/metadata";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { PaddleProvider } from "@/components/paddle-provider";
+
 
 export const metadata: Metadata = createPageMetadata();
 
@@ -29,10 +29,8 @@ export default async function LocaleLayout({
 
   return (
     <LocaleDocumentLayout locale={locale as AppLocale}>
-      <PaddleProvider>
-        {locale === "en" ? <RootLocaleAutoRedirect /> : null}
-        {children}
-      </PaddleProvider>
+      {locale === "en" ? <RootLocaleAutoRedirect /> : null}
+      {children}
     </LocaleDocumentLayout>
   );
 }

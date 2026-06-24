@@ -29,7 +29,6 @@ export function CreditWall({ toolName, hasFreeMode, onFreeMode }: Props) {
       settings: {
         displayMode: 'overlay',
         theme: 'light',
-        successUrl: `${window.location.origin}/account/credits?payment=success&credits=${plan.credits}`,
       },
     })
     setTimeout(() => setLoading(false), 1500)

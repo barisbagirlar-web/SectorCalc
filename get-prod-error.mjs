@@ -1,10 +1,17 @@
 import { chromium } from 'playwright';
+
 (async () => {
   const browser = await chromium.launch();
-  const context = await browser.newContext({ locale: 'tr-TR' });
-  const page = await context.newPage();
-  page.on('console', msg => console.log('LOG:', msg.text()));
-  page.on('pageerror', err => console.log('PAGE ERROR:', err.toString()));
-  await page.goto('https://sectorcalc.com', { waitUntil: 'networkidle' });
+  const page = await browser.newPage();
+  
+  page.on('console', msg => console.log('PAGE LOG:', msg.type(), msg.text()));
+  page.on('pageerror', error => console.log('PAGE ERROR:', error.message));
+  
+  console.log("Navigating to http://localhost:3005");
+  await page.goto('http://localhost:3005', { waitUntil: 'networkidle' });
+  
+  // Wait a moment for hydration to complete
+  await page.waitForTimeout(2000);
+  
   await browser.close();
 })();

@@ -10488,7 +10488,11 @@
       "credits": "créditos",
       "perCalculation": "por cálculo",
       "saveVsSingle": "Ahorra {pct}% vs individual",
-      "opening": "Abriendo…"
+      "opening": "Abriendo…",
+      "calculationCredits": "{count} cálculos pro",
+      "currency": "USD",
+      "perCredit": "{currency}{price} por crédito",
+      "loading": "Cargando..."
     },
     "plans": {
       "starter": {
@@ -10498,7 +10502,8 @@
           "f1": "1 cálculo pro",
           "f2": "Reporte PDF incluido",
           "f3": "No requiere cuenta"
-        }
+        },
+        "name": "Pruébalo"
       },
       "essentials": {
         "badgeText": "Ahorra 50%",
@@ -10507,7 +10512,8 @@
           "f1": "5 cálculos pro",
           "f2": "Exportación a PDF",
           "f3": "Validez de 12 meses"
-        }
+        },
+        "name": "Esenciales"
       },
       "popular": {
         "badgeText": "Más popular",
@@ -10517,7 +10523,8 @@
           "f2": "Reportes PDF para compartir",
           "f3": "Soporte prioritario",
           "f4": "Validez de 12 meses"
-        }
+        },
+        "name": "Más popular"
       },
       "department": {
         "badgeText": "Equipos",
@@ -10527,7 +10534,8 @@
           "f2": "Compartir PDF en equipo",
           "f3": "Panel de uso",
           "f4": "Validez de 12 meses"
-        }
+        },
+        "name": "Departamento"
       },
       "enterprise": {
         "badgeText": "Mejor valor",
@@ -10538,7 +10546,8 @@
           "f3": "Acceso a API (beta)",
           "f4": "Integración dedicada",
           "f5": "Validez de 12 meses"
-        }
+        },
+        "name": "Mejor valor"
       }
     }
   }

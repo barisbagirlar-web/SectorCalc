@@ -7,6 +7,7 @@ import { usePaddle } from '@/lib/paddle-provider'
 import { PricingCard } from '@/components/pricing/PricingCard'
 import { EmailCaptureModal } from '@/components/pricing/EmailCaptureModal'
 import { Container } from "@/components/ui/Container"
+import { Link } from "@/i18n/routing"
 
 function TrustRow() {
   const t = useTranslations('pricing_v2.trust')
@@ -138,6 +139,11 @@ export function PricingPageContent() {
       }).catch(() => {})
     }
     if (pendingPlan) {
+      if (!pendingPlan.paddlePriceId) {
+        console.error("[SectorCalc] Critical Error: Paddle Price ID is undefined for plan:", pendingPlan.id);
+        setLoadingPlanId(null);
+        return;
+      }
       setLoadingPlanId(pendingPlan.id)
       openCheckout({
         items: [{ priceId: pendingPlan.paddlePriceId, quantity: 1 }],
@@ -146,7 +152,6 @@ export function PricingPageContent() {
         settings: {
           displayMode: 'overlay',
           theme: 'light',
-          successUrl: `${window.location.origin}/account/credits?payment=success&credits=${pendingPlan.credits}`,
         },
       })
       setTimeout(() => setLoadingPlanId(null), 1500)
@@ -181,13 +186,12 @@ export function PricingPageContent() {
         <Testimonial />
         <UseCaseGrid />
         <FAQ />
-        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <footer className="text-center text-[11px] text-body-charcoal leading-7 border-t border-technical-gray pt-8 mt-4">
           {t('footer.companyInfo')}<br/>
           <a href="mailto:info@sectorcalc.com" className="hover:text-sc-navy">info@sectorcalc.com</a>
-          {' · '}<a href="/terms" className="hover:text-sc-navy">{t('footer.terms')}</a>
-          {' · '}<a href="/privacy" className="hover:text-sc-navy">{t('footer.privacy')}</a>
-          {' · '}<a href="/refund-policy" className="hover:text-sc-navy">{t('footer.refund')}</a>
+          {' · '}<Link href="/terms" className="hover:text-sc-navy">{t('footer.terms')}</Link>
+          {' · '}<Link href="/privacy" className="hover:text-sc-navy">{t('footer.privacy')}</Link>
+          {' · '}<Link href="/refund-policy" className="hover:text-sc-navy">{t('footer.refund')}</Link>
         </footer>
       </Container>
     </div>

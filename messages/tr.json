@@ -10550,7 +10550,11 @@
       "credits": "kredi",
       "perCalculation": "hesaplama başı",
       "saveVsSingle": "Tekliye göre %{pct} tasarruf",
-      "opening": "Açılıyor…"
+      "opening": "Açılıyor…",
+      "calculationCredits": "{count} pro hesaplama",
+      "currency": "USD",
+      "perCredit": "kredi başı {currency}{price}",
+      "loading": "Yükleniyor..."
     },
     "plans": {
       "starter": {
@@ -10560,7 +10564,8 @@
           "f1": "1 pro hesaplama",
           "f2": "PDF raporu dahil",
           "f3": "Hesap gerekmez"
-        }
+        },
+        "name": "Deneyin"
       },
       "essentials": {
         "badgeText": "%50 Tasarruf",
@@ -10569,7 +10574,8 @@
           "f1": "5 pro hesaplama",
           "f2": "Tümünde PDF dışa aktarma",
           "f3": "12 ay geçerlilik"
-        }
+        },
+        "name": "Temel"
       },
       "popular": {
         "badgeText": "En popüler",
@@ -10579,7 +10585,8 @@
           "f2": "Paylaşılabilir PDF raporları",
           "f3": "Öncelikli destek",
           "f4": "12 ay geçerlilik"
-        }
+        },
+        "name": "En popüler"
       },
       "department": {
         "badgeText": "Ekipler",
@@ -10589,7 +10596,8 @@
           "f2": "Ekip PDF paylaşımı",
           "f3": "Kullanım panosu",
           "f4": "12 ay geçerlilik"
-        }
+        },
+        "name": "Departman"
       },
       "enterprise": {
         "badgeText": "En iyi değer",
@@ -10600,7 +10608,8 @@
           "f3": "API erişimi (beta)",
           "f4": "Özel katılım",
           "f5": "12 ay geçerlilik"
-        }
+        },
+        "name": "En iyi değer"
       }
     }
   }

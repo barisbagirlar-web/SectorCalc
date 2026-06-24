@@ -53,23 +53,56 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
   }, [])
 
   function initPaddle() {
-    const Paddle = (window as any).Paddle as PaddleInstance
-    if (!Paddle) return
-    const env = process.env.NEXT_PUBLIC_PADDLE_ENV as 'sandbox' | 'production'
-    if (env === 'sandbox') Paddle.Environment.set('sandbox')
-    Paddle.Setup({
-      token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN ?? '',
-      eventCallback: (e: PaddleEvent) => {
-        if (e.name === 'checkout.completed') console.log('[Paddle] checkout completed', e.data)
-      },
-    })
-    paddleRef.current = Paddle
-    setReady(true)
+    try {
+      const Paddle = (window as any).Paddle as PaddleInstance
+      if (!Paddle) return
+      
+      const env = (process.env.NEXT_PUBLIC_PADDLE_ENV || 'sandbox') as 'sandbox' | 'production'
+      if (env === 'sandbox' && typeof Paddle.Environment?.set === 'function') {
+        Paddle.Environment.set('sandbox')
+      }
+      
+      Paddle.Setup({
+        token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'test_6380be7c84b551e3fcd08d55d7e',
+        eventCallback: (e: PaddleEvent) => {
+          if (e.name === 'checkout.completed') console.log('[Paddle] checkout completed', e.data)
+          // Here you can handle other robust events like checkout.closed to reset loading states
+        },
+      })
+      
+      paddleRef.current = Paddle
+      setReady(true)
+    } catch (error) {
+      console.error('[PaddleProvider] Initialization failed:', error)
+      // Fail gracefully, ready stays false
+    }
   }
 
   function openCheckout(opts: PaddleCheckoutOptions) {
-    if (!paddleRef.current) return
-    paddleRef.current.Checkout.open(opts)
+    try {
+      if (!paddleRef.current) {
+        console.warn('[PaddleProvider] Checkout called before Paddle was ready.')
+        return
+      }
+      
+      // CRITICAL SAFETY CHECK: Paddle API throws 500 if successUrl is passed in overlay mode
+      if (opts.settings?.displayMode === 'overlay' && opts.settings?.successUrl) {
+        console.warn("[PaddleProvider] 'successUrl' is invalid in 'overlay' mode. Automatically stripping it to prevent crash.")
+        delete opts.settings.successUrl
+      }
+      
+      // Ensure all customData values are strict strings to prevent internal 400 errors
+      if (opts.customData) {
+        Object.keys(opts.customData).forEach(key => {
+          opts.customData![key] = String(opts.customData![key])
+        })
+      }
+
+      paddleRef.current.Checkout.open(opts)
+    } catch (error) {
+      console.error('[PaddleProvider] Failed to open checkout:', error)
+      alert("Ödeme sistemi şu an açılamıyor. Lütfen sayfayı yenileyip tekrar deneyin.")
+    }
   }
 
   return (

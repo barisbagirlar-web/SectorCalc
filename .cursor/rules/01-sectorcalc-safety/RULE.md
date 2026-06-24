@@ -18,6 +18,8 @@ auth flows, payment, checkout, Stripe webhooks
 admin panel (src/app/admin/**, src/components/admin/**)
 private routes: /account, /checkout, /login, /admin, /api/*
 lead system, Firestore client subscription writes
+paddle integration locks: src/lib/paddle-provider.tsx, src/lib/plans.ts, src/components/pricing/CreditWall.tsx
+-> PADDLE RULE: DO NOT modify paddle-provider or re-introduce successUrl in overlay mode. DO NOT remove hardcoded Price IDs from plans.ts.
 ```
 
 ## İçerik ve route güvenliği

@@ -132,25 +132,27 @@ export function LandingPageContent() {
       {/* PAIN */}
       <section className="sc-section-dark">
         <div className="sc-inner">
-          <div className="sc-ticker">
-            <div className="sc-dot-red"></div>
-            <div style={{ fontSize: "13px", color: "rgba(240,238,230,.8)" }}>
-              {t("pain.ticker").split(t("pain.tickerHighlight")).map((part, i, arr) => (
-                <span key={i}>
-                  {part}
-                  {i < arr.length - 1 && <strong style={{ color: "#F0EEE6" }}>{t("pain.tickerHighlight")}</strong>}
-                </span>
-              ))}
+          {/* Centered header block */}
+          <div className="sc-pain-header">
+            <div className="sc-ticker">
+              <div className="sc-dot-red"></div>
+              <div style={{ fontSize: "13px", color: "rgba(240,238,230,.8)" }}>
+                {t("pain.ticker").split(t("pain.tickerHighlight")).map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {i < arr.length - 1 && <strong style={{ color: "#F0EEE6" }}>{t("pain.tickerHighlight")}</strong>}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-          <div style={{ marginBottom: "48px" }}>
             <span className="sc-label">{t("pain.label")}</span>
-            <h2 className="sc-h2 sc-h2-dark">
+            <h2 className="sc-h2 sc-h2-dark" style={{ marginBottom: 0 }}>
               {t("pain.h2Line1")}
               <br />
               {t("pain.h2Line2")}
             </h2>
           </div>
+          {/* Symmetrical 2×2 card grid */}
           <div className="sc-pain-grid">
             {(t.raw("pain.cards") as Array<any>).map((card, i) => (
               <div key={i} className="sc-dark-card">

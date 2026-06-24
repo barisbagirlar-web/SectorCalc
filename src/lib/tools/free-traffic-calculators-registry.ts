@@ -1305,7 +1305,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Taksit = ((interestRate==0) ? ( loanAmount/Math.max(1,term)) : ( loanAmount * ((interestRate/1200) / (1 - (1 + interestRate/1200)**(-term)))));
@@ -1333,7 +1333,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Fark = PMT(loanAmount1, interestRate1, term) - PMT(loanAmount2, interestRate2, term);
@@ -1359,7 +1359,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const monthlySavings = normalizeNumber(values.monthlySavings);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const cost = loanAmount * pointsRate/100;
@@ -1386,7 +1386,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const closingCost = normalizeNumber(values.closingCost);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Basabas = closingCost / Math.max(1, (oldPayment - newPayment));
@@ -1413,7 +1413,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fees = normalizeNumber(values.fees);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const NakitCikis = newLoan - remainingDebt - fees;
@@ -1441,7 +1441,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const MaxTaksit = (monthlyIncome*maxDti/100) - monthlyDebt;
@@ -1467,7 +1467,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const propertyValue = normalizeNumber(values.propertyValue);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CapRate = (annualNetIncome / Math.max(1, propertyValue)) * 100;
@@ -1492,7 +1492,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const totalCashInvestment = normalizeNumber(values.totalCashInvestment);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CoC = (annualCashFlow / Math.max(1, totalCashInvestment)) * 100;
@@ -1520,7 +1520,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const rent = normalizeNumber(values.rent);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const ZorunluSermaye = purchase + rehab - loanAmount;
@@ -1548,7 +1548,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const loanAmount = normalizeNumber(values.loanAmount);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const NetNakit = (grossRent * (1 - vacancy/100)) - operating - loanAmount;
@@ -1573,7 +1573,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const commissionRate = normalizeNumber(values.commissionRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const commission = salesPrice * commissionRate / 100;
@@ -1599,7 +1599,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fixedFees = normalizeNumber(values.fixedFees);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const total = (loanAmount * rate/100) + fixedFees;
@@ -1625,7 +1625,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const maxRate = normalizeNumber(values.maxRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Limit = (homeValue * maxRate/100) - remainingDebt;
@@ -1650,7 +1650,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const pmiRate = normalizeNumber(values.pmiRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const AylikPMI = (loanAmount * pmiRate/100) / 12;
@@ -1676,7 +1676,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualPremium = normalizeNumber(values.annualPremium);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const downPayment = loanAmount * upfrontPremium/100;
@@ -1702,7 +1702,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fundingFee = normalizeNumber(values.fundingFee);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const FinanseEdilen = loanAmount * (1 + fundingFee/100);
@@ -1729,7 +1729,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fees = normalizeNumber(values.fees);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Taksit = PMT(amount-fees, interestRate, term);
@@ -1757,7 +1757,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const loanAmount = price - downPayment;
@@ -1785,7 +1785,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const loanAmount = price - downPayment;
@@ -1813,7 +1813,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const loanAmount = price - downPayment;
@@ -1841,7 +1841,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const loanAmount = price - downPayment;
@@ -1869,7 +1869,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const gracePeriod = normalizeNumber(values.gracePeriod);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Taksit = PMT(amount, interestRate, term - gracePeriod);
@@ -1896,7 +1896,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tasarruf = (PMT(oldBalance, oldInterest, term) - PMT(oldBalance, newInterest, term)) * term;
@@ -1922,7 +1922,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const days = normalizeNumber(values.days);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const interestRate = balance * (annualInterest/36500) * days;
@@ -1948,7 +1948,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Asgari = Math.max(balance * minimumRate/100, interestRate + 10);
@@ -1974,7 +1974,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fixed = normalizeNumber(values.fixed);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const commission = (sale * percent/100) + fixed;
@@ -2001,7 +2001,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const extraPayment = normalizeNumber(values.extraPayment);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const YeniVade = -Math.log(Math.max(0.0001, 1 - (principal*(interestRate/1200))/(payment+extraPayment))) / Math.log(1+interestRate/1200);
@@ -2028,7 +2028,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const term = normalizeNumber(values.term);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const ToplamBorc = SUM(debts);
@@ -2054,7 +2054,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const grossIncome = normalizeNumber(values.grossIncome);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DTI = (monthlyDebt / Math.max(1, grossIncome)) * 100;
@@ -2079,7 +2079,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualDebtService = normalizeNumber(values.annualDebtService);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DSCR = noi / Math.max(1, annualDebtService);
@@ -2105,7 +2105,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const maxPaymentRatio = normalizeNumber(values.maxPaymentRatio);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const MaxTaksit = Math.min((netIncome - livingExpense), netIncome * maxPaymentRatio/100);
@@ -2132,7 +2132,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const exchangeTrend = normalizeNumber(values.exchangeTrend);
 
     const exchangeRate = values.exchangeRate !== undefined ? normalizeNumber(values.exchangeRate) : 1;
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const TL_Taksit = PMT(amount, interestRate, term) * exchangeRate * (1 + exchangeTrend/100)**(term/12);
@@ -2157,7 +2157,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const multiplier = normalizeNumber(values.multiplier);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const value = ebitda * multiplier;
@@ -2182,7 +2182,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const equityPercent = normalizeNumber(values.equityPercent);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DegerlemeSonrasi = investment / Math.max(0.0001, equityPercent/100);
@@ -2209,7 +2209,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const contribution = normalizeNumber(values.contribution);
 
     const shares = values.shares !== undefined ? normalizeNumber(values.shares) : 1;
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const AlimFiyati = marketPrice * (1 - İskonto/100);
@@ -2236,7 +2236,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const tax = normalizeNumber(values.tax);
 
     const shares = values.shares !== undefined ? normalizeNumber(values.shares) : 1;
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const NetHisse = (sharesCount * vesting/100) * (1 - tax/100);
@@ -2263,7 +2263,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DonusumFiyati = valuation * (1 - İskonto/100);
@@ -2290,7 +2290,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const totalShares = normalizeNumber(values.totalShares);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DonusumFiyati = capValue / Math.max(1, totalShares);
@@ -2316,7 +2316,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const newShares = normalizeNumber(values.newShares);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Sulanma = newShares / Math.max(1, (currentShares + newShares)) * 100;
@@ -2342,7 +2342,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const options = normalizeNumber(values.options);
 
     const shares = values.shares !== undefined ? normalizeNumber(values.shares) : 1;
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const total = founders+investors+options;
@@ -2369,7 +2369,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const newCustomers = normalizeNumber(values.newCustomers);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CAC = (marketing + salesExpense) / Math.max(1, newCustomers);
@@ -2396,7 +2396,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const margin = normalizeNumber(values.margin);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CLV = avgOrder * frequency * usefulLife * (margin/100);
@@ -2421,7 +2421,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const CAC = normalizeNumber(values.cac);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const rate = CLV / Math.max(0.0001, CAC);
@@ -2446,7 +2446,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const campaignCost = normalizeNumber(values.campaignCost);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const ROI = ((campaignRevenue - campaignCost) / Math.max(0.0001, campaignCost)) * 100;
@@ -2471,7 +2471,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const conversion = normalizeNumber(values.conversion);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const rate = (conversion / Math.max(1, visitors)) * 100;
@@ -2496,7 +2496,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const impressions = normalizeNumber(values.impressions);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CTR = (clicks / Math.max(1, impressions)) * 100;
@@ -2521,7 +2521,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const clicks = normalizeNumber(values.clicks);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CPC = totalSpend / Math.max(1, clicks);
@@ -2546,7 +2546,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const impressions = normalizeNumber(values.impressions);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CPM = (adCost / Math.max(1, impressions)) * 1000;
@@ -2571,7 +2571,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const lostCustomers = normalizeNumber(values.lostCustomers);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Churn = (lostCustomers / Math.max(1, startCustomers)) * 100;
@@ -2597,7 +2597,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Ay = normalizeNumber(values.ay);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const BurnRate = (startCash - endCash) / Math.max(1, Ay);
@@ -2623,7 +2623,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const currentLiabilities = normalizeNumber(values.currentLiabilities);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CalismaSermayesi = currentAssets - currentLiabilities;
@@ -2648,7 +2648,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const avgReceivables = normalizeNumber(values.avgReceivables);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DevirHizi = annualSales / Math.max(0.0001, avgReceivables);
@@ -2674,7 +2674,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const avgPayables = normalizeNumber(values.avgPayables);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DevirHizi = annualCogs / Math.max(0.0001, avgPayables);
@@ -2700,7 +2700,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const avgInventory = normalizeNumber(values.avgInventory);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DevirHizi = annualCogs / Math.max(0.0001, avgInventory);
@@ -2727,7 +2727,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const daysPayables = normalizeNumber(values.daysPayables);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CCC = daysInventory + daysReceivables - daysPayables;
@@ -2752,7 +2752,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DegiskenMaliyet = normalizeNumber(values.degiskenmaliyet);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const contribution = sellingPrice - DegiskenMaliyet;
@@ -2780,7 +2780,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const tax = normalizeNumber(values.tax);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Brut = revenue - cogs;
@@ -2806,7 +2806,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const revenue = normalizeNumber(values.revenue);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const margin = (ebitda / Math.max(0.0001, revenue)) * 100;
@@ -2832,7 +2832,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const billableHours = normalizeNumber(values.billableHours);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Ucret = (targetRevenue + annualExpense) / Math.max(1, billableHours);
@@ -2859,7 +2859,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const workingHours = normalizeNumber(values.workingHours);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const BrutHedef = (targetNet + Gider) / Math.max(0.0001, (1 - tax/100));
@@ -2887,7 +2887,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const commission = normalizeNumber(values.commission);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Net = sale - productCost - fbaFee - (sale*commission/100);
@@ -2915,7 +2915,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fixed = normalizeNumber(values.fixed);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Net = sale - product - shipping - (sale*platform/100) - fixed;
@@ -2942,7 +2942,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const payment = normalizeNumber(values.payment);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kesinti = listing + (sale * transaction/100) + (sale * payment/100);
@@ -2968,7 +2968,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fixed = normalizeNumber(values.fixed);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kesinti = (sale*category/100) + fixed;
@@ -2995,7 +2995,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ads = normalizeNumber(values.ads);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Net = sale - supply - shipping - ads;
@@ -3022,7 +3022,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const operations = normalizeNumber(values.operations);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Net = revenue - cogs - marketing - operations;
@@ -3049,7 +3049,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const unitPrice = normalizeNumber(values.unitPrice);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Desi = volume * 167;
@@ -3077,7 +3077,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const divisor = normalizeNumber(values.divisor);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Desi = (width * length * height) / Math.max(1, divisor);
@@ -3102,7 +3102,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const dutyRate = normalizeNumber(values.dutyRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const tax = cifValue * (dutyRate/100);
@@ -3127,7 +3127,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const additionalTax = normalizeNumber(values.additionalTax);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const EkVergiTL = productValue * (additionalTax/100);
@@ -3153,7 +3153,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const countryVat = normalizeNumber(values.countryVat);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const KDV = (netPrice + shipping) * (countryVat/100);
@@ -3179,7 +3179,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const fixed = normalizeNumber(values.fixed);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kesinti = (sale*percent/100) + fixed;
@@ -3206,7 +3206,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const holdingCost = normalizeNumber(values.holdingCost);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const EOQ = Math.sqrt(Math.max(0, (2 * annualDemand * orderingCost)/Math.max(0.0001, holdingCost)));
@@ -3233,7 +3233,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const zScore = normalizeNumber(values.zScore);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const SS = zScore * stdDev * Math.sqrt(Math.max(0, leadTime));
@@ -3259,7 +3259,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const avgInventory = normalizeNumber(values.avgInventory);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Devir = annualCogs / Math.max(0.0001, avgInventory);
@@ -3284,7 +3284,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BirimMaliyet = normalizeNumber(values.birimmaliyet);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const YillikDeger = annualDemand * BirimMaliyet;
@@ -3311,7 +3311,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Istifleme = normalizeNumber(values.istifleme);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const MaksKutu = Math.floor((KonteynerHacim * (Istifleme/100)) / Math.max(0.0001, KutuHacim));
@@ -3337,7 +3337,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const PaletAlani = normalizeNumber(values.paletalani);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kapasite = Math.floor((ToplamAlan * (RafKullanimi/100)) / Math.max(0.0001, PaletAlani));
@@ -3363,7 +3363,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const unitPrice = normalizeNumber(values.unitPrice);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const cost = distance * Tonaj * unitPrice;
@@ -3389,7 +3389,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const LitreFiyati = normalizeNumber(values.litrefiyati);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const cost = (distance / 100) * Tuketim * LitreFiyati;
@@ -3415,7 +3415,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KoltukMaliyeti = normalizeNumber(values.koltukmaliyeti);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const total = distance * KoltukMaliyeti;
@@ -3444,7 +3444,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const duration = normalizeNumber(values.duration);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Ucret = Acilis + (distance * KmFiyati) + (duration * DakikaFiyati);
@@ -3470,7 +3470,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const quality = normalizeNumber(values.quality);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const OEE = (availability/100) * (performance/100) * (quality/100) * 100;
@@ -3496,7 +3496,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const conversion = normalizeNumber(values.conversion);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const HedefIc = internalSetup * (1 - conversion/100);
@@ -3523,7 +3523,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const unitsProduced = normalizeNumber(values.unitsProduced);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Faktor = Math.log(Math.max(0.0001, learningRate/100)) / Math.log(2);
@@ -3550,7 +3550,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const allowanceTime = normalizeNumber(values.allowanceTime);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Normal = observedTime * (performance/100);
@@ -3577,7 +3577,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const IstasyonSayisi = normalizeNumber(values.istasyonsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Verimlilik = (totalWork / Math.max(0.0001, (IstasyonSayisi * taktTime))) * 100;
@@ -3601,7 +3601,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const stationTimes = normalizeNumber(values.stationTimes);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Darbogaz = Math.max(stationTimes);
@@ -3628,7 +3628,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BirimMaliyet = normalizeNumber(values.birimmaliyet);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const rate = (scrap / Math.max(1, production)) * 100;
@@ -3655,7 +3655,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const elapsedTime = normalizeNumber(values.elapsedTime);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const SapmaHizi = (finalError - prevError) / Math.max(1, elapsedTime);
@@ -3682,7 +3682,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const capacity = normalizeNumber(values.capacity);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const BirimAmortisman = (cost - salvageValue) / Math.max(1, capacity);
@@ -3708,7 +3708,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const totalGeneration = normalizeNumber(values.totalGeneration);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const LCOE = (totalInvestment + totalOperating) / Math.max(1, totalGeneration);
@@ -3734,7 +3734,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const operators = normalizeNumber(values.operators);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Verimlilik = (totalSmv / Math.max(0.0001, (operators * taktTime))) * 100;
@@ -3759,7 +3759,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const gageVariance = normalizeNumber(values.gageVariance);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const ToplamVaryans = partVariance + gageVariance;
@@ -3787,7 +3787,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const savings = normalizeNumber(values.savings);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Ihtiyac = (YillikGelir * 10 * dependents) + debts - savings;
@@ -3813,7 +3813,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const years = normalizeNumber(values.years);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const NakitDeger = annualPremium * (((1 + interestRate/100)**years - 1) / Math.max(0.0001, (interestRate/100)));
@@ -3839,7 +3839,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GiderMarji = normalizeNumber(values.gidermarji);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const NetPrim = Teminat * (OlumOlasiligi/100);
@@ -3865,7 +3865,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const OdemeYuzdesi = normalizeNumber(values.odemeyuzdesi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const AylikOdeme = monthlyIncome * (OdemeYuzdesi/100);
@@ -3890,7 +3890,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const marginalTax = normalizeNumber(values.marginalTax);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const VergiAvantaji = annualContribution * (marginalTax/100);
@@ -3916,7 +3916,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const extraRate = normalizeNumber(values.extraRate);
 
     const threshold = values.threshold !== undefined ? normalizeNumber(values.threshold) : 103000;
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Prim = BazPrim + Math.max(0, (YillikGelir - threshold) * extraRate/100);
@@ -3942,7 +3942,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const deductibleDifference = normalizeNumber(values.deductibleDifference);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tasarruf = (higherPremium - lowerPremium) * 12 - deductibleDifference;
@@ -3969,7 +3969,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const years = normalizeNumber(values.years);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const GelecekDeger = (currentSavings * (1+interestRate/1200)**(years * 12)) + (monthlyContribution * (((1+interestRate/1200)**(years * 12)-1)/Math.max(0.0001, (interestRate/1200))));
@@ -3996,7 +3996,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Ay = Math.log(Math.max(0.0001, (HedefPortfoy*(interestRate/1200)+monthlyContribution)/(currentSavings*(interestRate/1200)+monthlyContribution))) / Math.log(Math.max(0.0001, 1+(interestRate/1200)));
@@ -4024,7 +4024,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const years = normalizeNumber(values.years);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const annualContribution = salary * ((contributionRate + employerMatch)/100);
@@ -4052,7 +4052,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const years = normalizeNumber(values.years);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const GelenekselNet = (contribution * (1+growthRate/100)**years) * (1-taxRate/100);
@@ -4079,7 +4079,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const taxRate = normalizeNumber(values.taxRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const tax = conversionAmount * (taxRate/100);
@@ -4105,7 +4105,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const lifeExpectancy = normalizeNumber(values.lifeExpectancy);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const RMD = balance / Math.max(1, lifeExpectancy);
@@ -4130,7 +4130,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const retirementAge = normalizeNumber(values.retirementAge);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const TemelBenefit = SOSYAL_GUVENLIK_FORMULU(aime);
@@ -4157,7 +4157,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const confidenceLevel = normalizeNumber(values.confidenceLevel);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const zScore = NORMSINV(confidenceLevel);
@@ -4185,7 +4185,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const marginOfError = normalizeNumber(values.marginOfError);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const n = (zScore * stdDev / Math.max(0.0001, marginOfError))**2;
@@ -4210,7 +4210,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const length = normalizeNumber(values.length);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const BMI = weight / Math.max(0.0001, (length**2));
@@ -4237,7 +4237,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const gender = normalizeNumber(values.gender);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Yag = 495 / Math.max(0.0001, (1.0324 - 0.19077 * Math.log10(Math.max(1, waist-neck)) + 0.15456 * Math.log10(Math.max(1, length)))) - 450;
@@ -4264,7 +4264,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const gender = normalizeNumber(values.gender);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const BMR = Mifflin_St_Jeor_Formulu(weight, length, Yas, gender);
@@ -4289,7 +4289,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const activityLevel = normalizeNumber(values.activityLevel);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const TDEE = BMR * activityLevel;
@@ -4315,7 +4315,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const density = normalizeNumber(values.density);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const MaxNabiz = 220 - Yas;
@@ -4341,7 +4341,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const duration = normalizeNumber(values.duration);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const VO2Max = (runDistance - 504.9) / 44.73;
@@ -4368,7 +4368,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Karb = normalizeNumber(values.karb);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Protein_g = (TDEE * Protein/100)/4;
@@ -4395,7 +4395,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const activityDuration = normalizeNumber(values.activityDuration);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Su = (weight * 0.033) + (activityDuration / 30 * 0.35);
@@ -4420,7 +4420,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const strain = normalizeNumber(values.strain);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Gerilme = elasticModulus * strain;
@@ -4447,7 +4447,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const e2 = normalizeNumber(values.e2);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const pressure = interference / Math.max(0.0001, (diameter * (1/Math.max(0.0001,e1) + 1/Math.max(0.0001,e2))));
@@ -4473,7 +4473,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const thickness = normalizeNumber(values.thickness);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const CevreGerilme = (pressure * diameter) / Math.max(0.0001, (2 * thickness));
@@ -4499,7 +4499,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const weldStress = normalizeNumber(values.weldStress);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const BogazKalinlik = load / Math.max(0.0001, (weldLength * weldStress));
@@ -4526,7 +4526,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const momentOfInertia = normalizeNumber(values.momentOfInertia);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Sehim = (5 * load * length**4) / Math.max(0.0001, (384 * elasticModulus * momentOfInertia));
@@ -4553,7 +4553,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const materialThickness = normalizeNumber(values.materialThickness);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const EnerjiYogunlugu = laserPower / Math.max(0.0001, (cuttingSpeed * materialThickness));
@@ -4580,7 +4580,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const height = normalizeNumber(values.height);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const moment = (load * span) / 8;
@@ -4607,7 +4607,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const tauXY = normalizeNumber(values.tauXY);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Merkez = (sigmaX + sigmaY) / 2;
@@ -4633,7 +4633,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const height = normalizeNumber(values.height);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const I = (width * height**3) / 12;
@@ -4660,7 +4660,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const strikePrice = normalizeNumber(values.strikePrice);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Basinc2 = pressure1 * (1 + (2*strikePrice/(strikePrice+1)) * (mach**2 - 1));
@@ -4688,7 +4688,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const loss = normalizeNumber(values.loss);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const NPSH = (pressure - vaporPressure) / Math.max(0.0001, (density * 9.81)) + height - loss;
@@ -4714,7 +4714,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const temperatureDifference = normalizeNumber(values.temperatureDifference);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const TermalGerilme = elasticModulus * expansionCoefficient * temperatureDifference;
@@ -4741,7 +4741,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const friction = normalizeNumber(values.friction);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const F1_F2 = Math.exp(friction * wrapAngle);
@@ -4767,7 +4767,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const springConstant = normalizeNumber(values.springConstant);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const frequency = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, mass * springConstant))));
@@ -4793,7 +4793,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const yieldStrength = normalizeNumber(values.yieldStrength);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const diameter = ((16 / (Math.PI * yieldStrength)) * Math.sqrt(Math.max(0, moment**2 + 0.75*torque**2)))**(1/3);
@@ -4819,7 +4819,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const polarInertia = normalizeNumber(values.polarInertia);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tau = (torque * radius) / Math.max(0.0001, polarInertia);
@@ -4844,7 +4844,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const displacement = normalizeNumber(values.displacement);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kuvvet = springConstant * displacement;
@@ -4869,7 +4869,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const springConstant = normalizeNumber(values.springConstant);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Omega = Math.sqrt(Math.max(0, springConstant / Math.max(0.0001, mass)));
@@ -4896,7 +4896,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const FormFaktoru = normalizeNumber(values.formfaktoru);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Gerilme = load / Math.max(0.0001, (Modul * width * FormFaktoru));
@@ -4921,7 +4921,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const depth = normalizeNumber(values.depth);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const pressure = density * 9.81 * depth;
@@ -4946,7 +4946,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KesitModulu = normalizeNumber(values.kesitmodulu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Gerilme = moment / Math.max(0.0001, KesitModulu);
@@ -4971,7 +4971,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SonBoy = normalizeNumber(values.sonboy);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Strain = (SonBoy - IlkBoy) / Math.max(0.0001, IlkBoy);
@@ -4996,7 +4996,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Alan = normalizeNumber(values.alan);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Sigma = Kuvvet / Math.max(0.0001, Alan);
@@ -5021,7 +5021,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const MilCap = normalizeNumber(values.milcap);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const vacancy = DelikCap - MilCap;
@@ -5051,7 +5051,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Ng = normalizeNumber(values.ng);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const q = (Kohezyon*Nc) + (density*9.81*depth*Nq) + (0.5*density*9.81*TemelGenislik*Ng);
@@ -5076,7 +5076,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kaynak = normalizeNumber(values.kaynak);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Nm = ((Kaynak=== ("lbft" as any)) ? ( value*1.3558) : ( ((Kaynak=== ("kgfm" as any)) ? ( value*9.8066) : ( value))));
@@ -5103,7 +5103,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const polarInertia = normalizeNumber(values.polarInertia);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Aci = (torque * length) / Math.max(0.0001, (KaymaModulu * polarInertia));
@@ -5128,7 +5128,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const springConstant = normalizeNumber(values.springConstant);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Aci = moment / Math.max(0.0001, springConstant);
@@ -5154,7 +5154,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const tauXY = normalizeNumber(values.tauXY);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const VonMises = Math.sqrt(Math.max(0, sigmaX**2 - sigmaX*sigmaY + sigmaY**2 + 3*tauXY**2));
@@ -5181,7 +5181,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Verim = normalizeNumber(values.verim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Isı = (Akim * Gerilim * Verim) / Math.max(0.0001, IlerlemeHiz);
@@ -5207,7 +5207,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const height = normalizeNumber(values.height);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tau = (1.5 * KesmeKuvveti) / Math.max(0.0001, (width * height));
@@ -5232,7 +5232,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SuratmaAcisi = normalizeNumber(values.suratmaacisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Verim = Math.tan(HelisAcisi) / Math.max(0.0001, Math.tan(HelisAcisi + SuratmaAcisi));
@@ -5257,7 +5257,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DuvarAlani = normalizeNumber(values.duvaralani);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const pressure = load / Math.max(0.0001, DuvarAlani);
@@ -5282,7 +5282,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const UcYariCap = normalizeNumber(values.ucyaricap);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Ra = (Ilerleme**2) / Math.max(0.0001, (32 * UcYariCap));
@@ -5309,7 +5309,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const momentOfInertia = normalizeNumber(values.momentOfInertia);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Sehim = (load * span**3) / Math.max(0.0001, (48 * elasticModulus * momentOfInertia));
@@ -5334,7 +5334,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const EgilmeDayanimi = normalizeNumber(values.egilmedayanimi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const moment = KesitModulu * EgilmeDayanimi;
@@ -5359,7 +5359,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const span = normalizeNumber(values.span);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const moment = (CatıYuk * span**2) / 8;
@@ -5385,7 +5385,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const length = normalizeNumber(values.length);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const volatility = ((distance < length/2) ? ( load/2) : ( -load/2));
@@ -5410,7 +5410,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const volume = normalizeNumber(values.volume);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kaldirma = density * 9.81 * volume;
@@ -5439,7 +5439,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const density = normalizeNumber(values.density);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const P2 = P1 + 0.5*density*(v1**2 - v2**2) + density*9.81*(h1 - h2);
@@ -5463,7 +5463,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HB = normalizeNumber(values.hb);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const HRC = (HB - 100) / 10;
@@ -5490,7 +5490,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const density = normalizeNumber(values.density);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const h = (2 * YuzeyGerilimi * Math.cos(TemasAcisi)) / Math.max(0.0001, (density * 9.81 * radius));
@@ -5517,7 +5517,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const temperatureDifference = normalizeNumber(values.temperatureDifference);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Akı = (strikePrice * Alan * temperatureDifference) / Math.max(0.0001, thickness);
@@ -5542,7 +5542,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const volume = normalizeNumber(values.volume);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const density = Enerji / Math.max(0.0001, volume);
@@ -5568,7 +5568,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Cs = normalizeNumber(values.cs);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Fs = (C0 - Cl) / Math.max(0.0001, (Cs - Cl));
@@ -5593,7 +5593,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const EsikEnerji = normalizeNumber(values.esikenerji);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const KE = Math.max(0, (6.626e-34 * frequency) - EsikEnerji);
@@ -5618,7 +5618,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ToplamHacim = normalizeNumber(values.toplamhacim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Porozite = (BoslukHacim / Math.max(0.0001, ToplamHacim)) * 100;
@@ -5645,7 +5645,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Viskozite = normalizeNumber(values.viskozite);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Hiz = (2 * radius**2 * (ParcacikYogunluk - AkiskanYogunluk) * 9.81) / Math.max(0.0001, (9 * Viskozite));
@@ -5672,7 +5672,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Alan = normalizeNumber(values.alan);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Hiz = Math.sqrt(Math.max(0, (2 * mass * 9.81) / Math.max(0.0001, (density * DirencKatsayisi * Alan))));
@@ -5697,7 +5697,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const frequency = normalizeNumber(values.frequency);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DalgaBoyu = Hiz / Math.max(0.0001, frequency);
@@ -5722,7 +5722,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kaynak = normalizeNumber(values.kaynak);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const kgm3 = ((Kaynak=== ("gcm3" as any)) ? ( value*1000) : ( ((Kaynak=== ("lbft3" as any)) ? ( value*16.018) : ( value))));
@@ -5747,7 +5747,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const length = normalizeNumber(values.length);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Sigma = Kuvvet / Math.max(0.0001, length);
@@ -5772,7 +5772,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kaynak = normalizeNumber(values.kaynak);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const WmK = ((Kaynak=== ("kcalmhC" as any)) ? ( value*1.163) : ( value));
@@ -5797,7 +5797,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Sarfiyat = normalizeNumber(values.sarfiyat);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const mass = Alan * Sarfiyat;
@@ -5824,7 +5824,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Fire = normalizeNumber(values.fire);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Adet = Math.ceil((Alan / Math.max(0.0001, (TahtaEn * TahtaBoy))) * (1 + Fire/100));
@@ -5851,7 +5851,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Fire = normalizeNumber(values.fire);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Levha = Math.ceil((Alan * (1 + Fire/100)) / Math.max(0.0001, (LevhaEn * LevhaBoy)));
@@ -5876,7 +5876,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Sarfiyat = normalizeNumber(values.sarfiyat);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const mass = Alan * Sarfiyat;
@@ -5903,7 +5903,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Fire = normalizeNumber(values.fire);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Adet = Math.ceil((Alan * (1 + Fire/100)) / Math.max(0.0001, (PanelEn * PanelBoy)));
@@ -5928,7 +5928,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const width = normalizeNumber(values.width);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Alan = Cevre * width;
@@ -5954,7 +5954,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const OrtimeOrani = normalizeNumber(values.ortimeorani);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Litre = (Alan * KatSayisi) / Math.max(0.0001, OrtimeOrani);
@@ -5979,7 +5979,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Sarfiyat = normalizeNumber(values.sarfiyat);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Litre = Alan / Math.max(0.0001, Sarfiyat);
@@ -6005,7 +6005,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const density = normalizeNumber(values.density);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const mass = Alan * (thickness/100) * density;
@@ -6031,7 +6031,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KapiSayisi = normalizeNumber(values.kapisayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const length = OdaCevresi - (KapiGenisligi * KapiSayisi);
@@ -6055,7 +6055,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DuvarUzunlugu = normalizeNumber(values.duvaruzunlugu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const length = DuvarUzunlugu;
@@ -6082,7 +6082,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DesenTekrari = normalizeNumber(values.desentekrari);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Rulo = Math.ceil(Alan / Math.max(0.0001, (RuloEn * RuloBoy * (1 - DesenTekrari/Math.max(0.0001,RuloBoy)))));
@@ -6107,7 +6107,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const FayansEn = normalizeNumber(values.fayansen);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const KesimOrani = ((AlanEn) % (FayansEn)) / Math.max(0.0001, FayansEn);
@@ -6133,7 +6133,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Fire = normalizeNumber(values.fire);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Metraj = (Alan / Math.max(0.0001, RuloEn)) * (1 + Fire/100);
@@ -6159,7 +6159,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BindirmePayi = normalizeNumber(values.bindirmepayi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Metraj = Alan / Math.max(0.0001, (TahtaEn - BindirmePayi));
@@ -6186,7 +6186,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Fire = normalizeNumber(values.fire);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Adet = Math.ceil((Alan / Math.max(0.0001, (TasEn * TasBoy))) * (1 + Fire/100));
@@ -6212,7 +6212,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const density = normalizeNumber(values.density);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tonaj = Alan * (thickness/100) * density;
@@ -6238,7 +6238,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Verim = normalizeNumber(values.verim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const volume = (CatiAlani * (YillikYagis/1000)) * (Verim/100);
@@ -6264,7 +6264,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Verim = normalizeNumber(values.verim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const power = (Debi * height * 9.81) / Math.max(0.0001, (3600 * (Verim/100)));
@@ -6289,7 +6289,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KuruluGuc = normalizeNumber(values.kuruluguc);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Faktor = (MaksTalep / Math.max(0.0001, KuruluGuc)) * 100;
@@ -6315,7 +6315,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Malzeme = normalizeNumber(values.malzeme);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const total = (Enerji*0.4) + (Su*0.3) + (Malzeme*0.3);
@@ -6341,7 +6341,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const supply = normalizeNumber(values.supply);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Scope1 = Yakit * 2.31;
@@ -6369,7 +6369,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Yonetisim = normalizeNumber(values.yonetisim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const ESG = (Cevre * 0.4) + (Sosyal * 0.3) + (Yonetisim * 0.3);
@@ -6394,7 +6394,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ToplamGirdi = normalizeNumber(values.toplamgirdi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const rate = (GeriKazanilan / Math.max(0.0001, ToplamGirdi)) * 100;
@@ -6419,7 +6419,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const TuketilenSu = normalizeNumber(values.tuketilensu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const AyakIzi = TuketilenSu / Math.max(0.0001, UretimHacmi);
@@ -6445,7 +6445,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const depth = normalizeNumber(values.depth);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Alan = (AtikHacmi * (1 - Sikistirma/100)) / Math.max(0.0001, depth);
@@ -6470,7 +6470,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ToplamAtik = normalizeNumber(values.toplamatik);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const rate = (GeriDonusen / Math.max(0.0001, ToplamAtik)) * 100;
@@ -6496,7 +6496,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const AkisKatsayisi = normalizeNumber(values.akiskatsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const volume = HavzaAlani * 1000000 * (Yagis/1000) * AkisKatsayisi;
@@ -6522,7 +6522,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SebekeFiyat = normalizeNumber(values.sebekefiyat);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tasarruf = GriSuHacmi * (SebekeFiyat - AritmaMaliyet) * 365;
@@ -6549,7 +6549,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const mass = normalizeNumber(values.mass);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const strikePrice = Math.sqrt(Math.max(0, 2 * mass * (EngelYuksekligi - Enerji))) / 1.054e-34;
@@ -6576,7 +6576,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KuantumSayisi = normalizeNumber(values.kuantumsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Enerji = (KuantumSayisi**2 * Math.PI**2 * (1.054e-34)**2) / Math.max(0.0001, (2 * mass * KuyuGenisligi**2));
@@ -6600,7 +6600,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SacilmaAcisi = normalizeNumber(values.sacilmaacisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kayma = 2.426e-12 * (1 - Math.cos(SacilmaAcisi * Math.PI / 180));
@@ -6624,7 +6624,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GunesKutlesi = normalizeNumber(values.guneskutlesi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Limit = 1.44;
@@ -6649,7 +6649,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const PikGuc = normalizeNumber(values.pikguc);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Faktor = (OrtalamaGuc / Math.max(0.0001, PikGuc)) * 100;
@@ -6675,7 +6675,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const EkKayip = normalizeNumber(values.ekkayip);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const ToplamKayip = (length * BirimKayip) + EkKayip;
@@ -6700,7 +6700,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Tip = normalizeNumber(values.tip);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const DalgaBoyu = 300 / Math.max(0.0001, frequency);
@@ -6727,7 +6727,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const YukKonum = normalizeNumber(values.yukkonum);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const R_A = load * Math.max(0, (length - YukKonum)) / Math.max(0.0001, length);
@@ -6755,7 +6755,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Cimlenme = normalizeNumber(values.cimlenme);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const KgDa = (10000 / Math.max(0.0001, (SiraAraligi * UzeriMesafe))) * (BinTaneAgirlik / 1000) / Math.max(0.0001, (Cimlenme / 100));
@@ -6781,7 +6781,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const MaxHiz = normalizeNumber(values.maxhiz);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const ToplamDebi = (DamaticiDebi * DamaticiSayisi) / 3600000;
@@ -6810,7 +6810,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const NemFarki = normalizeNumber(values.nemfarki);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const BuharlasanSu = UrunKutlesi * ((BaslangicNem - HedefNem) / 100);
@@ -6836,7 +6836,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SikistirmaYogunlugu = normalizeNumber(values.sikistirmayogunlugu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const ToplamYem = SiloHacim * SikistirmaYogunlugu;
@@ -6862,7 +6862,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HavaDegisimSayisi = normalizeNumber(values.havadegisimsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Debi = (Alan * height * HavaDegisimSayisi) / 3600;
@@ -6890,7 +6890,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BlokKatsayi = normalizeNumber(values.blokkatsayi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Draft = displacement / Math.max(0.0001, (SuYogunlugu * length * width * BlokKatsayi));
@@ -6916,7 +6916,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KG = normalizeNumber(values.kg);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const GM = KB + BM - KG;
@@ -6942,7 +6942,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GuvenlikFaktoru = normalizeNumber(values.guvenlikfaktoru);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const KopmaYuku = (Math.PI * (HalatCapi/2)**2 * MalzemeKatsayisi) / 1000;
@@ -6969,7 +6969,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DipKatsayisi = normalizeNumber(values.dipkatsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const length = (SuDerinligi * (3 + (RuzgarHizi / 10))) * DipKatsayisi;
@@ -6994,7 +6994,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const PompaDebi = normalizeNumber(values.pompadebi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const duration = TankHacim / Math.max(0.0001, PompaDebi);
@@ -7019,7 +7019,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const depth = normalizeNumber(values.depth);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const pressure = (CamurYogunlugu * 9.81 * depth) / 1000000;
@@ -7045,7 +7045,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KesiciKatsayi = normalizeNumber(values.kesicikatsayi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const torque = (Math.PI * (MatkapCapi**3) * KayaDayanim * KesiciKatsayi) / 12;
@@ -7071,7 +7071,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const MatkapCapi = normalizeNumber(values.matkapcapi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Hiz = (4 * CamurDebi) / Math.max(0.0001, (Math.PI * (KuyuCapi**2 - MatkapCapi**2)));
@@ -7098,7 +7098,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const friction = normalizeNumber(values.friction);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const UcDayanimi = (Math.PI*(diameter/2)**2) * (9 * Kohezyon);
@@ -7127,7 +7127,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KaymaGerilmesi = normalizeNumber(values.kaymagerilmesi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Dayanim = Kohezyon + (NormalGerilme * Math.tan(IcSuratmaAcisi * Math.PI / 180));
@@ -7153,7 +7153,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Gramaj = normalizeNumber(values.gramaj);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const MetreAgirlik = (width * Gramaj) / 1000;
@@ -7179,7 +7179,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DikisSikligi = normalizeNumber(values.dikissikligi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const duration = (DikisUzunluk * DikisSikligi) / Math.max(0.0001, (DevirSayisi / 60));
@@ -7204,7 +7204,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const IplikNumara = normalizeNumber(values.ipliknumara);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const length = (BobinAgirlik / 1000) * IplikNumara * 1000;
@@ -7229,7 +7229,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BitmisOlcu = normalizeNumber(values.bitmisolcu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Cekme = ((HamOlcu - BitmisOlcu) / Math.max(0.0001, HamOlcu)) * 100;
@@ -7256,7 +7256,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KumasSikligi = normalizeNumber(values.kumassikligi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const VerimliSure = VardiyaSure - DurusSure;
@@ -7284,7 +7284,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const IcSicaklik = normalizeNumber(values.icsicaklik);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const load = Alan * U_Katsayi * (DisSicaklik - IcSicaklik);
@@ -7310,7 +7310,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const PompaVerim = normalizeNumber(values.pompaverim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const power = (Debi * BasincDusumu) / Math.max(0.0001, (PompaVerim / 100));
@@ -7335,7 +7335,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Debi = normalizeNumber(values.debi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Zaman = volume / Math.max(0.0001, Debi);
@@ -7362,7 +7362,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HedefBasinc = normalizeNumber(values.hedefbasinc);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const duration = (PosetHacim / Math.max(0.0001, PompaDebi)) * Math.log(Math.max(0.0001, BaslangicBasinc / Math.max(0.0001, HedefBasinc)));
@@ -7388,7 +7388,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const PismeSure = normalizeNumber(values.pismesure);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kapasite = (TavaSayisi * TavaKapasite * 60) / Math.max(0.0001, PismeSure);
@@ -7413,7 +7413,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KalipIcBasinc = normalizeNumber(values.kalipicbasinc);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tonaj = (ProjeksiyonAlani * KalipIcBasinc) / 1000;
@@ -7441,7 +7441,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const FirinSicaklik = normalizeNumber(values.firinsicaklik);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const duration = (EtKalinlik**2 / (Math.PI**2 * Math.max(0.0001, TermalDifuzyon))) * Math.log(Math.max(0.0001, (4/Math.PI) * (ErimeSicaklik - KalipSicaklik) / Math.max(0.0001, (FirinSicaklik - KalipSicaklik))));
@@ -7468,7 +7468,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const NemAlmaKapasite = normalizeNumber(values.nemalmakapasite);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const duration = (MalzemeKutle * (NemOrani / 100)) / Math.max(0.0001, (HavaDebi * NemAlmaKapasite));
@@ -7495,7 +7495,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Verim = normalizeNumber(values.verim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kapasite = (VidaHacim * Devir * EriyikYogunluk * (Verim / 100) * 60) / 1000;
@@ -7521,7 +7521,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const YanYuzeyUzunluk = normalizeNumber(values.yanyuzeyuzunluk);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Aci = Math.atan((ParcaDerinlik * (BuzulmeOrani / 100)) / Math.max(0.0001, YanYuzeyUzunluk)) * (180 / Math.PI);
@@ -7547,7 +7547,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const PompaVerim = normalizeNumber(values.pompaverim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const power = (Debi * pressure * 100) / Math.max(0.0001, (600 * (PompaVerim / 100) * 746));
@@ -7573,7 +7573,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KatAlani = normalizeNumber(values.katalani);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const load = (YaniciKutle * IsilDeger) / Math.max(0.0001, KatAlani);
@@ -7598,7 +7598,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const pressure = normalizeNumber(values.pressure);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Debi = K_Faktoru * Math.sqrt(Math.max(0, pressure));
@@ -7623,7 +7623,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const RefVoltaj = normalizeNumber(values.refvoltaj);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const LSB = RefVoltaj / Math.max(0.0001, (2**BitSayisi));
@@ -7649,7 +7649,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const distance = normalizeNumber(values.distance);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const B = (4 * Math.PI * 10**-7 * Akim) / Math.max(0.0001, (2 * Math.PI * distance));
@@ -7676,7 +7676,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Aci = normalizeNumber(values.aci);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const dB = (4 * Math.PI * 10**-7 * Akim * length * Math.sin(Aci * Math.PI / 180)) / Math.max(0.0001, (4 * Math.PI * distance**2));
@@ -7701,7 +7701,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kapasite = normalizeNumber(values.kapasite);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Xc = 1 / Math.max(0.0001, (2 * Math.PI * frequency * Kapasite));
@@ -7726,7 +7726,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Induktans = normalizeNumber(values.induktans);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Xl = 2 * Math.PI * frequency * Induktans;
@@ -7751,7 +7751,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const C = normalizeNumber(values.c);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tau = interestRate * C;
@@ -7777,7 +7777,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const f0 = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, L * C))));
@@ -7803,7 +7803,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HatEmpedans = normalizeNumber(values.hatempedans);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Yansima = (YukEmpedans - HatEmpedans) / Math.max(0.0001, (YukEmpedans + HatEmpedans));
@@ -7829,7 +7829,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GurultuGuc = normalizeNumber(values.gurultuguc);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const SNR = 10 * Math.log10(Math.max(0.0001, SinyalGuc / Math.max(0.0001, GurultuGuc)));
@@ -7856,7 +7856,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HavaDirenci = normalizeNumber(values.havadirenci);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Ivme = ((torque * CekisKatsayisi) - HavaDirenci) / Math.max(0.0001, mass);
@@ -7884,7 +7884,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const MerkezC = normalizeNumber(values.merkezc);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const rate = Z2 / Math.max(1, Z1);
@@ -7911,7 +7911,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Verim = normalizeNumber(values.verim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const duration = BataryaKapasite / Math.max(0.0001, (SarjGuc * (Verim / 100)));
@@ -7937,7 +7937,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Verim = normalizeNumber(values.verim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Menzil = (BataryaEnerji * 1000 * (Verim / 100)) / Math.max(0.0001, Tuketim);
@@ -7962,7 +7962,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kaynak = normalizeNumber(values.kaynak);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const kW = ((Kaynak=== ("HP" as any)) ? ( value*0.7457) : ( ((Kaynak=== ("PS" as any)) ? ( value*0.7355) : ( value))));
@@ -7989,7 +7989,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Devir = normalizeNumber(values.devir);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const IHP = (pressure * Strok * Alan * Devir) / 60000;
@@ -8014,7 +8014,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Devir = normalizeNumber(values.devir);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const torque = (power * 9550) / Math.max(0.0001, Devir);
@@ -8039,7 +8039,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GirisGuc = normalizeNumber(values.girisguc);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Verim = (CikisGuc / Math.max(0.0001, GirisGuc)) * 100;
@@ -8066,7 +8066,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const HavaDirencKatsayi = normalizeNumber(values.havadirenckatsayi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Hiz = (((power) / Math.max(0.0001, HavaDirencKatsayi))**(1/3));
@@ -8092,7 +8092,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const RuzgarHiz = normalizeNumber(values.ruzgarhiz);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const EtkiliHiz = KalkisHiz - RuzgarHiz;
@@ -8118,7 +8118,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Hiz = normalizeNumber(values.hiz);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Lambda = 6.626e-34 / Math.max(0.0001, (mass * Hiz));
@@ -8143,7 +8143,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Tip = normalizeNumber(values.tip);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const dB = ((Tip=== ("power" as any)) ? ( 10*Math.log10(Math.max(0.0001, rate))) : ( 20*Math.log10(Math.max(0.0001, rate))));
@@ -8167,7 +8167,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const OdakUzaklik = normalizeNumber(values.odakuzaklik);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Diyoptri = 1 / Math.max(0.0001, OdakUzaklik);
@@ -8194,7 +8194,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ElektronSayisi = normalizeNumber(values.elektronsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const mass = (Akim * duration * EsdegerAgirlik) / Math.max(0.0001, (96485 * ElektronSayisi));
@@ -8220,7 +8220,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const length = normalizeNumber(values.length);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const B = (4 * Math.PI * 10**-7 * SarimSayisi * Akim) / Math.max(0.0001, length);
@@ -8248,7 +8248,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const frequency = normalizeNumber(values.frequency);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const w = 2*Math.PI*frequency;
@@ -8274,7 +8274,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BantGenislik = normalizeNumber(values.bantgenislik);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Q = RezonansFrekans / Math.max(0.0001, BantGenislik);
@@ -8298,7 +8298,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BitSayisi = normalizeNumber(values.bitsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const SQNR = 6.02 * BitSayisi + 1.76;
@@ -8323,7 +8323,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kaynak = normalizeNumber(values.kaynak);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const time = ((Kaynak=== ("G" as any)) ? ( value*10**-4) : ( ((Kaynak=== ("Wb" as any)) ? ( value) : ( value))));
@@ -8350,7 +8350,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DesarjDerinligi = normalizeNumber(values.desarjderinligi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const duration = (AkuKapasite * DCVoltaj * (DesarjDerinligi/100)) / Math.max(0.0001, YukGucu);
@@ -8376,7 +8376,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const TurbinVerim = normalizeNumber(values.turbinverim);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const power = 1000 * 9.81 * Debi * DusuYuksekligi * (TurbinVerim/100);
@@ -8403,7 +8403,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Cp = normalizeNumber(values.cp);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Alan = Math.PI * (KanatCapi/2)**2;
@@ -8429,7 +8429,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SogukKaynak = normalizeNumber(values.sogukkaynak);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Verim = 1 - (SogukKaynak / Math.max(0.0001, SicakKaynak));
@@ -8456,7 +8456,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Sicaklik = normalizeNumber(values.sicaklik);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const interestRate = 8.314;
@@ -8482,7 +8482,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const AgacYillikYutak = normalizeNumber(values.agacyillikyutak);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const AgacSayisi = (Emisyon * 1000) / Math.max(0.0001, AgacYillikYutak);
@@ -8508,7 +8508,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const AgHizi = normalizeNumber(values.aghizi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const HedefBoyut = VeriBoyutu / Math.max(0.0001, SikistirmaOrani);
@@ -8533,7 +8533,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const RSA_AnahtarUzunlugu = normalizeNumber(values.rsa_anahtaruzunlugu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const SimetrikEsdeger = RSA_AnahtarUzunlugu / 10;
@@ -8559,7 +8559,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ToplamGecikme = normalizeNumber(values.toplamgecikme);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const OrtalamaGecikme = ToplamGecikme / Math.max(1, ToplamIstek);
@@ -8585,7 +8585,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DozAraligi = normalizeNumber(values.dozaraligi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const strikePrice = 0.693 / Math.max(0.0001, YarilanmaOmru);
@@ -8612,7 +8612,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const RadyasyonTuruFaktoru = normalizeNumber(values.radyasyonturufaktoru);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const EtkinDoz = SogurulanDoz * DokuAgirlikFaktoru * RadyasyonTuruFaktoru;
@@ -8636,7 +8636,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const MaksSinyalFrekansi = normalizeNumber(values.makssinyalfrekansi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const MinOrneklemeHizi = 2 * MaksSinyalFrekansi;
@@ -8662,7 +8662,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Tenor = normalizeNumber(values.tenor);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Tonaj = BlokHacim * CevherYogunlugu;
@@ -8688,7 +8688,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const CamurYogunlugu = normalizeNumber(values.camuryogunlugu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const HidrostatikBasinc = (CamurYogunlugu * 9.81 * DikeyDerinlik) / 1000000;
@@ -8714,7 +8714,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ZeminKatsayisi = normalizeNumber(values.zeminkatsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const PGA = ZeminKatsayisi * Math.exp(0.5 * MomentMagnitudu - 2.0 * Math.log(Math.max(1, distance + 10)));
@@ -8739,7 +8739,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const AcisalIvme = normalizeNumber(values.acisalivme);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const torque = EylemsizlikMomenti * AcisalIvme;
@@ -8767,7 +8767,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const gender = normalizeNumber(values.gender);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Y = ((gender=== ("Kadin" as any)) ? ( 1.67) : ( 1.92));
@@ -8793,7 +8793,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const SolKuvvet = normalizeNumber(values.solkuvvet);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Asimetri = (Math.abs(SagKuvvet - SolKuvvet) / Math.max(0.0001, Math.max(SagKuvvet, SolKuvvet))) * 100;
@@ -8820,7 +8820,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const distance = normalizeNumber(values.distance);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const GolgeAcisi = Math.atan(EngelYukseklik / Math.max(0.0001, distance));
@@ -8848,7 +8848,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DoygunAkis = normalizeNumber(values.doygunakis);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Gecikme = (DonguSuresi * (1 - YesilSure/Math.max(1,DonguSuresi))**2) / Math.max(0.0001, (2 * (1 - (AkisHizi/Math.max(0.0001, DoygunAkis)))));
@@ -8875,7 +8875,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const EngelZayiflama = normalizeNumber(values.engelzayiflama);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Lp = SesGucu - 20 * Math.log10(Math.max(1, distance)) - 11 - ZeminZayiflama - EngelZayiflama;
@@ -8902,7 +8902,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const Kol2Uzunluk = normalizeNumber(values.kol2uzunluk);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Aci2 = Math.acos(Math.max(-1, Math.min(1, (HedefX**2 + HedefY**2 - Kol1Uzunluk**2 - Kol2Uzunluk**2) / Math.max(0.0001, (2 * Kol1Uzunluk * Kol2Uzunluk)))));
@@ -8928,7 +8928,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KritikPeriyot = normalizeNumber(values.kritikperiyot);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const Kp = 0.6 * Ku;
@@ -8957,7 +8957,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const covariance = normalizeNumber(values.covariance);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const YeniDurum = (DurumGecis * OncekiDurum) + (KontrolGirdisi * Girdi);
@@ -8982,7 +8982,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const AtifSayisi = normalizeNumber(values.atifsayisi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const h = AtifSayisi * 0.1;
@@ -9010,7 +9010,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const GrupBoyutu = normalizeNumber(values.grupboyutu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const p = DogruCevap / Math.max(1, ToplamOgrenci);
@@ -9038,7 +9038,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const ToplamOrneklem = normalizeNumber(values.toplamorneklem);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const weight = (TabakaPopulasyon / Math.max(1, ToplamPopulasyon)) / Math.max(0.0001, (TabakaOrneklem / Math.max(1, ToplamOrneklem)));
@@ -9064,7 +9064,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KarMarji = normalizeNumber(values.karmarji);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const BrutPrim = BeklenenHasar / Math.max(0.0001, (1 - (GiderYuklemesi/100) - (KarMarji/100)));
@@ -9091,7 +9091,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const BilesimSikligi = normalizeNumber(values.bilesimsikligi);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const amount = principal * (1 + (annualInterest/100) * (BilesimSikligi/365))**(GecikmeGun/Math.max(1, BilesimSikligi));
@@ -9116,7 +9116,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const KesintiDurumu = normalizeNumber(values.kesintidurumu);
 
 
-    // eslint-disable-next-line prefer-const
+     
     let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
     try {
     const KalanGun = ((KesintiDurumu===1) ? ( 0) : ( YasalSure * 365));

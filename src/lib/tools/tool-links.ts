@@ -12,19 +12,15 @@ export function getPremiumToolHref(tool: RevenueTool): string {
 }
 
 export function getPremiumSchemaToolHref(schemaSlug: string): string {
-  return `/tools/premium-schema/${schemaSlug}`;
+  return `/pro-tools/${schemaSlug}`;
 }
 
 export function resolvePremiumToolHref(paidSlug: string): string {
-  if (isPremiumFullLoopRuntimeSlug(paidSlug)) {
-    return `/tools/premium/${paidSlug}`;
-  }
-
   const mapped = PREMIUM_SCHEMA_SLUG_MAP[paidSlug];
   if (mapped) {
     return getPremiumSchemaToolHref(mapped);
   }
-  return `/tools/premium/${paidSlug}`;
+  return `/pro-tools/${paidSlug}`;
 }
 
 export function getPricingHref(tool?: RevenueTool, planId?: string): string {
@@ -52,7 +48,7 @@ export function getFreeToolsHref(): string {
 }
 
 export function getPremiumToolsHref(): string {
- return "/premium-tools";
+ return "/pro-tools";
 }
 
 /** @deprecated Use getPremiumToolsHref */
