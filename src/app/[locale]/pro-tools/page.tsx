@@ -326,7 +326,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const c = COPY[locale as keyof typeof COPY] ?? COPY.en;
 
   return (
-    <PageLayout>
+    <PageLayout className="bg-[#F0EEE6]">
       <JsonLd data={jsonLd} />
 
       {/* Breadcrumb */}
@@ -350,7 +350,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
       </nav>
 
       {/* Claude Design Hero Block */}
-      <section className="border-b border-slate-200 bg-white pt-10 pb-20">
+      <section className="border-b border-[#1A1915]/10 bg-[#F0EEE6] pt-10 pb-20">
         <Container className="max-w-5xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#C45A2C]/20 bg-[#C45A2C]/5 px-3 py-1 mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-[#C45A2C] animate-pulse"></span>
@@ -392,31 +392,32 @@ export default async function PremiumToolsPage({ params }: PageProps) {
       </section>
 
       {/* Catalog Search & Grid section */}
-      <section className="bg-slate-50 py-16 border-b border-slate-200" id="tools-list">
+      <section className="bg-[#F0EEE6] py-16 border-b border-[#1A1915]/10" id="tools-list">
         <Container size="wide" className="min-w-0">
           <div className="mb-12 max-w-4xl mx-auto text-center flex flex-col items-center">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">{c.intentLabel}</h2>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left w-full">
               {c.intents.map((intent) => (
                 <a
                   key={intent.cat}
                   href="#catalog-grid-results"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:border-[#C45A2C] hover:text-[#C45A2C] transition-colors shadow-sm"
+                  className="flex items-center gap-3 rounded-xl border border-[#1A1915]/10 bg-white px-4 py-3 text-sm font-medium text-slate-600 hover:border-[#C45A2C] hover:text-[#C45A2C] transition-colors shadow-sm"
                 >
+                  <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-[#C45A2C]/40" aria-hidden="true" />
                   {intent.label}
                 </a>
               ))}
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div className="bg-[#FAF9F5] rounded-2xl shadow-sm border border-[#1A1915]/10 overflow-hidden">
             <PremiumCatalogSearch tools={searchableTools} categories={searchableCategories} />
           </div>
         </Container>
       </section>
 
       {/* Ultra Premium SEO Content */}
-      <div className="bg-white">
+      <div className="bg-[#F0EEE6]">
         <Container className="max-w-5xl py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
             <div>
