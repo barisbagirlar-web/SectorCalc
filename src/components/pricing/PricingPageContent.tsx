@@ -165,7 +165,7 @@ export function PricingPageContent() {
       <Container className="sc-pro-container pb-10">
         <header className="text-center mb-12 flex flex-col items-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">{t('badgePlatform')}</p>
-          <h1 className="text-center mx-auto max-w-4xl font-extrabold text-4xl sm:text-5xl leading-[1.15] mb-6 text-slate-900">
+          <h1 className="text-center mx-auto max-w-3xl font-bold text-3xl sm:text-4xl leading-snug mb-5 text-slate-900 tracking-tight">
             <span dangerouslySetInnerHTML={{ __html: t('titleBr').replace('<br/>', '<br class="hidden sm:block"/>') }} />
           </h1>
           <p className="text-center text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
