@@ -299,7 +299,7 @@ function buildPremium152Items(): CategorizedToolItem[] {
     (tool) => !schemaSet.has(tool.slug)
   );
 
-  const targetSeedCount = 111;
+  const targetSeedCount = 110;
   const activeSeedTools = nonOverlappingSeedTools.slice(0, targetSeedCount);
   const remainingSeedTools = nonOverlappingSeedTools.slice(targetSeedCount);
 

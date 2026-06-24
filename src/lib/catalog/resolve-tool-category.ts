@@ -33,7 +33,7 @@ export const MANUAL_CATEGORY_OVERRIDES: Readonly<Record<string, GlobalToolCatego
   "rent-vs-buy-calculator": "finance-sales-working-capital",
   "quote-price-profit-margin-calculator": "finance-sales-working-capital",
   "value-stream-map-vsm-calculator": "lean-production",
-  "7-israf-muda-avcisi-parasal-karsilik-calculator": "lean-production",
+  "seven-wastes-muda-monetary-impact-calculator": "lean-production",
   "quality-cost-paf-calculator": "quality-six-sigma",
   "cbam-unit-product-carbon-footprint-calculator": "sustainability-resource-esg",
   "carbon-footprint-compliance-risk": "sustainability-resource-esg",
@@ -162,6 +162,11 @@ export function resolveToolCategory(input: ToolCategoryResolutionInput): GlobalT
     return input.seedCategorySlug as GlobalToolCategorySlug;
   }
 
+  const keywordMatch = resolveByKeywords(input);
+  if (keywordMatch) {
+    return keywordMatch;
+  }
+
   if (input.industrySlug && INDUSTRY_SLUG_TO_GLOBAL[input.industrySlug]) {
     return INDUSTRY_SLUG_TO_GLOBAL[input.industrySlug]!;
   }
@@ -176,11 +181,6 @@ export function resolveToolCategory(input: ToolCategoryResolutionInput): GlobalT
 
   if (input.premiumSchemaCategory && PREMIUM_SCHEMA_CATEGORY_TO_GLOBAL[input.premiumSchemaCategory]) {
     return PREMIUM_SCHEMA_CATEGORY_TO_GLOBAL[input.premiumSchemaCategory];
-  }
-
-  const keywordMatch = resolveByKeywords(input);
-  if (keywordMatch) {
-    return keywordMatch;
   }
 
   if (input.seedCategorySlug && !FORBIDDEN_CATEGORY_SLUGS.has(input.seedCategorySlug)) {
