@@ -15,7 +15,7 @@ interface IndustryPageParams {
 }
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<{ slug: IndustrySlug }[]> {
   return []; // HACK: bypass huge SSG build for fast Firebase deploy

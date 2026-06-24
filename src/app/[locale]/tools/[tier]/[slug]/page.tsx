@@ -19,7 +19,7 @@ interface ToolPageRouteParams extends ToolPageParams {
 }
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<ToolPageParams[]> {
   return []; // HACK: bypass huge SSG build for fast Firebase deploy

@@ -45,7 +45,7 @@ function buildFreeToolFeaturedAnswer(description: string): string {
 }
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<FreeToolPageParams[]> {
   return []; // HACK: bypass huge SSG build for fast Firebase deploy
@@ -61,7 +61,8 @@ export async function generateMetadata({
   const { slug, locale } = await params;
   const appLocale = locale as AppLocale;
   if (isFreeToolMigratedToPremium(slug)) {
-    redirect({ href: `/tools/premium/${slug}`, locale: appLocale });
+    const { redirect: nextRedirect } = require("next/navigation");
+    nextRedirect(`/${appLocale}/pro-tools/${slug}`);
   }
   const revenueTool = getRevenueToolByFreeSlug(slug);
   if (revenueTool) {
@@ -122,7 +123,8 @@ export default async function FreeRevenueToolRoute({
   setRequestLocale(locale);
 
   if (isFreeToolMigratedToPremium(slug)) {
-    redirect({ href: `/tools/premium/${slug}`, locale: locale as AppLocale });
+    const { redirect: nextRedirect } = require("next/navigation");
+    nextRedirect(`/${locale}/pro-tools/${slug}`);
   }
 
   const revenueTool = getRevenueToolByFreeSlug(slug);

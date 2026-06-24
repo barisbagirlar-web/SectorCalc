@@ -30,7 +30,7 @@ import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = 3600;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
