@@ -394,13 +394,13 @@ export default async function PremiumToolsPage({ params }: PageProps) {
       {/* Catalog Search & Grid section */}
       <section className="bg-slate-50 py-16 border-b border-slate-200" id="tools-list">
         <Container size="wide" className="min-w-0">
-          <div className="mb-12 max-w-3xl">
-            <h2 className="font-serif text-3xl font-bold text-slate-900 mb-4">{c.intentLabel}</h2>
-            <div className="flex flex-wrap gap-2">
+          <div className="mb-12 max-w-4xl mx-auto text-center flex flex-col items-center">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">{c.intentLabel}</h2>
+            <div className="flex flex-wrap justify-center gap-3">
               {c.intents.map((intent) => (
                 <a
                   key={intent.cat}
-                  href="#tools-list"
+                  href="#catalog-grid-results"
                   className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:border-[#C45A2C] hover:text-[#C45A2C] transition-colors shadow-sm"
                 >
                   {intent.label}

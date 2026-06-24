@@ -52,7 +52,7 @@ function useDebouncedValue<T>(value: T, delayMs: number): T {
 
 function scrollToToolsList() {
   requestAnimationFrame(() => {
-    document.getElementById("tools-list")?.scrollIntoView({
+    document.getElementById("catalog-grid-results")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
@@ -228,7 +228,7 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
         {t("resultCount", { count: visibleTools.length })}
       </p>
 
-      <section id="tools-list" className="min-w-0">
+      <section id="catalog-grid-results" className="min-w-0 pt-4">
         {visibleTools.length === 0 ? (
           <div className="py-10 text-center" role="status">
             <p className="text-sm text-body-charcoal">{t("noResults")}</p>

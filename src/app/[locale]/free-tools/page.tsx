@@ -389,7 +389,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
           {c.intents.map((intent) => (
             <a
               key={intent.cat}
-              href="#tools-list"
+              href="#catalog-grid-results"
               className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm text-slate-500 hover:border-orange-200 hover:bg-orange-50/60 hover:text-[#C45A2C] transition-colors leading-snug"
             >
               <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-orange-200" aria-hidden="true" />

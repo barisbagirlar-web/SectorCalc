@@ -49,7 +49,7 @@ const CATEGORY_ALL = DISCOVERY_TAB_ALL;
 
 function scrollToToolsList() {
   setTimeout(() => {
-    const el = document.getElementById("tools-list");
+    const el = document.getElementById("catalog-grid-results");
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 120;
       window.scrollTo({ top: y, behavior: "smooth" });
