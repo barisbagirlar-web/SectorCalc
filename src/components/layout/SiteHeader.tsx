@@ -358,7 +358,7 @@ export function SiteHeader({ isAuthenticated = false }) {
                     </div>
                     <div className="sc-mega-foot">
                       <Link href={href(locale,'industries')}>{t.view_all_industries} →</Link>
-                      <span className="promo">18 sectors · 300+ {t.tools}</span>
+                      <span className="promo">18 sectors · 552 {t.tools}</span>
                     </div>
                   </div>
                 )}

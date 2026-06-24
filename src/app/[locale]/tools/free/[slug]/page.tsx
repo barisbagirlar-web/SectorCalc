@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect as nextRedirect } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/routing";
 import { FreeToolPage } from "@/components/tools/FreeToolPage";
@@ -61,7 +61,6 @@ export async function generateMetadata({
   const { slug, locale } = await params;
   const appLocale = locale as AppLocale;
   if (isFreeToolMigratedToPremium(slug)) {
-    const { redirect: nextRedirect } = require("next/navigation");
     nextRedirect(`/${appLocale}/pro-tools/${slug}`);
   }
   const revenueTool = getRevenueToolByFreeSlug(slug);
@@ -123,7 +122,6 @@ export default async function FreeRevenueToolRoute({
   setRequestLocale(locale);
 
   if (isFreeToolMigratedToPremium(slug)) {
-    const { redirect: nextRedirect } = require("next/navigation");
     nextRedirect(`/${locale}/pro-tools/${slug}`);
   }
 

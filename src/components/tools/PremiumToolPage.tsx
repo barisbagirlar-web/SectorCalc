@@ -2,8 +2,12 @@
 
 import dynamic from "next/dynamic";
 import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { useLocale } from "next-intl";
-import { usePathname } from "@/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
+import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
+import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
+import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
+import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { PremiumSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
 import { PremiumAccessBanner } from "@/components/premium/PremiumAccessBanner";
@@ -232,8 +236,32 @@ interface PremiumToolPageProps {
 }
 
 export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
- const locale = useLocale();
- const pathname = usePathname();
+  const locale = useLocale();
+  const tAuthority = useTranslations("contentAuthority.premium");
+  const tPage = useTranslations("premiumSchemaPage");
+  const categorySlug = useMemo(() => resolveToolCategory({ slug: tool.paidSlug }), [tool.paidSlug]);
+  const categoryDetail = useMemo(() => getPremiumCatalogCategoryDetail(categorySlug, locale), [categorySlug, locale]);
+  const categoryTitle = categoryDetail?.title ?? "Category";
+
+  const featuredQuestion = locale === "tr" ? `${tool.paidTitle} neyi analiz eder?` : `What does ${tool.paidTitle} analyze?`;
+  const featuredAnswer = tool.paidValue;
+
+  const authoritySchema = useMemo(() => ({
+    id: tool.paidSlug,
+    name: tool.paidTitle,
+    sectorSlug: tool.sector,
+    category: categorySlug,
+    painStatement: tool.paidValue,
+    assumptions: {
+      assumptionNotes: [
+        locale === "tr" ? "Girdilerinizi gerçek operasyonel veriler, faturalar ve sözleşmelerle doğrulayın." : "Verify your inputs against real operational data, invoices, and contracts.",
+        locale === "tr" ? "SectorCalc Pro çıktıları gösterge niteliğindedir; profesyonel mali ve mühendislik denetimi yerine geçmez." : "SectorCalc Pro outputs are indicative and do not replace professional financial or engineering audits.",
+        locale === "tr" ? "Maliyet, süre ve verimlilik tahminleri, girilen parametrelerin hassasiyetine bağlıdır." : "Cost, time, and efficiency estimates depend on the precision of your input parameters."
+      ]
+    }
+  }), [tool, categorySlug, locale]);
+
+  const pathname = usePathname();
  const attribution = useAttributionContext();
  const pagePath = stripLocalePrefix(pathname);
  const runtimeSlug = routeSlug ?? tool.paidSlug;
@@ -663,8 +691,30 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  <p className="text-sm text-body-charcoal">Loading access…</p>
  ) : (
  <>
+  <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
+    <Link href="/pro-tools" prefetch={false} className="hover:underline">
+      {locale === "tr" ? "Pro Araçlar" : "Pro Tools"}
+    </Link>
+    <span className="mx-1.5">/</span>
+    <Link href={`/pro-tools/${categorySlug}`} prefetch={false} className="hover:underline">
+      {categoryTitle}
+    </Link>
+    <span className="mx-1.5">/</span>
+    <span className="text-premium-velvet font-medium">{tool.paidTitle}</span>
+  </nav>
  <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
  <OsModuleHeader title={tool.paidTitle} tier="intelligence" slug={runtimeSlug} locale={locale} surface="premium" />
+  <div className="my-5">
+    <FeaturedAnswerBlock
+      question={featuredQuestion}
+      answer={featuredAnswer}
+      bullets={[
+        locale === "tr" ? "Hassas girdi parametreleri ve tolerans kontrolleri" : "Precise input parameters and tolerance checks",
+        locale === "tr" ? "Maliyet, zaman veya kalite kaybı analizi" : "Cost, time or quality loss analysis",
+        locale === "tr" ? "Profesyonel raporlama ve veri entegrasyonu" : "Professional reporting and data integration"
+      ]}
+    />
+  </div>
  {!hasFullPremiumFeatures ? (
   <PremiumAccessBanner mode={accessMode} paidSlug={tool.paidSlug} />
  ) : null}
@@ -852,6 +902,45 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   resultSnapshot={feedbackResultSnapshot}
  />
  </Container>
+ </section>
+ <section className="border-t border-technical-gray/20 bg-white pb-10">
+   <Container className="max-w-4xl">
+     <PremiumAnalyzerAuthorityBlock
+       schema={authoritySchema as any}
+       locale={locale}
+       displayName={tool.paidTitle}
+       displayPain={tool.paidValue}
+       labels={{
+         whenToUseTitle: tAuthority("whenToUseTitle"),
+         whenToUseBody: tAuthority("whenToUseBody"),
+         measuresTitle: tAuthority("measuresTitle"),
+         promiseTitle: tAuthority("promiseTitle"),
+         promiseBody: tAuthority("promiseBody"),
+         decidesTitle: tAuthority("decidesTitle"),
+         decidesBody: tAuthority("decidesBody"),
+         reportTitle: tAuthority("reportTitle"),
+         reportBullet1: tAuthority("reportBullet1"),
+         reportBullet2: tAuthority("reportBullet2"),
+         reportBullet3: tAuthority("reportBullet3"),
+         reportBullet4: tAuthority("reportBullet4"),
+         previewExcludesTitle: tAuthority("previewExcludesTitle"),
+         previewExcludesBody: tAuthority("previewExcludesBody"),
+         assumptionsTitle: tAuthority("assumptionsTitle"),
+         faqTitle: tAuthority("faqTitle"),
+         faqMeasureTitle: tAuthority("faqMeasureTitle"),
+         faqReportTitle: tAuthority("faqReportTitle"),
+         faqErpTitle: tAuthority("faqErpTitle"),
+         faqMeasureAnswer: tAuthority("faqMeasureAnswer", { name: tool.paidTitle }),
+         faqReportAnswer: tAuthority("faqReportAnswer"),
+         faqErpAnswer: tAuthority("faqErpAnswer"),
+         relatedGuideTitle: tAuthority("relatedGuideTitle"),
+         relatedFreeTitle: tAuthority("relatedFreeTitle"),
+         relatedHubTitle: tAuthority("relatedHubTitle"),
+         relatedIndustryTitle: tAuthority("relatedIndustryTitle"),
+         pricingCta: tAuthority("pricingCta"),
+       }}
+     />
+   </Container>
  </section>
  <section className="border-t border-technical-gray/40 bg-off-white py-6">
  <Container>

@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
+import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
+import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
@@ -84,6 +86,9 @@ export function FreeTrafficToolPage({
   const tAuthority = useTranslations("contentAuthority.freeTool");
   const tPremiumAuthority = useTranslations("contentAuthority.premium");
   const locale = useLocale();
+  const categorySlug = useMemo(() => resolveToolCategory({ slug: tool.slug, freeTrafficCategory: tool.category }), [tool.slug, tool.category]);
+  const categoryDetail = useMemo(() => getPremiumCatalogCategoryDetail(categorySlug, locale), [categorySlug, locale]);
+  const categoryTitle = categoryDetail?.title ?? "Category";
   const pathname = usePathname();
   const attribution = useAttributionContext();
   const pagePath = stripLocalePrefix(pathname);
@@ -303,6 +308,19 @@ export function FreeTrafficToolPage({
     <PageLayout>
       <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide">
+          {surfaceTier === "premium" && (
+            <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
+              <Link href="/pro-tools" prefetch={false} className="hover:underline">
+                {locale === "tr" ? "Pro Araçlar" : "Pro Tools"}
+              </Link>
+              <span className="mx-1.5">/</span>
+              <Link href={`/pro-tools/${categorySlug}`} prefetch={false} className="hover:underline">
+                {categoryTitle}
+              </Link>
+              <span className="mx-1.5">/</span>
+              <span className="text-premium-velvet font-medium">{displayTitle}</span>
+            </nav>
+          )}
           <p className="sc-craft-eyebrow">{t(`categories.${tool.category}`)}</p>
           <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <h1 className="sc-craft-headline">{displayTitle}</h1>

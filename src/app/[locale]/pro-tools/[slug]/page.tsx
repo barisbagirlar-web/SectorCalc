@@ -35,6 +35,16 @@ import {
   getPremiumSchemaBySlug,
 } from "@/lib/premium-schema/schemas/index";
 import { PREMIUM_SCHEMA_SLUG_MAP } from "@/lib/premium-schema/schema-registry";
+import { getPremium152Tools } from "@/lib/premium/premium-152-seed-reader";
+
+function humanizeSlug(slug: string): string {
+  return slug
+    .replace(/-calculator$/i, "")
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
 
 // Premium Revenue / Migrated Tool imports
 import { PremiumToolPage } from "@/components/tools/PremiumToolPage";
@@ -386,6 +396,82 @@ export default async function ProToolsSlugPage({
           <FieldModePanel />
         </div>
       </>
+    );
+  }
+
+  // 6. Active seed premium tool fallback
+  const seedTool = getPremium152Tools().find((t) => t.slug === slug);
+  if (seedTool) {
+    const categoryDetail = getPremiumCatalogCategoryDetail(seedTool.categorySlug as GlobalToolCategorySlug, locale);
+    const categoryTitle = categoryDetail?.title ?? "Category";
+
+    const displayName = locale === "tr" ? seedTool.trTitle : humanizeSlug(seedTool.slug);
+    const displayPain = seedTool.pain;
+
+    return (
+      <PageLayout>
+        <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
+          <Container size="wide" className="sc-craft-container sc-craft-container--wide">
+            <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
+              <Link href="/pro-tools" prefetch={false} className="hover:underline">
+                {locale === "tr" ? "Pro Araçlar" : "Pro Tools"}
+              </Link>
+              <span className="mx-1.5">/</span>
+              <Link href={`/pro-tools/${seedTool.categorySlug}`} prefetch={false} className="hover:underline">
+                {categoryTitle}
+              </Link>
+              <span className="mx-1.5">/</span>
+              <span className="text-premium-velvet font-medium">{displayName}</span>
+            </nav>
+
+            <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+              <h1 className="sc-craft-headline">{displayName}</h1>
+              <span className="inline-flex items-center gap-1 rounded bg-[#E65100]/10 px-2 py-0.5 text-xs font-semibold text-[#E65100]">
+                PRO PREVIEW
+              </span>
+            </div>
+            <p className="sc-craft-lead mt-3">{displayPain}</p>
+          </Container>
+        </section>
+
+        <section className="sc-craft-section overflow-x-hidden bg-off-white py-12">
+          <Container size="wide" className="sc-craft-container sc-craft-container--wide max-w-4xl">
+            <div className="rounded-xl border border-technical-gray/30 bg-white p-6 shadow-sm sm:p-8">
+              <h2 className="text-lg font-bold text-premium-velvet mb-4">
+                {locale === "tr" ? "Hesaplama Modeli ve Formül Altyapısı" : "Calculation Model & Formula Framework"}
+              </h2>
+              <div className="rounded-lg bg-industrial-matte p-4 font-mono text-sm text-body-charcoal mb-6 overflow-x-auto border border-technical-gray/20">
+                <code>{seedTool.formulaNote}</code>
+              </div>
+
+              <div className="border-t border-technical-gray/20 pt-6">
+                <h3 className="text-base font-bold text-premium-velvet mb-2">
+                  {locale === "tr" ? "Pro Karar Analiz Raporu" : "Pro Decision Analysis Report"}
+                </h3>
+                <p className="text-sm text-body-charcoal mb-6 leading-relaxed">
+                  {locale === "tr"
+                    ? "Bu gelişmiş analiz aracı, hassas girdi parametreleri, tolerans limitleri ve endüstri standartlarına (ISO, ASME, IEC) göre çalışır. Pro erişim ile senaryo karşılaştırmaları yapabilir ve karara hazır PDF raporlarını indirebilirsiniz."
+                    : "This advanced analyzer operates using precise inputs, tolerance checks, and references global engineering standards. With Pro access, run sensitivity scenarios and download presentation-ready PDF decision reports."}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/pricing"
+                    className="inline-flex h-11 items-center justify-center rounded-lg bg-slate-900 px-6 font-semibold text-white hover:bg-[#C45A2C] transition-colors"
+                  >
+                    {locale === "tr" ? "Pro Erişimi Etkinleştirin" : "Get Pro Access"}
+                  </Link>
+                  <Link
+                    href="/pro-tools"
+                    className="inline-flex h-11 items-center justify-center rounded-lg border border-technical-gray px-6 font-semibold text-body-charcoal hover:bg-industrial-matte transition-colors"
+                  >
+                    {locale === "tr" ? "Diğer Araçları İnceleyin" : "Browse Other Tools"}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+      </PageLayout>
     );
   }
 

@@ -81,7 +81,7 @@ export function buildPremiumCatalogTools(locale: string): readonly PremiumCatalo
   );
 
   const premiumItems = buildCategorizedToolIndex().filter(
-    (item) => item.tier === "premium" || item.tier === "premium-schema",
+    (item) => (item.tier === "premium" || item.tier === "premium-schema") && item.publicStatus === "active" && item.routePath !== null,
   );
 
   const bySlug = new Map<string, PremiumCatalogToolItem>();

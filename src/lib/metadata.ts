@@ -7,6 +7,7 @@ import { normalizeLocale } from "@/lib/format/localization";
 
 const SITE_ICONS: Metadata["icons"] = {
   icon: [
+    { url: "/img/brand/sectorcalc-favicon.svg", type: "image/svg+xml" },
     { url: BRAND_ASSETS.favicon.size32, sizes: "32x32", type: "image/png" },
     { url: BRAND_ASSETS.favicon.master, sizes: "512x512", type: "image/png" },
   ],

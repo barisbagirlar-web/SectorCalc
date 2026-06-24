@@ -15,7 +15,7 @@ const OPP_MAP: Record<string, string[]> = {
 
 export function LandingPageContent() {
   const t = useTranslations("landingV3");
-  const totalTools = 300; // Simplified for client rendering without suspense or prop drilling
+  const totalTools = 552; // Simplified for client rendering without suspense or prop drilling
 
   // Qualifier State
   const [challenge, setChallenge] = useState<keyof typeof OPP_MAP>("scrap");

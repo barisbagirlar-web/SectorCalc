@@ -3,7 +3,10 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { formatSmartFormFieldError } from "@/lib/i18n/smart-form-validation-i18n";
-import { usePathname } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
+import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
+import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
+import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
 import { stripLocalePrefix } from "@/i18n/locales";
@@ -217,6 +220,27 @@ export function FreeToolPage({
  surfaceTier = "free",
 }: FreeToolPageProps) {
  const locale = useLocale();
+ const tAuthority = useTranslations("contentAuthority.freeTool");
+ const tPremiumAuthority = useTranslations("contentAuthority.premium");
+ const categorySlug = useMemo(() => resolveToolCategory({ slug: tool.freeSlug }), [tool.freeSlug]);
+ const categoryDetail = useMemo(() => getPremiumCatalogCategoryDetail(categorySlug, locale), [categorySlug, locale]);
+ const categoryTitle = categoryDetail?.title ?? "Category";
+
+ const mockTrafficTool = useMemo(() => ({
+   slug: tool.freeSlug,
+   title: tool.freeTitle,
+   description: tool.painStatement,
+   category: "finance-business" as any, // default fallback
+   inputs: tool.freeInputs.map(input => ({
+     key: input.key,
+     label: input.label,
+     type: input.type,
+     unit: input.unit,
+     helper: input.helperText || ""
+   })),
+   relatedPremiumSlug: tool.paidSlug
+ }), [tool]);
+
  const tUi = useTranslations("freeToolUi");
  const tCalc = useTranslations("calculator");
  const pathname = usePathname();
@@ -481,6 +505,19 @@ export function FreeToolPage({
  <PageLayout>
  <section className="sc-craft-section">
  <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
+  {surfaceTier === "premium" && (
+    <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
+      <Link href="/pro-tools" prefetch={false} className="hover:underline">
+        {locale === "tr" ? "Pro Araçlar" : "Pro Tools"}
+      </Link>
+      <span className="mx-1.5">/</span>
+      <Link href={`/pro-tools/${categorySlug}`} prefetch={false} className="hover:underline">
+        {categoryTitle}
+      </Link>
+      <span className="mx-1.5">/</span>
+      <span className="text-premium-velvet font-medium">{tool.freeTitle}</span>
+    </nav>
+  )}
  <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
  <OsModuleHeader title={tool.freeTitle} tier="utility" slug={tool.freeSlug} locale={locale} surface={surfaceTier} />
 
@@ -581,14 +618,47 @@ export function FreeToolPage({
    }
    trustTraceSlot={undefined}
   />
-  <CalculationFeedbackButton
-   toolSlug={tool.freeSlug}
-   toolType="free"
-   locale={locale}
-   routePath={pagePath}
-   inputSnapshot={feedbackInputSnapshot}
-   resultSnapshot={feedbackResultSnapshot}
-  />
+   <CalculationFeedbackButton
+    toolSlug={tool.freeSlug}
+    toolType={surfaceTier === "premium" ? "premium" : "free"}
+    locale={locale}
+    routePath={pagePath}
+    inputSnapshot={feedbackInputSnapshot}
+    resultSnapshot={feedbackResultSnapshot}
+   />
+   {surfaceTier === "premium" && (
+     <div className="mt-8 border-t border-technical-gray/20 pt-6">
+       <FreeToolAuthorityBlock
+         tool={mockTrafficTool as any}
+         locale={locale}
+         localizedTitle={tool.freeTitle}
+         localizedDescription={tool.painStatement}
+         labels={{
+           howItWorksTitle: tAuthority("howItWorksTitle"),
+           descriptionTitle: tAuthority("descriptionTitle"),
+           formulaTitle: tAuthority("formulaTitle"),
+           inputsTitle: tAuthority("inputsTitle"),
+           includesTitle: tAuthority("includesTitle"),
+           includes1: tAuthority("includes1"),
+           includes2: tAuthority("includes2"),
+           includes3: tAuthority("includes3"),
+           estimateMissesTitle: tAuthority("estimateMissesTitle"),
+           estimateMissesBody: tAuthority("estimateMissesBody"),
+           faqTitle: tPremiumAuthority("faqTitle"),
+           faqUseTitle: tPremiumAuthority("faqMeasureTitle"),
+           faqFreeTitle: tPremiumAuthority("faqIsFreeTitle"),
+           faqPremiumTitle: tPremiumAuthority("faqPremiumTitle"),
+           faqUseAnswer: tPremiumAuthority("faqMeasureAnswer", { name: tool.freeTitle }),
+           faqFreeAnswer: tPremiumAuthority("faqIsFreeAnswer"),
+           faqPremiumAnswer: tPremiumAuthority("faqPremiumAnswer"),
+           relatedGuideTitle: tAuthority("relatedGuideTitle"),
+           relatedHubTitle: tAuthority("relatedHubTitle"),
+           relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
+           relatedPremiumCta: tAuthority("relatedPremiumCta"),
+         }}
+       />
+     </div>
+   )}
  </div>
  )}
  </Container>

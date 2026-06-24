@@ -12,6 +12,7 @@ import {
   resolvePremiumSchemaPainStatement,
 } from "@/lib/i18n/premium-schema-display-i18n";
 import { getPremiumSchemaBySlug, listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
+import { getPremium152Tools, validatePremium152Seed } from "@/lib/premium/premium-152-seed-reader";
 import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
 import { listRevenueFreeSlugs } from "@/lib/tools/free-traffic-routes";
 import { getIndustryBySlug } from "@/data/industries";
@@ -290,6 +291,97 @@ function buildPremiumSchemaItems(): CategorizedToolItem[] {
   });
 }
 
+function buildPremium152Items(): CategorizedToolItem[] {
+  const schemas = listPremiumSchemaSlugs();
+  const schemaSet = new Set(schemas);
+
+  const nonOverlappingSeedTools = getPremium152Tools().filter(
+    (tool) => !schemaSet.has(tool.slug)
+  );
+
+  const targetSeedCount = 111;
+  const activeSeedTools = nonOverlappingSeedTools.slice(0, targetSeedCount);
+  const remainingSeedTools = nonOverlappingSeedTools.slice(targetSeedCount);
+
+  const items: CategorizedToolItem[] = [];
+
+  for (const tool of activeSeedTools) {
+    const hasContract = Boolean(getFormulaContractBySlug(tool.slug));
+    items.push({
+      slug: tool.slug,
+      seedId: tool.id,
+      title: fillLocaleRecord((locale) =>
+        locale === "tr" ? tool.trTitle : humanizeSlug(tool.slug),
+      ),
+      description: fillLocaleRecord(() => tool.pain),
+      tier: "premium" as const,
+      categorySlug: resolveToolCategory({
+        slug: tool.slug,
+        title: tool.trTitle,
+        description: tool.pain,
+        tier: "premium",
+        source: "user-premium-152",
+        seedCategorySlug: tool.categorySlug,
+      }),
+      source: "user-premium-152" as const,
+      routePath: `/pro-tools/${tool.slug}`,
+      formulaContractStatus: hasContract ? "ready" : "missing",
+      publicStatus: "active" as const,
+    });
+  }
+
+  for (const tool of remainingSeedTools) {
+    items.push({
+      slug: tool.slug,
+      seedId: tool.id,
+      title: fillLocaleRecord((locale) =>
+        locale === "tr" ? tool.trTitle : humanizeSlug(tool.slug),
+      ),
+      description: fillLocaleRecord(() => tool.pain),
+      tier: "premium" as const,
+      categorySlug: resolveToolCategory({
+        slug: tool.slug,
+        title: tool.trTitle,
+        description: tool.pain,
+        tier: "premium",
+        source: "user-premium-152",
+        seedCategorySlug: tool.categorySlug,
+      }),
+      source: "user-premium-152" as const,
+      routePath: null,
+      formulaContractStatus: "missing",
+      publicStatus: "active-after-contract-validation" as const,
+    });
+  }
+
+  const overlappingSeedTools = getPremium152Tools().filter((tool) => schemaSet.has(tool.slug));
+  for (const tool of overlappingSeedTools) {
+    items.push({
+      slug: tool.slug,
+      seedId: tool.id,
+      title: fillLocaleRecord((locale) =>
+        locale === "tr" ? tool.trTitle : humanizeSlug(tool.slug),
+      ),
+      description: fillLocaleRecord(() => tool.pain),
+      tier: "premium" as const,
+      categorySlug: resolveToolCategory({
+        slug: tool.slug,
+        title: tool.trTitle,
+        description: tool.pain,
+        tier: "premium",
+        source: "user-premium-152",
+        seedCategorySlug: tool.categorySlug,
+      }),
+      source: "user-premium-152" as const,
+      routePath: `/pro-tools/${tool.slug}`,
+      formulaContractStatus: "ready",
+      publicStatus: "active" as const,
+    });
+  }
+
+  return items;
+}
+
 function mergeCategorizedItems(items: readonly CategorizedToolItem[]): readonly CategorizedToolItem[] {
   const bySlug = new Map<string, CategorizedToolItem>();
   const priority: Record<CategorizedToolSource, number> = {
@@ -368,12 +460,15 @@ export function buildCategorizedToolIndex(): readonly CategorizedToolItem[] {
     return cachedIndex;
   }
 
+  validatePremium152Seed();
+
   const merged = mergeCategorizedItems([
     ...buildRevenueFreeItems(),
     ...buildFreeTrafficItems(),
     ...buildMigratedFreePremiumItems(),
     ...buildRevenuePremiumItems(),
     ...buildPremiumSchemaItems(),
+    ...buildPremium152Items(),
   ]);
 
   const uncategorized = merged.filter((item) =>
@@ -398,7 +493,7 @@ export function listPremiumToolsByCategory(
   categorySlug: GlobalToolCategorySlug,
 ): readonly CategorizedToolItem[] {
   return listCategorizedToolsByCategory(categorySlug).filter(
-    (item) => item.tier === "premium" || item.tier === "premium-schema",
+    (item) => (item.tier === "premium" || item.tier === "premium-schema") && item.publicStatus === "active" && item.routePath !== null,
   );
 }
 
@@ -417,14 +512,14 @@ export function listCategorizedCategorySummaries(): readonly CategorizedCategory
   return listGlobalCategories().map((category) => {
     const tools = index.filter((item) => item.categorySlug === category.slug);
     const premiumToolCount = tools.filter(
-      (item) => item.tier === "premium" || item.tier === "premium-schema",
+      (item) => (item.tier === "premium" || item.tier === "premium-schema") && item.publicStatus === "active" && item.routePath !== null,
     ).length;
     const relatedFreeToolCount = tools.filter((item) => item.tier === "free").length;
     return {
       slug: category.slug,
       premiumToolCount,
       relatedFreeToolCount,
-      totalToolCount: tools.length,
+      totalToolCount: premiumToolCount + relatedFreeToolCount,
     };
   });
 }
