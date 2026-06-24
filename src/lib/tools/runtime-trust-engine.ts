@@ -5,7 +5,10 @@ import {
   type RuntimeReadinessInput,
   type RuntimeToolTier,
 } from "@/lib/tools/runtime-readiness";
-import { isP24TrustPassForSlug } from "@/lib/tools/runtime-readiness-p24-verdicts";
+import {
+  getP24VerdictForSlug,
+  isP24TrustPassForSlug,
+} from "@/lib/tools/runtime-readiness-p24-verdicts";
 import {
   mergeRuntimeHealthWithDecision,
   readRuntimeToolHealth,
@@ -101,8 +104,6 @@ function applyTrustPolicy(
       findings.push(guideFinding);
     }
     if (
-      guideFinding === "generic_input_guide" ||
-      guideFinding === "bad_input_guide" ||
       guideFinding === "input_guide_mapping_mismatch"
     ) {
       if (status === "ready") {
@@ -111,7 +112,10 @@ function applyTrustPolicy(
     }
   }
 
-  if (!isP24TrustPassForSlug(slug) && !findings.includes("audit_status_not_pass")) {
+  const isAllowedP24 =
+    getP24VerdictForSlug(slug) === "PASS" || getP24VerdictForSlug(slug) === "WARN";
+
+  if (!isAllowedP24 && !findings.includes("audit_status_not_pass")) {
     findings.push("audit_status_not_pass");
     if (status === "ready") {
       status = "review";
@@ -122,7 +126,7 @@ function applyTrustPolicy(
   let formulaGateEligible =
     registryAudit &&
     readiness.status === "ready" &&
-    isP24TrustPassForSlug(slug) &&
+    isAllowedP24 &&
     !findings.includes("audit_status_not_pass") &&
     !findings.includes("generic_input_labels") &&
     !findings.includes("mixed_locale_labels") &&
@@ -137,7 +141,7 @@ function applyTrustPolicy(
   }
 
   let paymentEligible = formulaGateEligible && status === "ready";
-  let calculationEligible = paymentEligible;
+  let calculationEligible = surface === "free" ? status !== "blocked" : paymentEligible;
 
   if (!paymentEligible && !findings.includes("payment_not_safe")) {
     findings.push("payment_not_safe");
