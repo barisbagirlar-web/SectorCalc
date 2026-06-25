@@ -319,7 +319,7 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "Yem maliyeti, süt veriminden daha hızlı arttığında süt çiftliği kâr marjını kaybeder.",
   },
-  "doviz-pozisyonu-kur-farki-riski-hesabi": {
+  "fx-position-exchange-rate-risk-calculator": {
     title: "Amper — Kilowatt (KW) Converter",
     painStatement:
       "Yakıt sapması, rölanti süresi ve rota kayması normal maliyet sayıldığında lojistik kârı sessizce erir.",
@@ -429,7 +429,7 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "Takım aşınması, takım değişim süresi ve soğutma sıvısı maliyeti; CNC iş kârını sessizce eritir.",
   },
-  "7-israf-muda-avcisi-parasal-karsilik-calculator": {
+  "7-wastes-muda-hunter-financial-calculator": {
     title: "7 İsraf (Muda) Avcısı Parasal Karşılık Hesaplayıcı",
     painStatement:
       "Her israf türünün işletmeye spesifik maliyeti rakamla ifade edilemez.",

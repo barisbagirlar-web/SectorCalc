@@ -1,0 +1,31 @@
+import { getLocale, getTranslations } from "next-intl/server";
+// @ts-nocheck
+import type { Metadata } from "next";
+import { PageLayout } from "@/components/layout/PageLayout";
+import { IndustrialHome } from "@/components/os/IndustrialHome";
+import { createPageMetadata } from "@/lib/metadata";
+
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const locale = "en";
+  const t = await getTranslations();
+
+  return createPageMetadata({
+    title: "meta.title",
+    description: "meta.description",
+    path: "/os",
+    locale: locale as "en",
+  });
+}
+
+export default async function IndustrialOsPage({ params }: PageProps) {
+  const locale = "en";
+  
+
+  return (
+    <PageLayout>
+      <IndustrialHome />
+    </PageLayout>
+  );
+}

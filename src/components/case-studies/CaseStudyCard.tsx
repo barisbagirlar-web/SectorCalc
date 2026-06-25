@@ -18,7 +18,7 @@ export function CaseStudyCard({ entry, href, featured = false }: CaseStudyCardPr
       <h2 className="mt-2 text-base font-semibold text-navy sm:text-lg">{entry.title}</h2>
       <p className="mt-2 line-clamp-3 text-sm text-body-charcoal">{entry.problem}</p>
       <p className="mt-3 text-xs text-body-charcoal">
-        Representative case study — {entry.evidenceLevel.replace(/-/g, " ")}
+        Representative case study — {entry.evidenceLevel?.replace(/-/g, " ") ?? "scenario"}
       </p>
     </Link>
   );

@@ -1,2152 +1,484 @@
 {
   "tr": {
     "rental-yield-one-percent-rule": {
-      "title": "Yüzde Kuralı",
-      "description": "Oran (%) - [Aylık kiranın mülk değerine oranı]",
-      "seoTitle": "Yüzde Kuralı | SectorCalc",
-      "seoDescription": "Oran (%) - [Aylık kiranın mülk değerine oranı]"
+      "title": "Rental Yield One Percent Rule",
+      "description": "Calculate Rental Yield One Percent Rule efficiently.",
+      "seoTitle": "Rental Yield One Percent Rule | SectorCalc",
+      "seoDescription": "Calculate Rental Yield One Percent Rule efficiently."
     },
     "tax-deferred-exchange-1031": {
-      "title": "1031 Vergi Erteleme Takası",
-      "description": "VergiyeTabi (₺) - [Vergisi ertelenemeyen nakit çıkış tutarı]",
-      "seoTitle": "1031 Vergi Erteleme Takası | SectorCalc",
-      "seoDescription": "VergiyeTabi (₺) - [Vergisi ertelenemeyen nakit çıkış tutarı]"
+      "title": "Tax Deferred Exchange 1031",
+      "description": "Calculate Tax Deferred Exchange 1031 efficiently.",
+      "seoTitle": "Tax Deferred Exchange 1031 | SectorCalc",
+      "seoDescription": "Calculate Tax Deferred Exchange 1031 efficiently."
     },
     "budget-rule-50-30-20": {
-      "title": "50/30/20 Bütçe Kuralı",
-      "description": "Ihtiyac, Istek, Birikim (₺) - [Gelirin temel ihtiyaç, keyfi ve tasarruf dağılımı]",
-      "seoTitle": "50/30/20 Bütçe Kuralı | SectorCalc",
-      "seoDescription": "Ihtiyac, Istek, Birikim (₺) - [Gelirin temel ihtiyaç, keyfi ve tasarruf dağılımı]"
+      "title": "Budget Rule 50 30 20",
+      "description": "Calculate Budget Rule 50 30 20 efficiently.",
+      "seoTitle": "Budget Rule 50 30 20 | SectorCalc",
+      "seoDescription": "Calculate Budget Rule 50 30 20 efficiently."
     },
     "asset-depreciation-methods": {
-      "title": "Amortisman (Doğrusal/Azalan/SYD)",
-      "description": "YillikGider (₺) - [Varlığın yıllık muhasebe gideri]",
-      "seoTitle": "Amortisman (Doğrusal/Azalan/SYD) | SectorCalc",
-      "seoDescription": "YillikGider (₺) - [Varlığın yıllık muhasebe gideri]"
+      "title": "Asset Depreciation Methods",
+      "description": "Calculate Asset Depreciation Methods efficiently.",
+      "seoTitle": "Asset Depreciation Methods | SectorCalc",
+      "seoDescription": "Calculate Asset Depreciation Methods efficiently."
     },
     "annuity-monthly-payout": {
-      "title": "Yıllık Gelir (Annuity)",
-      "description": "Odeme (₺) - [Düzenli aralıklarla çekilebilecek sabit gelir]",
-      "seoTitle": "Yıllık Gelir (Annuity) | SectorCalc",
-      "seoDescription": "Odeme (₺) - [Düzenli aralıklarla çekilebilecek sabit gelir]"
+      "title": "Annuity Monthly Payout",
+      "description": "Calculate Annuity Monthly Payout efficiently.",
+      "seoTitle": "Annuity Monthly Payout | SectorCalc",
+      "seoDescription": "Calculate Annuity Monthly Payout efficiently."
     },
     "annuity-annual-payout": {
-      "title": "Yıllık Ödeme (Annuity Payout)",
-      "description": "Gelir (₺) - [Emeklilik birikiminin yıllık dağıtım tutarı]",
-      "seoTitle": "Yıllık Ödeme (Annuity Payout) | SectorCalc",
-      "seoDescription": "Gelir (₺) - [Emeklilik birikiminin yıllık dağıtım tutarı]"
+      "title": "Annuity Annual Payout",
+      "description": "Calculate Annuity Annual Payout efficiently.",
+      "seoTitle": "Annuity Annual Payout | SectorCalc",
+      "seoDescription": "Calculate Annuity Annual Payout efficiently."
     },
     "annual-percentage-rate-apr": {
-      "title": "Yıllık Maliyet Oranı (APR)",
-      "description": "APR (%) - [Masraflar dahil kredinin gerçek yıllık maliyeti]",
-      "seoTitle": "Yıllık Maliyet Oranı (APR) | SectorCalc",
-      "seoDescription": "APR (%) - [Masraflar dahil kredinin gerçek yıllık maliyeti]"
+      "title": "Annual Percentage Rate Apr",
+      "description": "Calculate Annual Percentage Rate Apr efficiently.",
+      "seoTitle": "Annual Percentage Rate Apr | SectorCalc",
+      "seoDescription": "Calculate Annual Percentage Rate Apr efficiently."
     },
     "portfolio-asset-allocation": {
-      "title": "Varlık Dağılımı",
-      "description": "HisseTutar, TahvilTutar, NakitTutar (₺) - [Portföyün hedeflenen varlık sınıflarına bölünmesi]",
-      "seoTitle": "Varlık Dağılımı | SectorCalc",
-      "seoDescription": "HisseTutar, TahvilTutar, NakitTutar (₺) - [Portföyün hedeflenen varlık sınıflarına bölünmesi]"
+      "title": "Portfolio Asset Allocation",
+      "description": "Calculate Portfolio Asset Allocation efficiently.",
+      "seoTitle": "Portfolio Asset Allocation | SectorCalc",
+      "seoDescription": "Calculate Portfolio Asset Allocation efficiently."
     },
     "audit-risk-model": {
-      "title": "Denetim Riski",
-      "description": "Risk (%) - [Mali tabloda maddi hata bulunamama olasılığı]",
-      "seoTitle": "Denetim Riski | SectorCalc",
-      "seoDescription": "Risk (%) - [Mali tabloda maddi hata bulunamama olasılığı]"
+      "title": "Audit Risk Model",
+      "description": "Calculate Audit Risk Model efficiently.",
+      "seoTitle": "Audit Risk Model | SectorCalc",
+      "seoDescription": "Calculate Audit Risk Model efficiently."
     },
     "simple-interest-yield": {
-      "title": "Basit Faiz",
-      "description": "FaizTutari (₺) - [Sadece anapara üzerinden hesaplanan faiz geliri]",
-      "seoTitle": "Basit Faiz | SectorCalc",
-      "seoDescription": "FaizTutari (₺) - [Sadece anapara üzerinden hesaplanan faiz geliri]"
+      "title": "Simple Interest Yield",
+      "description": "Calculate Simple Interest Yield efficiently.",
+      "seoTitle": "Simple Interest Yield | SectorCalc",
+      "seoDescription": "Calculate Simple Interest Yield efficiently."
     },
     "compound-interest-growth": {
-      "title": "Bileşik Faiz",
-      "description": "Sonuc (₺) - [Faizin anaparaya eklendiği vade sonu değer]",
-      "seoTitle": "Bileşik Faiz | SectorCalc",
-      "seoDescription": "Sonuc (₺) - [Faizin anaparaya eklendiği vade sonu değer]"
+      "title": "Compound Interest Growth",
+      "description": "Calculate Compound Interest Growth efficiently.",
+      "seoTitle": "Compound Interest Growth | SectorCalc",
+      "seoDescription": "Calculate Compound Interest Growth efficiently."
     },
     "compound-interest-frequencies": {
-      "title": "Günlük/Aylık/Yıllık Bileşik Faiz",
-      "description": "Gunluk (₺) - [Günlük bazda bileşik getirinin vade sonu değeri]",
-      "seoTitle": "Günlük/Aylık/Yıllık Bileşik Faiz | SectorCalc",
-      "seoDescription": "Gunluk (₺) - [Günlük bazda bileşik getirinin vade sonu değeri]"
+      "title": "Compound Interest Frequencies",
+      "description": "Calculate Compound Interest Frequencies efficiently.",
+      "seoTitle": "Compound Interest Frequencies | SectorCalc",
+      "seoDescription": "Calculate Compound Interest Frequencies efficiently."
     },
     "continuous-compound-interest": {
-      "title": "Sürekli Bileşik Faiz",
-      "description": "Sonuc (₺) - [Sonsuz frekansta bileşikleşen teorik maksimum değer]",
-      "seoTitle": "Sürekli Bileşik Faiz | SectorCalc",
-      "seoDescription": "Sonuc (₺) - [Sonsuz frekansta bileşikleşen teorik maksimum değer]"
+      "title": "Continuous Compound Interest",
+      "description": "Calculate Continuous Compound Interest efficiently.",
+      "seoTitle": "Continuous Compound Interest | SectorCalc",
+      "seoDescription": "Calculate Continuous Compound Interest efficiently."
     },
     "nominal-effective-interest": {
-      "title": "Nominal ve Efektif Faiz",
-      "description": "Efektif (%) - [Bileşim sıklığının etkisiyle oluşan gerçek yıllık getiri]",
-      "seoTitle": "Nominal ve Efektif Faiz | SectorCalc",
-      "seoDescription": "Efektif (%) - [Bileşim sıklığının etkisiyle oluşan gerçek yıllık getiri]"
+      "title": "Nominal Effective Interest",
+      "description": "Calculate Nominal Effective Interest efficiently.",
+      "seoTitle": "Nominal Effective Interest | SectorCalc",
+      "seoDescription": "Calculate Nominal Effective Interest efficiently."
     },
     "bond-price-yield-valuation": {
-      "title": "Tahvil Fiyat ve Getiri",
-      "description": "Fiyat (₺) - [Tahvilin piyasa faizine göre bugünkü adil değeri]",
-      "seoTitle": "Tahvil Fiyat ve Getiri | SectorCalc",
-      "seoDescription": "Fiyat (₺) - [Tahvilin piyasa faizine göre bugünkü adil değeri]"
+      "title": "Bond Price Yield Valuation",
+      "description": "Calculate Bond Price Yield Valuation efficiently.",
+      "seoTitle": "Bond Price Yield Valuation | SectorCalc",
+      "seoDescription": "Calculate Bond Price Yield Valuation efficiently."
     },
     "dividend-net-tax": {
-      "title": "Temettü Vergisi",
-      "description": "Net (₺) - [Vergi kesintisi sonrası ele geçen net temettü]",
-      "seoTitle": "Temettü Vergisi | SectorCalc",
-      "seoDescription": "Net (₺) - [Vergi kesintisi sonrası ele geçen net temettü]"
+      "title": "Dividend Net Tax",
+      "description": "Calculate Dividend Net Tax efficiently.",
+      "seoTitle": "Dividend Net Tax | SectorCalc",
+      "seoDescription": "Calculate Dividend Net Tax efficiently."
     },
     "dividend-reinvestment-drip": {
-      "title": "Temettü Yeniden Yatırım (DRIP)",
-      "description": "Sonuc (₺) - [Temettülerin hisseye dönüşmesiyle oluşan kartopu etkisi]",
-      "seoTitle": "Temettü Yeniden Yatırım (DRIP) | SectorCalc",
-      "seoDescription": "Sonuc (₺) - [Temettülerin hisseye dönüşmesiyle oluşan kartopu etkisi]"
+      "title": "Dividend Reinvestment Drip",
+      "description": "Calculate Dividend Reinvestment Drip efficiently.",
+      "seoTitle": "Dividend Reinvestment Drip | SectorCalc",
+      "seoDescription": "Calculate Dividend Reinvestment Drip efficiently."
     },
     "stock-investment-return": {
-      "title": "Hisse Senedi Getirisi",
-      "description": "Getiri (%) - [Sermaye kazancı ve temettü dahil toplam getiri]",
-      "seoTitle": "Hisse Senedi Getirisi | SectorCalc",
-      "seoDescription": "Getiri (%) - [Sermaye kazancı ve temettü dahil toplam getiri]"
+      "title": "Stock Investment Return",
+      "description": "Calculate Stock Investment Return efficiently.",
+      "seoTitle": "Stock Investment Return | SectorCalc",
+      "seoDescription": "Calculate Stock Investment Return efficiently."
     },
     "annualized-investment-return": {
-      "title": "Yıllık Getiri",
-      "description": "Yillik (%) - [Yatırımın yıllıklandırılmış ortalama büyüme hızı]",
-      "seoTitle": "Yıllık Getiri | SectorCalc",
-      "seoDescription": "Yillik (%) - [Yatırımın yıllıklandırılmış ortalama büyüme hızı]"
+      "title": "Annualized Investment Return",
+      "description": "Calculate Annualized Investment Return efficiently.",
+      "seoTitle": "Annualized Investment Return | SectorCalc",
+      "seoDescription": "Calculate Annualized Investment Return efficiently."
     },
     "cagr-growth-rate": {
-      "title": "Bileşik Yıllık Büyüme (CAGR)",
-      "description": "CAGR (%) - [Zaman içindeki pürüzsüz yıllık büyüme oranı]",
-      "seoTitle": "Bileşik Yıllık Büyüme (CAGR) | SectorCalc",
-      "seoDescription": "CAGR (%) - [Zaman içindeki pürüzsüz yıllık büyüme oranı]"
+      "title": "Cagr Growth Rate",
+      "description": "Calculate Cagr Growth Rate efficiently.",
+      "seoTitle": "Cagr Growth Rate | SectorCalc",
+      "seoDescription": "Calculate Cagr Growth Rate efficiently."
     },
     "return-on-investment-roi": {
-      "title": "Yatırım Getirisi (ROI)",
-      "description": "ROI (%) - [Yatırımın maliyetine göre ürettiği net verim]",
-      "seoTitle": "Yatırım Getirisi (ROI) | SectorCalc",
-      "seoDescription": "ROI (%) - [Yatırımın maliyetine göre ürettiği net verim]"
+      "title": "Return On Investment Roi",
+      "description": "Calculate Return On Investment Roi efficiently.",
+      "seoTitle": "Return On Investment Roi | SectorCalc",
+      "seoDescription": "Calculate Return On Investment Roi efficiently."
     },
     "net-present-value-npv": {
-      "title": "Net Bugünkü Değer (NPV)",
-      "description": "NPV (₺) - [Projenin bugünkü değer cinsinden net kârlılığı]",
-      "seoTitle": "Net Bugünkü Değer (NPV) | SectorCalc",
-      "seoDescription": "NPV (₺) - [Projenin bugünkü değer cinsinden net kârlılığı]"
+      "title": "Net Present Value Npv",
+      "description": "Calculate Net Present Value Npv efficiently.",
+      "seoTitle": "Net Present Value Npv | SectorCalc",
+      "seoDescription": "Calculate Net Present Value Npv efficiently."
     },
     "internal-rate-of-return-irr": {
-      "title": "İç Verim Oranı (IRR)",
-      "description": "IRR (%) - [NPV'yi sıfıra eşitleyen proje iç getiri oranı]",
-      "seoTitle": "İç Verim Oranı (IRR) | SectorCalc",
-      "seoDescription": "IRR (%) - [NPV'yi sıfıra eşitleyen proje iç getiri oranı]"
+      "title": "Internal Rate Of Return Irr",
+      "description": "Calculate Internal Rate Of Return Irr efficiently.",
+      "seoTitle": "Internal Rate Of Return Irr | SectorCalc",
+      "seoDescription": "Calculate Internal Rate Of Return Irr efficiently."
     },
     "discounted-payback-period": {
-      "title": "İskontolu Geri Ödeme Süresi",
-      "description": "Sure (Yıl) - [Yatırımın paranın zaman değeriyle geri kazanılma süresi]",
-      "seoTitle": "İskontolu Geri Ödeme Süresi | SectorCalc",
-      "seoDescription": "Sure (Yıl) - [Yatırımın paranın zaman değeriyle geri kazanılma süresi]"
+      "title": "Discounted Payback Period",
+      "description": "Calculate Discounted Payback Period efficiently.",
+      "seoTitle": "Discounted Payback Period | SectorCalc",
+      "seoDescription": "Calculate Discounted Payback Period efficiently."
     },
     "profitability-index-pi": {
-      "title": "Kârlılık Endeksi (PI)",
-      "description": "PI (Sayı) - [1 birim yatırımın yarattığı bugünkü değer]",
-      "seoTitle": "Kârlılık Endeksi (PI) | SectorCalc",
-      "seoDescription": "PI (Sayı) - [1 birim yatırımın yarattığı bugünkü değer]"
+      "title": "Profitability Index Pi",
+      "description": "Calculate Profitability Index Pi efficiently.",
+      "seoTitle": "Profitability Index Pi | SectorCalc",
+      "seoDescription": "Calculate Profitability Index Pi efficiently."
     },
     "wacc-capital-cost": {
-      "title": "Sermaye Maliyeti (WACC)",
-      "description": "WACC (%) - [Şirketin borç ve özsermaye ağırlıklı ortalama fon maliyeti]",
-      "seoTitle": "Sermaye Maliyeti (WACC) | SectorCalc",
-      "seoDescription": "WACC (%) - [Şirketin borç ve özsermaye ağırlıklı ortalama fon maliyeti]"
+      "title": "Wacc Capital Cost",
+      "description": "Calculate Wacc Capital Cost efficiently.",
+      "seoTitle": "Wacc Capital Cost | SectorCalc",
+      "seoDescription": "Calculate Wacc Capital Cost efficiently."
     },
     "capm-equity-cost": {
-      "title": "Öz Sermaye Maliyeti (CAPM)",
-      "description": "Re (%) - [Hissedarların risk profiline göre beklediği minimum getiri]",
-      "seoTitle": "Öz Sermaye Maliyeti (CAPM) | SectorCalc",
-      "seoDescription": "Re (%) - [Hissedarların risk profiline göre beklediği minimum getiri]"
+      "title": "Capm Equity Cost",
+      "description": "Calculate Capm Equity Cost efficiently.",
+      "seoTitle": "Capm Equity Cost | SectorCalc",
+      "seoDescription": "Calculate Capm Equity Cost efficiently."
     },
     "dcf-business-valuation": {
-      "title": "İşletme Değerleme (DCF)",
-      "description": "EV (₺) - [Şirketin nakit üretme kapasitesine dayalı işletme değeri]",
-      "seoTitle": "İşletme Değerleme (DCF) | SectorCalc",
-      "seoDescription": "EV (₺) - [Şirketin nakit üretme kapasitesine dayalı işletme değeri]"
+      "title": "Dcf Business Valuation",
+      "description": "Calculate Dcf Business Valuation efficiently.",
+      "seoTitle": "Dcf Business Valuation | SectorCalc",
+      "seoDescription": "Calculate Dcf Business Valuation efficiently."
     },
     "fcff-fcfe-cash-flows": {
-      "title": "FCFE ve FCFF",
-      "description": "FCFF, FCFE (₺) - [Firma ve hissedar serbest nakit akışları]",
-      "seoTitle": "FCFE ve FCFF | SectorCalc",
-      "seoDescription": "FCFF, FCFE (₺) - [Firma ve hissedar serbest nakit akışları]"
+      "title": "Fcff Fcfe Cash Flows",
+      "description": "Calculate Fcff Fcfe Cash Flows efficiently.",
+      "seoTitle": "Fcff Fcfe Cash Flows | SectorCalc",
+      "seoDescription": "Calculate Fcff Fcfe Cash Flows efficiently."
     },
     "ebitda-operating-earnings": {
-      "title": "EBITDA",
-      "description": "EBITDA (₺) - [Finansman ve vergi öncesi operasyonel nakit kârı]",
-      "seoTitle": "EBITDA | SectorCalc",
-      "seoDescription": "EBITDA (₺) - [Finansman ve vergi öncesi operasyonel nakit kârı]"
+      "title": "Ebitda Operating Earnings",
+      "description": "Calculate Ebitda Operating Earnings efficiently.",
+      "seoTitle": "Ebitda Operating Earnings | SectorCalc",
+      "seoDescription": "Calculate Ebitda Operating Earnings efficiently."
     },
     "pe-ratio-valuation": {
-      "title": "Fiyat/Kazanç (P/E) Oranı",
-      "description": "PE (Sayı) - [Yatırımın kâr üzerinden kendini amorti etme süresi]",
-      "seoTitle": "Fiyat/Kazanç (P/E) Oranı | SectorCalc",
-      "seoDescription": "PE (Sayı) - [Yatırımın kâr üzerinden kendini amorti etme süresi]"
+      "title": "Pe Ratio Valuation",
+      "description": "Calculate Pe Ratio Valuation efficiently.",
+      "seoTitle": "Pe Ratio Valuation | SectorCalc",
+      "seoDescription": "Calculate Pe Ratio Valuation efficiently."
     },
     "pb-ratio-valuation": {
-      "title": "Fiyat/Defter (P/B) Oranı",
-      "description": "PB (Sayı) - [Piyasanın şirketin defter değerine biçtiği prim]",
-      "seoTitle": "Fiyat/Defter (P/B) Oranı | SectorCalc",
-      "seoDescription": "PB (Sayı) - [Piyasanın şirketin defter değerine biçtiği prim]"
+      "title": "Pb Ratio Valuation",
+      "description": "Calculate Pb Ratio Valuation efficiently.",
+      "seoTitle": "Pb Ratio Valuation | SectorCalc",
+      "seoDescription": "Calculate Pb Ratio Valuation efficiently."
     },
     "ps-ratio-valuation": {
-      "title": "Fiyat/Satış (P/S) Oranı",
-      "description": "PS (Sayı) - [1 birimlik satış için ödenen piyasa bedeli]",
-      "seoTitle": "Fiyat/Satış (P/S) Oranı | SectorCalc",
-      "seoDescription": "PS (Sayı) - [1 birimlik satış için ödenen piyasa bedeli]"
+      "title": "Ps Ratio Valuation",
+      "description": "Calculate Ps Ratio Valuation efficiently.",
+      "seoTitle": "Ps Ratio Valuation | SectorCalc",
+      "seoDescription": "Calculate Ps Ratio Valuation efficiently."
     },
     "roe-dupont-analysis": {
-      "title": "ROE (DuPont Analizi)",
-      "description": "ROE (%) - [Kârlılık, verimlilik ve kaldıracın özsermaye getirisine etkisi]",
-      "seoTitle": "ROE (DuPont Analizi) | SectorCalc",
-      "seoDescription": "ROE (%) - [Kârlılık, verimlilik ve kaldıracın özsermaye getirisine etkisi]"
+      "title": "Roe Dupont Analysis",
+      "description": "Calculate Roe Dupont Analysis efficiently.",
+      "seoTitle": "Roe Dupont Analysis | SectorCalc",
+      "seoDescription": "Calculate Roe Dupont Analysis efficiently."
     },
     "roic-capital-return": {
-      "title": "ROIC (Yatırım Getirisi)",
-      "description": "ROIC (%) - [Şirketin yatırdığı sermayeden ürettiği vergi sonrası verim]",
-      "seoTitle": "ROIC (Yatırım Getirisi) | SectorCalc",
-      "seoDescription": "ROIC (%) - [Şirketin yatırdığı sermayeden ürettiği vergi sonrası verim]"
+      "title": "Roic Capital Return",
+      "description": "Calculate Roic Capital Return efficiently.",
+      "seoTitle": "Roic Capital Return | SectorCalc",
+      "seoDescription": "Calculate Roic Capital Return efficiently."
     },
     "eva-economic-value-added": {
-      "title": "EVA (Ekonomik Katma Değer)",
-      "description": "EVA (₺) - [Sermaye maliyeti düşüldükten sonra kalan reel ekonomik kâr]",
-      "seoTitle": "EVA (Ekonomik Katma Değer) | SectorCalc",
-      "seoDescription": "EVA (₺) - [Sermaye maliyeti düşüldükten sonra kalan reel ekonomik kâr]"
+      "title": "Eva Economic Value Added",
+      "description": "Calculate Eva Economic Value Added efficiently.",
+      "seoTitle": "Eva Economic Value Added | SectorCalc",
+      "seoDescription": "Calculate Eva Economic Value Added efficiently."
     },
     "sharpe-ratio-volatility": {
-      "title": "Sharpe Oranı",
-      "description": "Sharpe (Sayı) - [Toplam risk (volatilite) başına üretilen fazla getiri]",
-      "seoTitle": "Sharpe Oranı | SectorCalc",
-      "seoDescription": "Sharpe (Sayı) - [Toplam risk (volatilite) başına üretilen fazla getiri]"
+      "title": "Sharpe Ratio Volatility",
+      "description": "Calculate Sharpe Ratio Volatility efficiently.",
+      "seoTitle": "Sharpe Ratio Volatility | SectorCalc",
+      "seoDescription": "Calculate Sharpe Ratio Volatility efficiently."
     },
     "sortino-ratio-downside": {
-      "title": "Sortino Oranı",
-      "description": "Sortino (Sayı) - [Sadece aşağı yönlü (zarar) risk başına üretilen getiri]",
-      "seoTitle": "Sortino Oranı | SectorCalc",
-      "seoDescription": "Sortino (Sayı) - [Sadece aşağı yönlü (zarar) risk başına üretilen getiri]"
+      "title": "Sortino Ratio Downside",
+      "description": "Calculate Sortino Ratio Downside efficiently.",
+      "seoTitle": "Sortino Ratio Downside | SectorCalc",
+      "seoDescription": "Calculate Sortino Ratio Downside efficiently."
     },
     "treynor-ratio-risk": {
-      "title": "Treynor Oranı",
-      "description": "Treynor (Sayı) - [Sistematik risk (Beta) başına üretilen fazla getiri]",
-      "seoTitle": "Treynor Oranı | SectorCalc",
-      "seoDescription": "Treynor (Sayı) - [Sistematik risk (Beta) başına üretilen fazla getiri]"
+      "title": "Treynor Ratio Risk",
+      "description": "Calculate Treynor Ratio Risk efficiently.",
+      "seoTitle": "Treynor Ratio Risk | SectorCalc",
+      "seoDescription": "Calculate Treynor Ratio Risk efficiently."
     },
     "portfolio-max-drawdown": {
-      "title": "Maksimum Düşüş (Max Drawdown)",
-      "description": "MDD (%) - [Portföyün zirveden dibe yaşadığı en büyük yüzde kaybı]",
-      "seoTitle": "Maksimum Düşüş (Max Drawdown) | SectorCalc",
-      "seoDescription": "MDD (%) - [Portföyün zirveden dibe yaşadığı en büyük yüzde kaybı]"
+      "title": "Portfolio Max Drawdown",
+      "description": "Calculate Portfolio Max Drawdown efficiently.",
+      "seoTitle": "Portfolio Max Drawdown | SectorCalc",
+      "seoDescription": "Calculate Portfolio Max Drawdown efficiently."
     },
     "portfolio-variance-optimizer": {
-      "title": "Portföy Optimizasyonu",
-      "description": "Agirliklar (%) - [Verimli sınır (Efficient Frontier) üzerindeki ideal varlık dağılımı]",
-      "seoTitle": "Portföy Optimizasyonu | SectorCalc",
-      "seoDescription": "Agirliklar (%) - [Verimli sınır (Efficient Frontier) üzerindeki ideal varlık dağılımı]"
+      "title": "Portfolio Variance Optimizer",
+      "description": "Calculate Portfolio Variance Optimizer efficiently.",
+      "seoTitle": "Portfolio Variance Optimizer | SectorCalc",
+      "seoDescription": "Calculate Portfolio Variance Optimizer efficiently."
     },
     "mutual-fund-nav-return": {
-      "title": "Yatırım Fonu Getirisi",
-      "description": "Getiri (%) - [Fonun dönemsel toplam yatırımcı getirisi]",
-      "seoTitle": "Yatırım Fonu Getirisi | SectorCalc",
-      "seoDescription": "Getiri (%) - [Fonun dönemsel toplam yatırımcı getirisi]"
+      "title": "Mutual Fund Nav Return",
+      "description": "Calculate Mutual Fund Nav Return efficiently.",
+      "seoTitle": "Mutual Fund Nav Return | SectorCalc",
+      "seoDescription": "Calculate Mutual Fund Nav Return efficiently."
     },
     "etf-net-annual-return": {
-      "title": "ETF Getirisi",
-      "description": "NetGetiri (%) - [Yönetim ücreti düşülmüş net ETF getirisi]",
-      "seoTitle": "ETF Getirisi | SectorCalc",
-      "seoDescription": "NetGetiri (%) - [Yönetim ücreti düşülmüş net ETF getirisi]"
+      "title": "Etf Net Annual Return",
+      "description": "Calculate Etf Net Annual Return efficiently.",
+      "seoTitle": "Etf Net Annual Return | SectorCalc",
+      "seoDescription": "Calculate Etf Net Annual Return efficiently."
     },
     "futures-contract-profit": {
-      "title": "Vadeli İşlemler (Futures)",
-      "description": "KarZarar (₺) - [Vadeli kontratın fiyat hareketinden doğan nakit sonuç]",
-      "seoTitle": "Vadeli İşlemler (Futures) | SectorCalc",
-      "seoDescription": "KarZarar (₺) - [Vadeli kontratın fiyat hareketinden doğan nakit sonuç]"
+      "title": "Futures Contract Profit",
+      "description": "Calculate Futures Contract Profit efficiently.",
+      "seoTitle": "Futures Contract Profit | SectorCalc",
+      "seoDescription": "Calculate Futures Contract Profit efficiently."
     },
     "black-scholes-option-price": {
-      "title": "Opsiyon (Black-Scholes)",
-      "description": "C (₺) - [Avrupa tipi alım opsiyonunun teorik prim değeri]",
-      "seoTitle": "Opsiyon (Black-Scholes) | SectorCalc",
-      "seoDescription": "C (₺) - [Avrupa tipi alım opsiyonunun teorik prim değeri]"
+      "title": "Black Scholes Option Price",
+      "description": "Calculate Black Scholes Option Price efficiently.",
+      "seoTitle": "Black Scholes Option Price | SectorCalc",
+      "seoDescription": "Calculate Black Scholes Option Price efficiently."
     },
     "forex-pip-profit-calculator": {
-      "title": "Döviz Kârı (Forex)",
-      "description": "KarZarar (₺) - [Parite hareketinin hesap para birimindeki karşılığı]",
-      "seoTitle": "Döviz Kârı (Forex) | SectorCalc",
-      "seoDescription": "KarZarar (₺) - [Parite hareketinin hesap para birimindeki karşılığı]"
+      "title": "Forex Pip Profit Calculator",
+      "description": "Calculate Forex Pip Profit Calculator efficiently.",
+      "seoTitle": "Forex Pip Profit Calculator | SectorCalc",
+      "seoDescription": "Calculate Forex Pip Profit Calculator efficiently."
     },
     "crypto-trade-net-profit": {
-      "title": "Kripto Para Kârı",
-      "description": "Net (₺) - [Borsa kesintileri sonrası net kripto kazancı]",
-      "seoTitle": "Kripto Para Kârı | SectorCalc",
-      "seoDescription": "Net (₺) - [Borsa kesintileri sonrası net kripto kazancı]"
+      "title": "Crypto Trade Net Profit",
+      "description": "Calculate Crypto Trade Net Profit efficiently.",
+      "seoTitle": "Crypto Trade Net Profit | SectorCalc",
+      "seoDescription": "Calculate Crypto Trade Net Profit efficiently."
     },
     "nft-trade-net-profit-eth": {
-      "title": "NFT Kârı",
-      "description": "NetETH (ETH) - [Gas ve royalty kesintileri sonrası net kripto kazancı]",
-      "seoTitle": "NFT Kârı | SectorCalc",
-      "seoDescription": "NetETH (ETH) - [Gas ve royalty kesintileri sonrası net kripto kazancı]"
+      "title": "Nft Trade Net Profit Eth",
+      "description": "Calculate Nft Trade Net Profit Eth efficiently.",
+      "seoTitle": "Nft Trade Net Profit Eth | SectorCalc",
+      "seoDescription": "Calculate Nft Trade Net Profit Eth efficiently."
     },
     "inflation-purchasing-power": {
-      "title": "Enflasyon Düzeltme",
-      "description": "ReelDeger (₺) - [Paranın enflasyondan arındırılmış bugünkü alım gücü]",
-      "seoTitle": "Enflasyon Düzeltme | SectorCalc",
-      "seoDescription": "ReelDeger (₺) - [Paranın enflasyondan arındırılmış bugünkü alım gücü]"
+      "title": "Inflation Purchasing Power",
+      "description": "Calculate Inflation Purchasing Power efficiently.",
+      "seoTitle": "Inflation Purchasing Power | SectorCalc",
+      "seoDescription": "Calculate Inflation Purchasing Power efficiently."
     },
     "real-investment-return": {
-      "title": "Gerçek Getiri (Real Return)",
-      "description": "Reel (%) - [Enflasyon etkisi çıkarılmış net satın alma gücü artışı]",
-      "seoTitle": "Gerçek Getiri (Real Return) | SectorCalc",
-      "seoDescription": "Reel (%) - [Enflasyon etkisi çıkarılmış net satın alma gücü artışı]"
+      "title": "Real Investment Return",
+      "description": "Calculate Real Investment Return efficiently.",
+      "seoTitle": "Real Investment Return | SectorCalc",
+      "seoDescription": "Calculate Real Investment Return efficiently."
     },
     "alternative-opportunity-cost": {
-      "title": "Fırsat Maliyeti",
-      "description": "Firsat (₺) - [Alternatif yatırımın kaçırılan net getirisi]",
-      "seoTitle": "Fırsat Maliyeti | SectorCalc",
-      "seoDescription": "Firsat (₺) - [Alternatif yatırımın kaçırılan net getirisi]"
+      "title": "Alternative Opportunity Cost",
+      "description": "Calculate Alternative Opportunity Cost efficiently.",
+      "seoTitle": "Alternative Opportunity Cost | SectorCalc",
+      "seoDescription": "Calculate Alternative Opportunity Cost efficiently."
     },
     "capital-gains-tax-liability": {
-      "title": "Sermaye Kazancı Vergisi",
-      "description": "Vergi (₺) - [Varlık satışından doğan yasal vergi yükümlülüğü]",
-      "seoTitle": "Sermaye Kazancı Vergisi | SectorCalc",
-      "seoDescription": "Vergi (₺) - [Varlık satışından doğan yasal vergi yükümlülüğü]"
+      "title": "Capital Gains Tax Liability",
+      "description": "Calculate Capital Gains Tax Liability efficiently.",
+      "seoTitle": "Capital Gains Tax Liability | SectorCalc",
+      "seoDescription": "Calculate Capital Gains Tax Liability efficiently."
     },
     "real-estate-property-tax": {
-      "title": "Emlak Vergisi",
-      "description": "YillikVergi (₺) - [Belediyeye ödenmesi gereken yıllık emlak vergisi]",
-      "seoTitle": "Emlak Vergisi | SectorCalc",
-      "seoDescription": "YillikVergi (₺) - [Belediyeye ödenmesi gereken yıllık emlak vergisi]"
+      "title": "Real Estate Property Tax",
+      "description": "Calculate Real Estate Property Tax efficiently.",
+      "seoTitle": "Real Estate Property Tax | SectorCalc",
+      "seoDescription": "Calculate Real Estate Property Tax efficiently."
     },
     "mortgage-monthly-payment": {
-      "title": "Mortgage (Aylık Taksit)",
-      "description": "Taksit (₺) - [Eşit taksitli konut kredisinin aylık ödeme tutarı]",
-      "seoTitle": "Mortgage (Aylık Taksit) | SectorCalc",
-      "seoDescription": "Taksit (₺) - [Eşit taksitli konut kredisinin aylık ödeme tutarı]"
+      "title": "Mortgage Monthly Payment",
+      "description": "Calculate Mortgage Monthly Payment efficiently.",
+      "seoTitle": "Mortgage Monthly Payment | SectorCalc",
+      "seoDescription": "Calculate Mortgage Monthly Payment efficiently."
     },
     "mortgage-comparison-tool": {
-      "title": "Mortgage Karşılaştırma",
-      "description": "Fark (₺) - [İki kredi teklifinin aylık taksit farkı]",
-      "seoTitle": "Mortgage Karşılaştırma | SectorCalc",
-      "seoDescription": "Fark (₺) - [İki kredi teklifinin aylık taksit farkı]"
+      "title": "Mortgage Comparison Tool",
+      "description": "Calculate Mortgage Comparison Tool efficiently.",
+      "seoTitle": "Mortgage Comparison Tool | SectorCalc",
+      "seoDescription": "Calculate Mortgage Comparison Tool efficiently."
     },
     "mortgage-amortization-schedule": {
-      "title": "Mortgage Geri Ödeme Tablosu",
-      "description": "AnaparaKismi, FaizKismi (₺) - [Belirli bir aydaki taksitin anapara/faiz dağılımı]",
-      "seoTitle": "Mortgage Geri Ödeme Tablosu | SectorCalc",
-      "seoDescription": "AnaparaKismi, FaizKismi (₺) - [Belirli bir aydaki taksitin anapara/faiz dağılımı]"
+      "title": "Mortgage Amortization Schedule",
+      "description": "Calculate Mortgage Amortization Schedule efficiently.",
+      "seoTitle": "Mortgage Amortization Schedule | SectorCalc",
+      "seoDescription": "Calculate Mortgage Amortization Schedule efficiently."
     },
     "mortgage-discount-points": {
-      "title": "Mortgage Puanları (Points)",
-      "description": "GeriDonus (Ay) - [Peşin ödenen puan maliyetinin faiz indirimiyle amorti süresi]",
-      "seoTitle": "Mortgage Puanları (Points) | SectorCalc",
-      "seoDescription": "GeriDonus (Ay) - [Peşin ödenen puan maliyetinin faiz indirimiyle amorti süresi]"
+      "title": "Mortgage Discount Points",
+      "description": "Calculate Mortgage Discount Points efficiently.",
+      "seoTitle": "Mortgage Discount Points | SectorCalc",
+      "seoDescription": "Calculate Mortgage Discount Points efficiently."
     },
     "mortgage-refinance-breakeven": {
-      "title": "Mortgage Refinansman",
-      "description": "Basabas (Ay) - [Refinansman masrafının aylık tasarrufla geri kazanılma süresi]",
-      "seoTitle": "Mortgage Refinansman | SectorCalc",
-      "seoDescription": "Basabas (Ay) - [Refinansman masrafının aylık tasarrufla geri kazanılma süresi]"
+      "title": "Mortgage Refinance Breakeven",
+      "description": "Calculate Mortgage Refinance Breakeven efficiently.",
+      "seoTitle": "Mortgage Refinance Breakeven | SectorCalc",
+      "seoDescription": "Calculate Mortgage Refinance Breakeven efficiently."
     },
     "cash-out-refinance-net": {
-      "title": "Nakit Çıkışlı Refinansman",
-      "description": "NakitCikis (₺) - [Ev sermayesinin nakde çevrilerek ele geçen net tutar]",
-      "seoTitle": "Nakit Çıkışlı Refinansman | SectorCalc",
-      "seoDescription": "NakitCikis (₺) - [Ev sermayesinin nakde çevrilerek ele geçen net tutar]"
+      "title": "Cash Out Refinance Net",
+      "description": "Calculate Cash Out Refinance Net efficiently.",
+      "seoTitle": "Cash Out Refinance Net | SectorCalc",
+      "seoDescription": "Calculate Cash Out Refinance Net efficiently."
     },
     "home-purchase-affordability": {
-      "title": "Ev Alım Gücü",
-      "description": "MaxKredi (₺) - [Gelire göre bankadan çekilebilecek maksimum kredi]",
-      "seoTitle": "Ev Alım Gücü | SectorCalc",
-      "seoDescription": "MaxKredi (₺) - [Gelire göre bankadan çekilebilecek maksimum kredi]"
+      "title": "Home Purchase Affordability",
+      "description": "Calculate Home Purchase Affordability efficiently.",
+      "seoTitle": "Home Purchase Affordability | SectorCalc",
+      "seoDescription": "Calculate Home Purchase Affordability efficiently."
     },
     "rent-vs-buy-decision-ratio": {
-      "title": "Kira vs Satın Alma",
-      "description": "Karar (Metin) - [Fiyat/Kira oranına göre optimal barınma stratejisi]",
-      "seoTitle": "Kira vs Satın Alma | SectorCalc",
-      "seoDescription": "Karar (Metin) - [Fiyat/Kira oranına göre optimal barınma stratejisi]"
+      "title": "Rent Vs Buy Decision Ratio",
+      "description": "Calculate Rent Vs Buy Decision Ratio efficiently.",
+      "seoTitle": "Rent Vs Buy Decision Ratio | SectorCalc",
+      "seoDescription": "Calculate Rent Vs Buy Decision Ratio efficiently."
     },
     "rental-cap-rate-yield": {
-      "title": "Kira Geliri Getiri (Cap Rate)",
-      "description": "CapRate (%) - [Mülkün kredi kaldıracı hariç yıllık net getiri oranı]",
-      "seoTitle": "Kira Geliri Getiri (Cap Rate) | SectorCalc",
-      "seoDescription": "CapRate (%) - [Mülkün kredi kaldıracı hariç yıllık net getiri oranı]"
+      "title": "Rental Cap Rate Yield",
+      "description": "Calculate Rental Cap Rate Yield efficiently.",
+      "seoTitle": "Rental Cap Rate Yield | SectorCalc",
+      "seoDescription": "Calculate Rental Cap Rate Yield efficiently."
     },
     "cash-on-cash-return-coc": {
-      "title": "Nakit-Nakit Getiri (CoC)",
-      "description": "CoC (%) - [Yatırılan özsermayenin yıllık nakit dönüş oranı]",
-      "seoTitle": "Nakit-Nakit Getiri (CoC) | SectorCalc",
-      "seoDescription": "CoC (%) - [Yatırılan özsermayenin yıllık nakit dönüş oranı]"
+      "title": "Cash On Cash Return Coc",
+      "description": "Calculate Cash On Cash Return Coc efficiently.",
+      "seoTitle": "Cash On Cash Return Coc | SectorCalc",
+      "seoDescription": "Calculate Cash On Cash Return Coc efficiently."
     },
     "brrrr-investment-strategy": {
-      "title": "BRRRR Stratejisi",
-      "description": "ROI (%) - [Al-Yenile-Kirala-Refinanse Et modelinin sermaye getirisi]",
-      "seoTitle": "BRRRR Stratejisi | SectorCalc",
-      "seoDescription": "ROI (%) - [Al-Yenile-Kirala-Refinanse Et modelinin sermaye getirisi]"
+      "title": "Brrrr Investment Strategy",
+      "description": "Calculate Brrrr Investment Strategy efficiently.",
+      "seoTitle": "Brrrr Investment Strategy | SectorCalc",
+      "seoDescription": "Calculate Brrrr Investment Strategy efficiently."
     },
     "rental-property-net-cashflow": {
-      "title": "Kiralık Gayrimenkul Analizi",
-      "description": "NetNakit (₺) - [Tüm giderler ve kredi sonrası aylık cebe giren nakit]",
-      "seoTitle": "Kiralık Gayrimenkul Analizi | SectorCalc",
-      "seoDescription": "NetNakit (₺) - [Tüm giderler ve kredi sonrası aylık cebe giren nakit]"
+      "title": "Rental Property Net Cashflow",
+      "description": "Calculate Rental Property Net Cashflow efficiently.",
+      "seoTitle": "Rental Property Net Cashflow | SectorCalc",
+      "seoDescription": "Calculate Rental Property Net Cashflow efficiently."
     },
     "real-estate-broker-commission": {
-      "title": "Emlak Komisyonu",
-      "description": "Komisyon (₺) - [Emlakçıya ödenecek aracılık hizmet bedeli]",
-      "seoTitle": "Emlak Komisyonu | SectorCalc",
-      "seoDescription": "Komisyon (₺) - [Emlakçıya ödenecek aracılık hizmet bedeli]"
+      "title": "Real Estate Broker Commission",
+      "description": "Calculate Real Estate Broker Commission efficiently.",
+      "seoTitle": "Real Estate Broker Commission | SectorCalc",
+      "seoDescription": "Calculate Real Estate Broker Commission efficiently."
     },
     "mortgage-closing-costs-total": {
-      "title": "Kapanış Maliyetleri",
-      "description": "Toplam (₺) - [Tapu, ekspertiz ve dosya masrafları toplamı]",
-      "seoTitle": "Kapanış Maliyetleri | SectorCalc",
-      "seoDescription": "Toplam (₺) - [Tapu, ekspertiz ve dosya masrafları toplamı]"
+      "title": "Mortgage Closing Costs Total",
+      "description": "Calculate Mortgage Closing Costs Total efficiently.",
+      "seoTitle": "Mortgage Closing Costs Total | SectorCalc",
+      "seoDescription": "Calculate Mortgage Closing Costs Total efficiently."
     },
     "heloc-borrowing-limit": {
-      "title": "HELOC (Ev Sermayesi Kredisi)",
-      "description": "Limit (₺) - [Evin mevcut değerine göre çekilebilecek ek kredi limiti]",
-      "seoTitle": "HELOC (Ev Sermayesi Kredisi) | SectorCalc",
-      "seoDescription": "Limit (₺) - [Evin mevcut değerine göre çekilebilecek ek kredi limiti]"
+      "title": "Heloc Borrowing Limit",
+      "description": "Calculate Heloc Borrowing Limit efficiently.",
+      "seoTitle": "Heloc Borrowing Limit | SectorCalc",
+      "seoDescription": "Calculate Heloc Borrowing Limit efficiently."
     },
     "pmi-monthly-cost-estimator": {
-      "title": "PMI (Özel Mortgage Sigortası)",
-      "description": "AylikPMI (₺) - [Düşük peşinatlarda bankayı koruyan aylık sigorta primi]",
-      "seoTitle": "PMI (Özel Mortgage Sigortası) | SectorCalc",
-      "seoDescription": "AylikPMI (₺) - [Düşük peşinatlarda bankayı koruyan aylık sigorta primi]"
+      "title": "Pmi Monthly Cost Estimator",
+      "description": "Calculate Pmi Monthly Cost Estimator efficiently.",
+      "seoTitle": "Pmi Monthly Cost Estimator | SectorCalc",
+      "seoDescription": "Calculate Pmi Monthly Cost Estimator efficiently."
     },
     "fha-loan-mortgage-cost": {
-      "title": "FHA Kredisi",
-      "description": "Pesin (₺), Aylik (₺) - [Devlet destekli kredinin başlangıç ve aylık sigorta maliyeti]",
-      "seoTitle": "FHA Kredisi | SectorCalc",
-      "seoDescription": "Pesin (₺), Aylik (₺) - [Devlet destekli kredinin başlangıç ve aylık sigorta maliyeti]"
+      "title": "Fha Loan Mortgage Cost",
+      "description": "Calculate Fha Loan Mortgage Cost efficiently.",
+      "seoTitle": "Fha Loan Mortgage Cost | SectorCalc",
+      "seoDescription": "Calculate Fha Loan Mortgage Cost efficiently."
     },
     "va-loan-funding-fee": {
-      "title": "VA Kredisi",
-      "description": "FinanseEdilen (₺) - [Gaziler için peşinatsız kredinin faize eklenen fon maliyeti]",
-      "seoTitle": "VA Kredisi | SectorCalc",
-      "seoDescription": "FinanseEdilen (₺) - [Gaziler için peşinatsız kredinin faize eklenen fon maliyeti]"
+      "title": "Va Loan Funding Fee",
+      "description": "Calculate Va Loan Funding Fee efficiently.",
+      "seoTitle": "Va Loan Funding Fee | SectorCalc",
+      "seoDescription": "Calculate Va Loan Funding Fee efficiently."
     },
     "personal-loan-payment": {
-      "title": "Kişisel Kredi",
-      "description": "Taksit (₺), ToplamMaliyet (₺) - [İhtiyaç kredisinin aylık ödemesi ve toplam faiz yükü]",
-      "seoTitle": "Kişisel Kredi | SectorCalc",
-      "seoDescription": "Taksit (₺), ToplamMaliyet (₺) - [İhtiyaç kredisinin aylık ödemesi ve toplam faiz yükü]"
+      "title": "Personal Loan Payment",
+      "description": "Calculate Personal Loan Payment efficiently.",
+      "seoTitle": "Personal Loan Payment | SectorCalc",
+      "seoDescription": "Calculate Personal Loan Payment efficiently."
     },
     "auto-loan-monthly-payment": {
-      "title": "Araba Kredisi",
-      "description": "Taksit (₺) - [Taşıt kredisinin peşinat düşülmüş aylık taksiti]",
-      "seoTitle": "Araba Kredisi | SectorCalc",
-      "seoDescription": "Taksit (₺) - [Taşıt kredisinin peşinat düşülmüş aylık taksiti]"
+      "title": "Auto Loan Monthly Payment",
+      "description": "Calculate Auto Loan Monthly Payment efficiently.",
+      "seoTitle": "Auto Loan Monthly Payment | SectorCalc",
+      "seoDescription": "Calculate Auto Loan Monthly Payment efficiently."
     },
     "boat-loan-monthly-payment": {
-      "title": "Tekne Kredisi",
-      "description": "Taksit (₺) - [Deniz aracı finansmanının aylık ödeme planı]",
-      "seoTitle": "Tekne Kredisi | SectorCalc",
-      "seoDescription": "Taksit (₺) - [Deniz aracı finansmanının aylık ödeme planı]"
+      "title": "Boat Loan Monthly Payment",
+      "description": "Calculate Boat Loan Monthly Payment efficiently.",
+      "seoTitle": "Boat Loan Monthly Payment | SectorCalc",
+      "seoDescription": "Calculate Boat Loan Monthly Payment efficiently."
     },
     "motorcycle-loan-payment": {
-      "title": "Motosiklet Kredisi",
-      "description": "Taksit (₺) - [Motosiklet alımının aylık taksit tutarı]",
-      "seoTitle": "Motosiklet Kredisi | SectorCalc",
-      "seoDescription": "Taksit (₺) - [Motosiklet alımının aylık taksit tutarı]"
+      "title": "Motorcycle Loan Payment",
+      "description": "Calculate Motorcycle Loan Payment efficiently.",
+      "seoTitle": "Motorcycle Loan Payment | SectorCalc",
+      "seoDescription": "Calculate Motorcycle Loan Payment efficiently."
     },
     "rv-recreational-vehicle-loan": {
-      "title": "RV Kredisi",
-      "description": "Taksit (₺) - [Karavan finansmanının uzun vadeli aylık ödemesi]",
-      "seoTitle": "RV Kredisi | SectorCalc",
-      "seoDescription": "Taksit (₺) - [Karavan finansmanının uzun vadeli aylık ödemesi]"
+      "title": "Rv Recreational Vehicle Loan",
+      "description": "Calculate Rv Recreational Vehicle Loan efficiently.",
+      "seoTitle": "Rv Recreational Vehicle Loan | SectorCalc",
+      "seoDescription": "Calculate Rv Recreational Vehicle Loan efficiently."
     },
     "student-loan-grace-payment": {
-      "title": "Öğrenci Kredisi",
-      "description": "Taksit (₺) - [Mezuniyet sonrası erteleme süresi bitince başlayan taksit]",
-      "seoTitle": "Öğrenci Kredisi | SectorCalc",
-      "seoDescription": "Taksit (₺) - [Mezuniyet sonrası erteleme süresi bitince başlayan taksit]"
+      "title": "Student Loan Grace Payment",
+      "description": "Calculate Student Loan Grace Payment efficiently.",
+      "seoTitle": "Student Loan Grace Payment | SectorCalc",
+      "seoDescription": "Calculate Student Loan Grace Payment efficiently."
     },
     "student-loan-refinance-savings": {
-      "title": "Öğrenci Kredisi Refinansman",
-      "description": "Tasarruf (₺) - [Faiz düşüşüyle vade sonuna kadar sağlanan net kazanç]",
-      "seoTitle": "Öğrenci Kredisi Refinansman | SectorCalc",
-      "seoDescription": "Tasarruf (₺) - [Faiz düşüşüyle vade sonuna kadar sağlanan net kazanç]"
+      "title": "Student Loan Refinance Savings",
+      "description": "Calculate Student Loan Refinance Savings efficiently.",
+      "seoTitle": "Student Loan Refinance Savings | SectorCalc",
+      "seoDescription": "Calculate Student Loan Refinance Savings efficiently."
     },
     "credit-card-accrued-interest": {
-      "title": "Kredi Kartı Faiz",
-      "description": "Faiz (₺) - [Ekstre kesiminden ödeme gününe kadar işleyen günlük faiz]",
-      "seoTitle": "Kredi Kartı Faiz | SectorCalc",
-      "seoDescription": "Faiz (₺) - [Ekstre kesiminden ödeme gününe kadar işleyen günlük faiz]"
+      "title": "Credit Card Accrued Interest",
+      "description": "Calculate Credit Card Accrued Interest efficiently.",
+      "seoTitle": "Credit Card Accrued Interest | SectorCalc",
+      "seoDescription": "Calculate Credit Card Accrued Interest efficiently."
     },
     "credit-card-minimum-payment": {
-      "title": "Kredi Kartı Minimum Ödeme",
-      "description": "Asgari (₺) - [Yasal olarak ödenmesi gereken alt limit tutar]",
-      "seoTitle": "Kredi Kartı Minimum Ödeme | SectorCalc",
-      "seoDescription": "Asgari (₺) - [Yasal olarak ödenmesi gereken alt limit tutar]"
-    },
-    "credit-card-processing-fees": {
-      "title": "Kredi Kartı İşlem Ücreti",
-      "description": "Komisyon (₺) - [POS cihazı veya sanal ödeme altyapısı kesintisi]",
-      "seoTitle": "Kredi Kartı İşlem Ücreti | SectorCalc",
-      "seoDescription": "Komisyon (₺) - [POS cihazı veya sanal ödeme altyapısı kesintisi]"
-    },
-    "debt-payoff-accelerator": {
-      "title": "Kredi Geri Ödeme (Payoff)",
-      "description": "YeniVade (Ay) - [Ek ödemeyle kredinin kapanacağı kısaltılmış süre]",
-      "seoTitle": "Kredi Geri Ödeme (Payoff) | SectorCalc",
-      "seoDescription": "YeniVade (Ay) - [Ek ödemeyle kredinin kapanacağı kısaltılmış süre]"
-    },
-    "debt-consolidation-payment": {
-      "title": "Borç Konsolidasyon",
-      "description": "YeniTaksit (₺) - [Tüm borçların tek bir düşük faizli kredide birleştirilmiş taksiti]",
-      "seoTitle": "Borç Konsolidasyon | SectorCalc",
-      "seoDescription": "YeniTaksit (₺) - [Tüm borçların tek bir düşük faizli kredide birleştirilmiş taksiti]"
-    },
-    "debt-to-income-dti-ratio": {
-      "title": "Borç-Gelir Oranı (DTI)",
-      "description": "DTI (%) - [Gelirin borç ödemelerine ayrılan yüzdesi]",
-      "seoTitle": "Borç-Gelir Oranı (DTI) | SectorCalc",
-      "seoDescription": "DTI (%) - [Gelirin borç ödemelerine ayrılan yüzdesi]"
-    },
-    "debt-service-coverage-dscr": {
-      "title": "Borç Servis Karşılama (DSCR)",
-      "description": "DSCR (Sayı) - [İşletmenin borç taksitlerini ödeme kapasitesi]",
-      "seoTitle": "Borç Servis Karşılama (DSCR) | SectorCalc",
-      "seoDescription": "DSCR (Sayı) - [İşletmenin borç taksitlerini ödeme kapasitesi]"
-    },
-    "maximum-affordable-loan-payment": {
-      "title": "Kredi Uygunluk (Affordability)",
-      "description": "MaxTaksit (₺) - [Bütçeyi sarsmadan ödenebilecek maksimum kredi taksiti]",
-      "seoTitle": "Kredi Uygunluk (Affordability) | SectorCalc",
-      "seoDescription": "MaxTaksit (₺) - [Bütçeyi sarsmadan ödenebilecek maksimum kredi taksiti]"
-    },
-    "foreign-currency-usd-loan-risk": {
-      "title": "USD Kredisi",
-      "description": "TL_Taksit (₺) - [Döviz kredisinin kur riskiyle artırılmış tahmini TL maliyeti]",
-      "seoTitle": "USD Kredisi | SectorCalc",
-      "seoDescription": "TL_Taksit (₺) - [Döviz kredisinin kur riskiyle artırılmış tahmini TL maliyeti]"
-    },
-    "business-valuation-multiplier": {
-      "title": "İşletme Değerleme",
-      "description": "Deger (TL) - [Piyasa emsallerine göre tahmini satış değeri]",
-      "seoTitle": "İşletme Değerleme | SectorCalc",
-      "seoDescription": "Deger (TL) - [Piyasa emsallerine göre tahmini satış değeri]"
-    },
-    "startup-pre-post-valuation": {
-      "title": "Girişim Değerleme",
-      "description": "DegerlemeOnce (TL) - [Yatırım öncesi girişimin şirket değeri]",
-      "seoTitle": "Girişim Değerleme | SectorCalc",
-      "seoDescription": "DegerlemeOnce (TL) - [Yatırım öncesi girişimin şirket değeri]"
-    },
-    "espp-discounted-stock-options": {
-      "title": "Hisse Opsiyonları (ESPP)",
-      "description": "HisseSayisi (Adet) - [İndirimli fiyatla alınabilecek hisse adedi]",
-      "seoTitle": "Hisse Opsiyonları (ESPP) | SectorCalc",
-      "seoDescription": "HisseSayisi (Adet) - [İndirimli fiyatla alınabilecek hisse adedi]"
-    },
-    "rsu-net-shares-vesting": {
-      "title": "Kısıtlı Hisse (RSU)",
-      "description": "NetHisse (Adet) - [Vergi kesintisi sonrası ele geçen net hisse]",
-      "seoTitle": "Kısıtlı Hisse (RSU) | SectorCalc",
-      "seoDescription": "NetHisse (Adet) - [Vergi kesintisi sonrası ele geçen net hisse]"
-    },
-    "convertible-note-shares": {
-      "title": "Dönüştürülebilir Not",
-      "description": "Hisse (Adet) - [Borç senedinin hisseye dönüşmesiyle alınan adet]",
-      "seoTitle": "Dönüştürülebilir Not | SectorCalc",
-      "seoDescription": "Hisse (Adet) - [Borç senedinin hisseye dönüşmesiyle alınan adet]"
-    },
-    "safe-note-equity-shares": {
-      "title": "Güvenli Not (SAFE)",
-      "description": "YeniHisse (Adet) - [SAFE anlaşmasıyla verilecek hisse adedi]",
-      "seoTitle": "Güvenli Not (SAFE) | SectorCalc",
-      "seoDescription": "YeniHisse (Adet) - [SAFE anlaşmasıyla verilecek hisse adedi]"
-    },
-    "equity-share-dilution-percent": {
-      "title": "Hisse Sulandırması",
-      "description": "Sulanma (Yüzde) - [Mevcut hissedarların mülkiyet oranındaki azalma]",
-      "seoTitle": "Hisse Sulandırması | SectorCalc",
-      "seoDescription": "Sulanma (Yüzde) - [Mevcut hissedarların mülkiyet oranındaki azalma]"
-    },
-    "cap-table-ownership-spread": {
-      "title": "Hisse Tablosu (Cap Table)",
-      "description": "Yuzde (Yüzde) - [Her paydaşın güncel mülkiyet oranı]",
-      "seoTitle": "Hisse Tablosu (Cap Table) | SectorCalc",
-      "seoDescription": "Yuzde (Yüzde) - [Her paydaşın güncel mülkiyet oranı]"
-    },
-    "cac-customer-acquisition-cost": {
-      "title": "Müşteri Edinim Maliyeti (CAC)",
-      "description": "CAC (TL) - [Bir yeni müşteriyi kazanmanın ortalama maliyeti]",
-      "seoTitle": "Müşteri Edinim Maliyeti (CAC) | SectorCalc",
-      "seoDescription": "CAC (TL) - [Bir yeni müşteriyi kazanmanın ortalama maliyeti]"
-    },
-    "clv-customer-lifetime-value": {
-      "title": "Müşteri Yaşam Boyu Değeri (CLV)",
-      "description": "CLV (TL) - [Müşterinin ömrü boyunca kazandırdığı net kâr]",
-      "seoTitle": "Müşteri Yaşam Boyu Değeri (CLV) | SectorCalc",
-      "seoDescription": "CLV (TL) - [Müşterinin ömrü boyunca kazandırdığı net kâr]"
-    },
-    "clv-to-cac-efficiency-ratio": {
-      "title": "CAC/CLV Oranı",
-      "description": "Oran (Sayı) - [Müşteri edinim verimliliği (3 üzeri idealdir)]",
-      "seoTitle": "CAC/CLV Oranı | SectorCalc",
-      "seoDescription": "Oran (Sayı) - [Müşteri edinim verimliliği (3 üzeri idealdir)]"
-    },
-    "marketing-campaign-roi": {
-      "title": "Pazarlama ROI",
-      "description": "ROI (Yüzde) - [Pazarlama harcamasının getirdiği net kâr oranı]",
-      "seoTitle": "Pazarlama ROI | SectorCalc",
-      "seoDescription": "ROI (Yüzde) - [Pazarlama harcamasının getirdiği net kâr oranı]"
-    },
-    "conversion-rate-optimization-cro": {
-      "title": "Dönüşüm Oranı (CRO)",
-      "description": "Oran (Yüzde) - [Siteye girenlerin hedeflenen eylemi gerçekleştirme yüzdesi]",
-      "seoTitle": "Dönüşüm Oranı (CRO) | SectorCalc",
-      "seoDescription": "Oran (Yüzde) - [Siteye girenlerin hedeflenen eylemi gerçekleştirme yüzdesi]"
-    },
-    "click-through-rate-ctr": {
-      "title": "Tıklama Oranı (CTR)",
-      "description": "CTR (Yüzde) - [Reklamın ne kadar ilgi çektiğinin göstergesi]",
-      "seoTitle": "Tıklama Oranı (CTR) | SectorCalc",
-      "seoDescription": "CTR (Yüzde) - [Reklamın ne kadar ilgi çektiğinin göstergesi]"
-    },
-    "cost-per-click-cpc": {
-      "title": "Tıklama Başına Maliyet (CPC)",
-      "description": "CPC (TL) - [Her bir reklam tıklaması için ödenen ortalama bedel]",
-      "seoTitle": "Tıklama Başına Maliyet (CPC) | SectorCalc",
-      "seoDescription": "CPC (TL) - [Her bir reklam tıklaması için ödenen ortalama bedel]"
-    },
-    "cost-per-mille-cpm": {
-      "title": "Bin Gösterim Maliyeti (CPM)",
-      "description": "CPM (TL) - [Reklamın 1000 kişiye ulaşmasının maliyeti]",
-      "seoTitle": "Bin Gösterim Maliyeti (CPM) | SectorCalc",
-      "seoDescription": "CPM (TL) - [Reklamın 1000 kişiye ulaşmasının maliyeti]"
-    },
-    "customer-churn-rate-percent": {
-      "title": "Müşteri Kaybı (Churn)",
-      "description": "Churn (Yüzde) - [Aboneliğini iptal eden müşteri oranı]",
-      "seoTitle": "Müşteri Kaybı (Churn) | SectorCalc",
-      "seoDescription": "Churn (Yüzde) - [Aboneliğini iptal eden müşteri oranı]"
-    },
-    "cash-runway-burn-rate": {
-      "title": "Nakit Yakma Oranı (Burn Rate)",
-      "description": "KalanSure (Ay) - [Şirketin iflas etmeden önce yaşayabileceği tahmini süre]",
-      "seoTitle": "Nakit Yakma Oranı (Burn Rate) | SectorCalc",
-      "seoDescription": "KalanSure (Ay) - [Şirketin iflas etmeden önce yaşayabileceği tahmini süre]"
-    },
-    "working-capital-liquidity": {
-      "title": "Çalışma Sermayesi",
-      "description": "CalismaSermayesi (TL) - [Şirketin kısa vadeli likidite gücü]",
-      "seoTitle": "Çalışma Sermayesi | SectorCalc",
-      "seoDescription": "CalismaSermayesi (TL) - [Şirketin kısa vadeli likidite gücü]"
-    },
-    "receivables-turnover-days": {
-      "title": "Alacak Devir Hızı",
-      "description": "Tahsilat (Gün) - [Alacakların nakde dönüşme ortalama süresi]",
-      "seoTitle": "Alacak Devir Hızı | SectorCalc",
-      "seoDescription": "Tahsilat (Gün) - [Alacakların nakde dönüşme ortalama süresi]"
-    },
-    "payables-turnover-days": {
-      "title": "Borç Devir Hızı",
-      "description": "Odeme (Gün) - [Tedarikçilere borçların ödenme ortalama süresi]",
-      "seoTitle": "Borç Devir Hızı | SectorCalc",
-      "seoDescription": "Odeme (Gün) - [Tedarikçilere borçların ödenme ortalama süresi]"
-    },
-    "inventory-turnover-days": {
-      "title": "Stok Devir Hızı",
-      "description": "StokGun (Gün) - [Stokların satılıp yenilenme ortalama süresi]",
-      "seoTitle": "Stok Devir Hızı | SectorCalc",
-      "seoDescription": "StokGun (Gün) - [Stokların satılıp yenilenme ortalama süresi]"
-    },
-    "cash-conversion-cycle-ccc": {
-      "title": "Nakit Dönüşüm Döngüsü",
-      "description": "CCC (Gün) - [Nakit çıkışı ile tahsilat arasındaki geçen süre]",
-      "seoTitle": "Nakit Dönüşüm Döngüsü | SectorCalc",
-      "seoDescription": "CCC (Gün) - [Nakit çıkışı ile tahsilat arasındaki geçen süre]"
-    },
-    "unit-contribution-margin": {
-      "title": "Katkı Marjı",
-      "description": "Oran (Yüzde) - [Sabit giderleri karşılayan birim başı pay]",
-      "seoTitle": "Katkı Marjı | SectorCalc",
-      "seoDescription": "Oran (Yüzde) - [Sabit giderleri karşılayan birim başı pay]"
-    },
-    "gross-net-profit-margins": {
-      "title": "Brüt ve Net Kâr",
-      "description": "Brut (TL), Net (TL) - [Üretim ve tüm giderler sonrası kâr]",
-      "seoTitle": "Brüt ve Net Kâr | SectorCalc",
-      "seoDescription": "Brut (TL), Net (TL) - [Üretim ve tüm giderler sonrası kâr]"
-    },
-    "operating-ebitda-margin-percent": {
-      "title": "İşletme Marjı",
-      "description": "Marj (Yüzde) - [Ana faaliyetlerden elde edilen kârlılık oranı]",
-      "seoTitle": "İşletme Marjı | SectorCalc",
-      "seoDescription": "Marj (Yüzde) - [Ana faaliyetlerden elde edilen kârlılık oranı]"
-    },
-    "consultant-minimum-hourly-rate": {
-      "title": "Danışmanlık Saat Ücreti",
-      "description": "Ucret (TL/Saat) - [Giderleri ve kârı karşılayan minimum saatlik bedel]",
-      "seoTitle": "Danışmanlık Saat Ücreti | SectorCalc",
-      "seoDescription": "Ucret (TL/Saat) - [Giderleri ve kârı karşılayan minimum saatlik bedel]"
-    },
-    "freelancer-target-hourly-rate": {
-      "title": "Serbest Çalışan Saat Ücreti",
-      "description": "Ucret (TL/Saat) - [Vergi ve giderler dahil edilmesi gereken saatlik rate]",
-      "seoTitle": "Serbest Çalışan Saat Ücreti | SectorCalc",
-      "seoDescription": "Ucret (TL/Saat) - [Vergi ve giderler dahil edilmesi gereken saatlik rate]"
-    },
-    "amazon-fba-net-profit": {
-      "title": "Amazon FBA Kârı",
-      "description": "Net (TL) - [Amazon kesintileri sonrası birim kâr]",
-      "seoTitle": "Amazon FBA Kârı | SectorCalc",
-      "seoDescription": "Net (TL) - [Amazon kesintileri sonrası birim kâr]"
-    },
-    "shopify-store-net-profit": {
-      "title": "Shopify Kârı",
-      "description": "Net (TL) - [Shopify kesintileri sonrası net e-ticaret kârı]",
-      "seoTitle": "Shopify Kârı | SectorCalc",
-      "seoDescription": "Net (TL) - [Shopify kesintileri sonrası net e-ticaret kârı]"
-    },
-    "etsy-seller-fee-net": {
-      "title": "Etsy Ücreti",
-      "description": "Kesinti (TL) - [Etsy platformuna ödenen toplam komisyon]",
-      "seoTitle": "Etsy Ücreti | SectorCalc",
-      "seoDescription": "Kesinti (TL) - [Etsy platformuna ödenen toplam komisyon]"
-    },
-    "ebay-seller-fee-net": {
-      "title": "eBay Ücreti",
-      "description": "Kesinti (TL) - [eBay nihai değer ücreti ve sabit kesintiler]",
-      "seoTitle": "eBay Ücreti | SectorCalc",
-      "seoDescription": "Kesinti (TL) - [eBay nihai değer ücreti ve sabit kesintiler]"
-    },
-    "dropshipping-net-profit": {
-      "title": "Dropshipping Kârı",
-      "description": "Net (TL) - [Stoksuz ticarette tüm giderler sonrası net kâr]",
-      "seoTitle": "Dropshipping Kârı | SectorCalc",
-      "seoDescription": "Net (TL) - [Stoksuz ticarette tüm giderler sonrası net kâr]"
-    },
-    "ecommerce-store-net-margin": {
-      "title": "E-Ticaret Kârı",
-      "description": "Net (TL) - [Genel e-ticaret operasyonunun nihai net kârı]",
-      "seoTitle": "E-Ticaret Kârı | SectorCalc",
-      "seoDescription": "Net (TL) - [Genel e-ticaret operasyonunun nihai net kârı]"
-    },
-    "freight-shipping-desi-cost": {
-      "title": "Kargo ve Navlun Maliyeti",
-      "description": "Maliyet (TL) - [Desi ve ağırlık karşılaştırmalı toplam taşıma bedeli]",
-      "seoTitle": "Kargo ve Navlun Maliyeti | SectorCalc",
-      "seoDescription": "Maliyet (TL) - [Desi ve ağırlık karşılaştırmalı toplam taşıma bedeli]"
-    },
-    "volumetric-weight-desi": {
-      "title": "Hacimsel Ağırlık",
-      "description": "Desi (kg) - [Kargonun kapladığı hacmin ağırlık karşılığı]",
-      "seoTitle": "Hacimsel Ağırlık | SectorCalc",
-      "seoDescription": "Desi (kg) - [Kargonun kapladığı hacmin ağırlık karşılığı]"
-    },
-    "customs-duty-import-tariff": {
-      "title": "Gümrük Vergisi",
-      "description": "Vergi (TL) - [İthalatta hesaplanan gümrük vergisi]",
-      "seoTitle": "Gümrük Vergisi | SectorCalc",
-      "seoDescription": "Vergi (TL) - [İthalatta hesaplanan gümrük vergisi]"
-    },
-    "additional-origin-import-tax": {
-      "title": "Tarife (Ek Vergi)",
-      "description": "EkVergiTL (TL) - [Belirli menşeili ürünlere uygulanan ek gümrük vergisi]",
-      "seoTitle": "Tarife (Ek Vergi) | SectorCalc",
-      "seoDescription": "EkVergiTL (TL) - [Belirli menşeili ürünlere uygulanan ek gümrük vergisi]"
-    },
-    "eu-ioss-vat-vat-calculator": {
-      "title": "KDV (AB - IOSS)",
-      "description": "KDV (EUR) - [150 EUR altı AB ithalatında alıcı ülkeye ödenen KDV]",
-      "seoTitle": "KDV (AB - IOSS) | SectorCalc",
-      "seoDescription": "KDV (EUR) - [150 EUR altı AB ithalatında alıcı ülkeye ödenen KDV]"
-    },
-    "stripe-paypal-payment-processor": {
-      "title": "Ödeme Sağlayıcı Ücreti",
-      "description": "Net (TL) - [Stripe/PayPal kesintisi sonrası hesaba geçen tutar]",
-      "seoTitle": "Ödeme Sağlayıcı Ücreti | SectorCalc",
-      "seoDescription": "Net (TL) - [Stripe/PayPal kesintisi sonrası hesaba geçen tutar]"
-    },
-    "economic-order-quantity-eoq": {
-      "title": "EOQ (Ekonomik Sipariş)",
-      "description": "EOQ (Adet) - [Toplam envanter maliyetini minimize eden optimum sipariş]",
-      "seoTitle": "EOQ (Ekonomik Sipariş) | SectorCalc",
-      "seoDescription": "EOQ (Adet) - [Toplam envanter maliyetini minimize eden optimum sipariş]"
-    },
-    "safety-stock-reorder-point": {
-      "title": "Güvenlik Stoğu ve ROP",
-      "description": "ROP (Adet) - [Stoksuz kalmayı önleyen yeniden sipariş seviyesi]",
-      "seoTitle": "Güvenlik Stoğu ve ROP | SectorCalc",
-      "seoDescription": "ROP (Adet) - [Stoksuz kalmayı önleyen yeniden sipariş seviyesi]"
-    },
-    "inventory-turnover-ratio": {
-      "title": "Envanter Devir Hızı",
-      "description": "Devir (Sayı) - [Stokların bir yılda kaç kez satılıp yenilendiği]",
-      "seoTitle": "Envanter Devir Hızı | SectorCalc",
-      "seoDescription": "Devir (Sayı) - [Stokların bir yılda kaç kez satılıp yenilendiği]"
-    },
-    "abc-inventory-classification": {
-      "title": "ABC Sınıflandırma",
-      "description": "Sinif (A/B/C) - [Stok kalemlerinin finansal önemine göre öncelik sırası]",
-      "seoTitle": "ABC Sınıflandırma | SectorCalc",
-      "seoDescription": "Sinif (A/B/C) - [Stok kalemlerinin finansal önemine göre öncelik sırası]"
-    },
-    "shipping-container-box-loading": {
-      "title": "Konteyner Yükleme",
-      "description": "MaksKutu (Adet) - [Konteynere sığabilecek maksimum kutu sayısı]",
-      "seoTitle": "Konteyner Yükleme | SectorCalc",
-      "seoDescription": "MaksKutu (Adet) - [Konteynere sığabilecek maksimum kutu sayısı]"
-    },
-    "warehouse-pallet-storage-capacity": {
-      "title": "Depo Alan Kapasite",
-      "description": "Kapasite (Palet) - [Depoda barındırılabilecek maksimum palet sayısı]",
-      "seoTitle": "Depo Alan Kapasite | SectorCalc",
-      "seoDescription": "Kapasite (Palet) - [Depoda barındırılabilecek maksimum palet sayısı]"
-    },
-    "freight-trucking-distance-cost": {
-      "title": "Nakliye Maliyeti",
-      "description": "Maliyet (TL) - [Karayolu taşımacılığının toplam navlun bedeli]",
-      "seoTitle": "Nakliye Maliyeti | SectorCalc",
-      "seoDescription": "Maliyet (TL) - [Karayolu taşımacılığının toplam navlun bedeli]"
-    },
-    "fleet-fuel-distance-cost": {
-      "title": "Yakıt Maliyeti",
-      "description": "Maliyet (TL) - [Gidilen yol için gereken toplam yakıt gideri]",
-      "seoTitle": "Yakıt Maliyeti | SectorCalc",
-      "seoDescription": "Maliyet (TL) - [Gidilen yol için gereken toplam yakıt gideri]"
-    },
-    "aviation-passenger-seat-cost": {
-      "title": "Uçuş Maliyeti",
-      "description": "Birim (TL) - [Havayolunda yolcu başına düşen operasyonel maliyet]",
-      "seoTitle": "Uçuş Maliyeti | SectorCalc",
-      "seoDescription": "Birim (TL) - [Havayolunda yolcu başına düşen operasyonel maliyet]"
-    },
-    "ride-hailing-taxi-uber-fare": {
-      "title": "Taksi/Uber Ücreti",
-      "description": "Ucret (TL) - [Mesafe ve süreye bağlı tahmini yolculuk maliyeti]",
-      "seoTitle": "Taksi/Uber Ücreti | SectorCalc",
-      "seoDescription": "Ucret (TL) - [Mesafe ve süreye bağlı tahmini yolculuk maliyeti]"
-    },
-    "overall-equipment-effectiveness-oee": {
-      "title": "OEE (Ekipman Verimliliği)",
-      "description": "OEE (Yüzde) - [Üretim hattının toplam verimlilik skoru]",
-      "seoTitle": "OEE (Ekipman Verimliliği) | SectorCalc",
-      "seoDescription": "OEE (Yüzde) - [Üretim hattının toplam verimlilik skoru]"
-    },
-    "smed-mold-setup-reduction": {
-      "title": "SMED (Kalıp Değişim)",
-      "description": "Toplam (Dk) - [İç ayarların dış ayara çevrilmesiyle kısaltılmış setup süresi]",
-      "seoTitle": "SMED (Kalıp Değişim) | SectorCalc",
-      "seoDescription": "Toplam (Dk) - [İç ayarların dış ayara çevrilmesiyle kısaltılmış setup süresi]"
-    },
-    "manufacturing-learning-curve": {
-      "title": "Öğrenme Eğrisi",
-      "description": "Sure (Dk) - [Tecrübe arttıkça azalan birim başı üretim süresi]",
-      "seoTitle": "Öğrenme Eğrisi | SectorCalc",
-      "seoDescription": "Sure (Dk) - [Tecrübe arttıkça azalan birim başı üretim süresi]"
-    },
-    "standard-production-cycle-time": {
-      "title": "Standart Zaman",
-      "description": "Standart (Dk) - [Yorgunluk payı eklenmiş hedef süre]",
-      "seoTitle": "Standart Zaman | SectorCalc",
-      "seoDescription": "Standart (Dk) - [Yorgunluk payı eklenmiş hedef süre]"
-    },
-    "production-assembly-line-balance": {
-      "title": "Bant Dengeleme",
-      "description": "Verimlilik (Yüzde) - [İş yükü dağılımının dengelilik oranı]",
-      "seoTitle": "Bant Dengeleme | SectorCalc",
-      "seoDescription": "Verimlilik (Yüzde) - [İş yükü dağılımının dengelilik oranı]"
-    },
-    "assembly-line-bottleneck-capacity": {
-      "title": "Darboğaz Analiz",
-      "description": "Kapasite (Adet/Saat) - [Hattın en yavaş istasyonuna göre maksimum üretim hızı]",
-      "seoTitle": "Darboğaz Analiz | SectorCalc",
-      "seoDescription": "Kapasite (Adet/Saat) - [Hattın en yavaş istasyonuna göre maksimum üretim hızı]"
-    },
-    "manufacturing-scrap-loss-cost": {
-      "title": "Hurda Oranı Optimizasyon",
-      "description": "Kayip (TL) - [Hatalı üretimden kaynaklanan toplam finansal kayıp]",
-      "seoTitle": "Hurda Oranı Optimizasyon | SectorCalc",
-      "seoDescription": "Kayip (TL) - [Hatalı üretimden kaynaklanan toplam finansal kayıp]"
-    },
-    "measurement-gage-calibration-drift": {
-      "title": "Kalibrasyon Sapma",
-      "description": "SapmaHizi (Birim/Gün) - [Ölçüm cihazının zamanla bozulma hızı]",
-      "seoTitle": "Kalibrasyon Sapma | SectorCalc",
-      "seoDescription": "SapmaHizi (Birim/Gün) - [Ölçüm cihazının zamanla bozulma hızı]"
-    },
-    "machine-capital-depreciation-rate": {
-      "title": "Makine Amortisman",
-      "description": "BirimAmortisman (TL/Adet) - [Üretilen her bir ürüne yüklenen yıpranma payı]",
-      "seoTitle": "Makine Amortisman | SectorCalc",
-      "seoDescription": "BirimAmortisman (TL/Adet) - [Üretilen her bir ürüne yüklenen yıpranma payı]"
-    },
-    "levelized-cost-of-energy-lcoe": {
-      "title": "LCOE (Enerji Birim Maliyeti)",
-      "description": "LCOE (TL/kWh) - [Enerji santralinin ömrü boyunca ürettiği elektriğin birim maliyeti]",
-      "seoTitle": "LCOE (Enerji Birim Maliyeti) | SectorCalc",
-      "seoDescription": "LCOE (TL/kWh) - [Enerji santralinin ömrü boyunca ürettiği elektriğin birim maliyeti]"
-    },
-    "apparel-sewing-line-balance": {
-      "title": "Dikiş Hattı Dengeleme",
-      "description": "Verimlilik (Yüzde) - [Konfeksiyon dikim hattının operatör bazlı verimliliği]",
-      "seoTitle": "Dikiş Hattı Dengeleme | SectorCalc",
-      "seoDescription": "Verimlilik (Yüzde) - [Konfeksiyon dikim hattının operatör bazlı verimliliği]"
-    },
-    "measurement-gage-rr-percentage": {
-      "title": "Gage R&R",
-      "description": "RR (Yüzde) - [Ölçüm sisteminden kaynaklanan hatanın toplam varyansa oranı]",
-      "seoTitle": "Gage R&R | SectorCalc",
-      "seoDescription": "RR (Yüzde) - [Ölçüm sisteminden kaynaklanan hatanın toplam varyansa oranı]"
-    },
-    "term-life-insurance-needs": {
-      "title": "Hayat Sigortası İhtiyacı",
-      "description": "Ihtiyac (TL) - [Ailenin geleceğini güvenceye almak için gerekli teminat]",
-      "seoTitle": "Hayat Sigortası İhtiyacı | SectorCalc",
-      "seoDescription": "Ihtiyac (TL) - [Ailenin geleceğini güvenceye almak için gerekli teminat]"
-    },
-    "whole-life-insurance-value": {
-      "title": "Tam Hayat Sigortası",
-      "description": "NakitDeger (TL) - [Poliçenin zamanla biriken yatırım değeri]",
-      "seoTitle": "Tam Hayat Sigortası | SectorCalc",
-      "seoDescription": "NakitDeger (TL) - [Poliçenin zamanla biriken yatırım değeri]"
-    },
-    "term-life-insurance-premium": {
-      "title": "Vadeli Hayat Sigortası",
-      "description": "BrutPrim (TL) - [Ödenmesi gereken yıllık sigorta primi]",
-      "seoTitle": "Vadeli Hayat Sigortası | SectorCalc",
-      "seoDescription": "BrutPrim (TL) - [Ödenmesi gereken yıllık sigorta primi]"
-    },
-    "disability-income-replacement": {
-      "title": "Engellilik Sigortası",
-      "description": "AylikOdeme (TL) - [İş göremezlik durumunda sigortadan alınacak aylık gelir]",
-      "seoTitle": "Engellilik Sigortası | SectorCalc",
-      "seoDescription": "AylikOdeme (TL) - [İş göremezlik durumunda sigortadan alınacak aylık gelir]"
-    },
-    "hsa-tax-saving-advantage": {
-      "title": "Sağlık Sigortası (HSA)",
-      "description": "VergiAvantaji (TL) - [Sağlık tasarruf hesabından sağlanan vergi indirimi]",
-      "seoTitle": "Sağlık Sigortası (HSA) | SectorCalc",
-      "seoDescription": "VergiAvantaji (TL) - [Sağlık tasarruf hesabından sağlanan vergi indirimi]"
-    },
-    "medicare-part-b-premium": {
-      "title": "Medicare Prim",
-      "description": "Prim (TL) - [Gelire göre ayarlanmış aylık sağlık sigortası primi]",
-      "seoTitle": "Medicare Prim | SectorCalc",
-      "seoDescription": "Prim (TL) - [Gelire göre ayarlanmış aylık sağlık sigortası primi]"
-    },
-    "high-deductible-health-plan-hsa": {
-      "title": "Medicare Tasarruf",
-      "description": "Tasarruf (TL) - [Yüksek muafiyetli plan seçmenin yıllık net avantajı]",
-      "seoTitle": "Medicare Tasarruf | SectorCalc",
-      "seoDescription": "Tasarruf (TL) - [Yüksek muafiyetli plan seçmenin yıllık net avantajı]"
-    },
-    "retirement-future-portfolio-value": {
-      "title": "Emeklilik (Retirement)",
-      "description": "GelecekDeger (TL) - [Emeklilik tarihinde ulaşılacak tahmini portföy değeri]",
-      "seoTitle": "Emeklilik (Retirement) | SectorCalc",
-      "seoDescription": "GelecekDeger (TL) - [Emeklilik tarihinde ulaşılacak tahmini portföy değeri]"
-    },
-    "retirement-savings-horizon-months": {
-      "title": "Emeklilik Tarihi",
-      "description": "Ay (Ay) - [Hedeflenen emeklilik sermayesine ulaşmak için gereken süre]",
-      "seoTitle": "Emeklilik Tarihi | SectorCalc",
-      "seoDescription": "Ay (Ay) - [Hedeflenen emeklilik sermayesine ulaşmak için gereken süre]"
-    },
-    "401k-contribution-employer-match": {
-      "title": "401k Büyüme",
-      "description": "FV (TL) - [İşveren katkısı dahil 401k hesabının vade sonu değeri]",
-      "seoTitle": "401k Büyüme | SectorCalc",
-      "seoDescription": "FV (TL) - [İşveren katkısı dahil 401k hesabının vade sonu değeri]"
-    },
-    "traditional-vs-roth-ira-net": {
-      "title": "Geleneksel vs Roth IRA",
-      "description": "GelenekselNet, RothNet (TL) - [Karşılaştırmalı net emeklilik birikimi]",
-      "seoTitle": "Geleneksel vs Roth IRA | SectorCalc",
-      "seoDescription": "GelenekselNet, RothNet (TL) - [Karşılaştırmalı net emeklilik birikimi]"
-    },
-    "backdoor-roth-ira-conversion": {
-      "title": "Backdoor Roth IRA",
-      "description": "NetRoth (TL) - [Dolaylı Roth dönüşümü sonrası net bakiye]",
-      "seoTitle": "Backdoor Roth IRA | SectorCalc",
-      "seoDescription": "NetRoth (TL) - [Dolaylı Roth dönüşümü sonrası net bakiye]"
-    },
-    "ira-required-minimum-distribution": {
-      "title": "IRA RMD (Asgari Dağıtım)",
-      "description": "RMD (TL) - [72 yaş sonrası yasal olarak çekilmesi zorunlu minimum yıllık tutar]",
-      "seoTitle": "IRA RMD (Asgari Dağıtım) | SectorCalc",
-      "seoDescription": "RMD (TL) - [72 yaş sonrası yasal olarak çekilmesi zorunlu minimum yıllık tutar]"
-    },
-    "social-security-monthly-benefit": {
-      "title": "Sosyal Güvenlik Yardımları",
-      "description": "Ayarli (TL) - [Erken veya geç emekliliğe göre ayarlanmış aylık maaş]",
-      "seoTitle": "Sosyal Güvenlik Yardımları | SectorCalc",
-      "seoDescription": "Ayarli (TL) - [Erken veya geç emekliliğe göre ayarlanmış aylık maaş]"
-    },
-    "mean-median-mode-averages": {
-      "title": "Ortalama, Medyan, Mod",
-      "description": "Ortalama, Medyan, Mod (Sayı) - [Veri setinin merkezi eğilim ölçüleri]",
-      "seoTitle": "Ortalama, Medyan, Mod | SectorCalc",
-      "seoDescription": "Ortalama, Medyan, Mod (Sayı) - [Veri setinin merkezi eğilim ölçüleri]"
-    },
-    "variance-standard-deviation-pop": {
-      "title": "Standart Sapma ve Varyans",
-      "description": "StdSapma (Sayı) - [Verilerin ortalamaya göre yayılım derecesi]",
-      "seoTitle": "Standart Sapma ve Varyans | SectorCalc",
-      "seoDescription": "StdSapma (Sayı) - [Verilerin ortalamaya göre yayılım derecesi]"
-    },
-    "confidence-interval-bounds": {
-      "title": "Güven Aralığı",
-      "description": "Alt, Ust (Sayı) - [Popülasyon parametresinin bulunma olasılığı yüksek aralık]",
-      "seoTitle": "Güven Aralığı | SectorCalc",
-      "seoDescription": "Alt, Ust (Sayı) - [Popülasyon parametresinin bulunma olasılığı yüksek aralık]"
-    },
-    "sample-size-estimation-stats": {
-      "title": "Örneklem Büyüklüğü",
-      "description": "n (Adet) - [İstatistiksel anlamlılık için gereken minimum örneklem sayısı]",
-      "seoTitle": "Örneklem Büyüklüğü | SectorCalc",
-      "seoDescription": "n (Adet) - [İstatistiksel anlamlılık için gereken minimum örneklem sayısı]"
-    },
-    "linear-correlation-regression": {
-      "title": "Korelasyon ve Regresyon",
-      "description": "r (-1 ile 1), Egim (Sayı) - [İki değişken arası ilişki gücü ve doğrusal denklem eğimi]",
-      "seoTitle": "Korelasyon ve Regresyon | SectorCalc",
-      "seoDescription": "r (-1 ile 1), Egim (Sayı) - [İki değişken arası ilişki gücü ve doğrusal denklem eğimi]"
-    },
-    "anova-f-statistic-variance": {
-      "title": "Varyans Analizi (ANOVA)",
-      "description": "F (Sayı) - [Grup ortalamaları arası farkın istatistiksel anlamlılığı]",
-      "seoTitle": "Varyans Analizi (ANOVA) | SectorCalc",
-      "seoDescription": "F (Sayı) - [Grup ortalamaları arası farkın istatistiksel anlamlılığı]"
-    },
-    "body-mass-index-bmi": {
-      "title": "VKİ (BMI)",
-      "description": "BMI (kg/m2) - [Vücut kitle endeksi ve obezite risk sınıflandırması]",
-      "seoTitle": "VKİ (BMI) | SectorCalc",
-      "seoDescription": "BMI (kg/m2) - [Vücut kitle endeksi ve obezite risk sınıflandırması]"
-    },
-    "body-fat-percentage-navy": {
-      "title": "Vücut Yağ Yüzdesi",
-      "description": "Yag (Yüzde) - [Vücuttaki yağ kütlesinin toplam ağırlığa oranı]",
-      "seoTitle": "Vücut Yağ Yüzdesi | SectorCalc",
-      "seoDescription": "Yag (Yüzde) - [Vücuttaki yağ kütlesinin toplam ağırlığa oranı]"
-    },
-    "basal-metabolic-rate-bmr": {
-      "title": "Bazal Metabolizma Hızı (BMR)",
-      "description": "BMR (kcal) - [Vücudun dinlenme halindeyken yaktığı minimum günlük enerji]",
-      "seoTitle": "Bazal Metabolizma Hızı (BMR) | SectorCalc",
-      "seoDescription": "BMR (kcal) - [Vücudun dinlenme halindeyken yaktığı minimum günlük enerji]"
-    },
-    "daily-calorie-expenditure-tdee": {
-      "title": "Günlük Kalori İhtiyacı",
-      "description": "TDEE (kcal) - [Mevcut kiloyu korumak için günlük alınması gereken toplam kalori]",
-      "seoTitle": "Günlük Kalori İhtiyacı | SectorCalc",
-      "seoDescription": "TDEE (kcal) - [Mevcut kiloyu korumak için günlük alınması gereken toplam kalori]"
-    },
-    "target-heart-rate-karvonen": {
-      "title": "Hedef Kalp Atış Hızı",
-      "description": "Hedef (BPM) - [Karvonen formülüne göre ideal antrenman nabız aralığı]",
-      "seoTitle": "Hedef Kalp Atış Hızı | SectorCalc",
-      "seoDescription": "Hedef (BPM) - [Karvonen formülüne göre ideal antrenman nabız aralığı]"
-    },
-    "vo2max-aerobic-capacity-cooper": {
-      "title": "VO2 Max",
-      "description": "VO2Max (ml/kg/dk) - [Cooper testine göre maksimum oksijen tüketim kapasitesi]",
-      "seoTitle": "VO2 Max | SectorCalc",
-      "seoDescription": "VO2Max (ml/kg/dk) - [Cooper testine göre maksimum oksijen tüketim kapasitesi]"
-    },
-    "macronutrient-gram-split-goals": {
-      "title": "Makro Besin İhtiyacı",
-      "description": "Protein_g, Yag_g, Karb_g (g) - [Günlük kalori hedefinin gramaj bazlı besin dağılımı]",
-      "seoTitle": "Makro Besin İhtiyacı | SectorCalc",
-      "seoDescription": "Protein_g, Yag_g, Karb_g (g) - [Günlük kalori hedefinin gramaj bazlı besin dağılımı]"
-    },
-    "daily-water-hydration-intake": {
-      "title": "Su Tüketim İhtiyacı",
-      "description": "Su (Litre) - [Günlük baz ve aktivite kaynaklı su kaybını telafi eden minimum su miktarı]",
-      "seoTitle": "Su Tüketim İhtiyacı | SectorCalc",
-      "seoDescription": "Su (Litre) - [Günlük baz ve aktivite kaynaklı su kaybını telafi eden minimum su miktarı]"
-    },
-    "hookes-law-axial-stress": {
-      "title": "Hooke Yasası",
-      "description": "Gerilme (Pa) - [Lineer elastik bölgedeki normal gerilme]",
-      "seoTitle": "Hooke Yasası | SectorCalc",
-      "seoDescription": "Gerilme (Pa) - [Lineer elastik bölgedeki normal gerilme]"
-    },
-    "interference-fit-pressure": {
-      "title": "Sıkı Geçme (Geçme Basıncı)",
-      "description": "Basinc (Pa) - [İki parça arasındaki yüzey temas basıncı]",
-      "seoTitle": "Sıkı Geçme (Geçme Basıncı) | SectorCalc",
-      "seoDescription": "Basinc (Pa) - [İki parça arasındaki yüzey temas basıncı]"
-    },
-    "thin-walled-pressure-vessel": {
-      "title": "İnce Cidarlı Kap",
-      "description": "CevreGerilme (Pa) - [Silindirik kaptaki teğetsel membran gerilmesi]",
-      "seoTitle": "İnce Cidarlı Kap | SectorCalc",
-      "seoDescription": "CevreGerilme (Pa) - [Silindirik kaptaki teğetsel membran gerilmesi]"
-    },
-    "weld-joint-throat-thickness": {
-      "title": "Kaynak Boyutlandırma",
-      "description": "BogazKalinlik (m) - [Çalışma yükünü taşıyacak minimum kaynak boğaz kalınlığı]",
-      "seoTitle": "Kaynak Boyutlandırma | SectorCalc",
-      "seoDescription": "BogazKalinlik (m) - [Çalışma yükünü taşıyacak minimum kaynak boğaz kalınlığı]"
-    },
-    "simple-beam-deflection-load": {
-      "title": "Kiriş Sehimi (Deflection)",
-      "description": "Sehim (m) - [Yayılı yük altındaki basit kirişin maksimum çökmesi]",
-      "seoTitle": "Kiriş Sehimi (Deflection) | SectorCalc",
-      "seoDescription": "Sehim (m) - [Yayılı yük altındaki basit kirişin maksimum çökmesi]"
-    },
-    "laser-welding-energy-density": {
-      "title": "Lazer İşleme Parametreleri",
-      "description": "EnerjiYogunlugu (J/m2) - [Malzeme yüzeyine uygulanan net termal enerji]",
-      "seoTitle": "Lazer İşleme Parametreleri | SectorCalc",
-      "seoDescription": "EnerjiYogunlugu (J/m2) - [Malzeme yüzeyine uygulanan net termal enerji]"
-    },
-    "beam-lintel-bending-stress": {
-      "title": "Lento Boyutlandırma",
-      "description": "Gerilme (Pa) - [Lento kesitindeki maksimum eğilme gerilmesi]",
-      "seoTitle": "Lento Boyutlandırma | SectorCalc",
-      "seoDescription": "Gerilme (Pa) - [Lento kesitindeki maksimum eğilme gerilmesi]"
-    },
-    "mohrs-circle-stress-transformation": {
-      "title": "Mohr Çemberi",
-      "description": "Merkez (Pa), Yaricap (Pa) - [Asal gerilmeler ve maksimum kayma gerilmesi merkezi]",
-      "seoTitle": "Mohr Çemberi | SectorCalc",
-      "seoDescription": "Merkez (Pa), Yaricap (Pa) - [Asal gerilmeler ve maksimum kayma gerilmesi merkezi]"
-    },
-    "rectangle-area-moment-inertia": {
-      "title": "Atalet Momenti (Dikdörtgen)",
-      "description": "I (m4) - [Kesitin eğilmeye karşı gösterdiği geometrik direnç]",
-      "seoTitle": "Atalet Momenti (Dikdörtgen) | SectorCalc",
-      "seoDescription": "I (m4) - [Kesitin eğilmeye karşı gösterdiği geometrik direnç]"
-    },
-    "normal-shock-wave-relations": {
-      "title": "Normal Şok Dalgası",
-      "description": "Basinc2 (Pa) - [Şok dalgası sonrası statik basınç sıçraması]",
-      "seoTitle": "Normal Şok Dalgası | SectorCalc",
-      "seoDescription": "Basinc2 (Pa) - [Şok dalgası sonrası statik basınç sıçraması]"
-    },
-    "pump-npsh-cavitation-margin": {
-      "title": "NPSH (Net Pozitif Emme)",
-      "description": "NPSH (m) - [Kavitasyonu önlemek için pompa girişindeki net yük]",
-      "seoTitle": "NPSH (Net Pozitif Emme) | SectorCalc",
-      "seoDescription": "NPSH (m) - [Kavitasyonu önlemek için pompa girişindeki net yük]"
-    },
-    "thermal-pipe-expansion-stress": {
-      "title": "Boru Gerilmesi (Termal)",
-      "description": "TermalGerilme (Pa) - [Sıcaklık değişiminin sabit boruda yarattığı eksenel gerilme]",
-      "seoTitle": "Boru Gerilmesi (Termal) | SectorCalc",
-      "seoDescription": "TermalGerilme (Pa) - [Sıcaklık değişiminin sabit boruda yarattığı eksenel gerilme]"
-    },
-    "flat-belt-drive-tension": {
-      "title": "Kasnak ve Kayış Gerilimi",
-      "description": "F2 (N) - [Kayışın gevşek kolundaki minimum gerilme kuvveti]",
-      "seoTitle": "Kasnak ve Kayış Gerilimi | SectorCalc",
-      "seoDescription": "F2 (N) - [Kayışın gevşek kolundaki minimum gerilme kuvveti]"
-    },
-    "natural-resonance-frequency": {
-      "title": "Rezonans Frekansı",
-      "description": "Frekans (Hz) - [Sistemin genliğinin maksimuma ulaştığı doğal titreşim frekansı]",
-      "seoTitle": "Rezonans Frekansı | SectorCalc",
-      "seoDescription": "Frekans (Hz) - [Sistemin genliğinin maksimuma ulaştığı doğal titreşim frekansı]"
-    },
-    "shaft-diameter-torsion-bending": {
-      "title": "Mil Tasarımı (ASME)",
-      "description": "Cap (m) - [Eğilme ve burulma altındaki milin minimum çapı]",
-      "seoTitle": "Mil Tasarımı (ASME) | SectorCalc",
-      "seoDescription": "Cap (m) - [Eğilme ve burulma altındaki milin minimum çapı]"
-    },
-    "shaft-torsional-shear-stress": {
-      "title": "Kayma Gerilmesi (Burulma)",
-      "description": "Tau (Pa) - [Dairesel kesitteki maksimum torsiyonel kayma gerilmesi]",
-      "seoTitle": "Kayma Gerilmesi (Burulma) | SectorCalc",
-      "seoDescription": "Tau (Pa) - [Dairesel kesitteki maksimum torsiyonel kayma gerilmesi]"
-    },
-    "spring-force-compression": {
-      "title": "Yay Kuvveti ve Deplasman",
-      "description": "Kuvvet (N) - [Yayda depolanan elastik potansiyel kuvvet]",
-      "seoTitle": "Yay Kuvveti ve Deplasman | SectorCalc",
-      "seoDescription": "Kuvvet (N) - [Yayda depolanan elastik potansiyel kuvvet]"
-    },
-    "mass-spring-angular-frequency": {
-      "title": "Yay-Kütle Sistemi",
-      "description": "Omega (rad/s) - [Sistemin sönümsüz doğal açısal frekansı]",
-      "seoTitle": "Yay-Kütle Sistemi | SectorCalc",
-      "seoDescription": "Omega (rad/s) - [Sistemin sönümsüz doğal açısal frekansı]"
-    },
-    "spur-gear-lewis-bending-stress": {
-      "title": "Düz Dişli (Lewis Formülü)",
-      "description": "Gerilme (Pa) - [Dişli kökündeki maksimum eğilme gerilmesi]",
-      "seoTitle": "Düz Dişli (Lewis Formülü) | SectorCalc",
-      "seoDescription": "Gerilme (Pa) - [Dişli kökündeki maksimum eğilme gerilmesi]"
-    },
-    "hydrostatic-fluid-pressure-depth": {
-      "title": "Statik Basınç (Akışkan)",
-      "description": "Basinc (Pa)",
-      "seoTitle": "Statik Basınç (Akışkan) | SectorCalc",
-      "seoDescription": "Basinc (Pa)"
-    },
-    "steel-beam-bending": {
-      "title": "Çelik Kiriş (Eğilme)",
-      "description": "Gerilme (Pa) - [Çelik profilin dış liflerindeki maksimum normal gerilme]",
-      "seoTitle": "Çelik Kiriş (Eğilme) | SectorCalc",
-      "seoDescription": "Gerilme (Pa) - [Çelik profilin dış liflerindeki maksimum normal gerilme]"
-    },
-    "strain-calculator": {
-      "title": "Birim Şekil Değiştirme",
-      "description": "Strain (Sayı) - [Malzemenin boyundaki oransal uzama/kısalma]",
-      "seoTitle": "Birim Şekil Değiştirme | SectorCalc",
-      "seoDescription": "Strain (Sayı) - [Malzemenin boyundaki oransal uzama/kısalma]"
-    },
-    "stress-calculator": {
-      "title": "Gerilme (Stress)",
-      "description": "Sigma (Pa) - [Birim alana etkiyen iç kuvvet yoğunluğu]",
-      "seoTitle": "Gerilme (Stress) | SectorCalc",
-      "seoDescription": "Sigma (Pa) - [Birim alana etkiyen iç kuvvet yoğunluğu]"
-    },
-    "tolerance-and-fit": {
-      "title": "Tolerans ve Geçme",
-      "description": "Bosluk (m) - [Pozitifse boşluklu, negatifse sıkı geçme miktarı]",
-      "seoTitle": "Tolerans ve Geçme | SectorCalc",
-      "seoDescription": "Bosluk (m) - [Pozitifse boşluklu, negatifse sıkı geçme miktarı]"
-    },
-    "soil-bearing-capacity": {
-      "title": "Zemin Taşıma Kapasitesi",
-      "description": "q (Pa) - [Zeminin göçmeden taşıyabileceği maksimum basınç]",
-      "seoTitle": "Zemin Taşıma Kapasitesi | SectorCalc",
-      "seoDescription": "q (Pa) - [Zeminin göçmeden taşıyabileceği maksimum basınç]"
-    },
-    "torque-converter": {
-      "title": "Tork Dönüştürücü",
-      "description": "Nm (N.m) - [Torkun standart SI birim karşılığı]",
-      "seoTitle": "Tork Dönüştürücü | SectorCalc",
-      "seoDescription": "Nm (N.m) - [Torkun standart SI birim karşılığı]"
-    },
-    "angle-of-twist": {
-      "title": "Burulma Açısı",
-      "description": "Aci (Rad) - [Milin boyunda oluşan toplam dönme miktarı]",
-      "seoTitle": "Burulma Açısı | SectorCalc",
-      "seoDescription": "Aci (Rad) - [Milin boyunda oluşan toplam dönme miktarı]"
-    },
-    "torsion-spring": {
-      "title": "Burulma Yayı",
-      "description": "Aci (Rad) - [Yayda oluşan açısal deplasman]",
-      "seoTitle": "Burulma Yayı | SectorCalc",
-      "seoDescription": "Aci (Rad) - [Yayda oluşan açısal deplasman]"
-    },
-    "von-mises-stress": {
-      "title": "Von Mises Gerilmesi",
-      "description": "VonMises (Pa) - [Çok eksenli yüklemedeki eşdeğer akma gerilmesi]",
-      "seoTitle": "Von Mises Gerilmesi | SectorCalc",
-      "seoDescription": "VonMises (Pa) - [Çok eksenli yüklemedeki eşdeğer akma gerilmesi]"
-    },
-    "welding-heat-input": {
-      "title": "Kaynak Isı Girdisi",
-      "description": "Isı (J/mm) - [Kaynak dikişine aktarılan birim enerji]",
-      "seoTitle": "Kaynak Isı Girdisi | SectorCalc",
-      "seoDescription": "Isı (J/mm) - [Kaynak dikişine aktarılan birim enerji]"
-    },
-    "wood-beam-shear": {
-      "title": "Ahşap Kiriş (Kesme)",
-      "description": "Tau (Pa) - [Dikdörtgen ahşap kesitteki maksimum kayma gerilmesi]",
-      "seoTitle": "Ahşap Kiriş (Kesme) | SectorCalc",
-      "seoDescription": "Tau (Pa) - [Dikdörtgen ahşap kesitteki maksimum kayma gerilmesi]"
-    },
-    "worm-gear-efficiency": {
-      "title": "Sonsuz Vida Verimi",
-      "description": "Verim (Sayı) - [Sonsuz vida mekanizmasının mekanik verimi]",
-      "seoTitle": "Sonsuz Vida Verimi | SectorCalc",
-      "seoDescription": "Verim (Sayı) - [Sonsuz vida mekanizmasının mekanik verimi]"
-    },
-    "load-bearing-wall": {
-      "title": "Taşıyıcı Duvar",
-      "description": "Basinc (Pa) - [Duvar kesitindeki ortalama eksenel basınç]",
-      "seoTitle": "Taşıyıcı Duvar | SectorCalc",
-      "seoDescription": "Basinc (Pa) - [Duvar kesitindeki ortalama eksenel basınç]"
-    },
-    "surface-roughness-ra": {
-      "title": "Yüzey Kalitesi (Ra)",
-      "description": "Ra (mm) - [Tornalama işlemindeki teorik yüzey pürüzlülüğü]",
-      "seoTitle": "Yüzey Kalitesi (Ra) | SectorCalc",
-      "seoDescription": "Ra (mm) - [Tornalama işlemindeki teorik yüzey pürüzlülüğü]"
-    },
-    "floor-joist-deflection": {
-      "title": "Zemin Kirişi (Sehim)",
-      "description": "Sehim (m) - [Tekil yük altındaki basit kirişin orta nokta çökmesi]",
-      "seoTitle": "Zemin Kirişi (Sehim) | SectorCalc",
-      "seoDescription": "Sehim (m) - [Tekil yük altındaki basit kirişin orta nokta çökmesi]"
-    },
-    "lvl-beam-capacity": {
-      "title": "LVL Kiriş Kapasitesi",
-      "description": "Moment (N.m) - [Lamine ahşap kirişin taşıyabileceği maksimum eğilme momenti]",
-      "seoTitle": "LVL Kiriş Kapasitesi | SectorCalc",
-      "seoDescription": "Moment (N.m) - [Lamine ahşap kirişin taşıyabileceği maksimum eğilme momenti]"
-    },
-    "ridge-beam-calculator": {
-      "title": "Mahya Kirişi",
-      "description": "Moment (N.m) - [Çatı mahyasındaki maksimum eğilme momenti]",
-      "seoTitle": "Mahya Kirişi | SectorCalc",
-      "seoDescription": "Moment (N.m) - [Çatı mahyasındaki maksimum eğilme momenti]"
-    },
-    "shear-force-diagram": {
-      "title": "Kayma Kuvveti Diyagramı",
-      "description": "V (N) - [Kiriş kesitindeki anlık kesme kuvveti]",
-      "seoTitle": "Kayma Kuvveti Diyagramı | SectorCalc",
-      "seoDescription": "V (N) - [Kiriş kesitindeki anlık kesme kuvveti]"
-    },
-    "archimedes-principle": {
-      "title": "Archimedes Prensibi",
-      "description": "Kaldirma (N) - [Akışkanın cisme uyguladığı yukarı yönlü kuvvet]",
-      "seoTitle": "Archimedes Prensibi | SectorCalc",
-      "seoDescription": "Kaldirma (N) - [Akışkanın cisme uyguladığı yukarı yönlü kuvvet]"
-    },
-    "bernoulli-equation": {
-      "title": "Bernoulli Denklemi",
-      "description": "P2 (Pa) - [Akışkanın ikinci noktadaki statik basıncı]",
-      "seoTitle": "Bernoulli Denklemi | SectorCalc",
-      "seoDescription": "P2 (Pa) - [Akışkanın ikinci noktadaki statik basıncı]"
-    },
-    "brinell-rockwell-conversion": {
-      "title": "Brinell-Rockwell Dönüşüm",
-      "description": "HRC (Sayı) - [Sertlik ölçekleri arası ampirik dönüşüm]",
-      "seoTitle": "Brinell-Rockwell Dönüşüm | SectorCalc",
-      "seoDescription": "HRC (Sayı) - [Sertlik ölçekleri arası ampirik dönüşüm]"
-    },
-    "capillary-action": {
-      "title": "Kılcal Etki",
-      "description": "h (m) - [Sıvının dar boruda yükselme yüksekliği]",
-      "seoTitle": "Kılcal Etki | SectorCalc",
-      "seoDescription": "h (m) - [Sıvının dar boruda yükselme yüksekliği]"
-    },
-    "heat-conduction-fourier": {
-      "title": "Isı İletimi (Fourier)",
-      "description": "Akı (W) - [Düzlem duvardan geçen ısı transfer hızı]",
-      "seoTitle": "Isı İletimi (Fourier) | SectorCalc",
-      "seoDescription": "Akı (W) - [Düzlem duvardan geçen ısı transfer hızı]"
-    },
-    "energy-density": {
-      "title": "Enerji Yoğunluğu",
-      "description": "Yogunluk (J/m3) - [Birim hacimdeki depolanan enerji miktarı]",
-      "seoTitle": "Enerji Yoğunluğu | SectorCalc",
-      "seoDescription": "Yogunluk (J/m3) - [Birim hacimdeki depolanan enerji miktarı]"
-    },
-    "phase-diagram-lever-rule": {
-      "title": "Faz Diyagramı (Lever Kuralı)",
-      "description": "Fs (Sayı) - [Katı fazın kütle oranı]",
-      "seoTitle": "Faz Diyagramı (Lever Kuralı) | SectorCalc",
-      "seoDescription": "Fs (Sayı) - [Katı fazın kütle oranı]"
-    },
-    "photoelectric-effect": {
-      "title": "Fotoelektrik Etki",
-      "description": "KE (J) - [Kopan elektronun maksimum kinetik enerjisi]",
-      "seoTitle": "Fotoelektrik Etki | SectorCalc",
-      "seoDescription": "KE (J) - [Kopan elektronun maksimum kinetik enerjisi]"
-    },
-    "porosity-calculator": {
-      "title": "Gözeneklilik",
-      "description": "Porozite (Yüzde) - [Malzemedeki boşluk oranı]",
-      "seoTitle": "Gözeneklilik | SectorCalc",
-      "seoDescription": "Porozite (Yüzde) - [Malzemedeki boşluk oranı]"
-    },
-    "stokes-law": {
-      "title": "Stokes Yasası",
-      "description": "Hiz (m/s) - [Küresel cismin viskoz akışkandaki çökelme hızı]",
-      "seoTitle": "Stokes Yasası | SectorCalc",
-      "seoDescription": "Hiz (m/s) - [Küresel cismin viskoz akışkandaki çökelme hızı]"
-    },
-    "terminal-velocity": {
-      "title": "Terminal Hız",
-      "description": "Hiz (m/s) - [Hava direnci ile yerçekiminin dengelendiği sabit hız]",
-      "seoTitle": "Terminal Hız | SectorCalc",
-      "seoDescription": "Hiz (m/s) - [Hava direnci ile yerçekiminin dengelendiği sabit hız]"
-    },
-    "wavelength-frequency-speed": {
-      "title": "Dalga Boyu-Frekans-Hız",
-      "description": "DalgaBoyu (m) - [Dalganın uzaydaki periyodik uzunluğu]",
-      "seoTitle": "Dalga Boyu-Frekans-Hız | SectorCalc",
-      "seoDescription": "DalgaBoyu (m) - [Dalganın uzaydaki periyodik uzunluğu]"
-    },
-    "density-converter": {
-      "title": "Yoğunluk Dönüştürücü",
-      "description": "kgm3 (kg/m3) - [Kütlenin standart SI birim hacmine oranı]",
-      "seoTitle": "Yoğunluk Dönüştürücü | SectorCalc",
-      "seoDescription": "kgm3 (kg/m3) - [Kütlenin standart SI birim hacmine oranı]"
-    },
-    "surface-tension": {
-      "title": "Yüzey Gerilimi",
-      "description": "Sigma (N/m) - [Sıvı yüzeyindeki birim uzunluğa etkiyen çekme kuvveti]",
-      "seoTitle": "Yüzey Gerilimi | SectorCalc",
-      "seoDescription": "Sigma (N/m) - [Sıvı yüzeyindeki birim uzunluğa etkiyen çekme kuvveti]"
-    },
-    "thermal-conductivity-converter": {
-      "title": "Isı İletkenliği Dönüştürücü",
-      "description": "WmK (W/mK) - [Malzemenin ısı geçişine izin verme kapasitesi]",
-      "seoTitle": "Isı İletkenliği Dönüştürücü | SectorCalc",
-      "seoDescription": "WmK (W/mK) - [Malzemenin ısı geçişine izin verme kapasitesi]"
-    },
-    "adhesive-amount": {
-      "title": "Yapıştırıcı Miktarı",
-      "description": "Kutle (kg) - [Yüzeyi kaplamak için gereken net yapıştırıcı]",
-      "seoTitle": "Yapıştırıcı Miktarı | SectorCalc",
-      "seoDescription": "Kutle (kg) - [Yüzeyi kaplamak için gereken net yapıştırıcı]"
-    },
-    "wood-deck-calculator": {
-      "title": "Ahşap Döşeme (Deck)",
-      "description": "Adet (Adet) - [Kesim payı dahil gereken deck tahtası]",
-      "seoTitle": "Ahşap Döşeme (Deck) | SectorCalc",
-      "seoDescription": "Adet (Adet) - [Kesim payı dahil gereken deck tahtası]"
-    },
-    "drywall-calculator": {
-      "title": "Alçıpan (Drywall)",
-      "description": "Levha (Adet) - [Duvarı kapatmak için gereken tam levha adedi]",
-      "seoTitle": "Alçıpan (Drywall) | SectorCalc",
-      "seoDescription": "Levha (Adet) - [Duvarı kapatmak için gereken tam levha adedi]"
-    },
-    "drywall-joint-compound": {
-      "title": "Alçıpan Derz Macunu",
-      "description": "Kutle (kg) - [Ek yerlerini dolduracak toz macun ağırlığı]",
-      "seoTitle": "Alçıpan Derz Macunu | SectorCalc",
-      "seoDescription": "Kutle (kg) - [Ek yerlerini dolduracak toz macun ağırlığı]"
-    },
-    "siding-calculator": {
-      "title": "Dış Cephe Kaplaması",
-      "description": "Adet (Adet) - [Cepheyi kaplayacak siding panel sayısı]",
-      "seoTitle": "Dış Cephe Kaplaması | SectorCalc",
-      "seoDescription": "Adet (Adet) - [Cepheyi kaplayacak siding panel sayısı]"
-    },
-    "soffit-calculator": {
-      "title": "Saçak Altı (Soffit)",
-      "description": "Alan (m2) - [Çatı saçak altının kaplanacak net yüzeyi]",
-      "seoTitle": "Saçak Altı (Soffit) | SectorCalc",
-      "seoDescription": "Alan (m2) - [Çatı saçak altının kaplanacak net yüzeyi]"
-    },
-    "spray-paint-calculator": {
-      "title": "Sprey Boya",
-      "description": "Litre (L) - [Yüzeyi boyamak için gereken sprey boya hacmi]",
-      "seoTitle": "Sprey Boya | SectorCalc",
-      "seoDescription": "Litre (L) - [Yüzeyi boyamak için gereken sprey boya hacmi]"
-    },
-    "wood-stain-calculator": {
-      "title": "Ahşap Boya (Leke)",
-      "description": "Litre (L) - [Ahşabı emprenye etmek için gereken vernik miktarı]",
-      "seoTitle": "Ahşap Boya (Leke) | SectorCalc",
-      "seoDescription": "Litre (L) - [Ahşabı emprenye etmek için gereken vernik miktarı]"
-    },
-    "exterior-stucco": {
-      "title": "Dış Cephe Sıvası",
-      "description": "Kutle (kg) - [Cepheye uygulanacak kuru sıva harcı ağırlığı]",
-      "seoTitle": "Dış Cephe Sıvası | SectorCalc",
-      "seoDescription": "Kutle (kg) - [Cepheye uygulanacak kuru sıva harcı ağırlığı]"
-    },
-    "baseboard-calculator": {
-      "title": "Süpürgelik (Baseboard)",
-      "description": "Uzunluk (m) - [Duvar dibine döşenecek net süpürgelik metreajı]",
-      "seoTitle": "Süpürgelik (Baseboard) | SectorCalc",
-      "seoDescription": "Uzunluk (m) - [Duvar dibine döşenecek net süpürgelik metreajı]"
-    },
-    "chair-rail-calculator": {
-      "title": "Duvar Korkuluğu",
-      "description": "Uzunluk (m) - [Duvar ortasına monte edilecek dekoratif profil boyu]",
-      "seoTitle": "Duvar Korkuluğu | SectorCalc",
-      "seoDescription": "Uzunluk (m) - [Duvar ortasına monte edilecek dekoratif profil boyu]"
-    },
-    "wallpaper-calculator": {
-      "title": "Duvar Kağıdı",
-      "description": "Rulo (Adet) - [Desen eşleşme fireleri dahil gereken rulo adedi]",
-      "seoTitle": "Duvar Kağıdı | SectorCalc",
-      "seoDescription": "Rulo (Adet) - [Desen eşleşme fireleri dahil gereken rulo adedi]"
-    },
-    "tile-layout-calculator": {
-      "title": "Fayans Dizilimi (Layout)",
-      "description": "KesimOrani (Yüzde) - [Kenarlarda oluşacak fire optimizasyon oranı]",
-      "seoTitle": "Fayans Dizilimi (Layout) | SectorCalc",
-      "seoDescription": "KesimOrani (Yüzde) - [Kenarlarda oluşacak fire optimizasyon oranı]"
-    },
-    "linoleum-vinyl-calculator": {
-      "title": "Linolyum / Vinil",
-      "description": "Metraj (m) - [Rulodan kesilecek net boy uzunluğu]",
-      "seoTitle": "Linolyum / Vinil | SectorCalc",
-      "seoDescription": "Metraj (m) - [Rulodan kesilecek net boy uzunluğu]"
-    },
-    "wood-siding-calculator": {
-      "title": "Ahşap Siding",
-      "description": "Metraj (m) - [Üst üste binme payları düşülmüş toplam kaplama uzunluğu]",
-      "seoTitle": "Ahşap Siding | SectorCalc",
-      "seoDescription": "Metraj (m) - [Üst üste binme payları düşülmüş toplam kaplama uzunluğu]"
-    },
-    "paver-calculator": {
-      "title": "Kilit Taşı (Paver)",
-      "description": "Adet (Adet) - [Kaldırım döşemesi için gereken kilit taşı sayısı]",
-      "seoTitle": "Kilit Taşı (Paver) | SectorCalc",
-      "seoDescription": "Adet (Adet) - [Kaldırım döşemesi için gereken kilit taşı sayısı]"
-    },
-    "gravel-sand-calculator": {
-      "title": "Çakıl / Kum",
-      "description": "Tonaj (ton) - [Alt temel için gereken agrega ağırlığı]",
-      "seoTitle": "Çakıl / Kum | SectorCalc",
-      "seoDescription": "Tonaj (ton) - [Alt temel için gereken agrega ağırlığı]"
-    },
-    "rainwater-harvesting": {
-      "title": "Yağmur Suyu Hasadı",
-      "description": "Hacim (m3) - [Yılda biriktirilebilecek net yağmur suyu miktarı]",
-      "seoTitle": "Yağmur Suyu Hasadı | SectorCalc",
-      "seoDescription": "Hacim (m3) - [Yılda biriktirilebilecek net yağmur suyu miktarı]"
-    },
-    "well-pump-capacity": {
-      "title": "Kuyu Pompa Kapasitesi",
-      "description": "Guc (kW) - [Suyu yüzeye basacak pompanın minimum mil gücü]",
-      "seoTitle": "Kuyu Pompa Kapasitesi | SectorCalc",
-      "seoDescription": "Guc (kW) - [Suyu yüzeye basacak pompanın minimum mil gücü]"
-    },
-    "building-load-factor": {
-      "title": "Yük Faktörü (Bina)",
-      "description": "Faktor (Yüzde) - [Binanın trafo kapasitesini anlık kullanma oranı]",
-      "seoTitle": "Yük Faktörü (Bina) | SectorCalc",
-      "seoDescription": "Faktor (Yüzde) - [Binanın trafo kapasitesini anlık kullanma oranı]"
-    },
-    "breeam-leed-score": {
-      "title": "BREEAM/LEED Puan",
-      "description": "Toplam (Puan) - [Binanın sürdürülebilirlik sertifikası tahmini puanı]",
-      "seoTitle": "BREEAM/LEED Puan | SectorCalc",
-      "seoDescription": "Toplam (Puan) - [Binanın sürdürülebilirlik sertifikası tahmini puanı]"
-    },
-    "carbon-footprint": {
-      "title": "Karbon Ayak İzi",
-      "description": "Toplam (kgCO2) - [Kurumun toplam sera gazı emisyonu]",
-      "seoTitle": "Karbon Ayak İzi | SectorCalc",
-      "seoDescription": "Toplam (kgCO2) - [Kurumun toplam sera gazı emisyonu]"
-    },
-    "esg-score": {
-      "title": "ESG Skoru",
-      "description": "ESG (0-100) - [Kurumun finansal olmayan sürdürülebilirlik notu]",
-      "seoTitle": "ESG Skoru | SectorCalc",
-      "seoDescription": "ESG (0-100) - [Kurumun finansal olmayan sürdürülebilirlik notu]"
-    },
-    "circular-economy": {
-      "title": "Döngüsel Ekonomi",
-      "description": "Oran (Yüzde) - [Üretimde kullanılan ikincil hammadde oranı]",
-      "seoTitle": "Döngüsel Ekonomi | SectorCalc",
-      "seoDescription": "Oran (Yüzde) - [Üretimde kullanılan ikincil hammadde oranı]"
-    },
-    "water-footprint": {
-      "title": "Su Ayak İzi",
-      "description": "AyakIzi (m3/Ton) - [Birim ürün başına harcanan tatlı su miktarı]",
-      "seoTitle": "Su Ayak İzi | SectorCalc",
-      "seoDescription": "AyakIzi (m3/Ton) - [Birim ürün başına harcanan tatlı su miktarı]"
-    },
-    "landfill-storage": {
-      "title": "Atık Depolama (Landfill)",
-      "description": "Alan (m2) - [Atığı depolamak için gereken minimum saha yüzeyi]",
-      "seoTitle": "Atık Depolama (Landfill) | SectorCalc",
-      "seoDescription": "Alan (m2) - [Atığı depolamak için gereken minimum saha yüzeyi]"
-    },
-    "recycling-rate": {
-      "title": "Geri Dönüşüm Oranı",
-      "description": "Oran (Yüzde) - [Atık yönetimindeki başarı ve kazanım yüzdesi]",
-      "seoTitle": "Geri Dönüşüm Oranı | SectorCalc",
-      "seoDescription": "Oran (Yüzde) - [Atık yönetimindeki başarı ve kazanım yüzdesi]"
-    },
-    "watershed-management": {
-      "title": "Havza Yönetimi",
-      "description": "Hacim (m3) - [Yağış sonrası havzadan çıkacak yüzey akış suyu miktarı]",
-      "seoTitle": "Havza Yönetimi | SectorCalc",
-      "seoDescription": "Hacim (m3) - [Yağış sonrası havzadan çıkacak yüzey akış suyu miktarı]"
-    },
-    "greywater-recovery": {
-      "title": "Gri Su Geri Kazanımı",
-      "description": "Tasarruf (TL/yil) - [Gri su sisteminin yıllık net finansal kazancı]",
-      "seoTitle": "Gri Su Geri Kazanımı | SectorCalc",
-      "seoDescription": "Tasarruf (TL/yil) - [Gri su sisteminin yıllık net finansal kazancı]"
-    },
-    "quantum-tunneling": {
-      "title": "Kuantum Tünelleme",
-      "description": "Olasilik (Yüzde) - [Parçacığın klasik fizikte aşamayacağı engeli geçme şansı]",
-      "seoTitle": "Kuantum Tünelleme | SectorCalc",
-      "seoDescription": "Olasilik (Yüzde) - [Parçacığın klasik fizikte aşamayacağı engeli geçme şansı]"
-    },
-    "schrodinger-equation-1d": {
-      "title": "Schrödinger Denklemi (1D)",
-      "description": "Enerji (J) - [Sonsuz potansiyel kuyusundaki parçacığın izin verilen enerji seviyesi]",
-      "seoTitle": "Schrödinger Denklemi (1D) | SectorCalc",
-      "seoDescription": "Enerji (J) - [Sonsuz potansiyel kuyusundaki parçacığın izin verilen enerji seviyesi]"
-    },
-    "compton-scattering": {
-      "title": "Compton Kayma",
-      "description": "Kayma (m) - [Fotonun saçılma sonrası dalga boyundaki minimum artış]",
-      "seoTitle": "Compton Kayma | SectorCalc",
-      "seoDescription": "Kayma (m) - [Fotonun saçılma sonrası dalga boyundaki minimum artış]"
-    },
-    "chandrasekhar-limit": {
-      "title": "Chandrasekhar Limiti",
-      "description": "Limit (M☉) - [Beyaz cücenin çökmeden önceki maksimum kütle sınırı]",
-      "seoTitle": "Chandrasekhar Limiti | SectorCalc",
-      "seoDescription": "Limit (M☉) - [Beyaz cücenin çökmeden önceki maksimum kütle sınırı]"
-    },
-    "electrical-load-factor": {
-      "title": "Yük Faktörü (Elektrik)",
-      "description": "Faktor (Yüzde) - [Tüketicinin enerjiyi ne kadar dengeli kullandığının göstergesi]",
-      "seoTitle": "Yük Faktörü (Elektrik) | SectorCalc",
-      "seoDescription": "Faktor (Yüzde) - [Tüketicinin enerjiyi ne kadar dengeli kullandığının göstergesi]"
-    },
-    "fiber-optic-attenuation": {
-      "title": "Fiber Optik Zayıflama",
-      "description": "ToplamKayip (dB) - [Işık sinyalinin hat sonundaki toplam güç kaybı]",
-      "seoTitle": "Fiber Optik Zayıflama | SectorCalc",
-      "seoDescription": "ToplamKayip (dB) - [Işık sinyalinin hat sonundaki toplam güç kaybı]"
-    },
-    "rf-antenna-sizing": {
-      "title": "RF Anten Boyutlandırma",
-      "description": "Uzunluk (m) - [Rezonans için gereken fiziksel anten eleman boyu]",
-      "seoTitle": "RF Anten Boyutlandırma | SectorCalc",
-      "seoDescription": "Uzunluk (m) - [Rezonans için gereken fiziksel anten eleman boyu]"
-    },
-    "beam-support-reactions": {
-      "title": "Kiriş Mesnet Tepkileri",
-      "description": "R_A, R_B (N) - [Basit kiriş mesnetlerindeki düşey tepki kuvvetleri]",
-      "seoTitle": "Kiriş Mesnet Tepkileri | SectorCalc",
-      "seoDescription": "R_A, R_B (N) - [Basit kiriş mesnetlerindeki düşey tepki kuvvetleri]"
-    },
-    "seed-sowing-density": {
-      "title": "Tohum Ekim Yogunlugu",
-      "description": "KgDa (kg/da) - [Dekara dusen net tohumluk ihtiyaci]",
-      "seoTitle": "Tohum Ekim Yogunlugu | SectorCalc",
-      "seoDescription": "KgDa (kg/da) - [Dekara dusen net tohumluk ihtiyaci]"
-    },
-    "drip-irrigation-pipe-size": {
-      "title": "Damla Sulama Boru capi",
-      "description": "Cap (mm) - [Basinc kaybini onleyen minimum ana boru ic capi]",
-      "seoTitle": "Damla Sulama Boru capi | SectorCalc",
-      "seoDescription": "Cap (mm) - [Basinc kaybini onleyen minimum ana boru ic capi]"
-    },
-    "aerated-drying": {
-      "title": "Havalandirmali Kurutma",
-      "description": "Sure (s) - [Urunun hedef neme ulasmasi icin gereken teorik kurutma suresi]",
-      "seoTitle": "Havalandirmali Kurutma | SectorCalc",
-      "seoDescription": "Sure (s) - [Urunun hedef neme ulasmasi icin gereken teorik kurutma suresi]"
-    },
-    "silage-volume": {
-      "title": "Silaj Yem Hacmi",
-      "description": "ToplamYem (kg) - [Siloya depolanan net kuru madde agirligi]",
-      "seoTitle": "Silaj Yem Hacmi | SectorCalc",
-      "seoDescription": "ToplamYem (kg) - [Siloya depolanan net kuru madde agirligi]"
-    },
-    "barn-ventilation": {
-      "title": "Ahir Havalandirma",
-      "description": "Debi (m3/s) - [Ortamdan atilmasi gereken kirli hava debisi]",
-      "seoTitle": "Ahir Havalandirma | SectorCalc",
-      "seoDescription": "Debi (m3/s) - [Ortamdan atilmasi gereken kirli hava debisi]"
-    },
-    "ship-draft": {
-      "title": "Gemi Su Cekimi (Draft)",
-      "description": "Draft (m) - [Geminin su altinda kalan dikey derinligi]",
-      "seoTitle": "Gemi Su Cekimi (Draft) | SectorCalc",
-      "seoDescription": "Draft (m) - [Geminin su altinda kalan dikey derinligi]"
-    },
-    "ship-stability-gm": {
-      "title": "Gemi Denge (GM)",
-      "description": "GM (m) - [Metasentrik yukseklik (Pozitif ise gemi dengelidir)]",
-      "seoTitle": "Gemi Denge (GM) | SectorCalc",
-      "seoDescription": "GM (m) - [Metasentrik yukseklik (Pozitif ise gemi dengelidir)]"
-    },
-    "mooring-rope-breaking": {
-      "title": "Baglama Halati Kopma",
-      "description": "EmniyetliYuk (kN) - [Halatin kopmadan tasiyabilecegi maksimum guvenli yuk]",
-      "seoTitle": "Baglama Halati Kopma | SectorCalc",
-      "seoDescription": "EmniyetliYuk (kN) - [Halatin kopmadan tasiyabilecegi maksimum guvenli yuk]"
-    },
-    "anchor-chain": {
-      "title": "Demirleme Zinciri",
-      "description": "Uzunluk (m) - [Demirin taramasini onlemek icin gereken minimum zincir boyu]",
-      "seoTitle": "Demirleme Zinciri | SectorCalc",
-      "seoDescription": "Uzunluk (m) - [Demirin taramasini onlemek icin gereken minimum zincir boyu]"
-    },
-    "bilge-discharge": {
-      "title": "Sintine Bosaltim",
-      "description": "Sure (saat) - [Sintine suyunun tahliyesi icin gereken minimum sure]",
-      "seoTitle": "Sintine Bosaltim | SectorCalc",
-      "seoDescription": "Sure (saat) - [Sintine suyunun tahliyesi icin gereken minimum sure]"
-    },
-    "bottom-hole-pressure": {
-      "title": "Kuyu Taban Basinci",
-      "description": "Basinc (MPa) - [Kuyu tabanindaki hidrostatik camur basinci]",
-      "seoTitle": "Kuyu Taban Basinci | SectorCalc",
-      "seoDescription": "Basinc (MPa) - [Kuyu tabanindaki hidrostatik camur basinci]"
-    },
-    "rotary-drilling-torque": {
-      "title": "Donel Sondaj Tork",
-      "description": "Tork (N.m) - [Kayaci kirmak icin matkap miline uygulanmasi gereken minimum tork]",
-      "seoTitle": "Donel Sondaj Tork | SectorCalc",
-      "seoDescription": "Tork (N.m) - [Kayaci kirmak icin matkap miline uygulanmasi gereken minimum tork]"
-    },
-    "mud-circulation-velocity": {
-      "title": "Camur Dolanim Hizi",
-      "description": "Hiz (m/s) - [Halkasal kesitte camurun yukselme hizi]",
-      "seoTitle": "Camur Dolanim Hizi | SectorCalc",
-      "seoDescription": "Hiz (m/s) - [Halkasal kesitte camurun yukselme hizi]"
-    },
-    "bored-pile-bearing-capacity": {
-      "title": "Fore Kazik Tasiyicilik",
-      "description": "NihaiYuk (kN) - [Kazigin gocmeden tasiyabilecegi maksimum eksenel yuk]",
-      "seoTitle": "Fore Kazik Tasiyicilik | SectorCalc",
-      "seoDescription": "NihaiYuk (kN) - [Kazigin gocmeden tasiyabilecegi maksimum eksenel yuk]"
-    },
-    "slope-safety-factor": {
-      "title": "Sev Guvenlik Faktoru",
-      "description": "FS (Sayi) - [Sevin kaymaya karsi emniyet katsayisi (1.5 alti riskli)]",
-      "seoTitle": "Sev Guvenlik Faktoru | SectorCalc",
-      "seoDescription": "FS (Sayi) - [Sevin kaymaya karsi emniyet katsayisi (1.5 alti riskli)]"
-    },
-    "fabric-weight": {
-      "title": "Kumasi Gramaj",
-      "description": "MetreAgirlik (kg/m) - [1 metre kumasin tartildiginda gelecegi agirlik]",
-      "seoTitle": "Kumasi Gramaj | SectorCalc",
-      "seoDescription": "MetreAgirlik (kg/m) - [1 metre kumasin tartildiginda gelecegi agirlik]"
-    },
-    "sewing-machine-cycle-time": {
-      "title": "Dikis Makinasi Bant Pedi",
-      "description": "Sure (s) - [Bir dikis operasyonunun saf makine suresi]",
-      "seoTitle": "Dikis Makinasi Bant Pedi | SectorCalc",
-      "seoDescription": "Sure (s) - [Bir dikis operasyonunun saf makine suresi]"
-    },
-    "bobbin-yarn-capacity": {
-      "title": "Bobin Iplik Kapasitesi",
-      "description": "Uzunluk (m) - [Bobine sarili toplam iplik metraji]",
-      "seoTitle": "Bobin Iplik Kapasitesi | SectorCalc",
-      "seoDescription": "Uzunluk (m) - [Bobine sarili toplam iplik metraji]"
-    },
-    "fabric-shrinkage": {
-      "title": "Kumasi Cekme Carpani",
-      "description": "Cekme (Yuzde) - [Proses sonrasi kumasdaki boyutsal daralma orani]",
-      "seoTitle": "Kumasi Cekme Carpani | SectorCalc",
-      "seoDescription": "Cekme (Yuzde) - [Proses sonrasi kumasdaki boyutsal daralma orani]"
-    },
-    "weaving-loom-efficiency": {
-      "title": "Dokuma Tezgahi Verim",
-      "description": "Uretim (m) - [Tezgahin bir vardiyada urettigi net kumas uzunlugu]",
-      "seoTitle": "Dokuma Tezgahi Verim | SectorCalc",
-      "seoDescription": "Uretim (m) - [Tezgahin bir vardiyada urettigi net kumas uzunlugu]"
-    },
-    "cold-storage-heat-gain": {
-      "title": "Soguk Depo Isi Kazanci",
-      "description": "Yuk (W) - [Yalitimdan sizan ve sogutma sistemi tarafindan atilmasi gereken isi]",
-      "seoTitle": "Soguk Depo Isi Kazanci | SectorCalc",
-      "seoDescription": "Yuk (W) - [Yalitimdan sizan ve sogutma sistemi tarafindan atilmasi gereken isi]"
-    },
-    "liquid-food-flow-energy": {
-      "title": "Sivi Gida Akis Enerji",
-      "description": "Guc (W) - [Viskoz siviyi boruda ilerletmek icin gereken mil gucu]",
-      "seoTitle": "Sivi Gida Akis Enerji | SectorCalc",
-      "seoDescription": "Guc (W) - [Viskoz siviyi boruda ilerletmek icin gereken mil gucu]"
-    },
-    "pasteurization-time": {
-      "title": "Pastorizasyon Zaman",
-      "description": "Zaman (s) - [Sivinin pastorizasyon sicakliginda kalmasi gereken minimum alikonma suresi]",
-      "seoTitle": "Pastorizasyon Zaman | SectorCalc",
-      "seoDescription": "Zaman (s) - [Sivinin pastorizasyon sicakliginda kalmasi gereken minimum alikonma suresi]"
-    },
-    "vacuum-packaging": {
-      "title": "Vakumlu Paketleme",
-      "description": "Sure (s) - [Istenen vakum seviyesine ulasmak icin gereken pompa calisma suresi]",
-      "seoTitle": "Vakumlu Paketleme | SectorCalc",
-      "seoDescription": "Sure (s) - [Istenen vakum seviyesine ulasmak icin gereken pompa calisma suresi]"
-    },
-    "oven-capacity": {
-      "title": "Firin Kapasitesi",
-      "description": "Kapasite (kg/saat) - [Firinin saatlik net pisme ciktisi]",
-      "seoTitle": "Firin Kapasitesi | SectorCalc",
-      "seoDescription": "Kapasite (kg/saat) - [Firinin saatlik net pisme ciktisi]"
-    },
-    "injection-clamping-tonnage": {
-      "title": "Enjeksiyon Kapanma Tonaj",
-      "description": "Tonaj (ton) - [Kalibin acilmasini onlemek icin gereken minimum pres baglama kuvveti]",
-      "seoTitle": "Enjeksiyon Kapanma Tonaj | SectorCalc",
-      "seoDescription": "Tonaj (ton) - [Kalibin acilmasini onlemek icin gereken minimum pres baglama kuvveti]"
-    },
-    "plastic-cooling-time": {
-      "title": "Plastik Sogutma Sure",
-      "description": "Sure (s) - [Parcanin kaliptan cikarilabilir sicakliga inme suresi]",
-      "seoTitle": "Plastik Sogutma Sure | SectorCalc",
-      "seoDescription": "Sure (s) - [Parcanin kaliptan cikarilabilir sicakliga inme suresi]"
-    },
-    "plastic-drying-time": {
-      "title": "Plastik Kurutma Sure",
-      "description": "Sure (s) - [Higroskopik polimerin islerebilir neme dusme suresi]",
-      "seoTitle": "Plastik Kurutma Sure | SectorCalc",
-      "seoDescription": "Sure (s) - [Higroskopik polimerin islerebilir neme dusme suresi]"
-    },
-    "extruder-output": {
-      "title": "Ekstruder Cikti",
-      "description": "Kapasite (kg/saat) - [Ekstruderin saatlik net polimer eriyik ciktisi]",
-      "seoTitle": "Ekstruder Cikti | SectorCalc",
-      "seoDescription": "Kapasite (kg/saat) - [Ekstruderin saatlik net polimer eriyik ciktisi]"
-    },
-    "mold-draft-angle": {
-      "title": "Kalip Cekme Acisi",
-      "description": "Aci (Derece) - [Parcanin kaliptan siyrilmasi icin gereken minimum koniklik]",
-      "seoTitle": "Kalip Cekme Acisi | SectorCalc",
-      "seoDescription": "Aci (Derece) - [Parcanin kaliptan siyrilmasi icin gereken minimum koniklik]"
-    },
-    "fire-pump-power": {
-      "title": "Yangin Pompasi Guc",
-      "description": "Guc (HP) - [Hidrant sistemini besleyecek pompanin minimum motor gucu]",
-      "seoTitle": "Yangin Pompasi Guc | SectorCalc",
-      "seoDescription": "Guc (HP) - [Hidrant sistemini besleyecek pompanin minimum motor gucu]"
-    },
-    "building-fire-load": {
-      "title": "Bina Yangin Yuk",
-      "description": "Yuk (MJ/m2) - [Yangin aninda aciga cikacak birim alandaki toplam isi enerjisi]",
-      "seoTitle": "Bina Yangin Yuk | SectorCalc",
-      "seoDescription": "Yuk (MJ/m2) - [Yangin aninda aciga cikacak birim alandaki toplam isi enerjisi]"
-    },
-    "sprinkler-flow-rate": {
-      "title": "Sprinkler Akis Hizi",
-      "description": "Debi (L/dk) - [Tek bir sprinkler basligindan akacak su miktari]",
-      "seoTitle": "Sprinkler Akis Hizi | SectorCalc",
-      "seoDescription": "Debi (L/dk) - [Tek bir sprinkler basligindan akacak su miktari]"
-    },
-    "adc-resolution": {
-      "title": "ADC Cozunurluk",
-      "description": "LSB (V), DinamikAralik (dB) - [En kucuk algilanabilir voltaj adimi ve sinyal/gurultu orani]",
-      "seoTitle": "ADC Cozunurluk | SectorCalc",
-      "seoDescription": "LSB (V), DinamikAralik (dB) - [En kucuk algilanabilir voltaj adimi ve sinyal/gurultu orani]"
-    },
-    "amperes-law": {
-      "title": "Ampere Yasasi",
-      "description": "B (Tesla) - [Sonsuz telin belirli mesafesindeki manyetik aki yogunlugu]",
-      "seoTitle": "Ampere Yasasi | SectorCalc",
-      "seoDescription": "B (Tesla) - [Sonsuz telin belirli mesafesindeki manyetik aki yogunlugu]"
-    },
-    "biot-savart-law": {
-      "title": "Biot-Savart Yasasi",
-      "description": "dB (Tesla) - [Kucuk tel elemaninin olusturdugu diferansiyel manyetik alan]",
-      "seoTitle": "Biot-Savart Yasasi | SectorCalc",
-      "seoDescription": "dB (Tesla) - [Kucuk tel elemaninin olusturdugu diferansiyel manyetik alan]"
-    },
-    "capacitive-reactance": {
-      "title": "Kapasitif Reaktans",
-      "description": "Xc (ohm) - [Kapasitorun alternatif akima gosterdigi direnc]",
-      "seoTitle": "Kapasitif Reaktans | SectorCalc",
-      "seoDescription": "Xc (ohm) - [Kapasitorun alternatif akima gosterdigi direnc]"
-    },
-    "inductive-reactance": {
-      "title": "Enduktif Reaktans",
-      "description": "Xl (ohm) - [Bobinin alternatif akima gosterdigi direnc]",
-      "seoTitle": "Enduktif Reaktans | SectorCalc",
-      "seoDescription": "Xl (ohm) - [Bobinin alternatif akima gosterdigi direnc]"
-    },
-    "rc-time-constant": {
-      "title": "RC Zaman Sabiti",
-      "description": "Tau (s) - [Kapasitorun %63.2 sarj/desanj olmasi icin gecen sure]",
-      "seoTitle": "RC Zaman Sabiti | SectorCalc",
-      "seoDescription": "Tau (s) - [Kapasitorun %63.2 sarj/desanj olmasi icin gecen sure]"
-    },
-    "rlc-resonant-frequency": {
-      "title": "RLC Rezonans Frekans",
-      "description": "f0 (Hz), Q (Sayi) - [Devrenin maksimum genlikte titresigi frekans ve keskinligi]",
-      "seoTitle": "RLC Rezonans Frekans | SectorCalc",
-      "seoDescription": "f0 (Hz), Q (Sayi) - [Devrenin maksimum genlikte titresigi frekans ve keskinligi]"
-    },
-    "smith-chart-vswr": {
-      "title": "Smith Diyagrami (VSWR)",
-      "description": "VSWR (Sayi) - [Iletim hattindaki empedans uyumsuzluk orani]",
-      "seoTitle": "Smith Diyagrami (VSWR) | SectorCalc",
-      "seoDescription": "VSWR (Sayi) - [Iletim hattindaki empedans uyumsuzluk orani]"
-    },
-    "signal-to-noise-ratio": {
-      "title": "Sinyal-Gurultu Orani (SNR)",
-      "description": "SNR (dB) - [Istenen sinyalin arka plan gurultusune baskinligi]",
-      "seoTitle": "Sinyal-Gurultu Orani (SNR) | SectorCalc",
-      "seoDescription": "SNR (dB) - [Istenen sinyalin arka plan gurultusune baskinligi]"
-    },
-    "zero-to-hundred-acceleration": {
-      "title": "0-100 km/h Hizlanma",
-      "description": "Sure (s) - [Aracin durgun halden 100 km/h hiza ulasma suresi]",
-      "seoTitle": "0-100 km/h Hizlanma | SectorCalc",
-      "seoDescription": "Sure (s) - [Aracin durgun halden 100 km/h hiza ulasma suresi]"
-    },
-    "chain-drive": {
-      "title": "Zincir Tahrik",
-      "description": "Uzunluk (mm) - [Sistemi baglayacak toplam zincir boyu]",
-      "seoTitle": "Zincir Tahrik | SectorCalc",
-      "seoDescription": "Uzunluk (mm) - [Sistemi baglayacak toplam zincir boyu]"
-    },
-    "ev-charging-time": {
-      "title": "EV Sarj Sure",
-      "description": "Sure (saat) - [Bataryanin %0'dan %100'e dolum suresi]",
-      "seoTitle": "EV Sarj Sure | SectorCalc",
-      "seoDescription": "Sure (saat) - [Bataryanin %0'dan %100'e dolum suresi]"
-    },
-    "ev-range": {
-      "title": "EV Menzil",
-      "description": "Menzil (km) - [Aracin tam sarjla gidebilecegi teorik maksimum mesafe]",
-      "seoTitle": "EV Menzil | SectorCalc",
-      "seoDescription": "Menzil (km) - [Aracin tam sarjla gidebilecegi teorik maksimum mesafe]"
-    },
-    "horsepower-converter": {
-      "title": "Beygir Gucu Donusum",
-      "description": "kW (Kilowatt) - [Gucun standart SI birim karsiligi]",
-      "seoTitle": "Beygir Gucu Donusum | SectorCalc",
-      "seoDescription": "kW (Kilowatt) - [Gucun standart SI birim karsiligi]"
-    },
-    "indicated-horsepower": {
-      "title": "Indike Beygir Gucu (IHP)",
-      "description": "IHP (kW) - [Motor silindirleri icinde uretilen brut teorik guc]",
-      "seoTitle": "Indike Beygir Gucu (IHP) | SectorCalc",
-      "seoDescription": "IHP (kW) - [Motor silindirleri icinde uretilen brut teorik guc]"
-    },
-    "engine-speed-torque": {
-      "title": "Motor Devri/Tork",
-      "description": "Tork (N.m) - [Motorun o devirde urettigi dondurme momenti]",
-      "seoTitle": "Motor Devri/Tork | SectorCalc",
-      "seoDescription": "Tork (N.m) - [Motorun o devirde urettigi dondurme momenti]"
-    },
-    "motor-efficiency": {
-      "title": "Motor Verimliligi",
-      "description": "Verim (Yuzde) - [Elektrik enerjisinin mekanik enerjiye donusum basarisi]",
-      "seoTitle": "Motor Verimliligi | SectorCalc",
-      "seoDescription": "Verim (Yuzde) - [Elektrik enerjisinin mekanik enerjiye donusum basarisi]"
-    },
-    "vehicle-top-speed": {
-      "title": "Maksimum Hiz (Arac)",
-      "description": "Hiz (m/s) - [Motor gucunun direnc kuvvetlerini yendigi denge hizi]",
-      "seoTitle": "Maksimum Hiz (Arac) | SectorCalc",
-      "seoDescription": "Hiz (m/s) - [Motor gucunun direnc kuvvetlerini yendigi denge hizi]"
-    },
-    "runway-length-required": {
-      "title": "Pist Uzunlugu Gerekli",
-      "description": "Uzunluk (m) - [Ucagin havalanmasi icin gereken minimum pist mesafesi]",
-      "seoTitle": "Pist Uzunlugu Gerekli | SectorCalc",
-      "seoDescription": "Uzunluk (m) - [Ucagin havalanmasi icin gereken minimum pist mesafesi]"
-    },
-    "de-broglie-wavelength": {
-      "title": "De Broglie Dalga Boyu",
-      "description": "Lambda (m) - [Hareketli parcacigin madde dalgasi boyu]",
-      "seoTitle": "De Broglie Dalga Boyu | SectorCalc",
-      "seoDescription": "Lambda (m) - [Hareketli parcacigin madde dalgasi boyu]"
-    },
-    "decibel-converter": {
-      "title": "Desibel Donusturucu",
-      "description": "dB (Desibel) - [Iki sinyal arasi oranın logaritmik ifadesi]",
-      "seoTitle": "Desibel Donusturucu | SectorCalc",
-      "seoDescription": "dB (Desibel) - [Iki sinyal arasi oranın logaritmik ifadesi]"
-    },
-    "diopter-lens-power": {
-      "title": "Diyoptri (Lens Gucu)",
-      "description": "Diyoptri (m^-1) - [Mercigin isigi kırma gucu]",
-      "seoTitle": "Diyoptri (Lens Gucu) | SectorCalc",
-      "seoDescription": "Diyoptri (m^-1) - [Mercigin isigi kırma gucu]"
-    },
-    "faraday-electrolysis": {
-      "title": "Faraday Elektroliz",
-      "description": "Kutle (g) - [Elektrotta biriken veya cozunen madde miktari]",
-      "seoTitle": "Faraday Elektroliz | SectorCalc",
-      "seoDescription": "Kutle (g) - [Elektrotta biriken veya cozunen madde miktari]"
-    },
-    "magnetic-field-solenoid": {
-      "title": "Manyetik Alan (Solenoid)",
-      "description": "B (Tesla) - [Bobin icindeki homojen manyetik aki yogunlugu]",
-      "seoTitle": "Manyetik Alan (Solenoid) | SectorCalc",
-      "seoDescription": "B (Tesla) - [Bobin icindeki homojen manyetik aki yogunlugu]"
-    },
-    "propagation-constant": {
-      "title": "Yayilma Sabiti",
-      "description": "Gamma (Karmasik) - [Hattaki zayiflama ve faz degisim katsayisi]",
-      "seoTitle": "Yayilma Sabiti | SectorCalc",
-      "seoDescription": "Gamma (Karmasik) - [Hattaki zayiflama ve faz degisim katsayisi]"
-    },
-    "quality-factor-q": {
-      "title": "Kalite Faktoru (Q)",
-      "description": "Q (Sayi) - [Rezonans devresinin frekans seciciligi ve keskinligi]",
-      "seoTitle": "Kalite Faktoru (Q) | SectorCalc",
-      "seoDescription": "Q (Sayi) - [Rezonans devresinin frekans seciciligi ve keskinligi]"
-    },
-    "quantization-noise-sqnr": {
-      "title": "Niceleme Gurultusu (SQNR)",
-      "description": "SQNR (dB) - [ADC donusumundeki teorik sinyal/gurultu orani]",
-      "seoTitle": "Niceleme Gurultusu (SQNR) | SectorCalc",
-      "seoDescription": "SQNR (dB) - [ADC donusumundeki teorik sinyal/gurultu orani]"
-    },
-    "tesla-unit-converter": {
-      "title": "Tesla Birim Donusturucu",
-      "description": "T (Tesla) - [Manyetik alanin standart SI birim degeri]",
-      "seoTitle": "Tesla Birim Donusturucu | SectorCalc",
-      "seoDescription": "T (Tesla) - [Manyetik alanin standart SI birim degeri]"
-    },
-    "battery-backup-capacity": {
-      "title": "Pil Kapasitesi Yedekleme",
-      "description": "Sure (Saat) - [Akunun yuku besleyebilecegi maksimum kesintisiz sure]",
-      "seoTitle": "Pil Kapasitesi Yedekleme | SectorCalc",
-      "seoDescription": "Sure (Saat) - [Akunun yuku besleyebilecegi maksimum kesintisiz sure]"
-    },
-    "hydroelectric-power": {
-      "title": "Hidroelektrik Guc",
-      "description": "Guc (W) - [Suyun potansiyel enerjisinden uretilen elektrik gucu]",
-      "seoTitle": "Hidroelektrik Guc | SectorCalc",
-      "seoDescription": "Guc (W) - [Suyun potansiyel enerjisinden uretilen elektrik gucu]"
-    },
-    "wind-turbine-energy": {
-      "title": "Ruzgar Turbini Enerji",
-      "description": "Guc (W) - [Turbinin ruzgardan mekanik guce donusturdugu anlik enerji]",
-      "seoTitle": "Ruzgar Turbini Enerji | SectorCalc",
-      "seoDescription": "Guc (W) - [Turbinin ruzgardan mekanik guce donusturdugu anlik enerji]"
-    },
-    "carnot-efficiency": {
-      "title": "Carnot Verimliligi",
-      "description": "Verim (Yuzde) - [Iki sicaklik rezervuari arasinda calisan ideal isi makinesinin maksimum verimi]",
-      "seoTitle": "Carnot Verimliligi | SectorCalc",
-      "seoDescription": "Verim (Yuzde) - [Iki sicaklik rezervuari arasinda calisan ideal isi makinesinin maksimum verimi]"
-    },
-    "ideal-gas-law": {
-      "title": "Ideal Gaz Yasasi",
-      "description": "Eksik (Birim) - [Gazin durum denklemindeki bilinmeyen parametre]",
-      "seoTitle": "Ideal Gaz Yasasi | SectorCalc",
-      "seoDescription": "Eksik (Birim) - [Gazin durum denklemindeki bilinmeyen parametre]"
-    },
-    "carbon-offset": {
-      "title": "Karbon Denklestirme",
-      "description": "AgacSayisi (Adet) - [Salinan karbonu notrlemek icin dikilmesi gereken agac sayisi]",
-      "seoTitle": "Karbon Denklestirme | SectorCalc",
-      "seoDescription": "AgacSayisi (Adet) - [Salinan karbonu notrlemek icin dikilmesi gereken agac sayisi]"
-    },
-    "data-backup-time": {
-      "title": "Veri Yedekleme Sure",
-      "description": "HedefBoyut (TB), Sure (Saniye) - [Sıkıştırılmış net depolama ihtiyaci ve transfer suresi]",
-      "seoTitle": "Veri Yedekleme Sure | SectorCalc",
-      "seoDescription": "HedefBoyut (TB), Sure (Saniye) - [Sıkıştırılmış net depolama ihtiyaci ve transfer suresi]"
-    },
-    "rsa-encryption-security": {
-      "title": "RSA Sifreleme Guvenlik",
-      "description": "SimetrikEsdeger (Bit) - [Asimetrik anahtarin sagladigi teorik simetrik guvenlik gucu]",
-      "seoTitle": "RSA Sifreleme Guvenlik | SectorCalc",
-      "seoDescription": "SimetrikEsdeger (Bit) - [Asimetrik anahtarin sagladigi teorik simetrik guvenlik gucu]"
-    },
-    "api-latency-sla": {
-      "title": "UPA Gecikme ve SLA",
-      "description": "OrtalamaGecikme (ms), SLA (Yuzde) - [Servisin yanit hizi ve basariyla karsilama yuzdesi]",
-      "seoTitle": "UPA Gecikme ve SLA | SectorCalc",
-      "seoDescription": "OrtalamaGecikme (ms), SLA (Yuzde) - [Servisin yanit hizi ve basariyla karsilama yuzdesi]"
-    },
-    "drug-half-life": {
-      "title": "Ilac Yarilanma Omru",
-      "description": "BirikimFaktoru (Sayi) - [Kararli durumda ilacin vucutta ne kadar katlanacagi]",
-      "seoTitle": "Ilac Yarilanma Omru | SectorCalc",
-      "seoDescription": "BirikimFaktoru (Sayi) - [Kararli durumda ilacin vucutta ne kadar katlanacagi]"
-    },
-    "effective-radiation-dose": {
-      "title": "Radyasyon Dozu (Etkin)",
-      "description": "EtkinDoz (mSv) - [Biyolojik hasar riskini yansitan toplam esdeger doz]",
-      "seoTitle": "Radyasyon Dozu (Etkin) | SectorCalc",
-      "seoDescription": "EtkinDoz (mSv) - [Biyolojik hasar riskini yansitan toplam esdeger doz]"
-    },
-    "biosignal-sampling": {
-      "title": "Biyolojik Sinyal Ornekleme",
-      "description": "MinOrneklemeHizi (Hz) - [Sinyalde ortusmeyi (aliasing) onleyen minimum ADC frekansi]",
-      "seoTitle": "Biyolojik Sinyal Ornekleme | SectorCalc",
-      "seoDescription": "MinOrneklemeHizi (Hz) - [Sinyalde ortusmeyi (aliasing) onleyen minimum ADC frekansi]"
-    },
-    "mine-reserve-volume": {
-      "title": "Maden Rezerv Hacim",
-      "description": "Tonaj (ton), MetalMiktari (ton) - [Sahadaki net cevher ve saf metal agirligi]",
-      "seoTitle": "Maden Rezerv Hacim | SectorCalc",
-      "seoDescription": "Tonaj (ton), MetalMiktari (ton) - [Sahadaki net cevher ve saf metal agirligi]"
-    },
-    "drilling-well-pressure": {
-      "title": "Sondaj Kuyusu Basinc",
-      "description": "HidrostatikBasinc (MPa) - [Kuyu tabanindaki camur sutununun olusturdugu basinc]",
-      "seoTitle": "Sondaj Kuyusu Basinc | SectorCalc",
-      "seoDescription": "HidrostatikBasinc (MPa) - [Kuyu tabanindaki camur sutununun olusturdugu basinc]"
-    },
-    "earthquake-magnitude-pga": {
-      "title": "Deprem Buyuklugu PGA",
-      "description": "PGA (g) - [Yuzeyde beklenen maksimum yer ivmesi (Ampirik model)]",
-      "seoTitle": "Deprem Buyuklugu PGA | SectorCalc",
-      "seoDescription": "PGA (g) - [Yuzeyde beklenen maksimum yer ivmesi (Ampirik model)]"
-    },
-    "joint-angular-velocity-torque": {
-      "title": "Eklem Acisal Hiz ve Tork",
-      "description": "Tork (N.m) - [Eklem etrafinda uretilen net dondurme momenti]",
-      "seoTitle": "Eklem Acisal Hiz ve Tork | SectorCalc",
-      "seoDescription": "Tork (N.m) - [Eklem etrafinda uretilen net dondurme momenti]"
-    },
-    "training-load-trimp": {
-      "title": "Antrenman Yuku (TRIMP)",
-      "description": "TRIMP (Sayı) - [Banister modeline gore antrenmanin fizyolojik stres yuku]",
-      "seoTitle": "Antrenman Yuku (TRIMP) | SectorCalc",
-      "seoDescription": "TRIMP (Sayı) - [Banister modeline gore antrenmanin fizyolojik stres yuku]"
-    },
-    "injury-risk-asymmetry": {
-      "title": "Sakatlik Riski Asimetri",
-      "description": "Asimetri (Yuzde) - [Ekstremiteler arasi dengesizlik (Yuzde 15 ustu yuksek risk)]",
-      "seoTitle": "Sakatlik Riski Asimetri | SectorCalc",
-      "seoDescription": "Asimetri (Yuzde) - [Ekstremiteler arasi dengesizlik (Yuzde 15 ustu yuksek risk)]"
-    },
-    "building-solar-exposure": {
-      "title": "Bina Gunuslenme Analiz",
-      "description": "GolgeSuresi (Saat) - [Engel nedeniyle cephenin gunessiz kaldigi toplam sure]",
-      "seoTitle": "Bina Gunuslenme Analiz | SectorCalc",
-      "seoDescription": "GolgeSuresi (Saat) - [Engel nedeniyle cephenin gunessiz kaldigi toplam sure]"
-    },
-    "traffic-signal-timing": {
-      "title": "Trafik Sinyalizasyon",
-      "description": "Gecikme (s/arac) - [Kavsaktaki ortalama arac bekleme suresi]",
-      "seoTitle": "Trafik Sinyalizasyon | SectorCalc",
-      "seoDescription": "Gecikme (s/arac) - [Kavsaktaki ortalama arac bekleme suresi]"
-    },
-    "environmental-noise-propagation": {
-      "title": "Cevresel Gurultu Yayilim",
-      "description": "Lp (dB) - [Hedef noktadaki tahmini ses basinc seviyesi]",
-      "seoTitle": "Cevresel Gurultu Yayilim | SectorCalc",
-      "seoDescription": "Lp (dB) - [Hedef noktadaki tahmini ses basinc seviyesi]"
-    },
-    "inverse-kinematics-2d-arm": {
-      "title": "Ters Kinematik 2D Kol",
-      "description": "Aci1, Aci2 (Rad) - [Uc noktaya ulasmak icin gereken eklem acilari]",
-      "seoTitle": "Ters Kinematik 2D Kol | SectorCalc",
-      "seoDescription": "Aci1, Aci2 (Rad) - [Uc noktaya ulasmak icin gereken eklem acilari]"
-    },
-    "pid-controller-ziegler": {
-      "title": "PID Kontrolor Ziegler",
-      "description": "Kp, Ki, Kd (Sayı) - [Sistemi kararsizlik sinirindan ayarlayan PID katsayilari]",
-      "seoTitle": "PID Kontrolor Ziegler | SectorCalc",
-      "seoDescription": "Kp, Ki, Kd (Sayı) - [Sistemi kararsizlik sinirindan ayarlayan PID katsayilari]"
-    },
-    "kalman-filter-prediction": {
-      "title": "Kalman Filtresi Ongoru",
-      "description": "YeniDurum (Matris) - [Gurultulu sensor verileriyle filtrelenmis tahmini konum]",
-      "seoTitle": "Kalman Filtresi Ongoru | SectorCalc",
-      "seoDescription": "YeniDurum (Matris) - [Gurultulu sensor verileriyle filtrelenmis tahmini konum]"
-    },
-    "h-index": {
-      "title": "H-Indeksi",
-      "description": "h (Sayı) - [Akademisyenin h kadar makalesinin en az h atif aldigi etki skoru]",
-      "seoTitle": "H-Indeksi | SectorCalc",
-      "seoDescription": "h (Sayı) - [Akademisyenin h kadar makalesinin en az h atif aldigi etki skoru]"
-    },
-    "item-difficulty-discrimination": {
-      "title": "Madde Guclugu Ayirt Edicilik",
-      "description": "p (0-1), r (-1 ile 1) - [Sorunun kolayligi ve bilen/bilmeyeni ayirma gucu]",
-      "seoTitle": "Madde Guclugu Ayirt Edicilik | SectorCalc",
-      "seoDescription": "p (0-1), r (-1 ile 1) - [Sorunun kolayligi ve bilen/bilmeyeni ayirma gucu]"
-    },
-    "sample-weighting": {
-      "title": "Orneklem Agirliklandirma",
-      "description": "Agirlik (Sayı) - [Tabakanin evreni temsil etmesi icin carpilacagi katsayi]",
-      "seoTitle": "Orneklem Agirliklandirma | SectorCalc",
-      "seoDescription": "Agirlik (Sayı) - [Tabakanin evreni temsil etmesi icin carpilacagi katsayi]"
-    },
-    "life-insurance-premium": {
-      "title": "Sigorta Prim Yasam",
-      "description": "BrutPrim (TL) - [Riski, operasyonu ve kari karsilayan nihai police bedeli]",
-      "seoTitle": "Sigorta Prim Yasam | SectorCalc",
-      "seoDescription": "BrutPrim (TL) - [Riski, operasyonu ve kari karsilayan nihai police bedeli]"
-    },
-    "compound-default-interest": {
-      "title": "Bilesik Gecikme Faizi",
-      "description": "Tutar (TL) - [Faizin anaparaya eklendigi yasal toplam borc]",
-      "seoTitle": "Bilesik Gecikme Faizi | SectorCalc",
-      "seoDescription": "Tutar (TL) - [Faizin anaparaya eklendigi yasal toplam borc]"
-    },
-    "statute-of-limitations-period": {
-      "title": "Hukuki Zaman asimi Sure",
-      "description": "KalanGun (Gun) - [Dava acma hakkinin dustugu son yasal gun]",
-      "seoTitle": "Hukuki Zaman asimi Sure | SectorCalc",
-      "seoDescription": "KalanGun (Gun) - [Dava acma hakkinin dustugu son yasal gun]"
+      "title": "Credit Card Minimum Payment",
+      "description": "Calculate Credit Card Minimum Payment efficiently.",
+      "seoTitle": "Credit Card Minimum Payment | SectorCalc",
+      "seoDescription": "Calculate Credit Card Minimum Payment efficiently."
     }
   },
   "de": {
@@ -7883,6 +6215,488 @@
     "statute-of-limitations-period": {
       "title": "statute of limitations period",
       "description": "حساب statute-of-limitations-period"
+    }
+  },
+  "en": {
+    "rental-yield-one-percent-rule": {
+      "title": "Rental Yield One Percent Rule",
+      "description": "Calculate Rental Yield One Percent Rule efficiently.",
+      "seoTitle": "Rental Yield One Percent Rule | SectorCalc",
+      "seoDescription": "Calculate Rental Yield One Percent Rule efficiently."
+    },
+    "tax-deferred-exchange-1031": {
+      "title": "Tax Deferred Exchange 1031",
+      "description": "Calculate Tax Deferred Exchange 1031 efficiently.",
+      "seoTitle": "Tax Deferred Exchange 1031 | SectorCalc",
+      "seoDescription": "Calculate Tax Deferred Exchange 1031 efficiently."
+    },
+    "budget-rule-50-30-20": {
+      "title": "Budget Rule 50 30 20",
+      "description": "Calculate Budget Rule 50 30 20 efficiently.",
+      "seoTitle": "Budget Rule 50 30 20 | SectorCalc",
+      "seoDescription": "Calculate Budget Rule 50 30 20 efficiently."
+    },
+    "asset-depreciation-methods": {
+      "title": "Asset Depreciation Methods",
+      "description": "Calculate Asset Depreciation Methods efficiently.",
+      "seoTitle": "Asset Depreciation Methods | SectorCalc",
+      "seoDescription": "Calculate Asset Depreciation Methods efficiently."
+    },
+    "annuity-monthly-payout": {
+      "title": "Annuity Monthly Payout",
+      "description": "Calculate Annuity Monthly Payout efficiently.",
+      "seoTitle": "Annuity Monthly Payout | SectorCalc",
+      "seoDescription": "Calculate Annuity Monthly Payout efficiently."
+    },
+    "annuity-annual-payout": {
+      "title": "Annuity Annual Payout",
+      "description": "Calculate Annuity Annual Payout efficiently.",
+      "seoTitle": "Annuity Annual Payout | SectorCalc",
+      "seoDescription": "Calculate Annuity Annual Payout efficiently."
+    },
+    "annual-percentage-rate-apr": {
+      "title": "Annual Percentage Rate Apr",
+      "description": "Calculate Annual Percentage Rate Apr efficiently.",
+      "seoTitle": "Annual Percentage Rate Apr | SectorCalc",
+      "seoDescription": "Calculate Annual Percentage Rate Apr efficiently."
+    },
+    "portfolio-asset-allocation": {
+      "title": "Portfolio Asset Allocation",
+      "description": "Calculate Portfolio Asset Allocation efficiently.",
+      "seoTitle": "Portfolio Asset Allocation | SectorCalc",
+      "seoDescription": "Calculate Portfolio Asset Allocation efficiently."
+    },
+    "audit-risk-model": {
+      "title": "Audit Risk Model",
+      "description": "Calculate Audit Risk Model efficiently.",
+      "seoTitle": "Audit Risk Model | SectorCalc",
+      "seoDescription": "Calculate Audit Risk Model efficiently."
+    },
+    "simple-interest-yield": {
+      "title": "Simple Interest Yield",
+      "description": "Calculate Simple Interest Yield efficiently.",
+      "seoTitle": "Simple Interest Yield | SectorCalc",
+      "seoDescription": "Calculate Simple Interest Yield efficiently."
+    },
+    "compound-interest-growth": {
+      "title": "Compound Interest Growth",
+      "description": "Calculate Compound Interest Growth efficiently.",
+      "seoTitle": "Compound Interest Growth | SectorCalc",
+      "seoDescription": "Calculate Compound Interest Growth efficiently."
+    },
+    "compound-interest-frequencies": {
+      "title": "Compound Interest Frequencies",
+      "description": "Calculate Compound Interest Frequencies efficiently.",
+      "seoTitle": "Compound Interest Frequencies | SectorCalc",
+      "seoDescription": "Calculate Compound Interest Frequencies efficiently."
+    },
+    "continuous-compound-interest": {
+      "title": "Continuous Compound Interest",
+      "description": "Calculate Continuous Compound Interest efficiently.",
+      "seoTitle": "Continuous Compound Interest | SectorCalc",
+      "seoDescription": "Calculate Continuous Compound Interest efficiently."
+    },
+    "nominal-effective-interest": {
+      "title": "Nominal Effective Interest",
+      "description": "Calculate Nominal Effective Interest efficiently.",
+      "seoTitle": "Nominal Effective Interest | SectorCalc",
+      "seoDescription": "Calculate Nominal Effective Interest efficiently."
+    },
+    "bond-price-yield-valuation": {
+      "title": "Bond Price Yield Valuation",
+      "description": "Calculate Bond Price Yield Valuation efficiently.",
+      "seoTitle": "Bond Price Yield Valuation | SectorCalc",
+      "seoDescription": "Calculate Bond Price Yield Valuation efficiently."
+    },
+    "dividend-net-tax": {
+      "title": "Dividend Net Tax",
+      "description": "Calculate Dividend Net Tax efficiently.",
+      "seoTitle": "Dividend Net Tax | SectorCalc",
+      "seoDescription": "Calculate Dividend Net Tax efficiently."
+    },
+    "dividend-reinvestment-drip": {
+      "title": "Dividend Reinvestment Drip",
+      "description": "Calculate Dividend Reinvestment Drip efficiently.",
+      "seoTitle": "Dividend Reinvestment Drip | SectorCalc",
+      "seoDescription": "Calculate Dividend Reinvestment Drip efficiently."
+    },
+    "stock-investment-return": {
+      "title": "Stock Investment Return",
+      "description": "Calculate Stock Investment Return efficiently.",
+      "seoTitle": "Stock Investment Return | SectorCalc",
+      "seoDescription": "Calculate Stock Investment Return efficiently."
+    },
+    "annualized-investment-return": {
+      "title": "Annualized Investment Return",
+      "description": "Calculate Annualized Investment Return efficiently.",
+      "seoTitle": "Annualized Investment Return | SectorCalc",
+      "seoDescription": "Calculate Annualized Investment Return efficiently."
+    },
+    "cagr-growth-rate": {
+      "title": "Cagr Growth Rate",
+      "description": "Calculate Cagr Growth Rate efficiently.",
+      "seoTitle": "Cagr Growth Rate | SectorCalc",
+      "seoDescription": "Calculate Cagr Growth Rate efficiently."
+    },
+    "return-on-investment-roi": {
+      "title": "Return On Investment Roi",
+      "description": "Calculate Return On Investment Roi efficiently.",
+      "seoTitle": "Return On Investment Roi | SectorCalc",
+      "seoDescription": "Calculate Return On Investment Roi efficiently."
+    },
+    "net-present-value-npv": {
+      "title": "Net Present Value Npv",
+      "description": "Calculate Net Present Value Npv efficiently.",
+      "seoTitle": "Net Present Value Npv | SectorCalc",
+      "seoDescription": "Calculate Net Present Value Npv efficiently."
+    },
+    "internal-rate-of-return-irr": {
+      "title": "Internal Rate Of Return Irr",
+      "description": "Calculate Internal Rate Of Return Irr efficiently.",
+      "seoTitle": "Internal Rate Of Return Irr | SectorCalc",
+      "seoDescription": "Calculate Internal Rate Of Return Irr efficiently."
+    },
+    "discounted-payback-period": {
+      "title": "Discounted Payback Period",
+      "description": "Calculate Discounted Payback Period efficiently.",
+      "seoTitle": "Discounted Payback Period | SectorCalc",
+      "seoDescription": "Calculate Discounted Payback Period efficiently."
+    },
+    "profitability-index-pi": {
+      "title": "Profitability Index Pi",
+      "description": "Calculate Profitability Index Pi efficiently.",
+      "seoTitle": "Profitability Index Pi | SectorCalc",
+      "seoDescription": "Calculate Profitability Index Pi efficiently."
+    },
+    "wacc-capital-cost": {
+      "title": "Wacc Capital Cost",
+      "description": "Calculate Wacc Capital Cost efficiently.",
+      "seoTitle": "Wacc Capital Cost | SectorCalc",
+      "seoDescription": "Calculate Wacc Capital Cost efficiently."
+    },
+    "capm-equity-cost": {
+      "title": "Capm Equity Cost",
+      "description": "Calculate Capm Equity Cost efficiently.",
+      "seoTitle": "Capm Equity Cost | SectorCalc",
+      "seoDescription": "Calculate Capm Equity Cost efficiently."
+    },
+    "dcf-business-valuation": {
+      "title": "Dcf Business Valuation",
+      "description": "Calculate Dcf Business Valuation efficiently.",
+      "seoTitle": "Dcf Business Valuation | SectorCalc",
+      "seoDescription": "Calculate Dcf Business Valuation efficiently."
+    },
+    "fcff-fcfe-cash-flows": {
+      "title": "Fcff Fcfe Cash Flows",
+      "description": "Calculate Fcff Fcfe Cash Flows efficiently.",
+      "seoTitle": "Fcff Fcfe Cash Flows | SectorCalc",
+      "seoDescription": "Calculate Fcff Fcfe Cash Flows efficiently."
+    },
+    "ebitda-operating-earnings": {
+      "title": "Ebitda Operating Earnings",
+      "description": "Calculate Ebitda Operating Earnings efficiently.",
+      "seoTitle": "Ebitda Operating Earnings | SectorCalc",
+      "seoDescription": "Calculate Ebitda Operating Earnings efficiently."
+    },
+    "pe-ratio-valuation": {
+      "title": "Pe Ratio Valuation",
+      "description": "Calculate Pe Ratio Valuation efficiently.",
+      "seoTitle": "Pe Ratio Valuation | SectorCalc",
+      "seoDescription": "Calculate Pe Ratio Valuation efficiently."
+    },
+    "pb-ratio-valuation": {
+      "title": "Pb Ratio Valuation",
+      "description": "Calculate Pb Ratio Valuation efficiently.",
+      "seoTitle": "Pb Ratio Valuation | SectorCalc",
+      "seoDescription": "Calculate Pb Ratio Valuation efficiently."
+    },
+    "ps-ratio-valuation": {
+      "title": "Ps Ratio Valuation",
+      "description": "Calculate Ps Ratio Valuation efficiently.",
+      "seoTitle": "Ps Ratio Valuation | SectorCalc",
+      "seoDescription": "Calculate Ps Ratio Valuation efficiently."
+    },
+    "roe-dupont-analysis": {
+      "title": "Roe Dupont Analysis",
+      "description": "Calculate Roe Dupont Analysis efficiently.",
+      "seoTitle": "Roe Dupont Analysis | SectorCalc",
+      "seoDescription": "Calculate Roe Dupont Analysis efficiently."
+    },
+    "roic-capital-return": {
+      "title": "Roic Capital Return",
+      "description": "Calculate Roic Capital Return efficiently.",
+      "seoTitle": "Roic Capital Return | SectorCalc",
+      "seoDescription": "Calculate Roic Capital Return efficiently."
+    },
+    "eva-economic-value-added": {
+      "title": "Eva Economic Value Added",
+      "description": "Calculate Eva Economic Value Added efficiently.",
+      "seoTitle": "Eva Economic Value Added | SectorCalc",
+      "seoDescription": "Calculate Eva Economic Value Added efficiently."
+    },
+    "sharpe-ratio-volatility": {
+      "title": "Sharpe Ratio Volatility",
+      "description": "Calculate Sharpe Ratio Volatility efficiently.",
+      "seoTitle": "Sharpe Ratio Volatility | SectorCalc",
+      "seoDescription": "Calculate Sharpe Ratio Volatility efficiently."
+    },
+    "sortino-ratio-downside": {
+      "title": "Sortino Ratio Downside",
+      "description": "Calculate Sortino Ratio Downside efficiently.",
+      "seoTitle": "Sortino Ratio Downside | SectorCalc",
+      "seoDescription": "Calculate Sortino Ratio Downside efficiently."
+    },
+    "treynor-ratio-risk": {
+      "title": "Treynor Ratio Risk",
+      "description": "Calculate Treynor Ratio Risk efficiently.",
+      "seoTitle": "Treynor Ratio Risk | SectorCalc",
+      "seoDescription": "Calculate Treynor Ratio Risk efficiently."
+    },
+    "portfolio-max-drawdown": {
+      "title": "Portfolio Max Drawdown",
+      "description": "Calculate Portfolio Max Drawdown efficiently.",
+      "seoTitle": "Portfolio Max Drawdown | SectorCalc",
+      "seoDescription": "Calculate Portfolio Max Drawdown efficiently."
+    },
+    "portfolio-variance-optimizer": {
+      "title": "Portfolio Variance Optimizer",
+      "description": "Calculate Portfolio Variance Optimizer efficiently.",
+      "seoTitle": "Portfolio Variance Optimizer | SectorCalc",
+      "seoDescription": "Calculate Portfolio Variance Optimizer efficiently."
+    },
+    "mutual-fund-nav-return": {
+      "title": "Mutual Fund Nav Return",
+      "description": "Calculate Mutual Fund Nav Return efficiently.",
+      "seoTitle": "Mutual Fund Nav Return | SectorCalc",
+      "seoDescription": "Calculate Mutual Fund Nav Return efficiently."
+    },
+    "etf-net-annual-return": {
+      "title": "Etf Net Annual Return",
+      "description": "Calculate Etf Net Annual Return efficiently.",
+      "seoTitle": "Etf Net Annual Return | SectorCalc",
+      "seoDescription": "Calculate Etf Net Annual Return efficiently."
+    },
+    "futures-contract-profit": {
+      "title": "Futures Contract Profit",
+      "description": "Calculate Futures Contract Profit efficiently.",
+      "seoTitle": "Futures Contract Profit | SectorCalc",
+      "seoDescription": "Calculate Futures Contract Profit efficiently."
+    },
+    "black-scholes-option-price": {
+      "title": "Black Scholes Option Price",
+      "description": "Calculate Black Scholes Option Price efficiently.",
+      "seoTitle": "Black Scholes Option Price | SectorCalc",
+      "seoDescription": "Calculate Black Scholes Option Price efficiently."
+    },
+    "forex-pip-profit-calculator": {
+      "title": "Forex Pip Profit Calculator",
+      "description": "Calculate Forex Pip Profit Calculator efficiently.",
+      "seoTitle": "Forex Pip Profit Calculator | SectorCalc",
+      "seoDescription": "Calculate Forex Pip Profit Calculator efficiently."
+    },
+    "crypto-trade-net-profit": {
+      "title": "Crypto Trade Net Profit",
+      "description": "Calculate Crypto Trade Net Profit efficiently.",
+      "seoTitle": "Crypto Trade Net Profit | SectorCalc",
+      "seoDescription": "Calculate Crypto Trade Net Profit efficiently."
+    },
+    "nft-trade-net-profit-eth": {
+      "title": "Nft Trade Net Profit Eth",
+      "description": "Calculate Nft Trade Net Profit Eth efficiently.",
+      "seoTitle": "Nft Trade Net Profit Eth | SectorCalc",
+      "seoDescription": "Calculate Nft Trade Net Profit Eth efficiently."
+    },
+    "inflation-purchasing-power": {
+      "title": "Inflation Purchasing Power",
+      "description": "Calculate Inflation Purchasing Power efficiently.",
+      "seoTitle": "Inflation Purchasing Power | SectorCalc",
+      "seoDescription": "Calculate Inflation Purchasing Power efficiently."
+    },
+    "real-investment-return": {
+      "title": "Real Investment Return",
+      "description": "Calculate Real Investment Return efficiently.",
+      "seoTitle": "Real Investment Return | SectorCalc",
+      "seoDescription": "Calculate Real Investment Return efficiently."
+    },
+    "alternative-opportunity-cost": {
+      "title": "Alternative Opportunity Cost",
+      "description": "Calculate Alternative Opportunity Cost efficiently.",
+      "seoTitle": "Alternative Opportunity Cost | SectorCalc",
+      "seoDescription": "Calculate Alternative Opportunity Cost efficiently."
+    },
+    "capital-gains-tax-liability": {
+      "title": "Capital Gains Tax Liability",
+      "description": "Calculate Capital Gains Tax Liability efficiently.",
+      "seoTitle": "Capital Gains Tax Liability | SectorCalc",
+      "seoDescription": "Calculate Capital Gains Tax Liability efficiently."
+    },
+    "real-estate-property-tax": {
+      "title": "Real Estate Property Tax",
+      "description": "Calculate Real Estate Property Tax efficiently.",
+      "seoTitle": "Real Estate Property Tax | SectorCalc",
+      "seoDescription": "Calculate Real Estate Property Tax efficiently."
+    },
+    "mortgage-monthly-payment": {
+      "title": "Mortgage Monthly Payment",
+      "description": "Calculate Mortgage Monthly Payment efficiently.",
+      "seoTitle": "Mortgage Monthly Payment | SectorCalc",
+      "seoDescription": "Calculate Mortgage Monthly Payment efficiently."
+    },
+    "mortgage-comparison-tool": {
+      "title": "Mortgage Comparison Tool",
+      "description": "Calculate Mortgage Comparison Tool efficiently.",
+      "seoTitle": "Mortgage Comparison Tool | SectorCalc",
+      "seoDescription": "Calculate Mortgage Comparison Tool efficiently."
+    },
+    "mortgage-amortization-schedule": {
+      "title": "Mortgage Amortization Schedule",
+      "description": "Calculate Mortgage Amortization Schedule efficiently.",
+      "seoTitle": "Mortgage Amortization Schedule | SectorCalc",
+      "seoDescription": "Calculate Mortgage Amortization Schedule efficiently."
+    },
+    "mortgage-discount-points": {
+      "title": "Mortgage Discount Points",
+      "description": "Calculate Mortgage Discount Points efficiently.",
+      "seoTitle": "Mortgage Discount Points | SectorCalc",
+      "seoDescription": "Calculate Mortgage Discount Points efficiently."
+    },
+    "mortgage-refinance-breakeven": {
+      "title": "Mortgage Refinance Breakeven",
+      "description": "Calculate Mortgage Refinance Breakeven efficiently.",
+      "seoTitle": "Mortgage Refinance Breakeven | SectorCalc",
+      "seoDescription": "Calculate Mortgage Refinance Breakeven efficiently."
+    },
+    "cash-out-refinance-net": {
+      "title": "Cash Out Refinance Net",
+      "description": "Calculate Cash Out Refinance Net efficiently.",
+      "seoTitle": "Cash Out Refinance Net | SectorCalc",
+      "seoDescription": "Calculate Cash Out Refinance Net efficiently."
+    },
+    "home-purchase-affordability": {
+      "title": "Home Purchase Affordability",
+      "description": "Calculate Home Purchase Affordability efficiently.",
+      "seoTitle": "Home Purchase Affordability | SectorCalc",
+      "seoDescription": "Calculate Home Purchase Affordability efficiently."
+    },
+    "rent-vs-buy-decision-ratio": {
+      "title": "Rent Vs Buy Decision Ratio",
+      "description": "Calculate Rent Vs Buy Decision Ratio efficiently.",
+      "seoTitle": "Rent Vs Buy Decision Ratio | SectorCalc",
+      "seoDescription": "Calculate Rent Vs Buy Decision Ratio efficiently."
+    },
+    "rental-cap-rate-yield": {
+      "title": "Rental Cap Rate Yield",
+      "description": "Calculate Rental Cap Rate Yield efficiently.",
+      "seoTitle": "Rental Cap Rate Yield | SectorCalc",
+      "seoDescription": "Calculate Rental Cap Rate Yield efficiently."
+    },
+    "cash-on-cash-return-coc": {
+      "title": "Cash On Cash Return Coc",
+      "description": "Calculate Cash On Cash Return Coc efficiently.",
+      "seoTitle": "Cash On Cash Return Coc | SectorCalc",
+      "seoDescription": "Calculate Cash On Cash Return Coc efficiently."
+    },
+    "brrrr-investment-strategy": {
+      "title": "Brrrr Investment Strategy",
+      "description": "Calculate Brrrr Investment Strategy efficiently.",
+      "seoTitle": "Brrrr Investment Strategy | SectorCalc",
+      "seoDescription": "Calculate Brrrr Investment Strategy efficiently."
+    },
+    "rental-property-net-cashflow": {
+      "title": "Rental Property Net Cashflow",
+      "description": "Calculate Rental Property Net Cashflow efficiently.",
+      "seoTitle": "Rental Property Net Cashflow | SectorCalc",
+      "seoDescription": "Calculate Rental Property Net Cashflow efficiently."
+    },
+    "real-estate-broker-commission": {
+      "title": "Real Estate Broker Commission",
+      "description": "Calculate Real Estate Broker Commission efficiently.",
+      "seoTitle": "Real Estate Broker Commission | SectorCalc",
+      "seoDescription": "Calculate Real Estate Broker Commission efficiently."
+    },
+    "mortgage-closing-costs-total": {
+      "title": "Mortgage Closing Costs Total",
+      "description": "Calculate Mortgage Closing Costs Total efficiently.",
+      "seoTitle": "Mortgage Closing Costs Total | SectorCalc",
+      "seoDescription": "Calculate Mortgage Closing Costs Total efficiently."
+    },
+    "heloc-borrowing-limit": {
+      "title": "Heloc Borrowing Limit",
+      "description": "Calculate Heloc Borrowing Limit efficiently.",
+      "seoTitle": "Heloc Borrowing Limit | SectorCalc",
+      "seoDescription": "Calculate Heloc Borrowing Limit efficiently."
+    },
+    "pmi-monthly-cost-estimator": {
+      "title": "Pmi Monthly Cost Estimator",
+      "description": "Calculate Pmi Monthly Cost Estimator efficiently.",
+      "seoTitle": "Pmi Monthly Cost Estimator | SectorCalc",
+      "seoDescription": "Calculate Pmi Monthly Cost Estimator efficiently."
+    },
+    "fha-loan-mortgage-cost": {
+      "title": "Fha Loan Mortgage Cost",
+      "description": "Calculate Fha Loan Mortgage Cost efficiently.",
+      "seoTitle": "Fha Loan Mortgage Cost | SectorCalc",
+      "seoDescription": "Calculate Fha Loan Mortgage Cost efficiently."
+    },
+    "va-loan-funding-fee": {
+      "title": "Va Loan Funding Fee",
+      "description": "Calculate Va Loan Funding Fee efficiently.",
+      "seoTitle": "Va Loan Funding Fee | SectorCalc",
+      "seoDescription": "Calculate Va Loan Funding Fee efficiently."
+    },
+    "personal-loan-payment": {
+      "title": "Personal Loan Payment",
+      "description": "Calculate Personal Loan Payment efficiently.",
+      "seoTitle": "Personal Loan Payment | SectorCalc",
+      "seoDescription": "Calculate Personal Loan Payment efficiently."
+    },
+    "auto-loan-monthly-payment": {
+      "title": "Auto Loan Monthly Payment",
+      "description": "Calculate Auto Loan Monthly Payment efficiently.",
+      "seoTitle": "Auto Loan Monthly Payment | SectorCalc",
+      "seoDescription": "Calculate Auto Loan Monthly Payment efficiently."
+    },
+    "boat-loan-monthly-payment": {
+      "title": "Boat Loan Monthly Payment",
+      "description": "Calculate Boat Loan Monthly Payment efficiently.",
+      "seoTitle": "Boat Loan Monthly Payment | SectorCalc",
+      "seoDescription": "Calculate Boat Loan Monthly Payment efficiently."
+    },
+    "motorcycle-loan-payment": {
+      "title": "Motorcycle Loan Payment",
+      "description": "Calculate Motorcycle Loan Payment efficiently.",
+      "seoTitle": "Motorcycle Loan Payment | SectorCalc",
+      "seoDescription": "Calculate Motorcycle Loan Payment efficiently."
+    },
+    "rv-recreational-vehicle-loan": {
+      "title": "Rv Recreational Vehicle Loan",
+      "description": "Calculate Rv Recreational Vehicle Loan efficiently.",
+      "seoTitle": "Rv Recreational Vehicle Loan | SectorCalc",
+      "seoDescription": "Calculate Rv Recreational Vehicle Loan efficiently."
+    },
+    "student-loan-grace-payment": {
+      "title": "Student Loan Grace Payment",
+      "description": "Calculate Student Loan Grace Payment efficiently.",
+      "seoTitle": "Student Loan Grace Payment | SectorCalc",
+      "seoDescription": "Calculate Student Loan Grace Payment efficiently."
+    },
+    "student-loan-refinance-savings": {
+      "title": "Student Loan Refinance Savings",
+      "description": "Calculate Student Loan Refinance Savings efficiently.",
+      "seoTitle": "Student Loan Refinance Savings | SectorCalc",
+      "seoDescription": "Calculate Student Loan Refinance Savings efficiently."
+    },
+    "credit-card-accrued-interest": {
+      "title": "Credit Card Accrued Interest",
+      "description": "Calculate Credit Card Accrued Interest efficiently.",
+      "seoTitle": "Credit Card Accrued Interest | SectorCalc",
+      "seoDescription": "Calculate Credit Card Accrued Interest efficiently."
+    },
+    "credit-card-minimum-payment": {
+      "title": "Credit Card Minimum Payment",
+      "description": "Calculate Credit Card Minimum Payment efficiently.",
+      "seoTitle": "Credit Card Minimum Payment | SectorCalc",
+      "seoDescription": "Calculate Credit Card Minimum Payment efficiently."
     }
   }
 }

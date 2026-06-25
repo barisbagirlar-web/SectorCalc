@@ -54,7 +54,7 @@ export const SLUG_3D_PRINT_JOB_MARGIN_TOOL_SCHEMA: PremiumCalculatorSchema = {
     },
     {
       id: "rejectionRiskPercent",
-      label: "Rejection risk",
+      label: "rejection risk",
       type: "number",
       unit: "%",
       required: true,

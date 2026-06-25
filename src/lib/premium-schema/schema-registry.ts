@@ -57,7 +57,7 @@ import { CHANGE_ORDER_IMPACT_ANALYZER_SCHEMA } from "@/lib/premium-schema/schema
 import { CNC_QUOTE_RISK_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/cnc-quote-risk-analyzer";
 import { CROP_YIELD_LOSS_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/crop-yield-loss-analyzer";
 import { DAIRY_PROFIT_DETECTOR_SCHEMA } from "@/lib/premium-schema/schemas/dairy-profit-detector";
-import { DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA } from "@/lib/premium-schema/schemas/doviz-pozisyonu-kur-farki-riski-hesabi";
+import { DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA } from "@/lib/premium-schema/schemas/fx-position-exchange-rate-risk-calculator";
 import { FEED_EFFICIENCY_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/feed-efficiency-analyzer";
 import { HEAT_LOSS_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/heat-loss-calculator";
 import { HVAC_PROJECT_MARGIN_GUARD_SCHEMA } from "@/lib/premium-schema/schemas/hvac-project-margin-guard";
@@ -79,7 +79,7 @@ import { SHEET_METAL_QUOTE_RISK_TOOL_SCHEMA } from "@/lib/premium-schema/schemas
 import { SIGNAGE_BID_SAFE_PRICE_TOOL_SCHEMA } from "@/lib/premium-schema/schemas/signage-bid-safe-price-tool";
 import { WATER_OPTIMIZATION_VERDICT_SCHEMA } from "@/lib/premium-schema/schemas/water-optimization-verdict";
 import { WELDING_BID_RISK_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/welding-bid-risk-analyzer";
-import { SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/7-israf-muda-avcisi-parasal-karsilik-calculator";
+import { SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/7-wastes-muda-hunter-financial-calculator";
 import { SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA } from "@/lib/premium-schema/schemas/six-sigma-project-prioritizer";
 
 export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [

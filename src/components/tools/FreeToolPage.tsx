@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { formatSmartFormFieldError } from "@/lib/i18n/smart-form-validation-i18n";
-import { Link, usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
+import { Link } from "@/i18n/routing";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
 import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";

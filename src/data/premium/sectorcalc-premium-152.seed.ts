@@ -416,7 +416,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 6,
-      "slug": "7-israf-muda-avcisi-parasal-karsilik-calculator",
+      "slug": "7-wastes-muda-hunter-financial-calculator",
       "trTitle": "7 İsraf (Muda) Avcısı Parasal Karşılık Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -1098,7 +1098,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 68,
-      "slug": "gurultu-ve-titresim-maruziyet-risk-maliyet-calculator",
+      "slug": "noise-vibration-exposure-risk-cost-calculator",
       "trTitle": "Gürültü ve Titreşim Maruziyet Risk Maliyet Hesaplayıcı",
       "categorySlug": "hse-ergonomics",
       "tier": "premium",

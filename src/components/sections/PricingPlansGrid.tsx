@@ -17,7 +17,7 @@ import {
 } from "@/lib/analytics/revenue-events";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
-import { usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
 import { PRICING_REFUND_POLICY } from "@/lib/pricing/plan-catalog";

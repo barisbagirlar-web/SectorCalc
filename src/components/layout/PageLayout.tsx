@@ -5,13 +5,14 @@ import { AppProviders } from "@/components/providers/AppProviders";
 
 interface PageLayoutProps {
   children: ReactNode;
+  className?: string;
 }
 
-export function PageLayout({ children }: PageLayoutProps) {
+export function PageLayout({ children, className = "" }: PageLayoutProps) {
   return (
     <AppProviders>
       <SiteHeader />
-      <main className="sc-app-main min-w-0">{children}</main>
+      <main className={`sc-app-main min-w-0 ${className}`.trim()}>{children}</main>
       <EnterpriseFooter />
     </AppProviders>
   );

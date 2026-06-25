@@ -1,0 +1,128 @@
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+
+export const COMPRESSOR_LEAK_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
+  id: "ener-505",
+  name: "Compressor Leak Cost Calculator",
+  sectorSlug: "energy-carbon",
+  category: "energy",
+  painStatement:
+    "Compressed air leaks turn electricity into invisible production cost.",
+
+  inputs: [
+    {
+      id: "compressorKw",
+      label: "Compressor power",
+      type: "number",
+      unit: "kW",
+      required: true,
+      smartDefault: 45,
+      validation: { min: 0 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+    {
+      id: "leakPercent",
+      label: "Leak percent",
+      type: "number",
+      unit: "%",
+      required: true,
+      smartDefault: 12,
+      validation: { min: 0, max: 100 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+    {
+      id: "operatingHours",
+      label: "Operating hours",
+      type: "number",
+      unit: "hours/month",
+      required: true,
+      smartDefault: 360,
+      validation: { min: 0 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+    {
+      id: "energyRate",
+      label: "Energy rate",
+      type: "number",
+      unit: "USD/kWh",
+      required: true,
+      smartDefault: 0.14,
+      validation: { min: 0 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+  ],
+
+  formulaPipeline: [
+    {
+      formulaId: "energy.compressor_leak_kwh",
+      inputMap: {
+        compressorKw: "compressorKw",
+        leakPercent: "leakPercent",
+        operatingHours: "operatingHours",
+      },
+      outputId: "leakKwh",
+    },
+    {
+      formulaId: "energy.kwh_cost",
+      inputMap: { kwh: "leakKwh", rate: "energyRate" },
+      outputId: "monthlyLeakCost",
+    },
+    {
+      formulaId: "cost.annualize",
+      inputMap: { monthlyCost: "monthlyLeakCost" },
+      outputId: "annualLeakCost",
+    },
+  ],
+
+  outputs: [
+    {
+      id: "annualLeakCost",
+      label: "Annual leak cost",
+      unit: "USD",
+      format: "currency",
+      isBigNumber: true,
+    },
+    {
+      id: "monthlyLeakCost",
+      label: "Monthly leak cost",
+      unit: "USD",
+      format: "currency",
+    },
+    {
+      id: "leakKwh",
+      label: "Leak kWh",
+      unit: "kWh",
+      format: "number",
+    },
+  ],
+
+  thresholds: [
+    {
+      fieldId: "annualLeakCost",
+      warning: 6000,
+      critical: 15000,
+      direction: "higher_is_bad",
+      warningMessage: "Leak cost is material — schedule ultrasonic leak survey.",
+      criticalMessage: "Leak cost is severe — prioritize maintenance before next budget cycle.",
+    },
+  ],
+
+  reportTemplate: {
+    title: "Compressor Leak Cost Decision Report",
+    sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"],
+    exportFormats: ["pdf", "csv"],
+  },
+
+  assumptions: {
+    hiddenLossMultiplier: 1.08,
+    volatilityPercent: 10,
+    targetMarginPercent: 0,
+    assumptionNotes: [
+      "Leak kWh = compressor kW × leak percent × operating hours.",
+      "Monthly cost = leak kWh × energy rate; annual = monthly × 12.",
+    ],
+  },
+};

@@ -2,7 +2,8 @@
 
 import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
+import { Link } from "@/i18n/routing";
 import type { AssistantResult, AssistantSuggestion } from "@/lib/assistant/types";
 import type { CustomerAiSafeResponse } from "@/lib/ai-gateway/customer-ai-types";
 

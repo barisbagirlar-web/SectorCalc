@@ -22,6 +22,7 @@ export type SmartToolFormProps = {
   readonly blocked?: boolean;
   readonly blockers?: readonly string[];
   readonly isCalculating?: boolean;
+  readonly disabled?: boolean;
   readonly inputIdPrefix?: string;
 };
 

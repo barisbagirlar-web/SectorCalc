@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { Link, usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
+import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
 import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";

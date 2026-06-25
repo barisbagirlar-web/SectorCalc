@@ -19,7 +19,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from '@/i18n/routing';
+import { usePathname, useRouter } from "next/navigation";
 import { useLocale } from 'next-intl';
 import { getFreeToolCount, getPremiumToolCount } from "@/lib/tools/tool-counts";
 
@@ -188,7 +188,7 @@ export function SiteHeader({ isAuthenticated = false }) {
   const switchLocale=(code: string)=>{
     setLangOpen(false);
     document.cookie=`NEXT_LOCALE=${code};path=/;max-age=31536000;samesite=lax`;
-    router.push(pathname, { locale: code as any });
+    router.push(pathname);
   };
 
   const accountHref = isAuthenticated ? '/account' : '/login';
@@ -380,25 +380,6 @@ export function SiteHeader({ isAuthenticated = false }) {
           </nav>
 
           <div className="sc-right">
-            <div className="sc-lang" ref={langRef}>
-              <button className="sc-langbtn" onClick={()=>{setLangOpen(!langOpen);setOpenMenu(null);}} aria-haspopup="true" aria-expanded={langOpen} aria-label="Select language">
-                <svg className="sc-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-                <span>{LOCALES.find((l)=>l.code===locale)?.short}</span><span className="sc-langchev">▼</span>
-              </button>
-              {langOpen && (
-                <div className="sc-langmenu">
-                  {LOCALES.map((l)=>(
-                    <button key={l.code} className={`sc-langitem${l.code===locale?' active':''}`} onClick={()=>switchLocale(l.code)}>
-                      <span>{l.label}</span><span className="sh">{l.short}</span>
-                    </button>
-                  ))}
-                  <div className="sc-langnote">{t.lang_note}</div>
-                </div>
-              )}
-            </div>
             <Link href={accountHref} className="sc-signin">{t.signin}</Link>
             <Link href={href(locale,'login')} className="sc-getstarted">{t.getStarted}</Link>
             <button className="sc-burger" onClick={()=>setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen}>
@@ -455,11 +436,7 @@ export function SiteHeader({ isAuthenticated = false }) {
             <Link href={href(locale,'login')} className="sc-getstarted" onClick={()=>setMobileOpen(false)}>{t.getStarted}</Link>
             <Link href={accountHref} className="sc-signin" onClick={()=>setMobileOpen(false)}>{t.signin}</Link>
           </div>
-          <div className="sc-draw-lang">
-            {LOCALES.map((l)=>(
-              <button key={l.code} className={l.code===locale?'active':''} onClick={()=>{switchLocale(l.code);setMobileOpen(false);}}>{l.short}</button>
-            ))}
-          </div>
+
         </div>
       </header>
     </>

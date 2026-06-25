@@ -3,7 +3,7 @@
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { useTransition } from "react";
-import { usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "next/navigation";
 import { SITE_SOCIAL } from "@/config/site";
 import { setLocaleCookie } from "@/lib/i18n/locale-client";
 import { getTotalToolCount } from "@/lib/tools/tool-counts";
@@ -322,7 +322,7 @@ export function EnterpriseFooter() {
     if (nextLocale === currentLocale) return;
     startTransition(() => {
       setLocaleCookie(nextLocale as any, { manual: true });
-      router.replace(pathname, { locale: nextLocale as any });
+      router.replace(pathname);
     });
   };
 

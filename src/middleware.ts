@@ -1,27 +1,6 @@
-import createIntlMiddleware from "next-intl/middleware";
 import { type NextRequest, NextResponse } from "next/server";
-import { routing } from "@/i18n/routing-config";
 import { REGION_COOKIE, REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
-import { detectCountryFromHeaders, detectRegionFromRequest } from "@/lib/compliance/detect-region";
-import {
-  addLocaleToPath,
-  getLegacyEnRedirectPath,
-  isLocalizedPath,
-  isMiddlewareExcludedPath,
-  LOCALE_COOKIE,
-  LOCALE_MANUAL_COOKIE,
-  NEXT_LOCALE_COOKIE,
-  needsEnglishLocaleRewrite,
-  rewritePathToEnglishLocale,
-  shouldRedirectLocaleLessPublicRoute,
-  shouldRedirectRootToLocale,
-  type SupportedLocale,
-} from "@/lib/i18n/locale-routing";
-
-/**
- * Locale routing (root English + prefixed locales) + regional compliance.
- */
-const intlMiddleware = createIntlMiddleware(routing);
+import { detectRegionFromRequest } from "@/lib/compliance/detect-region";
 
 function applyRegionHeaders(response: NextResponse, request: NextRequest): NextResponse {
   const { region, source } = detectRegionFromRequest(request);
@@ -35,81 +14,15 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
   return response;
 }
 
-function readLocaleResolutionInputs(request: NextRequest) {
-  return {
-    cookieLocale: request.cookies.get(LOCALE_COOKIE)?.value,
-    nextLocaleCookie: request.cookies.get(NEXT_LOCALE_COOKIE)?.value,
-    manualCookie: request.cookies.get(LOCALE_MANUAL_COOKIE)?.value,
-    countryCode: detectCountryFromHeaders(request.headers),
-    acceptLanguage: request.headers.get("accept-language"),
-  };
-}
-
-function redirectToLocale(
-  request: NextRequest,
-  locale: SupportedLocale,
-  pathname: string,
-): NextResponse {
-  const url = request.nextUrl.clone();
-  url.pathname = addLocaleToPath(pathname, locale);
-  const response = NextResponse.redirect(url, 307);
-  response.cookies.set(LOCALE_COOKIE, locale, {
-    path: "/",
-    maxAge: 60 * 60 * 24 * 365,
-    sameSite: "lax",
-  });
-  return applyRegionHeaders(response, request);
-}
-
 export default function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  if (isMiddlewareExcludedPath(pathname)) {
-    return applyRegionHeaders(NextResponse.next(), request);
-  }
-
-  const legacyRedirect = getLegacyEnRedirectPath(pathname);
-  if (legacyRedirect !== null) {
+  const urlPath = request.nextUrl.pathname;
+  
+  // Strip out any legacy locale prefixes (e.g. /tr, /de, /fr, /es, /ar, /en)
+  const langMatch = urlPath.match(/^\/(tr|de|fr|es|ar|en)(\/|$)(.*)/);
+  if (langMatch) {
     const url = request.nextUrl.clone();
-    url.pathname = legacyRedirect;
-    return applyRegionHeaders(NextResponse.redirect(url, 301), request);
-  }
-
-  if (isLocalizedPath(pathname)) {
-    const response = intlMiddleware(request);
-    if (response instanceof NextResponse) {
-      return applyRegionHeaders(response, request);
-    }
-    return applyRegionHeaders(NextResponse.next(), request);
-  }
-
-  const localeInputs = readLocaleResolutionInputs(request);
-
-  if (pathname === "/") {
-    const targetLocale = shouldRedirectRootToLocale(localeInputs);
-    if (targetLocale !== null) {
-      return redirectToLocale(request, targetLocale, "/");
-    }
-  }
-
-  const localeLessTarget = shouldRedirectLocaleLessPublicRoute({
-    pathname,
-    ...localeInputs,
-  });
-  if (localeLessTarget !== null) {
-    return redirectToLocale(request, localeLessTarget, pathname);
-  }
-
-  if (needsEnglishLocaleRewrite(pathname)) {
-    const url = request.nextUrl.clone();
-    url.pathname = rewritePathToEnglishLocale(pathname);
-    const response = NextResponse.rewrite(url);
-    return applyRegionHeaders(response, request);
-  }
-
-  const response = intlMiddleware(request);
-  if (response instanceof NextResponse) {
-    return applyRegionHeaders(response, request);
+    url.pathname = '/' + (langMatch[3] || '');
+    return NextResponse.redirect(url, 301);
   }
 
   return applyRegionHeaders(NextResponse.next(), request);
@@ -118,7 +31,6 @@ export default function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/",
-    "/(tr|de|fr|es|ar)/:path*",
     "/((?!admin|api|_next|_vercel|.*\\..*).*)",
   ],
 };

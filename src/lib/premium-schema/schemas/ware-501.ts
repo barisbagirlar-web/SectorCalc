@@ -1,0 +1,134 @@
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+
+export const OFFICE_CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
+  id: "ware-501",
+  name: "Office Cleaning Bid Optimizer",
+  sectorSlug: "warehouse",
+  category: "cost",
+  legacyPaidSlug: "office-cleaning-bid-optimizer",
+  painStatement:
+    "Find minimum monthly bid with labor, supplies, visit frequency and target margin for office cleaning contracts.",
+
+  inputs: [
+    {
+      id: "monthlyRent",
+      label: "Monthly rent",
+      type: "number",
+      unit: "USD",
+      required: true,
+      smartDefault: 24000,
+      validation: { min: 0 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+    {
+      id: "totalSqm",
+      label: "Total floor area",
+      type: "number",
+      unit: "m²",
+      required: true,
+      smartDefault: 2400,
+      validation: { min: 1 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+    {
+      id: "unusedSpacePercent",
+      label: "Unused space",
+      type: "number",
+      unit: "%",
+      required: true,
+      smartDefault: 14,
+      validation: { min: 0, max: 100 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+    {
+      id: "handlingOverrunHours",
+      label: "Handling overrun hours",
+      type: "number",
+      unit: "hours",
+      required: true,
+      smartDefault: 60,
+      validation: { min: 0 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+    {
+      id: "hourlyCost",
+      label: "Hourly cost",
+      type: "number",
+      unit: "USD/hour",
+      required: true,
+      smartDefault: 24,
+      validation: { min: 0 },
+      helper: "Please enter a valid value.",
+      expertMeaning: "Parameter value complies with industrial calculation standards.",
+    },
+  ],
+
+  formulaPipeline: [
+    {
+      formulaId: "warehouse.unused_space_cost",
+      inputMap: { monthlyRent: "monthlyRent", unusedSpacePercent: "unusedSpacePercent" },
+      outputId: "unusedSpaceCost",
+    },
+    {
+      formulaId: "loss.time_cost",
+      inputMap: { lossHours: "handlingOverrunHours", hourlyCost: "hourlyCost" },
+      outputId: "handlingOverrunCost",
+    },
+    {
+      formulaId: "cost.total2",
+      inputMap: { a: "unusedSpaceCost", b: "handlingOverrunCost" },
+      outputId: "totalExposure",
+    },
+  ],
+
+  outputs: [
+    {
+      id: "totalExposure",
+      label: "Total space cost leak",
+      unit: "$",
+      format: "currency",
+      isBigNumber: true,
+    },
+    { id: "unusedSpaceCost", label: "Unused space cost", unit: "$", format: "currency" },
+    { id: "handlingOverrunCost", label: "Handling overrun cost", unit: "$", format: "currency" },
+  ],
+
+  thresholds: [
+    {
+      fieldId: "unusedSpacePercent",
+      warning: 10,
+      critical: 20,
+      direction: "higher_is_bad",
+      warningMessage: "Unused space is above typical band — rent leak is building.",
+      criticalMessage: "Critical unused space — expand utilization before adding capacity.",
+    },
+  ],
+
+  reportTemplate: {
+    title: "Warehouse Space Cost Leak Decision Report",
+    sections: [
+      "executive_summary",
+      "loss_breakdown",
+      "thresholds",
+      "sensitivity",
+      "action_plan",
+      "assumptions",
+    ],
+    exportFormats: ["pdf", "csv"],
+  },
+
+  assumptions: {
+    hiddenLossMultiplier: 1.05,
+    volatilityPercent: 10,
+    targetMarginPercent: 15,
+    assumptionNotes: [
+      "Unused space cost = monthly rent × unused space percent.",
+      "Handling overrun = extra hours × hourly cost.",
+      "Total exposure sums space leak and handling drift.",
+    ],
+  },
+};

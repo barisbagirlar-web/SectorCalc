@@ -3,7 +3,8 @@
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Link, usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
+import { Link } from "@/i18n/routing";
 import { VerdictPdfDocument } from "@/components/reports/VerdictPdfDocument";
 import { startCheckoutRedirect } from "@/lib/billing/start-checkout";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";

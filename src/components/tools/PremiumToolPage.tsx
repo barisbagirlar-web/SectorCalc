@@ -3,7 +3,8 @@
 import dynamic from "next/dynamic";
 import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
+import { Link } from "@/i18n/routing";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";

@@ -25,6 +25,7 @@ export type DynamicSmartFormPilotProps = {
   readonly onValidationChange?: (valid: boolean) => void;
   readonly calculateLabel: string;
   readonly isCalculating?: boolean;
+  readonly disabled?: boolean;
 };
 
 function translateValidationMessage(

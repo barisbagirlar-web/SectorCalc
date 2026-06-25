@@ -223,7 +223,7 @@ export function runPremiumSchemaEngine(
 ): PremiumSchemaEngineResult {
   const formatLocale = normalizeLocale(locale);
   const userInputs = normalizeSchemaInputs(schema, rawInputs);
-  const usesSevenMudaPriming = schema.id === "7-israf-muda-avcisi-parasal-karsilik-calculator";
+  const usesSevenMudaPriming = schema.id === "7-wastes-muda-hunter-financial-calculator";
 
   bindSevenMudaEngineeringSchemaInputs(null);
 

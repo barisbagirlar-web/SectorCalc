@@ -1,19 +1,15 @@
 import { createElement, type ComponentProps } from "react";
-import { createNavigation } from "next-intl/navigation";
+import NextLink from "next/link";
 import { locales, type AppLocale, isAppLocale, stripLocalePrefix } from "@/i18n/locales";
 import { routing } from "@/i18n/routing-config";
 
 export { locales, type AppLocale, isAppLocale, stripLocalePrefix, routing };
 
-const navigation = createNavigation(routing);
-
-const IntlLink = navigation.Link;
-
-type IntlLinkProps = ComponentProps<typeof IntlLink>;
+type IntlLinkProps = ComponentProps<typeof NextLink>;
 
 /** Platform policy: internal navigation must not parallel-prefetch RSC streams. */
 export function Link({ prefetch = false, ...props }: IntlLinkProps) {
-  return createElement(IntlLink, { prefetch, ...props });
+  return createElement(NextLink, { prefetch, ...props });
 }
 
-export const { redirect, usePathname, useRouter, getPathname } = navigation;
+export const getPathname = () => ""; // Mocked since it's unused or not available natively

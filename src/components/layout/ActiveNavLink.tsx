@@ -1,6 +1,7 @@
 "use client";
 
-import { Link, usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
+import { Link } from "@/i18n/routing";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { resolveNavIcon } from "@/lib/icons/icon-registry";
 import { isNavLinkActive } from "@/lib/navigation/nav-active";

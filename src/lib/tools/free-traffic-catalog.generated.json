@@ -1,0 +1,4365 @@
+[
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "square-meter-calculator",
+    "title": "Square Meter Calculator",
+    "category": "construction-measurement",
+    "description": "Calculate rectangular floor area in square meters with imperial conversions.",
+    "seoTitle": "Square Meter Calculator — Area in m² | SectorCalc",
+    "seoDescription": "Free square meter calculator. Length × width with ft² and yd² conversions.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "change-order-impact-analyzer",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Room or slab length",
+        "min": 0.01
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "m",
+        "type": "number",
+        "helper": "Room or slab width",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "square-footage-calculator",
+    "title": "Square Footage Calculator",
+    "category": "construction-measurement",
+    "description": "Calculate floor area in square feet with metric and acre conversions.",
+    "seoTitle": "Square Footage Calculator — ft² Area | SectorCalc",
+    "seoDescription": "Free square footage calculator with m² and acre conversions.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "ft",
+        "type": "number",
+        "helper": "Length in feet",
+        "min": 0.01
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "ft",
+        "type": "number",
+        "helper": "Width in feet",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "concrete-volume-calculator",
+    "title": "Concrete Volume Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate slab pour volume in cubic meters.",
+    "seoTitle": "Concrete Volume Calculator — m³ Slab | SectorCalc",
+    "seoDescription": "Calculate concrete volume for slabs and footings. Free browser calculator.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "change-order-impact-analyzer",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Slab length",
+        "min": 0.01
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "m",
+        "type": "number",
+        "helper": "Slab width",
+        "min": 0.01
+      },
+      {
+        "key": "depth",
+        "label": "Depth",
+        "unit": "m",
+        "type": "number",
+        "helper": "Slab thickness",
+        "min": 0.01,
+        "step": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "concrete-bag-calculator",
+    "title": "Concrete Bag Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate bags needed for a pour including waste factor.",
+    "seoTitle": "Concrete Bag Calculator — Bags Needed | SectorCalc",
+    "seoDescription": "Calculate concrete bags from volume, bag yield and waste percent.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "volumeM3",
+        "label": "Volume",
+        "unit": "m³",
+        "type": "number",
+        "helper": "Total pour volume",
+        "min": 0.01
+      },
+      {
+        "key": "bagYieldM3",
+        "label": "Bag yield",
+        "unit": "m³/bag",
+        "type": "number",
+        "helper": "Volume per bag",
+        "min": 0.01
+      },
+      {
+        "key": "wastePercent",
+        "label": "Waste",
+        "unit": "%",
+        "type": "number",
+        "helper": "Extra waste allowance",
+        "min": 0,
+        "max": 50,
+        "defaultValue": 10
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "paint-coverage-calculator",
+    "title": "Paint Coverage Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate paint liters for wall area and coat count.",
+    "seoTitle": "Paint Coverage Calculator — Liters Needed | SectorCalc",
+    "seoDescription": "Free paint coverage calculator for area, coats and liters per m².",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "painting-job-profit-verdict",
+    "inputs": [
+      {
+        "key": "areaM2",
+        "label": "Wall area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Surface area to paint",
+        "min": 0.01
+      },
+      {
+        "key": "coveragePerLiter",
+        "label": "Coverage",
+        "unit": "m²/L",
+        "type": "number",
+        "helper": "Coverage per liter",
+        "min": 0.01
+      },
+      {
+        "key": "coats",
+        "label": "Coats",
+        "unit": "coats",
+        "type": "number",
+        "helper": "Number of coats",
+        "min": 1,
+        "max": 5,
+        "defaultValue": 2
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "tile-calculator",
+    "title": "Tile Calculator",
+    "category": "construction-measurement",
+    "description": "Count tiles needed for a floor area with waste allowance.",
+    "seoTitle": "Tile Calculator — Tiles Needed | SectorCalc",
+    "seoDescription": "Calculate tile count from area, tile size and waste percent.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "areaM2",
+        "label": "Floor area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Area to tile",
+        "min": 0.01
+      },
+      {
+        "key": "tileLengthCm",
+        "label": "Tile length",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Tile length",
+        "min": 0.01
+      },
+      {
+        "key": "tileWidthCm",
+        "label": "Tile width",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Tile width",
+        "min": 0.01
+      },
+      {
+        "key": "wastePercent",
+        "label": "Waste",
+        "unit": "%",
+        "type": "number",
+        "helper": "Cutting waste",
+        "min": 0,
+        "max": 30,
+        "defaultValue": 10
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "flooring-calculator",
+    "title": "Flooring Calculator",
+    "category": "construction-measurement",
+    "description": "Room flooring area with waste factor for material ordering.",
+    "seoTitle": "Flooring Calculator — Area + Waste | SectorCalc",
+    "seoDescription": "Calculate flooring material area including waste percent.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "roomLengthM",
+        "label": "Room length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Length",
+        "min": 0.01
+      },
+      {
+        "key": "roomWidthM",
+        "label": "Room width",
+        "unit": "m",
+        "type": "number",
+        "helper": "Width",
+        "min": 0.01
+      },
+      {
+        "key": "wastePercent",
+        "label": "Waste",
+        "unit": "%",
+        "type": "number",
+        "helper": "Ordering waste",
+        "min": 0,
+        "max": 25,
+        "defaultValue": 8
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "roofing-area-calculator",
+    "title": "Roofing Area Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate roof surface area from footprint and pitch factor.",
+    "seoTitle": "Roofing Area Calculator — m² Roof | SectorCalc",
+    "seoDescription": "Calculate roof area from length, width and pitch multiplier.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "lengthM",
+        "label": "Footprint length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Building length",
+        "min": 0.01
+      },
+      {
+        "key": "widthM",
+        "label": "Footprint width",
+        "unit": "m",
+        "type": "number",
+        "helper": "Building width",
+        "min": 0.01
+      },
+      {
+        "key": "pitchFactor",
+        "label": "Pitch factor",
+        "unit": "×",
+        "type": "number",
+        "helper": "Slope multiplier (e.g. 1.15)",
+        "min": 1,
+        "defaultValue": 1.15
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "stair-calculator",
+    "title": "Stair Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate stair steps and total horizontal run.",
+    "seoTitle": "Stair Calculator — Steps & Run | SectorCalc",
+    "seoDescription": "Calculate stair steps from total rise, riser height and tread depth.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "totalRiseCm",
+        "label": "Total rise",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Floor-to-floor height",
+        "min": 0.01
+      },
+      {
+        "key": "riserHeightCm",
+        "label": "Riser height",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Step riser",
+        "min": 0.01,
+        "defaultValue": 18
+      },
+      {
+        "key": "treadDepthCm",
+        "label": "Tread depth",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Step tread",
+        "min": 0.01,
+        "defaultValue": 28
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "drywall-calculator",
+    "title": "Drywall Calculator",
+    "category": "construction-measurement",
+    "description": "Sheets of drywall needed for wall area.",
+    "seoTitle": "Drywall Sheet Calculator | SectorCalc",
+    "seoDescription": "Calculate drywall sheets from wall area, sheet size and waste.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "wallAreaM2",
+        "label": "Wall area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Total drywall area",
+        "min": 0.01
+      },
+      {
+        "key": "sheetAreaM2",
+        "label": "Sheet area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Area per sheet",
+        "min": 0.01,
+        "defaultValue": 2.88
+      },
+      {
+        "key": "wastePercent",
+        "label": "Waste",
+        "unit": "%",
+        "type": "number",
+        "helper": "Cut waste",
+        "min": 0,
+        "defaultValue": 10
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "brick-calculator",
+    "title": "Brick Calculator",
+    "category": "construction-measurement",
+    "description": "Brick count for a wall area with waste allowance.",
+    "seoTitle": "Brick Calculator — Bricks Needed | SectorCalc",
+    "seoDescription": "Estimate bricks from wall area, bricks per m² and waste percent.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "wallAreaM2",
+        "label": "Wall area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Wall surface",
+        "min": 0.01
+      },
+      {
+        "key": "bricksPerM2",
+        "label": "Bricks per m²",
+        "unit": "bricks/m²",
+        "type": "number",
+        "helper": "Layout density",
+        "min": 0.01,
+        "defaultValue": 60
+      },
+      {
+        "key": "wastePercent",
+        "label": "Waste",
+        "unit": "%",
+        "type": "number",
+        "helper": "Breakage allowance",
+        "min": 0,
+        "defaultValue": 5
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "rebar-weight-calculator",
+    "title": "Rebar Weight Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate rebar weight from diameter, length and quantity.",
+    "seoTitle": "Rebar Weight Calculator — kg | SectorCalc",
+    "seoDescription": "Calculate rebar weight using diameter and length formula.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "diameterMm",
+        "label": "Diameter",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Bar diameter",
+        "min": 0.01
+      },
+      {
+        "key": "lengthM",
+        "label": "Length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Bar length",
+        "min": 0.01
+      },
+      {
+        "key": "quantity",
+        "label": "Quantity",
+        "unit": "bars",
+        "type": "number",
+        "helper": "Number of bars",
+        "min": 1,
+        "defaultValue": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "excavation-volume-calculator",
+    "title": "Excavation Volume Calculator",
+    "category": "construction-measurement",
+    "description": "Rectangular excavation volume in cubic meters.",
+    "seoTitle": "Excavation Volume Calculator — m³ | SectorCalc",
+    "seoDescription": "Calculate dig volume from length, width and depth.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "lengthM",
+        "label": "Length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Trench length",
+        "min": 0.01
+      },
+      {
+        "key": "widthM",
+        "label": "Width",
+        "unit": "m",
+        "type": "number",
+        "helper": "Trench width",
+        "min": 0.01
+      },
+      {
+        "key": "depthM",
+        "label": "Depth",
+        "unit": "m",
+        "type": "number",
+        "helper": "Dig depth",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "plaster-calculator",
+    "title": "Plaster Calculator",
+    "category": "construction-measurement",
+    "description": "Plaster volume and weight from area and thickness.",
+    "seoTitle": "Plaster Calculator — Volume & Weight | SectorCalc",
+    "seoDescription": "Estimate plaster material from area, thickness and density.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "areaM2",
+        "label": "Area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Surface area",
+        "min": 0.01
+      },
+      {
+        "key": "thicknessMm",
+        "label": "Thickness",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Plaster thickness",
+        "min": 0.01
+      },
+      {
+        "key": "densityKgM3",
+        "label": "Density",
+        "unit": "kg/m³",
+        "type": "number",
+        "helper": "Material density",
+        "min": 0.01,
+        "defaultValue": 1200
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "home-renovation-m2-calculator",
+    "title": "Home Renovation Cost per m²",
+    "category": "construction-measurement",
+    "description": "Budget estimate from area, cost per m² and contingency.",
+    "seoTitle": "Renovation Cost Calculator — per m² | SectorCalc",
+    "seoDescription": "Estimate renovation budget from area and cost per square meter.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "change-order-impact-analyzer",
+    "inputs": [
+      {
+        "key": "areaM2",
+        "label": "Area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Renovation area",
+        "min": 0.01
+      },
+      {
+        "key": "costPerM2",
+        "label": "Cost per m²",
+        "unit": "USD/m²",
+        "type": "number",
+        "helper": "Unit rate",
+        "min": 0.01
+      },
+      {
+        "key": "contingencyPercent",
+        "label": "Contingency",
+        "unit": "%",
+        "type": "number",
+        "helper": "Buffer percent",
+        "min": 0,
+        "defaultValue": 15
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "loan-payment-calculator",
+    "title": "Loan Payment Calculator",
+    "category": "finance-business",
+    "description": "Monthly amortizing loan payment from principal, rate and term.",
+    "seoTitle": "Loan Payment Calculator — Monthly Payment | SectorCalc",
+    "seoDescription": "Calculate fixed monthly loan payments. Free browser calculator.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Principal",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Loan amount",
+        "min": 0.01
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Nominal APR",
+        "min": 0.01
+      },
+      {
+        "key": "months",
+        "label": "Term",
+        "unit": "months",
+        "type": "number",
+        "helper": "Loan term",
+        "min": 1,
+        "defaultValue": 360
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "mortgage-calculator",
+    "title": "Mortgage Calculator",
+    "category": "finance-business",
+    "description": "Monthly mortgage payment with total interest breakdown.",
+    "seoTitle": "Mortgage Calculator — Monthly Payment | SectorCalc",
+    "seoDescription": "Free mortgage payment calculator with total interest estimate.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Loan amount",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Mortgage principal",
+        "min": 0.01
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Interest rate",
+        "min": 0.01
+      },
+      {
+        "key": "months",
+        "label": "Term",
+        "unit": "months",
+        "type": "number",
+        "helper": "Loan term",
+        "min": 1,
+        "defaultValue": 360
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "interest-calculator",
+    "title": "Simple Interest Calculator",
+    "category": "finance-business",
+    "description": "Simple interest and total repayment over time.",
+    "seoTitle": "Simple Interest Calculator | SectorCalc",
+    "seoDescription": "Calculate simple interest from principal, rate and years.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Principal",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Starting amount",
+        "min": 0.01
+      },
+      {
+        "key": "ratePercent",
+        "label": "Rate",
+        "unit": "%/yr",
+        "type": "number",
+        "helper": "Annual rate",
+        "min": 0.01
+      },
+      {
+        "key": "years",
+        "label": "Years",
+        "unit": "years",
+        "type": "number",
+        "helper": "Duration",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "compound-interest-calculator",
+    "title": "Compound Interest Calculator",
+    "category": "finance-business",
+    "description": "Future value with compound growth.",
+    "seoTitle": "Compound Interest Calculator | SectorCalc",
+    "seoDescription": "Calculate compound interest future value.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Principal",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Initial deposit",
+        "min": 0.01
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Nominal rate",
+        "min": 0.01
+      },
+      {
+        "key": "years",
+        "label": "Years",
+        "unit": "years",
+        "type": "number",
+        "helper": "Time horizon",
+        "min": 0.01
+      },
+      {
+        "key": "compoundsPerYear",
+        "label": "Compounds/yr",
+        "unit": "×/yr",
+        "type": "number",
+        "helper": "Compounding frequency",
+        "min": 1,
+        "defaultValue": 12
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "vat-calculator",
+    "title": "VAT Calculator",
+    "category": "finance-business",
+    "description": "Add VAT to a net amount.",
+    "seoTitle": "VAT Calculator — Net to Gross | SectorCalc",
+    "seoDescription": "Calculate VAT amount and gross total from net price.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "net",
+        "label": "Net amount",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Price before VAT",
+        "min": 0.01
+      },
+      {
+        "key": "vatRate",
+        "label": "VAT rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Tax rate",
+        "min": 0.01,
+        "defaultValue": 20
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "discount-calculator",
+    "title": "Discount Calculator",
+    "category": "finance-business",
+    "description": "Sale price after percentage discount.",
+    "seoTitle": "Discount Calculator — Sale Price | SectorCalc",
+    "seoDescription": "Calculate discount amount and final price.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "originalPrice",
+        "label": "Original price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "List price",
+        "min": 0.01
+      },
+      {
+        "key": "discountPercent",
+        "label": "Discount",
+        "unit": "%",
+        "type": "number",
+        "helper": "Discount percent",
+        "min": 0,
+        "max": 100
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "percentage-calculator",
+    "title": "Percentage Calculator",
+    "category": "finance-business",
+    "description": "Find X percent of a value.",
+    "seoTitle": "Percentage Calculator — X% of Y | SectorCalc",
+    "seoDescription": "Free percentage of value calculator.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Base value",
+        "min": 0.01
+      },
+      {
+        "key": "percent",
+        "label": "Percent",
+        "unit": "%",
+        "type": "number",
+        "helper": "Percentage to apply",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "profit-margin-calculator",
+    "title": "Profit Margin Calculator",
+    "category": "finance-business",
+    "description": "Selling margin percent from price and cost.",
+    "seoTitle": "Profit Margin Calculator — % Margin | SectorCalc",
+    "seoDescription": "Calculate profit margin and markup from selling price and cost.",
+    "resultType": "ratio",
+    "relatedPremiumSlug": "return-profit-erosion-tool",
+    "inputs": [
+      {
+        "key": "sellingPrice",
+        "label": "Selling price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Revenue per unit",
+        "min": 0.01
+      },
+      {
+        "key": "cost",
+        "label": "Cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Unit cost",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "break-even-calculator",
+    "title": "Break-Even Calculator",
+    "category": "finance-business",
+    "description": "Units needed to cover fixed costs.",
+    "seoTitle": "Break-Even Calculator — Units | SectorCalc",
+    "seoDescription": "Calculate break-even volume from fixed cost and contribution margin.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "fixedCost",
+        "label": "Fixed cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Overhead to cover",
+        "min": 0.01
+      },
+      {
+        "key": "unitPrice",
+        "label": "Unit price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Selling price",
+        "min": 0.01
+      },
+      {
+        "key": "variableCost",
+        "label": "Variable cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Cost per unit",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "roi-calculator",
+    "title": "ROI Calculator",
+    "category": "finance-business",
+    "description": "Return on investment percent.",
+    "seoTitle": "ROI Calculator — Return on Investment | SectorCalc",
+    "seoDescription": "Calculate ROI from gain and initial cost.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "gain",
+        "label": "Gain",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Return amount",
+        "min": 0.01
+      },
+      {
+        "key": "cost",
+        "label": "Cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Initial investment",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "salary-cost-calculator",
+    "title": "Employer Salary Cost Calculator",
+    "category": "finance-business",
+    "description": "Total employer cost including employer contributions.",
+    "seoTitle": "Employer Salary Cost Calculator | SectorCalc",
+    "seoDescription": "Calculate total employer cost from gross salary and employer rate.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "grossSalary",
+        "label": "Gross salary",
+        "unit": "USD/mo",
+        "type": "number",
+        "helper": "Monthly gross",
+        "min": 0.01
+      },
+      {
+        "key": "employerRatePercent",
+        "label": "Employer load",
+        "unit": "%",
+        "type": "number",
+        "helper": "Employer contribution rate",
+        "min": 0.01,
+        "defaultValue": 20
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "hourly-rate-calculator",
+    "title": "Hourly Rate Calculator",
+    "category": "finance-business",
+    "description": "Billable hourly rate from monthly income.",
+    "seoTitle": "Hourly Rate Calculator — Freelance | SectorCalc",
+    "seoDescription": "Divide monthly income by billable hours.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "monthlyIncome",
+        "label": "Monthly income",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Target monthly revenue",
+        "min": 0.01
+      },
+      {
+        "key": "billableHours",
+        "label": "Billable hours",
+        "unit": "hr/mo",
+        "type": "number",
+        "helper": "Hours billed per month",
+        "min": 0.01,
+        "defaultValue": 120
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "depreciation-calculator",
+    "title": "Straight-Line Depreciation",
+    "category": "finance-business",
+    "description": "Annual depreciation from asset cost and salvage value.",
+    "seoTitle": "Depreciation Calculator — Straight Line | SectorCalc",
+    "seoDescription": "Calculate annual straight-line depreciation.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "assetCost",
+        "label": "Asset cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Purchase price",
+        "min": 0.01
+      },
+      {
+        "key": "salvageValue",
+        "label": "Salvage value",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Residual value",
+        "min": 0.01
+      },
+      {
+        "key": "usefulLifeYears",
+        "label": "Useful life",
+        "unit": "years",
+        "type": "number",
+        "helper": "Depreciation period",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "cash-flow-gap-calculator",
+    "title": "Cash Flow Gap Calculator",
+    "category": "finance-business",
+    "description": "Working capital gap from receivables vs payables timing.",
+    "seoTitle": "Cash Flow Gap Calculator | SectorCalc",
+    "seoDescription": "Estimate cash gap from payment terms and daily cost.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "receivablesDays",
+        "label": "Receivables days",
+        "unit": "days",
+        "type": "number",
+        "helper": "Days to collect",
+        "min": 0.01
+      },
+      {
+        "key": "payableDays",
+        "label": "Payables days",
+        "unit": "days",
+        "type": "number",
+        "helper": "Days to pay",
+        "min": 0.01
+      },
+      {
+        "key": "dailyCost",
+        "label": "Daily cost",
+        "unit": "USD/day",
+        "type": "number",
+        "helper": "Operating cash outflow",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "unit-cost-calculator",
+    "title": "Unit Cost Calculator",
+    "category": "finance-business",
+    "description": "Cost per unit from total cost and quantity.",
+    "seoTitle": "Unit Cost Calculator | SectorCalc",
+    "seoDescription": "Divide total cost by quantity produced.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "totalCost",
+        "label": "Total cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Batch or order cost",
+        "min": 0.01
+      },
+      {
+        "key": "quantity",
+        "label": "Quantity",
+        "unit": "units",
+        "type": "number",
+        "helper": "Units produced",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "machine-time-calculator",
+    "title": "Machine Time Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Setup plus cycle time converted to machine cost.",
+    "seoTitle": "Machine Time & Cost Calculator | SectorCalc",
+    "seoDescription": "Calculate machine minutes and cost from setup, cycle time and rate.",
+    "resultType": "time",
+    "relatedPremiumSlug": "cnc-quote-risk-analyzer",
+    "inputs": [
+      {
+        "key": "setupMinutes",
+        "label": "Setup",
+        "unit": "min",
+        "type": "number",
+        "helper": "Setup time",
+        "min": 0.01
+      },
+      {
+        "key": "cycleSeconds",
+        "label": "Cycle time",
+        "unit": "sec",
+        "type": "number",
+        "helper": "Per-part cycle",
+        "min": 0.01
+      },
+      {
+        "key": "quantity",
+        "label": "Quantity",
+        "unit": "parts",
+        "type": "number",
+        "helper": "Parts to run",
+        "min": 1
+      },
+      {
+        "key": "machineRate",
+        "label": "Machine rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "Hourly machine rate",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "cnc-cycle-time-calculator",
+    "title": "CNC Cycle Time Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Total CNC seconds per batch including load/unload.",
+    "seoTitle": "CNC Cycle Time Calculator | SectorCalc",
+    "seoDescription": "Sum machining, load/unload and inspection time per part.",
+    "resultType": "time",
+    "relatedPremiumSlug": "cnc-quote-risk-analyzer",
+    "inputs": [
+      {
+        "key": "machiningSeconds",
+        "label": "Machining",
+        "unit": "sec",
+        "type": "number",
+        "helper": "Cut time per part",
+        "min": 0.01
+      },
+      {
+        "key": "loadUnloadSeconds",
+        "label": "Load/unload",
+        "unit": "sec",
+        "type": "number",
+        "helper": "Handling per part",
+        "min": 0.01
+      },
+      {
+        "key": "inspectionSeconds",
+        "label": "Inspection",
+        "unit": "sec",
+        "type": "number",
+        "helper": "QC per part",
+        "min": 0.01
+      },
+      {
+        "key": "quantity",
+        "label": "Quantity",
+        "unit": "parts",
+        "type": "number",
+        "helper": "Batch size",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "welding-cost-estimator",
+    "title": "Welding Cost Estimator",
+    "category": "manufacturing-workshop",
+    "description": "Material, labor and consumables for a weld job.",
+    "seoTitle": "Welding Cost Estimator | SectorCalc",
+    "seoDescription": "Estimate welding job cost from material, labor and consumables.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "welding-bid-risk-analyzer",
+    "inputs": [
+      {
+        "key": "materialCost",
+        "label": "Material",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Filler and base material",
+        "min": 0.01
+      },
+      {
+        "key": "laborHours",
+        "label": "Labor hours",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Welding hours",
+        "min": 0.01
+      },
+      {
+        "key": "laborRate",
+        "label": "Labor rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "Hourly welder rate",
+        "min": 0.01
+      },
+      {
+        "key": "consumablesCost",
+        "label": "Consumables",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Gas, tips, abrasives",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "laser-cutting-time-check",
+    "title": "Laser Cutting Time Check",
+    "category": "manufacturing-workshop",
+    "description": "Cut path, pierce and setup minutes for laser jobs.",
+    "seoTitle": "Laser Cutting Time Calculator | SectorCalc",
+    "seoDescription": "Estimate laser cut minutes from path length and pierce count.",
+    "resultType": "time",
+    "relatedPremiumSlug": "sheet-metal-quote-risk-tool",
+    "inputs": [
+      {
+        "key": "setupMinutes",
+        "label": "Setup",
+        "unit": "min",
+        "type": "number",
+        "helper": "Program and setup",
+        "min": 0.01
+      },
+      {
+        "key": "cutLengthM",
+        "label": "Cut length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Total cut path",
+        "min": 0.01
+      },
+      {
+        "key": "cutSpeedMMin",
+        "label": "Cut speed",
+        "unit": "m/min",
+        "type": "number",
+        "helper": "Machine cut speed",
+        "min": 0.01
+      },
+      {
+        "key": "pierceCount",
+        "label": "Pierces",
+        "unit": "count",
+        "type": "number",
+        "helper": "Pierce operations",
+        "min": 0
+      },
+      {
+        "key": "pierceSeconds",
+        "label": "Pierce time",
+        "unit": "sec",
+        "type": "number",
+        "helper": "Seconds per pierce",
+        "min": 0.01,
+        "defaultValue": 2
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "3d-print-cost-check",
+    "title": "3D Print Cost Check",
+    "category": "manufacturing-workshop",
+    "description": "Material, machine and post-process cost for a print job.",
+    "seoTitle": "3D Print Cost Calculator | SectorCalc",
+    "seoDescription": "Estimate 3D print job cost from material, machine and labor hours.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "3d-print-job-margin-tool",
+    "inputs": [
+      {
+        "key": "materialCost",
+        "label": "Material",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Filament/resin cost",
+        "min": 0.01
+      },
+      {
+        "key": "printHours",
+        "label": "Print hours",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Machine runtime",
+        "min": 0.01
+      },
+      {
+        "key": "machineRate",
+        "label": "Machine rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "Printer hourly rate",
+        "min": 0.01
+      },
+      {
+        "key": "postProcessHours",
+        "label": "Post-process",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Finishing hours",
+        "min": 0.01
+      },
+      {
+        "key": "laborRate",
+        "label": "Labor rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "Operator rate",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "sheet-metal-weight-calculator",
+    "title": "Sheet Metal Weight Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Plate weight from dimensions, thickness and density.",
+    "seoTitle": "Sheet Metal Weight Calculator — kg | SectorCalc",
+    "seoDescription": "Calculate sheet metal weight from size and thickness.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "lengthM",
+        "label": "Length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Sheet length",
+        "min": 0.01
+      },
+      {
+        "key": "widthM",
+        "label": "Width",
+        "unit": "m",
+        "type": "number",
+        "helper": "Sheet width",
+        "min": 0.01
+      },
+      {
+        "key": "thicknessMm",
+        "label": "Thickness",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Material thickness",
+        "min": 0.01
+      },
+      {
+        "key": "densityKgM3",
+        "label": "Density",
+        "unit": "kg/m³",
+        "type": "number",
+        "helper": "Material density",
+        "min": 0.01,
+        "defaultValue": 7850
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "material-waste-calculator",
+    "title": "Material Waste Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Waste kg and percent from input vs good output.",
+    "seoTitle": "Material Waste Calculator | SectorCalc",
+    "seoDescription": "Calculate manufacturing waste mass and waste percent.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "inputMaterialKg",
+        "label": "Input material",
+        "unit": "kg",
+        "type": "number",
+        "helper": "Material fed",
+        "min": 0.01
+      },
+      {
+        "key": "goodOutputKg",
+        "label": "Good output",
+        "unit": "kg",
+        "type": "number",
+        "helper": "Accepted output",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "scrap-rate-calculator",
+    "title": "Scrap Rate Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Scrap rate percent from scrapped vs total units.",
+    "seoTitle": "Scrap Rate Calculator — % | SectorCalc",
+    "seoDescription": "Calculate scrap rate from scrapped and total units.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "scrapUnits",
+        "label": "Scrap units",
+        "unit": "units",
+        "type": "number",
+        "helper": "Rejected units",
+        "min": 0.01
+      },
+      {
+        "key": "totalUnits",
+        "label": "Total units",
+        "unit": "units",
+        "type": "number",
+        "helper": "Units processed",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "oee-calculator",
+    "title": "OEE Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Overall equipment effectiveness from A × P × Q.",
+    "seoTitle": "OEE Calculator — Overall Effectiveness | SectorCalc",
+    "seoDescription": "Calculate OEE from availability, performance and quality percents.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "availabilityPercent",
+        "label": "Availability",
+        "unit": "%",
+        "type": "number",
+        "helper": "Uptime percent",
+        "min": 0.01
+      },
+      {
+        "key": "performancePercent",
+        "label": "Performance",
+        "unit": "%",
+        "type": "number",
+        "helper": "Speed percent",
+        "min": 0.01
+      },
+      {
+        "key": "qualityPercent",
+        "label": "Quality",
+        "unit": "%",
+        "type": "number",
+        "helper": "Good parts percent",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "machine-hour-rate-calculator",
+    "title": "Machine Hour Rate Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Fully loaded machine hourly rate.",
+    "seoTitle": "Machine Hour Rate Calculator | SectorCalc",
+    "seoDescription": "Fixed monthly cost spread over hours plus variable rate.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "fixedMonthlyCost",
+        "label": "Fixed monthly",
+        "unit": "USD/mo",
+        "type": "number",
+        "helper": "Overhead allocated",
+        "min": 0.01
+      },
+      {
+        "key": "monthlyMachineHours",
+        "label": "Machine hours",
+        "unit": "hr/mo",
+        "type": "number",
+        "helper": "Available hours",
+        "min": 0.01
+      },
+      {
+        "key": "variableCostPerHour",
+        "label": "Variable/hr",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "Consumables per hour",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "tool-life-calculator",
+    "title": "Tool Life Cost Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Tooling cost allocated per good part.",
+    "seoTitle": "Tool Cost per Part Calculator | SectorCalc",
+    "seoDescription": "Divide total tool cost by parts produced.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "totalToolCost",
+        "label": "Tool cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Insert or tool price",
+        "min": 0.01
+      },
+      {
+        "key": "partsProduced",
+        "label": "Parts",
+        "unit": "parts",
+        "type": "number",
+        "helper": "Parts before change",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "cutting-speed-calculator",
+    "title": "Cutting Speed Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Surface speed Vc from diameter and RPM.",
+    "seoTitle": "Cutting Speed Vc Calculator — m/min | SectorCalc",
+    "seoDescription": "Calculate cutting speed from tool diameter and spindle RPM.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "diameterMm",
+        "label": "Diameter",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Tool diameter",
+        "min": 0.01
+      },
+      {
+        "key": "rpm",
+        "label": "RPM",
+        "unit": "rpm",
+        "type": "number",
+        "helper": "Spindle speed",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "feed-rate-calculator",
+    "title": "Feed Rate Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Table feed from RPM, teeth and feed per tooth.",
+    "seoTitle": "CNC Feed Rate Calculator — mm/min | SectorCalc",
+    "seoDescription": "Calculate feed rate from RPM, flute count and chip load.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "rpm",
+        "label": "RPM",
+        "unit": "rpm",
+        "type": "number",
+        "helper": "Spindle speed",
+        "min": 0.01
+      },
+      {
+        "key": "teeth",
+        "label": "Teeth",
+        "unit": "flutes",
+        "type": "number",
+        "helper": "Cutting edges",
+        "min": 1
+      },
+      {
+        "key": "feedPerToothMm",
+        "label": "Feed/tooth",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Chip load per tooth",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "tolerance-drift-calculator",
+    "title": "Tolerance Drift Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Deviation from target dimension and percent drift.",
+    "seoTitle": "Tolerance Drift Calculator | SectorCalc",
+    "seoDescription": "Calculate dimensional drift from target vs actual.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "target",
+        "label": "Target",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Nominal dimension",
+        "min": 0.01
+      },
+      {
+        "key": "actual",
+        "label": "Actual",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Measured dimension",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "batch-yield-calculator",
+    "title": "Batch Yield Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Process yield percent from input vs good output quantity.",
+    "seoTitle": "Batch Yield Calculator — % | SectorCalc",
+    "seoDescription": "Calculate batch yield from input and good output quantities.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "inputQty",
+        "label": "Input qty",
+        "unit": "units",
+        "type": "number",
+        "helper": "Material in",
+        "min": 0.01
+      },
+      {
+        "key": "goodOutputQty",
+        "label": "Good output",
+        "unit": "units",
+        "type": "number",
+        "helper": "Accepted units",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "kwh-cost-calculator",
+    "title": "kWh Cost Calculator",
+    "category": "energy-carbon",
+    "description": "Electricity cost from consumption and tariff.",
+    "seoTitle": "kWh Cost Calculator — Electricity | SectorCalc",
+    "seoDescription": "Multiply kWh by unit rate for energy cost.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "energy-efficiency-report",
+    "inputs": [
+      {
+        "key": "kwh",
+        "label": "Energy",
+        "unit": "kWh",
+        "type": "number",
+        "helper": "Consumption",
+        "min": 0.01
+      },
+      {
+        "key": "rate",
+        "label": "Rate",
+        "unit": "USD/kWh",
+        "type": "number",
+        "helper": "Unit tariff",
+        "min": 0.01,
+        "step": 0.001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "electricity-bill-calculator",
+    "title": "Electricity Bill Calculator",
+    "category": "energy-carbon",
+    "description": "Monthly bill from usage, rate and fixed charge.",
+    "seoTitle": "Electricity Bill Calculator | SectorCalc",
+    "seoDescription": "Estimate electricity bill from kWh, rate and fixed fee.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "kwh",
+        "label": "Usage",
+        "unit": "kWh",
+        "type": "number",
+        "helper": "Monthly kWh",
+        "min": 0.01
+      },
+      {
+        "key": "rate",
+        "label": "Energy rate",
+        "unit": "USD/kWh",
+        "type": "number",
+        "helper": "Variable rate",
+        "min": 0.01
+      },
+      {
+        "key": "fixedCharge",
+        "label": "Fixed charge",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Standing charge",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "energy-consumption-check",
+    "title": "Energy Consumption Check",
+    "category": "energy-carbon",
+    "description": "kWh and cost from power, hours and days.",
+    "seoTitle": "Energy Consumption Calculator — kWh & Cost | SectorCalc",
+    "seoDescription": "Calculate energy use and cost from kW load and runtime.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "powerKw",
+        "label": "Power",
+        "unit": "kW",
+        "type": "number",
+        "helper": "Connected load",
+        "min": 0.01
+      },
+      {
+        "key": "hoursPerDay",
+        "label": "Hours/day",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Daily runtime",
+        "min": 0.01
+      },
+      {
+        "key": "days",
+        "label": "Days",
+        "unit": "days",
+        "type": "number",
+        "helper": "Billing period days",
+        "min": 1
+      },
+      {
+        "key": "rate",
+        "label": "Rate",
+        "unit": "USD/kWh",
+        "type": "number",
+        "helper": "Tariff",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "carbon-footprint-quick",
+    "title": "Carbon Footprint Quick Check",
+    "category": "energy-carbon",
+    "description": "CO₂ from energy use and emission factor.",
+    "seoTitle": "Carbon Footprint Calculator — kg CO₂ | SectorCalc",
+    "seoDescription": "Estimate emissions from kWh and grid emission factor.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "energy-efficiency-report",
+    "inputs": [
+      {
+        "key": "energyKwh",
+        "label": "Energy",
+        "unit": "kWh",
+        "type": "number",
+        "helper": "Electricity used",
+        "min": 0.01
+      },
+      {
+        "key": "emissionFactorKgPerKwh",
+        "label": "Emission factor",
+        "unit": "kg/kWh",
+        "type": "number",
+        "helper": "Grid factor",
+        "min": 0.01,
+        "defaultValue": 0.4,
+        "step": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "fuel-emission-calculator",
+    "title": "Fuel Emission Calculator",
+    "category": "energy-carbon",
+    "description": "CO₂ from fuel liters and emission factor.",
+    "seoTitle": "Fuel CO₂ Emission Calculator | SectorCalc",
+    "seoDescription": "Calculate CO₂ from fuel volume and kg CO₂ per liter.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "litersFuel",
+        "label": "Fuel",
+        "unit": "L",
+        "type": "number",
+        "helper": "Fuel consumed",
+        "min": 0.01
+      },
+      {
+        "key": "kgCo2PerLiter",
+        "label": "Factor",
+        "unit": "kg/L",
+        "type": "number",
+        "helper": "CO₂ per liter",
+        "min": 0.01,
+        "defaultValue": 2.31
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "solar-panel-output-calculator",
+    "title": "Solar Panel Output Calculator",
+    "category": "energy-carbon",
+    "description": "Energy output from system size, sun hours and efficiency.",
+    "seoTitle": "Solar Output Calculator — kWh | SectorCalc",
+    "seoDescription": "Estimate solar production from kW, sun hours and efficiency.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "systemKw",
+        "label": "System size",
+        "unit": "kW",
+        "type": "number",
+        "helper": "Installed DC kW",
+        "min": 0.01
+      },
+      {
+        "key": "sunHoursPerDay",
+        "label": "Sun hours",
+        "unit": "hr/day",
+        "type": "number",
+        "helper": "Peak sun hours",
+        "min": 0.01
+      },
+      {
+        "key": "days",
+        "label": "Days",
+        "unit": "days",
+        "type": "number",
+        "helper": "Period length",
+        "min": 1
+      },
+      {
+        "key": "efficiencyPercent",
+        "label": "Efficiency",
+        "unit": "%",
+        "type": "number",
+        "helper": "System efficiency",
+        "min": 0.01,
+        "defaultValue": 85
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "heat-loss-calculator",
+    "title": "Heat Loss Calculator",
+    "category": "energy-carbon",
+    "description": "Steady-state heat loss in watts.",
+    "seoTitle": "Heat Loss Calculator — Watts | SectorCalc",
+    "seoDescription": "Calculate heat loss from U-value, area and temperature difference.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "uValue",
+        "label": "U-value",
+        "unit": "W/m²K",
+        "type": "number",
+        "helper": "Thermal transmittance",
+        "min": 0.01
+      },
+      {
+        "key": "areaM2",
+        "label": "Area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Envelope area",
+        "min": 0.01
+      },
+      {
+        "key": "tempDifferenceC",
+        "label": "ΔT",
+        "unit": "°C",
+        "type": "number",
+        "helper": "Inside minus outside",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "boiler-efficiency-calculator",
+    "title": "Boiler Efficiency Calculator",
+    "category": "energy-carbon",
+    "description": "Combustion efficiency from useful vs fuel input energy.",
+    "seoTitle": "Boiler Efficiency Calculator — % | SectorCalc",
+    "seoDescription": "Calculate boiler efficiency from output and input energy.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "usefulOutputKwh",
+        "label": "Useful output",
+        "unit": "kWh",
+        "type": "number",
+        "helper": "Heat delivered",
+        "min": 0.01
+      },
+      {
+        "key": "fuelInputKwh",
+        "label": "Fuel input",
+        "unit": "kWh",
+        "type": "number",
+        "helper": "Energy in fuel",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "compressor-energy-cost-calculator",
+    "title": "Compressor Energy Cost",
+    "category": "energy-carbon",
+    "description": "Running cost from compressor kW, hours and rate.",
+    "seoTitle": "Compressor Energy Cost Calculator | SectorCalc",
+    "seoDescription": "Calculate compressed air energy cost.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "powerKw",
+        "label": "Power",
+        "unit": "kW",
+        "type": "number",
+        "helper": "Motor kW",
+        "min": 0.01
+      },
+      {
+        "key": "operatingHours",
+        "label": "Hours",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Runtime",
+        "min": 0.01
+      },
+      {
+        "key": "rate",
+        "label": "Rate",
+        "unit": "USD/kWh",
+        "type": "number",
+        "helper": "Electricity rate",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "cbam-exposure-quick-check",
+    "title": "CBAM Exposure Quick Check",
+    "category": "energy-carbon",
+    "description": "Carbon border cost exposure from emissions and carbon price.",
+    "seoTitle": "CBAM Exposure Calculator | SectorCalc",
+    "seoDescription": "Estimate CBAM-style exposure from tCO₂ and carbon price.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "emissionsTon",
+        "label": "Emissions",
+        "unit": "tCO₂",
+        "type": "number",
+        "helper": "Embedded emissions",
+        "min": 0.01
+      },
+      {
+        "key": "carbonPrice",
+        "label": "Carbon price",
+        "unit": "USD/t",
+        "type": "number",
+        "helper": "Price per tonne",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "fuel-consumption-calculator",
+    "title": "Fuel Consumption Calculator",
+    "category": "logistics-travel",
+    "description": "Trip fuel liters and cost from distance and economy.",
+    "seoTitle": "Fuel Consumption Calculator — Trip Cost | SectorCalc",
+    "seoDescription": "Calculate fuel used and trip cost from km and L/100km.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "trip-budget-optimizer",
+    "inputs": [
+      {
+        "key": "distanceKm",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "Trip distance",
+        "min": 0.01
+      },
+      {
+        "key": "consumptionPer100Km",
+        "label": "Consumption",
+        "unit": "L/100km",
+        "type": "number",
+        "helper": "Fuel economy",
+        "min": 0.01
+      },
+      {
+        "key": "fuelPrice",
+        "label": "Fuel price",
+        "unit": "USD/L",
+        "type": "number",
+        "helper": "Price per liter",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "fuel-cost-calculator",
+    "title": "Fuel Cost Calculator",
+    "category": "logistics-travel",
+    "description": "Same as fuel consumption — liters and total cost.",
+    "seoTitle": "Fuel Cost Calculator — Trip | SectorCalc",
+    "seoDescription": "Estimate fuel liters and cost for a trip distance.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "distanceKm",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "Trip distance",
+        "min": 0.01
+      },
+      {
+        "key": "consumptionPer100Km",
+        "label": "Consumption",
+        "unit": "L/100km",
+        "type": "number",
+        "helper": "Fuel economy",
+        "min": 0.01
+      },
+      {
+        "key": "fuelPrice",
+        "label": "Fuel price",
+        "unit": "USD/L",
+        "type": "number",
+        "helper": "Price per liter",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "desi-calculator",
+    "title": "Desi Calculator",
+    "category": "logistics-travel",
+    "description": "Volumetric weight (desi) from parcel dimensions.",
+    "seoTitle": "Desi Calculator — Volumetric Weight | SectorCalc",
+    "seoDescription": "Calculate desi from length, width, height and divisor.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "route-optimization-analyzer",
+    "inputs": [
+      {
+        "key": "lengthCm",
+        "label": "Length",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Parcel length",
+        "min": 0.01
+      },
+      {
+        "key": "widthCm",
+        "label": "Width",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Parcel width",
+        "min": 0.01
+      },
+      {
+        "key": "heightCm",
+        "label": "Height",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Parcel height",
+        "min": 0.01
+      },
+      {
+        "key": "divisor",
+        "label": "Divisor",
+        "unit": "cm³/desi",
+        "type": "number",
+        "helper": "Carrier divisor",
+        "min": 0.01,
+        "defaultValue": 3000
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "volumetric-weight-calculator",
+    "title": "Volumetric Weight Calculator",
+    "category": "logistics-travel",
+    "description": "Chargeable volumetric weight for freight.",
+    "seoTitle": "Volumetric Weight Calculator | SectorCalc",
+    "seoDescription": "Calculate volumetric weight from parcel dimensions.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "lengthCm",
+        "label": "Length",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Length",
+        "min": 0.01
+      },
+      {
+        "key": "widthCm",
+        "label": "Width",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Width",
+        "min": 0.01
+      },
+      {
+        "key": "heightCm",
+        "label": "Height",
+        "unit": "cm",
+        "type": "number",
+        "helper": "Height",
+        "min": 0.01
+      },
+      {
+        "key": "divisor",
+        "label": "Divisor",
+        "unit": "cm³/kg",
+        "type": "number",
+        "helper": "Air cargo divisor",
+        "min": 0.01,
+        "defaultValue": 5000
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "route-cost-calculator",
+    "title": "Route Cost Calculator",
+    "category": "logistics-travel",
+    "description": "Trip cost from fuel, driver time and tolls.",
+    "seoTitle": "Route Cost Calculator — Trip | SectorCalc",
+    "seoDescription": "Sum fuel, driver labor and toll costs for a route.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "route-optimization-analyzer",
+    "inputs": [
+      {
+        "key": "distanceKm",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "Route length",
+        "min": 0.01
+      },
+      {
+        "key": "fuelCostPerKm",
+        "label": "Fuel/km",
+        "unit": "USD/km",
+        "type": "number",
+        "helper": "Fuel cost per km",
+        "min": 0.01
+      },
+      {
+        "key": "driverHours",
+        "label": "Driver hours",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Driving time",
+        "min": 0.01
+      },
+      {
+        "key": "hourlyRate",
+        "label": "Driver rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "Hourly rate",
+        "min": 0.01
+      },
+      {
+        "key": "tolls",
+        "label": "Tolls",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Road tolls",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "delivery-cost-calculator",
+    "title": "Delivery Cost Calculator",
+    "category": "logistics-travel",
+    "description": "Last-mile cost from distance and stop fees.",
+    "seoTitle": "Delivery Cost Calculator | SectorCalc",
+    "seoDescription": "Calculate delivery cost from km rate and stop count.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "distanceKm",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "Route km",
+        "min": 0.01
+      },
+      {
+        "key": "costPerKm",
+        "label": "Cost/km",
+        "unit": "USD/km",
+        "type": "number",
+        "helper": "Variable km cost",
+        "min": 0.01
+      },
+      {
+        "key": "stops",
+        "label": "Stops",
+        "unit": "stops",
+        "type": "number",
+        "helper": "Delivery stops",
+        "min": 1
+      },
+      {
+        "key": "costPerStop",
+        "label": "Cost/stop",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Per-stop fee",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "freight-cost-calculator",
+    "title": "Freight Cost Calculator",
+    "category": "logistics-travel",
+    "description": "Freight charge from weight rate and fixed fee.",
+    "seoTitle": "Freight Cost Calculator | SectorCalc",
+    "seoDescription": "Calculate freight from weight, rate per kg and fixed fee.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "weightKg",
+        "label": "Weight",
+        "unit": "kg",
+        "type": "number",
+        "helper": "Chargeable weight",
+        "min": 0.01
+      },
+      {
+        "key": "ratePerKg",
+        "label": "Rate",
+        "unit": "USD/kg",
+        "type": "number",
+        "helper": "Rate per kg",
+        "min": 0.01
+      },
+      {
+        "key": "fixedFee",
+        "label": "Fixed fee",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Booking fee",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "warehouse-storage-cost-calculator",
+    "title": "Warehouse Storage Cost",
+    "category": "logistics-travel",
+    "description": "Storage cost from pallets, daily rate and days.",
+    "seoTitle": "Warehouse Storage Cost Calculator | SectorCalc",
+    "seoDescription": "Calculate pallet storage cost over time.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "palletCount",
+        "label": "Pallets",
+        "unit": "pallets",
+        "type": "number",
+        "helper": "Stored pallets",
+        "min": 0.01
+      },
+      {
+        "key": "costPerPalletPerDay",
+        "label": "Cost/pallet/day",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Daily pallet rate",
+        "min": 0.01
+      },
+      {
+        "key": "days",
+        "label": "Days",
+        "unit": "days",
+        "type": "number",
+        "helper": "Storage days",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "vehicle-depreciation-calculator",
+    "title": "Vehicle Depreciation Calculator",
+    "category": "logistics-travel",
+    "description": "Annual vehicle depreciation straight-line.",
+    "seoTitle": "Vehicle Depreciation Calculator | SectorCalc",
+    "seoDescription": "Calculate annual depreciation from purchase and resale value.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "purchasePrice",
+        "label": "Purchase",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Acquisition cost",
+        "min": 0.01
+      },
+      {
+        "key": "resaleValue",
+        "label": "Resale",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Expected resale",
+        "min": 0.01
+      },
+      {
+        "key": "years",
+        "label": "Years",
+        "unit": "years",
+        "type": "number",
+        "helper": "Ownership period",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "trip-budget-calculator",
+    "title": "Trip Budget Calculator",
+    "category": "logistics-travel",
+    "description": "Total trip budget from fuel, lodging, food and extras.",
+    "seoTitle": "Trip Budget Calculator | SectorCalc",
+    "seoDescription": "Sum travel cost categories for a trip budget.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "trip-budget-optimizer",
+    "inputs": [
+      {
+        "key": "fuelCost",
+        "label": "Fuel",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Fuel spend",
+        "min": 0.01
+      },
+      {
+        "key": "accommodationCost",
+        "label": "Lodging",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Hotels",
+        "min": 0.01
+      },
+      {
+        "key": "foodCost",
+        "label": "Food",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Meals",
+        "min": 0.01
+      },
+      {
+        "key": "tolls",
+        "label": "Tolls",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Road fees",
+        "min": 0
+      },
+      {
+        "key": "otherCost",
+        "label": "Other",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Miscellaneous",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "fertilizer-dosage-calculator",
+    "title": "Fertilizer Dosage Calculator",
+    "category": "agriculture-food",
+    "description": "Total fertilizer from field area and dosage rate.",
+    "seoTitle": "Fertilizer Dosage Calculator — kg | SectorCalc",
+    "seoDescription": "Calculate fertilizer needed from hectares and kg/ha rate.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "crop-yield-loss-analyzer",
+    "inputs": [
+      {
+        "key": "areaHa",
+        "label": "Field area",
+        "unit": "ha",
+        "type": "number",
+        "helper": "Area treated",
+        "min": 0.01
+      },
+      {
+        "key": "dosageKgPerHa",
+        "label": "Dosage",
+        "unit": "kg/ha",
+        "type": "number",
+        "helper": "Application rate",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "seed-rate-calculator",
+    "title": "Seed Rate Calculator",
+    "category": "agriculture-food",
+    "description": "Seed quantity from area and seeding rate.",
+    "seoTitle": "Seed Rate Calculator — kg | SectorCalc",
+    "seoDescription": "Calculate seed needed from hectares and kg/ha.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "areaHa",
+        "label": "Area",
+        "unit": "ha",
+        "type": "number",
+        "helper": "Field area",
+        "min": 0.01
+      },
+      {
+        "key": "seedKgPerHa",
+        "label": "Seed rate",
+        "unit": "kg/ha",
+        "type": "number",
+        "helper": "Seeding rate",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "irrigation-cost-check",
+    "title": "Irrigation Cost Check",
+    "category": "agriculture-food",
+    "description": "Pump energy plus water cost for irrigation.",
+    "seoTitle": "Irrigation Cost Calculator | SectorCalc",
+    "seoDescription": "Estimate irrigation cost from pump kW, hours and water fee.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "pumpKw",
+        "label": "Pump power",
+        "unit": "kW",
+        "type": "number",
+        "helper": "Pump motor kW",
+        "min": 0.01
+      },
+      {
+        "key": "hours",
+        "label": "Runtime",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Pump hours",
+        "min": 0.01
+      },
+      {
+        "key": "energyRate",
+        "label": "Energy rate",
+        "unit": "USD/kWh",
+        "type": "number",
+        "helper": "Electricity rate",
+        "min": 0.01
+      },
+      {
+        "key": "waterCost",
+        "label": "Water fee",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Water charge",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "water-usage-calculator",
+    "title": "Water Usage Calculator",
+    "category": "agriculture-food",
+    "description": "Liters from flow rate and duration.",
+    "seoTitle": "Water Usage Calculator — Liters | SectorCalc",
+    "seoDescription": "Calculate water volume from flow rate and minutes.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "flowRateLiterMin",
+        "label": "Flow rate",
+        "unit": "L/min",
+        "type": "number",
+        "helper": "Flow rate",
+        "min": 0.01
+      },
+      {
+        "key": "minutes",
+        "label": "Duration",
+        "unit": "min",
+        "type": "number",
+        "helper": "Run time",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "feed-cost-estimator",
+    "title": "Feed Cost Estimator",
+    "category": "agriculture-food",
+    "description": "Total feed cost including transport.",
+    "seoTitle": "Feed Cost Estimator | SectorCalc",
+    "seoDescription": "Calculate feed cost from kg, price and transport.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "feedKg",
+        "label": "Feed",
+        "unit": "kg",
+        "type": "number",
+        "helper": "Feed quantity",
+        "min": 0.01
+      },
+      {
+        "key": "pricePerKg",
+        "label": "Price",
+        "unit": "USD/kg",
+        "type": "number",
+        "helper": "Feed price",
+        "min": 0.01
+      },
+      {
+        "key": "transportCost",
+        "label": "Transport",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Delivery cost",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "milk-yield-check",
+    "title": "Milk Yield Check",
+    "category": "agriculture-food",
+    "description": "Daily milk liters and revenue estimate.",
+    "seoTitle": "Milk Yield Calculator — Liters & Revenue | SectorCalc",
+    "seoDescription": "Calculate milk volume and revenue from herd size.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "cows",
+        "label": "Cows",
+        "unit": "head",
+        "type": "number",
+        "helper": "Milking cows",
+        "min": 1
+      },
+      {
+        "key": "litersPerCow",
+        "label": "Yield/cow",
+        "unit": "L/day",
+        "type": "number",
+        "helper": "Liters per cow per day",
+        "min": 0.01
+      },
+      {
+        "key": "milkPrice",
+        "label": "Milk price",
+        "unit": "USD/L",
+        "type": "number",
+        "helper": "Price per liter",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "crop-yield-calculator",
+    "title": "Crop Yield Calculator",
+    "category": "agriculture-food",
+    "description": "Harvest tonnage and revenue from yield per hectare.",
+    "seoTitle": "Crop Yield Calculator — Tonnes & Revenue | SectorCalc",
+    "seoDescription": "Calculate crop tonnes and revenue from area and yield.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "crop-yield-loss-analyzer",
+    "inputs": [
+      {
+        "key": "areaHa",
+        "label": "Area",
+        "unit": "ha",
+        "type": "number",
+        "helper": "Planted area",
+        "min": 0.01
+      },
+      {
+        "key": "yieldTonPerHa",
+        "label": "Yield",
+        "unit": "t/ha",
+        "type": "number",
+        "helper": "Expected yield",
+        "min": 0.01
+      },
+      {
+        "key": "pricePerTon",
+        "label": "Price",
+        "unit": "USD/t",
+        "type": "number",
+        "helper": "Market price",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "recipe-cost-check",
+    "title": "Recipe Cost Check",
+    "category": "agriculture-food",
+    "description": "Portion cost from total ingredient spend.",
+    "seoTitle": "Recipe Cost Calculator — Per Portion | SectorCalc",
+    "seoDescription": "Divide total recipe cost by portions served.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "meal-planning-verdict",
+    "inputs": [
+      {
+        "key": "ingredientCost",
+        "label": "Ingredient cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Total ingredient spend",
+        "min": 0.01
+      },
+      {
+        "key": "portions",
+        "label": "Portions",
+        "unit": "servings",
+        "type": "number",
+        "helper": "Servings",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "food-cost-calculator",
+    "title": "Food Cost Percentage",
+    "category": "agriculture-food",
+    "description": "Menu food cost percent from ingredient cost and menu price.",
+    "seoTitle": "Food Cost Percentage Calculator | SectorCalc",
+    "seoDescription": "Calculate food cost as percent of menu price.",
+    "resultType": "ratio",
+    "relatedPremiumSlug": "menu-profit-leak-detector",
+    "inputs": [
+      {
+        "key": "ingredientCost",
+        "label": "Ingredient cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Plate cost",
+        "min": 0.01
+      },
+      {
+        "key": "menuPrice",
+        "label": "Menu price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Selling price",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "portion-cost-calculator",
+    "title": "Portion Cost Calculator",
+    "category": "agriculture-food",
+    "description": "Cost per serving from batch cost.",
+    "seoTitle": "Portion Cost Calculator | SectorCalc",
+    "seoDescription": "Divide batch cost by number of portions.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "totalBatchCost",
+        "label": "Batch cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Total recipe cost",
+        "min": 0.01
+      },
+      {
+        "key": "portions",
+        "label": "Portions",
+        "unit": "servings",
+        "type": "number",
+        "helper": "Servings",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "rent-vs-buy-calculator",
+    "title": "Rent vs Buy Comparison",
+    "category": "everyday-life",
+    "description": "Compare renting plus invested down payment against buying with mortgage and appreciation.",
+    "seoTitle": "Rent vs Buy Calculator | SectorCalc",
+    "seoDescription": "Model rent growth, mortgage payments, home appreciation and net position over your comparison horizon.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "monthlyRent",
+        "label": "Monthly rent",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Current monthly rent payment",
+        "min": 0.01
+      },
+      {
+        "key": "homePrice",
+        "label": "Home price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Purchase price reference",
+        "min": 0.01
+      },
+      {
+        "key": "comparisonYears",
+        "label": "Comparison years",
+        "unit": "years",
+        "type": "number",
+        "helper": "Number of years to compare (e.g. 10 or 20)",
+        "min": 1,
+        "max": 40,
+        "defaultValue": 10
+      },
+      {
+        "key": "annualRentIncrease",
+        "label": "Annual rent increase",
+        "unit": "%",
+        "type": "number",
+        "helper": "Expected yearly rent growth",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 3
+      },
+      {
+        "key": "annualHomeAppreciation",
+        "label": "Home appreciation",
+        "unit": "%",
+        "type": "number",
+        "helper": "Expected yearly home value growth",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 3
+      },
+      {
+        "key": "downPaymentPercent",
+        "label": "Down payment",
+        "unit": "%",
+        "type": "number",
+        "helper": "Percent of home price paid upfront",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 20
+      },
+      {
+        "key": "mortgageInterestRate",
+        "label": "Mortgage rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Nominal annual mortgage interest rate",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 6.5
+      },
+      {
+        "key": "mortgageTermYears",
+        "label": "Mortgage term",
+        "unit": "years",
+        "type": "number",
+        "helper": "Mortgage amortization term",
+        "min": 1,
+        "max": 40,
+        "defaultValue": 30
+      },
+      {
+        "key": "investmentReturnRate",
+        "label": "Investment return",
+        "unit": "%",
+        "type": "number",
+        "helper": "Annual return if renting and investing cash",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 5
+      },
+      {
+        "key": "ownershipCostPercent",
+        "label": "Ownership cost",
+        "unit": "%",
+        "type": "number",
+        "helper": "Annual ownership cost as % of home value",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 1.5
+      },
+      {
+        "key": "purchaseCostPercent",
+        "label": "Purchase costs",
+        "unit": "%",
+        "type": "number",
+        "helper": "Closing and purchase transaction costs",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 2
+      },
+      {
+        "key": "sellingCostPercent",
+        "label": "Selling costs",
+        "unit": "%",
+        "type": "number",
+        "helper": "Estimated selling transaction costs",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 6
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "home-budget-calculator",
+    "title": "Home Budget Calculator",
+    "category": "everyday-life",
+    "description": "Monthly expenses vs income and remaining balance.",
+    "seoTitle": "Home Budget Calculator — Monthly | SectorCalc",
+    "seoDescription": "Sum expenses and show remaining income.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "income",
+        "label": "Income",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Monthly income",
+        "min": 0.01
+      },
+      {
+        "key": "rent",
+        "label": "Rent",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Housing",
+        "min": 0.01
+      },
+      {
+        "key": "food",
+        "label": "Food",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Groceries",
+        "min": 0.01
+      },
+      {
+        "key": "transport",
+        "label": "Transport",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Commute",
+        "min": 0.01
+      },
+      {
+        "key": "utilities",
+        "label": "Utilities",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Bills",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "time-duration-calculator",
+    "title": "Time Duration Calculator",
+    "category": "everyday-life",
+    "description": "Elapsed minutes between two clock times.",
+    "seoTitle": "Time Duration Calculator — Minutes | SectorCalc",
+    "seoDescription": "Calculate duration between start and end times.",
+    "resultType": "time",
+    "inputs": [
+      {
+        "key": "startHour",
+        "label": "Start hour",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Start hour (0–23)",
+        "min": 0,
+        "max": 23
+      },
+      {
+        "key": "startMinute",
+        "label": "Start minute",
+        "unit": "min",
+        "type": "number",
+        "helper": "Start minute",
+        "min": 0,
+        "max": 59
+      },
+      {
+        "key": "endHour",
+        "label": "End hour",
+        "unit": "hr",
+        "type": "number",
+        "helper": "End hour",
+        "min": 0,
+        "max": 23
+      },
+      {
+        "key": "endMinute",
+        "label": "End minute",
+        "unit": "min",
+        "type": "number",
+        "helper": "End minute",
+        "min": 0,
+        "max": 59
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "age-calculator",
+    "title": "Age Calculator",
+    "category": "everyday-life",
+    "description": "Age in years from birth year.",
+    "seoTitle": "Age Calculator — Years | SectorCalc",
+    "seoDescription": "Simple age from birth year and current year.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "birthYear",
+        "label": "Birth year",
+        "unit": "year",
+        "type": "number",
+        "helper": "Year born",
+        "min": 1900,
+        "max": 2100
+      },
+      {
+        "key": "currentYear",
+        "label": "Current year",
+        "unit": "year",
+        "type": "number",
+        "helper": "Reference year",
+        "min": 0.01,
+        "defaultValue": 2026
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "date-difference-calculator",
+    "title": "Date Difference Calculator",
+    "category": "everyday-life",
+    "description": "Day count difference between two day numbers.",
+    "seoTitle": "Date Difference Calculator — Days | SectorCalc",
+    "seoDescription": "Numeric day-number difference (Julian day index).",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "startDayNumber",
+        "label": "Start day #",
+        "unit": "day",
+        "type": "number",
+        "helper": "Start day index",
+        "min": 0.01
+      },
+      {
+        "key": "endDayNumber",
+        "label": "End day #",
+        "unit": "day",
+        "type": "number",
+        "helper": "End day index",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "shopping-budget-calculator",
+    "title": "Shopping Budget Calculator",
+    "category": "everyday-life",
+    "description": "Total of up to five shopping line items.",
+    "seoTitle": "Shopping Budget Calculator | SectorCalc",
+    "seoDescription": "Sum shopping items for a quick budget total.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "item1",
+        "label": "Item 1",
+        "unit": "USD",
+        "type": "number",
+        "helper": "First item",
+        "min": 0
+      },
+      {
+        "key": "item2",
+        "label": "Item 2",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Second item",
+        "min": 0
+      },
+      {
+        "key": "item3",
+        "label": "Item 3",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Third item",
+        "min": 0
+      },
+      {
+        "key": "item4",
+        "label": "Item 4",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Fourth item",
+        "min": 0
+      },
+      {
+        "key": "item5",
+        "label": "Item 5",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Fifth item",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "fuel-travel-calculator",
+    "title": "Fuel Travel Calculator",
+    "category": "everyday-life",
+    "description": "Trip fuel and cost for personal travel.",
+    "seoTitle": "Fuel Travel Calculator — Trip Cost | SectorCalc",
+    "seoDescription": "Calculate fuel liters and cost for a road trip.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "distanceKm",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "Trip distance",
+        "min": 0.01
+      },
+      {
+        "key": "consumptionPer100Km",
+        "label": "Consumption",
+        "unit": "L/100km",
+        "type": "number",
+        "helper": "Vehicle economy",
+        "min": 0.01
+      },
+      {
+        "key": "fuelPrice",
+        "label": "Fuel price",
+        "unit": "USD/L",
+        "type": "number",
+        "helper": "Pump price",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "unit-price-calculator",
+    "title": "Unit Price Calculator",
+    "category": "everyday-life",
+    "description": "Price per unit from total price and quantity.",
+    "seoTitle": "Unit Price Calculator | SectorCalc",
+    "seoDescription": "Divide total price by quantity for unit price.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "totalPrice",
+        "label": "Total price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Shelf total",
+        "min": 0.01
+      },
+      {
+        "key": "quantity",
+        "label": "Quantity",
+        "unit": "units",
+        "type": "number",
+        "helper": "Pack count",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "tip-calculator",
+    "title": "Tip Calculator",
+    "category": "everyday-life",
+    "description": "Tip amount and total bill with tip percent.",
+    "seoTitle": "Tip Calculator — Gratuity | SectorCalc",
+    "seoDescription": "Calculate tip and total from bill and tip percent.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "billAmount",
+        "label": "Bill",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Pre-tip total",
+        "min": 0.01
+      },
+      {
+        "key": "tipPercent",
+        "label": "Tip",
+        "unit": "%",
+        "type": "number",
+        "helper": "Tip percent",
+        "min": 0.01,
+        "defaultValue": 15
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "savings-goal-calculator",
+    "title": "Savings Goal Calculator",
+    "category": "everyday-life",
+    "description": "Months to reach a savings target.",
+    "seoTitle": "Savings Goal Calculator — Months | SectorCalc",
+    "seoDescription": "Divide target amount by monthly saving rate.",
+    "resultType": "time",
+    "inputs": [
+      {
+        "key": "targetAmount",
+        "label": "Target",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Savings goal",
+        "min": 0.01
+      },
+      {
+        "key": "monthlySaving",
+        "label": "Monthly saving",
+        "unit": "USD/mo",
+        "type": "number",
+        "helper": "Amount saved per month",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "percentage-increase-calculator",
+    "title": "Percentage Increase Calculator",
+    "category": "everyday-life",
+    "description": "Percent change from old value to new value.",
+    "seoTitle": "Percentage Increase Calculator | SectorCalc",
+    "seoDescription": "Calculate percent increase or decrease between two values.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "oldValue",
+        "label": "Old value",
+        "unit": "value",
+        "type": "number",
+        "helper": "Starting value",
+        "min": 0.01
+      },
+      {
+        "key": "newValue",
+        "label": "New value",
+        "unit": "value",
+        "type": "number",
+        "helper": "Updated value",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "average-calculator",
+    "title": "Average Calculator",
+    "category": "math-statistics",
+    "description": "Arithmetic mean of up to five values.",
+    "seoTitle": "Average Calculator — Mean | SectorCalc",
+    "seoDescription": "Calculate average from up to five numbers.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "value1",
+        "label": "Value 1",
+        "unit": "value",
+        "type": "number",
+        "helper": "First value",
+        "min": 0.01
+      },
+      {
+        "key": "value2",
+        "label": "Value 2",
+        "unit": "value",
+        "type": "number",
+        "helper": "Second value",
+        "min": 0.01
+      },
+      {
+        "key": "value3",
+        "label": "Value 3",
+        "unit": "value",
+        "type": "number",
+        "helper": "Third value",
+        "min": 0
+      },
+      {
+        "key": "value4",
+        "label": "Value 4",
+        "unit": "value",
+        "type": "number",
+        "helper": "Fourth value",
+        "min": 0
+      },
+      {
+        "key": "value5",
+        "label": "Value 5",
+        "unit": "value",
+        "type": "number",
+        "helper": "Fifth value",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "median-calculator",
+    "title": "Median Calculator",
+    "category": "math-statistics",
+    "description": "Median of up to five numeric values.",
+    "seoTitle": "Median Calculator | SectorCalc",
+    "seoDescription": "Find the median of up to five values.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "value1",
+        "label": "Value 1",
+        "unit": "value",
+        "type": "number",
+        "helper": "First value",
+        "min": 0.01
+      },
+      {
+        "key": "value2",
+        "label": "Value 2",
+        "unit": "value",
+        "type": "number",
+        "helper": "Second value",
+        "min": 0.01
+      },
+      {
+        "key": "value3",
+        "label": "Value 3",
+        "unit": "value",
+        "type": "number",
+        "helper": "Third value",
+        "min": 0
+      },
+      {
+        "key": "value4",
+        "label": "Value 4",
+        "unit": "value",
+        "type": "number",
+        "helper": "Fourth value",
+        "min": 0
+      },
+      {
+        "key": "value5",
+        "label": "Value 5",
+        "unit": "value",
+        "type": "number",
+        "helper": "Fifth value",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "standard-deviation-calculator",
+    "title": "Standard Deviation Calculator",
+    "category": "math-statistics",
+    "description": "Population standard deviation for up to five values.",
+    "seoTitle": "Standard Deviation Calculator — σ | SectorCalc",
+    "seoDescription": "Calculate population standard deviation and mean.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "value1",
+        "label": "Value 1",
+        "unit": "value",
+        "type": "number",
+        "helper": "First value",
+        "min": 0.01
+      },
+      {
+        "key": "value2",
+        "label": "Value 2",
+        "unit": "value",
+        "type": "number",
+        "helper": "Second value",
+        "min": 0.01
+      },
+      {
+        "key": "value3",
+        "label": "Value 3",
+        "unit": "value",
+        "type": "number",
+        "helper": "Third value",
+        "min": 0
+      },
+      {
+        "key": "value4",
+        "label": "Value 4",
+        "unit": "value",
+        "type": "number",
+        "helper": "Fourth value",
+        "min": 0
+      },
+      {
+        "key": "value5",
+        "label": "Value 5",
+        "unit": "value",
+        "type": "number",
+        "helper": "Fifth value",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "ratio-calculator",
+    "title": "Ratio Calculator",
+    "category": "math-statistics",
+    "description": "Ratio a:b and simplified form.",
+    "seoTitle": "Ratio Calculator — a:b | SectorCalc",
+    "seoDescription": "Calculate ratio and decimal form from two values.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "a",
+        "label": "Value A",
+        "unit": "value",
+        "type": "number",
+        "helper": "First term",
+        "min": 0.01
+      },
+      {
+        "key": "b",
+        "label": "Value B",
+        "unit": "value",
+        "type": "number",
+        "helper": "Second term",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "proportion-calculator",
+    "title": "Proportion Calculator",
+    "category": "math-statistics",
+    "description": "Solve x in a/b = c/x proportion.",
+    "seoTitle": "Proportion Calculator | SectorCalc",
+    "seoDescription": "Cross-multiply proportion solver.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "a",
+        "label": "A",
+        "unit": "value",
+        "type": "number",
+        "helper": "First numerator",
+        "min": 0.01
+      },
+      {
+        "key": "b",
+        "label": "B",
+        "unit": "value",
+        "type": "number",
+        "helper": "First denominator",
+        "min": 0.01
+      },
+      {
+        "key": "c",
+        "label": "C",
+        "unit": "value",
+        "type": "number",
+        "helper": "Second numerator",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "probability-calculator",
+    "title": "Probability Calculator",
+    "category": "math-statistics",
+    "description": "Probability percent from favorable and total outcomes.",
+    "seoTitle": "Probability Calculator — % | SectorCalc",
+    "seoDescription": "Calculate probability from outcomes.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "favorableOutcomes",
+        "label": "Favorable",
+        "unit": "outcomes",
+        "type": "number",
+        "helper": "Successful outcomes",
+        "min": 0
+      },
+      {
+        "key": "totalOutcomes",
+        "label": "Total",
+        "unit": "outcomes",
+        "type": "number",
+        "helper": "Total outcomes",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "sample-size-calculator",
+    "title": "Sample Size Calculator",
+    "category": "math-statistics",
+    "description": "Finite population sample size from margin and confidence.",
+    "seoTitle": "Sample Size Calculator | SectorCalc",
+    "seoDescription": "Estimate required sample size for a finite population.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "population",
+        "label": "Population",
+        "unit": "people",
+        "type": "number",
+        "helper": "Population size",
+        "min": 1
+      },
+      {
+        "key": "confidenceZ",
+        "label": "Z score",
+        "unit": "z",
+        "type": "number",
+        "helper": "Confidence z (e.g. 1.96)",
+        "min": 0.01,
+        "defaultValue": 1.96
+      },
+      {
+        "key": "marginErrorPercent",
+        "label": "Margin error",
+        "unit": "%",
+        "type": "number",
+        "helper": "Margin of error",
+        "min": 0.01,
+        "defaultValue": 5
+      },
+      {
+        "key": "proportionPercent",
+        "label": "Proportion",
+        "unit": "%",
+        "type": "number",
+        "helper": "Expected proportion",
+        "min": 0.01,
+        "defaultValue": 50
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "z-score-calculator",
+    "title": "Z-Score Calculator",
+    "category": "math-statistics",
+    "description": "Standard score from value, mean and standard deviation.",
+    "seoTitle": "Z-Score Calculator | SectorCalc",
+    "seoDescription": "Calculate z-score for a data point.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "value",
+        "type": "number",
+        "helper": "Data point",
+        "min": 0.01
+      },
+      {
+        "key": "mean",
+        "label": "Mean",
+        "unit": "value",
+        "type": "number",
+        "helper": "Population mean",
+        "min": 0.01
+      },
+      {
+        "key": "standardDeviation",
+        "label": "Std dev",
+        "unit": "value",
+        "type": "number",
+        "helper": "Standard deviation",
+        "min": 0.0001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "linear-regression-calculator",
+    "title": "Linear Regression Calculator",
+    "category": "math-statistics",
+    "description": "Least-squares line through three (x,y) points.",
+    "seoTitle": "Linear Regression Calculator — 3 Points | SectorCalc",
+    "seoDescription": "Calculate slope and intercept from three coordinate pairs.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "x1",
+        "label": "X₁",
+        "unit": "value",
+        "type": "number",
+        "helper": "First x",
+        "min": 0.01
+      },
+      {
+        "key": "y1",
+        "label": "Y₁",
+        "unit": "value",
+        "type": "number",
+        "helper": "First y",
+        "min": 0.01
+      },
+      {
+        "key": "x2",
+        "label": "X₂",
+        "unit": "value",
+        "type": "number",
+        "helper": "Second x",
+        "min": 0.01
+      },
+      {
+        "key": "y2",
+        "label": "Y₂",
+        "unit": "value",
+        "type": "number",
+        "helper": "Second y",
+        "min": 0.01
+      },
+      {
+        "key": "x3",
+        "label": "X₃",
+        "unit": "value",
+        "type": "number",
+        "helper": "Third x",
+        "min": 0.01
+      },
+      {
+        "key": "y3",
+        "label": "Y₃",
+        "unit": "value",
+        "type": "number",
+        "helper": "Third y",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "length-converter",
+    "title": "Length Converter",
+    "category": "conversion",
+    "description": "Convert length between mm, cm, m, km, inch, ft, yd and mile.",
+    "seoTitle": "Length Converter — mm, cm, m, ft, mi | SectorCalc",
+    "seoDescription": "Free length unit converter with metric and imperial units.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "value",
+        "type": "number",
+        "helper": "Amount to convert",
+        "min": 0
+      },
+      {
+        "key": "fromUnit",
+        "label": "From unit",
+        "unit": "unit",
+        "type": "select",
+        "helper": "Source unit",
+        "options": [
+          {
+            "label": "Millimeters (mm)",
+            "value": "mm"
+          },
+          {
+            "label": "Centimeters (cm)",
+            "value": "cm"
+          },
+          {
+            "label": "Meters (m)",
+            "value": "m"
+          },
+          {
+            "label": "Kilometers (km)",
+            "value": "km"
+          },
+          {
+            "label": "Inches (in)",
+            "value": "inch"
+          },
+          {
+            "label": "Feet (ft)",
+            "value": "ft"
+          },
+          {
+            "label": "Yards (yd)",
+            "value": "yd"
+          },
+          {
+            "label": "Miles (mi)",
+            "value": "mile"
+          }
+        ],
+        "defaultValue": "m"
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "weight-converter",
+    "title": "Weight Converter",
+    "category": "conversion",
+    "description": "Convert mass between g, kg, ton, oz and lb.",
+    "seoTitle": "Weight Converter — kg, lb, oz | SectorCalc",
+    "seoDescription": "Free weight unit converter.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "value",
+        "type": "number",
+        "helper": "Amount to convert",
+        "min": 0
+      },
+      {
+        "key": "fromUnit",
+        "label": "From unit",
+        "unit": "unit",
+        "type": "select",
+        "helper": "Source unit",
+        "options": [
+          {
+            "label": "Grams (g)",
+            "value": "g"
+          },
+          {
+            "label": "Kilograms (kg)",
+            "value": "kg"
+          },
+          {
+            "label": "Metric tons (t)",
+            "value": "ton"
+          },
+          {
+            "label": "Ounces (oz)",
+            "value": "oz"
+          },
+          {
+            "label": "Pounds (lb)",
+            "value": "lb"
+          }
+        ],
+        "defaultValue": "kg"
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "area-converter",
+    "title": "Area Converter",
+    "category": "conversion",
+    "description": "Convert area units including m², ft², acres and hectares.",
+    "seoTitle": "Area Converter | Convert m², ft², Acres and Hectares | SectorCalc",
+    "seoDescription": "Convert area units including square meters, square feet, acres, hectares and more with a fast free area converter.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "value",
+        "type": "number",
+        "helper": "Amount to convert",
+        "min": 0
+      },
+      {
+        "key": "fromUnit",
+        "label": "From unit",
+        "unit": "unit",
+        "type": "select",
+        "helper": "Source unit",
+        "options": [
+          {
+            "label": "mm²",
+            "value": "mm2"
+          },
+          {
+            "label": "cm²",
+            "value": "cm2"
+          },
+          {
+            "label": "m²",
+            "value": "m2"
+          },
+          {
+            "label": "km²",
+            "value": "km2"
+          },
+          {
+            "label": "in²",
+            "value": "in2"
+          },
+          {
+            "label": "ft²",
+            "value": "ft2"
+          },
+          {
+            "label": "yd²",
+            "value": "yd2"
+          },
+          {
+            "label": "mi²",
+            "value": "mi2"
+          },
+          {
+            "label": "Are",
+            "value": "are"
+          },
+          {
+            "label": "Hectare",
+            "value": "hectare"
+          },
+          {
+            "label": "Acre",
+            "value": "acre"
+          }
+        ],
+        "defaultValue": "m2"
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "volume-converter",
+    "title": "Volume Converter",
+    "category": "conversion",
+    "description": "Convert volume between ml, L, m³, in³, ft³ and US gallons.",
+    "seoTitle": "Volume Converter — L, m³, gal | SectorCalc",
+    "seoDescription": "Free volume unit converter.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "value",
+        "type": "number",
+        "helper": "Amount to convert",
+        "min": 0
+      },
+      {
+        "key": "fromUnit",
+        "label": "From unit",
+        "unit": "unit",
+        "type": "select",
+        "helper": "Source unit",
+        "options": [
+          {
+            "label": "Milliliters (ml)",
+            "value": "ml"
+          },
+          {
+            "label": "Liters (L)",
+            "value": "l"
+          },
+          {
+            "label": "Cubic meters (m³)",
+            "value": "m3"
+          },
+          {
+            "label": "Cubic cm (cm³)",
+            "value": "cm3"
+          },
+          {
+            "label": "Cubic inches (in³)",
+            "value": "in3"
+          },
+          {
+            "label": "Cubic feet (ft³)",
+            "value": "ft3"
+          },
+          {
+            "label": "US gallons (gal)",
+            "value": "gal_us"
+          }
+        ],
+        "defaultValue": "l"
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "Sector-specific risk factors",
+      "Margin leak diagnosis",
+      "Accept / caution / reject guidance",
+      "Export and report history"
+    ],
+    "slug": "temperature-converter",
+    "title": "Temperature Converter",
+    "category": "conversion",
+    "description": "Convert between Celsius, Fahrenheit and Kelvin.",
+    "seoTitle": "Temperature Converter — °C, °F, K | SectorCalc",
+    "seoDescription": "Free temperature unit converter.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "value",
+        "type": "number",
+        "helper": "Temperature to convert",
+        "min": 0.01
+      },
+      {
+        "key": "fromUnit",
+        "label": "From unit",
+        "unit": "unit",
+        "type": "select",
+        "helper": "Source scale",
+        "options": [
+          {
+            "label": "Celsius (°C)",
+            "value": "celsius"
+          },
+          {
+            "label": "Fahrenheit (°F)",
+            "value": "fahrenheit"
+          },
+          {
+            "label": "Kelvin (K)",
+            "value": "kelvin"
+          }
+        ],
+        "defaultValue": "celsius"
+      }
+    ]
+  }
+]

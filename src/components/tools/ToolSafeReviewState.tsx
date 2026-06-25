@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
