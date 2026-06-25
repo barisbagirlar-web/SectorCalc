@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import fs from "fs";
 import path from "path";
+import { PRO_TOOLS_DATA } from "@/lib/pro-tools-index";
 
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -292,10 +293,10 @@ export default async function PremiumToolsPage({ params }: PageProps) {
 
   let extraTools: SearchablePremiumTool[] = [];
   try {
-    const mergedPath = path.join(process.cwd(), "data", "pro-tools", "_merged.json");
-    if (fs.existsSync(mergedPath)) {
-      const allTools = JSON.parse(fs.readFileSync(mergedPath, "utf-8"));
-      extraTools = allTools.map((tool: any) => ({
+    const allTools = Object.values(PRO_TOOLS_DATA);
+    extraTools = allTools
+      .filter((tool: any) => tool && tool.tool_id)
+      .map((tool: any) => ({
         slug: tool.tool_id,
         title: tool.tool_name,
         description: tool.category + " kategorisindeki PRO analiz aracı.",
@@ -307,7 +308,6 @@ export default async function PremiumToolsPage({ params }: PageProps) {
         aliases: [],
         keywords: [tool.tool_id, "pro", "premium"],
       }));
-    }
   } catch (e) {
     console.error("Pro tools loading error:", e);
   }
