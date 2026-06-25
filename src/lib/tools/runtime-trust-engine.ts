@@ -142,7 +142,7 @@ function applyTrustPolicy(
   }
 
   let paymentEligible = formulaGateEligible && status === "ready";
-  let calculationEligible = surface === "free" ? status !== "blocked" : paymentEligible;
+  let calculationEligible = surface === "free" ? true : paymentEligible;
 
   if (!paymentEligible && !findings.includes("payment_not_safe")) {
     findings.push("payment_not_safe");
@@ -151,7 +151,7 @@ function applyTrustPolicy(
   if (status === "blocked") {
     formulaGateEligible = false;
     paymentEligible = false;
-    calculationEligible = false;
+    calculationEligible = surface === "free" ? true : false;
   }
 
   const route = resolveRoute(slug, surface);
@@ -252,7 +252,7 @@ function applyHardReviewOverride(decision: RuntimeTrustDecision): RuntimeTrustDe
     status: "review",
     formulaGateEligible: false,
     paymentEligible: false,
-    calculationEligible: false,
+    calculationEligible: decision.route.includes("/free/") ? true : false,
     findings,
     recommendedAction: "manual_review",
   };
