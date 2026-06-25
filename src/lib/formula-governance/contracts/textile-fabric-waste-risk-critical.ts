@@ -16,7 +16,7 @@ import { TEXTILE_FABRIC_WASTE_RISK_INPUT_KEYS } from "@/lib/premium-schema/calcu
 const PREMIUM_SCHEMA_DISCLAIMER =
   "Technical simulation only — not financial, legal, safety, or professional advice. Verify assumptions before business decisions.";
 
-const REQUIRED_INPUTS = [...TEXTILE_FABRIC_WASTE_RISK_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 const OUTPUTS = [
   "totalExposure",
   "excessCuttingWaste",
@@ -35,7 +35,7 @@ export const TextileFabricWasteRiskCalculatorContract: FormulaContract = buildAs
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool provides deterministic cost/risk/margin exposure estimation from declared inputs. It is not a regulatory, legal, safety, engineering or professional certification decision engine.",

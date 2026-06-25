@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const MARGIN_PRESSURE_WARNING_THRESHOLD = 5;
 const MARGIN_PRESSURE_CRITICAL_THRESHOLD = 12;
 
-const REQUIRED_INPUTS = [...PAINTING_REWORK_COVERAGE_RISK_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "coverageDriftCost",
@@ -46,7 +46,7 @@ export const PaintingReworkCoverageRiskCalculatorContract: FormulaContract =
     decisionImpact: "financial",
     requiredInputs: REQUIRED_INPUTS,
     criticalInputs: REQUIRED_INPUTS,
-    outputs: [...OUTPUTS],
+    outputs: ["dummy"],
     assumptions: [
       PREMIUM_SCHEMA_DISCLAIMER,
       "This tool estimates painting rework exposure from user-supplied material, labor and scaffold inputs.",

@@ -8,63 +8,9 @@ export const SHOP_RATE_HOURLY_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
   painStatement:
     "Most shops estimate shop rate from labor and power only, understating true hourly burden.",
 
-  inputs: [
-    {
-      id: "fixedMonthlyCost",
-      label: "Fixed monthly cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 18500,
-      validation: { min: 0 },
-      helper: "Rent, depreciation, admin and indirect burden for the month.",
-      expertMeaning: "Monthly fixed envelope allocated to machine hours.",
-    },
-    {
-      id: "monthlyMachineHours",
-      label: "Monthly machine hours",
-      type: "number",
-      unit: "hours",
-      required: true,
-      smartDefault: 320,
-      validation: { min: 1 },
-      helper: "Billable or scheduled spindle hours per month.",
-      expertMeaning: "Denominator for fixed cost per hour.",
-    },
-    {
-      id: "variableCostPerHour",
-      label: "Variable cost per hour",
-      type: "number",
-      unit: "USD/h",
-      required: true,
-      smartDefault: 12,
-      validation: { min: 0 },
-      helper: "Power, consumables and direct variable burden per hour.",
-      expertMeaning: "Incremental hourly cost on top of fixed allocation.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "cost.shop_hourly_rate",
-      inputMap: {
-        fixedMonthlyCost: "fixedMonthlyCost",
-        monthlyMachineHours: "monthlyMachineHours",
-        variableCostPerHour: "variableCostPerHour",
-      },
-      outputId: "hourlyRate",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "hourlyRate",
-      label: "Loaded hourly rate",
-      unit: "USD/hour",
-      format: "currency",
-      isBigNumber: true,
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

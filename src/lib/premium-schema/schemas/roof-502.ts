@@ -9,78 +9,9 @@ export const ROOFING_WEATHER_DELAY_RISK_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Roofing jobs lose margin when weather delay, dump fees and warranty reserve are not included in the contract price.",
 
-  inputs: [
-    {
-      id: "dailyCrewCost",
-      label: "Daily crew cost",
-      type: "number",
-      unit: "USD/day",
-      required: true,
-      smartDefault: 1450,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "weatherDelayDays",
-      label: "Weather delay days",
-      type: "number",
-      unit: "days",
-      required: true,
-      smartDefault: 4,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "dumpFees",
-      label: "Dump fees",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 1800,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "warrantyReserve",
-      label: "Warranty reserve",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 2400,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "time.delay_cost",
-      inputMap: { dailySiteCost: "dailyCrewCost", delayDays: "weatherDelayDays" },
-      outputId: "delayCost",
-    },
-    {
-      formulaId: "cost.total_exposure",
-      inputMap: { a: "delayCost", b: "dumpFees", c: "warrantyReserve" },
-      outputId: "totalExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalExposure",
-      label: "Total weather delay exposure",
-      unit: "USD",
-      format: "currency",
-      isBigNumber: true,
-    },
-    { id: "delayCost", label: "Delay cost", unit: "USD", format: "currency" },
-    { id: "dumpFees", label: "Dump fees", unit: "USD", format: "currency" },
-    { id: "warrantyReserve", label: "Warranty reserve", unit: "USD", format: "currency" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

@@ -1,0 +1,64 @@
+--- scripts/embed_txt_tools.mjs
++++ scripts/embed_txt_tools.mjs
+@@ -3,11 +3,13 @@
+ import { execSync } from 'child_process';
+ 
+ const ROOT = process.cwd();
+ const FILES = [
+   'pro_hesaplama_araclari_193_.txt',
+   'gemını free 191-359 .txt',
+-  'gemını_free_359_359.txt'
++  'gemını_free_359_359.txt',
++  'hesaplama kontrolu.txt',
++  'gemini_free_yeni_.txt'
+ ];
+ 
+ function slugify(text) {
+@@ -23,10 +25,12 @@
+     .replace(/(^-|-$)+/g, '');
+ }
+ 
+ function getSector(id, category) {
+   const i = id.toUpperCase();
+   const c = category.toLowerCase();
++  if (!c) return 'cnc-manufacturing';
++  
+   if (i.includes('AUT')) return 'auto-repair-shop';
+   if (i.includes('CIV')) return 'construction';
+   if (i.includes('ENV')) return 'energy-carbon';
+@@ -279,7 +283,6 @@
+   }`;
+         });
+         
+-        const tsContent = `/* eslint-disable @typescript-eslint/ban-ts-comment */
++        const tsContent = `/* eslint-disable */
+ // @ts-nocheck
+ import { z } from "zod";
+ 
+@@ -372,7 +375,7 @@
+     
+     let indexTs = `/* eslint-disable */
+ // @ts-nocheck
+-import type { RevenueTool } from "@/lib/tools/revenue-tools";
++import type { RevenueTool } from "../../../lib/tools/revenue-tools";
+ 
+ `;
+     
+@@ -395,14 +398,14 @@
+     paidValue: "${t.name} (Pro)",
+     freeResultPromise: "Quick Preliminary Analysis",
+     paidResultPromise: "Detailed Decision Report",
+     verdictLabels: [],
+     legalDisclaimer: "This calculation provides estimated values.",
+     freeCalculatorInputIds: ${inputKeysArray},
+-    freeResultIds: ["result"],
++    freeResultIds: ${inputKeysArray}, // Use inputs as proxy if no direct result mapping available
+     freeMissingFactors: [],
+     premiumCtaLabel: "Get Detailed Report",
+     premiumTeaserTitle: "More Details",
+     premiumTeaserText: "Detailed analysis is available in the PRO version.",
+     seoKeywords: ["${t.name}", "${t.category}"],
+     freeInputs: [
+       ${inputsMapped}
+@@ -409,1 +412,1 @@
+-run();

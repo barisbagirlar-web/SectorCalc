@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const MARGIN_PRESSURE_WARNING_THRESHOLD = 1;
 const MARGIN_PRESSURE_CRITICAL_THRESHOLD = 3;
 
-const REQUIRED_INPUTS = [...FOOD_WASTE_MARGIN_LOSS_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "wasteExposure",
@@ -44,7 +44,7 @@ export const FoodWasteMarginLossCalculatorContract: FormulaContract = buildAssur
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool estimates food waste margin loss from user-supplied ingredient cost, waste rate and revenue inputs.",

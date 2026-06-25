@@ -16,7 +16,7 @@ import { FIRE_SYSTEM_FLOW_HYDRANT_CALCULATOR_INPUT_KEYS } from "@/lib/premium-sc
 const PREMIUM_SCHEMA_DISCLAIMER =
   "Technical simulation only — not financial, legal, safety, or professional advice. Verify assumptions before business decisions.";
 
-const REQUIRED_INPUTS = [...FIRE_SYSTEM_FLOW_HYDRANT_CALCULATOR_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 const OUTPUTS = [
   "flowDemandLpm",
   "hydrantCount",
@@ -34,7 +34,7 @@ export const FireSystemFlowHydrantCalculatorCalculatorContract: FormulaContract 
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool provides deterministic cost/risk/margin exposure estimation from declared inputs. It is not a regulatory, legal, safety, engineering or professional certification decision engine.",

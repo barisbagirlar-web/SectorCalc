@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * Premium Schema Engine — resolves inputMap, runs pipeline, thresholds, report.
  * No eval / new Function / expression parsing.

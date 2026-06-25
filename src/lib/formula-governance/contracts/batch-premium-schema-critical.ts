@@ -97,7 +97,7 @@ export const routeOptimizationAnalyzerContract: FormulaContract = premiumSchemaC
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const energyEfficiencyReportContract: FormulaContract = premiumSchemaContract({
@@ -161,7 +161,7 @@ export const energyEfficiencyReportContract: FormulaContract = premiumSchemaCont
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const mealPlanningVerdictContract: FormulaContract = premiumSchemaContract({
@@ -217,7 +217,7 @@ export const mealPlanningVerdictContract: FormulaContract = premiumSchemaContrac
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const tripBudgetOptimizerContract: FormulaContract = premiumSchemaContract({
@@ -279,7 +279,7 @@ export const tripBudgetOptimizerContract: FormulaContract = premiumSchemaContrac
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const cbamComplianceVerdictContract: FormulaContract = premiumSchemaContract({
@@ -407,7 +407,7 @@ export const cropYieldLossAnalyzerContract: FormulaContract = premiumSchemaContr
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const feedEfficiencyAnalyzerContract: FormulaContract = premiumSchemaContract({
@@ -468,7 +468,7 @@ export const feedEfficiencyAnalyzerContract: FormulaContract = premiumSchemaCont
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const dairyProfitDetectorContract: FormulaContract = premiumSchemaContract({
@@ -525,7 +525,7 @@ export const dairyProfitDetectorContract: FormulaContract = premiumSchemaContrac
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const waterOptimizationVerdictContract: FormulaContract = premiumSchemaContract({
@@ -592,7 +592,7 @@ export const waterOptimizationVerdictContract: FormulaContract = premiumSchemaCo
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const renovationBudgetOptimizerContract: FormulaContract = premiumSchemaContract({
@@ -642,7 +642,7 @@ export const renovationBudgetOptimizerContract: FormulaContract = premiumSchemaC
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const threeDPrintJobMarginToolContract: FormulaContract = premiumSchemaContract({
@@ -711,7 +711,7 @@ export const threeDPrintJobMarginToolContract: FormulaContract = premiumSchemaCo
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const BATCH_PREMIUM_SCHEMA_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContract[] = [

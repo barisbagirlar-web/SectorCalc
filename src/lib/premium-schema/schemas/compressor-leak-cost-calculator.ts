@@ -8,96 +8,9 @@ export const COMPRESSOR_LEAK_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Compressed air leaks turn electricity into invisible production cost.",
 
-  inputs: [
-    {
-      id: "compressorKw",
-      label: "Compressor power",
-      type: "number",
-      unit: "kW",
-      required: true,
-      smartDefault: 45,
-      validation: { min: 0 },
-      helper: "Rated compressor motor power.",
-      expertMeaning: "Nameplate kW used for leak kWh estimate.",
-    },
-    {
-      id: "leakPercent",
-      label: "Leak percent",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 12,
-      validation: { min: 0, max: 100 },
-      helper: "Estimated compressed air leak as percent of output.",
-      expertMeaning: "Ultrasound or audit band for leak severity.",
-    },
-    {
-      id: "operatingHours",
-      label: "Operating hours",
-      type: "number",
-      unit: "hours/month",
-      required: true,
-      smartDefault: 360,
-      validation: { min: 0 },
-      helper: "Monthly compressor run hours.",
-      expertMeaning: "Hours leak load is applied across the period.",
-    },
-    {
-      id: "energyRate",
-      label: "Energy rate",
-      type: "number",
-      unit: "USD/kWh",
-      required: true,
-      smartDefault: 0.14,
-      validation: { min: 0 },
-      helper: "Blended electricity rate.",
-      expertMeaning: "Tariff applied to leak kWh.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "energy.compressor_leak_kwh",
-      inputMap: {
-        compressorKw: "compressorKw",
-        leakPercent: "leakPercent",
-        operatingHours: "operatingHours",
-      },
-      outputId: "leakKwh",
-    },
-    {
-      formulaId: "energy.kwh_cost",
-      inputMap: { kwh: "leakKwh", rate: "energyRate" },
-      outputId: "monthlyLeakCost",
-    },
-    {
-      formulaId: "cost.annualize",
-      inputMap: { monthlyCost: "monthlyLeakCost" },
-      outputId: "annualLeakCost",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "annualLeakCost",
-      label: "Annual leak cost",
-      unit: "USD",
-      format: "currency",
-      isBigNumber: true,
-    },
-    {
-      id: "monthlyLeakCost",
-      label: "Monthly leak cost",
-      unit: "USD",
-      format: "currency",
-    },
-    {
-      id: "leakKwh",
-      label: "Leak kWh",
-      unit: "kWh",
-      format: "number",
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

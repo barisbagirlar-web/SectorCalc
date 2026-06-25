@@ -16,7 +16,7 @@ import { CNC_OEE_LOSS_INPUT_KEYS } from "@/lib/premium-schema/calculators/cnc-oe
 const PREMIUM_SCHEMA_DISCLAIMER =
   "Technical simulation only — not financial, legal, safety, or professional advice. Verify assumptions before business decisions.";
 
-const REQUIRED_INPUTS = [...CNC_OEE_LOSS_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 const OUTPUTS = [
   "oeeScore",
   "availabilityLossCost",
@@ -36,7 +36,7 @@ export const CncOeeLossCalculatorContract: FormulaContract = buildAssuredCritica
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool provides deterministic cost/risk/margin exposure estimation from declared inputs. It is not a regulatory, legal, safety, engineering or professional certification decision engine.",

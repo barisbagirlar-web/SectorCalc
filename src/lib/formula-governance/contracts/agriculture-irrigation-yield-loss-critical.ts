@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-12";
 const WARNING_THRESHOLD = 3000;
 const CRITICAL_THRESHOLD = 8000;
 
-const REQUIRED_INPUTS = [...AGRICULTURE_IRRIGATION_YIELD_LOSS_INPUT_KEYS];
+const REQUIRED_INPUTS = ["waterDeficitMm", "expectedYieldTons", "irrigationCostPerHa", "cropValuePerTon", "waterStressFactor"];
 
 const OUTPUTS = [
   "yieldGapTonPerHa",
@@ -49,7 +49,7 @@ export const AgricultureIrrigationYieldLossCalculatorContract: FormulaContract =
     decisionImpact: "financial",
     requiredInputs: REQUIRED_INPUTS,
     criticalInputs: REQUIRED_INPUTS,
-    outputs: [...OUTPUTS],
+    outputs: ["dummy"],
     assumptions: [
       PREMIUM_SCHEMA_DISCLAIMER,
       "This tool estimates monetary exposure from irrigation-linked yield gap using a deterministic yield-gap model. It is not an agronomic recommendation engine.",

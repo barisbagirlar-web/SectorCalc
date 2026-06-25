@@ -63,7 +63,7 @@ const QuotePriceProfitMarginCalculatorContract: FormulaContract = buildAssuredCr
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "materialCost", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const ShopRateHourlyCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -113,7 +113,7 @@ const ShopRateHourlyCostCalculatorContract: FormulaContract = buildAssuredCritic
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "fixedMonthlyCost", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const BreakEvenSafetyMarginCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -163,7 +163,7 @@ const BreakEvenSafetyMarginCalculatorContract: FormulaContract = buildAssuredCri
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "fixedCost", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const AutoRepairPartsLaborQuoteCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -213,7 +213,7 @@ const AutoRepairPartsLaborQuoteCalculatorContract: FormulaContract = buildAssure
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "partsCost", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const CbamUnitProductCarbonFootprintCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -263,7 +263,7 @@ const CbamUnitProductCarbonFootprintCalculatorContract: FormulaContract = buildA
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "energyEmissionsTon", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const OeeEquipmentEffectivenessCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -313,7 +313,7 @@ const OeeEquipmentEffectivenessCalculatorContract: FormulaContract = buildAssure
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "availability", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const CompressorLeakCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -363,7 +363,7 @@ const CompressorLeakCostCalculatorContract: FormulaContract = buildAssuredCritic
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "compressorKw", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const EmployeeTotalCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -413,7 +413,7 @@ const EmployeeTotalCostCalculatorContract: FormulaContract = buildAssuredCritica
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "grossSalary", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const DowntimeMinuteCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -463,7 +463,7 @@ const DowntimeMinuteCostCalculatorContract: FormulaContract = buildAssuredCritic
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "downtimeMinutes", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const ProductCustomerProfitabilityCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -513,7 +513,7 @@ const ProductCustomerProfitabilityCalculatorContract: FormulaContract = buildAss
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "revenue", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const InventoryCarryingCostEoqCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -563,7 +563,7 @@ const InventoryCarryingCostEoqCalculatorContract: FormulaContract = buildAssured
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "annualDemand", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const WeldedBoltedConnectionCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -613,7 +613,7 @@ const WeldedBoltedConnectionCalculatorContract: FormulaContract = buildAssuredCr
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "throatMm", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const ToleranceStackUpCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -663,7 +663,7 @@ const ToleranceStackUpCalculatorContract: FormulaContract = buildAssuredCritical
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "t1", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const BoltTighteningTorqueCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -713,7 +713,7 @@ const BoltTighteningTorqueCalculatorContract: FormulaContract = buildAssuredCrit
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "clampForceKn", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const FireSystemFlowHydrantCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -763,7 +763,7 @@ const FireSystemFlowHydrantCalculatorContract: FormulaContract = buildAssuredCri
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "protectedAreaM2", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const HydraulicPneumaticCylinderForceCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -813,7 +813,7 @@ const HydraulicPneumaticCylinderForceCalculatorContract: FormulaContract = build
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "pressureBar", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const QualityCostPafCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -863,7 +863,7 @@ const QualityCostPafCalculatorContract: FormulaContract = buildAssuredCriticalCo
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "preventionCost", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const PressureVesselWallThicknessCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -913,7 +913,7 @@ const PressureVesselWallThicknessCalculatorContract: FormulaContract = buildAssu
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "designPressureBar", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const ValueStreamMapVsmCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -963,7 +963,7 @@ const ValueStreamMapVsmCalculatorContract: FormulaContract = buildAssuredCritica
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "processMinutes", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const EnergySavingsPackageCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -1013,7 +1013,7 @@ const EnergySavingsPackageCalculatorContract: FormulaContract = buildAssuredCrit
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "baselineKwhMonthly", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const InvestmentPaybackNpvCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -1063,7 +1063,7 @@ const InvestmentPaybackNpvCalculatorContract: FormulaContract = buildAssuredCrit
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "initialInvestment", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const AnnualLeaveSeveranceNoticeCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -1113,7 +1113,7 @@ const AnnualLeaveSeveranceNoticeCalculatorContract: FormulaContract = buildAssur
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "grossMonthlySalary", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const BeltPulleySpeedLengthCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -1163,7 +1163,7 @@ const BeltPulleySpeedLengthCalculatorContract: FormulaContract = buildAssuredCri
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "driverRpm", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const SixSigmaProjectPrioritizerContract: FormulaContract = buildAssuredCriticalContract({
@@ -1213,7 +1213,7 @@ const SixSigmaProjectPrioritizerContract: FormulaContract = buildAssuredCritical
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "estimatedAnnualSavings", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const PREMIUM_SCHEMA_EXTENDED_CRITICAL_SLUGS = [

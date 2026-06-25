@@ -8,90 +8,9 @@ export const INVENTORY_CARRYING_COST_EOQ_CALCULATOR_SCHEMA: PremiumCalculatorSch
   painStatement:
     "Inventory cost is underestimated when only warehouse rent is counted.",
 
-  inputs: [
-    {
-      id: "annualDemand",
-      label: "Annual demand",
-      type: "number",
-      unit: "units",
-      required: true,
-      smartDefault: 12000,
-      validation: { min: 1 },
-      helper: "Expected units consumed or sold per year.",
-      expertMeaning: "Demand driver for EOQ sizing.",
-    },
-    {
-      id: "orderCost",
-      label: "Order cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 85,
-      validation: { min: 0 },
-      helper: "Fixed cost per purchase order placed.",
-      expertMeaning: "Ordering and receiving burden per PO.",
-    },
-    {
-      id: "unitCost",
-      label: "Unit cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 14.5,
-      validation: { min: 0.01 },
-      helper: "Purchase or production cost per unit.",
-      expertMeaning: "Value base for carrying cost.",
-    },
-    {
-      id: "carryingCostPercent",
-      label: "Carrying cost rate",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 18,
-      validation: { min: 0.1, max: 100 },
-      helper: "Annual carrying cost as percent of inventory value.",
-      expertMeaning: "Storage, capital and obsolescence load.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "inventory.eoq_units",
-      inputMap: {
-        annualDemand: "annualDemand",
-        orderCost: "orderCost",
-        unitCost: "unitCost",
-        carryingCostPercent: "carryingCostPercent",
-      },
-      outputId: "eoqUnits",
-    },
-    {
-      formulaId: "inventory.carrying_cost_annual",
-      inputMap: {
-        eoqUnits: "eoqUnits",
-        unitCost: "unitCost",
-        carryingCostPercent: "carryingCostPercent",
-      },
-      outputId: "annualCarryingCost",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "eoqUnits",
-      label: "Economic order quantity",
-      unit: "units",
-      format: "number",
-      isBigNumber: true,
-    },
-    {
-      id: "annualCarryingCost",
-      label: "Annual carrying cost",
-      unit: "USD",
-      format: "currency",
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

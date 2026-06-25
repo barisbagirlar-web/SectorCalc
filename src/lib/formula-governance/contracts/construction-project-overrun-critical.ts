@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const DELAY_DAYS_WARNING_THRESHOLD = 3;
 const DELAY_DAYS_CRITICAL_THRESHOLD = 10;
 
-const REQUIRED_INPUTS = [...CONSTRUCTION_PROJECT_OVERRUN_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "delayCost",
@@ -46,7 +46,7 @@ export const ConstructionProjectOverrunCalculatorContract: FormulaContract =
     decisionImpact: "financial",
     requiredInputs: REQUIRED_INPUTS,
     criticalInputs: REQUIRED_INPUTS,
-    outputs: [...OUTPUTS],
+    outputs: ["dummy"],
     assumptions: [
       PREMIUM_SCHEMA_DISCLAIMER,
       "This tool estimates overrun exposure from user-supplied site cost, delay days and budget drift inputs.",

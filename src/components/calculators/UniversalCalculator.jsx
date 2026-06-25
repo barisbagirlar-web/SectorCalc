@@ -55,6 +55,34 @@ const ENERGY_REFS = {
   gwp_r410a:      2088,   // GWP100 — IPCC AR6
 };
 
+const mathContext = {
+  IF: (cond, t, f) => (cond ? t : f),
+  POW: Math.pow,
+  MAX: Math.max,
+  MIN: Math.min,
+  SQRT: Math.sqrt,
+  ABS: Math.abs,
+  LN: Math.log,
+  EXP: Math.exp,
+  SIN: Math.sin,
+  COS: Math.cos,
+  TAN: Math.tan,
+  PI: Math.PI,
+  PMT: (rate, nper, pv) => {
+    if (rate === 0) return -(pv / nper);
+    const pvif = Math.pow(1 + rate, nper);
+    return -(rate * pv * pvif) / (pvif - 1);
+  },
+  NPV: (rate, ...values) => {
+    if (Array.isArray(values[0])) values = values[0];
+    return values.reduce((acc, val, i) => acc + val / Math.pow(1 + rate, i + 1), 0);
+  },
+  SUM: (...args) => {
+    if (Array.isArray(args[0])) args = args[0];
+    return args.reduce((a, b) => a + Number(b || 0), 0);
+  }
+};
+
 // ─── FORMULA ENGINE ──────────────────────────────────────────────────────────
 function evaluateFormula(formulaStr, vars) {
   // "Result = expression" formatını parse et
@@ -84,7 +112,7 @@ function evaluateFormula(formulaStr, vars) {
     .replace(/\bROUND\s*\(([^)]+)\)/gi, "Math.round($1)");
 
   // Değişkenleri enjekte et — tüm hesaplanan + kullanıcı inputları
-  const allVars = { ...vars };
+  const allVars = { ...vars, ...mathContext };
 
   // Güvenli eval
   try {
@@ -98,7 +126,7 @@ function evaluateFormula(formulaStr, vars) {
     );
     const result = fn(_normsinv, _normsdist, ...vals);
     return { varName, value: typeof result === "number" && isFinite(result) ? result : null };
-  } catch {
+  } catch (err) {
     return { varName, value: null };
   }
 }
@@ -174,7 +202,7 @@ function runValidations(tool, inputValues, computed) {
     // condition string (eval)
     if (rule.condition) {
       try {
-        const allVars = { ...computed };
+        const allVars = { ...computed, ...mathContext };
         const keys = Object.keys(allVars);
         const vals = Object.values(allVars);
         // eslint-disable-next-line no-new-func
@@ -196,8 +224,9 @@ function runWarnings(tool, computed) {
 
   for (const w of smartWarnings) {
     try {
-      const keys = Object.keys(computed);
-      const vals = Object.values(computed);
+      const allVars = { ...computed, ...mathContext };
+      const keys = Object.keys(allVars);
+      const vals = Object.values(allVars);
       // AND koşulunu destekle
       const condStr = w.condition.replace(/\s+AND\s+/gi, " && ").replace(/\s+OR\s+/gi, " || ");
       // eslint-disable-next-line no-new-func

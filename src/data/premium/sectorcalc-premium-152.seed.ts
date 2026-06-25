@@ -361,7 +361,7 @@ export const sectorCalcPremium152Seed = {
   "tools": [
     {
       "id": 1,
-      "slug": "smed-setup-suresi-ve-ekonomik-parti-calculator",
+      "slug": "smed-setup-time-and-economic-party-calculator",
       "trTitle": "SMED Setup Süresi ve Ekonomik Parti Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -372,7 +372,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 2,
-      "slug": "yamazumi-is-yuku-dengeleme-kayip-calculator",
+      "slug": "yamazumi-workload-balancing-lost-calculator",
       "trTitle": "Yamazumi İş Yükü Dengeleme Kayıp Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -383,7 +383,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 3,
-      "slug": "kanban-kart-sayisi-ve-supermarket-stok-calculator",
+      "slug": "number-of-kanban-cards-and-supermarket-stock-calculator",
       "trTitle": "Kanban Kart Sayısı ve Süpermarket Stok Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -394,7 +394,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 4,
-      "slug": "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+      "slug": "5s-audit-score-loss-productivity-cost-converter-calculator",
       "trTitle": "5S Denetim Skoru - Verimlilik Kaybı Maliyet Dönüştürücü",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -405,7 +405,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 5,
-      "slug": "vsm-finansal-donusum-calculator",
+      "slug": "vsm-financial-transformation-calculator",
       "trTitle": "VSM Finansal Dönüşüm Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -416,7 +416,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 6,
-      "slug": "7-wastes-muda-hunter-financial-calculator",
+      "slug": "7-waste-muda-hunter-monetary-provision-calculator",
       "trTitle": "7 İsraf (Muda) Avcısı Parasal Karşılık Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -427,7 +427,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 7,
-      "slug": "kaizen-kazanc-takip-ve-onceliklendirme-calculator",
+      "slug": "kaizen-earnings-tracking-and-prioritization-calculator",
       "trTitle": "Kaizen Kazanç Takip ve Önceliklendirme Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -438,7 +438,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 8,
-      "slug": "andon-sistemi-durus-ve-tepki-suresi-maliyet-calculator",
+      "slug": "andon-system-downtime-and-response-time-cost-calculator",
       "trTitle": "Andon Sistemi Duruş ve Tepki Süresi Maliyet Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -449,7 +449,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 9,
-      "slug": "poka-yoke-hata-onleme-yatirim-geri-donus-calculator",
+      "slug": "poka-yoke-error-prevention-return-on-investment-calculator",
       "trTitle": "Poka-Yoke Hata Önleme Yatırım Geri Dönüş Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -460,7 +460,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 10,
-      "slug": "heijunka-uretim-dengeleme-ve-dalgalanma-maliyet-calculator",
+      "slug": "heijunka-production-balancing-and-fluctuation-cost-calculator",
       "trTitle": "Heijunka Üretim Dengeleme ve Dalgalanma Maliyet Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -471,7 +471,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 11,
-      "slug": "cpk-ppk-hata-maliyeti-ppm-calculator",
+      "slug": "cpk-ppk-cost-of-error-ppm-converter-calculator",
       "trTitle": "Cpk/Ppk - Hata Maliyeti (ppm) Dönüştürücü",
       "categorySlug": "quality-six-sigma",
       "tier": "premium",
@@ -482,7 +482,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 12,
-      "slug": "msa-gage-r-r-yanlis-karar-maliyet-calculator",
+      "slug": "msa-gage-r-r-wrong-decision-cost-calculator",
       "trTitle": "MSA Gage R&R Yanlış Karar Maliyet Hesaplayıcı",
       "categorySlug": "quality-six-sigma",
       "tier": "premium",
@@ -493,7 +493,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 13,
-      "slug": "htea-rpn-skoru-parasal-risk-calculator",
+      "slug": "fmea-rpn-score-monetary-risk-converter-calculator",
       "trTitle": "HTEA RPN Skoru Parasal Risk Dönüştürücü",
       "categorySlug": "quality-six-sigma",
       "tier": "premium",
@@ -504,7 +504,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 14,
-      "slug": "spc-sinyal-kacirma-ve-gec-tespit-maliyet-calculator",
+      "slug": "spc-signal-missing-and-late-detection-cost-calculator",
       "trTitle": "SPC Sinyal Kaçırma ve Geç Tespit Maliyet Hesaplayıcı",
       "categorySlug": "quality-six-sigma",
       "tier": "premium",
@@ -515,7 +515,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 15,
-      "slug": "taguchi-kalite-kayip-fonksiyonu-calculator",
+      "slug": "taguchi-quality-loss-function-calculator",
       "trTitle": "Taguchi Kalite Kayıp Fonksiyonu Hesaplayıcı",
       "categorySlug": "quality-six-sigma",
       "tier": "premium",
@@ -526,7 +526,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 16,
-      "slug": "fty-rty-haddelenmis-verim-finansal-calculator",
+      "slug": "fty-rty-rolled-yield-financial-calculator",
       "trTitle": "FTY/RTY Haddelenmiş Verim Finansal Hesaplayıcı",
       "categorySlug": "quality-six-sigma",
       "tier": "premium",
@@ -537,7 +537,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 17,
-      "slug": "aql-kabul-orneklemesi-risk-ve-maliyet-calculator",
+      "slug": "aql-acceptance-sampling-risk-and-cost-calculator",
       "trTitle": "AQL Kabul Örneklemesi Risk ve Maliyet Hesaplayıcı",
       "categorySlug": "quality-six-sigma",
       "tier": "premium",
@@ -548,7 +548,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 18,
-      "slug": "alti-sigma-proje-secimi-ve-yatirim-onceliklendirme-calculator",
+      "slug": "six-sigma-project-selection-and-investment-prioritization-calculator",
       "trTitle": "Altı Sigma Proje Seçimi ve Yatırım Önceliklendirme Hesaplayıcı",
       "categorySlug": "quality-six-sigma",
       "tier": "premium",
@@ -559,7 +559,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 19,
-      "slug": "urun-karmasi-karmasiklik-maliyeti-hidden-factory-calculator",
+      "slug": "product-mix-complexity-cost-hidden-factory-calculator",
       "trTitle": "Ürün Karması Karmaşıklık Maliyeti (Hidden Factory) Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -570,7 +570,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 20,
-      "slug": "takt-time-esnek-is-gucu-dalgalanma-maliyet-calculator",
+      "slug": "takt-time-flexible-workforce-fluctuation-cost-calculator",
       "trTitle": "Takt Time Esnek İş Gücü Dalgalanma Maliyet Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -581,7 +581,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 21,
-      "slug": "degisim-changeover-matrisi-ve-sekans-optimizasyon-calculator",
+      "slug": "changeover-matrix-and-sequence-optimization-calculator",
       "trTitle": "Değişim (Changeover) Matrisi ve Sekans Optimizasyon Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -592,7 +592,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 22,
-      "slug": "sprint-maliyet-ve-velocity-hiz-calculator",
+      "slug": "sprint-cost-and-velocity-calculator",
       "trTitle": "Sprint Maliyet ve Velocity (Hız) Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -603,7 +603,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 23,
-      "slug": "talep-tahmin-hatasi-ve-stok-stok-yoklugu-maliyet-calculator",
+      "slug": "demand-forecast-error-and-stock-out-of-stock-cost-calculator",
       "trTitle": "Talep Tahmin Hatası ve Stok/Stok Yokluğu Maliyet Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -614,7 +614,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 24,
-      "slug": "esnek-uretim-hucresi-yatirim-ve-geri-donus-calculator",
+      "slug": "flexible-production-cell-investment-and-return-calculator",
       "trTitle": "Esnek Üretim Hücresi Yatırım ve Geri Dönüş Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -625,7 +625,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 25,
-      "slug": "gecis-grade-change-off-spec-ve-yikama-kayip-calculator",
+      "slug": "transition-grade-change-off-spec-and-wash-loss-calculator",
       "trTitle": "Geçiş (Grade Change) Off-Spec ve Yıkama Kayıp Hesaplayıcı",
       "categorySlug": "process-chemical",
       "tier": "premium",
@@ -636,7 +636,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 26,
-      "slug": "reaktor-kazan-parti-verimi-ve-isi-dengesi-calculator",
+      "slug": "reactor-boiler-batch-efficiency-and-heat-balance-calculator",
       "trTitle": "Reaktör/Kazan Parti Verimi ve Isı Dengesi Hesaplayıcı",
       "categorySlug": "process-chemical",
       "tier": "premium",
@@ -647,7 +647,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 27,
-      "slug": "boru-hatti-surtunme-ve-pompa-enerji-kayip-calculator",
+      "slug": "pipeline-friction-and-pump-energy-loss-calculator",
       "trTitle": "Boru Hattı Sürtünme ve Pompa Enerji Kayıp Hesaplayıcı",
       "categorySlug": "process-chemical",
       "tier": "premium",
@@ -658,7 +658,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 28,
-      "slug": "karistirma-harmanlama-minimum-maliyet-optimizasyon-calculator",
+      "slug": "mixing-blending-minimum-cost-optimization-calculator",
       "trTitle": "Karıştırma/Harmanlama Minimum Maliyet Optimizasyon Hesaplayıcı",
       "categorySlug": "process-chemical",
       "tier": "premium",
@@ -669,7 +669,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 29,
-      "slug": "kutle-dengesi-ve-fire-takip-calculator",
+      "slug": "mass-balance-and-waste-tracking-calculator",
       "trTitle": "Kütle Dengesi ve Fire Takip Hesaplayıcı",
       "categorySlug": "process-chemical",
       "tier": "premium",
@@ -680,7 +680,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 30,
-      "slug": "proses-emniyet-ventili-ve-tahliye-kapasite-calculator",
+      "slug": "process-safety-valve-and-discharge-capacity-calculator",
       "trTitle": "Proses Emniyet Ventili ve Tahliye Kapasite Hesaplayıcı",
       "categorySlug": "process-chemical",
       "tier": "premium",
@@ -691,7 +691,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 31,
-      "slug": "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+      "slug": "3d-printing-etc-machining-break-even-point-calculator",
       "trTitle": "3B Baskı vs. Talaşlı İmalat Başabaş Noktası Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -702,7 +702,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 32,
-      "slug": "topoloji-optimizasyonu-hafiflik-ve-yakit-tasarrufu-calculator",
+      "slug": "topology-optimization-lightness-and-fuel-saving-calculator",
       "trTitle": "Topoloji Optimizasyonu Hafiflik ve Yakıt Tasarrufu Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -713,7 +713,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 33,
-      "slug": "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+      "slug": "3d-printing-support-structure-and-post-process-cost-calculator",
       "trTitle": "3B Baskı Destek Yapısı ve Post-Proses Maliyet Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -724,7 +724,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 34,
-      "slug": "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+      "slug": "3d-printing-batch-optimization-and-nesting-calculator",
       "trTitle": "3B Baskı Parti Optimizasyonu ve Yuvalama Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -735,7 +735,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 35,
-      "slug": "filament-recine-toz-maliyet-ve-fire-karsilastirma-calculator",
+      "slug": "filament-resin-powder-cost-and-waste-comparison-calculator",
       "trTitle": "Filament/Reçine/Toz Maliyet ve Fire Karşılaştırma Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -746,7 +746,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 36,
-      "slug": "cnc-takim-yolu-bos-kesim-suresi-calculator",
+      "slug": "cnc-tool-path-blank-cutting-time-calculator",
       "trTitle": "CNC Takım Yolu Boş Kesim Süresi Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -757,7 +757,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 37,
-      "slug": "kesme-parametreleri-takim-omru-optimizasyon-calculator",
+      "slug": "cutting-parameters-tool-life-optimization-calculator",
       "trTitle": "Kesme Parametreleri Takım Ömrü Optimizasyon Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -768,7 +768,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 38,
-      "slug": "sogutma-sivisi-omur-devri-ve-bertaraf-maliyet-calculator",
+      "slug": "coolant-life-cycle-and-disposal-cost-calculator",
       "trTitle": "Soğutma Sıvısı Ömür Devri ve Bertaraf Maliyet Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -779,7 +779,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 39,
-      "slug": "talas-geri-donusum-degeri-ve-fire-optimizasyon-calculator",
+      "slug": "sawdust-recycling-value-and-fire-optimization-calculator",
       "trTitle": "Talaş Geri Dönüşüm Değeri ve Fire Optimizasyon Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -790,7 +790,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 40,
-      "slug": "takim-tutucu-ve-baglama-aparati-setup-suresi-calculator",
+      "slug": "tool-holder-and-clamping-apparatus-setup-time-calculator",
       "trTitle": "Takım Tutucu ve Bağlama Aparatı Setup Süresi Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -801,7 +801,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 41,
-      "slug": "isleme-stratejisi-sure-dagilim-optimizasyon-calculator",
+      "slug": "processing-strategy-time-distribution-optimization-calculator",
       "trTitle": "İşleme Stratejisi Süre Dağılım Optimizasyon Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -812,7 +812,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 42,
-      "slug": "tezgah-titresim-chatter-ve-yuzey-kalitesi-kayip-maliyet-calculator",
+      "slug": "countertop-vibration-chatter-and-surface-quality-loss-cost-calculator",
       "trTitle": "Tezgah Titreşim (Chatter) ve Yüzey Kalitesi Kayıp Maliyet Hesaplayıcı",
       "categorySlug": "cnc-additive-manufacturing",
       "tier": "premium",
@@ -823,7 +823,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 43,
-      "slug": "dokum-yolluk-cikici-verim-ve-ergitme-enerji-kayip-calculator",
+      "slug": "cast-runner-extractor-efficiency-and-melting-energy-loss-calculator",
       "trTitle": "Döküm Yolluk/Çıkıcı Verim ve Ergitme Enerji Kayıp Hesaplayıcı",
       "categorySlug": "metal-plastics-forming",
       "tier": "premium",
@@ -834,7 +834,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 44,
-      "slug": "enjeksiyon-sogutma-suresi-ve-cevrim-optimizasyon-calculator",
+      "slug": "injection-cooling-time-and-cycle-optimization-calculator",
       "trTitle": "Enjeksiyon Soğutma Süresi ve Çevrim Optimizasyon Hesaplayıcı",
       "categorySlug": "metal-plastics-forming",
       "tier": "premium",
@@ -845,7 +845,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 45,
-      "slug": "sac-metal-fire-nesting-optimizasyon-calculator",
+      "slug": "sheet-metal-fire-nesting-optimization-calculator",
       "trTitle": "Sac Metal Fire (Nesting) Optimizasyon Hesaplayıcı",
       "categorySlug": "metal-plastics-forming",
       "tier": "premium",
@@ -856,7 +856,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 46,
-      "slug": "dovme-ekstruzyon-proses-kuvvet-ve-pres-kapasite-calculator",
+      "slug": "forging-extrusion-process-force-and-press-capacity-calculator",
       "trTitle": "Dövme/Ekstrüzyon Proses Kuvvet ve Pres Kapasite Hesaplayıcı",
       "categorySlug": "metal-plastics-forming",
       "tier": "premium",
@@ -867,7 +867,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 47,
-      "slug": "kalip-omru-ve-bakim-periyodu-optimizasyon-calculator",
+      "slug": "mold-life-and-maintenance-period-optimization-calculator",
       "trTitle": "Kalıp Ömrü ve Bakım Periyodu Optimizasyon Hesaplayıcı",
       "categorySlug": "metal-plastics-forming",
       "tier": "premium",
@@ -878,7 +878,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 48,
-      "slug": "sac-metal-bukum-geri-esneme-springback-telafi-calculator",
+      "slug": "sheet-metal-twist-springback-compensation-calculator",
       "trTitle": "Sac Metal Büküm Geri Esneme (Springback) Telafi Hesaplayıcı",
       "categorySlug": "metal-plastics-forming",
       "tier": "premium",
@@ -889,7 +889,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 49,
-      "slug": "kazanilmis-deger-yonetimi-evm-tamamlanma-maliyet-tahmin-calculator",
+      "slug": "earned-value-management-evm-cost-at-completion-estimation-calculator",
       "trTitle": "Kazanılmış Değer Yönetimi (EVM) Tamamlanma Maliyet Tahmin Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -900,7 +900,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 50,
-      "slug": "kritik-yol-cpm-gecikme-cezasi-ve-hizlandirma-optimizasyon-calculator",
+      "slug": "critical-path-cpm-latency-penalty-and-speedup-optimization-calculator",
       "trTitle": "Kritik Yol (CPM) Gecikme Cezası ve Hızlandırma Optimizasyon Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -911,7 +911,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 51,
-      "slug": "kaynak-seviyelendirme-ve-dalgalanma-maliyet-calculator",
+      "slug": "resource-leveling-and-surge-cost-calculator",
       "trTitle": "Kaynak Seviyelendirme ve Dalgalanma Maliyet Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -922,7 +922,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 52,
-      "slug": "sozlesme-ceza-ve-tesvik-maddesi-teklif-fiyatina-etki-calculator",
+      "slug": "contract-penalty-and-incentive-clause-effect-on-offer-price-calculator",
       "trTitle": "Sözleşme Ceza ve Teşvik Maddesi Teklif Fiyatına Etki Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -933,7 +933,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 53,
-      "slug": "proje-nakit-akisi-ve-ilerleme-hakedis-optimizasyon-calculator",
+      "slug": "project-cash-flow-and-progress-payment-optimization-calculator",
       "trTitle": "Proje Nakit Akışı ve İlerleme Hakediş Optimizasyon Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -944,7 +944,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 54,
-      "slug": "santiye-mobilizasyon-demobilizasyon-gunluk-maliyet-calculator",
+      "slug": "construction-site-mobilization-demobilization-daily-cost-calculator",
       "trTitle": "Şantiye Mobilizasyon/Demobilizasyon Günlük Maliyet Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -955,7 +955,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 55,
-      "slug": "iot-sensor-ve-ongorucu-bakim-yatirim-geri-donus-calculator",
+      "slug": "iot-sensor-and-predictive-maintenance-return-on-investment-calculator",
       "trTitle": "IoT Sensör ve Öngörücü Bakım Yatırım Geri Dönüş Hesaplayıcı",
       "categorySlug": "digital-factory-automation",
       "tier": "premium",
@@ -966,7 +966,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 56,
-      "slug": "dijital-ikiz-vs-fiziksel-deneme-maliyet-calculator",
+      "slug": "digital-twin-vs-physical-trial-cost-comparator-calculator",
       "trTitle": "Dijital İkiz vs. Fiziksel Deneme Maliyet Karşılaştırıcı",
       "categorySlug": "digital-factory-automation",
       "tier": "premium",
@@ -977,7 +977,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 57,
-      "slug": "cobot-vs-manuel-iscilik-karsilastirma-calculator",
+      "slug": "cobot-vs-manual-labor-comparison-calculator",
       "trTitle": "Cobot vs. Manuel İşçilik Karşılaştırma Hesaplayıcı",
       "categorySlug": "digital-factory-automation",
       "tier": "premium",
@@ -988,7 +988,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 58,
-      "slug": "agv-amr-otonom-tasima-geri-donus-calculator",
+      "slug": "agv-amr-autonomous-transport-return-calculator",
       "trTitle": "AGV/AMR Otonom Taşıma Geri Dönüş Hesaplayıcı",
       "categorySlug": "digital-factory-automation",
       "tier": "premium",
@@ -999,7 +999,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 59,
-      "slug": "enerji-izleme-sistemi-yatirim-ve-tasarruf-tahmin-calculator",
+      "slug": "energy-monitoring-system-investment-and-savings-forecasting-calculator",
       "trTitle": "Enerji İzleme Sistemi Yatırım ve Tasarruf Tahmin Hesaplayıcı",
       "categorySlug": "digital-factory-automation",
       "tier": "premium",
@@ -1010,7 +1010,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 60,
-      "slug": "kagitsiz-uretim-dijital-is-emri-yatirim-geri-donus-calculator",
+      "slug": "paperless-production-digital-work-order-return-on-investment-calculator",
       "trTitle": "Kağıtsız Üretim (Dijital İş Emri) Yatırım Geri Dönüş Hesaplayıcı",
       "categorySlug": "digital-factory-automation",
       "tier": "premium",
@@ -1021,7 +1021,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 61,
-      "slug": "mtbf-mttr-ve-kullanilabilirlik-finansal-calculator",
+      "slug": "mtbf-mttr-and-availability-financial-calculator",
       "trTitle": "MTBF/MTTR ve Kullanılabilirlik Finansal Hesaplayıcı",
       "categorySlug": "maintenance-reliability",
       "tier": "premium",
@@ -1032,7 +1032,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 62,
-      "slug": "yedek-parca-stok-seviyesi-ve-durus-riski-optimizasyon-calculator",
+      "slug": "spare-parts-stock-level-and-downtime-risk-optimization-calculator",
       "trTitle": "Yedek Parça Stok Seviyesi ve Duruş Riski Optimizasyon Hesaplayıcı",
       "categorySlug": "maintenance-reliability",
       "tier": "premium",
@@ -1043,7 +1043,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 63,
-      "slug": "koruyucu-bakim-frekansi-ve-maliyet-optimizasyon-calculator",
+      "slug": "preventive-maintenance-frequency-and-cost-optimization-calculator",
       "trTitle": "Koruyucu Bakım Frekansı ve Maliyet Optimizasyon Hesaplayıcı",
       "categorySlug": "maintenance-reliability",
       "tier": "premium",
@@ -1054,7 +1054,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 64,
-      "slug": "kok-neden-analizi-rca-tekrarlayan-ariza-birikimli-maliyet-calculator",
+      "slug": "root-cause-analysis-rca-recurring-failure-cumulative-cost-calculator",
       "trTitle": "Kök Neden Analizi (RCA) Tekrarlayan Arıza Birikimli Maliyet Hesaplayıcı",
       "categorySlug": "maintenance-reliability",
       "tier": "premium",
@@ -1065,7 +1065,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 65,
-      "slug": "kritiklik-risk-matrisi-ve-bakim-stratejisi-secim-calculator",
+      "slug": "criticality-risk-matrix-and-maintenance-strategy-selection-calculator",
       "trTitle": "Kritiklik (Risk Matrisi) ve Bakım Stratejisi Seçim Hesaplayıcı",
       "categorySlug": "maintenance-reliability",
       "tier": "premium",
@@ -1076,7 +1076,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 66,
-      "slug": "kaza-maliyeti-dogrudan-ve-dolayli-toplam-kayip-calculator",
+      "slug": "accident-cost-direct-and-indirect-total-loss-calculator",
       "trTitle": "Kaza Maliyeti (Doğrudan ve Dolaylı) Toplam Kayıp Hesaplayıcı",
       "categorySlug": "hse-ergonomics",
       "tier": "premium",
@@ -1087,7 +1087,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 67,
-      "slug": "isg-yatirimi-ve-risk-azaltma-getiri-calculator",
+      "slug": "return-on-ohs-investment-and-risk-reduction-calculator",
       "trTitle": "İSG Yatırımı ve Risk Azaltma Getiri Hesaplayıcı",
       "categorySlug": "hse-ergonomics",
       "tier": "premium",
@@ -1098,7 +1098,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 68,
-      "slug": "noise-vibration-exposure-risk-cost-calculator",
+      "slug": "noise-and-vibration-exposure-risk-cost-calculator",
       "trTitle": "Gürültü ve Titreşim Maruziyet Risk Maliyet Hesaplayıcı",
       "categorySlug": "hse-ergonomics",
       "tier": "premium",
@@ -1109,7 +1109,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 69,
-      "slug": "ergonomi-ve-kas-iskelet-rahatsizligi-kayip-maliyet-calculator",
+      "slug": "ergonomics-and-musculoskeletal-disorder-lost-cost-calculator",
       "trTitle": "Ergonomi ve Kas-İskelet Rahatsızlığı Kayıp Maliyet Hesaplayıcı",
       "categorySlug": "hse-ergonomics",
       "tier": "premium",
@@ -1120,7 +1120,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 70,
-      "slug": "tedarikci-performans-skor-karti-ve-tco-calculator",
+      "slug": "supplier-performance-scorecard-and-tco-calculator",
       "trTitle": "Tedarikçi Performans Skor Kartı ve TCO Hesaplayıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1131,7 +1131,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 71,
-      "slug": "toplam-sahip-olma-maliyeti-tco-ekipman-karsilastirma-calculator",
+      "slug": "total-cost-of-ownership-tco-equipment-comparison-calculator",
       "trTitle": "Toplam Sahip Olma Maliyeti (TCO) Ekipman Karşılaştırma Hesaplayıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1142,7 +1142,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 72,
-      "slug": "tasima-modu-toplam-maliyet-ve-risk-calculator",
+      "slug": "transport-mode-total-cost-and-risk-comparator-calculator",
       "trTitle": "Taşıma Modu Toplam Maliyet ve Risk Karşılaştırıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1153,7 +1153,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 73,
-      "slug": "asgari-siparis-miktari-moq-ve-stok-tasima-maliyet-denge-calculator",
+      "slug": "minimum-order-quantity-moq-and-stock-carrying-cost-balance-calculator",
       "trTitle": "Asgari Sipariş Miktarı (MOQ) ve Stok Taşıma Maliyet Denge Hesaplayıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1164,7 +1164,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 74,
-      "slug": "tedarikci-kur-lojistik-ve-jeopolitik-risk-karsilastirma-calculator",
+      "slug": "supplier-setup-logistics-and-geopolitical-risk-comparison-calculator",
       "trTitle": "Tedarikçi Kur, Lojistik ve Jeopolitik Risk Karşılaştırma Hesaplayıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1175,7 +1175,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 75,
-      "slug": "isten-ayrilma-turnover-toplam-maliyet-calculator",
+      "slug": "turnover-total-cost-calculator",
       "trTitle": "İşten Ayrılma (Turnover) Toplam Maliyet Hesaplayıcı",
       "categorySlug": "workforce-hr",
       "tier": "premium",
@@ -1186,7 +1186,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 76,
-      "slug": "vardiya-sistemi-2-li-3-lu-maliyet-ve-verimlilik-calculator",
+      "slug": "shift-system-2-3-cost-and-efficiency-comparator-calculator",
       "trTitle": "Vardiya Sistemi (2'li/3'lü) Maliyet ve Verimlilik Karşılaştırıcı",
       "categorySlug": "workforce-hr",
       "tier": "premium",
@@ -1197,7 +1197,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 77,
-      "slug": "performans-primi-ve-tesvik-sistemi-getiri-calculator",
+      "slug": "performance-bonus-and-incentive-system-return-calculator",
       "trTitle": "Performans Primi ve Teşvik Sistemi Getiri Hesaplayıcı",
       "categorySlug": "workforce-hr",
       "tier": "premium",
@@ -1208,7 +1208,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 78,
-      "slug": "egitim-yatirimi-ve-verimlilik-artisi-geri-donus-calculator",
+      "slug": "return-on-education-investment-and-productivity-increase-calculator",
       "trTitle": "Eğitim Yatırımı ve Verimlilik Artışı Geri Dönüş Hesaplayıcı",
       "categorySlug": "workforce-hr",
       "tier": "premium",
@@ -1219,7 +1219,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 79,
-      "slug": "fazla-mesai-vs-yeni-ise-alim-basabas-calculator",
+      "slug": "overtime-etc-new-hire-break-even-calculator",
       "trTitle": "Fazla Mesai vs. Yeni İşe Alım Başabaş Hesaplayıcı",
       "categorySlug": "workforce-hr",
       "tier": "premium",
@@ -1230,7 +1230,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 80,
-      "slug": "musteri-yasam-boyu-deger-clv-ve-edinme-maliyeti-cac-calculator",
+      "slug": "customer-lifetime-value-clv-and-acquisition-cost-cac-calculator",
       "trTitle": "Müşteri Yaşam Boyu Değer (CLV) ve Edinme Maliyeti (CAC) Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1241,7 +1241,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 81,
-      "slug": "musteri-kaybi-churn-ve-kaybedilen-gelir-calculator",
+      "slug": "customer-churn-and-lost-revenue-calculator",
       "trTitle": "Müşteri Kaybı (Churn) ve Kaybedilen Gelir Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1252,7 +1252,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 82,
-      "slug": "satis-kanali-karlilik-karsilastirma-calculator",
+      "slug": "sales-channel-profitability-comparison-calculator",
       "trTitle": "Satış Kanalı Kârlılık Karşılaştırma Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1263,7 +1263,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 83,
-      "slug": "garanti-ve-iade-karsiligi-optimizasyon-calculator",
+      "slug": "warranty-and-return-provision-optimization-calculator",
       "trTitle": "Garanti ve İade Karşılığı Optimizasyon Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1274,7 +1274,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 84,
-      "slug": "isletme-sermayesi-ve-nakit-dongusu-optimizasyon-calculator",
+      "slug": "working-capital-and-cash-cycle-optimization-calculator",
       "trTitle": "İşletme Sermayesi ve Nakit Döngüsü Optimizasyon Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1285,7 +1285,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 85,
-      "slug": "fx-hedging-stratejisi-forward-option-natural-maliyet-fayda-calculator",
+      "slug": "fx-hedging-strategy-forward-option-natural-cost-benefit-calculator",
       "trTitle": "FX Hedging Stratejisi (Forward/Option/Natural) Maliyet-Fayda Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1296,7 +1296,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 86,
-      "slug": "leasing-vs-satin-alma-finansal-karsilastirma-calculator",
+      "slug": "leasing-vs-purchasing-financial-comparison-calculator",
       "trTitle": "Leasing vs. Satın Alma Finansal Karşılaştırma Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1307,7 +1307,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 87,
-      "slug": "fiyat-artisi-ve-talep-esnekligi-karlilik-simulasyon-calculator",
+      "slug": "price-increase-and-demand-elasticity-profitability-simulation-calculator",
       "trTitle": "Fiyat Artışı ve Talep Esnekliği Kârlılık Simülasyon Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1318,7 +1318,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 88,
-      "slug": "vade-farki-ve-erken-odeme-iskontosu-optimizasyon-calculator",
+      "slug": "maturity-difference-and-early-payment-discount-optimization-calculator",
       "trTitle": "Vade Farkı ve Erken Ödeme İskontosu Optimizasyon Hesaplayıcı",
       "categorySlug": "finance-sales-working-capital",
       "tier": "premium",
@@ -1329,7 +1329,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 89,
-      "slug": "su-tuketimi-ve-atik-su-aritma-maliyet-optimizasyon-calculator",
+      "slug": "water-consumption-and-wastewater-treatment-cost-optimization-calculator",
       "trTitle": "Su Tüketimi ve Atık Su Arıtma Maliyet Optimizasyon Hesaplayıcı",
       "categorySlug": "sustainability-resource-esg",
       "tier": "premium",
@@ -1340,7 +1340,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 90,
-      "slug": "atik-yonetimi-ve-bertaraf-maliyet-optimizasyon-calculator",
+      "slug": "waste-management-and-disposal-cost-optimization-calculator",
       "trTitle": "Atık Yönetimi ve Bertaraf Maliyet Optimizasyon Hesaplayıcı",
       "categorySlug": "sustainability-resource-esg",
       "tier": "premium",
@@ -1351,7 +1351,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 91,
-      "slug": "iso-50001-enerji-yonetimi-taban-cizgisi-ve-tasarruf-calculator",
+      "slug": "iso-50001-energy-management-baseline-and-savings-calculator",
       "trTitle": "ISO 50001 Enerji Yönetimi Taban Çizgisi ve Tasarruf Hesaplayıcı",
       "categorySlug": "sustainability-resource-esg",
       "tier": "premium",
@@ -1362,7 +1362,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 92,
-      "slug": "dongusel-ekonomi-ve-urun-omru-uzatma-roi-calculator",
+      "slug": "circular-economy-and-product-life-extension-roi-calculator",
       "trTitle": "Döngüsel Ekonomi ve Ürün Ömrü Uzatma ROI Hesaplayıcı",
       "categorySlug": "sustainability-resource-esg",
       "tier": "premium",
@@ -1373,7 +1373,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 93,
-      "slug": "raf-omru-ve-fire-optimizasyon-calculator",
+      "slug": "shelf-life-and-waste-optimization-calculator",
       "trTitle": "Raf Ömrü ve Fire Optimizasyon Hesaplayıcı",
       "categorySlug": "food-cold-chain-hygiene",
       "tier": "premium",
@@ -1384,7 +1384,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 94,
-      "slug": "recete-maliyeti-ve-alternatif-hammadde-etki-calculator",
+      "slug": "recipe-cost-and-alternative-raw-material-impact-calculator",
       "trTitle": "Reçete Maliyeti ve Alternatif Hammadde Etki Hesaplayıcı",
       "categorySlug": "food-cold-chain-hygiene",
       "tier": "premium",
@@ -1395,7 +1395,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 95,
-      "slug": "haccp-kritik-kontrol-noktasi-sapma-maliyet-calculator",
+      "slug": "haccp-critical-control-point-deviation-cost-calculator",
       "trTitle": "HACCP Kritik Kontrol Noktası Sapma Maliyet Hesaplayıcı",
       "categorySlug": "food-cold-chain-hygiene",
       "tier": "premium",
@@ -1406,7 +1406,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 96,
-      "slug": "soguk-zincir-kirilmasi-ve-urun-kayip-maliyet-calculator",
+      "slug": "cold-chain-breakage-and-product-loss-cost-calculator",
       "trTitle": "Soğuk Zincir Kırılması ve Ürün Kayıp Maliyet Hesaplayıcı",
       "categorySlug": "food-cold-chain-hygiene",
       "tier": "premium",
@@ -1417,7 +1417,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 97,
-      "slug": "beton-karisim-tasarimi-ve-maliyet-optimizasyon-calculator",
+      "slug": "concrete-mix-design-and-cost-optimization-calculator",
       "trTitle": "Beton Karışım Tasarımı ve Maliyet Optimizasyon Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -1428,7 +1428,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 98,
-      "slug": "iskele-ve-kalip-kullanim-suresi-optimizasyon-calculator",
+      "slug": "scaffolding-and-formwork-usage-time-optimization-calculator",
       "trTitle": "İskele ve Kalıp Kullanım Süresi Optimizasyon Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -1439,7 +1439,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 99,
-      "slug": "hafriyat-ve-dolgu-dengesi-optimizasyon-calculator",
+      "slug": "excavation-and-backfill-balance-optimization-calculator",
       "trTitle": "Hafriyat ve Dolgu Dengesi Optimizasyon Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -1450,7 +1450,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 100,
-      "slug": "gecici-isler-ve-santiye-tesisleri-kurulum-maliyet-calculator",
+      "slug": "temporary-works-and-construction-site-facilities-installation-cost-calculator",
       "trTitle": "Geçici İşler ve Şantiye Tesisleri Kurulum Maliyet Hesaplayıcı",
       "categorySlug": "project-construction-management",
       "tier": "premium",
@@ -1461,7 +1461,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 101,
-      "slug": "depo-yerlesimi-ve-toplama-rotasi-optimizasyon-calculator",
+      "slug": "warehouse-layout-and-picking-route-optimization-calculator",
       "trTitle": "Depo Yerleşimi ve Toplama Rotası Optimizasyon Hesaplayıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1472,7 +1472,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 102,
-      "slug": "konteyner-kamyon-yukleme-optimizasyon-ve-fire-calculator",
+      "slug": "container-truck-loading-optimization-and-waste-calculator",
       "trTitle": "Konteyner/Kamyon Yükleme Optimizasyon ve Fire Hesaplayıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1483,7 +1483,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 103,
-      "slug": "capraz-sevkiyat-cross-docking-vs-depolama-maliyet-calculator",
+      "slug": "cross-docking-etc-storage-cost-comparator-calculator",
       "trTitle": "Çapraz Sevkiyat (Cross-Docking) vs. Depolama Maliyet Karşılaştırıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1494,7 +1494,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 104,
-      "slug": "iade-lojistigi-ve-tersine-tedarik-zinciri-maliyet-calculator",
+      "slug": "return-logistics-and-reverse-supply-chain-cost-calculator",
       "trTitle": "İade Lojistiği ve Tersine Tedarik Zinciri Maliyet Hesaplayıcı",
       "categorySlug": "procurement-supply-chain",
       "tier": "premium",
@@ -1505,7 +1505,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 105,
-      "slug": "kumas-serim-ve-kesim-optimizasyon-fire-calculator",
+      "slug": "fabric-laying-and-cutting-optimization-waste-calculator",
       "trTitle": "Kumaş Serim ve Kesim Optimizasyon Fire Hesaplayıcı",
       "categorySlug": "textile-print-lab",
       "tier": "premium",
@@ -1516,7 +1516,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 106,
-      "slug": "dikim-hatti-dengeleme-ve-operasyon-suresi-calculator",
+      "slug": "sewing-line-balancing-and-operation-time-calculator",
       "trTitle": "Dikim Hattı Dengeleme ve Operasyon Süresi Hesaplayıcı",
       "categorySlug": "textile-print-lab",
       "tier": "premium",
@@ -1527,7 +1527,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 107,
-      "slug": "boya-ve-apre-recetesi-maliyet-optimizasyon-calculator",
+      "slug": "dye-and-finish-recipe-cost-optimization-calculator",
       "trTitle": "Boya ve Apre Reçetesi Maliyet Optimizasyon Hesaplayıcı",
       "categorySlug": "textile-print-lab",
       "tier": "premium",
@@ -1538,7 +1538,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 108,
-      "slug": "pano-isi-yuku-ve-sogutma-kapasite-calculator",
+      "slug": "panel-heat-load-and-cooling-capacity-calculator",
       "trTitle": "Pano Isı Yükü ve Soğutma Kapasite Hesaplayıcı",
       "categorySlug": "electrical-power-systems",
       "tier": "premium",
@@ -1549,7 +1549,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 109,
-      "slug": "kablo-kesiti-ve-gerilim-dusumu-optimizasyon-calculator",
+      "slug": "cable-cross-section-and-voltage-drop-optimization-calculator",
       "trTitle": "Kablo Kesiti ve Gerilim Düşümü Optimizasyon Hesaplayıcı",
       "categorySlug": "electrical-power-systems",
       "tier": "premium",
@@ -1560,7 +1560,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 110,
-      "slug": "kompanzasyon-ve-reaktif-ceza-optimizasyon-calculator",
+      "slug": "compensation-and-reactive-penalty-optimization-calculator",
       "trTitle": "Kompanzasyon ve Reaktif Ceza Optimizasyon Hesaplayıcı",
       "categorySlug": "electrical-power-systems",
       "tier": "premium",
@@ -1571,7 +1571,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 111,
-      "slug": "jenerator-ve-ups-kapasite-secim-optimizasyon-calculator",
+      "slug": "generator-and-ups-capacity-selection-optimization-calculator",
       "trTitle": "Jeneratör ve UPS Kapasite Seçim Optimizasyon Hesaplayıcı",
       "categorySlug": "electrical-power-systems",
       "tier": "premium",
@@ -1582,7 +1582,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 112,
-      "slug": "kaynak-maliyeti-ve-dolgu-metali-tuketim-calculator",
+      "slug": "welding-cost-and-filler-metal-consumption-calculator",
       "trTitle": "Kaynak Maliyeti ve Dolgu Metali Tüketim Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1593,7 +1593,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 113,
-      "slug": "lehim-ve-smd-montaj-fire-ve-maliyet-calculator",
+      "slug": "solder-and-smd-assembly-waste-and-cost-calculator",
       "trTitle": "Lehim ve SMD Montaj Fire ve Maliyet Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1604,7 +1604,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 114,
-      "slug": "yapistirici-ve-sizdirmazlik-malzemesi-tuketim-optimizasyon-calculator",
+      "slug": "adhesive-and-sealant-consumption-optimization-calculator",
       "trTitle": "Yapıştırıcı ve Sızdırmazlık Malzemesi Tüketim Optimizasyon Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1615,7 +1615,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 115,
-      "slug": "isi-yuku-ve-isitma-sogutma-kapasite-optimizasyon-calculator",
+      "slug": "heat-load-and-heating-cooling-capacity-optimization-calculator",
       "trTitle": "Isı Yükü ve Isıtma/Soğutma Kapasite Optimizasyon Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1626,7 +1626,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 116,
-      "slug": "hava-kanali-surtunme-ve-fan-enerji-tuketim-calculator",
+      "slug": "air-duct-friction-and-fan-energy-consumption-calculator",
       "trTitle": "Hava Kanalı Sürtünme ve Fan Enerji Tüketim Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1637,7 +1637,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 117,
-      "slug": "yalitim-kalinligi-ve-enerji-tasarrufu-optimizasyon-calculator",
+      "slug": "insulation-thickness-and-energy-saving-optimization-calculator",
       "trTitle": "Yalıtım Kalınlığı ve Enerji Tasarrufu Optimizasyon Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1648,7 +1648,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 118,
-      "slug": "buhar-kapani-steam-trap-kacak-ve-enerji-kayip-calculator",
+      "slug": "steam-trap-leakage-and-energy-loss-calculator",
       "trTitle": "Buhar Kapanı (Steam Trap) Kaçak ve Enerji Kayıp Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1659,7 +1659,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 119,
-      "slug": "isi-degistirici-esanjor-kirlenme-ve-verim-kaybi-calculator",
+      "slug": "heat-exchanger-contamination-and-loss-of-efficiency-calculator",
       "trTitle": "Isı Değiştirici (Eşanjör) Kirlenme ve Verim Kaybı Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1670,7 +1670,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 120,
-      "slug": "vakum-sistemi-kacak-ve-enerji-kayip-calculator",
+      "slug": "vacuum-system-leakage-and-energy-loss-calculator",
       "trTitle": "Vakum Sistemi Kaçak ve Enerji Kayıp Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1681,7 +1681,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 121,
-      "slug": "hidrolik-sistem-isinma-ve-sogutma-enerji-kayip-calculator",
+      "slug": "hydraulic-system-heating-and-cooling-energy-loss-calculator",
       "trTitle": "Hidrolik Sistem Isınma ve Soğutma Enerji Kayıp Hesaplayıcı",
       "categorySlug": "mechanical-hvac-energy-loss",
       "tier": "premium",
@@ -1692,7 +1692,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 122,
-      "slug": "ambalaj-boyutu-ve-nakliye-hacim-optimizasyon-calculator",
+      "slug": "packaging-size-and-shipping-volume-optimization-calculator",
       "trTitle": "Ambalaj Boyutu ve Nakliye Hacim Optimizasyon Hesaplayıcı",
       "categorySlug": "packaging-local-business",
       "tier": "premium",
@@ -1703,7 +1703,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 123,
-      "slug": "ambalaj-malzemesi-degisimi-ve-maliyet-etki-calculator",
+      "slug": "packaging-material-change-and-cost-impact-calculator",
       "trTitle": "Ambalaj Malzemesi Değişimi ve Maliyet Etki Hesaplayıcı",
       "categorySlug": "packaging-local-business",
       "tier": "premium",
@@ -1714,7 +1714,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 124,
-      "slug": "palet-yukleme-konfigurasyonu-ve-stabilite-calculator",
+      "slug": "pallet-loading-configuration-and-stability-calculator",
       "trTitle": "Palet Yükleme Konfigürasyonu ve Stabilite Hesaplayıcı",
       "categorySlug": "packaging-local-business",
       "tier": "premium",
@@ -1725,7 +1725,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 125,
-      "slug": "restoran-tabak-maliyeti-ve-porsiyon-optimizasyon-calculator",
+      "slug": "restaurant-plate-cost-and-portion-optimization-calculator",
       "trTitle": "Restoran Tabak Maliyeti ve Porsiyon Optimizasyon Hesaplayıcı",
       "categorySlug": "food-cold-chain-hygiene",
       "tier": "premium",
@@ -1736,7 +1736,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 126,
-      "slug": "oto-servis-is-emri-ve-yedek-parca-teklif-tutarlilik-calculator",
+      "slug": "auto-service-work-order-and-spare-part-offer-consistency-calculator",
       "trTitle": "Oto Servis İş Emri ve Yedek Parça Teklif Tutarlılık Hesaplayıcı",
       "categorySlug": "packaging-local-business",
       "tier": "premium",
@@ -1747,7 +1747,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 127,
-      "slug": "basim-baski-fire-ve-fire-disi-sarf-malzeme-calculator",
+      "slug": "printing-printing-waste-and-non-waste-consumables-calculator",
       "trTitle": "Basım/Baskı Fire ve Fire Dışı Sarf Malzeme Hesaplayıcı",
       "categorySlug": "textile-print-lab",
       "tier": "premium",
@@ -1758,7 +1758,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 128,
-      "slug": "laboratuvar-analiz-maliyeti-ve-numune-alma-optimizasyon-calculator",
+      "slug": "laboratory-analysis-cost-and-sampling-optimization-calculator",
       "trTitle": "Laboratuvar Analiz Maliyeti ve Numune Alma Optimizasyon Hesaplayıcı",
       "categorySlug": "textile-print-lab",
       "tier": "premium",
@@ -1769,7 +1769,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 129,
-      "slug": "temizlik-ve-hijyen-kimyasal-tuketim-optimizasyon-calculator",
+      "slug": "cleaning-and-hygiene-chemical-consumption-optimization-calculator",
       "trTitle": "Temizlik ve Hijyen Kimyasal Tüketim Optimizasyon Hesaplayıcı",
       "categorySlug": "food-cold-chain-hygiene",
       "tier": "premium",
@@ -1780,7 +1780,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 130,
-      "slug": "yenilenebilir-enerji-ges-res-yatirim-fizibilite-calculator",
+      "slug": "renewable-energy-spp-res-investment-feasibility-calculator",
       "trTitle": "Yenilenebilir Enerji (GES/RES) Yatırım Fizibilite Hesaplayıcı",
       "categorySlug": "sustainability-resource-esg",
       "tier": "premium",
@@ -1791,7 +1791,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 131,
-      "slug": "zaman-etudu-ve-standart-sure-calculator",
+      "slug": "time-study-and-standard-time-calculator",
       "trTitle": "Zaman Etüdü ve Standart Süre Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -1802,7 +1802,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 132,
-      "slug": "mtm-metot-zaman-olcumu-ve-ergonomi-sure-calculator",
+      "slug": "mtm-method-time-measurement-and-ergonomics-time-calculator",
       "trTitle": "MTM (Metot Zaman Ölçümü) ve Ergonomi Süre Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -1813,7 +1813,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 133,
-      "slug": "ogrenme-egrisi-ve-parti-sure-tahmin-calculator",
+      "slug": "learning-curve-and-batch-duration-estimation-calculator",
       "trTitle": "Öğrenme Eğrisi ve Parti Süre Tahmin Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -1824,7 +1824,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 134,
-      "slug": "tesis-yerlesimi-ve-malzeme-akis-mesafe-optimizasyon-calculator",
+      "slug": "facility-layout-and-material-flow-distance-optimization-calculator",
       "trTitle": "Tesis Yerleşimi ve Malzeme Akış Mesafe Optimizasyon Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -1835,7 +1835,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 135,
-      "slug": "kapasite-planlama-ve-darbogaz-yatirim-onceliklendirme-calculator",
+      "slug": "capacity-planning-and-bottleneck-investment-prioritization-calculator",
       "trTitle": "Kapasite Planlama ve Darboğaz Yatırım Önceliklendirme Hesaplayıcı",
       "categorySlug": "lean-production",
       "tier": "premium",
@@ -1846,7 +1846,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 136,
-      "slug": "cok-ulke-veri-gizlilik-uyum-ve-ceza-riski-calculator",
+      "slug": "multi-country-data-privacy-compliance-and-penalty-risk-calculator",
       "trTitle": "Çok-Ülke Veri/Gizlilik Uyum ve Ceza Riski Hesaplayıcı",
       "categorySlug": "global-compliance-trade",
       "tier": "premium",
@@ -1857,7 +1857,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 137,
-      "slug": "finansal-raporlama-ve-denetim-uyum-maliyeti-calculator",
+      "slug": "financial-reporting-and-auditing-compliance-cost-calculator",
       "trTitle": "Finansal Raporlama ve Denetim Uyum Maliyeti Hesaplayıcı",
       "categorySlug": "global-compliance-trade",
       "tier": "premium",
@@ -1868,7 +1868,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 138,
-      "slug": "aml-kyc-ve-yaptirim-tarama-uyum-maliyeti-calculator",
+      "slug": "aml-kyc-and-sanctions-screening-compliance-cost-calculator",
       "trTitle": "AML/KYC ve Yaptırım Tarama Uyum Maliyeti Hesaplayıcı",
       "categorySlug": "global-compliance-trade",
       "tier": "premium",
@@ -1879,7 +1879,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 139,
-      "slug": "uluslararasi-tedarik-zinciri-kesinti-ve-rota-risk-calculator",
+      "slug": "international-supply-chain-disruption-and-route-risk-calculator",
       "trTitle": "Uluslararası Tedarik Zinciri Kesinti ve Rota Risk Hesaplayıcı",
       "categorySlug": "global-compliance-trade",
       "tier": "premium",
@@ -1890,7 +1890,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 140,
-      "slug": "transfer-pricing-ve-sinir-otesi-vergi-optimizasyon-calculator",
+      "slug": "transfer-pricing-and-cross-border-tax-optimization-calculator",
       "trTitle": "Transfer Pricing ve Sınır-Ötesi Vergi Optimizasyon Hesaplayıcı",
       "categorySlug": "global-compliance-trade",
       "tier": "premium",
@@ -1901,7 +1901,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 141,
-      "slug": "serbest-ticaret-anlasmasi-mense-kurali-ve-gumruk-tasarruf-calculator",
+      "slug": "free-trade-agreement-rule-of-origin-and-customs-savings-calculator",
       "trTitle": "Serbest Ticaret Anlaşması Menşe Kuralı ve Gümrük Tasarruf Hesaplayıcı",
       "categorySlug": "global-compliance-trade",
       "tier": "premium",
@@ -1912,7 +1912,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 142,
-      "slug": "faiz-kredi-yapisi-ve-ulke-risk-primi-calculator",
+      "slug": "interest-credit-structure-and-country-risk-premium-calculator",
       "trTitle": "Faiz/Kredi Yapısı ve Ülke Risk Primi Hesaplayıcı",
       "categorySlug": "global-compliance-trade",
       "tier": "premium",
@@ -1923,7 +1923,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 143,
-      "slug": "bulut-maliyet-optimizasyonu-ve-israf-eliminasyonu-calculator",
+      "slug": "cloud-cost-optimization-and-waste-elimination-calculator",
       "trTitle": "Bulut Maliyet Optimizasyonu ve İsraf Eliminasyonu Hesaplayıcı",
       "categorySlug": "technology-ai-cloud-cyber",
       "tier": "premium",
@@ -1934,7 +1934,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 144,
-      "slug": "saas-lisans-kullanim-ve-shelfware-maliyet-calculator",
+      "slug": "saas-license-usage-and-shelfware-cost-calculator",
       "trTitle": "SaaS Lisans Kullanım ve Shelfware Maliyet Hesaplayıcı",
       "categorySlug": "technology-ai-cloud-cyber",
       "tier": "premium",
@@ -1945,7 +1945,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 145,
-      "slug": "ai-ml-compute-ve-api-token-maliyet-calculator",
+      "slug": "ai-ml-compute-and-api-token-cost-calculator",
       "trTitle": "AI/ML Compute ve API Token Maliyet Hesaplayıcı",
       "categorySlug": "technology-ai-cloud-cyber",
       "tier": "premium",
@@ -1956,7 +1956,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 146,
-      "slug": "ai-otomasyon-roi-ve-is-gucu-etki-calculator",
+      "slug": "ai-automation-roi-and-workforce-impact-calculator",
       "trTitle": "AI Otomasyon ROI ve İş Gücü Etki Hesaplayıcı",
       "categorySlug": "technology-ai-cloud-cyber",
       "tier": "premium",
@@ -1967,7 +1967,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 147,
-      "slug": "ai-uyum-ve-etik-denetim-maliyet-eu-ai-act-calculator",
+      "slug": "ai-compliance-and-ethics-audit-cost-eu-ai-act-calculator",
       "trTitle": "AI Uyum ve Etik Denetim Maliyet Hesaplayıcı (EU AI Act)",
       "categorySlug": "technology-ai-cloud-cyber",
       "tier": "premium",
@@ -1978,7 +1978,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 148,
-      "slug": "sinir-otesi-istihdam-ve-eor-maliyet-calculator",
+      "slug": "cross-border-employment-and-eor-cost-calculator",
       "trTitle": "Sınır-Ötesi İstihdam ve EOR Maliyet Hesaplayıcı",
       "categorySlug": "technology-ai-cloud-cyber",
       "tier": "premium",
@@ -1989,7 +1989,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 149,
-      "slug": "global-pazarlama-lokalizasyon-ve-odeme-maliyet-calculator",
+      "slug": "global-marketing-localization-and-payment-cost-calculator",
       "trTitle": "Global Pazarlama Lokalizasyon ve Ödeme Maliyet Hesaplayıcı",
       "categorySlug": "technology-ai-cloud-cyber",
       "tier": "premium",
@@ -2000,7 +2000,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 150,
-      "slug": "siber-guvenlik-yatirimi-ve-breach-risk-maliyet-calculator",
+      "slug": "cyber-security-investment-and-breach-risk-cost-calculator",
       "trTitle": "Siber Güvenlik Yatırımı ve Breach Risk Maliyet Hesaplayıcı",
       "categorySlug": "technology-ai-cloud-cyber",
       "tier": "premium",
@@ -2011,7 +2011,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 151,
-      "slug": "cbam-karbon-sinir-vergisi-ve-ihracat-maliyet-etkisi-calculator",
+      "slug": "cbam-carbon-border-tax-and-export-cost-impact-calculator",
       "trTitle": "CBAM/Karbon Sınır Vergisi ve İhracat Maliyet Etkisi Hesaplayıcı",
       "categorySlug": "sustainability-resource-esg",
       "tier": "premium",
@@ -2022,7 +2022,7 @@ export const sectorCalcPremium152Seed = {
     },
     {
       "id": 152,
-      "slug": "scope-1-2-3-emisyon-ve-surdurulebilirlik-raporlama-maliyet-calculator",
+      "slug": "scope-1-2-3-emission-and-sustainability-reporting-cost-calculator",
       "trTitle": "Scope 1-2-3 Emisyon ve Sürdürülebilirlik Raporlama Maliyet Hesaplayıcı",
       "categorySlug": "sustainability-resource-esg",
       "tier": "premium",

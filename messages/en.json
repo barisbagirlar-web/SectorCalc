@@ -23307,7 +23307,7 @@
       "cards": [
         {
           "label": "Scrap & Waste",
-          "title": "Most manufacturers assume 8%, actual is 14%.",
+          "title": "Most manufacturers assume 8%, the actual rate is 14%.",
           "body": "This 6-point difference creates an annual gap of €40,000–80,000 in a mid-sized plant. And it doesn't show up on the P&L.",
           "link": "See scrap calculations →",
           "href": "/tools/manufacturing"
@@ -23322,7 +23322,7 @@
         {
           "label": "Pricing Error",
           "title": "Few calculate machine hour costs correctly when quoting.",
-          "body": "Machine hours not calculated according to VDI 2067, ASHRAE, and ISO standards → margins are eaten on every quote.",
+          "body": "When machine hours are not calculated according to VDI 2067, ASHRAE, and ISO standards → margins are eaten on every quote.",
           "link": "Calculate machine hour →",
           "href": "/tools/machine-hour-rate"
         },
@@ -23342,7 +23342,7 @@
       "headerTitle": "Scrap Cost Analysis — Quick Assessment",
       "badge": "LIVE",
       "progress": "Progress: {pct}% — {remaining} steps left",
-      "progressDone": "Progress: 100% — Calculation complete",
+      "progressDone": "Result ready",
       "inpProd": "Monthly Production (kg/pcs)",
       "inpScrap": "Actual Scrap Rate (%)",
       "inpCost": "Unit Cost (€)",
@@ -23350,7 +23350,7 @@
       "resRec": "Recovery Pot.",
       "resRoi": "ROI (Pro)",
       "aiHeader": "AI Insight · Pro Feature",
-      "aiTextAbove": "Your scrap rate of {rate}% is above the manufacturing average of 6–8%. This deviation alone indicates a monthly operational loss of ≈{monthlyLoss}.",
+      "aiTextAbove": "Your {rate}% scrap rate is directly eroding your profit margins. This indicates approximately {monthlyLoss} monthly operational loss.",
       "aiTextBelow": "Your scrap rate of {rate}% is within the manufacturing average of 6–8%.",
       "above": "above",
       "below": "within",
@@ -23358,7 +23358,8 @@
       "aiGateBtn": "Unlock with Pro →",
       "btnFullReport": "Get Full Analysis & PDF Report →",
       "microText": "Just want the result?",
-      "microLink": "Free tools are here →"
+      "microLink": "Free tools are here →",
+      "subtitle": "Quick assessment. See your annual scrap cost and recovery potential instantly."
     },
     "social": {
       "labelMethod": "Methodology",
@@ -23497,10 +23498,11 @@
           "name": "Six Sigma",
           "sub": "Quality Methodology"
         }
-      ]
+      ],
+      "subtitle": "All calculations are strictly verified against these global engineering standards to ensure audit-proof accuracy."
     },
     "final": {
-      "timerPrefix": "⏱ This month's price guarantee ends in:",
+      "timerPrefix": "",
       "h2Line1": "Start with One Calculation.",
       "h2Line2": "Leave with Better Decisions.",
       "p": "The number of engineers who apply VDI 2067 correctly is limited. Platform access is credit-based — no subscription, no commitment. Today's analysis might show a different picture tomorrow.",

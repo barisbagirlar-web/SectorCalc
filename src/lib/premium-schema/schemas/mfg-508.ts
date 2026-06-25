@@ -8,75 +8,9 @@ export const PRESSURE_VESSEL_WALL_THICKNESS_CALCULATOR_SCHEMA: PremiumCalculator
   painStatement:
     "Fabricators need a quick thickness screen before detailed ASME calculations.",
 
-  inputs: [
-    {
-      id: "designPressureBar",
-      label: "Design pressure",
-      type: "number",
-      unit: "bar",
-      required: true,
-      smartDefault: 16,
-      validation: { min: 0.1 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "diameterMm",
-      label: "Inside diameter",
-      type: "number",
-      unit: "mm",
-      required: true,
-      smartDefault: 900,
-      validation: { min: 10 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "allowableStressMpa",
-      label: "Allowable stress",
-      type: "number",
-      unit: "MPa",
-      required: true,
-      smartDefault: 138,
-      validation: { min: 1 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "weldEfficiency",
-      label: "Weld efficiency",
-      type: "number",
-      unit: "×",
-      required: true,
-      smartDefault: 0.85,
-      validation: { min: 0.1, max: 1 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "measurement.vessel_wall_thickness",
-      inputMap: {
-        designPressureBar: "designPressureBar",
-        diameterMm: "diameterMm",
-        allowableStressMpa: "allowableStressMpa",
-        weldEfficiency: "weldEfficiency",
-      },
-      outputId: "wallThicknessMm",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "wallThicknessMm",
-      label: "Minimum wall thickness",
-      unit: "mm",
-      format: "number",
-      isBigNumber: true,
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

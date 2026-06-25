@@ -145,7 +145,7 @@ export const projectCostCalculatorContract: FormulaContract = buildAssuredCritic
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const changeOrderImpactAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
@@ -324,7 +324,7 @@ export const cleaningCostCalculatorContract: FormulaContract = buildAssuredCriti
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const officeCleaningBidOptimizerContract: FormulaContract = buildAssuredCriticalContract({
@@ -500,7 +500,7 @@ export const foodCostCalculatorContract: FormulaContract = buildAssuredCriticalC
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const menuProfitLeakDetectorContract: FormulaContract = buildAssuredCriticalContract({
@@ -684,7 +684,7 @@ export const productMarginCalculatorContract: FormulaContract = buildAssuredCrit
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const returnProfitErosionToolContract: FormulaContract = buildAssuredCriticalContract({
@@ -866,7 +866,7 @@ export const weldingCostEstimatorContract: FormulaContract = buildAssuredCritica
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const weldingBidRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({

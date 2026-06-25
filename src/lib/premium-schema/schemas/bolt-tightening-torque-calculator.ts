@@ -8,63 +8,9 @@ export const BOLT_TIGHTENING_TORQUE_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
   painStatement:
     "Assembly teams guess torque without a documented clamp-force method.",
 
-  inputs: [
-    {
-      id: "clampForceKn",
-      label: "Clamp force",
-      type: "number",
-      unit: "kN",
-      required: true,
-      smartDefault: 45,
-      validation: { min: 0.01 },
-      helper: "Target clamp or preload force for the joint.",
-      expertMeaning: "Axial load the bolt must maintain in service.",
-    },
-    {
-      id: "boltDiameterMm",
-      label: "Bolt diameter",
-      type: "number",
-      unit: "mm",
-      required: true,
-      smartDefault: 16,
-      validation: { min: 1 },
-      helper: "Nominal bolt diameter.",
-      expertMeaning: "Effective diameter for torque conversion.",
-    },
-    {
-      id: "frictionFactor",
-      label: "Friction factor",
-      type: "number",
-      unit: "×",
-      required: true,
-      smartDefault: 0.2,
-      validation: { min: 0.05, max: 1 },
-      helper: "Nut factor K for dry steel (typical 0.15–0.25).",
-      expertMeaning: "Lubrication and surface condition multiplier.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "measurement.bolt_tightening_torque",
-      inputMap: {
-        clampForceKn: "clampForceKn",
-        boltDiameterMm: "boltDiameterMm",
-        frictionFactor: "frictionFactor",
-      },
-      outputId: "torqueNm",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "torqueNm",
-      label: "Estimated torque",
-      unit: "N·m",
-      format: "number",
-      isBigNumber: true,
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

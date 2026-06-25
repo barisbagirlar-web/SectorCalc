@@ -9,80 +9,9 @@ export const CARBON_FOOTPRINT_COMPLIANCE_RISK_SCHEMA: PremiumCalculatorSchema = 
   painStatement:
     "Exporters and manufacturers can underestimate carbon exposure when energy, fuel and carbon price assumptions are not connected.",
 
-  inputs: [
-    {
-      id: "energyEmissionsTon",
-      label: "Energy emissions",
-      type: "number",
-      unit: "ton CO₂e",
-      required: true,
-      smartDefault: 120,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "fuelEmissionsTon",
-      label: "Fuel emissions",
-      type: "number",
-      unit: "ton CO₂e",
-      required: true,
-      smartDefault: 45,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "carbonPrice",
-      label: "Carbon price",
-      type: "number",
-      unit: "USD/ton",
-      required: true,
-      smartDefault: 85,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "exposurePercent",
-      label: "Exposure percent",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 60,
-      validation: { min: 0, max: 100 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "carbon.total_emissions",
-      inputMap: { energyEmissionsTon: "energyEmissionsTon", fuelEmissionsTon: "fuelEmissionsTon" },
-      outputId: "totalEmissions",
-    },
-    {
-      formulaId: "carbon.cbam_exposure",
-      inputMap: {
-        emissionsTon: "totalEmissions",
-        carbonPrice: "carbonPrice",
-        exposurePercent: "exposurePercent",
-      },
-      outputId: "carbonExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "carbonExposure",
-      label: "Carbon compliance exposure",
-      unit: "USD",
-      format: "currency",
-      isBigNumber: true,
-    },
-    { id: "totalEmissions", label: "Total emissions", unit: "ton CO₂e", format: "number" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

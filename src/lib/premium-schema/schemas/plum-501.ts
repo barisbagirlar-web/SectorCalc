@@ -9,93 +9,9 @@ export const PLUMBING_JOB_MARGIN_VERDICT_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Find safe plumbing job price with callback risk, material runs and access difficulty included.",
 
-  inputs: [
-    {
-      id: "jobRevenue",
-      label: "Job revenue",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 12500,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "callbackVisits",
-      label: "Callback visits",
-      type: "number",
-      unit: "count",
-      required: true,
-      smartDefault: 3,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "visitCost",
-      label: "Visit cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 220,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "materialRunCost",
-      label: "Material run cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 850,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "warrantyReservePercent",
-      label: "Warranty reserve",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 4,
-      validation: { min: 0, max: 100 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "cost.count_cost",
-      inputMap: { count: "callbackVisits", costEach: "visitCost" },
-      outputId: "callbackCost",
-    },
-    {
-      formulaId: "cost.percent_of_amount",
-      inputMap: { amount: "jobRevenue", percent: "warrantyReservePercent" },
-      outputId: "warrantyReserve",
-    },
-    {
-      formulaId: "cost.total_exposure",
-      inputMap: { a: "callbackCost", b: "materialRunCost", c: "warrantyReserve" },
-      outputId: "totalExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalExposure",
-      label: "Total callback exposure",
-      unit: "$",
-      format: "currency",
-      isBigNumber: true,
-    },
-    { id: "callbackCost", label: "Callback cost", unit: "$", format: "currency" },
-    { id: "warrantyReserve", label: "Warranty reserve", unit: "$", format: "currency" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

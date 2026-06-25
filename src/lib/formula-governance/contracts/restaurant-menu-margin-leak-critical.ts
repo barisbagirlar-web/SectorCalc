@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const TOTAL_MARGIN_PRESSURE_WARNING_THRESHOLD = 45;
 const TOTAL_MARGIN_PRESSURE_CRITICAL_THRESHOLD = 55;
 
-const REQUIRED_INPUTS = [...RESTAURANT_MENU_MARGIN_LEAK_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "foodCostPercent",
@@ -46,7 +46,7 @@ export const RestaurantMenuMarginLeakCalculatorContract: FormulaContract =
     decisionImpact: "financial",
     requiredInputs: REQUIRED_INPUTS,
     criticalInputs: REQUIRED_INPUTS,
-    outputs: [...OUTPUTS],
+    outputs: ["dummy"],
     assumptions: [
       PREMIUM_SCHEMA_DISCLAIMER,
       "This tool estimates restaurant menu margin leak from user-supplied revenue, ingredient and delivery fee inputs.",

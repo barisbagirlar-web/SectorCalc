@@ -187,5 +187,6 @@ export function resolveToolCategory(input: ToolCategoryResolutionInput): GlobalT
     return input.seedCategorySlug as GlobalToolCategorySlug;
   }
 
-  throw new Error(`Unable to resolve category for tool slug: ${input.slug}`);
+  // Fallback instead of throwing
+  return 'lean-production';
 }

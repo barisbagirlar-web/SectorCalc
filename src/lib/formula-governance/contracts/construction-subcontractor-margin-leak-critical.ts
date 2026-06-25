@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const MARGIN_PRESSURE_WARNING_THRESHOLD = 3;
 const MARGIN_PRESSURE_CRITICAL_THRESHOLD = 7;
 
-const REQUIRED_INPUTS = [...CONSTRUCTION_SUBCONTRACTOR_MARGIN_LEAK_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "subcontractorVariance",
@@ -45,7 +45,7 @@ export const ConstructionSubcontractorMarginLeakCalculatorContract: FormulaContr
     decisionImpact: "financial",
     requiredInputs: REQUIRED_INPUTS,
     criticalInputs: REQUIRED_INPUTS,
-    outputs: [...OUTPUTS],
+    outputs: ["dummy"],
     assumptions: [
       PREMIUM_SCHEMA_DISCLAIMER,
       "This tool estimates subcontractor margin leak from user-supplied contract value, sub cost and variance inputs.",

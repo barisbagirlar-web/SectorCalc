@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-// @ts-nocheck
+
 import type { Metadata } from "next";
 import Link  from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";

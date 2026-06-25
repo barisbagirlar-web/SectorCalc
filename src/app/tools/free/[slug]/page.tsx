@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-// @ts-nocheck
+
 import type { Metadata } from "next";
 import { notFound, redirect as nextRedirect } from "next/navigation";
 import { redirect } from "next/navigation";
@@ -133,8 +133,8 @@ export default async function FreeRevenueToolRoute({
       locale,
       revenueTool.freeTitle
     );
-    const tFreeToolUi = await getTranslations();
-    const tAuthority = await getTranslations();
+    const tFreeToolUi = await getTranslations("freeToolUi");
+    const tAuthority = await getTranslations("contentAuthority.freeTool");
     const featuredAnswer = (
       <FeaturedAnswerBlock
         question={tFreeToolUi("whatIs", { title: localizedTitle })}
@@ -166,8 +166,8 @@ export default async function FreeRevenueToolRoute({
     notFound();
   }
 
-  const tAuthority = await getTranslations();
-  const tFreeToolUi = await getTranslations();
+  const tAuthority = await getTranslations("contentAuthority.freeTool");
+  const tFreeToolUi = await getTranslations("freeToolUi");
 
   // Load localized content (locale message > English registry fallback).
   const localizedCopy = resolveFreeToolLocalizedCopy(slug, locale);

@@ -9,93 +9,9 @@ export const WAREHOUSE_SPACE_COST_LEAK_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Warehouse operations lose money when unused space, slow pallets and handling drift are treated as normal overhead.",
 
-  inputs: [
-    {
-      id: "monthlyRent",
-      label: "Monthly rent",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 24000,
-      validation: { min: 0 },
-      helper: "Monthly facility rent or occupancy cost.",
-      expertMeaning: "Rent envelope before utilization split.",
-    },
-    {
-      id: "totalSqm",
-      label: "Total floor area",
-      type: "number",
-      unit: "m²",
-      required: true,
-      smartDefault: 2400,
-      validation: { min: 1 },
-      helper: "Total warehouse floor area (reference).",
-      expertMeaning: "Capacity denominator for space planning.",
-    },
-    {
-      id: "unusedSpacePercent",
-      label: "Unused space",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 14,
-      validation: { min: 0, max: 100 },
-      helper: "Unused or under-utilized space as percent of rent.",
-      expertMeaning: "Dead space band eating rent.",
-    },
-    {
-      id: "handlingOverrunHours",
-      label: "Handling overrun hours",
-      type: "number",
-      unit: "hours",
-      required: true,
-      smartDefault: 60,
-      validation: { min: 0 },
-      helper: "Extra picking and handling hours per month.",
-      expertMeaning: "Labor drift from slow pallet flow.",
-    },
-    {
-      id: "hourlyCost",
-      label: "Hourly cost",
-      type: "number",
-      unit: "USD/hour",
-      required: true,
-      smartDefault: 24,
-      validation: { min: 0 },
-      helper: "Loaded warehouse labor rate.",
-      expertMeaning: "Hourly burden on handling overrun.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "warehouse.unused_space_cost",
-      inputMap: { monthlyRent: "monthlyRent", unusedSpacePercent: "unusedSpacePercent" },
-      outputId: "unusedSpaceCost",
-    },
-    {
-      formulaId: "loss.time_cost",
-      inputMap: { lossHours: "handlingOverrunHours", hourlyCost: "hourlyCost" },
-      outputId: "handlingOverrunCost",
-    },
-    {
-      formulaId: "cost.total2",
-      inputMap: { a: "unusedSpaceCost", b: "handlingOverrunCost" },
-      outputId: "totalExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalExposure",
-      label: "Total space cost leak",
-      unit: "USD",
-      format: "currency",
-      isBigNumber: true,
-    },
-    { id: "unusedSpaceCost", label: "Unused space cost", unit: "USD", format: "currency" },
-    { id: "handlingOverrunCost", label: "Handling overrun cost", unit: "USD", format: "currency" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

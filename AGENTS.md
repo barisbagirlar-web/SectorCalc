@@ -221,3 +221,8 @@ Detay: `.cursor/rules/02-ui-quality/RULE.md`
 - **Link Standartları**: Sitedeki linkler mutlaka gerçek ve ilgili aktif sayfaları (örneğin pro-tools yerine `/premium-tools`) temsil edecek şekilde doğru yönlendirilmelidir. Asla kırık veya geçici (`#`) link kullanılmamalıdır.
 - **İyileştirmeler**: Tasarım yerleşimlerinde veya ikonlarda görsel uyumsuzluk ya da hata görüldüğünde, sistem kalitesini artırmak için inisiyatif alınarak hizalamalar ve görsel detaylar en premium standartlarda düzenlenmelidir.
 
+## 13. DeepSeek API / Formül ve Input Yaratma Yetkisi İptali
+Kullanıcı talimatı: "deep seek apiyi bu gıubı formul /ınput yaratma yetkısını ıptal edıyorum bunu kaydet..ve kıtlıtle"
+DeepSeek Priority Lock (Madde 1) kuralı, **formül analizi, formül yaratma, input doğrulama ve txt dosyasından sisteme aktarma** işlemleri için GEÇERSİZDİR. Bu işlemlerde DeepSeek API KESİNLİKLE kullanılmayacak, doğrudan ana yapay zeka ajanının (benim) kodlama, okuma ve muhakeme yeteneği kullanılacaktır.
+
+

@@ -1,5 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
-// @ts-nocheck
+
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustrialHome } from "@/components/os/IndustrialHome";

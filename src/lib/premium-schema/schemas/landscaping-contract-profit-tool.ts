@@ -9,78 +9,9 @@ export const LANDSCAPING_CONTRACT_PROFIT_TOOL_SCHEMA: PremiumCalculatorSchema = 
   painStatement:
     "Find minimum monthly landscaping contract price with fuel, supplies and equipment wear included.",
 
-  inputs: [
-    {
-      id: "dailyCrewCost",
-      label: "Daily crew cost",
-      type: "number",
-      unit: "USD/day",
-      required: true,
-      smartDefault: 1450,
-      validation: { min: 0 },
-      helper: "Loaded crew and equipment cost per site day.",
-      expertMeaning: "Daily burn rate while weather holds the job.",
-    },
-    {
-      id: "weatherDelayDays",
-      label: "Weather delay days",
-      type: "number",
-      unit: "days",
-      required: true,
-      smartDefault: 4,
-      validation: { min: 0 },
-      helper: "Expected weather delay days on the contract.",
-      expertMeaning: "Rain or wind days not in the schedule.",
-    },
-    {
-      id: "dumpFees",
-      label: "Dump fees",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 1800,
-      validation: { min: 0 },
-      helper: "Tear-off disposal and dump fees.",
-      expertMeaning: "Disposal stack tied to delay and scope.",
-    },
-    {
-      id: "warrantyReserve",
-      label: "Warranty reserve",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 2400,
-      validation: { min: 0 },
-      helper: "Warranty and callback reserve for the job.",
-      expertMeaning: "Post-install warranty envelope.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "time.delay_cost",
-      inputMap: { dailySiteCost: "dailyCrewCost", delayDays: "weatherDelayDays" },
-      outputId: "delayCost",
-    },
-    {
-      formulaId: "cost.total_exposure",
-      inputMap: { a: "delayCost", b: "dumpFees", c: "warrantyReserve" },
-      outputId: "totalExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalExposure",
-      label: "Total weather delay exposure",
-      unit: "$",
-      format: "currency",
-      isBigNumber: true,
-    },
-    { id: "delayCost", label: "Delay cost", unit: "$", format: "currency" },
-    { id: "dumpFees", label: "Dump fees", unit: "$", format: "currency" },
-    { id: "warrantyReserve", label: "Warranty reserve", unit: "$", format: "currency" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

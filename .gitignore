@@ -11,6 +11,7 @@ functions/lib/
 .firebase/
 .vercel/
 scripts/.cache/
+scripts/extracted_tools_cache.json
 
 # IndexNow verification keys (real keys must not be committed)
 public/[0-9a-f][0-9a-f-]*.txt
@@ -49,3 +50,5 @@ functions-debug.log
 *.tsbuildinfo
 tsconfig.tsbuildinfo
 .vercel
+.cache/
+scripts/extracted_tools_cache.json

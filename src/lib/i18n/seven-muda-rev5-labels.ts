@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { normalizeLocale } from "@/lib/format/localization";
 import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import type { SevenMudaWasteCategoryKey } from "@/lib/premium-schema/calculators/seven-muda-waste-decision";

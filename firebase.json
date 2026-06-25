@@ -35,13 +35,6 @@
       "functions/node_modules/**",
       "vitest.config.ts"
     ],
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "/tr",
-        "type": 301
-      }
-    ],
     "cleanUrls": true,
     "trailingSlash": false,
     "headers": [

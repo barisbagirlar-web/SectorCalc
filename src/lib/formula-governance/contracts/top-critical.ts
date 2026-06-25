@@ -90,7 +90,7 @@ export const loanPaymentCalculatorContract: FormulaContract = buildFinanceAssure
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const mortgageCalculatorContract: FormulaContract = buildFinanceAssuredContract({
@@ -167,7 +167,7 @@ export const mortgageCalculatorContract: FormulaContract = buildFinanceAssuredCo
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const interestCalculatorContract: FormulaContract = buildFinanceAssuredContract({
@@ -241,7 +241,7 @@ export const interestCalculatorContract: FormulaContract = buildFinanceAssuredCo
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const compoundInterestCalculatorContract: FormulaContract = buildFinanceAssuredContract({
@@ -320,7 +320,7 @@ export const compoundInterestCalculatorContract: FormulaContract = buildFinanceA
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const profitMarginCalculatorContract: FormulaContract = buildFinanceAssuredContract({
@@ -395,7 +395,7 @@ export const profitMarginCalculatorContract: FormulaContract = buildFinanceAssur
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const breakEvenCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -471,7 +471,7 @@ export const breakEvenCalculatorContract: FormulaContract = buildAssuredCritical
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const salaryCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -548,7 +548,7 @@ export const salaryCostCalculatorContract: FormulaContract = buildAssuredCritica
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const cashFlowGapCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -626,7 +626,7 @@ export const cashFlowGapCalculatorContract: FormulaContract = buildAssuredCritic
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const machineTimeCalculatorContract: FormulaContract = buildAssuredCriticalContract({
@@ -704,7 +704,7 @@ export const machineTimeCalculatorContract: FormulaContract = buildAssuredCritic
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const cncQuoteRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({

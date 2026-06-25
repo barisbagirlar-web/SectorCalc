@@ -9,85 +9,9 @@ export const CALIBRATION_DRIFT_RISK_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Measurement drift creates scrap, rejection and compliance risk before the issue is visible in production.",
 
-  inputs: [
-    {
-      id: "targetValue",
-      label: "Target value",
-      type: "number",
-      unit: "value",
-      required: true,
-      smartDefault: 100,
-      helper: "Nominal or specification target.",
-      expertMeaning: "Reference point for tolerance band.",
-    },
-    {
-      id: "actualValue",
-      label: "Actual value",
-      type: "number",
-      unit: "value",
-      required: true,
-      smartDefault: 101.8,
-      helper: "Measured or observed value.",
-      expertMeaning: "Current process output versus target.",
-    },
-    {
-      id: "tolerance",
-      label: "Tolerance",
-      type: "number",
-      unit: "value",
-      required: true,
-      smartDefault: 2,
-      validation: { min: 0.0001 },
-      helper: "Allowed tolerance band around target.",
-      expertMeaning: "Full tolerance width for usage calculation.",
-    },
-    {
-      id: "batchValue",
-      label: "Batch value",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 18000,
-      validation: { min: 0 },
-      helper: "Production batch value at risk.",
-      expertMeaning: "Revenue or material value exposed to rejection.",
-    },
-    {
-      id: "rejectionRiskPercent",
-      label: "Rejection risk",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 12,
-      validation: { min: 0, max: 100 },
-      helper: "Expected rejection rate from drift exposure.",
-      expertMeaning: "Scrap or reject band tied to tolerance usage.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "calibration.tolerance_status",
-      inputMap: { target: "targetValue", actual: "actualValue", tolerance: "tolerance" },
-      outputId: "toleranceUsage",
-    },
-    {
-      formulaId: "cost.percent_of_amount",
-      inputMap: { amount: "batchValue", percent: "rejectionRiskPercent" },
-      outputId: "rejectionExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "toleranceUsage",
-      label: "Tolerance usage",
-      unit: "%",
-      format: "percentage",
-      isBigNumber: true,
-    },
-    { id: "rejectionExposure", label: "Rejection exposure", unit: "USD", format: "currency" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

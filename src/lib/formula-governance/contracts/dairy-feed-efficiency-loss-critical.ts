@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const MILK_YIELD_WARNING_THRESHOLD = 22;
 const MILK_YIELD_CRITICAL_THRESHOLD = 18;
 
-const REQUIRED_INPUTS = [...DAIRY_FEED_EFFICIENCY_LOSS_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "feedCost",
@@ -45,7 +45,7 @@ export const DairyFeedEfficiencyLossCalculatorContract: FormulaContract =
     decisionImpact: "financial",
     requiredInputs: REQUIRED_INPUTS,
     criticalInputs: REQUIRED_INPUTS,
-    outputs: [...OUTPUTS],
+    outputs: ["dummy"],
     assumptions: [
       PREMIUM_SCHEMA_DISCLAIMER,
       "This tool estimates feed efficiency exposure from user-supplied herd size, feed cost and yield inputs.",

@@ -6,71 +6,68 @@
   "primary_operation": "analysis",
   "inputs": [
     {
-      "id": "input_0",
+      "id": "KonteynerHacim",
       "name": "KonteynerHacim",
       "unit": "m3",
       "type": "number",
       "required": true,
       "confidence_label": "KESİN",
-      "absolute_min": 0,
-      "absolute_max": 999999
+      "absolute_min": -999999,
+      "absolute_max": 999999999
     },
     {
-      "id": "input_1",
+      "id": "KutuHacim",
       "name": "KutuHacim",
       "unit": "m3",
       "type": "number",
       "required": true,
       "confidence_label": "KESİN",
-      "absolute_min": 0,
-      "absolute_max": 999999
+      "absolute_min": -999999,
+      "absolute_max": 999999999
     },
     {
-      "id": "input_2",
+      "id": "Istifleme",
       "name": "Istifleme",
       "unit": "Yüzde",
       "type": "number",
       "required": true,
       "confidence_label": "KESİN",
+      "absolute_min": -999999,
+      "absolute_max": 999999999
+    },
+    {
+      "id": "extra_3",
+      "name": "Ek Parametre 3",
+      "unit": "-",
+      "type": "number",
+      "required": false,
+      "confidence_label": "VARAYIM",
       "absolute_min": 0,
       "absolute_max": 999999
     },
     {
-      "id": "input_extra_3",
-      "name": "Ekstra Parametre 3",
+      "id": "extra_4",
+      "name": "Ek Parametre 4",
       "unit": "-",
       "type": "number",
-      "required": true,
-      "confidence_label": "KESİN",
+      "required": false,
+      "confidence_label": "VARAYIM",
       "absolute_min": 0,
       "absolute_max": 999999
     },
     {
-      "id": "input_extra_4",
-      "name": "Ekstra Parametre 4",
+      "id": "extra_5",
+      "name": "Ek Parametre 5",
       "unit": "-",
       "type": "number",
-      "required": true,
-      "confidence_label": "KESİN",
-      "absolute_min": 0,
-      "absolute_max": 999999
-    },
-    {
-      "id": "input_extra_5",
-      "name": "Ekstra Parametre 5",
-      "unit": "-",
-      "type": "number",
-      "required": true,
-      "confidence_label": "KESİN",
+      "required": false,
+      "confidence_label": "VARAYIM",
       "absolute_min": 0,
       "absolute_max": 999999
     }
   ],
   "formulas": [
-    "MaksKutu = FLOOR((KonteynerHacim * (Istifleme/100)) / MAX(0.0001, KutuHacim)) // Formül",
-    "Ekstra_Deger_1 = input_0 * 1.0 // Yardımcı hesaplama",
-    "Ekstra_Deger_2 = input_0 * 1.0 // Yardımcı hesaplama",
-    "Ekstra_Deger_3 = input_0 * 1.0 // Yardımcı hesaplama"
+    "MaksKutu = FLOOR((KonteynerHacim * (Istifleme/100)) / Math.max(0.0001, KutuHacim)) // Formül"
   ],
   "engine_rules": {
     "standards": [
@@ -79,32 +76,9 @@
     "validation": {
       "min_check": {
         "absolute_min": 0,
-        "error_msg": "Değer sıfırdan küçük olamaz."
-      },
-      "max_check": {
-        "absolute_max": 999999,
-        "error_msg": "Değer çok büyük."
+        "error_msg": "Geçersiz değer."
       }
     },
-    "smart_warnings": [
-      {
-        "condition": "input_0 > 1000",
-        "severity": "WARNING",
-        "source": "ISO Standartları",
-        "message": "Girdi çok yüksek."
-      },
-      {
-        "condition": "input_0 < 1",
-        "severity": "WARNING",
-        "source": "Standart Referans",
-        "message": "Girdi kritik seviyede düşük."
-      },
-      {
-        "condition": "input_0 == 500",
-        "severity": "INFO",
-        "source": "Genel Kural",
-        "message": "Girdi ortalama seviyede."
-      }
-    ]
+    "smart_warnings": []
   }
 }

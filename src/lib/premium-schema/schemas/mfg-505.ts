@@ -8,97 +8,9 @@ export const DOWNTIME_MINUTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Maintenance budgets ignore opportunity cost of machines not producing.",
 
-  inputs: [
-    {
-      id: "downtimeMinutes",
-      label: "Downtime minutes",
-      type: "number",
-      unit: "minutes",
-      required: true,
-      smartDefault: 95,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "hourlyRate",
-      label: "Shop hourly rate",
-      type: "number",
-      unit: "USD/h",
-      required: true,
-      smartDefault: 78,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "outputUnitsPerHour",
-      label: "Output units per hour",
-      type: "number",
-      unit: "units/h",
-      required: true,
-      smartDefault: 42,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "contributionPerUnit",
-      label: "Contribution per unit",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 6.5,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "time.downtime_minute_cost",
-      inputMap: { downtimeMinutes: "downtimeMinutes", hourlyRate: "hourlyRate" },
-      outputId: "downtimeCost",
-    },
-    {
-      formulaId: "time.downtime_units_lost",
-      inputMap: { downtimeMinutes: "downtimeMinutes", outputUnitsPerHour: "outputUnitsPerHour" },
-      outputId: "unitsLost",
-    },
-    {
-      formulaId: "cost.count_cost",
-      inputMap: { count: "unitsLost", costEach: "contributionPerUnit" },
-      outputId: "outputLossValue",
-    },
-    {
-      formulaId: "cost.total2",
-      inputMap: { a: "downtimeCost", b: "outputLossValue" },
-      outputId: "totalExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalExposure",
-      label: "Total downtime exposure",
-      unit: "USD",
-      format: "currency",
-      isBigNumber: true,
-    },
-    {
-      id: "downtimeCost",
-      label: "Shop rate downtime cost",
-      unit: "USD",
-      format: "currency",
-    },
-    {
-      id: "outputLossValue",
-      label: "Output loss value",
-      unit: "USD",
-      format: "currency",
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

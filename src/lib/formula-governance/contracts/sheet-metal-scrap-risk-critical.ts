@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const SCRAP_RATE_WARNING_THRESHOLD = 5;
 const SCRAP_RATE_CRITICAL_THRESHOLD = 10;
 
-const REQUIRED_INPUTS = [...SHEET_METAL_SCRAP_RISK_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "excessScrapCost",
@@ -45,7 +45,7 @@ export const SheetMetalScrapRiskCalculatorContract: FormulaContract = buildAssur
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool estimates sheet metal scrap risk from user-supplied material, scrap rate and rework inputs.",

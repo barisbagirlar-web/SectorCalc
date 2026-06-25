@@ -1,116 +1,154 @@
-# SectorCalc
+# SectorCalc Universal Calculator Engine — Kurulum Rehberi
 
-English-first B2B platform with sector-specific calculators and premium decision-report previews for construction, cleaning, restaurant, e-commerce, and CNC manufacturing.
+## Teslim Edilen Dosyalar
 
-**Live domain:** [sectorcalc.com](https://sectorcalc.com)  
-**Firebase test URL:** [sectorcalc-bf412.web.app](https://sectorcalc-bf412.web.app)
+| Dosya | Amaç |
+|---|---|
+| `UniversalCalculator.jsx` | Tüm 192 araç için tek React bileşeni |
+| `rewrite-pipeline.mjs` | 192 JSON'u API ile endüstriyel kaliteye yükseltir |
+| `pro-tool-page.tsx` | Next.js sayfa bileşeni (JSON → UI) |
 
-> Production reality is documented in [`docs/production-reality.md`](docs/production-reality.md).
-> Repo inventory docs are not live reality by themselves — always cross-check with
-> current HEAD + smoke test results (`npm run audit:revenue-tools`, `npm run smoke:premium-routes`, `npm run smoke:locale-routes`).
+---
 
-> **Cursor path safety:** Do not use `src/lib/calculation-intelligence/` — it does not exist.
-> All Dual-Core logic lives under `src/lib/formula-governance/`.
-
-## MVP scope (shipped)
-
-- 5 industry hubs, 5 free tools, 5 premium tools
-- Shared calculator engine with premium report previews
-- Pricing page, sample decision report, lead capture modal
-- LocalStorage lead fallback + optional Firestore (`leadIntents`)
-- Admin-light viewer at `/admin/leads` (disabled in production by default)
-- Firestore security rules (create-only for leads)
-- Sitemap, robots, Privacy / Terms / Disclaimer
-
-## Not in MVP
-
-- Payment / checkout
-- User authentication
-- Full admin dashboard
-- Real PDF, Excel, or Word export
-- Email sending
-- Server-side Admin SDK
-
-See [docs/security-notes.md](docs/security-notes.md) for production gaps.
-
-## Local development
+## ADIM 1 — Pipeline Çalıştır (192 araç JSON yeniden üretimi)
 
 ```bash
-npm install
-cp .env.example .env.local
-# Optional: set NEXT_PUBLIC_SITE_URL and Firebase vars in .env.local
-npm run dev
+# Bağımlılık kur
+npm install @anthropic-ai/sdk
+
+# API key (zaten varsa atla)
+export ANTHROPIC_API_KEY="sk-ant-..."
+
+# Önce test: sadece 2 araç (PRO_019 ve PRO_043)
+node rewrite-pipeline.mjs \
+  --input=./pro_hesaplama_araclari_193_.txt \
+  --output=./data/pro-tools \
+  --only=PRO_019,PRO_043
+
+# Çıktıyı kontrol et
+cat ./data/pro-tools/PRO_043.json | python3 -m json.tool
+
+# Test geçtiyse tüm 192 araç (~2-3 saat, ~$8-12 API maliyeti)
+node rewrite-pipeline.mjs \
+  --input=./pro_hesaplama_araclari_193_.txt \
+  --output=./data/pro-tools
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+**Tahminler:**
+- 192 araç × ortalama 2500 token = ~480K token
+- Claude Sonnet 4.6 maliyeti: ~$4-8 toplam
+- Süre: ~120 dakika (0.6s delay ile)
+- Çıktı: 192 ayrı JSON + `_merged.json` + `_report.json`
 
-## Test commands
+---
+
+## ADIM 2 — Next.js'e Entegrasyon
+
+```
+sectorcalc/
+├── app/
+│   └── [locale]/
+│       └── pro-tools/
+│           └── [toolId]/
+│               └── page.tsx          ← pro-tool-page.tsx'i buraya kopyala
+├── components/
+│   └── calculators/
+│       └── UniversalCalculator.jsx   ← buraya kopyala
+└── data/
+    └── pro-tools/
+        ├── PRO_001.json              ← pipeline çıktısı
+        ├── PRO_002.json
+        ├── ...
+        └── PRO_193.json
+```
 
 ```bash
-npm run lint
-npx tsc --noEmit
-npm run build
-npm run start   # production build locally
+# Dosyaları yerleştir
+cp UniversalCalculator.jsx components/calculators/
+cp pro-tool-page.tsx app/[locale]/pro-tools/[toolId]/page.tsx
+mkdir -p data/pro-tools
+# data/pro-tools/ içine pipeline çıktısını kopyala
 ```
 
-## Environment variables
+---
 
-| Variable | Required | Notes |
-|----------|----------|--------|
-| `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical origin, e.g. `https://sectorcalc.com` |
-| `NEXT_PUBLIC_FIREBASE_*` (6 vars) | Optional | Firestore lead writes; see `.env.example` |
-| `NEXT_PUBLIC_ENABLE_ADMIN_LIGHT` | Optional | **Do not** set `true` on public production |
+## ADIM 3 — Araç Listesi Sayfası (mevcut pro-tools sayfana entegrasyon)
 
-Full checklist: [docs/env-checklist.md](docs/env-checklist.md).
+`data/pro-tools/_merged.json` dosyasını kullanarak mevcut katalog sayfana araçları ekle:
 
-## Deployment
+```typescript
+// app/[locale]/pro-tools/page.tsx içinde
+import mergedTools from "@/data/pro-tools/_merged.json";
 
-### Local pre-deploy checks
+const toolList = mergedTools.map(tool => ({
+  id: tool.tool_id,
+  name: tool.tool_name,
+  category: tool.category,
+  href: `/${locale}/pro-tools/${tool.tool_id}`,
+  standards: tool.engine_rules?.standards || [],
+}));
+```
+
+---
+
+## ADIM 4 — Kalite Kontrolü
+
+Pipeline sonrası `_report.json` dosyasına bak:
+
+```json
+{
+  "quality_failed": [
+    { "id": "PRO_XXX", "quality_gate": { "warnings_ok": false } }
+  ]
+}
+```
+
+`quality_failed` listesindeki araçları tek tek yeniden işle:
 
 ```bash
-npm run lint
-npx tsc --noEmit
-npm run build
+node rewrite-pipeline.mjs \
+  --input=./pro_hesaplama_araclari_193_.txt \
+  --output=./data/pro-tools \
+  --only=PRO_XXX,PRO_YYY \
+  --force
 ```
 
-### Firebase CLI
+---
 
-```bash
-firebase login
-firebase use <your-firebase-project-id>
-firebase deploy --only firestore:rules,firestore:indexes
-firebase deploy --only hosting
+## UniversalCalculator Props
+
+```typescript
+<UniversalCalculator
+  tool={toolJson}          // JSON objesi (zorunlu)
+  locale="tr"              // "tr" | "en" | "de" vb.
+  onResult={(result) => {  // opsiyonel callback
+    console.log(result.computed);   // hesaplanan tüm değişkenler
+    console.log(result.warnings);   // tetiklenen uyarılar
+  }}
+/>
 ```
 
-**Important:** If you use **Firebase App Hosting** or framework-aware Hosting for Next.js, confirm your Firebase project setup in the console before `hosting` deploy. The repo’s `firebase.json` is minimal (Firestore + `hosting.source: "."`); align with [Firebase Next.js hosting docs](https://firebase.google.com/docs/hosting/frameworks/frameworks-overview) for your chosen flow.
+---
 
-Set production env vars (`NEXT_PUBLIC_SITE_URL`, optional Firebase keys) in the hosting environment **before** build.
-
-Step-by-step: [docs/deployment-checklist.md](docs/deployment-checklist.md).
-
-## QA before / after go-live
-
-- Route matrix: [docs/public-qa-checklist.md](docs/public-qa-checklist.md)
-- First live walkthrough: [docs/first-live-test-script.md](docs/first-live-test-script.md)
-
-## Firebase & security docs
-
-- [src/lib/firebase/README.md](src/lib/firebase/README.md) — client config, `leadIntents` collection
-- [docs/security-notes.md](docs/security-notes.md) — MVP posture and pre-launch requirements
-- `firestore.rules` — deny public read; validated create on `leadIntents` only
-
-## Project structure (high level)
+## Engine'in Desteklediği Formül Fonksiyonları
 
 ```
-src/app/          Next.js App Router pages
-src/components/   UI, tools, leads, admin
-src/data/         Tools, industries, pricing registries
-src/lib/          Calculators, leads, Firebase client, analytics
-docs/             Deployment, env, QA, security
-firestore.rules   Firestore security rules
-firebase.json     Firebase CLI config
+POWER(x, n)    ABS(x)      SQRT(x)    LN(x)      LOG10(x)
+EXP(x)         SIN(x)      COS(x)     TAN(x)     PI
+NORMSINV(p)    NORMSDIST(z)
+MAX(a,b)       MIN(a,b)    FLOOR(x)   CEIL(x)
 ```
 
-## License
+---
 
-Private / unpublished — update when applicable.
+## Dikkat Edilmesi Gerekenler
+
+1. **`absolute_min`** — Her sayısal inputta tanımlı olmalı (pipeline bunu zorluyor)
+2. **Formül sırası** — Bağımlı değişkenler önce tanımlanmalı (`n_rpm` → `Vf` → `T_cut`)
+3. **Birim tutarlılığı** — mm/dak ile m/dak karışmamalı; formüller içinde çevrim faktörü kullan
+4. **PRO_019** — Pipeline tarafından sıfırdan üretilecek (şu an boş)
+5. **Scope çakışması** — `multi_operation` scope'lu araçlarda `formulas_milling` ve `formulas_turning` ayrı diziler olarak yazılacak; engine bunu henüz ayrıştırmıyor (gerekirse eklenebilir)
+
+---
+
+*SectorCalc Engine v1.0 — 2026*

@@ -529,22 +529,7 @@ export function EnterpriseFooter() {
         </div>
       </div>
 
-      {/* Language selector */}
-      <div className="sc-ft-lang">
-        <div className="sc-ft-lang-label">{dict.headings.language}</div>
-        <div className="sc-ft-lang-list">
-          {["en", "tr", "de", "fr", "es", "ar"].map((lang) => (
-            <button
-              key={lang}
-              onClick={() => handleLocaleChange(lang)}
-              className={`sc-ft-lang-btn ${currentLocale === lang ? "active" : ""}`}
-              disabled={pending}
-            >
-              {lang.toUpperCase()}
-            </button>
-          ))}
-        </div>
-      </div>
+
 
       {/* Bottom bar */}
       <div className="sc-ft-bottom">

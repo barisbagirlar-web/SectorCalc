@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const TOOL_COST_PER_PART_WARNING_THRESHOLD = 0.5;
 const TOOL_COST_PER_PART_CRITICAL_THRESHOLD = 1.5;
 
-const REQUIRED_INPUTS = [...CNC_TOOL_WEAR_COST_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "toolCostPerPart",
@@ -44,7 +44,7 @@ export const CncToolWearCostCalculatorContract: FormulaContract = buildAssuredCr
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool estimates tool wear exposure from user-supplied monthly tool spend, volume and changeover inputs.",

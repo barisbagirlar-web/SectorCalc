@@ -9,85 +9,9 @@ export const SLUG_3D_PRINT_JOB_MARGIN_TOOL_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Find minimum print price with fail rate and post-processing included.",
 
-  inputs: [
-    {
-      id: "targetValue",
-      label: "Target value",
-      type: "number",
-      unit: "value",
-      required: true,
-      smartDefault: 100,
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "actualValue",
-      label: "Actual value",
-      type: "number",
-      unit: "value",
-      required: true,
-      smartDefault: 101.8,
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "tolerance",
-      label: "Tolerance",
-      type: "number",
-      unit: "value",
-      required: true,
-      smartDefault: 2,
-      validation: { min: 0.0001 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "batchValue",
-      label: "Batch value",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 18000,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "rejectionRiskPercent",
-      label: "Rejection risk",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 12,
-      validation: { min: 0, max: 100 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "calibration.tolerance_status",
-      inputMap: { target: "targetValue", actual: "actualValue", tolerance: "tolerance" },
-      outputId: "toleranceUsage",
-    },
-    {
-      formulaId: "cost.percent_of_amount",
-      inputMap: { amount: "batchValue", percent: "rejectionRiskPercent" },
-      outputId: "rejectionExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "toleranceUsage",
-      label: "Tolerance usage",
-      unit: "%",
-      format: "percentage",
-      isBigNumber: true,
-    },
-    { id: "rejectionExposure", label: "Rejection exposure", unit: "USD", format: "currency" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

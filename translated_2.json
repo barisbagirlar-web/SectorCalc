@@ -1,0 +1,646 @@
+{
+  "Production units": {
+    "tr": "Üretim birimleri",
+    "de": "Produktionseinheiten",
+    "fr": "Unités de production",
+    "es": "Unidades de producción",
+    "ar": "وحدات الإنتاج"
+  },
+  "Units produced in the batch.": {
+    "tr": "Partide üretilen birimler.",
+    "de": "In der Charge produzierte Einheiten.",
+    "fr": "Unités produites dans le lot.",
+    "es": "Unidades producidas en el lote.",
+    "ar": "الوحدات المنتجة في الدفعة."
+  },
+  "Reference carbon price for exposure estimate.": {
+    "tr": "Maruz kalma tahmini için referans karbon fiyatı.",
+    "de": "Referenz-CO2-Preis für die Expositionsabschätzung.",
+    "fr": "Prix de référence du carbone pour l'estimation de l'exposition.",
+    "es": "Precio de referencia del carbono para estimar la exposición.",
+    "ar": "السعر المرجعي للكربون لتقدير التعرض."
+  },
+  "Daily site cost": {
+    "tr": "Günlük saha maliyeti",
+    "de": "Tägliche Baustellenkosten",
+    "fr": "Coût journalier du site",
+    "es": "Costo diario del sitio",
+    "ar": "التكلفة اليومية للموقع"
+  },
+  "Crew, equipment and overhead per day on site.": {
+    "tr": "Sahada günlük ekip, ekipman ve genel giderler.",
+    "de": "Personal-, Ausrüstungs- und Gemeinkosten pro Tag vor Ort.",
+    "fr": "Équipe, équipement et frais généraux par jour sur site.",
+    "es": "Cuadrilla, equipos y gastos generales por día en el sitio.",
+    "ar": "الطاقم والمعدات والنفقات العامة يوميًا في الموقع."
+  },
+  "Delay days": {
+    "tr": "Gecikme günleri",
+    "de": "Verzögerungstage",
+    "fr": "Jours de retard",
+    "es": "Días de retraso",
+    "ar": "أيام التأخير"
+  },
+  "Expected schedule slip beyond baseline.": {
+    "tr": "Temel programın ötesinde beklenen gecikme.",
+    "de": "Erwartete Zeitplanüberschreitung über den Basisplan hinaus.",
+    "fr": "Dérapage attendu du calendrier par rapport à la base de référence.",
+    "es": "Desviación esperada del cronograma respecto a la línea base.",
+    "ar": "انزلاق الجدول الزمني المتوقع بعد خط الأساس."
+  },
+  "Labor budget": {
+    "tr": "İşçilik bütçesi",
+    "de": "Arbeitsbudget",
+    "fr": "Budget de main-d'œuvre",
+    "es": "Presupuesto de mano de obra",
+    "ar": "ميزانية العمالة"
+  },
+  "Planned labor spend for the scope.": {
+    "tr": "Kapsam için planlanan işçilik harcaması.",
+    "de": "Geplante Arbeitskosten für den Umfang.",
+    "fr": "Dépenses de main-d'œuvre prévues pour le périmètre.",
+    "es": "Gasto de mano de obra planificado para el alcance.",
+    "ar": "إنفاق العمالة المخطط للنطاق."
+  },
+  "Labor overrun": {
+    "tr": "İşçilik aşımı",
+    "de": "Arbeitskostenüberschreitung",
+    "fr": "Dépassement de main-d'œuvre",
+    "es": "Sobrecosto de mano de obra",
+    "ar": "تجاوز تكلفة العمالة"
+  },
+  "Expected labor cost drift above budget.": {
+    "tr": "Bütçenin üzerinde beklenen işçilik maliyeti sapması.",
+    "de": "Erwartete Abweichung der Arbeitskosten über dem Budget.",
+    "fr": "Dérive attendue du coût de la main-d'œuvre au-dessus du budget.",
+    "es": "Desviación esperada del costo de mano de obra por encima del presupuesto.",
+    "ar": "انحراف تكلفة العمالة المتوقع فوق الميزانية."
+  },
+  "Material budget": {
+    "tr": "Malzeme bütçesi",
+    "de": "Materialbudget",
+    "fr": "Budget matériel",
+    "es": "Presupuesto de materiales",
+    "ar": "ميزانية المواد"
+  },
+  "Planned material spend for the scope.": {
+    "tr": "Kapsam için planlanan malzeme harcaması.",
+    "de": "Geplante Materialkosten für den Umfang.",
+    "fr": "Dépenses matérielles prévues pour le périmètre.",
+    "es": "Gasto en materiales planificado para el alcance.",
+    "ar": "إنفاق المواد المخطط للنطاق."
+  },
+  "Material overrun": {
+    "tr": "Malzeme aşımı",
+    "de": "Materialkostenüberschreitung",
+    "fr": "Dépassement matériel",
+    "es": "Sobrecosto de materiales",
+    "ar": "تجاوز تكلفة المواد"
+  },
+  "Expected material cost drift above budget.": {
+    "tr": "Bütçenin üzerinde beklenen malzeme maliyeti sapması.",
+    "de": "Erwartete Abweichung der Materialkosten über dem Budget.",
+    "fr": "Dérive attendue du coût des matériaux au-dessus du budget.",
+    "es": "Desviación esperada del costo de materiales por encima del presupuesto.",
+    "ar": "انحراف تكلفة المواد المتوقع فوق الميزانية."
+  },
+  "Monthly API calls": {
+    "tr": "Aylık API çağrıları",
+    "de": "Monatliche API-Aufrufe",
+    "fr": "Appels API mensuels",
+    "es": "Llamadas API mensuales",
+    "ar": "مكالمات API الشهرية"
+  },
+  "Total API requests billed in the period.": {
+    "tr": "Dönem içinde faturalandırılan toplam API isteği.",
+    "de": "Insgesamt im Zeitraum abgerechnete API-Anfragen.",
+    "fr": "Total des requêtes API facturées dans la période.",
+    "es": "Total de solicitudes API facturadas en el período.",
+    "ar": "إجمالي طلبات API المفوترة في الفترة."
+  },
+  "Cost per 1k calls": {
+    "tr": "1000 çağrı başına maliyet",
+    "de": "Kosten pro 1k Aufrufe",
+    "fr": "Coût pour 1000 appels",
+    "es": "Costo por 1k llamadas",
+    "ar": "التكلفة لكل 1000 مكالمة"
+  },
+  "Blended cost per thousand API calls.": {
+    "tr": "Bin API çağrısı başına karma maliyet.",
+    "de": "Mischkosten pro tausend API-Aufrufe.",
+    "fr": "Coût mixte pour mille appels API.",
+    "es": "Costo combinado por cada mil llamadas API.",
+    "ar": "التكلفة المدمجة لكل ألف مكالمة API."
+  },
+  "Monthly revenue": {
+    "tr": "Aylık gelir",
+    "de": "Monatlicher Umsatz",
+    "fr": "Revenu mensuel",
+    "es": "Ingresos mensuales",
+    "ar": "الإيرادات الشهرية"
+  },
+  "Product revenue for the same period.": {
+    "tr": "Aynı dönem için ürün geliri.",
+    "de": "Produktumsatz für denselben Zeitraum.",
+    "fr": "Revenu du produit pour la même période.",
+    "es": "Ingresos del producto para el mismo período.",
+    "ar": "إيرادات المنتج لنفس الفترة."
+  },
+  "Compute cost": {
+    "tr": "İşlem maliyeti",
+    "de": "Rechenkosten",
+    "fr": "Coût de calcul",
+    "es": "Costo de cómputo",
+    "ar": "تكلفة الحوسبة"
+  },
+  "Monthly compute and server spend.": {
+    "tr": "Aylık işlem ve sunucu harcaması.",
+    "de": "Monatliche Ausgaben für Rechenleistung und Server.",
+    "fr": "Dépenses mensuelles de calcul et de serveur.",
+    "es": "Gasto mensual en cómputo y servidores.",
+    "ar": "الإنفاق الشهري على الحوسبة والخوادم."
+  },
+  "Monthly storage and egress spend.": {
+    "tr": "Aylık depolama ve veri çıkışı harcaması.",
+    "de": "Monatliche Ausgaben für Speicherung und Datenabfluss.",
+    "fr": "Dépenses mensuelles de stockage et de sortie de données.",
+    "es": "Gasto mensual en almacenamiento y salida de datos.",
+    "ar": "الإنفاق الشهري على التخزين ونقل البيانات."
+  },
+  "Loaded shop rate including operator burden.": {
+    "tr": "Operatör yükü dahil yüklü atölye oranı.",
+    "de": "Inklusiver Werkstattsatz einschließlich Bedienerkosten.",
+    "fr": "Taux d'atelier chargé incluant la charge de l'opérateur.",
+    "es": "Tarifa de taller cargada incluyendo la carga del operador.",
+    "ar": "معدل الورشة المحمل بما في ذلك عبء المشغل."
+  },
+  "Planned run hours": {
+    "tr": "Planlanan çalışma saatleri",
+    "de": "Geplante Laufstunden",
+    "fr": "Heures de fonctionnement prévues",
+    "es": "Horas de funcionamiento planificadas",
+    "ar": "ساعات التشغيل المخطط لها"
+  },
+  "Setup plus production hours on the job.": {
+    "tr": "İşteki kurulum ve üretim saatleri.",
+    "de": "Rüst- und Produktionsstunden für den Auftrag.",
+    "fr": "Heures de configuration et de production sur le travail.",
+    "es": "Horas de configuración y producción en el trabajo.",
+    "ar": "ساعات الإعداد والإنتاج في المهمة."
+  },
+  "Expected downtime": {
+    "tr": "Beklenen duruş süresi",
+    "de": "Erwartete Ausfallzeit",
+    "fr": "Temps d'arrêt attendu",
+    "es": "Tiempo de inactividad esperado",
+    "ar": "وقت التوقف المتوقع"
+  },
+  "Tool changes, first-off inspection, minor stops.": {
+    "tr": "Takım değişiklikleri, ilk ürün muayenesi, küçük duruşlar.",
+    "de": "Werkzeugwechsel, Erstmusterprüfung, kleinere Stopps.",
+    "fr": "Changements d'outils, inspection de la première pièce, arrêts mineurs.",
+    "es": "Cambios de herramienta, inspección de la primera pieza, paradas menores.",
+    "ar": "تغييرات الأداة، فحص القطعة الأولى، توقفات طفيفة."
+  },
+  "Stock, fixturing consumables for the job.": {
+    "tr": "İş için stok, fikstür sarf malzemeleri.",
+    "de": "Lagerbestand, Vorrichtungs-Verbrauchsmaterialien für den Auftrag.",
+    "fr": "Stock, consommables de montage pour le travail.",
+    "es": "Stock, consumibles de sujeción para el trabajo.",
+    "ar": "المخزون، المواد الاستهلاكية للتثبيت للمهمة."
+  },
+  "Historical scrap percent for similar jobs.": {
+    "tr": "Benzer işler için tarihsel hurda yüzdesi.",
+    "de": "Historischer Ausschuss-Prozentsatz für ähnliche Aufträge.",
+    "fr": "Pourcentage de rebut historique pour des travaux similaires.",
+    "es": "Porcentaje de desecho histórico para trabajos similares.",
+    "ar": "نسبة الخردة التاريخية لوظائف مماثلة."
+  },
+  "Actual cycle vs ideal cycle.": {
+    "tr": "Gerçek çevrim ile ideal çevrim.",
+    "de": "Tatsächlicher Zyklus vs. idealer Zyklus.",
+    "fr": "Cycle réel vs cycle idéal.",
+    "es": "Ciclo real vs ciclo ideal.",
+    "ar": "الدورة الفعلية مقابل الدورة المثالية."
+  },
+  "Good parts vs total parts.": {
+    "tr": "Sağlam parçalar ile toplam parçalar.",
+    "de": "Gute Teile vs. gesamte Teile.",
+    "fr": "Bonnes pièces vs total des pièces.",
+    "es": "Piezas buenas vs total de piezas.",
+    "ar": "الأجزاء الجيدة مقابل إجمالي الأجزاء."
+  },
+  "Quoted price": {
+    "tr": "Verilen fiyat",
+    "de": "Angebotener Preis",
+    "fr": "Prix proposé",
+    "es": "Precio cotizado",
+    "ar": "السعر المعروض"
+  },
+  "Price you plan to charge the customer.": {
+    "tr": "Müşteriden almayı planladığınız fiyat.",
+    "de": "Preis, den Sie dem Kunden berechnen möchten.",
+    "fr": "Prix que vous prévoyez de facturer au client.",
+    "es": "Precio que planeas cobrar al cliente.",
+    "ar": "السعر الذي تخطط لفرضه على العميل."
+  },
+  "Monthly tool cost": {
+    "tr": "Aylık takım maliyeti",
+    "de": "Monatliche Werkzeugkosten",
+    "fr": "Coût mensuel des outils",
+    "es": "Costo mensual de herramientas",
+    "ar": "تكلفة الأداة الشهرية"
+  },
+  "Inserts, tooling and consumables spend per month.": {
+    "tr": "Aylık uç, takım ve sarf malzemesi harcaması.",
+    "de": "Ausgaben für Wendeschneidplatten, Werkzeuge und Verbrauchsmaterialien pro Monat.",
+    "fr": "Dépenses mensuelles en plaquettes, outillages et consommables.",
+    "es": "Gasto mensual en insertos, herramientas y consumibles.",
+    "ar": "الإنفاق على الإدخالات والأدوات والمواد الاستهلاكية شهريًا."
+  },
+  "Parts produced": {
+    "tr": "Üretilen parçalar",
+    "de": "Produzierte Teile",
+    "fr": "Pièces produites",
+    "es": "Piezas producidas",
+    "ar": "الأجزاء المنتجة"
+  },
+  "Good parts produced in the same period.": {
+    "tr": "Aynı dönemde üretilen sağlam parçalar.",
+    "de": "Im selben Zeitraum produzierte gute Teile.",
+    "fr": "Bonnes pièces produites dans la même période.",
+    "es": "Piezas buenas producidas en el mismo período.",
+    "ar": "الأجزاء الجيدة المنتجة في نفس الفترة."
+  },
+  "Tool change minutes": {
+    "tr": "Takım değiştirme dakikaları",
+    "de": "Werkzeugwechsel-Minuten",
+    "fr": "Minutes de changement d'outil",
+    "es": "Minutos de cambio de herramienta",
+    "ar": "دقائق تغيير الأداة"
+  },
+  "Average minutes lost per tool change event.": {
+    "tr": "Takım değiştirme olayı başına ortalama kayıp dakika.",
+    "de": "Durchschnittlich verlorene Minuten pro Werkzeugwechsel.",
+    "fr": "Minutes moyennes perdues par événement de changement d'outil.",
+    "es": "Minutos promedio perdidos por evento de cambio de herramienta.",
+    "ar": "متوسط الدقائق المفقودة لكل حدث تغيير أداة."
+  },
+  "Changes per month": {
+    "tr": "Aylık değişiklikler",
+    "de": "Wechsel pro Monat",
+    "fr": "Changements par mois",
+    "es": "Cambios por mes",
+    "ar": "التغييرات شهريا"
+  },
+  "Tool change events in the period.": {
+    "tr": "Dönem içindeki takım değiştirme olayları.",
+    "de": "Werkzeugwechsel-Ereignisse im Zeitraum.",
+    "fr": "Événements de changement d'outil dans la période.",
+    "es": "Eventos de cambio de herramienta en el período.",
+    "ar": "أحداث تغيير الأداة في الفترة."
+  },
+  "Loaded machine and operator rate.": {
+    "tr": "Yüklü makine ve operatör oranı.",
+    "de": "Inklusiver Maschinen- und Bedienersatz.",
+    "fr": "Taux chargé de la machine et de l'opérateur.",
+    "es": "Tarifa cargada de máquina y operador.",
+    "ar": "معدل الماكينة والمشغل المحمل."
+  },
+  "Coolant cost": {
+    "tr": "Soğutma sıvısı maliyeti",
+    "de": "Kühlmittelkosten",
+    "fr": "Coût du liquide de refroidissement",
+    "es": "Costo del refrigerante",
+    "ar": "تكلفة المبرد"
+  },
+  "Coolant and lubricant spend tied to tooling.": {
+    "tr": "Takımlamaya bağlı soğutma sıvısı ve yağlayıcı harcaması.",
+    "de": "Kühl- und Schmiermittelausgaben in Verbindung mit der Werkzeugausstattung.",
+    "fr": "Dépenses en liquide de refroidissement et lubrifiant liées à l'outillage.",
+    "es": "Gasto en refrigerante y lubricante vinculado al herramental.",
+    "ar": "إنفاق المبردات ومواد التشحيم المرتبط بالأدوات."
+  },
+  "Compressor power": {
+    "tr": "Kompresör gücü",
+    "de": "Kompressorleistung",
+    "fr": "Puissance du compresseur",
+    "es": "Potencia del compresor",
+    "ar": "طاقة الضاغط"
+  },
+  "Rated compressor motor power.": {
+    "tr": "Nominal kompresör motor gücü.",
+    "de": "Nennleistung des Kompressormotors.",
+    "fr": "Puissance nominale du moteur du compresseur.",
+    "es": "Potencia nominal del motor del compresor.",
+    "ar": "قوة محرك الضاغط المقدرة."
+  },
+  "Leak percent": {
+    "tr": "Sızıntı yüzdesi",
+    "de": "Leckage-Prozentsatz",
+    "fr": "Pourcentage de fuite",
+    "es": "Porcentaje de fuga",
+    "ar": "نسبة التسرب"
+  },
+  "Estimated compressed air leak as percent of output.": {
+    "tr": "Çıktının yüzdesi olarak tahmini basınçlı hava sızıntısı.",
+    "de": "Geschätzte Druckluftleckage als Prozentsatz der Leistung.",
+    "fr": "Fuite d'air comprimé estimée en pourcentage de la production.",
+    "es": "Fuga de aire comprimido estimada como porcentaje de la salida.",
+    "ar": "تسرب الهواء المضغوط المقدر كنسبة مئوية من الإنتاج."
+  },
+  "Operating hours": {
+    "tr": "Çalışma saatleri",
+    "de": "Betriebsstunden",
+    "fr": "Heures de fonctionnement",
+    "es": "Horas de funcionamiento",
+    "ar": "ساعات التشغيل"
+  },
+  "Monthly compressor run hours.": {
+    "tr": "Aylık kompresör çalışma saatleri.",
+    "de": "Monatliche Kompressor-Laufstunden.",
+    "fr": "Heures de fonctionnement mensuelles du compresseur.",
+    "es": "Horas de funcionamiento mensuales del compresor.",
+    "ar": "ساعات تشغيل الضاغط الشهرية."
+  },
+  "Blended electricity rate.": {
+    "tr": "Karma elektrik tarifesi.",
+    "de": "Gemischter Stromtarif.",
+    "fr": "Tarif d'électricité mixte.",
+    "es": "Tarifa eléctrica combinada.",
+    "ar": "معدل الكهرباء المدمج."
+  },
+  "Contract value": {
+    "tr": "Sözleşme değeri",
+    "de": "Vertragswert",
+    "fr": "Valeur du contrat",
+    "es": "Valor del contrato",
+    "ar": "قيمة العقد"
+  },
+  "Total contract or project revenue.": {
+    "tr": "Toplam sözleşme veya proje geliri.",
+    "de": "Gesamter Vertrags- oder Projektumsatz.",
+    "fr": "Revenu total du contrat ou du projet.",
+    "es": "Ingresos totales del contrato o proyecto.",
+    "ar": "إجمالي إيرادات العقد أو المشروع."
+  },
+  "Planned subcontractor cost": {
+    "tr": "Planlanan alt yüklenici maliyeti",
+    "de": "Geplante Kosten für Subunternehmer",
+    "fr": "Coût de sous-traitant prévu",
+    "es": "Costo de subcontratista planificado",
+    "ar": "تكلفة المقاول من الباطن المخطط لها"
+  },
+  "Budgeted subcontractor spend.": {
+    "tr": "Bütçelenmiş alt yüklenici harcaması.",
+    "de": "Budgetierte Ausgaben für Subunternehmer.",
+    "fr": "Dépenses budgétées pour les sous-traitants.",
+    "es": "Gasto presupuestado para subcontratistas.",
+    "ar": "الإنفاق المدرج في الميزانية للمقاول من الباطن."
+  },
+  "Actual subcontractor cost": {
+    "tr": "Gerçek alt yüklenici maliyeti",
+    "de": "Tatsächliche Kosten für Subunternehmer",
+    "fr": "Coût réel du sous-traitant",
+    "es": "Costo real del subcontratista",
+    "ar": "تكلفة المقاول من الباطن الفعلية"
+  },
+  "Actual or projected subcontractor spend.": {
+    "tr": "Gerçekleşen veya öngörülen alt yüklenici harcaması.",
+    "de": "Tatsächliche oder prognostizierte Ausgaben für Subunternehmer.",
+    "fr": "Dépenses réelles ou projetées pour les sous-traitants.",
+    "es": "Gasto real o proyectado en subcontratistas.",
+    "ar": "الإنفاق الفعلي أو المتوقع للمقاول من الباطن."
+  },
+  "Delay cost": {
+    "tr": "Gecikme maliyeti",
+    "de": "Verzögerungskosten",
+    "fr": "Coût de retard",
+    "es": "Costo por retraso",
+    "ar": "تكلفة التأخير"
+  },
+  "Schedule slip and delay claim exposure.": {
+    "tr": "Program sapması ve gecikme talebi riski.",
+    "de": "Zeitplanüberschreitung und Risiko von Verzögerungsansprüchen.",
+    "fr": "Dérapage du calendrier et exposition aux réclamations pour retard.",
+    "es": "Desviación del cronograma y exposición a reclamos por retraso.",
+    "ar": "انزلاق الجدول الزمني والتعرض لمطالبات التأخير."
+  },
+  "Material variance": {
+    "tr": "Malzeme sapması",
+    "de": "Materialabweichung",
+    "fr": "Écart de matériel",
+    "es": "Variación de materiales",
+    "ar": "تباين المواد"
+  },
+  "Material cost drift above plan.": {
+    "tr": "Planın üzerinde malzeme maliyeti sapması.",
+    "de": "Abweichung der Materialkosten über dem Plan.",
+    "fr": "Dérive du coût des matériaux au-dessus du plan.",
+    "es": "Desviación del costo de materiales por encima de lo planificado.",
+    "ar": "انحراف تكلفة المواد فوق الخطة."
+  },
+  "Milking herd size for the period.": {
+    "tr": "Dönem için sağılan sürü boyutu.",
+    "de": "Größe der melkenden Herde für den Zeitraum.",
+    "fr": "Taille du troupeau de traite pour la période.",
+    "es": "Tamaño del rebaño de ordeño para el período.",
+    "ar": "حجم قطيع الحلب للفترة."
+  },
+  "Feed cost per cow per day": {
+    "tr": "İnek başına günlük yem maliyeti",
+    "de": "Futterkosten pro Kuh pro Tag",
+    "fr": "Coût de l'alimentation par vache et par jour",
+    "es": "Costo de alimentación por vaca por día",
+    "ar": "تكلفة العلف لكل بقرة في اليوم"
+  },
+  "Average daily feed spend per cow.": {
+    "tr": "İnek başına ortalama günlük yem harcaması.",
+    "de": "Durchschnittliche tägliche Futterausgaben pro Kuh.",
+    "fr": "Dépense moyenne quotidienne en alimentation par vache.",
+    "es": "Gasto promedio diario de alimentación por vaca.",
+    "ar": "متوسط الإنفاق اليومي على العلف لكل بقرة."
+  },
+  "Milk liters per cow per day": {
+    "tr": "İnek başına günlük süt (litre)",
+    "de": "Milchliter pro Kuh pro Tag",
+    "fr": "Litres de lait par vache et par jour",
+    "es": "Litros de leche por vaca por día",
+    "ar": "لترات الحليب لكل بقرة في اليوم"
+  },
+  "Observed milk yield per cow per day.": {
+    "tr": "İnek başına gözlemlenen günlük süt verimi.",
+    "de": "Beobachteter Milchertrag pro Kuh pro Tag.",
+    "fr": "Rendement laitier observé par vache et par jour.",
+    "es": "Rendimiento de leche observado por vaca por día.",
+    "ar": "إنتاج الحليب الملحوظ لكل بقرة في اليوم."
+  },
+  "Target milk liters per cow per day": {
+    "tr": "İnek başına hedeflenen günlük süt (litre)",
+    "de": "Ziel-Milchliter pro Kuh pro Tag",
+    "fr": "Litres de lait cibles par vache et par jour",
+    "es": "Litros de leche objetivo por vaca por día",
+    "ar": "لترات الحليب المستهدفة لكل بقرة في اليوم"
+  },
+  "Target or benchmark yield per cow per day.": {
+    "tr": "İnek başına günlük hedef veya kıyaslama verimi.",
+    "de": "Ziel- oder Benchmark-Ertrag pro Kuh pro Tag.",
+    "fr": "Rendement cible ou de référence par vache et par jour.",
+    "es": "Rendimiento objetivo o de referencia por vaca por día.",
+    "ar": "الإنتاج المستهدف أو المعياري لكل بقرة في اليوم."
+  },
+  "Milk price per liter": {
+    "tr": "Litre başına süt fiyatı",
+    "de": "Milchpreis pro Liter",
+    "fr": "Prix du lait au litre",
+    "es": "Precio de la leche por litro",
+    "ar": "سعر الحليب للتر الواحد"
+  },
+  "Net milk price received per liter.": {
+    "tr": "Litre başına alınan net süt fiyatı.",
+    "de": "Erhaltener Netto-Milchpreis pro Liter.",
+    "fr": "Prix net du lait reçu par litre.",
+    "es": "Precio neto de la leche recibido por litro.",
+    "ar": "صافي سعر الحليب المستلم للتر."
+  },
+  "Calculation period in days.": {
+    "tr": "Gün cinsinden hesaplama dönemi.",
+    "de": "Berechnungszeitraum in Tagen.",
+    "fr": "Période de calcul en jours.",
+    "es": "Período de cálculo en días.",
+    "ar": "فترة الحساب بالأيام."
+  },
+  "Foreign currency assets": {
+    "tr": "Yabancı para varlıkları",
+    "de": "Fremdwährungsvermögen",
+    "fr": "Actifs en devises étrangères",
+    "es": "Activos en moneda extranjera",
+    "ar": "أصول العملات الأجنبية"
+  },
+  "Yabancı para cinsinden varlıklarınız (Nakit, Alacaklar vb.)": {
+    "tr": "Yabancı para cinsinden varlıklarınız (Nakit, Alacaklar vb.)",
+    "de": "Fremdwährungsvermögen (Bargeld, Forderungen etc.)",
+    "fr": "Vos actifs en devises étrangères (Espèces, Créances etc.)",
+    "es": "Tus activos en moneda extranjera (Efectivo, Cuentas por cobrar etc.)",
+    "ar": "أصولك بالعملة الأجنبية (النقد، المستحقات، إلخ)"
+  },
+  "Foreign currency liabilities": {
+    "tr": "Yabancı para yükümlülükleri",
+    "de": "Fremdwährungsverbindlichkeiten",
+    "fr": "Passifs en devises étrangères",
+    "es": "Pasivos en moneda extranjera",
+    "ar": "الالتزامات بالعملة الأجنبية"
+  },
+  "Yabancı para cinsinden yükümlülükleriniz (Borçlar, Ödemeler vb.)": {
+    "tr": "Yabancı para cinsinden yükümlülükleriniz (Borçlar, Ödemeler vb.)",
+    "de": "Fremdwährungsverbindlichkeiten (Schulden, Zahlungen etc.)",
+    "fr": "Vos passifs en devises étrangères (Dettes, Paiements etc.)",
+    "es": "Tus pasivos en moneda extranjera (Deudas, Pagos etc.)",
+    "ar": "التزاماتك بالعملة الأجنبية (الديون، المدفوعات، إلخ)"
+  },
+  "Current exchange rate": {
+    "tr": "Mevcut döviz kuru",
+    "de": "Aktueller Wechselkurs",
+    "fr": "Taux de change actuel",
+    "es": "Tipo de cambio actual",
+    "ar": "سعر الصرف الحالي"
+  },
+  "Mevcut döviz kuru (Örn: 1 USD = 35.50 TL)": {
+    "tr": "Mevcut döviz kuru (Örn: 1 USD = 35.50 TL)",
+    "de": "Aktueller Wechselkurs (Z.B.: 1 USD = 35.50 TL)",
+    "fr": "Taux de change actuel (Ex : 1 USD = 35.50 TL)",
+    "es": "Tipo de cambio actual (Ej: 1 USD = 35.50 TL)",
+    "ar": "سعر الصرف الحالي (مثال: 1 دولار أمريكي = 35.50 ليرة تركية)"
+  },
+  "Expected / Shock exchange rate": {
+    "tr": "Beklenen / Şok döviz kuru",
+    "de": "Erwarteter / Schock-Wechselkurs",
+    "fr": "Taux de change attendu / choc",
+    "es": "Tipo de cambio esperado / de choque",
+    "ar": "سعر الصرف المتوقع / الصدمة"
+  },
+  "Beklenen veya stres testi için kullanılacak şok döviz kuru": {
+    "tr": "Beklenen veya stres testi için kullanılacak şok döviz kuru",
+    "de": "Erwarteter oder für Stresstests zu verwendender Schock-Wechselkurs",
+    "fr": "Taux de change choc attendu ou à utiliser pour les tests de résistance",
+    "es": "Tipo de cambio de choque esperado o para utilizar en pruebas de estrés",
+    "ar": "سعر الصرف المتوقع أو الصدمة الذي سيتم استخدامه لاختبارات الإجهاد"
+  },
+  "Hedging ratio": {
+    "tr": "Korunma (hedging) oranı",
+    "de": "Absicherungsquote (Hedging Ratio)",
+    "fr": "Ratio de couverture (Hedging)",
+    "es": "Ratio de cobertura (Hedging)",
+    "ar": "نسبة التحوط"
+  },
+  "Döviz pozisyonunun korunma (hedge) oranı": {
+    "tr": "Döviz pozisyonunun korunma (hedge) oranı",
+    "de": "Absicherungsquote der Devisenposition",
+    "fr": "Ratio de couverture de la position de change",
+    "es": "Ratio de cobertura de la posición en divisas",
+    "ar": "نسبة التحوط لمركز الصرف الأجنبي"
+  },
+  "Downtime minutes": {
+    "tr": "Duruş dakikaları",
+    "de": "Ausfallzeit in Minuten",
+    "fr": "Minutes de temps d'arrêt",
+    "es": "Minutos de inactividad",
+    "ar": "دقائق وقت التوقف"
+  },
+  "Unplanned or scheduled stop minutes in the period.": {
+    "tr": "Dönem içindeki plansız veya planlı duruş dakikaları.",
+    "de": "Ungeplante oder geplante Stopp-Minuten im Zeitraum.",
+    "fr": "Minutes d'arrêt non planifiées ou programmées dans la période.",
+    "es": "Minutos de parada no planificados o programados en el período.",
+    "ar": "دقائق التوقف غير المخطط لها أو المجدولة في الفترة."
+  },
+  "Shop hourly rate": {
+    "tr": "Atölye saatlik ücreti",
+    "de": "Stundensatz der Werkstatt",
+    "fr": "Taux horaire de l'atelier",
+    "es": "Tarifa por hora del taller",
+    "ar": "سعر الساعة في الورشة"
+  },
+  "Loaded machine or line hourly cost.": {
+    "tr": "Yüklü makine veya hat saatlik maliyeti.",
+    "de": "Inklusive Maschinen- oder Linien-Stundenkosten.",
+    "fr": "Coût horaire chargé de la machine ou de la ligne.",
+    "es": "Costo por hora cargado de la máquina o línea.",
+    "ar": "التكلفة بالساعة للماكينة أو الخط المحمل."
+  },
+  "Output units per hour": {
+    "tr": "Saat başına çıktı birimleri",
+    "de": "Produktionseinheiten pro Stunde",
+    "fr": "Unités de production par heure",
+    "es": "Unidades de producción por hora",
+    "ar": "وحدات الإنتاج لكل ساعة"
+  },
+  "Typical good units produced per running hour.": {
+    "tr": "Çalışma saati başına üretilen tipik sağlam birimler.",
+    "de": "Typische gute produzierte Einheiten pro Laufstunde.",
+    "fr": "Unités bonnes typiques produites par heure de fonctionnement.",
+    "es": "Unidades buenas típicas producidas por hora de funcionamiento.",
+    "ar": "الوحدات الجيدة النموذجية المنتجة لكل ساعة تشغيل."
+  },
+  "Contribution per unit": {
+    "tr": "Birim başına katkı",
+    "de": "Deckungsbeitrag pro Einheit",
+    "fr": "Contribution par unité",
+    "es": "Contribución por unidad",
+    "ar": "المساهمة لكل وحدة"
+  },
+  "Margin contribution per good unit.": {
+    "tr": "Sağlam birim başına marj katkısı.",
+    "de": "Margenbeitrag pro guter Einheit.",
+    "fr": "Contribution à la marge par bonne unité.",
+    "es": "Contribución de margen por unidad buena.",
+    "ar": "مساهمة الهامش لكل وحدة جيدة."
+  },
+  "Panel revenue": {
+    "tr": "Panel geliri",
+    "de": "Panel-Umsatz",
+    "fr": "Revenu du panneau",
+    "es": "Ingresos del panel",
+    "ar": "إيرادات اللوحة"
+  }
+}

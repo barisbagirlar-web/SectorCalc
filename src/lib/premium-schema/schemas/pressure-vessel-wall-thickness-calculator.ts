@@ -8,75 +8,9 @@ export const PRESSURE_VESSEL_WALL_THICKNESS_CALCULATOR_SCHEMA: PremiumCalculator
   painStatement:
     "Fabricators need a quick thickness screen before detailed ASME calculations.",
 
-  inputs: [
-    {
-      id: "designPressureBar",
-      label: "Design pressure",
-      type: "number",
-      unit: "bar",
-      required: true,
-      smartDefault: 16,
-      validation: { min: 0.1 },
-      helper: "Internal design pressure for the vessel.",
-      expertMeaning: "MAWP or design gauge pressure basis.",
-    },
-    {
-      id: "diameterMm",
-      label: "Inside diameter",
-      type: "number",
-      unit: "mm",
-      required: true,
-      smartDefault: 900,
-      validation: { min: 10 },
-      helper: "Nominal inside diameter of the shell.",
-      expertMeaning: "D used in thin-wall screening formula.",
-    },
-    {
-      id: "allowableStressMpa",
-      label: "Allowable stress",
-      type: "number",
-      unit: "MPa",
-      required: true,
-      smartDefault: 138,
-      validation: { min: 1 },
-      helper: "Material allowable stress at design temperature.",
-      expertMeaning: "S value from code tables — informational input.",
-    },
-    {
-      id: "weldEfficiency",
-      label: "Weld efficiency",
-      type: "number",
-      unit: "×",
-      required: true,
-      smartDefault: 0.85,
-      validation: { min: 0.1, max: 1 },
-      helper: "Joint efficiency factor E (typical 0.7–1.0).",
-      expertMeaning: "Longitudinal seam efficiency for screening.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "measurement.vessel_wall_thickness",
-      inputMap: {
-        designPressureBar: "designPressureBar",
-        diameterMm: "diameterMm",
-        allowableStressMpa: "allowableStressMpa",
-        weldEfficiency: "weldEfficiency",
-      },
-      outputId: "wallThicknessMm",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "wallThicknessMm",
-      label: "Minimum wall thickness",
-      unit: "mm",
-      format: "number",
-      isBigNumber: true,
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

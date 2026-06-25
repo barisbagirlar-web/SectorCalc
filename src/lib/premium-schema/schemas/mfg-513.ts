@@ -9,75 +9,9 @@ export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Altı Sigma projelerinin tahmini getiri, başarı olasılığı, süre ve maliyet bazında değerlendirilerek önceliklendirilmesini sağlar.",
 
-  inputs: [
-    {
-      id: "estimatedAnnualSavings",
-      label: "Tahmini Yıllık Tasarruf",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 50000,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "probabilityOfSuccess",
-      label: "Başarı Olasılığı",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 75,
-      validation: { min: 1, max: 100 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "projectDurationMonths",
-      label: "Proje Süresi",
-      type: "number",
-      unit: "Ay",
-      required: true,
-      smartDefault: 6,
-      validation: { min: 1 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "resourceCost",
-      label: "Kaynak Maliyeti",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 15000,
-      validation: { min: 1 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "quality.six_sigma_project_score",
-      inputMap: {
-        savings: "estimatedAnnualSavings",
-        probability: "probabilityOfSuccess",
-        duration: "projectDurationMonths",
-        cost: "resourceCost",
-      },
-      outputId: "projectScore",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "projectScore",
-      label: "Proje Öncelik Skoru",
-      unit: "Puan",
-      format: "number",
-      isBigNumber: true,
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

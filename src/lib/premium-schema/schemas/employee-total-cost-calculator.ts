@@ -8,70 +8,9 @@ export const EMPLOYEE_TOTAL_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Hiring and pricing decisions often use net pay instead of loaded employer cost.",
 
-  inputs: [
-    {
-      id: "grossSalary",
-      label: "Gross salary",
-      type: "number",
-      unit: "USD/month",
-      required: true,
-      smartDefault: 4200,
-      validation: { min: 0 },
-      helper: "Monthly gross salary before employer load.",
-      expertMeaning: "Payroll base for burden calculation.",
-    },
-    {
-      id: "employerRatePercent",
-      label: "Employer burden rate",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 22,
-      validation: { min: 0, max: 100 },
-      helper: "Payroll taxes, social charges and statutory load.",
-      expertMeaning: "Informational burden band — verify local rates.",
-    },
-    {
-      id: "monthlyBenefits",
-      label: "Monthly benefits",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 380,
-      validation: { min: 0 },
-      helper: "Health, meal, transport and other monthly benefits.",
-      expertMeaning: "Non-statutory benefits added to headcount cost.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "cost.percent_of_amount",
-      inputMap: { amount: "grossSalary", percent: "employerRatePercent" },
-      outputId: "employerLoad",
-    },
-    {
-      formulaId: "cost.total_exposure",
-      inputMap: { a: "grossSalary", b: "employerLoad", c: "monthlyBenefits" },
-      outputId: "totalEmployerCost",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalEmployerCost",
-      label: "Total employer cost",
-      unit: "$",
-      format: "currency",
-      isBigNumber: true,
-    },
-    {
-      id: "employerLoad",
-      label: "Employer burden",
-      unit: "$",
-      format: "currency",
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

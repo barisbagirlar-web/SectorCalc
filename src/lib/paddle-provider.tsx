@@ -5,7 +5,8 @@ import { createContext, useContext, useEffect, useRef, useState, ReactNode } fro
 type PaddleInstance = {
   Checkout: { open: (opts: PaddleCheckoutOptions) => void }
   Environment: { set: (env: 'sandbox' | 'production') => void }
-  Setup: (opts: { token: string; eventCallback?: (e: PaddleEvent) => void }) => void
+  Initialize: (opts: { token: string; environment?: string; eventCallback?: (e: PaddleEvent) => void }) => Promise<void>
+  Setup?: (opts: { vendor?: number; token?: string; eventCallback?: (e: PaddleEvent) => void }) => void
 }
 
 export interface PaddleCheckoutOptions {
@@ -58,20 +59,31 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
       if (!Paddle) return
       
       const env = (process.env.NEXT_PUBLIC_PADDLE_ENV || 'sandbox') as 'sandbox' | 'production'
-      if (env === 'sandbox' && typeof Paddle.Environment?.set === 'function') {
-        Paddle.Environment.set('sandbox')
+      
+      const token = process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'test_6380be7c84b551e3fcd08d55d7e';
+      const eventCallback = (e: PaddleEvent) => {
+        if (e.name === 'checkout.completed') console.log('[Paddle] checkout completed', e.data)
+      };
+
+      if (typeof Paddle.Initialize === 'function') {
+        Paddle.Initialize({
+          token,
+          environment: env,
+          eventCallback,
+        }).then(() => {
+          paddleRef.current = Paddle
+          setReady(true)
+        }).catch(err => {
+          console.error('[PaddleProvider] Initialize promise rejected:', err)
+        })
+      } else if (typeof Paddle.Setup === 'function') {
+        if (env === 'sandbox' && typeof Paddle.Environment?.set === 'function') {
+          Paddle.Environment.set('sandbox')
+        }
+        Paddle.Setup({ token, eventCallback })
+        paddleRef.current = Paddle
+        setReady(true)
       }
-      
-      Paddle.Setup({
-        token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'test_6380be7c84b551e3fcd08d55d7e',
-        eventCallback: (e: PaddleEvent) => {
-          if (e.name === 'checkout.completed') console.log('[Paddle] checkout completed', e.data)
-          // Here you can handle other robust events like checkout.closed to reset loading states
-        },
-      })
-      
-      paddleRef.current = Paddle
-      setReady(true)
     } catch (error) {
       console.error('[PaddleProvider] Initialization failed:', error)
       // Fail gracefully, ready stays false

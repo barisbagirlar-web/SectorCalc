@@ -1,0 +1,611 @@
+{
+  "Install rework cost": {
+    "tr": "Kurulum yeniden işlem maliyeti",
+    "de": "Nacharbeitskosten für Installation",
+    "fr": "Coût de reprise d'installation",
+    "es": "Costo de reproceso de instalación",
+    "ar": "تكلفة إعادة عمل التركيب"
+  },
+  "Installation return and rework spend.": {
+    "tr": "Kurulum iade ve yeniden işlem harcaması.",
+    "de": "Installationsrückgabe- und Nacharbeitsaufwand.",
+    "fr": "Dépenses de retour et de reprise d'installation.",
+    "es": "Gasto en devoluciones y reproceso de instalación.",
+    "ar": "إنفاق إرجاع وإعادة عمل التركيب."
+  },
+  "Customer or SKU revenue in the period.": {
+    "tr": "Dönem içindeki müşteri veya SKU geliri.",
+    "de": "Kunden- oder SKU-Umsatz in der Periode.",
+    "fr": "Revenu client ou SKU de la période.",
+    "es": "Ingresos por cliente o SKU en el período.",
+    "ar": "إيرادات العميل أو وحدة حفظ المخزون في الفترة."
+  },
+  "Direct cost": {
+    "tr": "Doğrudan maliyet",
+    "de": "Direkte Kosten",
+    "fr": "Coût direct",
+    "es": "Costo directo",
+    "ar": "التكلفة المباشرة"
+  },
+  "COGS and direct fulfillment cost.": {
+    "tr": "SMM ve doğrudan sipariş karşılama maliyeti.",
+    "de": "Herstellungskosten und direkte Erfüllungskosten.",
+    "fr": "COGS et coûts directs d'exécution.",
+    "es": "Costo de bienes vendidos y costo directo de cumplimiento.",
+    "ar": "تكلفة البضائع المباعة وتكلفة التنفيذ المباشرة."
+  },
+  "Service cost": {
+    "tr": "Hizmet maliyeti",
+    "de": "Servicekosten",
+    "fr": "Coût de service",
+    "es": "Costo de servicio",
+    "ar": "تكلفة الخدمة"
+  },
+  "Support, delivery rework and account service load.": {
+    "tr": "Destek, teslimat yeniden işlemi ve hesap hizmet yükü.",
+    "de": "Support, Lieferungsnacharbeit und Konto-Servicebelastung.",
+    "fr": "Support, reprise de livraison et charge de service de compte.",
+    "es": "Soporte, reproceso de entrega y carga de servicio de la cuenta.",
+    "ar": "الدعم وإعادة عمل التسليم وعبء خدمة الحساب."
+  },
+  "Returns cost": {
+    "tr": "İade maliyeti",
+    "de": "Retourenkosten",
+    "fr": "Coût des retours",
+    "es": "Costo de devoluciones",
+    "ar": "تكلفة المرتجعات"
+  },
+  "Returns, credits and rework tied to the account.": {
+    "tr": "Hesaba bağlı iadeler, krediler ve yeniden işlem.",
+    "de": "Mit dem Konto verbundene Rückgaben, Gutschriften und Nacharbeiten.",
+    "fr": "Retours, crédits et reprises liés au compte.",
+    "es": "Devoluciones, créditos y reprocesos vinculados a la cuenta.",
+    "ar": "المرتجعات والائتمانات وإعادة العمل المرتبطة بالحساب."
+  },
+  "Raw material and purchased parts for the quote scope.": {
+    "tr": "Teklif kapsamı için hammadde ve satın alınan parçalar.",
+    "de": "Rohmaterial und Zukaufteile für den Angebotsumfang.",
+    "fr": "Matières premières et pièces achetées pour le périmètre du devis.",
+    "es": "Materia prima y piezas compradas para el alcance de la cotización.",
+    "ar": "المواد الخام والأجزاء المشتراة لنطاق عرض الأسعار."
+  },
+  "Labor cost": {
+    "tr": "İşçilik maliyeti",
+    "de": "Arbeitskosten",
+    "fr": "Coût de la main-d'œuvre",
+    "es": "Costo de mano de obra",
+    "ar": "تكلفة العمالة"
+  },
+  "Direct labor hours converted to cost for this job.": {
+    "tr": "Bu iş için maliyete dönüştürülen doğrudan işçilik saatleri.",
+    "de": "Für diesen Auftrag in Kosten umgerechnete direkte Arbeitsstunden.",
+    "fr": "Heures de travail directes converties en coût pour cette tâche.",
+    "es": "Horas de mano de obra directa convertidas en costo para este trabajo.",
+    "ar": "ساعات العمل المباشرة المحولة إلى تكلفة لهذه الوظيفة."
+  },
+  "Electricity, gas or utility load attributed to the job.": {
+    "tr": "İşe atfedilen elektrik, gaz veya kamu hizmeti yükü.",
+    "de": "Dem Auftrag zugeordnete Strom-, Gas- oder Versorgungsbelastung.",
+    "fr": "Charge d'électricité, de gaz ou de services publics attribuée à la tâche.",
+    "es": "Carga de electricidad, gas o servicios públicos atribuida al trabajo.",
+    "ar": "حمل الكهرباء أو الغاز أو المرافق المنسوب إلى الوظيفة."
+  },
+  "Overhead cost": {
+    "tr": "Genel gider maliyeti",
+    "de": "Gemeinkosten",
+    "fr": "Frais généraux",
+    "es": "Costos generales",
+    "ar": "التكاليف العامة"
+  },
+  "Allocated overhead such as rent, admin and indirect labor.": {
+    "tr": "Kira, yönetim ve dolaylı işçilik gibi tahsis edilmiş genel giderler.",
+    "de": "Verrechnete Gemeinkosten wie Miete, Verwaltung und indirekte Arbeit.",
+    "fr": "Frais généraux alloués tels que le loyer, l'administration et la main-d'œuvre indirecte.",
+    "es": "Gastos generales asignados como alquiler, administración y mano de obra indirecta.",
+    "ar": "التكاليف العامة المخصصة مثل الإيجار والإدارة والعمالة غير المباشرة."
+  },
+  "Expected scrap or waste as a percent of direct cost stack.": {
+    "tr": "Doğrudan maliyet yığınının yüzdesi olarak beklenen hurda veya atık.",
+    "de": "Erwarteter Ausschuss oder Abfall in Prozent der direkten Kosten.",
+    "fr": "Rebuts ou déchets attendus en pourcentage de la pile de coûts directs.",
+    "es": "Desecho o desperdicio esperado como porcentaje de la pila de costos directos.",
+    "ar": "الخردة أو النفايات المتوقعة كنسبة مئوية من حزمة التكلفة المباشرة."
+  },
+  "Setup time cost": {
+    "tr": "Kurulum süresi maliyeti",
+    "de": "Rüstzeitkosten",
+    "fr": "Coût du temps de configuration",
+    "es": "Costo de tiempo de configuración",
+    "ar": "تكلفة وقت الإعداد"
+  },
+  "Programming, tooling and first-off setup burden.": {
+    "tr": "Programlama, takımlama ve ilk kurulum yükü.",
+    "de": "Programmier-, Werkzeug- und Ersteinrichtungsaufwand.",
+    "fr": "Charge de programmation, d'outillage et de première configuration.",
+    "es": "Carga de programación, herramientas y configuración inicial.",
+    "ar": "عبء البرمجة والأدوات والإعداد الأول."
+  },
+  "Shipping cost": {
+    "tr": "Nakliye maliyeti",
+    "de": "Versandkosten",
+    "fr": "Frais d'expédition",
+    "es": "Costo de envío",
+    "ar": "تكلفة الشحن"
+  },
+  "Freight, packaging and delivery cost for the quote.": {
+    "tr": "Teklif için navlun, paketleme ve teslimat maliyeti.",
+    "de": "Fracht-, Verpackungs- und Lieferkosten für das Angebot.",
+    "fr": "Frais de transport, d'emballage et de livraison pour le devis.",
+    "es": "Costo de flete, embalaje y entrega para la cotización.",
+    "ar": "تكلفة الشحن والتغليف والتسليم لعرض الأسعار."
+  },
+  "Payment term cost": {
+    "tr": "Ödeme vadesi maliyeti",
+    "de": "Zahlungszielkosten",
+    "fr": "Coût des conditions de paiement",
+    "es": "Costo de condiciones de pago",
+    "ar": "تكلفة شروط الدفع"
+  },
+  "Financing or delay cost from customer payment terms.": {
+    "tr": "Müşteri ödeme koşullarından kaynaklanan finansman veya gecikme maliyeti.",
+    "de": "Finanzierungs- oder Verzögerungskosten aus Kundenzahlungsbedingungen.",
+    "fr": "Coût de financement ou de retard lié aux conditions de paiement client.",
+    "es": "Costo de financiamiento o retraso por las condiciones de pago del cliente.",
+    "ar": "تكلفة التمويل أو التأخير من شروط دفع العميل."
+  },
+  "Target gross margin percent for the quoted price.": {
+    "tr": "Teklif edilen fiyat için hedeflenen brüt kâr marjı yüzdesi.",
+    "de": "Zielbruttomargenprozentsatz für den Angebotspreis.",
+    "fr": "Pourcentage de marge brute cible pour le prix proposé.",
+    "es": "Porcentaje de margen bruto objetivo para el precio cotizado.",
+    "ar": "النسبة المئوية لإجمالي الهامش المستهدف للسعر المعروض."
+  },
+  "Tax included in costs": {
+    "tr": "Vergiler maliyetlere dahildir",
+    "de": "Steuern in den Kosten enthalten",
+    "fr": "Taxes incluses dans les coûts",
+    "es": "Impuestos incluidos en los costos",
+    "ar": "الضرائب مشمولة في التكاليف"
+  },
+  "Mark when entered costs already include sales tax or VAT.": {
+    "tr": "Girilen maliyetler halihazırda satış vergisi veya KDV içerdiğinde işaretleyin.",
+    "de": "Markieren, wenn die eingegebenen Kosten bereits Umsatzsteuer oder Mehrwertsteuer enthalten.",
+    "fr": "Cochez lorsque les coûts saisis incluent déjà la taxe de vente ou la TVA.",
+    "es": "Marcar cuando los costos ingresados ya incluyan el impuesto a las ventas o el IVA.",
+    "ar": "حدد عندما تتضمن التكاليف المدخلة بالفعل ضريبة المبيعات أو ضريبة القيمة المضافة."
+  },
+  "Safety margin uplift": {
+    "tr": "Güvenlik marjı artışı",
+    "de": "Sicherheitsmarge-Aufschlag",
+    "fr": "Majoration de la marge de sécurité",
+    "es": "Aumento del margen de seguridad",
+    "ar": "زيادة هامش الأمان"
+  },
+  "Extra margin points added to build the minimum safe price floor.": {
+    "tr": "Minimum güvenli fiyat tabanını oluşturmak için eklenen ekstra marj puanları.",
+    "de": "Zusätzliche Margenpunkte zur Bildung der Mindestpreisuntergrenze.",
+    "fr": "Points de marge supplémentaires ajoutés pour constituer le prix plancher de sécurité.",
+    "es": "Puntos de margen adicionales añadidos para construir el precio base mínimo seguro.",
+    "ar": "نقاط الهامش الإضافية المضافة لبناء الحد الأدنى الآمن للسعر."
+  },
+  "Prevention cost": {
+    "tr": "Önleme maliyeti",
+    "de": "Präventionskosten",
+    "fr": "Coût de prévention",
+    "es": "Costo de prevención",
+    "ar": "تكلفة الوقاية"
+  },
+  "Training, process control and prevention activities.": {
+    "tr": "Eğitim, süreç kontrolü ve önleme faaliyetleri.",
+    "de": "Schulung, Prozesskontrolle und Präventionsmaßnahmen.",
+    "fr": "Formation, contrôle des processus et activités de prévention.",
+    "es": "Capacitación, control de procesos y actividades de prevención.",
+    "ar": "أنشطة التدريب والتحكم في العمليات والوقاية."
+  },
+  "Appraisal cost": {
+    "tr": "Değerlendirme maliyeti",
+    "de": "Prüfkosten",
+    "fr": "Coût d'évaluation",
+    "es": "Costo de evaluación",
+    "ar": "تكلفة التقييم"
+  },
+  "Inspection, testing and audit cost.": {
+    "tr": "Muayene, test ve denetim maliyeti.",
+    "de": "Inspektions-, Test- und Auditkosten.",
+    "fr": "Coût d'inspection, de test et d'audit.",
+    "es": "Costo de inspección, pruebas y auditoría.",
+    "ar": "تكلفة الفحص والاختبار والتدقيق."
+  },
+  "Failure cost": {
+    "tr": "Hata maliyeti",
+    "de": "Fehlerkosten",
+    "fr": "Coût de défaillance",
+    "es": "Costo de falla",
+    "ar": "تكلفة الفشل"
+  },
+  "Scrap, rework, warranty and downtime from defects.": {
+    "tr": "Hatalardan kaynaklanan hurda, yeniden işlem, garanti ve duruş süresi.",
+    "de": "Ausschuss, Nacharbeit, Gewährleistung und Ausfallzeiten durch Mängel.",
+    "fr": "Rebuts, reprises, garanties et temps d'arrêt dus aux défauts.",
+    "es": "Desechos, reprocesos, garantías y tiempo de inactividad por defectos.",
+    "ar": "الخردة وإعادة العمل والضمان ووقت التوقف بسبب العيوب."
+  },
+  "Monthly revenue for ratio context.": {
+    "tr": "Oran bağlamı için aylık gelir.",
+    "de": "Monatlicher Umsatz für Verhältniskontext.",
+    "fr": "Revenu mensuel pour le contexte du ratio.",
+    "es": "Ingresos mensuales para el contexto de proporción.",
+    "ar": "الإيرادات الشهرية لسياق النسبة."
+  },
+  "Average inventory": {
+    "tr": "Ortalama envanter",
+    "de": "Durchschnittlicher Lagerbestand",
+    "fr": "Inventaire moyen",
+    "es": "Inventario promedio",
+    "ar": "متوسط المخزون"
+  },
+  "Average inventory value on hand.": {
+    "tr": "Eldeki ortalama envanter değeri.",
+    "de": "Durchschnittlicher Lagerbestandswert.",
+    "fr": "Valeur moyenne de l'inventaire disponible.",
+    "es": "Valor promedio del inventario disponible.",
+    "ar": "متوسط قيمة المخزون المتوفر."
+  },
+  "Annual COGS": {
+    "tr": "Yıllık SMM",
+    "de": "Jährliche Herstellungskosten",
+    "fr": "COGS annuel",
+    "es": "Costo de bienes vendidos anual",
+    "ar": "تكلفة البضائع المباعة السنوية"
+  },
+  "Cost of goods sold over twelve months.": {
+    "tr": "On iki aylık satılan malın maliyeti.",
+    "de": "Herstellungskosten der verkauften Waren über zwölf Monate.",
+    "fr": "Coût des marchandises vendues sur douze mois.",
+    "es": "Costo de los bienes vendidos durante doce meses.",
+    "ar": "تكلفة البضائع المباعة على مدى اثني عشر شهرًا."
+  },
+  "Carrying cost": {
+    "tr": "Taşıma maliyeti",
+    "de": "Lagerhaltungskosten",
+    "fr": "Coût de possession",
+    "es": "Costo de mantenimiento",
+    "ar": "تكلفة الاحتفاظ"
+  },
+  "Annual carrying cost as percent of inventory.": {
+    "tr": "Envanterin yüzdesi olarak yıllık taşıma maliyeti.",
+    "de": "Jährliche Lagerhaltungskosten in Prozent des Lagerbestands.",
+    "fr": "Coût de possession annuel en pourcentage de l'inventaire.",
+    "es": "Costo de mantenimiento anual como porcentaje del inventario.",
+    "ar": "تكلفة الاحتفاظ السنوية كنسبة مئوية من المخزون."
+  },
+  "Markdown": {
+    "tr": "Fiyat indirimi",
+    "de": "Preisnachlass",
+    "fr": "Démarque",
+    "es": "Rebaja",
+    "ar": "تخفيض السعر"
+  },
+  "Expected markdown as percent of inventory.": {
+    "tr": "Envanterin yüzdesi olarak beklenen fiyat indirimi.",
+    "de": "Erwarteter Preisnachlass in Prozent des Lagerbestands.",
+    "fr": "Démarque attendue en pourcentage de l'inventaire.",
+    "es": "Rebaja esperada como porcentaje del inventario.",
+    "ar": "التخفيض المتوقع كنسبة مئوية من المخزون."
+  },
+  "Sheet stock and material spend for the job or period.": {
+    "tr": "İş veya dönem için sac stoku ve malzeme harcaması.",
+    "de": "Blechbestand und Materialaufwand für den Auftrag oder die Periode.",
+    "fr": "Stock de tôles et dépenses en matériaux pour la tâche ou la période.",
+    "es": "Inventario de láminas y gasto de material para el trabajo o período.",
+    "ar": "مخزون الألواح والإنفاق على المواد للوظيفة أو الفترة."
+  },
+  "Cutting waste and offcut loss as percent of material cost.": {
+    "tr": "Malzeme maliyetinin yüzdesi olarak kesim atığı ve fire kaybı.",
+    "de": "Schnittabfall und Verschnittverlust in Prozent der Materialkosten.",
+    "fr": "Déchets de coupe et pertes de chutes en pourcentage du coût des matériaux.",
+    "es": "Desperdicio de corte y pérdida de recortes como porcentaje del costo del material.",
+    "ar": "نفايات القطع وفقدان القصاصات كنسبة مئوية من تكلفة المواد."
+  },
+  "Target scrap rate": {
+    "tr": "Hedeflenen hurda oranı",
+    "de": "Ziel-Ausschussquote",
+    "fr": "Taux de rebut cible",
+    "es": "Tasa de desecho objetivo",
+    "ar": "معدل الخردة المستهدف"
+  },
+  "Acceptable scrap target for similar jobs.": {
+    "tr": "Benzer işler için kabul edilebilir hurda hedefi.",
+    "de": "Akzeptables Ausschussziel für ähnliche Aufträge.",
+    "fr": "Objectif de rebut acceptable pour des travaux similaires.",
+    "es": "Objetivo de desecho aceptable para trabajos similares.",
+    "ar": "هدف الخردة المقبول لوظائف مماثلة."
+  },
+  "Rework hours": {
+    "tr": "Yeniden işlem saatleri",
+    "de": "Nacharbeitsstunden",
+    "fr": "Heures de reprise",
+    "es": "Horas de reproceso",
+    "ar": "ساعات إعادة العمل"
+  },
+  "Bend, fit-up and finishing rework hours expected.": {
+    "tr": "Bükme, montaj ve son işlem için beklenen yeniden işlem saatleri.",
+    "de": "Erwartete Nacharbeitsstunden für Biegen, Einpassen und Finishen.",
+    "fr": "Heures de reprise prévues pour le pliage, l'assemblage et la finition.",
+    "es": "Horas de reproceso esperadas para plegado, ajuste y acabado.",
+    "ar": "ساعات إعادة العمل المتوقعة للثني والتجميع والتشطيب."
+  },
+  "Fully loaded shop labor rate.": {
+    "tr": "Tam yüklü atölye işçilik ücreti.",
+    "de": "Voll belasteter Werkstatt-Arbeitsstundensatz.",
+    "fr": "Taux horaire de main-d'œuvre d'atelier entièrement chargé.",
+    "es": "Tarifa de mano de obra de taller con carga completa.",
+    "ar": "معدل عمالة الورشة المحمل بالكامل."
+  },
+  "Finishing cost": {
+    "tr": "Son işlem maliyeti",
+    "de": "Finishing-Kosten",
+    "fr": "Coût de finition",
+    "es": "Costo de acabado",
+    "ar": "تكلفة التشطيب"
+  },
+  "Powder coat, deburr and finishing spend tied to rework risk.": {
+    "tr": "Toz boya, çapak alma ve son işlem harcamaları, yeniden işlem riskine bağlıdır.",
+    "de": "Ausgaben für Pulverbeschichtung, Entgraten und Finishen in Verbindung mit Nacharbeitsrisiko.",
+    "fr": "Dépenses de revêtement en poudre, d'ébavurage et de finition liées au risque de reprise.",
+    "es": "Gastos de recubrimiento en polvo, desbarbado y acabado vinculados al riesgo de reproceso.",
+    "ar": "إنفاق طلاء المسحوق وإزالة الحواف والتشطيب المرتبط بخطر إعادة العمل."
+  },
+  "Fixed monthly cost": {
+    "tr": "Sabit aylık maliyet",
+    "de": "Feste monatliche Kosten",
+    "fr": "Coût mensuel fixe",
+    "es": "Costo mensual fijo",
+    "ar": "التكلفة الشهرية الثابتة"
+  },
+  "Rent, depreciation, admin and indirect burden for the month.": {
+    "tr": "Ay için kira, amortisman, yönetim ve dolaylı yük.",
+    "de": "Miete, Abschreibung, Verwaltung und indirekte Belastung für den Monat.",
+    "fr": "Loyer, amortissement, administration et charges indirectes pour le mois.",
+    "es": "Alquiler, depreciación, administración y carga indirecta para el mes.",
+    "ar": "الإيجار والاستهلاك والإدارة والعبء غير المباشر للشهر."
+  },
+  "Monthly machine hours": {
+    "tr": "Aylık makine saatleri",
+    "de": "Monatliche Maschinenstunden",
+    "fr": "Heures de machine mensuelles",
+    "es": "Horas de máquina mensuales",
+    "ar": "ساعات عمل الماكينة الشهرية"
+  },
+  "Billable or scheduled spindle hours per month.": {
+    "tr": "Aylık faturalandırılabilir veya planlanmış iş mili saatleri.",
+    "de": "Abrechenbare oder geplante Spindelstunden pro Monat.",
+    "fr": "Heures de broche facturables ou planifiées par mois.",
+    "es": "Horas de husillo facturables o programadas por mes.",
+    "ar": "ساعات تشغيل عمود الدوران القابلة للفوترة أو المجدولة شهريًا."
+  },
+  "Variable cost per hour": {
+    "tr": "Saat başına değişken maliyet",
+    "de": "Variable Kosten pro Stunde",
+    "fr": "Coût variable par heure",
+    "es": "Costo variable por hora",
+    "ar": "التكلفة المتغيرة في الساعة"
+  },
+  "Power, consumables and direct variable burden per hour.": {
+    "tr": "Saat başına güç, sarf malzemeleri ve doğrudan değişken yük.",
+    "de": "Strom, Verbrauchsmaterialien und direkte variable Belastung pro Stunde.",
+    "fr": "Puissance, consommables et charge variable directe par heure.",
+    "es": "Energía, consumibles y carga variable directa por hora.",
+    "ar": "الطاقة والمواد الاستهلاكية والعبء المتغير المباشر في الساعة."
+  },
+  "Tahmini Yıllık Tasarruf": {
+    "tr": "Tahmini Yıllık Tasarruf",
+    "de": "Geschätzte jährliche Einsparungen",
+    "fr": "Économies annuelles estimées",
+    "es": "Ahorros anuales estimados",
+    "ar": "المدخرات السنوية المقدرة"
+  },
+  "Projenin başarıya ulaşması durumunda yıllık olarak sağlanacak finansal getiri.": {
+    "tr": "Projenin başarıya ulaşması durumunda yıllık olarak sağlanacak finansal getiri.",
+    "de": "Jährlicher finanzieller Ertrag bei erfolgreichem Projektabschluss.",
+    "fr": "Rendement financier annuel assuré en cas de réussite du projet.",
+    "es": "Rendimiento financiero anual proporcionado si el proyecto tiene éxito.",
+    "ar": "العائد المالي السنوي المقدم في حال نجاح المشروع."
+  },
+  "Başarı Olasılığı": {
+    "tr": "Başarı Olasılığı",
+    "de": "Erfolgswahrscheinlichkeit",
+    "fr": "Probabilité de réussite",
+    "es": "Probabilidad de éxito",
+    "ar": "احتمالية النجاح"
+  },
+  "Projenin hedeflerine başarıyla ulaşma ihtimali.": {
+    "tr": "Projenin hedeflerine başarıyla ulaşma ihtimali.",
+    "de": "Wahrscheinlichkeit der erfolgreichen Erreichung der Projektziele.",
+    "fr": "Probabilité d'atteindre avec succès les objectifs du projet.",
+    "es": "Probabilidad de alcanzar con éxito los objetivos del proyecto.",
+    "ar": "احتمالية تحقيق أهداف المشروع بنجاح."
+  },
+  "Proje Süresi": {
+    "tr": "Proje Süresi",
+    "de": "Projektdauer",
+    "fr": "Durée du projet",
+    "es": "Duración del proyecto",
+    "ar": "مدة المشروع"
+  },
+  "Projenin tamamlanması için öngörülen süre (Ay cinsinden).": {
+    "tr": "Projenin tamamlanması için öngörülen süre (Ay cinsinden).",
+    "de": "Voraussichtliche Zeit für den Projektabschluss (in Monaten).",
+    "fr": "Temps estimé pour l'achèvement du projet (en mois).",
+    "es": "Tiempo estimado para la finalización del proyecto (en meses).",
+    "ar": "الوقت المقدر لإنجاز المشروع (بالأشهر)."
+  },
+  "Kaynak Maliyeti": {
+    "tr": "Kaynak Maliyeti",
+    "de": "Ressourcenkosten",
+    "fr": "Coût des ressources",
+    "es": "Costo de recursos",
+    "ar": "تكلفة الموارد"
+  },
+  "Eğitim, donanım, personel gibi projeye harcanacak toplam kaynak maliyeti.": {
+    "tr": "Eğitim, donanım, personel gibi projeye harcanacak toplam kaynak maliyeti.",
+    "de": "Gesamte Ressourcenkosten, die für das Projekt aufgewendet werden, z. B. für Schulung, Ausrüstung, Personal.",
+    "fr": "Coût total des ressources dépensées pour le projet telles que la formation, l'équipement, le personnel.",
+    "es": "Costo total de recursos invertidos en el proyecto, como capacitación, equipo, personal.",
+    "ar": "إجمالي تكلفة الموارد المنفقة على المشروع مثل التدريب والمعدات والموظفين."
+  },
+  "Tolerance 1": {
+    "tr": "Tolerans 1",
+    "de": "Toleranz 1",
+    "fr": "Tolérance 1",
+    "es": "Tolerancia 1",
+    "ar": "التفاوت 1"
+  },
+  "First part tolerance contribution.": {
+    "tr": "İlk parça tolerans katkısı.",
+    "de": "Toleranzbeitrag des ersten Teils.",
+    "fr": "Contribution à la tolérance de la première partie.",
+    "es": "Contribución de tolerancia de la primera parte.",
+    "ar": "مساهمة تفاوت الجزء الأول."
+  },
+  "Tolerance 2": {
+    "tr": "Tolerans 2",
+    "de": "Toleranz 2",
+    "fr": "Tolérance 2",
+    "es": "Tolerancia 2",
+    "ar": "التفاوت 2"
+  },
+  "Second part tolerance contribution.": {
+    "tr": "İkinci parça tolerans katkısı.",
+    "de": "Toleranzbeitrag des zweiten Teils.",
+    "fr": "Contribution à la tolérance de la deuxième partie.",
+    "es": "Contribución de tolerancia de la segunda parte.",
+    "ar": "مساهمة تفاوت الجزء الثاني."
+  },
+  "Tolerance 3": {
+    "tr": "Tolerans 3",
+    "de": "Toleranz 3",
+    "fr": "Tolérance 3",
+    "es": "Tolerancia 3",
+    "ar": "التفاوت 3"
+  },
+  "Third part tolerance contribution.": {
+    "tr": "Üçüncü parça tolerans katkısı.",
+    "de": "Toleranzbeitrag des dritten Teils.",
+    "fr": "Contribution à la tolérance de la troisième partie.",
+    "es": "Contribución de tolerancia de la tercera parte.",
+    "ar": "مساهمة تفاوت الجزء الثالث."
+  },
+  "Tolerance 4": {
+    "tr": "Tolerans 4",
+    "de": "Toleranz 4",
+    "fr": "Tolérance 4",
+    "es": "Tolerancia 4",
+    "ar": "التفاوت 4"
+  },
+  "Fourth part tolerance contribution.": {
+    "tr": "Dördüncü parça tolerans katkısı.",
+    "de": "Toleranzbeitrag des vierten Teils.",
+    "fr": "Contribution à la tolérance de la quatrième partie.",
+    "es": "Contribución de tolerancia de la cuarta parte.",
+    "ar": "مساهمة تفاوت الجزء الرابع."
+  },
+  "Assembly limit": {
+    "tr": "Montaj limiti",
+    "de": "Montagegrenze",
+    "fr": "Limite d'assemblage",
+    "es": "Límite de ensamblaje",
+    "ar": "حد التجميع"
+  },
+  "Maximum allowable stack for the assembly chain.": {
+    "tr": "Montaj zinciri için izin verilen maksimum yığın.",
+    "de": "Maximal zulässige Stapelung für die Montagekette.",
+    "fr": "Empilement maximal autorisé pour la chaîne d'assemblage.",
+    "es": "Apilamiento máximo permitido para la cadena de ensamblaje.",
+    "ar": "التراكم الأقصى المسموح به لسلسلة التجميع."
+  },
+  "Process time": {
+    "tr": "İşlem süresi",
+    "de": "Prozesszeit",
+    "fr": "Temps de traitement",
+    "es": "Tiempo de proceso",
+    "ar": "وقت العملية"
+  },
+  "Total value-added processing minutes in the stream.": {
+    "tr": "Akıştaki katma değerli işlem dakikalarının toplamı.",
+    "de": "Gesamte wertschöpfende Bearbeitungsminuten im Strom.",
+    "fr": "Total des minutes de traitement à valeur ajoutée dans le flux.",
+    "es": "Total de minutos de procesamiento de valor agregado en el flujo.",
+    "ar": "إجمالي دقائق المعالجة ذات القيمة المضافة في التدفق."
+  },
+  "Wait time": {
+    "tr": "Bekleme süresi",
+    "de": "Wartezeit",
+    "fr": "Temps d'attente",
+    "es": "Tiempo de espera",
+    "ar": "وقت الانتظار"
+  },
+  "Queue and inventory wait minutes.": {
+    "tr": "Sıra ve envanter bekleme dakikaları.",
+    "de": "Warteschlangen- und Bestands-Warteminuten.",
+    "fr": "Minutes d'attente de file d'attente et d'inventaire.",
+    "es": "Minutos de espera en cola e inventario.",
+    "ar": "دقائق انتظار قائمة الانتظار والمخزون."
+  },
+  "Transport time": {
+    "tr": "Taşıma süresi",
+    "de": "Transportzeit",
+    "fr": "Temps de transport",
+    "es": "Tiempo de transporte",
+    "ar": "وقت النقل"
+  },
+  "Material movement and transfer minutes.": {
+    "tr": "Malzeme hareketi ve transfer dakikaları.",
+    "de": "Materialbewegungs- und Transferminuten.",
+    "fr": "Minutes de mouvement et de transfert de matériel.",
+    "es": "Minutos de movimiento y transferencia de material.",
+    "ar": "دقائق حركة ونقل المواد."
+  },
+  "Weld throat": {
+    "tr": "Kaynak kalınlığı",
+    "de": "Schweißnahtdicke",
+    "fr": "Gorge de soudure",
+    "es": "Garganta de soldadura",
+    "ar": "سمك اللحام"
+  },
+  "Effective fillet weld throat thickness.": {
+    "tr": "Efektif köşe kaynağı kalınlığı.",
+    "de": "Effektive Kehlnahtdicke.",
+    "fr": "Épaisseur effective de la gorge de soudure d'angle.",
+    "es": "Espesor efectivo de la garganta de soldadura en ángulo.",
+    "ar": "السمك الفعال لدرزة لحام الزاوية."
+  },
+  "Continuous weld length along the joint.": {
+    "tr": "Bağlantı boyunca sürekli kaynak uzunluğu.",
+    "de": "Kontinuierliche Schweißnahtlänge entlang der Verbindung.",
+    "fr": "Longueur de soudure continue le long du joint.",
+    "es": "Longitud de soldadura continua a lo largo de la junta.",
+    "ar": "طول اللحام المستمر على طول الوصلة."
+  },
+  "Number of bolts sharing the load path.": {
+    "tr": "Yük yolunu paylaşan cıvata sayısı.",
+    "de": "Anzahl der Schrauben, die sich den Lastpfad teilen.",
+    "fr": "Nombre de boulons partageant le chemin de charge.",
+    "es": "Número de pernos que comparten la trayectoria de carga.",
+    "ar": "عدد المسامير التي تتشارك مسار الحمل."
+  },
+  "Workshop reference allowable stress for screening.": {
+    "tr": "Tarama için atölye referans izin verilen gerilme.",
+    "de": "Zulässige Referenzspannung der Werkstatt für das Screening.",
+    "fr": "Contrainte admissible de référence d'atelier pour le filtrage.",
+    "es": "Esfuerzo permisible de referencia de taller para evaluación.",
+    "ar": "إجهاد ورشة العمل المرجعي المسموح به للفرز."
+  },
+  "Design safety factor applied to allowable stress.": {
+    "tr": "İzin verilen gerilmeye uygulanan tasarım güvenlik faktörü.",
+    "de": "Auf zulässige Spannung angewendeter Sicherheitsfaktor für die Konstruktion.",
+    "fr": "Facteur de sécurité de conception appliqué à la contrainte admissible.",
+    "es": "Factor de seguridad de diseño aplicado al esfuerzo permisible.",
+    "ar": "عامل سلامة التصميم المطبق على الإجهاد المسموح به."
+  }
+}

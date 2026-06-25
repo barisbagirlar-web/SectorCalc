@@ -1,0 +1,132 @@
+Katman 1 — Classification Prompt (LLM ile toplu tarama) Her araç JSON'unu bu prompta besle, çıktı olarak scope etiketi al.
+Katman 2 — Schema'ya scope field ekle Bir kez etiketledikten sonra JSON schema'ya yaz, bir daha bakma.
+
+ADIMLAR
+1. Master Classification Prompt — bunu Cursor/Claude/DeepSeek'e ver, her araç JSON'unu sırayla geçir:
+
+
+Sen bir endüstriyel mühendislik hesap aracı sınıflandırma sistemisin.
+
+Aşağıdaki hesap aracı JSON'unu analiz et ve şu çıktıyı ver:
+
+{
+  "tool_id": "...",
+  "scope_type": "single_operation | multi_operation | process_agnostic",
+  "primary_operation": "milling | turning | drilling | boring | grinding | welding | hvac | structural | electrical | financial | logistics | OTHER",
+  "secondary_operations": [],
+  "scope_conflict_detected": true | false,
+  "scope_conflict_reason": "...",
+  "recommended_action": "keep_as_is | split_into_N_tools | add_operation_selector | rename_only",
+  "split_suggestion": [
+    { "new_tool_name": "...", "scope": "..." }
+  ]
+}
+
+KURAL 1: Eğer formüller arasında farklı fizik alanları karışıyorsa (örn. frezeleme chip thickness formülü + tornalama MRR), scope_conflict_detected = true yaz.
+KURAL 2: Eğer bir input sadece operasyonların bir alt kümesi için geçerliyse (örn. ae sadece frezelemede), conflict işaretle.
+KURAL 3: Maliyet/zaman/genel hesaplar için primary_operation = "process_agnostic" kullan.
+KURAL 4: Sadece JSON çıktısı ver, açıklama ekleme.
+
+ARAÇ JSON:
+[buraya araç JSON'unu yapıştır]
+
+2. Toplu tarama için pipeline — 300 aracı tek tek yapıştırmak yerine:
+
+
+javascript
+// scripts/classify-tools.js
+// Her JSON dosyasını okur, classification prompt'a gönderir, 
+// sonucu orijinal JSON'a scope field olarak ekler
+
+import Anthropic from '@anthropic-ai/sdk';
+import fs from 'fs';
+import path from 'path';
+
+const client = new Anthropic();
+
+const CLASSIFICATION_PROMPT = `[yukarıdaki prompt metni]`;
+
+async function classifyTool(toolJson) {
+  const response = await client.messages.create({
+    model: 'claude-sonnet-4-6',
+    max_tokens: 500,
+    messages: [{
+      role: 'user',
+      content: CLASSIFICATION_PROMPT + '\n\n' + JSON.stringify(toolJson, null, 2)
+    }]
+  });
+  
+  return JSON.parse(response.content[0].text);
+}
+
+async function processAllTools() {
+  const toolsDir = './src/tools'; // senin path'in
+  const files = fs.readdirSync(toolsDir).filter(f => f.endsWith('.json'));
+  
+  const results = {
+    needs_split: [],
+    has_conflict: [],
+    clean: [],
+    errors: []
+  };
+
+  for (const file of files) {
+    const toolJson = JSON.parse(fs.readFileSync(path.join(toolsDir, file)));
+    
+    try {
+      const classification = await classifyTool(toolJson);
+      
+      // Orijinal JSON'a scope bilgisi ekle
+      toolJson.scope = classification;
+      fs.writeFileSync(path.join(toolsDir, file), JSON.stringify(toolJson, null, 2));
+      
+      // Rapor için grupla
+      if (classification.scope_conflict_detected) {
+        results.has_conflict.push({ file, ...classification });
+      } else if (classification.recommended_action.startsWith('split')) {
+        results.needs_split.push({ file, ...classification });
+      } else {
+        results.clean.push(file);
+      }
+      
+      // Rate limit için bekle
+      await new Promise(r => setTimeout(r, 200));
+      
+    } catch (e) {
+      results.errors.push({ file, error: e.message });
+    }
+  }
+
+  // Özet rapor
+  fs.writeFileSync('./scope-audit-report.json', JSON.stringify(results, null, 2));
+  console.log(`✅ Clean: ${results.clean.length}`);
+  console.log(`⚠️  Conflict: ${results.has_conflict.length}`);
+  console.log(`🔀 Split needed: ${results.needs_split.length}`);
+  console.log(`❌ Errors: ${results.errors.length}`);
+}
+
+processAllTools();
+
+3. Çıktı raporu bu formatta gelir:
+
+
+json
+{
+  "needs_split": [
+    {
+      "file": "PRO_043.json",
+      "scope_conflict_reason": "h_m formülü sadece frezeleme için geçerli, araç turning de iddia ediyor",
+      "split_suggestion": [
+        { "new_tool_name": "Frezeleme Kesme Dinamikleri", "scope": "milling" },
+        { "new_tool_name": "Tornalama Kesme Dinamikleri", "scope": "turning" }
+      ]
+    }
+  ],
+  "has_conflict": [...],
+  "clean": ["PRO_001.json", "PRO_002.json", ...]
+}
+
+UYARI
+⚠️ Script'i çalıştırmadan önce araç JSON'larının tek bir dizinde veya tutarlı bir yapıda olduğunu doğrula — generate:all pipeline'ından çıkan dosyalar neredeyse bunu zaten sağlıyor ama path'leri kontrol et.
+⚠️ 300 araç × ~200ms = ~60 saniye, Anthropic API token maliyeti minimal ama rate limit'e takılabilirsin, setTimeout değerini gerekirse 500ms'ye çek.
+⚠️ Classification sonuçlarını kör güvenme — has_conflict listesini gözden geçir, LLM bazen false positive üretir. needs_split listesindeki araçlara ınsan gibi düşünen bir mühendis yaklaşımı ıle 3 defa kontrol et..

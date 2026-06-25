@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-// @ts-nocheck
+
 import type { Metadata } from "next";
 import Link  from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -413,9 +413,11 @@ export default async function FreeToolsPage({ params }: PageProps) {
             defaultGroupId={DEFAULT_FREE_TRAFFIC_CATEGORY}
           />
           <div className="sc-discovery-footer">
-            <p className="sc-discovery-footer__lead">{tCatalog("discoveryFooter.freeToolsLead")}</p>
+            <p className="sc-discovery-footer__lead">
+              {tCatalog.has("discoveryFooter.freeToolsLead") ? tCatalog("discoveryFooter.freeToolsLead") : "Discover all 152+ premium operational formulas in our library."}
+            </p>
             <Link href={getPremiumToolsHref() as any} prefetch={false} className="sc-discovery-footer__link">
-              {tCatalog("discoveryFooter.freeToolsCta")}
+              {tCatalog.has("discoveryFooter.freeToolsCta") ? tCatalog("discoveryFooter.freeToolsCta") : "Explore Premium Tools"}
             </Link>
           </div>
         </Container>

@@ -8,92 +8,9 @@ export const PRODUCT_CUSTOMER_PROFITABILITY_CALCULATOR_SCHEMA: PremiumCalculator
   painStatement:
     "High-revenue customers can destroy margin through returns, delays and rework.",
 
-  inputs: [
-    {
-      id: "revenue",
-      label: "Revenue",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 85000,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "directCost",
-      label: "Direct cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 52000,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "serviceCost",
-      label: "Service cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 6800,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "returnsCost",
-      label: "Returns cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 4200,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "cost.total_exposure",
-      inputMap: { a: "directCost", b: "serviceCost", c: "returnsCost" },
-      outputId: "loadedCost",
-    },
-    {
-      formulaId: "cost.difference",
-      inputMap: { a: "revenue", b: "loadedCost" },
-      outputId: "contributionAmount",
-    },
-    {
-      formulaId: "cost.margin_rate_on_price",
-      inputMap: { price: "revenue", cost: "loadedCost" },
-      outputId: "contributionMarginRate",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "contributionMarginRate",
-      label: "Contribution margin rate",
-      unit: "%",
-      format: "percentage",
-      isBigNumber: true,
-    },
-    {
-      id: "contributionAmount",
-      label: "Contribution amount",
-      unit: "$",
-      format: "currency",
-    },
-    {
-      id: "loadedCost",
-      label: "Loaded cost",
-      unit: "$",
-      format: "currency",
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

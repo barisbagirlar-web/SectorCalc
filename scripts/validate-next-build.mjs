@@ -54,18 +54,13 @@ function assertJsonObject(rel) {
 const CRITICAL_HUB_ROUTES = [
   {
     route: "/free-tools",
-    appPaths: ["/(english)/free-tools/page"],
-    legacyPageModule: join("(english)", "free-tools", "page.js"),
+    appPaths: ["/free-tools/page"],
+    legacyPageModule: join("free-tools", "page.js"),
   },
   {
-    route: "/tr/free-tools",
-    appPaths: ["/[locale]/free-tools/page"],
-    legacyPageModule: join("[locale]", "free-tools", "page.js"),
-  },
-  {
-    route: "/tr",
-    appPaths: ["/[locale]/page"],
-    legacyPageModule: join("[locale]", "page.js"),
+    route: "/",
+    appPaths: ["/page"],
+    legacyPageModule: join("page.js"),
   },
 ];
 

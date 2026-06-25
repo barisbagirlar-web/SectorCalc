@@ -37,7 +37,11 @@ import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspa
 import { MARGINCORE_TERMS } from "@/lib/terminology/margincore-identity";
 import { useLocale } from "next-intl";
 import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
-
+import { RuleEngineAlerts } from "@/components/tools/RuleEngineAlerts";
+import { AssumptionLedger } from "@/components/tools/AssumptionLedger";
+import { TornadoChart } from "@/components/tools/TornadoChart";
+import { FinancialImpactAnalysis } from "@/components/tools/FinancialImpactAnalysis";
+import { evaluateCuttingParameters } from "@/lib/engine/rule-engine";
 interface ToolCalculatorEngineProps {
  definition: ToolDefinition;
 }
@@ -132,6 +136,10 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
  return { ...filtered, ...errors };
  }, [values, validate, touched, errors]);
 
+  const ruleAlerts = useMemo(() => {
+    return evaluateCuttingParameters(values);
+  }, [values]);
+
  const scenariosSummary = useMemo(() => {
  if (!computed.premium?.scenarios.length) return "";
  const { scenarioLabels } = computed.premium;
@@ -225,16 +233,19 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
       {isFreeTool && revenueFree && computed.results.length > 0 && !computed.hasErrors ? (
        <FreeToolUpgradePanel revenue={revenueFree} />
       ) : null}
-      {computed.premium && !computed.hasErrors && (
-       <RiskVerdictCard
-        riskLevel={computed.premium.riskLevel}
-        riskLevelLabel={computed.premium.report.riskLevelLabel}
-        verdictText={computed.premium.verdictText}
-       />
-      )}
-     </>
-    )}
-   </div>
+       {computed.premium && !computed.hasErrors && (
+        <RiskVerdictCard
+         riskLevel={computed.premium.riskLevel}
+         riskLevelLabel={computed.premium.report.riskLevelLabel}
+         verdictText={computed.premium.verdictText}
+        />
+       )}
+       {showPaidOutput && computed.results.length > 0 && !computed.hasErrors && (
+         <RuleEngineAlerts alerts={ruleAlerts} />
+       )}
+      </>
+     )}
+    </div>
   }
  />
 
@@ -265,8 +276,17 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
  <DecisionToolLegalDisclaimer variant="paid" />
  </div>
  )}
+  
+  
+  {showPaidOutput && computed.results.length > 0 && !computed.hasErrors && (
+    <div className="order-4 min-w-0 space-y-2">
+      <TornadoChart inputs={values} />
+      <FinancialImpactAnalysis inputs={values} />
+      <AssumptionLedger />
+    </div>
+  )}
 
- {!premiumLocked && showPaidOutput && (
+  {!premiumLocked && showPaidOutput && (
  <div className={`min-w-0 ${computed.premium ? "order-4" : "order-3"}`}>
  <ExportToolbar
  toolSlug={toolSlug}

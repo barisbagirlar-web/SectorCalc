@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-// @ts-nocheck
+
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { AdminLoginForm } from "@/components/admin/AdminAuthPanel";

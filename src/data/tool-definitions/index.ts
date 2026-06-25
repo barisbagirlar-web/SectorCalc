@@ -11,6 +11,9 @@ import { officeCleaningBidOptimizerDefinition } from "@/data/tool-definitions/of
 import { menuProfitLeakDetectorDefinition } from "@/data/tool-definitions/menu-profit-leak-detector";
 import { returnRateProfitErosionToolDefinition } from "@/data/tool-definitions/return-rate-profit-erosion-tool";
 
+import { getRevenueToolByFreeSlug, getRevenueToolByPaidSlug, revenueTools } from "@/lib/tools/revenue-tools";
+import type { ToolInput, ToolInputType } from "@/data/tool-schema";
+
 const TOOL_DEFINITIONS: ToolDefinition[] = [
  machineHourEstimatorDefinition,
  cncMinimumSafeQuoteAnalyzerDefinition,
@@ -35,11 +38,50 @@ export function getToolDefinition(
  tier: ToolTier,
  slug: ToolSlug
 ): ToolDefinition | undefined {
- return DEFINITION_MAP.get(definitionKey(tier, slug));
+ const hardcoded = DEFINITION_MAP.get(definitionKey(tier, slug));
+ if (hardcoded) return hardcoded;
+
+ const revTool = tier === "free" ? getRevenueToolByFreeSlug(slug) : getRevenueToolByPaidSlug(slug);
+ if (!revTool) return undefined;
+
+ const inputs: ToolInput[] = (tier === "free" ? revTool.freeInputs : revTool.paidInputs).map(ri => ({
+   id: ri.key,
+   label: ri.label,
+   type: (ri.type === "select" ? "select" : "number") as ToolInputType,
+   unit: ri.unit,
+   required: ri.required,
+   defaultValue: ri.defaultValue ?? (ri.type === "select" ? (ri.options?.[0]?.value || "") : 0),
+   helperText: ri.helperText || "",
+   options: ri.options ? ri.options.map(o => ({ value: o.value, label: o.label })) : undefined
+ }));
+
+ return {
+   id: slug as ToolSlug,
+   slug: slug as ToolSlug,
+   tier: tier,
+   industryId: revTool.sector as any,
+   title: tier === "free" ? revTool.freeTitle : revTool.paidTitle,
+   shortDescription: tier === "free" ? revTool.freeValue : revTool.paidValue,
+   longDescription: tier === "free" ? revTool.painStatement : revTool.paidValue,
+   inputs,
+   outputs: [],
+   relatedToolIds: [],
+   seo: {
+     title: tier === "free" ? revTool.freeTitle : revTool.paidTitle,
+     description: revTool.painStatement,
+     canonicalPath: tier === "free" ? `/tools/free/${slug}` : `/pro-tools/${slug}`,
+   },
+   calculatorId: (revTool as any).id,
+   interpretationNote: revTool.legalDisclaimer,
+   features: tier === "premium" ? { decisionReport: true } : undefined,
+ };
 }
 
 export function getAllToolDefinitions(): ToolDefinition[] {
- return [...TOOL_DEFINITIONS];
+  // Combine hardcoded with generated free and premium tool definitions
+  const generatedFree = revenueTools.map(r => getToolDefinition("free", r.freeSlug as ToolSlug)).filter(Boolean) as ToolDefinition[];
+  const generatedPaid = revenueTools.map(r => getToolDefinition("premium", r.paidSlug as ToolSlug)).filter(Boolean) as ToolDefinition[];
+  return [...TOOL_DEFINITIONS, ...generatedFree, ...generatedPaid];
 }
 
 export function isValidToolTier(tier: string): tier is ToolTier {

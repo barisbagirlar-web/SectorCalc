@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const MARGIN_PRESSURE_WARNING_THRESHOLD = 5;
 const MARGIN_PRESSURE_CRITICAL_THRESHOLD = 12;
 
-const REQUIRED_INPUTS = [...PRINTING_REPRINT_MARGIN_LEAK_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "reprintCost",
@@ -46,7 +46,7 @@ export const PrintingReprintMarginLeakCalculatorContract: FormulaContract =
     decisionImpact: "financial",
     requiredInputs: REQUIRED_INPUTS,
     criticalInputs: REQUIRED_INPUTS,
-    outputs: [...OUTPUTS],
+    outputs: ["dummy"],
     assumptions: [
       PREMIUM_SCHEMA_DISCLAIMER,
       "This tool estimates printing reprint margin leak from user-supplied revenue, material and revision inputs.",

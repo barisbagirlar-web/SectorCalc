@@ -8,85 +8,9 @@ export const QUALITY_COST_PAF_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Quality budgets hide prevention and appraisal spend until failure costs spike.",
 
-  inputs: [
-    {
-      id: "preventionCost",
-      label: "Prevention cost",
-      type: "number",
-      unit: "USD/month",
-      required: true,
-      smartDefault: 4200,
-      validation: { min: 0 },
-      helper: "Training, process control and prevention activities.",
-      expertMeaning: "PAF prevention bucket for the period.",
-    },
-    {
-      id: "appraisalCost",
-      label: "Appraisal cost",
-      type: "number",
-      unit: "USD/month",
-      required: true,
-      smartDefault: 3100,
-      validation: { min: 0 },
-      helper: "Inspection, testing and audit cost.",
-      expertMeaning: "PAF appraisal bucket for the period.",
-    },
-    {
-      id: "failureCost",
-      label: "Failure cost",
-      type: "number",
-      unit: "USD/month",
-      required: true,
-      smartDefault: 9800,
-      validation: { min: 0 },
-      helper: "Scrap, rework, warranty and downtime from defects.",
-      expertMeaning: "PAF failure bucket for the period.",
-    },
-    {
-      id: "revenue",
-      label: "Revenue",
-      type: "number",
-      unit: "USD/month",
-      required: true,
-      smartDefault: 420000,
-      validation: { min: 1 },
-      helper: "Monthly revenue for ratio context.",
-      expertMeaning: "Denominator for quality cost percent.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "cost.sum3",
-      inputMap: {
-        a: "preventionCost",
-        b: "appraisalCost",
-        c: "failureCost",
-      },
-      outputId: "totalQualityCost",
-    },
-    {
-      formulaId: "cost.ratio_percent",
-      inputMap: { numerator: "totalQualityCost", denominator: "revenue" },
-      outputId: "qualityCostPercent",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalQualityCost",
-      label: "Total quality cost",
-      unit: "$",
-      format: "currency",
-      isBigNumber: true,
-    },
-    {
-      id: "qualityCostPercent",
-      label: "Quality cost % of revenue",
-      unit: "%",
-      format: "percentage",
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

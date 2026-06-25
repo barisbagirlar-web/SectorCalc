@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-// @ts-nocheck
+
 import type { Metadata } from "next";
 import { ManifestoPageContent } from "@/components/manifesto/ManifestoPageContent";
 import { createPageMetadata } from "@/lib/metadata";

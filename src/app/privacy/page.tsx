@@ -60,6 +60,13 @@ export default function PrivacyPage() {
  ],
  },
  {
+ title: "GDPR Compliance (EU Users)",
+ paragraphs: [
+ "If you are a resident of the European Economic Area (EEA), you have certain data protection rights. SectorCalc aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.",
+ "You have the right to access, update or delete the information we have on you. You also have the right of rectification, right to object, right of restriction, right to data portability, and the right to withdraw consent.",
+ ],
+ },
+ {
  title: "Contact",
  paragraphs: [
  `Privacy inquiries: ${CONTACT_EMAILS.privacy}`,

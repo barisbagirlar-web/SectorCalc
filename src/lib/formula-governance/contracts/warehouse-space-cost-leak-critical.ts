@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const UNUSED_SPACE_PERCENT_WARNING_THRESHOLD = 10;
 const UNUSED_SPACE_PERCENT_CRITICAL_THRESHOLD = 20;
 
-const REQUIRED_INPUTS = [...WAREHOUSE_SPACE_COST_LEAK_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "unusedSpaceCost",
@@ -44,7 +44,7 @@ export const WarehouseSpaceCostLeakCalculatorContract: FormulaContract = buildAs
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool estimates warehouse space cost leak from user-supplied rent, utilization and handling inputs.",

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { describe, expect, test } from "vitest";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import { validateRentVsBuyCalculatorInputs } from "@/lib/premium-schema/calculators/rent-vs-buy-calculator-validation";

@@ -19,7 +19,7 @@
     "seo:authority-txt": "npx tsx scripts/generate-seo-authority-txt.ts",
     "seo:export-manifest": "npx tsx scripts/export-indexable-manifest.ts",
     "seo:indexnow": "node scripts/submit-indexnow.mjs",
-    "prebuild": "npm run lint:schemas && npm run export:ai-index && npm run seo:authority-txt && npm run seo:export-manifest",
+    "prebuild": "npm run lint:schemas && npm run seo:authority-txt && npm run seo:export-manifest",
     "audit:campaign": "npx tsx scripts/audit-campaign-utm.ts",
     "audit:locale-catalog": "npx tsx scripts/audit-locale-catalog-smoke.ts",
     "audit:locale-messages": "npx tsx scripts/audit-locale-messages.ts",
@@ -174,11 +174,13 @@
     "admin:set-claim": "node scripts/set-admin-claim.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.106.0",
     "@heroicons/react": "^2.2.0",
     "@paddle/paddle-js": "^1.6.4",
     "@paddle/paddle-node-sdk": "^3.8.0",
     "@react-pdf/renderer": "^4.5.1",
     "@sentry/nextjs": "^10.60.0",
+    "@vitalets/google-translate-api": "^9.2.1",
     "firebase": "^12.14.0",
     "firebase-admin": "^13.10.0",
     "lucide-react": "^1.17.0",
@@ -187,6 +189,7 @@
     "openai": "^6.42.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "ts-morph": "^28.0.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {

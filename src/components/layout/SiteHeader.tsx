@@ -346,9 +346,11 @@ export function SiteHeader({ isAuthenticated = false }) {
                     <div className="sc-mega-grid">
                       {INDUSTRY_GROUPS.map((g)=>(
                         <div className="sc-mega-col" key={g.groupKey}>
-                          <h4>{t[g.groupKey as keyof typeof t]}</h4>
+                          <Link href={href(locale, 'industries')} style={{ textDecoration: 'none' }}>
+                            <h4>{t[g.groupKey as keyof typeof t]}</h4>
+                          </Link>
                           {g.items.map((it)=>(
-                            <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} className="sc-mega-item">
+                            <Link key={it.slug} href={href(locale,`industries/${it.slug}`)} className="sc-mega-item">
                               <span className="ico">{it.icon}</span>
                               <span className="txt"><b>{t[it.key as keyof typeof t]}</b><span>{it.count} {t.tools}</span></span>
                             </Link>
@@ -369,9 +371,6 @@ export function SiteHeader({ isAuthenticated = false }) {
                     </Link>
                     <Link href={href(locale,'calculator-library')} className="sc-res-item">
                       <span className="rico">📐</span><span className="rt"><b>{t.res_docs}</b><span>{t.res_docs_d}</span></span>
-                    </Link>
-                    <Link href={href(locale,'developer-showcase')} className="sc-res-item">
-                      <span className="rico">🔌</span><span className="rt"><b>{t.res_api}</b><span>{t.res_api_d}</span></span>
                     </Link>
                   </div>
                 )}
@@ -411,7 +410,7 @@ export function SiteHeader({ isAuthenticated = false }) {
             {mobileSection==='industries' && (
               <div className="sc-draw-body">
                 {INDUSTRY_GROUPS.flatMap((g)=>g.items).map((it)=>(
-                  <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} onClick={()=>setMobileOpen(false)}>
+                  <Link key={it.slug} href={href(locale,`industries/${it.slug}`)} onClick={()=>setMobileOpen(false)}>
                     {it.icon} {t[it.key as keyof typeof t]} <span className="c">{it.count}</span>
                   </Link>
                 ))}
@@ -426,11 +425,13 @@ export function SiteHeader({ isAuthenticated = false }) {
             </button>
             {mobileSection==='resources' && (
               <div className="sc-draw-body">
-                <Link href={href(locale,'case-studies')} onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
-                <Link href={href(locale,'calculator-library')} onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
-                <Link href={href(locale,'developer-showcase')} onClick={()=>setMobileOpen(false)}>🔌 {t.res_api}</Link>
-              </div>
-            )}
+              <Link href={href(locale,'case-studies')} onClick={()=>setMobileOpen(false)}>
+                <span className="rico">📝</span> {t.res_blog}
+              </Link>
+              <Link href={href(locale,'calculator-library')} onClick={()=>setMobileOpen(false)}>
+                <span className="rico">📐</span> {t.res_docs}
+              </Link>
+            </div>)}
           </div>
           <div className="sc-draw-cta">
             <Link href={href(locale,'login')} className="sc-getstarted" onClick={()=>setMobileOpen(false)}>{t.getStarted}</Link>

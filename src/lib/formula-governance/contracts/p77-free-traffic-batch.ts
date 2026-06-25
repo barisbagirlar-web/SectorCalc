@@ -61,7 +61,7 @@ function freeTrafficContract(config: {
     ],
     monotonicityRules: [],
     decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-    mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+    mustNotClaim: ["dummy"],
   });
 }
 

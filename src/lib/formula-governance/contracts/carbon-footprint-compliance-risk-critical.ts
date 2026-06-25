@@ -16,7 +16,7 @@ import { CARBON_FOOTPRINT_COMPLIANCE_RISK_INPUT_KEYS } from "@/lib/premium-schem
 const PREMIUM_SCHEMA_DISCLAIMER =
   "Technical simulation only — not financial, legal, safety, or professional advice. Verify assumptions before business decisions.";
 
-const REQUIRED_INPUTS = [...CARBON_FOOTPRINT_COMPLIANCE_RISK_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 const OUTPUTS = [
   "carbonExposure",
   "totalEmissions",
@@ -34,7 +34,7 @@ export const CarbonFootprintComplianceRiskCalculatorContract: FormulaContract = 
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool provides deterministic cost/risk/margin exposure estimation from declared inputs. It is not a regulatory, legal, safety, engineering or professional certification decision engine.",

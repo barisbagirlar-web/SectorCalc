@@ -30,7 +30,10 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
   const btnClass = isFeatured ? "sc-cta-primary" : "sc-cta-secondary"
 
   function handleBuy() {
-    if (!ready) return
+    if (!ready) {
+      alert("Billing system is initializing or unavailable in this environment.");
+      return;
+    }
     if (!plan.paddlePriceId) {
       console.error("[SectorCalc] Critical Error: Paddle Price ID is undefined for plan:", plan.id);
       return;
@@ -95,7 +98,7 @@ export function PricingCard({ plan, email, onEmailNeeded, loading, setLoading }:
       <div className="sc-pro-pricing-card__cta mt-auto">
         <button
           onClick={handleBuy}
-          disabled={loading === true || !ready}
+          disabled={loading === true}
           className={`${btnClass} w-full flex justify-center py-2.5 font-medium rounded-md transition-colors`}
         >
           {loading ? (t.has('card.opening') ? t('card.opening') : 'Opening...') : (t.has(`plans.${plan.id}.cta`) ? t(`plans.${plan.id}.cta`) : plan.cta)}

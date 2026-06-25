@@ -1,5 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
-// @ts-nocheck
+
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import { HubLink } from "@/components/layout/HubLink";

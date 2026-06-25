@@ -8,77 +8,9 @@ export const VALUE_STREAM_MAP_VSM_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Lead time hides in queues and transport while teams only track processing time.",
 
-  inputs: [
-    {
-      id: "processMinutes",
-      label: "Process time",
-      type: "number",
-      unit: "minutes",
-      required: true,
-      smartDefault: 18,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "waitMinutes",
-      label: "Wait time",
-      type: "number",
-      unit: "minutes",
-      required: true,
-      smartDefault: 240,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-    {
-      id: "transportMinutes",
-      label: "Transport time",
-      type: "number",
-      unit: "minutes",
-      required: true,
-      smartDefault: 45,
-      validation: { min: 0 },
-      helper: "Please enter a valid value.",
-      expertMeaning: "Parameter value complies with industrial calculation standards.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "time.vsm_total_lead_time",
-      inputMap: {
-        processMinutes: "processMinutes",
-        waitMinutes: "waitMinutes",
-        transportMinutes: "transportMinutes",
-      },
-      outputId: "totalLeadMinutes",
-    },
-    {
-      formulaId: "benchmark.value_added_percent",
-      inputMap: {
-        valueAddedMinutes: "processMinutes",
-        totalLeadMinutes: "totalLeadMinutes",
-      },
-      outputId: "valueAddedPercent",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalLeadMinutes",
-      label: "Total lead time",
-      unit: "minutes",
-      format: "number",
-      isBigNumber: true,
-    },
-    {
-      id: "valueAddedPercent",
-      label: "Value-added ratio",
-      unit: "%",
-      format: "percentage",
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {

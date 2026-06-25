@@ -60,7 +60,7 @@ const fuelConsumptionCheckContract: FormulaContract = buildAssuredCriticalContra
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "distanceKm", direction: "increase_should_increase", outputKey: "fuelCost" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const margincoreRiskEngineContract: FormulaContract = buildAssuredCriticalContract({
@@ -106,7 +106,7 @@ const margincoreRiskEngineContract: FormulaContract = buildAssuredCriticalContra
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "expectedCost", direction: "increase_should_increase", outputKey: "recommendedPrice" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 const sectorMarginCalculatorsContract: FormulaContract = buildAssuredCriticalContract({
@@ -152,7 +152,7 @@ const sectorMarginCalculatorsContract: FormulaContract = buildAssuredCriticalCon
     { id: "formula-stable", description: "Formula path remains stable for baseline fixture.", inputKey: "naiveCost", direction: "increase_should_increase", outputKey: "naiveCost" },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 

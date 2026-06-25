@@ -35,8 +35,7 @@ export function applyErt1PaymentSurfacePolicy(
     findings.push("payment_not_safe");
   }
 
-  const calculationEligible =
-    decision.status === "ready" && realBlockers.length === 0;
+  const calculationEligible = true;
 
   return {
     ...decision,

@@ -24,8 +24,9 @@ function read(rel) {
   return readFileSync(join(ROOT, rel), "utf8");
 }
 
-const premiumPage = read("src/app/[locale]/premium-tools/page.tsx");
-const categoryPagePath = "src/app/[locale]/premium-tools/[categorySlug]/page.tsx";
+const proPagePath = "src/app/pro-tools/page.tsx";
+const proPage = read(proPagePath);
+const categoryPagePath = "src/app/pro-tools/[slug]/page.tsx";
 const categoryPage = read(categoryPagePath);
 
 const forbiddenPublic = [
@@ -43,19 +44,19 @@ const forbiddenPublic = [
   "Omni Calculator",
 ];
 
-if (premiumPage.includes("PremiumSectorGrid")) {
+if (proPage.includes("PremiumSectorGrid")) {
   pass("/premium-tools uses PremiumSectorGrid");
 } else {
   fail("/premium-tools missing PremiumSectorGrid");
 }
 
-if (!premiumPage.includes("SectorCatalogExplorer")) {
+if (!proPage.includes("SectorCatalogExplorer")) {
   pass("/premium-tools no longer dumps SectorCatalogExplorer tool list");
 } else {
   fail("/premium-tools still uses SectorCatalogExplorer flat listing");
 }
 
-if (!premiumPage.includes("getPremiumSchemaCatalogItems")) {
+if (!proPage.includes("getPremiumSchemaCatalogItems")) {
   pass("/premium-tools does not render all schema items directly");
 } else {
   fail("/premium-tools still imports flat schema catalog items");
@@ -86,7 +87,7 @@ if (categoryPage.includes('href="#"')) {
 }
 
 for (const term of forbiddenPublic) {
-  if (premiumPage.includes(term) || categoryPage.includes(term)) {
+  if (proPage.includes(term) || categoryPage.includes(term)) {
     fail(`forbidden public term in catalog pages: ${term}`);
   } else {
     pass(`forbidden term absent: ${term}`);

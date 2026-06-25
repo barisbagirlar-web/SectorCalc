@@ -9,93 +9,9 @@ export const PLUMBING_LEAK_CALLBACK_COST_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Plumbing jobs lose margin when leak callback, material runs and warranty visits are not priced.",
 
-  inputs: [
-    {
-      id: "jobRevenue",
-      label: "Job revenue",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 12500,
-      validation: { min: 0 },
-      helper: "Fixed-price or contract revenue for the job.",
-      expertMeaning: "Revenue base for warranty reserve.",
-    },
-    {
-      id: "callbackVisits",
-      label: "Callback visits",
-      type: "number",
-      unit: "count",
-      required: true,
-      smartDefault: 3,
-      validation: { min: 0 },
-      helper: "Expected leak or warranty return visits.",
-      expertMeaning: "Return trip frequency on similar jobs.",
-    },
-    {
-      id: "visitCost",
-      label: "Visit cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 220,
-      validation: { min: 0 },
-      helper: "Average cost per callback visit.",
-      expertMeaning: "Loaded cost per return trip.",
-    },
-    {
-      id: "materialRunCost",
-      label: "Material run cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 850,
-      validation: { min: 0 },
-      helper: "Extra fittings, pipe and supply runs.",
-      expertMeaning: "Material overruns not in the bid.",
-    },
-    {
-      id: "warrantyReservePercent",
-      label: "Warranty reserve",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 4,
-      validation: { min: 0, max: 100 },
-      helper: "Warranty reserve as percent of job revenue.",
-      expertMeaning: "Expected warranty callback envelope.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "cost.count_cost",
-      inputMap: { count: "callbackVisits", costEach: "visitCost" },
-      outputId: "callbackCost",
-    },
-    {
-      formulaId: "cost.percent_of_amount",
-      inputMap: { amount: "jobRevenue", percent: "warrantyReservePercent" },
-      outputId: "warrantyReserve",
-    },
-    {
-      formulaId: "cost.total_exposure",
-      inputMap: { a: "callbackCost", b: "materialRunCost", c: "warrantyReserve" },
-      outputId: "totalExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalExposure",
-      label: "Total callback exposure",
-      unit: "$",
-      format: "currency",
-      isBigNumber: true,
-    },
-    { id: "callbackCost", label: "Callback cost", unit: "$", format: "currency" },
-    { id: "warrantyReserve", label: "Warranty reserve", unit: "$", format: "currency" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

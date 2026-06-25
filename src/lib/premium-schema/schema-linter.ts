@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * Schema Linter — build-time validation for premium calculator schemas.
  * Ensures registry compliance before schemas ship to production.

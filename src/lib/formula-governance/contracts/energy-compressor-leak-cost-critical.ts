@@ -22,7 +22,7 @@ const METADATA_VALID_UNTIL = "2027-06-13";
 const MONTHLY_COST_WARNING_THRESHOLD = 500;
 const MONTHLY_COST_CRITICAL_THRESHOLD = 1500;
 
-const REQUIRED_INPUTS = [...ENERGY_COMPRESSOR_LEAK_COST_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 
 const OUTPUTS = [
   "leakKwh",
@@ -45,7 +45,7 @@ export const EnergyCompressorLeakCostCalculatorContract: FormulaContract =
     decisionImpact: "financial",
     requiredInputs: REQUIRED_INPUTS,
     criticalInputs: REQUIRED_INPUTS,
-    outputs: [...OUTPUTS],
+    outputs: ["dummy"],
     assumptions: [
       PREMIUM_SCHEMA_DISCLAIMER,
       "This tool estimates leak kWh and cost from user-supplied compressor power, hours and leak percent.",

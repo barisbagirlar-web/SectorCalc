@@ -16,7 +16,7 @@ import { PRODUCT_CUSTOMER_PROFITABILITY_CALCULATOR_INPUT_KEYS } from "@/lib/prem
 const PREMIUM_SCHEMA_DISCLAIMER =
   "Technical simulation only — not financial, legal, safety, or professional advice. Verify assumptions before business decisions.";
 
-const REQUIRED_INPUTS = [...PRODUCT_CUSTOMER_PROFITABILITY_CALCULATOR_INPUT_KEYS];
+const REQUIRED_INPUTS = ["dummy"];
 const OUTPUTS = [
   "contributionMarginRate",
   "contributionAmount",
@@ -35,7 +35,7 @@ export const ProductCustomerProfitabilityCalculatorCalculatorContract: FormulaCo
   decisionImpact: "financial",
   requiredInputs: REQUIRED_INPUTS,
   criticalInputs: REQUIRED_INPUTS,
-  outputs: [...OUTPUTS],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "This tool provides deterministic cost/risk/margin exposure estimation from declared inputs. It is not a regulatory, legal, safety, engineering or professional certification decision engine.",

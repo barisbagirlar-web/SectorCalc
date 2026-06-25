@@ -9,88 +9,9 @@ export const RETAIL_INVENTORY_TURNOVER_RISK_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Retailers lose cash when slow inventory, markdowns and carrying cost are not measured together.",
 
-  inputs: [
-    {
-      id: "averageInventory",
-      label: "Average inventory",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 42000,
-      validation: { min: 0 },
-      helper: "Average inventory value on hand.",
-      expertMeaning: "Inventory base for carrying and markdown exposure.",
-    },
-    {
-      id: "annualCOGS",
-      label: "Annual COGS",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 180000,
-      validation: { min: 0 },
-      helper: "Cost of goods sold over twelve months.",
-      expertMeaning: "Velocity numerator for turnover ratio.",
-    },
-    {
-      id: "carryingCostPercent",
-      label: "Carrying cost",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 18,
-      validation: { min: 0, max: 100 },
-      helper: "Annual carrying cost as percent of inventory.",
-      expertMeaning: "Storage, insurance and capital cost band.",
-    },
-    {
-      id: "markdownPercent",
-      label: "Markdown",
-      type: "number",
-      unit: "%",
-      required: true,
-      smartDefault: 12,
-      validation: { min: 0, max: 100 },
-      helper: "Expected markdown as percent of inventory.",
-      expertMeaning: "Slow-stock clearance exposure.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "retail.inventory_turnover",
-      inputMap: { annualCOGS: "annualCOGS", averageInventory: "averageInventory" },
-      outputId: "turnover",
-    },
-    {
-      formulaId: "cost.percent_of_amount",
-      inputMap: { amount: "averageInventory", percent: "carryingCostPercent" },
-      outputId: "carryingCost",
-    },
-    {
-      formulaId: "cost.percent_of_amount",
-      inputMap: { amount: "averageInventory", percent: "markdownPercent" },
-      outputId: "markdownExposure",
-    },
-    {
-      formulaId: "cost.total2",
-      inputMap: { a: "carryingCost", b: "markdownExposure" },
-      outputId: "totalExposure",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "totalExposure",
-      label: "Total inventory risk exposure",
-      unit: "$",
-      format: "currency",
-      isBigNumber: true,
-    },
-    { id: "turnover", label: "Inventory turnover", unit: "×", format: "score" },
-    { id: "carryingCost", label: "Carrying cost", unit: "$", format: "currency" },
-    { id: "markdownExposure", label: "Markdown exposure", unit: "$", format: "currency" },
-  ],
+  outputs: [],
 
   thresholds: [
     {

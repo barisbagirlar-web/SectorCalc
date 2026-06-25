@@ -25,36 +25,14 @@ export function LandingPageContent() {
   const [scrap, setScrap] = useState<number>(12);
   const [cost, setCost] = useState<number>(4.5);
 
-  // Timer State
-  const [timerStr, setTimerStr] = useState("00:00:00");
 
-  useEffect(() => {
-    function getDeadline() {
-      const now = new Date();
-      return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 0, 23, 59, 59));
-    }
-
-    function tick() {
-      const diff = Math.max(0, getDeadline().getTime() - Date.now());
-      const s = Math.floor(diff / 1000);
-      const h = Math.floor(s / 3600);
-      const m = Math.floor((s % 3600) / 60);
-      const sec = s % 60;
-      const p = (n: number) => String(n).padStart(2, "0");
-      setTimerStr(`${p(h)}:${p(m)}:${p(sec)}`);
-    }
-
-    tick();
-    const interval = setInterval(tick, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const annualLoss = prod * (scrap / 100) * cost * 12;
   const recovery = annualLoss * 0.833;
   const roi = annualLoss > 0 ? Math.round(annualLoss / 1900) : 0;
   const monthlyLoss = prod * (scrap / 100) * cost;
 
-  const fmt = (v: number) => "€" + Math.round(v).toLocaleString("de-DE");
+  const fmt = (v: number) => "€" + Math.round(v).toLocaleString("en-US");
 
   const filledSteps = (prod > 0 ? 20 : 0) + (scrap > 0 ? 20 : 0) + (cost > 0 ? 20 : 0);
   const pct = Math.min(40 + filledSteps, 100);
@@ -76,6 +54,24 @@ export function LandingPageContent() {
           <em>{t("hero.headlineEm")}</em>
         </h1>
         <p className="sc-subhead">{t("hero.subtitle")}</p>
+        
+        <div className="mt-8 mb-12 text-left font-mono text-xs text-text-secondary bg-bg-subtle border border-border-subtle p-6 rounded-xl mx-auto max-w-2xl leading-relaxed">
+          <div className="font-semibold text-text-primary mb-2 text-sm font-sans tracking-tight">552+ Calculations across 12 sectors:</div>
+          <div className="pl-2">
+            <div>├── CNC Machining: 89 tools (turning, milling, drilling...)</div>
+            <div>├── Metal Forming: 67 tools (bending, stamping, deep drawing...)</div>
+            <div>├── Welding: 54 tools (MIG, TIG, resistance, laser...)</div>
+            <div>├── Hydraulics: 43 tools (cylinder, pump, pressure drop...)</div>
+            <div>├── HVAC: 52 tools (heat load, duct sizing, psychrometrics...)</div>
+            <div>├── Structural: 48 tools (beam, column, connection...)</div>
+            <div>├── Electrical: 41 tools (cable sizing, motor, transformer...)</div>
+            <div>├── Fluid Power: 38 tools (pneumatic, hydraulic...)</div>
+            <div>├── Metrology: 31 tools (tolerance, GD&T, gauge...)</div>
+            <div>├── Material Science: 29 tools (hardness, fatigue, creep...)</div>
+            <div>├── Cost Engineering: 36 tools (TCO, hourly rate, scrap...)</div>
+            <div>└── Maintenance: 24 tools (bearing life, vibration, lubrication...)</div>
+          </div>
+        </div>
 
         <div className="sc-qualifier">
           <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--sc-ink-muted)", textTransform: "uppercase", letterSpacing: ".06em", marginBottom: "20px" }}>
@@ -179,7 +175,6 @@ export function LandingPageContent() {
         <div className="sc-calc-wrap">
           <div className="sc-calc-header">
             <div style={{ fontSize: "14px", fontWeight: 600 }}>{t("calc.headerTitle")}</div>
-            <div className="sc-calc-badge">{t("calc.badge")}</div>
           </div>
           <div className="sc-calc-body">
             <div className="sc-prog-label">
@@ -391,7 +386,10 @@ export function LandingPageContent() {
           ))}
         </div>
         <span className="sc-label">{t("method.label")}</span>
-        <h2 className="sc-h2" style={{ marginBottom: "24px" }}>{t("method.h2")}</h2>
+        <h2 className="sc-h2" style={{ marginBottom: "16px" }}>{t("method.h2")}</h2>
+        <p style={{ fontSize: "15px", color: "var(--sc-ink-muted)", marginBottom: "32px", maxWidth: "600px", margin: "0 auto 32px auto", textAlign: "center", lineHeight: 1.6 }}>
+          {t("method.subtitle")}
+        </p>
         <div className="sc-method-grid">
           {(t.raw("method.badges") as Array<any>).map((b, i) => (
             <div key={i} className="sc-method-badge">
@@ -406,7 +404,7 @@ export function LandingPageContent() {
       <section className="sc-final">
         <div className="sc-final-inner">
           <div className="sc-countdown">
-            {t("final.timerPrefix")} <span style={{ fontVariantNumeric: "tabular-nums" }}>{timerStr}</span>
+            {t("final.timerPrefix")}
           </div>
           <h2 className="sc-h2">
             {t("final.h2Line1")}

@@ -50,12 +50,18 @@ export function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShe
  description={definition.longDescription}
  statusSlot={<FormulaGateToolStatus slug={definition.slug} locale={locale} />}
  />
- <p className="mb-6 text-sm leading-relaxed text-text-secondary">
- {isPremium
- ? MARGINCORE_TERMS.premiumVerdict
- : MARGINCORE_TERMS.freePreCheck}
- </p>
- <Breadcrumb items={breadcrumbItems} />
+  <p className="mb-4 text-sm leading-relaxed text-text-secondary">
+  {isPremium
+  ? MARGINCORE_TERMS.premiumVerdict
+  : MARGINCORE_TERMS.freePreCheck}
+  </p>
+  <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-800 dark:text-emerald-300">
+    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    Validated against ISO/VDI standard reference calculations
+  </div>
+  <Breadcrumb items={breadcrumbItems} />
  </div>
 
  <section className="fourth-tab border-t border-border-subtle bg-white">

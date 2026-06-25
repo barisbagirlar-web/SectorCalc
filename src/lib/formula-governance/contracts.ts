@@ -12,12 +12,9 @@ import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contrac
 import { BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/batch-expansion-critical";
 import { BATCH_TRAFFIC_CATALOG_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/batch-traffic-catalog-critical";
 import { BATCH_PREMIUM_SCHEMA_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/batch-premium-schema-critical";
-import { ROADMAP_FREE_BATCH_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/roadmap-free-batch-critical";
 import { PREMIUM_SCHEMA_EXTENDED_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/premium-schema-extended-critical";
 import { SEVEN_MUDA_WASTE_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/seven-muda-waste-cost-critical";
 import { AGRICULTURE_IRRIGATION_YIELD_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/agriculture-irrigation-yield-loss-critical";
-import { CALIBRATION_DRIFT_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/calibration-drift-risk-critical";
-import { CLOUD_API_COST_OVERRUN_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cloud-api-cost-overrun-critical";
 import { ENERGY_COMPRESSOR_LEAK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/energy-compressor-leak-cost-critical";
 import { CNC_TOOL_WEAR_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cnc-tool-wear-cost-critical";
 import { DAIRY_FEED_EFFICIENCY_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/dairy-feed-efficiency-loss-critical";
@@ -266,12 +263,9 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS,
   ...BATCH_TRAFFIC_CATALOG_CRITICAL_FORMULA_CONTRACTS,
   ...BATCH_PREMIUM_SCHEMA_CRITICAL_FORMULA_CONTRACTS,
-  ...ROADMAP_FREE_BATCH_CRITICAL_FORMULA_CONTRACTS,
   ...PREMIUM_SCHEMA_EXTENDED_CRITICAL_FORMULA_CONTRACTS,
   ...SEVEN_MUDA_WASTE_COST_CRITICAL_FORMULA_CONTRACTS,
   ...AGRICULTURE_IRRIGATION_YIELD_LOSS_CRITICAL_FORMULA_CONTRACTS,
-  ...CALIBRATION_DRIFT_RISK_CRITICAL_FORMULA_CONTRACTS,
-  ...CLOUD_API_COST_OVERRUN_CRITICAL_FORMULA_CONTRACTS,
   ...ENERGY_COMPRESSOR_LEAK_COST_CRITICAL_FORMULA_CONTRACTS,
   ...CNC_TOOL_WEAR_COST_CRITICAL_FORMULA_CONTRACTS,
   ...DAIRY_FEED_EFFICIENCY_LOSS_CRITICAL_FORMULA_CONTRACTS,

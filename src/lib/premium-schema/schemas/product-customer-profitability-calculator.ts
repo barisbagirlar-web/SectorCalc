@@ -8,92 +8,9 @@ export const PRODUCT_CUSTOMER_PROFITABILITY_CALCULATOR_SCHEMA: PremiumCalculator
   painStatement:
     "High-revenue customers can destroy margin through returns, delays and rework.",
 
-  inputs: [
-    {
-      id: "revenue",
-      label: "Revenue",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 85000,
-      validation: { min: 0 },
-      helper: "Customer or SKU revenue in the period.",
-      expertMeaning: "Invoice revenue before hidden service costs.",
-    },
-    {
-      id: "directCost",
-      label: "Direct cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 52000,
-      validation: { min: 0 },
-      helper: "COGS and direct fulfillment cost.",
-      expertMeaning: "Variable cost tied to volume.",
-    },
-    {
-      id: "serviceCost",
-      label: "Service cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 6800,
-      validation: { min: 0 },
-      helper: "Support, delivery rework and account service load.",
-      expertMeaning: "Hidden service burden on the customer or SKU.",
-    },
-    {
-      id: "returnsCost",
-      label: "Returns cost",
-      type: "number",
-      unit: "USD",
-      required: true,
-      smartDefault: 4200,
-      validation: { min: 0 },
-      helper: "Returns, credits and rework tied to the account.",
-      expertMeaning: "Reverse logistics and credit memo load.",
-    },
-  ],
+  inputs: [],
 
-  formulaPipeline: [
-    {
-      formulaId: "cost.total_exposure",
-      inputMap: { a: "directCost", b: "serviceCost", c: "returnsCost" },
-      outputId: "loadedCost",
-    },
-    {
-      formulaId: "cost.difference",
-      inputMap: { a: "revenue", b: "loadedCost" },
-      outputId: "contributionAmount",
-    },
-    {
-      formulaId: "cost.margin_rate_on_price",
-      inputMap: { price: "revenue", cost: "loadedCost" },
-      outputId: "contributionMarginRate",
-    },
-  ],
-
-  outputs: [
-    {
-      id: "contributionMarginRate",
-      label: "Contribution margin rate",
-      unit: "%",
-      format: "percentage",
-      isBigNumber: true,
-    },
-    {
-      id: "contributionAmount",
-      label: "Contribution amount",
-      unit: "$",
-      format: "currency",
-    },
-    {
-      id: "loadedCost",
-      label: "Loaded cost",
-      unit: "$",
-      format: "currency",
-    },
-  ],
+  outputs: [],
 
   thresholds: [
     {
