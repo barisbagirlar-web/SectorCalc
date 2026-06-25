@@ -1,0 +1,110 @@
+{
+  "tool_id": "PRO_089",
+  "tool_name": "Girişim Değerleme",
+  "category": "Endüstriyel Hesaplama",
+  "scope": "single_operation",
+  "primary_operation": "analysis",
+  "inputs": [
+    {
+      "id": "input_0",
+      "name": "Yatirim",
+      "unit": "TL",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_1",
+      "name": "HisseOrani",
+      "unit": "Yüzde",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_2",
+      "name": "Ekstra Parametre 2",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_3",
+      "name": "Ekstra Parametre 3",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_4",
+      "name": "Ekstra Parametre 4",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_5",
+      "name": "Ekstra Parametre 5",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    }
+  ],
+  "formulas": [
+    "DegerlemeSonrasi = Yatirim / MAX(0.0001, HisseOrani/100) // Formül",
+    "DegerlemeOnce = DegerlemeSonrasi - Yatirim // Formül",
+    "Ekstra_Deger_2 = input_0 * 1.0 // Yardımcı hesaplama",
+    "Ekstra_Deger_3 = input_0 * 1.0 // Yardımcı hesaplama"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 9001"
+    ],
+    "validation": {
+      "min_check": {
+        "absolute_min": 0,
+        "error_msg": "Değer sıfırdan küçük olamaz."
+      },
+      "max_check": {
+        "absolute_max": 999999,
+        "error_msg": "Değer çok büyük."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "input_0 > 1000",
+        "severity": "WARNING",
+        "source": "ISO Standartları",
+        "message": "Girdi çok yüksek."
+      },
+      {
+        "condition": "input_0 < 1",
+        "severity": "WARNING",
+        "source": "Standart Referans",
+        "message": "Girdi kritik seviyede düşük."
+      },
+      {
+        "condition": "input_0 == 500",
+        "severity": "INFO",
+        "source": "Genel Kural",
+        "message": "Girdi ortalama seviyede."
+      }
+    ]
+  }
+}

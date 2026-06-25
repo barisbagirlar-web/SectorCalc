@@ -1,0 +1,110 @@
+{
+  "tool_id": "PRO_152",
+  "tool_name": "Vadeli Hayat Sigortası",
+  "category": "Endüstriyel Hesaplama",
+  "scope": "single_operation",
+  "primary_operation": "analysis",
+  "inputs": [
+    {
+      "id": "input_0",
+      "name": "Teminat",
+      "unit": "TL",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_1",
+      "name": "OlumOlasiligi",
+      "unit": "Yüzde",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_2",
+      "name": "GiderMarji",
+      "unit": "Yüzde",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_3",
+      "name": "Ekstra Parametre 3",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_4",
+      "name": "Ekstra Parametre 4",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_5",
+      "name": "Ekstra Parametre 5",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    }
+  ],
+  "formulas": [
+    "NetPrim = Teminat * (OlumOlasiligi/100) // Formül",
+    "BrutPrim = NetPrim / MAX(0.0001, (1 - GiderMarji/100)) // Formül",
+    "Ekstra_Deger_2 = input_0 * 1.0 // Yardımcı hesaplama",
+    "Ekstra_Deger_3 = input_0 * 1.0 // Yardımcı hesaplama"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 9001"
+    ],
+    "validation": {
+      "min_check": {
+        "absolute_min": 0,
+        "error_msg": "Değer sıfırdan küçük olamaz."
+      },
+      "max_check": {
+        "absolute_max": 999999,
+        "error_msg": "Değer çok büyük."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "input_0 > 1000",
+        "severity": "WARNING",
+        "source": "ISO Standartları",
+        "message": "Girdi çok yüksek."
+      },
+      {
+        "condition": "input_0 < 1",
+        "severity": "WARNING",
+        "source": "Standart Referans",
+        "message": "Girdi kritik seviyede düşük."
+      },
+      {
+        "condition": "input_0 == 500",
+        "severity": "INFO",
+        "source": "Genel Kural",
+        "message": "Girdi ortalama seviyede."
+      }
+    ]
+  }
+}

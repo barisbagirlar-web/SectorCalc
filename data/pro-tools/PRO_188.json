@@ -1,0 +1,110 @@
+{
+  "tool_id": "PRO_188",
+  "tool_name": "NPSH (Net Pozitif Emme)",
+  "category": "Endüstriyel Hesaplama",
+  "scope": "single_operation",
+  "primary_operation": "analysis",
+  "inputs": [
+    {
+      "id": "input_0",
+      "name": "Basinc",
+      "unit": "Pa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_1",
+      "name": "BuharBasinci",
+      "unit": "Pa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_2",
+      "name": "Yogunluk",
+      "unit": "kg/m3",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_3",
+      "name": "Yukseklik",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_4",
+      "name": "Kayip",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_5",
+      "name": "Ekstra Parametre 5",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    }
+  ],
+  "formulas": [
+    "NPSH = (Basinc - BuharBasinci) / MAX(0.0001, (Yogunluk * 9.81)) + Yukseklik - Kayip // Formül",
+    "Ekstra_Deger_1 = input_0 * 1.0 // Yardımcı hesaplama",
+    "Ekstra_Deger_2 = input_0 * 1.0 // Yardımcı hesaplama",
+    "Ekstra_Deger_3 = input_0 * 1.0 // Yardımcı hesaplama"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 9001"
+    ],
+    "validation": {
+      "min_check": {
+        "absolute_min": 0,
+        "error_msg": "Değer sıfırdan küçük olamaz."
+      },
+      "max_check": {
+        "absolute_max": 999999,
+        "error_msg": "Değer çok büyük."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "input_0 > 1000",
+        "severity": "WARNING",
+        "source": "ISO Standartları",
+        "message": "Girdi çok yüksek."
+      },
+      {
+        "condition": "input_0 < 1",
+        "severity": "WARNING",
+        "source": "Standart Referans",
+        "message": "Girdi kritik seviyede düşük."
+      },
+      {
+        "condition": "input_0 == 500",
+        "severity": "INFO",
+        "source": "Genel Kural",
+        "message": "Girdi ortalama seviyede."
+      }
+    ]
+  }
+}

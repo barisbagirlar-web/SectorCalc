@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
-// @ts-nocheck
+import fs from "fs";
+import path from "path";
+
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PremiumCatalogSearch } from "@/components/catalog/PremiumCatalogSearch";
@@ -288,18 +290,43 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const rawCategories = listPremiumCatalogCategories(locale);
   const premiumCatalogTools = buildPremiumCatalogTools(locale);
 
-  const searchableTools: SearchablePremiumTool[] = premiumCatalogTools.map((item) => ({
-    slug: item.slug,
-    title: item.title,
-    description: item.description,
-    categorySlug: item.categoryId,
-    categoryLabel: item.categoryLabel,
-    routePath: item.routePath,
-    isActive: item.isActive,
-    searchTerms: item.searchTerms,
-    aliases: item.aliases,
-    keywords: item.keywords,
-  }));
+  let extraTools: SearchablePremiumTool[] = [];
+  try {
+    const mergedPath = path.join(process.cwd(), "data", "pro-tools", "_merged.json");
+    if (fs.existsSync(mergedPath)) {
+      const allTools = JSON.parse(fs.readFileSync(mergedPath, "utf-8"));
+      extraTools = allTools.map((tool: any) => ({
+        slug: tool.tool_id,
+        title: tool.tool_name,
+        description: tool.category + " kategorisindeki PRO analiz aracı.",
+        categorySlug: "engineering-production",
+        categoryLabel: tool.category || "Endüstriyel",
+        routePath: "/pro-tools/" + tool.tool_id,
+        isActive: true,
+        searchTerms: [tool.tool_name, tool.tool_id],
+        aliases: [],
+        keywords: [tool.tool_id, "pro", "premium"],
+      }));
+    }
+  } catch (e) {
+    console.error("Pro tools loading error:", e);
+  }
+
+  const searchableTools: SearchablePremiumTool[] = [
+    ...premiumCatalogTools.map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      description: item.description,
+      categorySlug: item.categoryId,
+      categoryLabel: item.categoryLabel,
+      routePath: item.routePath,
+      isActive: item.isActive,
+      searchTerms: item.searchTerms,
+      aliases: item.aliases,
+      keywords: item.keywords,
+    })),
+    ...extraTools
+  ];
 
   const searchableCategories: SearchablePremiumCategory[] = rawCategories
     .filter((c) => c.premiumToolCount > 0)

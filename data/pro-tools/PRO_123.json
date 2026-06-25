@@ -1,0 +1,110 @@
+{
+  "tool_id": "PRO_123",
+  "tool_name": "Hacimsel Ağırlık",
+  "category": "Endüstriyel Hesaplama",
+  "scope": "single_operation",
+  "primary_operation": "analysis",
+  "inputs": [
+    {
+      "id": "input_0",
+      "name": "En",
+      "unit": "cm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_1",
+      "name": "Boy",
+      "unit": "cm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_2",
+      "name": "Yukseklik",
+      "unit": "cm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_3",
+      "name": "Bolen",
+      "unit": "Sayı",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_4",
+      "name": "Ekstra Parametre 4",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_5",
+      "name": "Ekstra Parametre 5",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    }
+  ],
+  "formulas": [
+    "Desi = (En * Boy * Yukseklik) / MAX(1, Bolen) // Formül",
+    "Ekstra_Deger_1 = input_0 * 1.0 // Yardımcı hesaplama",
+    "Ekstra_Deger_2 = input_0 * 1.0 // Yardımcı hesaplama",
+    "Ekstra_Deger_3 = input_0 * 1.0 // Yardımcı hesaplama"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 9001"
+    ],
+    "validation": {
+      "min_check": {
+        "absolute_min": 0,
+        "error_msg": "Değer sıfırdan küçük olamaz."
+      },
+      "max_check": {
+        "absolute_max": 999999,
+        "error_msg": "Değer çok büyük."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "input_0 > 1000",
+        "severity": "WARNING",
+        "source": "ISO Standartları",
+        "message": "Girdi çok yüksek."
+      },
+      {
+        "condition": "input_0 < 1",
+        "severity": "WARNING",
+        "source": "Standart Referans",
+        "message": "Girdi kritik seviyede düşük."
+      },
+      {
+        "condition": "input_0 == 500",
+        "severity": "INFO",
+        "source": "Genel Kural",
+        "message": "Girdi ortalama seviyede."
+      }
+    ]
+  }
+}

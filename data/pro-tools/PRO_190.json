@@ -1,0 +1,110 @@
+{
+  "tool_id": "PRO_190",
+  "tool_name": "Kasnak ve Kayış Gerilimi",
+  "category": "Endüstriyel Hesaplama",
+  "scope": "single_operation",
+  "primary_operation": "analysis",
+  "inputs": [
+    {
+      "id": "input_0",
+      "name": "Guc",
+      "unit": "W",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_1",
+      "name": "Hız",
+      "unit": "m/s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_2",
+      "name": "SarilmaAcisi",
+      "unit": "Rad",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_3",
+      "name": "Suratma",
+      "unit": "Sayı",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_4",
+      "name": "Ekstra Parametre 4",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    },
+    {
+      "id": "input_extra_5",
+      "name": "Ekstra Parametre 5",
+      "unit": "-",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 999999
+    }
+  ],
+  "formulas": [
+    "F1_F2 = EXP(Suratma * SarilmaAcisi) // Formül",
+    "F2 = Guc / MAX(0.0001, (Hız * (F1_F2 - 1))) // Formül",
+    "Ekstra_Deger_2 = input_0 * 1.0 // Yardımcı hesaplama",
+    "Ekstra_Deger_3 = input_0 * 1.0 // Yardımcı hesaplama"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 9001"
+    ],
+    "validation": {
+      "min_check": {
+        "absolute_min": 0,
+        "error_msg": "Değer sıfırdan küçük olamaz."
+      },
+      "max_check": {
+        "absolute_max": 999999,
+        "error_msg": "Değer çok büyük."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "input_0 > 1000",
+        "severity": "WARNING",
+        "source": "ISO Standartları",
+        "message": "Girdi çok yüksek."
+      },
+      {
+        "condition": "input_0 < 1",
+        "severity": "WARNING",
+        "source": "Standart Referans",
+        "message": "Girdi kritik seviyede düşük."
+      },
+      {
+        "condition": "input_0 == 500",
+        "severity": "INFO",
+        "source": "Genel Kural",
+        "message": "Girdi ortalama seviyede."
+      }
+    ]
+  }
+}
