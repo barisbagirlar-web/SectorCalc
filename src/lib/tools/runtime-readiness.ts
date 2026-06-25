@@ -18,6 +18,7 @@ import {
 import { isP24PassForSlug } from "@/lib/tools/runtime-readiness-p24-verdicts";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { normalizeLocale } from "@/lib/format/localization";
+import { generatedTools } from "@/tools/generated";
 
 export type RuntimeReadinessStatus = "ready" | "review" | "blocked";
 
@@ -172,6 +173,8 @@ function isMixedLocaleLabel(label: string, locale: SupportedLocale): boolean {
 }
 
 function hasFormulaContract(slug: string): boolean {
+  if (hasDedicatedTrafficCalculator(slug)) return true;
+  if (generatedTools.some(t => t.freeSlug === slug || t.paidSlug === slug)) return true;
   if (getFormulaContractBySlug(slug)) {
     return true;
   }

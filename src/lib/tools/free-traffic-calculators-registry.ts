@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-/* eslint-disable prefer-const */
 // Auto-generated calculators database.
 import { normalizeNumber, clamp, safeDivide, round, formatNumber, formatCurrency } from "@/lib/tools/free-traffic-calculators";
 
@@ -88,7 +87,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Monthly Rent", value: formatCurrency(monthlyRent) },
         { label: "Property Value", value: formatCurrency(propertyValue) }
       ],
-      explanation: `Aylık kiranın mülk değerine oranı ${formatNumber(ratio)}% olarak hesaplanmıştır. Emlak yatırımlarında bu oranın %1 ve üzerinde olması hedeflenir.`,
+      explanation: `The monthly rental yield is calculated as ${formatNumber(ratio)}%. A yield of 1% or higher is generally targeted for real estate investments.`,
       missingFactors: ["Taxes", "Maintenance", "Vacancy"]
     };
   },
@@ -106,7 +105,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Net Cash Out", value: formatCurrency(cashOut) },
         { label: "New Reinvestment", value: formatCurrency(newInvestment) }
       ],
-      explanation: `1031 vergi erteleme takasında, yeni mülke yatırılmayan ve vergiye tabi olan net nakit çıkışı (boot) ${formatCurrency(taxableAmount)} olarak belirlenmiştir.`,
+      explanation: `In the 1031 tax-deferred exchange, the taxable net cash boot not reinvested in the new property is determined as ${formatCurrency(taxableAmount)}.`,
       missingFactors: ["Depreciation recapture", "State taxes", "Closing fees"]
     };
   },
@@ -123,7 +122,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Needs (50%)", value: formatCurrency(needs) },
         { label: "Wants (30%)", value: formatCurrency(wants) }
       ],
-      explanation: `Gelirinizin dağılımı: İhtiyaçlar (50%) ${formatCurrency(needs)}, İstekler (30%) ${formatCurrency(wants)}, Tasarruf (20%) ${formatCurrency(savings)}.`,
+      explanation: `Your budget breakdown: Needs (50%) ${formatCurrency(needs)}, Wants (30%) ${formatCurrency(wants)}, Savings (20%) ${formatCurrency(savings)}.`,
       missingFactors: ["Debt payoff goals", "Varying monthly bills"]
     };
   },
@@ -150,7 +149,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Salvage Value", value: formatCurrency(salvageValue) },
         { label: "Useful Life", value: `${usefulLife} Years` }
       ],
-      explanation: `Seçilen yönteme göre varlığın 1. yıl amortisman gideri ${formatCurrency(annualDepreciation)} olarak hesaplanmıştır.`,
+      explanation: `Based on the selected method, the asset first-year depreciation expense is calculated as ${formatCurrency(annualDepreciation)}.`,
       missingFactors: ["Tax book value differences", "MACRS schedule options"]
     };
   },
@@ -169,7 +168,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Interest Rate", value: `${interestRate}%` },
         { label: "Period", value: `${period} Months` }
       ],
-      explanation: `Belirtilen dönem boyunca her ay geri çekilebilecek sabit taksit tutarı ${formatCurrency(payout)} olarak hesaplanmıştır.`,
+      explanation: `The fixed monthly payout amount that can be withdrawn over the specified term is calculated as ${formatCurrency(payout)}.`,
       missingFactors: ["Inflation adjustments", "Fees"]
     };
   },
@@ -187,7 +186,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Savings Balance", value: formatCurrency(savings) },
         { label: "Payout Period", value: `${duration} Years` }
       ],
-      explanation: `Emeklilik birikiminin yıllık dağıtımlarında, her yıl alınabilecek sabit gelir ${formatCurrency(payout)} olarak hesaplanmıştır.`,
+      explanation: `For the annual distributions of the retirement savings, the fixed annual income that can be taken is calculated as ${formatCurrency(payout)}.`,
       missingFactors: ["Taxes", "Inflation rate volatility"]
     };
   },
@@ -217,7 +216,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
           { label: "Monthly Payment", value: formatCurrency(pmt) },
           { label: "Net Funded Loan", value: formatCurrency(netLoan) }
         ],
-        explanation: `Kredi masrafları dahil edildiğinde oluşan gerçek yıllık maliyet oranı (APR) ${formatNumber(apr)}% seviyesindedir.`,
+        explanation: `The annual percentage rate (APR) representing the true cost of borrowing including fees is ${formatNumber(apr)}%.`,
         missingFactors: ["Insurance cost", "Early closing options"]
       };
     },
@@ -237,7 +236,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Bonds Value", value: formatCurrency(bondsVal) },
         { label: "Cash Value", value: formatCurrency(cashVal) }
       ],
-      explanation: `Portföyünüzün dağılımı: Hisse ${formatCurrency(stocksVal)} (%${stocks}), Tahvil ${formatCurrency(bondsVal)} (%${bonds}), Nakit ${formatCurrency(cashVal)} (%${cash}).`,
+      explanation: `Your portfolio allocation: Stocks ${formatCurrency(stocksVal)} (${stocks}%), Bonds ${formatCurrency(bondsVal)} (${bonds}%), Cash ${formatCurrency(cashVal)} (${cash}%).`,
       missingFactors: ["Rebalancing triggers", "Tax-advantaged locations"]
     };
   },
@@ -255,7 +254,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Control Risk", value: `${controlRisk}%` },
         { label: "Detection Risk", value: `${detectionRisk}%` }
       ],
-      explanation: `Mali tablolarda maddi hata bulunup denetçinin bunu tespit edememe genel denetim riski %${formatNumber(risk)} olarak hesaplanmıştır.`,
+      explanation: `The overall audit risk representing the probability of material misstatement not being detected is calculated as ${formatNumber(risk)}%.`,
       missingFactors: ["Sample size limits", "Professional skepticism adjustment"]
     };
   },
@@ -273,7 +272,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Total Balance", value: formatCurrency(total) },
         { label: "Period", value: `${years} Years` }
       ],
-      explanation: `Yalnızca anapara üzerinden hesaplanan faiz tutarı ${formatCurrency(interest)} olup, vade sonu toplam değer ${formatCurrency(total)} seviyesindedir.`,
+      explanation: `The interest amount calculated on principal only is ${formatCurrency(interest)}, with a total maturity value of ${formatCurrency(total)}.`,
       missingFactors: ["Taxation", "Compounding opportunities"]
     };
   },
@@ -292,7 +291,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Final Balance", value: formatCurrency(balance) },
         { label: "Compounding Frequency", value: `${frequency} times/yr` }
       ],
-      explanation: `Faizin anaparaya eklendiği vade sonu birikim değeri ${formatCurrency(balance)} olarak hesaplanmıştır.`,
+      explanation: `The future value of the savings with accumulated compound interest at maturity is calculated as ${formatCurrency(balance)}.`,
       missingFactors: ["Inflation adjustments", "Varying interest rates"]
     };
   },
@@ -310,7 +309,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Final Balance", value: formatCurrency(dailyBalance) },
         { label: "Period", value: `${days} Days` }
       ],
-      explanation: `Günlük bazda işletilen bileşik faiz ile vade sonu tutar ${formatCurrency(dailyBalance)} seviyesine ulaşmıştır.`,
+      explanation: `The future value of the savings with daily compounding at maturity reaches ${formatCurrency(dailyBalance)}.`,
       missingFactors: ["Holiday interest rules", "Taxes"]
     };
   },
@@ -327,7 +326,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       secondaryValues: [
         { label: "Final Balance", value: formatCurrency(balance) }
       ],
-      explanation: `Sonsuz frekansta teorik maksimum bileşik faiz ile vade sonu birikim ${formatCurrency(balance)} olmuştur.`,
+      explanation: `The future value of the savings with continuous compounding at maturity is ${formatCurrency(balance)}.`,
       missingFactors: ["Administrative fees", "Taxes"]
     };
   },
@@ -343,7 +342,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Nominal Rate", value: `${nominalRate}%` },
         { label: "Compounding Frequency", value: `${frequency} times/yr` }
       ],
-      explanation: `Yıllık bileşim sıklığı etkisiyle nominal oran olan %${nominalRate}, efektif olarak %${formatNumber(effective)} getiriye dönüşür.`,
+      explanation: `Due to the annual compounding frequency, the nominal rate of ${nominalRate}% is effectively converted to an annual yield of ${formatNumber(effective)}%.`,
       missingFactors: ["Inflation adjustments"]
     };
   },
@@ -367,7 +366,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Annual Coupon", value: formatCurrency(coupon) },
         { label: "Par Value", value: formatCurrency(parValue) }
       ],
-      explanation: `Tahvilin piyasa faizine göre bugünkü adil değeri ${formatCurrency(price)} olarak hesaplanmıştır.`,
+      explanation: `The fair present value of the bond relative to market yield is calculated as ${formatCurrency(price)}.`,
       missingFactors: ["Default risk", "Accrued interest between coupon periods"]
     };
   },
@@ -383,7 +382,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Gross Dividend", value: formatCurrency(dividendAmount) },
         { label: "Withholding Tax Deducted", value: formatCurrency(dividendAmount * (withholdingTax / 100)) }
       ],
-      explanation: `Stopaj kesintisi sonrası net ele geçen temettü tutarı ${formatCurrency(net)} seviyesindedir.`,
+      explanation: `The net dividend payout received after withholding tax deduction is ${formatCurrency(net)}.`,
       missingFactors: ["Income tax brackets", "Corporate tax offsets"]
     };
   },
@@ -408,14 +407,14 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Ending Stock Price", value: formatCurrency(sharePrice) },
         { label: "Portfolio Value", value: formatCurrency(finalValue) }
       ],
-      explanation: `Temettülerin otomatik yeniden yatırılması ile kartopu etkisi sonucu oluşan toplam portföy değeri ${formatCurrency(finalValue)} olmuştur.`,
+      explanation: `The total portfolio value resulting from automatic dividend reinvestment compounding is ${formatCurrency(finalValue)}.`,
       missingFactors: ["Dividend tax drag", "Varying growth rates"]
     };
   },
   "stock-investment-return": (values) => {
     const purchasePrice = normalizeNumber(values.purchasePrice);
-    const sellingPrice = normalizeNumber(values.sellingPrice);
-    const dividendsReceived = normalizeNumber(values.dividendsReceived);
+    const sellingPrice = normalizeNumber(values.sellingPrice ?? values.sale);
+    const dividendsReceived = normalizeNumber(values.dividendsReceived ?? values.dividend);
     const getiri = ((sellingPrice - purchasePrice) + dividendsReceived) / Math.max(1, purchasePrice) * 100;
     return {
       headline: `Stock Return: ${formatNumber(getiri)}%`,
@@ -425,7 +424,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Capital Gain", value: formatCurrency(sellingPrice - purchasePrice) },
         { label: "Dividends Received", value: formatCurrency(dividendsReceived) }
       ],
-      explanation: `Sermaye kazancı ve temettüler dahil edilerek elde edilen toplam yatırım getirisi %${formatNumber(getiri)} seviyesindedir.`,
+      explanation: `The total return including capital gains and dividends is ${formatNumber(getiri)}%.`,
       missingFactors: ["Broker commissions", "Taxes"]
     };
   },
@@ -441,7 +440,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       secondaryValues: [
         { label: "Total Absolute Return", value: `${formatNumber((finalValue / Math.max(1, initialValue) - 1) * 100)}%` }
       ],
-      explanation: `Yatırımın yıllıklandırılmış ortalama büyüme hızı %${formatNumber(annualized)} olarak hesaplanmıştır.`,
+      explanation: `The annualized average growth rate of the investment is calculated as ${formatNumber(annualized)}%.`,
       missingFactors: ["Volatility drag", "Inflation rate effects"]
     };
   },
@@ -457,7 +456,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       secondaryValues: [
         { label: "Total Asset Growth Multiplier", value: `${formatNumber(endValue / Math.max(1, startValue))}x` }
       ],
-      explanation: `Zaman içindeki pürüzsüz yıllık bileşik büyüme oranı (CAGR) %${formatNumber(cagr)} olarak bulunmuştur.`,
+      explanation: `The compound annual growth rate (CAGR) representing the smoothed annual growth over time is ${formatNumber(cagr)}%.`,
       missingFactors: ["Interim drawdowns", "Tax adjustments"]
     };
   },
@@ -473,7 +472,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Net Benefit", value: formatCurrency(netProfit) },
         { label: "Total Cost", value: formatCurrency(cost) }
       ],
-      explanation: `Yatırımın maliyetine göre ürettiği net verim (ROI) %${formatNumber(roi)} olarak hesaplanmıştır.`,
+      explanation: `The return on investment (ROI) relative to total cost is calculated as ${formatNumber(roi)}%.`,
       missingFactors: ["Time value of money", "Opportunity cost"]
     };
   },
@@ -494,7 +493,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         secondaryValues: [
           { label: "Initial Outlay", value: formatCurrency(initialInvestment) }
         ],
-        explanation: `Nakit akışlarının paranın zaman değerine göre bugünkü net değeri ${formatCurrency(npv)} olarak hesaplanmıştır.`,
+        explanation: `The net present value (NPV) of future cash flows adjusted for the time value of money is calculated as ${formatCurrency(npv)}.`,
         missingFactors: ["Variable discount rates", "Inflation fluctuation"]
       };
     },
@@ -521,7 +520,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         primaryLabel: "Internal Rate of Return",
         primaryValue: `${formatNumber(irr)}%`,
         secondaryValues: [],
-        explanation: `Projeyi başabaş noktasına (NPV=0) getiren iç verim oranı %${formatNumber(irr)} olarak hesaplanmıştır.`,
+        explanation: `The internal rate of return (IRR) that brings the project net present value to zero is calculated as ${formatNumber(irr)}%.`,
         missingFactors: ["Multiple IRR solutions", "Reinvestment rate assumptions"]
       };
     },
@@ -564,7 +563,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "PV of Future Cash Flows", value: formatCurrency(futureCashFlowPv) },
         { label: "Initial Investment", value: formatCurrency(initialInvestment) }
       ],
-      explanation: `Yatırılan her 1 birim para için üretilen bugünkü değer (Kârlılık Endeksi) ${formatNumber(pi)} olarak hesaplanmıştır. 1.0 üzerindeki değerler kârlı kabul edilir.`,
+      explanation: `The profitability index (PI) representing value generated per unit of investment is calculated as ${formatNumber(pi)}. Values above 1.0 are profitable.`,
       missingFactors: ["Scale differences between options", "Timing differences"]
     };
   },
@@ -584,7 +583,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Total Capital", value: formatCurrency(v) },
         { label: "Equity Ratio", value: `${formatNumber(equity / Math.max(1, v) * 100)}%` }
       ],
-      explanation: `Şirketin borç ve özsermaye ağırlıklı ortalama sermaye maliyeti (WACC) %${formatNumber(wacc)} olarak hesaplanmıştır.`,
+      explanation: `The weighted average cost of capital (WACC) of the company is calculated as ${formatNumber(wacc)}%.`,
       missingFactors: ["Flotation costs", "Changing capital structures"]
     };
   },
@@ -601,7 +600,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Risk-Free Rate", value: `${riskFreeRate}%` },
         { label: "Beta Coefficient", value: formatNumber(beta) }
       ],
-      explanation: `Hissedarların risk profiline göre şirketten beklediği minimum getiri (Öz Sermaye Maliyeti) %${formatNumber(costOfEquity)} olarak bulunmuştur.`,
+      explanation: `The cost of equity representing the minimum rate of return expected by shareholders is ${formatNumber(costOfEquity)}%.`,
       missingFactors: ["Country risk premiums", "Size premium adjustment"]
     };
   },
@@ -626,7 +625,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         secondaryValues: [
           { label: "Terminal Value (PV)", value: formatCurrency(terminalValue / Math.pow(1 + w, 5)) }
         ],
-        explanation: `Şirketin nakit akış kapasitesine ve gelecek büyüme projeksiyonlarına dayalı tahmini işletme değeri ${formatCurrency(ev)} seviyesindedir.`,
+        explanation: `The estimated enterprise value based on cash flow capacity and future growth projections is ${formatCurrency(ev)}.`,
         missingFactors: ["Varying year-by-year growth", "Net debt adjustments"]
       };
     },
@@ -645,7 +644,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       secondaryValues: [
         { label: "Equity Cash Flow (FCFE)", value: formatCurrency(fcfe) }
       ],
-      explanation: `Firma (FCFF: ${formatCurrency(fcff)}) ve hissedar (FCFE: ${formatCurrency(fcfe)}) serbest nakit akışları hesaplanmıştır.`,
+      explanation: `Free cash flows to firm (FCFF: ${formatCurrency(fcff)}) and to equity (FCFE: ${formatCurrency(fcfe)}) have been calculated.`,
       missingFactors: ["Changes in non-cash items", "Accrued interest effects"]
     };
   },
@@ -663,7 +662,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Operating Net Profit", value: formatCurrency(netProfit) },
         { label: "Total D&A Added", value: formatCurrency(depreciation) }
       ],
-      explanation: `Finansman, vergi ve amortisman öncesi operasyonel nakit kâr (EBITDA) ${formatCurrency(ebitda)} olarak hesaplanmıştır.`,
+      explanation: `The operating profit (EBITDA) before interest, taxes, depreciation, and amortization is calculated as ${formatCurrency(ebitda)}.`,
       missingFactors: ["Stock-based compensation", "Capital expenditure demands"]
     };
   },
@@ -679,7 +678,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Share Price", value: formatCurrency(sharePrice) },
         { label: "Earnings per Share", value: formatCurrency(eps) }
       ],
-      explanation: `Hissenin kârı üzerinden kendini amorti etme süresi (F/K oranı) ${formatNumber(pe)} yıl olarak hesaplanmıştır.`,
+      explanation: `The price-to-earnings (P/E) ratio representing the payback period in years is calculated as ${formatNumber(pe)} years.`,
       missingFactors: ["Normalized earnings", "Industry averages"]
     };
   },
@@ -695,7 +694,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Market Cap", value: formatCurrency(marketCap) },
         { label: "Book Value of Equity", value: formatCurrency(equity) }
       ],
-      explanation: `Piyasanın şirketin net defter değerine biçtiği çarpan (PD/DD oranı) ${formatNumber(pb)} seviyesindedir.`,
+      explanation: `The price-to-book (P/B) ratio representing the market multiplier of net book value is ${formatNumber(pb)}.`,
       missingFactors: ["Intangible assets value", "Off-balance sheet assets"]
     };
   },
@@ -711,7 +710,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Market Cap", value: formatCurrency(marketCap) },
         { label: "Total Sales Revenue", value: formatCurrency(totalSales) }
       ],
-      explanation: `Şirketin 1 birimlik satışı için piyasada ödenen çarpan (Fiyat/Satış oranı) ${formatNumber(ps)} seviyesindedir.`,
+      explanation: `The price-to-sales (P/S) ratio representing the multiplier of total sales revenue is ${formatNumber(ps)}.`,
       missingFactors: ["Net margin variations", "Debt loads"]
     };
   },
@@ -730,7 +729,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Asset Turnover", value: formatNumber(sales / Math.max(1, assets)) },
         { label: "Financial Leverage", value: formatNumber(assets / Math.max(1, equity)) }
       ],
-      explanation: `Kârlılık, verimlilik ve finansal kaldıracın birleşik etkisi ile özsermaye karlılığı (ROE) %${formatNumber(roe)} olarak hesaplanmıştır.`,
+      explanation: `The return on equity (ROE) representing profitability on shareholders capital is calculated as ${formatNumber(roe)}%.`,
       missingFactors: ["Non-operating revenues", "Interest rate environment"]
     };
   },
@@ -746,7 +745,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "NOPAT", value: formatCurrency(nopat) },
         { label: "Invested Capital", value: formatCurrency(investedCapital) }
       ],
-      explanation: `Şirketin operasyonlara yatırdığı öz ve borç sermayesinden elde ettiği vergi sonrası net verim %${formatNumber(roic)} seviyesindedir.`,
+      explanation: `The return on invested capital (ROIC) representing net yield on operating capital is calculated as ${formatNumber(roic)}%.`,
       missingFactors: ["WACC threshold comparison", "Working capital seasonality"]
     };
   },
@@ -763,7 +762,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "NOPAT", value: formatCurrency(nopat) },
         { label: "Sermaye Maliyeti Bedeli", value: formatCurrency(capital * wacc / 100) }
       ],
-      explanation: `Şirketin tüm sermaye maliyetini karşıladıktan sonra ortakları için yarattığı net ekonomik katma değer ${formatCurrency(eva)} olarak bulunmuştur.`,
+      explanation: `The economic value added (EVA) representing the net wealth created for shareholders is calculated as ${formatCurrency(eva)}.`,
       missingFactors: ["Intangible assets adjustments", "Accounting distortion corrections"]
     };
   },
@@ -780,7 +779,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Portfolio Return", value: `${portfolioReturn}%` },
         { label: "Volatility", value: `${volatility}%` }
       ],
-      explanation: `Toplam volatilite birimi başına portföyün ürettiği fazla getiri oranı (Sharpe) ${formatNumber(sharpe)} seviyesindedir.`,
+      explanation: `The Sharpe ratio representing risk-adjusted return per unit of total volatility is ${formatNumber(sharpe)}.`,
       missingFactors: ["Risk-free rate variations", "Fat-tail distributions"]
     };
   },
@@ -797,7 +796,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Portfolio Return", value: `${portfolioReturn}%` },
         { label: "Downside Risk", value: `${downsideDeviation}%` }
       ],
-      explanation: `Sadece aşağı yönlü (zarar yazan) volatilite birimi başına üretilen risk ayarlı getiri (Sortino) ${formatNumber(sortino)} seviyesindedir.`,
+      explanation: `The Sortino ratio representing risk-adjusted return per unit of downside volatility is ${formatNumber(sortino)}.`,
       missingFactors: ["Target downside rate variations"]
     };
   },
@@ -814,7 +813,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Portfolio Return", value: `${portfolioReturn}%` },
         { label: "Systemic Risk (Beta)", value: formatNumber(beta) }
       ],
-      explanation: `Piyasa risk birimi (Beta) başına portföyün ürettiği fazla getiri oranı (Treynor) ${formatNumber(treynor)} seviyesindedir.`,
+      explanation: `The Treynor ratio representing risk-adjusted return per unit of systematic market risk (Beta) is ${formatNumber(treynor)}.`,
       missingFactors: ["Unsystematic risk factors"]
     };
   },
@@ -830,7 +829,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Peak Value", value: formatCurrency(peakValue) },
         { label: "Trough Value", value: formatCurrency(troughValue) }
       ],
-      explanation: `Portföyün zirveden dibe yaşadığı en büyük yüzde kaybı (Max Drawdown) %${formatNumber(mdd)} olarak hesaplanmıştır.`,
+      explanation: `The maximum drawdown representing the largest peak-to-trough percentage loss is calculated as ${formatNumber(mdd)}%.`,
       missingFactors: ["Recovery time duration"]
     };
   },
@@ -851,7 +850,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       secondaryValues: [
         { label: "Portfolio Variance", value: formatNumber(portfolioVar) }
       ],
-      explanation: `İki varlıklı portföyün kovaryans dahil toplam standart sapması (risk seviyesi) %${formatNumber(portfolioSd * 100)} seviyesindedir.`,
+      explanation: `The combined portfolio standard deviation representing risk level including covariance is calculated as ${formatNumber(portfolioSd * 100)}%.`,
       missingFactors: ["Multi-asset expansion", "Correlations drift"]
     };
   },
@@ -868,7 +867,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Capital Gain", value: formatCurrency(finalNav - initialNav) },
         { label: "Reinvestment Distributions", value: formatCurrency(distributions) }
       ],
-      explanation: `Yatırım fonunun dönemsel net toplam getirisi %${formatNumber(getiri)} olarak bulunmuştur.`,
+      explanation: `The periodic net total return of the mutual fund is calculated as ${formatNumber(getiri)}%.`,
       missingFactors: ["Load fees", "Redemption fees"]
     };
   },
@@ -885,7 +884,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       secondaryValues: [
         { label: "Expense Ratio Deducted", value: `${expenseRatio}%` }
       ],
-      explanation: `Yıllık yönetim ücreti (expense ratio) düşülmüş net ETF yatırımcı getirisi %${formatNumber(netReturn)} olarak hesaplanmıştır.`,
+      explanation: `The net ETF investor return after deducting the annual expense ratio is calculated as ${formatNumber(netReturn)}%.`,
       missingFactors: ["Tracking error volatility", "Bid-ask spread costs"]
     };
   },
@@ -903,7 +902,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Price Change", value: formatNumber(exitPrice - entryPrice) },
         { label: "Contract Multiplier", value: formatNumber(multiplier) }
       ],
-      explanation: `Vadeli işlem kontratının fiyat hareketinden doğan net kâr/zarar sonucu ${formatCurrency(profit)} olarak hesaplanmıştır.`,
+      explanation: `The net profit or loss from price movement of the futures contract is calculated as ${formatCurrency(profit)}.`,
       missingFactors: ["Maintenance margin calls", "Rollover fee costs"]
     };
   },
@@ -933,7 +932,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
           { label: "d1", value: formatNumber(d1) },
           { label: "d2", value: formatNumber(d2) }
         ],
-        explanation: `Avrupa tipi alım opsiyonunun Black-Scholes modeline göre teorik adil prim değeri ${formatCurrency(callPrice)} olarak bulunmuştur.`,
+        explanation: `The theoretical fair premium of the European call option under the Black-Scholes model is calculated as ${formatCurrency(callPrice)}.`,
         missingFactors: ["Dividend yields", "Early exercise American options adjustments"]
       };
     },
@@ -949,7 +948,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       secondaryValues: [
         { label: "Total Pip Units Moved", value: formatNumber(pipMovement) }
       ],
-      explanation: `Parite hareketi sonucu hesap para biriminde gerçekleşen net forex kâr/zararı ${formatCurrency(pnl)} seviyesindedir.`,
+      explanation: `The net forex profit or loss in account currency resulting from exchange rate movement is ${formatCurrency(pnl)}.`,
       missingFactors: ["Swap/Rollover charges", "Spread spreads"]
     };
   },
@@ -969,7 +968,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Gross Profit", value: formatCurrency(gross) },
         { label: "Trading Fees", value: formatCurrency(fees) }
       ],
-      explanation: `Borsa komisyonları düşüldükten sonra kripto para işleminden elde edilen net kazanç ${formatCurrency(net)} seviyesindedir.`,
+      explanation: `The net earnings from cryptocurrency trade after deducting exchange commissions is ${formatCurrency(net)}.`,
       missingFactors: ["Slippage costs", "Network transfer fees"]
     };
   },
@@ -987,7 +986,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Royalty Paid", value: `${formatNumber(sellingPrice * royalty / 100)} ETH` },
         { label: "Gas Spent", value: `${formatNumber(gas)} ETH` }
       ],
-      explanation: `Gas ve royalty kesintileri düşüldükten sonra net NFT alım-satım kazancı ${formatNumber(netEth)} ETH olarak hesaplanmıştır.`,
+      explanation: `The net NFT trade profit after deducting gas fees and royalty cuts is calculated as ${formatNumber(netEth)} ETH.`,
       missingFactors: ["Floor price changes", "ETH/USD conversion rate"]
     };
   },
@@ -1004,7 +1003,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Nominal Value", value: formatCurrency(nominalValue) },
         { label: "Loss in Value", value: formatCurrency(nominalValue - realValue) }
       ],
-      explanation: `Belirtilen yıllık enflasyon hızı %${inflation} altında, bugünkü ${formatCurrency(nominalValue)} tutarın ${years} yıl sonraki satın alma gücü ${formatCurrency(realValue)} seviyesine iner.`,
+      explanation: `Under an annual inflation rate of ${inflation}%, the purchasing power of ${formatCurrency(nominalValue)} decreases to ${formatCurrency(realValue)} after ${years} years.`,
       missingFactors: ["Varying inflation rate over time", "Taxation adjustments"]
     };
   },
@@ -1020,7 +1019,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Nominal Return Rate", value: `${nominalReturn}%` },
         { label: "Inflation Rate", value: `${inflation}%` }
       ],
-      explanation: `Enflasyon etkisi çıkarıldığında, satın alma gücündeki net reel artış %${formatNumber(real)} olarak hesaplanmıştır.`,
+      explanation: `The net real return adjusted for inflation representing increase in purchasing power is calculated as ${formatNumber(real)}%.`,
       missingFactors: ["Asset tax rates", "Broker fees"]
     };
   },
@@ -1036,7 +1035,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Chosen Yield", value: formatCurrency(preferredReturn) },
         { label: "Foregone Alternative Yield", value: formatCurrency(foregoneReturn) }
       ],
-      explanation: `Tercih edilmeyen alternatif yatırım seçeneğinin kaçırılan net getirisi (fırsat maliyeti) ${formatCurrency(Math.max(0, opportunityCost))} seviyesindedir.`,
+      explanation: `The net opportunity cost of the foregone alternative investment option is calculated as ${formatCurrency(Math.max(0, opportunityCost))}.`,
       missingFactors: ["Risk differences between assets", "Tax differences"]
     };
   },
@@ -1055,7 +1054,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Taxable Base", value: formatCurrency(basis) },
         { label: "Absolute Gain", value: formatCurrency(Math.max(0, sellingPrice - purchasePrice)) }
       ],
-      explanation: `Varlık satışından doğan yasal gelir vergisi yükümlülüğü ${formatCurrency(tax)} olarak hesaplanmıştır.`,
+      explanation: `The income tax liability arising from asset sale is calculated as ${formatCurrency(tax)}.`,
       missingFactors: ["Alternative minimum tax", "Holding period options (short/long term)"]
     };
   },
@@ -1071,7 +1070,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Assessed Value", value: formatCurrency(assessedValue) },
         { label: "Tax Rate Per Thousand", value: `${taxRatePerThousand} ‰` }
       ],
-      explanation: `Mülk rayiç değeri ve binde oranına göre yıllık belediyeye ödenmesi gereken emlak vergisi tutarı ${formatCurrency(annualTax)} seviyesindedir.`,
+      explanation: `The annual property tax liability owed based on appraised value is calculated as ${formatCurrency(annualTax)}.`,
       missingFactors: ["Local assessment updates", "Tax exemptions"]
     };
   },
@@ -1098,7 +1097,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Interest Portion", value: formatCurrency(faizKismi) },
         { label: "Remaining Principal", value: formatCurrency(Math.max(0, remainingPrincipal - anaparaKismi)) }
       ],
-      explanation: `${period}. dönem taksit ödemesinin ${formatCurrency(anaparaKismi)} kadarı anapara borcundan düşülürken, ${formatCurrency(faizKismi)} kadarı faiz gideridir.`,
+      explanation: `For period ${period}, ${formatCurrency(anaparaKismi)} of the payment goes toward principal repayment and ${formatCurrency(faizKismi)} is interest expense.`,
       missingFactors: ["Extra principal payments", "Refinancing options"]
     };
   },
@@ -1115,7 +1114,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       secondaryValues: [
         { label: "Price-to-Rent Ratio", value: formatNumber(ratio) }
       ],
-      explanation: `Fiyat/kira oranı ${formatNumber(ratio)} olarak hesaplanmıştır. Bu oran 20'nin üzerinde olduğunda kiralama yapmak, altında olduğunda ise satın almak finansal olarak daha avantajlı kabul edilir.`,
+      explanation: `The price-to-rent ratio is calculated as ${formatNumber(ratio)}. Ratios above 20 suggest renting is more advantageous, while ratios below 20 favor buying.`,
       missingFactors: ["Property tax rates", "Maintenance cost inflation", "Mortgage rates"]
     };
   },
@@ -1133,7 +1132,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         primaryLabel: "Mean",
         primaryValue: "0",
         secondaryValues: [{ label: "Median", value: "0" }, { label: "Mode", value: "0" }],
-        explanation: "Lütfen veri kümesini virgülle ayrılmış sayılar olarak girin.",
+        explanation: "Please enter a valid dataset as comma-separated numbers.",
         missingFactors: []
       };
     }
@@ -1161,7 +1160,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Mode", value: formatNumber(mode) },
         { label: "Sample Size (N)", value: String(arr.length) }
       ],
-      explanation: `Girilen ${arr.length} adet veri noktasının aritmetik ortalaması ${formatNumber(mean)}, ortanca (medyan) değeri ${formatNumber(median)} ve en sık tekrar eden (mod) değeri ${formatNumber(mode)} olarak hesaplanmıştır.`,
+      explanation: `The mean of the ${arr.length} data points is ${formatNumber(mean)}, median is ${formatNumber(median)}, and mode is ${formatNumber(mode)}.`,
       missingFactors: ["Outliers", "Weighted averages"]
     };
   },
@@ -1179,7 +1178,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         primaryLabel: "Standard Deviation",
         primaryValue: "0",
         secondaryValues: [{ label: "Variance", value: "0" }],
-        explanation: "Standart sapma hesaplamak için en az 2 sayı girmelisiniz.",
+        explanation: "Please enter at least 2 numbers to compute standard deviation.",
         missingFactors: []
       };
     }
@@ -1196,7 +1195,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Variance", value: formatNumber(variance) },
         { label: "Population Std Dev", value: formatNumber(Math.sqrt(sqDiffSum / arr.length)) }
       ],
-      explanation: `Veri kümesinin örneklem standart sapması ${formatNumber(stdDev)} ve varyansı ${formatNumber(variance)} olarak bulunmuştur.`,
+      explanation: `The sample standard deviation is ${formatNumber(stdDev)} and variance is ${formatNumber(variance)}.`,
       missingFactors: ["Degrees of freedom adjustments", "Population assumption bias"]
     };
   },
@@ -1216,7 +1215,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         primaryLabel: "Correlation (r)",
         primaryValue: "0",
         secondaryValues: [{ label: "Slope (m)", value: "0" }],
-        explanation: "Korelasyon hesaplamak için her iki değişkende de en az 2 sayı girmelisiniz.",
+        explanation: "Please enter at least 2 numbers in both variables to compute correlation.",
         missingFactors: []
       };
     }
@@ -1248,7 +1247,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Slope", value: formatNumber(slope) },
         { label: "Covariance", value: formatNumber(covariance) }
       ],
-      explanation: `Girilen veriler arasındaki korelasyon katsayısı ${formatNumber(correlation)} (güçlü ilişki), doğrusal regresyon doğrusunun eğimi ise ${formatNumber(slope)} olarak hesaplanmıştır.`,
+      explanation: `The correlation coefficient is ${formatNumber(correlation)} and the linear regression slope is ${formatNumber(slope)}.`,
       missingFactors: ["Non-linear relationships", "Influence of outliers"]
     };
   },
@@ -1267,7 +1266,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         primaryLabel: "F-Statistic",
         primaryValue: "0",
         secondaryValues: [],
-        explanation: "ANOVA testi için en az iki grupta (noktalı virgül ile ayırarak) ikişer adet sayı girmelisiniz.",
+        explanation: "Please enter at least two numbers per group, separated by semicolons, to perform ANOVA test.",
         missingFactors: []
       };
     }
@@ -1295,7 +1294,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Sum of Squares (Between)", value: formatNumber(ssb) },
         { label: "Sum of Squares (Within)", value: formatNumber(ssw) }
       ],
-      explanation: `Gruplar arası varyansın grup içi varyansa oranı (F istatistiği) ${formatNumber(fStat)} olarak hesaplanmıştır.`,
+      explanation: `The F-statistic representing the ratio of between-group variance to within-group variance is calculated as ${formatNumber(fStat)}.`,
       missingFactors: ["Critical F-value verification", "Variance homogeneity assumption (Levene's test)"]
     };
   },
@@ -1306,7 +1305,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Taksit = ((interestRate==0) ? ( loanAmount/Math.max(1,term)) : ( loanAmount * ((interestRate/1200) / (1 - (1 + interestRate/1200)**(-term)))));
     resultValue = Taksit;
@@ -1318,10 +1317,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Taksit",
+      primaryLabel: "Installment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Mortgage (Aylık Taksit) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mortgage Monthly Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1334,7 +1333,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Fark = PMT(loanAmount1, interestRate1, term) - PMT(loanAmount2, interestRate2, term);
     resultValue = Fark;
@@ -1346,10 +1345,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Fark",
+      primaryLabel: "Difference",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Mortgage Karşılaştırma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mortgage Comparison Tool calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1360,7 +1359,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const cost = loanAmount * pointsRate/100;
     const GeriDonus = cost / Math.max(1, monthlySavings);
@@ -1373,10 +1372,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "GeriDonus",
+      primaryLabel: "Return",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Mortgage Puanları (Points) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mortgage Discount Points calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1387,7 +1386,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Basabas = closingCost / Math.max(1, (oldPayment - newPayment));
     resultValue = Basabas;
@@ -1399,10 +1398,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Basabas",
+      primaryLabel: "Break-even",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Mortgage Refinansman hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mortgage Refinance Breakeven calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1414,7 +1413,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const NakitCikis = newLoan - remainingDebt - fees;
     resultValue = NakitCikis;
@@ -1426,10 +1425,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "NakitCikis",
+      primaryLabel: "Cash Outflow",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Nakit Çıkışlı Refinansman hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cash Out Refinance Net calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1442,7 +1441,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const MaxTaksit = (monthlyIncome*maxDti/100) - monthlyDebt;
     const MaxKredi = PV(MaxTaksit, interestRate, term);
@@ -1455,10 +1454,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "MaxKredi",
+      primaryLabel: "Max Loan",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ev Alım Gücü hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Home Purchase Affordability calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1468,7 +1467,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CapRate = (annualNetIncome / Math.max(1, propertyValue)) * 100;
     resultValue = CapRate;
@@ -1480,10 +1479,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "CapRate",
+      primaryLabel: "Cap Rate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kira Geliri Getiri (Cap Rate) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rental Cap Rate Yield calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1493,7 +1492,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CoC = (annualCashFlow / Math.max(1, totalCashInvestment)) * 100;
     resultValue = CoC;
@@ -1505,10 +1504,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "CoC",
+      primaryLabel: "Cash on Cash",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Nakit-Nakit Getiri (CoC) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cash On Cash Return Coc calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1521,7 +1520,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const ZorunluSermaye = purchase + rehab - loanAmount;
     const ROI = (rent*12) / Math.max(1, ZorunluSermaye) * 100;
@@ -1537,7 +1536,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "ROI",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `BRRRR Stratejisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Brrrr Investment Strategy calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1549,7 +1548,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const NetNakit = (grossRent * (1 - vacancy/100)) - operating - loanAmount;
     resultValue = NetNakit;
@@ -1561,10 +1560,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "NetNakit",
+      primaryLabel: "Net Cash",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kiralık Gayrimenkul Analizi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rental Property Net Cashflow calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1574,7 +1573,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const commission = salesPrice * commissionRate / 100;
     resultValue = commission;
@@ -1589,7 +1588,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Commission (%)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Emlak Komisyonu hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Real Estate Broker Commission calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1600,7 +1599,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const total = (loanAmount * rate/100) + fixedFees;
     resultValue = total;
@@ -1615,7 +1614,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Amount",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kapanış Maliyetleri hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mortgage Closing Costs Total calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1626,7 +1625,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Limit = (homeValue * maxRate/100) - remainingDebt;
     resultValue = Limit;
@@ -1641,7 +1640,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Limit",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `HELOC (Ev Sermayesi Kredisi) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Heloc Borrowing Limit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1651,7 +1650,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const AylikPMI = (loanAmount * pmiRate/100) / 12;
     resultValue = AylikPMI;
@@ -1666,7 +1665,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "AylikPMI",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `PMI (Özel Mortgage Sigortası) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Pmi Monthly Cost Estimator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1677,7 +1676,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const downPayment = loanAmount * upfrontPremium/100;
     const Aylik = (loanAmount * annualPremium/100) / 12;
@@ -1693,7 +1692,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Aylik",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `FHA Kredisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Fha Loan Mortgage Cost calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1703,7 +1702,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const FinanseEdilen = loanAmount * (1 + fundingFee/100);
     resultValue = FinanseEdilen;
@@ -1718,7 +1717,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "FinanseEdilen",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `VA Kredisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Va Loan Funding Fee calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1730,7 +1729,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Taksit = PMT(amount-fees, interestRate, term);
     const ToplamMaliyet = (Taksit*term) + fees - amount;
@@ -1743,10 +1742,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "ToplamMaliyet",
+      primaryLabel: "Total Cost",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kişisel Kredi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Personal Loan Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1758,7 +1757,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const loanAmount = price - downPayment;
     const Taksit = PMT(loanAmount, interestRate, term);
@@ -1771,10 +1770,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Taksit",
+      primaryLabel: "Installment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Araba Kredisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Auto Loan Monthly Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1786,7 +1785,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const loanAmount = price - downPayment;
     const Taksit = PMT(loanAmount, interestRate, term);
@@ -1799,10 +1798,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Taksit",
+      primaryLabel: "Installment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tekne Kredisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Boat Loan Monthly Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1814,7 +1813,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const loanAmount = price - downPayment;
     const Taksit = PMT(loanAmount, interestRate, term);
@@ -1827,10 +1826,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Taksit",
+      primaryLabel: "Installment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Motosiklet Kredisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Motorcycle Loan Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1842,7 +1841,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const loanAmount = price - downPayment;
     const Taksit = PMT(loanAmount, interestRate, term);
@@ -1855,10 +1854,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Taksit",
+      primaryLabel: "Installment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `RV Kredisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rv Recreational Vehicle Loan calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1870,7 +1869,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Taksit = PMT(amount, interestRate, term - gracePeriod);
     resultValue = Taksit;
@@ -1882,10 +1881,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Taksit",
+      primaryLabel: "Installment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Öğrenci Kredisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Student Loan Grace Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1897,7 +1896,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tasarruf = (PMT(oldBalance, oldInterest, term) - PMT(oldBalance, newInterest, term)) * term;
     resultValue = Tasarruf;
@@ -1909,10 +1908,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Tasarruf",
+      primaryLabel: "Savings",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Öğrenci Kredisi Refinansman hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Student Loan Refinance Savings calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1923,7 +1922,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const interestRate = balance * (annualInterest/36500) * days;
     resultValue = interestRate;
@@ -1938,7 +1937,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "interestRate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kredi Kartı Faiz hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Credit Card Accrued Interest calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1949,7 +1948,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Asgari = Math.max(balance * minimumRate/100, interestRate + 10);
     resultValue = Asgari;
@@ -1961,10 +1960,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Asgari",
+      primaryLabel: "Minimum",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kredi Kartı Minimum Ödeme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Credit Card Minimum Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -1975,7 +1974,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const commission = (sale * percent/100) + fixed;
     resultValue = commission;
@@ -1990,7 +1989,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Commission (%)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kredi Kartı İşlem Ücreti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Credit Card Processing Fees calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2002,7 +2001,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const YeniVade = -Math.log(Math.max(0.0001, 1 - (principal*(interestRate/1200))/(payment+extraPayment))) / Math.log(1+interestRate/1200);
     resultValue = YeniVade;
@@ -2014,10 +2013,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "YeniVade",
+      primaryLabel: "New Term",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kredi Geri Ödeme (Payoff) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Debt Payoff Accelerator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2029,7 +2028,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const ToplamBorc = SUM(debts);
     const newPayment = PMT(ToplamBorc, newInterest, term);
@@ -2045,7 +2044,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "newPayment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Borç Konsolidasyon hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Debt Consolidation Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2055,7 +2054,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DTI = (monthlyDebt / Math.max(1, grossIncome)) * 100;
     resultValue = DTI;
@@ -2070,7 +2069,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "DTI",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Borç-Gelir Oranı (DTI) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Debt To Income Dti Ratio calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2080,7 +2079,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DSCR = noi / Math.max(1, annualDebtService);
     resultValue = DSCR;
@@ -2095,7 +2094,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "DSCR",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Borç Servis Karşılama (DSCR) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Debt Service Coverage Dscr calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2106,7 +2105,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const MaxTaksit = Math.min((netIncome - livingExpense), netIncome * maxPaymentRatio/100);
     resultValue = MaxTaksit;
@@ -2118,10 +2117,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "MaxTaksit",
+      primaryLabel: "Max Installment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kredi Uygunluk (Affordability) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Maximum Affordable Loan Payment calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2133,7 +2132,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
     const exchangeRate = values.exchangeRate !== undefined ? normalizeNumber(values.exchangeRate) : 1;
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const TL_Taksit = PMT(amount, interestRate, term) * exchangeRate * (1 + exchangeTrend/100)**(term/12);
     resultValue = TL_Taksit;
@@ -2145,10 +2144,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "TL_Taksit",
+      primaryLabel: "Installment (TRY)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `USD Kredisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Foreign Currency Usd Loan Risk calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2158,7 +2157,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const value = ebitda * multiplier;
     resultValue = value;
@@ -2173,7 +2172,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "After Repair Value (ARV)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `İşletme Değerleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Business Valuation Multiplier calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2183,7 +2182,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DegerlemeSonrasi = investment / Math.max(0.0001, equityPercent/100);
     const DegerlemeOnce = DegerlemeSonrasi - investment;
@@ -2196,10 +2195,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "DegerlemeOnce",
+      primaryLabel: "Pre-valuation",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Girişim Değerleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Startup Pre Post Valuation calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2210,7 +2209,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
     const shares = values.shares !== undefined ? normalizeNumber(values.shares) : 1;
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const AlimFiyati = marketPrice * (1 - İskonto/100);
     const sharesCount = contribution / Math.max(0.0001, AlimFiyati);
@@ -2226,7 +2225,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "sharesCount",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hisse Opsiyonları (ESPP) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Espp Discounted Stock Options calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2237,7 +2236,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
     const shares = values.shares !== undefined ? normalizeNumber(values.shares) : 1;
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const NetHisse = (sharesCount * vesting/100) * (1 - tax/100);
     resultValue = NetHisse;
@@ -2249,10 +2248,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "NetHisse",
+      primaryLabel: "Net Shares",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kısıtlı Hisse (RSU) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rsu Net Shares Vesting calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2264,7 +2263,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DonusumFiyati = valuation * (1 - İskonto/100);
     const stocks = (investment * (1+interestRate/100)) / Math.max(0.0001, DonusumFiyati);
@@ -2280,7 +2279,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Stocks",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dönüştürülebilir Not hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Convertible Note Shares calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2291,7 +2290,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DonusumFiyati = capValue / Math.max(1, totalShares);
     const newShares = investment / Math.max(0.0001, DonusumFiyati);
@@ -2307,7 +2306,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "newShares",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Güvenli Not (SAFE) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Safe Note Equity Shares calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2317,7 +2316,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Sulanma = newShares / Math.max(1, (currentShares + newShares)) * 100;
     resultValue = Sulanma;
@@ -2329,10 +2328,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Sulanma",
+      primaryLabel: "Dilution",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hisse Sulandırması hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Equity Share Dilution Percent calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2343,7 +2342,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
     const shares = values.shares !== undefined ? normalizeNumber(values.shares) : 1;
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const total = founders+investors+options;
     const percent = (shares / Math.max(1, total)) * 100;
@@ -2359,7 +2358,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Percentage Fee (%)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hisse Tablosu (Cap Table) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cap Table Ownership Spread calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2370,7 +2369,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CAC = (marketing + salesExpense) / Math.max(1, newCustomers);
     resultValue = CAC;
@@ -2385,7 +2384,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "CAC",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Müşteri Edinim Maliyeti (CAC) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cac Customer Acquisition Cost calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2397,7 +2396,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CLV = avgOrder * frequency * usefulLife * (margin/100);
     resultValue = CLV;
@@ -2412,7 +2411,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "CLV",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Müşteri Yaşam Boyu Değeri (CLV) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Clv Customer Lifetime Value calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2422,7 +2421,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const rate = CLV / Math.max(0.0001, CAC);
     resultValue = rate;
@@ -2437,7 +2436,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "rate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `CAC/CLV Oranı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Clv To Cac Efficiency Ratio calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2447,7 +2446,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const ROI = ((campaignRevenue - campaignCost) / Math.max(0.0001, campaignCost)) * 100;
     resultValue = ROI;
@@ -2462,7 +2461,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "ROI",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Pazarlama ROI hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Marketing Campaign Roi calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2472,7 +2471,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const rate = (conversion / Math.max(1, visitors)) * 100;
     resultValue = rate;
@@ -2487,7 +2486,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "rate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dönüşüm Oranı (CRO) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Conversion Rate Optimization Cro calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2497,7 +2496,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CTR = (clicks / Math.max(1, impressions)) * 100;
     resultValue = CTR;
@@ -2512,7 +2511,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "CTR",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tıklama Oranı (CTR) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Click Through Rate Ctr calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2522,7 +2521,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CPC = totalSpend / Math.max(1, clicks);
     resultValue = CPC;
@@ -2537,7 +2536,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "CPC",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tıklama Başına Maliyet (CPC) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cost Per Click Cpc calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2547,7 +2546,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CPM = (adCost / Math.max(1, impressions)) * 1000;
     resultValue = CPM;
@@ -2562,7 +2561,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "CPM",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Bin Gösterim Maliyeti (CPM) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cost Per Mille Cpm calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2572,7 +2571,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Churn = (lostCustomers / Math.max(1, startCustomers)) * 100;
     resultValue = Churn;
@@ -2587,7 +2586,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Churn",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Müşteri Kaybı (Churn) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Customer Churn Rate Percent calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2598,7 +2597,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const BurnRate = (startCash - endCash) / Math.max(1, Ay);
     const KalanSure = endCash / Math.max(0.0001, BurnRate);
@@ -2614,7 +2613,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "KalanSure",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Nakit Yakma Oranı (Burn Rate) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cash Runway Burn Rate calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2624,7 +2623,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CalismaSermayesi = currentAssets - currentLiabilities;
     resultValue = CalismaSermayesi;
@@ -2639,7 +2638,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "CalismaSermayesi",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Çalışma Sermayesi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Working Capital Liquidity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2649,7 +2648,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DevirHizi = annualSales / Math.max(0.0001, avgReceivables);
     const Tahsilat = 365 / Math.max(0.0001, DevirHizi);
@@ -2665,7 +2664,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Tahsilat",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Alacak Devir Hızı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Receivables Turnover Days calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2675,7 +2674,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DevirHizi = annualCogs / Math.max(0.0001, avgPayables);
     const payment = 365 / Math.max(0.0001, DevirHizi);
@@ -2691,7 +2690,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Monthly Payment",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Borç Devir Hızı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Payables Turnover Days calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2701,7 +2700,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DevirHizi = annualCogs / Math.max(0.0001, avgInventory);
     const daysInventory = 365 / Math.max(0.0001, DevirHizi);
@@ -2717,7 +2716,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "daysInventory",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Stok Devir Hızı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Inventory Turnover Days calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2728,7 +2727,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CCC = daysInventory + daysReceivables - daysPayables;
     resultValue = CCC;
@@ -2743,7 +2742,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "CCC",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Nakit Dönüşüm Döngüsü hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cash Conversion Cycle Ccc calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2753,7 +2752,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const contribution = sellingPrice - DegiskenMaliyet;
     const rate = (contribution / Math.max(0.0001, sellingPrice)) * 100;
@@ -2769,7 +2768,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "rate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Katkı Marjı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Unit Contribution Margin calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2781,7 +2780,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Brut = revenue - cogs;
     const Net = Brut - operatingExpense - tax;
@@ -2797,7 +2796,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Net",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Brüt ve Net Kâr hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Gross Net Profit Margins calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2807,7 +2806,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const margin = (ebitda / Math.max(0.0001, revenue)) * 100;
     resultValue = margin;
@@ -2822,7 +2821,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Gross Margin (%)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `İşletme Marjı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Operating Ebitda Margin Percent calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2833,7 +2832,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Ucret = (targetRevenue + annualExpense) / Math.max(1, billableHours);
     resultValue = Ucret;
@@ -2848,7 +2847,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Ucret",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Danışmanlık Saat Ücreti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Consultant Minimum Hourly Rate calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2860,7 +2859,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const BrutHedef = (targetNet + Gider) / Math.max(0.0001, (1 - tax/100));
     const Ucret = BrutHedef / Math.max(1, workingHours);
@@ -2876,7 +2875,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Ucret",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Serbest Çalışan Saat Ücreti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Freelancer Target Hourly Rate calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2888,7 +2887,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Net = sale - productCost - fbaFee - (sale*commission/100);
     resultValue = Net;
@@ -2903,7 +2902,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Net",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Amazon FBA Kârı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Amazon Fba Net Profit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2916,7 +2915,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Net = sale - product - shipping - (sale*platform/100) - fixed;
     resultValue = Net;
@@ -2931,7 +2930,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Net",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Shopify Kârı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Shopify Store Net Profit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2943,7 +2942,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kesinti = listing + (sale * transaction/100) + (sale * payment/100);
     resultValue = Kesinti;
@@ -2958,7 +2957,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Kesinti",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Etsy Ücreti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Etsy Seller Fee Net calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2969,7 +2968,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kesinti = (sale*category/100) + fixed;
     resultValue = Kesinti;
@@ -2984,7 +2983,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Kesinti",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `eBay Ücreti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ebay Seller Fee Net calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -2996,7 +2995,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Net = sale - supply - shipping - ads;
     resultValue = Net;
@@ -3011,7 +3010,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Net",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dropshipping Kârı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Dropshipping Net Profit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3023,7 +3022,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Net = revenue - cogs - marketing - operations;
     resultValue = Net;
@@ -3038,7 +3037,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Net",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `E-Ticaret Kârı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ecommerce Store Net Margin calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3050,7 +3049,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Desi = volume * 167;
     const cost = Math.max(weight, Desi) * distance * unitPrice;
@@ -3066,7 +3065,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Cost",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kargo ve Navlun Maliyeti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Freight Shipping Desi Cost calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3078,7 +3077,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Desi = (width * length * height) / Math.max(1, divisor);
     resultValue = Desi;
@@ -3093,7 +3092,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Desi",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hacimsel Ağırlık hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Volumetric Weight Desi calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3103,7 +3102,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const tax = cifValue * (dutyRate/100);
     resultValue = tax;
@@ -3118,7 +3117,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Tax",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Gümrük Vergisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Customs Duty Import Tariff calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3128,7 +3127,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const EkVergiTL = productValue * (additionalTax/100);
     resultValue = EkVergiTL;
@@ -3143,7 +3142,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "EkVergiTL",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tarife (Ek Vergi) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Additional Origin Import Tax calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3154,7 +3153,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const KDV = (netPrice + shipping) * (countryVat/100);
     resultValue = KDV;
@@ -3169,7 +3168,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "KDV",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `KDV (AB - IOSS) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Eu Ioss Vat Vat Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3180,7 +3179,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kesinti = (sale*percent/100) + fixed;
     const Net = sale - Kesinti;
@@ -3196,7 +3195,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Net",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ödeme Sağlayıcı Ücreti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Stripe Paypal Payment Processor calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3207,7 +3206,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const EOQ = Math.sqrt(Math.max(0, (2 * annualDemand * orderingCost)/Math.max(0.0001, holdingCost)));
     resultValue = EOQ;
@@ -3222,7 +3221,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "EOQ",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `EOQ (Ekonomik Sipariş) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Economic Order Quantity Eoq calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3234,7 +3233,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const SS = zScore * stdDev * Math.sqrt(Math.max(0, leadTime));
     const ROP = (avgDemand*leadTime) + SS;
@@ -3250,7 +3249,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "ROP",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Güvenlik Stoğu ve ROP hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Safety Stock Reorder Point calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3260,7 +3259,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Devir = annualCogs / Math.max(0.0001, avgInventory);
     resultValue = Devir;
@@ -3275,7 +3274,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Devir",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Envanter Devir Hızı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Inventory Turnover Ratio calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3285,7 +3284,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const YillikDeger = annualDemand * BirimMaliyet;
     const Sinif = PARETO_ANALIZI(YillikDeger);
@@ -3301,7 +3300,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Sinif",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `ABC Sınıflandırma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Abc Inventory Classification calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3312,7 +3311,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const MaksKutu = Math.floor((KonteynerHacim * (Istifleme/100)) / Math.max(0.0001, KutuHacim));
     resultValue = MaksKutu;
@@ -3327,7 +3326,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "MaksKutu",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Konteyner Yükleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Shipping Container Box Loading calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3338,7 +3337,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kapasite = Math.floor((ToplamAlan * (RafKullanimi/100)) / Math.max(0.0001, PaletAlani));
     resultValue = Kapasite;
@@ -3350,10 +3349,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Kapasite",
+      primaryLabel: "Capacity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Depo Alan Kapasite hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Warehouse Pallet Storage Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3364,7 +3363,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const cost = distance * Tonaj * unitPrice;
     resultValue = cost;
@@ -3379,7 +3378,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Cost",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Nakliye Maliyeti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Freight Trucking Distance Cost calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3390,7 +3389,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const cost = (distance / 100) * Tuketim * LitreFiyati;
     resultValue = cost;
@@ -3405,7 +3404,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Cost",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yakıt Maliyeti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Fleet Fuel Distance Cost calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3416,7 +3415,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const total = distance * KoltukMaliyeti;
     const Birim = total / Math.max(1, YolcuSayisi);
@@ -3432,7 +3431,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Birim",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Uçuş Maliyeti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Aviation Passenger Seat Cost calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3445,7 +3444,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Ucret = Acilis + (distance * KmFiyati) + (duration * DakikaFiyati);
     resultValue = Ucret;
@@ -3460,7 +3459,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Ucret",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Taksi/Uber Ücreti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ride Hailing Taxi Uber Fare calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3471,7 +3470,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const OEE = (availability/100) * (performance/100) * (quality/100) * 100;
     resultValue = OEE;
@@ -3486,7 +3485,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "OEE",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `OEE (Ekipman Verimliliği) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Overall Equipment Effectiveness Oee calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3497,7 +3496,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const HedefIc = internalSetup * (1 - conversion/100);
     const total = HedefIc + externalSetup;
@@ -3513,7 +3512,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Amount",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `SMED (Kalıp Değişim) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Smed Mold Setup Reduction calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3524,7 +3523,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Faktor = Math.log(Math.max(0.0001, learningRate/100)) / Math.log(2);
     const duration = initialTime * (unitsProduced**Faktor);
@@ -3540,7 +3539,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Öğrenme Eğrisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Manufacturing Learning Curve calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3551,7 +3550,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Normal = observedTime * (performance/100);
     const Standart = Normal * (1 + allowanceTime/100);
@@ -3567,7 +3566,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Standart",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Standart Zaman hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Standard Production Cycle Time calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3578,7 +3577,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Verimlilik = (totalWork / Math.max(0.0001, (IstasyonSayisi * taktTime))) * 100;
     resultValue = Verimlilik;
@@ -3590,10 +3589,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Verimlilik",
+      primaryLabel: "Productivity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Bant Dengeleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Production Assembly Line Balance calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3602,7 +3601,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Darbogaz = Math.max(stationTimes);
     const Kapasite = 60 / Math.max(0.0001, Darbogaz);
@@ -3615,10 +3614,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Kapasite",
+      primaryLabel: "Capacity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Darboğaz Analiz hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Assembly Line Bottleneck Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3629,7 +3628,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const rate = (scrap / Math.max(1, production)) * 100;
     const loss = scrap * BirimMaliyet;
@@ -3645,7 +3644,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Frictional Head Loss (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hurda Oranı Optimizasyon hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Manufacturing Scrap Loss Cost calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3656,7 +3655,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const SapmaHizi = (finalError - prevError) / Math.max(1, elapsedTime);
     resultValue = SapmaHizi;
@@ -3671,7 +3670,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "SapmaHizi",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kalibrasyon Sapma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Measurement Gage Calibration Drift calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3683,7 +3682,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const BirimAmortisman = (cost - salvageValue) / Math.max(1, capacity);
     resultValue = BirimAmortisman;
@@ -3698,7 +3697,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "BirimAmortisman",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Makine Amortisman hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Machine Capital Depreciation Rate calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3709,7 +3708,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const LCOE = (totalInvestment + totalOperating) / Math.max(1, totalGeneration);
     resultValue = LCOE;
@@ -3724,7 +3723,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "LCOE",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `LCOE (Enerji Birim Maliyeti) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Levelized Cost Of Energy Lcoe calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3735,7 +3734,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Verimlilik = (totalSmv / Math.max(0.0001, (operators * taktTime))) * 100;
     resultValue = Verimlilik;
@@ -3747,10 +3746,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Verimlilik",
+      primaryLabel: "Productivity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dikiş Hattı Dengeleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Apparel Sewing Line Balance calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3760,7 +3759,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const ToplamVaryans = partVariance + gageVariance;
     const RR = (gageVariance / Math.max(0.0001, ToplamVaryans)) * 100;
@@ -3776,7 +3775,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "RR",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Gage R&R hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Measurement Gage Rr Percentage calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3788,7 +3787,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Ihtiyac = (YillikGelir * 10 * dependents) + debts - savings;
     resultValue = Ihtiyac;
@@ -3803,7 +3802,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Ihtiyac",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hayat Sigortası İhtiyacı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Term Life Insurance Needs calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3814,7 +3813,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const NakitDeger = annualPremium * (((1 + interestRate/100)**years - 1) / Math.max(0.0001, (interestRate/100)));
     resultValue = NakitDeger;
@@ -3829,7 +3828,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "NakitDeger",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tam Hayat Sigortası hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Whole Life Insurance Value calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3840,7 +3839,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const NetPrim = Teminat * (OlumOlasiligi/100);
     const BrutPrim = NetPrim / Math.max(0.0001, (1 - GiderMarji/100));
@@ -3856,7 +3855,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "BrutPrim",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Vadeli Hayat Sigortası hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Term Life Insurance Premium calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3866,7 +3865,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const AylikOdeme = monthlyIncome * (OdemeYuzdesi/100);
     resultValue = AylikOdeme;
@@ -3881,7 +3880,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "AylikOdeme",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Engellilik Sigortası hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Disability Income Replacement calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3891,7 +3890,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const VergiAvantaji = annualContribution * (marginalTax/100);
     resultValue = VergiAvantaji;
@@ -3906,7 +3905,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "VergiAvantaji",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sağlık Sigortası (HSA) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Hsa Tax Saving Advantage calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3917,7 +3916,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
     const threshold = values.threshold !== undefined ? normalizeNumber(values.threshold) : 103000;
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Prim = BazPrim + Math.max(0, (YillikGelir - threshold) * extraRate/100);
     resultValue = Prim;
@@ -3932,7 +3931,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Prim",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Medicare Prim hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Medicare Part B Premium calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3943,7 +3942,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tasarruf = (higherPremium - lowerPremium) * 12 - deductibleDifference;
     resultValue = Tasarruf;
@@ -3955,10 +3954,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Tasarruf",
+      primaryLabel: "Savings",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Medicare Tasarruf hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `High Deductible Health Plan Hsa calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3970,7 +3969,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const GelecekDeger = (currentSavings * (1+interestRate/1200)**(years * 12)) + (monthlyContribution * (((1+interestRate/1200)**(years * 12)-1)/Math.max(0.0001, (interestRate/1200))));
     resultValue = GelecekDeger;
@@ -3985,7 +3984,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "GelecekDeger",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Emeklilik (Retirement) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Retirement Future Portfolio Value calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -3997,7 +3996,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Ay = Math.log(Math.max(0.0001, (HedefPortfoy*(interestRate/1200)+monthlyContribution)/(currentSavings*(interestRate/1200)+monthlyContribution))) / Math.log(Math.max(0.0001, 1+(interestRate/1200)));
     resultValue = Ay;
@@ -4012,7 +4011,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Ay",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Emeklilik Tarihi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Retirement Savings Horizon Months calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4025,7 +4024,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const annualContribution = salary * ((contributionRate + employerMatch)/100);
     const FV = FV_HESAPLA(interestRate, years, annualContribution);
@@ -4041,7 +4040,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "FV",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `401k Büyüme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `401k Contribution Employer Match calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4053,7 +4052,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const GelenekselNet = (contribution * (1+growthRate/100)**years) * (1-taxRate/100);
     const RothNet = (contribution * (1-taxRate/100)) * (1+growthRate/100)**years;
@@ -4069,7 +4068,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "RothNet",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Geleneksel vs Roth IRA hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Traditional Vs Roth Ira Net calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4080,7 +4079,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const tax = conversionAmount * (taxRate/100);
     const NetRoth = traditionalBalance + conversionAmount - tax;
@@ -4096,7 +4095,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "NetRoth",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Backdoor Roth IRA hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Backdoor Roth Ira Conversion calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4106,7 +4105,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const RMD = balance / Math.max(1, lifeExpectancy);
     resultValue = RMD;
@@ -4121,7 +4120,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "RMD",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `IRA RMD (Asgari Dağıtım) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ira Required Minimum Distribution calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4131,7 +4130,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const TemelBenefit = SOSYAL_GUVENLIK_FORMULU(aime);
     const Ayarli = TemelBenefit * YAS_CARPANI(retirementAge);
@@ -4147,7 +4146,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Ayarli",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sosyal Güvenlik Yardımları hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Social Security Monthly Benefit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4158,7 +4157,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const zScore = NORMSINV(confidenceLevel);
     const Alt = mean - zScore * stdError;
@@ -4175,7 +4174,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Ust",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Güven Aralığı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Confidence Interval Bounds calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4186,7 +4185,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const n = (zScore * stdDev / Math.max(0.0001, marginOfError))**2;
     resultValue = n;
@@ -4201,7 +4200,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "n",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Örneklem Büyüklüğü hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Sample Size Estimation Stats calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4211,7 +4210,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const BMI = weight / Math.max(0.0001, (length**2));
     resultValue = BMI;
@@ -4226,7 +4225,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "BMI",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `VKİ (BMI) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Body Mass Index Bmi calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4238,7 +4237,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Yag = 495 / Math.max(0.0001, (1.0324 - 0.19077 * Math.log10(Math.max(1, waist-neck)) + 0.15456 * Math.log10(Math.max(1, length)))) - 450;
     resultValue = Yag;
@@ -4253,7 +4252,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Yag",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Vücut Yağ Yüzdesi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Body Fat Percentage Navy calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4265,7 +4264,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const BMR = Mifflin_St_Jeor_Formulu(weight, length, Yas, gender);
     resultValue = BMR;
@@ -4280,7 +4279,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "BMR",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Bazal Metabolizma Hızı (BMR) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Basal Metabolic Rate Bmr calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4290,7 +4289,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const TDEE = BMR * activityLevel;
     resultValue = TDEE;
@@ -4305,7 +4304,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "TDEE",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Günlük Kalori İhtiyacı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Daily Calorie Expenditure Tdee calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4316,7 +4315,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const MaxNabiz = 220 - Yas;
     const Hedef = ((MaxNabiz - restingHeartRate) * density/100) + restingHeartRate;
@@ -4332,7 +4331,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Hedef",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hedef Kalp Atış Hızı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Target Heart Rate Karvonen calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4342,7 +4341,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const VO2Max = (runDistance - 504.9) / 44.73;
     resultValue = VO2Max;
@@ -4357,7 +4356,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "VO2Max",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `VO2 Max hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Vo2max Aerobic Capacity Cooper calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4369,7 +4368,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Protein_g = (TDEE * Protein/100)/4;
     const Yag_g = (TDEE * Yag/100)/9;
@@ -4386,7 +4385,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Karb_g",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Makro Besin İhtiyacı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Macronutrient Gram Split Goals calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4396,7 +4395,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Su = (weight * 0.033) + (activityDuration / 30 * 0.35);
     resultValue = Su;
@@ -4411,7 +4410,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Su",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Su Tüketim İhtiyacı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Daily Water Hydration Intake calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4421,7 +4420,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Gerilme = elasticModulus * strain;
     resultValue = Gerilme;
@@ -4433,10 +4432,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Gerilme",
+      primaryLabel: "Stress",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hooke Yasası hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Hookes Law Axial Stress calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4448,7 +4447,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const pressure = interference / Math.max(0.0001, (diameter * (1/Math.max(0.0001,e1) + 1/Math.max(0.0001,e2))));
     resultValue = pressure;
@@ -4463,7 +4462,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Internal Operating Pressure (Pa)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sıkı Geçme (Geçme Basıncı) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Interference Fit Pressure calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4474,7 +4473,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const CevreGerilme = (pressure * diameter) / Math.max(0.0001, (2 * thickness));
     resultValue = CevreGerilme;
@@ -4489,7 +4488,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "CevreGerilme",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `İnce Cidarlı Kap hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Thin Walled Pressure Vessel calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4500,7 +4499,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const BogazKalinlik = load / Math.max(0.0001, (weldLength * weldStress));
     resultValue = BogazKalinlik;
@@ -4515,7 +4514,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "BogazKalinlik",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kaynak Boyutlandırma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Weld Joint Throat Thickness calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4527,7 +4526,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Sehim = (5 * load * length**4) / Math.max(0.0001, (384 * elasticModulus * momentOfInertia));
     resultValue = Sehim;
@@ -4542,7 +4541,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Sehim",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kiriş Sehimi (Deflection) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Simple Beam Deflection Load calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4554,7 +4553,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const EnerjiYogunlugu = laserPower / Math.max(0.0001, (cuttingSpeed * materialThickness));
     resultValue = EnerjiYogunlugu;
@@ -4569,7 +4568,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "EnerjiYogunlugu",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Lazer İşleme Parametreleri hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Laser Welding Energy Density calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4581,7 +4580,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const moment = (load * span) / 8;
     const Gerilme = (moment * (height/2)) / Math.max(0.0001, (width * height**3 / 12));
@@ -4594,10 +4593,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Gerilme",
+      primaryLabel: "Stress",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Lento Boyutlandırma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Beam Lintel Bending Stress calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4608,7 +4607,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Merkez = (sigmaX + sigmaY) / 2;
     const radius = Math.sqrt(Math.max(0, ((sigmaX-sigmaY)/2)**2 + tauXY**2));
@@ -4624,7 +4623,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Component Outer Radius (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Mohr Çemberi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mohrs Circle Stress Transformation calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4634,7 +4633,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const I = (width * height**3) / 12;
     resultValue = I;
@@ -4649,7 +4648,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "I",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Atalet Momenti (Dikdörtgen) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rectangle Area Moment Inertia calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4661,7 +4660,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Basinc2 = pressure1 * (1 + (2*strikePrice/(strikePrice+1)) * (mach**2 - 1));
     resultValue = Basinc2;
@@ -4676,7 +4675,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Basinc2",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Normal Şok Dalgası hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Normal Shock Wave Relations calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4689,7 +4688,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const NPSH = (pressure - vaporPressure) / Math.max(0.0001, (density * 9.81)) + height - loss;
     resultValue = NPSH;
@@ -4704,7 +4703,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "NPSH",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `NPSH (Net Pozitif Emme) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Pump Npsh Cavitation Margin calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4715,7 +4714,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const TermalGerilme = elasticModulus * expansionCoefficient * temperatureDifference;
     resultValue = TermalGerilme;
@@ -4730,7 +4729,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "TermalGerilme",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Boru Gerilmesi (Termal) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Thermal Pipe Expansion Stress calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4742,7 +4741,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const F1_F2 = Math.exp(friction * wrapAngle);
     const F2 = power / Math.max(0.0001, (speed * (F1_F2 - 1)));
@@ -4758,7 +4757,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "F2",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kasnak ve Kayış Gerilimi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Flat Belt Drive Tension calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4768,7 +4767,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const frequency = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, mass * springConstant))));
     resultValue = frequency;
@@ -4783,7 +4782,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Frequency (Hz)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Rezonans Frekansı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Natural Resonance Frequency calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4794,7 +4793,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const diameter = ((16 / (Math.PI * yieldStrength)) * Math.sqrt(Math.max(0, moment**2 + 0.75*torque**2)))**(1/3);
     resultValue = diameter;
@@ -4809,7 +4808,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Diameter (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Mil Tasarımı (ASME) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Shaft Diameter Torsion Bending calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4820,7 +4819,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tau = (torque * radius) / Math.max(0.0001, polarInertia);
     resultValue = Tau;
@@ -4835,7 +4834,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Tau",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kayma Gerilmesi (Burulma) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Shaft Torsional Shear Stress calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4845,7 +4844,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kuvvet = springConstant * displacement;
     resultValue = Kuvvet;
@@ -4857,10 +4856,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Kuvvet",
+      primaryLabel: "Force",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yay Kuvveti ve Deplasman hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Spring Force Compression calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4870,7 +4869,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Omega = Math.sqrt(Math.max(0, springConstant / Math.max(0.0001, mass)));
     resultValue = Omega;
@@ -4885,7 +4884,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Omega",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yay-Kütle Sistemi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mass Spring Angular Frequency calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4897,7 +4896,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Gerilme = load / Math.max(0.0001, (Modul * width * FormFaktoru));
     resultValue = Gerilme;
@@ -4909,10 +4908,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Gerilme",
+      primaryLabel: "Stress",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Düz Dişli (Lewis Formülü) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Spur Gear Lewis Bending Stress calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4922,7 +4921,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const pressure = density * 9.81 * depth;
     resultValue = pressure;
@@ -4937,7 +4936,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Internal Operating Pressure (Pa)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Statik Basınç (Akışkan) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Hydrostatic Fluid Pressure Depth calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4947,7 +4946,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Gerilme = moment / Math.max(0.0001, KesitModulu);
     resultValue = Gerilme;
@@ -4959,10 +4958,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Gerilme",
+      primaryLabel: "Stress",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Çelik Kiriş (Eğilme) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Steel Beam Bending calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4972,7 +4971,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Strain = (SonBoy - IlkBoy) / Math.max(0.0001, IlkBoy);
     resultValue = Strain;
@@ -4987,7 +4986,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Normal Mechanical Strain",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Birim Şekil Değiştirme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Strain Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -4997,7 +4996,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Sigma = Kuvvet / Math.max(0.0001, Alan);
     resultValue = Sigma;
@@ -5012,7 +5011,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Sigma",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Gerilme (Stress) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Stress Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5022,7 +5021,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const vacancy = DelikCap - MilCap;
     resultValue = vacancy;
@@ -5037,7 +5036,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Vacancy Rate (%)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tolerans ve Geçme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Tolerance And Fit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5052,7 +5051,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const q = (Kohezyon*Nc) + (density*9.81*depth*Nq) + (0.5*density*9.81*TemelGenislik*Ng);
     resultValue = q;
@@ -5067,7 +5066,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "q",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Zemin Taşıma Kapasitesi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Soil Bearing Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5077,7 +5076,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Nm = ((Kaynak=== ("lbft" as any)) ? ( value*1.3558) : ( ((Kaynak=== ("kgfm" as any)) ? ( value*9.8066) : ( value))));
     resultValue = Nm;
@@ -5092,7 +5091,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Nm",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tork Dönüştürücü hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Torque Converter calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5104,7 +5103,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Aci = (torque * length) / Math.max(0.0001, (KaymaModulu * polarInertia));
     resultValue = Aci;
@@ -5116,10 +5115,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Aci",
+      primaryLabel: "Angle",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Burulma Açısı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Angle Of Twist calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5129,7 +5128,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Aci = moment / Math.max(0.0001, springConstant);
     resultValue = Aci;
@@ -5141,10 +5140,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Aci",
+      primaryLabel: "Angle",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Burulma Yayı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Torsion Spring calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5155,7 +5154,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const VonMises = Math.sqrt(Math.max(0, sigmaX**2 - sigmaX*sigmaY + sigmaY**2 + 3*tauXY**2));
     resultValue = VonMises;
@@ -5170,7 +5169,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "VonMises",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Von Mises Gerilmesi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Von Mises Stress calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5182,7 +5181,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Isı = (Akim * Gerilim * Verim) / Math.max(0.0001, IlerlemeHiz);
     resultValue = Isı;
@@ -5194,10 +5193,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Isı",
+      primaryLabel: "Heat",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kaynak Isı Girdisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Welding Heat Input calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5208,7 +5207,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tau = (1.5 * KesmeKuvveti) / Math.max(0.0001, (width * height));
     resultValue = Tau;
@@ -5223,7 +5222,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Tau",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ahşap Kiriş (Kesme) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Wood Beam Shear calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5233,7 +5232,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Verim = Math.tan(HelisAcisi) / Math.max(0.0001, Math.tan(HelisAcisi + SuratmaAcisi));
     resultValue = Verim;
@@ -5245,10 +5244,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Verim",
+      primaryLabel: "Efficiency",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sonsuz Vida Verimi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Worm Gear Efficiency calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5258,7 +5257,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const pressure = load / Math.max(0.0001, DuvarAlani);
     resultValue = pressure;
@@ -5273,7 +5272,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Internal Operating Pressure (Pa)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Taşıyıcı Duvar hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Load Bearing Wall calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5283,7 +5282,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Ra = (Ilerleme**2) / Math.max(0.0001, (32 * UcYariCap));
     resultValue = Ra;
@@ -5298,7 +5297,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Ra",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yüzey Kalitesi (Ra) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Surface Roughness Ra calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5310,7 +5309,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Sehim = (load * span**3) / Math.max(0.0001, (48 * elasticModulus * momentOfInertia));
     resultValue = Sehim;
@@ -5325,7 +5324,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Sehim",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Zemin Kirişi (Sehim) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Floor Joist Deflection calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5335,7 +5334,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const moment = KesitModulu * EgilmeDayanimi;
     resultValue = moment;
@@ -5350,7 +5349,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Applied Bending Moment (N.m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `LVL Kiriş Kapasitesi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Lvl Beam Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5360,7 +5359,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const moment = (CatıYuk * span**2) / 8;
     resultValue = moment;
@@ -5375,7 +5374,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Applied Bending Moment (N.m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Mahya Kirişi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ridge Beam Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5386,7 +5385,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const volatility = ((distance < length/2) ? ( load/2) : ( -load/2));
     resultValue = volatility;
@@ -5401,7 +5400,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Volatility",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kayma Kuvveti Diyagramı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Shear Force Diagram calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5411,7 +5410,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kaldirma = density * 9.81 * volume;
     resultValue = Kaldirma;
@@ -5426,7 +5425,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Kaldirma",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Archimedes Prensibi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Archimedes Principle calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5440,7 +5439,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const P2 = P1 + 0.5*density*(v1**2 - v2**2) + density*9.81*(h1 - h2);
     resultValue = P2;
@@ -5455,7 +5454,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "P2",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Bernoulli Denklemi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Bernoulli Equation calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5464,7 +5463,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const HRC = (HB - 100) / 10;
     resultValue = HRC;
@@ -5479,7 +5478,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "HRC",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Brinell-Rockwell Dönüşüm hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Brinell Rockwell Conversion calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5491,7 +5490,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const h = (2 * YuzeyGerilimi * Math.cos(TemasAcisi)) / Math.max(0.0001, (density * 9.81 * radius));
     resultValue = h;
@@ -5506,7 +5505,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "h",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kılcal Etki hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Capillary Action calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5518,7 +5517,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Akı = (strikePrice * Alan * temperatureDifference) / Math.max(0.0001, thickness);
     resultValue = Akı;
@@ -5530,10 +5529,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Akı",
+      primaryLabel: "Flux",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Isı İletimi (Fourier) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Heat Conduction Fourier calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5543,7 +5542,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const density = Enerji / Math.max(0.0001, volume);
     resultValue = density;
@@ -5558,7 +5557,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Fluid Density (kg/m3)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Enerji Yoğunluğu hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Energy Density calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5569,7 +5568,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Fs = (C0 - Cl) / Math.max(0.0001, (Cs - Cl));
     resultValue = Fs;
@@ -5584,7 +5583,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Fs",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Faz Diyagramı (Lever Kuralı) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Phase Diagram Lever Rule calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5594,7 +5593,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const KE = Math.max(0, (6.626e-34 * frequency) - EsikEnerji);
     resultValue = KE;
@@ -5609,7 +5608,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "KE",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Fotoelektrik Etki hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Photoelectric Effect calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5619,7 +5618,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Porozite = (BoslukHacim / Math.max(0.0001, ToplamHacim)) * 100;
     resultValue = Porozite;
@@ -5634,7 +5633,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Porozite",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Gözeneklilik hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Porosity Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5646,7 +5645,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Hiz = (2 * radius**2 * (ParcacikYogunluk - AkiskanYogunluk) * 9.81) / Math.max(0.0001, (9 * Viskozite));
     resultValue = Hiz;
@@ -5658,10 +5657,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Hiz",
+      primaryLabel: "Speed",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Stokes Yasası hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Stokes Law calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5673,7 +5672,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Hiz = Math.sqrt(Math.max(0, (2 * mass * 9.81) / Math.max(0.0001, (density * DirencKatsayisi * Alan))));
     resultValue = Hiz;
@@ -5685,10 +5684,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Hiz",
+      primaryLabel: "Speed",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Terminal Hız hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Terminal Velocity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5698,7 +5697,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DalgaBoyu = Hiz / Math.max(0.0001, frequency);
     resultValue = DalgaBoyu;
@@ -5713,7 +5712,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "DalgaBoyu",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dalga Boyu-Frekans-Hız hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Wavelength Frequency Speed calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5723,7 +5722,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const kgm3 = ((Kaynak=== ("gcm3" as any)) ? ( value*1000) : ( ((Kaynak=== ("lbft3" as any)) ? ( value*16.018) : ( value))));
     resultValue = kgm3;
@@ -5738,7 +5737,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "kgm3",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yoğunluk Dönüştürücü hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Density Converter calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5748,7 +5747,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Sigma = Kuvvet / Math.max(0.0001, length);
     resultValue = Sigma;
@@ -5763,7 +5762,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Sigma",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yüzey Gerilimi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Surface Tension calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5773,7 +5772,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const WmK = ((Kaynak=== ("kcalmhC" as any)) ? ( value*1.163) : ( value));
     resultValue = WmK;
@@ -5788,7 +5787,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "WmK",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Isı İletkenliği Dönüştürücü hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Thermal Conductivity Converter calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5798,7 +5797,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const mass = Alan * Sarfiyat;
     resultValue = mass;
@@ -5813,7 +5812,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Vibrating Mass (kg)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yapıştırıcı Miktarı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Adhesive Amount calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5825,7 +5824,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Adet = Math.ceil((Alan / Math.max(0.0001, (TahtaEn * TahtaBoy))) * (1 + Fire/100));
     resultValue = Adet;
@@ -5837,10 +5836,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Adet",
+      primaryLabel: "Quantity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ahşap Döşeme (Deck) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Wood Deck Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5852,7 +5851,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Levha = Math.ceil((Alan * (1 + Fire/100)) / Math.max(0.0001, (LevhaEn * LevhaBoy)));
     resultValue = Levha;
@@ -5867,7 +5866,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Levha",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Alçıpan (Drywall) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Drywall Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5877,7 +5876,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const mass = Alan * Sarfiyat;
     resultValue = mass;
@@ -5892,7 +5891,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Vibrating Mass (kg)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Alçıpan Derz Macunu hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Drywall Joint Compound calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5904,7 +5903,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Adet = Math.ceil((Alan * (1 + Fire/100)) / Math.max(0.0001, (PanelEn * PanelBoy)));
     resultValue = Adet;
@@ -5916,10 +5915,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Adet",
+      primaryLabel: "Quantity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dış Cephe Kaplaması hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Siding Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5929,7 +5928,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Alan = Cevre * width;
     resultValue = Alan;
@@ -5941,10 +5940,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Alan",
+      primaryLabel: "Area",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Saçak Altı (Soffit) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Soffit Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5955,7 +5954,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Litre = (Alan * KatSayisi) / Math.max(0.0001, OrtimeOrani);
     resultValue = Litre;
@@ -5970,7 +5969,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Litre",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sprey Boya hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Spray Paint Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -5980,7 +5979,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Litre = Alan / Math.max(0.0001, Sarfiyat);
     resultValue = Litre;
@@ -5995,7 +5994,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Litre",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ahşap Boya (Leke) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Wood Stain Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6006,7 +6005,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const mass = Alan * (thickness/100) * density;
     resultValue = mass;
@@ -6021,7 +6020,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Vibrating Mass (kg)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dış Cephe Sıvası hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Exterior Stucco calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6032,7 +6031,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const length = OdaCevresi - (KapiGenisligi * KapiSayisi);
     resultValue = length;
@@ -6047,7 +6046,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Component Length (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Süpürgelik (Baseboard) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Baseboard Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6056,7 +6055,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const length = DuvarUzunlugu;
     resultValue = length;
@@ -6071,7 +6070,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Component Length (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Duvar Korkuluğu hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Chair Rail Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6083,7 +6082,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Rulo = Math.ceil(Alan / Math.max(0.0001, (RuloEn * RuloBoy * (1 - DesenTekrari/Math.max(0.0001,RuloBoy)))));
     resultValue = Rulo;
@@ -6098,7 +6097,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Rulo",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Duvar Kağıdı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Wallpaper Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6108,7 +6107,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const KesimOrani = ((AlanEn) % (FayansEn)) / Math.max(0.0001, FayansEn);
     resultValue = KesimOrani;
@@ -6123,7 +6122,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "KesimOrani",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Fayans Dizilimi (Layout) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Tile Layout Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6134,7 +6133,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Metraj = (Alan / Math.max(0.0001, RuloEn)) * (1 + Fire/100);
     resultValue = Metraj;
@@ -6149,7 +6148,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Metraj",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Linolyum / Vinil hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Linoleum Vinyl Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6160,7 +6159,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Metraj = Alan / Math.max(0.0001, (TahtaEn - BindirmePayi));
     resultValue = Metraj;
@@ -6175,7 +6174,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Metraj",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ahşap Siding hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Wood Siding Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6187,7 +6186,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Adet = Math.ceil((Alan / Math.max(0.0001, (TasEn * TasBoy))) * (1 + Fire/100));
     resultValue = Adet;
@@ -6199,10 +6198,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Adet",
+      primaryLabel: "Quantity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kilit Taşı (Paver) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Paver Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6213,7 +6212,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tonaj = Alan * (thickness/100) * density;
     resultValue = Tonaj;
@@ -6228,7 +6227,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Tonaj",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Çakıl / Kum hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Gravel Sand Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6239,7 +6238,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const volume = (CatiAlani * (YillikYagis/1000)) * (Verim/100);
     resultValue = volume;
@@ -6254,7 +6253,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "volume",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yağmur Suyu Hasadı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rainwater Harvesting calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6265,7 +6264,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const power = (Debi * height * 9.81) / Math.max(0.0001, (3600 * (Verim/100)));
     resultValue = power;
@@ -6280,7 +6279,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Transmitted Power (Watts)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kuyu Pompa Kapasitesi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Well Pump Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6290,7 +6289,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Faktor = (MaksTalep / Math.max(0.0001, KuruluGuc)) * 100;
     resultValue = Faktor;
@@ -6305,7 +6304,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Faktor",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yük Faktörü (Bina) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Building Load Factor calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6316,7 +6315,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const total = (Enerji*0.4) + (Su*0.3) + (Malzeme*0.3);
     resultValue = total;
@@ -6331,7 +6330,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Amount",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `BREEAM/LEED Puan hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Breeam Leed Score calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6342,7 +6341,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Scope1 = Yakit * 2.31;
     const Scope2 = Elektrik * 0.45;
@@ -6359,7 +6358,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Amount",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Karbon Ayak İzi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Carbon Footprint calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6370,7 +6369,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const ESG = (Cevre * 0.4) + (Sosyal * 0.3) + (Yonetisim * 0.3);
     resultValue = ESG;
@@ -6385,7 +6384,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "ESG",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `ESG Skoru hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Esg Score calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6395,7 +6394,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const rate = (GeriKazanilan / Math.max(0.0001, ToplamGirdi)) * 100;
     resultValue = rate;
@@ -6410,7 +6409,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "rate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Döngüsel Ekonomi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Circular Economy calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6420,7 +6419,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const AyakIzi = TuketilenSu / Math.max(0.0001, UretimHacmi);
     resultValue = AyakIzi;
@@ -6435,7 +6434,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "AyakIzi",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Su Ayak İzi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Water Footprint calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6446,7 +6445,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Alan = (AtikHacmi * (1 - Sikistirma/100)) / Math.max(0.0001, depth);
     resultValue = Alan;
@@ -6458,10 +6457,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Alan",
+      primaryLabel: "Area",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Atık Depolama (Landfill) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Landfill Storage calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6471,7 +6470,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const rate = (GeriDonusen / Math.max(0.0001, ToplamAtik)) * 100;
     resultValue = rate;
@@ -6486,7 +6485,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "rate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Geri Dönüşüm Oranı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Recycling Rate calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6497,7 +6496,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const volume = HavzaAlani * 1000000 * (Yagis/1000) * AkisKatsayisi;
     resultValue = volume;
@@ -6512,7 +6511,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "volume",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Havza Yönetimi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Watershed Management calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6523,7 +6522,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tasarruf = GriSuHacmi * (SebekeFiyat - AritmaMaliyet) * 365;
     resultValue = Tasarruf;
@@ -6535,10 +6534,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Tasarruf",
+      primaryLabel: "Savings",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Gri Su Geri Kazanımı hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Greywater Recovery calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6550,7 +6549,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const strikePrice = Math.sqrt(Math.max(0, 2 * mass * (EngelYuksekligi - Enerji))) / 1.054e-34;
     const Olasilik = Math.exp(-2 * strikePrice * EngelGenisligi);
@@ -6566,7 +6565,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Olasilik",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kuantum Tünelleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Quantum Tunneling calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6577,7 +6576,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Enerji = (KuantumSayisi**2 * Math.PI**2 * (1.054e-34)**2) / Math.max(0.0001, (2 * mass * KuyuGenisligi**2));
     resultValue = Enerji;
@@ -6592,7 +6591,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Enerji",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Schrödinger Denklemi (1D) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Schrodinger Equation 1d calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6601,7 +6600,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kayma = 2.426e-12 * (1 - Math.cos(SacilmaAcisi * Math.PI / 180));
     resultValue = Kayma;
@@ -6616,7 +6615,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Kayma",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Compton Kayma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Compton Scattering calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6625,7 +6624,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Limit = 1.44;
     resultValue = Limit;
@@ -6640,7 +6639,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Limit",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Chandrasekhar Limiti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Chandrasekhar Limit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6650,7 +6649,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Faktor = (OrtalamaGuc / Math.max(0.0001, PikGuc)) * 100;
     resultValue = Faktor;
@@ -6665,7 +6664,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Faktor",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yük Faktörü (Elektrik) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Electrical Load Factor calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6676,7 +6675,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const ToplamKayip = (length * BirimKayip) + EkKayip;
     resultValue = ToplamKayip;
@@ -6691,7 +6690,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "ToplamKayip",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Fiber Optik Zayıflama hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Fiber Optic Attenuation calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6701,7 +6700,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const DalgaBoyu = 300 / Math.max(0.0001, frequency);
     const length = ((Tip=== ("Dipole" as any)) ? ( DalgaBoyu/2) : ( DalgaBoyu*0.45));
@@ -6717,7 +6716,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Component Length (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `RF Anten Boyutlandırma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rf Antenna Sizing calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6728,7 +6727,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const R_A = load * Math.max(0, (length - YukKonum)) / Math.max(0.0001, length);
     const R_B = load - R_A;
@@ -6744,7 +6743,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "R_B",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kiriş Mesnet Tepkileri hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Beam Support Reactions calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6756,7 +6755,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const KgDa = (10000 / Math.max(0.0001, (SiraAraligi * UzeriMesafe))) * (BinTaneAgirlik / 1000) / Math.max(0.0001, (Cimlenme / 100));
     resultValue = KgDa;
@@ -6771,7 +6770,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "KgDa",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tohum Ekim Yogunlugu hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Seed Sowing Density calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6782,7 +6781,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const ToplamDebi = (DamaticiDebi * DamaticiSayisi) / 3600000;
     const diameter = Math.sqrt(Math.max(0, (4 * ToplamDebi) / Math.max(0.0001, (Math.PI * MaxHiz)))) * 1000;
@@ -6798,7 +6797,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Diameter (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Damla Sulama Boru capi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Drip Irrigation Pipe Size calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6811,7 +6810,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const BuharlasanSu = UrunKutlesi * ((BaslangicNem - HedefNem) / 100);
     const duration = BuharlasanSu / Math.max(0.0001, (HavaDebi * NemFarki));
@@ -6827,7 +6826,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Havalandirmali Kurutma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Aerated Drying calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6837,7 +6836,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const ToplamYem = SiloHacim * SikistirmaYogunlugu;
     resultValue = ToplamYem;
@@ -6852,7 +6851,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "ToplamYem",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Silaj Yem Hacmi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Silage Volume calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6863,7 +6862,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Debi = (Alan * height * HavaDegisimSayisi) / 3600;
     resultValue = Debi;
@@ -6875,10 +6874,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Debi",
+      primaryLabel: "Flow Rate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ahir Havalandirma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Barn Ventilation calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6891,7 +6890,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Draft = displacement / Math.max(0.0001, (SuYogunlugu * length * width * BlokKatsayi));
     resultValue = Draft;
@@ -6906,7 +6905,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Draft",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Gemi Su Cekimi (Draft) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ship Draft calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6917,7 +6916,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const GM = KB + BM - KG;
     resultValue = GM;
@@ -6932,7 +6931,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "GM",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Gemi Denge (GM) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ship Stability Gm calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6943,7 +6942,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const KopmaYuku = (Math.PI * (HalatCapi/2)**2 * MalzemeKatsayisi) / 1000;
     const EmniyetliYuk = KopmaYuku / Math.max(0.0001, GuvenlikFaktoru);
@@ -6959,7 +6958,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "EmniyetliYuk",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Baglama Halati Kopma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mooring Rope Breaking calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6970,7 +6969,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const length = (SuDerinligi * (3 + (RuzgarHizi / 10))) * DipKatsayisi;
     resultValue = length;
@@ -6985,7 +6984,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Component Length (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Demirleme Zinciri hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Anchor Chain calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -6995,7 +6994,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const duration = TankHacim / Math.max(0.0001, PompaDebi);
     resultValue = duration;
@@ -7010,7 +7009,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sintine Bosaltim hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Bilge Discharge calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7020,7 +7019,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const pressure = (CamurYogunlugu * 9.81 * depth) / 1000000;
     resultValue = pressure;
@@ -7035,7 +7034,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Internal Operating Pressure (Pa)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kuyu Taban Basinci hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Bottom Hole Pressure calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7046,7 +7045,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const torque = (Math.PI * (MatkapCapi**3) * KayaDayanim * KesiciKatsayi) / 12;
     resultValue = torque;
@@ -7061,7 +7060,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Applied Torsional Torque (N.m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Donel Sondaj Tork hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rotary Drilling Torque calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7072,7 +7071,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Hiz = (4 * CamurDebi) / Math.max(0.0001, (Math.PI * (KuyuCapi**2 - MatkapCapi**2)));
     resultValue = Hiz;
@@ -7084,10 +7083,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Hiz",
+      primaryLabel: "Speed",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Camur Dolanim Hizi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mud Circulation Velocity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7099,7 +7098,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const UcDayanimi = (Math.PI*(diameter/2)**2) * (9 * Kohezyon);
     const YuzeySuratmesi = Math.PI * diameter * length * friction;
@@ -7116,7 +7115,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "NihaiYuk",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Fore Kazik Tasiyicilik hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Bored Pile Bearing Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7128,7 +7127,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Dayanim = Kohezyon + (NormalGerilme * Math.tan(IcSuratmaAcisi * Math.PI / 180));
     const FS = Dayanim / Math.max(0.0001, KaymaGerilmesi);
@@ -7144,7 +7143,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "FS",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sev Guvenlik Faktoru hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Slope Safety Factor calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7154,7 +7153,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const MetreAgirlik = (width * Gramaj) / 1000;
     resultValue = MetreAgirlik;
@@ -7169,7 +7168,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "MetreAgirlik",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kumasi Gramaj hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Fabric Weight calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7180,7 +7179,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const duration = (DikisUzunluk * DikisSikligi) / Math.max(0.0001, (DevirSayisi / 60));
     resultValue = duration;
@@ -7195,7 +7194,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dikis Makinasi Bant Pedi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Sewing Machine Cycle Time calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7205,7 +7204,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const length = (BobinAgirlik / 1000) * IplikNumara * 1000;
     resultValue = length;
@@ -7220,7 +7219,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Component Length (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Bobin Iplik Kapasitesi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Bobbin Yarn Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7230,7 +7229,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Cekme = ((HamOlcu - BitmisOlcu) / Math.max(0.0001, HamOlcu)) * 100;
     resultValue = Cekme;
@@ -7245,7 +7244,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Cekme",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kumasi Cekme Carpani hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Fabric Shrinkage calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7257,7 +7256,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const VerimliSure = VardiyaSure - DurusSure;
     const production = (AtimSayisi * VerimliSure) / Math.max(0.0001, (KumasSikligi * 100));
@@ -7273,7 +7272,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Units Produced",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Dokuma Tezgahi Verim hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Weaving Loom Efficiency calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7285,7 +7284,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const load = Alan * U_Katsayi * (DisSicaklik - IcSicaklik);
     resultValue = load;
@@ -7300,7 +7299,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Applied External Force (N)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Soguk Depo Isi Kazanci hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Cold Storage Heat Gain calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7311,7 +7310,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const power = (Debi * BasincDusumu) / Math.max(0.0001, (PompaVerim / 100));
     resultValue = power;
@@ -7326,7 +7325,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Transmitted Power (Watts)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sivi Gida Akis Enerji hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Liquid Food Flow Energy calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7336,7 +7335,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Zaman = volume / Math.max(0.0001, Debi);
     resultValue = Zaman;
@@ -7351,7 +7350,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Zaman",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Pastorizasyon Zaman hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Pasteurization Time calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7363,7 +7362,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const duration = (PosetHacim / Math.max(0.0001, PompaDebi)) * Math.log(Math.max(0.0001, BaslangicBasinc / Math.max(0.0001, HedefBasinc)));
     resultValue = duration;
@@ -7378,7 +7377,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Vakumlu Paketleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Vacuum Packaging calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7389,7 +7388,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kapasite = (TavaSayisi * TavaKapasite * 60) / Math.max(0.0001, PismeSure);
     resultValue = Kapasite;
@@ -7401,10 +7400,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Kapasite",
+      primaryLabel: "Capacity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Firin Kapasitesi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Oven Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7414,7 +7413,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tonaj = (ProjeksiyonAlani * KalipIcBasinc) / 1000;
     resultValue = Tonaj;
@@ -7429,7 +7428,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Tonaj",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Enjeksiyon Kapanma Tonaj hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Injection Clamping Tonnage calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7442,7 +7441,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const duration = (EtKalinlik**2 / (Math.PI**2 * Math.max(0.0001, TermalDifuzyon))) * Math.log(Math.max(0.0001, (4/Math.PI) * (ErimeSicaklik - KalipSicaklik) / Math.max(0.0001, (FirinSicaklik - KalipSicaklik))));
     resultValue = duration;
@@ -7457,7 +7456,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Plastik Sogutma Sure hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Plastic Cooling Time calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7469,7 +7468,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const duration = (MalzemeKutle * (NemOrani / 100)) / Math.max(0.0001, (HavaDebi * NemAlmaKapasite));
     resultValue = duration;
@@ -7484,7 +7483,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Plastik Kurutma Sure hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Plastic Drying Time calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7496,7 +7495,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kapasite = (VidaHacim * Devir * EriyikYogunluk * (Verim / 100) * 60) / 1000;
     resultValue = Kapasite;
@@ -7508,10 +7507,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Kapasite",
+      primaryLabel: "Capacity",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ekstruder Cikti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Extruder Output calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7522,7 +7521,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Aci = Math.atan((ParcaDerinlik * (BuzulmeOrani / 100)) / Math.max(0.0001, YanYuzeyUzunluk)) * (180 / Math.PI);
     resultValue = Aci;
@@ -7534,10 +7533,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Aci",
+      primaryLabel: "Angle",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kalip Cekme Acisi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mold Draft Angle calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7548,7 +7547,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const power = (Debi * pressure * 100) / Math.max(0.0001, (600 * (PompaVerim / 100) * 746));
     resultValue = power;
@@ -7563,7 +7562,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Transmitted Power (Watts)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yangin Pompasi Guc hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Fire Pump Power calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7574,7 +7573,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const load = (YaniciKutle * IsilDeger) / Math.max(0.0001, KatAlani);
     resultValue = load;
@@ -7589,7 +7588,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Applied External Force (N)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Bina Yangin Yuk hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Building Fire Load calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7599,7 +7598,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Debi = K_Faktoru * Math.sqrt(Math.max(0, pressure));
     resultValue = Debi;
@@ -7611,10 +7610,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Debi",
+      primaryLabel: "Flow Rate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sprinkler Akis Hizi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Sprinkler Flow Rate calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7624,7 +7623,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const LSB = RefVoltaj / Math.max(0.0001, (2**BitSayisi));
     const DinamikAralik = 20 * Math.log10(Math.max(1, 2**BitSayisi));
@@ -7640,7 +7639,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "DinamikAralik",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `ADC Cozunurluk hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Adc Resolution calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7650,7 +7649,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const B = (4 * Math.PI * 10**-7 * Akim) / Math.max(0.0001, (2 * Math.PI * distance));
     resultValue = B;
@@ -7665,7 +7664,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "B",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ampere Yasasi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Amperes Law calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7677,7 +7676,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const dB = (4 * Math.PI * 10**-7 * Akim * length * Math.sin(Aci * Math.PI / 180)) / Math.max(0.0001, (4 * Math.PI * distance**2));
     resultValue = dB;
@@ -7692,7 +7691,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "dB",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Biot-Savart Yasasi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Biot Savart Law calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7702,7 +7701,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Xc = 1 / Math.max(0.0001, (2 * Math.PI * frequency * Kapasite));
     resultValue = Xc;
@@ -7717,7 +7716,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Xc",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kapasitif Reaktans hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Capacitive Reactance calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7727,7 +7726,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Xl = 2 * Math.PI * frequency * Induktans;
     resultValue = Xl;
@@ -7742,7 +7741,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Xl",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Enduktif Reaktans hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Inductive Reactance calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7752,7 +7751,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tau = interestRate * C;
     resultValue = Tau;
@@ -7767,7 +7766,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Tau",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `RC Zaman Sabiti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rc Time Constant calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7778,7 +7777,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const f0 = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, L * C))));
     const Q = (1 / Math.max(0.0001, interestRate)) * Math.sqrt(Math.max(0.0001, L / Math.max(0.0001, C)));
@@ -7794,7 +7793,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Q",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `RLC Rezonans Frekans hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rlc Resonant Frequency calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7804,7 +7803,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Yansima = (YukEmpedans - HatEmpedans) / Math.max(0.0001, (YukEmpedans + HatEmpedans));
     const VSWR = (1 + Math.abs(Yansima)) / Math.max(0.0001, (1 - Math.abs(Yansima)));
@@ -7820,7 +7819,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "VSWR",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Smith Diyagrami (VSWR) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Smith Chart Vswr calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7830,7 +7829,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const SNR = 10 * Math.log10(Math.max(0.0001, SinyalGuc / Math.max(0.0001, GurultuGuc)));
     resultValue = SNR;
@@ -7845,7 +7844,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "SNR",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sinyal-Gurultu Orani (SNR) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Signal To Noise Ratio calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7857,7 +7856,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Ivme = ((torque * CekisKatsayisi) - HavaDirenci) / Math.max(0.0001, mass);
     const duration = (100 / 3.6) / Math.max(0.0001, Ivme);
@@ -7873,7 +7872,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `0-100 km/h Hizlanma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Zero To Hundred Acceleration calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7885,7 +7884,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const rate = Z2 / Math.max(1, Z1);
     const length = 2*MerkezC + (Z1+Z2)*Adim/2 + (((Z2-Z1)*Adim)/(2*Math.PI))**2 / Math.max(0.0001, MerkezC);
@@ -7901,7 +7900,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Component Length (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Zincir Tahrik hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Chain Drive calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7912,7 +7911,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const duration = BataryaKapasite / Math.max(0.0001, (SarjGuc * (Verim / 100)));
     resultValue = duration;
@@ -7927,7 +7926,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `EV Sarj Sure hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ev Charging Time calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7938,7 +7937,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Menzil = (BataryaEnerji * 1000 * (Verim / 100)) / Math.max(0.0001, Tuketim);
     resultValue = Menzil;
@@ -7953,7 +7952,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Menzil",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `EV Menzil hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ev Range calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7963,7 +7962,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const kW = ((Kaynak=== ("HP" as any)) ? ( value*0.7457) : ( ((Kaynak=== ("PS" as any)) ? ( value*0.7355) : ( value))));
     resultValue = kW;
@@ -7978,7 +7977,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "kW",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Beygir Gucu Donusum hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Horsepower Converter calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -7990,7 +7989,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const IHP = (pressure * Strok * Alan * Devir) / 60000;
     resultValue = IHP;
@@ -8005,7 +8004,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "IHP",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Indike Beygir Gucu (IHP) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Indicated Horsepower calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8015,7 +8014,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const torque = (power * 9550) / Math.max(0.0001, Devir);
     resultValue = torque;
@@ -8030,7 +8029,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Applied Torsional Torque (N.m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Motor Devri/Tork hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Engine Speed Torque calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8040,7 +8039,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Verim = (CikisGuc / Math.max(0.0001, GirisGuc)) * 100;
     resultValue = Verim;
@@ -8052,10 +8051,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Verim",
+      primaryLabel: "Efficiency",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Motor Verimliligi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Motor Efficiency calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8067,7 +8066,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Hiz = (((power) / Math.max(0.0001, HavaDirencKatsayi))**(1/3));
     resultValue = Hiz;
@@ -8079,10 +8078,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Hiz",
+      primaryLabel: "Speed",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Maksimum Hiz (Arac) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Vehicle Top Speed calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8093,7 +8092,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const EtkiliHiz = KalkisHiz - RuzgarHiz;
     const length = (EtkiliHiz**2) / Math.max(0.0001, (2 * Ivme));
@@ -8109,7 +8108,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Component Length (m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Pist Uzunlugu Gerekli hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Runway Length Required calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8119,7 +8118,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Lambda = 6.626e-34 / Math.max(0.0001, (mass * Hiz));
     resultValue = Lambda;
@@ -8134,7 +8133,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Lambda",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `De Broglie Dalga Boyu hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `De Broglie Wavelength calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8144,7 +8143,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const dB = ((Tip=== ("power" as any)) ? ( 10*Math.log10(Math.max(0.0001, rate))) : ( 20*Math.log10(Math.max(0.0001, rate))));
     resultValue = dB;
@@ -8159,7 +8158,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "dB",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Desibel Donusturucu hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Decibel Converter calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8168,7 +8167,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Diyoptri = 1 / Math.max(0.0001, OdakUzaklik);
     resultValue = Diyoptri;
@@ -8183,7 +8182,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Diyoptri",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Diyoptri (Lens Gucu) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Diopter Lens Power calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8195,7 +8194,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const mass = (Akim * duration * EsdegerAgirlik) / Math.max(0.0001, (96485 * ElektronSayisi));
     resultValue = mass;
@@ -8210,7 +8209,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Total Vibrating Mass (kg)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Faraday Elektroliz hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Faraday Electrolysis calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8221,7 +8220,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const B = (4 * Math.PI * 10**-7 * SarimSayisi * Akim) / Math.max(0.0001, length);
     resultValue = B;
@@ -8236,7 +8235,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "B",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Manyetik Alan (Solenoid) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Magnetic Field Solenoid calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8249,7 +8248,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const w = 2*Math.PI*frequency;
     const Gamma = Math.sqrt(Math.max(0, (Direnc**2 + (w*Induktans)**2) * (Iletkenlik**2 + (w*Kapasite)**2)));
@@ -8265,7 +8264,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Gamma",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Yayilma Sabiti hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Propagation Constant calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8275,7 +8274,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Q = RezonansFrekans / Math.max(0.0001, BantGenislik);
     resultValue = Q;
@@ -8290,7 +8289,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Q",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kalite Faktoru (Q) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Quality Factor Q calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8299,7 +8298,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const SQNR = 6.02 * BitSayisi + 1.76;
     resultValue = SQNR;
@@ -8314,7 +8313,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "SQNR",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Niceleme Gurultusu (SQNR) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Quantization Noise Sqnr calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8324,7 +8323,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const time = ((Kaynak=== ("G" as any)) ? ( value*10**-4) : ( ((Kaynak=== ("Wb" as any)) ? ( value) : ( value))));
     resultValue = time;
@@ -8339,7 +8338,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Time (Years)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Tesla Birim Donusturucu hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Tesla Unit Converter calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8351,7 +8350,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const duration = (AkuKapasite * DCVoltaj * (DesarjDerinligi/100)) / Math.max(0.0001, YukGucu);
     resultValue = duration;
@@ -8366,7 +8365,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Pil Kapasitesi Yedekleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Battery Backup Capacity calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8377,7 +8376,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const power = 1000 * 9.81 * Debi * DusuYuksekligi * (TurbinVerim/100);
     resultValue = power;
@@ -8392,7 +8391,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Transmitted Power (Watts)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hidroelektrik Guc hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Hydroelectric Power calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8404,7 +8403,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Alan = Math.PI * (KanatCapi/2)**2;
     const power = 0.5 * HavaYogunlugu * Alan * (RuzgarHizi**3) * Cp;
@@ -8420,7 +8419,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Transmitted Power (Watts)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ruzgar Turbini Enerji hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Wind Turbine Energy calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8430,7 +8429,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Verim = 1 - (SogukKaynak / Math.max(0.0001, SicakKaynak));
     resultValue = Verim;
@@ -8442,10 +8441,10 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Verim",
+      primaryLabel: "Efficiency",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Carnot Verimliligi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Carnot Efficiency calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8457,7 +8456,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const interestRate = 8.314;
     const Eksik = (pressure * volume) / Math.max(0.0001, (n * Sicaklik * 8.314));
@@ -8473,7 +8472,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Eksik",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ideal Gaz Yasasi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Ideal Gas Law calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8483,7 +8482,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const AgacSayisi = (Emisyon * 1000) / Math.max(0.0001, AgacYillikYutak);
     resultValue = AgacSayisi;
@@ -8498,7 +8497,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "AgacSayisi",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Karbon Denklestirme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Carbon Offset calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8509,7 +8508,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const HedefBoyut = VeriBoyutu / Math.max(0.0001, SikistirmaOrani);
     const duration = (HedefBoyut * 8192) / Math.max(0.0001, AgHizi);
@@ -8525,7 +8524,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Duration",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Veri Yedekleme Sure hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Data Backup Time calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8534,7 +8533,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const SimetrikEsdeger = RSA_AnahtarUzunlugu / 10;
     resultValue = SimetrikEsdeger;
@@ -8549,7 +8548,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "SimetrikEsdeger",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `RSA Sifreleme Guvenlik hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Rsa Encryption Security calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8560,7 +8559,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const OrtalamaGecikme = ToplamGecikme / Math.max(1, ToplamIstek);
     const SLA = ((ToplamIstek - HataliIstek) / Math.max(1, ToplamIstek)) * 100;
@@ -8576,7 +8575,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "SLA",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `UPA Gecikme ve SLA hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Api Latency Sla calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8586,7 +8585,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const strikePrice = 0.693 / Math.max(0.0001, YarilanmaOmru);
     const BirikimFaktoru = 1 / Math.max(0.0001, (1 - Math.exp(-strikePrice * DozAraligi)));
@@ -8602,7 +8601,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "BirikimFaktoru",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ilac Yarilanma Omru hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Drug Half Life calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8613,7 +8612,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const EtkinDoz = SogurulanDoz * DokuAgirlikFaktoru * RadyasyonTuruFaktoru;
     resultValue = EtkinDoz;
@@ -8628,7 +8627,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "EtkinDoz",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Radyasyon Dozu (Etkin) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Effective Radiation Dose calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8637,7 +8636,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const MinOrneklemeHizi = 2 * MaksSinyalFrekansi;
     resultValue = MinOrneklemeHizi;
@@ -8652,7 +8651,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "MinOrneklemeHizi",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Biyolojik Sinyal Ornekleme hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Biosignal Sampling calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8663,7 +8662,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Tonaj = BlokHacim * CevherYogunlugu;
     const MetalMiktari = Tonaj * (Tenor / 100);
@@ -8679,7 +8678,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "MetalMiktari",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Maden Rezerv Hacim hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Mine Reserve Volume calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8689,7 +8688,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const HidrostatikBasinc = (CamurYogunlugu * 9.81 * DikeyDerinlik) / 1000000;
     resultValue = HidrostatikBasinc;
@@ -8704,7 +8703,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "HidrostatikBasinc",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sondaj Kuyusu Basinc hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Drilling Well Pressure calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8715,7 +8714,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const PGA = ZeminKatsayisi * Math.exp(0.5 * MomentMagnitudu - 2.0 * Math.log(Math.max(1, distance + 10)));
     resultValue = PGA;
@@ -8730,7 +8729,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "PGA",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Deprem Buyuklugu PGA hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Earthquake Magnitude Pga calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8740,7 +8739,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const torque = EylemsizlikMomenti * AcisalIvme;
     resultValue = torque;
@@ -8755,7 +8754,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Applied Torsional Torque (N.m)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Eklem Acisal Hiz ve Tork hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Joint Angular Velocity Torque calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8768,7 +8767,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Y = ((gender=== ("Kadin" as any)) ? ( 1.67) : ( 1.92));
     const TRIMP = duration * ((OrtalamaNabiz-restingHeartRate)/Math.max(1,(MaksNabiz-restingHeartRate))) * 0.64 * Math.exp(Y * ((OrtalamaNabiz-restingHeartRate)/Math.max(1,(MaksNabiz-restingHeartRate))));
@@ -8784,7 +8783,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "TRIMP",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Antrenman Yuku (TRIMP) hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Training Load Trimp calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8794,7 +8793,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Asimetri = (Math.abs(SagKuvvet - SolKuvvet) / Math.max(0.0001, Math.max(SagKuvvet, SolKuvvet))) * 100;
     resultValue = Asimetri;
@@ -8809,7 +8808,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Asimetri",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sakatlik Riski Asimetri hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Injury Risk Asymmetry calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8821,7 +8820,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const GolgeAcisi = Math.atan(EngelYukseklik / Math.max(0.0001, distance));
     const GunesAcisi = Enlem * 0.5;
@@ -8837,7 +8836,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "GunesAcisi",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Bina Gunuslenme Analiz hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Building Solar Exposure calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8849,7 +8848,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Gecikme = (DonguSuresi * (1 - YesilSure/Math.max(1,DonguSuresi))**2) / Math.max(0.0001, (2 * (1 - (AkisHizi/Math.max(0.0001, DoygunAkis)))));
     resultValue = Gecikme;
@@ -8864,7 +8863,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Gecikme",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Trafik Sinyalizasyon hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Traffic Signal Timing calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8876,7 +8875,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Lp = SesGucu - 20 * Math.log10(Math.max(1, distance)) - 11 - ZeminZayiflama - EngelZayiflama;
     resultValue = Lp;
@@ -8891,7 +8890,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Lp",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Cevresel Gurultu Yayilim hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Environmental Noise Propagation calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8903,7 +8902,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Aci2 = Math.acos(Math.max(-1, Math.min(1, (HedefX**2 + HedefY**2 - Kol1Uzunluk**2 - Kol2Uzunluk**2) / Math.max(0.0001, (2 * Kol1Uzunluk * Kol2Uzunluk)))));
     const Aci1 = Math.atan2(HedefY, HedefX) - Math.atan2(Kol2Uzunluk*Math.sin(Aci2), Kol1Uzunluk + Kol2Uzunluk*Math.cos(Aci2));
@@ -8919,7 +8918,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Aci1",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Ters Kinematik 2D Kol hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Inverse Kinematics 2d Arm calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8929,7 +8928,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const Kp = 0.6 * Ku;
     const Ki = 2 * Kp / Math.max(0.0001, Tu);
@@ -8946,7 +8945,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Kd",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `PID Kontrolor Ziegler hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Pid Controller Ziegler calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8958,7 +8957,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const YeniDurum = (DurumGecis * OncekiDurum) + (KontrolGirdisi * Girdi);
     const YeniKovaryans = (DurumGecis * covariance * DurumGecis) + ProsesGurultusu;
@@ -8974,7 +8973,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "YeniKovaryans",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Kalman Filtresi Ongoru hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Kalman Filter Prediction calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -8983,7 +8982,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const h = AtifSayisi * 0.1;
     resultValue = h;
@@ -8998,7 +8997,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "h",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `H-Indeksi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `H Index calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -9011,7 +9010,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const p = DogruCevap / Math.max(1, ToplamOgrenci);
     const interestRate = (UstGrupDogru - AltGrupDogru) / Math.max(1, GrupBoyutu);
@@ -9027,7 +9026,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "interestRate",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Madde Guclugu Ayirt Edicilik hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Item Difficulty Discrimination calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -9039,7 +9038,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const weight = (TabakaPopulasyon / Math.max(1, ToplamPopulasyon)) / Math.max(0.0001, (TabakaOrneklem / Math.max(1, ToplamOrneklem)));
     resultValue = weight;
@@ -9054,7 +9053,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "weight",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Orneklem Agirliklandirma hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Sample Weighting calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -9065,7 +9064,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const BrutPrim = BeklenenHasar / Math.max(0.0001, (1 - (GiderYuklemesi/100) - (KarMarji/100)));
     resultValue = BrutPrim;
@@ -9080,7 +9079,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "BrutPrim",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Sigorta Prim Yasam hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Life Insurance Premium calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -9092,7 +9091,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const amount = principal * (1 + (annualInterest/100) * (BilesimSikligi/365))**(GecikmeGun/Math.max(1, BilesimSikligi));
     resultValue = amount;
@@ -9107,7 +9106,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "Loan / Debt Amount",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Bilesik Gecikme Faizi hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Compound Default Interest calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },
@@ -9117,7 +9116,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
 
      
-    let Girdi: any = 0; let ProsesGurultusu: any = 0; let Ku: any = 0; let Tu: any = 0; let n: any = 0; let resultValue: any = 0;
+    let resultValue: any = 0;
     try {
     const KalanGun = ((KesintiDurumu===1) ? ( 0) : ( YasalSure * 365));
     resultValue = KalanGun;
@@ -9132,7 +9131,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       primaryLabel: "KalanGun",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: `Hukuki Zaman asimi Sure hesaplaması tamamlanmıştır. Sonuç: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
+      explanation: `Statute Of Limitations Period calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   },

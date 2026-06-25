@@ -94,6 +94,14 @@ interface FreeToolInputFieldProps {
  onChange: (key: string, value: number | string) => void;
 }
 
+const getPlaceholderForRevenueInput = (input: RevenueToolInput) => {
+  if (input.type === "currency") return "1,000";
+  if (input.type === "percent") return "15";
+  const k = input.key.toLowerCase();
+  if (k.includes("year") || k.includes("month") || k.includes("day") || k.includes("period")) return "12";
+  return "100";
+};
+
 function FreeToolInputField({
  input,
  value,
@@ -157,6 +165,7 @@ function FreeToolInputField({
  type="text"
  inputMode="decimal"
  autoComplete="off"
+ placeholder={getPlaceholderForRevenueInput(input)}
  value={String(value)}
  onFocus={onFocus}
  onBlur={onBlur}
@@ -566,32 +575,34 @@ export function FreeToolPage({
       isCalculating={isCalculating}
      />
     ) : (
-     <form
-      ref={formRef}
-      onSubmit={handleSubmit}
-      className="sc-form-shell sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
-      noValidate
-      data-calculation-form="true"
-     >
-      {tool.freeInputs.map((input) => (
-       <FreeToolInputField
-        key={input.key}
-        input={input}
-        value={values[input.key] ?? (input.type === "select" ? "" : 0)}
-        error={errors[input.key]}
-        onChange={handleChange}
-       />
-      ))}
-      <div className="sc-industrial-form-actions">
-       <button
-        type="submit"
-        disabled={isCalculating}
-        className="sc-cta-primary disabled:opacity-60"
-       >
-        {isCalculating ? tUi("calculating") : tCalc("calculate")}
-       </button>
-      </div>
-     </form>
+      <form
+       ref={formRef}
+       onSubmit={handleSubmit}
+       className="sc-form-shell sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+       noValidate
+       data-calculation-form="true"
+      >
+       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {tool.freeInputs.map((input) => (
+         <FreeToolInputField
+          key={input.key}
+          input={input}
+          value={values[input.key] ?? (input.type === "select" ? "" : 0)}
+          error={errors[input.key]}
+          onChange={handleChange}
+         />
+        ))}
+       </div>
+       <div className="sc-industrial-form-actions mt-4">
+        <button
+         type="submit"
+         disabled={isCalculating}
+         className="sc-cta-primary disabled:opacity-60"
+        >
+         {isCalculating ? tUi("calculating") : tCalc("calculate")}
+        </button>
+       </div>
+      </form>
     )
    }
    resultPanel={

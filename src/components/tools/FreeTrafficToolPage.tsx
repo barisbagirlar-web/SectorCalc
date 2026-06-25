@@ -86,7 +86,17 @@ export function FreeTrafficToolPage({
   const t = useTranslations("freeTrafficCatalog");
   const tAuthority = useTranslations("contentAuthority.freeTool");
   const tPremiumAuthority = useTranslations("contentAuthority.premium");
+  const tCalc = useTranslations("calculator");
   const locale = useLocale();
+
+  const getPlaceholderForTrafficInput = (input: FreeTrafficToolInput) => {
+    if (input.type === "currency") return "1,000";
+    if (input.type === "percent") return "15";
+    const k = input.key.toLowerCase();
+    if (k.includes("year") || k.includes("month") || k.includes("day") || k.includes("period")) return "12";
+    return "100";
+  };
+
   const categorySlug = useMemo(() => resolveToolCategory({ slug: tool.slug, freeTrafficCategory: tool.category }), [tool.slug, tool.category]);
   const categoryDetail = useMemo(() => getPremiumCatalogCategoryDetail(categorySlug, locale), [categorySlug, locale]);
   const categoryTitle = categoryDetail?.title ?? "Category";
@@ -379,102 +389,105 @@ export function FreeTrafficToolPage({
               noValidate
               data-calculation-form="true"
             >
-              {tool.inputs.map((input) => {
-                const id = `ft-${tool.slug}-${input.key}`;
-                const error = errors[input.key];
-                const isCurrency = Boolean(input.unit?.includes("USD") || input.unit?.includes("TRY") || input.unit?.includes("EUR"));
-                const showUnit = Boolean(input.unit) && !isCurrency;
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {tool.inputs.map((input) => {
+                  const id = `ft-${tool.slug}-${input.key}`;
+                  const error = errors[input.key];
+                  const isCurrency = Boolean(input.unit?.includes("USD") || input.unit?.includes("TRY") || input.unit?.includes("EUR"));
+                  const showUnit = Boolean(input.unit) && !isCurrency;
 
-                if (input.type === "select" && input.options) {
+                  if (input.type === "select" && input.options) {
+                    return (
+                      <GuidanceFieldFocus key={input.key} fieldKey={input.key}>
+                        {({ onFocus, onBlur }) => (
+                          <div className="sc-industrial-field sc-form-field">
+                            <div className="sc-industrial-field__label-row">
+                              <label htmlFor={id} className="sc-industrial-field__label">
+                                {input.label}
+                              </label>
+                            </div>
+                            <select
+                              id={id}
+                              value={String(values[input.key] ?? "")}
+                              onFocus={onFocus}
+                              onBlur={onBlur}
+                              onChange={(e) => {
+                                setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
+                                setSubmitted(false);
+                              }}
+                              className={error ? "sc-industrial-input--error" : undefined}
+                            >
+                              {(input.options ?? []).map((opt) => (
+                                <option key={opt.value} value={opt.value}>
+                                  {opt.label}
+                                </option>
+                              ))}
+                            </select>
+                            <p className="sc-industrial-field__helper">{input.helper}</p>
+                            {error ? (
+                              <p className="sc-industrial-field__error" role="alert">
+                                {error}
+                              </p>
+                            ) : null}
+                          </div>
+                        )}
+                      </GuidanceFieldFocus>
+                    );
+                  }
+
                   return (
                     <GuidanceFieldFocus key={input.key} fieldKey={input.key}>
                       {({ onFocus, onBlur }) => (
-                    <div className="sc-industrial-field sc-form-field">
-                      <div className="sc-industrial-field__label-row">
-                        <label htmlFor={id} className="sc-industrial-field__label">
-                          {input.label}
-                        </label>
-                      </div>
-                      <select
-                        id={id}
-                        value={String(values[input.key] ?? "")}
-                        onFocus={onFocus}
-                        onBlur={onBlur}
-                        onChange={(e) => {
-                          setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
-                          setSubmitted(false);
-                        }}
-                        className={error ? "sc-industrial-input--error" : undefined}
-                      >
-                        {(input.options ?? []).map((opt) => (
-                          <option key={opt.value} value={opt.value}>
-                            {opt.label}
-                          </option>
-                        ))}
-                      </select>
-                      <p className="sc-industrial-field__helper">{input.helper}</p>
-                      {error ? (
-                        <p className="sc-industrial-field__error" role="alert">
-                          {error}
-                        </p>
-                      ) : null}
-                    </div>
+                        <div className="sc-industrial-field">
+                          <div className="sc-industrial-field__label-row">
+                            <label htmlFor={id} className="sc-industrial-field__label">
+                              {input.label}
+                            </label>
+                            {showUnit ? (
+                              <span className="sc-industrial-field__unit">{input.unit}</span>
+                            ) : null}
+                          </div>
+                          <div className="flex min-w-0 items-stretch gap-2">
+                            <div className="relative min-w-0 flex-1">
+                              {isCurrency ? <CalculatorCurrencyPrefix currency={input.unit} /> : null}
+                              <input
+                                id={id}
+                                type="text"
+                                inputMode="decimal"
+                                autoComplete="off"
+                                placeholder={getPlaceholderForTrafficInput(input)}
+                                value={values[input.key] ?? ""}
+                                onFocus={onFocus}
+                                onBlur={onBlur}
+                                onChange={(e) => {
+                                  setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
+                                  setSubmitted(false);
+                                }}
+                                className={`sc-ledger-input-underline w-full${isCurrency ? " pl-5" : ""}${error ? " sc-ledger-input--error" : ""}`}
+                                aria-invalid={Boolean(error)}
+                              />
+                            </div>
+                            <CalculatorUnitSelect
+                              inputId={id}
+                              fieldKey={input.key}
+                              explicitUnit={input.unit}
+                              isCurrency={isCurrency}
+                            />
+                          </div>
+                          <p className="sc-industrial-field__helper">{input.helper}</p>
+                          {error ? (
+                            <p className="sc-industrial-field__error" role="alert">
+                              {error}
+                            </p>
+                          ) : null}
+                        </div>
                       )}
                     </GuidanceFieldFocus>
                   );
-                }
+                })}
+              </div>
 
-                return (
-                  <GuidanceFieldFocus key={input.key} fieldKey={input.key}>
-                    {({ onFocus, onBlur }) => (
-                  <div className="sc-industrial-field">
-                    <div className="sc-industrial-field__label-row">
-                      <label htmlFor={id} className="sc-industrial-field__label">
-                        {input.label}
-                      </label>
-                      {showUnit ? (
-                        <span className="sc-industrial-field__unit">{input.unit}</span>
-                      ) : null}
-                    </div>
-                    <div className="flex min-w-0 items-stretch gap-2">
-                      <div className="relative min-w-0 flex-1">
-                        {isCurrency ? <CalculatorCurrencyPrefix currency={input.unit} /> : null}
-                        <input
-                          id={id}
-                          type="text"
-                          inputMode="decimal"
-                          autoComplete="off"
-                          value={values[input.key] ?? ""}
-                          onFocus={onFocus}
-                          onBlur={onBlur}
-                          onChange={(e) => {
-                            setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
-                            setSubmitted(false);
-                          }}
-                          className={`sc-ledger-input-underline w-full${isCurrency ? " pl-5" : ""}${error ? " sc-ledger-input--error" : ""}`}
-                          aria-invalid={Boolean(error)}
-                        />
-                      </div>
-                      <CalculatorUnitSelect
-                        inputId={id}
-                        fieldKey={input.key}
-                        explicitUnit={input.unit}
-                        isCurrency={isCurrency}
-                      />
-                    </div>
-                    <p className="sc-industrial-field__helper">{input.helper}</p>
-                    {error ? (
-                      <p className="sc-industrial-field__error" role="alert">
-                        {error}
-                      </p>
-                    ) : null}
-                  </div>
-                    )}
-                  </GuidanceFieldFocus>
-                );
-              })}
-
-              <div className="sc-industrial-form-actions">
+              <div className="sc-industrial-form-actions mt-4">
                 <button type="submit" className="sc-cta-primary">
                   {t("tool.calculate")}
                 </button>
