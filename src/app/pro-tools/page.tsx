@@ -52,6 +52,9 @@ function buildCollectionPageJsonLd(locale: string) {
 
 const COPY = {
   tr: {
+    metaTitle: "Pro & Premium Karar Hesaplayıcıları | SectorCalc",
+    metaDesc: "İşletme, üretim, mühendislik ve finansal kararlarınız için 193 gelişmiş Pro karar analiz aracını keşfedin.",
+    heroTitle: "Premium Pro Karar Araçları",
     breadcrumbHome: "Ana Sayfa",
     breadcrumbCurrent: "Pro Hesaplayıcılar",
     heroBadge: "Pro / Premium Karar Araçları",
@@ -157,6 +160,9 @@ const COPY = {
     ],
   },
   en: {
+    metaTitle: "Pro & Premium Decision Calculators | SectorCalc",
+    metaDesc: "Discover 193 advanced Pro decision analysis tools for business, manufacturing, engineering, and financial decisions.",
+    heroTitle: "Premium Pro Decision Tools",
     breadcrumbHome: "Home",
     breadcrumbCurrent: "Pro Calculators",
     heroBadge: "Pro / Premium Decision Tools",
@@ -266,9 +272,10 @@ const COPY = {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = "en";
   const t = await getTranslations();
+  const c = COPY[locale as keyof typeof COPY] ?? COPY.en;
   return createPageMetadata({
-    title: "metaTitle",
-    description: "metaDescription",
+    title: c.metaTitle,
+    description: c.metaDesc,
     path: "/premium-tools",
     locale: locale as "en",
   });
@@ -359,7 +366,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
           </div>
           
           <h1 className="font-serif text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-5">
-            {"title"}
+            {c.heroTitle}
           </h1>
           
           <p className="mx-auto max-w-2xl text-lg text-slate-600 leading-relaxed font-sans mb-8">

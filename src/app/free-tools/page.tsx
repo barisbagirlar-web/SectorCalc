@@ -54,6 +54,8 @@ function buildCollectionPageJsonLd(locale: string) {
 
 const COPY = {
   tr: {
+    metaTitle: "Ücretsiz Hesaplayıcılar | SectorCalc",
+    metaDesc: "İşletme, üretim, finans, enerji, lojistik ve mühendislik hesaplamaları için profesyonel araçları keşfedin.",
     breadcrumbHome: "Ana Sayfa",
     breadcrumbCurrent: "Ücretsiz Hesaplayıcılar",
     heroBadge: "Ücretsiz hesaplayıcılar",
@@ -161,6 +163,8 @@ const COPY = {
     ],
   },
   en: {
+    metaTitle: "Free Calculators | SectorCalc",
+    metaDesc: "Find professional tools for business, manufacturing, finance, energy, logistics and construction calculations.",
     breadcrumbHome: "Home",
     breadcrumbCurrent: "Free Calculators",
     heroBadge: "Free calculators",
@@ -272,9 +276,10 @@ const COPY = {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = "en";
   const t = await getTranslations();
+  const c = COPY[locale as keyof typeof COPY] ?? COPY.en;
   return createPageMetadata({
-    title: "metaTitle",
-    description: "metaDescription",
+    title: c.metaTitle,
+    description: c.metaDesc,
     path: "/free-tools",
     locale: locale as "en",
   });

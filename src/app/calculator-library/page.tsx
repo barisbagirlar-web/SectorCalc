@@ -10,8 +10,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale = "en";
   const t = await getTranslations();
   return createPageMetadata({
-    title: "metaTitle",
-    description: "metaDescription",
+    title: "Hesaplayıcı Kütüphanesi | SectorCalc",
+    description: "Tüm hesaplama araçları kategori kütüphanesi.",
     path: "/calculator-library",
     locale: locale as "en",
   });
