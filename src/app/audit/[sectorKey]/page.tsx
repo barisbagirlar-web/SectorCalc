@@ -11,7 +11,7 @@ import { getSectorEntry, isSectorRegistryKey } from "@/lib/os/registry/sectors";
 import { createPageMetadata } from "@/lib/metadata";
 
 type PageProps = {
-  params: Promise<{ locale: string; sectorKey: string }>;
+  params: Promise<{ sectorKey: string }>;
 };
 
 export const dynamic = "force-dynamic";
@@ -28,8 +28,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { locale, sectorKey } = await params;
-  
+  const { sectorKey } = await params;
+  const locale = "en";
 
   if (!isSectorRegistryKey(sectorKey)) {
     return {};
@@ -46,8 +46,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function OsAuditPage({ params }: PageProps) {
-  const { locale, sectorKey } = await params;
-  
+  const { sectorKey } = await params;
+  const locale = "en";
 
   if (!isSectorRegistryKey(sectorKey)) {
     notFound();

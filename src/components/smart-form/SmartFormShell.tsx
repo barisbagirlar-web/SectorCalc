@@ -56,7 +56,7 @@ export function SmartFormShell({
   const [internalMode, setInternalMode] = useState<CalculatorExperienceMode>("quick");
   const mode = controlledMode ?? internalMode;
   const submitLabel = calculateLabel ?? tUi("runAnalysis");
-  const hasExpertMode = experience?.hasExpertMode ?? Boolean(expertContent);
+  const hasExpertMode = tier === "premium" && (experience?.hasExpertMode ?? Boolean(expertContent));
   const showModeSwitch = hasExpertMode;
 
   const setMode = (nextMode: CalculatorExperienceMode) => {

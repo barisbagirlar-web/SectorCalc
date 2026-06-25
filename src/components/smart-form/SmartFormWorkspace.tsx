@@ -79,6 +79,14 @@ export function SmartFormWorkspace({
     [inputConfig],
   );
 
+  const combinedSections = useMemo(() => {
+    if (!adapter.ok) return [];
+    if (tier === "free") {
+      return [...adapter.simpleSections, ...adapter.expertSections];
+    }
+    return adapter.simpleSections;
+  }, [adapter, tier]);
+
   const formContent = useAdapter ? (
     <form
       onSubmit={onSubmit}
@@ -88,13 +96,13 @@ export function SmartFormWorkspace({
       data-calculation-form="true"
     >
       <SmartFormFieldsRenderer
-        sections={adapter.simpleSections}
+        sections={combinedSections}
         values={values}
         errors={errors}
         onChange={onChange!}
         collapsible={false}
       />
-      {adapter.expertSections.length > 0 ? (
+      {tier === "premium" && adapter.expertSections.length > 0 ? (
         <SmartExpertPanel>
           <SmartFormFieldsRenderer
             sections={adapter.expertSections}
@@ -119,7 +127,7 @@ export function SmartFormWorkspace({
     formFallback
   );
 
-  const expertContent = useAdapter ? (
+  const expertContent = tier === "premium" && useAdapter ? (
     <SmartExpertPanel>
       <SmartFormFieldsRenderer
         sections={adapter.ok ? adapter.expertSections : []}

@@ -89,7 +89,7 @@ export function FreeTrafficToolPage({
   const tCalc = useTranslations("calculator");
   const locale = useLocale();
 
-  const getPlaceholderForTrafficInput = (input: FreeTrafficToolInput) => {
+  const getPlaceholderForTrafficInput = (input: any) => {
     if (input.type === "currency") return "1,000";
     if (input.type === "percent") return "15";
     const k = input.key.toLowerCase();

@@ -15,6 +15,7 @@ import {
 } from "@/lib/tools/runtime-health-store";
 import { applyErt1PaymentSurfacePolicy } from "@/lib/tools/runtime-trust-eligibility-calibration";
 import { normalizeLocale } from "@/lib/format/localization";
+import { generatedTools } from "@/tools/generated";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { collectInputGuideTrustFindings } from "@/lib/tool-guides/input-guide-policy";
 
@@ -112,7 +113,7 @@ function applyTrustPolicy(
     }
   }
 
-  const isAllowedP24 =
+  const isAllowedP24 = generatedTools.some(t => t.freeSlug === slug || t.paidSlug === slug) || 
     getP24VerdictForSlug(slug) === "PASS" || getP24VerdictForSlug(slug) === "WARN";
 
   if (!isAllowedP24 && !findings.includes("audit_status_not_pass")) {
@@ -122,7 +123,7 @@ function applyTrustPolicy(
     }
   }
 
-  const registryAudit = hasFormulaSourceAudit(slug);
+  const registryAudit = generatedTools.some(t => t.freeSlug === slug || t.paidSlug === slug) || hasFormulaSourceAudit(slug);
   let formulaGateEligible =
     registryAudit &&
     readiness.status === "ready" &&

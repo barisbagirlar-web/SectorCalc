@@ -44,6 +44,8 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const locale = "en";
+
   // Google FAQ Page JSON-LD schema matching locale question formats
   const faqSchema = {
     "@context": "https://schema.org",

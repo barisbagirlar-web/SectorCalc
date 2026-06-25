@@ -5238,41 +5238,62 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "smed-mold-setup-reduction",
     "title": "Smed Mold Setup Reduction",
     "category": "manufacturing-workshop",
-    "description": "Free online smed mold setup reduction calculator. Get accurate calculations instantly.",
-    "seoTitle": "Smed Mold Setup Reduction | SectorCalc",
-    "seoDescription": "Free online smed mold setup reduction calculator. Get accurate calculations instantly.",
+    "description": "Calculate machine setup time reduction, annual downtime hours saved, and total cost savings using Lean SMED methodologies.",
+    "seoTitle": "SMED Setup Time & Cost Reduction Calculator | SectorCalc",
+    "seoDescription": "Free online Lean SMED calculator. Estimate setup time reductions, annual machine capacity gain, and manufacturing cost savings.",
     "inputs": [
       {
-        "key": "internalSetup",
-        "label": "Internal Setup Time (Minutes)",
-        "unit": "Dk",
+        "key": "currentInternalTime",
+        "label": "Current Internal Setup Time",
+        "unit": "min",
         "type": "number",
-        "helper": "Enter internal setup time (minutes)"
+        "helper": "Active setup duration when machine is fully stopped"
       },
       {
-        "key": "externalSetup",
-        "label": "External Setup Time (Minutes)",
-        "unit": "Dk",
+        "key": "currentExternalTime",
+        "label": "Current External Setup Time",
+        "unit": "min",
         "type": "number",
-        "helper": "Enter external setup time (minutes)"
+        "helper": "Setup tasks completed while machine is running"
       },
       {
-        "key": "conversion",
-        "label": "Internal-to-External Conversion Rate (%)",
+        "key": "conversionPercentage",
+        "label": "Internal-to-External Conversion",
         "unit": "%",
         "type": "number",
-        "helper": "Enter internal-to-external conversion rate (%)"
+        "helper": "Percentage of internal tasks converted to external prep"
+      },
+      {
+        "key": "reductionPercentage",
+        "label": "Remaining Internal Task Reduction",
+        "unit": "%",
+        "type": "number",
+        "helper": "Percentage reduction of the remaining internal task times"
+      },
+      {
+        "key": "hourlyDowntimeCost",
+        "label": "Hourly Machine Downtime Cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Cost of machine downtime per hour (labor + opportunity cost)"
+      },
+      {
+        "key": "setupsPerYear",
+        "label": "Setups Per Year",
+        "unit": "count",
+        "type": "number",
+        "helper": "Total number of changeovers or setups performed annually"
       }
     ],
     "resultType": "statistics",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Process standardization costs",
+      "Operator training overhead",
+      "Setup tooling capital expenditures"
     ]
   },
   {
@@ -6677,48 +6698,90 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "interference-fit-pressure",
     "title": "Interference Fit Pressure",
     "category": "manufacturing-workshop",
-    "description": "Free online interference fit pressure calculator. Get accurate calculations instantly.",
-    "seoTitle": "Interference Fit Pressure | SectorCalc",
-    "seoDescription": "Free online interference fit pressure calculator. Get accurate calculations instantly.",
+    "description": "Calculate joint contact pressure, axial assembly force, and transmissible torque for press fits and shrink fits using Lame's thick-walled cylinder equations.",
+    "seoTitle": "Press Fit & Shrink Fit Pressure Calculator | Lame's Equations | SectorCalc",
+    "seoDescription": "Calculate press fit interference pressure, transmissible torque, and assembly force. Supports solid and hollow shafts.",
     "inputs": [
       {
-        "key": "interference",
-        "label": "Radial Interference Fit (m)",
-        "unit": "m",
+        "key": "diametralInterference",
+        "label": "Diametral Interference",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter radial interference fit (m)"
+        "helper": "Total interference on diameter (difference between shaft and hub)"
       },
       {
-        "key": "diameter",
-        "label": "Diameter (m)",
-        "unit": "m",
+        "key": "shaftOuterDiameter",
+        "label": "Contact Diameter (Shaft OD)",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter diameter (m)"
+        "helper": "Nominal diameter at the fit interface"
       },
       {
-        "key": "e1",
-        "label": "Inner Component Elasticity (Pa)",
-        "unit": "Pa",
+        "key": "shaftInnerDiameter",
+        "label": "Shaft Inner Diameter",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter inner component elasticity (pa)"
+        "helper": "Internal diameter of shaft (enter 0 for solid shaft)"
       },
       {
-        "key": "e2",
-        "label": "Outer Component Elasticity (Pa)",
-        "unit": "Pa",
+        "key": "hubOuterDiameter",
+        "label": "Hub Outer Diameter",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter outer component elasticity (pa)"
+        "helper": "External diameter of the surrounding hub or collar"
+      },
+      {
+        "key": "shaftYoungsModulus",
+        "label": "Shaft Young's Modulus",
+        "unit": "GPa",
+        "type": "number",
+        "helper": "Modulus of elasticity of the shaft material (e.g. Steel = 200 GPa)"
+      },
+      {
+        "key": "hubYoungsModulus",
+        "label": "Hub Young's Modulus",
+        "unit": "GPa",
+        "type": "number",
+        "helper": "Modulus of elasticity of the hub material (e.g. Cast Iron = 100 GPa)"
+      },
+      {
+        "key": "shaftPoissonsRatio",
+        "label": "Shaft Poisson's Ratio",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "Poisson's ratio of shaft material (typically 0.27 to 0.33)"
+      },
+      {
+        "key": "hubPoissonsRatio",
+        "label": "Hub Poisson's Ratio",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "Poisson's ratio of hub material (typically 0.25 to 0.30)"
+      },
+      {
+        "key": "hubLength",
+        "label": "Contact Joint Length",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Axial length of the fit contact area"
+      },
+      {
+        "key": "frictionCoefficient",
+        "label": "Friction Coefficient",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "Coefficient of friction at interface (e.g., 0.15 for steel/steel)"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Centrifugal force stress effects",
+      "Thermal expansion variations",
+      "Surface finish roughness reduction factor"
     ]
   },
   {
@@ -6758,41 +6821,60 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "weld-joint-throat-thickness",
     "title": "Weld Joint Throat Thickness",
     "category": "manufacturing-workshop",
-    "description": "Free online weld joint throat thickness calculator. Get accurate calculations instantly.",
-    "seoTitle": "Weld Joint Throat Thickness | SectorCalc",
-    "seoDescription": "Free online weld joint throat thickness calculator. Get accurate calculations instantly.",
+    "description": "Calculate the required weld throat thickness and leg size for fillet and butt joints under load, matching AISC welding design principles.",
+    "seoTitle": "Weld Joint Throat Thickness & Leg Size Sizing | SectorCalc",
+    "seoDescription": "Calculate weld throat thickness and leg size for fillet and butt welds under static load. Free engineering calculation tool.",
     "inputs": [
       {
+        "key": "jointType",
+        "label": "Weld Joint Type",
+        "unit": "select",
+        "type": "select",
+        "helper": "Select the weld joint configuration",
+        "options": [
+          { "label": "Fillet Weld (Shear Limit)", "value": "fillet" },
+          { "label": "Butt Weld (Tension/Compression)", "value": "butt" }
+        ],
+        "defaultValue": "fillet"
+      },
+      {
         "key": "load",
-        "label": "Applied External Force (N)",
-        "unit": "N",
+        "label": "Applied Force",
+        "unit": "kN",
         "type": "number",
-        "helper": "Enter applied external force (n)"
+        "helper": "Total force acting on the weld joint"
       },
       {
         "key": "weldLength",
-        "label": "Total Weld Joint Length (m)",
-        "unit": "m",
+        "label": "Total Weld Length",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter total weld joint length (m)"
+        "helper": "Sum of effective weld bead lengths"
       },
       {
-        "key": "weldStress",
-        "label": "Allowable Weld Shear Stress (Pa)",
-        "unit": "Pa",
+        "key": "electrodeStrength",
+        "label": "Electrode Tensile Strength",
+        "unit": "MPa",
         "type": "number",
-        "helper": "Enter allowable weld shear stress (pa)"
+        "helper": "Classification strength of electrode (e.g. E70xx = 482 MPa)"
+      },
+      {
+        "key": "safetyFactor",
+        "label": "Design Safety Factor",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "Design code safety factor (typically 1.5 to 2.5)"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Dynamic fatigue load factors",
+      "Welder joint penetration efficiency",
+      "Thermal welding stress concentration"
     ]
   },
   {
@@ -7200,41 +7282,80 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "shaft-diameter-torsion-bending",
     "title": "Shaft Diameter Torsion Bending",
     "category": "manufacturing-workshop",
-    "description": "Free online shaft diameter torsion bending calculator. Get accurate calculations instantly.",
-    "seoTitle": "Shaft Diameter Torsion Bending | SectorCalc",
-    "seoDescription": "Free online shaft diameter torsion bending calculator. Get accurate calculations instantly.",
+    "description": "Calculate minimum required transmission shaft diameter under combined torsion and bending according to the ASME B106.1M code.",
+    "seoTitle": "ASME Shaft Diameter combined Torsion & Bending Calculator | SectorCalc",
+    "seoDescription": "Size a mechanical shaft diameter based on ASME code. Inputs power, RPM, bending, yield, and tensile strengths.",
     "inputs": [
       {
-        "key": "moment",
-        "label": "Applied Bending Moment (N.m)",
-        "unit": "N.m",
+        "key": "power",
+        "label": "Transmitted Power",
+        "unit": "kW",
         "type": "number",
-        "helper": "Enter applied bending moment (n.m)"
+        "helper": "Total power transmitted through the shaft"
       },
       {
-        "key": "torque",
-        "label": "Applied Torsional Torque (N.m)",
+        "key": "rpm",
+        "label": "Rotational Speed",
+        "unit": "RPM",
+        "type": "number",
+        "helper": "Shaft rotational speed in revolutions per minute"
+      },
+      {
+        "key": "bendingMoment",
+        "label": "Max Bending Moment",
         "unit": "N.m",
         "type": "number",
-        "helper": "Enter applied torsional torque (n.m)"
+        "helper": "Peak bending moment acting along the shaft length"
       },
       {
         "key": "yieldStrength",
-        "label": "Material Yield Strength (Pa)",
-        "unit": "Pa",
+        "label": "Material Yield Strength",
+        "unit": "MPa",
         "type": "number",
-        "helper": "Enter material yield strength (pa)"
+        "helper": "Yield strength ($S_y$) of the shaft material"
+      },
+      {
+        "key": "tensileStrength",
+        "label": "Material Tensile Strength",
+        "unit": "MPa",
+        "type": "number",
+        "helper": "Ultimate tensile strength ($S_u$) of the shaft material"
+      },
+      {
+        "key": "loadingType",
+        "label": "Loading & Shock Conditions",
+        "unit": "select",
+        "type": "select",
+        "helper": "Type of mechanical load and fatigue shock",
+        "options": [
+          { "label": "Gradual Loading (No Shock)", "value": "gradual" },
+          { "label": "Minor Shock Loading", "value": "minor_shock" },
+          { "label": "Heavy Shock Loading", "value": "heavy_shock" }
+        ],
+        "defaultValue": "gradual"
+      },
+      {
+        "key": "hasKeyway",
+        "label": "Keyway Stress Reduction",
+        "unit": "select",
+        "type": "select",
+        "helper": "Does the shaft feature keyways or splines (reduces allowable stress by 25%)?",
+        "options": [
+          { "label": "No Keyways Present", "value": "no" },
+          { "label": "Keyways / Splines Present", "value": "yes" }
+        ],
+        "defaultValue": "no"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Dynamic shaft deflection limits",
+      "Critical rotational speed limits",
+      "Fatigue stress concentration notch factors"
     ]
   },
   {
@@ -7334,48 +7455,74 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "spur-gear-lewis-bending-stress",
     "title": "Spur Gear Lewis Bending Stress",
     "category": "manufacturing-workshop",
-    "description": "Free online spur gear lewis bending stress calculator. Get accurate calculations instantly.",
-    "seoTitle": "Spur Gear Lewis Bending Stress | SectorCalc",
-    "seoDescription": "Free online spur gear lewis bending stress calculator. Get accurate calculations instantly.",
+    "description": "Calculate theoretical tooth bending stress in a spur gear using the Lewis Bending Stress formula, including Barth velocity dynamic impact factor.",
+    "seoTitle": "Spur Gear Lewis Bending Stress Calculator | SectorCalc",
+    "seoDescription": "Calculate spur gear bending stress using the Lewis Equation and Barth dynamic factors. Inputs power, speed, module, face width, and teeth count.",
     "inputs": [
       {
-        "key": "load",
-        "label": "Applied External Force (N)",
-        "unit": "N",
+        "key": "power",
+        "label": "Transmitted Power",
+        "unit": "kW",
         "type": "number",
-        "helper": "Enter applied external force (n)"
+        "helper": "Input mechanical power transmitted through the gear"
       },
       {
-        "key": "modul",
-        "label": "modul",
-        "unit": "m",
+        "key": "rpm",
+        "label": "Gear Speed",
+        "unit": "RPM",
         "type": "number",
-        "helper": "Enter modul"
+        "helper": "Gear rotational velocity in revolutions per minute"
       },
       {
-        "key": "width",
-        "label": "Section Width (m)",
-        "unit": "m",
+        "key": "pitchDiameter",
+        "label": "Pitch Diameter",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter section width (m)"
+        "helper": "Reference pitch diameter of the spur gear"
       },
       {
-        "key": "formfaktoru",
-        "label": "formfaktoru",
-        "unit": "Sayı",
+        "key": "faceWidth",
+        "label": "Face Width",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter formfaktoru"
+        "helper": "Axial tooth width of the gear"
+      },
+      {
+        "key": "module",
+        "label": "Module",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Gear module (pitch diameter divided by teeth count)"
+      },
+      {
+        "key": "teethCount",
+        "label": "Number of Teeth",
+        "unit": "count",
+        "type": "number",
+        "helper": "Total tooth count on the gear wheel"
+      },
+      {
+        "key": "toothSystem",
+        "label": "Pressure Angle & Tooth System",
+        "unit": "select",
+        "type": "select",
+        "helper": "Select pressure angle and profile configuration",
+        "options": [
+          { "label": "20° Full Depth System", "value": "20_deg_full_depth" },
+          { "label": "14.5° Full Depth System", "value": "14.5_deg_full_depth" }
+        ],
+        "defaultValue": "20_deg_full_depth"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "AGMA load distribution coefficients",
+      "Dynamic tooth error overload factors",
+      "Surface contact fatigue limits"
     ]
   },
   {
@@ -7498,34 +7645,68 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "tolerance-and-fit",
     "title": "Tolerance And Fit",
     "category": "manufacturing-workshop",
-    "description": "Free online tolerance and fit calculator. Get accurate calculations instantly.",
-    "seoTitle": "Tolerance And Fit | SectorCalc",
-    "seoDescription": "Free online tolerance and fit calculator. Get accurate calculations instantly.",
+    "description": "Find upper/lower limit deviations and determine the type of fit (Clearance, Transition, or Interference) under the ISO 286 metric standard.",
+    "seoTitle": "ISO 286 Limits & Fits Calculator | Clearance & Interference | SectorCalc",
+    "seoDescription": "Free ISO 286 Limits and Fits calculator. Check hole and shaft tolerances, clearances, interferences, and fit types.",
     "inputs": [
       {
-        "key": "delikcap",
-        "label": "delikcap",
-        "unit": "m",
+        "key": "nominalSize",
+        "label": "Nominal Size",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter delikcap"
+        "helper": "Target dimension (nominal diameter from 1 to 500 mm)"
       },
       {
-        "key": "milcap",
-        "label": "milcap",
-        "unit": "m",
-        "type": "number",
-        "helper": "Enter milcap"
+        "key": "holeToleranceClass",
+        "label": "Hole Tolerance Class",
+        "unit": "select",
+        "type": "select",
+        "helper": "ISO 286 Hole symbol (e.g. H7)",
+        "options": [
+          { "label": "H7 (Standard)", "value": "H7" },
+          { "label": "H8 (Coarse)", "value": "H8" },
+          { "label": "H9 (Wide)", "value": "H9" },
+          { "label": "F7 (Clearance)", "value": "F7" },
+          { "label": "G7 (Slide Clearance)", "value": "G7" },
+          { "label": "JS7 (Symmetrical)", "value": "JS7" },
+          { "label": "K7 (Transition)", "value": "K7" },
+          { "label": "M7 (Tight Transition)", "value": "M7" },
+          { "label": "N7 (Press Transition)", "value": "N7" },
+          { "label": "P7 (Interference Fit)", "value": "P7" }
+        ],
+        "defaultValue": "H7"
+      },
+      {
+        "key": "shaftToleranceClass",
+        "label": "Shaft Tolerance Class",
+        "unit": "select",
+        "type": "select",
+        "helper": "ISO 286 Shaft symbol (e.g. g6)",
+        "options": [
+          { "label": "g6 (Sliding Fit)", "value": "g6" },
+          { "label": "h6 (Locating Fit)", "value": "h6" },
+          { "label": "h7 (General Locating)", "value": "h7" },
+          { "label": "f7 (Running Clearance)", "value": "f7" },
+          { "label": "js6 (Symmetrical)", "value": "js6" },
+          { "label": "k6 (Transition Fit)", "value": "k6" },
+          { "label": "m6 (Tapping Fit)", "value": "m6" },
+          { "label": "n6 (Light Press Fit)", "value": "n6" },
+          { "label": "p6 (Medium Press Fit)", "value": "p6" },
+          { "label": "r6 (Heavy Press Fit)", "value": "r6" },
+          { "label": "s6 (Force/Shrink Fit)", "value": "s6" }
+        ],
+        "defaultValue": "g6"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Thermal expansion allowance",
+      "Dynamic operating fits",
+      "Geometric dimensioning & tolerancing (GD&T)"
     ]
   },
   {
@@ -7697,85 +7878,132 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "von-mises-stress",
     "title": "Von Mises Stress",
     "category": "manufacturing-workshop",
-    "description": "Free online von mises stress calculator. Get accurate calculations instantly.",
-    "seoTitle": "Von Mises Stress | SectorCalc",
-    "seoDescription": "Free online von mises stress calculator. Get accurate calculations instantly.",
+    "description": "Calculate Von Mises equivalent stress for 2D plane stress or 3D triaxial stress states and determine structural safety factors against yielding.",
+    "seoTitle": "Von Mises Equivalent Stress & Safety Factor Calculator | SectorCalc",
+    "seoDescription": "Calculate Von Mises equivalent stress and yield safety factor. Supports 2D and 3D stress tensors.",
     "inputs": [
       {
+        "key": "stressState",
+        "label": "Stress State Dimensions",
+        "unit": "select",
+        "type": "select",
+        "helper": "Select 2D (Plane Stress) or full 3D stress tensor",
+        "options": [
+          { "label": "2D Stress State (Plane Stress)", "value": "2d" },
+          { "label": "3D Triaxial Stress State", "value": "3d" }
+        ],
+        "defaultValue": "2d"
+      },
+      {
         "key": "sigmaX",
-        "label": "Normal Stress in X-Direction (Pa)",
-        "unit": "Pa",
+        "label": "Normal Stress X (σx)",
+        "unit": "MPa",
         "type": "number",
-        "helper": "Enter normal stress in x-direction (pa)"
+        "helper": "Normal stress acting in the X direction"
       },
       {
         "key": "sigmaY",
-        "label": "Normal Stress in Y-Direction (Pa)",
-        "unit": "Pa",
+        "label": "Normal Stress Y (σy)",
+        "unit": "MPa",
         "type": "number",
-        "helper": "Enter normal stress in y-direction (pa)"
+        "helper": "Normal stress acting in the Y direction"
+      },
+      {
+        "key": "sigmaZ",
+        "label": "Normal Stress Z (σz)",
+        "unit": "MPa",
+        "type": "number",
+        "helper": "Normal stress acting in the Z direction (ignored for 2D)"
       },
       {
         "key": "tauXY",
-        "label": "Shear Stress on XY-Plane (Pa)",
-        "unit": "Pa",
+        "label": "Shear Stress XY (τxy)",
+        "unit": "MPa",
         "type": "number",
-        "helper": "Enter shear stress on xy-plane (pa)"
+        "helper": "Shear stress acting on the XY plane"
+      },
+      {
+        "key": "tauYZ",
+        "label": "Shear Stress YZ (τyz)",
+        "unit": "MPa",
+        "type": "number",
+        "helper": "Shear stress acting on the YZ plane (ignored for 2D)"
+      },
+      {
+        "key": "tauXZ",
+        "label": "Shear Stress XZ (τxz)",
+        "unit": "MPa",
+        "type": "number",
+        "helper": "Shear stress acting on the XZ plane (ignored for 2D)"
+      },
+      {
+        "key": "yieldStrength",
+        "label": "Material Yield Strength",
+        "unit": "MPa",
+        "type": "number",
+        "helper": "Yield limit ($S_y$) of structural material to assess safety factor"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Dynamic cyclic load fatigue",
+      "Stress concentration factors (Kt)",
+      "Anisotropic material behavior"
     ]
   },
-  {
+    {
     "slug": "welding-heat-input",
     "title": "Welding Heat Input",
     "category": "manufacturing-workshop",
-    "description": "Free online welding heat input calculator. Get accurate calculations instantly.",
-    "seoTitle": "Welding Heat Input | SectorCalc",
-    "seoDescription": "Free online welding heat input calculator. Get accurate calculations instantly.",
+    "description": "Determine the arc heat input in kJ/mm or kJ/in during welding according to EN 1011-1 and ASME Section IX, matching process thermal efficiencies.",
+    "seoTitle": "ASME Sec IX Welding Heat Input Calculator | SectorCalc",
+    "seoDescription": "Calculate weld heat input using EN 1011-1 / ASME Sec IX formulas. Supports SMAW, GMAW, GTAW, and SAW processes.",
     "inputs": [
       {
-        "key": "akim",
-        "label": "akim",
+        "key": "current",
+        "label": "Welding Current",
         "unit": "A",
         "type": "number",
-        "helper": "Enter akim"
+        "helper": "Amperage read from welding machine display"
       },
       {
-        "key": "gerilim",
-        "label": "gerilim",
+        "key": "voltage",
+        "label": "Arc Voltage",
         "unit": "V",
         "type": "number",
-        "helper": "Enter gerilim"
+        "helper": "Voltage measured across the arc"
       },
       {
-        "key": "ilerlemehiz",
-        "label": "ilerlemehiz",
-        "unit": "mm/s",
+        "key": "travelSpeed",
+        "label": "Travel Speed",
+        "unit": "mm/min",
         "type": "number",
-        "helper": "Enter ilerlemehiz"
+        "helper": "Speed of torch advancement along the joint"
       },
       {
-        "key": "verim",
-        "label": "verim",
-        "unit": "Sayı",
-        "type": "number",
-        "helper": "Enter verim"
+        "key": "weldingProcess",
+        "label": "Welding Process",
+        "unit": "select",
+        "type": "select",
+        "helper": "Select process (automatically defines process efficiency)",
+        "options": [
+          { "label": "SMAW / MMA (Stick) (η = 0.8)", "value": "smaw" },
+          { "label": "GMAW / MIG / MAG (η = 0.8)", "value": "gmaw" },
+          { "label": "GTAW / TIG (η = 0.6)", "value": "gtaw" },
+          { "label": "SAW (Submerged Arc) (η = 1.0)", "value": "saw" }
+        ],
+        "defaultValue": "gmaw"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Welding joint geometry heat sinks",
+      "Base metal preheat temperature",
+      "Post-weld cooling rate variables"
     ]
   },
   {
@@ -7875,34 +8103,34 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "surface-roughness-ra",
     "title": "Surface Roughness Ra",
     "category": "manufacturing-workshop",
-    "description": "Free online surface roughness ra calculator. Get accurate calculations instantly.",
-    "seoTitle": "Surface Roughness Ra | SectorCalc",
-    "seoDescription": "Free online surface roughness ra calculator. Get accurate calculations instantly.",
+    "description": "Calculate theoretical arithmetic average roughness (Ra) and peak-to-valley roughness (Rz) based on turning feed rate and insert nose radius.",
+    "seoTitle": "Theoretical Surface Roughness Ra & Rz Turning Calculator | SectorCalc",
+    "seoDescription": "Calculate theoretical turning surface roughness Ra and Rz from feed rate and tool insert nose radius. Free CNC machinist tool.",
     "inputs": [
       {
-        "key": "ilerleme",
-        "label": "ilerleme",
-        "unit": "mm/dev",
+        "key": "feedRate",
+        "label": "Feed Rate",
+        "unit": "mm/rev",
         "type": "number",
-        "helper": "Enter ilerleme"
+        "helper": "Distance traveled by the tool insert per spindle revolution"
       },
       {
-        "key": "ucyaricap",
-        "label": "ucyaricap",
+        "key": "noseRadius",
+        "label": "Insert Nose Radius",
         "unit": "mm",
         "type": "number",
-        "helper": "Enter ucyaricap"
+        "helper": "Insert tip radius (standard values e.g. 0.2, 0.4, 0.8, 1.2, 1.6 mm)"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Machine spindle vibration and chatter",
+      "Workpiece material built-up edge (BUE)",
+      "Cutting fluid coolants lubrication"
     ]
   },
   {
@@ -8134,27 +8362,41 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "brinell-rockwell-conversion",
     "title": "Brinell Rockwell Conversion",
     "category": "manufacturing-workshop",
-    "description": "Free online brinell rockwell conversion calculator. Get accurate calculations instantly.",
-    "seoTitle": "Brinell Rockwell Conversion | SectorCalc",
-    "seoDescription": "Free online brinell rockwell conversion calculator. Get accurate calculations instantly.",
+    "description": "Convert hardness values for steel between Brinell (HBW), Rockwell C (HRC), Vickers (HV), and Tensile Strength (Rm) scales based on ASTM E140 and ISO 18265.",
+    "seoTitle": "Metal Hardness Conversion Calculator | HBW, HRC, HV, Rm | SectorCalc",
+    "seoDescription": "Convert steel hardness values between Brinell HBW, Rockwell C HRC, Vickers HV, and Tensile Strength Rm using non-linear ASTM E140 polynomials.",
     "inputs": [
       {
-        "key": "hb",
-        "label": "hb",
-        "unit": "Sayı",
+        "key": "inputHardness",
+        "label": "Input Hardness Value",
+        "unit": "value",
         "type": "number",
-        "helper": "Enter hb"
+        "helper": "Hardness number to convert (e.g. 300 for HV, 35 for HRC)"
+      },
+      {
+        "key": "inputType",
+        "label": "Source Hardness Scale",
+        "unit": "select",
+        "type": "select",
+        "helper": "Select input hardness testing method and scale",
+        "options": [
+          { "label": "Brinell Hardness (HBW)", "value": "hbw" },
+          { "label": "Rockwell C Hardness (HRC)", "value": "hrc" },
+          { "label": "Vickers Hardness (HV)", "value": "hv" },
+          { "label": "Tensile Strength (Rm) (MPa)", "value": "tensile" }
+        ],
+        "defaultValue": "hrc"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Non-steel metal calibration tables",
+      "Test indentation temperature effects",
+      "Varying crystal grain alignments"
     ]
   },
   {
@@ -8580,34 +8822,55 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "adhesive-amount",
     "title": "Adhesive Amount",
     "category": "manufacturing-workshop",
-    "description": "Free online adhesive amount calculator. Get accurate calculations instantly.",
-    "seoTitle": "Adhesive Amount | SectorCalc",
-    "seoDescription": "Free online adhesive amount calculator. Get accurate calculations instantly.",
+    "description": "Estimate structural or wall tiling wet volume and dry weight of adhesive needed for an installation area including process waste margins.",
+    "seoTitle": "Structural & Tile Adhesive Amount Calculator | Weight & Volume | SectorCalc",
+    "seoDescription": "Calculate structural adhesive, epoxy, or tile thinset weight and volume. Inputs area, thickness, and material type.",
     "inputs": [
       {
-        "key": "alan",
-        "label": "alan",
-        "unit": "m2",
+        "key": "area",
+        "label": "Tiling / Bonding Area",
+        "unit": "m²",
         "type": "number",
-        "helper": "Enter alan"
+        "helper": "Total target contact surface area"
       },
       {
-        "key": "sarfiyat",
-        "label": "sarfiyat",
-        "unit": "kg/m2",
+        "key": "thickness",
+        "label": "Adhesive Layer Thickness",
+        "unit": "mm",
         "type": "number",
-        "helper": "Enter sarfiyat"
+        "helper": "Average wet thickness of adhesive coating"
+      },
+      {
+        "key": "adhesiveType",
+        "label": "Adhesive Compound Type",
+        "unit": "select",
+        "type": "select",
+        "helper": "Select material type (defines material density)",
+        "options": [
+          { "label": "Tile Thinset Mortar (Density ~ 1.6 kg/L)", "value": "tile_thinset" },
+          { "label": "Contact Cement (Density ~ 0.85 kg/L)", "value": "contact_cement" },
+          { "label": "Epoxy Adhesive (Density ~ 1.2 kg/L)", "value": "epoxy" },
+          { "label": "Polyurethane Adhesive (Density ~ 1.4 kg/L)", "value": "polyurethane" }
+        ],
+        "defaultValue": "tile_thinset"
+      },
+      {
+        "key": "wastePercent",
+        "label": "Trowel & Scrap Waste Allowance",
+        "unit": "%",
+        "type": "number",
+        "helper": "Extra material margins (normally 5% to 12%)"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "Substrate absorption porosity rates",
+      "Trowel notch geometry profiles",
+      "Two-part mixture blending losses"
     ]
   },
   {
@@ -8654,48 +8917,58 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       "Lifecycle overhead variance"
     ]
   },
-  {
+    {
     "slug": "drywall-calculator",
     "title": "Drywall Calculator",
     "category": "manufacturing-workshop",
-    "description": "Free online drywall calculator calculator. Get accurate calculations instantly.",
-    "seoTitle": "Drywall Calculator | SectorCalc",
-    "seoDescription": "Free online drywall calculator calculator. Get accurate calculations instantly.",
+    "description": "Estimate total drywall sheets, joint compound, drywall screws, joint tape, and vertical wall studs needed for a specific partition area.",
+    "seoTitle": "Drywall Material Estimator Calculator | Sheets, Studs, Screws | SectorCalc",
+    "seoDescription": "Free drywall materials calculator. Estimate drywall sheets, framing studs, joint compound, screws, and tape for walls.",
     "inputs": [
       {
-        "key": "alan",
-        "label": "alan",
-        "unit": "m2",
+        "key": "wallArea",
+        "label": "Total Partition Wall Area",
+        "unit": "m²",
         "type": "number",
-        "helper": "Enter alan"
+        "helper": "Sum of total surface areas of walls or ceilings to board"
       },
       {
-        "key": "levhaen",
-        "label": "levhaen",
-        "unit": "m",
-        "type": "number",
-        "helper": "Enter levhaen"
+        "key": "sheetSize",
+        "label": "Drywall Sheet Dimensions",
+        "unit": "select",
+        "type": "select",
+        "helper": "Select sheet size (defines area per sheet)",
+        "options": [
+          { "label": "1.2m × 2.4m (Standard 2.88 m²)", "value": "1.2x2.4" },
+          { "label": "1.2m × 3.6m (Long 4.32 m²)", "value": "1.2x3.6" }
+        ],
+        "defaultValue": "1.2x2.4"
       },
       {
-        "key": "levhaboy",
-        "label": "levhaboy",
-        "unit": "m",
-        "type": "number",
-        "helper": "Enter levhaboy"
-      },
-      {
-        "key": "fire",
-        "label": "fire",
+        "key": "wastePercent",
+        "label": "Cutting Waste Factor",
         "unit": "%",
         "type": "number",
-        "helper": "Enter fire"
+        "helper": "Scrap waste margin (typically 8% to 15% depending on corners)"
+      },
+      {
+        "key": "studSpacing",
+        "label": "Stud Spacing Center-to-Center",
+        "unit": "select",
+        "type": "select",
+        "helper": "Distance between vertical framing studs",
+        "options": [
+          { "label": "400 mm spacing", "value": "400" },
+          { "label": "600 mm spacing", "value": "600" }
+        ],
+        "defaultValue": "600"
       }
     ],
     "resultType": "quantity",
     "missingFactors": [
-      "Dynamic cost offsets",
-      "Comprehensive compliance tax rates",
-      "Lifecycle overhead variance"
+      "L-trim and corner bead allowances",
+      "Door and window header extra framing studs",
+      "Moisture-resistant greenboard pricing upgrades"
     ]
   },
   {

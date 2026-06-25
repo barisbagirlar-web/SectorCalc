@@ -26,10 +26,7 @@ const nextConfig = {
       { source: "/en/:path*", destination: "/:path*", permanent: true },
       { source: "/premium-tools", destination: "/pro-tools", permanent: true },
       { source: "/:locale(tr|de|fr|es|ar)/premium-tools", destination: "/:locale/pro-tools", permanent: true },
-      { source: "/tools/premium/:slug", destination: "/pro-tools/:slug", permanent: true },
-      { source: "/:locale(tr|de|fr|es|ar)/tools/premium/:slug", destination: "/:locale/pro-tools/:slug", permanent: true },
-      { source: "/tools/premium-schema/:slug", destination: "/pro-tools/:slug", permanent: true },
-      { source: "/:locale(tr|de|fr|es|ar)/tools/premium-schema/:slug", destination: "/:locale/pro-tools/:slug", permanent: true },
+
       { source: "/blog", destination: "/case-studies", permanent: true },
       { source: "/:locale(tr|de|fr|es|ar)/blog", destination: "/:locale/case-studies", permanent: true },
       { source: "/formulas", destination: "/calculator-library", permanent: true },

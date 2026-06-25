@@ -6127,3 +6127,149 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   font-size: 0.7rem;
   color: #94a3b8;
 }
+
+/* ── Free forms styling refresh ── */
+.sc-smart-form-shell[data-smart-form-tier="free"] form[data-calculation-form="true"],
+.sc-smart-form-shell[data-smart-form-tier="free"] .smart-form-bridge {
+  background-color: #ffffff !important;
+  border: 2px solid var(--sc-text) !important;
+  border-top: 6px solid var(--sc-copper) !important;
+  box-shadow: 6px 6px 0px rgba(26, 26, 26, 0.15) !important;
+  border-radius: 4px !important;
+  padding: 1.75rem !important;
+}
+
+/* Bold uppercase input labels for free forms */
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-industrial-field__label,
+.sc-smart-form-shell[data-smart-form-tier="free"] label {
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-size: 0.75rem !important;
+  color: var(--sc-text) !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* More spacious grid layout for free forms */
+.sc-smart-form-shell[data-smart-form-tier="free"] .grid,
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-form-grid,
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-industrial-form {
+  gap: 1.5rem 1.5rem !important;
+}
+
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-form-field,
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-industrial-field {
+  gap: 0.5rem !important;
+}
+
+/* High contrast inputs and textareas with premium padding */
+.sc-smart-form-shell[data-smart-form-tier="free"] input[type="text"],
+.sc-smart-form-shell[data-smart-form-tier="free"] input[type="number"],
+.sc-smart-form-shell[data-smart-form-tier="free"] select,
+.sc-smart-form-shell[data-smart-form-tier="free"] textarea {
+  border: 2px solid var(--sc-text) !important;
+  background-color: #ffffff !important;
+  color: var(--sc-text) !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 4px !important;
+  min-height: 48px !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.5 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: border-color 150ms ease, box-shadow 150ms ease !important;
+}
+
+.sc-smart-form-shell[data-smart-form-tier="free"] input[type="text"]:focus,
+.sc-smart-form-shell[data-smart-form-tier="free"] input[type="number"]:focus,
+.sc-smart-form-shell[data-smart-form-tier="free"] select:focus,
+.sc-smart-form-shell[data-smart-form-tier="free"] textarea:focus {
+  border-color: var(--sc-copper) !important;
+  box-shadow: 0 0 0 1px var(--sc-copper) !important;
+  outline: none !important;
+}
+
+/* Unit select dropdowns in free forms - fixed width to prevent squishing the input */
+.sc-smart-form-shell[data-smart-form-tier="free"] select[id$="-unit"] {
+  width: 140px !important;
+  min-width: 140px !important;
+  max-width: 140px !important;
+  flex-shrink: 0 !important;
+  padding-left: 0.5rem !important;
+  padding-right: 1.5rem !important;
+  font-size: 0.875rem !important;
+}
+
+/* Prevent input wrapper collapsing/squishing */
+.sc-smart-form-shell[data-smart-form-tier="free"] .flex-1.min-w-0,
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-industrial-input-wrap {
+  flex: 1 1 auto !important;
+  min-width: 120px !important;
+}
+
+/* Currency symbol spacing inside the input box */
+.sc-smart-form-shell[data-smart-form-tier="free"] input.sc-industrial-input--currency,
+.sc-smart-form-shell[data-smart-form-tier="free"] input.pl-5 {
+  padding-left: 2rem !important;
+}
+
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-industrial-input-wrap span,
+.sc-smart-form-shell[data-smart-form-tier="free"] .relative span {
+  left: 0.75rem !important;
+  font-weight: 600 !important;
+  color: var(--sc-text) !important;
+}
+
+/* Error states */
+.sc-smart-form-shell[data-smart-form-tier="free"] input.sc-ledger-input--error,
+.sc-smart-form-shell[data-smart-form-tier="free"] input.sc-industrial-input--error,
+.sc-smart-form-shell[data-smart-form-tier="free"] select.sc-industrial-input--error {
+  border-color: var(--sc-danger) !important;
+  box-shadow: 0 0 0 1px var(--sc-danger) !important;
+}
+
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-industrial-field__helper {
+  font-size: 0.8125rem !important;
+  color: var(--sc-muted) !important;
+  margin-top: 0.25rem !important;
+}
+
+.sc-smart-form-shell[data-smart-form-tier="free"] .sc-industrial-field__error {
+  font-size: 0.8125rem !important;
+  color: var(--sc-danger) !important;
+  font-weight: 600 !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Highly visible terracotta submit button */
+.sc-smart-form-shell[data-smart-form-tier="free"] button[type="submit"],
+.sc-smart-form-shell[data-smart-form-tier="free"] button.sc-cta-primary {
+  background-color: var(--sc-copper) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--sc-text) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 4px 4px 0px rgba(26, 26, 26, 0.25) !important;
+  transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sc-smart-form-shell[data-smart-form-tier="free"] button[type="submit"]:hover:not(:disabled),
+.sc-smart-form-shell[data-smart-form-tier="free"] button.sc-cta-primary:hover:not(:disabled) {
+  background-color: #d16d48 !important; /* Slightly lighter copper */
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0px rgba(26, 26, 26, 0.3) !important;
+}
+
+.sc-smart-form-shell[data-smart-form-tier="free"] button[type="submit"]:active:not(:disabled),
+.sc-smart-form-shell[data-smart-form-tier="free"] button.sc-cta-primary:active:not(:disabled) {
+  transform: translate(0px, 0px) !important;
+  box-shadow: 2px 2px 0px rgba(26, 26, 26, 0.2) !important;
+}
+

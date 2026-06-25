@@ -18,7 +18,7 @@ export function isPremiumPaymentSurfaceTier(tier: RuntimeToolTier): boolean {
 export function applyErt1PaymentSurfacePolicy(
   decision: RuntimeTrustDecision,
 ): RuntimeTrustDecision {
-  if (isPremiumPaymentSurfaceTier(decision.tier)) {
+  if (isPremiumPaymentSurfaceTier(decision.tier) && !decision.route.startsWith("/tools/free/")) {
     return decision;
   }
 

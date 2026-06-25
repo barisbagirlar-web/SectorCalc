@@ -13,9 +13,7 @@ interface ToolPageParams {
  slug: string;
 }
 
-interface ToolPageRouteParams extends ToolPageParams {
- locale: string;
-}
+// removed ToolPageRouteParams
 
 export const dynamic = "force-static";
 export const dynamicParams = true;
@@ -28,7 +26,7 @@ export async function generateStaticParams(): Promise<ToolPageParams[]> {
 export async function generateMetadata({
  params,
 }: {
- params: Promise<ToolPageRouteParams>;
+ params: Promise<ToolPageParams>;
 }): Promise<Metadata> {
  const { tier, slug } = await params;
  if (!isValidToolTier(tier)) return {};
@@ -45,9 +43,10 @@ export async function generateMetadata({
 export default async function ToolPage({
  params,
 }: {
- params: Promise<ToolPageRouteParams>;
+ params: Promise<ToolPageParams>;
 }) {
- const { tier, slug, locale } = await params;
+ const { tier, slug } = await params;
+ const locale = "en";
  
 
  if (!isValidToolTier(tier)) {

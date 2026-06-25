@@ -48,4 +48,16 @@ describe("runtime trust eligibility calibration (ERT-1)", () => {
     const input = baseDecision();
     expect(applyErt1PaymentSurfacePolicy(input)).toEqual(input);
   });
+
+  test("premium tier tool rendered on free route gets unblocked", () => {
+    const calibrated = applyErt1PaymentSurfacePolicy(
+      baseDecision({
+        tier: "premium",
+        route: "/tools/free/annual-percentage-rate-apr",
+      }),
+    );
+    expect(calibrated.paymentEligible).toBe(false);
+    expect(calibrated.formulaGateEligible).toBe(false);
+    expect(calibrated.calculationEligible).toBe(true);
+  });
 });
