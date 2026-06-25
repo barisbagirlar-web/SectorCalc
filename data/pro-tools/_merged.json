@@ -1,0 +1,406 @@
+[
+  {
+    "tool_id": "PRO_009",
+    "tool_name": "Pressure Vessel Wall Thickness Sizing (ASME VIII / PED)",
+    "category": "Mechanical Design / Pressure Vessels",
+    "scope": "single_operation",
+    "primary_operation": "pressure_vessel",
+    "engine_rules": {
+      "standards": [
+        "ASME VIII Div.1",
+        "ASME VIII UG-27",
+        "ASME VIII UG-99",
+        "PED 2014/68/EU",
+        "EN 13445",
+        "ASME Sec. II Part D"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_010",
+    "tool_name": "Compressed Air Leakage Energy Loss Audit (Sonic Flow)",
+    "category": "Energy Efficiency / Compressed Air Systems",
+    "scope": "process_agnostic",
+    "primary_operation": "energy_audit",
+    "engine_rules": {
+      "standards": [
+        "ISO 1217:2009 Annex C",
+        "ISO 11011",
+        "CAGI ADF-100",
+        "DOE Compressed Air Challenge",
+        "EN 12828"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_011",
+    "tool_name": "Multi-Product Break-Even Analysis and Degree of Operating Leverage (DOL)",
+    "category": "Corporate Finance / Managerial Accounting",
+    "scope": "process_agnostic",
+    "primary_operation": "financial_analysis",
+    "engine_rules": {
+      "standards": [
+        "CIMA Management Accounting",
+        "IFRS 8 Segment Reporting",
+        "CVP Analysis Framework",
+        "CFA Institute Level 1"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_012",
+    "tool_name": "Mass Concrete Volume, Thermal Crack Risk & Pour Cost (ACI 207)",
+    "category": "Civil & Structural Engineering / Concrete Works",
+    "scope": "single_operation",
+    "primary_operation": "concrete_thermal",
+    "engine_rules": {
+      "standards": [
+        "ACI 207.1R-96 Mass Concrete",
+        "ACI 207.2R Thermal Effects",
+        "EN 1992-3 Liquid Retaining",
+        "BS 8007",
+        "CIRIA C660"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_013",
+    "tool_name": "Calibration Drift Analysis & ISO 17025 Conformity Decision Risk (TUR / Guard Band)",
+    "category": "Metrology & Quality / Calibration Management",
+    "scope": "process_agnostic",
+    "primary_operation": "calibration_metrology",
+    "engine_rules": {
+      "standards": [
+        "ISO/IEC 17025:2017",
+        "ILAC G8:09/2019",
+        "JCGM 100:2008 (GUM)",
+        "ANSI Z540.3",
+        "EURACHEM/CITAC CG4",
+        "EA-4/02 M:2022"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_014",
+    "tool_name": "CBAM Financial Exposure Calculator (EU Carbon Border Adjustment Mechanism)",
+    "category": "Environmental Engineering & Corporate Finance / GHG Compliance",
+    "scope": "process_agnostic",
+    "primary_operation": "carbon_compliance",
+    "engine_rules": {
+      "standards": [
+        "EU Regulation 2023/956 (CBAM)",
+        "GHG Protocol Corporate Standard",
+        "EU Regulation 2021/447 Benchmarks",
+        "IPCC AR6 Emission Factors",
+        "ISO 14064-1",
+        "EU ETS Directive 2003/87/EC"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_015",
+    "tool_name": "Machining Chatter Stability, Surface Roughness & Tool Deflection Analysis",
+    "category": "CNC Manufacturing / Dynamics",
+    "scope": "single_operation",
+    "primary_operation": "milling",
+    "engine_rules": {
+      "standards": [
+        "ISO 3002-1 Turning/Milling Roughness",
+        "ISO 1302 Surface Texture Indication",
+        "Tobias-Fishwick Chatter Theory",
+        "Sandvik Coromant Vibration Handbook",
+        "VDI 3321 Tool Deflection"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_016",
+    "tool_name": "Bolted Joint Tightening Torque, Preload & Von Mises Utilisation (VDI 2230)",
+    "category": "Mechanical Engineering / Fastener Design",
+    "scope": "single_operation",
+    "primary_operation": "bolted_joint",
+    "engine_rules": {
+      "standards": [
+        "VDI 2230 Part 1:2015",
+        "ISO 898-1 Mechanical Properties",
+        "ISO 724 Metric Thread Geometry",
+        "ISO 16047 Torque-Clamping Force",
+        "EN 14399 Structural Bolting"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_021",
+    "tool_name": "CNC Cycle Time Breakdown, Spindle Utilisation & OEE-Spindle Analysis",
+    "category": "CNC Manufacturing / Operations",
+    "scope": "single_operation",
+    "primary_operation": "milling",
+    "engine_rules": {
+      "standards": [
+        "ISO 13399 Tool Representation",
+        "ISO 22400-2 OEE Definitions",
+        "JIPM TPM Spindle OEE",
+        "Sandvik Coromant Productivity Analysis"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_022",
+    "tool_name": "CNC Machining True Unit Cost (TCO) — Material, Tooling, Overhead & Scrap",
+    "category": "CNC Manufacturing / Cost Engineering",
+    "scope": "single_operation",
+    "primary_operation": "milling",
+    "engine_rules": {
+      "standards": [
+        "Sandvik Coromant Machining Economics",
+        "ISO 3685 Tool Life Criteria",
+        "CIMA Management Accounting",
+        "MTConnect Cost Tracking Standard"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_023",
+    "tool_name": "Process Capability (Cp / Cpk / Pp / Ppk), PPM Defect Rate & Quality Loss Function",
+    "category": "Quality Engineering / Six Sigma",
+    "scope": "process_agnostic",
+    "primary_operation": "quality_spc",
+    "engine_rules": {
+      "standards": [
+        "AIAG SPC 2nd Edition",
+        "IATF 16949:2016 Clause 8.3.3",
+        "ISO 22514-2 Process Capability",
+        "ASQ Six Sigma Body of Knowledge",
+        "Taguchi Loss Function (Genichi Taguchi)",
+        "AIAG PPAP 4th Edition"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_024",
+    "tool_name": "CPM Schedule Delay, Liquidated Damages & Acceleration (Crashing) Analysis",
+    "category": "Project Management / Contract Engineering",
+    "scope": "process_agnostic",
+    "primary_operation": "project_schedule",
+    "engine_rules": {
+      "standards": [
+        "FIDIC Red/Yellow/Silver Book 2017",
+        "PMBOK 7th Edition",
+        "NEC4 Engineering Contract",
+        "SCL Delay and Disruption Protocol 2017",
+        "AACEI Recommended Practice 29R-03"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_025",
+    "tool_name": "Industrial Roof Structural Load, Area Calculation & Material Cost (ASCE 7 / EN 1991)",
+    "category": "Civil & Structural Engineering / Industrial Buildings",
+    "scope": "single_operation",
+    "primary_operation": "structural_roofing",
+    "engine_rules": {
+      "standards": [
+        "ASCE 7-22 Minimum Design Loads",
+        "EN 1991-1-3 Snow Loads",
+        "EN 1991-1-4 Wind Actions",
+        "Turkey TEC 2018 Yük Yönetmeliği",
+        "EN 1993-1-1 Steel Structures (EC3)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_026",
+    "tool_name": "TOC Bottleneck Throughput Analysis & Constraint Upgrade ROI (Goldratt / APICS)",
+    "category": "Lean Manufacturing / Theory of Constraints",
+    "scope": "process_agnostic",
+    "primary_operation": "capacity_analysis",
+    "engine_rules": {
+      "standards": [
+        "Goldratt Theory of Constraints (TOC)",
+        "APICS CPIM — Constraint Management",
+        "ISO 22400-2 OEE KPI Standard",
+        "PMBOK Investment Analysis"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_027",
+    "tool_name": "SMED Setup Time Reduction, Capacity Recovery & EOQ Optimisation (Shingo / Harris)",
+    "category": "Lean Manufacturing / Setup Reduction",
+    "scope": "process_agnostic",
+    "primary_operation": "smed_setup",
+    "engine_rules": {
+      "standards": [
+        "Shingo Prize SMED Methodology",
+        "Harris EOQ Model (1913) — Wilson Formula",
+        "APICS CPIM Module 3 — Inventory Management",
+        "Lean Enterprise Institute — Setup Reduction",
+        "Toyota Production System"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_028",
+    "tool_name": "Warehouse 3D Cube Utilisation, Pallet Position Count & Storage Capacity Analysis",
+    "category": "Logistics & Supply Chain / Warehouse Engineering",
+    "scope": "single_operation",
+    "primary_operation": "warehouse_design",
+    "engine_rules": {
+      "standards": [
+        "VDI 3618 Intralogistics Planning",
+        "FEM 10.2.02 Rack Safety",
+        "SEMA Code of Practice for Static Racking",
+        "EN 15512 Steel Static Storage",
+        "MHI Warehousing Education & Research"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_030",
+    "tool_name": "Digital Twin Prototype ROI vs Physical Build — Cost Avoidance, TTM & NPV (ISO 23247)",
+    "category": "Industry 4.0 / R&D Engineering",
+    "scope": "process_agnostic",
+    "primary_operation": "digital_twin_roi",
+    "engine_rules": {
+      "standards": [
+        "ISO 23247 Digital Twin Manufacturing Framework",
+        "Gartner Hype Cycle Industry 4.0",
+        "IEC 61360 Digital Twin Properties",
+        "INCOSE Systems Engineering Handbook",
+        "AACE International RP 96R-20 Technology ROI"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_031",
+    "tool_name": "Assembly Line Balancing, SMV Analysis & Takt Compliance (IE / MTM-2 / MOST)",
+    "category": "Industrial Engineering / Production Planning",
+    "scope": "process_agnostic",
+    "primary_operation": "line_balancing",
+    "engine_rules": {
+      "standards": [
+        "IE Line Balancing (Kilbridge & Wester / RPW Method)",
+        "MTM-2 Standard Data System",
+        "MOST (Maynard Operation Sequence Technique)",
+        "ILO Work Study — Allowance Tables",
+        "Toyota Production System — Takt Time"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_033",
+    "tool_name": "Power Factor, Reactive Energy Penalty & Industrial Electricity Bill Analysis (ISO 50001)",
+    "category": "Energy Efficiency / Facility Management",
+    "scope": "process_agnostic",
+    "primary_operation": "energy_billing",
+    "engine_rules": {
+      "standards": [
+        "ISO 50001:2018 Energy Management",
+        "IEC 61000-3-2 Harmonics",
+        "IEC 60831 Shunt Capacitors",
+        "EN 50160 Power Quality",
+        "Turkey TEDAŞ Reactive Energy Tariff",
+        "IEEE 1459 Power Definitions"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_034",
+    "tool_name": "Project Cost Escalation, Real Discount Rate & Inflation-Adjusted Budget (AACE / Fisher Equation)",
+    "category": "Corporate Finance / Project Cost Engineering",
+    "scope": "process_agnostic",
+    "primary_operation": "financial_analysis",
+    "engine_rules": {
+      "standards": [
+        "AACE International RP 18R-97 Cost Escalation",
+        "AACE RP 10S-90 Cost Estimate Classification",
+        "PMBOK 7th Edition — Cost Baseline",
+        "Fisher Equation (Irving Fisher 1896)",
+        "IHS Markit / CERA Escalation Indices",
+        "EU Directive 2011/7/EU — Late Payment"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_035",
+    "tool_name": "Industrial Waste Stream Cost, Circularity Rate & ESG Compliance Analysis (ISO 14001 / EU Taxonomy)",
+    "category": "Environmental Engineering / Sustainability",
+    "scope": "process_agnostic",
+    "primary_operation": "waste_esg",
+    "engine_rules": {
+      "standards": [
+        "EU Directive 2008/98/EC Waste Framework",
+        "ISO 14001:2015 Environmental Management",
+        "GRI 306:2020 Waste Disclosure",
+        "EU CSRD / ESRS E5 Resource Use & Circular Economy",
+        "EU Taxonomy Regulation 2020/852",
+        "IPCC AR6 Waste Sector Emission Factors"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_088",
+    "tool_name": "Gage R&R Measurement System Analysis (AIAG MSA 4th Ed.)",
+    "category": "Quality & Metrology",
+    "scope": "single_operation",
+    "primary_operation": "measurement_system",
+    "engine_rules": {
+      "standards": [
+        "AIAG MSA 4th Ed.",
+        "IATF 16949 Madde 7.1.5",
+        "ISO 22514-7",
+        "VDA 5",
+        "ISO 17025"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_111",
+    "tool_name": "Roller Bearing L10h Life & Modified Lnm Life (ISO 281)",
+    "category": "Machine Elements",
+    "scope": "single_operation",
+    "primary_operation": "bearing_life",
+    "engine_rules": {
+      "standards": [
+        "ISO 281:2007",
+        "ISO 76:2006",
+        "SKF General Catalogue 2018",
+        "FAG Wälzlager Katalog",
+        "NSK CAT.No.E1102g",
+        "DIN ISO 281"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_119",
+    "tool_name": "Centrifugal Pump Cavitation & NPSH Analysis (API 610)",
+    "category": "Fluid Mechanics / Pump Systems",
+    "scope": "single_operation",
+    "primary_operation": "pump_cavitation",
+    "engine_rules": {
+      "standards": [
+        "API 610 12th Ed.",
+        "ISO 9908",
+        "Hydraulic Institute ANSI/HI 9.6.1",
+        "ISO 13709"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_146",
+    "tool_name": "IEC 60364 Three-Phase Cable Section Sizing & Voltage Drop",
+    "category": "Electrical Engineering",
+    "scope": "single_operation",
+    "primary_operation": "cable_sizing",
+    "engine_rules": {
+      "standards": [
+        "IEC 60364-5-52",
+        "IEC 60228",
+        "TS HD 60364-5-52",
+        "NFPA 70 NEC",
+        "BS 7671:2018",
+        "IEEE 141"
+      ]
+    }
+  }
+]

@@ -1,9 +1,4 @@
 import enMessages from "../../../messages/en.json";
-import trMessages from "../../../messages/tr.json";
-import deMessages from "../../../messages/de.json";
-import frMessages from "../../../messages/fr.json";
-import esMessages from "../../../messages/es.json";
-import arMessages from "../../../messages/ar.json";
 import fieldI18nBundle from "@/data/free-tool-inputs-i18n.generated.json";
 import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
@@ -20,11 +15,6 @@ type FieldDisplayCopy = {
 
 const LOCALE_MESSAGES: Record<string, MessageRecord> = {
   en: enMessages as MessageRecord,
-  tr: trMessages as MessageRecord,
-  de: deMessages as MessageRecord,
-  fr: frMessages as MessageRecord,
-  es: esMessages as MessageRecord,
-  ar: arMessages as MessageRecord,
 };
 
 const FIELD_I18N = fieldI18nBundle as Record<
@@ -32,13 +22,8 @@ const FIELD_I18N = fieldI18nBundle as Record<
   Record<string, Record<string, FieldDisplayCopy>>
 >;
 
-const PLACEHOLDER_BY_LOCALE: Record<SupportedLocale, (label: string) => string> = {
+const PLACEHOLDER_BY_LOCALE: Partial<Record<SupportedLocale, (label: string) => string>> = {
   en: (label) => `Enter ${label.toLowerCase()}`,
-  tr: (label) => `${label} girin`,
-  de: (label) => `${label} eingeben`,
-  fr: (label) => `Saisir ${label.toLowerCase()}`,
-  es: (label) => `Introduzca ${label.toLowerCase()}`,
-  ar: (label) => `أدخل ${label}`,
 };
 
 function readString(source: MessageRecord | undefined, key: string): string | undefined {
@@ -177,7 +162,7 @@ export function resolveFreeToolFieldDisplay(
       return finalizeFieldCopy(
         {
           label: fromEnGenerated.label,
-          placeholder: PLACEHOLDER_BY_LOCALE[locale](translateCalculatorPhrase(fromEnGenerated.label, locale)),
+          placeholder: PLACEHOLDER_BY_LOCALE[locale]!(translateCalculatorPhrase(fromEnGenerated.label, locale)),
           helper: fromEnGenerated.helper,
         },
         locale,
@@ -200,7 +185,7 @@ export function resolveFreeToolFieldDisplay(
   return finalizeFieldCopy(
     {
       label: fallback.label,
-      placeholder: placeholderTemplate(translateCalculatorPhrase(fallback.label, locale)),
+      placeholder: placeholderTemplate!(translateCalculatorPhrase(fallback.label, locale)),
       helper: fallback.helper,
     },
     locale,

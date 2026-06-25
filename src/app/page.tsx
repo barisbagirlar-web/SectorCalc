@@ -2,7 +2,6 @@ import { getMessages, getTranslations } from "next-intl/server";
 
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { RootLocaleAutoRedirect } from "@/components/i18n/RootLocaleAutoRedirect";
 import { LandingPageContent } from "@/components/landing/LandingPageContent";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { buildHomeJsonLd } from "@/lib/semantic/build-home-jsonld";
@@ -48,7 +47,6 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <PageLayout>
       <SemanticJsonLd data={buildHomeJsonLd(locale)} />
-      {locale === "en" ? <RootLocaleAutoRedirect /> : null}
       <LandingPageContent />
     </PageLayout>
   );

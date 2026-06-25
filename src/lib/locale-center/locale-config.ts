@@ -25,11 +25,6 @@ export const SUPPORTED_LOCALES = I18N_SUPPORTED_LOCALES;
 /** Default operating region per UI locale (P30). */
 export const LOCALE_DEFAULT_REGION: Record<SupportedLocale, SupportedRegion> = {
   en: "GLOBAL",
-  tr: "TR",
-  de: "DE",
-  fr: "FR",
-  es: "ES",
-  ar: "AE",
 };
 
 export function getLocaleDefaultRegion(locale: SupportedLocale): SupportedRegion {

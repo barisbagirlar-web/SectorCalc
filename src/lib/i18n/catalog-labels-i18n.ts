@@ -27,76 +27,12 @@ const EN_INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
     "Everyday renovation, fuel and household decision checks.",
 };
 
-const TR_INDUSTRY_CATEGORY_LABELS: Record<IndustryCategory, string> = {
-  "heavy-industry": "Ağır Sanayi",
-  "building-trades": "İnşaat ve Yapı İşleri",
-  "field-services": "Saha Hizmetleri",
-  "food-retail": "Gıda ve Perakende",
-  "custom-manufacturing": "Özel İmalat",
-  "logistics-transport": "Lojistik ve Taşıma",
-  "agriculture-livestock": "Tarım ve Hayvancılık",
-  "energy-environment": "Enerji ve Çevre",
-  "daily-life": "Günlük Hayat",
-};
-
-const TR_INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
-  "heavy-industry":
-    "Makine süresi, fire, tolerans ve üretim hattı marjı.",
-  "building-trades":
-    "Teklif riski, işçilik yükü ve malzeme kaybı.",
-  "field-services":
-    "Rota süresi, ekip kullanımı ve saha kârlılığı.",
-  "food-retail":
-    "Gıda maliyeti, fire, marj ve servis verimliliği.",
-  "custom-manufacturing":
-    "Prototip, parti ve özel iş maliyetlendirme.",
-  "logistics-transport":
-    "Rota kaybı, yakıt maruziyeti ve teslimat marjı.",
-  "agriculture-livestock":
-    "Mahsul, yem, sulama ve hayvancılık verimliliği.",
-  "energy-environment":
-    "Pik yük, karbon maruziyeti ve enerji maliyeti.",
-  "daily-life":
-    "Günlük tadilat, yakıt ve ev bütçesi hesapları.",
-};
-
-const TR_PREMIUM_GROUP_LABELS: Record<PremiumSchemaCatalogGroupId, string> = {
-  measurement_calibration: "Ölçüm ve Kalibrasyon",
-  scrap_waste: "Fire ve Atık",
-  oee_productivity: "OEE ve Verimlilik",
-  time_delay: "Süre ve Gecikme",
-  route_logistics: "Rota ve Lojistik",
-  cost_margin: "Maliyet ve Marj",
-  energy_carbon: "Enerji ve Karbon",
-  benchmark_health: "Kıyaslama ve Sağlık",
-};
-
-const TR_PREMIUM_GROUP_DESCRIPTIONS: Record<PremiumSchemaCatalogGroupId, string> = {
-  measurement_calibration:
-    "Tolerans sapması, kalibrasyon baskısı ve ölçüm doğruluğu.",
-  scrap_waste: "Fire, yeniden iş ve malzeme kaybı.",
-  oee_productivity: "OEE, setup kaybı ve atölye verimliliği.",
-  time_delay: "Gecikme, yeniden iş süresi ve takvim kayması.",
-  route_logistics: "Rota kaybı, yakıt sapması ve nakliye marjı.",
-  cost_margin: "Maliyet yığını, marj baskısı ve fiyat kararları.",
-  energy_carbon: "Pik yük, enerji maliyeti ve karbon uyumu.",
-  benchmark_health: "Kıyaslama sapması, stok baskısı ve sağlık sinyalleri.",
-};
-
 export type CatalogCtaLabels = {
   readonly openIndustry: string;
   readonly viewAnalyzer: string;
   readonly viewCalculator: string;
   readonly openCalculator: string;
   readonly premiumBadge: string;
-};
-
-const TR_CATALOG_CTA: CatalogCtaLabels = {
-  openIndustry: "Sektörü aç →",
-  viewAnalyzer: "Hesaplayıcıyı aç →",
-  viewCalculator: "Hesaplayıcıyı aç →",
-  openCalculator: "Hesaplayıcıyı aç →",
-  premiumBadge: "Premium",
 };
 
 const EN_CATALOG_CTA: CatalogCtaLabels = {
@@ -109,48 +45,36 @@ const EN_CATALOG_CTA: CatalogCtaLabels = {
 
 export function resolveIndustryCategoryLabel(
   category: IndustryCategory,
-  locale: string
+  _locale?: string
 ): string {
-  if (locale === "tr") {
-    return TR_INDUSTRY_CATEGORY_LABELS[category];
-  }
   return INDUSTRY_CATEGORY_LABELS[category];
 }
 
 export function resolveIndustryCategoryDescription(
   category: IndustryCategory,
-  locale: string
+  _locale?: string
 ): string {
-  if (locale === "tr") {
-    return TR_INDUSTRY_CATEGORY_DESCRIPTIONS[category];
-  }
   return EN_INDUSTRY_CATEGORY_DESCRIPTIONS[category];
 }
 
 export function resolvePremiumCatalogGroupLabel(
   groupId: PremiumSchemaCatalogGroupId,
-  locale: string
+  _locale?: string
 ): string {
-  if (locale === "tr") {
-    return TR_PREMIUM_GROUP_LABELS[groupId];
-  }
   return PREMIUM_SCHEMA_CATALOG_GROUP_LABELS[groupId];
 }
 
 export function resolvePremiumCatalogGroupDescription(
   groupId: PremiumSchemaCatalogGroupId,
-  locale: string
+  _locale?: string
 ): string {
-  if (locale === "tr") {
-    return TR_PREMIUM_GROUP_DESCRIPTIONS[groupId];
-  }
   return PREMIUM_SCHEMA_CATALOG_GROUP_DESCRIPTIONS[groupId];
 }
 
-export function resolveCatalogCtaLabels(locale: string): CatalogCtaLabels {
-  return locale === "tr" ? TR_CATALOG_CTA : EN_CATALOG_CTA;
+export function resolveCatalogCtaLabels(_locale?: string): CatalogCtaLabels {
+  return EN_CATALOG_CTA;
 }
 
-export function shouldRenderCrawlIndexForLocale(locale: string): boolean {
-  return locale !== "tr";
+export function shouldRenderCrawlIndexForLocale(_locale?: string): boolean {
+  return true;
 }

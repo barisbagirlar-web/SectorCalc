@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-// Implementation removed for rewrite
-export const PRESSURE_VESSEL_WALL_THICKNESS_CALCULATOR_INPUT_KEYS = (inputs: any) => {
-  return {
-    outputs: {},
-    rules: [],
-    charts: []
-  };
-};
-=======
 export type PressureVesselWallThicknessCalculatorInputs = {
   designPressureBar: number;
   diameterMm: number;
@@ -68,4 +58,3 @@ export function validatePressureVesselWallThicknessCalculatorInputs(inputs: Pres
     warnings: collectWarnings(inputs),
   };
 }
->>>>>>> Stashed changes

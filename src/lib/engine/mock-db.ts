@@ -31,7 +31,7 @@ export const RULE_ENGINE_DB = {
     }
   },
   assumptions: [
-    { id: 'workpiece_rigidity', name: 'Workpiece rigidity', value: 'Rigid', source: 'Kullanıcı Varsayımı' },
+    { id: 'workpiece_rigidity', name: 'Workpiece rigidity', value: 'Rigid', source: 'User Assumption' },
     { id: 'tool_wear', name: 'Tool wear criterion', value: 'VB = 0.3mm', source: 'ISO 3685' },
     { id: 'taylor_exp', name: 'Taylor exponent (n)', value: '0.25', source: 'Handbook' },
     { id: 'specific_cut_force', name: 'Specific cutting force', value: '2,100 N/mm²', source: 'Machinery\'s' },

@@ -8,22 +8,22 @@ export interface PipelineStatusTab {
 }
 
 export const PIPELINE_STATUS_OPTIONS: { value: LeadStatus; label: string }[] = [
- { value: "new", label: "Yeni" },
- { value: "reviewed", label: "İncelendi" },
- { value: "contacted", label: "İletişime Geçildi" },
- { value: "qualified", label: "Uygun Lead" },
- { value: "converted", label: "Müşteriye Döndü" },
- { value: "lost", label: "Kayıp" },
+ { value: "new", label: "New" },
+ { value: "reviewed", label: "Reviewed" },
+ { value: "contacted", label: "Contacted" },
+ { value: "qualified", label: "Qualified Lead" },
+ { value: "converted", label: "Converted" },
+ { value: "lost", label: "Lost" },
 ];
 
 export const PIPELINE_STATUS_TABS: PipelineStatusTab[] = [
- { filter: "all", label: "Tümü" },
- { filter: "new", label: "Yeni" },
- { filter: "reviewed", label: "İncelendi" },
- { filter: "contacted", label: "İletişime Geçildi" },
- { filter: "qualified", label: "Uygun Lead" },
- { filter: "converted", label: "Müşteriye Döndü" },
- { filter: "lost", label: "Kayıp" },
+ { filter: "all", label: "All" },
+ { filter: "new", label: "New" },
+ { filter: "reviewed", label: "Reviewed" },
+ { filter: "contacted", label: "Contacted" },
+ { filter: "qualified", label: "Qualified Lead" },
+ { filter: "converted", label: "Converted" },
+ { filter: "lost", label: "Lost" },
 ];
 
 const LEGACY_CLOSED_STATUS = "closed";
@@ -101,18 +101,18 @@ export function resolveNextAction(lead: LeadIntent): string {
  "fizibilite",
  ])
  ) {
- return "Fizibilite çalışmasına yönlendir";
+  return "Refer to feasibility study";
  }
 
  if (matchesAny(ctx, ["credit", "loan", "limit", "kredi", "financing"])) {
- return "Kredi/limit çalışmasına yönlendir";
+  return "Refer to credit/limit study";
  }
 
  if (matchesAny(ctx, ["export", "invoice", "fatura", "ihracat"])) {
- return "Finansman uygunluğu için dönüş yap";
+  return "Follow up on financing eligibility";
  }
 
- return "Ön inceleme için iletişime geç";
+  return "Contact for preliminary review";
 }
 
 export function formatLeadIntentSummary(lead: LeadIntent): string {
@@ -139,10 +139,10 @@ export function buildWhatsAppMessage(lead: LeadIntent): string {
  const tool = lead.toolRequested.trim() || "—";
  const source = lead.source.replace(/_/g, " ");
  return (
- `Merhaba ${lead.name}, SectorCalc talebiniz hakkında dönüş yapıyoruz.\n` +
- `Kaynak: ${source}\n` +
- `Araç: ${tool}\n` +
- `Niyet: ${intent}`
+   `Hello ${lead.name}, we are following up on your SectorCalc request.\n` +
+   `Source: ${source}\n` +
+   `Tool: ${tool}\n` +
+   `Intent: ${intent}`
  );
 }
 
@@ -165,9 +165,9 @@ export function hasCallablePhone(lead: LeadIntent): boolean {
 
 export function getLeadPriorityLabel(priority: LeadPriority): string {
  const labels: Record<LeadPriority, string> = {
- hot: "Sıcak",
- warm: "Ilık",
- cold: "Soğuk",
+  hot: "Hot",
+  warm: "Warm",
+  cold: "Cold",
  };
  return labels[priority];
 }

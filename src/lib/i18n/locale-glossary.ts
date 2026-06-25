@@ -27,7 +27,7 @@ export type GlossaryEntry = Readonly<Record<SupportedLocale, string>> & {
 export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   calculator: {
     en: "Calculator",
-    tr: "Hesaplama aracı",
+    tr: "Calculator",
     de: "Rechner",
     fr: "Calculateur",
     es: "Calculadora",
@@ -35,7 +35,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   freeCalculator: {
     en: "Free calculator",
-    tr: "Ücretsiz hesaplama aracı",
+    tr: "Free calculator",
     de: "Gratis-Rechner",
     fr: "Calculateur gratuit",
     es: "Calculadora gratuita",
@@ -43,7 +43,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   premiumAnalyzer: {
     en: "Premium analyzer",
-    tr: "Premium analiz aracı",
+    tr: "Premium analyzer",
     de: "Premium-Analyse",
     fr: "Analyse premium",
     es: "Análisis premium",
@@ -51,7 +51,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   decisionReport: {
     en: "Decision report",
-    tr: "Karar raporu",
+    tr: "Decision report",
     de: "Entscheidungsbericht",
     fr: "Rapport de décision",
     es: "Informe de decisión",
@@ -59,7 +59,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   hiddenLoss: {
     en: "Hidden loss",
-    tr: "Görünmeyen kayıp",
+    tr: "Hidden loss",
     de: "Verborgener Verlust",
     fr: "Perte cachée",
     es: "Pérdida oculta",
@@ -67,7 +67,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   threshold: {
     en: "Threshold",
-    tr: "Eşik",
+    tr: "Threshold",
     de: "Schwellenwert",
     fr: "Seuil",
     es: "Umbral",
@@ -75,7 +75,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   export: {
     en: "Export",
-    tr: "Dışa aktar",
+    tr: "Export",
     de: "Export",
     fr: "Export",
     es: "Exportar",
@@ -83,7 +83,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   estimate: {
     en: "Estimate",
-    tr: "Tahmin",
+    tr: "Estimate",
     de: "Schätzung",
     fr: "Estimation",
     es: "Estimación",
@@ -99,7 +99,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   exposure: {
     en: "Exposure",
-    tr: "Maruziyet",
+    tr: "Exposure",
     de: "Exposition",
     fr: "Exposition",
     es: "Exposición",
@@ -116,7 +116,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   scrap: {
     en: "Scrap",
-    tr: "Fire",
+    tr: "Scrap",
     de: "Ausschuss",
     fr: "Rebut",
     es: "Desperdicio",
@@ -124,7 +124,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   routeCost: {
     en: "Route cost",
-    tr: "Rota maliyeti",
+    tr: "Route cost",
     de: "Routenkosten",
     fr: "Coût de route",
     es: "Coste de ruta",
@@ -132,7 +132,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   energyCost: {
     en: "Energy cost",
-    tr: "Enerji maliyeti",
+    tr: "Energy cost",
     de: "Energiekosten",
     fr: "Coût énergétique",
     es: "Coste energético",
@@ -140,7 +140,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   carbonExposure: {
     en: "Carbon exposure",
-    tr: "Karbon maruziyeti",
+    tr: "Carbon exposure",
     de: "CO₂-Exposition",
     fr: "Exposition carbone",
     es: "Exposición de carbono",
@@ -148,7 +148,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   pricing: {
     en: "Pricing",
-    tr: "Fiyatlandırma",
+    tr: "Pricing",
     de: "Preise",
     fr: "Tarifs",
     es: "Precios",
@@ -156,7 +156,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   checkout: {
     en: "Checkout",
-    tr: "Ödeme",
+    tr: "Checkout",
     de: "Kasse",
     fr: "Paiement",
     es: "Pago",
@@ -164,7 +164,7 @@ export const LOCALE_GLOSSARY: Record<GlossaryTerm, GlossaryEntry> = {
   },
   legalNote: {
     en: "Legal note",
-    tr: "Yasal not",
+    tr: "Legal note",
     de: "Rechtlicher Hinweis",
     fr: "Note légale",
     es: "Nota legal",

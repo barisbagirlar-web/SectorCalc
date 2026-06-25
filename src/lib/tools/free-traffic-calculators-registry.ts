@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 // Auto-generated calculators database.
 import { normalizeNumber, clamp, safeDivide, round, formatNumber, formatCurrency } from "@/lib/tools/free-traffic-calculators";
@@ -92,7 +92,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "tax-deferred-exchange-1031": (values) => {
-    const salePrice = normalizeNumber(values.salePrice);
+    const salePrice = normalizeNumber(values.sellingPrice);
     const remainingDebt = normalizeNumber(values.remainingDebt);
     const newInvestment = normalizeNumber(values.newInvestment);
     const cashOut = salePrice - remainingDebt;
@@ -261,7 +261,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "simple-interest-yield": (values) => {
     const principal = normalizeNumber(values.principal);
     const interestRate = normalizeNumber(values.interestRate);
-    const years = normalizeNumber(values.years);
+    const years = normalizeNumber(values.duration);
     const interest = principal * (interestRate / 100) * years;
     const total = principal + interest;
     return {
@@ -371,7 +371,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "dividend-net-tax": (values) => {
-    const dividendAmount = normalizeNumber(values.dividendAmount);
+    const dividendAmount = normalizeNumber(values.dividend);
     const withholdingTax = normalizeNumber(values.withholdingTax);
     const net = dividendAmount * (1 - withholdingTax / 100);
     return {
@@ -477,8 +477,8 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "net-present-value-npv": (values) => {
-      const discountRate = normalizeNumber(values.discountRate);
-      const initialInvestment = normalizeNumber(values.initialInvestment);
+      const discountRate = normalizeNumber(values.discount);
+      const initialInvestment = normalizeNumber(values.investment);
       const cashFlows = String(values.cashFlows || "").split(",").map(Number).filter(Number.isFinite);
       const r = discountRate / 100;
       let npv = 0;
@@ -525,8 +525,8 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       };
     },
   "discounted-payback-period": (values) => {
-      const discountRate = normalizeNumber(values.discountRate);
-      const initialInvestment = normalizeNumber(values.initialInvestment);
+      const discountRate = normalizeNumber(values.discount);
+      const initialInvestment = normalizeNumber(values.investment);
       const cashFlows = String(values.cashFlows || "").split(",").map(Number).filter(Number.isFinite);
       const r = discountRate / 100;
       let cumPV = 0;
@@ -553,7 +553,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     },
   "profitability-index-pi": (values) => {
     const futureCashFlowPv = normalizeNumber(values.futureCashFlowPv);
-    const initialInvestment = normalizeNumber(values.initialInvestment);
+    const initialInvestment = normalizeNumber(values.investment);
     const pi = futureCashFlowPv / Math.max(1, initialInvestment);
     return {
       headline: `Profitability Index (PI): ${formatNumber(pi)}`,
@@ -630,7 +630,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       };
     },
   "fcff-fcfe-cash-flows": (values) => {
-    const netIncome = normalizeNumber(values.netIncome);
+    const netIncome = normalizeNumber(values.netProfit);
     const depreciation = normalizeNumber(values.depreciation);
     const workingCapital = normalizeNumber(values.workingCapital);
     const capex = normalizeNumber(values.capex);
@@ -715,7 +715,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "roe-dupont-analysis": (values) => {
-    const netIncome = normalizeNumber(values.netIncome);
+    const netIncome = normalizeNumber(values.netProfit);
     const sales = normalizeNumber(values.sales);
     const assets = normalizeNumber(values.assets);
     const equity = normalizeNumber(values.equity);
@@ -874,7 +874,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "etf-net-annual-return": (values) => {
     const purchasePrice = normalizeNumber(values.purchasePrice);
     const sellingPrice = normalizeNumber(values.sellingPrice);
-    const dividends = normalizeNumber(values.dividends);
+    const dividends = normalizeNumber(values.dividend);
     const expenseRatio = normalizeNumber(values.expenseRatio);
     const netReturn = ((sellingPrice + dividends - purchasePrice) / Math.max(1, purchasePrice) * 100) - expenseRatio;
     return {
@@ -954,7 +954,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "crypto-trade-net-profit": (values) => {
     const purchasePrice = normalizeNumber(values.purchasePrice);
-    const sellingPrice = normalizeNumber(values.sellingPrice);
+    const sellingPrice = normalizeNumber(values.sale);
     const quantity = normalizeNumber(values.quantity);
     const commission = normalizeNumber(values.commission);
     const gross = (sellingPrice - purchasePrice) * quantity;
@@ -974,7 +974,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "nft-trade-net-profit-eth": (values) => {
     const purchasePrice = normalizeNumber(values.purchasePrice);
-    const sellingPrice = normalizeNumber(values.sellingPrice);
+    const sellingPrice = normalizeNumber(values.sale);
     const gas = normalizeNumber(values.gas);
     const royalty = normalizeNumber(values.royalty);
     const netEth = sellingPrice - purchasePrice - gas - (sellingPrice * royalty / 100);
@@ -1040,7 +1040,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "capital-gains-tax-liability": (values) => {
-    const sellingPrice = normalizeNumber(values.sellingPrice);
+    const sellingPrice = normalizeNumber(values.sale);
     const purchasePrice = normalizeNumber(values.purchasePrice);
     const taxRate = normalizeNumber(values.taxRate);
     const exemption = normalizeNumber(values.exemption);
@@ -1060,7 +1060,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "real-estate-property-tax": (values) => {
     const assessedValue = normalizeNumber(values.assessedValue);
-    const taxRatePerThousand = normalizeNumber(values.taxRatePerThousand);
+    const taxRatePerThousand = normalizeNumber(values.taxRate);
     const annualTax = assessedValue * (taxRatePerThousand / 1000);
     return {
       headline: `Property Tax: ${formatCurrency(annualTax)} / year`,
@@ -1125,7 +1125,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       if (!val) return [];
       return String(val).split(/[\s,]+/).map(x => Number(x.trim())).filter(Number.isFinite);
     };
-    const arr = parseNumericArray(values.dataset || values.veriseti);
+    const arr = parseNumericArray(values.dataSet || values.veriseti);
     if (arr.length === 0) {
       return {
         headline: "No data points",
@@ -1171,7 +1171,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       if (!val) return [];
       return String(val).split(/[\s,]+/).map(x => Number(x.trim())).filter(Number.isFinite);
     };
-    const arr = parseNumericArray(values.dataset || values.veriseti);
+    const arr = parseNumericArray(values.dataSet || values.veriseti);
     if (arr.length < 2) {
       return {
         headline: "Need at least 2 points",
@@ -1259,7 +1259,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         p.split(/[\s,]+/).map(x => Number(x.trim())).filter(Number.isFinite)
       ).filter(g => g.length > 0);
     };
-    const groups = parseMatrix(values.gruplar);
+    const groups = parseMatrix(values.groups);
     if (groups.length < 2) {
       return {
         headline: "Need at least 2 groups with 2 points each",
@@ -2204,7 +2204,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "espp-discounted-stock-options": (values) => {
     const marketPrice = normalizeNumber(values.marketPrice);
-    const İskonto = normalizeNumber(values.i̇skonto);
+    const İskonto = normalizeNumber(values.discount);
     const contribution = normalizeNumber(values.contribution);
 
     const shares = values.shares !== undefined ? normalizeNumber(values.shares) : 1;
@@ -2258,7 +2258,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "convertible-note-shares": (values) => {
     const investment = normalizeNumber(values.investment);
     const valuation = normalizeNumber(values.valuation);
-    const İskonto = normalizeNumber(values.i̇skonto);
+    const İskonto = normalizeNumber(values.discount);
     const interestRate = normalizeNumber(values.interestRate);
 
 
@@ -5277,8 +5277,8 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "surface-roughness-ra": (values) => {
-    const Ilerleme = normalizeNumber(values.ilerleme);
-    const UcYariCap = normalizeNumber(values.ucyaricap);
+    const Ilerleme = normalizeNumber(values.feedRate);
+    const UcYariCap = normalizeNumber(values.noseRadius);
 
 
      
@@ -5354,7 +5354,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "ridge-beam-calculator": (values) => {
-    const CatıYuk = normalizeNumber(values.catıyuk);
+    const CatıYuk = normalizeNumber(values.ridgeLoad);
     const span = normalizeNumber(values.span);
 
 

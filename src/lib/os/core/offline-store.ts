@@ -1,6 +1,6 @@
 /**
- * Offline-First readiness — audit kuyruğu (local persistence).
- * Smart Module: offline_mode aktif sektörler için.
+ * Offline-First readiness — audit queue (local persistence).
+ * Smart Module: for sectors with offline_mode active.
  */
 
 import type { FormulaInputs } from "@/lib/os/core/formulas";

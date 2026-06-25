@@ -13,30 +13,30 @@ export function stripAllowedPublicTrPhrases(text: string): string {
 
 /** Internal / roadmap strings that must not appear in public rendered HTML. */
 export const INTERNAL_PUBLIC_FORBIDDEN_TR = [
-  "Stratejik yol haritası",
-  "Stratejik Premium Hesaplayıcı Yol Haritası",
+  "Strategic roadmap",
+  "Strategic Premium Calculator Roadmap",
   "Faz 1",
   "Faz 2",
   "Faz 3",
   "Faz 4",
-  "Puan",
-  "Skor",
-  "Planlandı",
-  "Yayında",
+  "Score",
+  "Score",
+  "Planned",
+  "Live",
   "REG:",
   "CUR:",
   "SYS.OK",
   "VER:",
   "HYBRID",
-  "KAYIT: KÜRESEL",
+  "RECORD: GLOBAL",
   "INAPILLMS",
   "INAPI",
   "APILLMS",
-  "Sihirbaz",
-  "METAL İMALAT ZEKÂSI",
-  "Standart Ağırlık",
-  "SONRAKİ PARAMETRE",
-  "Sonraki Parametre",
+  "Wizard",
+  "METAL MANUFACTURING INTELLIGENCE",
+  "Standard Weight",
+  "NEXT PARAMETER",
+  "Next Parameter",
 ] as const;
 
 export const INTERNAL_PUBLIC_FORBIDDEN_ANY_LOCALE = [
@@ -48,30 +48,30 @@ export const INTERNAL_PUBLIC_FORBIDDEN_ANY_LOCALE = [
   "Lorem ipsum",
   "HesapPro",
   "230 hardcoded",
-  "%100 ücretsiz",
+  "%100 free",
 ] as const;
 
 /** English UI crumbs forbidden on TR public pages. */
 export const TR_FORBIDDEN_ENGLISH_UI = [...TR_FORBIDDEN_SURFACE_WORDS] as const;
 
-/** Turkish UI crumbs forbidden on EN public pages. */
+/** UI crumbs forbidden on EN public pages. */
 export const EN_FORBIDDEN_TURKISH_UI = [
-  "Hesaplayıcı",
-  "Hesapla",
-  "Ücretsiz",
-  "Fiyatlandırma",
-  "Sektör",
-  "Girdi",
-  "Sonuç",
-  "Kayıt Ol",
-  "Gizlilik Politikası",
-  "Kullanım Koşulları",
-  "Sorumluluk Reddi",
+  "Calculator",
+  "Calculate",
+  "Free",
+  "Pricing",
+  "Sector",
+  "Input",
+  "Result",
+  "Sign Up",
+  "Privacy Policy",
+  "Terms of Use",
+  "Disclaimer",
 ] as const;
 
 export const FOREIGN_DEMO_MARKERS = [
   "HesapPro",
-  "Pro'ya Geç",
+  "Upgrade to Pro",
   "Lorem ipsum",
   "Playfair Display",
   "site-header",

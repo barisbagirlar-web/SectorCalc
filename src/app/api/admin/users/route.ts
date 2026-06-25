@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
-// @ts-nocheck
 import { type NextRequest, NextResponse } from "next/server";
 import { getAuth } from "firebase-admin/auth";
 import { getFirebaseAdminApp, getAdminFirestore } from "@/lib/firebase/admin";
@@ -21,7 +18,6 @@ async function verifyAdmin(request: NextRequest) {
 
   try {
     const decoded = await getAuth(app).verifyIdToken(token);
-    // Grant access if email is bypass or decoded token has admin claim
     if (decoded.email === "barisbagirlar@gmail.com" || decoded.admin === true) {
       return decoded;
     }
@@ -45,9 +41,8 @@ export async function GET(request: NextRequest) {
   const db = getAdminFirestore();
 
   try {
-    // List top 300 users
     const listResult = await getAuth(app).listUsers(300);
-    const usersData = [];
+    const usersData: Array<Record<string, unknown>> = [];
 
     for (const authUser of listResult.users) {
       let creditBalance = 0;
@@ -79,8 +74,9 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ ok: true, users: usersData });
-  } catch (err: any) {
-    return NextResponse.json({ ok: false, error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }
 
@@ -100,14 +96,25 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "firestore_unavailable" }, { status: 500 });
   }
 
-  let body: any;
+  let body: Record<string, unknown>;
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ ok: false, error: "invalid_json" }, { status: 400 });
   }
 
-  const { action, uid, email, password, displayName, disabled, admin, creditBalance, subscriptionStatus, plan } = body;
+  const { action, uid, email, password, displayName, disabled, admin, creditBalance, subscriptionStatus, plan } = body as {
+    action?: string;
+    uid?: string;
+    email?: string;
+    password?: string;
+    displayName?: string;
+    disabled?: boolean;
+    admin?: boolean;
+    creditBalance?: number;
+    subscriptionStatus?: string;
+    plan?: string;
+  };
 
   try {
     if (action === "createUser") {
@@ -115,7 +122,6 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
       }
 
-      // Create in Firebase Auth
       const newUser = await getAuth(app).createUser({
         email,
         password,
@@ -123,12 +129,10 @@ export async function POST(request: NextRequest) {
         emailVerified: true,
       });
 
-      // Set admin claim if specified
       if (admin === true) {
         await getAuth(app).setCustomUserClaims(newUser.uid, { admin: true });
       }
 
-      // Set in Firestore
       await db.collection("users").doc(newUser.uid).set({
         email: email,
         displayName: displayName || "",
@@ -148,8 +152,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ ok: false, error: "missing_uid" }, { status: 400 });
       }
 
-      // Update in Firebase Auth
-      const updateData: any = {
+      const updateData: Record<string, unknown> = {
         disabled: disabled === true,
       };
       if (email) updateData.email = email;
@@ -158,10 +161,8 @@ export async function POST(request: NextRequest) {
 
       await getAuth(app).updateUser(uid, updateData);
 
-      // Update custom claims
       await getAuth(app).setCustomUserClaims(uid, { admin: admin === true });
 
-      // Update in Firestore
       await db.collection("users").doc(uid).set({
         creditBalance: Number(creditBalance ?? 0),
         subscription: {
@@ -179,17 +180,15 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ ok: false, error: "missing_uid" }, { status: 400 });
       }
 
-      // Delete from Auth
       await getAuth(app).deleteUser(uid);
-
-      // Delete from Firestore
       await db.collection("users").doc(uid).delete();
 
       return NextResponse.json({ ok: true });
     }
 
     return NextResponse.json({ ok: false, error: "unknown_action" }, { status: 400 });
-  } catch (err: any) {
-    return NextResponse.json({ ok: false, error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }

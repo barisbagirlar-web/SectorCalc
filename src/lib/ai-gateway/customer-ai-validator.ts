@@ -5,8 +5,8 @@ import type { CustomerAiRequest, CustomerAiSafeResponse } from "./customer-ai-ty
 
 const FORBIDDEN_PUBLIC_TERMS = [
   "FormulaContract",
-  "Akıl 1",
-  "Akıl 2",
+  "Mind 1",
+  "Mind 2",
   "API key",
   "secret",
   "internal",
@@ -66,7 +66,7 @@ export function validateCustomerAiResponse(
       intent: "unsupported",
       answer:
         request.locale === "tr"
-          ? "Bu konuda güvenli bir yanıt üretilemedi. Lütfen bilgileri kontrol ederek tekrar deneyin."
+          ? "A safe answer could not be generated for this topic. Please check the inputs and try again."
           : "A safe answer could not be generated. Please check the inputs and try again.",
       safetyStatus: "fallback",
     };
@@ -77,7 +77,7 @@ export function validateCustomerAiResponse(
       intent: "unsupported",
       answer:
         request.locale === "tr"
-          ? "Önce hesaplamayı tamamlayın, ardından sonucu yorumlayabilirim."
+          ? "Please complete the calculation first, then I can explain the result."
           : "Please complete the calculation first, then I can explain the result.",
       safetyStatus: "fallback",
     };

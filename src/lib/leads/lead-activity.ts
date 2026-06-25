@@ -212,9 +212,9 @@ function isTestLeadActivity(
 export function formatActivitySummary(entry: LeadActivityEntry): string {
  if (isTestLeadActivity(entry)) {
  if (entry.type === "test_lead_marked") {
- return "Test lead olarak işaretlendi";
+   return "Marked as test lead";
  }
- return "Test lead işareti kaldırıldı";
+   return "Test lead mark removed";
  }
 
  const changedFields =
@@ -222,18 +222,18 @@ export function formatActivitySummary(entry: LeadActivityEntry): string {
  const parts: string[] = [];
 
  if (changedFields.includes("status")) {
- parts.push(
- `Durum: ${getLeadStatusLabel(entry.previousStatus)} → ${getLeadStatusLabel(entry.nextStatus)}`
- );
+   parts.push(
+    `Status: ${getLeadStatusLabel(entry.previousStatus)} → ${getLeadStatusLabel(entry.nextStatus)}`
+   );
  }
 
- if (changedFields.includes("adminNote")) {
- parts.push("Admin notu güncellendi");
- }
+  if (changedFields.includes("adminNote")) {
+   parts.push("Admin note updated");
+  }
 
- if (parts.length === 0) {
- parts.push("Pipeline güncellendi");
- }
+  if (parts.length === 0) {
+   parts.push("Pipeline updated");
+  }
 
  return parts.join(" · ");
 }
@@ -255,10 +255,10 @@ export function formatChangedFieldsLabel(changedFields: string[]): string {
  }
 
  const labels: Record<string, string> = {
- status: "Durum",
- adminNote: "Admin notu",
- isTestLead: "Test lead",
- testLeadReason: "Test lead açıklaması",
+  status: "Status",
+  adminNote: "Admin Note",
+  isTestLead: "Test Lead",
+  testLeadReason: "Test Lead Reason",
  };
 
  return changedFields.map((field) => labels[field] ?? field).join(", ");
@@ -268,12 +268,12 @@ export function getActivityDetailLine(entry: LeadActivityEntry): string | null {
  if (isTestLeadActivity(entry)) {
  const parts: string[] = [];
  if (entry.previousIsTestLead !== entry.nextIsTestLead) {
- parts.push(
- entry.nextIsTestLead ? "Test lead: Evet" : "Test lead: Hayır"
- );
- }
- if (entry.nextTestLeadReason.trim()) {
- parts.push(`Açıklama: ${entry.nextTestLeadReason.trim()}`);
+   parts.push(
+    entry.nextIsTestLead ? "Test lead: Yes" : "Test lead: No"
+   );
+  }
+  if (entry.nextTestLeadReason.trim()) {
+   parts.push(`Reason: ${entry.nextTestLeadReason.trim()}`);
  }
  return parts.length > 0 ? parts.join(" · ") : null;
  }

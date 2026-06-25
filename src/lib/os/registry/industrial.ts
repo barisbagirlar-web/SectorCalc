@@ -1,6 +1,6 @@
 /**
  * Manufacturing OS — industrial module registry.
- * OEE / kayıp / verim odaklı operasyon modülleri; logic + premium report eşlemesi.
+ * OEE / loss / efficiency focused operation modules; logic + premium report mapping.
  */
 
 export type IndustrialLogicId =
@@ -28,7 +28,7 @@ export const ModuleRegistry: Record<
  IndustrialModuleKey,
  IndustrialModuleEntry
 > = {
- // MANUFACTURING: OEE ODAKLI
+ // MANUFACTURING: OEE FOCUSED
  cnc_tuning: {
  params: [
  "Ideal_Cycle_Time",
@@ -40,7 +40,7 @@ export const ModuleRegistry: Record<
  premiumReport: "tool_wear_audit",
  },
 
- // LOGISTICS: KAYIP ODAKLI
+ // LOGISTICS: LOSS FOCUSED
  fleet_optimization: {
  params: [
  "Planned_Route_KM",
@@ -52,7 +52,7 @@ export const ModuleRegistry: Record<
  premiumReport: "dead_mileage_audit",
  },
 
- // AGRICULTURE: VERİM ODAKLI
+ // AGRICULTURE: YIELD FOCUSED
  yield_management: {
  params: [
  "Target_Yield_Per_Ha",
@@ -101,7 +101,7 @@ export function getIndustrialModuleByReport(
  return match?.[0] ?? null;
 }
 
-/** Modül param anahtarları için tip-güvenli değer haritası. */
+/** Type-safe value map for module param keys. */
 export type IndustrialModuleValues<K extends IndustrialModuleKey> = Record<
  (typeof ModuleRegistry)[K]["params"][number],
  number

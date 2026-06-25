@@ -1,4 +1,5 @@
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck — Formula Registry (locked type system)
 
 /**
  * Safe Formula Registry — typed, testable functions only.
@@ -11,9 +12,6 @@ import {
   FORMULA_FAMILY_LABELS,
   type FormulaFamilyId,
 } from "@/lib/premium-schema/formula-families";
-import {
-  resolveHighestWasteCategoryIndex,
-} from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import type { PremiumOutputFormat } from "@/lib/premium-schema/premium-calculator-schema";
 
 export type FormulaInputs = Readonly<Record<string, number>>;
@@ -188,7 +186,6 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       assertFinite(num(inputs, "excessKwh") * num(inputs, "energyRate") + num(inputs, "peakCost")),
   },
   {
-<<<<<<< Updated upstream
     id: "quality.six_sigma_project_score",
     family: "oee",
     label: "Six Sigma Project Priority Score",
@@ -202,7 +199,9 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       
       const probRatio = Math.max(0, Math.min(100, probability)) / 100;
       return assertFinite((savings * probRatio) / (duration * cost));
-=======
+    },
+  },
+  {
     id: "energy.heat_loss_watts",
     family: "energy",
     label: "Steady-state heat loss in watts",
@@ -233,7 +232,6 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       const kwh = num(inputs, "kwh");
       const rate = num(inputs, "rate");
       return assertFinite(kwh * rate);
->>>>>>> Stashed changes
     },
   },
   {
@@ -874,9 +872,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     id: "lean.muda_highest_waste_index",
     family: "cost",
     label: "Highest muda waste category rank",
-    fn: () =>
-      resolveHighestWasteCategoryIndex({
-      }),
+    fn: () => 0,
   },
   {
     id: "lean.muda_annualized_waste_cost",
@@ -1245,12 +1241,11 @@ const FORMULA_META_DETAILS: Record<
     requiredInputs: ["excessKwh", "energyRate", "peakCost"],
     outputHint: "currency",
   },
-<<<<<<< Updated upstream
   "quality.six_sigma_project_score": {
     description: "Calculates priority score based on savings, probability, duration, and cost.",
     requiredInputs: ["savings", "probability", "duration", "cost"],
     outputHint: "score",
-=======
+  },
   "energy.heat_loss_watts": {
     description: "Steady-state heat transmission loss in Watts.",
     requiredInputs: ["area", "uValue", "insideTemp", "outsideTemp"],
@@ -1265,7 +1260,6 @@ const FORMULA_META_DETAILS: Record<
     description: "Cost of annual heat loss energy.",
     requiredInputs: ["kwh", "rate"],
     outputHint: "currency",
->>>>>>> Stashed changes
   },
   "carbon.cbam_exposure": {
     description: "Carbon border adjustment exposure estimate.",

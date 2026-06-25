@@ -183,37 +183,37 @@ export function ProDecisionPanel({
     const paybackVal = computedData.paybackMonths;
 
     if (isOee) {
-      return `Yapılan teknik simülasyon ve mühendislik analizleri neticesinde, üretim hattının mevcut genel ekipman verimliliğinin (OEE) hedeflenen optimal kapasite sınırının oldukça altında kaldığı tespit edilmiştir. Gerçekleşen bu verimsizlik kayıpları yıllık bazda ${fmtCurrency(totalLossVal)} tutarında doğrudan ciro ve marj erozyonuna sebep olmakta ve en büyük kayıp odağının performans ekseninde (mikro duruşlar ve hız sapmaları) yoğunlaştığını göstermektedir. Belirlenen dar boğazlara yapılacak +5 puanlık hedefli mühendislik müdahalesi ve planlı bakım yatırımı, kendisini ${paybackVal} ay gibi son derece makul bir sürede geri ödemekte ve takip eden dönemlerde operasyonel karlılığı sürdürülebilir kılmaktadır.`;
+      return `Based on the technical simulation and engineering analysis, the current overall equipment effectiveness (OEE) of the production line is well below the optimal capacity target. The resulting inefficiency losses cause direct revenue and margin erosion of ${fmtCurrency(totalLossVal)} annually, with the primary loss concentration on the performance axis (micro-stops and speed deviations). A targeted +5 point engineering intervention and planned maintenance investment in the identified bottlenecks would pay for itself within ${paybackVal} months and sustain operational profitability in subsequent periods.`;
     }
     if (activeSlug.includes("cnc") || activeSlug.includes("quote")) {
-      return `CNC parça işleme teklif risk analizi kapsamında, mevcut fiyatlama stratejisinin makine yıpranması, duruş süreleri ve fire paylarını yeterince karşılamadığı saptanmıştır. Bu durum sipariş başına potansiyel olarak ${fmtCurrency(totalLossVal)} tutarında kar sızıntısına yol açmakta ve hedeflenen net marjı ciddi şekilde tehlikeye atmaktadır. Teklif öncesi ideal makine saatlik ücretlerinin güncellenmesi ve duruş toleranslarının fiyatlandırmaya yansıtılması durumunda, yıllık ${fmtCurrency(recoveryVal)} oranında marj koruması sağlanabilmektedir. Yapılacak süreç iyileştirme yatırımı ${paybackVal} aylık operasyonel çevrimle amorti edilerek net karlılığı optimize edecektir.`;
+      return `Within the CNC part processing quote risk analysis, the current pricing strategy was found to insufficiently cover machine wear, downtime, and scrap allowances. This leads to a potential profit leakage of ${fmtCurrency(totalLossVal)} per order and seriously jeopardizes the target net margin. Updating ideal machine hourly rates before quoting and reflecting downtime tolerances in pricing can provide annual margin protection of ${fmtCurrency(recoveryVal)}. The process improvement investment would be amortized within ${paybackVal} months, optimizing net profitability.`;
     }
     if (activeSlug.includes("clean") || activeSlug.includes("bid")) {
-      return `Temizlik hizmeti teklif optimizasyon modeli, personel verimliliği, sarf malzeme maliyetleri ve seyahat yükleri analiz edilerek teklif fiyatının alt limit sınırına yakın olduğunu ortaya koymuştur. Sözleşme süresi boyunca hedeflenen karlılığın korunabilmesi için mevcut risk katsayısının revize edilmesi ve iş gücü planlamasının optimize edilmesi şarttır. Yapılan hassasiyet analizleri, bu iyileştirmelerin yıllık ${fmtCurrency(recoveryVal)} tutarında ek marj kazanımı sağlayacağını ve bütçe sapmalarını en aza indireceğini öngörmektedir. Önerilen optimizasyon stratejisinin devreye alınması, ${paybackVal} aylık operasyonel süreçte hedeflenen ROI oranına ulaşılmasını garanti altına alacaktır.`;
+      return `The cleaning service quote optimization model revealed that the quote price is close to the lower limit when considering labor productivity, consumable costs, and travel overheads. To maintain target profitability throughout the contract period, the current risk coefficient must be revised and workforce planning optimized. Sensitivity analyses indicate these improvements would yield additional annual margin gains of ${fmtCurrency(recoveryVal)} and minimize budget variances. Implementing the recommended optimization strategy would guarantee achieving the target ROI within a ${paybackVal}-month operational cycle.`;
     }
     if (activeSlug.includes("project") || activeSlug.includes("overrun") || activeSlug.includes("construction")) {
-      return `İnşaat ve taşeron proje maliyet analizi, malzeme fiyatlarındaki dalgalanmalar ve iş gücü gecikmelerinden kaynaklanan aşım risklerinin kritik seviyede olduğunu göstermektedir. Projenin genel bütçesinde yıllık bazda ${fmtCurrency(totalLossVal)} tutarında bir aşım potansiyeli saptanmış olup, sözleşmesel güvencelerin ve beklenmedik durum yedeklerinin (contingency buffer) yetersiz olduğu görülmüştür. Tedarik zinciri risklerinin proaktif yönetimi ve taşeron performans takibiyle bu aşım riskinin ${fmtCurrency(recoveryVal)} kadarlık kısmı doğrudan elimine edilebilir durumdadır. Önerilen koruma tedbirleri ${paybackVal} ay içinde kendini amorti edecek şekilde tasarlanmıştır.`;
+      return `The construction and subcontractor project cost analysis shows that overrun risks from material price fluctuations and labor delays are at critical levels. An annual overrun potential of ${fmtCurrency(totalLossVal)} was identified in the overall project budget, with contractual safeguards and contingency buffers found to be insufficient. Through proactive supply chain risk management and subcontractor performance tracking, ${fmtCurrency(recoveryVal)} of this overrun risk can be directly eliminated. The recommended protective measures are designed to amortize within ${paybackVal} months.`;
     }
     if (activeSlug.includes("menu") || activeSlug.includes("food") || activeSlug.includes("restaurant")) {
-      return `Restoran menü ve gıda maliyet sızıntı analizi, porsiyon bazlı fire oranları, tedarik fiyat artışları ve aracı komisyonlarının brüt kar marjını erittiğini teyit etmektedir. Menü genelinde yıllık ${fmtCurrency(totalLossVal)} seviyesinde operasyonel verimsizlik kaynaklı kayıp tespit edilmiş olup, özellikle yüksek satış hacmine sahip ürünlerin yanlış fiyatlandırıldığı görülmüştür. Reçete reçete maliyet kontrolü ve porsiyon kontrol sistemlerinin devreye alınmasıyla yıllık ${fmtCurrency(recoveryVal)} net nakit akışı geri kazanılabilecektir. Bu iyileştirme yatırımı ${paybackVal} ayda geri dönecek olup işletme sermayesini güçlendirecektir.`;
+      return `The restaurant menu and food cost leakage analysis confirms that portion-based waste rates, supply price increases, and intermediary commissions are eroding gross profit margins. Operational inefficiency losses of ${fmtCurrency(totalLossVal)} were identified across the menu, with high-volume products found to be mispriced. Implementing recipe-level cost control and portion control systems can recover ${fmtCurrency(recoveryVal)} in annual net cash flow. This improvement investment would pay back within ${paybackVal} months and strengthen working capital.`;
     }
     if (activeSlug.includes("return") || activeSlug.includes("erosion") || activeSlug.includes("retail")) {
-      return `İade oranları ve perakende kar erozyonu analizi, e-ticaret veya mağazacılık operasyonlarındaki ürün iade maliyetlerinin (kargo, elleçleme ve yeniden stoklama) net marjı baskıladığını göstermektedir. Mevcut iade oranları doğrultusunda yıllık operasyonel kayıp ${fmtCurrency(totalLossVal)} seviyesine ulaşmış olup, bu durum pazarlama bütçelerinin etkinliğini de azaltmaktadır. İade analiz sistemleri ve kalite kontrol adımlarının optimize edilmesi sayesinde ${fmtCurrency(recoveryVal)} tutarında marj sızıntısı engellenebilir ve operasyonel verim artırılabilir. Alınacak önlemler ${paybackVal} aylık dönemde kendini finanse edecektir.`;
+      return `The return rate and retail profit erosion analysis shows that product return costs (shipping, handling, and restocking) in e-commerce or retail operations are compressing net margins. At current return rates, the annual operational loss has reached ${fmtCurrency(totalLossVal)}, also reducing the effectiveness of marketing budgets. By optimizing return analysis systems and quality control steps, ${fmtCurrency(recoveryVal)} in margin leakage can be prevented and operational efficiency improved. The measures would self-finance within a ${paybackVal}-month period.`;
     }
     // Default fallback
-    return `Yapılan teknik karar destek analizi ve risk simülasyonu sonucunda, incelenen operasyonda yıllık bazda yaklaşık ${fmtCurrency(totalLossVal)} tutarında kar sızıntısı ve risk marjı sapması tespit edilmiştir. Mevcut verimsizlik parametrelerinin optimize edilmesiyle yıllık ${fmtCurrency(recoveryVal)} seviyesinde geri kazanım potansiyeli bulunduğu hesaplanmıştır. Önerilen mühendislik ve süreç yönetimi optimizasyon planı, operasyonel bütçe dengesini koruyarak kendini ${paybackVal} ay gibi kısa bir sürede amorti etmektedir. Sürecin her aşamasında veri doğruluğunun teyit edilmesi operasyonel sürdürülebilirlik açısından kritik öneme sahiptir.`;
+    return `As a result of the technical decision support analysis and risk simulation, approximately ${fmtCurrency(totalLossVal)} in annual profit leakage and risk margin deviation was identified in the examined operation. By optimizing current inefficiency parameters, a recovery potential of ${fmtCurrency(recoveryVal)} per year has been calculated. The recommended engineering and process management optimization plan amortizes within ${paybackVal} months while maintaining operational budget balance. Verifying data accuracy at every stage is critical for operational sustainability.`;
   }, [isOee, activeSlug, computedData, locale]);
 
   // Specific 5-line descriptions for Audit Panel sections
-  const tornadoDescription = `Tornado hassasiyet grafiği, OEE ve karlılık üzerinde en yüksek etkiye sahip olan parametreleri hiyerarşik olarak sıralamaktadır. Bu analiz, girdi değişkenlerindeki ±%10'luk dalgalanmaların nihai finansal sonuç üzerindeki kaldıraç etkisini ölçerek, hangi operasyonel parametrenin iyileştirilmesi durumunda en yüksek finansal geri kazanımın sağlanacağını göstermektedir. Mevcut hatta, duruş sürelerinin azaltılması en yüksek duyarlılığa sahip ana etken olarak öne çıkmakta, onu çevrim süresi takip etmektedir. Darboğazların erken teşhisi, kaynakların en yüksek getiri sağlayacak noktalara tahsis edilmesine olanak tanımaktadır.`;
+  const tornadoDescription = `The tornado sensitivity graph hierarchically ranks the parameters with the highest impact on OEE and profitability. This analysis measures the leverage effect of ±10% fluctuations in input variables on the final financial outcome, showing which operational parameter would yield the highest financial recovery if improved. On the current line, reducing downtime stands out as the primary factor with the highest sensitivity, followed by cycle time. Early bottleneck identification enables resource allocation to the highest-return areas.`;
 
-  const assumptionsDescription = `Varsayım defteri, simülasyonda kullanılan girdi ve sabit değerlerin güvenilirlik derecesini mühendislik standartlarına göre doğrulamaktadır. KESİN etiketli değerler uluslararası standartlardan (örn. IEC 60034) alınmış sabitleri, GÜÇLÜ etiketli değerler operatör beyanları ve kalibre edilmiş ölçüm cihazı verilerini, VARSAYIM etiketli olanlar ise saha geçmişine dayanan geçici kabulleri ifade etmektedir. Güven seviyesini artırmak için VARSAYIM statüsündeki değerlerin sürekli ölçümlerle güncellenmesi önerilir. Her veri kaynağının metodolojik doğrulaması, teknik simülasyon güvenilirliğini artırmaktadır.`;
+  const assumptionsDescription = `The assumptions ledger validates the reliability of inputs and constants used in the simulation according to engineering standards. CONFIRMED values are constants from international standards (e.g., IEC 60034), STRONG values are operator declarations and calibrated measurement data, and ASSUMED values are temporary estimates based on site history. To increase confidence levels, ASSUMED status values should be updated with continuous measurements. Methodological validation of each data source enhances technical simulation reliability.`;
 
-  const risksDescription = `Risk eşikleri analizi, operasyonel parametrelerin endüstriyel standart limitleriyle (Lean alt sınırları) karşılaştırılması sonucu üretilen alarmları göstermektedir. Kalite parametresi %95 barajının üzerinde kalarak güvenli bölgede yer alırken, performans parametresinin %86,9 seviyesinde kalması kritik risk olarak işaretlenmiştir. Bu durum, hatta mikro duruşların ve hız kayıplarının yaygın olduğuna işaret etmekte ve acil mühendislik müdahalesi gerektiren öncelikli alanları tanımlamaktadır. Eşik değer aşımları, doğrudan finansal kayıpları tetikleyen operasyonel darboğazları simgelemektedir.`;
+  const risksDescription = `The risk threshold analysis displays alarms generated by comparing operational parameters against industrial standard limits (Lean lower bounds). While the quality parameter remains above the 95% threshold in the safe zone, the performance parameter at 86.9% is flagged as a critical risk. This indicates widespread micro-stops and speed losses on the line, identifying priority areas requiring urgent engineering intervention. Threshold exceedances represent operational bottlenecks that directly trigger financial losses.`;
 
-  const benchmarkDescription = `Sektör kıyaslama (benchmark) modülü, hattınızın genel ekipman etkinliğini (OEE) aynı imalat dalındaki global benzer tesis verileriyle karşılaştırmaktadır. Elde ettiğiniz ${fmtPercent(computedData.oeeScore * 100)}'lik skor, sektör medyanı olan %79,5'in altında kalarak rekabetçi pazar koşullarında verimsizlik yaşadığınızı doğrulamaktadır. Üst %25'lik dilimde yer alan lider üreticilerin %87,0'lık dünya standartlarındaki OEE seviyesine ulaşabilmek için dar boğaz yönetimi ve TPM uygulamalarının devreye alınması gerekmektedir. Global standartlara yakınsama, birim maliyetleri düşürerek pazar payını artırma fırsatı sunar.`;
+  const benchmarkDescription = `The industry benchmark module compares your line's overall equipment effectiveness (OEE) against global similar facility data in the same manufacturing sector. Your score of ${fmtPercent(computedData.oeeScore * 100)} falls below the industry median of 79.5%, confirming inefficiency in competitive market conditions. To reach the world-class OEE level of 87.0% achieved by top-quartile leading manufacturers, bottleneck management and TPM practices must be implemented. Convergence to global standards offers the opportunity to reduce unit costs and increase market share.`;
 
-  const leakDescription = `Hesaplanan yıllık operasyonel kayıp tutarı, duruş sürelerinin, performans kayıplarının ve kalite firelerinin toplam maliyetini yansıtmaktadır. Bu değer, günde 8 saatlik çalışma periyodu ve 250 iş günü baz alınarak, kayıp üretim saatlerinin birim katkı payı ve yüklenmiş makine saat maliyetiyle çarpılması sonucu hassasiyet analiziyle hesaplanmıştır. Tesis genelindeki gizli maliyetlerin görünür kılınması, marj koruma aksiyonlarının gerekçelendirilmesi için temel teşkil etmektedir. Hesaplama modeli VDI 2067 ve IEC normları dikkate alınarak geliştirilmiştir.`;
+  const leakDescription = `The calculated annual operational loss reflects the total cost of downtime, performance losses, and quality scrap. This value is calculated through sensitivity analysis based on an 8-hour work period per day and 250 working days, multiplying lost production hours by unit contribution margin and loaded machine hour cost. Making hidden plant-wide costs visible provides the foundation for justifying margin protection actions. The calculation model was developed considering VDI 2067 and IEC standards.`;
 
   // Compute Tornado bar widths
   const torAvailabilityWidth = Math.min(80, (computedData.annualAvailabilityLoss / Math.max(1, computedData.totalLoss)) * 100);
@@ -230,27 +230,27 @@ export function ProDecisionPanel({
           <div className="id">
             <span className="dot"></span>
             {isOee ? (
-              <>OEE <b>{fmtPercent(computedData.oeeScore * 100)}</b> · hedef altı</>
+              <>OEE <b>{fmtPercent(computedData.oeeScore * 100)}</b> · below target</>
             ) : (
-              <>Karar Analizi <b>PRO</b> · aktif</>
+              <>Decision Analysis <b>PRO</b> · active</>
             )}
           </div>
-          <div className="alab">Yıllık operasyonel kayıp</div>
+          <div className="alab">Annual operational loss</div>
           <div className="anchor">{fmtCurrency(computedData.totalLoss)}</div>
           <div className="asub">
-            Bu hattın etkinlik kaybının para karşılığı. <b>{fmtCurrency(computedData.recoveryPotential)}/yıl geri kazanılabilir.</b>
+            The monetary value of this line&apos;s efficiency loss. <b>{fmtCurrency(computedData.recoveryPotential)}/yr recoverable.</b>
           </div>
           <div className="kpis">
             <div>
-              <div className="kl">Geri kazanım</div>
+              <div className="kl">Recovery</div>
               <div className="kv g">{fmtCurrency(computedData.recoveryPotential).replace(".00", "")}</div>
             </div>
             <div>
               <div className="kl">Payback</div>
-              <div className="kv">{computedData.paybackMonths} ay</div>
+              <div className="kv">{computedData.paybackMonths} mo</div>
             </div>
             <div>
-              <div className="kl">ROI · 3 yıl</div>
+              <div className="kl">ROI · 3 yr</div>
               <div className="kv g">{Math.round(computedData.roiPercent)}%</div>
             </div>
             <div>
@@ -260,24 +260,24 @@ export function ProDecisionPanel({
           </div>
         </div>
         <div className="right">
-          <div className="vl">⬢ Karar özeti</div>
+          <div className="vl">⬢ Decision summary</div>
           <div className="vtext">{summaryText}</div>
-          <span className="stamp">KARAR · YATIRIM GEREKÇELİ</span>
+          <span className="stamp">DECISION · INVESTMENT JUSTIFIED</span>
           <div className="cta">
             <button
               onClick={() => window.print()}
               className="pdf"
             >
-              Raporu Yazdır / PDF İndir ↓
+              Print Report / Download PDF ↓
             </button>
             <button
               onClick={() => {
                 navigator.clipboard.writeText(window.location.href);
-                alert("Bağlantı panoya kopyalandı!");
+                alert("Link copied to clipboard!");
               }}
               className="share"
             >
-              Bağlantıyı Kopyala
+              Copy Link
             </button>
           </div>
           <div className="inline-flex items-center gap-1.5 mt-3 rounded-full border border-[#C45A2C]/20 bg-[#C45A2C]/5 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#C45A2C]">
@@ -293,20 +293,20 @@ export function ProDecisionPanel({
       <div className="pro-decision-body">
         {/* LEFT COLUMN */}
         <div className="col">
-          <h2><span className="n">A</span>Senaryo karşılaştırması</h2>
+          <h2><span className="n">A</span>Scenario comparison</h2>
           <div className="pro-decision-panel" style={{ marginBottom: "28px" }}>
             <div className="pro-decision-scen">
               <div className="pro-decision-scen-head">
-                <div>Senaryo</div>
-                <div>{isOee ? "OEE" : "Etkinlik"}</div>
-                <div>Yıllık Etki</div>
+                <div>Scenario</div>
+                <div>{isOee ? "OEE" : "Efficiency"}</div>
+                <div>Annual Impact</div>
                 <div>ROI</div>
                 <div>Not</div>
               </div>
               <div className="pro-decision-scen-row">
                 <div className="lab">
-                  Kötü
-                  <small>P10 · belirsizlik alt sınırı</small>
+                  Worst
+                  <small>P10 · uncertainty lower bound</small>
                 </div>
                 <div className="sc red">
                   {isOee ? fmtPercent(computedData.worstOee * 100) : "−%10"}
@@ -315,12 +315,12 @@ export function ProDecisionPanel({
                   −{isOee ? fmtCurrency(computedData.worstTotalLoss) : fmtCurrency(computedData.totalLoss * 1.2)}
                 </div>
                 <div className="sc">—</div>
-                <div style={{ fontSize: "12px", color: "var(--sc-muted)" }}>Risk tamponu</div>
+                <div style={{ fontSize: "12px", color: "var(--sc-muted)" }}>Risk buffer</div>
               </div>
               <div className="pro-decision-scen-row">
                 <div className="lab">
-                  Mevcut
-                  <small>bugünkü ölçüm</small>
+                  Current
+                  <small>current measurement</small>
                 </div>
                 <div className="sc">
                   {isOee ? fmtPercent(computedData.oeeScore * 100) : "%100"}
@@ -329,12 +329,12 @@ export function ProDecisionPanel({
                   −{fmtCurrency(computedData.totalLoss)}
                 </div>
                 <div className="sc">—</div>
-                <div style={{ fontSize: "12px", color: "var(--sc-muted)" }}>Başlangıç</div>
+                <div style={{ fontSize: "12px", color: "var(--sc-muted)" }}>Baseline</div>
               </div>
               <div className="pro-decision-scen-row target">
                 <div className="lab">
-                  Hedef
-                  <small>önerilen optimizasyon</small>
+                  Target
+                  <small>recommended optimization</small>
                 </div>
                 <div className="sc green">
                   {isOee ? fmtPercent(computedData.targetOee) : "+%5"}
@@ -345,7 +345,7 @@ export function ProDecisionPanel({
                 <div className="sc green">
                   {Math.round(computedData.roiPercent)}%
                 </div>
-                <div style={{ fontSize: "12px", color: "var(--sc-copper)", fontWeight: 600 }}>Önerilen</div>
+                <div style={{ fontSize: "12px", color: "var(--sc-copper)", fontWeight: 600 }}>Recommended</div>
               </div>
             </div>
           </div>
@@ -353,7 +353,7 @@ export function ProDecisionPanel({
           <h2><span className="n">B</span>Parasal etki ve Analiz</h2>
           <div className="pro-decision-leak">
             <div>
-              <div className="ll">Yıllık operasyonel kayıp</div>
+              <div className="ll">Annual operational loss</div>
               <div className="lv" style={{ marginTop: "8px" }}>{fmtCurrency(computedData.totalLoss)}</div>
             </div>
             <div className="lr" style={{ minHeight: "100px" }}>{leakDescription}</div>
@@ -361,11 +361,11 @@ export function ProDecisionPanel({
           
           <div className="pro-decision-money-grid">
             <div>
-              <div className="ml">Geri kazanım pot.</div>
+              <div className="ml">Recovery potential</div>
               <div className="mv g">{fmtCurrency(computedData.recoveryPotential)}</div>
             </div>
             <div>
-              <div className="ml">Müdahale TCO</div>
+              <div className="ml">Intervention TCO</div>
               <div className="mv r">{fmtCurrency(computedData.tco)}</div>
             </div>
             <div>
@@ -373,15 +373,15 @@ export function ProDecisionPanel({
               <div className="mv">{computedData.paybackMonths} ay</div>
             </div>
             <div>
-              <div className="ml">ROI · 3 yıl</div>
+              <div className="ml">ROI · 3 yr</div>
               <div className="mv g">{Math.round(computedData.roiPercent)}%</div>
             </div>
             <div>
-              <div className="ml">Bütçe aşımı riski</div>
+              <div className="ml">Budget overrun risk</div>
               <div className="mv r">±18%</div>
             </div>
             <div>
-              <div className="ml">Net bugünkü değer</div>
+              <div className="ml">Net present value</div>
               <div className="mv g">{fmtCurrency(computedData.npvValue)}</div>
             </div>
           </div>
@@ -394,8 +394,8 @@ export function ProDecisionPanel({
             <div className="pro-decision-ap-head">
               <div className="ic">⚙</div>
               <div>
-                <div className="t">Sonucun arkasındaki ispat</div>
-                <div className="s">Mühendis doğrulaması için açık</div>
+                <div className="t">Evidence behind the result</div>
+                <div className="s">Open for engineering verification</div>
               </div>
             </div>
 
@@ -403,11 +403,11 @@ export function ProDecisionPanel({
             <div className="pro-decision-ap-sec">
               <div className="sh">
                 <span className="n">01</span>
-                <h4>Tornado · Etki sırası hassasiyeti</h4>
+                <h4>Tornado · Impact sensitivity ranking</h4>
               </div>
               <div className="pro-decision-tornado" style={{ marginBottom: "16px" }}>
                 <div className="pro-decision-tor-row">
-                  <div className="lbl">Duruş Süresi</div>
+                  <div className="lbl">Downtime</div>
                   <div className="pro-decision-tor-bar">
                     <div className="center"></div>
                     <div className="neg" style={{ width: `${torAvailabilityWidth}%` }}></div>
@@ -415,7 +415,7 @@ export function ProDecisionPanel({
                   </div>
                 </div>
                 <div className="pro-decision-tor-row">
-                  <div className="lbl">İdeal Çevrim</div>
+                  <div className="lbl">Ideal Cycle</div>
                   <div className="pro-decision-tor-bar">
                     <div className="center"></div>
                     <div className="neg" style={{ width: `${torPerformanceWidth}%` }}></div>
@@ -423,7 +423,7 @@ export function ProDecisionPanel({
                   </div>
                 </div>
                 <div className="pro-decision-tor-row">
-                  <div className="lbl">Hatalı Adet</div>
+                  <div className="lbl">Defect Count</div>
                   <div className="pro-decision-tor-bar">
                     <div className="center"></div>
                     <div className="neg" style={{ width: `${torQualityWidth}%` }}></div>
@@ -432,8 +432,8 @@ export function ProDecisionPanel({
                 </div>
               </div>
               <div className="pro-decision-tor-leg">
-                <span className="d">Etkinliği Düşürür</span>
-                <span className="u">Etkinliği Artırır</span>
+                <span className="d">Reduces Efficiency</span>
+                <span className="u">Increases Efficiency</span>
               </div>
               <p className="mt-4 text-xs leading-relaxed text-text-secondary" style={{ marginTop: "1rem" }}>
                 {tornadoDescription}
@@ -444,33 +444,33 @@ export function ProDecisionPanel({
             <div className="pro-decision-ap-sec">
               <div className="sh">
                 <span className="n">02</span>
-                <h4>Varsayım defteri doğrulaması</h4>
+                <h4>Assumptions ledger validation</h4>
               </div>
               <div className="pro-decision-ledger" style={{ marginBottom: "16px" }}>
                 <div className="pro-decision-led-row">
                   <div className="pro-decision-led-main">
                     <div className="pro-decision-led-name">
-                      İdeal çevrim <span className="pro-decision-conf guclu">GÜÇLÜ</span>
+                      Ideal cycle <span className="pro-decision-conf guclu">STRONG</span>
                     </div>
-                    <div className="pro-decision-led-src">Operatör beyanı</div>
+                    <div className="pro-decision-led-src">Operator declaration</div>
                   </div>
                   <div className="pro-decision-led-val">{isOee ? `${(computedData.downtimeHours / computedData.plannedHours * 60).toFixed(1)} dk` : "0.6 dk"}</div>
                 </div>
                 <div className="pro-decision-led-row">
                   <div className="pro-decision-led-main">
                     <div className="pro-decision-led-name">
-                      Perf. tavanı <span className="pro-decision-conf kesin">KESİN</span>
+                      Perf. ceiling <span className="pro-decision-conf kesin">CONFIRMED</span>
                     </div>
-                    <div className="pro-decision-led-src">IEC 60034 standartı</div>
+                    <div className="pro-decision-led-src">IEC 60034 standard</div>
                   </div>
                   <div className="pro-decision-led-val">1.00</div>
                 </div>
                 <div className="pro-decision-led-row">
                   <div className="pro-decision-led-main">
                     <div className="pro-decision-led-name">
-                      Mikro-duruş <span className="pro-decision-conf varsayim">VARSAYIM</span>
+                      Micro-stop <span className="pro-decision-conf varsayim">ASSUMED</span>
                     </div>
-                    <div className="pro-decision-led-src">Varsayılan duraklamalar</div>
+                    <div className="pro-decision-led-src">Default pauses</div>
                   </div>
                   <div className="pro-decision-led-val">2.0 dk</div>
                 </div>
@@ -484,25 +484,25 @@ export function ProDecisionPanel({
             <div className="pro-decision-ap-sec">
               <div className="sh">
                 <span className="n">03</span>
-                <h4>Risk tolerans eşikleri</h4>
+                <h4>Risk tolerance thresholds</h4>
               </div>
               <div style={{ marginBottom: "16px" }}>
                 <div className="pro-decision-risk danger">
                   <div className="ic">!</div>
                   <div className="rtext">
-                    <b>Performans {fmtPercent(computedData.performance)}</b> — hedef %95 altında risk teşkil ediyor.
+                    <b>Performance {fmtPercent(computedData.performance)}</b> — below 95% target, posing risk.
                   </div>
                 </div>
                 <div className="pro-decision-risk warn">
                   <div className="ic">!</div>
                   <div className="rtext">
-                    <b>Kullanılabilirlik {fmtPercent(computedData.availability)}</b> — duruş payı planlanandan yüksek.
+                    <b>Availability {fmtPercent(computedData.availability)}</b> — downtime allowance exceeds plan.
                   </div>
                 </div>
                 <div className="pro-decision-risk ok">
                   <div className="ic">✓</div>
                   <div className="rtext">
-                    <b>Kalite {fmtPercent(computedData.quality)}</b> — kabul edilebilir tolerans aralığında.
+                    <b>Quality {fmtPercent(computedData.quality)}</b> — within acceptable tolerance range.
                   </div>
                 </div>
               </div>
@@ -515,11 +515,11 @@ export function ProDecisionPanel({
             <div className="pro-decision-ap-sec">
               <div className="sh">
                 <span className="n">04</span>
-                <h4>Sektörel benchmark konumlandırma</h4>
+                <h4>Industry benchmark positioning</h4>
               </div>
               <div className="pro-decision-bench-row">
                 <div className="bl">
-                  <span className="who">Sizin Hattınız</span>
+                  <span className="who">Your Line</span>
                   <span className="bv" style={{ color: "var(--sc-copper)" }}>{fmtPercent(computedData.oeeScore * 100)}</span>
                 </div>
                 <div className="pro-decision-bench-track">
@@ -528,7 +528,7 @@ export function ProDecisionPanel({
               </div>
               <div className="pro-decision-bench-row">
                 <div className="bl">
-                  <span className="who">Sektör Medyanı</span>
+                  <span className="who">Industry Median</span>
                   <span className="bv" style={{ color: "var(--sc-muted)" }}>79.5%</span>
                 </div>
                 <div className="pro-decision-bench-track">
@@ -537,7 +537,7 @@ export function ProDecisionPanel({
               </div>
               <div className="pro-decision-bench-row">
                 <div className="bl">
-                  <span className="who">Üst %25 Sınıfı</span>
+                  <span className="who">Top 25% Class</span>
                   <span className="bv" style={{ color: "var(--sc-success)" }}>87.0%</span>
                 </div>
                 <div className="pro-decision-bench-track">

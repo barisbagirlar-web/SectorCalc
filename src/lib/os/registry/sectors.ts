@@ -1,6 +1,6 @@
 /**
- * Sector registry — IndustrialRegistry kaynağından türetilir.
- * UI: t("sector.cnc.title") veya entry.name fallback
+ * Sector registry — derived from IndustrialRegistry source.
+ * UI: t("sector.cnc.title") or entry.name fallback
  */
 
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
@@ -41,7 +41,7 @@ export type SectorParamTriple = IndustrialParamTriple;
 export type { ExpertFeatureKey, SectorExpertFeatures, SmartModuleId };
 
 export interface SectorEntry {
-  /** i18n kök — örn. sector.cnc */
+  /** i18n root — e.g. sector.cnc */
   key: string;
   /** Dynamic localized names from registry */
   names: LocalizedSectorName;
@@ -50,9 +50,9 @@ export interface SectorEntry {
   unitType: SectorUnitType;
   defaultTolerance: number;
   params: SectorParamTriple;
-  /** Aktif Smart Module kimlikleri */
+  /** Active Smart Module IDs */
   features: readonly SmartModuleId[];
-  /** Intelligence Layer UI — features türevi (geriye dönük) */
+  /** Intelligence Layer UI — derived from features (backward-compat) */
   expertFeatures: SectorExpertFeatures;
 }
 
@@ -214,7 +214,7 @@ export function resolveSectorTitle(
   return translated;
 }
 
-/** i18n varsa çeviri, yoksa okunabilir param etiketi. */
+/** Translation if i18n available, otherwise readable param label. */
 export function resolveSectorParamLabel(
   entry: SectorEntry,
   paramKey: string,

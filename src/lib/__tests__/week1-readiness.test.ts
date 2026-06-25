@@ -48,7 +48,7 @@ describe("week-1 optimization readiness", () => {
     expect(manifest.some((item) => item.path === "/pricing")).toBe(true);
   });
 
-  test("tier-1 URL dokümanı var", () => {
+  test("tier-1 URL document exists", () => {
     const matrix = readDoc("week-1-priority-url-matrix.md");
     expect(matrix).toContain("/tools/free/oee-calculator");
     expect(matrix).toContain("/tools/premium-schema/cnc-oee-loss");

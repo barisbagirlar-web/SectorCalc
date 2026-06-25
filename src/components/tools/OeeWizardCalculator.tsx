@@ -1,5 +1,4 @@
 "use client";
-// @ts-nocheck
 
 import { useState, useMemo, useEffect } from "react";
 
@@ -515,8 +514,6 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                       : calculations.quality
                   )}
                   ).
-                </>
-              )}
             </p>
 
             <p className="text-sm text-text-primary/30 select-none blur-sm pointer-events-none mb-3 leading-relaxed">

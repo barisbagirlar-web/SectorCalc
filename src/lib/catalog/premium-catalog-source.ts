@@ -5,7 +5,7 @@ import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-res
 
 export function normalizeToolSearchText(value: string): string {
   return value
-    .toLocaleLowerCase("tr")
+    .toLowerCase()
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "");
 }
@@ -38,27 +38,21 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
   [SEVEN_MUDA_SLUG]: {
     categoryId: "lean-production",
     titles: {
-      tr: "7 Muda Maliyet Hesaplayıcı",
       en: "7 Muda Waste Cost Calculator",
     },
     descriptions: {
-      tr: "7 İsraf (Muda) türlerinin parasal karşılığını hesaplar.",
       en: "Calculates the monetary cost of the seven Muda waste types.",
     },
     searchTerms: [
       "7 muda",
       "muda",
-      "7 israf",
-      "israf",
-      "maliyet",
-      "parasal karşılık",
       "waste cost",
       "lean waste",
       "seven muda",
       "seven wastes",
     ],
     aliases: ["7 wastes", "seven muda wastes", "lean muda"],
-    keywords: ["lean", "waste", "muda", "israf", "maliyet"],
+    keywords: ["lean", "waste", "muda"],
   },
 };
 

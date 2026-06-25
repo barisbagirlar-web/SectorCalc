@@ -2,12 +2,12 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
   id: "mfg-513",
-  name: "Altı Sigma Proje Seçimi ve Yatırım Önceliklendirme Hesaplayıcı",
+  name: "Six Sigma Project Selection and Investment Prioritization Calculator",
   sectorSlug: "manufacturing",
   category: "oee",
   legacyPaidSlug: "alti-sigma-proje-secimi-ve-yatirim-onceliklendirme-calculator",
   painStatement:
-    "Altı Sigma projelerinin tahmini getiri, başarı olasılığı, süre ve maliyet bazında değerlendirilerek önceliklendirilmesini sağlar.",
+    "Evaluate and prioritize Six Sigma projects based on estimated return, success probability, duration, and cost.",
 
   inputs: [],
 
@@ -19,13 +19,13 @@ export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
       warning: 20,
       critical: 10,
       direction: "lower_is_bad",
-      warningMessage: "Proje skoru düşük. Yüksek maliyetli veya uzun süreli projeler yerine hızlı kazanımlara (quick wins) odaklanabilirsiniz.",
-      criticalMessage: "Kritik derecede düşük skor! Projenin maliyeti ve süresi, beklenen getiriye kıyasla çok yüksek. Proje kapsamını daraltın veya iptal edin.",
+      warningMessage: "Project score is low. Consider focusing on quick wins instead of high-cost or long-duration projects.",
+      criticalMessage: "Critically low score! Project cost and duration are too high relative to expected return. Reduce scope or cancel the project.",
     },
   ],
 
   reportTemplate: {
-    title: "Altı Sigma Proje Önceliklendirme Raporu",
+    title: "Six Sigma Project Prioritization Report",
     sections: [
       "executive_summary",
       "thresholds",
@@ -40,9 +40,9 @@ export const SIX_SIGMA_PROJECT_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
     volatilityPercent: 0,
     targetMarginPercent: 0,
     assumptionNotes: [
-      "Skor = (Tahmini Yıllık Tasarruf × Başarı Olasılığı) / (Süre × Kaynak Maliyeti).",
-      "Başarı olasılığı % olarak girilir ancak hesaplamada ondalık (örn: 0.75) olarak kullanılır.",
-      "Yüksek skor, projenin daha yüksek öncelikli olduğunu gösterir.",
+      "Score = (Estimated Annual Savings x Success Probability) / (Duration x Resource Cost).",
+      "Success probability is entered as a percentage but used as a decimal (e.g., 0.75) in calculations.",
+      "Higher score indicates higher project priority.",
     ],
   },
 };

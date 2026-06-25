@@ -22,7 +22,6 @@ export type GlobalToolCategorySlug =
 
 export type GlobalToolCategory = {
   readonly slug: GlobalToolCategorySlug;
-  readonly trTitle: string;
   readonly enTitle: string;
   readonly iconKey: string;
   readonly summary: string;
@@ -32,162 +31,142 @@ export type GlobalToolCategory = {
 const GLOBAL_CATEGORIES: readonly GlobalToolCategory[] = [
   {
     slug: "lean-production",
-    trTitle: "Yalın Üretim ve Hat Verimliliği",
     enTitle: "Lean Production & Line Efficiency",
     iconKey: "flow",
-    summary: "SMED, Kanban, VSM, Kaizen, Andon ve hat dengeleme araçları.",
+    summary: "SMED, Kanban, VSM, Kaizen, Andon and line balancing tools.",
     premiumSeedCount: 21
   },
   {
     slug: "quality-six-sigma",
-    trTitle: "Kalite, SPC ve Altı Sigma",
     enTitle: "Quality, SPC & Six Sigma",
     iconKey: "quality",
-    summary: "Cpk/Ppk, MSA, HTEA, SPC, Taguchi, RTY ve kalite proje seçimi.",
+    summary: "Cpk/Ppk, MSA, FMEA, SPC, Taguchi, RTY and quality project selection.",
     premiumSeedCount: 8
   },
   {
     slug: "process-chemical",
-    trTitle: "Proses, Kimya ve Akışkanlar",
     enTitle: "Process, Chemical & Fluids",
     iconKey: "flask",
-    summary: "Parti verimi, kütle dengesi, pompa kaybı, harmanlama ve emniyet ventili.",
+    summary: "Batch yield, mass balance, pump loss, blending and safety valve.",
     premiumSeedCount: 6
   },
   {
     slug: "cnc-additive-manufacturing",
-    trTitle: "CNC, 3B Baskı ve İleri İmalat",
     enTitle: "CNC, 3D Printing & Advanced Manufacturing",
     iconKey: "cnc",
-    summary: "CNC süre, takım ömrü, 3B baskı, talaş, bağlama aparatı ve işleme stratejileri.",
+    summary: "CNC time, tool life, 3D printing, chip load, fixture and machining strategies.",
     premiumSeedCount: 12
   },
   {
     slug: "metal-plastics-forming",
-    trTitle: "Sac Metal, Döküm, Plastik ve Şekillendirme",
     enTitle: "Sheet Metal, Casting, Plastics & Forming",
     iconKey: "metal",
-    summary: "Nesting fire, döküm verimi, enjeksiyon çevrimi, pres kuvveti ve büküm geri esneme.",
+    summary: "Nesting rate, casting yield, injection cycle, press force and bend springback.",
     premiumSeedCount: 6
   },
   {
     slug: "project-construction-management",
-    trTitle: "Proje, Şantiye ve İnşaat Yönetimi",
     enTitle: "Project, Site & Construction Management",
     iconKey: "build",
-    summary: "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları.",
+    summary: "EVM, CPM, resource leveling, contract risk, progress payment, mobilization and site decisions.",
     premiumSeedCount: 10
   },
   {
     slug: "digital-factory-automation",
-    trTitle: "Dijital Fabrika ve Otomasyon",
     enTitle: "Digital Factory & Automation",
     iconKey: "automation",
-    summary: "IoT, dijital ikiz, cobot, AGV, enerji izleme ve kağıtsız üretim ROI araçları.",
+    summary: "IoT, digital twin, cobot, AGV, energy monitoring and paperless production ROI tools.",
     premiumSeedCount: 6
   },
   {
     slug: "maintenance-reliability",
-    trTitle: "Bakım, Arıza ve Güvenilirlik",
     enTitle: "Maintenance & Reliability",
     iconKey: "maintenance",
-    summary: "MTBF/MTTR, yedek parça, koruyucu bakım, RCA ve kritiklik matrisi.",
+    summary: "MTBF/MTTR, spare parts, preventive maintenance, RCA and criticality matrix.",
     premiumSeedCount: 5
   },
   {
     slug: "hse-ergonomics",
-    trTitle: "İSG, Ergonomi ve Risk Maliyeti",
     enTitle: "HSE, Ergonomics & Risk Cost",
     iconKey: "shield",
-    summary: "Kaza maliyeti, İSG yatırımı, gürültü/titreşim ve ergonomi kayıpları.",
+    summary: "Accident cost, HSE investment, noise/vibration and ergonomic losses.",
     premiumSeedCount: 4
   },
   {
     slug: "procurement-supply-chain",
-    trTitle: "Tedarik, Satınalma ve Lojistik",
     enTitle: "Procurement, Supply Chain & Logistics",
     iconKey: "truck",
-    summary: "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik.",
+    summary: "Supplier TCO, transport mode, MOQ, import/local risk, warehousing and reverse logistics.",
     premiumSeedCount: 9
   },
   {
     slug: "workforce-hr",
-    trTitle: "İş Gücü, Vardiya ve İnsan Kaynağı",
     enTitle: "Workforce, Shift & HR Cost",
     iconKey: "people",
-    summary: "Turnover, vardiya, prim, eğitim ROI ve fazla mesai/yeni işe alım kararı.",
+    summary: "Turnover, shift, bonus, training ROI and overtime/hire decision.",
     premiumSeedCount: 5
   },
   {
     slug: "finance-sales-working-capital",
-    trTitle: "Finans, Satış ve İşletme Sermayesi",
     enTitle: "Finance, Sales & Working Capital",
     iconKey: "finance",
-    summary: "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği.",
+    summary: "CLV/CAC, churn, channel profitability, warranty, cash cycle, hedging, leasing, maturity and price elasticity.",
     premiumSeedCount: 9
   },
   {
     slug: "sustainability-resource-esg",
-    trTitle: "Sürdürülebilirlik, Kaynak ve ESG",
     enTitle: "Sustainability, Resources & ESG",
     iconKey: "leaf",
-    summary: "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları.",
+    summary: "Water, waste, ISO 50001, circular economy, solar/wind, CBAM and Scope emissions.",
     premiumSeedCount: 7
   },
   {
     slug: "food-cold-chain-hygiene",
-    trTitle: "Gıda, Soğuk Zincir ve Hijyen",
     enTitle: "Food, Cold Chain & Hygiene",
     iconKey: "food",
-    summary: "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı.",
+    summary: "Shelf life, recipe cost, HACCP, cold chain, restaurant plate cost and hygiene chemical.",
     premiumSeedCount: 6
   },
   {
     slug: "textile-print-lab",
-    trTitle: "Tekstil, Baskı ve Laboratuvar",
     enTitle: "Textile, Printing & Laboratory",
     iconKey: "lab",
-    summary: "Kumaş serim, dikim hattı, boya/apre, baskı fire ve laboratuvar analiz maliyeti.",
+    summary: "Fabric spreading, sewing line, dyeing/finishing, print waste and lab analysis cost.",
     premiumSeedCount: 5
   },
   {
     slug: "electrical-power-systems",
-    trTitle: "Elektrik, Pano ve Güç Sistemleri",
     enTitle: "Electrical, Panel & Power Systems",
     iconKey: "electric",
-    summary: "Pano ısı yükü, kablo kesiti, kompanzasyon, jeneratör ve UPS kapasite seçimi.",
+    summary: "Panel heat load, cable cross-section, compensation, generator and UPS capacity selection.",
     premiumSeedCount: 4
   },
   {
     slug: "mechanical-hvac-energy-loss",
-    trTitle: "Mekanik, HVAC ve Enerji Kayıpları",
     enTitle: "Mechanical, HVAC & Energy Loss",
     iconKey: "energy",
-    summary: "Kaynak maliyeti, lehim, yapıştırıcı, ısı yükü, kanal, yalıtım, buhar, eşanjör, vakum ve hidrolik sistemler.",
+    summary: "Welding cost, solder, adhesive, heat load, duct, insulation, steam, heat exchanger, vacuum and hydraulic systems.",
     premiumSeedCount: 10
   },
   {
     slug: "packaging-local-business",
-    trTitle: "Ambalaj ve Yerel İşletme Araçları",
     enTitle: "Packaging & Local Business Tools",
     iconKey: "box",
-    summary: "Ambalaj hacmi, malzeme değişimi, palet konfigürasyonu ve oto servis teklif tutarlılığı.",
+    summary: "Packaging volume, material substitution, pallet configuration and auto service quote consistency.",
     premiumSeedCount: 4
   },
   {
     slug: "global-compliance-trade",
-    trTitle: "Global Uyum, Ticaret ve Vergi",
     enTitle: "Global Compliance, Trade & Tax",
     iconKey: "globe",
-    summary: "Veri/gizlilik, IFRS/SOX, AML/KYC, tedarik zinciri riski, transfer pricing, FTA ve ülke risk primi.",
+    summary: "Data/privacy, IFRS/SOX, AML/KYC, supply chain risk, transfer pricing, FTA and country risk premium.",
     premiumSeedCount: 7
   },
   {
     slug: "technology-ai-cloud-cyber",
-    trTitle: "Teknoloji, AI, Bulut ve Siber Risk",
     enTitle: "Technology, AI, Cloud & Cyber Risk",
     iconKey: "chip",
-    summary: "Bulut maliyeti, SaaS sivil risk, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik.",
+    summary: "Cloud cost, SaaS civil risk, AI token, automation ROI, EU AI Act, EOR, localization and cyber security.",
     premiumSeedCount: 8
   }
 ];
@@ -210,12 +189,9 @@ export function listGlobalCategories(): readonly GlobalToolCategory[] {
 }
 
 export function resolveGlobalCategoryTitle(
-  category: Pick<GlobalToolCategory, "trTitle" | "enTitle">,
-  locale: string,
+  category: Pick<GlobalToolCategory, "enTitle">,
+  _locale?: string,
 ): string {
-  if (locale === "tr") {
-    return category.trTitle;
-  }
   return category.enTitle;
 }
 

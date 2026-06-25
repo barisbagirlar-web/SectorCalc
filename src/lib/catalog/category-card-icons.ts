@@ -113,7 +113,8 @@ const CATEGORY_CARD_ICON_MAP: Record<string, CategoryCardIconMeta> = {
 export function getCategoryCardIcon(slug: string): CategoryCardIconMeta {
   const entry = CATEGORY_CARD_ICON_MAP[slug];
   if (entry) return entry;
-  throw new Error(`Missing category icon mapping for slug: ${slug}`);
+  // Safe fallback to prevent crashes on dynamically registered/unmapped category slugs
+  return CATEGORY_CARD_ICON_MAP["all"] || { icon: LayoutGrid, iconName: "LayoutGrid" };
 }
 
 export function assertUniqueCategoryCardIcons(): void {

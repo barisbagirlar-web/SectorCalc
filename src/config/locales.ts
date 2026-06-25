@@ -1,4 +1,4 @@
-export type LocaleCode = "en" | "tr" | "de" | "ar" | "pt" | "es" | "fr";
+export type LocaleCode = "en";
 
 export interface LocaleConfig {
  code: LocaleCode;
@@ -22,60 +22,6 @@ export const LOCALES: Record<LocaleCode, LocaleConfig> = {
  languageTag: "en-US",
  defaultCurrency: "USD",
  enabled: true,
- },
- tr: {
- code: "tr",
- label: "Türkçe",
- pathPrefix: "/tr",
- direction: "ltr",
- languageTag: "tr-TR",
- defaultCurrency: "TRY",
- enabled: false,
- },
- de: {
- code: "de",
- label: "Deutsch",
- pathPrefix: "/de",
- direction: "ltr",
- languageTag: "de-DE",
- defaultCurrency: "EUR",
- enabled: false,
- },
- ar: {
- code: "ar",
- label: "العربية",
- pathPrefix: "/ar",
- direction: "rtl",
- languageTag: "ar-SA",
- defaultCurrency: "SAR",
- enabled: false,
- },
- pt: {
- code: "pt",
- label: "Português (BR)",
- pathPrefix: "/pt",
- direction: "ltr",
- languageTag: "pt-BR",
- defaultCurrency: "BRL",
- enabled: false,
- },
- es: {
- code: "es",
- label: "Español",
- pathPrefix: "/es",
- direction: "ltr",
- languageTag: "es-ES",
- defaultCurrency: "EUR",
- enabled: false,
- },
- fr: {
- code: "fr",
- label: "Français",
- pathPrefix: "/fr",
- direction: "ltr",
- languageTag: "fr-FR",
- defaultCurrency: "EUR",
- enabled: false,
  },
 };
 

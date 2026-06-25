@@ -32,14 +32,8 @@ function buildCollectionPageJsonLd(locale: string) {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name:
-      locale === "tr"
-        ? "Ücretsiz Hesaplayıcılar | SectorCalc"
-        : "Free Calculators | SectorCalc",
-    description:
-      locale === "tr"
-        ? "İşletme, üretim, finans, enerji, lojistik ve inşaat kararlarını desteklemek için tasarlanmış ücretsiz profesyonel hesaplayıcı dizini."
-        : "Free professional calculator directory for business, manufacturing, finance, energy, logistics and construction decisions.",
+    name: "Free Calculators | SectorCalc",
+    description: "Free professional calculator directory for business, manufacturing, finance, energy, logistics and construction decisions.",
     url: `${base}${path}`,
     inLanguage: locale,
     publisher: {
@@ -53,115 +47,6 @@ function buildCollectionPageJsonLd(locale: string) {
 // ─── NEW: Inline copy map (TR / EN) ──────────────────────────────────────────
 
 const COPY = {
-  tr: {
-    metaTitle: "Ücretsiz Hesaplayıcılar | SectorCalc",
-    metaDesc: "İşletme, üretim, finans, enerji, lojistik ve mühendislik hesaplamaları için profesyonel araçları keşfedin.",
-    breadcrumbHome: "Ana Sayfa",
-    breadcrumbCurrent: "Ücretsiz Hesaplayıcılar",
-    heroBadge: "Ücretsiz hesaplayıcılar",
-    heroLead:
-      "İşletme, üretim, finans, enerji, lojistik ve inşaat hesaplamaları için profesyonel araçları tek dizinde bulun.",
-    heroSub:
-      "SectorCalc; maliyet, marj, fire, OEE, nakit akışı, stok, rota ve saha hesaplarını hızlıca yapmanız için tasarlanmış global hesaplama platformudur. Kayıt gerekmez.",
-    ctaPro: "Premium karar araçlarını inceleyin",
-    ctaIndustries: "Sektöre göre araçları görüntüleyin",
-    statsTools: "ücretsiz araç",
-    statsSectors: "endüstri sektörü",
-    statsNoReg: "kayıt gereksinimi",
-    intentLabel: "Hangi hesaplama problemini çözmek istiyorsunuz?",
-    intents: [
-      { label: "Teklif fiyatı veya kâr marjı hesaplamak istiyorum", cat: "Maliyet & Marj" },
-      { label: "Üretimde fire, kapasite veya OEE hesaplamak istiyorum", cat: "Malzeme, Fire & OEE" },
-      { label: "Enerji tüketimi veya karbon etkisini görmek istiyorum", cat: "Enerji & Karbon" },
-      { label: "Stok, rota veya lojistik maliyetini hesaplamak istiyorum", cat: "Rota & Lojistik" },
-      { label: "İnşaat, saha veya metraj hesabı yapmak istiyorum", cat: "İnşaat & Saha" },
-      { label: "Finansal getiri, kredi veya bütçe hesaplamak istiyorum", cat: "Günlük Pratik" },
-    ],
-    howTitle: "SectorCalc hesaplayıcıları nasıl çalışır?",
-    howEyebrow: "Metodoloji",
-    howSteps: [
-      { num: "01", title: "Girdileri seçin", desc: "Her hesaplayıcı yalnızca o hesaplama için gerekli girdileri ister. Gereksiz alan yoktur." },
-      { num: "02", title: "Formülü görün", desc: "Hesaplama mantığı ve kullanılan formül açık biçimde gösterilir. Kara kutu yoktur." },
-      { num: "03", title: "Sonucu yorumlayın", desc: "Çıktı yalnızca sayı olarak değil, karar bağlamıyla sunulur." },
-      { num: "04", title: "Gerekirse Pro araca geçin", desc: "Senaryo karşılaştırması, PDF çıktı veya detaylı karar özeti gerekiyorsa Pro araçlar kullanılabilir." },
-    ],
-    audienceTitle: "Bu ücretsiz hesaplayıcılar kimler için?",
-    audienceEyebrow: "Hedef kitle",
-    audiences: [
-      { title: "Üretim ve imalat işletmeleri", desc: "OEE, fire, kapasite ve makine verimliliği hesapları için." },
-      { title: "CNC, atölye ve küçük üreticiler", desc: "Standart zaman, bant dengeleme ve mekanik tasarım hesapları için." },
-      { title: "Finans ve iş geliştirme ekipleri", desc: "NPV, IRR, WACC ve yatırım değerleme hesapları için." },
-      { title: "Lojistik ve tedarik operasyonları", desc: "Navlun, gümrük, hacimsel ağırlık ve tedarik zinciri maliyeti için." },
-      { title: "İnşaat ve saha ekipleri", desc: "Metraj, yapı elemanı boyutlandırma ve saha planlama için." },
-      { title: "E-ticaret ve satış ekipleri", desc: "Platform komisyonu, kâr marjı ve nakliye maliyet hesapları için." },
-      { title: "Danışmanlar, analistler ve girişimciler", desc: "Hızlı ön hesaplama ve karar desteği için." },
-      { title: "Enerji ve tesis yöneticileri", desc: "LCOE, tüketim analizi ve karbon ayak izi hesapları için." },
-    ],
-    fvpTitle: "Ücretsiz araçlar ne sağlar, Pro araçlar neyi derinleştirir?",
-    fvpEyebrow: "Karar desteği seviyeleri",
-    fvpFreeLabel: "Ücretsiz Araçlar",
-    fvpProLabel: "Pro Araçlar",
-    fvpFreeTag: "Şu an kullandığınız",
-    fvpProTag: "Daha ciddi kararlar için",
-    fvpFreeItems: [
-      "Hızlı hesaplama — anlık sonuç",
-      "Temel formül ve açık hesaplama mantığı",
-      "Tek araç bazlı çıktı",
-      "Kayıt gerekmez",
-    ],
-    fvpProItems: [
-      "Gelişmiş input seti ve parametre kontrolü",
-      "Senaryo karşılaştırması",
-      "Detaylı karar özeti ve sektörel yorum",
-      "PDF ve rapor çıktısı",
-    ],
-    fvpCta: "Premium hesaplayıcıları inceleyin",
-    fvpNote: "Kredi kartı gerekmez · İstediğiniz zaman iptal edin",
-    internalTitle: "SectorCalc içinde devam edin",
-    internalEyebrow: "Platform içi navigasyon",
-    internalLinks: [
-      { label: "Premium hesaplayıcıları inceleyin", sub: "Detaylı karar araçları, senaryo analizi, PDF çıktı", href: "/pricing" },
-      { label: "Sektörlere göre araçları görüntüleyin", sub: "18 endüstri sektörü, özelleştirilmiş hesap setleri", href: "/industries" },
-      { label: "Fiyatlandırma planlarını karşılaştırın", sub: "Kredi bazlı model, Pro ve kurumsal seçenekler", href: "/pricing" },
-      { label: "Formül kütüphanesini görüntüleyin", sub: "Hesaplamalarda kullanılan metodoloji ve referanslar", href: "/methodology" },
-      { label: "Karar özeti nasıl çalışır?", sub: "Pro araç çıktı yapısı ve yorum rehberi", href: "/docs" },
-      { label: "Kurumsal ve ekip kullanımı", sub: "Çok kullanıcılı hesap, API erişimi, özel araç setleri", href: "/enterprise" },
-    ],
-    trustTitle: "Hesaplama güveni için tasarlandı",
-    trustEyebrow: "Kullanım güvencesi",
-    trustItems: [
-      "Açık formül mantığı — her hesaplamada kullanılan yöntem görünür.",
-      "Net input-output yapısı — yalnızca gerekli girdiler istenir, fazlası değil.",
-      "Kategori bazlı araç gruplama — doğru hesaplayıcıyı bulmak için hiyerarşik yapı.",
-      "Free ve Pro ayrımının görünür olması — hangi araçta ne bekleneceği açıkça belirtilir.",
-      "Yanıltıcı sonuç vaadi yok — hesaplayıcılar karar desteği sağlar, danışmanlık yerine geçmez.",
-      "Profesyonel karar süreçleri için destekleyici çıktı — kesin sonuç garantisi verilmez.",
-    ],
-    faqTitle: "Ücretsiz hesaplayıcılar hakkında",
-    faqEyebrow: "Sık sorulan sorular",
-    faqs: [
-      {
-        q: "SectorCalc ücretsiz hesaplayıcıları ne için kullanılır?",
-        a: "SectorCalc ücretsiz hesaplayıcıları; maliyet, marj, üretim, enerji, lojistik, inşaat ve finans hesaplarını hızlıca yapmak için kullanılır. Kayıt gerekmez.",
-      },
-      {
-        q: "Hesaplayıcılar profesyonel kullanım için uygun mu?",
-        a: "Evet. Araçlar işletme, üretim, finans, lojistik ve saha ekiplerinin ön hesaplama ihtiyacını karşılayacak şekilde yapılandırılmıştır. Kritik kararlarda sonuçlar başlangıç noktası olarak değerlendirilmeli; gerektiğinde ilgili uzmanlara başvurulmalıdır.",
-      },
-      {
-        q: "Ücretsiz araçlar ile Pro araçlar arasındaki fark nedir?",
-        a: "Ücretsiz araçlar hızlı hesaplama ve temel formül çıktısı sağlar. Pro araçlar daha gelişmiş input seti, senaryo karşılaştırması, detaylı karar özeti, sektörel yorum ve PDF rapor çıktısı sunar.",
-      },
-      {
-        q: "Hangi hesaplayıcıyı kullanmam gerektiğini nasıl anlarım?",
-        a: "Kategori kutularını kullanarak hesaplama probleminize en yakın alanı seçebilirsiniz. Arama çubuğuna araç adı veya hesaplama türü yazarak da doğrudan bulabilirsiniz.",
-      },
-      {
-        q: "SectorCalc sonuçları danışmanlık yerine geçer mi?",
-        a: "Hayır. SectorCalc hesaplama ve karar desteği sağlar; finansal, hukuki veya mühendislik danışmanlığının yerini almaz. Çıktılar, bilgili bir uygulayıcı tarafından bağlam içinde değerlendirilmelidir.",
-      },
-    ],
-  },
   en: {
     metaTitle: "Free Calculators | SectorCalc",
     metaDesc: "Find professional tools for business, manufacturing, finance, energy, logistics and construction calculations.",

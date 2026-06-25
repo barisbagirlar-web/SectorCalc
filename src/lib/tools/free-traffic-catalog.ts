@@ -1042,7 +1042,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "beta",
         "label": "Beta",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter beta"
       },
@@ -1493,7 +1493,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "beta",
         "label": "Beta",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter beta"
       }
@@ -1678,7 +1678,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "multiplier",
         "label": "Multiplier",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter multiplier"
       },
@@ -1759,7 +1759,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "lots",
         "label": "Lots",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter lots"
       },
@@ -1773,7 +1773,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "pipMovement",
         "label": "Pip Movement",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter pip movement"
       }
@@ -3404,7 +3404,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "multiplier",
         "label": "Multiplier",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter multiplier"
       }
@@ -3462,11 +3462,11 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
         "helper": "Enter current market price"
       },
       {
-        "key": "i̇skonto",
-        "label": "i̇skonto",
+        "key": "discount",
+        "label": "Discount",
         "unit": "%",
         "type": "number",
-        "helper": "Enter i̇skonto"
+        "helper": "Enter discount percentage"
       },
       {
         "key": "contribution",
@@ -3543,11 +3543,11 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
         "helper": "Enter post-money valuation cap"
       },
       {
-        "key": "i̇skonto",
-        "label": "i̇skonto",
+        "key": "discount",
+        "label": "Discount",
         "unit": "%",
         "type": "number",
-        "helper": "Enter i̇skonto"
+        "helper": "Enter discount percentage"
       },
       {
         "key": "interestRate",
@@ -4678,7 +4678,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "divisor",
         "label": "Volumetric Divisor",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter volumetric divisor"
       }
@@ -4893,7 +4893,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "zScore",
         "label": "Service Level Factor (Z-Score)",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter service level factor (z-score)"
       }
@@ -6241,14 +6241,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "mean",
         "label": "Mean",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter mean"
       },
       {
         "key": "stdError",
         "label": "Standard Error",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter standard error"
       },
@@ -6278,21 +6278,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "zScore",
         "label": "Service Level Factor (Z-Score)",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter service level factor (z-score)"
       },
       {
         "key": "stdDev",
         "label": "Standard Deviation of Daily Demand",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter standard deviation of daily demand"
       },
       {
         "key": "marginOfError",
         "label": "Margin of Error",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter margin of error"
       }
@@ -6515,7 +6515,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "activityLevel",
         "label": "Activity Level Factor",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter activity level factor"
       }
@@ -6686,7 +6686,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "strain",
         "label": "Normal Mechanical Strain",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter normal mechanical strain"
       }
@@ -7087,7 +7087,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "mach",
         "label": "Inlet Mach Number",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter inlet mach number"
       },
@@ -7108,7 +7108,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "strikePrice",
         "label": "Strike Price (K)",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter strike price (k)"
       }
@@ -7240,7 +7240,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "friction",
         "label": "Belt-to-Pulley Friction Coefficient",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter belt-to-pulley friction coefficient"
       }
@@ -7748,21 +7748,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "nc",
         "label": "nc",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter nc"
       },
       {
         "key": "nq",
         "label": "nq",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter nq"
       },
       {
         "key": "ng",
         "label": "ng",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter ng"
       }
@@ -7785,7 +7785,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "value",
         "label": "After Repair Value (ARV)",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter after repair value (arv)"
       },
@@ -8216,11 +8216,11 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
     "seoDescription": "Free online ridge beam calculator calculator. Get accurate calculations instantly.",
     "inputs": [
       {
-        "key": "catıyuk",
-        "label": "catıyuk",
+        "key": "ridgeLoad",
+        "label": "ridgeLoad",
         "unit": "N/m",
         "type": "number",
-        "helper": "Enter catıyuk"
+        "helper": "Enter ridgeLoad"
       },
       {
         "key": "span",
@@ -8683,7 +8683,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "direnckatsayisi",
         "label": "direnckatsayisi",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter direnckatsayisi"
       },
@@ -8743,7 +8743,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "value",
         "label": "After Repair Value (ARV)",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter after repair value (arv)"
       },
@@ -8803,7 +8803,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "value",
         "label": "After Repair Value (ARV)",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter after repair value (arv)"
       },
@@ -9583,21 +9583,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "enerji",
         "label": "enerji",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter enerji"
       },
       {
         "key": "su",
         "label": "su",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter su"
       },
       {
         "key": "malzeme",
         "label": "malzeme",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter malzeme"
       }
@@ -9835,7 +9835,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "akiskatsayisi",
         "label": "akiskatsayisi",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter akiskatsayisi"
       }
@@ -9999,7 +9999,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "guneskutlesi",
         "label": "guneskutlesi",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter guneskutlesi"
       }
@@ -12875,7 +12875,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "zeminkatsayisi",
         "label": "zeminkatsayisi",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter zeminkatsayisi"
       }
@@ -13270,7 +13270,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "atifsayisi",
         "label": "atifsayisi",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter atifsayisi"
       }
@@ -13476,7 +13476,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "kesintidurumu",
         "label": "kesintidurumu",
-        "unit": "Sayı",
+        "unit": "Number",
         "type": "number",
         "helper": "Enter kesintidurumu"
       }

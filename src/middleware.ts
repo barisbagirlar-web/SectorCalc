@@ -15,16 +15,6 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 }
 
 export default function middleware(request: NextRequest) {
-  const urlPath = request.nextUrl.pathname;
-  
-  // Strip out any legacy locale prefixes (e.g. /tr, /de, /fr, /es, /ar, /en)
-  const langMatch = urlPath.match(/^\/(tr|de|fr|es|ar|en)(\/|$)(.*)/);
-  if (langMatch) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/' + (langMatch[3] || '');
-    return NextResponse.redirect(url, 301);
-  }
-
   return applyRegionHeaders(NextResponse.next(), request);
 }
 

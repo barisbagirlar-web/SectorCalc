@@ -310,14 +310,11 @@ function buildPremium152Items(): CategorizedToolItem[] {
     items.push({
       slug: tool.slug,
       seedId: tool.id,
-      title: fillLocaleRecord((locale) =>
-        locale === "tr" ? tool.trTitle : humanizeSlug(tool.slug),
-      ),
+      title: fillLocaleRecord(() => humanizeSlug(tool.slug)),
       description: fillLocaleRecord(() => tool.pain),
       tier: "premium" as const,
       categorySlug: resolveToolCategory({
         slug: tool.slug,
-        title: tool.trTitle,
         description: tool.pain,
         tier: "premium",
         source: "user-premium-152",
@@ -334,14 +331,11 @@ function buildPremium152Items(): CategorizedToolItem[] {
     items.push({
       slug: tool.slug,
       seedId: tool.id,
-      title: fillLocaleRecord((locale) =>
-        locale === "tr" ? tool.trTitle : humanizeSlug(tool.slug),
-      ),
+      title: fillLocaleRecord(() => humanizeSlug(tool.slug)),
       description: fillLocaleRecord(() => tool.pain),
       tier: "premium" as const,
       categorySlug: resolveToolCategory({
         slug: tool.slug,
-        title: tool.trTitle,
         description: tool.pain,
         tier: "premium",
         source: "user-premium-152",
@@ -359,14 +353,11 @@ function buildPremium152Items(): CategorizedToolItem[] {
     items.push({
       slug: tool.slug,
       seedId: tool.id,
-      title: fillLocaleRecord((locale) =>
-        locale === "tr" ? tool.trTitle : humanizeSlug(tool.slug),
-      ),
+      title: fillLocaleRecord(() => humanizeSlug(tool.slug)),
       description: fillLocaleRecord(() => tool.pain),
       tier: "premium" as const,
       categorySlug: resolveToolCategory({
         slug: tool.slug,
-        title: tool.trTitle,
         description: tool.pain,
         tier: "premium",
         source: "user-premium-152",

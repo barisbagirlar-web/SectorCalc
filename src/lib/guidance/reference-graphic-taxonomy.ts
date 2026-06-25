@@ -93,18 +93,18 @@ export const KEYWORD_TEMPLATE_HINTS: ReadonlyArray<{
   keywords: readonly string[];
   template: ReferenceGraphicTemplate;
 }> = [
-  { keywords: ["concrete", "beton", "slab", "döşeme", "footing"], template: "box-dimension" },
-  { keywords: ["paint", "boya", "coating", "kaplama", "floor", "zemin", "roof", "çatı"], template: "wall-area" },
-  { keywords: ["stair", "merdiven", "basamak", "rise", "rıht"], template: "stair" },
-  { keywords: ["bend", "büküm", "k-factor", "sheet metal", "sac"], template: "bend-radius" },
-  { keywords: ["pitch", "eğim", "slope"], template: "angle" },
-  { keywords: ["pipe", "boru", "cylinder", "silindir", "hydraulic", "pnömatik"], template: "cylinder-pipe" },
-  { keywords: ["compressor", "kompresör", "leak", "kaçak", "basınçlı hava"], template: "compressor-leak" },
-  { keywords: ["route", "rota", "fuel", "yakıt", "delivery", "teslimat", "navlun"], template: "route" },
-  { keywords: ["energy", "enerji", "kwh", "motor", "electric"], template: "energy-flow" },
-  { keywords: ["machine", "makine", "setup", "cycle", "oee", "üretim"], template: "machine-time" },
-  { keywords: ["margin", "marj", "cost", "maliyet", "price", "fiyat", "profit", "kâr", "credit", "kredi", "quote", "teklif"], template: "financial-flow" },
-  { keywords: ["box", "kutu", "koli", "package", "paket"], template: "box-dimension" },
+  { keywords: ["concrete", "slab", "footing"], template: "box-dimension" },
+  { keywords: ["paint", "coating", "floor", "roof"], template: "wall-area" },
+  { keywords: ["stair", "rise"], template: "stair" },
+  { keywords: ["bend", "k-factor", "sheet metal"], template: "bend-radius" },
+  { keywords: ["pitch", "slope"], template: "angle" },
+  { keywords: ["pipe", "cylinder", "hydraulic"], template: "cylinder-pipe" },
+  { keywords: ["compressor", "leak", "compressed air"], template: "compressor-leak" },
+  { keywords: ["route", "fuel", "delivery"], template: "route" },
+  { keywords: ["energy", "kwh", "motor", "electric"], template: "energy-flow" },
+  { keywords: ["machine", "setup", "cycle", "oee"], template: "machine-time" },
+  { keywords: ["margin", "cost", "price", "profit", "credit", "quote"], template: "financial-flow" },
+  { keywords: ["box", "package"], template: "box-dimension" },
 ];
 
 export const FIELD_SIGNATURE_TEMPLATES: ReadonlyArray<{

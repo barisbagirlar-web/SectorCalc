@@ -1,5 +1,5 @@
 /**
- * MasterOS — tek giriş dispatcher.
+ * MasterOS — single entry dispatcher.
  * Data (Registry) → Logic (U-Engine) → Intelligence (Benchmark & Prescription).
  * Regional Compliance overlay via region parameter.
  */
@@ -31,7 +31,7 @@ import { SmartModuleIds, type SmartModuleId } from "@/lib/os/registry/smart-modu
 
 export type IndustrialAuditStatus = "OPTIMAL" | "CRITICAL";
 
-/** Verimlilik skoru eşiği — altında CRITICAL. */
+/** Efficiency score threshold — below is CRITICAL. */
 export const OPTIMAL_SCORE_THRESHOLD = 80;
 
 export interface IndustrialAuditResult {

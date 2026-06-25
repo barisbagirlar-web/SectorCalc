@@ -708,7 +708,7 @@ form[data-calculation-form="true"] {
   color: var(--sc-text);
 }
 
-/* ── Premium report / Karar Masası ── */
+/* ── Premium report / Decision Desk ── */
 .sc-ledger-report,
 .sc-premium-report {
   min-width: 0;
@@ -865,7 +865,7 @@ form[data-calculation-form="true"] {
   border-color: var(--sc-text);
 }
 
-/* ── Free: Hızlı Çetele layout ── */
+/* ── Free: Quick tally layout ── */
 .sc-ledger-cetele,
 .sc-tool-workspace {
   display: grid;
@@ -899,7 +899,7 @@ form[data-calculation-form="true"] {
   gap: 1.25rem;
 }
 
-/* ── Premium: Karar Masası layout ── */
+/* ── Premium: Decision Desk layout ── */
 .sc-ledger-karar-masasi {
   display: flex;
   flex-direction: column;

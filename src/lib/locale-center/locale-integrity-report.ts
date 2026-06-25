@@ -64,18 +64,6 @@ function scanTextForForbidden(
     }
   }
 
-  if (locale === "ar") {
-    const hasRtl = html.includes('dir="rtl"') || html.includes("dir=\\\"rtl\\\"");
-    const hasLang = html.includes('lang="ar"') || html.includes("lang=\\\"ar\\\"");
-    if (!hasRtl || !hasLang) {
-      issues.push({
-        code: "ar-rtl",
-        message: "AR page missing dir=rtl or lang=ar",
-        severity: "error",
-      });
-    }
-  }
-
   return issues;
 }
 

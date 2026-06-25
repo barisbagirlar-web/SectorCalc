@@ -1,5 +1,4 @@
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
-import { normalizeLocale } from "@/lib/format/localization";
 import { localeToRegion, type RegionCode } from "@/config/regions";
 import type { RegionalConfig, RegionalEngineCode } from "@/lib/regional/types";
 
@@ -7,15 +6,15 @@ export const REGIONAL_ENGINE_CODES = ["GLOBAL", "TR", "US", "DE", "FR", "ES", "A
 
 const REGION_CONFIGS: Record<RegionalEngineCode, RegionalConfig> = {
   GLOBAL: { regionCode: "GLOBAL", label: "Global", defaultLocale: "en", defaultCurrency: "USD", defaultUnitSystem: "metric", decimalSeparator: ".", thousandSeparator: ",", dateFormat: "yyyy-MM-dd", measurementSystem: "metric", supportedUnitSystems: ["metric", "imperial"] },
-  TR: { regionCode: "TR", label: "Turkey", defaultLocale: "tr", defaultCurrency: "TRY", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: ".", dateFormat: "dd.MM.yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
+  TR: { regionCode: "TR", label: "Turkey", defaultLocale: "en", defaultCurrency: "TRY", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: ".", dateFormat: "dd.MM.yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
   US: { regionCode: "US", label: "United States", defaultLocale: "en", defaultCurrency: "USD", defaultUnitSystem: "imperial", decimalSeparator: ".", thousandSeparator: ",", dateFormat: "MM/dd/yyyy", measurementSystem: "us_customary", supportedUnitSystems: ["imperial", "metric"] },
-  DE: { regionCode: "DE", label: "Germany", defaultLocale: "de", defaultCurrency: "EUR", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: ".", dateFormat: "dd.MM.yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
-  FR: { regionCode: "FR", label: "France", defaultLocale: "fr", defaultCurrency: "EUR", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: " ", dateFormat: "dd/MM/yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
-  ES: { regionCode: "ES", label: "Spain", defaultLocale: "es", defaultCurrency: "EUR", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: ".", dateFormat: "dd/MM/yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
-  AR: { regionCode: "AR", label: "Arabic Markets", defaultLocale: "ar", defaultCurrency: "USD", defaultUnitSystem: "metric", decimalSeparator: ".", thousandSeparator: ",", dateFormat: "dd/MM/yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric", "imperial"] },
+  DE: { regionCode: "DE", label: "Germany", defaultLocale: "en", defaultCurrency: "EUR", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: ".", dateFormat: "dd.MM.yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
+  FR: { regionCode: "FR", label: "France", defaultLocale: "en", defaultCurrency: "EUR", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: " ", dateFormat: "dd/MM/yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
+  ES: { regionCode: "ES", label: "Spain", defaultLocale: "en", defaultCurrency: "EUR", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: ".", dateFormat: "dd/MM/yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
+  AR: { regionCode: "AR", label: "Arabic Markets", defaultLocale: "en", defaultCurrency: "USD", defaultUnitSystem: "metric", decimalSeparator: ".", thousandSeparator: ",", dateFormat: "dd/MM/yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric", "imperial"] },
 };
 
-const LOCALE_TO_REGIONAL: Record<SupportedLocale, RegionalEngineCode> = { en: "GLOBAL", tr: "TR", de: "DE", fr: "FR", es: "ES", ar: "AR" };
+const LOCALE_TO_REGIONAL: Partial<Record<SupportedLocale, RegionalEngineCode>> = { en: "GLOBAL" };
 const COMPLIANCE_TO_REGIONAL: Record<RegionCode, RegionalEngineCode> = { EN: "GLOBAL", TR: "TR", DE: "DE" };
 
 export function isRegionalEngineCode(value: string): value is RegionalEngineCode {
@@ -27,7 +26,7 @@ export function getRegionConfig(regionCode: RegionalEngineCode): RegionalConfig 
 }
 
 export function resolveRegionalCodeFromLocale(localeInput: string): RegionalEngineCode {
-  return LOCALE_TO_REGIONAL[normalizeLocale(localeInput)];
+  return LOCALE_TO_REGIONAL[localeInput as SupportedLocale] ?? "GLOBAL";
 }
 
 export function resolveRegionalCodeFromCompliance(region: RegionCode): RegionalEngineCode {

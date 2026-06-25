@@ -7,54 +7,49 @@ export const HEAT_LOSS_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
   category: "energy",
   legacyPaidSlug: "heat-loss-calculator",
   painStatement:
-    "Steady-state heat loss analizini U-Value ve delta-T parametreleriyle gerçekleştirerek yıllık enerji ve ısıtma maliyeti kaybını hesaplayın.",
+    "Calculate steady-state heat loss using U-Value and delta-T parameters to determine annual energy and heating cost loss.",
 
-<<<<<<< Updated upstream
-  inputs: [],
-
-  outputs: [],
-=======
   inputs: [
     {
       id: "surfaceArea",
       label: "Total surface area",
       type: "number",
-      unit: "m²",
+      unit: "m\u00B2",
       required: true,
       smartDefault: 150,
       validation: { min: 0 },
-      helper: "Isı kaybı yaşanan duvar, pencere veya çatı toplam yüzey alanı.",
+      helper: "Total surface area of wall, window, or roof experiencing heat loss.",
       expertMeaning: "Total external envelope area contributing to heat transmission.",
     },
     {
       id: "uValue",
       label: "U-Value (Thermal Transmittance)",
       type: "number",
-      unit: "W/m²K",
+      unit: "W/m\u00B2K",
       required: true,
       smartDefault: 1.5,
       validation: { min: 0, step: 0.01 },
-      helper: "Malzemenin ısı geçirgenlik katsayısı.",
+      helper: "Material heat transfer coefficient.",
       expertMeaning: "Overall heat transfer coefficient (U-value).",
     },
     {
       id: "insideTemp",
       label: "Inside temperature",
       type: "number",
-      unit: "°C",
+      unit: "\u00B0C",
       required: true,
       smartDefault: 22,
-      helper: "Hedeflenen iç ortam sıcaklığı.",
+      helper: "Target indoor ambient temperature.",
       expertMeaning: "Thermostat setpoint or internal design temperature.",
     },
     {
       id: "outsideTemp",
       label: "Outside temperature",
       type: "number",
-      unit: "°C",
+      unit: "\u00B0C",
       required: true,
       smartDefault: -5,
-      helper: "Dış ortam kış tasarım sıcaklığı.",
+      helper: "Outdoor winter design temperature.",
       expertMeaning: "Winter design ambient temperature for peak load.",
     },
     {
@@ -65,7 +60,7 @@ export const HEAT_LOSS_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       required: true,
       smartDefault: 2400,
       validation: { min: 0 },
-      helper: "Yıllık tahmini ısıtma çalışma saati.",
+      helper: "Estimated annual heating operating hours.",
       expertMeaning: "Equivalent full-load hours of heating season.",
     },
     {
@@ -76,7 +71,7 @@ export const HEAT_LOSS_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       required: true,
       smartDefault: 0.15,
       validation: { min: 0, step: 0.01 },
-      helper: "Kullanılan enerji kaynağının kWh başına maliyeti.",
+      helper: "Energy source cost per kWh.",
       expertMeaning: "Blended tariff rate or effective boiler cost per kWh.",
     }
   ],
@@ -131,7 +126,6 @@ export const HEAT_LOSS_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       format: "number",
     },
   ],
->>>>>>> Stashed changes
 
   thresholds: [
     {
@@ -139,8 +133,8 @@ export const HEAT_LOSS_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
       warning: 2000,
       critical: 5000,
       direction: "higher_is_bad",
-      warningMessage: "Yüksek ısı kaybı maliyeti. İzolasyon iyileştirmesi geri ödeme süresini (ROI) kısaltabilir.",
-      criticalMessage: "Kritik ısı kaybı! Ciddi bir enerji israfı mevcut. Hemen termal zarf (envelope) denetimi yaptırın.",
+      warningMessage: "High heat loss cost. Insulation improvement may shorten payback period (ROI).",
+      criticalMessage: "Critical heat loss! Significant energy waste detected. Conduct an immediate thermal envelope audit.",
     },
   ],
 
@@ -162,7 +156,7 @@ export const HEAT_LOSS_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
     volatilityPercent: 10,
     targetMarginPercent: 0,
     assumptionNotes: [
-      "Steady-state formula (Q = U × A × ΔT) assumes constant design temperatures.",
+      "Steady-state formula (Q = U x A x \u0394T) assumes constant design temperatures.",
       "Infiltration and ventilation losses are not explicitly included in this basic transmission model.",
       "Annual energy is approximated using equivalent full load hours.",
     ],

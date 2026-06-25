@@ -1,67 +1,68 @@
 import { z } from "zod";
 
 /**
- * SECTORCALC ENDÜSTRİYEL VALİDASYON KATMANI (RULE ENGINE)
- * Araç: FIN_001 - Yüzde Kuralı (Percentage Rule)
- * 
- * Basit bir hesaplamayı, otonom kararlar üretebilen bir endüstri otoritesine dönüştürür.
- * Girdiler, "smart_warnings" ve tolerans sınırları bu katmanda güvence altına alınır.
+ * SECTORCALC INDUSTRIAL VALIDATION LAYER (RULE ENGINE)
+ * Tool: FIN_001 - Percentage Rule
+ *
+ * Transforms a simple calculation into an autonomous industrial authority
+ * capable of producing decisions. Inputs, smart warnings, and tolerance
+ * boundaries are secured within this layer.
  */
 
-// 1. Zod ile Tolerans ve Input Kilitleri (Endüstriyel Sınırlar)
+// 1. Zod Tolerance & Input Locks (Industrial Boundaries)
 export const PercentageRuleInputSchema = z.object({
-  aylik_kira: z.number().min(1, "Kira bedeli 0 veya negatif olamaz."),
-  mulk_degeri: z.number().min(1000, "Geçerli bir mülk değeri giriniz.")
+  monthly_rent: z.number().min(1, "Rent amount cannot be zero or negative."),
+  property_value: z.number().min(1000, "Enter a valid property value.")
 });
 
 export type PercentageRuleInput = z.infer<typeof PercentageRuleInputSchema>;
 
-// 2. Akıllı Uyarı Tipleri
+// 2. Smart Warning Types
 export type SmartWarningSeverity = "INFO" | "WARNING" | "CRITICAL";
 
 export interface SmartWarning {
   severity: SmartWarningSeverity;
-  source: string; // Örn: ISO 9001, Big Four, Gayrimenkul Piyasa Standartları
+  source: string; // e.g. ISO 9001, Big Four, Real Estate Market Standards
   message: string;
 }
 
 export interface PercentageRuleOutput {
-  oran: number; // % cinsinden oran
+  percentage: number; // Percentage value
   smartWarnings: SmartWarning[];
 }
 
-// 3. Formula Contract & Otonom Karar Motoru (Rule Engine)
+// 3. Formula Contract & Autonomous Decision Engine (Rule Engine)
 export function executePercentageRule(input: PercentageRuleInput): PercentageRuleOutput {
-  // Veriyi validate et (Zod şeması ile P2.4 Runtime Trust katmanı)
+  // Validate data through Zod schema (P2.4 Runtime Trust layer)
   const validData = PercentageRuleInputSchema.parse(input);
 
-  const { aylik_kira, mulk_degeri } = validData;
+  const { monthly_rent, property_value } = validData;
 
-  // Matematiksel Formül (Zero-division güvenliği)
-  const safeMulkDegeri = Math.max(1, mulk_degeri);
-  const oran = (aylik_kira / safeMulkDegeri) * 100;
+  // Mathematical Formula (zero-division safe)
+  const safePropertyValue = Math.max(1, property_value);
+  const percentage = (monthly_rent / safePropertyValue) * 100;
 
   const smartWarnings: SmartWarning[] = [];
 
-  // OTONOM MÜHENDİSLİK / FİNANS UYARILARI (Smart Warnings Entegrasyonu)
-  if (oran < 0.4) {
+  // AUTONOMOUS ENGINEERING / FINANCE WARNINGS (Smart Warnings Integration)
+  if (percentage < 0.4) {
     smartWarnings.push({
       severity: "WARNING",
-      source: "Gayrimenkul Yatırım Metrikleri",
-      message: "Uyarı: Kira getirisi mülk değerinin %0.4'ünün altındadır. Amortisman süresi (ROI) 20 yılın üzerindedir, bu düşük verimli bir yatırımdır."
+      source: "Real Estate Investment Metrics",
+      message: "Warning: Rental yield is below 0.4% of property value. Amortization period (ROI) exceeds 20 years — this is a low-yield investment."
     });
   }
 
-  if (oran > 2.0) {
+  if (percentage > 2.0) {
     smartWarnings.push({
       severity: "INFO",
-      source: "Piyasa Standartları (Big Four)",
-      message: "Not: %2'nin üzerindeki aylık kira getirileri genellikle mikro apartmanlar, kısa dönem kiralama veya yüksek riskli bölgeler için geçerlidir. Veriyi doğrulayın."
+      source: "Market Standards (Big Four)",
+      message: "Note: Monthly rental yields above 2% typically apply to micro-apartments, short-term rentals, or high-risk areas. Verify the data."
     });
   }
 
   return {
-    oran: Number(oran.toFixed(2)),
+    percentage: Number(percentage.toFixed(2)),
     smartWarnings
   };
 }

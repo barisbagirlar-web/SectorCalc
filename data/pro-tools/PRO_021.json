@@ -1,0 +1,240 @@
+{
+  "tool_id": "PRO_021",
+  "tool_name": "CNC Cycle Time Breakdown, Spindle Utilisation & OEE-Spindle Analysis",
+  "category": "CNC Manufacturing / Operations",
+  "scope": "single_operation",
+  "primary_operation": "milling",
+  "inputs": [
+    {
+      "id": "cutting_speed_vc",
+      "name": "Cutting Speed (Vc)",
+      "unit": "m/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 5,
+      "absolute_max": 5000
+    },
+    {
+      "id": "feed_per_tooth_fz",
+      "name": "Feed per Tooth (fz)",
+      "unit": "mm/tooth",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.001,
+      "absolute_max": 2
+    },
+    {
+      "id": "tool_diameter_mm",
+      "name": "Tool Diameter (D)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 500
+    },
+    {
+      "id": "num_teeth_z",
+      "name": "Number of Cutting Edges (z)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 24
+    },
+    {
+      "id": "total_cut_length_mm",
+      "name": "Total Programmed Cutting Length",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "hint": "Sum of all tool path cutting segments from NC program"
+    },
+    {
+      "id": "approach_overtravel_mm",
+      "name": "Approach + Overtravel per Pass",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 10,
+      "hint": "Tool entry ramp + exit overtravel — typically 0.5×D to 1×D per pass"
+    },
+    {
+      "id": "rapid_distance_mm",
+      "name": "Total Rapid (G00) Travel Distance",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Non-cutting repositioning moves — from NC program or simulation"
+    },
+    {
+      "id": "rapid_velocity_mm_min",
+      "name": "Machine Rapid Traverse Rate (G00)",
+      "unit": "mm/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 100000,
+      "hint": "From machine specification — typically 15,000–40,000 mm/min"
+    },
+    {
+      "id": "num_tool_changes",
+      "name": "Number of Tool Changes",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0
+    },
+    {
+      "id": "tool_change_time_sec",
+      "name": "Tool-to-Tool Change Time (T-T)",
+      "unit": "s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "default": 6,
+      "hint": "From machine spec — BT40: 3–6s | HSK63: 2–4s | ATC with arm: 4–8s"
+    },
+    {
+      "id": "load_unload_time_min",
+      "name": "Part Load / Unload Time",
+      "unit": "min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 1,
+      "hint": "Manual: 1–3 min | Pallet changer: 0.1–0.3 min | Robot: 0.2–0.5 min"
+    },
+    {
+      "id": "probing_inspection_min",
+      "name": "In-Process Probing / Inspection Time",
+      "unit": "min",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0.5
+    },
+    {
+      "id": "parts_per_fixture",
+      "name": "Parts per Fixture Setup",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "default": 1,
+      "hint": "Multi-part fixturing reduces effective cycle time per part"
+    },
+    {
+      "id": "machine_hourly_rate_usd",
+      "name": "Machine Hourly Rate (fully burdened)",
+      "unit": "USD/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 5,
+      "hint": "Include depreciation, maintenance, energy, floor space, operator — typically $40–150/h"
+    },
+    {
+      "id": "machine_max_rpm",
+      "name": "Machine Maximum Spindle Speed",
+      "unit": "RPM",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "default": 12000
+    }
+  ],
+  "formulas": [
+    "n_rpm = (1000 * cutting_speed_vc) / (3.14159 * tool_diameter_mm)   // [RPM] Required spindle speed",
+    "n_actual = MIN(n_rpm, machine_max_rpm)   // [RPM] Actual spindle speed (capped at machine limit)",
+    "Vc_actual = (n_actual * 3.14159 * tool_diameter_mm) / 1000   // [m/min] Actual cutting speed",
+    "Vf_feed_rate = feed_per_tooth_fz * num_teeth_z * n_actual   // [mm/min] Table feed rate",
+    "T_cut_min = (total_cut_length_mm + approach_overtravel_mm) / Vf_feed_rate   // [min] Pure cutting time",
+    "T_rapid_min = rapid_distance_mm / rapid_velocity_mm_min   // [min] Rapid positioning time",
+    "T_toolchange_min = (num_tool_changes * tool_change_time_sec) / 60   // [min] ATC time",
+    "T_aux_min = load_unload_time_min + probing_inspection_min   // [min] Auxiliary non-cutting time",
+    "T_cycle_gross_min = T_cut_min + T_rapid_min + T_toolchange_min + T_aux_min   // [min] Gross cycle time",
+    "T_cycle_per_part_min = T_cycle_gross_min / parts_per_fixture   // [min] Cycle time per part",
+    "Spindle_Utilisation_pct = (T_cut_min / T_cycle_gross_min) * 100   // [%] Cutting time fraction",
+    "OEE_Spindle = Spindle_Utilisation_pct * 0.95 * 0.98   // [%] OEE-spindle (×avail×quality approx)",
+    "Cost_per_Part_USD = (T_cycle_per_part_min / 60) * machine_hourly_rate_usd   // [USD] Machining cost per part",
+    "Parts_per_Hour = 60 / T_cycle_per_part_min   // [parts/h] Production rate",
+    "RPM_Utilisation_pct = (n_actual / machine_max_rpm) * 100   // [%] Spindle speed utilisation"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 13399 Tool Representation",
+      "ISO 22400-2 OEE Definitions",
+      "JIPM TPM Spindle OEE",
+      "Sandvik Coromant Productivity Analysis"
+    ],
+    "validation": {
+      "tool_diameter_minimum": {
+        "absolute_min": 0.1,
+        "error_msg": "Tool diameter cannot be zero — division by zero in RPM calculation."
+      },
+      "rapid_velocity_minimum": {
+        "absolute_min": 100,
+        "error_msg": "Rapid traverse rate cannot be zero or unrealistically low. Minimum 100 mm/min."
+      },
+      "feed_rate_physical": {
+        "condition": "Vf_feed_rate > 100000",
+        "error_msg": "Calculated feed rate exceeds 100,000 mm/min — physically impossible. Check Vc, fz, z, and D inputs."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Spindle_Utilisation_pct < 30",
+        "severity": "CRITICAL",
+        "source": "JIPM TPM / OEE Foundation",
+        "message": "CRITICAL SPINDLE WASTE: Only cutting for less than 30% of cycle. Machine spends over 70% of time on non-value-adding operations (rapids, ATC, load/unload). Immediate actions: (1) Zero-point clamping system, (2) Pre-set offline tooling, (3) Optimise G00 paths, (4) Pallet changer evaluation."
+      },
+      {
+        "condition": "Spindle_Utilisation_pct >= 30 && Spindle_Utilisation_pct < 50",
+        "severity": "WARNING",
+        "source": "OEE / Lean Manufacturing",
+        "message": "Low spindle utilisation (30–50%): Significant non-cutting time losses. Target is >65% for general machining. Review ATC time, rapid distances, and fixture strategy."
+      },
+      {
+        "condition": "T_toolchange_min > T_cut_min * 0.3",
+        "severity": "WARNING",
+        "source": "SMED / ATC Optimisation",
+        "message": "Tool change time >30% of cutting time: ATC is a major cycle-time driver. Evaluate: (1) Reduce tool count via multi-function tools, (2) Sub-spindle or twin-pallet, (3) Upgrade to faster ATC (arm-type vs. umbrella)."
+      },
+      {
+        "condition": "n_rpm > machine_max_rpm",
+        "severity": "CRITICAL",
+        "source": "Machine Specification",
+        "message": "Required RPM exceeds machine maximum. Actual cutting speed reduced. Recalculate with Vc_actual shown. Consider: (1) Smaller tool diameter, (2) Higher-RPM spindle machine, (3) Reduce cutting speed to match machine limit."
+      },
+      {
+        "condition": "T_aux_min > T_cut_min",
+        "severity": "WARNING",
+        "source": "Lean Manufacturing / Cycle Time Analysis",
+        "message": "Auxiliary time (load/unload + probing) exceeds actual cutting time. Automation of part handling or in-process gauging should be evaluated for ROI."
+      },
+      {
+        "condition": "RPM_Utilisation_pct < 40",
+        "severity": "INFO",
+        "source": "Machine Asset Utilisation",
+        "message": "Machine spindle speed capability underused (<40% of max RPM). Machine may be oversized for this operation, or cutting parameters are conservative. Review tool and material data for speed increase potential."
+      }
+    ]
+  }
+}

@@ -53,7 +53,7 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
 
     expect(approval.status).toBe("approved_for_production");
     expect(approval.productionDeployApproved).toBe(true);
-    expect(approval.approvedBy).toBe("Barış Bağırlar");
+    expect(approval.approvedBy).toBe("Baris Bagirlar");
     expect(approval.approvedAt).toBe("2026-06-08T19:55:00.000Z");
     expect(decision.productionDeploymentReady).toBe(true);
     expect(decision.productionDeployApproved).toBe(true);
@@ -68,7 +68,7 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     const decision = evaluateSmartFormPilotProductionDeployGate({
       stagingSmokeGate: passedStagingSmokeGate(),
       approval: buildApprovedSmartFormPilotProductionDeployApproval({
-        approvedBy: "Barış Bağırlar",
+        approvedBy: "Baris Bagirlar",
         approvedAt: "2026-06-08T19:55:00.000Z",
       }),
     });

@@ -27,9 +27,7 @@ function extractToolSlug(pathname: string): string {
 }
 
 function gatewayFallbackMessage(locale: string): string {
-  return locale === "tr"
-    ? "Şu anda AI yardımcısı yanıt üretemedi. Hesaplama alanlarını kontrol ederek tekrar deneyin."
-    : "The AI assistant could not generate a response. Check the calculation fields and try again.";
+  return "The AI assistant could not generate a response. Check the calculation fields and try again.";
 }
 
 function buildGatewaySuggestion(result: CustomerAiSafeResponse): AssistantSuggestion | null {

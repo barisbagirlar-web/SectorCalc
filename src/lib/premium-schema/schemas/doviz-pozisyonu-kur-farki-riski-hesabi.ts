@@ -2,12 +2,12 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSchema = {
   id: "doviz-pozisyonu-kur-farki-riski-hesabi",
-  name: "Döviz Pozisyonu Kur Farkı Riski (FX Exposure)",
+  name: "FX Position Exchange Rate Risk (FX Exposure)",
   sectorSlug: "finance-hr",
   category: "cost",
   legacyPaidSlug: "doviz-pozisyonu-kur-farki-riski-hesabi",
   painStatement:
-    "Beklenmedik kur şokları nedeniyle şirket bilançosundaki gizli kur farkı zararlarını (FX Exposure) önceden analiz edin.",
+    "Analyze hidden FX losses in your company balance sheet caused by unexpected currency shocks.",
 
   inputs: [
     {
@@ -18,7 +18,7 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
       required: true,
       smartDefault: 150000,
       validation: { min: 0 },
-      helper: "Yabancı para cinsinden varlıklarınız (Nakit, Alacaklar vb.)",
+      helper: "Your foreign-currency denominated assets (Cash, Receivables, etc.)",
       expertMeaning: "Total value of liquid and non-liquid foreign denominated assets.",
     },
     {
@@ -29,7 +29,7 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
       required: true,
       smartDefault: 200000,
       validation: { min: 0 },
-      helper: "Yabancı para cinsinden yükümlülükleriniz (Borçlar, Ödemeler vb.)",
+      helper: "Your foreign-currency denominated liabilities (Debts, Payables, etc.)",
       expertMeaning: "Total value of foreign denominated debts and payables.",
     },
     {
@@ -40,7 +40,7 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
       required: true,
       smartDefault: 35.5,
       validation: { min: 0.0001, step: 0.0001 },
-      helper: "Mevcut döviz kuru (Örn: 1 USD = 35.50 TL)",
+      helper: "Current exchange rate (e.g., 1 USD = 35.50 TRY)",
       expertMeaning: "Spot exchange rate applied to translation.",
     },
     {
@@ -51,7 +51,7 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
       required: true,
       smartDefault: 42.0,
       validation: { min: 0.0001, step: 0.0001 },
-      helper: "Beklenen veya stres testi için kullanılacak şok döviz kuru",
+      helper: "Expected or shock exchange rate for stress testing",
       expertMeaning: "Stressed or forward exchange rate for scenario analysis.",
     },
     {
@@ -62,7 +62,7 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
       required: true,
       smartDefault: 20,
       validation: { min: 0, max: 100 },
-      helper: "Döviz pozisyonunun korunma (hedge) oranı",
+      helper: "Foreign exchange position hedging ratio",
       expertMeaning: "Percentage of the net exposure covered by financial derivatives (forwards/options).",
     }
   ],
@@ -101,20 +101,20 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
   outputs: [
     {
       id: "fxLossExposure",
-      label: "Net Kur Farkı Zarar Riski (Unhedged)",
+      label: "Net FX Loss Risk (Unhedged)",
       unit: "Local",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "netPosition",
-      label: "Net Döviz Pozisyonu",
+      label: "Net FX Position",
       unit: "USD/EUR",
       format: "number",
     },
     {
       id: "hedgeSavings",
-      label: "Hedge Sayesinde Korunan Tutar",
+      label: "Amount Protected by Hedge",
       unit: "Local",
       format: "currency",
     },
@@ -126,13 +126,13 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
       warning: 100000,
       critical: 500000,
       direction: "higher_is_bad",
-      warningMessage: "Kur farkı riskiniz uyarı seviyesinde, operasyonel hedge mekanizmalarını artırın.",
-      criticalMessage: "Kritik döviz pozisyonu açığı! Kur şoku özkaynaklarınızı ciddi şekilde eritebilir, finansal türev (forward vb.) kullanın.",
+      warningMessage: "Your FX risk is at a warning level. Increase operational hedging mechanisms.",
+      criticalMessage: "Critical FX position gap! Currency shock could severely erode your equity. Use financial derivatives (forwards, etc.).",
     },
   ],
 
   reportTemplate: {
-    title: "Döviz Pozisyonu Kur Şoku (FX Shock) Analiz Raporu",
+    title: "FX Position Currency Shock (FX Shock) Analysis Report",
     sections: [
       "executive_summary",
       "loss_breakdown",
@@ -149,9 +149,9 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
     volatilityPercent: 15,
     targetMarginPercent: 0,
     assumptionNotes: [
-      "Net Pozisyon = Yabancı Varlıklar - Yabancı Yükümlülükler.",
-      "Kur Farkı = Net Pozisyon × (Beklenen Kur - Güncel Kur).",
-      "Kısa pozisyon (borç ağırlıklı) durumunda kur artışı zarar yazar, hedge bu zararın ilgili yüzdesini sıfırlar.",
+      "Net Position = Foreign Assets - Foreign Liabilities.",
+      "FX Loss = Net Position × (Expected Rate - Current Rate).",
+      "In a short position (liability-heavy), rate increases cause losses; hedging offsets the corresponding percentage of this loss.",
     ],
   },
 };

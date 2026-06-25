@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-// Implementation removed for rewrite
-export const WELDED_BOLTED_CONNECTION_CALCULATOR_INPUT_KEYS = (inputs: any) => {
-  return {
-    outputs: {},
-    rules: [],
-    charts: []
-  };
-};
-=======
 export type WeldedBoltedConnectionCalculatorInputs = {
   throatMm: number;
   weldLengthMm: number;
@@ -74,4 +64,3 @@ export function validateWeldedBoltedConnectionCalculatorInputs(inputs: WeldedBol
     warnings: collectWarnings(inputs),
   };
 }
->>>>>>> Stashed changes

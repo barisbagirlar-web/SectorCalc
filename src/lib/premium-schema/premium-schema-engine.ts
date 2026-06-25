@@ -1,4 +1,5 @@
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck — Premium Schema Engine (locked type system)
 
 /**
  * Premium Schema Engine — resolves inputMap, runs pipeline, thresholds, report.

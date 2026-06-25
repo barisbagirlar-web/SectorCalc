@@ -1,5 +1,5 @@
 /**
- * Global standartlarda, sektörel bağımsız analiz motoru.
+ * Global standards, sector-independent analysis engine.
  */
 
 export interface AuditInput {

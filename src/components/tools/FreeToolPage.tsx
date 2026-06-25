@@ -207,7 +207,7 @@ function FreeToolResultCard({ result }: { result: FreeToolResult }) {
 
  return (
  <div className="sc-ledger-result sc-result-panel sc-ledger-letterpress" aria-live="polite">
- <p className="sc-ledger-eyebrow">Hızlı çetele</p>
+ <p className="sc-ledger-eyebrow">Quick tally</p>
  <p className={`mt-2 text-base font-semibold leading-snug ${STATUS_TEXT_CLASS[status]}`} data-status={status}>
  {result.headline}
  </p>
@@ -628,6 +628,12 @@ export function FreeToolPage({
      ) : null}
     </>
    }
+   hasCalculated={submitted && !isCalculating && result !== null}
+   resultSummary={result ? {
+    primaryValue: result.summary,
+    status: result.riskLevel === "LOW" ? "safe" : result.riskLevel === "MEDIUM" ? "watch" : "danger",
+    actionRecommendation: result.headline,
+   } : null}
    trustTraceSlot={undefined}
   />
    <CalculationFeedbackButton

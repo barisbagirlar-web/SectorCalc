@@ -1,0 +1,191 @@
+{
+  "tool_id": "PRO_027",
+  "tool_name": "SMED Setup Time Reduction, Capacity Recovery & EOQ Optimisation (Shingo / Harris)",
+  "category": "Lean Manufacturing / Setup Reduction",
+  "scope": "process_agnostic",
+  "primary_operation": "smed_setup",
+  "inputs": [
+    {
+      "id": "internal_setup_current_min",
+      "name": "Current Internal Setup Time (machine stopped)",
+      "unit": "min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "hint": "From time study — time machine is non-productive during changeover"
+    },
+    {
+      "id": "external_setup_current_min",
+      "name": "Current External Setup Time (pre/post while running)",
+      "unit": "min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Preparation activities already done while machine is running previous job"
+    },
+    {
+      "id": "internal_to_external_conversion_pct",
+      "name": "Internal-to-External Conversion Achievement",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 100,
+      "hint": "% of current internal time successfully converted to external via SMED programme"
+    },
+    {
+      "id": "streamlining_reduction_pct",
+      "name": "Setup Streamlining Reduction (remaining internal)",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 80,
+      "default": 20,
+      "hint": "Additional reduction from quick-clamps, standardisation, mistake-proofing of remaining internal time"
+    },
+    {
+      "id": "changeovers_per_year",
+      "name": "Annual Number of Changeovers",
+      "unit": "changeovers/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1
+    },
+    {
+      "id": "machine_hourly_rate_usd",
+      "name": "Machine Opportunity Cost Rate (fully burdened)",
+      "unit": "USD/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "hint": "Cost of machine standing idle — includes depreciation, operator, overhead"
+    },
+    {
+      "id": "annual_demand_units",
+      "name": "Annual Product Demand",
+      "unit": "units/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1
+    },
+    {
+      "id": "unit_material_cost_usd",
+      "name": "Unit Material / Variable Cost",
+      "unit": "USD/unit",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.01
+    },
+    {
+      "id": "holding_cost_rate_pct",
+      "name": "Annual Inventory Holding Cost Rate",
+      "unit": "% of unit value/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 5,
+      "absolute_max": 60,
+      "default": 25,
+      "hint": "Warehousing + capital tied up + obsolescence + insurance — typically 20–35% of unit value"
+    },
+    {
+      "id": "smed_project_cost_usd",
+      "name": "SMED Project Investment (tooling, fixtures, training)",
+      "unit": "USD",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0
+    }
+  ],
+  "formulas": [
+    "Holding_Cost_per_Unit_USD = unit_material_cost_usd * (holding_cost_rate_pct / 100)   // [USD/unit/year] Annual holding cost",
+    "Internal_After_Conversion_min = internal_setup_current_min * (1 - internal_to_external_conversion_pct / 100)   // [min] Internal time after conversion step",
+    "Internal_After_Streamlining_min = Internal_After_Conversion_min * (1 - streamlining_reduction_pct / 100)   // [min] Internal time after all SMED improvements",
+    "Target_Total_Setup_min = Internal_After_Streamlining_min   // [min] New internal setup time — the SMED target",
+    "Setup_Time_Saved_min = internal_setup_current_min - Target_Total_Setup_min   // [min] Internal time recovered per changeover",
+    "Current_Setup_Cost_USD = (internal_setup_current_min / 60) * machine_hourly_rate_usd   // [USD/changeover] Current cost",
+    "New_Setup_Cost_USD = (Target_Total_Setup_min / 60) * machine_hourly_rate_usd   // [USD/changeover] After SMED cost",
+    "Annual_Setup_Cost_Saving_USD = (Current_Setup_Cost_USD - New_Setup_Cost_USD) * changeovers_per_year   // [USD/year]",
+    "Annual_Capacity_Recovered_min = Setup_Time_Saved_min * changeovers_per_year   // [min/year] Machine time recovered",
+    "Current_EOQ_units = SQRT((2 * annual_demand_units * Current_Setup_Cost_USD) / Holding_Cost_per_Unit_USD)   // [units] Economic Order Qty — current",
+    "New_EOQ_units = SQRT((2 * annual_demand_units * New_Setup_Cost_USD) / Holding_Cost_per_Unit_USD)   // [units] Economic Order Qty — after SMED",
+    "Average_Inventory_Reduction_units = (Current_EOQ_units - New_EOQ_units) / 2   // [units] Reduction in average cycle stock",
+    "Inventory_Value_Released_USD = Average_Inventory_Reduction_units * unit_material_cost_usd   // [USD] Working capital released",
+    "Inventory_Cost_Saving_USD = Average_Inventory_Reduction_units * Holding_Cost_per_Unit_USD   // [USD/year] Annual holding cost saving",
+    "Total_Annual_Benefit_USD = Annual_Setup_Cost_Saving_USD + Inventory_Cost_Saving_USD   // [USD/year] Total financial benefit",
+    "Simple_Payback_Months = smed_project_cost_usd > 0 && Total_Annual_Benefit_USD > 0 ? (smed_project_cost_usd / Total_Annual_Benefit_USD) * 12 : 0   // [months]",
+    "Setup_Reduction_Pct = (Setup_Time_Saved_min / internal_setup_current_min) * 100   // [%] Overall setup reduction achieved"
+  ],
+  "engine_rules": {
+    "standards": [
+      "Shingo Prize SMED Methodology",
+      "Harris EOQ Model (1913) — Wilson Formula",
+      "APICS CPIM Module 3 — Inventory Management",
+      "Lean Enterprise Institute — Setup Reduction",
+      "Toyota Production System"
+    ],
+    "validation": {
+      "target_faster": {
+        "condition": "internal_to_external_conversion_pct === 0 && streamlining_reduction_pct === 0",
+        "error_msg": "Both conversion and streamlining reductions are zero — no SMED improvement defined. Enter expected improvement percentages."
+      },
+      "conversion_range": {
+        "condition": "internal_to_external_conversion_pct > 100",
+        "error_msg": "Conversion rate cannot exceed 100% of internal time."
+      },
+      "holding_rate_range": {
+        "condition": "holding_cost_rate_pct < 5",
+        "error_msg": "Holding cost rate < 5% is unrealistically low. Minimum components: capital cost (WACC) + warehousing + insurance. Typical industrial: 20–30%."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Current_EOQ_units > annual_demand_units / 6",
+        "severity": "CRITICAL",
+        "source": "Lean Inventory / Toyota Production System",
+        "message": "BATCH PRODUCTION MODE: Current EOQ exceeds 2 months of demand. High setup cost is forcing large batch sizes, creating excess WIP, long lead times, and poor flexibility. SMED is the correct intervention — reducing setup cost directly enables smaller, leaner batches."
+      },
+      {
+        "condition": "Setup_Reduction_Pct < 50",
+        "severity": "WARNING",
+        "source": "Shingo SMED Methodology",
+        "message": "Setup reduction < 50%: Below typical SMED first-pass target. Shingo's methodology targets >75% reduction in internal time. Review: Have all convertible internal activities been identified? Are quick-clamp fixtures and standardised toolholder systems being used?"
+      },
+      {
+        "condition": "Annual_Capacity_Recovered_min > 480 && machine_hourly_rate_usd > 50",
+        "severity": "INFO",
+        "source": "OEE / Capacity Analysis",
+        "message": "Significant capacity recovered (>8 hours equivalent): At this machine rate, recovered capacity has high monetary value. If demand exists, this freed capacity can be converted to throughput rather than cost saving — model the revenue upside separately."
+      },
+      {
+        "condition": "New_EOQ_units < annual_demand_units / 52",
+        "severity": "INFO",
+        "source": "Lean / One-Piece Flow",
+        "message": "SMED enables weekly or sub-weekly batch sizes: Approaching one-piece-flow conditions. Consider implementing Pull / Kanban replenishment system to replace EOQ-based push scheduling."
+      },
+      {
+        "condition": "internal_to_external_conversion_pct < 30 && internal_setup_current_min > 30",
+        "severity": "WARNING",
+        "source": "Shingo SMED Stage 1",
+        "message": "Low conversion rate with long internal setup: SMED Stage 1 (separation of internal/external) is incomplete. Most setups > 30 min have 40–60% of activities convertible to external. Conduct video-based setup analysis to identify conversion opportunities."
+      },
+      {
+        "condition": "Inventory_Value_Released_USD > smed_project_cost_usd && smed_project_cost_usd > 0",
+        "severity": "INFO",
+        "source": "Working Capital Optimisation",
+        "message": "WORKING CAPITAL RELEASE EXCEEDS PROJECT COST: Inventory value released from smaller batch sizes alone covers the SMED investment. Present to finance as a working capital project, not just a productivity initiative."
+      }
+    ]
+  }
+}

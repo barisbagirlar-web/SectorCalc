@@ -1,6 +1,6 @@
 /**
- * U-Engine — Logic Layer çekirdeği.
- * FormulaRepository ile registry-decoupled analiz.
+ * U-Engine — Logic Layer core.
+ * FormulaRepository with registry-decoupled analysis.
  * Regional Compliance overlay on financial loss.
  */
 

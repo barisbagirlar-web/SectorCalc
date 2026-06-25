@@ -29,7 +29,6 @@ const SCHEMAS_DIR = path.join(ROOT, "src/lib/premium-schema/schemas");
 const SCHEMA_REGISTRY_FILE = path.join(ROOT, "src/lib/premium-schema/schema-registry.ts");
 const PREMIUM_SCHEMA_I18N_FILE = path.join(ROOT, "src/data/premium-schema-i18n.ts");
 const MESSAGES_EN_FILE = path.join(ROOT, "messages/en.json");
-const MESSAGES_TR_FILE = path.join(ROOT, "messages/tr.json");
 const CONTRACTS_DIR = path.join(ROOT, "src/lib/formula-governance/contracts");
 
 const HUMAN_REVIEW_BLOCKLIST = new Set([
@@ -465,7 +464,6 @@ export function buildUiI18nPlan(options) {
     wouldModify.push(PREMIUM_SCHEMA_I18N_FILE);
     wouldModify.push(SCHEMA_REGISTRY_FILE);
     wouldModify.push(MESSAGES_EN_FILE);
-    wouldModify.push(MESSAGES_TR_FILE);
 
     i18nKeys.push({
       slug: item.slug,
@@ -619,17 +617,13 @@ export function applyUiI18nPlan(plan) {
     fs.writeFileSync(PREMIUM_SCHEMA_I18N_FILE, i18nContent, "utf8");
   }
 
-  if (passed.length > 0 && fs.existsSync(MESSAGES_EN_FILE) && fs.existsSync(MESSAGES_TR_FILE)) {
+  if (passed.length > 0 && fs.existsSync(MESSAGES_EN_FILE)) {
     let enContent = fs.readFileSync(MESSAGES_EN_FILE, "utf8");
-    let trContent = fs.readFileSync(MESSAGES_TR_FILE, "utf8");
     for (const item of plan.selected.filter((entry) => passed.includes(entry.slug))) {
       const meta = extractContractMeta(item.slug);
-      const tr = i18nEntries.find((entry) => entry.slug === item.slug);
       enContent = wireMessagesToolTitle(enContent, item.slug, meta.toolName);
-      trContent = wireMessagesToolTitle(trContent, item.slug, tr?.titleTr ?? meta.toolName);
     }
     fs.writeFileSync(MESSAGES_EN_FILE, enContent, "utf8");
-    fs.writeFileSync(MESSAGES_TR_FILE, trContent, "utf8");
   }
 
   const scanBefore = plan.scanStats;

@@ -1,8 +1,8 @@
 /**
  * Sector Reality Gate
- * 
- * Hesaplama sonuçlarının sektörel gerçekliğe uygun olup olmadığını kontrol eder.
- * Her sektör için specific sanity rules.
+ *
+ * Checks whether calculation results are realistic for the given sector.
+ * Each sector has specific sanity rules.
  */
 
 import type { CalculationResult, SanityCheckResult } from "./global-sanity-gate";

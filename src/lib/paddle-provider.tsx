@@ -66,9 +66,11 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
       };
 
       if (typeof Paddle.Initialize === 'function') {
+        if (typeof Paddle.Environment?.set === 'function') {
+          Paddle.Environment.set(env)
+        }
         Paddle.Initialize({
           token,
-          environment: env,
           eventCallback,
         }).then(() => {
           paddleRef.current = Paddle
@@ -113,7 +115,7 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
       paddleRef.current.Checkout.open(opts)
     } catch (error) {
       console.error('[PaddleProvider] Failed to open checkout:', error)
-      alert("Ödeme sistemi şu an açılamıyor. Lütfen sayfayı yenileyip tekrar deneyin.")
+      alert("Payment system is currently unavailable. Please refresh the page and try again.")
     }
   }
 

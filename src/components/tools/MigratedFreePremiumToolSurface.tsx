@@ -148,10 +148,7 @@ export async function resolveMigratedPremiumToolMetadata(
       locale,
       revenueTool.freeTitle,
     );
-    const localizedDescription =
-      locale === "tr"
-        ? `${localizedTitle} — premium sektör hesaplayıcısı.`
-        : `${revenueTool.freeValue} Premium sector calculator on SectorCalc.`;
+    const localizedDescription = `${revenueTool.freeValue} Premium sector calculator on SectorCalc.`;
     return { title: localizedTitle, description: localizedDescription };
   }
 

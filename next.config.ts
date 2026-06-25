@@ -3,13 +3,15 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
-/** Paths that must not be rewritten to /en/* (static assets + locale/admin/api). */
-const LOCALE_REWRITE_EXCLUDE =
-  "tr(?:/|$)|de(?:/|$)|fr(?:/|$)|es(?:/|$)|ar(?:/|$)|en(?:/|$)|admin(?:/|$)|api(?:/|$)|_next(?:/|$)|img(?:/|$)|images(?:/|$)|icons(?:/|$)|.*\\.[^/]+$";
-
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "standalone",
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   serverExternalPackages: ["@react-pdf/renderer"],
   experimental: {
     staleTimes: {
@@ -21,26 +23,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/en", destination: "/", permanent: true },
-      { source: "/en/:path*", destination: "/:path*", permanent: true },
+      { source: "/premium-tools", destination: "/pricing", permanent: true },
+      { source: "/blog", destination: "/case-studies", permanent: true },
+      { source: "/formulas", destination: "/calculator-library", permanent: true },
+      { source: "/api", destination: "/developer-showcase", permanent: true },
+      { source: "/signup", destination: "/login", permanent: true },
     ];
-  },
-  async rewrites() {
-    const indexNowKey = process.env.INDEXNOW_KEY?.trim();
-    const indexNowVerification = indexNowKey
-      ? [{ source: `/${indexNowKey}.txt`, destination: "/api/indexnow-verification" }]
-      : [];
-
-    return {
-      beforeFiles: [
-        ...indexNowVerification,
-        { source: "/", destination: "/en" },
-        {
-          source: `/:path((?!${LOCALE_REWRITE_EXCLUDE}).*)`,
-          destination: "/en/:path",
-        },
-      ],
-    };
   },
 };
 

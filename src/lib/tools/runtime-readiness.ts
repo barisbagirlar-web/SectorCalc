@@ -76,8 +76,6 @@ const GENERIC_UNITS = new Set(["value", "input", "field", "key", "amount"]);
 const ENGLISH_TOKEN =
   /\b(fee|subscription|monthly|months|value|input|enter|year|calculation|free|premium)\b/i;
 
-const TURKISH_MARKERS = /[çğıöşüÇĞİÖŞÜ]|(\b(Aylık|Ay|girin|ücret|tutar|hesap)\b)/i;
-
 type ResolvedInput = {
   readonly key: string;
   readonly label: string;
@@ -163,13 +161,8 @@ function isGenericLabel(label: string): boolean {
   return false;
 }
 
-function isMixedLocaleLabel(label: string, locale: SupportedLocale): boolean {
-  if (locale !== "tr") {
-    return false;
-  }
-  const hasTurkish = TURKISH_MARKERS.test(label);
-  const hasEnglish = ENGLISH_TOKEN.test(label);
-  return hasTurkish && hasEnglish;
+function isMixedLocaleLabel(_label: string, _locale: SupportedLocale): boolean {
+  return false;
 }
 
 function hasFormulaContract(slug: string): boolean {

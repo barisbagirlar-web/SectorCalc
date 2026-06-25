@@ -1,4 +1,5 @@
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck — Imports SevenMudaEngineeringResult from stub
 
 import { normalizeLocale } from "@/lib/format/localization";
 import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
@@ -85,44 +86,6 @@ const EN_LABELS: SevenMudaRev5LabelCore = {
   confidenceText: (level) => EN_CONFIDENCE[level],
 };
 
-const TR_LABELS: SevenMudaRev5LabelCore = {
-  quickSummaryTitle: "Karar özeti",
-  executiveSummary: "Yönetici özeti",
-  totalWasteCost: "Toplam israf maliyeti",
-  annualizedWasteCost: "Yıllıklandırılmış kayıp",
-  wasteCostPerUnit: "Birim israf maliyeti",
-  periodRevenue: "Dönem cirosu",
-  periodGrossMarginValue: "Dönem brüt marj tutarı",
-  wasteToRevenueRatio: "Ciroya göre israf oranı",
-  wasteToGrossMarginRatio: "Brüt marja göre israf oranı",
-  highestWasteCategory: "En büyük israf alanı",
-  firstActionCategory: "İlk müdahale alanı",
-  confidenceLevel: "Veri güven seviyesi",
-  riskAdjustedPriorityScore: "Risk ayarlı öncelik skoru",
-  doubleCountRisk: "Çift sayım riski",
-  doubleCountDetected: "Tespit edildi",
-  doubleCountNone: "Tespit edilmedi",
-  decisionVerdict: "Karar özeti",
-  summaryLevel: "Özet seviye",
-  biggestCostCategory: "En büyük maliyet alanı",
-  dataConfidence: "Veri güven seviyesi",
-  wasteBreakdown: "İsraf kırılımı",
-  category: "Kategori",
-  cost: "Maliyet",
-  share: "Pay",
-  actionPriority: "Aksiyon önceliği",
-  recommendedActionOrder: "Önerilen aksiyon sırası",
-  recoveryScenarios: "Geri kazanım senaryoları",
-  reduction: "Azaltım",
-  periodSavings: "Dönem tasarrufu",
-  annualSavings: "Yıllık tasarruf",
-  warnings: "Uyarılar",
-  noWarnings: "Uyarı yok",
-  categoryName: (key) => TR_CATEGORY_NAMES[key],
-  summaryLevelText: (level) => TR_SUMMARY_LEVELS[level],
-  confidenceText: (level) => TR_CONFIDENCE[level],
-};
-
 const EN_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
   none: "None",
   overproduction: "Overproduction",
@@ -132,17 +95,6 @@ const EN_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
   motion: "Motion",
   overprocessing: "Overprocessing",
   defects: "Defects",
-};
-
-const TR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
-  none: "Yok",
-  overproduction: "Aşırı üretim",
-  waiting: "Bekleme",
-  transport: "Taşıma",
-  inventory: "Stok",
-  motion: "Gereksiz hareket",
-  overprocessing: "Aşırı işleme",
-  defects: "Hatalar",
 };
 
 const EN_SUMMARY_LEVELS: Record<
@@ -156,79 +108,47 @@ const EN_SUMMARY_LEVELS: Record<
   critical: "Critical exposure",
 };
 
-const TR_SUMMARY_LEVELS: Record<
-  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
-  string
-> = {
-  no_detected_waste: "Tespit edilen israf yok",
-  low: "Düşük maruziyet",
-  medium: "Orta maruziyet",
-  high: "Yüksek maruziyet",
-  critical: "Kritik maruziyet",
-};
-
 const EN_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
   high: "High",
   medium: "Medium",
   low: "Low",
 };
 
-const TR_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
-  high: "Yüksek",
-  medium: "Orta",
-  low: "Düşük",
-};
-
 const SEVEN_MUDA_WARNING_MESSAGES: ReadonlyArray<{
   readonly en: string;
-  readonly tr: string;
 }> = [
   {
     en: "Waiting cost includes both direct labor/machine cost and opportunity cost. Confirm this is intentional.",
-    tr: "Bekleme maliyeti hem doğrudan işçilik/makine maliyeti hem de fırsat maliyeti içeriyor. Bunun bilinçli girildiğini kontrol edin.",
   },
   {
     en: "Inventory cost includes both obsolescence and shrinkage. Confirm these are separate losses.",
-    tr: "Stok maliyeti hem değer düşüklüğü hem de fire içeriyor. Bunların ayrı kayıplar olduğunu doğrulayın.",
   },
   {
     en: "Overproduction write-down and inventory obsolescence are both entered. Confirm the same stock loss is not counted twice.",
-    tr: "Fazla üretim değer düşüklüğü ve stok değer düşüklüğü birlikte girilmiş. Aynı stok kaybının iki kez sayılmadığını doğrulayın.",
   },
   {
     en: "Transport damage and defect/rework costs are both present. Confirm transport-related defects are not duplicated.",
-    tr: "Taşıma hasarı ve hata/yeniden işleme maliyetleri birlikte var. Taşıma kaynaklı hataların iki kez yazılmadığını doğrulayın.",
   },
   {
     en: "plannedUnitsPerHour must be greater than zero when waitingOpportunityMode is derivedThroughput; waiting opportunity cost will be treated as zero.",
-    tr: "Üretim hızına göre fırsat maliyeti seçildi ancak planlanan saatlik üretim sıfır. Bekleme fırsat maliyeti sıfır kabul edilir.",
   },
 ];
 
-const WARNING_EN_TO_TR = new Map(
-  SEVEN_MUDA_WARNING_MESSAGES.map((message) => [message.en, message.tr] as const),
-);
-
-function createResolveWarningMessage(locale: string): (rawWarning: string) => string {
-  if (normalizeLocale(locale) !== "tr") {
-    return (rawWarning) => rawWarning;
-  }
-  return (rawWarning) => WARNING_EN_TO_TR.get(rawWarning) ?? rawWarning;
+function createResolveWarningMessage(): (rawWarning: string) => string {
+  return (rawWarning) => rawWarning;
 }
 
-function withWarningResolver(labels: SevenMudaRev5LabelCore, locale: string): SevenMudaRev5Labels {
+function withWarningResolver(labels: SevenMudaRev5LabelCore): SevenMudaRev5Labels {
   return {
     ...labels,
-    resolveWarningMessage: createResolveWarningMessage(locale),
+    resolveWarningMessage: createResolveWarningMessage(),
   };
 }
 
-export function resolveSevenMudaRev5WarningMessage(locale: string, rawWarning: string): string {
-  return createResolveWarningMessage(locale)(rawWarning);
+export function resolveSevenMudaRev5WarningMessage(_locale: string, rawWarning: string): string {
+  return rawWarning;
 }
 
-export function resolveSevenMudaRev5Labels(locale: string): SevenMudaRev5Labels {
-  return normalizeLocale(locale) === "tr"
-    ? withWarningResolver(TR_LABELS, locale)
-    : withWarningResolver(EN_LABELS, locale);
+export function resolveSevenMudaRev5Labels(_locale?: string): SevenMudaRev5Labels {
+  return withWarningResolver(EN_LABELS);
 }

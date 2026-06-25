@@ -86,15 +86,15 @@ function buildRecommendation(row: {
  (row.total >= 2 && row.urgentRatio >= 0.25);
 
  if (urgentHeavy && row.urgentFollowUpCount > 0) {
- parts.push("Önce takip gecikmesini temizle");
+   parts.push("Clear follow-up backlog first");
  }
 
  if (row.efficiencyLevel === "strong") {
- parts.push("Bu kaynağa odaklan");
+   parts.push("Focus on this source");
  } else if (row.efficiencyLevel === "watch") {
- parts.push("İzle, kaliteyi artır");
+   parts.push("Monitor, improve quality");
  } else {
- parts.push("Test kayıtlarını ayıkla veya CTA'yı değiştir");
+   parts.push("Filter test records or change CTA");
  }
 
  return parts.join(" · ");

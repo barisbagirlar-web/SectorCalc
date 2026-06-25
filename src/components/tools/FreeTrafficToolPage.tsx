@@ -585,6 +585,17 @@ export function FreeTrafficToolPage({
               )}
             </div>
               }
+              hasCalculated={submitted && result !== null}
+              resultSummary={result ? {
+                primaryLabel: result.primaryLabel,
+                primaryValue: result.primaryValue,
+                secondaryMetrics: result.secondaryValues.map((sv, i) => ({
+                  id: `sv-${i}`,
+                  label: sv.label,
+                  value: sv.value,
+                })),
+                actionRecommendation: result.explanation,
+              } : null}
               trustTraceSlot={undefined}
             />
           </div>

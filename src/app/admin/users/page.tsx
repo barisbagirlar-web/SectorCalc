@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = {
   ...createPageMetadata({
     title: "Üye Yönetimi (Yönetici)",
-    description: "SectorCalc üye yönetimi için yetkilendirilmiş yönetici paneli.",
+    description: "Authorized admin panel for SectorCalc member management.",
     path: "/admin/users",
   }),
   robots: { index: false, follow: false },
@@ -21,7 +21,7 @@ export default function AdminUsersPage() {
       <PageHero
         eyebrow="Yönetici"
         title="Üye Yönetimi"
-        subtitle="Kayıtlı site üyelerini yönetin, şifreleri düzenleyin, kredi bakiyelerini, abonelik durumlarını ayarlayın ve yönetici yetkileri atayın."
+        subtitle="Manage registered site members, edit passwords, adjust credit balances and subscription statuses, and assign admin privileges."
       />
 
       <section className="bg-off-white py-10 md:py-14">

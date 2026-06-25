@@ -1,32 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
-import enMessages from "../../../messages/en.json";
-import "../globals.css";
-
-const inter = Inter({
- subsets: ["latin"],
- variable: "--font-inter",
- display: "swap",
-});
 
 export const metadata: Metadata = {
- title: "SectorCalc Admin",
- robots: { index: false, follow: false },
+  title: "SectorCalc Admin",
+  robots: { index: false, follow: false },
 };
 
-export default function AdminRootLayout({
- children,
+export default function AdminLayout({
+  children,
 }: Readonly<{
- children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
- return (
- <html lang="en" className={inter.variable} suppressHydrationWarning>
- <body className="min-w-0 overflow-x-hidden bg-white font-sans antialiased">
- <NextIntlClientProvider locale="en" messages={enMessages}>
- {children}
- </NextIntlClientProvider>
- </body>
- </html>
- );
+  return (
+    <div className="min-w-0 min-h-screen overflow-x-hidden bg-white font-sans antialiased">
+      {children}
+    </div>
+  );
 }

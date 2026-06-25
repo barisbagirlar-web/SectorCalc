@@ -360,7 +360,7 @@ interface CaseStudiesClientContentProps {
 }
 
 export function CaseStudiesClientContent({ locale, studies, toolHrefs }: CaseStudiesClientContentProps) {
-  const isAr = locale === "ar";
+  const isAr = false;
   const tr = TRANSLATIONS[locale as keyof typeof TRANSLATIONS] || TRANSLATIONS.en;
   const faqs = LOCALIZED_FAQS[locale as keyof typeof LOCALIZED_FAQS] || LOCALIZED_FAQS.en;
 

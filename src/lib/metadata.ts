@@ -59,7 +59,7 @@ export function getToolMetadata(options: ToolMetadataOptions): Metadata {
   const tierLabel =
     locale === "tr"
       ? options.tier === "free"
-        ? "Ücretsiz"
+        ? "Free"
         : "Premium"
       : options.tier === "free"
         ? "Free"
@@ -67,7 +67,7 @@ export function getToolMetadata(options: ToolMetadataOptions): Metadata {
   const title = `${options.toolTitle} — ${tierLabel}`;
   const description =
     locale === "tr"
-      ? `${options.sectorName} için ${tierLabel.toLowerCase()} hesaplama aracı. Maliyetleri hesaplayın, kayıpları tespit edin ve karar raporu alın.`
+      ? `${tierLabel} ${options.toolTitle.toLowerCase()} for ${options.sectorName.toLowerCase()}. Calculate costs, detect losses, and get expert-level decision reports.`
       : `${tierLabel} ${options.toolTitle.toLowerCase()} for ${options.sectorName.toLowerCase()}. Calculate costs, detect losses, and get expert-level decision reports.`;
   const path = `/tools/${options.tier}/${options.toolSlug}`;
 

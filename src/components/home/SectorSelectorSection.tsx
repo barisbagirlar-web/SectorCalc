@@ -84,7 +84,7 @@ export default async function SectorSelectorSection() {
             {sectorsByCategory.map(({ category, label, sectors }) => (
               <div key={category} className="ind-os-list">
                 <p className="label-badge border-b border-technical-gray bg-industrial-matte px-3 py-2 text-body-charcoal">
-                  {locale === "tr" ? label.tr : label.en}
+                  {label.en}
                 </p>
                 <ul>
                   {sectors.map((sector) => (

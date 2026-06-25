@@ -55,7 +55,7 @@ const footerLocalizations: Record<string, {
   en: {
     precisionStatement: <>Precision is not a feature.<br /><em>It&apos;s a foundation.</em></>,
     headquarters: "Headquarters",
-    addressText: <>Folkart Towers<br />İzmir, Türkiye<br /><a href="https://sectorcalc.com" target="_blank" rel="noopener noreferrer">sectorcalc.com</a></>,
+    addressText: <>Folkart Towers<br />Izmir, Turkey<br /><a href="https://sectorcalc.com" target="_blank" rel="noopener noreferrer">sectorcalc.com</a></>,
     stats: {
       calculators: "Calculators",
       sectors: "Sectors",
@@ -95,53 +95,10 @@ const footerLocalizations: Record<string, {
     },
     sigText: "Engineering-grade calculations for engineering-grade decisions.",
   },
-  tr: {
-    precisionStatement: <>Hassasiyet bir özellik değildir.<br /><em>Bir temeldir.</em></>,
-    headquarters: "Merkez Ofis",
-    addressText: <>Folkart Towers<br />İzmir, Türkiye<br /><a href="https://sectorcalc.com" target="_blank" rel="noopener noreferrer">sectorcalc.com</a></>,
-    stats: {
-      calculators: "Hesaplayıcı",
-      sectors: "Sektör",
-      proFormulas: "Pro formül",
-    },
-    headings: {
-      platform: "Platform",
-      industries: "Sektörler",
-      resources: "Kaynaklar",
-      company: "Şirket",
-      standards: "Standartlar",
-      sectors: "Sektörler",
-      language: "Dil",
-    },
-    links: {
-      freeCalculators: "Ücretsiz Araçlar",
-      proAnalysis: "Pro Analiz",
-      aiInterpretation: "Yapay Zeka Yorumu",
-      scenarioComparison: "Senaryo Karşılaştırma",
-      pdfReports: "PDF Raporları",
-      pricing: "Fiyatlandırma",
-      all18Sectors: "Tüm 18 Sektör →",
-      caseStudies: "Vaka Çalışmaları",
-      formulaLibrary: "Formül Kütüphanesi",
-      industryBenchmarks: "Sektör Kıyaslamaları",
-      engineeringGuides: "Mühendislik Kılavuzları",
-      apiDocs: "API Belgeleri",
-      about: "Hakkımızda",
-      methodology: "Metodoloji",
-      enterprise: "Kurumsal",
-      partners: "İş Ortaklığı",
-      contact: "İletişim",
-      privacy: "Gizlilik",
-      terms: "Koşullar",
-      cookies: "Çerezler",
-      dpa: "DPA (Veri Sözleşmesi)",
-    },
-    sigText: "Mühendislik kalitesinde kararlar için mühendislik kalitesinde hesaplamalar.",
-  },
   de: {
     precisionStatement: <>Präzision ist kein Feature.<br /><em>Es ist das Fundament.</em></>,
     headquarters: "Hauptsitz",
-    addressText: <>Folkart Towers<br />İzmir, Türkei<br /><a href="https://sectorcalc.com" target="_blank" rel="noopener noreferrer">sectorcalc.com</a></>,
+    addressText: <>Folkart Towers<br />Izmir, Turkey<br /><a href="https://sectorcalc.com" target="_blank" rel="noopener noreferrer">sectorcalc.com</a></>,
     stats: {
       calculators: "Rechner",
       sectors: "Branchen",
@@ -380,7 +337,7 @@ export function EnterpriseFooter() {
               <div className="sc-ft-addr-label">{dict.headquarters}</div>
               <div className="sc-ft-addr">
                 Folkart Towers<br />
-                İzmir, Türkiye<br />
+                Izmir, Turkey<br />
                 <a href="https://sectorcalc.com" target="_blank" rel="noopener noreferrer">sectorcalc.com</a>
               </div>
             </div>
@@ -392,7 +349,7 @@ export function EnterpriseFooter() {
               <div className="sc-ft-nav-heading">{dict.headings.platform}</div>
               <div className="sc-ft-nav-links">
                 <Link href="/free-tools" className="sc-ft-nav-link">{dict.links.freeCalculators}</Link>
-                <Link href="/pricing" className="sc-ft-nav-link">
+                <Link href="/pro-tools" className="sc-ft-nav-link">
                   {dict.links.proAnalysis} <span className="sc-ft-badge">New</span>
                 </Link>
                 <Link href="/pricing" className="sc-ft-nav-link">{dict.links.aiInterpretation}</Link>

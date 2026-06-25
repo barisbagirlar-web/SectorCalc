@@ -1,0 +1,185 @@
+{
+  "tool_id": "PRO_088",
+  "tool_name": "Gage R&R Measurement System Analysis (AIAG MSA 4th Ed.)",
+  "category": "Quality & Metrology",
+  "scope": "single_operation",
+  "primary_operation": "measurement_system",
+  "inputs": [
+    {
+      "id": "n_appraisers",
+      "name": "Number of Appraisers (k)",
+      "unit": "people",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 2,
+      "absolute_max": 5,
+      "default": 3,
+      "hint": "AIAG MSA: minimum 3 appraisers recommended"
+    },
+    {
+      "id": "n_parts",
+      "name": "Number of Parts (n)",
+      "unit": "pcs",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 5,
+      "absolute_max": 30,
+      "default": 10,
+      "hint": "AIAG MSA: minimum 10 parts recommended"
+    },
+    {
+      "id": "n_trials",
+      "name": "Number of Trials (r)",
+      "unit": "ölçüm/parça",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 2,
+      "absolute_max": 5,
+      "default": 2
+    },
+    {
+      "id": "ev_equipment_variation",
+      "name": "Repeatability — EV (Equipment Variation)",
+      "unit": "μm veya birim",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.0001,
+      "hint": "Standard deviation of measurements taken by same operator on same part"
+    },
+    {
+      "id": "av_appraiser_variation",
+      "name": "Reproducibility — AV (Appraiser Variation)",
+      "unit": "μm veya birim",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "hint": "Standard deviation between average measurements of different operators"
+    },
+    {
+      "id": "pv_part_variation",
+      "name": "Part Variation — PV (Part Variation)",
+      "unit": "μm veya birim",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.0001,
+      "hint": "True part-to-part variation of the production process"
+    },
+    {
+      "id": "tolerance_band",
+      "name": "Tolerance Band (USL - LSL)",
+      "unit": "μm veya birim",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.001,
+      "hint": "From product drawing: Upper Specification Limit - Lower Specification Limit"
+    },
+    {
+      "id": "sigma_multiplier",
+      "name": "Sigma Multiplier",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 4,
+      "absolute_max": 6,
+      "default": 6,
+      "hint": "AIAG MSA: 5.15 (99% coverage interval) or 6.00 (99.73% coverage)"
+    },
+    {
+      "id": "process_sigma",
+      "name": "Process Sigma Value (for Cpk estimation)",
+      "unit": "σ",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0.5,
+      "absolute_max": 6,
+      "default": 1.33
+    }
+  ],
+  "formulas": [
+    "GRR_Total = SQRT(POWER(ev_equipment_variation, 2) + POWER(av_appraiser_variation, 2))   // [unit] Total Gage R&R (GRR)",
+    "TV_Total_Variation = SQRT(POWER(GRR_Total, 2) + POWER(pv_part_variation, 2))   // [unit] Total Variation (TV)",
+    "GRR_Spread = sigma_multiplier * GRR_Total   // [unit] GRR spread (6σ or 5.15σ)",
+    "Pct_GRR_to_TV = (GRR_Total / TV_Total_Variation) * 100   // [%] GRR to TV ratio — primary metric",
+    "Pct_EV_to_TV = (ev_equipment_variation / TV_Total_Variation) * 100   // [%] Repeatability contribution (EV/TV)",
+    "Pct_AV_to_TV = (av_appraiser_variation / TV_Total_Variation) * 100   // [%] Reproducibility contribution (AV/TV)",
+    "Pct_PV_to_TV = (pv_part_variation / TV_Total_Variation) * 100   // [%] Part variation contribution (PV/TV)",
+    "Pct_GRR_to_Tolerance = (GRR_Spread / tolerance_band) * 100   // [%] GRR to Tolerance ratio — secondary metric | Source: AIAG MSA 4th Ed.",
+    "NDC = FLOOR(1.41 * (pv_part_variation / GRR_Total))   // [—] Number of Distinct Categories (NDC) — must be >= 5",
+    "False_Reject_Risk_Pct = 100 * (1 - (1 - 2 * (GRR_Total / tolerance_band)))   // [%] Estimated risk of false rejection",
+    "Cpk_Measurement_Bias = (tolerance_band / 2 - 3 * process_sigma * TV_Total_Variation) / (3 * GRR_Total)   // [—] Measurement system Cpk impact estimate"
+  ],
+  "engine_rules": {
+    "standards": [
+      "AIAG MSA 4th Ed.",
+      "IATF 16949 Madde 7.1.5",
+      "ISO 22514-7",
+      "VDA 5",
+      "ISO 17025"
+    ],
+    "validation": {
+      "sample_minimum": {
+        "condition": "n_parts * n_appraisers * n_trials < 60",
+        "error_msg": "Insufficient data: Total measurements (n*k*r) is less than 60. AIAG MSA recommends minimum 10 parts * 3 appraisers * 2 trials = 60 measurements for statistical reliability."
+      },
+      "grr_zero_check": {
+        "condition": "ev_equipment_variation < 0.0001 && av_appraiser_variation < 0.0001",
+        "error_msg": "EV and AV are both equal to zero — physically impossible. Gauge resolution may be insufficient or data entered incorrectly."
+      },
+      "pv_dominance": {
+        "condition": "pv_part_variation < ev_equipment_variation",
+        "error_msg": "Part variation is smaller than gauge variation. Either parts are produced with identical dimensions (process too stable) or gauge resolution is insufficient. Review measurement scale."
+      },
+      "tolerance_min": {
+        "absolute_min": 0.001,
+        "error_msg": "Tolerance band cannot be zero or negative (division error)."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "NDC < 2",
+        "severity": "CRITICAL",
+        "source": "AIAG MSA 4th Ed. Bölüm 4",
+        "message": "SYSTEM REJECTED - NDC = 1: The gauge cannot distinguish between parts. Risk of false rejects/accepts is high. Gauge cannot be used for this tolerance. Calibration or replacement required."
+      },
+      {
+        "condition": "NDC >= 2 && NDC < 5",
+        "severity": "CRITICAL",
+        "source": "AIAG MSA 4th Ed.",
+        "message": "UNACCEPTABLE - NDC < 5: System is insufficient to monitor the process. Does not meet IATF 16949 minimum NDC >= 5 requirement. Process control cannot be established; high risk of non-conformance."
+      },
+      {
+        "condition": "Pct_GRR_to_TV > 30",
+        "severity": "CRITICAL",
+        "source": "AIAG MSA 4th Ed. / IATF 16949",
+        "message": "GRR/TV > 30%: Measurement system is unacceptable. Gauge variation masks actual process variation. Reported Cpk is misleading. Gauge cannot be used for product acceptance."
+      },
+      {
+        "condition": "Pct_GRR_to_TV > 10 && Pct_GRR_to_TV <= 30",
+        "severity": "WARNING",
+        "source": "AIAG MSA 4th Ed.",
+        "message": "GRR/TV 10-30%: Conditional acceptance. Insufficient for critical products or strict process capability studies. Gauge improvement or replacement should be scheduled."
+      },
+      {
+        "condition": "Pct_GRR_to_Tolerance > 30",
+        "severity": "CRITICAL",
+        "source": "AIAG MSA 4th Ed. Alternatif Metrik",
+        "message": "GRR/Tolerance > 30%: Gauge variation consumes >30% of the tolerance band. Specifications cannot be reliably verified. False acceptance/rejection rate is unacceptable."
+      },
+      {
+        "condition": "Pct_AV_to_TV > Pct_EV_to_TV",
+        "severity": "WARNING",
+        "source": "AIAG MSA — Operatör Katkısı",
+        "message": "Appraiser variation (AV) exceeds equipment variation (EV). Problem is not the gauge itself, but the method or training. Establish a Standard Operating Procedure (SOP) and retrain appraisers."
+      }
+    ]
+  }
+}

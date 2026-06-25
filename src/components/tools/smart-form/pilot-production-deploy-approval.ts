@@ -102,7 +102,7 @@ export function getPendingSmartFormPilotProductionDeployApproval(): SmartFormPil
 
 export function getDefaultSmartFormPilotProductionDeployApproval(): SmartFormPilotProductionDeployApproval {
   return buildApprovedSmartFormPilotProductionDeployApproval({
-    approvedBy: "Barış Bağırlar",
+    approvedBy: "Baris Bagirlar",
     approvedAt: "2026-06-08T19:55:00.000Z",
     manualQaStatus: "passed",
     stagingRolloutReady: true,

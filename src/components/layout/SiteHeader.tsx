@@ -49,22 +49,6 @@ const T = {
     ind_supply_chain:'Supply Chain', ind_energy_esg:'Energy & ESG', ind_technology_cloud:'Technology & AI',
     tools:'tools', lang_note:'All prices shown in USD',
   },
-  tr: {
-    products:'Ürünler', industries:'Sektörler', pricing:'Fiyatlandırma', resources:'Kaynaklar',
-    signin:'Giriş yap', getStarted:'Başla',
-    col_free:'Ücretsiz araçlar', col_pro:'Premium',
-    products_free_desc:'Mühendislik hesaplayıcıları, giriş yok',
-    products_pro_desc:'Gerçek parametreler, PDF export',
-    view_all_industries:'Tüm sektörler',
-    res_blog:'Mühendislik blogu', res_blog_d:'Yöntemler & vaka analizleri',
-    res_docs:'Formül referansı', res_docs_d:'Standartlar & kaynaklar',
-    res_api:'API erişimi', res_api_d:'Hesaplamaları entegre et',
-    grp_production:'Üretim', grp_engineering:'Mühendislik', grp_operations:'Operasyonlar',
-    ind_manufacturing:'Üretim', ind_lean_oee:'Yalın & OEE', ind_quality_spc:'Kalite & İPK',
-    ind_mechanical_hvac:'Mekanik & İklimlendirme', ind_electrical_power:'Elektrik & Güç', ind_construction:'İnşaat',
-    ind_supply_chain:'Tedarik Zinciri', ind_energy_esg:'Enerji & ÇYS', ind_technology_cloud:'Teknoloji & YZ',
-    tools:'araç', lang_note:'Tüm fiyatlar USD cinsindendir',
-  },
   de: {
     products:'Produkte', industries:'Branchen', pricing:'Preise', resources:'Ressourcen',
     signin:'Anmelden', getStarted:'Loslegen',
@@ -194,7 +178,7 @@ export function SiteHeader({ isAuthenticated = false }) {
   const accountHref = isAuthenticated ? '/account' : '/login';
   
   const freeToolsCount = getFreeToolCount();
-  const proToolsCount = getPremiumToolCount();
+  const premiumToolsCount = getPremiumToolCount();
 
   return (
     <>
@@ -312,36 +296,30 @@ export function SiteHeader({ isAuthenticated = false }) {
               <button className={`sc-navbtn${openMenu==='products'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='products'?null:'products')} aria-expanded={openMenu==='products'}>
                 {t.products} <span className="chev">▼</span>
               </button>
-            </div>
-            <div onMouseEnter={()=>openWithIntent('industries')} onMouseLeave={closeWithIntent}>
-              <button className={`sc-navbtn${openMenu==='industries'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='industries'?null:'industries')} aria-expanded={openMenu==='industries'}>
-                {t.industries} <span className="chev">▼</span>
-              </button>
-            </div>
-            <Link href={href(locale,'pricing')} className="sc-navbtn">{t.pricing}</Link>
-            <div onMouseEnter={()=>openWithIntent('resources')} onMouseLeave={closeWithIntent}>
-              <button className={`sc-navbtn${openMenu==='resources'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='resources'?null:'resources')} aria-expanded={openMenu==='resources'}>
-                {t.resources} <span className="chev">▼</span>
-              </button>
-            </div>
-
-            {openMenu && (
-              <div className="sc-megawrap" onMouseEnter={()=>openWithIntent(openMenu)} onMouseLeave={closeWithIntent}>
-                {openMenu==='products' && (
+              {openMenu==='products' && (
+                <div className="sc-megawrap">
                   <div className="sc-mega sc-mega-products">
                     <Link href={href(locale,'free-tools')} className="sc-mega-panel">
                       <div className="pt"><span className="pico">🧮</span><span className="ph">{t.col_free}</span></div>
                       <div className="pd">{t.products_free_desc}</div>
                       <div className="pcount">{freeToolsCount}+ {t.tools}</div>
                     </Link>
-                    <Link href={href(locale,'pricing')} className="sc-mega-panel">
+                    <Link href={href(locale,'pro-tools')} className="sc-mega-panel">
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
-                      <div className="pcount">{proToolsCount} {t.tools}</div>
+                      <div className="pcount">{premiumToolsCount} {t.tools}</div>
                     </Link>
                   </div>
-                )}
-                {openMenu==='industries' && (
+                </div>
+              )}
+            </div>
+
+            <div onMouseEnter={()=>openWithIntent('industries')} onMouseLeave={closeWithIntent}>
+              <button className={`sc-navbtn${openMenu==='industries'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='industries'?null:'industries')} aria-expanded={openMenu==='industries'}>
+                {t.industries} <span className="chev">▼</span>
+              </button>
+              {openMenu==='industries' && (
+                <div className="sc-megawrap">
                   <div className="sc-mega sc-mega-industries">
                     <div className="sc-mega-grid">
                       {INDUSTRY_GROUPS.map((g)=>(
@@ -363,8 +341,18 @@ export function SiteHeader({ isAuthenticated = false }) {
                       <span className="promo">18 sectors · 552 {t.tools}</span>
                     </div>
                   </div>
-                )}
-                {openMenu==='resources' && (
+                </div>
+              )}
+            </div>
+
+            <Link href={href(locale,'pricing')} className="sc-navbtn">{t.pricing}</Link>
+
+            <div onMouseEnter={()=>openWithIntent('resources')} onMouseLeave={closeWithIntent}>
+              <button className={`sc-navbtn${openMenu==='resources'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='resources'?null:'resources')} aria-expanded={openMenu==='resources'}>
+                {t.resources} <span className="chev">▼</span>
+              </button>
+              {openMenu==='resources' && (
+                <div className="sc-megawrap">
                   <div className="sc-mega sc-mega-resources">
                     <Link href={href(locale,'case-studies')} className="sc-res-item">
                       <span className="rico">📝</span><span className="rt"><b>{t.res_blog}</b><span>{t.res_blog_d}</span></span>
@@ -373,9 +361,9 @@ export function SiteHeader({ isAuthenticated = false }) {
                       <span className="rico">📐</span><span className="rt"><b>{t.res_docs}</b><span>{t.res_docs_d}</span></span>
                     </Link>
                   </div>
-                )}
-              </div>
-            )}
+                </div>
+              )}
+            </div>
           </nav>
 
           <div className="sc-right">
@@ -399,7 +387,7 @@ export function SiteHeader({ isAuthenticated = false }) {
             {mobileSection==='products' && (
               <div className="sc-draw-body">
                 <Link href={href(locale,'free-tools')} onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
-                <Link href={href(locale,'pricing')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
+                <Link href={href(locale,'pro-tools')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{premiumToolsCount}</span></Link>
               </div>
             )}
           </div>

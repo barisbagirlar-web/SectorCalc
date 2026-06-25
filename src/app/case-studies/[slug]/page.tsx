@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
-// @ts-nocheck
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { CaseStudyDetail } from "@/components/case-studies/CaseStudyDetail";
@@ -44,8 +41,6 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const locale = "en";
-
   // Google FAQ Page JSON-LD schema matching locale question formats
   const faqSchema = {
     "@context": "https://schema.org",
@@ -53,7 +48,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": locale === "tr" ? `${entry.title} Nedir?` : `What is ${entry.title}?`,
+        "name": `What is ${entry.title}?`,
         "acceptedAnswer": {
           "@type": "Answer",
           "text": entry.whatIsIt
@@ -61,7 +56,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
       },
       {
         "@type": "Question",
-        "name": locale === "tr" ? "Nasıl Hesaplanır?" : "How is it calculated?",
+        "name": "How is it calculated?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": entry.howIsItCalculated
@@ -69,7 +64,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
       },
       {
         "@type": "Question",
-        "name": locale === "tr" ? "Neden Önemlidir / Faydaları Nelerdir?" : "Why does it matter / What are the benefits?",
+        "name": "Why does it matter / What are the benefits?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": entry.whyItMatters
@@ -88,7 +83,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
       
       <section className="sc-craft-section overflow-x-hidden bg-white py-8 md:py-12">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0 max-w-4xl">
-          <CaseStudyDetail entry={entry} locale={locale} />
+          <CaseStudyDetail entry={entry} />
         </Container>
       </section>
     </PageLayout>

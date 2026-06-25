@@ -1,11 +1,5 @@
-const DIACRITICS = /[ıİşŞğĞüÜöÖçÇ]/g;
+const DIACRITICS = /[üÜöÖçÇ]/g;
 const DIACRITIC_MAP: Record<string, string> = {
-  ı: "i",
-  İ: "i",
-  ş: "s",
-  Ş: "s",
-  ğ: "g",
-  Ğ: "g",
   ü: "u",
   Ü: "u",
   ö: "o",

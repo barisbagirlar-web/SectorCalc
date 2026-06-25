@@ -7,12 +7,12 @@ export const dynamic = 'force-dynamic';
 
 const db = getAdminFirestore();
 
-// Not: Ortam değişkenini NEXT_PUBLIC_PADDLE_ENV olarak koda yansıtıyorum. (Önceki .env dosyalarınızda böyle geçiyor)
+// Note: Reflecting environment variable as NEXT_PUBLIC_PADDLE_ENV in code.
 const paddle = new Paddle(process.env.PADDLE_API_KEY!, {
   environment: process.env.NEXT_PUBLIC_PADDLE_ENV === 'sandbox' ? Environment.sandbox : Environment.production,
 });
 
-// Barkod - Kredi Miktarı Haritası (Kendi barkodlarına göre kontrol et)
+// Barcode - Credit Amount Map
 const creditMap: Record<string, number> = {
   [process.env.NEXT_PUBLIC_PRICE_ID_TRY_IT!]: 1,
   [process.env.NEXT_PUBLIC_PRICE_ID_ESSENTIALS!]: 5,
@@ -36,18 +36,18 @@ export async function POST(req: Request) {
       const creditsToAdd = creditMap[priceId] || 0;
 
       if (db && userId && creditsToAdd > 0) {
-        // Firestore'da kullanıcının kredisini artır
+        // Increment user credit balance in Firestore
         await db.collection('users').doc(userId).update({
           creditBalance: admin.firestore.FieldValue.increment(creditsToAdd),
           updatedAt: admin.firestore.FieldValue.serverTimestamp()
         });
-        console.log(`Bakiye Eklendi! User: ${userId} | Kredi: +${creditsToAdd}`);
+        console.log(`Balance added! User: ${userId} | Credit: +${creditsToAdd}`);
       }
     }
 
-    return NextResponse.json({ status: 'Başarılı' }, { status: 200 });
+    return NextResponse.json({ status: 'Success' }, { status: 200 });
   } catch (error) {
-    console.error('Webhook Hatası:', error);
-    return NextResponse.json({ error: 'İşlem Başarısız' }, { status: 400 });
+    console.error('Webhook Error:', error);
+    return NextResponse.json({ error: 'Transaction Failed' }, { status: 400 });
   }
 }

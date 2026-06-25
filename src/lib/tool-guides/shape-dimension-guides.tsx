@@ -257,11 +257,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "paint-coverage-cost-check",
     title: {
-      tr: "Boyanabilir duvar alanı, kat sayısı ve birim kapsama değerlerini girin.",
       en: "Enter paintable wall area, coat count and coverage per unit.",
     },
     description: {
-      tr: "Duvar yüzeyi, kat ve kapsama alanları paintableArea, coats ve coveragePerUnit ile eşleşir.",
       en: "Wall surface, coats and coverage map to paintableArea, coats and coveragePerUnit.",
     },
     inputKeys: ["paintableArea", "coveragePerUnit", "coats", "unitPrice", "wasteAllowancePct"],
@@ -270,11 +268,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "home-renovation-m2",
     title: {
-      tr: "Oda planı alanı ve m² birim maliyetini girin.",
       en: "Enter room floor area and unit cost per m².",
     },
     description: {
-      tr: "Zemin alanı areaM2; birim maliyet, yıkım ve kontenjan alanlarıyla birlikte okunur.",
       en: "Floor area is areaM2 alongside unit cost, demolition and contingency fields.",
     },
     inputKeys: ["areaM2", "unitCostPerM2", "demolitionCost", "contingencyPct"],
@@ -283,11 +279,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "kwh-consumption-check",
     title: {
-      tr: "Cihaz gücü, günlük çalışma saati ve tarife değerlerini girin.",
       en: "Enter appliance power, daily run hours and tariff.",
     },
     description: {
-      tr: "Güç, süre ve tarife alanları powerKw, hoursPerDay, days ve tariffPerKwh ile eşleşir.",
       en: "Power, duration and tariff map to powerKw, hoursPerDay, days and tariffPerKwh.",
     },
     inputKeys: ["powerKw", "hoursPerDay", "days", "tariffPerKwh"],
@@ -296,11 +290,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "plumbing-fixture-cost-check",
     title: {
-      tr: "Armatür adedi, malzeme ve işçilik maliyetlerini girin.",
       en: "Enter fixture count, material and labor costs.",
     },
     description: {
-      tr: "Lavabo/armatür sayısı fixtureCount; malzeme ve saat maliyetleri ilgili alanlara girilir.",
       en: "Fixture count maps to fixtureCount; material and hourly costs go to their fields.",
     },
     inputKeys: ["fixtureCount", "unitMaterialCost", "laborHoursPerFixture", "laborRate", "overheadPct"],
@@ -309,11 +301,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "pressure-vessel-wall-thickness-calculator",
     title: {
-      tr: "Basınçlı kap kesitinde tasarım basıncı ve çap değerlerini girin.",
       en: "Enter design pressure and inside diameter on the vessel cross-section.",
     },
     description: {
-      tr: "designPressureBar, diameterMm, allowableStressMpa ve weldEfficiency malzeme ekranına karşılık gelir.",
       en: "designPressureBar, diameterMm, allowableStressMpa and weldEfficiency match the material screen.",
     },
     inputKeys: ["designPressureBar", "diameterMm", "allowableStressMpa", "weldEfficiency"],
@@ -322,11 +312,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "electrical-panel-rework-cost",
     title: {
-      tr: "Panel kablo saati, işçilik oranı ve test maliyetlerini girin.",
       en: "Enter panel wiring hours, labor rate and test costs.",
     },
     description: {
-      tr: "wiringHours, estimatedHours, laborRate, inspectionFailCost ve testEquipmentCost panel rework alanlarıdır.",
       en: "wiringHours, estimatedHours, laborRate, inspectionFailCost and testEquipmentCost are panel rework fields.",
     },
     inputKeys: [
@@ -342,11 +330,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "area-converter",
     title: {
-      tr: "Ölçülen yüzey alanını ve birim dönüşümünü girin.",
       en: "Enter measured surface area and unit conversion.",
     },
     description: {
-      tr: "value, fromUnit ve toUnit alan dönüştürücü girdileridir.",
       en: "value, fromUnit and toUnit are the area converter inputs.",
     },
     inputKeys: ["value", "fromUnit"],
@@ -355,11 +341,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "length-converter",
     title: {
-      tr: "Teknik uzunluk ölçüsünü ve birim dönüşümünü girin.",
       en: "Enter technical length measurement and unit conversion.",
     },
     description: {
-      tr: "Ölçü çizgisindeki value, fromUnit ve toUnit alanları kullanılır.",
       en: "Use value, fromUnit and toUnit on the dimension line.",
     },
     inputKeys: ["value", "fromUnit"],
@@ -368,11 +352,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "volume-converter",
     title: {
-      tr: "Kap hacmini ve birim dönüşümünü girin.",
       en: "Enter container volume and unit conversion.",
     },
     description: {
-      tr: "Prizma/kap hacmi value ile fromUnit ve toUnit birimlerine dönüştürülür.",
       en: "Prism tank volume converts via value with fromUnit and toUnit.",
     },
     inputKeys: ["value", "fromUnit"],
@@ -381,11 +363,9 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
   {
     slug: "weight-converter",
     title: {
-      tr: "Terazi yükünü ve birim dönüşümünü girin.",
       en: "Enter scale load and unit conversion.",
     },
     description: {
-      tr: "Yük değeri value; kaynak ve hedef birimler fromUnit ve toUnit alanlarıdır.",
       en: "Load value is value; source and target units are fromUnit and toUnit.",
     },
     inputKeys: ["value", "fromUnit"],

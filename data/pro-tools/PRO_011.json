@@ -1,0 +1,200 @@
+{
+  "tool_id": "PRO_011",
+  "tool_name": "Multi-Product Break-Even Analysis and Degree of Operating Leverage (DOL)",
+  "category": "Corporate Finance / Managerial Accounting",
+  "scope": "process_agnostic",
+  "primary_operation": "financial_analysis",
+  "inputs": [
+    {
+      "id": "total_fixed_costs_usd",
+      "name": "Total Annual Fixed Costs (FC)",
+      "unit": "USD/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "hint": "Rent, salaries, depreciation, insurance — costs that do not vary with output"
+    },
+    {
+      "id": "target_net_profit_usd",
+      "name": "Target Net Profit After Tax",
+      "unit": "USD/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0
+    },
+    {
+      "id": "corporate_tax_rate_pct",
+      "name": "Corporate Income Tax Rate",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 60,
+      "default": 25,
+      "hint": "Turkey: 25% | EU average: 21% | US federal: 21% + state"
+    },
+    {
+      "id": "product_A_price",
+      "name": "Product A — Selling Price",
+      "unit": "USD/unit",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01
+    },
+    {
+      "id": "product_A_vc",
+      "name": "Product A — Variable Cost per Unit",
+      "unit": "USD/unit",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0
+    },
+    {
+      "id": "product_A_mix_pct",
+      "name": "Product A — Sales Mix Share",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 99
+    },
+    {
+      "id": "product_B_price",
+      "name": "Product B — Selling Price",
+      "unit": "USD/unit",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01
+    },
+    {
+      "id": "product_B_vc",
+      "name": "Product B — Variable Cost per Unit",
+      "unit": "USD/unit",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0
+    },
+    {
+      "id": "product_B_mix_pct",
+      "name": "Product B — Sales Mix Share",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 99
+    },
+    {
+      "id": "actual_total_volume",
+      "name": "Actual Total Units Sold (Current Period)",
+      "unit": "units",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1
+    },
+    {
+      "id": "semi_variable_costs_usd",
+      "name": "Semi-Variable (Step) Costs",
+      "unit": "USD/year",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "default": 0,
+      "hint": "Costs that step up at volume thresholds — overtime, extra shifts"
+    }
+  ],
+  "formulas": [
+    "CM_A = product_A_price - product_A_vc   // [USD/unit] Contribution Margin — Product A",
+    "CM_B = product_B_price - product_B_vc   // [USD/unit] Contribution Margin — Product B",
+    "Mix_A = product_A_mix_pct / 100   // [—] Product A weight",
+    "Mix_B = product_B_mix_pct / 100   // [—] Product B weight",
+    "Mix_Sum = Mix_A + Mix_B   // [—] Validation: must equal 1.0",
+    "WACM = (CM_A * Mix_A + CM_B * Mix_B) / Mix_Sum   // [USD/unit] Weighted Average Contribution Margin",
+    "Total_FC_Adjusted = total_fixed_costs_usd + semi_variable_costs_usd   // [USD] Adjusted fixed cost base",
+    "BEP_Units = Total_FC_Adjusted / WACM   // [units] Break-Even Point in total units",
+    "BEP_Units_A = BEP_Units * Mix_A   // [units] BEP units for Product A",
+    "BEP_Units_B = BEP_Units * Mix_B   // [units] BEP units for Product B",
+    "BEP_Revenue = BEP_Units_A * product_A_price + BEP_Units_B * product_B_price   // [USD] Break-Even Revenue",
+    "Required_Pre_Tax_Profit = target_net_profit_usd / (1 - corporate_tax_rate_pct / 100)   // [USD] Pre-tax profit needed",
+    "Target_Volume_Units = (Total_FC_Adjusted + Required_Pre_Tax_Profit) / WACM   // [units] Volume required to hit profit target",
+    "Actual_Operating_Income = actual_total_volume * WACM - Total_FC_Adjusted   // [USD] EBIT at actual volume",
+    "Actual_Net_Profit = Actual_Operating_Income * (1 - corporate_tax_rate_pct / 100)   // [USD] Net income after tax",
+    "Margin_of_Safety_Units = actual_total_volume - BEP_Units   // [units] Safety cushion above BEP",
+    "Margin_of_Safety_Pct = (Margin_of_Safety_Units / actual_total_volume) * 100   // [%] MoS as % of actual volume",
+    "DOL = Actual_Operating_Income > 0 ? (actual_total_volume * WACM) / Actual_Operating_Income : 0   // [—] Degree of Operating Leverage — sensitivity multiplier"
+  ],
+  "engine_rules": {
+    "standards": [
+      "CIMA Management Accounting",
+      "IFRS 8 Segment Reporting",
+      "CVP Analysis Framework",
+      "CFA Institute Level 1"
+    ],
+    "validation": {
+      "mix_sum_check": {
+        "condition": "Mix_Sum < 0.98 || Mix_Sum > 1.02",
+        "error_msg": "Product mix percentages must sum to 100% (±2% tolerance). Current sum is invalid — WACM calculation will be distorted."
+      },
+      "negative_cm_check": {
+        "condition": "WACM <= 0",
+        "error_msg": "Weighted Average Contribution Margin ≤ 0: Variable costs exceed selling prices on a weighted basis. Break-even is mathematically unreachable — this product mix destroys value at every unit sold."
+      },
+      "negative_cm_product": {
+        "condition": "CM_A < 0 || CM_B < 0",
+        "error_msg": "At least one product has negative contribution margin (price < variable cost). Selling more units increases losses. Price revision or discontinuation must be evaluated immediately."
+      },
+      "tax_rate_range": {
+        "condition": "corporate_tax_rate_pct >= 100",
+        "error_msg": "Tax rate cannot equal or exceed 100%. Net profit would be zero or negative by definition."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "DOL > 5",
+        "severity": "CRITICAL",
+        "source": "Operating Leverage Risk Analysis",
+        "message": "EXTREME OPERATING LEVERAGE (DOL > 5): A 10% revenue decline will reduce operating income by more than 50%. Fixed cost structure is dangerously high relative to volume. Immediate fixed cost reduction or revenue diversification required."
+      },
+      {
+        "condition": "DOL > 3 && DOL <= 5",
+        "severity": "WARNING",
+        "source": "CFA / CIMA Leverage Framework",
+        "message": "High Operating Leverage (DOL 3–5): Business is highly sensitive to volume fluctuations. In an economic downturn, profitability will erode rapidly. Stress-test at -15% and -30% volume scenarios."
+      },
+      {
+        "condition": "Margin_of_Safety_Pct < 10",
+        "severity": "CRITICAL",
+        "source": "Management Accounting — Margin of Safety",
+        "message": "CRITICAL: Margin of Safety < 10%. Actual sales are within 10% of break-even. Any demand reduction, price pressure, or cost increase could push the business into loss. Pricing, cost structure, or volume must be addressed immediately."
+      },
+      {
+        "condition": "Margin_of_Safety_Pct >= 10 && Margin_of_Safety_Pct < 25",
+        "severity": "WARNING",
+        "source": "Management Accounting",
+        "message": "Low Margin of Safety (10–25%): Business has limited buffer above break-even. Acceptable for stable industries; concerning for cyclical manufacturing or export-dependent operations."
+      },
+      {
+        "condition": "CM_A / product_A_price < 0.20 || CM_B / product_B_price < 0.20",
+        "severity": "WARNING",
+        "source": "Contribution Margin Ratio Analysis",
+        "message": "Contribution Margin Ratio < 20% on one or more products: Very thin margin structure. Small cost increases (raw materials, energy) will immediately eliminate profitability. Price elasticity analysis required."
+      },
+      {
+        "condition": "BEP_Revenue > 10000000",
+        "severity": "INFO",
+        "source": "Scale Risk Assessment",
+        "message": "Break-even revenue exceeds $10M: High absolute break-even level. Ensure sales pipeline and contracted revenue cover this threshold before capacity expansion."
+      }
+    ]
+  }
+}

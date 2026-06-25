@@ -34,11 +34,6 @@ export const PROBLEM_SLUG = "abonelik-yazilim-cloud-yillik-maliyet-hesabi";
 
 const LOCALE_FILES = {
   en: path.join(ROOT, "messages/en.json"),
-  tr: path.join(ROOT, "messages/tr.json"),
-  de: path.join(ROOT, "messages/de.json"),
-  fr: path.join(ROOT, "messages/fr.json"),
-  es: path.join(ROOT, "messages/es.json"),
-  ar: path.join(ROOT, "messages/ar.json"),
 };
 
 const GENERIC_LABEL_PATTERNS = [

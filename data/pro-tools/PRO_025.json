@@ -1,0 +1,283 @@
+{
+  "tool_id": "PRO_025",
+  "tool_name": "Industrial Roof Structural Load, Area Calculation & Material Cost (ASCE 7 / EN 1991)",
+  "category": "Civil & Structural Engineering / Industrial Buildings",
+  "scope": "single_operation",
+  "primary_operation": "structural_roofing",
+  "inputs": [
+    {
+      "id": "building_length_m",
+      "name": "Building Length (L)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 1000
+    },
+    {
+      "id": "building_width_m",
+      "name": "Building Width (W)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 500
+    },
+    {
+      "id": "roof_pitch_deg",
+      "name": "Roof Pitch Angle (α)",
+      "unit": "degrees",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 60,
+      "hint": "Flat roof: 0–5° | Low pitch: 5–15° | Medium: 15–30° | Steep: >30°"
+    },
+    {
+      "id": "eave_overhang_m",
+      "name": "Eave Overhang Width",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 3,
+      "default": 0.5
+    },
+    {
+      "id": "roof_system",
+      "name": "Roof System Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "Trapezoidal steel sheet (0.10–0.15 kN/m²)",
+        "Sandwich panel 60mm (0.15–0.20 kN/m²)",
+        "Sandwich panel 100mm (0.18–0.25 kN/m²)",
+        "Concrete tile (0.60–0.80 kN/m²)",
+        "PVC / TPO membrane (0.05–0.08 kN/m²)",
+        "Green roof / extensive (1.0–1.5 kN/m²)"
+      ]
+    },
+    {
+      "id": "dead_load_kN_m2",
+      "name": "Roof Dead Load (self-weight + purlins + services)",
+      "unit": "kN/m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.05,
+      "absolute_max": 3,
+      "default": 0.25,
+      "hint": "Include cladding + purlins + insulation + MEP hangers — structural engineer to confirm"
+    },
+    {
+      "id": "live_load_kN_m2",
+      "name": "Roof Live Load (maintenance access)",
+      "unit": "kN/m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.25,
+      "absolute_max": 2,
+      "default": 0.6,
+      "hint": "ASCE 7: min 0.96 kN/m² (20 psf) | EN 1991-1-1: category H = 0.40 kN/m²"
+    },
+    {
+      "id": "ground_snow_load_kN_m2",
+      "name": "Ground Snow Load (sk)",
+      "unit": "kN/m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 10,
+      "hint": "From national annex / ASCE 7 Figure 7.2-1 | EN 1991-1-3 map | Turkey TEC 2018"
+    },
+    {
+      "id": "exposure_factor_Ce",
+      "name": "Snow Exposure Factor (Ce)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.7,
+      "absolute_max": 1.3,
+      "default": 1,
+      "hint": "ASCE 7 Table 7.3-1: Fully exposed=0.7 | Partially exposed=1.0 | Sheltered=1.2"
+    },
+    {
+      "id": "thermal_factor_Ct",
+      "name": "Snow Thermal Factor (Ct)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 1.3,
+      "default": 1,
+      "hint": "ASCE 7 Table 7.3-2: Heated building=1.0 | Cold storage=1.1 | Unheated=1.2"
+    },
+    {
+      "id": "importance_factor_Is",
+      "name": "Importance Factor (Is)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.8,
+      "absolute_max": 1.2,
+      "default": 1,
+      "hint": "ASCE 7 Table 1.5-2: Normal occupancy=1.0 | Essential facility=1.1 | Low hazard=0.8"
+    },
+    {
+      "id": "wind_speed_ms",
+      "name": "Basic Wind Speed (V)",
+      "unit": "m/s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 10,
+      "absolute_max": 80,
+      "hint": "3-second gust at 10m height — from national wind map | EN 1991-1-4 or ASCE 7 Fig. 26.5-1"
+    },
+    {
+      "id": "terrain_category",
+      "name": "Terrain / Exposure Category",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "B / II — Suburban, wooded areas (Cp=0.7)",
+        "C / III — Open terrain, scattered obstructions (Cp=0.85)",
+        "D / IV — Flat open coast, unobstructed (Cp=1.0)"
+      ]
+    },
+    {
+      "id": "wind_pressure_coeff_Cp",
+      "name": "Wind Pressure Coefficient (Cp)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.5,
+      "absolute_max": 1.5,
+      "default": 0.85
+    },
+    {
+      "id": "material_cost_usd_m2",
+      "name": "Roofing Material Unit Price",
+      "unit": "USD/m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 5
+    },
+    {
+      "id": "installation_cost_usd_m2",
+      "name": "Installation Labour Cost",
+      "unit": "USD/m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 15
+    },
+    {
+      "id": "waste_allowance_pct",
+      "name": "Material Waste / Cutting Allowance",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 20,
+      "default": 7,
+      "hint": "Trapezoidal sheet: 5–8% | Tiles: 10–15% | Membrane: 3–5%"
+    }
+  ],
+  "formulas": [
+    "Pitch_rad = (roof_pitch_deg * 3.14159) / 180   // [rad] Pitch angle in radians",
+    "Slant_Half_Width_m = (building_width_m / 2) / MAX(COS(Pitch_rad), 0.0001)   // [m] Rafter length (half span)",
+    "Gross_Roof_Area_m2 = 2 * Slant_Half_Width_m * building_length_m   // [m²] Total sloped roof area",
+    "Overhang_Area_m2 = eave_overhang_m * (2 * building_length_m + 2 * building_width_m)   // [m²] Eave overhang perimeter area",
+    "Total_Roof_Area_m2 = Gross_Roof_Area_m2 + Overhang_Area_m2   // [m²] Total area to clad",
+    "Order_Area_m2 = Total_Roof_Area_m2 * (1 + waste_allowance_pct / 100)   // [m²] Material order quantity",
+    "Material_Cost_USD = Order_Area_m2 * material_cost_usd_m2   // [USD] Roofing material cost",
+    "Labour_Cost_USD = Total_Roof_Area_m2 * installation_cost_usd_m2   // [USD] Installation cost",
+    "Total_Roof_Cost_USD = Material_Cost_USD + Labour_Cost_USD   // [USD] Total roofing cost",
+    "Cost_per_m2_USD = Total_Roof_Cost_USD / Total_Roof_Area_m2   // [USD/m²] All-in unit rate",
+    "Roof_Snow_Load_kN_m2 = ground_snow_load_kN_m2 * exposure_factor_Ce * thermal_factor_Ct * importance_factor_Is   // [kN/m²] Design roof snow load — ASCE 7 Eq.7.3-1 / EN 1991-1-3",
+    "Dynamic_Wind_Pressure_kN_m2 = 0.5 * 1.25 * POWER(wind_speed_ms, 2) / 1000 * wind_pressure_coeff_Cp   // [kN/m²] Design wind pressure (density=1.25 kg/m³)",
+    "Total_Gravity_Load_kN_m2 = dead_load_kN_m2 + live_load_kN_m2 + Roof_Snow_Load_kN_m2   // [kN/m²] Total gravity design load",
+    "Total_Snow_Force_kN = Roof_Snow_Load_kN_m2 * building_length_m * building_width_m   // [kN] Total snow load on structure",
+    "Total_Snow_Tonnes = Total_Snow_Force_kN / 9.81   // [tonnes] Snow mass equivalent",
+    "Uplift_Wind_kN_m2 = -Dynamic_Wind_Pressure_kN_m2 * 0.7   // [kN/m²] Net uplift wind load (suction — approximate)"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ASCE 7-22 Minimum Design Loads",
+      "EN 1991-1-3 Snow Loads",
+      "EN 1991-1-4 Wind Actions",
+      "Turkey TEC 2018 Yük Yönetmeliği",
+      "EN 1993-1-1 Steel Structures (EC3)"
+    ],
+    "validation": {
+      "dimensions_positive": {
+        "condition": "building_length_m <= 0 || building_width_m <= 0",
+        "error_msg": "Building dimensions must be positive values."
+      },
+      "pitch_range": {
+        "condition": "roof_pitch_deg < 0 || roof_pitch_deg > 60",
+        "error_msg": "Roof pitch must be 0–60°. Angles above 60° are structurally unconventional for industrial buildings."
+      },
+      "snow_importance": {
+        "condition": "importance_factor_Is < 0.8 || importance_factor_Is > 1.2",
+        "error_msg": "Importance factor must be 0.8–1.2 per ASCE 7 Table 1.5-2."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Total_Gravity_Load_kN_m2 > 3.0",
+        "severity": "CRITICAL",
+        "source": "ASCE 7 / EN 1991 Structural Design",
+        "message": "TOTAL GRAVITY LOAD > 3.0 kN/m²: Heavy combined loading. Structural engineer must design purlins, rafters, and columns specifically for this load. Standard light steel industrial roof frames (Z/C purlins) are typically designed for 0.5–1.5 kN/m². DO NOT use standard span tables."
+      },
+      {
+        "condition": "Roof_Snow_Load_kN_m2 > 1.5",
+        "severity": "CRITICAL",
+        "source": "ASCE 7 Section 7 / EN 1991-1-3",
+        "message": "HIGH SNOW LOAD > 1.5 kN/m²: Significant structural implication. Roof framing must be designed for snow drift accumulation (ASCE 7 Section 7.7) at parapets and higher-level roof adjacencies. Progressive collapse analysis may be required."
+      },
+      {
+        "condition": "roof_pitch_deg < 5 && Roof_Snow_Load_kN_m2 > 0.5",
+        "severity": "WARNING",
+        "source": "ASCE 7 Section 7.4 / EN 1991-1-3 Annex B",
+        "message": "FLAT/LOW-PITCH ROOF WITH SNOW: Pitch < 5° prevents snow from sliding. Full unbalanced snow load accumulates. Ponding risk from blocked drainage must also be assessed. Provide minimum 2% fall to drains."
+      },
+      {
+        "condition": "Dynamic_Wind_Pressure_kN_m2 > 1.2",
+        "severity": "WARNING",
+        "source": "EN 1991-1-4 / ASCE 7 Chapter 26",
+        "message": "HIGH WIND PRESSURE > 1.2 kN/m²: Cladding fixings and sheet overlaps must be designed for this uplift. Standard trapezoidal sheet fixings rated 0.8–1.0 kN/m² may be insufficient. Verify manufacturer's approved fixing schedule."
+      },
+      {
+        "condition": "waste_allowance_pct < 5 && roof_pitch_deg > 20",
+        "severity": "WARNING",
+        "source": "Construction Quantity Surveying",
+        "message": "Waste allowance < 5% on steeply pitched roof: Hip ends, valleys, and ridge cuts generate significant offcuts. Minimum 8–10% recommended for pitches above 20°. Under-ordering causes installation delays and material price premium on re-order."
+      },
+      {
+        "condition": "Uplift_Wind_kN_m2 * -1 > dead_load_kN_m2",
+        "severity": "CRITICAL",
+        "source": "EN 1993-1-3 / ASCE 7 Wind Uplift",
+        "message": "WIND UPLIFT EXCEEDS DEAD LOAD: Net uplift force will lift roof structure. Roof-to-wall connections and hold-down anchors are structurally critical elements. Structural engineer must design specific uplift connections — this is not a standard detail."
+      }
+    ]
+  }
+}

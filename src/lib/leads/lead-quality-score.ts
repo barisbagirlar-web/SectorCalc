@@ -22,9 +22,9 @@ export interface LeadQualitySummary {
 }
 
 const LEVEL_LABELS: Record<LeadQualityLevel, string> = {
- high: "Yüksek kalite",
- medium: "Orta kalite",
- low: "Düşük kalite",
+ high: "High quality",
+ medium: "Medium quality",
+ low: "Low quality",
 };
 
 const WEAK_COMPANY_PATTERNS = ["deneme", "test", "dfdf", "asdf", "123"];
@@ -77,11 +77,11 @@ function scorePlan(plan: LeadPlan | undefined): {
  switch (plan) {
  case "single_report":
  case "sector_pass":
- return { points: 25, reason: "Premium plan seçimi" };
+  return { points: 25, reason: "Premium plan selection" };
  case "pro":
- return { points: 18, reason: "Pro plan seçimi" };
+  return { points: 18, reason: "Pro plan selection" };
  case "free":
- return { points: 5, reason: "Free plan seçimi" };
+  return { points: 5, reason: "Free plan selection" };
  default:
  return { points: 0 };
  }
@@ -98,7 +98,7 @@ function scoreSourceAttribution(lead: LeadIntent): {
 
  if (lead.source === "pricing" || pagePath.includes("/pricing")) {
  points += 15;
- reasons.push("Pricing sayfası kaynağı");
+   reasons.push("Pricing page source");
  }
 
  if (
@@ -106,12 +106,12 @@ function scoreSourceAttribution(lead: LeadIntent): {
  pagePath.includes("/tools/premium/")
  ) {
  points += 15;
- reasons.push("Premium araç kaynağı");
+   reasons.push("Premium tool source");
  }
 
  if (pagePath.includes("/for-consultants")) {
  points += 12;
- reasons.push("Consultant sayfası kaynağı");
+   reasons.push("Consultant page source");
  }
 
  if (
@@ -119,7 +119,7 @@ function scoreSourceAttribution(lead: LeadIntent): {
  pagePath.includes("/tools/free/")
  ) {
  points += 5;
- reasons.push("Free araç kaynağı");
+   reasons.push("Free tool source");
  }
 
  return { points, reasons };
@@ -137,10 +137,10 @@ function scoreCompany(company: string): {
  if (containsWeakPattern(trimmed, WEAK_COMPANY_PATTERNS)) {
  return {
  points: 0,
- warning: "Şirket adı zayıf veya test görünüyor",
+   warning: "Company name weak or looks like test",
  };
  }
- return { points: 10, reason: "Geçerli şirket adı" };
+ return { points: 10, reason: "Valid company name" };
 }
 
 function extractEmailDomain(email: string): string | null {
@@ -196,10 +196,10 @@ function scoreEmail(email: string): {
  }
 
  if (PERSONAL_EMAIL_DOMAINS.has(domain)) {
- return { points: 5, reason: "Kişisel e-posta domaini" };
+   return { points: 5, reason: "Personal email domain" };
  }
 
- return { points: 15, reason: "Kurumsal e-posta domaini" };
+   return { points: 15, reason: "Corporate email domain" };
 }
 
 function scoreIntendedUse(intendedUse: string): {
@@ -212,13 +212,13 @@ function scoreIntendedUse(intendedUse: string): {
  }
 
  if (normalized.includes("prepare a client report")) {
- return { points: 15, reason: "Müşteri raporu hazırlama niyeti" };
+   return { points: 15, reason: "Client report preparation intent" };
  }
  if (normalized.includes("price a job")) {
- return { points: 12, reason: "İş fiyatlama niyeti" };
+   return { points: 12, reason: "Job pricing intent" };
  }
  if (normalized.includes("check margin risk")) {
- return { points: 10, reason: "Marj riski kontrolü niyeti" };
+   return { points: 10, reason: "Margin risk check intent" };
  }
 
  return { points: 0 };
@@ -237,15 +237,15 @@ function scoreMessage(message: string | undefined): {
  if (containsWeakPattern(trimmed, WEAK_MESSAGE_PATTERNS)) {
  return {
  points: 0,
- warning: "Mesaj zayıf veya test görünüyor",
+   warning: "Message weak or looks like test",
  };
  }
 
  if (trimmed.length >= 20) {
- return { points: 10, reason: "Anlamlı mesaj içeriği" };
+   return { points: 10, reason: "Meaningful message content" };
  }
  if (trimmed.length >= 5) {
- return { points: 3, reason: "Kısa mesaj içeriği" };
+   return { points: 3, reason: "Short message content" };
  }
 
  return { points: 0 };
@@ -261,10 +261,10 @@ function scoreIndustry(industry: string): {
  }
 
  if (KNOWN_INDUSTRY_VALUES.has(normalized)) {
- return { points: 5, reason: "Bilinen sektör seçimi" };
+   return { points: 5, reason: "Known industry selection" };
  }
 
- return { points: 5, reason: "Sektör bilgisi mevcut" };
+   return { points: 5, reason: "Industry info available" };
 }
 
 function scoreSla(
@@ -281,12 +281,12 @@ function scoreSla(
  if (status === "converted" || status === "lost") {
  return {
  points: 0,
- warning: "Lead kapanmış — aktif öncelik skoru düşük önem taşır",
+   warning: "Lead closed — active priority score carries less weight",
  };
  }
 
  if (sla.slaLevel === "urgent") {
- return { points: 5, reason: "Geciken açık lead — acil takip" };
+   return { points: 5, reason: "Overdue open lead — urgent follow-up" };
  }
 
  return { points: 0 };

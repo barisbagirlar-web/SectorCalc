@@ -1,14 +1,11 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
-// @ts-nocheck
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import PageHero from "@/components/shared/PageHero";
 import { LegalPageContent } from "@/components/legal/LegalPageContent";
-import Link  from "next/link";
+import Link from "next/link";
 import { createPageMetadata } from "@/lib/metadata";
 
-type PageProps = { params: Promise<{ locale: string }> };
+const LOCALE = "en";
 
 const T = {
   en: {
@@ -42,38 +39,6 @@ const T = {
     metaTitle: "Refund Policy | SectorCalc",
     metaDescription: "Our 7-day refund guarantee policy for calculator credits and subscriptions.",
     seeAlso: "See also"
-  },
-  tr: {
-    eyebrow: "Yasal",
-    title: "İade Politikası",
-    description: "SectorCalc için son güncelleme. Hesaplayıcı kredileri ve abonelikleri için 7 günlük iade garantisi politikamız.",
-    intro: "SectorCalc, mühendislik kalitesinde karar desteği sağlar. Sonuçlarımızın arkasında duruyor ve 7 günlük iade politikası sunuyoruz.",
-    sections: [
-      {
-        title: "7 Günlük Memnuniyet Garantisi",
-        paragraphs: [
-          "Satın aldığınız hesaplayıcı kredisi kullanılabilir bir sonuç üretmezse veya premium karar raporunun kalitesinden memnun kalmazsanız, satın alma tarihinden itibaren 7 gün içinde bizimle iletişime geçin.",
-          "Krediyi hesabınıza iade edeceğiz veya sorgusuz sualsiz tam para iadesi gerçekleştireceğiz."
-        ]
-      },
-      {
-        title: "Abonelik İptalleri",
-        paragraphs: [
-          "Pro abonelikleri dilediğiniz zaman iptal edilebilir. İptal durumunda, faturalandırma döneminizin sonuna kadar premium erişiminizi korursunuz.",
-          "İptal edilen abonelikler otomatik olarak yenilenmez."
-        ]
-      },
-      {
-        title: "İade Talebi Nasıl Yapılır",
-        paragraphs: [
-          "İade veya kredi geri yükleme talebinde bulunmak için lütfen hello@sectorcalc.com adresine e-posta gönderin.",
-          "Hesap e-posta adresinizi, işlem referans numarasını ve kullandığınız hesaplayıcının adını eklemeyi unutmayın."
-        ]
-      }
-    ],
-    metaTitle: "İade Politikası | SectorCalc",
-    metaDescription: "Hesaplayıcı kredileri ve abonelikleri için 7 günlük iade garantisi politikamız.",
-    seeAlso: "Ayrıca bakınız"
   },
   de: {
     eyebrow: "Rechtliches",
@@ -205,22 +170,18 @@ const T = {
   }
 };
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const locale = "en";
-  const t = T[locale as keyof typeof T] || T.en;
-
+export async function generateMetadata(): Promise<Metadata> {
+  const t = T[LOCALE as keyof typeof T] || T.en;
   return createPageMetadata({
     title: t.metaTitle,
     description: t.metaDescription,
     path: "/refund-policy",
-    locale: locale as "en",
+    locale: LOCALE as "en",
   });
 }
 
-export default async function RefundPolicyPage({ params }: PageProps) {
-  const locale = "en";
-  
-  const t = T[locale as keyof typeof T] || T.en;
+export default async function RefundPolicyPage() {
+  const t = T[LOCALE as keyof typeof T] || T.en;
 
   return (
     <PageLayout>
@@ -237,14 +198,14 @@ export default async function RefundPolicyPage({ params }: PageProps) {
           <p>
             {t.seeAlso}{" "}
             <Link href="/terms" className="font-semibold text-deep-navy hover:underline">
-              {locale === 'tr' ? 'Kullanım Koşulları' : (locale === 'de' ? 'Nutzungsbedingungen' : (locale === 'fr' ? 'Conditions d’utilisation' : (locale === 'es' ? 'Condiciones de uso' : (locale === 'ar' ? 'شروط الاستخدام' : 'Terms of Use'))))}
+              {LOCALE === 'de' ? 'Nutzungsbedingungen' : (LOCALE === 'fr' ? 'Conditions d\'utilisation' : (LOCALE === 'es' ? 'Condiciones de uso' : (LOCALE === 'ar' ? 'شروط الاستخدام' : 'Terms of Use')))}
             </Link>{" "}
             and{" "}
             <Link
               href="/privacy"
               className="font-semibold text-deep-navy hover:underline"
             >
-              {locale === 'tr' ? 'Gizlilik Politikası' : (locale === 'de' ? 'Datenschutzerklärung' : (locale === 'fr' ? 'Politique de confidentialité' : (locale === 'es' ? 'Política de privacidad' : (locale === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'))))}
+              {LOCALE === 'de' ? 'Datenschutzerklärung' : (LOCALE === 'fr' ? 'Politique de confidentialité' : (LOCALE === 'es' ? 'Política de privacidad' : (LOCALE === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy')))}
             </Link>
             .
           </p>

@@ -47,16 +47,13 @@ export type FreeToPremiumMigrationReport = {
 };
 
 const TITLE_SUFFIXES =
-  /\b(hesaplama|hesaplayici|hesabi|hesabı|kontrolu|kontrolü|kontrol|panosu|panos|calculation|calculator|rechner)\b/gi;
+  /\b(calculation|calculator|rechner)\b/gi;
 
 const FORCE_FREE_SLUG_SET = new Set<string>(FORCE_FREE_SIMPLE_FINANCE_SLUGS);
 
 export function normalizeMigrationTitle(value: string): string {
   return value
     .toLowerCase()
-    .replace(/[ıİ]/g, "i")
-    .replace(/[şŞ]/g, "s")
-    .replace(/[ğĞ]/g, "g")
     .replace(/[üÜ]/g, "u")
     .replace(/[öÖ]/g, "o")
     .replace(/[çÇ]/g, "c")

@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-// Implementation removed for rewrite
-export const MATERIAL_WASTE_CALCULATOR_INPUT_KEYS = (inputs: any) => {
-  return {
-    outputs: {},
-    rules: [],
-    charts: []
-  };
-};
-=======
 export type MaterialWasteCalculatorInputs = {
   monthlyIngredientCost: number;
   wasteRate: number;
@@ -71,4 +61,3 @@ export function validateMaterialWasteCalculatorInputs(inputs: MaterialWasteCalcu
     warnings: collectWarnings(inputs),
   };
 }
->>>>>>> Stashed changes

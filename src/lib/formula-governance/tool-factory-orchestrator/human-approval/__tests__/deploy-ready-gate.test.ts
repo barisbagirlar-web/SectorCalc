@@ -145,7 +145,7 @@ describe("deploy ready gate — Phase 5I-G", () => {
         linkedPlanId: "plan-ready",
       }),
       {
-        approvedBy: "Barış Bağırlar",
+        approvedBy: "B. Bagirlar",
         approvedAt: new Date().toISOString(),
         expiresAt: new Date(Date.now() + 86_400_000).toISOString(),
       },

@@ -88,8 +88,8 @@ const EXAMPLES = {
       "Material cost: $680, tool wear allowance: $95, scrap rate: 4%",
       "Target profit margin: 20%"
     ],
-    calculationResult: "Yapılan analizde, fiili yükler dahil toplam birim maliyetin <strong>2.180 $</strong> olduğu, oysa atölyenin hazırlık paylarını hariç tutarak müşteriye 1.920 $ teklif verdiği saptanmıştır. Bu durum, işletmenin hedef kar marjından <strong>12 puanlık</strong> net bir sapma yaşadığını göstermiştir.",
-    calculationLogic: "Doğrudan makine ve malzeme maliyetlerine; kurulum, ayar, CAD/CAM programlama ve geçmiş duruş katsayıları deterministik olarak eklenmiştir. Hedef kar marjını koruyacak minimum güvenli teklif barajı hesaplanmıştır.",
+    calculationResult: "The analysis found the total unit cost including actual overheads was <strong>$2,180</strong>, whereas the workshop had quoted the customer $1,920 excluding setup allowances. This showed a net <strong>12-point</strong> deviation from the target profit margin.",
+    calculationLogic: "Setup, adjustment, CAD/CAM programming and historical downtime coefficients were deterministically added to direct machine and material costs. The minimum safe quote floor protecting the target profit margin was calculated.",
     academicMethodology: "The analysis was performed using a <em>deterministic cost loading model</em>. Setup and downtime coefficients derived from workshop data were simulated on a linear cost equation to formulate the margin deviation.",
     lossType: "schedule_delay" as CaseStudyLossType,
     lossTypeLabel: "Setup, Programming and Downtime Leakage",
@@ -121,7 +121,7 @@ const EXAMPLES = {
     lossTypeLabel: "Delay and Mobilization Margin Loss",
     suggestedAction: "Before submitting the bid, add a budget reserve equal to the calculated operational delay and re-mobilization risk, or include delay penalty exemption clauses in the contract.",
     toolSlug: "change-order-impact-analyzer",
-    toolTitle: "İş Değişikliği (Change Order) Etki Analizörü",
+    toolTitle: "Change Order Impact Analyzer",
     toolRoute: "premium-tools" as CaseStudyToolRoute,
   },
 };
@@ -296,10 +296,7 @@ export function CaseStudiesEditorClient() {
     if (!form.title) return;
     const clean = form.title
       .toLowerCase()
-      .replace(/ğ/g, "g")
       .replace(/ü/g, "u")
-      .replace(/ş/g, "s")
-      .replace(/ı/g, "i")
       .replace(/ö/g, "o")
       .replace(/ç/g, "c")
       .replace(/[^a-z0-9\s-]/g, "")
@@ -340,7 +337,7 @@ export function CaseStudiesEditorClient() {
     setActiveTab("edit");
   };
 
-  // Temizleme
+  // Reset
   const resetForm = () => {
     if (confirm("Clear all form inputs? This cannot be undone.")) {
       setForm(INITIAL_FORM_STATE);
@@ -499,7 +496,7 @@ ${inputsStr}
                 onClick={resetForm}
                 className="rounded border border-amber/35 bg-white px-2 py-1 text-[11px] font-medium text-amber hover:bg-amber/5"
               >
-                Temizle
+                Clear
               </button>
             </div>
           </div>
@@ -576,7 +573,7 @@ ${inputsStr}
                     type="text"
                     value={form.sectorLabel}
                     onChange={(e) => setForm((prev) => ({ ...prev, sectorLabel: e.target.value }))}
-                    placeholder="Örn: CNC / Machining"
+                    placeholder="E.g. CNC / Machining"
                     className="w-full min-h-[40px] rounded border border-slate/25 px-3 text-sm focus:border-copper focus:outline-none"
                   />
                 </div>
@@ -751,7 +748,7 @@ ${inputsStr}
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Hesaplama Formülü & Mantığı (calculationLogic)
+                    Calculation Formula & Logic (calculationLogic)
                   </label>
                   <RichTextArea
                     value={form.calculationLogic}
@@ -762,7 +759,7 @@ ${inputsStr}
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Akademik / Mühendislik Metodolojisi (academicMethodology)
+                    Academic / Engineering Methodology (academicMethodology)
                   </label>
                   <RichTextArea
                     value={form.academicMethodology}
@@ -866,11 +863,11 @@ ${inputsStr}
 
               {previewSubTab === "card" ? (
                 <div className="rounded-lg border border-slate/15 bg-off-white p-6 flex justify-center">
-                  {/* CaseStudyCard.tsx simülasyonu */}
+                  {/* CaseStudyCard.tsx simulation */}
                   <div className="w-full max-w-md border border-slate/20 bg-white p-5 rounded shadow-sm transition-all hover:border-copper/40">
                     <div className="flex items-center justify-between gap-2">
                       <p className="text-[10px] font-bold uppercase tracking-widest text-copper">
-                        {form.sectorLabel || "SEKTÖR ETİKETİ"}
+                        {form.sectorLabel || "SECTOR LABEL"}
                       </p>
                       <span className="inline-block rounded bg-copper/10 px-2 py-0.5 text-[10px] font-medium tracking-wide text-copper font-mono">
                         {form.lossTypeLabel || "Loss Type"}
@@ -893,7 +890,7 @@ ${inputsStr}
                 </div>
               ) : (
                 <div className="case-studies-container rounded-lg border border-slate/15 overflow-hidden">
-                  {/* CaseStudiesClientContent.tsx içindeki .study CSS simülasyonu */}
+                  {/* CaseStudiesClientContent.tsx .study CSS simulation */}
                   <div className="study" style={{ background: "#FAF9F5", border: "1px solid #DBD8CC", color: "#1A1915" }}>
                     <div className="study-head" style={{ padding: "20px 22px 0", display: "flex", justifyContent: "between", gap: "16px" }}>
                       <div>
@@ -913,11 +910,11 @@ ${inputsStr}
                       {/* Q&A 1 */}
                       <div className="def" style={{ margin: "14px 0" }}>
                         <div className="q" style={{ fontFamily: "monospace", fontSize: "11px", color: "#BD5D3A", textTransform: "uppercase", fontWeight: "bold" }}>
-                          Tanm — Nedir?
+                          Definition — What Is It?
                         </div>
                         <p 
                           style={{ fontSize: "14px", color: "#3A382F", marginTop: "4px" }}
-                          dangerouslySetInnerHTML={{ __html: form.whatIsIt || "Açıklama girilmedi." }}
+                          dangerouslySetInnerHTML={{ __html: form.whatIsIt || "No description entered." }}
                         />
                       </div>
 
@@ -946,40 +943,40 @@ ${inputsStr}
                       {/* Problem box */}
                       <div className="def" style={{ margin: "14px 0", borderTop: "1px solid #E8E5DA", paddingTop: "14px" }}>
                         <div className="q" style={{ fontFamily: "monospace", fontSize: "11px", color: "#7A776B", textTransform: "uppercase" }}>
-                          Saha Senaryosu / Problem
+                          Field Scenario / Problem
                         </div>
                         <p 
                           style={{ fontSize: "14px", color: "#3A382F", marginTop: "4px" }}
-                          dangerouslySetInnerHTML={{ __html: form.problem || "Açıklama..." }}
+                          dangerouslySetInnerHTML={{ __html: form.problem || "No description..." }}
                         />
                       </div>
 
                       {/* Finding Box */}
                       <div className="finding-box" style={{ display: "flex", gap: "16px", background: "#1A1915", color: "#F0EEE6", padding: "15px 18px", margin: "16px 0" }}>
-                        <div className="fl" style={{ fontFamily: "monospace", fontSize: "10px", color: "#9a978c", textTransform: "uppercase" }}>BULGU & ETKİ:</div>
+                        <div className="fl" style={{ fontFamily: "monospace", fontSize: "10px", color: "#9a978c", textTransform: "uppercase" }}>FINDING & IMPACT:</div>
                         <div 
                           className="fv" 
                           style={{ fontFamily: "monospace", fontSize: "14px", color: "#BD5D3A", fontWeight: "bold" }}
-                          dangerouslySetInnerHTML={{ __html: form.calculationResult || "Analiz sonucu..." }}
+                          dangerouslySetInnerHTML={{ __html: form.calculationResult || "Analysis result..." }}
                         />
                       </div>
 
                       {/* Formula */}
                       <div className="formula" style={{ margin: "14px 0" }}>
-                        <div className="q" style={{ fontFamily: "monospace", fontSize: "11px", color: "#7A776B", textTransform: "uppercase" }}>Formülasyon Yükü</div>
+                        <div className="q" style={{ fontFamily: "monospace", fontSize: "11px", color: "#7A776B", textTransform: "uppercase" }}>Formulation Load</div>
                         <code 
                           style={{ display: "block", fontFamily: "monospace", fontSize: "12px", background: "#F0EEE6", border: "1px solid #DBD8CC", padding: "12px", whiteSpace: "pre-wrap", marginTop: "4px", color: "#3A382F" }}
-                          dangerouslySetInnerHTML={{ __html: form.calculationLogic || "Hesaplama mantığı..." }}
+                          dangerouslySetInnerHTML={{ __html: form.calculationLogic || "Calculation logic..." }}
                         />
                       </div>
 
                       {/* Action Links */}
                       <div className="study-links" style={{ display: "flex", gap: "10px", marginTop: "16px" }}>
                         <span className="primary" style={{ background: "#BD5D3A", color: "#fff", padding: "10px 14px", fontSize: "13px", fontWeight: "bold" }}>
-                          {form.toolTitle || "Hesaplama Aracı"}
+                          {form.toolTitle || "Calculation Tool"}
                         </span>
                         <span className="ghost" style={{ border: "1px solid #1A1915", color: "#1A1915", padding: "10px 14px", fontSize: "13px", fontWeight: "bold" }}>
-                          Detaylı Raporu İncele →
+                          View Detailed Report →
                         </span>
                       </div>
                     </div>
@@ -989,21 +986,21 @@ ${inputsStr}
             </div>
           )}
 
-          {/* Kod Çıktısı (Code Tab) */}
+          {/* Code Output (Code Tab) */}
           {activeTab === "code" && (
             <div className="space-y-6">
-              {/* TypeScript Kodu */}
+              {/* TypeScript Code */}
               <div className="rounded-lg border border-slate/15 bg-white p-5 space-y-3">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-bold text-deep-navy uppercase tracking-wider">
-                    TypeScript Array Objesi (`src/lib/case-studies/data/tr.ts` için)
+                    TypeScript Array Object (for `src/lib/case-studies/data/tr.ts`)
                   </h4>
                   <button
                     type="button"
                     onClick={() => copyToClipboard("ts")}
                     className="rounded bg-copper px-3 py-1.5 text-xs font-semibold text-white hover:bg-copper-deep transition-colors"
                   >
-                    {copiedType === "ts" ? "Kopyalandı!" : "Kodu Kopyala"}
+                    {copiedType === "ts" ? "Copied!" : "Copy Code"}
                   </button>
                 </div>
                 <pre className="overflow-x-auto rounded border border-slate/20 bg-off-white p-4 text-xs font-mono text-deep-navy max-h-[300px]">
@@ -1011,18 +1008,18 @@ ${inputsStr}
                 </pre>
               </div>
 
-              {/* JSON Kodu */}
+              {/* JSON Code */}
               <div className="rounded-lg border border-slate/15 bg-white p-5 space-y-3">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-bold text-deep-navy uppercase tracking-wider">
-                    JSON Formatlı Çıktı
+                    JSON Formatted Output
                   </h4>
                   <button
                     type="button"
                     onClick={() => copyToClipboard("json")}
                     className="rounded bg-copper px-3 py-1.5 text-xs font-semibold text-white hover:bg-copper-deep transition-colors"
                   >
-                    {copiedType === "json" ? "Kopyalandı!" : "JSON Kopyala"}
+                    {copiedType === "json" ? "Copied!" : "Copy JSON"}
                   </button>
                 </div>
                 <pre className="overflow-x-auto rounded border border-slate/20 bg-off-white p-4 text-xs font-mono text-deep-navy max-h-[300px]">
@@ -1033,57 +1030,57 @@ ${inputsStr}
           )}
         </div>
 
-        {/* Sağ Panel: Yardımcı Kılavuz & Hızlı Önizleme */}
+        {/* Right Panel: Helper Guide & Quick Preview */}
         <div className="space-y-6 lg:col-span-5">
           {/* Quick Guide Card */}
           <div className="rounded-lg border border-slate/15 bg-white p-5 space-y-4">
             <h3 className="text-sm font-bold text-deep-navy uppercase tracking-wider border-b border-slate/15 pb-2">
-              Featured Snippet Kılavuzu
+              Featured Snippet Guide
             </h3>
             
             <ul className="space-y-3 text-xs text-slate list-disc list-inside">
               <li>
-                <strong className="text-deep-navy">&quot;Nedir&quot; Alanı:</strong> Doğrudan terimin ne olduğunu açıklayan bir cümleyle başlayın. Örn: <span className="italic">&ldquo;... ölçen analitik bir çalışmadır.&rdquo;</span>
+                <strong className="text-deep-navy">&quot;What Is It&quot; Field:</strong> Start with a sentence that directly explains what the term is. E.g.: <span className="italic">&ldquo;...an analytical study that measures.&rdquo;</span>
               </li>
               <li>
-                <strong className="text-deep-navy">&quot;Nasıl Hesaplanır&quot; Alanı:</strong> Hesaba giren ana parametreleri listeleyin ve formülü açıkça belirtin. Örn: <span className="italic">&ldquo;Formül: Güvenli Teklif Fiyatı = ...&rdquo;</span>
+                <strong className="text-deep-navy">&quot;How Is It Calculated&quot; Field:</strong> List the key input parameters and state the formula clearly. E.g.: <span className="italic">&ldquo;Formula: Safe Quote Price = ...&rdquo;</span>
               </li>
               <li>
-                <strong className="text-deep-navy">Dinamik Girdiler (inputSummary):</strong> Önizlemede görünecek örnek girdiler. Maksimum 3-4 adet kısa ve rakam içeren girdi yeterlidir.
+                <strong className="text-deep-navy">Dynamic Inputs (inputSummary):</strong> Example inputs for preview. 3-4 short numeric entries are sufficient.
               </li>
               <li>
-                <strong className="text-deep-navy">Çıktıyı Kullanma:</strong> Hazırladığınız vaka çalışmasını kopyaladıktan sonra <code className="font-mono bg-off-white px-1 py-0.5 rounded text-copper">src/lib/case-studies/data/tr.ts</code> dosyası içindeki array&apos;e ekleyip commit edebilirsiniz.
+                <strong className="text-deep-navy">Using the Output:</strong> After preparing your case study, copy it and add it to the array in <code className="font-mono bg-off-white px-1 py-0.5 rounded text-copper">src/lib/case-studies/data/tr.ts</code> and commit.
               </li>
             </ul>
           </div>
 
-          {/* Mini Live Preview (Her zaman görünür olan hızlı kart) */}
+          {/* Mini Live Preview (always visible quick card) */}
           <div className="rounded-lg border border-slate/15 bg-white p-5 space-y-3">
             <h3 className="text-sm font-bold text-deep-navy uppercase tracking-wider border-b border-slate/15 pb-2">
-              Anlık Kart Görünümü
+              Live Card Preview
             </h3>
             
             <div className="border border-slate/20 bg-white p-4 rounded shadow-sm">
               <div className="flex items-center justify-between gap-2">
                 <p className="text-[9px] font-bold uppercase tracking-widest text-copper">
-                  {form.sectorLabel || "SEKTÖR"}
+                  {form.sectorLabel || "SECTOR"}
                 </p>
                 <span className="inline-block rounded bg-copper/10 px-2 py-0.5 text-[9px] font-medium tracking-wide text-copper font-mono">
-                  {form.lossTypeLabel || "Kayıp Türü"}
+                  {form.lossTypeLabel || "Loss Type"}
                 </span>
               </div>
               <h2 className="mt-2 text-sm font-semibold text-deep-navy">
-                {form.title || "Vaka Çalışması Başlığı"}
+                {form.title || "Case Study Title"}
               </h2>
               <p 
                 className="mt-1 line-clamp-2 text-xs text-slate"
-                dangerouslySetInnerHTML={{ __html: form.problem || "Senaryo problemi..." }}
+                dangerouslySetInnerHTML={{ __html: form.problem || "Scenario problem..." }}
               />
               <div className="mt-3 flex items-center justify-between border-t border-slate/15 pt-2">
                 <span className="text-[9px] text-muted font-mono">
                   ID: {form.slug.replace(/-field-analysis$/, "") || "id"}
                 </span>
-                <span className="text-xs font-semibold text-copper">Detaylar →</span>
+                <span className="text-xs font-semibold text-copper">Details →</span>
               </div>
             </div>
           </div>

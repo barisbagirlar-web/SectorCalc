@@ -42,8 +42,8 @@ export const GURULTU_VE_TITRESIM_MARUZIYET_RISK_MALIYET_CALCULATOR_SCHEMA: Premi
     volatilityPercent: 20,
     targetMarginPercent: 10,
     assumptionNotes: [
-      "Maruziyet = Noise Level (dB) × Süre.",
-      "Risk Maliyeti = İşitme Kaybı + Verim Düşüşü + Hata + KKD.",
+      "Exposure = Noise Level (dB) x Duration.",
+      "Risk Cost = Hearing Loss + Productivity Decline + Error Rate + PPE.",
       "Outputs are technical HSE simulations based on standard guidelines.",
     ],
   },

@@ -8,8 +8,8 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: "Vaka Çalışması Editörü (Yönetici)",
-    description: "SectorCalc vaka çalışmaları (case studies) hazırlama ve çıktı üretme editör paneli.",
+    title: "Case Study Editor (Admin)",
+    description: "SectorCalc case studies preparation and output generation editor panel.",
     path: "/admin/case-studies",
   }),
   robots: { index: false, follow: false },
@@ -20,7 +20,7 @@ export default function AdminCaseStudiesPage() {
     <PageLayout>
       <PageHero
         eyebrow="Yönetici"
-        title="Vaka Çalışması Editörü"
+        title="Case Study Editor"
         subtitle="Mevcut ve yeni eklenecek saha analizleri için Featured Snippet uyumlu Q&A içerik üretme paneli."
       />
 

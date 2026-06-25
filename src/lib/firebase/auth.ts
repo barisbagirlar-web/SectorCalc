@@ -138,10 +138,10 @@ export function mapFirebaseSignInError(error: unknown): string {
  typeof error.code === "string" &&
  INVALID_CREDENTIAL_CODES.has(error.code)
  ) {
- return "E-posta veya şifre hatalı.";
+ return "Invalid email or password.";
  }
 
- return "Giriş sırasında hata oluştu.";
+ return "An error occurred during sign in.";
 }
 
 const GOOGLE_POPUP_CANCELLED_CODES = new Set([
@@ -160,5 +160,5 @@ export function mapGoogleSignInError(error: unknown): string | null {
  return null;
  }
 
- return "Google ile giriş sırasında hata oluştu.";
+ return "An error occurred during Google sign in.";
 }

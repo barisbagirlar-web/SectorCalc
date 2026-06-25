@@ -1,8 +1,8 @@
 /**
  * Global Sanity Gate
- * 
- * Hesaplama sonuçlarının global ölçekte mantıklı olup olmadığını kontrol eder.
- * Negatif değerler, %100 üstü oranlar, fiziksel impossibilities vs.
+ *
+ * Checks whether calculation results are globally reasonable.
+ * Negative values, over-100% rates, physical impossibilities etc.
  */
 
 export interface GlobalSanityRule {

@@ -1,6 +1,4 @@
-import { stripLocaleFromPath } from "@/lib/i18n/locale-routing";
-
-export const locales = ["en", "tr", "de", "fr", "es", "ar"] as const;
+export const locales = ["en"] as const;
 export type AppLocale = (typeof locales)[number];
 
 export function isAppLocale(value: string): value is AppLocale {
@@ -9,5 +7,6 @@ export function isAppLocale(value: string): value is AppLocale {
 
 /** Path without locale prefix — English root paths unchanged. */
 export function stripLocalePrefix(pathname: string | null | undefined): string {
-  return stripLocaleFromPath(pathname);
+  if (!pathname) return "/";
+  return pathname;
 }

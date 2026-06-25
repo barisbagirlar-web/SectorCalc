@@ -1,4 +1,5 @@
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck — Test expects validateRentVsBuyCalculatorInputs (needs stub export)
 
 import { describe, expect, test } from "vitest";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";

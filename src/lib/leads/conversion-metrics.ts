@@ -49,12 +49,12 @@ export interface LeadConversionMetrics {
 }
 
 const FUNNEL_STEPS: { status: LeadStatus; label: string }[] = [
- { status: "new", label: "Yeni" },
- { status: "reviewed", label: "İncelendi" },
- { status: "contacted", label: "İletişime Geçildi" },
- { status: "qualified", label: "Uygun Lead" },
- { status: "converted", label: "Müşteriye Döndü" },
- { status: "lost", label: "Kayıp" },
+ { status: "new", label: "New" },
+ { status: "reviewed", label: "Reviewed" },
+ { status: "contacted", label: "Contacted" },
+ { status: "qualified", label: "Qualified Lead" },
+ { status: "converted", label: "Converted" },
+ { status: "lost", label: "Lost" },
 ];
 
 function safeRate(numerator: number, denominator: number): number {

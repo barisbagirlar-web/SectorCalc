@@ -1,0 +1,240 @@
+{
+  "tool_id": "PRO_015",
+  "tool_name": "Machining Chatter Stability, Surface Roughness & Tool Deflection Analysis",
+  "category": "CNC Manufacturing / Dynamics",
+  "scope": "single_operation",
+  "primary_operation": "milling",
+  "inputs": [
+    {
+      "id": "cutting_speed_vc",
+      "name": "Cutting Speed (Vc)",
+      "unit": "m/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 5,
+      "absolute_max": 5000
+    },
+    {
+      "id": "tool_diameter_mm",
+      "name": "Tool Diameter (D)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 500
+    },
+    {
+      "id": "feed_per_tooth_fz",
+      "name": "Feed per Tooth (fz)",
+      "unit": "mm/tooth",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.001,
+      "absolute_max": 2
+    },
+    {
+      "id": "num_teeth_z",
+      "name": "Number of Cutting Edges (z)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 24
+    },
+    {
+      "id": "nose_radius_mm",
+      "name": "Tool Nose Radius (rε)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01,
+      "absolute_max": 6,
+      "hint": "From insert catalogue — required for Ra calculation (ISO 3002)"
+    },
+    {
+      "id": "axial_depth_ap",
+      "name": "Axial Depth of Cut (ap)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01
+    },
+    {
+      "id": "radial_depth_ae",
+      "name": "Radial Depth of Cut (ae)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01
+    },
+    {
+      "id": "overhang_length_mm",
+      "name": "Tool Overhang Length (L)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 5,
+      "absolute_max": 500,
+      "hint": "Distance from spindle nose to tool tip — critical for deflection"
+    },
+    {
+      "id": "ra_specification_um",
+      "name": "Drawing Ra Specification (target)",
+      "unit": "μm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 25,
+      "hint": "From engineering drawing: Ra 0.8 / Ra 1.6 / Ra 3.2 — ISO 1302"
+    },
+    {
+      "id": "machine_rigidity_class",
+      "name": "Machine / Fixture Rigidity Class",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "options": [
+        "HIGH — Heavy machining centre, short toolholder, vise",
+        "MEDIUM — Standard VMC, standard extension, milling fixture",
+        "LOW — Long overhang, thin wall part, weak fixture, worn spindle"
+      ]
+    },
+    {
+      "id": "rigidity_factor",
+      "name": "Rigidity Dynamic Factor (Kd)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 3.5,
+      "default": 1,
+      "hint": "HIGH=1.0 | MEDIUM=1.4–1.8 | LOW=2.0–3.5 — amplifies Rz by chatter"
+    },
+    {
+      "id": "shank_material",
+      "name": "Toolholder / Shank Material",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "Carbide shank — E = 580,000 N/mm²",
+        "HSS / Steel shank — E = 210,000 N/mm²",
+        "Heavy metal (Tungsten) — E = 650,000 N/mm²"
+      ]
+    },
+    {
+      "id": "elastic_modulus_mpa",
+      "name": "Shank Elastic Modulus (E)",
+      "unit": "N/mm²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100000,
+      "absolute_max": 800000,
+      "default": 580000,
+      "hint": "Carbide: 580,000 | Steel: 210,000 | Heavy metal: 650,000"
+    },
+    {
+      "id": "cutting_force_fc_n",
+      "name": "Estimated Tangential Cutting Force (Fc)",
+      "unit": "N",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "default": 500,
+      "hint": "From PRO_043 output or Kienzle calculation"
+    }
+  ],
+  "formulas": [
+    "n_rpm = (1000 * cutting_speed_vc) / (3.14159 * tool_diameter_mm)   // [RPM] Spindle speed",
+    "Vf_feed_rate = feed_per_tooth_fz * num_teeth_z * n_rpm   // [mm/min] Table feed rate",
+    "Rz_theoretical = (POWER(feed_per_tooth_fz, 2) / (8 * nose_radius_mm)) * 1000   // [μm] Theoretical peak-to-valley roughness — ISO 3002",
+    "Rz_actual = Rz_theoretical * rigidity_factor   // [μm] Actual Rz incl. chatter amplification",
+    "Ra_approx = Rz_actual / 4.5   // [μm] Approximate Ra (end milling, k=4.5) — ISO 3002",
+    "L_D_ratio = overhang_length_mm / tool_diameter_mm   // [—] Overhang-to-diameter ratio — chatter risk indicator",
+    "I_moment = (3.14159 * POWER(tool_diameter_mm, 4)) / 64   // [mm⁴] Second moment of area — circular cross section",
+    "Tool_Deflection_mm = (cutting_force_fc_n * POWER(overhang_length_mm, 3)) / (3 * elastic_modulus_mpa * I_moment)   // [mm] Static tool tip deflection — cantilever beam model",
+    "Tooth_Passing_Freq_Hz = (n_rpm * num_teeth_z) / 60   // [Hz] Tooth passing frequency",
+    "Chatter_Risk_Index = L_D_ratio * rigidity_factor   // [—] Composite chatter risk — higher = worse",
+    "Dimensional_Error_um = Tool_Deflection_mm * 1000   // [μm] Dimensional error from deflection",
+    "Safe_fz_for_Ra = SQRT(8 * nose_radius_mm * ra_specification_um / 1000 / rigidity_factor)   // [mm/tooth] Max fz to achieve Ra spec"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 3002-1 Turning/Milling Roughness",
+      "ISO 1302 Surface Texture Indication",
+      "Tobias-Fishwick Chatter Theory",
+      "Sandvik Coromant Vibration Handbook",
+      "VDI 3321 Tool Deflection"
+    ],
+    "validation": {
+      "nose_radius_minimum": {
+        "absolute_min": 0.01,
+        "error_msg": "Nose radius (rε) cannot be zero — division by zero in Ra calculation. Minimum: 0.01mm. Check insert catalogue."
+      },
+      "ae_exceeds_diameter": {
+        "condition": "radial_depth_ae > tool_diameter_mm",
+        "error_msg": "Radial depth (ae) exceeds tool diameter — geometrically impossible. ae must be ≤ D."
+      },
+      "ap_exceeds_limit": {
+        "condition": "axial_depth_ap > tool_diameter_mm * 0.8",
+        "error_msg": "Axial depth (ap) exceeds 80% of tool diameter. Catastrophic tool breakage risk. Reduce ap."
+      },
+      "rigidity_factor_range": {
+        "condition": "rigidity_factor < 1.0",
+        "error_msg": "Dynamic rigidity factor (Kd) cannot be less than 1.0. Ideal (chatter-free) conditions = 1.0."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Ra_approx > ra_specification_um",
+        "severity": "CRITICAL",
+        "source": "ISO 1302 / ISO 3002",
+        "message": "SURFACE FINISH VIOLATION: Predicted Ra exceeds drawing specification. Reduce fz or use a wiper insert (larger rε). Safe fz for spec compliance is shown below."
+      },
+      {
+        "condition": "L_D_ratio > 4",
+        "severity": "CRITICAL",
+        "source": "Sandvik Coromant Vibration Handbook",
+        "message": "CHATTER RISK HIGH — L/D > 4: At this overhang ratio, regenerative chatter is likely. Symptoms: harmonic surface marks, tool noise, premature wear. Mitigations: (1) Use anti-vibration toolholder, (2) Reduce ap by 30–40%, (3) Change spindle speed ±10% to shift from resonance zone."
+      },
+      {
+        "condition": "Tool_Deflection_mm > 0.05",
+        "severity": "CRITICAL",
+        "source": "VDI 3321 Tool Deflection",
+        "message": "DIMENSIONAL INACCURACY: Tool tip deflection exceeds 0.05mm (50μm). Workpiece dimensional tolerance will be violated. Reduce overhang, increase tool diameter, or reduce cutting force."
+      },
+      {
+        "condition": "Tool_Deflection_mm > 0.02 && Tool_Deflection_mm <= 0.05",
+        "severity": "WARNING",
+        "source": "VDI 3321",
+        "message": "Elevated tool deflection (20–50μm): Monitor dimensional output. For tight tolerances (IT6 or better), this deflection will cause out-of-spec parts. Consider shorter toolholder or reduced Fc."
+      },
+      {
+        "condition": "Tooth_Passing_Freq_Hz > 1000",
+        "severity": "WARNING",
+        "source": "Chatter Dynamics / Spindle Modal Analysis",
+        "message": "Tooth passing frequency > 1000 Hz: May excite spindle bearing natural frequencies. If chatter occurs, shift RPM by ±5–10% or change number of flutes to detune from structural resonance."
+      },
+      {
+        "condition": "rigidity_factor > 2.0 && L_D_ratio > 3",
+        "severity": "CRITICAL",
+        "source": "Sandvik Coromant / Kennametal Vibration Control",
+        "message": "COMBINED HIGH-RISK: Weak fixture + long overhang simultaneously. Predicted Ra and deflection values are unreliable — actual results may be significantly worse. Mandatory: reduce overhang to L/D ≤ 3 before proceeding."
+      }
+    ]
+  }
+}

@@ -145,7 +145,7 @@ function resolveRegionDefaults(locale: SupportedLocale, region: SupportedRegion)
   if (region in REGION_DEFAULTS) {
     return REGION_DEFAULTS[region as keyof typeof REGION_DEFAULTS];
   }
-  const fallback = locale === "tr" ? "TR" : locale === "de" ? "DE" : "GLOBAL";
+  const fallback = "GLOBAL";
   return REGION_DEFAULTS[fallback];
 }
 

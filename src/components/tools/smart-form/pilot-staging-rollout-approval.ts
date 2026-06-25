@@ -8,7 +8,7 @@ import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/formula-govern
 
 export const SMART_FORM_PILOT_STAGING_FLAG_NAME = "NEXT_PUBLIC_SMART_FORM_PILOT" as const;
 
-export const SMART_FORM_PILOT_STAGING_APPROVED_BY = "Barış Bağırlar" as const;
+export const SMART_FORM_PILOT_STAGING_APPROVED_BY = "Baris Bagirlar" as const;
 
 /** Deterministic ISO timestamp for tests and rollout record. */
 export const SMART_FORM_PILOT_STAGING_APPROVAL_AT = "2026-06-08T18:00:00.000Z" as const;

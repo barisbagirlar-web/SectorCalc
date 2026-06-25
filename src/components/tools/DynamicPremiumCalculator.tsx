@@ -1,4 +1,5 @@
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck — Dynamic Premium Calculator (imports types from stub)
 
 "use client";
 

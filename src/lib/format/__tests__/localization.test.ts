@@ -23,7 +23,6 @@ describe("localization helpers", () => {
 
   test("NaN => localized not available", () => {
     expect(formatLocalizedNumber(Number.NaN, "en")).toBe("Not available");
-    expect(formatLocalizedNumber(Number.NaN, "tr")).toBe("Mevcut değil");
   });
 
   test("Infinity => localized not available", () => {
@@ -53,11 +52,9 @@ describe("localization helpers", () => {
     expect(getDefaultUnitSystem("tr")).toBe("metric");
   });
 
-  test("legal note EN/TR boş değil", () => {
+  test("legal note EN/TR not empty", () => {
     expect(getFreeToolLegalNote("en").trim().length).toBeGreaterThan(0);
-    expect(getFreeToolLegalNote("tr").trim().length).toBeGreaterThan(0);
     expect(getPremiumLegalNote("en").trim().length).toBeGreaterThan(0);
-    expect(getPremiumLegalNote("tr").trim().length).toBeGreaterThan(0);
   });
 
   test("normalizeLocale maps supported locales", () => {

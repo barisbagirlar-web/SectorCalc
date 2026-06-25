@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-// Implementation removed for rewrite
-export const HEAT_LOSS_CALCULATOR_INPUT_KEYS = (inputs: any) => {
-  return {
-    outputs: {},
-    rules: [],
-    charts: []
-  };
-};
-=======
 export type HeatLossCalculatorInputs = {
   surfaceArea: number;
   uValue: number;
@@ -74,4 +64,3 @@ export function validateHeatLossCalculatorInputs(inputs: HeatLossCalculatorInput
     warnings: collectWarnings(inputs),
   };
 }
->>>>>>> Stashed changes

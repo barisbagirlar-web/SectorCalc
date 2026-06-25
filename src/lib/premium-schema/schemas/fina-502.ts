@@ -2,12 +2,12 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSchema = {
   id: "fina-502",
-  name: "Döviz Pozisyonu Kur Farkı Riski (FX Exposure)",
+  name: "FX Position Exchange Rate Risk (FX Exposure)",
   sectorSlug: "finance-hr",
   category: "cost",
   legacyPaidSlug: "fx-position-exchange-rate-risk-calculator",
   painStatement:
-    "Beklenmedik kur şokları nedeniyle şirket bilançosundaki gizli kur farkı zararlarını (FX Exposure) önceden analiz edin.",
+    "Analyze hidden FX losses in your company balance sheet caused by unexpected currency shocks.",
 
   inputs: [],
 
@@ -19,13 +19,13 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
       warning: 100000,
       critical: 500000,
       direction: "higher_is_bad",
-      warningMessage: "Kur farkı riskiniz uyarı seviyesinde, operasyonel hedge mekanizmalarını artırın.",
-      criticalMessage: "Kritik döviz pozisyonu açığı! Kur şoku özkaynaklarınızı ciddi şekilde eritebilir, finansal türev (forward vb.) kullanın.",
+      warningMessage: "Your FX risk is at a warning level. Increase operational hedging mechanisms.",
+      criticalMessage: "Critical FX position gap! Currency shock could severely erode your equity. Use financial derivatives (forwards, etc.).",
     },
   ],
 
   reportTemplate: {
-    title: "Döviz Pozisyonu Kur Şoku (FX Shock) Analiz Raporu",
+    title: "FX Position Currency Shock (FX Shock) Analysis Report",
     sections: [
       "executive_summary",
       "loss_breakdown",
@@ -42,9 +42,9 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
     volatilityPercent: 15,
     targetMarginPercent: 0,
     assumptionNotes: [
-      "Net Pozisyon = Yabancı Varlıklar - Yabancı Yükümlülükler.",
-      "Kur Farkı = Net Pozisyon × (Beklenen Kur - Güncel Kur).",
-      "Kısa pozisyon (borç ağırlıklı) durumunda kur artışı zarar yazar, hedge bu zararın ilgili yüzdesini sıfırlar.",
+      "Net Position = Foreign Assets - Foreign Liabilities.",
+      "FX Loss = Net Position × (Expected Rate - Current Rate).",
+      "In a short position (liability-heavy), rate increases cause losses; hedging offsets the corresponding percentage of this loss.",
     ],
   },
 };

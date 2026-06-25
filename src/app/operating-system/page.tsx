@@ -1,28 +1,21 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
-// @ts-nocheck
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { OperatingSystemPageContent } from "@/components/operating-system/OperatingSystemPageContent";
 import { createPageMetadata } from "@/lib/metadata";
 
-type PageProps = { params: Promise<{ locale: string }> };
+const LOCALE = "en";
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const locale = "en";
+export async function generateMetadata(): Promise<Metadata> {
   return createPageMetadata({
     title: "Operating System — Tool Factory Pipeline | SectorCalc",
     description:
       "How SectorCalc builds sector tools: ontology, formula contracts, validation gates, Smart Form, calculation summary mapping, human approval, and controlled deploy.",
     path: "/operating-system",
-    locale: locale as "en",
+    locale: LOCALE as "en",
   });
 }
 
-export default async function OperatingSystemPage({ params }: PageProps) {
-  const locale = "en";
-  
-
+export default async function OperatingSystemPage() {
   return (
     <PageLayout>
       <OperatingSystemPageContent />

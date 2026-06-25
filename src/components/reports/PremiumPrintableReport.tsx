@@ -30,7 +30,7 @@ interface PrintLabels {
   readonly acceptable: string;
 }
 
-const PRINT_LABELS: Record<"en" | "tr", PrintLabels> = {
+const PRINT_LABELS: Record<string, PrintLabels> = {
   en: {
     sampleBanner: "Sample report — unlock the full decision report to export without this label.",
     generated: "Generated",
@@ -51,28 +51,6 @@ const PRINT_LABELS: Record<"en" | "tr", PrintLabels> = {
     critical: "Critical",
     warning: "Warning",
     acceptable: "Acceptable",
-  },
-  tr: {
-    sampleBanner:
-      "Örnek rapor — etiketsiz dışa aktarmak için tam karar raporunun kilidini açın.",
-    generated: "Oluşturulma",
-    sector: "Sektör",
-    executiveSummary: "Yönetici Özeti",
-    hiddenLossDrivers: "Görünmeyen Kayıp Kalemleri",
-    driver: "Kalem",
-    value: "Değer",
-    description: "Açıklama",
-    thresholdCheck: "Eşik Kontrolü",
-    metric: "Metrik",
-    status: "Durum",
-    message: "Mesaj",
-    suggestedActions: "Önerilen Adımlar",
-    assumptions: "Varsayımlar",
-    legalNote: "Yasal Not",
-    reportId: "Rapor No",
-    critical: "Kritik",
-    warning: "Uyarı",
-    acceptable: "Kabul edilebilir",
   },
 };
 

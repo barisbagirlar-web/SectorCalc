@@ -446,12 +446,10 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  "Calculate fertilizer dosage, crop yield exposure and soil moisture risk before planting season commitments.",
  painStatement:
  "Fertilizer over-application and weather gaps can destroy crop margin before harvest.",
- seoKeywords: [
- "fertilizer dosage calculator",
- "crop yield calculator",
- "mahsul verimi",
- "gübre dozaj",
- ],
+seoKeywords: [
+"fertilizer dosage calculator",
+"crop yield calculator",
+],
  priority: 19,
  icon: "agriculture",
  accentColor: "emerald",
@@ -494,7 +492,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  "Check milk yield versus feed cost and detect dairy profit leaks.",
  painStatement:
  "Low yield per cow with rising feed prices destroys dairy profitability.",
- seoKeywords: ["milk yield calculator", "dairy profit calculator", "süt verimi"],
+ seoKeywords: ["milk yield calculator", "dairy profit calculator"],
  priority: 22,
  icon: "agriculture",
  accentColor: "emerald",
@@ -507,11 +505,10 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  "Check kWh exposure and energy efficiency before capex or tariff renegotiation.",
  painStatement:
  "Unmanaged kWh spikes and demand charges can blow operating budgets.",
- seoKeywords: [
- "kwh consumption calculator",
- "energy efficiency report",
- "enerji tüketim analizi",
- ],
+seoKeywords: [
+"kwh consumption calculator",
+"energy efficiency report",
+],
  priority: 23,
  icon: "energy",
  accentColor: "amber",
@@ -524,11 +521,10 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  "Estimate carbon footprint and CBAM-style import cost before EU shipments.",
  painStatement:
  "Carbon border costs can erase export margin if not modeled upfront.",
- seoKeywords: [
- "carbon footprint calculator",
- "CBAM compliance",
- "karbon ayak izi",
- ],
+seoKeywords: [
+"carbon footprint calculator",
+"CBAM compliance",
+],
  priority: 24,
  icon: "energy",
  accentColor: "emerald",
@@ -541,7 +537,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  "Estimate renovation cost per m² with regional and seasonal buffers.",
  painStatement:
  "Renovation budgets blow up when weather delays and city premiums are ignored.",
- seoKeywords: ["home renovation calculator", "ev tadilat hesabı", "renovation budget"],
+ seoKeywords: ["home renovation calculator", "renovation budget"],
  priority: 25,
  icon: "daily",
  accentColor: "blue",
@@ -554,7 +550,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  "Check fuel consumption and trip budget before long drives or fleet trips.",
  painStatement:
  "Fuel and toll surprises can wreck personal or small fleet travel budgets.",
- seoKeywords: ["fuel consumption calculator", "trip budget", "akaryakıt tüketimi"],
+ seoKeywords: ["fuel consumption calculator", "trip budget"],
  priority: 26,
  icon: "daily",
  accentColor: "cyan",

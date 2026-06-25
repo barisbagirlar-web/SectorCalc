@@ -27,10 +27,7 @@ for (const system of systems) {
   if (!blob.includes(system)) failures.push(`standard resolver missing ${system}`);
 }
 
-const tr = JSON.parse(readFileSync(join(ROOT, "messages/tr.json"), "utf8"));
-if (!tr.standards?.engineeringWarning) {
-  failures.push("tr.json missing standards.engineeringWarning");
-}
+// TR locale removed — English-only
 
 console.log("audit:engineering-standards");
 if (failures.length) {

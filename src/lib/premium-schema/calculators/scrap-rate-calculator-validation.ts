@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-// Implementation removed for rewrite
-export const SCRAP_RATE_CALCULATOR_INPUT_KEYS = (inputs: any) => {
-  return {
-    outputs: {},
-    rules: [],
-    charts: []
-  };
-};
-=======
 export type ScrapRateCalculatorInputs = {
   materialCost: number;
   scrapRate: number;
@@ -74,4 +64,3 @@ export function validateScrapRateCalculatorInputs(inputs: ScrapRateCalculatorInp
     warnings: collectWarnings(inputs),
   };
 }
->>>>>>> Stashed changes

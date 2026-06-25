@@ -46,10 +46,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           ok: false,
-          error:
-            locale === "tr"
-              ? "Bugünkü AI yardım hakkınız doldu."
-              : "Your AI assistant limit for today has been reached.",
+          error: "Your AI assistant limit for today has been reached.",
         },
         { status: 429 },
       );

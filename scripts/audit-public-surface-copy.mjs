@@ -87,38 +87,15 @@ for (const rule of [".sch-social-grid", ".sch-meta-info", ".sch-legal-links"]) {
 }
 pass("footer social/meta/legal CSS rules present");
 
-const tr = JSON.parse(read("messages/tr.json"));
 const en = JSON.parse(read("messages/en.json"));
 
-if (!tr.sectorFooter?.metaCopyright || !en.sectorFooter?.metaCopyright) {
-  fail("sectorFooter.metaCopyright missing in en/tr messages");
+if (!en.sectorFooter?.metaCopyright) {
+  fail("sectorFooter.metaCopyright missing in en messages");
 } else {
-  pass("sectorFooter.metaCopyright present in en/tr");
+  pass("sectorFooter.metaCopyright present in en");
 }
 
-const trFooterBlob = JSON.stringify(tr.sectorFooter ?? {});
-if (trFooterBlob.includes("KAYIT") || trFooterBlob.includes("CUR: TRY")) {
-  fail("TR sectorFooter still contains legacy KAYIT/CUR footer leak strings");
-} else {
-  pass("TR sectorFooter free of legacy KAYIT/CUR prefixes");
-}
-
-if (!tr.catalogExplorer.discoveryTabs.premiumToolsAll?.includes("premium")) {
-  fail("TR premium tools all-tab label missing");
-} else {
-  pass("TR premium filter labels present");
-}
-
-if (tr.catalogExplorer?.premiumRoadmap) {
-  fail("TR messages still expose catalogExplorer.premiumRoadmap");
-} else {
-  pass("premiumRoadmap removed from public messages");
-}
-
-const staticHtmlPaths = [
-  ".next/server/app/tr/premium-tools.html",
-  ".next/server/app/tr.html",
-];
+const staticHtmlPaths = [];
 
 if (process.env.POST_BUILD === "1") {
   for (const rel of staticHtmlPaths) {

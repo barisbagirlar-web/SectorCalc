@@ -57,8 +57,8 @@ describe("case study registry", () => {
     for (const entry of listCaseStudies()) {
       expect(entry.scenarioKind ?? "representative_scenario").toBe("representative_scenario");
       expect((entry.assumptions ?? []).some((a) => a.includes("Representative"))).toBe(true);
-      expect(entry.title.toLowerCase()).not.toMatch(/xyz|acme corp|₺127|127,000|%40 azalttı|saved \$|client said/i);
-      expect(entry.calculationResult.toLowerCase()).not.toMatch(/%40 azalttı|guaranteed|verified savings/i);
+      expect(entry.title.toLowerCase()).not.toMatch(/xyz|acme corp|127,000|saved \$|client said/i);
+      expect(entry.calculationResult.toLowerCase()).not.toMatch(/guaranteed|verified savings/i);
     }
   });
 

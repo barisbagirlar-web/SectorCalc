@@ -698,7 +698,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  <>
   <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
       <Link href="/pricing" prefetch={false} className="hover:underline">
-        {locale === "tr" ? "Premium Araçlar" : "Premium"}
+        {locale === "tr" ? "Premium" : "Premium"}
       </Link>
       <span className="mx-1.5">/</span>
       <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">

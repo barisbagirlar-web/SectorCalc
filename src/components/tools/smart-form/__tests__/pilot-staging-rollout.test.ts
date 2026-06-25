@@ -162,7 +162,7 @@ describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
   test("explicit approval record fields match Phase 5H-G-M spec", () => {
     const approval = getDefaultSmartFormPilotStagingRolloutApproval();
 
-    expect(approval.approvedBy).toBe("Barış Bağırlar");
+    expect(approval.approvedBy).toBe("Baris Bagirlar");
     expect(approval.approvedAt).toBe(SMART_FORM_PILOT_STAGING_APPROVAL_AT);
     expect(approval.scope).toBe("staging_flag_only");
     expect(approval.flagName).toBe("NEXT_PUBLIC_SMART_FORM_PILOT");

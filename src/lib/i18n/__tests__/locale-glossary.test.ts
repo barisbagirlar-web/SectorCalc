@@ -35,7 +35,6 @@ describe("locale-glossary", () => {
 
   test("decision report labels match style guide", () => {
     expect(LOCALE_GLOSSARY.decisionReport.en).toBe("Decision report");
-    expect(LOCALE_GLOSSARY.decisionReport.tr).toBe("Karar raporu");
     expect(LOCALE_GLOSSARY.decisionReport.de).toBe("Entscheidungsbericht");
     expect(LOCALE_GLOSSARY.decisionReport.fr).toBe("Rapport de décision");
     expect(LOCALE_GLOSSARY.decisionReport.es).toBe("Informe de decisión");
@@ -44,7 +43,6 @@ describe("locale-glossary", () => {
 
   test("hidden loss labels match style guide", () => {
     expect(LOCALE_GLOSSARY.hiddenLoss.en).toBe("Hidden loss");
-    expect(LOCALE_GLOSSARY.hiddenLoss.tr).toBe("Görünmeyen kayıp");
     expect(LOCALE_GLOSSARY.hiddenLoss.de).toBe("Verborgener Verlust");
     expect(LOCALE_GLOSSARY.hiddenLoss.fr).toBe("Perte cachée");
     expect(LOCALE_GLOSSARY.hiddenLoss.es).toBe("Pérdida oculta");

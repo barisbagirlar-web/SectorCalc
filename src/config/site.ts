@@ -24,7 +24,7 @@ export const SITE = {
  defaultTitle: "SectorCalc — Sector-specific measurement, loss detection and decision reports",
  defaultDescription:
  "Calculate costs, measure efficiency, detect losses, and optimize operations across 27 sectors — free calculators and premium verdict reports without ERP complexity.",
- tagline: "Her sektör için özel hesaplama, ölçüm ve karar raporları.",
+ tagline: "Sector-specific calculation, measurement, and decision reports.",
  secondaryTagline: "Calculate the number. Get the decision.",
  contactEmail: "hello@sectorcalc.com",
  privacyEmail: "privacy@sectorcalc.com",

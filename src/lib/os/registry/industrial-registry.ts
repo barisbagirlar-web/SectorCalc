@@ -81,7 +81,7 @@ function parseSectorEntry(
   };
 }
 
-const configSectors = sectorConfig.sectors as Record<IndustrialRegistryKey, SectorConfigRecord>;
+const configSectors = sectorConfig.sectors as unknown as Record<IndustrialRegistryKey, SectorConfigRecord>;
 
 export const IndustrialRegistry = Object.fromEntries(
   (Object.entries(configSectors) as [IndustrialRegistryKey, SectorConfigRecord][]).map(

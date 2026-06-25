@@ -1,8 +1,4 @@
-/**
- * Active locale definitions — single source of truth for routing, formatting, and UI.
- */
-
-export const SUPPORTED_LOCALES = ["en", "tr", "de", "fr", "es", "ar"] as const;
+export const SUPPORTED_LOCALES = ["en"] as const;
 
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 
@@ -12,9 +8,9 @@ export const DEFAULT_LOCALE = ROOT_LOCALE;
 
 export type TextDirection = "ltr" | "rtl";
 
-export type LocaleDefaultRegion = "GLOBAL" | "TR" | "EU";
+export type LocaleDefaultRegion = "GLOBAL";
 
-export type LocaleCurrency = "USD" | "TRY" | "EUR";
+export type LocaleCurrency = "USD";
 
 export type LocaleDefinition = {
   readonly code: SupportedLocale;
@@ -44,76 +40,6 @@ export const LOCALE_DEFINITIONS: Record<SupportedLocale, LocaleDefinition> = {
     numberLocale: "en-US",
     dateLocale: "en-US",
     textDirection: "ltr",
-    defaultRegion: "GLOBAL",
-  },
-  tr: {
-    code: "tr",
-    label: "Turkish",
-    nativeName: "Türkçe",
-    shortLabel: "TR",
-    pathPrefix: "/tr",
-    isRoot: false,
-    currency: "TRY",
-    unitSystem: "metric",
-    numberLocale: "tr-TR",
-    dateLocale: "tr-TR",
-    textDirection: "ltr",
-    defaultRegion: "TR",
-  },
-  de: {
-    code: "de",
-    label: "German",
-    nativeName: "Deutsch",
-    shortLabel: "DE",
-    pathPrefix: "/de",
-    isRoot: false,
-    currency: "EUR",
-    unitSystem: "metric",
-    numberLocale: "de-DE",
-    dateLocale: "de-DE",
-    textDirection: "ltr",
-    defaultRegion: "EU",
-  },
-  fr: {
-    code: "fr",
-    label: "French",
-    nativeName: "Français",
-    shortLabel: "FR",
-    pathPrefix: "/fr",
-    isRoot: false,
-    currency: "EUR",
-    unitSystem: "metric",
-    numberLocale: "fr-FR",
-    dateLocale: "fr-FR",
-    textDirection: "ltr",
-    defaultRegion: "EU",
-  },
-  es: {
-    code: "es",
-    label: "Spanish",
-    nativeName: "Español",
-    shortLabel: "ES",
-    pathPrefix: "/es",
-    isRoot: false,
-    currency: "EUR",
-    unitSystem: "metric",
-    numberLocale: "es-ES",
-    dateLocale: "es-ES",
-    textDirection: "ltr",
-    defaultRegion: "EU",
-  },
-  ar: {
-    code: "ar",
-    label: "Arabic",
-    nativeName: "العربية",
-    shortLabel: "AR",
-    pathPrefix: "/ar",
-    isRoot: false,
-    currency: "USD",
-    unitSystem: "metric",
-    numberLocale: "ar",
-    dateLocale: "ar",
-    textDirection: "rtl",
     defaultRegion: "GLOBAL",
   },
 };
@@ -153,26 +79,4 @@ export const LOCALE_MANUAL_COOKIE = "sectorcalc_locale_manual";
 
 export const NEXT_LOCALE_COOKIE = "NEXT_LOCALE";
 
-export const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {
-  TR: "tr",
-  DE: "de",
-  AT: "de",
-  CH: "de",
-  FR: "fr",
-  BE: "fr",
-  ES: "es",
-  MX: "es",
-  AR: "es",
-  SA: "ar",
-  AE: "ar",
-  EG: "ar",
-  QA: "ar",
-  KW: "ar",
-  BH: "ar",
-  OM: "ar",
-  JO: "ar",
-  LB: "ar",
-  MA: "ar",
-  DZ: "ar",
-  TN: "ar",
-};
+export const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {};

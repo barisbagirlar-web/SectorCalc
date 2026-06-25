@@ -20,11 +20,6 @@ import { getAllRevenueToolSpecs } from "@/lib/tools/revenue-tools";
 import { getFreeToolHref, resolvePremiumToolHref } from "@/lib/tools/tool-links";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import enMessages from "../../../messages/en.json";
-import trMessages from "../../../messages/tr.json";
-import deMessages from "../../../messages/de.json";
-import frMessages from "../../../messages/fr.json";
-import esMessages from "../../../messages/es.json";
-import arMessages from "../../../messages/ar.json";
 
 const MAX_TOOLS_PER_TIER = 12;
 
@@ -43,11 +38,6 @@ const SCHEMA_CATEGORY_TO_GROUP: Record<FormulaFamilyId, PremiumSchemaCatalogGrou
 
 const LOCALE_MESSAGES: Record<string, Record<string, unknown>> = {
   en: enMessages as Record<string, unknown>,
-  tr: trMessages as Record<string, unknown>,
-  de: deMessages as Record<string, unknown>,
-  fr: frMessages as Record<string, unknown>,
-  es: esMessages as Record<string, unknown>,
-  ar: arMessages as Record<string, unknown>,
 };
 
 const INDUSTRY_CATEGORY_FREE_CATEGORIES: Partial<Record<string, readonly FreeTrafficCategory[]>> = {
@@ -90,7 +80,7 @@ function normalizeText(value: string): string {
     .toLowerCase()
     .normalize("NFD")
     .replace(/\p{M}/gu, "")
-    .replace(/[^a-z0-9ğüşıöçâêîôûàáäãåæèéëìíïñòóùúýÿœæß\s-]/gi, " ");
+    .replace(/[^a-z0-9\s-]/gi, " ");
 }
 
 function scoreKeywordHits(text: string, keywords: readonly string[]): number {

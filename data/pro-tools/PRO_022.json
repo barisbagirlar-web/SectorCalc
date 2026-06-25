@@ -1,0 +1,228 @@
+{
+  "tool_id": "PRO_022",
+  "tool_name": "CNC Machining True Unit Cost (TCO) — Material, Tooling, Overhead & Scrap",
+  "category": "CNC Manufacturing / Cost Engineering",
+  "scope": "single_operation",
+  "primary_operation": "milling",
+  "inputs": [
+    {
+      "id": "raw_material_volume_m3",
+      "name": "Raw Material Billet / Blank Volume",
+      "unit": "m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.000001,
+      "hint": "Billet volume before machining — NOT finished part volume"
+    },
+    {
+      "id": "material_density_kg_m3",
+      "name": "Material Density (ρ)",
+      "unit": "kg/m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 500,
+      "absolute_max": 22000,
+      "hint": "Steel: 7850 | Aluminium: 2700 | Titanium: 4430 | Brass: 8500 | Cast iron: 7200"
+    },
+    {
+      "id": "material_price_usd_kg",
+      "name": "Raw Material Unit Price",
+      "unit": "USD/kg",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.01,
+      "hint": "Current market price — Al 6061: $2–4 | Steel 4140: $1–2 | Ti6Al4V: $25–45 | Inconel 718: $60–120"
+    },
+    {
+      "id": "finished_part_volume_m3",
+      "name": "Finished Part Net Volume",
+      "unit": "m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1e-7,
+      "hint": "Volume of finished part — used to calculate buy-to-fly ratio"
+    },
+    {
+      "id": "machine_hourly_rate_usd",
+      "name": "Machine Hourly Rate (fully burdened)",
+      "unit": "USD/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 5,
+      "hint": "Depreciation + maintenance + energy + operator + floor space"
+    },
+    {
+      "id": "cycle_time_min",
+      "name": "Total Cycle Time per Part",
+      "unit": "min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.1,
+      "hint": "From PRO_021 output or time study"
+    },
+    {
+      "id": "insert_cost_usd",
+      "name": "Insert / Cutting Edge Cost",
+      "unit": "USD/insert",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "hint": "Purchase price per single insert (not per cutting edge)"
+    },
+    {
+      "id": "cutting_edges_per_insert",
+      "name": "Number of Cutting Edges per Insert",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 16,
+      "default": 4,
+      "hint": "CNMG/SNMG=4 | WNMG=6 | Round insert=1 | Milling insert=2–4"
+    },
+    {
+      "id": "tool_life_per_edge_min",
+      "name": "Tool Life per Cutting Edge (T)",
+      "unit": "min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "hint": "Measured or from Taylor equation — change at VB=0.3mm (ISO 3685)"
+    },
+    {
+      "id": "coolant_cost_usd_hr",
+      "name": "Coolant System Cost Rate",
+      "unit": "USD/h",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 2,
+      "hint": "Coolant consumption + treatment + disposal — typically $1–5/h"
+    },
+    {
+      "id": "scrap_rate_pct",
+      "name": "Process Scrap / Rework Rate",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 30,
+      "default": 2,
+      "hint": "First-pass yield defect rate — target <1% for mature processes"
+    },
+    {
+      "id": "overhead_pct",
+      "name": "Factory Overhead Absorption Rate",
+      "unit": "% of direct cost",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 300,
+      "default": 30,
+      "hint": "Indirect costs absorbed to product: 20–60% typical job shop"
+    },
+    {
+      "id": "annual_volume_parts",
+      "name": "Annual Production Volume",
+      "unit": "parts/year",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1
+    }
+  ],
+  "formulas": [
+    "Raw_Material_kg = raw_material_volume_m3 * material_density_kg_m3   // [kg] Raw billet weight",
+    "Material_Cost_USD = Raw_Material_kg * material_price_usd_kg   // [USD] Raw material cost per part",
+    "Buy_to_Fly_Ratio = raw_material_volume_m3 / finished_part_volume_m3   // [—] Billet-to-part volume ratio — waste indicator",
+    "Chip_Weight_kg = (raw_material_volume_m3 - finished_part_volume_m3) * material_density_kg_m3   // [kg] Swarf weight",
+    "Machining_Cost_USD = (cycle_time_min / 60) * machine_hourly_rate_usd   // [USD] Machine time cost",
+    "Cost_per_Edge_USD = insert_cost_usd / cutting_edges_per_insert   // [USD] Cost per usable cutting edge",
+    "Tooling_Cost_per_Part_USD = (cycle_time_min / tool_life_per_edge_min) * Cost_per_Edge_USD   // [USD] Tooling consumed per part",
+    "Coolant_Cost_per_Part_USD = (cycle_time_min / 60) * coolant_cost_usd_hr   // [USD] Coolant cost per part",
+    "Direct_Cost_USD = Material_Cost_USD + Machining_Cost_USD + Tooling_Cost_per_Part_USD + Coolant_Cost_per_Part_USD   // [USD] Total direct cost",
+    "Overhead_Cost_USD = Direct_Cost_USD * (overhead_pct / 100)   // [USD] Absorbed overhead",
+    "Pre_Scrap_Cost_USD = Direct_Cost_USD + Overhead_Cost_USD   // [USD] Cost before scrap penalty",
+    "Scrap_Penalty_USD = Pre_Scrap_Cost_USD * (scrap_rate_pct / 100)   // [USD] Scrap amortised cost",
+    "Total_Unit_Cost_USD = Pre_Scrap_Cost_USD + Scrap_Penalty_USD   // [USD] True unit manufacturing cost",
+    "Material_Cost_Fraction_pct = (Material_Cost_USD / Total_Unit_Cost_USD) * 100   // [%] Material cost share",
+    "Tooling_Cost_Fraction_pct = (Tooling_Cost_per_Part_USD / Total_Unit_Cost_USD) * 100   // [%] Tooling cost share",
+    "Annual_Cost_USD = annual_volume_parts > 0 ? Total_Unit_Cost_USD * annual_volume_parts : 0   // [USD/year] Annual cost"
+  ],
+  "engine_rules": {
+    "standards": [
+      "Sandvik Coromant Machining Economics",
+      "ISO 3685 Tool Life Criteria",
+      "CIMA Management Accounting",
+      "MTConnect Cost Tracking Standard"
+    ],
+    "validation": {
+      "tool_life_minimum": {
+        "absolute_min": 1,
+        "error_msg": "Tool life cannot be zero — division by zero in tooling cost calculation."
+      },
+      "cutting_edges_minimum": {
+        "absolute_min": 1,
+        "error_msg": "Cutting edges per insert must be at least 1."
+      },
+      "finished_vs_raw_volume": {
+        "condition": "finished_part_volume_m3 >= raw_material_volume_m3",
+        "error_msg": "Finished part volume cannot be equal to or larger than raw billet volume. Material is removed during machining."
+      },
+      "buy_to_fly_extreme": {
+        "condition": "Buy_to_Fly_Ratio > 20",
+        "error_msg": "Buy-to-fly ratio > 20: Over 95% of material becomes swarf. Verify volumes. For aerospace titanium forgings, ratios up to 10 are common — above 20 is exceptional."
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Tooling_Cost_per_Part_USD > Machining_Cost_USD",
+        "severity": "CRITICAL",
+        "source": "Sandvik Coromant Machining Economics",
+        "message": "TOOLING COST EXCEEDS MACHINE TIME COST: Cutting speed is too high — tools are being consumed faster than economically optimal. Reduce Vc to extend tool life. Optimal Vc for minimum cost (Vcopt) is typically 20–30% below Vcmax."
+      },
+      {
+        "condition": "Buy_to_Fly_Ratio > 5",
+        "severity": "WARNING",
+        "source": "Aerospace / Defence Cost Engineering",
+        "message": "High buy-to-fly ratio (>5): More than 80% of raw material becomes chip. Material waste is a dominant cost driver. Evaluate: (1) Near-net-shape forging or casting, (2) Additive manufacturing + hybrid machining, (3) Billet size optimisation."
+      },
+      {
+        "condition": "Material_Cost_Fraction_pct > 60",
+        "severity": "WARNING",
+        "source": "Cost Engineering Best Practice",
+        "message": "Material cost >60% of total unit cost: Material is the dominant cost element. Price negotiation, alternative alloys, or supply chain changes will have greater impact than process optimisation."
+      },
+      {
+        "condition": "scrap_rate_pct > 5",
+        "severity": "CRITICAL",
+        "source": "Six Sigma / Lean Manufacturing",
+        "message": "Scrap rate > 5%: Significant quality cost. At this rate, scrap penalty is adding meaningful cost per part. Root cause analysis (8D / Ishikawa) required. Target: <1% for mature CNC processes."
+      },
+      {
+        "condition": "scrap_rate_pct > 1 && scrap_rate_pct <= 5",
+        "severity": "WARNING",
+        "source": "AIAG / TS 16949 Quality Targets",
+        "message": "Scrap rate 1–5%: Above world-class target. Each percentage point of scrap adds direct cost penalty. SPC implementation and tooling condition monitoring recommended."
+      },
+      {
+        "condition": "tool_life_per_edge_min < 15",
+        "severity": "WARNING",
+        "source": "ISO 3685 / Sandvik Tool Life Recommendations",
+        "message": "Tool life < 15 minutes per edge: Very short tool life indicates aggressive cutting conditions or workpiece hardness issues. Economic tool life target is typically 20–45 min. Reduce Vc or check for built-up edge (BUE) conditions."
+      }
+    ]
+  }
+}

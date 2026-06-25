@@ -1,50 +1,34 @@
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { getIndustryRegistryEntry } from "@/lib/tools/industry-registry";
 
-/** Extra match terms per industry slug (EN + TR where useful). */
+/** Extra match terms per industry slug (EN only). */
 const INDUSTRY_EXTRA_KEYWORDS: Partial<Record<IndustrySlug, readonly string[]>> = {
   "sheet-metal": [
     "sheet-metal",
-    "sac-metal",
-    "sac metal",
-    "sac metal imalatı",
     "metal",
     "laser",
-    "lazer kesim",
     "bending",
-    "büküm",
     "cnc",
     "quote",
-    "teklif",
     "cost",
-    "maliyet",
     "margin",
-    "marj",
     "material",
-    "malzeme",
     "waste",
     "fire",
     "scrap",
     "oee",
     "machine",
-    "makine saati",
     "energy",
-    "enerji",
     "setup",
-    "hazırlık",
     "tolerance",
-    "tolerans",
     "fastener",
-    "bağlantı",
     "welding",
-    "kaynak",
     "sheet metal",
     "sheetmetal",
     "laser cutting",
     "bend",
     "gauge",
     "weight",
-    "ağırlık",
   ],
 };
 
