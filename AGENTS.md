@@ -218,7 +218,7 @@ Detay: `.cursor/rules/02-ui-quality/RULE.md`
   - Bileşen: `src/components/landing/LandingPageContent.tsx`
   - Stil: `src/styles/landing-page.css`
   - Sayfa: `src/app/[locale]/page.tsx`
-- **Link Standartları**: Sitedeki linkler mutlaka gerçek ve ilgili aktif sayfaları (örneğin pro-tools yerine `/premium-tools`) temsil edecek şekilde doğru yönlendirilmelidir. Asla kırık veya geçici (`#`) link kullanılmamalıdır.
+- **Link Standartları**: Sitedeki linkler mutlaka gerçek ve ilgili aktif sayfaları (örneğin pro-tools yerine `/pricing`) temsil edecek şekilde doğru yönlendirilmelidir. Asla kırık veya geçici (`#`) link kullanılmamalıdır.
 - **İyileştirmeler**: Tasarım yerleşimlerinde veya ikonlarda görsel uyumsuzluk ya da hata görüldüğünde, sistem kalitesini artırmak için inisiyatif alınarak hizalamalar ve görsel detaylar en premium standartlarda düzenlenmelidir.
 
 ## 13. DeepSeek API / Formül ve Input Yaratma Yetkisi İptali

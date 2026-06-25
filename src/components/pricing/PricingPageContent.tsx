@@ -22,7 +22,7 @@ function StatsBar() {
   const t = useTranslations('pricing_v2.stats')
   return (
     <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10 text-center">
-      {[{num:'4,200+',label:t('engineersActive')},{num:'18',label:t('sectors')},{num:'161',label:t('proTools')},{num:'40+',label:t('countries')}].map((s) => (
+      {[{num:'4,200+',label:t('engineersActive')},{num:'18',label:t('sectors')},{num:'161',label:t('premiumAnalyzers')},{num:'40+',label:t('countries')}].map((s) => (
         <div key={s.label}>
           <p className="text-xl font-semibold text-premium-velvet">{s.num}</p>
           <p className="text-xs text-body-charcoal">{s.label}</p>

@@ -214,7 +214,7 @@ export interface LandingContent {
     freeTools: string;
     freeCta: string;
     proTitle: string;
-    proTools: string;
+    premiumTools: string;
     proCta: string;
     feat1: string;
     feat2: string;

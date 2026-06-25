@@ -62,7 +62,7 @@ export async function generateMetadata({
   const locale = "en";
   const appLocale = locale as "en";
   if (isFreeToolMigratedToPremium(slug)) {
-    nextRedirect(`/${appLocale}/pro-tools/${slug}`);
+    nextRedirect(`/${appLocale}/pricing`);
   }
   const revenueTool = getRevenueToolByFreeSlug(slug);
   if (revenueTool) {
@@ -121,7 +121,7 @@ export default async function FreeRevenueToolRoute({
   
 
   if (isFreeToolMigratedToPremium(slug)) {
-    nextRedirect(`/${locale}/pro-tools/${slug}`);
+    nextRedirect(`/${locale}/pricing`);
   }
 
   const revenueTool = getRevenueToolByFreeSlug(slug);

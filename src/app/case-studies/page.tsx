@@ -111,7 +111,7 @@ const LOCALIZED_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: "How can quote margin erosion be prevented?",
-      a: "The first step is to quantify hidden overheads: setup, downtime, scrap, delays, and warranty reserves must be included in the starting quote price. SectorCalc's corresponding Pro tools automatically calculate the minimum safe quote floor to protect your margin for each industry."
+      a: "The first step is to quantify hidden overheads: setup, downtime, scrap, delays, and warranty reserves must be included in the starting quote price. SectorCalc's corresponding Premium tools automatically calculate the minimum safe quote floor to protect your margin for each industry."
     }
   ],
   de: [
@@ -133,7 +133,7 @@ const LOCALIZED_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: "Wie kann eine Erosion der Angebotsmarge verhindert werden?",
-      a: "Der erste Schritt besteht darin, verdeckte Gemeinkosten zu quantifizieren: Rüst-, Stillstands-, Ausschuss-, Verzögerungs- und Gewährleistungsrückstellungen müssen in den anfänglichen Angebotspreis einbezogen werden. Die entsprechenden Pro-Tools von SectorCalc berechnen automatisch die minimale sichere Angebotsschwelle, um Ihre Marge in jeder Branche zu schützen."
+      a: "Der erste Schritt besteht darin, verdeckte Gemeinkosten zu quantifizieren: Rüst-, Stillstands-, Ausschuss-, Verzögerungs- und Gewährleistungsrückstellungen müssen in den anfänglichen Angebotspreis einbezogen werden. Die entsprechenden Premium-Analysatoren von SectorCalc berechnen automatisch die minimale sichere Angebotsschwelle, um Ihre Marge in jeder Branche zu schützen."
     }
   ],
   fr: [

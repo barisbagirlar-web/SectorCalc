@@ -24,24 +24,24 @@ export function LeadQualitySection({
 }: LeadQualitySectionProps) {
  const cards = [
  {
- label: "Yüksek kalite lead",
+ label: "High Quality Leads",
  value: loading ? "…" : String(summary.highCount),
- hint: "Skor ≥ 80",
+ hint: "Score ≥ 80",
  },
  {
- label: "Orta kalite lead",
+ label: "Medium Quality Leads",
  value: loading ? "…" : String(summary.mediumCount),
- hint: "Skor 50–79",
+ hint: "Score 50–79",
  },
  {
- label: "Düşük kalite lead",
+ label: "Low Quality Leads",
  value: loading ? "…" : String(summary.lowCount),
- hint: "Skor < 50",
+ hint: "Score < 50",
  },
  {
- label: "Ortalama skor",
+ label: "Average Score",
  value: loading ? "…" : String(summary.averageScore),
- hint: "0–100 arası",
+ hint: "Range 0–100",
  },
  ];
 
@@ -50,7 +50,7 @@ export function LeadQualitySection({
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Lead Quality</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Kalite skoru — hangi lead&apos;e önce dönüleceğini belirlemeye yardımcı olur.
+ Quality score — helps determine which lead to follow up first.
  </p>
  </div>
 
@@ -116,7 +116,7 @@ export function LeadQualityDetail({ quality }: LeadQualityDetailProps) {
  </dd>
  </div>
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
- <dt className="font-medium text-text-secondary">Uyarılar</dt>
+ <dt className="font-medium text-text-secondary">Warnings</dt>
  <dd className="break-words text-deep-navy">
  {quality.warnings.length > 0 ? (
  <ul className="list-inside list-disc space-y-1 text-text-secondary">

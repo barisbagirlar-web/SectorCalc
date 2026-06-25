@@ -61,7 +61,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
  if (lead.storageMode !== "firestore") {
  return (
  <p className="text-sm text-text-secondary">
- Aktivite geçmişi yalnızca Firestore lead&apos;leri için kullanılabilir.
+ Activity history is only available for Firestore leads.
  </p>
  );
  }
@@ -69,7 +69,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
  if (loading) {
  return (
  <p className="text-sm text-text-secondary" role="status">
- Aktivite geçmişi yükleniyor…
+ Loading activity history…
  </p>
  );
  }
@@ -77,7 +77,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
  if (loadError) {
  return (
  <p className="text-sm text-text-secondary" role="status">
- Aktivite geçmişi yüklenemedi.
+ Failed to load activity history.
  </p>
  );
  }
@@ -85,7 +85,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
  if (entries.length === 0) {
  return (
  <p className="text-sm text-text-secondary">
- Henüz aktivite kaydı yok. Kaydet ile yapılan güncellemeler burada görünür.
+ No activity records yet. Updates made via Save will appear here.
  </p>
  );
  }
@@ -118,7 +118,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
  <p className="mt-1 text-xs text-text-secondary">
  {entry.actorEmail ? entry.actorEmail : null}
  {entry.actorEmail ? " · " : null}
- Değişen alanlar: {formatChangedFieldsLabel(entry.changedFields)}
+ Changed fields: {formatChangedFieldsLabel(entry.changedFields)}
  </p>
  {entryShowsAdminNote(entry) ? (
  <p className="mt-2 line-clamp-2 text-xs text-deep-navy">

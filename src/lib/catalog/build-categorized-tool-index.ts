@@ -91,16 +91,16 @@ function resolveFormulaContractStatus(slug: string): CategorizedToolFormulaStatu
 
 function resolveSeedRoutePath(slug: string): string | null {
   if (listPremiumSchemaSlugs().includes(slug)) {
-    return `/pro-tools/${slug}`;
+    return `/pricing?tool=${slug}`;
   }
   if (getPremiumRevenueRouteSlugs().includes(slug)) {
-    return `/pro-tools/${slug}`;
+    return `/pricing?tool=${slug}`;
   }
   if (listRevenueFreeSlugs().includes(slug)) {
     return `/tools/free/${slug}`;
   }
   if (getFormulaContractBySlug(slug)) {
-    return `/pro-tools/${slug}`;
+    return `/pricing?tool=${slug}`;
   }
   return null;
 }
@@ -194,7 +194,7 @@ function buildMigratedFreePremiumItems(): CategorizedToolItem[] {
         categorySlug: match.categorySlug,
         source: "existing-free-migrated" as const,
         migrationSources: ["existing-free-migrated"] as const,
-        routePath: `/pro-tools/${match.slug}`,
+        routePath: `/pricing?tool=${match.slug}`,
         formulaContractStatus: hasContract ? "ready" : "missing",
         publicStatus: "active" as const,
       };
@@ -213,7 +213,7 @@ function buildMigratedFreePremiumItems(): CategorizedToolItem[] {
         categorySlug: match.categorySlug,
         source: "existing-free-migrated" as const,
         migrationSources: ["existing-free-migrated"] as const,
-        routePath: `/pro-tools/${match.slug}`,
+        routePath: `/pricing?tool=${match.slug}`,
         formulaContractStatus: hasContract ? "ready" : "missing",
         publicStatus: "active" as const,
       };
@@ -247,7 +247,7 @@ function buildRevenuePremiumItems(): CategorizedToolItem[] {
       tier: "premium" as const,
       categorySlug,
       source: "existing-premium" as const,
-      routePath: `/pro-tools/${tool.paidSlug}`,
+      routePath: `/pricing?tool=${tool.paidSlug}`,
       formulaContractStatus: resolveFormulaContractStatus(tool.paidSlug),
       publicStatus: "active" as const,
     };
@@ -284,7 +284,7 @@ function buildPremiumSchemaItems(): CategorizedToolItem[] {
       tier: "premium-schema" as const,
       categorySlug,
       source: "existing-premium-schema" as const,
-      routePath: `/pro-tools/${slug}`,
+      routePath: `/pricing?tool=${slug}`,
       formulaContractStatus: resolveFormulaContractStatus(slug),
       publicStatus: "active" as const,
     };
@@ -324,7 +324,7 @@ function buildPremium152Items(): CategorizedToolItem[] {
         seedCategorySlug: tool.categorySlug,
       }),
       source: "user-premium-152" as const,
-      routePath: `/pro-tools/${tool.slug}`,
+      routePath: `/pricing?tool=${tool.slug}`,
       formulaContractStatus: hasContract ? "ready" : "missing",
       publicStatus: "active" as const,
     });
@@ -373,7 +373,7 @@ function buildPremium152Items(): CategorizedToolItem[] {
         seedCategorySlug: tool.categorySlug,
       }),
       source: "user-premium-152" as const,
-      routePath: `/pro-tools/${tool.slug}`,
+      routePath: `/pricing?tool=${tool.slug}`,
       formulaContractStatus: "ready",
       publicStatus: "active" as const,
     });

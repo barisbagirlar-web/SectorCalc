@@ -23,7 +23,7 @@ const BRANDS = [
 const KEEP = new Set([
   ...BRANDS,
   "Premium", "Enterprise", "Baseline", "English", "Español", "Deutsch", "Français",
-  "FREE + PREMIUM", "Parasal kayıp", "Malzeme kaybı", "Zaman kaybı", "Enerji kaybı",
+  "FREE + PREMIUM",
   "Global", "Global · USD", "{region} · {currency}", "Imperial", "Risk", "Problem",
   "REG: GLOBAL", "© 2026 SECTORCALC", "Audit archive", "for your sector.", "Auto (by language)",
   "Deterministic", "Verdict", "Checkout", "Business", "Feature", "Confidence", "Construction",
@@ -41,63 +41,7 @@ const SENTENCE = JSON.parse(
   readFileSync(join(dirname(import.meta.filename), "data/marketing-surface-sentences.json"), "utf8"),
 );
 
-const TR_AR = [
-  ["Hesaplayıcıları", "الحاسبات"], ["Hesaplayıcılar", "حاسبات"], ["hesaplayıcıları", "الحاسبات"],
-  ["hesaplayıcılar", "حاسبات"], ["Hesaplayıcı", "حاسبة"], ["hesaplayıcı", "حاسبة"],
-  ["Hesaplama", "حساب"], ["hesaplama", "حساب"], ["Hesapla", "احسب"], ["hesapla", "احسب"],
-  ["Hesap", "حساب"], ["hesap", "حساب"], ["Hesaba", "الحساب"], ["Hesab", "حساب"],
-  ["Raporları", "التقارير"], ["raporları", "التقارير"], ["Raporlar", "تقارير"], ["raporlar", "تقارير"],
-  ["Raporu", "التقرير"], ["raporu", "التقرير"], ["Rapor", "تقرير"], ["rapor", "تقرير"],
-  ["Ücretsiz", "مجاني"], ["ücretsiz", "مجاني"], ["Premium", "Premium"], ["premium", "Premium"],
-  ["Kararları", "القرارات"], ["Kararlar", "قرارات"], ["Karar", "قرار"], ["karar", "قرار"],
-  ["Sektörler", "قطاعات"], ["sektörler", "قطاعات"], ["Sektörü", "القطاع"], ["Sektör", "قطاع"],
-  ["sektörü", "القطاع"], ["sektör", "قطاع"], ["Sektöre", "القطاع"], ["sektöre", "القطاع"],
-  ["Marj", "هامش"], ["marj", "هامش"], ["kayıp", "خسارة"], ["Kayıp", "خسارة"], ["kaybı", "خسارة"],
-  ["Gizli", "مخفي"], ["gizli", "مخفي"], ["Araçları", "الأدوات"], ["Araçlar", "أدوات"],
-  ["araçları", "الأدوات"], ["araçlar", "أدوات"], ["Araç", "أداة"], ["araç", "أداة"],
-  ["Fiyatlandırma", "التسعير"], ["fiyatlandırma", "التسعير"], ["Fiyat", "السعر"],
-  ["Görüntüle", "عرض"], ["Gör", "عرض"], ["gör", "عرض"], ["görüntüle", "عرض"],
-  ["Başvuru", "طلب"], ["başvuru", "طلب"], ["Başla", "ابدأ"], ["başla", "ابدأ"],
-  ["Kapat", "إغلاق"], ["kapat", "إغلاق"], ["Yükle", "تحميل"], ["yükle", "تحميل"],
-  ["İndir", "تنزيل"], ["indir", "تنزيل"], ["Erişim", "وصول"], ["erişim", "وصول"],
-  ["Abonelik", "اشتراك"], ["abonelik", "اشتراك"], ["Ödeme", "دفع"], ["ödeme", "دفع"],
-  ["Güven", "ثقة"], ["güven", "ثقة"], ["Risk", "مخاطر"], ["risk", "مخاطر"],
-  ["Enerji", "طاقة"], ["enerji", "طاقة"], ["Finans", "تمويل"], ["finans", "تمويل"],
-  ["İşletme", "أعمال"], ["işletme", "أعمال"], ["Kurumsal", "مؤسسي"], ["kurumsal", "مؤسسي"],
-  ["Kategori", "فئة"], ["kategori", "فئة"], ["Kategoriler", "فئات"], ["kategoriler", "فئات"],
-  ["Kontrol", "فحص"], ["kontrol", "فحص"], ["Kontroller", "فحوصات"], ["Tarayıcıda", "في المتصفح"],
-  ["tarayıcıda", "في المتصفح"], ["Tarayıcı", "المتصفح"], ["gerekmez", "غير مطلوب"],
-  ["gerekli", "مطلوب"], ["Gerekli", "مطلوب"], ["Hakkında", "حول"], ["hakkında", "حول"],
-  ["Hakkımızda", "من نحن"], ["Vaka", "حالة"], ["vaka", "حالة"], ["Çalışmalar", "دراسات"],
-  ["çalışmalar", "دراسات"], ["Kaynaklar", "موارد"], ["kaynaklar", "موارد"],
-  ["Arşiv", "أرشيف"], ["arşiv", "أرشيف"], ["Aksiyon", "إجراء"], ["aksiyon", "إجراء"],
-  ["Aktivite", "نشاط"], ["aktivite", "نشاط"], ["Notlar", "ملاحظات"], ["notlar", "ملاحظات"],
-  ["Şirket", "شركة"], ["şirket", "şirkek"], ["İletişim", "تواصل"], ["iletişim", "تواصل"],
-  ["Ülke", "بلد"], ["ülke", "بلد"], ["Dil", "لغة"], ["dil", "لغة"],
-  ["Tema", "سمة"], ["tema", "سمة"], ["Karanlık", "داكن"], ["Aydınlık", "فاتح"],
-  ["Yükleniyor", "جارٍ التحميل"], ["yükleniyor", "جارٍ التحميل"], ["Mesaj", "رسالة"],
-  ["mesaj", "رسالة"], ["Kopyala", "نسخ"], ["kopyala", "نسخ"], ["Geri", "رجوع"],
-  ["geri", "رجوع"], ["Dön", "عودة"], ["dön", "عودة"], ["Aç", "فتح"], ["aç", "فتح"],
-  ["Kapatıldı", "مغلق"], ["Tamamlandı", "مكتمل"], ["Bekliyor", "قيد الانتظار"],
-  ["Kritik", "حرج"], ["kritik", "حرج"], ["Yüksek", "مرتفع"], ["Düşük", "منخفض"],
-  ["Orta", "متوسط"], ["Kabul", "قبول"], ["kabul", "قبول"], ["Varsayımlar", "افتراضات"],
-  ["Formül", "صيغة"], ["formül", "صيغة"], ["Girdiler", "مدخلات"], ["girdiler", "مدخلات"],
-  ["Sonuç", "نتيجة"], ["sonuç", "نتيجة"], ["Sonuçlar", "نتائج"], ["sonuçlar", "نتائج"],
-  ["Modül", "وحدة"], ["modül", "وحدة"], ["Endüstri", "صناعة"], ["endüstri", "صناعة"],
-  ["Lojistik", "لوجستيات"], ["lojistik", "لوجستيات"], ["İnşaat", "بناء"], ["inşaat", "بناء"],
-  ["Tarım", "زراعة"], ["tarım", "زراعة"], ["Üretim", "إنتاج"], ["üretim", "إنتاج"],
-  ["Danışman", "مستشار"], ["danışman", "مستشار"], ["Ekip", "فريق"], ["ekip", "فريق"],
-  ["Kurulum", "إعداد"], ["kurulum", "إعداد"], ["Dışa aktarma", "تصدير"], ["dışa aktarma", "تصدير"],
-  ["PDF", "PDF"], ["CSV", "CSV"], ["ERP", "ERP"], ["SectorCalc", "SectorCalc"],
-  ["—", "—"], ["·", "·"], ["→", "→"], ["←", "←"], ["…", "…"],
-  [" ve ", " و "], [" ile ", " مع "], [" için ", " لـ "], [" veya ", " أو "],
-  [" mi?", "؟"], [" mı?", "؟"], [" mu?", "؟"], [" mü?", "؟"],
-  [" değil", " ليس"], ["Değil", "ليس"], ["gerekir", "يلزم"], ["Gerekir", "يلزم"],
-  [" lütfen ", " يُرجى "], ["Lütfen", "يُرجى"], [" tekrar ", " مجددًا "],
-  ["hemen ", "فورًا "], ["Hemen ", "فورًا "], ["şimdi ", "الآن "], ["Şimdi ", "الآن "],
-  [" tüm ", " جميع "], ["Tüm ", "جميع "], [" tümü", " الكل"], ["Tümü", "الكل"],
-  ["Bu ", "هذا "], ["bu ", "هذا "], ["The ", "الـ"], [" the ", " "],
-].sort((a, b) => b[0].length - a[0].length);
+// TR_AR removed — Turkish-to-Arabic mapping cleaned
 
 function getAt(obj, path) {
   let cur = obj;
@@ -151,14 +95,6 @@ function restore(text, map) {
   return r;
 }
 
-function trToAr(tr) {
-  if (!tr) return "";
-  const { out, map } = protect(tr);
-  let r = out;
-  for (const [from, to] of TR_AR) r = r.split(from).join(to);
-  return restore(r, map);
-}
-
 function pickDe(en, itemVal) {
   if (itemVal && !bad(itemVal, en, "de")) return itemVal;
   const msgVal = bestMsg(en, deMsg);
@@ -183,12 +119,10 @@ function pickEs(en, itemVal) {
   if (c && !bad(c, en, "es")) return c;
   return "";
 }
-function pickAr(en, tr) {
+function pickAr(en) {
   if (SENTENCE[en]?.[0]) return SENTENCE[en][0];
   const c = cur[en]?.[0];
   if (c && c !== en) return c;
-  const fromTr = trToAr(tr);
-  if (fromTr && fromTr !== tr && fromTr !== en) return fromTr;
   return "";
 }
 
@@ -201,7 +135,7 @@ for (const item of need) {
     continue;
   }
   const row = [
-    pickAr(en, item.tr) || (KEEP.has(en) ? en : ""),
+    pickAr(en) || (KEEP.has(en) ? en : ""),
     pickDe(en, item.de) || (KEEP.has(en) ? en : ""),
     pickFr(en, item.fr) || (KEEP.has(en) ? en : ""),
     pickEs(en, item.es) || (KEEP.has(en) ? en : ""),

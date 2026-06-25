@@ -10,16 +10,16 @@ const SOURCE = JSON.parse(
   readFileSync(join(ROOT, "scripts/data/strategic-roadmap-source.json"), "utf8"),
 );
 
-const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
+const LOCALES = ["en", "de", "fr", "es", "ar"];
 
 function toLocaleRecord(en, tr, de, fr, es, ar) {
-  return { en, tr, de, fr, es, ar };
+  return { en, de, fr, es, ar };
 }
 
 function calcSuffix(locale) {
   const map = {
     en: "Calculator",
-    tr: "Hesaplayıcı",
+    // tr removed
     de: "Rechner",
     fr: "Calculateur",
     es: "Calculadora",
@@ -31,7 +31,7 @@ function calcSuffix(locale) {
 function toolSuffix(locale) {
   const map = {
     en: "Calculation Tool",
-    tr: "Hesaplama Aracı",
+    // tr removed
     de: "Berechnungstool",
     fr: "Outil de calcul",
     es: "Herramienta de cálculo",
@@ -57,12 +57,6 @@ function translateTitle(enTitle, locale) {
     .replace(/\s+Converter$/i, "")
     .replace(/\s+Calculation$/i, "");
 
-  if (locale === "tr") {
-    return enTitle
-      .replace(/Calculator/g, "Hesaplayıcı")
-      .replace(/Converter/g, "Çevirici")
-      .replace(/Calculation/g, "Hesaplama");
-  }
   if (locale === "de") {
     if (/Converter$/i.test(enTitle)) return `${base}-Umrechner`;
     return `${base}-Rechner`;

@@ -24,8 +24,10 @@ const nextConfig = {
     return [
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
-      { source: "/premium-tools", destination: "/pro-tools", permanent: true },
-      { source: "/:locale(tr|de|fr|es|ar)/premium-tools", destination: "/:locale/pro-tools", permanent: true },
+      { source: "/premium-tools", destination: "/pricing", permanent: true },
+      { source: "/pro-tools", destination: "/pricing", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/premium-tools", destination: "/:locale/pricing", permanent: true },
+      { source: "/:locale(tr|de|fr|es|ar)/pro-tools", destination: "/:locale/pricing", permanent: true },
 
       { source: "/blog", destination: "/case-studies", permanent: true },
       { source: "/:locale(tr|de|fr|es|ar)/blog", destination: "/:locale/case-studies", permanent: true },

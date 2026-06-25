@@ -11,17 +11,17 @@ export default function CheckoutButton({ priceId, userId, buttonText }: Checkout
   const { ready, openCheckout } = usePaddle();
 
   const handleCheckout = () => {
-    console.log("Gönderilen Price ID:", priceId);
-    console.log("Kullanılan Paddle Token:", process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN);
+    console.log("Price ID sent:", priceId);
+    console.log("Paddle Token used:", process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN);
 
     if (!priceId) {
       console.error("[SectorCalc] Critical Error: Price ID is missing in CheckoutButton!");
       return;
     }
 
-    if (!ready) return alert("Ödeme sistemi yükleniyor, lütfen bekleyin...");
+    if (!ready) return alert("Payment system is loading, please wait...");
     
-    // Paddle penceresini aç ve Firebase'in tanıması için kullanıcı ID'sini (userId) gizlice yolla
+    // Open Paddle checkout and secretly pass the user ID (userId) for Firebase identification
     openCheckout({
       items: [{ priceId: priceId, quantity: 1 }],
       customData: { userId: userId }, 

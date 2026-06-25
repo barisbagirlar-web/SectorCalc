@@ -25,24 +25,24 @@ export function LeadFollowUpSlaSection({
 }: LeadFollowUpSlaProps) {
  const cards = [
  {
- label: "Geciken Lead",
+ label: "Overdue Leads",
  value: loading ? "…" : String(summary.overdueCount),
- hint: "24+ saat yanıtsız veya acil takip",
+ hint: "24+ hours no response or urgent follow-up",
  },
  {
- label: "Bugün Dönülecek",
+ label: "Due Today",
  value: loading ? "…" : String(summary.dueTodayCount),
- hint: "Takip / dönüş zamanı geldi",
+ hint: "Follow-up / callback time reached",
  },
  {
- label: "Takipte",
+ label: "In Progress",
  value: loading ? "…" : String(summary.inProgressCount),
- hint: "SLA içinde aktif lead",
+ hint: "Active leads within SLA",
  },
  {
- label: "Tamamlanan/Kapanan",
+ label: "Completed/Closed",
  value: loading ? "…" : String(summary.completedCount),
- hint: "Dönüşüm veya kayıp",
+ hint: "Converted or lost",
  },
  ];
 
@@ -51,7 +51,7 @@ export function LeadFollowUpSlaSection({
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Follow-up SLA</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Lead takip gecikmesi — son güncelleme veya oluşturma tarihine göre.
+ Lead follow-up delay — based on last update or creation date.
  </p>
  </div>
 

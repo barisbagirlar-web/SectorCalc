@@ -392,12 +392,12 @@ export function EnterpriseFooter() {
               <div className="sc-ft-nav-heading">{dict.headings.platform}</div>
               <div className="sc-ft-nav-links">
                 <Link href="/free-tools" className="sc-ft-nav-link">{dict.links.freeCalculators}</Link>
-                <Link href="/pro-tools" className="sc-ft-nav-link">
+                <Link href="/pricing" className="sc-ft-nav-link">
                   {dict.links.proAnalysis} <span className="sc-ft-badge">New</span>
                 </Link>
-                <Link href="/pro-tools" className="sc-ft-nav-link">{dict.links.aiInterpretation}</Link>
-                <Link href="/pro-tools" className="sc-ft-nav-link">{dict.links.scenarioComparison}</Link>
-                <Link href="/pro-tools" className="sc-ft-nav-link">{dict.links.pdfReports}</Link>
+                <Link href="/pricing" className="sc-ft-nav-link">{dict.links.aiInterpretation}</Link>
+                <Link href="/pricing" className="sc-ft-nav-link">{dict.links.scenarioComparison}</Link>
+                <Link href="/pricing" className="sc-ft-nav-link">{dict.links.pdfReports}</Link>
                 <Link href="/pricing" className="sc-ft-nav-link">{dict.links.pricing}</Link>
               </div>
             </div>

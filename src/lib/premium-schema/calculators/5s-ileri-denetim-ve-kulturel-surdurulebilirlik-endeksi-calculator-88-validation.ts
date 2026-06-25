@@ -1,5 +1,5 @@
 // Implementation removed for rewrite
-export const ProTool5sIleriDenetimVeKulturelSurdurulebilirlikEndeksiCalculator88InputSchema = (inputs: any) => {
+export const Validation5sIleriDenetimVeKulturelSurdurulebilirlikEndeksiCalculator88InputSchema = (inputs: any) => {
   return {
     outputs: {},
     rules: [],

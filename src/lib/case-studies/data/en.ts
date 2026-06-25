@@ -25,7 +25,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "If the customer's budget limit sits below the calculated safe pricing floor, request a revision to cover setup and programming fees before releasing the production lot.",
     toolSlug: "cnc-quote-risk-analyzer",
     toolTitle: "CNC Quote Risk Analyzer",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "construction-bid-margin-field-analysis",
@@ -51,7 +51,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Incorporate the calculated mobilization and delay burn reserve into the base bid, or negotiate contract terms that exempt the subcontractor from delays caused by main contractor scheduling.",
     toolSlug: "change-order-impact-analyzer",
     toolTitle: "Change Order Impact Analyzer",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "cleaning-contract-field-analysis",
@@ -77,7 +77,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "If the client's budget limit is below the minimum safe floor, reduce the frequency of service visits or adjust the contract scope to exclude consumables supply.",
     toolSlug: "office-cleaning-bid-optimizer",
     toolTitle: "Office Cleaning Bid Optimizer",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "logistics-route-field-analysis",
@@ -102,7 +102,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Introduce detention and demurrage fees in lane contracts to offset terminal delays, and source backhaul loads to minimize deadhead return miles.",
     toolSlug: "route-optimization-analyzer",
     toolTitle: "Route Optimization Analyzer",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "energy-compressor-peak-field-analysis",
@@ -154,7 +154,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Incorporate dedicated fit-up labor allocations in the bidding phase, and isolate NDT testing fees as a separate billable line item.",
     toolSlug: "welding-bid-risk-analyzer",
     toolTitle: "Welding Bid Risk Analyzer",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "hvac-install-field-analysis",
@@ -180,7 +180,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Allocate a dedicated budget for test-adjust-balance (TAB) testing, and maintain a warranty contingency reserve of at least 3% of the equipment value.",
     toolSlug: "hvac-project-margin-guard",
     toolTitle: "HVAC Project Margin Guard",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "plumbing-panel-field-analysis",
@@ -206,7 +206,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Include an inspection standby labor rate in trade contracts, and maintain a dedicated callback reserve based on historical quality metrics.",
     toolSlug: "plumbing-job-margin-verdict",
     toolTitle: "Plumbing Job Margin Verdict",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "sheet-metal-fab-field-analysis",
@@ -232,7 +232,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Run nesting simulations prior to final quoting to verify scrap rates, and charge a flat setup fee for short-run bending contracts.",
     toolSlug: "sheet-metal-quote-risk-tool",
     toolTitle: "Sheet Metal Quote Risk Tool",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "restaurant-menu-field-analysis",
@@ -258,7 +258,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Incorporate yield factors into standard kitchen recipe cards, and track daily inventory variances to detect portion drift.",
     toolSlug: "menu-profit-leak-detector",
     toolTitle: "Menu Profit Leak Detector",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "ecommerce-returns-field-analysis",
@@ -284,7 +284,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Adjust selling prices to absorb return shipping fees, and optimize sizing charts to reduce return rates.",
     toolSlug: "return-profit-erosion-tool",
     toolTitle: "Return Profit Erosion Tool",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "change-order-impact-field-analysis",
@@ -310,7 +310,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Include fixed daily site overhead and mobilization fees as separate items in all change order proposals.",
     toolSlug: "change-order-impact-analyzer",
     toolTitle: "Change Order Impact Analyzer",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "energy-efficiency-field-analysis",
@@ -336,7 +336,7 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Implement automatic shutdown routines for high-draw equipment, and enforce weekend shutdown checklists.",
     toolSlug: "energy-efficiency-report",
     toolTitle: "Energy Efficiency Report",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "cbam-compliance-field-analysis",
@@ -361,6 +361,6 @@ export const EN_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Transition to renewable energy sources to lower embedded carbon intensity, and include carbon cost sharing clauses in export contracts.",
     toolSlug: "cbam-compliance-verdict",
     toolTitle: "CBAM Compliance Verdict",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   }
 ];

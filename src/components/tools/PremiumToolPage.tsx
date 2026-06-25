@@ -246,7 +246,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   const categoryDetail = useMemo(() => getPremiumCatalogCategoryDetail(categorySlug, locale), [categorySlug, locale]);
   const categoryTitle = categoryDetail?.title ?? "Category";
 
-  const featuredQuestion = locale === "tr" ? `${tool.paidTitle} neyi analiz eder?` : `What does ${tool.paidTitle} analyze?`;
+  const featuredQuestion = `What does ${tool.paidTitle} analyze?`;
   const featuredAnswer = tool.paidValue;
 
   const authoritySchema = useMemo(() => ({
@@ -257,9 +257,9 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
     painStatement: tool.paidValue,
     assumptions: {
       assumptionNotes: [
-        locale === "tr" ? "Girdilerinizi gerçek operasyonel veriler, faturalar ve sözleşmelerle doğrulayın." : "Verify your inputs against real operational data, invoices, and contracts.",
-        locale === "tr" ? "SectorCalc Pro çıktıları gösterge niteliğindedir; profesyonel mali ve mühendislik denetimi yerine geçmez." : "SectorCalc Pro outputs are indicative and do not replace professional financial or engineering audits.",
-        locale === "tr" ? "Maliyet, süre ve verimlilik tahminleri, girilen parametrelerin hassasiyetine bağlıdır." : "Cost, time, and efficiency estimates depend on the precision of your input parameters."
+        "Verify your inputs against real operational data, invoices, and contracts.",
+        "SectorCalc Pro outputs are indicative and do not replace professional financial or engineering audits.",
+        "Cost, time, and efficiency estimates depend on the precision of your input parameters."
       ]
     }
   }), [tool, categorySlug, locale]);
@@ -404,8 +404,8 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
 
   const submitDisabled = isCalculating || needsCreditLoad;
   const submitText = needsCreditLoad
-    ? (locale === "tr" ? "Hesaplama İçin Kredi Yükleyin" : "Load credits to calculate")
-    : (isCalculating ? (locale === "tr" ? "Hesaplanıyor…" : "Calculating…") : (locale === "tr" ? "Run calculation" : "Run calculation"));
+    ? "Load credits to calculate"
+    : (isCalculating ? "Calculating…" : "Run calculation");
 
   const hasCalculated = submitted && Boolean(result) && !isCalculating;
 
@@ -697,13 +697,13 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  ) : (
  <>
   <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
-    <Link href="/pro-tools" prefetch={false} className="hover:underline">
-      {locale === "tr" ? "Pro Araçlar" : "Pro Tools"}
-    </Link>
-    <span className="mx-1.5">/</span>
-    <Link href={`/pro-tools/${categorySlug}`} prefetch={false} className="hover:underline">
-      {categoryTitle}
-    </Link>
+      <Link href="/pricing" prefetch={false} className="hover:underline">
+        {locale === "tr" ? "Premium Araçlar" : "Premium"}
+      </Link>
+      <span className="mx-1.5">/</span>
+      <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">
+        {categoryTitle}
+      </Link>
     <span className="mx-1.5">/</span>
     <span className="text-premium-velvet font-medium">{tool.paidTitle}</span>
   </nav>
@@ -714,9 +714,9 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
       question={featuredQuestion}
       answer={featuredAnswer}
       bullets={[
-        locale === "tr" ? "Hassas girdi parametreleri ve tolerans kontrolleri" : "Precise input parameters and tolerance checks",
-        locale === "tr" ? "Maliyet, zaman veya kalite kaybı analizi" : "Cost, time or quality loss analysis",
-        locale === "tr" ? "Profesyonel raporlama ve veri entegrasyonu" : "Professional reporting and data integration"
+        locale === "tr" ? "Precise input parameters and tolerance checks" : "Precise input parameters and tolerance checks",
+        locale === "tr" ? "Cost, time or quality loss analysis" : "Cost, time or quality loss analysis",
+        locale === "tr" ? "Professional reporting and data integration" : "Professional reporting and data integration"
       ]}
     />
   </div>

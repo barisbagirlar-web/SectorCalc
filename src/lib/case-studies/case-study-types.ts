@@ -35,7 +35,7 @@ export type CaseStudyEvidenceLevel =
   | "anonymized-real"
   | "representative-scenario";
 
-export type CaseStudyToolRoute = "premium" | "premium-schema" | "pro-tools";
+export type CaseStudyToolRoute = "premium" | "premium-schema" | "premium-tools";
 
 export type CaseStudyEntry = {
   readonly slug: string;

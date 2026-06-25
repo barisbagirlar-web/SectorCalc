@@ -188,6 +188,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       assertFinite(num(inputs, "excessKwh") * num(inputs, "energyRate") + num(inputs, "peakCost")),
   },
   {
+<<<<<<< Updated upstream
     id: "quality.six_sigma_project_score",
     family: "oee",
     label: "Six Sigma Project Priority Score",
@@ -201,6 +202,38 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       
       const probRatio = Math.max(0, Math.min(100, probability)) / 100;
       return assertFinite((savings * probRatio) / (duration * cost));
+=======
+    id: "energy.heat_loss_watts",
+    family: "energy",
+    label: "Steady-state heat loss in watts",
+    fn: (inputs) => {
+      const area = num(inputs, "area");
+      const uValue = num(inputs, "uValue");
+      const insideTemp = num(inputs, "insideTemp");
+      const outsideTemp = num(inputs, "outsideTemp");
+      const deltaT = Math.max(0, insideTemp - outsideTemp);
+      return assertFinite(uValue * area * deltaT);
+    },
+  },
+  {
+    id: "energy.annual_heat_loss_kwh",
+    family: "energy",
+    label: "Annual heat loss energy in kWh",
+    fn: (inputs) => {
+      const watts = num(inputs, "watts");
+      const hours = num(inputs, "hours");
+      return assertFinite((watts * hours) / 1000);
+    },
+  },
+  {
+    id: "energy.annual_heat_loss_cost",
+    family: "energy",
+    label: "Annual heat loss cost",
+    fn: (inputs) => {
+      const kwh = num(inputs, "kwh");
+      const rate = num(inputs, "rate");
+      return assertFinite(kwh * rate);
+>>>>>>> Stashed changes
     },
   },
   {
@@ -1212,10 +1245,27 @@ const FORMULA_META_DETAILS: Record<
     requiredInputs: ["excessKwh", "energyRate", "peakCost"],
     outputHint: "currency",
   },
+<<<<<<< Updated upstream
   "quality.six_sigma_project_score": {
     description: "Calculates priority score based on savings, probability, duration, and cost.",
     requiredInputs: ["savings", "probability", "duration", "cost"],
     outputHint: "score",
+=======
+  "energy.heat_loss_watts": {
+    description: "Steady-state heat transmission loss in Watts.",
+    requiredInputs: ["area", "uValue", "insideTemp", "outsideTemp"],
+    outputHint: "number",
+  },
+  "energy.annual_heat_loss_kwh": {
+    description: "Annual energy lost to heat transmission in kWh.",
+    requiredInputs: ["watts", "hours"],
+    outputHint: "number",
+  },
+  "energy.annual_heat_loss_cost": {
+    description: "Cost of annual heat loss energy.",
+    requiredInputs: ["kwh", "rate"],
+    outputHint: "currency",
+>>>>>>> Stashed changes
   },
   "carbon.cbam_exposure": {
     description: "Carbon border adjustment exposure estimate.",

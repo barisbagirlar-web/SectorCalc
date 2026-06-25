@@ -7,39 +7,39 @@ import type { CaseStudyEntry } from "@/lib/case-studies/case-study-types";
 // Scoped localized UI keys
 const TRANSLATIONS = {
   tr: {
-    tools: "Araçlar",
-    sectors: "Sektörler",
-    methodology: "Metodoloji",
-    pricing: "Fiyatlandırma",
-    start: "Başla",
-    home: "Ana Sayfa",
-    resources: "Kaynaklar",
-    dizin: "Saha Analizleri Dizini",
-    scope: "Kapsam",
-    sector: "Sektör",
-    method: "Yöntem",
-    standard: "Standart",
-    analyses: "saha analizi",
-    industries: "endüstri kolu",
-    det_formula: "deterministik formül",
-    saha_dizin: "Saha İncelemeleri",
-    desc_subtitle: "Tüm saha analizleri tek tabloda. Başlığa tıklayarak sırala; satıra tıklayarak incelemeye git.",
-    caption: "SectorCalc Saha Analizleri — Tam Dizin (TR)",
+    tools: "Tools",
+    sectors: "Sectors",
+    methodology: "Methodology",
+    pricing: "Pricing",
+    start: "Get Started",
+    home: "Home",
+    resources: "Resources",
+    dizin: "Field Analyses Directory",
+    scope: "Scope",
+    sector: "Sector",
+    method: "Method",
+    standard: "Standard",
+    analyses: "field analyses",
+    industries: "industries",
+    det_formula: "deterministic formula",
+    saha_dizin: "Field Analyses",
+    desc_subtitle: "All field analyses in a single table. Click header to sort; click row to view details.",
+    caption: "SectorCalc Field Analyses — Master Directory (EN)",
     th_num: "#",
-    th_sector: "Sektör",
-    th_analysis: "Saha Analizi",
-    th_finding: "Anahtar Bulgu",
-    th_doc: "Doküman",
-    faq_sec_head: "Sık Sorulan Sorular",
-    standards_ref: "Referans alınan standartlar",
-    footer_text: "Mühendislik kalitesinde kararlar için mühendislik kalitesinde hesaplamalar.",
-    abstract_title: "Özet / Tanım",
-    abstract_text: "Saha analizi dizini, endüstriyel işletmelerde gizli maliyet kaçaklarını ve teklif marjı erozyonunu gerçek saha verisiyle ölçen mühendislik incelemelerinin yapılandırılmış kataloğudur. Her kayıt; problem tanımı, örnek parametreler, deterministik hesaplama formülü ve doğrulanmış sonucu içerir.",
-    count_suffix: "analiz",
-    tanim: "Tanım — Nedir?",
-    hesaplama: "Hesaplama Formülü",
-    detay: "Detaylı Raporu İncele →",
-    arac: "İlgili Hesaplama Aracını Aç",
+    th_sector: "Sector",
+    th_analysis: "Field Analysis",
+    th_finding: "Key Finding",
+    th_doc: "Document",
+    faq_sec_head: "Frequently Asked Questions",
+    standards_ref: "Referenced Standards",
+    footer_text: "Engineering-grade calculations for engineering-grade decisions.",
+    abstract_title: "Abstract / Definition",
+    abstract_text: "A field analysis directory is a structured catalog of engineering reports that measure hidden cost leaks and quote margin erosion in industrial operations using real field data. Each record includes a problem definition, example parameters, a deterministic calculation formula, and a verified outcome.",
+    count_suffix: "analyses",
+    tanim: "Definition — What is it?",
+    hesaplama: "Calculation Formula",
+    detay: "View Detailed Report →",
+    arac: "Open Related Calculator",
   },
   en: {
     tools: "Tools",
@@ -221,24 +221,24 @@ const TRANSLATIONS = {
 const LOCALIZED_FAQS: Record<string, Array<{ q: string; a: string }>> = {
   tr: [
     {
-      q: "Mühendislik saha analizi (field analysis) nedir?",
-      a: "Saha analizi, bir işletmenin gerçek operasyonel verisini deterministik mühendislik formülleriyle inceleyerek gizli maliyet kaçaklarını ve teklif marjı erozyonunu sayısallaştıran yapılandırılmış bir çalışmadır. Her analiz; problem tanımı, örnek parametreler, hesaplama metodolojisi ve doğrulanmış sonuç içerir."
+      q: "What is an engineering field analysis?",
+      a: "A field analysis is a structured study that evaluates a company's actual operational data using deterministic engineering formulas to quantify hidden cost leaks and quote margin erosion. Each analysis includes a problem definition, example parameters, a calculation methodology, and a verified outcome."
     },
     {
-      q: "Maliyet kaçağı analizi nasıl yapılır?",
-      a: "Doğrudan maliyetlere (malzeme, çıplak işçilik) ek olarak; hazırlık süreleri, duruş payları, fire oranları, lojistik ve garanti rezervleri gibi gizli yükler deterministik bir formülle eklenir. Sonuç, kâğıt üzerindeki teklif ile fiili maliyet tabanı arasındaki marj sapmasını ortaya koyar."
+      q: "How is a cost leakage analysis conducted?",
+      a: "In addition to direct costs (materials, bare labor), hidden overheads such as setup times, downtime allowances, scrap rates, logistics, and warranty reserves are added using a deterministic formula. The result reveals the margin deviation between the paper proposal and the actual cost base."
     },
     {
-      q: "Bu saha analizleri hangi standartlara dayanır?",
-      a: "Analizler ISO 9001, VDI 2067, ASME B31.3, ASHRAE 90.1, IEC 60034, EN 13306, DIN 276 ile Lean ve Six Sigma metodolojilerine referans verir. Her hesaplama, sektörün kabul görmüş mühendislik kabullerine göre deterministik olarak kurgulanmıştır."
+      q: "What standards are these field analyses based on?",
+      a: "The analyses refer to ISO 9001, VDI 2067, ASME B31.3, ASHRAE 90.1, IEC 60034, EN 13306, DIN 276 as well as Lean and Six Sigma methodologies. Each calculation is deterministically designed according to recognized engineering standards."
     },
     {
-      q: "Hangi sektörler için saha analizi mevcut?",
-      a: "Dizin 12 sektörü kapsar: CNC/talaşlı imalat, inşaat/teklif yönetimi, endüstriyel temizlik, lojistik, enerji yönetimi, kaynak/metal fabrikasyon, HVAC, tesisat/elektrik, sac metal, restoran/gıda, e-ticaret ve sürdürülebilirlik/karbon (CBAM)."
+      q: "For which sectors are field analyses available?",
+      a: "The directory covers 12 sectors: CNC/machining, construction/bid management, industrial cleaning, logistics, energy management, welding/metal fabrication, HVAC, plumbing/electrical, sheet metal, restaurant/food, e-commerce, and sustainability/carbon (CBAM)."
     },
     {
-      q: "Teklif marjı erozyonu nasıl önlenir?",
-      a: "İlk adım gizli yükleri sayısallaştırmaktır: hazırlık, duruş, fire, gecikme ve garanti rezervleri teklif taban fiyatına dahil edilmelidir. SectorCalc'in ilgili Pro araçları, her sektör için marjı koruyacak minimum güvenli teklif barajını otomatik hesaplar."
+      q: "How can quote margin erosion be prevented?",
+      a: "The first step is to quantify hidden overheads: setup, downtime, scrap, delays, and warranty reserves must be included in the starting quote price. SectorCalc's corresponding Premium tools automatically calculate the minimum safe quote floor to protect your margin for each industry."
     }
   ],
   en: [
@@ -260,7 +260,7 @@ const LOCALIZED_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: "How can quote margin erosion be prevented?",
-      a: "The first step is to quantify hidden overheads: setup, downtime, scrap, delays, and warranty reserves must be included in the starting quote price. SectorCalc's corresponding Pro tools automatically calculate the minimum safe quote floor to protect your margin for each industry."
+      a: "The first step is to quantify hidden overheads: setup, downtime, scrap, delays, and warranty reserves must be included in the starting quote price. SectorCalc's corresponding Premium tools automatically calculate the minimum safe quote floor to protect your margin for each industry."
     }
   ],
   de: [
@@ -282,7 +282,7 @@ const LOCALIZED_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: "Wie kann eine Erosion der Angebotsmarge verhindert werden?",
-      a: "Der erste Schritt besteht darin, verdeckte Gemeinkosten zu quantifizieren: Rüst-, Stillstands-, Ausschuss-, Verzögerungs- und Gewährleistungsrückstellungen müssen in den anfänglichen Angebotspreis einbezogen werden. Die entsprechenden Pro-Tools von SectorCalc berechnen automatisch die minimale sichere Angebotsschwelle, um Ihre Marge in jeder Branche zu schützen."
+      a: "Der erste Schritt besteht darin, verdeckte Gemeinkosten zu quantifizieren: Rüst-, Stillstands-, Ausschuss-, Verzögerungs- und Gewährleistungsrückstellungen müssen in den anfänglichen Angebotspreis einbezogen werden. Die entsprechenden Premium-Analysatoren von SectorCalc berechnen automatisch die minimale sichere Angebotsschwelle, um Ihre Marge in jeder Branche zu schützen."
     }
   ],
   fr: [
@@ -376,7 +376,7 @@ export function CaseStudiesClientContent({ locale, studies, toolHrefs }: CaseStu
       finding: s.calculationResult,
       formula: s.calculationLogic,
       report: `/${locale}/case-studies/${s.slug}`,
-      tool: toolHrefs[s.slug] || `/${locale}/pro-tools/${s.toolSlug}`,
+      tool: toolHrefs[s.slug] || `/${locale}/pricing?tool=${s.toolSlug}`,
     }))
   );
 
@@ -1302,7 +1302,7 @@ export function CaseStudiesClientContent({ locale, studies, toolHrefs }: CaseStu
         </div>
 
         <footer>
-          <span>SectorCalc · İzmir</span>
+          <span>SectorCalc · Izmir, Türkiye</span>
           <span>{tr.footer_text}</span>
         </footer>
       </main>

@@ -15,14 +15,14 @@ import {
 import type { LeadIntent, LeadStatus } from "@/lib/leads/types";
 
 const WRITE_DISABLED_MESSAGE =
- "Admin yazma altyapısı hazırlanıyor. Şimdilik sadece görüntüleme aktif.";
+ "Admin write infrastructure is being prepared. Only viewing is active for now.";
 
-const AUTH_REQUIRED_MESSAGE = "Admin girişi gerekli.";
+const AUTH_REQUIRED_MESSAGE = "Admin login required.";
 
-const NOT_ADMIN_MESSAGE = "Bu işlem için admin yetkisi gerekli.";
+const NOT_ADMIN_MESSAGE = "Admin authorization required for this action.";
 
 const WRITE_ENABLED_HINT =
- "Kaydet, Firebase Auth ile doğrulanmış admin hesabı üzerinden yazar.";
+ "Save writes through the Firebase Auth verified admin account.";
 
 const fieldClass =
  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
@@ -129,7 +129,7 @@ export function LeadPipelineControls({
  const statusMessage = !writeFlagEnabled
  ? WRITE_DISABLED_MESSAGE
  : authLoading
- ? "Oturum kontrol ediliyor…"
+ ? "Checking session…"
  : !user
  ? AUTH_REQUIRED_MESSAGE
  : !isAdmin
@@ -145,7 +145,7 @@ export function LeadPipelineControls({
 
  <label className={isCompact ? "block space-y-1" : "block space-y-1.5"}>
  <span className="text-[10px] font-medium uppercase tracking-wide text-text-secondary">
- Durum
+ Status
  </span>
  <select
  value={draftStatus}
@@ -163,14 +163,14 @@ export function LeadPipelineControls({
 
  <label className={isCompact ? "block space-y-1" : "block space-y-1.5"}>
  <span className="text-[10px] font-medium uppercase tracking-wide text-text-secondary">
- Admin notu
+ Admin note
  </span>
  <textarea
  value={draftNote}
  onChange={(e) => setDraftNote(e.target.value)}
  rows={isCompact ? 2 : 3}
  maxLength={500}
- placeholder="Opsiyonel not…"
+ placeholder="Optional note…"
  className={`${fieldClass} min-h-[72px] resize-y py-2`}
  />
  </label>
@@ -183,7 +183,7 @@ export function LeadPipelineControls({
  title={statusMessage}
  className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-professional-blue px-3 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50"
  >
- {saving ? "Kaydediliyor…" : "Kaydet"}
+ {saving ? "Saving…" : "Save"}
  </button>
  {hasCallablePhone(lead) && whatsAppUrl ? (
  <a
@@ -192,14 +192,14 @@ export function LeadPipelineControls({
  rel="noopener noreferrer"
  className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-deep-navy/20 bg-bg-subtle px-3 text-sm font-semibold text-text-secondary transition-colors hover:bg-bg-subtle"
  >
- WhatsApp Aç
+ Open WhatsApp
  </a>
  ) : null}
  </div>
 
  {!canSaveFirestore ? (
  <p className="text-xs text-text-secondary">
- Kayıt yalnızca Firestore lead&apos;leri için güncellenebilir.
+ Records can only be updated for Firestore leads.
  </p>
  ) : null}
 
@@ -209,12 +209,12 @@ export function LeadPipelineControls({
 
  {feedback === "saved" ? (
  <p className="text-xs font-medium text-deep-navy" role="status">
- Kaydedildi
+ Saved
  </p>
  ) : null}
  {feedback === "error" ? (
  <p className="text-xs font-medium text-amber" role="alert">
- Kaydedilemedi
+ Failed to save
  </p>
  ) : null}
  </div>

@@ -120,7 +120,7 @@ const COPY = {
     internalTitle: "SectorCalc içinde devam edin",
     internalEyebrow: "Platform içi navigasyon",
     internalLinks: [
-      { label: "Premium hesaplayıcıları inceleyin", sub: "Detaylı karar araçları, senaryo analizi, PDF çıktı", href: "/pro-tools" },
+      { label: "Premium hesaplayıcıları inceleyin", sub: "Detaylı karar araçları, senaryo analizi, PDF çıktı", href: "/pricing" },
       { label: "Sektörlere göre araçları görüntüleyin", sub: "18 endüstri sektörü, özelleştirilmiş hesap setleri", href: "/industries" },
       { label: "Fiyatlandırma planlarını karşılaştırın", sub: "Kredi bazlı model, Pro ve kurumsal seçenekler", href: "/pricing" },
       { label: "Formül kütüphanesini görüntüleyin", sub: "Hesaplamalarda kullanılan metodoloji ve referanslar", href: "/methodology" },
@@ -192,7 +192,7 @@ const COPY = {
       { num: "01", title: "Enter your inputs", desc: "Each calculator asks only for the inputs required for that specific calculation. No unnecessary fields." },
       { num: "02", title: "See the formula", desc: "The calculation logic and formula used is shown openly. No black boxes." },
       { num: "03", title: "Interpret the result", desc: "Output is presented not just as a number but with decision context." },
-      { num: "04", title: "Upgrade to Pro if needed", desc: "If you need scenario comparison, PDF export or a detailed decision summary, Pro tools are available." },
+      { num: "04", title: "Upgrade to Pro if needed", desc: "If you need scenario comparison, PDF export or a detailed decision summary, Premium tools are available." },
     ],
     audienceTitle: "Who are these free calculators for?",
     audienceEyebrow: "Target audience",
@@ -206,10 +206,10 @@ const COPY = {
       { title: "Consultants, analysts and entrepreneurs", desc: "Fast pre-calculations and decision support." },
       { title: "Energy and facilities managers", desc: "LCOE, consumption analysis and carbon footprint calculations." },
     ],
-    fvpTitle: "What do free tools provide — and what do Pro tools add?",
+    fvpTitle: "What do free tools provide — and what do Premium tools add?",
     fvpEyebrow: "Decision support levels",
     fvpFreeLabel: "Free Tools",
-    fvpProLabel: "Pro Tools",
+    fvpProLabel: "Premium",
     fvpFreeTag: "What you're using now",
     fvpProTag: "For more critical decisions",
     fvpFreeItems: [
@@ -229,7 +229,7 @@ const COPY = {
     internalTitle: "Continue inside SectorCalc",
     internalEyebrow: "Platform navigation",
     internalLinks: [
-      { label: "Explore premium calculators", sub: "Advanced decision tools, scenario analysis, PDF export", href: "/pro-tools" },
+      { label: "Explore premium calculators", sub: "Advanced decision tools, scenario analysis, PDF export", href: "/pricing" },
       { label: "View tools by industry", sub: "18 industry sectors, tailored calculation sets", href: "/industries" },
       { label: "Compare pricing plans", sub: "Credit-based model, Pro and enterprise options", href: "/pricing" },
       { label: "View the formula library", sub: "Methodology and references used in calculations", href: "/methodology" },
@@ -258,8 +258,8 @@ const COPY = {
         a: "Yes. The tools are structured to meet the pre-calculation needs of business, manufacturing, finance, logistics and field teams. For critical decisions, results should be treated as a starting point — consult relevant experts when needed.",
       },
       {
-        q: "What is the difference between free tools and Pro tools?",
-        a: "Free tools provide fast calculations and basic formula output. Pro tools add a more advanced input set, scenario comparison, detailed decision summary, sector interpretation and PDF report export.",
+        q: "What is the difference between free tools and Premium tools?",
+        a: "Free tools provide fast calculations and basic formula output. Premium tools add a more advanced input set, scenario comparison, detailed decision summary, sector interpretation and PDF report export.",
       },
       {
         q: "How do I know which calculator to use?",
@@ -360,7 +360,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
           <p className="sc-pro-lead max-w-2xl">{c.heroLead}</p>
           <p className="mt-2 text-sm text-slate-500 max-w-xl leading-relaxed">{c.heroSub}</p>
           <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
-            <Link href="/pro-tools" className="text-sm font-medium text-sc-copper hover:underline underline-offset-2 flex items-center gap-1">
+            <Link href="/pricing" className="text-sm font-medium text-sc-copper hover:underline underline-offset-2 flex items-center gap-1">
               {c.ctaPro} <span aria-hidden="true">→</span>
             </Link>
             <Link href="/industries" className="text-sm font-medium text-slate-500 hover:text-slate-700 hover:underline underline-offset-2 flex items-center gap-1">
@@ -490,7 +490,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="/pro-tools" className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#C45A2C] transition-colors">
+            <Link href="/pricing" className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#C45A2C] transition-colors">
               {c.fvpCta} <span aria-hidden="true">→</span>
             </Link>
             <span className="text-xs text-slate-400">{c.fvpNote}</span>

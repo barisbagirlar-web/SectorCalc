@@ -141,7 +141,7 @@ export function LeadIntentsClient() {
  const data = await listLeadIntents();
  setLeads(data);
  } catch {
- setLoadError("Lead verileri yüklenemedi. Sayfayı yenileyin.");
+ setLoadError("Failed to load lead data. Please refresh the page.");
  } finally {
  setLoading(false);
  }
@@ -354,7 +354,7 @@ export function LeadIntentsClient() {
  >
  <h2 className="text-lg font-bold text-deep-navy">Lead pipeline</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Satış takibi — duruma göre filtrele (istemci tarafı).
+ Sales tracking — filter by status (client-side).
  </p>
  <div
  className="mt-4 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -490,7 +490,7 @@ export function LeadIntentsClient() {
  <th className="px-4 py-3">Quality</th>
  <th className="px-4 py-3">Status</th>
  <th className="px-4 py-3">SLA</th>
- <th className="px-4 py-3">Önerilen aksiyon</th>
+ <th className="px-4 py-3">Recommended action</th>
  <th className="px-4 py-3">Contact</th>
  <th className="px-4 py-3">Pipeline</th>
  <th className="px-4 py-3" />
@@ -665,7 +665,7 @@ function LeadMobileCard({
  <dd className="break-words text-deep-navy">{intent}</dd>
  <dt className="text-text-secondary">Tool</dt>
  <dd className="break-words">{lead.toolRequested}</dd>
- <dt className="text-text-secondary">Önerilen aksiyon</dt>
+ <dt className="text-text-secondary">Recommended action</dt>
  <dd>
  <LeadActionBadge recommendation={action} />
  </dd>

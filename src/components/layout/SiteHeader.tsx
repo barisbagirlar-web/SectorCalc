@@ -36,7 +36,7 @@ const T = {
   en: {
     products:'Products', industries:'Industries', pricing:'Pricing', resources:'Resources',
     signin:'Sign in', getStarted:'Get started',
-    col_free:'Free tools', col_pro:'Pro tools',
+    col_free:'Free tools', col_pro:'Premium',
     products_free_desc:'Engineering calculators, no login',
     products_pro_desc:'Real parameters, PDF export',
     view_all_industries:'All industries',
@@ -52,7 +52,7 @@ const T = {
   tr: {
     products:'Ürünler', industries:'Sektörler', pricing:'Fiyatlandırma', resources:'Kaynaklar',
     signin:'Giriş yap', getStarted:'Başla',
-    col_free:'Ücretsiz araçlar', col_pro:'Pro araçlar',
+    col_free:'Ücretsiz araçlar', col_pro:'Premium',
     products_free_desc:'Mühendislik hesaplayıcıları, giriş yok',
     products_pro_desc:'Gerçek parametreler, PDF export',
     view_all_industries:'Tüm sektörler',
@@ -68,7 +68,7 @@ const T = {
   de: {
     products:'Produkte', industries:'Branchen', pricing:'Preise', resources:'Ressourcen',
     signin:'Anmelden', getStarted:'Loslegen',
-    col_free:'Kostenlose Tools', col_pro:'Pro-Tools',
+    col_free:'Kostenlose Tools', col_pro:'Premium',
     products_free_desc:'Ingenieur-Rechner, kein Login',
     products_pro_desc:'Echte Parameter, PDF-Export',
     view_all_industries:'Alle Branchen',
@@ -84,7 +84,7 @@ const T = {
   fr: {
     products:'Produits', industries:'Secteurs', pricing:'Tarifs', resources:'Ressources',
     signin:'Connexion', getStarted:'Commencer',
-    col_free:'Outils gratuits', col_pro:'Outils Pro',
+    col_free:'Outils gratuits', col_pro:'Premium',
     products_free_desc:"Calculateurs d'ingénierie, sans connexion",
     products_pro_desc:'Paramètres réels, export PDF',
     view_all_industries:'Tous les secteurs',
@@ -99,7 +99,7 @@ const T = {
   es: {
     products:'Productos', industries:'Sectores', pricing:'Precios', resources:'Recursos',
     signin:'Iniciar sesión', getStarted:'Empezar',
-    col_free:'Herramientas gratis', col_pro:'Herramientas Pro',
+    col_free:'Herramientas gratis', col_pro:'Premium',
     products_free_desc:'Calculadoras de ingeniería, sin login',
     products_pro_desc:'Parámetros reales, exportación PDF',
     view_all_industries:'Todos los sectores',
@@ -115,7 +115,7 @@ const T = {
   ar: {
     products:'المنتجات', industries:'القطاعات', pricing:'الأسعار', resources:'الموارد',
     signin:'تسجيل الدخول', getStarted:'ابدأ الآن',
-    col_free:'أدوات مجانية', col_pro:'أدوات احترافية',
+    col_free:'أدوات مجانية', col_pro:'بريميوم',
     products_free_desc:'حاسبات هندسية، بدون تسجيل دخول',
     products_pro_desc:'معايير حقيقية، تصدير PDF',
     view_all_industries:'كل القطاعات',
@@ -334,7 +334,7 @@ export function SiteHeader({ isAuthenticated = false }) {
                       <div className="pd">{t.products_free_desc}</div>
                       <div className="pcount">{freeToolsCount}+ {t.tools}</div>
                     </Link>
-                    <Link href={href(locale,'pro-tools')} className="sc-mega-panel">
+                    <Link href={href(locale,'pricing')} className="sc-mega-panel">
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
                       <div className="pcount">{proToolsCount} {t.tools}</div>
@@ -399,7 +399,7 @@ export function SiteHeader({ isAuthenticated = false }) {
             {mobileSection==='products' && (
               <div className="sc-draw-body">
                 <Link href={href(locale,'free-tools')} onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
-                <Link href={href(locale,'pro-tools')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
+                <Link href={href(locale,'pricing')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
               </div>
             )}
           </div>

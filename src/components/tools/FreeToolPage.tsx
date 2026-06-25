@@ -517,11 +517,11 @@ export function FreeToolPage({
  <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
   {surfaceTier === "premium" && (
     <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
-      <Link href="/pro-tools" prefetch={false} className="hover:underline">
-        {locale === "tr" ? "Pro Araçlar" : "Pro Tools"}
+      <Link href="/pricing" prefetch={false} className="hover:underline">
+        {locale === "tr" ? "Premium Araçlar" : "Premium"}
       </Link>
       <span className="mx-1.5">/</span>
-      <Link href={`/pro-tools/${categorySlug}`} prefetch={false} className="hover:underline">
+      <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">
         {categoryTitle}
       </Link>
       <span className="mx-1.5">/</span>

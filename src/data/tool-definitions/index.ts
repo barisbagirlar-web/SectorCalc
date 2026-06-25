@@ -69,7 +69,7 @@ export function getToolDefinition(
    seo: {
      title: tier === "free" ? revTool.freeTitle : revTool.paidTitle,
      description: revTool.painStatement,
-     canonicalPath: tier === "free" ? `/tools/free/${slug}` : `/pro-tools/${slug}`,
+     canonicalPath: tier === "free" ? `/tools/free/${slug}` : `/pricing?tool=${slug}`,
    },
    calculatorId: (revTool as any).id,
    interpretationNote: revTool.legalDisclaimer,

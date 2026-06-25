@@ -72,11 +72,11 @@ export function UserManagementClient() {
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Üyeler yüklenemedi.");
+        throw new Error(data.error || "Failed to load members.");
       }
       setUsers(data.users || []);
     } catch (err: any) {
-      setError(err.message || "Üyeler yüklenirken bir hata oluştu.");
+      setError(err.message || "An error occurred while loading members.");
     } finally {
       setLoading(false);
     }
@@ -122,7 +122,7 @@ export function UserManagementClient() {
 
       const data = await res.json();
       if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Üye oluşturulamadı.");
+        throw new Error(data.error || "Failed to create member.");
       }
 
       // Reset form
@@ -137,7 +137,7 @@ export function UserManagementClient() {
       setIsCreateOpen(false);
       await fetchUsers();
     } catch (err: any) {
-      setActionError(err.message || "Üye oluşturulamadı.");
+      setActionError(err.message || "Failed to create member.");
     } finally {
       setActionLoading(false);
     }
@@ -180,21 +180,21 @@ export function UserManagementClient() {
 
       const data = await res.json();
       if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Üye güncellenemedi.");
+        throw new Error(data.error || "Failed to update member.");
       }
 
       setEditPassword("");
       setEditingUser(null);
       await fetchUsers();
     } catch (err: any) {
-      setActionError(err.message || "Üye güncellenemedi.");
+      setActionError(err.message || "Failed to update member.");
     } finally {
       setActionLoading(false);
     }
   };
 
   const handleDeleteUser = async (uid: string) => {
-    if (!confirm("Bu üyeyi silmek istediğinizden emin misiniz? Bu işlem kalıcıdır!")) {
+    if (!confirm("Are you sure you want to delete this member? This action is permanent!")) {
       return;
     }
 
@@ -218,11 +218,11 @@ export function UserManagementClient() {
 
       const data = await res.json();
       if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Üye silinemedi.");
+        throw new Error(data.error || "Failed to delete member.");
       }
       await fetchUsers();
     } catch (err: any) {
-      alert(err.message || "Üye silinemedi.");
+      alert(err.message || "Failed to delete member.");
     }
   };
 
@@ -250,7 +250,7 @@ export function UserManagementClient() {
   });
 
   if (authLoading) {
-    return <div className="py-6 text-center text-sm text-slate">Oturum yükleniyor...</div>;
+    return <div className="py-6 text-center text-sm text-slate">Loading session...</div>;
   }
 
   if (!isAdmin) {
@@ -269,7 +269,7 @@ export function UserManagementClient() {
         <div className="relative max-w-md flex-1">
           <input
             type="text"
-            placeholder="E-posta, isim veya UID ile ara..."
+            placeholder="Search by email, name or UID..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full min-h-[44px] rounded-lg border border-slate/25 bg-white pl-10 pr-4 text-sm text-deep-navy focus:border-professional-blue focus:outline-none"
@@ -286,7 +286,7 @@ export function UserManagementClient() {
           }}
           className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-black"
         >
-          <PlusIcon /> Yeni Üye Ekle
+          <PlusIcon /> Add New Member
         </button>
       </div>
 
@@ -301,26 +301,26 @@ export function UserManagementClient() {
           <table className="w-full border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-slate/10 bg-off-white text-xs font-semibold uppercase tracking-wider text-text-secondary">
-                <th className="px-6 py-4">Üye</th>
-                <th className="px-6 py-4">Durum</th>
-                <th className="px-6 py-4">Yönetici</th>
-                <th className="px-6 py-4">Krediler</th>
-                <th className="px-6 py-4">Abonelik</th>
-                <th className="px-6 py-4">Kayıt / Son Giriş</th>
-                <th className="px-6 py-4 text-right">İşlemler</th>
+                <th className="px-6 py-4">Member</th>
+                <th className="px-6 py-4">Status</th>
+                <th className="px-6 py-4">Admin</th>
+                <th className="px-6 py-4">Credits</th>
+                <th className="px-6 py-4">Subscription</th>
+                <th className="px-6 py-4">Registered / Last Login</th>
+                <th className="px-6 py-4 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate/10">
               {loading ? (
                 <tr>
                   <td colSpan={7} className="px-6 py-12 text-center text-slate">
-                    Üye listesi yükleniyor...
+                    Loading member list...
                   </td>
                 </tr>
               ) : filteredUsers.length === 0 ? (
                 <tr>
                   <td colSpan={7} className="px-6 py-12 text-center text-slate">
-                    Üye bulunamadı.
+                    No members found.
                   </td>
                 </tr>
               ) : (
@@ -328,7 +328,7 @@ export function UserManagementClient() {
                   <tr key={item.uid} className="hover:bg-off-white/50">
                     <td className="px-6 py-4">
                       <div className="font-semibold text-deep-navy">
-                        {item.displayName || "İsimsiz"}
+                        {item.displayName || "Unnamed"}
                       </div>
                       <div className="text-xs text-text-secondary">{item.email}</div>
                       <div className="mt-0.5 font-mono text-[10px] text-slate/60">
@@ -338,11 +338,11 @@ export function UserManagementClient() {
                     <td className="px-6 py-4">
                       {item.disabled ? (
                         <span className="inline-flex rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-800">
-                          Devre Dışı
+                          Disabled
                         </span>
                       ) : (
                         <span className="inline-flex rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
-                          Aktif
+                          Active
                         </span>
                       )}
                     </td>
@@ -352,7 +352,7 @@ export function UserManagementClient() {
                           Evet
                         </span>
                       ) : (
-                        <span className="text-xs text-slate/50">Hayır</span>
+                        <span className="text-xs text-slate/50">No</span>
                       )}
                     </td>
                     <td className="px-6 py-4 font-semibold text-deep-navy">
@@ -360,17 +360,17 @@ export function UserManagementClient() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="font-medium text-deep-navy capitalize">
-                        {item.subscriptionStatus === "none" ? "Yok" : item.subscriptionStatus === "active" ? "Aktif" : item.subscriptionStatus === "canceled" ? "İptal Edildi" : item.subscriptionStatus === "past_due" ? "Ödeme Gecikti" : item.subscriptionStatus}
+                        {item.subscriptionStatus === "none" ? "None" : item.subscriptionStatus === "active" ? "Active" : item.subscriptionStatus === "canceled" ? "Canceled" : item.subscriptionStatus === "past_due" ? "Past Due" : item.subscriptionStatus}
                       </div>
                       {item.plan && (
                         <div className="text-xs text-text-secondary font-mono">
-                          {item.plan === "pro" ? "Pro (Aylık)" : item.plan === "pro_annual" ? "Pro (Yıllık)" : item.plan === "team" ? "Ekip Planı" : item.plan}
+                          {item.plan === "pro" ? "Pro (Monthly)" : item.plan === "pro_annual" ? "Pro (Annual)" : item.plan === "team" ? "Team Plan" : item.plan}
                         </div>
                       )}
                     </td>
                     <td className="px-6 py-4 text-xs text-text-secondary">
-                      <div>Kayıt: {item.creationTime ? new Date(item.creationTime).toLocaleDateString() : "—"}</div>
-                      <div>Giriş: {item.lastSignInTime ? new Date(item.lastSignInTime).toLocaleDateString() : "—"}</div>
+                      <div>Registered: {item.creationTime ? new Date(item.creationTime).toLocaleDateString() : "—"}</div>
+                      <div>Login: {item.lastSignInTime ? new Date(item.lastSignInTime).toLocaleDateString() : "—"}</div>
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex justify-end gap-2">
@@ -378,7 +378,7 @@ export function UserManagementClient() {
                           onClick={() => startEdit(item)}
                           className="inline-flex h-8 items-center justify-center rounded border border-slate/25 bg-white px-3 text-xs font-semibold text-deep-navy transition-colors hover:bg-off-white"
                         >
-                          Düzenle
+                          Edit
                         </button>
                         <button
                           onClick={() => void handleDeleteUser(item.uid)}
@@ -400,7 +400,7 @@ export function UserManagementClient() {
       {isCreateOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-2xl">
-            <h3 className="text-lg font-bold text-deep-navy mb-4">Yeni Üye Ekle</h3>
+            <h3 className="text-lg font-bold text-deep-navy mb-4">Add New Member</h3>
             {actionError && (
               <div className="mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-600">
                 {actionError}
@@ -419,7 +419,7 @@ export function UserManagementClient() {
                   />
                 </label>
                 <label className="block space-y-1">
-                  <span className="text-xs font-semibold text-text-secondary uppercase">Şifre</span>
+                  <span className="text-xs font-semibold text-text-secondary uppercase">Password</span>
                   <input
                     type="password"
                     required
@@ -454,16 +454,16 @@ export function UserManagementClient() {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <label className="block space-y-1">
-                  <span className="text-xs font-semibold text-text-secondary uppercase">Abonelik Durumu</span>
+                  <span className="text-xs font-semibold text-text-secondary uppercase">Subscription Status</span>
                   <select
                     value={createSubStatus}
                     onChange={(e) => setCreateSubStatus(e.target.value)}
                     className={selectClass}
                   >
-                    <option value="none">Yok</option>
-                    <option value="active">Aktif</option>
-                    <option value="canceled">İptal Edildi</option>
-                    <option value="past_due">Ödeme Gecikti</option>
+                    <option value="none">None</option>
+                    <option value="active">Active</option>
+                    <option value="canceled">Canceled</option>
+                    <option value="past_due">Payment Overdue</option>
                   </select>
                 </label>
                 <label className="block space-y-1">
@@ -473,10 +473,10 @@ export function UserManagementClient() {
                     onChange={(e) => setCreatePlan(e.target.value)}
                     className={selectClass}
                   >
-                    <option value="">Plan Yok</option>
-                    <option value="pro">Pro (Aylık)</option>
-                    <option value="pro_annual">Pro (Yıllık)</option>
-                    <option value="team">Ekip Planı</option>
+                    <option value="">No Plan</option>
+                    <option value="pro">Pro (Monthly)</option>
+                    <option value="pro_annual">Pro (Annual)</option>
+                    <option value="team">Team Plan</option>
                   </select>
                 </label>
               </div>
@@ -488,7 +488,7 @@ export function UserManagementClient() {
                   onChange={(e) => setCreateIsAdmin(e.target.checked)}
                   className="rounded border-slate/30 text-professional-blue focus:ring-professional-blue"
                 />
-                <span className="text-sm font-semibold text-deep-navy">Yönetici Yetkisi Ver</span>
+                <span className="text-sm font-semibold text-deep-navy">Grant Admin Access</span>
               </label>
 
               <div className="flex justify-end gap-2 pt-2">
@@ -497,14 +497,14 @@ export function UserManagementClient() {
                   onClick={() => setIsCreateOpen(false)}
                   className="inline-flex min-h-[40px] items-center justify-center rounded-lg border border-slate/25 bg-white px-4 text-sm font-semibold text-deep-navy hover:bg-off-white"
                 >
-                  İptal
+                  Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={actionLoading}
                   className="inline-flex min-h-[40px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white hover:bg-black disabled:opacity-50"
                 >
-                  {actionLoading ? "Oluşturuluyor..." : "Üye Oluştur"}
+                  {actionLoading ? "Creating..." : "Create Member"}
                 </button>
               </div>
             </form>
@@ -516,7 +516,7 @@ export function UserManagementClient() {
       {editingUser && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-2xl">
-            <h3 className="text-lg font-bold text-deep-navy mb-4">Üyeyi Düzenle</h3>
+            <h3 className="text-lg font-bold text-deep-navy mb-4">Edit Member</h3>
             {actionError && (
               <div className="mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-600">
                 {actionError}
@@ -535,10 +535,10 @@ export function UserManagementClient() {
                   />
                 </label>
                 <label className="block space-y-1">
-                  <span className="text-xs font-semibold text-text-secondary uppercase">Yeni Şifre (isteğe bağlı)</span>
+                  <span className="text-xs font-semibold text-text-secondary uppercase">New Password (optional)</span>
                   <input
                     type="password"
-                    placeholder="Aynı kalması için boş bırakın"
+                    placeholder="Leave blank to keep current"
                     value={editPassword}
                     onChange={(e) => setEditPassword(e.target.value)}
                     className={inputClass}
@@ -570,16 +570,16 @@ export function UserManagementClient() {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <label className="block space-y-1">
-                  <span className="text-xs font-semibold text-text-secondary uppercase">Abonelik Durumu</span>
+                  <span className="text-xs font-semibold text-text-secondary uppercase">Subscription Status</span>
                   <select
                     value={editSubStatus}
                     onChange={(e) => setEditSubStatus(e.target.value)}
                     className={selectClass}
                   >
-                    <option value="none">Yok</option>
-                    <option value="active">Aktif</option>
-                    <option value="canceled">İptal Edildi</option>
-                    <option value="past_due">Ödeme Gecikti</option>
+                    <option value="none">None</option>
+                    <option value="active">Active</option>
+                    <option value="canceled">Canceled</option>
+                    <option value="past_due">Payment Overdue</option>
                   </select>
                 </label>
                 <label className="block space-y-1">
@@ -589,10 +589,10 @@ export function UserManagementClient() {
                     onChange={(e) => setEditPlan(e.target.value)}
                     className={selectClass}
                   >
-                    <option value="">Plan Yok</option>
-                    <option value="pro">Pro (Aylık)</option>
-                    <option value="pro_annual">Pro (Yıllık)</option>
-                    <option value="team">Ekip Planı</option>
+                    <option value="">No Plan</option>
+                    <option value="pro">Pro (Monthly)</option>
+                    <option value="pro_annual">Pro (Annual)</option>
+                    <option value="team">Team Plan</option>
                   </select>
                 </label>
               </div>
@@ -605,7 +605,7 @@ export function UserManagementClient() {
                     onChange={(e) => setEditIsAdmin(e.target.checked)}
                     className="rounded border-slate/30 text-professional-blue focus:ring-professional-blue"
                   />
-                  <span className="text-sm font-semibold text-deep-navy">Yönetici Yetkisi Ver</span>
+                  <span className="text-sm font-semibold text-deep-navy">Grant Admin Access</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input
@@ -614,7 +614,7 @@ export function UserManagementClient() {
                     onChange={(e) => setEditDisabled(e.target.checked)}
                     className="rounded border-slate/30 text-professional-blue focus:ring-professional-blue"
                   />
-                  <span className="text-sm font-semibold text-deep-navy">Hesabı Devre Dışı Bırak</span>
+                  <span className="text-sm font-semibold text-deep-navy">Disable Account</span>
                 </label>
               </div>
 
@@ -624,14 +624,14 @@ export function UserManagementClient() {
                   onClick={() => setEditingUser(null)}
                   className="inline-flex min-h-[40px] items-center justify-center rounded-lg border border-slate/25 bg-white px-4 text-sm font-semibold text-deep-navy hover:bg-off-white"
                 >
-                  İptal
+                  Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={actionLoading}
                   className="inline-flex min-h-[40px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white hover:bg-black disabled:opacity-50"
                 >
-                  {actionLoading ? "Kaydediliyor..." : "Değişiklikleri Kaydet"}
+                  {actionLoading ? "Saving..." : "Save Changes"}
                 </button>
               </div>
             </form>

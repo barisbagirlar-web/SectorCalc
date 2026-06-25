@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
-const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
+const LOCALES = ["en", "de", "fr", "es", "ar"];
 
 const FREE_TOOL_UI = {
   en: {
@@ -27,27 +27,6 @@ const FREE_TOOL_UI = {
     calculationStepsEmpty: "Calculation steps will appear when this contract exposes deterministic trace.",
     calculationStepDecisionGoal: "Decision goal",
     calculationStepFormulaSummary: "Formula summary",
-  },
-  tr: {
-    premiumAnalyzer: "Premium hesaplayıcı",
-    runAnalysis: "Hesaplamayı çalıştır",
-    analysisBlockedTitle: "Hesaplama engellendi",
-    contractFormEyebrow: "FORMÜLE DAYALI HESAPLAMA",
-    contractFormDecisionGoal: "Bu girdiler formüle göre hangi sonucu üretir?",
-    contractFormAssumptionsRules: "{assumptionCount} varsayım · {ruleCount} kontrol kuralı",
-    contractFormRulesOnly: "{ruleCount} kontrol kuralı aktif",
-    contractFormTrustAria: "Formül güven özeti",
-    requiredInputsTitle: "Gerekli girdiler",
-    requiredInputsDescription: "Hesaplamanın yapılması için gerekli temel girdiler.",
-    optionalInputsTitle: "İsteğe bağlı iyileştirmeler",
-    optionalInputsDescription: "Varsayılanları bozmadan tahmin doğruluğunu artırır.",
-    advancedInputsTitle: "Gelişmiş girdiler",
-    advancedInputsDescription: "Mevcut olduğunda profesyonel derinlik geçersiz kılmaları.",
-    contractNotFound: "Bu araç için akıllı form sözleşmesi bulunamadı.",
-    calculationSteps: "Hesaplama adımları",
-    calculationStepsEmpty: "Bu sözleşme deterministik izleme sunduğunda hesaplama adımları burada görünür.",
-    calculationStepDecisionGoal: "Karar hedefi",
-    calculationStepFormulaSummary: "Formül özeti",
   },
   de: {
     premiumAnalyzer: "Premium-Rechner",
@@ -140,10 +119,6 @@ const PREMIUM_DECISION_PATCH = {
     runPrompt: "Enter your operating values and run the calculation.",
     runAnalysis: "Run calculation",
   },
-  tr: {
-    runPrompt: "İşletme değerlerini girin ve hesaplamayı çalıştırın.",
-    runAnalysis: "Hesaplamayı çalıştır",
-  },
   de: {
     runPrompt: "Geben Sie Ihre Betriebswerte ein und starten Sie die Berechnung.",
     runAnalysis: "Berechnung starten",
@@ -173,17 +148,6 @@ const PREMIUM_SCHEMA_PAGE = {
     legalAnswer:
       "No. SectorCalc premium calculators are decision-support tools with transparent assumptions. They do not replace professional financial, legal, or engineering advice.",
     serviceType: "Operational decision calculation",
-  },
-  tr: {
-    eyebrow: "Premium hesaplayıcı",
-    featuredQuestion: "{name} neyi hesaplar?",
-    bullet1: "Gizli kayıp sürücüleri ve eşik kontrolleri",
-    bullet2: "Operasyonel inceleme için önerilen aksiyonlar",
-    bullet3: "Ücretli planlarda PDF ve CSV dışa aktarma",
-    legalQuestion: "Bu finansal veya mühendislik tavsiyesi midir?",
-    legalAnswer:
-      "Hayır. SectorCalc premium hesaplayıcıları şeffaf varsayımlarla karar destek aracıdır. Profesyonel finans, hukuk veya mühendislik tavsiyesinin yerini almaz.",
-    serviceType: "Operasyonel karar hesaplaması",
   },
   de: {
     eyebrow: "Premium-Rechner",
@@ -251,25 +215,6 @@ const CONTENT_AUTHORITY_PREMIUM = {
     reportBullet3: "Suggested actions and assumption notes",
     reportBullet4: "Export-ready PDF and CSV on paid access",
   },
-  tr: {
-    whenToUseTitle: "Bu hesaplayıcı ne zaman kullanılır?",
-    whenToUseBody:
-      "Sonuç fiyatlandırma, operasyon, kapasite, planlama veya yönetim raporlamasını etkilediğinde bu hesaplayıcıyı kullanın.",
-    measuresTitle: "Bu hesaplayıcı ne ölçer?",
-    decidesTitle: "Bu hesaplayıcı hangi karara yardımcı olur?",
-    faqMeasureTitle: "Bu hesaplayıcı ne ölçer?",
-    faqPremiumTitle: "Premium hesaplayıcı ne zaman kullanılmalı?",
-    faqPremiumAnswer:
-      "Tahmin fiyatlandırma, operasyon veya yönetim kararlarını etkilediğinde ve gizli sürücüler, eşikler ve dışa aktarılabilir raporlar gerektiğinde premium hesaplayıcı kullanın.",
-    relatedPremiumTitle: "İlgili premium hesaplayıcı",
-    relatedPremiumCta: "İlgili premium hesaplayıcıyı görüntüle",
-    decidesBody:
-      "Mevcut girdilerin kabul edilebilir maruziyet bantlarında olup olmadığına, önce hangi sürücünün inceleneceğine ve işi tekrarlamadan önce yeniden fiyatlandırma, yeniden planlama veya yeniden tasarım yapılıp yapılmayacağına karar vermek için bu hesaplayıcıyı kullanın.",
-    reportBullet1: "Eşik durumu ile yönetici özeti",
-    reportBullet2: "Gizli kayıp sürücülerinin dökümü",
-    reportBullet3: "Önerilen aksiyonlar ve varsayım notları",
-    reportBullet4: "Ücretli erişimde PDF ve CSV dışa aktarma",
-  },
   de: {
     whenToUseTitle: "Wann dieser Rechner sinnvoll ist",
     whenToUseBody:
@@ -325,13 +270,6 @@ const CONTENT_AUTHORITY_PREMIUM = {
 };
 
 const CONTENT_AUTHORITY_FREE = {
-  tr: {
-    faqPremiumTitle: "Premium hesaplayıcı ne zaman kullanılmalı?",
-    faqPremiumAnswer:
-      "Tahmin fiyatlandırma, operasyon veya yönetim kararlarını etkilediğinde ve gizli sürücüler, eşikler ve dışa aktarılabilir raporlar gerektiğinde premium hesaplayıcı kullanın.",
-    relatedPremiumTitle: "İlgili premium hesaplayıcı",
-    relatedPremiumCta: "İlgili premium hesaplayıcıyı görüntüle",
-  },
   es: {
     faqPremiumTitle: "¿Cuándo usar una calculadora premium?",
     faqPremiumAnswer:

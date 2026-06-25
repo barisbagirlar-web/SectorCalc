@@ -10,47 +10,47 @@ import type {
   CaseStudyToolRoute,
 } from "@/lib/case-studies/case-study-types";
 
-// Sektör listesi
+// Sector list
 const SECTOR_OPTIONS: { value: CaseStudySector; label: string }[] = [
-  { value: "cnc", label: "CNC / Talaşlı İmalat" },
-  { value: "construction", label: "İnşaat / Teklif Yönetimi" },
-  { value: "welding", label: "Kaynak Atölyesi" },
-  { value: "hvac", label: "HVAC / İklimlendirme" },
-  { value: "plumbing-electrical", label: "Sıhhi Tesisat & Elektrik" },
-  { value: "sheet-metal", label: "Sac Metal İşleme" },
-  { value: "cleaning", label: "Endüstriyel Temizlik" },
-  { value: "restaurant", label: "Restoran / Hizmet" },
-  { value: "ecommerce", label: "E-Ticaret" },
-  { value: "energy", label: "Enerji Verimliliği" },
-  { value: "logistics", label: "Lojistik / Taşımacılık" },
-  { value: "sustainability", label: "Sürdürülebilirlik / CBAM" },
+  { value: "cnc", label: "CNC / Machining" },
+  { value: "construction", label: "Construction / Bid Management" },
+  { value: "welding", label: "Welding Workshop" },
+  { value: "hvac", label: "HVAC / Climate Control" },
+  { value: "plumbing-electrical", label: "Plumbing & Electrical" },
+  { value: "sheet-metal", label: "Sheet Metal Processing" },
+  { value: "cleaning", label: "Industrial Cleaning" },
+  { value: "restaurant", label: "Restaurant / Service" },
+  { value: "ecommerce", label: "E-Commerce" },
+  { value: "energy", label: "Energy Efficiency" },
+  { value: "logistics", label: "Logistics / Transportation" },
+  { value: "sustainability", label: "Sustainability / CBAM" },
 ];
 
-// Kayıp tipi listesi
+// Loss type list
 const LOSS_TYPE_OPTIONS: { value: CaseStudyLossType; label: string }[] = [
-  { value: "material_scrap", label: "Malzeme Hurdası / Fire" },
-  { value: "labor_rework", label: "İşçilik Hataları / Yeniden İşleme" },
-  { value: "schedule_delay", label: "Zaman / Şantiye Gecikmesi" },
-  { value: "route_deadhead", label: "Lojistik Boş Dönüş (Deadhead)" },
-  { value: "food_waste", label: "Gıda Atığı / Çöpe Giden Ürünler" },
-  { value: "return_erosion", label: "İade Maliyeti Marj Daralması" },
-  { value: "energy_demand", label: "Tepe Enerji Talebi Cezası" },
-  { value: "margin_leak", label: "Maliyet Kaçağı / Teklif Aşımı" },
-  { value: "carbon_cost", label: "Karbon Vergisi / Emisyon Cezası" },
+  { value: "material_scrap", label: "Material Scrap / Waste" },
+  { value: "labor_rework", label: "Labor Errors / Rework" },
+  { value: "schedule_delay", label: "Time / Site Delay" },
+  { value: "route_deadhead", label: "Logistics Deadhead" },
+  { value: "food_waste", label: "Food Waste / Spoilage" },
+  { value: "return_erosion", label: "Return Cost Margin Erosion" },
+  { value: "energy_demand", label: "Peak Energy Demand Penalty" },
+  { value: "margin_leak", label: "Cost Leak / Quote Overrun" },
+  { value: "carbon_cost", label: "Carbon Tax / Emission Penalty" },
 ];
 
-// Hesaplama aracı rota listesi
+// Calculation tool route list
 const TOOL_ROUTE_OPTIONS: { value: CaseStudyToolRoute; label: string }[] = [
-  { value: "pro-tools", label: "Pro Araçlar (/pro-tools/...)" },
-  { value: "premium-schema", label: "Premium Şema (/tools/premium-schema/...)" },
-  { value: "premium", label: "Premium Araçlar (/premium/...)" },
+  { value: "premium-tools", label: "Premium (/premium-tools/...)" },
+  { value: "premium-schema", label: "Premium Schema (/tools/premium-schema/...)" },
+  { value: "premium", label: "Premium Tools (/premium/...)" },
 ];
 
-// Boş form şablonu
+// Empty form template
 const INITIAL_FORM_STATE = {
   slug: "",
   sector: "cnc" as CaseStudySector,
-  sectorLabel: "CNC / Talaşlı İmalat",
+  sectorLabel: "CNC / Machining",
   title: "",
   seoTitle: "",
   seoDescription: "",
@@ -63,66 +63,66 @@ const INITIAL_FORM_STATE = {
   calculationLogic: "",
   academicMethodology: "",
   lossType: "schedule_delay" as CaseStudyLossType,
-  lossTypeLabel: "Zaman / Şantiye Gecikmesi",
+  lossTypeLabel: "Time / Site Delay",
   suggestedAction: "",
   toolSlug: "",
   toolTitle: "",
-  toolRoute: "pro-tools" as CaseStudyToolRoute,
+  toolRoute: "premium-tools" as CaseStudyToolRoute,
 };
 
-// Hazır Örnekler (Zengin Metin HTML Etiketleri ile)
+// Ready Examples (with Rich Text HTML Tags)
 const EXAMPLES = {
   cnc: {
     slug: "cnc-job-shop-field-analysis",
     sector: "cnc" as CaseStudySector,
-    sectorLabel: "CNC / Talaşlı İmalat",
-    title: "CNC Talaşlı İmalatta Hazırlık ve Programlama Kayıplarının Maliyet Analizi",
-    seoTitle: "CNC Atölyesi Maliyet ve Teklif Hesaplama Analizi",
-    seoDescription: "CNC atölyelerinde spindle süresi, programlama, kurulum ve planlanmamış duruşların teklif maliyetlerine etkisi ve hesaplama yöntemleri.",
-    whatIsIt: "CNC talaşlı imalatta <strong>spindle (mil) süresi</strong>, programlama, kurulum (setup) ve planlanmamış duruşların birim parça maliyeti üzerindeki etkisini ve teklif verme risklerini ölçen analitik bir çalışmadır.",
-    howIsItCalculated: "Makine saat ücreti baz alınarak; hazırlık süresi, CAD/CAM programlama süresi ve geçmiş duruş verileri deterministik bir formülle teklif taban fiyatına dahil edilir. Hesaplama formülü: <br/><strong>Güvenli Teklif Fiyatı = [((Hazırlık Süresi + Programlama Süresi) * İşçilik Ücreti) + (Net Makine Süresi * Makine Saat Ücreti) + Malzeme Maliyeti + Takım Aşınması] / (1 - Hedef Kar Marjı - Fire Oranı)</strong>.",
-    whyItMatters: "Gizli hazırlık süreleri ve duruşların tekliflendirme aşamasında göz ardı edilmesi, brüt kar marjını doğrudan eritir. Bu analiz, her bir iş emri için <strong>gerçek maliyet tabanını</strong> ortaya koyarak atölyenin zararına teklif vermesini engeller ve operasyonel verimliliği artırır.",
-    problem: "Talaşlı imalat yapan bir CNC atölyesi, teklif verirken yalnızca net kesim (spindle) süresini ve malzeme maliyetini hesaba katmış, hazırlık ve CAM programlama süreleri ile duruş risklerini hariç tutmuştur. Bu durum, kağıt üzerinde karlı görünen işlerin fiiliyatta net marj kaybı oluşturmasına yol açmıştır.",
+    sectorLabel: "CNC / Machining",
+    title: "CNC Machining Setup and Programming Loss Cost Analysis",
+    seoTitle: "CNC Workshop Cost and Quote Calculation Analysis",
+    seoDescription: "Impact of spindle time, programming, setup and unplanned downtime on quote costs in CNC workshops and calculation methods.",
+    whatIsIt: "An analytical study measuring the impact of <strong>spindle time</strong>, programming, setup, and unplanned downtime on unit part cost and bidding risks in CNC machining.",
+    howIsItCalculated: "Based on machine hourly rate; setup time, CAD/CAM programming time, and historical downtime data are incorporated into the base quote price using a deterministic formula. Formula: <br/><strong>Safe Quote Price = [((Setup Time + Programming Time) * Labor Rate) + (Net Machine Time * Machine Hourly Rate) + Material Cost + Tool Wear] / (1 - Target Profit Margin - Scrap Rate)</strong>.",
+    whyItMatters: "Ignoring hidden setup times and downtime during the quoting stage directly erodes gross profit margins. This analysis reveals the <strong>true cost base</strong> for each work order, preventing the workshop from bidding at a loss and improving operational efficiency.",
+    problem: "A CNC machining workshop only accounted for net cutting (spindle) time and material cost when quoting, excluding setup and CAM programming times as well as downtime risks. This caused jobs that appeared profitable on paper to result in net margin loss in practice.",
     inputSummary: [
-      "Makine saat ücreti: 92 $/saat, planlanan net makine süresi: 14 saat, duruş payı: 2,1 saat",
-      "Malzeme maliyeti: 680 $, takım aşınma payı: 95 $, hurda payı: %4",
-      "Hedef kar marjı: %20"
+      "Machine hourly rate: $92/hr, planned net machine time: 14 hrs, downtime allowance: 2.1 hrs",
+      "Material cost: $680, tool wear allowance: $95, scrap rate: 4%",
+      "Target profit margin: 20%"
     ],
     calculationResult: "Yapılan analizde, fiili yükler dahil toplam birim maliyetin <strong>2.180 $</strong> olduğu, oysa atölyenin hazırlık paylarını hariç tutarak müşteriye 1.920 $ teklif verdiği saptanmıştır. Bu durum, işletmenin hedef kar marjından <strong>12 puanlık</strong> net bir sapma yaşadığını göstermiştir.",
     calculationLogic: "Doğrudan makine ve malzeme maliyetlerine; kurulum, ayar, CAD/CAM programlama ve geçmiş duruş katsayıları deterministik olarak eklenmiştir. Hedef kar marjını koruyacak minimum güvenli teklif barajı hesaplanmıştır.",
-    academicMethodology: "Analiz, <em>deterministik maliyet yükleme modeliyle</em> gerçekleştirilmiştir. Atölye verilerinden elde edilen hazırlık ve duruş katsayıları, doğrusal bir maliyet denklemi üzerinde simüle edilerek marj sapması formüle edilmiştir.",
+    academicMethodology: "The analysis was performed using a <em>deterministic cost loading model</em>. Setup and downtime coefficients derived from workshop data were simulated on a linear cost equation to formulate the margin deviation.",
     lossType: "schedule_delay" as CaseStudyLossType,
-    lossTypeLabel: "Kurulum, Programlama ve Duruş Süresi Sızıntısı",
-    suggestedAction: "Müşteriye sunulan teklif, hesaplanan güvenli fiyat tabanının altında kalıyorsa, iş emri onaylanmadan önce hazırlık veya programlama kalemi için <strong>ek teklif revizyonu</strong> talep edilmelidir.",
+    lossTypeLabel: "Setup, Programming and Downtime Leakage",
+    suggestedAction: "If the quoted price falls below the calculated safe price floor, request an <strong>additional quote revision</strong> for setup or programming items before the work order is approved.",
     toolSlug: "cnc-quote-risk-analyzer",
-    toolTitle: "CNC Teklif Risk Analizörü",
-    toolRoute: "pro-tools" as CaseStudyToolRoute,
+    toolTitle: "CNC Quote Risk Analyzer",
+    toolRoute: "premium-tools" as CaseStudyToolRoute,
   },
   construction: {
     slug: "construction-bid-margin-field-analysis",
     sector: "construction" as CaseStudySector,
-    sectorLabel: "İnşaat / Teklif Yönetimi",
-    title: "Şantiye Mobilizasyon ve Kritik Yol Gecikmelerinin Net Teklif Marjına Etkisi",
-    seoTitle: "İnşaat Teklif Marjı ve Kritik Yol Gecikme Analizi",
-    seoDescription: "İnşaat projelerinde şantiye mobilizasyonu, test/muayene döngüleri ve kritik yol gecikmelerinin net kar marjına etkisi.",
-    whatIsIt: "İnşaat projelerinde <strong>şantiye mobilizasyonu</strong>, test/muayene döngüleri ve kritik yol gecikmelerinin ana teklif marjı üzerindeki erozyonu ölçen mühendislik tabanlı bir risk analizidir.",
-    howIsItCalculated: "Sözleşme bedeli üzerinden; ekip büyüklüğü, günlük şantiye yanma oranı (burn rate), kritik yoldaki olası gecikme gün sayısı ve yeniden işleme/muayene maliyetleri toplanarak net marj etkisi hesaplanır. <br/>Formül: <strong>Fiili Net Marj = (Sözleşme Bedeli - Doğrudan Maliyetler - (Gecikme Gün Sayısı * Günlük Şantiye Maliyeti) - Yeniden İşleme Rezervi) / Sözleşme Bedeli</strong>.",
-    whyItMatters: "Yüklenici firmalar teklif verirken genellikle operasyonel gecikme risklerini göz ardı ederler. Bu analiz, kritik yol gecikmelerinin şantiye günlük maliyetleri üzerinden karı nasıl erittiğini matematiksel olarak göstererek doğru gecikme rezervi ayrılmasını sağlar.",
-    problem: "Bir alt yüklenici, kaba inşaat ihalesi için malzeme ve işçilik üzerinden teklif hazırlamış; ancak şantiye kurulumu, ara denetim gecikmeleri ve kritik yoldaki 12 günlük olası kaymayı bütçelemediği için marj daralmasıyla karşı karşıya kalmıştır.",
+    sectorLabel: "Construction / Bid Management",
+    title: "Site Mobilization and Critical Path Delay Impact on Net Quote Margin",
+    seoTitle: "Construction Quote Margin and Critical Path Delay Analysis",
+    seoDescription: "Impact of site mobilization, test/inspection cycles, and critical path delays on net profit margin in construction projects.",
+    whatIsIt: "An engineering-based risk analysis measuring the erosion of the main bid margin due to <strong>site mobilization</strong>, test/inspection cycles, and critical path delays in construction projects.",
+    howIsItCalculated: "Based on the contract value; team size, daily site burn rate, potential critical path delay days, and rework/inspection costs are aggregated to calculate the net margin impact. <br/>Formula: <strong>Actual Net Margin = (Contract Value - Direct Costs - (Delay Days * Daily Site Cost) - Rework Reserve) / Contract Value</strong>.",
+    whyItMatters: "Contractors often overlook operational delay risks when bidding. This analysis mathematically demonstrates how critical path delays erode profit through daily site costs, ensuring proper delay reserves are allocated.",
+    problem: "A subcontractor prepared a bid for a rough construction tender based on materials and labor, but faced margin compression due to not budgeting for site setup, interim inspection delays, and a potential 12-day slip on the critical path.",
     inputSummary: [
-      "Ana sözleşme bedeli: 620.000 $, teklif edilen hedef kar marjı: %18",
-      "Şantiye ekibi: 8 kişi, günlük operasyonel yanma maliyeti: 2.850 $/gün, kritik yol gecikme riski: 12 gün",
-      "Yeniden işleme ve re-inspeksiyon bütçe payı: 18.000 $"
+      "Main contract value: $620,000, quoted target profit margin: 18%",
+      "Site team: 8 people, daily operational burn rate: $2,850/day, critical path delay risk: 12 days",
+      "Rework and re-inspection budget allocation: $18,000"
     ],
-    calculationResult: "Ana teklif kağıt üstünde %17,5 kar marjı öngörürken, gecikme günleri ve yeniden işleme maliyetleri eklendiğinde fiili net marjın <strong>%11 ila %13 bandına</strong> gerilediği hesaplanmıştır.",
-    calculationLogic: "Toplam sözleşme bedelinden doğrudan maliyetler çıkarıldıktan sonra, günlük operasyonel şantiye gideri ile gecikme gün sayısı çarpılarak elde edilen gecikme yükü ve muayene rezervleri düşülmüş, net marj tespit edilmiştir.",
-    academicMethodology: "Proje planlama ve kritik yol yöntemi (CPM) girdileriyle entegre çalışan deterministik şantiye maliyet modeli kullanılmıştır. Gecikme süreleri doğrudan genel gider katsayılarıyla çarpılarak sapma analizi yapılmıştır.",
+    calculationResult: "While the main bid projected a 17.5% profit margin on paper, the actual net margin was calculated to have fallen to the <strong>11% to 13% range</strong> when delay days and rework costs were added.",
+    calculationLogic: "After subtracting direct costs from the total contract value, the delay burden (daily operational site cost multiplied by delay days) and inspection reserves were deducted to determine the net margin.",
+    academicMethodology: "A deterministic site cost model integrated with project planning and Critical Path Method (CPM) inputs was used. Delay durations were multiplied by overhead coefficients to perform deviation analysis.",
     lossType: "schedule_delay" as CaseStudyLossType,
-    lossTypeLabel: "Gecikme ve Mobilizasyon Marj Kaybı",
-    suggestedAction: "İhale teslim edilmeden önce, hesaplanan operasyonel gecikme ve re-mobilizasyon risk payı kadar bütçe rezervi eklenmeli ya da sözleşmeye gecikme cezası muafiyet maddeleri eklenmelidir.",
+    lossTypeLabel: "Delay and Mobilization Margin Loss",
+    suggestedAction: "Before submitting the bid, add a budget reserve equal to the calculated operational delay and re-mobilization risk, or include delay penalty exemption clauses in the contract.",
     toolSlug: "change-order-impact-analyzer",
     toolTitle: "İş Değişikliği (Change Order) Etki Analizörü",
-    toolRoute: "pro-tools" as CaseStudyToolRoute,
+    toolRoute: "premium-tools" as CaseStudyToolRoute,
   },
 };
 
@@ -132,11 +132,11 @@ interface RichTextAreaProps {
   placeholder?: string;
 }
 
-// Zengin Metin Editörü (Rich Text Area) Bileşeni
+// Rich Text Editor Component
 function RichTextArea({ value, onChange, placeholder }: RichTextAreaProps) {
   const editorRef = useRef<HTMLDivElement>(null);
 
-  // Dışarıdan değer değiştiğinde contentEditable div'i güncelle (sadece aktif olarak düzenlenmiyorsa)
+  // Update contentEditable div when value changes externally (only if not actively editing)
   useEffect(() => {
     if (editorRef.current && editorRef.current.innerHTML !== value) {
       editorRef.current.innerHTML = value;
@@ -152,7 +152,7 @@ function RichTextArea({ value, onChange, placeholder }: RichTextAreaProps) {
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, "text/html");
       
-      // Temizleme fonksiyonu: sadece izin verilen HTML etiketlerini korur, stil kalıntılarını siler
+      // Clean function: preserve only allowed HTML tags, remove style residues
       const cleanNode = (node: Node): string => {
         if (node.nodeType === Node.TEXT_NODE) {
           return node.nodeValue || "";
@@ -204,13 +204,13 @@ function RichTextArea({ value, onChange, placeholder }: RichTextAreaProps) {
 
   return (
     <div className="border border-slate/25 rounded overflow-hidden bg-white focus-within:border-copper">
-      {/* Araç Çubuğu */}
+      {/* Toolbar */}
       <div className="flex items-center gap-1 bg-off-white border-b border-slate/15 p-1.5 text-xs select-none">
         <button
           type="button"
           onClick={() => handleCommand("bold")}
           className="rounded p-1 font-bold hover:bg-slate/10 min-w-[24px] text-center"
-          title="Kalın (Ctrl+B)"
+          title="Bold (Ctrl+B)"
         >
           B
         </button>
@@ -218,7 +218,7 @@ function RichTextArea({ value, onChange, placeholder }: RichTextAreaProps) {
           type="button"
           onClick={() => handleCommand("italic")}
           className="rounded p-1 italic hover:bg-slate/10 min-w-[24px] text-center"
-          title="İtalik (Ctrl+I)"
+          title="Italic (Ctrl+I)"
         >
           I
         </button>
@@ -226,7 +226,7 @@ function RichTextArea({ value, onChange, placeholder }: RichTextAreaProps) {
           type="button"
           onClick={() => handleCommand("insertUnorderedList")}
           className="rounded p-1 hover:bg-slate/10 min-w-[24px] text-center"
-          title="Sırasız Liste"
+          title="Unordered List"
         >
           •
         </button>
@@ -234,21 +234,21 @@ function RichTextArea({ value, onChange, placeholder }: RichTextAreaProps) {
           type="button"
           onClick={() => handleCommand("insertOrderedList")}
           className="rounded p-1 hover:bg-slate/10 min-w-[24px] text-center"
-          title="Sıralı Liste"
+          title="Ordered List"
         >
           1.
         </button>
         <button
           type="button"
           onClick={() => {
-            if (confirm("Biçimlendirmeyi temizlemek istiyor musunuz?")) {
+            if (confirm("Clear formatting?")) {
               handleCommand("removeFormat");
             }
           }}
           className="rounded p-1 hover:bg-slate/10 text-muted ml-auto text-xs"
-          title="Biçimlendirmeyi Temizle"
+          title="Clear Formatting"
         >
-          Formatı Temizle
+          Clear Formatting
         </button>
       </div>
 
@@ -271,7 +271,7 @@ export function CaseStudiesEditorClient() {
   const [previewSubTab, setPreviewSubTab] = useState<"card" | "qa">("card");
   const [copiedType, setCopiedType] = useState<"ts" | "json" | null>(null);
 
-  // Sector değiştiğinde label'ı otomatik güncelle
+  // Auto-update label when sector changes
   const handleSectorChange = (sector: CaseStudySector) => {
     const matched = SECTOR_OPTIONS.find((s) => s.value === sector);
     setForm((prev) => ({
@@ -281,7 +281,7 @@ export function CaseStudiesEditorClient() {
     }));
   };
 
-  // Loss type değiştiğinde label'ı otomatik güncelle
+  // Auto-update label when loss type changes
   const handleLossTypeChange = (lossType: CaseStudyLossType) => {
     const matched = LOSS_TYPE_OPTIONS.find((l) => l.value === lossType);
     setForm((prev) => ({
@@ -291,7 +291,7 @@ export function CaseStudiesEditorClient() {
     }));
   };
 
-  // Başlıktan otomatik slugify etme
+  // Auto-slugify from title
   const handleSlugify = () => {
     if (!form.title) return;
     const clean = form.title
@@ -314,7 +314,7 @@ export function CaseStudiesEditorClient() {
     }));
   };
 
-  // Dinamik inputSummary işlemleri
+  // Dynamic inputSummary operations
   const handleInputSummaryChange = (index: number, value: string) => {
     const updated = [...form.inputSummary];
     updated[index] = value;
@@ -334,7 +334,7 @@ export function CaseStudiesEditorClient() {
     setForm((prev) => ({ ...prev, inputSummary: updated }));
   };
 
-  // Örnek şablon yükleme
+  // Load example template
   const loadExample = (type: "cnc" | "construction") => {
     setForm(EXAMPLES[type]);
     setActiveTab("edit");
@@ -342,12 +342,12 @@ export function CaseStudiesEditorClient() {
 
   // Temizleme
   const resetForm = () => {
-    if (confirm("Formdaki tüm girdileri temizlemek istediğinize emin misiniz?")) {
+    if (confirm("Clear all form inputs? This cannot be undone.")) {
       setForm(INITIAL_FORM_STATE);
     }
   };
 
-  // TypeScript Objesi Çıktısı Oluşturucu
+  // TypeScript Object Output Generator
   const generateTypeScriptCode = (): string => {
     const inputsStr = form.inputSummary
       .filter((line) => line.trim() !== "")
@@ -358,9 +358,9 @@ export function CaseStudiesEditorClient() {
     slug: "${form.slug || "cnc-job-shop-field-analysis"}",
     sector: "${form.sector}",
     sectorLabel: "${form.sectorLabel}",
-    title: "${form.title.replace(/"/g, '\\"') || "Başlık"}",
-    seoTitle: "${form.seoTitle.replace(/"/g, '\\"') || "SEO Başlığı"}",
-    seoDescription: "${form.seoDescription.replace(/"/g, '\\"') || "SEO Açıklaması"}",
+    title: "${form.title.replace(/"/g, '\\"') || "Title"}",
+    seoTitle: "${form.seoTitle.replace(/"/g, '\\"') || "SEO Title"}",
+    seoDescription: "${form.seoDescription.replace(/"/g, '\\"') || "SEO Description"}",
     whatIsIt: "${form.whatIsIt.replace(/"/g, '\\"')}",
     howIsItCalculated: "${form.howIsItCalculated.replace(/"/g, '\\"')}",
     whyItMatters: "${form.whyItMatters.replace(/"/g, '\\"')}",
@@ -380,7 +380,7 @@ ${inputsStr}
   }`;
   };
 
-  // JSON Çıktısı Oluşturucu
+  // JSON Output Generator
   const generateJsonCode = (): string => {
     const obj = {
       slug: form.slug,
@@ -418,7 +418,7 @@ ${inputsStr}
   if (authLoading) {
     return (
       <div className="flex min-h-[300px] items-center justify-center rounded-lg border border-slate/15 bg-white p-8">
-        <p className="text-sm font-medium text-muted font-mono">Oturum bilgisi doğrulanıyor...</p>
+        <p className="text-sm font-medium text-muted font-mono">Verifying session info...</p>
       </div>
     );
   }
@@ -440,7 +440,7 @@ ${inputsStr}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
         {/* Sol Panel: Kontroller ve Form */}
         <div className="space-y-6 lg:col-span-7">
-          {/* Üst Hızlı Şablonlar & Sekmeler */}
+          {/* Quick Templates & Tabs */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between rounded-lg border border-slate/15 bg-white p-4">
             <div className="flex gap-2">
               <button
@@ -452,7 +452,7 @@ ${inputsStr}
                     : "bg-off-white text-deep-navy border border-slate/15 hover:bg-slate/10"
                 }`}
               >
-                1. İçerik Formu
+                1. Content Form
               </button>
               <button
                 type="button"
@@ -463,7 +463,7 @@ ${inputsStr}
                     : "bg-off-white text-deep-navy border border-slate/15 hover:bg-slate/10"
                 }`}
               >
-                2. Canlı Önizleme
+                2. Live Preview
               </button>
               <button
                 type="button"
@@ -474,12 +474,12 @@ ${inputsStr}
                     : "bg-off-white text-deep-navy border border-slate/15 hover:bg-slate/10"
                 }`}
               >
-                3. Kod Çıktısı
+                3. Code Output
               </button>
             </div>
             
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono text-muted uppercase">Şablon Yükle:</span>
+              <span className="text-[10px] font-mono text-muted uppercase">Load Template:</span>
               <button
                 type="button"
                 onClick={() => loadExample("cnc")}
@@ -492,7 +492,7 @@ ${inputsStr}
                 onClick={() => loadExample("construction")}
                 className="rounded border border-slate/15 bg-white px-2 py-1 text-[11px] font-medium text-copper hover:bg-off-white"
               >
-                İnşaat
+                Construction
               </button>
               <button
                 type="button"
@@ -504,24 +504,24 @@ ${inputsStr}
             </div>
           </div>
 
-          {/* Form Alanları (Edit Tab) */}
+          {/* Form Fields (Edit Tab) */}
           {activeTab === "edit" && (
             <div className="rounded-lg border border-slate/15 bg-white p-5 sm:p-6 space-y-6">
               <div className="border-b border-slate/15 pb-4">
-                <h3 className="text-base font-bold text-deep-navy">Temel Tanımlamalar</h3>
-                <p className="text-xs text-muted">Vaka çalışmasının sektörel eşleşmeleri ve kimlik bilgileri.</p>
+                <h3 className="text-base font-bold text-deep-navy">Basic Definitions</h3>
+                <p className="text-xs text-muted">Sector mappings and identity info for the case study.</p>
               </div>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Vaka Başlığı
+                    Case Study Title
                   </label>
                   <input
                     type="text"
                     value={form.title}
                     onChange={(e) => setForm((prev) => ({ ...prev, title: e.target.value }))}
-                    placeholder="Örn: CNC Talaşlı İmalatta Hazırlık..."
+                    placeholder="E.g. CNC Machining Setup..."
                     className="w-full min-h-[40px] rounded border border-slate/25 px-3 text-sm focus:border-copper focus:outline-none"
                   />
                 </div>
@@ -529,7 +529,7 @@ ${inputsStr}
                 <div>
                   <div className="flex items-center justify-between mb-1">
                     <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider">
-                      Doküman Slug ID
+                      Document Slug ID
                     </label>
                     <button
                       type="button"
@@ -537,14 +537,14 @@ ${inputsStr}
                       disabled={!form.title}
                       className="text-[10px] font-semibold text-copper hover:underline disabled:opacity-55"
                     >
-                      Başlıktan Üret
+                      Generate from Title
                     </button>
                   </div>
                   <input
                     type="text"
                     value={form.slug}
                     onChange={(e) => setForm((prev) => ({ ...prev, slug: e.target.value }))}
-                    placeholder="Örn: cnc-job-shop-field-analysis"
+                    placeholder="E.g.: cnc-job-shop-field-analysis"
                     className="w-full min-h-[40px] rounded border border-slate/25 px-3 text-sm font-mono focus:border-copper focus:outline-none"
                   />
                 </div>
@@ -553,7 +553,7 @@ ${inputsStr}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Sektör (Sector Key)
+                    Sector (Sector Key)
                   </label>
                   <select
                     value={form.sector}
@@ -570,13 +570,13 @@ ${inputsStr}
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Sektör Etiketi (Gösterilen)
+                    Sector Label (Displayed)
                   </label>
                   <input
                     type="text"
                     value={form.sectorLabel}
                     onChange={(e) => setForm((prev) => ({ ...prev, sectorLabel: e.target.value }))}
-                    placeholder="Örn: CNC / Talaşlı İmalat"
+                    placeholder="Örn: CNC / Machining"
                     className="w-full min-h-[40px] rounded border border-slate/25 px-3 text-sm focus:border-copper focus:outline-none"
                   />
                 </div>
@@ -585,7 +585,7 @@ ${inputsStr}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Kayıp Türü (Loss Type)
+                    Loss Type (Loss Type)
                   </label>
                   <select
                     value={form.lossType}
@@ -602,13 +602,13 @@ ${inputsStr}
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Kayıp Türü Etiketi (Gösterilen)
+                    Loss Type Label (Displayed)
                   </label>
                   <input
                     type="text"
                     value={form.lossTypeLabel}
                     onChange={(e) => setForm((prev) => ({ ...prev, lossTypeLabel: e.target.value }))}
-                    placeholder="Örn: Kurulum ve Duruş Süresi Sızıntısı"
+                    placeholder="E.g. Setup and Downtime Leakage"
                     className="w-full min-h-[40px] rounded border border-slate/25 px-3 text-sm focus:border-copper focus:outline-none"
                   />
                 </div>
@@ -616,40 +616,40 @@ ${inputsStr}
 
               <div className="border-b border-slate/15 pb-2 pt-4">
                 <h3 className="text-base font-bold text-deep-navy">SEO Meta Verileri</h3>
-                <p className="text-xs text-muted">Arama motorlarında görünümü iyileştiren meta etiket girdileri.</p>
+                <p className="text-xs text-muted">Meta tag inputs that improve search engine visibility.</p>
               </div>
 
               <div className="space-y-4">
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    SEO Başlığı (Meta Title)
+                    SEO Title (Meta Title)
                   </label>
                   <input
                     type="text"
                     value={form.seoTitle}
                     onChange={(e) => setForm((prev) => ({ ...prev, seoTitle: e.target.value }))}
-                    placeholder="Örn: CNC Atölyesi Maliyet ve Teklif Hesaplama Analizi"
+                    placeholder="E.g. CNC Machining Cost Analysis"
                     className="w-full min-h-[40px] rounded border border-slate/25 px-3 text-sm focus:border-copper focus:outline-none"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    SEO Açıklaması (Meta Description)
+                    SEO Description (Meta Description)
                   </label>
                   <textarea
                     rows={2}
                     value={form.seoDescription}
                     onChange={(e) => setForm((prev) => ({ ...prev, seoDescription: e.target.value }))}
-                    placeholder="Vaka çalışmasını özetleyen, arama motorlarında tıklama oranını artıran 140-160 karakterlik açıklama."
+                    placeholder="A 140-160 character description summarizing the case study to improve search engine click-through rate."
                     className="w-full rounded border border-slate/25 p-3 text-sm focus:border-copper focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="border-b border-slate/15 pb-2 pt-4">
-                <h3 className="text-base font-bold text-deep-navy">Featured Snippet Soru & Cevap Bloğu</h3>
-                <p className="text-xs text-muted">Google aramalarında &quot;Sıfırıncı Sıra&quot; (Featured Snippet) kazanmayı hedefleyen Q&A alanları. Kalın yazmak istediğiniz kısımları seçip <strong>B</strong> butonuna basabilir veya Word gibi ortamlardan doğrudan kopyalayabilirsiniz.</p>
+                <h3 className="text-base font-bold text-deep-navy">Featured Snippet Q&A Block</h3>
+                <p className="text-xs text-muted">Q&A fields targeting Google &quot;Position Zero&quot; (Featured Snippet) rankings. Select text you want to bold and press <strong>B</strong>, or copy directly from Word-like editors.</p>
               </div>
 
               <div className="space-y-4">
@@ -660,54 +660,54 @@ ${inputsStr}
                   <RichTextArea
                     value={form.whatIsIt}
                     onChange={(val) => setForm((prev) => ({ ...prev, whatIsIt: val }))}
-                    placeholder="CNC talaşlı imalatta spindle (mil) süresi, programlama, kurulum (setup)..."
+                    placeholder="CNC machining spindle time, programming, setup..."
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    2. Nasıl Hesaplanır? (howIsItCalculated)
+                    2. How Is It Calculated? (howIsItCalculated)
                   </label>
                   <RichTextArea
                     value={form.howIsItCalculated}
                     onChange={(val) => setForm((prev) => ({ ...prev, howIsItCalculated: val }))}
-                    placeholder="Makine saat ücreti baz alınarak; hazırlık süresi, CAD/CAM programlama süresi..."
+                    placeholder="Based on machine hourly rate; setup time, CAD/CAM programming time..."
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    3. Neden Önemlidir / Faydaları? (whyItMatters)
+                    3. Why It Matters / Benefits (whyItMatters)
                   </label>
                   <RichTextArea
                     value={form.whyItMatters}
                     onChange={(val) => setForm((prev) => ({ ...prev, whyItMatters: val }))}
-                    placeholder="Gizli hazırlık süreleri ve duruşların tekliflendirme aşamasında göz ardı edilmesi..."
+                    placeholder="Hidden setup times and downtime ignored during quoting..."
                   />
                 </div>
               </div>
 
               <div className="border-b border-slate/15 pb-2 pt-4">
-                <h3 className="text-base font-bold text-deep-navy">Saha Senaryosu & Hesaplama Mantığı</h3>
-                <p className="text-xs text-muted">Vakanın gerçek hayattaki arka planı ve matematiksel modelleme detayları.</p>
+                <h3 className="text-base font-bold text-deep-navy">Field Scenario & Calculation Logic</h3>
+                <p className="text-xs text-muted">Real-world background and mathematical modeling details of the case.</p>
               </div>
 
               <div className="space-y-4">
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Problem Tanımı (problem)
+                    Problem Definition (problem)
                   </label>
                   <RichTextArea
                     value={form.problem}
                     onChange={(val) => setForm((prev) => ({ ...prev, problem: val }))}
-                    placeholder="Talaşlı imalat yapan bir CNC atölyesi, teklif verirken yalnızca net kesim..."
+                    placeholder="A CNC workshop, when quoting, only included net spindle time and material cost..."
                   />
                 </div>
 
-                {/* Dinamik inputSummary Alanı */}
+                {/* Dynamic inputSummary Area */}
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Saha Girdileri Özeti (inputSummary)
+                    Field Inputs Summary (inputSummary)
                   </label>
                   <div className="space-y-2">
                     {form.inputSummary.map((line, idx) => (
@@ -716,7 +716,7 @@ ${inputsStr}
                           type="text"
                           value={line}
                           onChange={(e) => handleInputSummaryChange(idx, e.target.value)}
-                          placeholder={`Girdi satırı ${idx + 1}`}
+                          placeholder={`Input line ${idx + 1}`}
                           className="flex-1 min-h-[36px] rounded border border-slate/25 px-3 text-sm focus:border-copper focus:outline-none"
                         />
                         <button
@@ -745,7 +745,7 @@ ${inputsStr}
                   <RichTextArea
                     value={form.calculationResult}
                     onChange={(val) => setForm((prev) => ({ ...prev, calculationResult: val }))}
-                    placeholder="Yapılan analizde, fiili yükler dahil toplam birim maliyetin 2.180 $ olduğu..."
+                    placeholder="The analysis found total unit cost including actual overhead is $2,180..."
                   />
                 </div>
 
@@ -756,7 +756,7 @@ ${inputsStr}
                   <RichTextArea
                     value={form.calculationLogic}
                     onChange={(val) => setForm((prev) => ({ ...prev, calculationLogic: val }))}
-                    placeholder="Doğrudan makine ve malzeme maliyetlerine; kurulum, ayar, CAD/CAM..."
+                    placeholder="Direct machine and material costs; setup, adjustment, CAD/CAM programming..."
                   />
                 </div>
 
@@ -767,57 +767,57 @@ ${inputsStr}
                   <RichTextArea
                     value={form.academicMethodology}
                     onChange={(val) => setForm((prev) => ({ ...prev, academicMethodology: val }))}
-                    placeholder="Analiz, deterministik maliyet yükleme modeliyle gerçekleştirilmiştir..."
+                    placeholder="The analysis was performed using a deterministic cost loading model..."
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Önerilen Eylem (suggestedAction)
+                    Suggested Action (suggestedAction)
                   </label>
                   <RichTextArea
                     value={form.suggestedAction}
                     onChange={(val) => setForm((prev) => ({ ...prev, suggestedAction: val }))}
-                    placeholder="Müşteriye sunulan teklif, hesaplanan güvenli fiyat tabanının altında..."
+                    placeholder="If the quote is below the calculated safe price floor, request a revision..."
                   />
                 </div>
               </div>
 
               <div className="border-b border-slate/15 pb-2 pt-4">
-                <h3 className="text-base font-bold text-deep-navy">İlişkili Hesaplama Aracı</h3>
-                <p className="text-xs text-muted">Vaka çalışmasının yönlendirileceği SectorCalc hesaplayıcısı.</p>
+                <h3 className="text-base font-bold text-deep-navy">Related Calculation Tool</h3>
+                <p className="text-xs text-muted">The SectorCalc calculator this case study links to.</p>
               </div>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Araç Başlığı (toolTitle)
+                    Tool Title (toolTitle)
                   </label>
                   <input
                     type="text"
                     value={form.toolTitle}
                     onChange={(e) => setForm((prev) => ({ ...prev, toolTitle: e.target.value }))}
-                    placeholder="Örn: CNC Teklif Risk Analizörü"
+                    placeholder="E.g. CNC Quote Risk Analyzer"
                     className="w-full min-h-[40px] rounded border border-slate/25 px-3 text-sm focus:border-copper focus:outline-none"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Araç Rota Slug&apos;ı (toolSlug)
+                    Tool Route Slug (toolSlug)
                   </label>
                   <input
                     type="text"
                     value={form.toolSlug}
                     onChange={(e) => setForm((prev) => ({ ...prev, toolSlug: e.target.value }))}
-                    placeholder="Örn: cnc-quote-risk-analyzer"
+                    placeholder="E.g. cnc-quote-risk-analyzer"
                     className="w-full min-h-[40px] rounded border border-slate/25 px-3 text-sm font-mono focus:border-copper focus:outline-none"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-deep-navy uppercase tracking-wider mb-1">
-                    Yönlendirme Grubu (toolRoute)
+                    Route Group (toolRoute)
                   </label>
                   <select
                     value={form.toolRoute}
@@ -835,7 +835,7 @@ ${inputsStr}
             </div>
           )}
 
-          {/* Canlı Önizleme (Preview Tab) */}
+          {/* Live Preview (Preview Tab) */}
           {activeTab === "preview" && (
             <div className="space-y-6">
               {/* Preview Subtabs */}
@@ -849,7 +849,7 @@ ${inputsStr}
                       : "border-transparent text-muted hover:text-deep-navy"
                   }`}
                 >
-                  Kart Görünümü (Dizin İçi)
+                  Card View (Directory View)
                 </button>
                 <button
                   type="button"
@@ -860,7 +860,7 @@ ${inputsStr}
                       : "border-transparent text-muted hover:text-deep-navy"
                   }`}
                 >
-                  Q&A Rapor Görünümü
+                  Q&A Report View
                 </button>
               </div>
 
@@ -873,15 +873,15 @@ ${inputsStr}
                         {form.sectorLabel || "SEKTÖR ETİKETİ"}
                       </p>
                       <span className="inline-block rounded bg-copper/10 px-2 py-0.5 text-[10px] font-medium tracking-wide text-copper font-mono">
-                        {form.lossTypeLabel || "Kayıp Türü"}
+                        {form.lossTypeLabel || "Loss Type"}
                       </span>
                     </div>
                     <h2 className="mt-3 text-base font-semibold text-deep-navy sm:text-lg">
-                      {form.title || "Vaka Çalışması Başlığı"}
+                      {form.title || "Case Study Title"}
                     </h2>
                     <p 
                       className="mt-2 line-clamp-3 text-sm text-slate"
-                      dangerouslySetInnerHTML={{ __html: form.problem || "Şirketin yaşadığı saha problemi burada listelenecektir..." }}
+                      dangerouslySetInnerHTML={{ __html: form.problem || "The field problem the company experienced will be listed here..." }}
                     />
                     <div className="mt-4 flex items-center justify-between border-t border-slate/15 pt-3">
                       <span className="text-[10px] text-muted font-mono">
@@ -898,10 +898,10 @@ ${inputsStr}
                     <div className="study-head" style={{ padding: "20px 22px 0", display: "flex", justifyContent: "between", gap: "16px" }}>
                       <div>
                         <span style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", color: "#BD5D3A", letterSpacing: "1px" }}>
-                          {form.sectorLabel || "CNC / Talaşlı İmalat"}
+                          {form.sectorLabel || "CNC / Machining"}
                         </span>
                         <h3 style={{ fontFamily: "Georgia, serif", fontSize: "20px", fontWeight: "normal", marginTop: "4px" }}>
-                          {form.title || "Başlık alanı"}
+                          {form.title || "Title field"}
                         </h3>
                       </div>
                       <div className="docid" style={{ fontFamily: "monospace", fontSize: "10px", color: "#7A776B", border: "1px solid #DBD8CC", padding: "5px 8px", alignSelf: "start" }}>
@@ -913,7 +913,7 @@ ${inputsStr}
                       {/* Q&A 1 */}
                       <div className="def" style={{ margin: "14px 0" }}>
                         <div className="q" style={{ fontFamily: "monospace", fontSize: "11px", color: "#BD5D3A", textTransform: "uppercase", fontWeight: "bold" }}>
-                          Tanım — Nedir?
+                          Tanm — Nedir?
                         </div>
                         <p 
                           style={{ fontSize: "14px", color: "#3A382F", marginTop: "4px" }}
@@ -924,22 +924,22 @@ ${inputsStr}
                       {/* Q&A 2 */}
                       <div className="def" style={{ margin: "14px 0" }}>
                         <div className="q" style={{ fontFamily: "monospace", fontSize: "11px", color: "#BD5D3A", textTransform: "uppercase", fontWeight: "bold" }}>
-                          Hesaplama Formülü
+                          Calculation Formula
                         </div>
                         <p 
                           style={{ fontSize: "14px", color: "#3A382F", marginTop: "4px" }}
-                          dangerouslySetInnerHTML={{ __html: form.howIsItCalculated || "Açıklama girilmedi." }}
+                          dangerouslySetInnerHTML={{ __html: form.howIsItCalculated || "No description entered." }}
                         />
                       </div>
 
                       {/* Q&A 3 */}
                       <div className="def" style={{ margin: "14px 0" }}>
                         <div className="q" style={{ fontFamily: "monospace", fontSize: "11px", color: "#BD5D3A", textTransform: "uppercase", fontWeight: "bold" }}>
-                          Neden Önemlidir / Faydaları?
+                          Why It Matters / Benefits
                         </div>
                         <p 
                           style={{ fontSize: "14px", color: "#3A382F", marginTop: "4px" }}
-                          dangerouslySetInnerHTML={{ __html: form.whyItMatters || "Açıklama girilmedi." }}
+                          dangerouslySetInnerHTML={{ __html: form.whyItMatters || "No description entered." }}
                         />
                       </div>
 

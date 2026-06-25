@@ -1,5 +1,5 @@
 // Implementation removed for rewrite
-export const calculateProTool5sIleriDenetimVeKulturelSurdurulebilirlikEndeksiCalculator88Contract = (inputs: any) => {
+export const calculate5sIleriDenetimVeKulturelSurdurulebilirlikEndeksiCalculator88Contract = (inputs: any) => {
   return {
     outputs: {},
     rules: [],

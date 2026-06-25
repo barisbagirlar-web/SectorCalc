@@ -33,7 +33,7 @@ export function LeadCleanupControls({
  <div>
  <h2 className="text-sm font-bold text-deep-navy">Lead Cleanup</h2>
  <p className="mt-1 text-xs text-text-secondary">
- Test/deneme kayıtlarını metriklerden hariç tut — tablo tüm lead&apos;leri gösterir.
+ Exclude test/trial records from metrics — table shows all leads.
  </p>
  </div>
 
@@ -45,7 +45,7 @@ export function LeadCleanupControls({
  className="h-4 w-4 rounded border-slate/30 text-professional-blue focus:ring-professional-blue/30"
  />
  <span className="text-sm font-medium text-deep-navy">
- Test lead&apos;leri metriklerden hariç tut
+ Exclude test leads from metrics
  </span>
  </label>
  </div>
@@ -53,7 +53,7 @@ export function LeadCleanupControls({
  <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
  <div className="rounded-lg border border-slate/15 bg-off-white/40 px-4 py-3">
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
- Toplam test lead
+ Total Test Leads
  </p>
  <p className="mt-1 text-xl font-bold tabular-nums text-deep-navy">
  {loading ? "…" : summary.testLeadCount}
@@ -61,7 +61,7 @@ export function LeadCleanupControls({
  </div>
  <div className="rounded-lg border border-slate/15 bg-off-white/40 px-4 py-3">
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
- Hariç tutulan
+ Excluded from Metrics
  </p>
  <p className="mt-1 text-xl font-bold tabular-nums text-deep-navy">
  {loading ? "…" : summary.excludedFromMetricsCount}
@@ -69,7 +69,7 @@ export function LeadCleanupControls({
  </div>
  <div className="rounded-lg border border-slate/15 bg-off-white/40 px-4 py-3">
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
- Metrikte kullanılan
+ Used in Metrics
  </p>
  <p className="mt-1 text-xl font-bold tabular-nums text-deep-navy">
  {loading ? "…" : summary.metricsLeadCount}
@@ -89,7 +89,7 @@ export function TestLeadBadge({ detection }: TestLeadBadgeProps) {
  return null;
  }
 
- const label = detection.isManualMark ? "Test Lead (Manuel)" : "Test Lead";
+ const label = detection.isManualMark ? "Test Lead (Manual)" : "Test Lead";
 
  return (
  <span
@@ -115,21 +115,21 @@ export function LeadDataQualityDetail({
  return (
  <div className="space-y-3">
  <DetailRow
- label="Test lead mi?"
- value={detection.isTestLead ? "Evet" : "Hayır"}
+ label="Is test lead?"
+ value={detection.isTestLead ? "Yes" : "No"}
  />
  <DetailRow
- label="Manuel işaret"
+ label="Manual mark"
  value={
  detection.isManualMark
- ? "Evet"
+ ? "Yes"
  : detection.manualOverrideNotTest
- ? "Hayır (admin onayı)"
+ ? "No (admin override)"
  : "—"
  }
  />
  <DetailRow
- label="Güven seviyesi"
+ label="Confidence level"
  value={
  detection.isTestLead
  ? formatTestLeadConfidence(detection.confidence)
@@ -137,7 +137,7 @@ export function LeadDataQualityDetail({
  }
  />
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
- <dt className="font-medium text-text-secondary">Tespit nedenleri</dt>
+ <dt className="font-medium text-text-secondary">Detection reasons</dt>
  <dd className="break-words text-deep-navy">
  {detection.reasons.length > 0 ? (
  <ul className="list-inside list-disc space-y-1">

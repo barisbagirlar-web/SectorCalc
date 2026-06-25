@@ -10,13 +10,13 @@ const tools = [];
 let currentSection = "";
 
 for (const line of lines) {
-  const secMatch = line.match(/^(\d+)\.\s+BÖLÜM:\s+(.+)/);
+  const secMatch = line.match(/^(\d+)\.\s+SECTION:\s+(.+)/);
   if (secMatch) {
     currentSection = secMatch[2].trim();
     continue;
   }
 
-  const toolMatch = line.match(/^(\d+)\.\s+([^|]+)\|\s+Girdiler:\s+([^|]+)\|\s+Formül:\s+([^|]+)(?:\|\s+Çıktı:\s+(.+))?$/);
+  const toolMatch = line.match(/^(\d+)\.\s+([^|]+)\|\s+Inputs:\s+([^|]+)\|\s+Formula:\s+([^|]+)(?:\|\s+Output:\s+(.+))?$/);
   if (toolMatch) {
     const id = parseInt(toolMatch[1], 10);
     const title = toolMatch[2].trim();

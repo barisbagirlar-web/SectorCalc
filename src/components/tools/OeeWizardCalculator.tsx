@@ -104,9 +104,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
         nextErrors.downtime = `downtime.label` + " ≥ 0";
       }
       if (!isNaN(P) && !isNaN(D) && D > P) {
-        nextErrors.downtime = false 
-          ? "Duruş süresi planlanan süreden büyük olamaz." 
-          : "Downtime cannot exceed planned time.";
+        nextErrors.downtime = "Downtime cannot exceed planned time.";
       }
     } else if (s === 2) {
       const C = parseFloat(idealCycleTime.replace(/,/g, "."));
@@ -124,9 +122,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
         nextErrors.defectCount = `defectcount.label` + " ≥ 0";
       }
       if (!isNaN(N) && !isNaN(F) && F > N) {
-        nextErrors.defectCount = false
-          ? "Hatalı sayısı toplam üretilen adetten fazla olamaz."
-          : "Defect count cannot exceed total parts.";
+        nextErrors.defectCount = "Defect count cannot exceed total parts.";
       }
     }
 
@@ -281,7 +277,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                     errors.plannedTime ? "border-red-500 bg-red-50" : "border-technical-gray"
                   }`}
                 />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">dk</span>
+                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">min</span>
               </div>
               {errors.plannedTime && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
@@ -311,7 +307,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                     errors.downtime ? "border-red-500 bg-red-50" : "border-technical-gray"
                   }`}
                 />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">dk</span>
+                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">min</span>
               </div>
               {errors.downtime && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
@@ -354,7 +350,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                     errors.idealCycleTime ? "border-red-500 bg-red-50" : "border-technical-gray"
                   }`}
                 />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">dk/adet</span>
+                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">min/pcs</span>
               </div>
               {errors.idealCycleTime && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
@@ -384,7 +380,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                     errors.totalCount ? "border-red-500 bg-red-50" : "border-technical-gray"
                   }`}
                 />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">adet</span>
+                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">pcs</span>
               </div>
               {errors.totalCount && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
@@ -427,7 +423,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                     errors.defectCount ? "border-red-500 bg-red-50" : "border-technical-gray"
                   }`}
                 />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">adet</span>
+                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">pcs</span>
               </div>
               {errors.defectCount && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
@@ -498,33 +494,7 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
               <span className="font-mono text-[10px] bg-[#3F7A52] text-white px-2 py-0.5 font-bold mr-2 uppercase tracking-wide">
                 {`DEFINITE`}
               </span>
-              {false ? (
-                <>
-                  %{formatPct(calculations.oee)} OEE, en büyük kaybın{" "}
-                  <b>
-                    {calculations.availability <= calculations.performance &&
-                    calculations.availability <= calculations.quality
-                      ? "kullanılabilirlik"
-                      : calculations.performance <= calculations.availability &&
-                        calculations.performance <= calculations.quality
-                      ? "performans"
-                      : "kalite"}
-                  </b>{" "}
-                  ekseninde olduğunu gösteriyor (%
-                  {formatPct(
-                    calculations.availability <= calculations.performance &&
-                    calculations.availability <= calculations.quality
-                      ? calculations.availability
-                      : calculations.performance <= calculations.availability &&
-                        calculations.performance <= calculations.quality
-                      ? calculations.performance
-                      : calculations.quality
-                  )}
-                  ).
-                </>
-              ) : (
-                <>
-                  {formatPct(calculations.oee)}% OEE shows that the primary loss occurs in{" "}
+              {formatPct(calculations.oee)}% OEE shows that the primary loss occurs in{" "}
                   <b>
                     {calculations.availability <= calculations.performance &&
                     calculations.availability <= calculations.quality
@@ -553,14 +523,14 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
               <span className="font-mono text-[10px] bg-[#BD5D3A] text-white px-2 py-0.5 font-bold mr-2 uppercase tracking-wide">
                 {`STRONG PROBABILITY`}
               </span>
-              En büyük kayıp kalemi performans kaybı; ideal çevrime kıyasla hat ortalama %12 yavaş çalışıyor. Mikro-duruşlar ve hız düşüşleri muhtemel ana neden.
+              The largest loss category is Performance; compared to ideal cycle, the line runs ~12% slow on average. Micro-stops and speed losses are likely root causes.
             </p>
 
             <p className="text-sm text-text-primary/30 select-none blur-sm pointer-events-none mb-4 leading-relaxed">
               <span className="font-mono text-[10px] bg-[#B98900] text-white px-2 py-0.5 font-bold mr-2 uppercase tracking-wide">
                 {`ASSUMPTION`}
               </span>
-              Kalite kaybını %1 puan düşürmek yıllık ≈€14.500 geri kazanım sağlar; en kritik müdahale gelen malzeme kabul eşiği.
+              Reducing quality loss by 1 percentage point saves ≈€14,500/year in recovery; the most critical intervention is incoming material acceptance threshold.
             </p>
 
             <div className="bg-[#111111] p-4 flex flex-col sm:flex-row items-center justify-between gap-4 mt-4">

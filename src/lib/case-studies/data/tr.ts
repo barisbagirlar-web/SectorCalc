@@ -25,7 +25,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Müşteriye sunulan teklif, hesaplanan güvenli fiyat tabanının altında kalıyorsa, iş emri onaylanmadan önce hazırlık veya programlama kalemi için ek teklif revizyonu talep edilmelidir.",
     toolSlug: "cnc-quote-risk-analyzer",
     toolTitle: "CNC Teklif Risk Analizörü",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "construction-bid-margin-field-analysis",
@@ -51,7 +51,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "İhale teslim edilmeden önce, hesaplanan operasyonel gecikme ve re-mobilizasyon risk payı kadar bütçe rezervi eklenmeli ya da sözleşmeye gecikme cezası muafiyet maddeleri eklenmelidir.",
     toolSlug: "change-order-impact-analyzer",
     toolTitle: "İş Değişikliği (Change Order) Etki Analizörü",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "cleaning-contract-field-analysis",
@@ -77,7 +77,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Müşterinin bütçe limiti asgari maliyet tabanının altındaysa, ziyaret sıklığı düşürülmeli ya da sözleşme kapsamındaki sarf malzemesi tedariki müşteriye devredilmelidir.",
     toolSlug: "office-cleaning-bid-optimizer",
     toolTitle: "Ofis Temizliği Teklif Optimizasyonu",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "logistics-route-field-analysis",
@@ -102,7 +102,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Güzergah sapma payı yüksek olan hatlarda navlun sözleşmelerine bekleme saati ücreti (demurrage) eklenmeli veya dönüş yükü anlaşmaları önceden yapılmalıdır.",
     toolSlug: "route-optimization-analyzer",
     toolTitle: "Güzergah Optimizasyon Analizörü",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "energy-compressor-peak-field-analysis",
@@ -154,7 +154,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Teklif aşamasında kaynak mühendisi onaylı alıştırma süreleri bütçeye eklenmeli ve tahribatsız muayene (NDT) maliyetleri teklife ayrı bir kalem olarak yansıtılmalıdır.",
     toolSlug: "welding-bid-risk-analyzer",
     toolTitle: "Kaynak Teklifi Risk Analizörü",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "hvac-install-field-analysis",
@@ -180,7 +180,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Büyük ölçekli HVAC tekliflerinde test-ayar-dengeleme (TAB) işlemleri için bağımsız teknik personel bütçesi ayrılmalı ve garanti riski için cihaz bedelinin en az %3'ü kadar yedek akçe tutulmalıdır.",
     toolSlug: "hvac-project-margin-guard",
     toolTitle: "HVAC Proje Marj Koruyucu",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "plumbing-panel-field-analysis",
@@ -206,7 +206,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Resmi onay gerektiren işlerde, muayene süreci boyunca sahada bulundurulacak personel için günlük bekleme bedeli sözleşmeye dahil edilmelidir.",
     toolSlug: "plumbing-job-margin-verdict",
     toolTitle: "Tesisat İş Marj Kararı",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "sheet-metal-fab-field-analysis",
@@ -232,7 +232,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "İmalat siparişi onaylanmadan önce CAD yerleşimi (nesting) yapılmalı, net levha verimliliği görülmeli ve büküm sayısı bazlı kurulum ücreti teklife yansıtılmalıdır.",
     toolSlug: "sheet-metal-quote-risk-tool",
     toolTitle: "Sac Metal Teklif Risk Analizi",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "restaurant-menu-field-analysis",
@@ -258,7 +258,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Reçeteler hazırlanırken tüm ürünlerin pişmiş/ayıklanmış ağırlıkları (EP) esas alınmalı ve haftalık mutfak sayımları ile teorik-fiili gıda maliyeti sapması takip edilmelidir.",
     toolSlug: "menu-profit-leak-detector",
     toolTitle: "Menü Kar Kaçağı Dedektörü",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "ecommerce-returns-field-analysis",
@@ -284,7 +284,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "İade oranı yüksek olan ürün gruplarında satış fiyatı yukarı yönlü revize edilmeli ya da ürün detay sayfalarındaki beden/ölçü tabloları optimize edilerek iade olasılığı düşürülmelidir.",
     toolSlug: "return-profit-erosion-tool",
     toolTitle: "İade Kar Erozyon Aracı",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "change-order-impact-field-analysis",
@@ -310,7 +310,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Her iş değişikliği talebinde (change order), malzeme fiyatının yanına 'Takvim Etki Rezervi' ve 'Şantiye Sabit Gider Yükü' kalemleri eklenerek fiyat onaya sunulmalıdır.",
     toolSlug: "change-order-impact-analyzer",
     toolTitle: "İş Değişikliği (Change Order) Etki Analizörü",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "energy-efficiency-field-analysis",
@@ -336,7 +336,7 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Vardiya bitişlerinde makinelerin otomatik stand-by moduna geçiş senaryoları programlanmalı, hafta sonu kapatma prosedürleri (shutdown checklist) uygulanmalıdır.",
     toolSlug: "energy-efficiency-report",
     toolTitle: "Enerji Verimliliği Raporu",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   },
   {
     slug: "cbam-compliance-field-analysis",
@@ -361,6 +361,6 @@ export const TR_CASE_STUDIES: readonly CaseStudyEntry[] = [
     suggestedAction: "Üretim tesislerinde yeşil enerji kullanım oranları artırılmalı, Scope 1-2 emisyon düşürücü yatırımlar planlanmalı ve satış kontratlarına karbon vergisi sorumluluk paylaşım maddeleri eklenmelidir.",
     toolSlug: "cbam-compliance-verdict",
     toolTitle: "SKDM (CBAM) Uyum Kararı",
-    toolRoute: "pro-tools"
+    toolRoute: "premium-tools"
   }
 ];
