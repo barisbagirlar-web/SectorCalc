@@ -69,6 +69,16 @@ Aşağıdaki durumlarda brief ZORUNLUDUR:
 - Import path'ini değiştirmek veya dosyayı taşımak
 - Kullanıcıya görünen bir string/mesajı değiştirmek
 
+## Dev Server — SADECE `bash dev.sh`
+
+Dev server başlatmak için TEK doğru komut:
+```bash
+bash dev.sh
+```
+`npm run dev`, `npx next dev`, `next dev` **KULLANMA**. Port çakışması ve SW sorunları yaşarsın.
+
+Bir AI dev server'ı başlattıysa diğeri restart etmez. Hard refresh (Cmd+Shift+R) dene.
+
 ## Her görev öncesi kontrol
 
 1. AI_CONSTITUTION.md'yi oku

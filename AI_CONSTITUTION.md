@@ -166,9 +166,22 @@ npm run lint
 npm run build
 ```
 
+### Kural 7: Dev Server Başlatma (Ortak)
+
+Her iki AI da dev server'ı başlatmak için **sadece** `bash dev.sh` komutunu kullanır.
+`npx next dev`, `npm run dev`, `next dev` gibi alternatif komutlar **yasaktır**.
+
+`dev.sh` şunları otomatik yapar:
+1. Port 3000'deki eski process'i öldürür
+2. `.next` cache'ini temizler (gerekirse)
+3. Dev server'ı başlatır → http://localhost:3000
+
+**Bir AI dev server'ı başlattıysa, diğeri asla restart etmez.**
+Değişiklik görünmüyorsa tarayıcıda hard refresh (Cmd+Shift+R) yap, server'ı yeniden başlatma.
+
 ---
 
-## 3. Commit Stili
+## 3. Ortak Komutlar
 
 ```
 [AI_ADI] alan: kısa açıklama

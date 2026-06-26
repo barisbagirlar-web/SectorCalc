@@ -154,9 +154,20 @@ export function SiteHeader({ isAuthenticated = false }) {
   const navRef=useRef<any>(null);
   const langRef=useRef<any>(null);
   const closeTimer=useRef<any>(null);
+  const isTouchRef = useRef(false);
+  const lastTouchTimeRef = useRef(0);
 
-  const openWithIntent=useCallback((m: string)=>{ if(closeTimer.current)clearTimeout(closeTimer.current); setOpenMenu(m); setLangOpen(false); },[]);
-  const closeWithIntent=useCallback(()=>{ if(closeTimer.current)clearTimeout(closeTimer.current); closeTimer.current=setTimeout(()=>setOpenMenu(null),120); },[]);
+  const openWithIntent=useCallback((m: string)=>{
+    if (isTouchRef.current) return;
+    if(closeTimer.current)clearTimeout(closeTimer.current);
+    setOpenMenu(m);
+    setLangOpen(false);
+  },[]);
+  const closeWithIntent=useCallback(()=>{
+    if (isTouchRef.current) return;
+    if(closeTimer.current)clearTimeout(closeTimer.current);
+    closeTimer.current=setTimeout(()=>setOpenMenu(null),120);
+  },[]);
 
   useEffect(()=>{
     function onClick(e: any){
@@ -164,9 +175,24 @@ export function SiteHeader({ isAuthenticated = false }) {
       if(langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
     }
     function onKey(e: any){ if(e.key==='Escape'){ setOpenMenu(null); setLangOpen(false); } }
+    function onTouchStart() {
+      isTouchRef.current = true;
+      lastTouchTimeRef.current = Date.now();
+    }
+    function onMouseMove() {
+      if (Date.now() - lastTouchTimeRef.current < 1000) return;
+      isTouchRef.current = false;
+    }
     document.addEventListener('mousedown',onClick);
     document.addEventListener('keydown',onKey);
-    return ()=>{ document.removeEventListener('mousedown',onClick); document.removeEventListener('keydown',onKey); };
+    document.addEventListener('touchstart',onTouchStart,{passive:true});
+    document.addEventListener('mousemove',onMouseMove);
+    return ()=>{
+      document.removeEventListener('mousedown',onClick);
+      document.removeEventListener('keydown',onKey);
+      document.removeEventListener('touchstart',onTouchStart);
+      document.removeEventListener('mousemove',onMouseMove);
+    };
   },[]);
 
   const switchLocale=(code: string)=>{
