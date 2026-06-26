@@ -1,0 +1,161 @@
+{
+  "tool_id": "PRO_039",
+  "tool_name": "Electrical Motor Energy Audit — Load Factor, Efficiency Penalty & VFD Retrofit ROI",
+  "category": "Electrical Systems / Energy Management",
+  "scope": "single_operation",
+  "primary_operation": "induction_motor_audit",
+  "inputs": [
+    {
+      "id": "rated_power_kw",
+      "name": "Motor Nameplate Power (P_rated)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.37,
+      "absolute_max": 30000
+    },
+    {
+      "id": "measured_input_kw",
+      "name": "Measured Input Power at Operating Point",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.1,
+      "absolute_max": 35000
+    },
+    {
+      "id": "nameplate_efficiency_pct",
+      "name": "Nameplate Full-Load Efficiency (η_FL)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 70,
+      "absolute_max": 99
+    },
+    {
+      "id": "operating_hours_yr",
+      "name": "Annual Operating Hours",
+      "unit": "h/yr",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 8000,
+      "absolute_min": 100,
+      "absolute_max": 8760
+    },
+    {
+      "id": "electricity_rate_usd_kwh",
+      "name": "Electricity Tariff",
+      "unit": "USD/kWh",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.1,
+      "absolute_min": 0.01,
+      "absolute_max": 0.5
+    },
+    {
+      "id": "avg_load_pct",
+      "name": "Average Operating Load Factor (% of rated output)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 75,
+      "absolute_min": 10,
+      "absolute_max": 100
+    },
+    {
+      "id": "vfd_cost_usd",
+      "name": "VFD Capital Cost (installed)",
+      "unit": "USD",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "absolute_min": 500,
+      "absolute_max": 2000000
+    },
+    {
+      "id": "vfd_energy_saving_pct",
+      "name": "Expected Energy Saving with VFD",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 30,
+      "absolute_min": 5,
+      "absolute_max": 60,
+      "note": "Fan/pump affinity laws: saving ≈ 1-(load_ratio)³; typical 20–40% for centrifugal loads"
+    }
+  ],
+  "formulas": [
+    "LF = avg_load_pct / 100   // [dimensionless] Load Factor Reference: IEC 60034-30-1 §4 — load factor definition",
+    "eta_partload = nameplate_efficiency_pct * LF / (LF^2 * (1 - nameplate_efficiency_pct/100) * 2 + LF * nameplate_efficiency_pct/100 + (1-LF)^2 * 0.05 * (1-nameplate_efficiency_pct/100))   // [%] Part-Load Efficiency (Eff@LF) Reference: NEMA MG1-2016 Part 30 — semi-empirical part-load efficiency model",
+    "E_current_kwh = measured_input_kw * operating_hours_yr   // [kWh/yr] Annual Energy Consumption — Current",
+    "E_vfd_kwh = E_current_kwh_yr * (1 - vfd_energy_saving_pct/100)   // [kWh/yr] Annual Energy Consumption — With VFD",
+    "saving_usd_yr = (E_current_kwh_yr - E_vfd_kwh_yr) * electricity_rate_usd_kwh   // [USD/yr] Annual Energy Cost Saving Reference: ISO 50001:2018 §6.3 — energy baseline and saving verification",
+    "payback_yr = vfd_cost_usd / saving_usd_yr   // [years] VFD Simple Payback Period"
+  ],
+  "engine_rules": {
+    "standards": [
+      "IEC 60034-30-1:2014 (IE efficiency classes)",
+      "NEMA MG1-2016 Part 30",
+      "ISO 50001:2018",
+      "EU Regulation 640/2009"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "measured_input_kw > rated_power_kw * 1.15",
+        "error_msg": "Measured input exceeds 115% of rated power: motor overloaded or power measurement error"
+      },
+      "V2": {
+        "condition": "avg_load_pct < 40",
+        "error_msg": "Load factor <40%: motor significantly oversized — downsizing or VFD mandatory for IE3 compliance"
+      },
+      "V3": {
+        "condition": "saving_usd_yr <= 0",
+        "error_msg": "Negative saving: check VFD saving input or operating hours"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Load factor < 50%: motor running in low-efficiency zone — IE3 motors below 50% load see 5–15% efficiency drop per IEC 60034-30-1",
+        "condition": "LF < 0.5",
+        "source": "IEC 60034-30-1:2014 (IE efficiency classes)"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "VFD payback > 5 years: marginal ROI — re-evaluate saving estimate or negotiate capital cost",
+        "condition": "payback_yr > 5",
+        "source": "IEC 60034-30-1:2014 (IE efficiency classes)"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "VFD payback < 2 years: strong ROI — prioritize for next capital cycle",
+        "condition": "payback_yr < 2",
+        "source": "IEC 60034-30-1:2014 (IE efficiency classes)"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Motor below IE2 threshold for this power class: EU Regulation 640/2009 compliance risk — IE3 minimum required >7.5 kW",
+        "condition": "nameplate_efficiency_pct < 90 && rated_power_kw > 15",
+        "source": "IEC 60034-30-1:2014 (IE efficiency classes)"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "High-utilisation + high saving: evaluate premium IE4/IE5 motor replacement in parallel with VFD",
+        "condition": "operating_hours_yr > 6000 && vfd_energy_saving_pct > 25",
+        "source": "IEC 60034-30-1:2014 (IE efficiency classes)"
+      }
+    ]
+  }
+}

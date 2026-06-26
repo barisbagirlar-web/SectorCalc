@@ -20,7 +20,7 @@ export interface LocalizedPremiumSchema {
 
 const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {};
 
-const PREMIUM_SCHEMA_I18N: Partial<Record<AppLocale, Record<string, LocalizedPremiumSchema>>> = {
+const PREMIUM_SCHEMA_I18N: Partial<Record<string, Record<string, LocalizedPremiumSchema>>> = {
   de: DE_SCHEMAS,
   fr: FR_SCHEMAS,
   es: ES_SCHEMAS,

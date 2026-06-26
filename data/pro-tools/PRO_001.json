@@ -1,0 +1,160 @@
+{
+  "tool_id": "PRO_001",
+  "tool_name": "CNC Milling — Cutting Force, Specific Cutting Energy & Spindle Power",
+  "category": "CNC Machining / Metal Cutting",
+  "scope": "single_operation",
+  "primary_operation": "milling",
+  "inputs": [
+    {
+      "id": "Vc_m_min",
+      "name": "Cutting Speed (V_c)",
+      "unit": "m/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 10,
+      "absolute_max": 2000,
+      "note": "From Sandvik C-2920 Table 1 or tool manufacturer data for workpiece/tool material combination"
+    },
+    {
+      "id": "fz_mm",
+      "name": "Feed per Tooth (f_z)",
+      "unit": "mm/tooth",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.01,
+      "absolute_max": 2
+    },
+    {
+      "id": "ap_mm",
+      "name": "Axial Depth of Cut (a_p)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.05,
+      "absolute_max": 200
+    },
+    {
+      "id": "ae_mm",
+      "name": "Radial Depth of Cut (a_e)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.05,
+      "absolute_max": 500
+    },
+    {
+      "id": "z_teeth",
+      "name": "Number of Cutter Teeth (z)",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 30
+    },
+    {
+      "id": "D_mm",
+      "name": "Cutter Diameter (D_c)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 800
+    },
+    {
+      "id": "kc1_mpa",
+      "name": "Specific Cutting Force at 1 mm² Chip Area (k_c1)",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 2000,
+      "absolute_min": 500,
+      "absolute_max": 5000,
+      "note": "Sandvik C-2920: Steel 0.2C → k_c1=1900; Stainless 316L → 2700; Ti6Al4V → 1700; Al7075 → 700 MPa"
+    },
+    {
+      "id": "mc_exponent",
+      "name": "Chip Thickness Exponent (m_c)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": false,
+      "confidence_label": "VARSAYIM",
+      "default": 0.25,
+      "absolute_min": 0.15,
+      "absolute_max": 0.4,
+      "note": "Sandvik: steel = 0.22–0.27; cast iron = 0.26; aluminium = 0.25"
+    }
+  ],
+  "formulas": [
+    "n_rpm = Vc_m_min * 1000 / (Math.PI * D_mm)   // [rpm] Spindle Speed (n) Reference: n = V_c × 1000 / (π × D_c) — Sandvik C-2920 §4.1",
+    "Vf_mm_min = fz_mm * z_teeth * n_rpm   // [mm/min] Table Feed Rate (V_f) Reference: V_f = f_z × z × n — ISO 3685:1993 §3.2",
+    "hm_mm = fz_mm * Math.sqrt(ae_mm / D_mm)   // [mm] Mean Chip Thickness (h_m) Reference: h_m = f_z × √(a_e/D_c) — Sandvik C-2920 §4.3; valid for a_e/D_c ≤ 0.5",
+    "kc_mpa = kc1_mpa / Math.pow(hm_mm, mc_exponent)   // [MPa] Specific Cutting Force at Operating Conditions (k_c) Reference: k_c = k_c1 / h_m^m_c — Kienzle force model; Sandvik C-2920 §4.4",
+    "Fc_N = kc_mpa * ap_mm * hm_mm   // [N] Mean Tangential Cutting Force (F_c) Reference: F_c = k_c × a_p × h_m — Kienzle; CIRP Annals Vol.57 §2.1",
+    "Pc_kw = Fc_N * Vc_m_min / 60000   // [kW] Net Spindle Power (P_c) Reference: P_c = F_c × V_c / 60000 — Sandvik C-2920 §4.5; add 25% for spindle efficiency"
+  ],
+  "engine_rules": {
+    "standards": [
+      "Sandvik Coromant C-2920 2024",
+      "ISO 513:2012 (cutting tool classification)",
+      "CIRP Annals Vol.57 (2008) §2"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "ae_mm > D_mm",
+        "error_msg": "Radial depth a_e cannot exceed cutter diameter D_c — reduce a_e or select larger cutter"
+      },
+      "V2": {
+        "condition": "Pc_kw > 50",
+        "error_msg": "Spindle power demand > 50 kW: verify machine spindle rating; add 25% mechanical loss for machine requirement"
+      },
+      "V3": {
+        "condition": "hm_mm < 0.01",
+        "error_msg": "Mean chip thickness < 0.01 mm: rubbing regime — built-up edge and tool wear risk; increase f_z or a_e"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "a_e/D_c > 70%: full or near-full engagement — tool deflection and chatter risk severe; reduce radial depth to ≤ 50% and use finishing pass strategy",
+        "condition": "ae_mm / D_mm > 0.7",
+        "source": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Specific cutting force > 3500 MPa: hard material or worn tool — verify k_c1 input and check for built-up edge; consider coated carbide grade",
+        "condition": "kc_mpa > 3500",
+        "source": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Spindle speed > 20,000 rpm: HSM regime — verify spindle bearing rating, tool balance (ISO 1940 G2.5), and coolant pressure capacity",
+        "condition": "n_rpm > 20000",
+        "source": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "Table feed > 5000 mm/min: high-feed machining — verify CNC controller acceleration and servo drive current limits",
+        "condition": "Vf_mm_min > 5000",
+        "source": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Deep axial cut with many teeth: high chip volume — verify chip evacuation; coolant-through-tool strongly recommended",
+        "condition": "ap_mm > D_mm * 1.5 && z_teeth > 4",
+        "source": "Sandvik Coromant C-2920 2024"
+      }
+    ]
+  }
+}

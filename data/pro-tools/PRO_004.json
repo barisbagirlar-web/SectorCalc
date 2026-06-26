@@ -1,0 +1,199 @@
+{
+  "tool_id": "PRO_004",
+  "tool_name": "VDI 2230 Bolted Joint — Tightening Torque, Preload Loss & Fatigue Safety Factor",
+  "category": "Mechanical Design / Bolted Connections",
+  "scope": "single_operation",
+  "primary_operation": "bolted_joint",
+  "inputs": [
+    {
+      "id": "bolt_size",
+      "name": "Bolt Nominal Diameter × Pitch (ISO metric)",
+      "unit": "mm",
+      "type": "enum",
+      "options": [
+        {
+          "label": "M6 × 1.0 — As=20.1 mm²",
+          "value": "M6"
+        },
+        {
+          "label": "M8 × 1.25 — As=36.6 mm²",
+          "value": "M8"
+        },
+        {
+          "label": "M10 × 1.5 — As=58.0 mm²",
+          "value": "M10"
+        },
+        {
+          "label": "M12 × 1.75 — As=84.3 mm²",
+          "value": "M12"
+        },
+        {
+          "label": "M16 × 2.0 — As=157 mm²",
+          "value": "M16"
+        },
+        {
+          "label": "M20 × 2.5 — As=245 mm²",
+          "value": "M20"
+        },
+        {
+          "label": "M24 × 3.0 — As=353 mm²",
+          "value": "M24"
+        },
+        {
+          "label": "M30 × 3.5 — As=561 mm²",
+          "value": "M30"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "M12"
+    },
+    {
+      "id": "property_class",
+      "name": "Bolt Property Class",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "8.8 — Rp0.2=640 MPa, Rm=800 MPa",
+          "value": "8.8"
+        },
+        {
+          "label": "10.9 — Rp0.2=900 MPa, Rm=1040 MPa",
+          "value": "10.9"
+        },
+        {
+          "label": "12.9 — Rp0.2=1080 MPa, Rm=1220 MPa",
+          "value": "12.9"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "10.9"
+    },
+    {
+      "id": "mu_friction",
+      "name": "Thread & Under-Head Friction Coefficient (μ_total)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 0.12,
+      "absolute_min": 0.06,
+      "absolute_max": 0.35,
+      "note": "VDI 2230 Table A5: dry steel = 0.14–0.18; MoS₂ = 0.06–0.10; zinc-phosphate = 0.09–0.14"
+    },
+    {
+      "id": "utilisation_pct",
+      "name": "Bolt Utilisation at Assembly (% of proof load)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 90,
+      "absolute_min": 50,
+      "absolute_max": 100,
+      "note": "VDI 2230 §5.3.1: controlled torque tightening → 90%; torque-angle → 95–100%"
+    },
+    {
+      "id": "preload_loss_pct",
+      "name": "Expected Embedding / Relaxation Loss (% of initial preload)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 8,
+      "absolute_min": 3,
+      "absolute_max": 25,
+      "note": "VDI 2230 Table 5: machined surfaces = 5–10%; rough cast = 15–25%; plastic inserter = 20%"
+    },
+    {
+      "id": "FA_kn",
+      "name": "External Axial Working Load per Bolt (F_A)",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 5000
+    },
+    {
+      "id": "phi_force_ratio",
+      "name": "Load Introduction Factor (Φ)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": false,
+      "confidence_label": "VARSAYIM",
+      "default": 0.3,
+      "absolute_min": 0.1,
+      "absolute_max": 1,
+      "note": "VDI 2230 §4.2: concentric bolt through long joint → Φ≈0.1; direct shear plane → Φ≈0.5"
+    }
+  ],
+  "formulas": [
+    "const A_s = {M6:20.1, M8:36.6, M10:58.0, M12:84.3, M16:157, M20:245, M24:353, M30:561}[bolt_size]; const Rp02 = {\"8.8\":640, \"10.9\":900, \"12.9\":1080}[property_class]; F_proof_kn = A_s * Rp02 / 1000   // [kN, mm²] Bolt Stress Area & Proof Load Reference: ISO 898-1:2013 — proof load = A_s × Rp0.2",
+    "FM_kn = F_proof_kn * utilisation_pct / 100   // [kN] Assembly Preload (F_M) Reference: VDI 2230 §5.3.1 — F_M = R_p0.2 × A_s × ν_A; ν_A = utilisation factor",
+    "const d = parseFloat(bolt_size.replace('M','')); const p = {M6:1.0,M8:1.25,M10:1.5,M12:1.75,M16:2.0,M20:2.5,M24:3.0,M30:3.5}[bolt_size]; MA_Nm = FM_kn * 1000 * (p/(2*Math.PI) + mu_friction * d * 0.583 + mu_friction * d * 0.5) / 1000   // [N·m] Tightening Torque (M_A) — Approximate Reference: VDI 2230 Eq.(167) — M_A = F_M(p/2π + μ_G·d_2·0.58 + μ_K·D_Km/2)",
+    "FVmin_kn = FM_kn * (1 - preload_loss_pct / 100) - phi_force_ratio * FA_kn   // [kN] Minimum Clamp Force After Embedding (F_Vmin) Reference: VDI 2230 §5.4.1 — F_Vmin = F_M(1-f_Z) - Φ·F_A; f_Z = embedding factor",
+    "SA = FVmin_kn / ((1 - phi_force_ratio) * FA_kn)   // [dimensionless] Interface Separation Safety Factor (S_A) Reference: VDI 2230 §5.4.2 — S_A ≥ 1.2 for reliable joint; S_A < 1.0 = joint separates",
+    "dFA_kn = phi_force_ratio * FA_kn; sigma_a_mpa = dFA_kn * 1000 / A_s   // [MPa] Bolt Fatigue Stress Amplitude (σ_a) Reference: VDI 2230 §6 — fatigue amplitude σ_a = Φ·F_A/A_s; compare to σ_ASV from Haigh diagram"
+  ],
+  "engine_rules": {
+    "standards": [
+      "VDI 2230:2015 Part 1",
+      "ISO 898-1:2013",
+      "DIN 946:1990 (friction coefficients)"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "SA < 1.0",
+        "error_msg": "Joint separation: clamp force exhausted by working load — increase preload (larger bolt, higher class), reduce F_A, or increase bolt count"
+      },
+      "V2": {
+        "condition": "FM_kn > F_proof_kn",
+        "error_msg": "Assembly preload exceeds proof load: bolt will yield on tightening — reduce utilisation to max 95% or select 10.9/12.9 class"
+      },
+      "V3": {
+        "condition": "SA < 1.2",
+        "error_msg": "Separation safety factor < 1.2: marginal joint — VDI 2230 minimum S_A = 1.2 for reliable sealing and fatigue resistance"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Bolt fatigue amplitude > 50 MPa: high fatigue loading — check against VDI 2230 Haigh diagram; apply thread-rolling (fatigue limit improvement ~30%) or increase bolt diameter",
+        "condition": "sigma_a_mpa > 50",
+        "source": "VDI 2230:2015 Part 1"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Very low friction coefficient: self-loosening risk in vibration environments — evaluate NORD-LOCK washers or anaerobic adhesive per VDI 2230 §3.5",
+        "condition": "mu_friction < 0.08",
+        "source": "VDI 2230:2015 Part 1"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "12.9 class with low friction: hydrogen embrittlement risk in acidic environments — verify plating and service environment compatibility per ISO 4042",
+        "condition": "property_class === '12.9' && mu_friction < 0.10",
+        "source": "VDI 2230:2015 Part 1"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "High embedding loss (>15%): rough or soft interface — machine mating surfaces or add hardened washer to reduce embedding; re-torque protocol recommended after 48h",
+        "condition": "preload_loss_pct > 15",
+        "source": "VDI 2230:2015 Part 1"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Low utilisation (<70%): bolt is underloaded — susceptible to fatigue and loosening; increase preload per VDI 2230 §5.3 or reduce to smaller bolt diameter",
+        "condition": "utilisation_pct < 70",
+        "source": "VDI 2230:2015 Part 1"
+      }
+    ]
+  }
+}

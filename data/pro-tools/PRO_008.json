@@ -1,0 +1,181 @@
+{
+  "tool_id": "PRO_008",
+  "tool_name": "Steel Column Axial Compression — Slenderness, Critical Stress & Euler Buckling Load",
+  "category": "Structural Engineering / Steel Design",
+  "scope": "single_operation",
+  "primary_operation": "steel_column",
+  "inputs": [
+    {
+      "id": "Pu_kn",
+      "name": "Factored Axial Compressive Demand (P_u / N_Ed)",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 200000
+    },
+    {
+      "id": "L_eff_m",
+      "name": "Effective Column Length (KL)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.3,
+      "absolute_max": 60,
+      "note": "Effective length = K × L; AISC Commentary C-C2.2: pinned-pinned K=1.0; fixed-pinned K=0.7; fixed-fixed K=0.5"
+    },
+    {
+      "id": "r_min_mm",
+      "name": "Minimum Radius of Gyration (r_min)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 5,
+      "absolute_max": 400,
+      "note": "From section tables; r_y for wide-flange; r_min for angle — typically controls buckling"
+    },
+    {
+      "id": "A_g_mm2",
+      "name": "Gross Cross-Section Area (A_g)",
+      "unit": "mm²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 100,
+      "absolute_max": 200000
+    },
+    {
+      "id": "Fy_mpa",
+      "name": "Steel Yield Strength (F_y)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "S235 / A36 — 235 MPa",
+          "value": 235
+        },
+        {
+          "label": "S275 — 275 MPa",
+          "value": 275
+        },
+        {
+          "label": "S355 / A572-50 — 355 MPa",
+          "value": 355
+        },
+        {
+          "label": "S460 — 460 MPa",
+          "value": 460
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 355
+    },
+    {
+      "id": "end_condition",
+      "name": "End Condition — Effective Length Factor (K)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "K=0.5 — Fixed-Fixed (ideal)",
+          "value": 0.5
+        },
+        {
+          "label": "K=0.65 — Fixed-Fixed (practical)",
+          "value": 0.65
+        },
+        {
+          "label": "K=0.7 — Fixed-Pinned",
+          "value": 0.7
+        },
+        {
+          "label": "K=1.0 — Pinned-Pinned",
+          "value": 1
+        },
+        {
+          "label": "K=1.2 — Pinned-Fixed (sway)",
+          "value": 1.2
+        },
+        {
+          "label": "K=2.0 — Fixed-Free (cantilever)",
+          "value": 2
+        }
+      ],
+      "required": false,
+      "confidence_label": "GÜÇLÜ",
+      "default": 1,
+      "note": "Used if KL not pre-calculated; L_eff = K × physical length"
+    }
+  ],
+  "formulas": [
+    "KL_r = L_eff_m * 1000 / r_min_mm   // [dimensionless] Slenderness Ratio (KL/r) Reference: AISC 360-22 E2 — slenderness ratio; limit KL/r ≤ 200 for compression members",
+    "E_steel = 200000; Fe_mpa = Math.pow(Math.PI, 2) * E_steel / Math.pow(KL_r, 2)   // [MPa] Elastic Buckling Stress (F_e) Reference: AISC 360-22 E3-4 — F_e = π²E/(KL/r)²; E = 200,000 MPa for steel",
+    "lambda_c = Math.sqrt(Fy_mpa / Fe_mpa); Fcr_mpa = (lambda_c <= 1.5) ? Math.pow(0.658, lambda_c * lambda_c) * Fy_mpa : (0.877 / (lambda_c * lambda_c)) * Fy_mpa   // [MPa] Critical Compressive Stress (F_cr) — AISC LRFD Reference: AISC 360-22 E3 — λ_c ≤ 1.5: inelastic; λ_c > 1.5: elastic Euler range",
+    "phi_Pn_kn = 0.90 * Fcr_mpa * A_g_mm2 / 1000   // [kN] Nominal Column Capacity (φP_n) Reference: AISC 360-22 §E1 — φ_c = 0.90 (LRFD); P_n = F_cr × A_g",
+    "DCR = Pu_kn / phi_Pn_kn   // [dimensionless] Demand-Capacity Ratio (DCR) Reference: AISC 360-22 §H1-1 — DCR ≤ 1.0 required; DCR > 1.0 = structural inadequacy",
+    "I_min_mm4 = A_g_mm2 * Math.pow(r_min_mm, 2); Pcr_kn = Math.pow(Math.PI, 2) * 200000 * I_min_mm4 / Math.pow(L_eff_m * 1000, 2) / 1000   // [kN] Euler Critical Load (P_cr) — Elastic Buckling Reference: Euler: P_cr = π²EI/L_eff² — EN 1993-1-1 §6.3.1; reference for elastic buckling check"
+  ],
+  "engine_rules": {
+    "standards": [
+      "AISC 360-22 Chapter E",
+      "EN 1993-1-1:2022 §6.3.1",
+      "ASCE 7-22 load combinations",
+      "AS AS 4100-2020 §6"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "DCR > 1.0",
+        "error_msg": "Column overstressed: axial demand exceeds φP_n — increase section area, reduce effective length, or reduce axial load"
+      },
+      "V2": {
+        "condition": "KL_r > 200",
+        "error_msg": "KL/r > 200: exceeds AISC 360 maximum slenderness limit for compression members — add intermediate bracing or select deeper section"
+      },
+      "V3": {
+        "condition": "Fe_mpa < Fy_mpa * 0.5",
+        "error_msg": "Elastic buckling stress < 50% of yield: slender column dominated by buckling — verify effective length assumptions and add lateral bracing"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "DCR > 90%: minimal reserve capacity — no additional loads or load combination factors can be accommodated; redesign before construction",
+        "condition": "DCR > 0.90",
+        "source": "AISC 360-22 Chapter E"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Very slender column (KL/r > 150): highly sensitive to eccentricity and initial imperfections — apply additional amplification per AISC Appendix 8 or second-order analysis",
+        "condition": "KL_r > 150",
+        "source": "AISC 360-22 Chapter E"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "High-strength steel with moderate slenderness: F_cr may be governed by elastic buckling, not yield — verify cost benefit of S460 vs S355 at this slenderness level",
+        "condition": "Fy_mpa > 355 && KL_r > 80",
+        "source": "AISC 360-22 Chapter E"
+      },
+      {
+        "id": "W4",
+        "severity": "CRITICAL",
+        "message": "Applied load > 80% of Euler critical load: very close to elastic bifurcation point — P-delta effects and geometric imperfections become critical; perform second-order analysis",
+        "condition": "Pu_kn > Pcr_kn * 0.8",
+        "source": "AISC 360-22 Chapter E"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Cantilever column (K=2.0) over 5 m: very high effective length — verify fixed base connection rotational stiffness; partial fixity significantly increases effective K",
+        "condition": "end_condition === 2.0 && L_eff_m > 5",
+        "source": "AISC 360-22 Chapter E"
+      }
+    ]
+  }
+}

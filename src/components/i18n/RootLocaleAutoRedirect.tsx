@@ -17,7 +17,7 @@ import { getLocalePathPrefix } from "@/lib/i18n/locale-config";
 const SESSION_GUARD_KEY = "sc_root_locale_redirect_v1";
 const REDIRECT_DELAY_MS = 200;
 
-const BROWSER_LOCALE_REDIRECTS: Partial<Record<string, SupportedLocale>> = {
+const BROWSER_LOCALE_REDIRECTS: Partial<Record<string, string>> = {
   tr: "tr",
   de: "de",
   fr: "fr",
@@ -25,7 +25,7 @@ const BROWSER_LOCALE_REDIRECTS: Partial<Record<string, SupportedLocale>> = {
   ar: "ar",
 };
 
-const REGION_TO_LOCALE: Partial<Record<string, SupportedLocale>> = {
+const REGION_TO_LOCALE: Partial<Record<string, string>> = {
   TR: "tr",
   DE: "de",
 };
@@ -52,10 +52,14 @@ function resolveClientFallbackLocale(
 ): SupportedLocale | null {
   const base = navLang.split("-")[0]?.toLowerCase() ?? navLang;
   const fromBrowser = BROWSER_LOCALE_REDIRECTS[base];
-  if (fromBrowser) {
-    return fromBrowser;
+  if (fromBrowser && fromBrowser === "en") {
+    return fromBrowser as SupportedLocale;
   }
-  return REGION_TO_LOCALE[regionCode] ?? null;
+  const fromRegion = REGION_TO_LOCALE[regionCode];
+  if (fromRegion && fromRegion === "en") {
+    return fromRegion as SupportedLocale;
+  }
+  return null;
 }
 
 /**

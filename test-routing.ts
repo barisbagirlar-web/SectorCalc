@@ -2,9 +2,9 @@ import { addLocaleToPath, stripLocaleFromPath } from "./src/lib/i18n/locale-rout
 import { LOCALE_DEFINITIONS } from "./src/lib/i18n/locale-config";
 
 console.log("strip(/tr):", stripLocaleFromPath("/tr"));
-console.log("add(/, de):", addLocaleToPath("/", "de"));
+console.log("add(/, de):", addLocaleToPath("/", "de" as any));
 
 const pathname = "/tr";
 const basePath = stripLocaleFromPath(pathname);
-const nextPath = addLocaleToPath(basePath, "de");
+const nextPath = addLocaleToPath(basePath, "de" as any);
 console.log("result:", nextPath);

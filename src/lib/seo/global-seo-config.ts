@@ -39,11 +39,6 @@ export { SUPPORTED_LOCALES, DEFAULT_LOCALE, ROOT_LOCALE, type SupportedLocale, i
 
 export const INDEXABLE_LOCALE_ROUTES: Record<SupportedLocale, boolean> = {
   en: true,
-  tr: true,
-  de: true,
-  fr: true,
-  es: true,
-  ar: true,
 };
 
 export function getActiveSitemapLocales(): readonly SupportedLocale[] {

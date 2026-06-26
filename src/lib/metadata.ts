@@ -56,19 +56,9 @@ function buildHreflangAlternates(path: string): Metadata["alternates"] {
 
 export function getToolMetadata(options: ToolMetadataOptions): Metadata {
   const locale = normalizeLocale(options.locale ?? "en");
-  const tierLabel =
-    locale === "tr"
-      ? options.tier === "free"
-        ? "Free"
-        : "Premium"
-      : options.tier === "free"
-        ? "Free"
-        : "Premium";
+  const tierLabel = options.tier === "free" ? "Free" : "Premium";
   const title = `${options.toolTitle} — ${tierLabel}`;
-  const description =
-    locale === "tr"
-      ? `${tierLabel} ${options.toolTitle.toLowerCase()} for ${options.sectorName.toLowerCase()}. Calculate costs, detect losses, and get expert-level decision reports.`
-      : `${tierLabel} ${options.toolTitle.toLowerCase()} for ${options.sectorName.toLowerCase()}. Calculate costs, detect losses, and get expert-level decision reports.`;
+  const description = `${tierLabel} ${options.toolTitle.toLowerCase()} for ${options.sectorName.toLowerCase()}. Calculate costs, detect losses, and get expert-level decision reports.`;
   const path = `/tools/${options.tier}/${options.toolSlug}`;
 
   return createPageMetadata({
@@ -106,7 +96,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
       description,
       url,
       siteName: SITE.siteName,
-      locale: locale === "en" ? "en_US" : `${locale}_${locale.toUpperCase()}`,
+      locale: "en_US",
       type: "website",
     },
     twitter: {

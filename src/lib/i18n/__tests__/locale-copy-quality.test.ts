@@ -202,15 +202,5 @@ describe("locale-copy-quality", () => {
     expect(violations.length).toBeLessThanOrEqual(5);
   });
 
-  test("Arabic locale textDirection is rtl", () => {
-    expect(getLocaleDefinition("ar").textDirection).toBe("rtl");
-  });
-
-  test("locale.fr label present in all message files", () => {
-    for (const locale of SUPPORTED_LOCALES) {
-      const messages = loadMessages(locale);
-      const localeBlock = messages.locale as MessageTree;
-      expect(localeBlock.fr).toBe("Français");
-    }
-  });
 });
+

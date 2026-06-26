@@ -84,10 +84,7 @@ export function isLocalePath(pathname: string, locale: SupportedLocale): boolean
   return pathname === prefix || pathname.startsWith(`${prefix}/`);
 }
 
-/** @deprecated Use isLocalePath(pathname, "tr") */
-export function isTurkishPath(pathname: string): boolean {
-  return isLocalePath(pathname, "tr");
-}
+
 
 export function isPrefixedLocalePath(pathname: string): boolean {
   const locale = parseLocaleFromPath(pathname);
@@ -291,14 +288,7 @@ export function shouldRedirectLocaleLessPublicRoute(options: {
   return resolved;
 }
 
-/** @deprecated Use shouldRedirectRootToLocale */
-export function shouldRedirectRootToTurkish(options: {
-  readonly cookieLocale: string | undefined;
-  readonly countryCode: string | null;
-  readonly acceptLanguage: string | null;
-}): boolean {
-  return shouldRedirectRootToLocale(options) === "tr";
-}
+
 
 export function buildPrefixedLocaleMatcherSegment(): string {
   return PREFIXED_LOCALES.join("|");

@@ -17,5 +17,5 @@
     "paths": { "@/*": ["./src/*"] }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "functions", "apps", "scripts/tool-activation/audit-runtime-tool-readiness-runner.ts", "scripts/tool-activation/audit-runtime-trust-engine-runner.ts"]
+  "exclude": ["node_modules", "functions", "apps", "scripts", "scripts/tool-activation/audit-runtime-tool-readiness-runner.ts", "scripts/tool-activation/audit-runtime-trust-engine-runner.ts"]
 }

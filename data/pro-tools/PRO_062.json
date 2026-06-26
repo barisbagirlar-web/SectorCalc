@@ -1,0 +1,171 @@
+{
+  "tool_id": "PRO_062",
+  "tool_name": "Reciprocating Compressor Cylinder Sizing — Displacement, Volumetric Efficiency & Rod Load",
+  "category": "Rotating Equipment / Gas Compression",
+  "scope": "single_operation",
+  "primary_operation": "reciprocating_compressor",
+  "inputs": [
+    {
+      "id": "P_suction_bar",
+      "name": "Suction Pressure (P_s)",
+      "unit": "bar(a)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.1,
+      "absolute_max": 700
+    },
+    {
+      "id": "P_discharge_bar",
+      "name": "Discharge Pressure (P_d)",
+      "unit": "bar(a)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.5,
+      "absolute_max": 1000
+    },
+    {
+      "id": "T_suction_c",
+      "name": "Suction Gas Temperature (T_s)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": -50,
+      "absolute_max": 200
+    },
+    {
+      "id": "Q_actual_m3h",
+      "name": "Required Actual Volume Flow at Suction (Q_act)",
+      "unit": "Am³/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.1,
+      "absolute_max": 100000
+    },
+    {
+      "id": "k_isentropic",
+      "name": "Gas Isentropic Exponent (k = c_p / c_v)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 1.3,
+      "absolute_min": 1.05,
+      "absolute_max": 1.67,
+      "note": "Natural gas ≈ 1.27–1.31; air = 1.40; H₂ = 1.41; CO₂ = 1.28; propane = 1.13"
+    },
+    {
+      "id": "bore_mm",
+      "name": "Cylinder Bore Diameter (D_cyl)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 50,
+      "absolute_max": 1500
+    },
+    {
+      "id": "stroke_mm",
+      "name": "Piston Stroke (S)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 25,
+      "absolute_max": 1000
+    },
+    {
+      "id": "speed_rpm",
+      "name": "Crankshaft Speed (n)",
+      "unit": "rpm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 50,
+      "absolute_max": 1800,
+      "note": "Slow-speed integral: 200–360 rpm; high-speed separable: 900–1800 rpm — API 618 Table 1"
+    },
+    {
+      "id": "clearance_pct",
+      "name": "Cylinder Clearance Volume (c)",
+      "unit": "% of displacement",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 14,
+      "absolute_min": 5,
+      "absolute_max": 35,
+      "note": "Fixed clearance typical range 8–20%; adjustable clearance pockets can reach 30–35%"
+    }
+  ],
+  "formulas": [
+    "r_p = P_discharge_bar / P_suction_bar   // [dimensionless] Compression Ratio (r_p) Reference: API 618-2007 §3.1; single-stage r_p typically ≤ 4.5 for reliability",
+    "eta_v = 1 - clearance_pct/100 * (Math.pow(r_p, 1/k_isentropic) - 1)   // [dimensionless] Volumetric Efficiency (η_v) Reference: ISO 1217:2009 §3.4 / API 618 — isentropic re-expansion model",
+    "V_d_m3_rev = Math.PI/4 * Math.pow(bore_mm/1000, 2) * (stroke_mm/1000)   // [m³/rev] Piston Displacement Volume per Revolution (V_d) Reference: Displacement = π/4 × D² × S (double-acting: multiply by 2 minus rod area)",
+    "Q_cyl_m3h = V_d_m3_rev * speed_rpm * 60 * eta_v   // [Am³/h] Actual Flow Capacity of Single Cylinder Reference: API 618 §5.3 — cylinder capacity with volumetric efficiency",
+    "P_is_kw = (k_isentropic/(k_isentropic-1)) * P_suction_bar*1e5 * (Q_cyl_m3h/3600) * (Math.pow(r_p, (k_isentropic-1)/k_isentropic) - 1) / 1000   // [kW] Isentropic Power per Cylinder Reference: Isentropic compression work — ASME PTC 9 §5.3",
+    "A_bore_m2 = Math.PI/4 * Math.pow(bore_mm/1000, 2); rod_load_comp_kn = (P_discharge_bar - P_suction_bar) * 1e5 * A_bore_m2 / 1000; rod_load_tension_kn = rod_load_comp_kn * 0.85   // [kN] Maximum Gas Rod Load (Tension & Compression) Reference: API 618 §3.11 — combined rod load; tension ≈ 85% of compression for standard rod ratio"
+  ],
+  "engine_rules": {
+    "standards": [
+      "API 618 5th Ed. (2007)",
+      "ISO 1217:2009 Annex C",
+      "ASME PTC 9-1970 (reaffirmed 2003)",
+      "API RP 688"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "r_p > 4.5",
+        "error_msg": "Compression ratio > 4.5: API 618 §3.1 recommends single-stage r_p ≤ 4.5 — consider two-stage compression with inter-cooling"
+      },
+      "V2": {
+        "condition": "eta_v < 0.55",
+        "error_msg": "Volumetric efficiency < 55%: cylinder re-expansion dominates — clearance volume excessive or compression ratio too high; add unloader pockets"
+      },
+      "V3": {
+        "condition": "Q_cyl_m3h < Q_actual_m3h * 0.9",
+        "error_msg": "Single cylinder capacity insufficient for required flow — add cylinders in parallel or increase bore/speed"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "r_p > 6: very high ratio — discharge temperature will exceed 150°C for most gases; inter-stage cooling mandatory per API 618 §3.1.2",
+        "condition": "r_p > 6",
+        "source": "API 618 5th Ed. (2007)"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Rod load > 450 kN: check against frame rated rod load in API 618 datasheet — exceeded frame load causes crankshaft and crosshead failure",
+        "condition": "rod_load_comp_kn > 450",
+        "source": "API 618 5th Ed. (2007)"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "High speed on large bore: piston velocity > 4 m/s — verify ring and packing wear rates; API 618 Table 1 speed limit",
+        "condition": "speed_rpm > 600 && bore_mm > 400",
+        "source": "API 618 5th Ed. (2007)"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "High clearance (>25%): volumetric efficiency severely reduced — verify unloader pocket sizing and gas passage flow velocity",
+        "condition": "clearance_pct > 25",
+        "source": "API 618 5th Ed. (2007)"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Discharge pressure > 100 bar: high-pressure classification — ASME B31.3 Class 600 piping, material qualification, and pressure testing per API 618 §7 required",
+        "condition": "P_discharge_bar > 100",
+        "source": "API 618 5th Ed. (2007)"
+      }
+    ]
+  }
+}

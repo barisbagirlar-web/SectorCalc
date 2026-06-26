@@ -1,0 +1,164 @@
+{
+  "tool_id": "PRO_036",
+  "tool_name": "Pump System Curve & BEP Deviation — Hydraulic Power Loss & Cavitation Risk",
+  "category": "Fluid Systems / Rotating Equipment",
+  "scope": "single_operation",
+  "primary_operation": "centrifugal_pump",
+  "inputs": [
+    {
+      "id": "rated_flow_m3h",
+      "name": "Rated (BEP) Flow Rate (Q_BEP)",
+      "unit": "m³/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.5,
+      "absolute_max": 50000
+    },
+    {
+      "id": "actual_flow_m3h",
+      "name": "Actual Operating Flow Rate (Q_act)",
+      "unit": "m³/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.1,
+      "absolute_max": 50000
+    },
+    {
+      "id": "rated_head_m",
+      "name": "Rated (BEP) Total Head (H_BEP)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 3000
+    },
+    {
+      "id": "rated_efficiency_pct",
+      "name": "BEP Hydraulic Efficiency (η_BEP)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 30,
+      "absolute_max": 95
+    },
+    {
+      "id": "fluid_density_kg_m3",
+      "name": "Fluid Density (ρ)",
+      "unit": "kg/m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 1000,
+      "absolute_min": 700,
+      "absolute_max": 1800
+    },
+    {
+      "id": "npshr_m",
+      "name": "NPSHr (Required Net Positive Suction Head)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.5,
+      "absolute_max": 30
+    },
+    {
+      "id": "npsha_m",
+      "name": "NPSHa (Available Net Positive Suction Head)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "absolute_min": 0.1,
+      "absolute_max": 50
+    },
+    {
+      "id": "motor_power_kw",
+      "name": "Installed Motor Shaft Power (P_motor)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.1,
+      "absolute_max": 50000
+    }
+  ],
+  "formulas": [
+    "Q_ratio = actual_flow_m3h / rated_flow_m3h   // [dimensionless] Flow Deviation Ratio Reference: HI 9.6.3-2017 §4.1",
+    "eta_act = rated_efficiency_pct * (1 - 0.3 * (1 - Q_ratio)^2)   // [%] Affinity-Law Corrected Efficiency Reference: ISO 9906:2012 Annex B — parabolic efficiency correction",
+    "P_hyd = (fluid_density_kg_m3 * 9.81 * actual_flow_m3h/3600 * H_act) / 1000   // [kW] Actual Hydraulic Power Reference: API 610-12th Ed. §6.1.8",
+    "P_overload_pct = ((P_hyd / (eta_act/100)) - motor_power_kw) / motor_power_kw * 100   // [%] Power Overshoot (Overload Risk) Reference: HI 9.6.3-2017 §4.3 — motor overload threshold",
+    "npsh_margin = npsha_m / npshr_m   // [dimensionless] NPSH Margin Ratio Reference: HI 9.6.1-2012 — minimum margin = 1.1 for clear water",
+    "E_loss_kwh = (motor_power_kw - P_hyd/(eta_act/100)) * 8760   // [kWh/yr] Annual Hydraulic Energy Loss vs BEP Reference: ISO 50001:2018 energy baseline method"
+  ],
+  "engine_rules": {
+    "standards": [
+      "HI 9.6.3-2017",
+      "ISO 9906:2012",
+      "API 610 12th Ed.",
+      "ISO 50001:2018"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "actual_flow_m3h < rated_flow_m3h * 0.5",
+        "error_msg": "Operation below 50% BEP flow: recirculation risk — increase flow or install bypass"
+      },
+      "V2": {
+        "condition": "actual_flow_m3h > rated_flow_m3h * 1.2",
+        "error_msg": "Operation above 120% BEP: cavitation and overload risk — throttle or trim impeller"
+      },
+      "V3": {
+        "condition": "npsha_m < npshr_m * 1.1",
+        "error_msg": "NPSHa margin < 1.1× NPSHr: cavitation onset likely — lower suction lift or increase inlet pressure"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Severe left-of-BEP operation: axial thrust reversal and bearing fatigue risk per HI 9.6.3",
+        "condition": "Q_ratio < 0.7",
+        "source": "HI 9.6.3-2017"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Right-of-BEP runout: NPSH curve steep rise — verify NPSHa at this flow",
+        "condition": "Q_ratio > 1.15",
+        "source": "HI 9.6.3-2017"
+      },
+      {
+        "id": "W3",
+        "severity": "CRITICAL",
+        "message": "NPSHa < NPSHr: cavitation active — impeller erosion will occur within 500 operating hours",
+        "condition": "npsh_margin < 1.0",
+        "source": "HI 9.6.3-2017"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Motor overload >5%: thermal trip risk — verify service factor or upsize motor",
+        "condition": "P_overload_pct > 5",
+        "source": "HI 9.6.3-2017"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Operating efficiency <75% of BEP: energy waste exceeds ISO 50001 baseline threshold",
+        "condition": "eta_act_pct < rated_efficiency_pct * 0.75",
+        "source": "HI 9.6.3-2017"
+      },
+      {
+        "id": "W6",
+        "severity": "INFO",
+        "message": "Large pump at low BEP efficiency: consider hydraulic redesign or variable-speed drive",
+        "condition": "rated_efficiency_pct < 60 && motor_power_kw > 75",
+        "source": "HI 9.6.3-2017"
+      }
+    ]
+  }
+}

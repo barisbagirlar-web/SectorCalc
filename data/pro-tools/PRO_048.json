@@ -1,0 +1,162 @@
+{
+  "tool_id": "PRO_048",
+  "tool_name": "Conveyor Belt Power, Drive Tension & Sag Ratio — Bulk Material Handling Design",
+  "category": "Bulk Material Handling / Mechanical Engineering",
+  "scope": "single_operation",
+  "primary_operation": "belt_conveyor",
+  "inputs": [
+    {
+      "id": "capacity_t_h",
+      "name": "Design Throughput Capacity (Q)",
+      "unit": "t/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 20000
+    },
+    {
+      "id": "belt_speed_m_s",
+      "name": "Belt Speed (v)",
+      "unit": "m/s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.2,
+      "absolute_max": 10
+    },
+    {
+      "id": "conveyor_length_m",
+      "name": "Conveyor Centre-to-Centre Length (L)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 2,
+      "absolute_max": 20000
+    },
+    {
+      "id": "lift_height_m",
+      "name": "Lift Height (H) — positive = uphill",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": -500,
+      "absolute_max": 500
+    },
+    {
+      "id": "friction_factor_f",
+      "name": "Artificial Friction Factor (f) — ISO 5048",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.02,
+      "absolute_min": 0.01,
+      "absolute_max": 0.04,
+      "note": "ISO 5048: f=0.012 well-maintained, f=0.020 standard, f=0.030 dusty/misaligned"
+    },
+    {
+      "id": "belt_mass_kg_m",
+      "name": "Belt Mass per Unit Length (m_belt)",
+      "unit": "kg/m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "absolute_min": 2,
+      "absolute_max": 150,
+      "note": "From belt manufacturer data: EP400/3-6+3 ≈ 12 kg/m per metre width"
+    },
+    {
+      "id": "idler_mass_kg_m",
+      "name": "Total Rotating Idler Mass per Unit Length (m_idler)",
+      "unit": "kg/m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 20,
+      "absolute_min": 3,
+      "absolute_max": 100,
+      "note": "Carrying + return idler sets combined; depends on idler pitch and roll diameter"
+    },
+    {
+      "id": "drive_efficiency_pct",
+      "name": "Drive System Efficiency (η_drive)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 94,
+      "absolute_min": 80,
+      "absolute_max": 99
+    }
+  ],
+  "formulas": [
+    "q_m_kg_m = (capacity_t_h * 1000) / (belt_speed_m_s * 3600)   // [kg/m] Material Linear Mass (q_m) Reference: ISO 5048:1989 §5.1",
+    "F_H_kN = friction_factor_f * conveyor_length_m * 9.81 * (q_m_kg_m + belt_mass_kg_m + idler_mass_kg_m) / 1000   // [kN] Main Resistance — Level Running (F_H) Reference: ISO 5048 §6.2 — main resistance",
+    "F_st_kN = q_m_kg_m * 9.81 * lift_height_m / 1000   // [kN] Gradient Resistance (F_st) Reference: ISO 5048 §6.3 — slope resistance (positive = uphill load)",
+    "F_u_kN = F_H_kN * 2 + F_st_kN; P_motor_kw = (F_u_kN * 1000 * belt_speed_m_s) / (drive_efficiency_pct / 100) / 1000   // [kN, kW] Total Peripheral Drive Force (F_u) & Required Motor Power Reference: ISO 5048 §6.1 — total effective tension; CEMA 7th Ed. §6",
+    "mu_wrap = 0.35; wrap_rad = Math.PI; T2_kN = F_u_kN / (Math.exp(mu_wrap * wrap_rad) - 1); T1_kN = T2_kN + F_u_kN   // [kN] Tight-Side and Slack-Side Tension (T1, T2) — Euler Drive Reference: Euler–Eytelwein equation: T1/T2 = e^(μα); μ=0.35 rubber-on-steel, α=π (180° wrap)",
+    "idler_pitch_m = 1.5; sag_ratio = (q_m_kg_m + belt_mass_kg_m) * 9.81 * idler_pitch_m^2 / (8 * T2_kN * 1000)   // [%] Maximum Belt Sag Ratio Reference: ISO 5048 / CEMA — sag limit ≤ 2% (0.02) at carry side; excessive sag = spillage and mistracking"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 5048:1989",
+      "CEMA Belt Conveyors for Bulk Materials 7th Ed.",
+      "DIN 22101:2011",
+      "AS 1755:2000"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "sag_ratio_pct > 0.03",
+        "error_msg": "Belt sag > 3%: increase take-up tension T2 or reduce idler pitch — material spillage and belt mistracking risk"
+      },
+      "V2": {
+        "condition": "belt_speed_m_s > 6 && capacity_t_h > 5000",
+        "error_msg": "High speed on high-capacity conveyor: verify belt rating (kN/m width) and idler bearing life per ISO 281"
+      },
+      "V3": {
+        "condition": "lift_height_m < -100",
+        "error_msg": "Long downhill conveyor: regenerative power possible — evaluate regenerative drives; braking tension controls design"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Sag ratio > 2%: CEMA recommends maximum 2% for lump material — reduce idler pitch from 1.5 m to 1.2 m or increase T2",
+        "condition": "sag_ratio_pct > 0.02",
+        "source": "ISO 5048:1989"
+      },
+      {
+        "id": "W2",
+        "severity": "INFO",
+        "message": "High power with moderate drive efficiency: each 1% η improvement saves significant annual energy — evaluate direct-drive or gearless technology",
+        "condition": "P_motor_kw > 500 && drive_efficiency_pct < 92",
+        "source": "ISO 5048:1989"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Dominant regenerative gradient: conveyor may run away under load — dynamic braking or regenerative drive mandatory",
+        "condition": "F_st_kN < -F_H_kN * 0.5",
+        "source": "ISO 5048:1989"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "T1/T2 ratio > 5: drive friction barely adequate — consider dual drive, higher wrap angle, or lagged pulley to prevent belt slip",
+        "condition": "T1_kN / T2_kN > 5",
+        "source": "ISO 5048:1989"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Long conveyor (>5 km): intermediate drive or distributed drive topology recommended — starting tension wave analysis required per DIN 22101",
+        "condition": "conveyor_length_m > 5000",
+        "source": "ISO 5048:1989"
+      }
+    ]
+  }
+}

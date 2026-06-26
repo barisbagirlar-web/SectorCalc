@@ -198,14 +198,14 @@ export default async function RefundPolicyPage() {
           <p>
             {t.seeAlso}{" "}
             <Link href="/terms" className="font-semibold text-deep-navy hover:underline">
-              {LOCALE === 'de' ? 'Nutzungsbedingungen' : (LOCALE === 'fr' ? 'Conditions d\'utilisation' : (LOCALE === 'es' ? 'Condiciones de uso' : (LOCALE === 'ar' ? 'شروط الاستخدام' : 'Terms of Use')))}
+              Terms of Use
             </Link>{" "}
             and{" "}
             <Link
               href="/privacy"
               className="font-semibold text-deep-navy hover:underline"
             >
-              {LOCALE === 'de' ? 'Datenschutzerklärung' : (LOCALE === 'fr' ? 'Politique de confidentialité' : (LOCALE === 'es' ? 'Política de privacidad' : (LOCALE === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy')))}
+              Privacy Policy
             </Link>
             .
           </p>

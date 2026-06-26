@@ -1,0 +1,183 @@
+{
+  "tool_id": "PRO_073",
+  "tool_name": "EOQ, Reorder Point & Safety Stock Optimisation with Demand & Lead Time Variability",
+  "category": "Supply Chain / Inventory Management",
+  "scope": "process_agnostic",
+  "primary_operation": "inventory_optimisation",
+  "inputs": [
+    {
+      "id": "annual_demand_units",
+      "name": "Annual Demand (D)",
+      "unit": "units/yr",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 100000000
+    },
+    {
+      "id": "ordering_cost_usd",
+      "name": "Cost per Purchase Order (S)",
+      "unit": "USD/order",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 150,
+      "absolute_min": 1,
+      "absolute_max": 100000,
+      "note": "Include: admin time, receiving, inspection, system processing per order event"
+    },
+    {
+      "id": "unit_cost_usd",
+      "name": "Unit Purchase Cost (C)",
+      "unit": "USD/unit",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.01,
+      "absolute_max": 1000000
+    },
+    {
+      "id": "holding_rate_pct",
+      "name": "Annual Inventory Holding Cost Rate (h)",
+      "unit": "% of unit cost/yr",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 25,
+      "absolute_min": 5,
+      "absolute_max": 60,
+      "note": "Typical 20–30%: capital cost of inventory + warehouse + obsolescence + insurance"
+    },
+    {
+      "id": "lead_time_days",
+      "name": "Supplier Lead Time — Average (L̄)",
+      "unit": "days",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "absolute_min": 1,
+      "absolute_max": 365
+    },
+    {
+      "id": "lead_time_std_days",
+      "name": "Lead Time Standard Deviation (σ_L)",
+      "unit": "days",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 3,
+      "absolute_min": 0,
+      "absolute_max": 60,
+      "note": "Measure from historical PO data; σ_L = 0 for fixed lead time"
+    },
+    {
+      "id": "demand_std_day",
+      "name": "Daily Demand Standard Deviation (σ_d)",
+      "unit": "units/day",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "absolute_min": 0,
+      "absolute_max": 100000,
+      "note": "σ_d from historical demand data; σ_d = 0 for deterministic demand"
+    },
+    {
+      "id": "service_level_pct",
+      "name": "Target Service Level (cycle service level)",
+      "unit": "%",
+      "type": "enum",
+      "options": [
+        {
+          "label": "90% — low criticality / commodity",
+          "value": 90
+        },
+        {
+          "label": "95% — standard industrial",
+          "value": 95
+        },
+        {
+          "label": "97.5% — important production item",
+          "value": 97.5
+        },
+        {
+          "label": "99% — critical / high-cost stockout",
+          "value": 99
+        },
+        {
+          "label": "99.9% — safety-critical / medical",
+          "value": 99.9
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 95
+    }
+  ],
+  "formulas": [
+    "H_usd = unit_cost_usd * holding_rate_pct / 100; EOQ = Math.sqrt((2 * annual_demand_units * ordering_cost_usd) / H_usd)   // [units] Economic Order Quantity (EOQ) Reference: Wilson (1913) EOQ = √(2DS/H); H = h·C annual holding cost per unit",
+    "T_cycle_days = EOQ / (annual_demand_units / 365); orders_per_yr = annual_demand_units / EOQ   // [days, orders/yr] Average Cycle Time & Order Frequency Reference: T = EOQ/d̄; number of orders = D/EOQ — APICS CPIM Dictionary",
+    "sl_map = {90: 1.282, 95: 1.645, 97.5: 1.960, 99: 2.326, 99.9: 3.090}; z = sl_map[service_level_pct]   // [dimensionless] Safety Factor (z) from Service Level Reference: Standard normal z-value for cycle service level — Silver, Pyke & Thomas §6.3",
+    "d_avg_day = annual_demand_units / 365; sigma_dLT = Math.sqrt(lead_time_days * Math.pow(demand_std_day, 2) + Math.pow(d_avg_day, 2) * Math.pow(lead_time_std_days, 2)); SS = z * sigma_dLT   // [units] Safety Stock (SS) — Combined Demand & Lead Time Variability Reference: Hadley-Within formula: σ_DLT = √(L̄·σ_d² + d̄²·σ_L²) — combines demand and lead time uncertainty",
+    "d_avg_day = annual_demand_units / 365; ROP = d_avg_day * lead_time_days + SS   // [units] Reorder Point (ROP) Reference: ROP = d̄·L̄ + z·σ_DLT — trigger order when on-hand inventory reaches ROP",
+    "H_usd = unit_cost_usd * holding_rate_pct / 100; TAC_usd = (EOQ/2 + SS) * H_usd + (annual_demand_units / EOQ) * ordering_cost_usd   // [USD/yr] Total Annual Inventory Cost (TAC) Reference: TAC = (Q/2 + SS)·H + (D/Q)·S — total holding + ordering cost excluding purchase cost"
+  ],
+  "engine_rules": {
+    "standards": [
+      "APICS CPIM Exam Content Manual",
+      "ISO 28000:2022 (supply chain security)",
+      "Silver-Pyke-Thomas 'Inventory Management & Production Planning' 3rd Ed."
+    ],
+    "validation": {
+      "V1": {
+        "condition": "demand_std_day > annual_demand_units / 365 * 0.5",
+        "error_msg": "Daily demand CV > 50%: extremely high variability — safety stock will be very large; consider demand smoothing or VMI arrangement with supplier"
+      },
+      "V2": {
+        "condition": "lead_time_std_days > lead_time_days * 0.3",
+        "error_msg": "Lead time CV > 30%: unreliable supplier — safety stock dominated by supply uncertainty; negotiate lead time reliability or qualify second source"
+      },
+      "V3": {
+        "condition": "SS > EOQ * 2",
+        "error_msg": "Safety stock > 2× EOQ: carrying cost heavily influenced by uncertainty — re-evaluate service level target or work to reduce lead time variability"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "INFO",
+        "message": "More than 52 orders per year: weekly ordering frequency — evaluate blanket PO or kanban system to reduce transaction costs",
+        "condition": "orders_per_yr > 52",
+        "source": "APICS CPIM Exam Content Manual"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Cycle time > 90 days: large batch order — obsolescence and damage risk increases with long holding periods; verify shelf life vs cycle time",
+        "condition": "T_cycle_days > 90",
+        "source": "APICS CPIM Exam Content Manual"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "High service level (≥99%) with variable demand: safety stock cost increases exponentially above 97.5% — verify cost of stockout justifies the holding cost premium",
+        "condition": "service_level_pct >= 99 && demand_std_day > 0",
+        "source": "APICS CPIM Exam Content Manual"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "High-value item with large EOQ: capital tied up in inventory is significant — consider just-in-time or consignment stock arrangement to reduce order quantity",
+        "condition": "unit_cost_usd > 1000 && EOQ > 100",
+        "source": "APICS CPIM Exam Content Manual"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Holding rate < 15%: may understate true cost — verify capital cost of inventory (WACC), storage cost, and obsolescence risk are fully included",
+        "condition": "holding_rate_pct < 15",
+        "source": "APICS CPIM Exam Content Manual"
+      }
+    ]
+  }
+}

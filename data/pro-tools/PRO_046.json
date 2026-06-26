@@ -1,0 +1,231 @@
+{
+  "tool_id": "PRO_046",
+  "tool_name": "Pipeline Wall Thickness, MAOP & Burst Pressure — Onshore Transmission Design",
+  "category": "Pipeline Engineering / Oil & Gas",
+  "scope": "single_operation",
+  "primary_operation": "onshore_pipeline",
+  "inputs": [
+    {
+      "id": "MAOP_bar",
+      "name": "Maximum Allowable Operating Pressure (MAOP)",
+      "unit": "bar(g)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 300
+    },
+    {
+      "id": "pipe_OD_mm",
+      "name": "Pipe Outside Diameter (D_o)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 25,
+      "absolute_max": 1500,
+      "note": "API 5L / ISO 3183 standard sizes: DN50–DN1400"
+    },
+    {
+      "id": "SMYS_mpa",
+      "name": "Specified Minimum Yield Strength (SMYS)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "API 5L X42 — 290 MPa",
+          "value": 290
+        },
+        {
+          "label": "API 5L X52 — 359 MPa",
+          "value": 359
+        },
+        {
+          "label": "API 5L X60 — 414 MPa",
+          "value": 414
+        },
+        {
+          "label": "API 5L X65 — 448 MPa",
+          "value": 448
+        },
+        {
+          "label": "API 5L X70 — 483 MPa",
+          "value": 483
+        },
+        {
+          "label": "API 5L X80 — 552 MPa",
+          "value": 552
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 414
+    },
+    {
+      "id": "location_class",
+      "name": "Location Class (Population Density Zone)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Class 1 — Rural, sparsely populated (F=0.72)",
+          "value": 1
+        },
+        {
+          "label": "Class 2 — Fringe suburban (F=0.60)",
+          "value": 2
+        },
+        {
+          "label": "Class 3 — Suburban, industrial (F=0.50)",
+          "value": 3
+        },
+        {
+          "label": "Class 4 — Urban high-density (F=0.40)",
+          "value": 4
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 1,
+      "note": "ASME B31.8 §841.114 — design factor F per location class"
+    },
+    {
+      "id": "joint_factor_E",
+      "name": "Longitudinal Joint Factor (E)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "E=1.00 — Seamless or SAW",
+          "value": 1
+        },
+        {
+          "label": "E=0.80 — ERW (Electric Resistance Welded)",
+          "value": 0.8
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 1
+    },
+    {
+      "id": "temperature_derating_T",
+      "name": "Temperature Derating Factor (T)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "T=1.00 — ≤120°C",
+          "value": 1
+        },
+        {
+          "label": "T=0.967 — 121–150°C",
+          "value": 0.967
+        },
+        {
+          "label": "T=0.933 — 151–175°C",
+          "value": 0.933
+        }
+      ],
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 1
+    },
+    {
+      "id": "corrosion_allowance_mm",
+      "name": "Corrosion Allowance (CA)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 3,
+      "absolute_min": 0,
+      "absolute_max": 15
+    },
+    {
+      "id": "mill_tolerance_pct",
+      "name": "Mill Wall Thickness Undertolerance",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "VARSAYIM",
+      "default": 12.5,
+      "absolute_min": 0,
+      "absolute_max": 15
+    }
+  ],
+  "formulas": [
+    "F_factor = {1: 0.72, 2: 0.60, 3: 0.50, 4: 0.40}[location_class]   // [dimensionless] Design Factor (F) from Location Class Reference: ASME B31.8-2022 §841.114 Table 841.114A",
+    "P_mpa = MAOP_bar * 0.1; t_min_mm = (P_mpa * pipe_OD_mm) / (2 * SMYS_mpa * F_factor * joint_factor_E * temperature_derating_T)   // [mm] Minimum Required Wall Thickness (t_min) — Barlow Formula Reference: ASME B31.8 §841.11 Eq.(1) / API 5L §A.3 — Barlow hoop stress formula",
+    "t_nominal_mm = (t_min_mm + corrosion_allowance_mm) / (1 - mill_tolerance_pct / 100)   // [mm] Nominal Ordered Thickness (incl. CA + mill tolerance) Reference: API 5L PSL2 §9.14 — dimensional tolerance on wall thickness",
+    "Dt_ratio = pipe_OD_mm / t_nominal_mm   // [dimensionless] D/t Ratio (Diameter-to-Thickness) Reference: API 5L — thin-wall criterion D/t < 100 for Barlow applicability",
+    "t_eff_mm = t_nominal_mm * (1 - mill_tolerance_pct/100) - corrosion_allowance_mm; P_burst_bar = (2 * SMYS_mpa * 1.4 * t_eff_mm / pipe_OD_mm) * 10   // [bar(g)] Theoretical Burst Pressure (Barlow Ultimate)",
+    "safety_margin = P_burst_bar / MAOP_bar   // [dimensionless] Safety Margin — Burst vs MAOP Reference: ASME B31.8 — minimum burst/MAOP margin depends on location class; Class 1 → ~2.78"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ASME B31.8-2022 §841",
+      "ASME B31.4-2022 §403",
+      "API 5L 46th Ed. / ISO 3183:2019",
+      "API RP 1111"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "Dt_ratio > 100",
+        "error_msg": "D/t > 100: Barlow membrane formula loses accuracy — consult API RP 1111 for thin-wall pipes"
+      },
+      "V2": {
+        "condition": "safety_margin < 1.5",
+        "error_msg": "Burst-to-MAOP margin < 1.5: insufficient structural reserve — increase wall thickness"
+      },
+      "V3": {
+        "condition": "t_min_mm < 3.0 && pipe_OD_mm > 300",
+        "error_msg": "Very thin wall on large-diameter pipe: handling and installation damage risk — minimum 4 mm recommended per pipeline construction practice"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "action": "CRITICAL",
+        "message": "Location class mismatch: Class 3/4 requires F≤0.50 per ASME B31.8 §841.114 — re-enter correct location class",
+        "condition": "location_class >= 3 && F_factor === 0.72",
+        "source": "ASME B31.8-2022 §841"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Burst margin < 2.0×MAOP: marginal for Class 1 service — consider corrosion management plan per NACE SP0169",
+        "condition": "safety_margin < 2.0",
+        "source": "ASME B31.8-2022 §841"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Low CA on high-pressure pipeline: establish inline inspection (ILI) baseline within first 5 years per API RP 1163",
+        "condition": "corrosion_allowance_mm < 1.5 && MAOP_bar > 70",
+        "source": "ASME B31.8-2022 §841"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "ERW pipe above X60: verify seam weld toughness qualification per ISO 3183 PSL2 CVN requirements",
+        "condition": "joint_factor_E < 1.0 && SMYS_mpa > 414",
+        "source": "ASME B31.8-2022 §841"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "D/t < 15: heavy-wall pipe — evaluate buckle propagation arrest capacity per API RP 1111 §4.3 for offshore or steep terrain",
+        "condition": "Dt_ratio < 15",
+        "source": "ASME B31.8-2022 §841"
+      },
+      {
+        "id": "W6",
+        "severity": "WARNING",
+        "message": "High MAOP in populated area: quantitative risk assessment (QRA) may be required by local authority",
+        "condition": "MAOP_bar > 150 && location_class >= 2",
+        "source": "ASME B31.8-2022 §841"
+      }
+    ]
+  }
+}

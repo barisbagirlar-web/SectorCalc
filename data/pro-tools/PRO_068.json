@@ -1,0 +1,178 @@
+{
+  "tool_id": "PRO_068",
+  "tool_name": "Shallow Foundation Bearing Capacity — Ultimate & Allowable Load per Terzaghi-Meyerhof",
+  "category": "Geotechnical Engineering / Foundation Design",
+  "scope": "single_operation",
+  "primary_operation": "shallow_foundation",
+  "inputs": [
+    {
+      "id": "cohesion_kpa",
+      "name": "Soil Cohesion Intercept (c')",
+      "unit": "kPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0,
+      "absolute_min": 0,
+      "absolute_max": 500,
+      "note": "Undrained: c_u from vane shear or UU triaxial; drained: c' from CD/CU triaxial with pore pressure"
+    },
+    {
+      "id": "phi_deg",
+      "name": "Soil Friction Angle (φ')",
+      "unit": "°",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 30,
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "note": "Loose sand ≈ 28–32°; dense sand ≈ 35–42°; soft clay φ_u=0 (undrained)"
+    },
+    {
+      "id": "gamma_soil_kn_m3",
+      "name": "Unit Weight of Soil (γ)",
+      "unit": "kN/m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 18,
+      "absolute_min": 8,
+      "absolute_max": 24,
+      "note": "Saturated sand ≈ 19–21; clay ≈ 16–20; loose fill ≈ 14–17 kN/m³"
+    },
+    {
+      "id": "foundation_depth_m",
+      "name": "Foundation Embedment Depth (D_f)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.3,
+      "absolute_max": 10
+    },
+    {
+      "id": "foundation_width_m",
+      "name": "Foundation Width (B)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.3,
+      "absolute_max": 30
+    },
+    {
+      "id": "foundation_length_m",
+      "name": "Foundation Length (L)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.3,
+      "absolute_max": 100,
+      "note": "For strip footings: L >> B; enter L = 10×B; for square: L = B"
+    },
+    {
+      "id": "groundwater_depth_m",
+      "name": "Depth to Groundwater Table (D_w)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 5,
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "note": "GWT at or above D_f requires buoyant unit weight γ' = γ_sat − γ_w in bearing capacity"
+    },
+    {
+      "id": "FOS_target",
+      "name": "Target Factor of Safety (FOS)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "FOS = 2.0 — temporary / low-risk",
+          "value": 2
+        },
+        {
+          "label": "FOS = 2.5 — standard permanent foundation",
+          "value": 2.5
+        },
+        {
+          "label": "FOS = 3.0 — conservative / high consequence",
+          "value": 3
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 3
+    }
+  ],
+  "formulas": [
+    "phi_rad = phi_deg * Math.PI / 180; Nq = Math.exp(Math.PI * Math.tan(phi_rad)) * Math.pow(Math.tan(Math.PI/4 + phi_rad/2), 2); Nc = (phi_deg > 0) ? (Nq - 1) / Math.tan(phi_rad) : 5.14; Ng = 2 * (Nq + 1) * Math.tan(phi_rad)   // [dimensionless] Meyerhof Bearing Capacity Factors (N_c, N_q, N_γ) Reference: Meyerhof (1963) — N_q = e^(π·tanφ)·tan²(45+φ/2); N_c = (N_q−1)/tanφ; N_γ = 2(N_q+1)·tanφ",
+    "B_L = foundation_width_m / foundation_length_m; sc = 1 + B_L * Nq / Nc; sq = 1 + B_L * Math.tan(phi_rad); sg = Math.max(0.6, 1 - 0.4 * B_L)   // [dimensionless] Shape Factors (s_c, s_q, s_γ) Reference: Meyerhof shape factors — Bowles Foundation Analysis 5th Ed. §4.4",
+    "gamma_eff = (groundwater_depth_m <= foundation_depth_m) ? gamma_soil_kn_m3 - 9.81 : gamma_soil_kn_m3; q_overburden_kpa = gamma_soil_kn_m3 * foundation_depth_m   // [kPa, kN/m³] Effective Overburden Pressure & GWT Correction Reference: EC7 EN 1997-1 §6.5.3 — buoyant weight when GWT within foundation influence zone",
+    "q_ult_kpa = cohesion_kpa * Nc * sc + q_overburden_kpa * Nq * sq + 0.5 * gamma_eff * foundation_width_m * Ng * sg   // [kPa] Ultimate Bearing Capacity (q_ult) — General Shear Reference: Meyerhof general bearing capacity equation — Terzaghi (1943) base + Meyerhof (1963) shape factors",
+    "q_net_ult_kpa = q_ult_kpa - q_overburden_kpa; q_allowable_kpa = q_net_ult_kpa / FOS_target + q_overburden_kpa   // [kPa] Net Ultimate & Allowable Bearing Capacity Reference: q_allow = q_net_ult / FOS + γ·D_f — Bowles §4.5; net allowable excludes overburden contribution",
+    "P_allow_kn = q_allowable_kpa * foundation_width_m * foundation_length_m   // [kN] Maximum Allowable Column Load on Foundation Reference: Structural load capacity: P = q_allow × A_foundation"
+  ],
+  "engine_rules": {
+    "standards": [
+      "Terzaghi (1943) / Meyerhof (1963/1976)",
+      "EN 1997-1:2004 (EC7) §6.5.3",
+      "ASCE 7-22 §12.13",
+      "IS 6403:1981"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "phi_deg === 0 && cohesion_kpa === 0",
+        "error_msg": "Both c and φ are zero: soil has no shear strength — check soil parameters; at minimum one parameter must be non-zero"
+      },
+      "V2": {
+        "condition": "groundwater_depth_m < foundation_depth_m && gamma_eff > 12",
+        "error_msg": "GWT above foundation level but gamma_eff appears too high — verify buoyant unit weight γ' = γ_sat − 9.81 is applied correctly"
+      },
+      "V3": {
+        "condition": "q_allowable_kpa > 600 && phi_deg < 35",
+        "error_msg": "Very high allowable pressure for moderate friction angle: verify soil parameters with in-situ testing (SPT/CPT) before finalising"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Foundation depth < 0.5 m: shallow embedment vulnerable to frost heave, erosion, and surface disturbance — minimum 0.6 m below frost line per ASCE 7",
+        "condition": "foundation_depth_m < 0.5",
+        "source": "Terzaghi (1943) / Meyerhof (1963/1976)"
+      },
+      {
+        "id": "W2",
+        "severity": "INFO",
+        "message": "Very high friction angle (>40°): verify with laboratory tests — field estimates of φ > 40° are often optimistic; use conservative lower bound",
+        "condition": "phi_deg > 40 && cohesion_kpa === 0",
+        "source": "Terzaghi (1943) / Meyerhof (1963/1976)"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "GWT within influence zone (D_w < D_f + B): full buoyant correction required for γ in N_γ term — EC7 §6.5.3(4) applies",
+        "condition": "groundwater_depth_m < foundation_depth_m + foundation_width_m",
+        "source": "Terzaghi (1943) / Meyerhof (1963/1976)"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "FOS < 2.5 for cohesionless soil: increased uncertainty in φ and soil variability — EC7 recommends partial factor approach (γ_φ = 1.25) as verification",
+        "condition": "FOS_target < 2.5 && cohesion_kpa === 0",
+        "source": "Terzaghi (1943) / Meyerhof (1963/1976)"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Square/circular footing: shape factors significantly increase capacity vs strip — verify punching shear capacity of footing in structural design",
+        "condition": "foundation_width_m / foundation_length_m > 0.9",
+        "source": "Terzaghi (1943) / Meyerhof (1963/1976)"
+      }
+    ]
+  }
+}

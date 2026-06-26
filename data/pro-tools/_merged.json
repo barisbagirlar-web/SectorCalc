@@ -1,5 +1,122 @@
 [
   {
+    "tool_id": "PRO_001",
+    "tool_name": "CNC Milling — Cutting Force, Specific Cutting Energy & Spindle Power",
+    "category": "CNC Machining / Metal Cutting",
+    "scope": "single_operation",
+    "primary_operation": "milling",
+    "engine_rules": {
+      "standards": [
+        "Sandvik Coromant C-2920 2024",
+        "ISO 513:2012 (cutting tool classification)",
+        "CIRP Annals Vol.57 (2008) §2"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_002",
+    "tool_name": "CNC Turning — Cutting Force, MRR, Surface Roughness & Tool Life Estimation",
+    "category": "CNC Machining / Metal Cutting",
+    "scope": "single_operation",
+    "primary_operation": "turning",
+    "engine_rules": {
+      "standards": [
+        "Sandvik Coromant C-2920 2024",
+        "ISO 3685:1993 (tool life)",
+        "ISO 4287:1997 (surface texture)",
+        "ISO 513:2012"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_003",
+    "tool_name": "OEE & TPM Analysis — Availability, Performance, Quality & Six Big Loss Breakdown",
+    "category": "Manufacturing Operations / Lean / TPM",
+    "scope": "process_agnostic",
+    "primary_operation": "oee_tpm",
+    "engine_rules": {
+      "standards": [
+        "ISO 22400-2:2014",
+        "SEMI E10-0304",
+        "JIPM TPM Excellence Award Criteria"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_004",
+    "tool_name": "VDI 2230 Bolted Joint — Tightening Torque, Preload Loss & Fatigue Safety Factor",
+    "category": "Mechanical Design / Bolted Connections",
+    "scope": "single_operation",
+    "primary_operation": "bolted_joint",
+    "engine_rules": {
+      "standards": [
+        "VDI 2230:2015 Part 1",
+        "ISO 898-1:2013",
+        "DIN 946:1990 (friction coefficients)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_005",
+    "tool_name": "WPS Preheat Temperature & PWHT Requirements — Carbon Equivalent & Hydrogen Risk",
+    "category": "Welding Engineering / WPS / PQR",
+    "scope": "single_operation",
+    "primary_operation": "welding_preheat",
+    "engine_rules": {
+      "standards": [
+        "AWS D1.1-2020 §3.5, Table 3.2",
+        "EN 1011-2:2001 Annex C",
+        "ISO 13916:2017",
+        "ASME BPVC IX 2023"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_006",
+    "tool_name": "Capital Investment Appraisal — NPV, IRR, Payback & Profitability Index",
+    "category": "Financial Engineering / Project Finance",
+    "scope": "process_agnostic",
+    "primary_operation": "investment_appraisal",
+    "engine_rules": {
+      "standards": [
+        "ICMA Financial Appraisal Guide",
+        "ISO 15686-5:2017 (LCC)",
+        "IAS 36 Impairment",
+        "IFC Performance Standards §1"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_007",
+    "tool_name": "Pump NPSH Available, Cavitation Index & System Head Curve Analysis",
+    "category": "Fluid Systems / Pump Engineering",
+    "scope": "single_operation",
+    "primary_operation": "centrifugal_pump",
+    "engine_rules": {
+      "standards": [
+        "API 610 12th Ed. §6.1.14",
+        "ANSI/HI 9.6.1-2012",
+        "ISO 9906:2012 §6.4",
+        "API RP 685"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_008",
+    "tool_name": "Steel Column Axial Compression — Slenderness, Critical Stress & Euler Buckling Load",
+    "category": "Structural Engineering / Steel Design",
+    "scope": "single_operation",
+    "primary_operation": "steel_column",
+    "engine_rules": {
+      "standards": [
+        "AISC 360-22 Chapter E",
+        "EN 1993-1-1:2022 §6.3.1",
+        "ASCE 7-22 load combinations",
+        "AS AS 4100-2020 §6"
+      ]
+    }
+  },
+  {
     "tool_id": "PRO_009",
     "tool_name": "Pressure Vessel Wall Thickness Sizing (ASME VIII / PED)",
     "category": "Mechanical Design / Pressure Vessels",
@@ -339,18 +456,842 @@
     }
   },
   {
-    "tool_id": "PRO_088",
-    "tool_name": "Gage R&R Measurement System Analysis (AIAG MSA 4th Ed.)",
-    "category": "Quality & Metrology",
+    "tool_id": "PRO_036",
+    "tool_name": "Pump System Curve & BEP Deviation — Hydraulic Power Loss & Cavitation Risk",
+    "category": "Fluid Systems / Rotating Equipment",
     "scope": "single_operation",
-    "primary_operation": "measurement_system",
+    "primary_operation": "centrifugal_pump",
     "engine_rules": {
       "standards": [
+        "HI 9.6.3-2017",
+        "ISO 9906:2012",
+        "API 610 12th Ed.",
+        "ISO 50001:2018"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_037",
+    "tool_name": "Bolted Flange Joint Integrity — Gasket Seating Stress, Bolt Load & Leak Tightness Class",
+    "category": "Pressure Equipment / Mechanical Integrity",
+    "scope": "single_operation",
+    "primary_operation": "bolted_joint",
+    "engine_rules": {
+      "standards": [
+        "ASME BPVC VIII Div.1 App.2",
+        "ASME PCC-1-2019",
+        "ASME B16.5-2017",
+        "EN 1591-1:2013",
+        "ASTM A193 B7"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_038",
+    "tool_name": "Shell & Tube Heat Exchanger Thermal Sizing — LMTD, NTU-ε & Fouling Margin",
+    "category": "Heat Transfer / Process Equipment",
+    "scope": "single_operation",
+    "primary_operation": "shell_tube_HX",
+    "engine_rules": {
+      "standards": [
+        "TEMA C/B/R 10th Ed.",
+        "ISO 15547-1:2005",
+        "ASME BPVC VIII Div.1",
+        "HTRI Design Guidelines"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_039",
+    "tool_name": "Electrical Motor Energy Audit — Load Factor, Efficiency Penalty & VFD Retrofit ROI",
+    "category": "Electrical Systems / Energy Management",
+    "scope": "single_operation",
+    "primary_operation": "induction_motor_audit",
+    "engine_rules": {
+      "standards": [
+        "IEC 60034-30-1:2014 (IE efficiency classes)",
+        "NEMA MG1-2016 Part 30",
+        "ISO 50001:2018",
+        "EU Regulation 640/2009"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_040",
+    "tool_name": "Compressed Air System Leak Loss Quantification & Repair ROI",
+    "category": "Utilities / Energy Management",
+    "scope": "single_operation",
+    "primary_operation": "compressed_air_audit",
+    "engine_rules": {
+      "standards": [
+        "ISO 11011:2013",
+        "DOE Compressed Air Challenge Handbook",
+        "CAGI Standards",
+        "ISO 50001:2018"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_041",
+    "tool_name": "Pressure Vessel Wall Thickness & MAWP — Cylindrical & Spherical Shell Design",
+    "category": "Pressure Equipment / Structural Integrity",
+    "scope": "single_operation",
+    "primary_operation": "pressure_vessel",
+    "engine_rules": {
+      "standards": [
+        "ASME BPVC VIII Div.1 (UG-27, UG-99, UW-12)",
+        "ASME BPVC II-D Material Tables",
+        "EN 13445-3:2021",
+        "PD 5500:2021"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_042",
+    "tool_name": "Structural Steel Beam — Combined Bending, Shear & Lateral-Torsional Buckling Check",
+    "category": "Structural Engineering / Steel Design",
+    "scope": "single_operation",
+    "primary_operation": "steel_beam",
+    "engine_rules": {
+      "standards": [
+        "AISC 360-22 Chapters F, G",
+        "EN 1993-1-1:2022 (EC3) §6.2, §6.3",
+        "ASCE 7-22 load combinations"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_043",
+    "tool_name": "Arc Welding Heat Input, HAZ Width & Preheat Temperature Calculation",
+    "category": "Welding & Joining / Manufacturing",
+    "scope": "single_operation",
+    "primary_operation": "arc_welding",
+    "engine_rules": {
+      "standards": [
+        "AWS D1.1-2020 §4.11, Table 3.2",
+        "EN 1011-1:2009 §7",
+        "EN 1011-2:2001 Annex C",
+        "ISO 13916:2017",
+        "ISO 3690:2018"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_044",
+    "tool_name": "Refrigeration System COP, Refrigerant Mass Flow & Condenser Heat Rejection",
+    "category": "HVAC / Refrigeration Engineering",
+    "scope": "single_operation",
+    "primary_operation": "vapor_compression_refrigeration",
+    "engine_rules": {
+      "standards": [
+        "ASHRAE 15-2022 Safety Standard",
+        "ASHRAE 34-2022 Refrigerant Designation",
+        "EN 378-1:2016",
+        "ISO 5149-1:2014"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_045",
+    "tool_name": "Industrial Noise Attenuation — Source SPL to Receiver Level & OSHA Dose Calculation",
+    "category": "Occupational Safety / Environmental Engineering",
+    "scope": "process_agnostic",
+    "primary_operation": "noise_propagation",
+    "engine_rules": {
+      "standards": [
+        "ISO 9613-2:1996",
+        "OSHA 29 CFR 1910.95",
+        "NIOSH REL (85 dB(A))",
+        "EU Directive 2003/10/EC",
+        "ISO 1996-1:2016"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_046",
+    "tool_name": "Pipeline Wall Thickness, MAOP & Burst Pressure — Onshore Transmission Design",
+    "category": "Pipeline Engineering / Oil & Gas",
+    "scope": "single_operation",
+    "primary_operation": "onshore_pipeline",
+    "engine_rules": {
+      "standards": [
+        "ASME B31.8-2022 §841",
+        "ASME B31.4-2022 §403",
+        "API 5L 46th Ed. / ISO 3183:2019",
+        "API RP 1111"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_047",
+    "tool_name": "Fatigue Life Estimation — S-N Curve, Miner's Rule Cumulative Damage & Safety Factor",
+    "category": "Mechanical Integrity / Fatigue Analysis",
+    "scope": "single_operation",
+    "primary_operation": "fatigue_assessment",
+    "engine_rules": {
+      "standards": [
+        "IIW Recommendations XIII-2460-13",
+        "EN 13445-3:2021 Annex B",
+        "ASME BPVC VIII Div.2 Part 5",
+        "BS 7608:2014+A1:2015"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_048",
+    "tool_name": "Conveyor Belt Power, Drive Tension & Sag Ratio — Bulk Material Handling Design",
+    "category": "Bulk Material Handling / Mechanical Engineering",
+    "scope": "single_operation",
+    "primary_operation": "belt_conveyor",
+    "engine_rules": {
+      "standards": [
+        "ISO 5048:1989",
+        "CEMA Belt Conveyors for Bulk Materials 7th Ed.",
+        "DIN 22101:2011",
+        "AS 1755:2000"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_049",
+    "tool_name": "Power Transformer Loading, No-Load/Load Losses & Economic Loading Factor",
+    "category": "Electrical Power Systems / Energy Management",
+    "scope": "single_operation",
+    "primary_operation": "power_transformer",
+    "engine_rules": {
+      "standards": [
+        "IEC 60076-1:2011",
+        "IEC 60354:1991",
+        "IEEE C57.12.00-2021",
+        "IEC 60076-7 (loading guide)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_050",
+    "tool_name": "Chemical Reactor Heat of Reaction, Adiabatic Temperature Rise & Thermal Runaway Risk",
+    "category": "Chemical Process Engineering / Process Safety",
+    "scope": "single_operation",
+    "primary_operation": "batch_reactor",
+    "engine_rules": {
+      "standards": [
+        "Stoessel 'Thermal Safety of Chemical Processes' (Wiley 2008)",
+        "IEC 62675:2014",
+        "ASTM E537 / E1981",
+        "AIChE DIERS Guidelines"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_051",
+    "tool_name": "Cylindrical Gear Pair — Bending & Pitting (Contact) Stress Rating per ISO 6336",
+    "category": "Mechanical Power Transmission / Machine Design",
+    "scope": "single_operation",
+    "primary_operation": "cylindrical_gear",
+    "engine_rules": {
+      "standards": [
+        "ISO 6336-1:2019",
+        "ISO 6336-2:2019",
+        "ISO 6336-3:2019",
+        "ISO 6336-5:2016 (materials)",
+        "AGMA 2101-D04"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_052",
+    "tool_name": "Chilled Water Plant Energy Performance — System COP, IPLV & Carbon Footprint",
+    "category": "HVAC / Energy Management",
+    "scope": "single_operation",
+    "primary_operation": "chilled_water_plant",
+    "engine_rules": {
+      "standards": [
+        "ASHRAE 90.1-2022 §6.5.1",
+        "AHRI 551/591-2023",
+        "EN 14511:2018",
+        "ISO 50001:2018",
+        "GHG Protocol Scope 2"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_053",
+    "tool_name": "Anchor Bolt Group — Tension, Shear & Combined Interaction for Column Baseplates",
+    "category": "Structural Engineering / Foundation Design",
+    "scope": "single_operation",
+    "primary_operation": "anchor_bolt_group",
+    "engine_rules": {
+      "standards": [
+        "ACI 318-19 Chapter 17",
+        "AISC Design Guide 1 3rd Ed.",
+        "EN 1992-4:2018",
+        "ASTM F1554",
+        "ISO 898-1"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_054",
+    "tool_name": "Wet Scrubber / Packed Column Sizing — Mass Transfer NTU, HTU & Pressure Drop",
+    "category": "Chemical Process Engineering / Air Quality",
+    "scope": "single_operation",
+    "primary_operation": "packed_column_scrubber",
+    "engine_rules": {
+      "standards": [
+        "GPSA Engineering Data Book 14th Ed. §9",
+        "AIChE Distillation Design Manual",
+        "VDI 2440:2000",
+        "Perry's Chemical Engineers' Handbook 9th Ed."
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_055",
+    "tool_name": "Lightning Protection — Rolling Sphere Radius, LPZ Classification & SPD Coordination",
+    "category": "Electrical Safety / Building Services",
+    "scope": "process_agnostic",
+    "primary_operation": "lightning_protection",
+    "engine_rules": {
+      "standards": [
+        "IEC 62305-1:2010",
+        "IEC 62305-2:2010 (Risk Assessment)",
+        "IEC 62305-3:2010",
+        "IEC 62305-4:2010",
+        "NFPA 780-2023",
+        "IEC 61643-11"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_056",
+    "tool_name": "Rolling Element Bearing Rated Life L10h, ISO 281 Adjusted Life & Lubrication Factor",
+    "category": "Mechanical Power Transmission / Maintenance Engineering",
+    "scope": "single_operation",
+    "primary_operation": "rolling_bearing",
+    "engine_rules": {
+      "standards": [
+        "ISO 281:2007 + Amd.1:2008",
+        "ISO 76:2006",
+        "ISO 15312:2003 (reference speed)",
+        "SKF General Catalogue 7th Ed."
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_057",
+    "tool_name": "Substation Earthing Grid — Ground Resistance, Touch & Step Voltage Safety Check",
+    "category": "Electrical Safety / Grounding Systems",
+    "scope": "single_operation",
+    "primary_operation": "earthing_grid",
+    "engine_rules": {
+      "standards": [
+        "IEEE Std 80-2013",
+        "IEEE Std 81-2012 (soil resistivity measurement)",
+        "IEC 60364-5-54:2011",
+        "BS 7430:2011+A1:2015"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_058",
+    "tool_name": "Fired Heater Thermal Efficiency — Stack Loss, Excess Air Optimisation & Process Duty",
+    "category": "Oil & Gas Processing / Energy Management",
+    "scope": "single_operation",
+    "primary_operation": "fired_heater",
+    "engine_rules": {
+      "standards": [
+        "API 560 5th Ed. (Fired Heaters for General Refinery)",
+        "ISO 13705:2006",
+        "ASME PTC 4-2013",
+        "EPA Method 3A (O₂ measurement)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_059",
+    "tool_name": "Storm Water Peak Runoff — Rational Method, Time of Concentration & Culvert Capacity",
+    "category": "Civil / Hydraulic Engineering",
+    "scope": "process_agnostic",
+    "primary_operation": "stormwater_drainage",
+    "engine_rules": {
+      "standards": [
+        "ASCE 7-22",
+        "FHWA HEC-22 3rd Ed.",
+        "EN 752:2017",
+        "NOAA Atlas 14",
+        "BS EN 1295-1:1998"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_060",
+    "tool_name": "Counterbalance Forklift Stability — Load Centre Shift, Residual Capacity & Tipping Moment",
+    "category": "Material Handling / Occupational Safety",
+    "scope": "single_operation",
+    "primary_operation": "counterbalance_forklift",
+    "engine_rules": {
+      "standards": [
+        "ISO 22915-1:2016",
+        "EN 16307-1:2019",
+        "OSHA 29 CFR 1910.178",
+        "BITA Technical Note 05"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_061",
+    "tool_name": "Cooling Tower Performance — Thermal Range, Approach, NTU & Makeup Water Rate",
+    "category": "Utilities / Heat Rejection / HVAC",
+    "scope": "single_operation",
+    "primary_operation": "evaporative_cooling_tower",
+    "engine_rules": {
+      "standards": [
+        "CTI STD-201 RS-78",
+        "ASHRAE 90.1-2022 §6.5.2",
+        "ASHRAE Fundamentals Ch.40",
+        "ISO 13706:2005"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_062",
+    "tool_name": "Reciprocating Compressor Cylinder Sizing — Displacement, Volumetric Efficiency & Rod Load",
+    "category": "Rotating Equipment / Gas Compression",
+    "scope": "single_operation",
+    "primary_operation": "reciprocating_compressor",
+    "engine_rules": {
+      "standards": [
+        "API 618 5th Ed. (2007)",
+        "ISO 1217:2009 Annex C",
+        "ASME PTC 9-1970 (reaffirmed 2003)",
+        "API RP 688"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_063",
+    "tool_name": "RC Column Axial-Bending Interaction — Capacity Check, Eccentricity & Confinement",
+    "category": "Structural Engineering / Concrete Design",
+    "scope": "single_operation",
+    "primary_operation": "rc_column",
+    "engine_rules": {
+      "standards": [
+        "ACI 318-19 §10, §22.4, §6.2.5",
+        "EN 1992-1-1:2004 §5.8 (EC2 slenderness)",
+        "AS 3600-2018 §10"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_064",
+    "tool_name": "Industrial Ventilation Duct Sizing — Air Volume, Velocity, Friction Loss & Fan Selection",
+    "category": "HVAC / Industrial Ventilation",
+    "scope": "single_operation",
+    "primary_operation": "duct_design",
+    "engine_rules": {
+      "standards": [
+        "ASHRAE 62.1-2022",
+        "ASHRAE Fundamentals 2021 Ch.21",
+        "SMACNA HVAC Duct Construction 3rd Ed.",
+        "EN 16798-1:2019"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_065",
+    "tool_name": "Process Capability — Cpk, Ppk, DPMO & Sigma Level from Measurement Data",
+    "category": "Quality Engineering / Six Sigma",
+    "scope": "process_agnostic",
+    "primary_operation": "process_capability",
+    "engine_rules": {
+      "standards": [
+        "ISO 22514-2:2017",
+        "AIAG SPC Manual 2nd Ed.",
         "AIAG MSA 4th Ed.",
-        "IATF 16949 Madde 7.1.5",
-        "ISO 22514-7",
-        "VDA 5",
-        "ISO 17025"
+        "IATF 16949:2016",
+        "ASQ/ANSI Z1.9"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_066",
+    "tool_name": "Wire Rope Sling — Safe Working Load, D/d Ratio Derating & Fatigue Life Assessment",
+    "category": "Lifting & Rigging / Material Handling Safety",
+    "scope": "single_operation",
+    "primary_operation": "wire_rope_sling",
+    "engine_rules": {
+      "standards": [
+        "ISO 2408:2023",
+        "ASME B30.9-2022",
+        "EN 13414-1:2003",
+        "LEEA COPSULE 2019",
+        "OSHA 29 CFR 1926.251"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_067",
+    "tool_name": "Grid-Tied PV System Sizing — Array Capacity, Annual Yield, Performance Ratio & Financial ROI",
+    "category": "Renewable Energy / Electrical Engineering",
+    "scope": "process_agnostic",
+    "primary_operation": "photovoltaic_system",
+    "engine_rules": {
+      "standards": [
+        "IEC 61215:2021 (module qualification)",
+        "IEC 61730-1:2021 (safety)",
+        "IEC 61724-1:2021 (monitoring)",
+        "ASTM E2848-13",
+        "NREL SAM"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_068",
+    "tool_name": "Shallow Foundation Bearing Capacity — Ultimate & Allowable Load per Terzaghi-Meyerhof",
+    "category": "Geotechnical Engineering / Foundation Design",
+    "scope": "single_operation",
+    "primary_operation": "shallow_foundation",
+    "engine_rules": {
+      "standards": [
+        "Terzaghi (1943) / Meyerhof (1963/1976)",
+        "EN 1997-1:2004 (EC7) §6.5.3",
+        "ASCE 7-22 §12.13",
+        "IS 6403:1981"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_069",
+    "tool_name": "Centrifugal Fan Selection — Specific Speed, Tip Speed, Blade Loading & Noise Rating",
+    "category": "Fluid Systems / HVAC / Industrial Ventilation",
+    "scope": "single_operation",
+    "primary_operation": "centrifugal_fan",
+    "engine_rules": {
+      "standards": [
+        "ISO 13349:2010 (fan terminology)",
+        "AMCA 210-16 (performance test)",
+        "EN ISO 5801:2017",
+        "AMCA 300-14 (sound)",
+        "AMCA 301-14"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_070",
+    "tool_name": "Elevated Storage Tank — Shell Hoop Stress, Hydrostatic Pressure & Wind Overturning Stability",
+    "category": "Civil / Structural / Water Infrastructure",
+    "scope": "single_operation",
+    "primary_operation": "elevated_water_tank",
+    "engine_rules": {
+      "standards": [
+        "AWWA D100-11 (Welded Carbon Steel Tanks)",
+        "API 650 12th Ed.",
+        "EN 1993-4-2:2007",
+        "ASCE 7-22 §15.4, §29.4"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_071",
+    "tool_name": "Hydraulic Cylinder Actuator Sizing — Bore, Rod, Force, Speed & Buckling Check",
+    "category": "Fluid Power / Hydraulic Systems",
+    "scope": "single_operation",
+    "primary_operation": "hydraulic_cylinder",
+    "engine_rules": {
+      "standards": [
+        "ISO 6020-2:2015 (cylinder dimensions)",
+        "ISO 6022:1981 (flow/speed)",
+        "ISO 6020-2 Annex B (buckling)",
+        "NFPA T3.6.7 (rod load rating)",
+        "Parker Hydraulic Cylinder Catalog"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_072",
+    "tool_name": "Power Cable Ampacity, Derating & Voltage Drop Sizing — LV / MV Distribution",
+    "category": "Electrical Engineering / Cable Design",
+    "scope": "single_operation",
+    "primary_operation": "power_cable",
+    "engine_rules": {
+      "standards": [
+        "IEC 60364-5-52:2009",
+        "IEC 60228:2004",
+        "NEC Article 310 (2023)",
+        "BS 7671:2018+A2:2022 (18th Ed.)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_073",
+    "tool_name": "EOQ, Reorder Point & Safety Stock Optimisation with Demand & Lead Time Variability",
+    "category": "Supply Chain / Inventory Management",
+    "scope": "process_agnostic",
+    "primary_operation": "inventory_optimisation",
+    "engine_rules": {
+      "standards": [
+        "APICS CPIM Exam Content Manual",
+        "ISO 28000:2022 (supply chain security)",
+        "Silver-Pyke-Thomas 'Inventory Management & Production Planning' 3rd Ed."
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_074",
+    "tool_name": "Pipe & Vessel Thermal Insulation Thickness — Economic & Process Optimisation",
+    "category": "Thermal Engineering / Energy Management",
+    "scope": "single_operation",
+    "primary_operation": "thermal_insulation",
+    "engine_rules": {
+      "standards": [
+        "ISO 12241:1998 (EN ISO 12241:2022)",
+        "ASTM C680-21",
+        "CINI Manual for Industrial Insulation",
+        "EN 13202:2021 (touch safety)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_075",
+    "tool_name": "Flare Stack Thermal Radiation — Exclusion Zone, Flame Length & Stack Height",
+    "category": "Process Safety / Oil & Gas / Environmental",
+    "scope": "single_operation",
+    "primary_operation": "flare_stack",
+    "engine_rules": {
+      "standards": [
+        "API 521 7th Ed. 2020 §5.15",
+        "API 537 3rd Ed. 2017",
+        "ISO 23251:2006 (equivalent to API 521)",
+        "SFPE Handbook of Fire Protection Engineering 5th Ed."
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_076",
+    "tool_name": "Screw Conveyor Capacity, Drive Torque & Motor Power Selection",
+    "category": "Bulk Material Handling / Mechanical Engineering",
+    "scope": "single_operation",
+    "primary_operation": "screw_conveyor",
+    "engine_rules": {
+      "standards": [
+        "CEMA 350 7th Ed.",
+        "ISO 7119:1981",
+        "DIN 15262:2019"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_077",
+    "tool_name": "Toxic Gas Dispersion — Gaussian Plume Ground-Level Concentration & IDLH Exclusion Zone",
+    "category": "Process Safety / Environmental Engineering",
+    "scope": "process_agnostic",
+    "primary_operation": "gas_dispersion",
+    "engine_rules": {
+      "standards": [
+        "EPA 40 CFR Part 68 RMP §68.22",
+        "NIOSH IDLH database",
+        "Pasquill-Gifford / Turner (1994)",
+        "AIHA ERPG values",
+        "API 581 BRD §3"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_078",
+    "tool_name": "Compressed Air Receiver Volume Sizing — Peak Demand Buffer, Pressure Drop & ASME Certification",
+    "category": "Utilities / Compressed Air Systems",
+    "scope": "single_operation",
+    "primary_operation": "air_receiver",
+    "engine_rules": {
+      "standards": [
+        "ISO 1217:2009 Annex C",
+        "ASME BPVC VIII Div.1 §UG-27",
+        "PSSR 2000 (UK Pressure Systems Safety Regulations)",
+        "EN 13445-3:2021",
+        "CAGI Compressed Air & Gas Handbook"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_079",
+    "tool_name": "Crane Runway Beam — Maximum Wheel Load, Vertical & Lateral Bending, Fatigue Check",
+    "category": "Structural Engineering / Material Handling",
+    "scope": "single_operation",
+    "primary_operation": "crane_runway_beam",
+    "engine_rules": {
+      "standards": [
+        "AISC Design Guide 7 (Crane Buildings) 2nd Ed.",
+        "CMAA Specification 70 (Top-Running) & 74 (Underhung)",
+        "EN 1993-6:2007 (EC3 crane runways)",
+        "AS 1418.18-2001"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_080",
+    "tool_name": "Industrial Evaporator Design — Steam Economy, Boiling Point Rise & Heat Transfer Area",
+    "category": "Chemical Process Engineering / Evaporation",
+    "scope": "single_operation",
+    "primary_operation": "evaporator",
+    "engine_rules": {
+      "standards": [
+        "Perry's Chemical Engineers' Handbook 9th Ed. §11.12",
+        "TEMA Standards 10th Ed.",
+        "AIChE Evaporation Design Guide",
+        "Alfa Laval / GEA Evaporator Engineering Practice"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_081",
+    "tool_name": "Metallic Expansion Joint Sizing — Axial Displacement, Spring Rate & Fatigue Cycle Life",
+    "category": "Piping Systems / Thermal Engineering",
+    "scope": "single_operation",
+    "primary_operation": "expansion_joint",
+    "engine_rules": {
+      "standards": [
+        "EJMA Standards 10th Ed.",
+        "EN 14917:2012",
+        "ASME B31.3-2022 §319.4",
+        "ISO 10380:2012"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_082",
+    "tool_name": "Inline Static Mixer — Pressure Drop, Mixing Length & Coefficient of Variation",
+    "category": "Chemical Process Engineering / Mixing",
+    "scope": "single_operation",
+    "primary_operation": "static_mixer",
+    "engine_rules": {
+      "standards": [
+        "Sulzer Chemtech Static Mixer Engineering Guide",
+        "Chemineer Design Manual",
+        "Perry's Chemical Engineers' Handbook 9th Ed. §18.5",
+        "AIChE Equipment Testing Procedure — Mixing"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_083",
+    "tool_name": "Industrial Heat Pump COP, Annual Energy Saving & Carbon Payback vs Steam Boiler",
+    "category": "Energy Management / Decarbonisation",
+    "scope": "process_agnostic",
+    "primary_operation": "industrial_heat_pump",
+    "engine_rules": {
+      "standards": [
+        "EN 14511:2018 (heat pump rating)",
+        "VDI 4650:2009 (COP approximation)",
+        "ISO 13600:1997 (rational energy use)",
+        "GHG Protocol Scope 1 & 2",
+        "ASHRAE 90.1-2022"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_084",
+    "tool_name": "Atmospheric Storage Tank Venting — Normal Breathing, Liquid Movement & Emergency Fire Relief",
+    "category": "Oil & Gas Storage / Process Safety",
+    "scope": "single_operation",
+    "primary_operation": "atmospheric_tank_venting",
+    "engine_rules": {
+      "standards": [
+        "API 2000 7th Ed. 2014",
+        "EN 14015:2004 §15",
+        "ISO 28300:2008 (identical to API 2000)",
+        "NFPA 30-2021 §22.6"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_085",
+    "tool_name": "Activated Sludge Aeration Design — Oxygen Demand, Tank Volume, MLSS & Blower Power",
+    "category": "Water & Wastewater Treatment / Environmental Engineering",
+    "scope": "single_operation",
+    "primary_operation": "activated_sludge_aeration",
+    "engine_rules": {
+      "standards": [
+        "ATV-DVWK A-131 (2000)",
+        "EN 12255-7:2001 (aeration)",
+        "WEF MOP 8 6th Ed.",
+        "ISO 15705:2002 (COD)",
+        "EU Urban Wastewater Treatment Directive 91/271/EEC"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_086",
+    "tool_name": "Helical Torsion Spring Design — Bending Stress, Angular Deflection & Fatigue Life",
+    "category": "Mechanical Design / Spring Engineering",
+    "scope": "single_operation",
+    "primary_operation": "torsion_spring",
+    "engine_rules": {
+      "standards": [
+        "DIN 2088:2009",
+        "ASTM A228/A227/A313",
+        "SAE HS-795 Spring Design Manual",
+        "ISO 26909:2009"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_087",
+    "tool_name": "Dust Explosion Severity — Kst Classification, Pmax & Vent Area per EN 14491 / NFPA 68",
+    "category": "Process Safety / Fire & Explosion Protection",
+    "scope": "single_operation",
+    "primary_operation": "dust_explosion_vent",
+    "engine_rules": {
+      "standards": [
+        "EN 14491:2012 (dust explosion venting)",
+        "NFPA 68-2018 (explosion protection by deflagration venting)",
+        "VDI 2263 Part 1",
+        "ISO 6184-1:1985"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_088",
+    "tool_name": "Roof Truss Member Force & Joint Reaction — Simple Warren / Pratt Configuration",
+    "category": "Structural Engineering / Steel Design",
+    "scope": "single_operation",
+    "primary_operation": "roof_truss",
+    "engine_rules": {
+      "standards": [
+        "AISC 360-22 Chapters D, E, F",
+        "ASCE 7-22 §2.3, §7, §27",
+        "EN 1993-1-1:2022 §6.2",
+        "EN 1990:2002 ULS combinations"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_089",
+    "tool_name": "Orifice Plate Flow Meter Sizing — Beta Ratio, Discharge Coefficient & Differential Pressure",
+    "category": "Instrumentation / Flow Measurement",
+    "scope": "single_operation",
+    "primary_operation": "orifice_plate",
+    "engine_rules": {
+      "standards": [
+        "ISO 5167-1:2022 §6",
+        "ISO 5167-2:2022 (orifice plates)",
+        "ASME MFC-3M-2004",
+        "AGA Report No.3 (gas metering)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_090",
+    "tool_name": "Electroplating Bath — Faraday Deposition Rate, Plating Time & Rectifier Power",
+    "category": "Surface Engineering / Manufacturing",
+    "scope": "single_operation",
+    "primary_operation": "electroplating",
+    "engine_rules": {
+      "standards": [
+        "ISO 2081:2018 (zinc electroplating)",
+        "ASTM B633-19 (zinc on iron/steel)",
+        "EN ISO 4527:2003 (autocatalytic nickel)",
+        "MIL-STD-171F (finishing of metals)",
+        "ISO 1458:2002 (nickel)"
       ]
     }
   },

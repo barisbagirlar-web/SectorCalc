@@ -1,0 +1,150 @@
+{
+  "tool_id": "PRO_084",
+  "tool_name": "Atmospheric Storage Tank Venting — Normal Breathing, Liquid Movement & Emergency Fire Relief",
+  "category": "Oil & Gas Storage / Process Safety",
+  "scope": "single_operation",
+  "primary_operation": "atmospheric_tank_venting",
+  "inputs": [
+    {
+      "id": "tank_capacity_m3",
+      "name": "Tank Net Working Capacity (V_tank)",
+      "unit": "m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 200000
+    },
+    {
+      "id": "fill_rate_m3h",
+      "name": "Maximum Fill / Pump-In Rate (Q_in)",
+      "unit": "m³/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 20000
+    },
+    {
+      "id": "draw_rate_m3h",
+      "name": "Maximum Draw / Pump-Out Rate (Q_out)",
+      "unit": "m³/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 20000
+    },
+    {
+      "id": "product_flash_c",
+      "name": "Product Flash Point (T_flash)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": -50,
+      "absolute_max": 250,
+      "note": "Gasoline < 0°C; diesel ≈ 55°C; heavy fuel oil ≈ 70–120°C; crude oil varies"
+    },
+    {
+      "id": "product_RVP_kpa",
+      "name": "Product Reid Vapour Pressure (RVP)",
+      "unit": "kPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 65,
+      "absolute_min": 0.1,
+      "absolute_max": 200,
+      "note": "Gasoline ≈ 55–90 kPa; crude ≈ 40–100 kPa; diesel < 10 kPa; water ≈ 2.3 kPa at 20°C"
+    },
+    {
+      "id": "tank_diameter_m",
+      "name": "Tank Outside Diameter (D_tank)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 120
+    },
+    {
+      "id": "design_temp_c",
+      "name": "Maximum Product & Ambient Temperature (T_design)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 45,
+      "absolute_min": 0,
+      "absolute_max": 90
+    }
+  ],
+  "formulas": [
+    "V_thermal_inbreath_Nm3h = 0.98 * Math.pow(tank_capacity_m3, 0.9) * 0.001 * 1000 / 24   // [Nm³/h] Thermal In-Breathing (Vacuum) — Daily Temperature Drop Reference: API 2000-7th Ed. Table 2 — thermal in-breathing: Y_IB = 0.98V^0.9 (m³/day); hourly rate",
+    "RVP_factor = (product_RVP_kpa > 13.8) ? 1.0 + (product_RVP_kpa - 13.8) * 0.01 : 1.0; V_thermal_outbreath_Nm3h = 0.94 * Math.pow(tank_capacity_m3, 0.9) * RVP_factor * 1000 / 24   // [Nm³/h] Thermal Out-Breathing (Pressure) — Daily Temperature Rise Reference: API 2000 Table 3 — thermal out-breathing with RVP correction; Y_OB = 0.94V^0.9 × F_RVP",
+    "V_fill_vent_Nm3h = fill_rate_m3h * 1.01; V_draw_vent_Nm3h = draw_rate_m3h * 1.01   // [Nm³/h] Liquid Movement Venting (In & Out) Reference: API 2000 §5.3.2 — liquid movement venting: 1 m³ liquid in/out displaces 1.01 Nm³ vapour (density correction)",
+    "V_total_out_Nm3h = V_thermal_outbreath_Nm3h + V_fill_vent_Nm3h; V_total_in_Nm3h = V_thermal_inbreath_Nm3h + V_draw_vent_Nm3h   // [Nm³/h] Total Normal Vent Capacity Required (Pressure & Vacuum) Reference: API 2000 §5.3.3 — normal vent sizing: combine thermal and liquid movement conservatively",
+    "A_wetted_m2 = Math.PI * tank_diameter_m * Math.min(9.14, Math.sqrt(tank_capacity_m3 / (Math.PI/4 * Math.pow(tank_diameter_m, 2)))); Q_fire_kw = 43200 * Math.pow(A_wetted_m2, 0.82) / 3600; lambda_evap_kj_kg = 270; rho_vapour = 3.0; V_fire_Nm3h = Q_fire_kw * 3600 / (lambda_evap_kj_kg * rho_vapour)   // [Nm³/h] Emergency Fire Relief Venting (API 2000 §5.4) Reference: API 2000 §5.4.2 Eq.(1): Q_fire = 43200·F·A^0.82 (BTU/hr) / 3600; λ and ρ_vapour for petroleum product",
+    "V_governing_out = Math.max(V_total_out_Nm3h, V_fire_Nm3h); V_governing_in = V_total_in_Nm3h; is_emergency_governing = V_fire_Nm3h > V_total_out_Nm3h   // [Nm³/h] Governing Vent Size — Required Flow vs Emergency Reference: Governing capacity: larger of normal vent and emergency fire vent determines PV valve / conservation vent size"
+  ],
+  "engine_rules": {
+    "standards": [
+      "API 2000 7th Ed. 2014",
+      "EN 14015:2004 §15",
+      "ISO 28300:2008 (identical to API 2000)",
+      "NFPA 30-2021 §22.6"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "product_flash_c < 23 && design_temp_c > product_flash_c",
+        "error_msg": "Flammable vapour at ambient: tank vapour space above flash point — Class I flammable liquid requires NFPA 30 §22.6 emergency vent; flame arrester mandatory"
+      },
+      "V2": {
+        "condition": "fill_rate_m3h > tank_capacity_m3 * 0.5",
+        "error_msg": "Fill rate > 50% of capacity per hour: very high fill velocity — verify anti-static precautions and bottom fill pipe velocity ≤ 1 m/s per API 2003"
+      },
+      "V3": {
+        "condition": "product_RVP_kpa > 110 && design_temp_c > 35",
+        "error_msg": "High RVP product at elevated temperature: significant vapour generation — evaluate floating roof tank or nitrogen blanketing to reduce VOC emissions and fire risk"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Emergency fire venting governs: install dedicated emergency pressure-relief device per API 2000 §5.4 — PV valve alone may not provide sufficient fire relief capacity",
+        "condition": "is_emergency_governing",
+        "source": "API 2000 7th Ed. 2014"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Large vent flow (>5000 Nm³/h): multiple PV valves or large conservation vent required — coordinate with atmospheric dispersion model for vapour cloud assessment",
+        "condition": "V_governing_out > 5000",
+        "source": "API 2000 7th Ed. 2014"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Large flammable product tank: Category I tank per NFPA 30 — secondary containment bunding, foam deluge system, and thermal radiation analysis required",
+        "condition": "product_flash_c < 60 && tank_capacity_m3 > 10000",
+        "source": "API 2000 7th Ed. 2014"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "High temperature + high RVP: thermal out-breathing significantly elevated — verify vent device set pressure and flow rating at T_design per EN 14015 §15.4",
+        "condition": "design_temp_c > 50 && product_RVP_kpa > 60",
+        "source": "API 2000 7th Ed. 2014"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "No liquid movement: vent sized for thermal breathing only — verify fill/draw rates and confirm tank is not a standby tank with infrequent but fast filling",
+        "condition": "fill_rate_m3h === 0 && draw_rate_m3h === 0",
+        "source": "API 2000 7th Ed. 2014"
+      }
+    ]
+  }
+}

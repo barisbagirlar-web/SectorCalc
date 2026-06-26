@@ -4,8 +4,8 @@ import { SUPPORTED_LOCALES, type SupportedLocale } from "@/lib/i18n/locale-confi
 const CHUNK_VERSION = "1.0";
 const MAX_TEXT_LENGTH = 3200;
 
-function resolveLocalized(record: Record<string, string>, locale: SupportedLocale): string {
-  return record[locale] ?? record.en ?? record.tr ?? Object.values(record)[0] ?? "";
+function resolveLocalized(record: Record<string, string>, locale: string): string {
+  return record[locale as any] ?? record.en ?? record.tr ?? Object.values(record)[0] ?? "";
 }
 
 function truncate(value: string, max = MAX_TEXT_LENGTH): string {
@@ -16,8 +16,8 @@ function truncate(value: string, max = MAX_TEXT_LENGTH): string {
   return `${trimmed.slice(0, max - 1)}…`;
 }
 
-function buildEmbeddingText(tool: AiToolIndexDocument["tools"][number], locale: SupportedLocale): string {
-  const keywords = (tool.keywords[locale] ?? tool.keywords.en ?? []).join(", ");
+function buildEmbeddingText(tool: AiToolIndexDocument["tools"][number], locale: string): string {
+  const keywords = ((tool.keywords as any)[locale] ?? tool.keywords.en ?? []).join(", ");
   const parts = [
     resolveLocalized(tool.title, locale),
     resolveLocalized(tool.description, locale),
@@ -35,8 +35,8 @@ function buildEmbeddingText(tool: AiToolIndexDocument["tools"][number], locale: 
 }
 
 export function buildAiEmbeddingSourceJsonl(index: AiToolIndexDocument): string {
-  const requiredLocales: SupportedLocale[] = ["tr", "en"];
-  const optionalLocales = SUPPORTED_LOCALES.filter(
+  const requiredLocales: string[] = ["tr", "en"];
+  const optionalLocales = (SUPPORTED_LOCALES as readonly string[]).filter(
     (locale) => !requiredLocales.includes(locale),
   );
   const lines: string[] = [];

@@ -1,0 +1,151 @@
+{
+  "tool_id": "PRO_061",
+  "tool_name": "Cooling Tower Performance — Thermal Range, Approach, NTU & Makeup Water Rate",
+  "category": "Utilities / Heat Rejection / HVAC",
+  "scope": "single_operation",
+  "primary_operation": "evaporative_cooling_tower",
+  "inputs": [
+    {
+      "id": "Q_rejected_kw",
+      "name": "Total Heat Rejection Duty (Q_rej)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 10,
+      "absolute_max": 500000
+    },
+    {
+      "id": "T_hot_in_c",
+      "name": "Hot Water Inlet Temperature (T_HW,in)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 25,
+      "absolute_max": 60
+    },
+    {
+      "id": "T_cold_out_c",
+      "name": "Cold Water Outlet Temperature (T_CW,out)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 15,
+      "absolute_max": 45
+    },
+    {
+      "id": "T_wb_c",
+      "name": "Ambient Wet-Bulb Temperature (T_wb)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": -5,
+      "absolute_max": 35,
+      "note": "Design wet-bulb from ASHRAE 0.4% cooling design data for location"
+    },
+    {
+      "id": "cycles_of_concentration",
+      "name": "Cycles of Concentration (COC)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 4,
+      "absolute_min": 2,
+      "absolute_max": 10,
+      "note": "COC = TDS_blowdown / TDS_makeup; typical 3–6; higher COC = less water use but more scaling risk"
+    },
+    {
+      "id": "fan_power_kw",
+      "name": "Total Tower Fan Motor Power (P_fan)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "absolute_min": 0.1,
+      "absolute_max": 5000
+    },
+    {
+      "id": "drift_loss_pct",
+      "name": "Drift Loss Rate (% of circulating water flow)",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "VARSAYIM",
+      "default": 0.001,
+      "absolute_min": 0.0001,
+      "absolute_max": 0.2,
+      "note": "Modern fills with drift eliminators: 0.001–0.003%; CTI STD-201 design default"
+    }
+  ],
+  "formulas": [
+    "range_k = T_hot_in_c - T_cold_out_c; approach_k = T_cold_out_c - T_wb_c   // [K] Cooling Range & Approach Temperature Reference: CTI STD-201 RS §3.1 — Range = T_in − T_out; Approach = T_out − T_wb",
+    "m_dot_cw_kg_s = Q_rejected_kw / (4.18 * range_k)   // [kg/s] Circulating Water Flow Rate Reference: Energy balance Q = ṁ·c_p·ΔT; c_p = 4.18 kJ/(kg·K)",
+    "h_sat_out = 4186 * T_cold_out_c * 0.62198 / (0.622 + 0.62198) + 2501000 * 0.008; h_sat_in = 4186 * T_hot_in_c * 0.62198 / (0.622 + 0.62198) + 2501000 * 0.014; h_air_in = 1006 * T_wb_c + (0.622 + 0.001) * (2501000 + 1860 * T_wb_c); NTU = range_k * 4186 / ((h_sat_in + h_sat_out)/2 - h_air_in)   // [dimensionless] Number of Transfer Units (NTU) — Merkel Equation Approximation Reference: Merkel method (simplified) — CTI STD-201; NTU = c_pw·ΔT / ΔLMHD; typical tower NTU 0.8–2.5",
+    "E_loss_kg_s = 0.00085 * range_k * m_dot_cw_kg_s   // [kg/s] Evaporation Loss Rate Reference: CTI §4.2 — evaporation ≈ 0.085% per °C range; rule of thumb for preliminary sizing",
+    "drift_kg_s = drift_loss_pct / 100 * m_dot_cw_kg_s; blowdown_kg_s = E_loss_kg_s / (cycles_of_concentration - 1); MU_kg_s = E_loss_kg_s + blowdown_kg_s + drift_kg_s   // [kg/s] Total Makeup Water Requirement Reference: CTI / ASHRAE — makeup = evaporation + blowdown + drift; MU = E/(1 − 1/COC) + D",
+    "RT_capacity = Q_rejected_kw / 3.517; kW_per_RT = fan_power_kw / RT_capacity; annual_water_m3 = MU_kg_s * 3600 * 8760 / 1000   // [kW/RT, m³/yr] Tower Energy Performance Ratio (kW/RT) & Annual Water Consumption Reference: ASHRAE 90.1-2022 §6.5.2 — fan power limit; 1 RT = 3.517 kW cooling"
+  ],
+  "engine_rules": {
+    "standards": [
+      "CTI STD-201 RS-78",
+      "ASHRAE 90.1-2022 §6.5.2",
+      "ASHRAE Fundamentals Ch.40",
+      "ISO 13706:2005"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "approach_k < 3",
+        "error_msg": "Approach < 3 K: near theoretical minimum — tower will be very large and sensitive to wet-bulb fluctuation; verify CTI certification data"
+      },
+      "V2": {
+        "condition": "T_cold_out_c <= T_wb_c",
+        "error_msg": "Cold water outlet ≤ wet-bulb temperature: thermodynamically impossible for evaporative cooling — increase T_CW,out above T_wb"
+      },
+      "V3": {
+        "condition": "cycles_of_concentration > 7 && Q_rejected_kw > 1000",
+        "error_msg": "COC > 7: elevated scaling and corrosion risk — verify water treatment programme and Langelier Saturation Index per ASHRAE"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Approach < 5 K: performance highly sensitive to wet-bulb exceedances — model with 99.6% wet-bulb value, not just design point",
+        "condition": "approach_k < 5",
+        "source": "CTI STD-201 RS-78"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Fan power > 0.075 kW/RT: above ASHRAE 90.1-2022 fan power limit for centrifugal towers — evaluate VFD on fans for part-load savings",
+        "condition": "kW_per_RT > 0.075",
+        "source": "CTI STD-201 RS-78"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "Annual makeup water > 100,000 m³: significant water cost — evaluate side-stream filtration, higher COC, or hybrid dry/wet tower",
+        "condition": "annual_water_m3 > 100000",
+        "source": "CTI STD-201 RS-78"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "COC < 3: excessive blowdown — water and chemical waste; increase COC to 4–5 with proper chemical treatment to reduce makeup by 20–30%",
+        "condition": "cycles_of_concentration < 3",
+        "source": "CTI STD-201 RS-78"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Thermal range < 4 K: low-range system requires high water flow — verify pump sizing; consider larger ΔT to reduce circulating flow and pump energy",
+        "condition": "range_k < 4",
+        "source": "CTI STD-201 RS-78"
+      }
+    ]
+  }
+}

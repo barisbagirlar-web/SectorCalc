@@ -1,0 +1,181 @@
+{
+  "tool_id": "PRO_090",
+  "tool_name": "Electroplating Bath — Faraday Deposition Rate, Plating Time & Rectifier Power",
+  "category": "Surface Engineering / Manufacturing",
+  "scope": "single_operation",
+  "primary_operation": "electroplating",
+  "inputs": [
+    {
+      "id": "part_surface_area_dm2",
+      "name": "Total Part Surface Area to be Plated (A_part)",
+      "unit": "dm²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.01,
+      "absolute_max": 100000,
+      "note": "1 dm² = 100 cm² = 0.01 m²; measure exposed area only"
+    },
+    {
+      "id": "target_thickness_um",
+      "name": "Required Plating Thickness (δ)",
+      "unit": "µm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.1,
+      "absolute_max": 1000,
+      "note": "ISO 2081 Zn: Fe/Zn 8c = 8 µm; Fe/Zn 25c = 25 µm; EN ISO 4527 Ni: min 25 µm"
+    },
+    {
+      "id": "metal_deposited",
+      "name": "Metal to be Deposited",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Zinc (Zn) — ρ=7.13 g/cm³, M=65.38, n=2",
+          "value": "Zn"
+        },
+        {
+          "label": "Nickel (Ni) — ρ=8.91 g/cm³, M=58.69, n=2",
+          "value": "Ni"
+        },
+        {
+          "label": "Chromium (Cr) — ρ=7.19 g/cm³, M=52.0, n=6",
+          "value": "Cr"
+        },
+        {
+          "label": "Copper (Cu) — ρ=8.96 g/cm³, M=63.55, n=2",
+          "value": "Cu"
+        },
+        {
+          "label": "Gold (Au) — ρ=19.32 g/cm³, M=197.0, n=1",
+          "value": "Au"
+        },
+        {
+          "label": "Silver (Ag) — ρ=10.49 g/cm³, M=107.87, n=1",
+          "value": "Ag"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "Zn"
+    },
+    {
+      "id": "current_density_a_dm2",
+      "name": "Applied Current Density (i)",
+      "unit": "A/dm²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 3,
+      "absolute_min": 0.1,
+      "absolute_max": 100,
+      "note": "Zinc acid bath: 2–6 A/dm²; decorative Cr: 15–25 A/dm²; hard Cr: 25–60 A/dm²; Au (connector): 0.1–0.5 A/dm²"
+    },
+    {
+      "id": "cathode_efficiency_pct",
+      "name": "Cathode Current Efficiency (η_c)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 95,
+      "absolute_min": 10,
+      "absolute_max": 100,
+      "note": "Zn acid: 95–99%; Ni sulfamate: 95–98%; Cr (hexavalent): 10–25%; Cu sulfate: 95–100%"
+    },
+    {
+      "id": "bath_voltage_v",
+      "name": "Cell (Bath) Voltage (U_cell)",
+      "unit": "V",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 6,
+      "absolute_min": 1,
+      "absolute_max": 24,
+      "note": "Zn ≈ 4–8 V; Ni ≈ 5–8 V; decorative Cr ≈ 6–12 V; hard Cr ≈ 12–24 V"
+    },
+    {
+      "id": "bath_temperature_c",
+      "name": "Bath Operating Temperature (T_bath)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 25,
+      "absolute_min": 15,
+      "absolute_max": 70
+    }
+  ],
+  "formulas": [
+    "const METALS = {Zn:{rho:7.13,M:65.38,n:2}, Ni:{rho:8.91,M:58.69,n:2}, Cr:{rho:7.19,M:52.0,n:6}, Cu:{rho:8.96,M:63.55,n:2}, Au:{rho:19.32,M:197.0,n:1}, Ag:{rho:10.49,M:107.87,n:1}}; const m = METALS[metal_deposited]; E_eq_g_Ah = m.M / (m.n * 26.8)   // [g/A·h] Metal Electrochemical Equivalent (E_eq) — Faraday's Law Reference: Faraday's law: E_eq = M/(n·F/3600) = M/(n·26.8); F=96485 C/mol — ISO 2081 §3.7",
+    "const m2 = METALS[metal_deposited]; r_dep_um_min = E_eq_g_Ah * current_density_a_dm2 * cathode_efficiency_pct / 100 * 10000 / (m2.rho * 60)   // [µm/min] Deposition Rate at Given Current Density (r_dep) Reference: r = E_eq·i·η_c / (ρ·60) [µm/min]; i in A/dm², ρ in g/cm³ — Faraday deposition rate",
+    "t_plate_min = target_thickness_um / r_dep_um_min   // [min] Required Plating Time (t_plate) Reference: t = δ / r_dep — ASTM B633 §10; batch cycle time determination",
+    "I_rect_a = current_density_a_dm2 * part_surface_area_dm2   // [A] Total Rectifier Current Required (I_rect) Reference: I = i × A_cathode — total current for all parts in bath simultaneously",
+    "P_rect_kw = I_rect_a * bath_voltage_v / 1000; E_spec_kw_dm2 = P_rect_kw / part_surface_area_dm2   // [kW, kW/dm²] Rectifier Power & Specific Energy Consumption Reference: P = U_cell × I; specific energy = P/A — rectifier sizing basis per MIL-STD-171",
+    "const m3 = METALS[metal_deposited]; W_deposit_g = E_eq_g_Ah * I_rect_a * t_plate_min / 60 * cathode_efficiency_pct / 100; W_anode_g = W_deposit_g / (cathode_efficiency_pct / 100) * 1.05   // [g] Metal Mass Deposited per Batch & Anode Consumption Reference: W = E_eq·I·t·η_c; anode consumption ≈ W_deposit / η_c × 1.05 (5% drag-out and oxidation loss)"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 2081:2018 (zinc electroplating)",
+      "ASTM B633-19 (zinc on iron/steel)",
+      "EN ISO 4527:2003 (autocatalytic nickel)",
+      "MIL-STD-171F (finishing of metals)",
+      "ISO 1458:2002 (nickel)"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "cathode_efficiency_pct < 20 && metal_deposited !== 'Cr'",
+        "error_msg": "Cathode efficiency < 20% for non-chromium process: abnormally low — check bath chemistry pH, temperature, and additive concentrations"
+      },
+      "V2": {
+        "condition": "current_density_a_dm2 > 60 && metal_deposited === 'Cr'",
+        "error_msg": "Current density > 60 A/dm² for Cr: hard chrome territory — bath temperature control critical (50–60°C); burning and pitting risk above CD limit"
+      },
+      "V3": {
+        "condition": "t_plate_min > 120",
+        "error_msg": "Plating time > 2 hours: very long cycle — evaluate higher current density, tank agitation, or split into two baths; bath conductivity and thermal management critical for extended runs"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Chromium cathode efficiency > 30%: unusually high for hexavalent Cr bath — verify input; trivalent Cr (Cr³⁺) baths achieve 80–95% efficiency but require different parameters",
+        "condition": "metal_deposited === 'Cr' && cathode_efficiency_pct > 30",
+        "source": "ISO 2081:2018 (zinc electroplating)"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Rectifier current > 10,000 A: industrial-scale rectifier — specify thyristor or IGBT rectifier with ±1% voltage regulation; busbar cross-section critical for voltage uniformity",
+        "condition": "I_rect_a > 10000",
+        "source": "ISO 2081:2018 (zinc electroplating)"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "High power input at elevated bath temperature: Joule heating will raise bath temperature — specify bath cooling system capacity as Q_cool ≈ P_rect × 0.6 kW",
+        "condition": "P_rect_kw > 100 && bath_temperature_c > 50",
+        "source": "ISO 2081:2018 (zinc electroplating)"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "Gold plating > 5 µm: very high material cost — verify specification requires full gold; consider gold flash (0.5 µm) over nickel undercoat for connector applications per MIL-G-45204",
+        "condition": "metal_deposited === 'Au' && target_thickness_um > 5",
+        "source": "ISO 2081:2018 (zinc electroplating)"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Low CD on large area: very long plating time — evaluate rack density, multiple simultaneous racks, or continuous plating line for high-volume parts",
+        "condition": "current_density_a_dm2 < 1 && part_surface_area_dm2 > 1000",
+        "source": "ISO 2081:2018 (zinc electroplating)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "tool_id": "PRO_002",
+  "tool_name": "CNC Turning — Cutting Force, MRR, Surface Roughness & Tool Life Estimation",
+  "category": "CNC Machining / Metal Cutting",
+  "scope": "single_operation",
+  "primary_operation": "turning",
+  "inputs": [
+    {
+      "id": "Vc_m_min",
+      "name": "Cutting Speed (V_c)",
+      "unit": "m/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 5,
+      "absolute_max": 2000
+    },
+    {
+      "id": "f_mm_rev",
+      "name": "Feed Rate (f)",
+      "unit": "mm/rev",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.01,
+      "absolute_max": 5
+    },
+    {
+      "id": "ap_mm",
+      "name": "Depth of Cut (a_p)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.05,
+      "absolute_max": 50
+    },
+    {
+      "id": "kc1_mpa",
+      "name": "Specific Cutting Force (k_c1) at h=1 mm",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 1850,
+      "absolute_min": 500,
+      "absolute_max": 5000
+    },
+    {
+      "id": "re_mm",
+      "name": "Insert Nose Radius (r_ε)",
+      "unit": "mm",
+      "type": "enum",
+      "options": [
+        0.2,
+        0.4,
+        0.8,
+        1.2,
+        1.6,
+        2.4
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 0.8,
+      "note": "ISO 1832 insert designation — 4th character; R = 0.4 → standard; R = 0.8 → medium"
+    },
+    {
+      "id": "Taylor_C",
+      "name": "Taylor Tool Life Constant (C) at Reference Conditions",
+      "unit": "m/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 200,
+      "absolute_min": 50,
+      "absolute_max": 2000,
+      "note": "From Sandvik TMMS or manufacturer data; steel P15 grade: C ≈ 180–250 m/min at n=0.25"
+    },
+    {
+      "id": "Taylor_n",
+      "name": "Taylor Exponent (n)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 0.25,
+      "absolute_min": 0.1,
+      "absolute_max": 0.5,
+      "note": "Carbide turning steel: n=0.20–0.30; ceramic: n=0.40–0.50; CBN hardened steel: n=0.45"
+    }
+  ],
+  "formulas": [
+    "MRR_cm3_min = Vc_m_min * f_mm_rev * ap_mm / 10   // [cm³/min] Material Removal Rate (MRR) Reference: MRR = V_c × f × a_p / 10 — Sandvik C-2920 §5.2",
+    "kc_mpa = kc1_mpa / Math.pow(f_mm_rev, 0.25)   // [MPa] Specific Cutting Force at Operating Conditions (k_c) Reference: k_c = k_c1 / f^0.25 — Kienzle model; turning chip thickness ≈ f for orthogonal cut",
+    "Fc_N = kc_mpa * f_mm_rev * ap_mm   // [N] Tangential Cutting Force (F_c) Reference: F_c = k_c × f × a_p — ISO 3685:1993",
+    "Pc_kw = Fc_N * Vc_m_min / 60000   // [kW] Net Cutting Power (P_c) Reference: P_c = F_c × V_c / 60000",
+    "Ra_um = 1000 * Math.pow(f_mm_rev, 2) / (32 * re_mm)   // [µm] Theoretical Surface Roughness (Ra) — Nose Radius Model Reference: Ra ≈ f²/(32·r_ε) × 1000 — ISO 4287; valid for ideal geometry, add 25% for real conditions",
+    "T_min = Math.pow(Taylor_C / Vc_m_min, 1 / Taylor_n)   // [min] Tool Life at Operating Cutting Speed (T) — Taylor Reference: Taylor's equation: T = (C/V_c)^(1/n) — ISO 3685:1993 Annex A"
+  ],
+  "engine_rules": {
+    "standards": [
+      "Sandvik Coromant C-2920 2024",
+      "ISO 3685:1993 (tool life)",
+      "ISO 4287:1997 (surface texture)",
+      "ISO 513:2012"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "T_min < 5",
+        "error_msg": "Tool life < 5 min: rapid tool wear regime — reduce V_c by 20% or select higher-grade insert coating (PVD AlTiN, CVD Al₂O₃)"
+      },
+      "V2": {
+        "condition": "Ra_um > 6.3",
+        "error_msg": "Theoretical Ra > 6.3 µm: rough finish — reduce feed rate or increase nose radius for finish passes"
+      },
+      "V3": {
+        "condition": "Pc_kw > 80",
+        "error_msg": "Cutting power > 80 kW: verify lathe spindle motor rating; excessive power causes thermal distortion in workpiece"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Tool life < 10 min: uneconomical — optimise V_c using Taylor equation; target T = 15–20 min for productive insert change interval",
+        "condition": "T_min < 10",
+        "source": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "id": "W2",
+        "severity": "INFO",
+        "message": "High feed with low Ra requirement conflict — theoretical roughness model predicts Ra > specification; reduce f or apply wiper insert geometry",
+        "condition": "f_mm_rev > 1.0 && Ra_um < 3.2",
+        "source": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Low speed + high k_c: built-up edge risk on sticky materials — increase V_c above BUE threshold or apply coated grade with sharp edge prep",
+        "condition": "Vc_m_min < 50 && kc_mpa > 3000",
+        "source": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "MRR > 500 cm³/min: heavy roughing — verify workpiece fixture rigidity and coolant pressure; chip control critical at high MRR",
+        "condition": "MRR_cm3_min > 500",
+        "source": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Deep cut with fine feed: check radial force F_p — deep cuts generate large passive forces that deflect thin workpieces; verify L/D ratio ≤ 4",
+        "condition": "ap_mm > 10 && f_mm_rev < 0.2",
+        "source": "Sandvik Coromant C-2920 2024"
+      }
+    ]
+  }
+}

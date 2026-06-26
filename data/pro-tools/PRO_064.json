@@ -1,0 +1,187 @@
+{
+  "tool_id": "PRO_064",
+  "tool_name": "Industrial Ventilation Duct Sizing — Air Volume, Velocity, Friction Loss & Fan Selection",
+  "category": "HVAC / Industrial Ventilation",
+  "scope": "single_operation",
+  "primary_operation": "duct_design",
+  "inputs": [
+    {
+      "id": "Q_air_m3h",
+      "name": "Design Air Volume Flow Rate (Q)",
+      "unit": "m³/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 10,
+      "absolute_max": 1000000
+    },
+    {
+      "id": "duct_shape",
+      "name": "Duct Cross-Section Shape",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Circular",
+          "value": "circular"
+        },
+        {
+          "label": "Rectangular",
+          "value": "rectangular"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "circular"
+    },
+    {
+      "id": "duct_dim_1_mm",
+      "name": "Duct Diameter (circular) or Width a (rectangular)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 100,
+      "absolute_max": 3000
+    },
+    {
+      "id": "duct_dim_2_mm",
+      "name": "Duct Height b (rectangular only; enter 0 for circular)",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "KESİN",
+      "default": 0,
+      "absolute_min": 0,
+      "absolute_max": 3000
+    },
+    {
+      "id": "duct_length_m",
+      "name": "Duct Run Length (L)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.5,
+      "absolute_max": 5000
+    },
+    {
+      "id": "roughness_mm",
+      "name": "Duct Wall Roughness (ε)",
+      "unit": "mm",
+      "type": "enum",
+      "options": [
+        {
+          "label": "ε=0.09 mm — Galvanised steel (SMACNA standard)",
+          "value": 0.09
+        },
+        {
+          "label": "ε=0.03 mm — Smooth aluminium",
+          "value": 0.03
+        },
+        {
+          "label": "ε=0.9 mm — Flexible duct (corrugated)",
+          "value": 0.9
+        },
+        {
+          "label": "ε=1.5 mm — Concrete / masonry",
+          "value": 1.5
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 0.09
+    },
+    {
+      "id": "local_loss_coeff_sum",
+      "name": "Sum of Local Loss Coefficients (ΣC_local) — Fittings, Bends, Diffusers",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 2.5,
+      "absolute_min": 0,
+      "absolute_max": 30,
+      "note": "ASHRAE Fundamentals Ch.21 fitting coefficients: 90° elbow R/D=1.5 → C≈0.22; branch tee → C≈0.5–1.0"
+    },
+    {
+      "id": "air_density_kg_m3",
+      "name": "Air Density at Operating Conditions (ρ_air)",
+      "unit": "kg/m³",
+      "type": "number",
+      "required": false,
+      "confidence_label": "VARSAYIM",
+      "default": 1.2,
+      "absolute_min": 0.7,
+      "absolute_max": 1.4,
+      "note": "Standard air at 20°C, sea level: 1.204 kg/m³; hot process air reduces density"
+    }
+  ],
+  "formulas": [
+    "D_h_mm = (duct_shape === 'circular') ? duct_dim_1_mm : (2 * duct_dim_1_mm * duct_dim_2_mm) / (duct_dim_1_mm + duct_dim_2_mm)   // [mm] Hydraulic Diameter (D_h) Reference: D_h = 4A/P; for rectangle: D_h = 2ab/(a+b) — ASHRAE Fundamentals Ch.21",
+    "A_duct_m2 = (duct_shape === 'circular') ? Math.PI/4 * Math.pow(duct_dim_1_mm/1000, 2) : (duct_dim_1_mm * duct_dim_2_mm) / 1e6; v_m_s = Q_air_m3h / 3600 / A_duct_m2   // [m², m/s] Duct Cross-Section Area & Air Velocity Reference: Continuity equation — velocity = Q/A",
+    "Re = air_density_kg_m3 * v_m_s * D_h_mm/1000 / 1.81e-5; f = 0.02; for(let i=0;i<50;i++){f=1/Math.pow(-2*Math.log10(roughness_mm/(3.7*D_h_mm)+2.51/(Re*Math.sqrt(f))),2)}   // [dimensionless] Friction Factor — Colebrook-White (iterative, MaxIter=50) Reference: Colebrook-White equation — Moody chart; iterative convergence per ASHRAE Fundamentals Ch.21",
+    "dP_f_pa = f_darcy * (duct_length_m / (D_h_mm/1000)) * air_density_kg_m3 * Math.pow(v_m_s, 2) / 2   // [Pa] Friction Pressure Loss (ΔP_f) Reference: Darcy-Weisbach equation — ASHRAE Fundamentals 2021 Ch.21 Eq.(19)",
+    "dP_local_pa = local_loss_coeff_sum * air_density_kg_m3 * Math.pow(v_m_s, 2) / 2   // [Pa] Local (Dynamic) Pressure Loss (ΔP_local) Reference: ΔP = C × ρv²/2 — SMACNA HVAC Duct Construction Standards 3rd Ed.",
+    "dP_total_pa = dP_f_pa + dP_local_pa; dP_per_m_pa = dP_f_pa / duct_length_m   // [Pa, Pa/m] Total System Pressure Drop & Friction Rate Reference: SMACNA design target: 0.8–1.2 Pa/m for low-pressure systems; EN 16798-1 comfort ventilation"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ASHRAE 62.1-2022",
+      "ASHRAE Fundamentals 2021 Ch.21",
+      "SMACNA HVAC Duct Construction 3rd Ed.",
+      "EN 16798-1:2019"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "v_m_s > 12 && duct_shape === 'rectangular'",
+        "error_msg": "Rectangular duct velocity > 12 m/s: high noise generation (NC > 45) and structural stress — reduce velocity or use circular duct"
+      },
+      "V2": {
+        "condition": "dP_per_m_pa > 3.0",
+        "error_msg": "Friction rate > 3.0 Pa/m: excessive pressure drop — increase duct size; energy cost will be significant"
+      },
+      "V3": {
+        "condition": "v_m_s < 3.0 && Q_air_m3h > 500",
+        "error_msg": "Supply air velocity < 3 m/s: oversized duct — risk of dust settlement in horizontal runs; minimum 5 m/s for dust-laden air streams"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Circular duct velocity > 10 m/s: exceeds SMACNA medium-pressure classification — verify duct pressure class and seam/joint rating",
+        "condition": "v_m_s > 10 && duct_shape === 'circular'",
+        "source": "ASHRAE 62.1-2022"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Friction rate > 2 Pa/m: increase duct diameter by one standard size — velocity reduces by ~20%, friction drops ~36%",
+        "condition": "dP_per_m_pa > 2.0",
+        "source": "ASHRAE 62.1-2022"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "Fitting losses dominate: local ΔP > 50% of friction ΔP — optimise fitting selection (long-radius elbows, conical transitions) to reduce system resistance",
+        "condition": "local_loss_coeff_sum > duct_length_m * 0.5",
+        "source": "ASHRAE 62.1-2022"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "High roughness at elevated velocity: flexible duct in high-velocity application significantly increases fan energy — replace with rigid duct",
+        "condition": "roughness_mm > 0.5 && v_m_s > 7",
+        "source": "ASHRAE 62.1-2022"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Low air density (high temp or altitude): fan performance curves must be corrected for density — rated pressure and flow will be reduced",
+        "condition": "air_density_kg_m3 < 1.0",
+        "source": "ASHRAE 62.1-2022"
+      }
+    ]
+  }
+}

@@ -11,37 +11,31 @@ import { resolveLocaleContext } from "@/lib/locale-center/locale-resolver";
 import { buildLocaleIntegrityReport } from "@/lib/locale-center/locale-integrity-report";
 
 describe("locale-center", () => {
-  test("resolveLocaleContext maps tr to TR region and ltr", () => {
-    const ctx = resolveLocaleContext("tr");
-    expect(ctx.locale).toBe("tr");
-    expect(ctx.region).toBe("TR");
+  test("resolveLocaleContext maps en to GLOBAL region and ltr", () => {
+    const ctx = resolveLocaleContext("en");
+    expect(ctx.locale).toBe("en");
+    expect(ctx.region).toBe("GLOBAL");
     expect(ctx.isRtl).toBe(false);
   });
 
-  test("resolveLocaleContext maps ar to rtl", () => {
-    const ctx = resolveLocaleContext("ar");
-    expect(ctx.locale).toBe("ar");
-    expect(ctx.isRtl).toBe(true);
-  });
-
   test("createLocalizedCopy resolves nav.freeCalculators", () => {
-    const copy = createLocalizedCopy("tr", { allowRuntimeFallback: false });
-    expect(copy("nav.freeCalculators")).toContain("Ücretsiz");
+    const copy = createLocalizedCopy("en", { allowRuntimeFallback: false });
+    expect(copy("nav.freeCalculators")).toContain("Free");
   });
 
   test("formatters use locale-aware output", () => {
-    expect(formatNumber(1234.5, "tr")).toContain("1");
+    expect(formatNumber(1234.5, "en")).toContain("1");
     expect(formatPercent(12.5, "en")).toContain("%");
-    expect(formatMoney(100, "tr", "TRY", "TR")).toMatch(/100|₺|TRY/);
+    expect(formatMoney(100, "en", "USD", "GLOBAL")).toMatch(/100|\$/);
   });
 
   test("unit defaults follow region", () => {
-    expect(getDefaultUnit("tr", "TR", "length")).toBe("m");
-    expect(getDefaultCurrency("tr", "TR")).toBe("TRY");
+    expect(getDefaultUnit("en", "GLOBAL", "length")).toBe("m");
+    expect(getDefaultCurrency("en", "GLOBAL")).toBe("USD");
     expect(getDefaultUnit("en", "US", "length")).toBe("ft");
-    const options = getUnitOptions("tr", "TR", "length");
+    const options = getUnitOptions("en", "GLOBAL", "length");
     expect(options.some((opt) => opt.value === "m")).toBe(true);
-    expect(options[0]?.label).toContain("metre");
+    expect(options[0]?.label).toContain("meter");
   });
 
   test("message key parity gaps are bounded", () => {

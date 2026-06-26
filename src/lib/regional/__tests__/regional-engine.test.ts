@@ -36,17 +36,17 @@ describe("regional engine", () => {
     expect(result.ok).toBe(false);
   });
   it("formats TR decimal separator as comma", () => {
-    expect(getLocaleDecimalSeparator("tr")).toBe(",");
+    expect(getLocaleDecimalSeparator("tr" as any)).toBe(",");
   });
   it("formats TRY currency", () => {
-    const formatted = formatRegionalCurrency(1250.5, "tr", "TR", "TRY");
+    const formatted = formatRegionalCurrency(1250.5, "tr" as any, "TR", "TRY");
     expect(formatted).toMatch(/₺|TRY/);
   });
   it("benchmarks return not_configured", () => {
     expect(getRegionalBenchmark({ benchmarkKey: "x", regionCode: "TR" }).status).toBe("not_configured");
   });
   it("resolves TR context", () => {
-    const ctx = resolveRegionalCalculationContext({ locale: "tr", toolSlug: "loan-payment-calculator" });
+    const ctx = resolveRegionalCalculationContext({ locale: "tr" as any, toolSlug: "loan-payment-calculator" });
     expect(ctx.regionCode).toBe("TR");
     expect(ctx.currency).toBe("TRY");
   });
@@ -54,7 +54,7 @@ describe("regional engine", () => {
     expect(getAvailableUnitsForQuantity("length", "US")[0]).toBe("in");
   });
   it("formats localized number", () => {
-    expect(formatOutputValue({ canonicalValue: 1234.5, quantityType: "count", locale: "tr" }).formatted).toMatch(/1[\.,]234/);
+    expect(formatOutputValue({ canonicalValue: 1234.5, quantityType: "count", locale: "tr" as any }).formatted).toMatch(/1[\.,]234/);
   });
   it("currency options for TR", () => {
     const options = getRegionalParameterOptions({ toolSlug: "loan-payment-calculator", parameterKey: "currency", regionCode: "TR" });

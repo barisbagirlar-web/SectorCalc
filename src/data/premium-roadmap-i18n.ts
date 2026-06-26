@@ -22,7 +22,7 @@ export type PremiumRoadmapCopy = {
   readonly categories: Record<string, string>;
 };
 
-const PREMIUM_ROADMAP_I18N: Record<AppLocale, PremiumRoadmapCopy> = {
+const PREMIUM_ROADMAP_I18N: Record<string, PremiumRoadmapCopy> = {
   en: {
     eyebrow: "Strategic roadmap",
     title: "Strategic Premium Calculator Roadmap",

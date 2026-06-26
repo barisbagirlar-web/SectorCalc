@@ -1,0 +1,162 @@
+{
+  "tool_id": "PRO_049",
+  "tool_name": "Power Transformer Loading, No-Load/Load Losses & Economic Loading Factor",
+  "category": "Electrical Power Systems / Energy Management",
+  "scope": "single_operation",
+  "primary_operation": "power_transformer",
+  "inputs": [
+    {
+      "id": "rated_kva",
+      "name": "Transformer Rated Power (S_rated)",
+      "unit": "kVA",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 10,
+      "absolute_max": 1000000
+    },
+    {
+      "id": "no_load_loss_w",
+      "name": "No-Load (Core / Iron) Loss (P0)",
+      "unit": "W",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 10,
+      "absolute_max": 500000,
+      "note": "From factory test report — IEC 60076-1 §10"
+    },
+    {
+      "id": "load_loss_w",
+      "name": "Full-Load (Copper / Short-Circuit) Loss (Pk)",
+      "unit": "W",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 50,
+      "absolute_max": 2000000,
+      "note": "From factory test report at rated current"
+    },
+    {
+      "id": "actual_load_kva",
+      "name": "Actual Operating Load (S_load)",
+      "unit": "kVA",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "absolute_min": 0,
+      "absolute_max": 1000000
+    },
+    {
+      "id": "load_power_factor",
+      "name": "Load Power Factor (cos φ)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.85,
+      "absolute_min": 0.5,
+      "absolute_max": 1
+    },
+    {
+      "id": "operating_hours_yr",
+      "name": "Annual Operating Hours",
+      "unit": "h/yr",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 8760,
+      "absolute_min": 100,
+      "absolute_max": 8760
+    },
+    {
+      "id": "electricity_rate_usd_kwh",
+      "name": "Electricity Cost for Loss Valuation",
+      "unit": "USD/kWh",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.09,
+      "absolute_min": 0.01,
+      "absolute_max": 0.5
+    },
+    {
+      "id": "ambient_temp_c",
+      "name": "Maximum Ambient Temperature",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 40,
+      "absolute_min": -20,
+      "absolute_max": 50
+    }
+  ],
+  "formulas": [
+    "beta = actual_load_kva / rated_kva   // [p.u.] Per-Unit Load Factor (β) Reference: IEC 60076-1:2011 §7 — loading factor definition",
+    "P_total_w = no_load_loss_w + beta^2 * load_loss_w   // [W] Total Losses at Operating Load Reference: IEC 60076-1 §10 — total transformer loss: P = P0 + β²·Pk",
+    "P_out_w = actual_load_kva * load_power_factor * 1000; eta_pct = P_out_w / (P_out_w + P_total_w) * 100   // [%] Transformer Efficiency at Operating Point Reference: IEC 60076-1 §10.3 — transformer efficiency",
+    "beta_eco = Math.sqrt(no_load_loss_w / load_loss_w)   // [p.u.] Economic Loading Factor (β_eco) — Minimum Loss Point Reference: IEC 60354:1991 §5 — economic loading for minimum total losses: β_eco = √(P0/Pk)",
+    "E_loss_kwh = (P_total_w / 1000) * operating_hours_yr   // [kWh/yr] Annual Energy Lost in Transformer Reference: IEC 60354 — annual loss calculation",
+    "loss_cost_usd_yr = E_loss_kwh_yr * electricity_rate_usd_kwh; beta_max_ambient = (ambient_temp_c <= 40) ? 1.0 : 1.0 - (ambient_temp_c - 40) * 0.01   // [USD/yr, p.u.] Annual Loss Cost & Temperature-Corrected Load Limit Reference: IEC 60354 §4 — continuous rating derating above 40°C ambient"
+  ],
+  "engine_rules": {
+    "standards": [
+      "IEC 60076-1:2011",
+      "IEC 60354:1991",
+      "IEEE C57.12.00-2021",
+      "IEC 60076-7 (loading guide)"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "beta > 1.2",
+        "error_msg": "Loading > 120%: overload condition — IEEE C57.12 §12 limits short-time overload; check thermal withstand duration"
+      },
+      "V2": {
+        "condition": "beta > beta_max_ambient",
+        "error_msg": "Load exceeds temperature-derated capacity: winding insulation ageing accelerated per IEC 60076-7 thermal model"
+      },
+      "V3": {
+        "condition": "beta < 0.2 && rated_kva > 500",
+        "error_msg": "Transformer heavily under-loaded (<20%): consider downsizing — no-load losses dominate total annual loss cost"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Loading > 90%: limited headroom for fault current — coordinate protection relay settings and evaluate parallel transformer option",
+        "condition": "beta > 0.90",
+        "source": "IEC 60076-1:2011"
+      },
+      {
+        "id": "W2",
+        "severity": "INFO",
+        "message": "Operating load deviates >30% from economic load point: significant excess losses — reconfigure load balance across transformers if multiple units in service",
+        "condition": "Math.abs(beta - beta_eco) > 0.3",
+        "source": "IEC 60076-1:2011"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Efficiency < 97.5% on medium-power transformer: below IEC 60076-1 typical threshold — check for aged core or damaged windings",
+        "condition": "eta_pct < 97.5 && rated_kva > 1000",
+        "source": "IEC 60076-1:2011"
+      },
+      {
+        "id": "W4",
+        "severity": "CRITICAL",
+        "message": "Ambient > 45°C: forced-air cooling (ONAN→ONAF) may be required per IEC 60076-7 §7; verify cooling class",
+        "condition": "ambient_temp_c > 45",
+        "source": "IEC 60076-1:2011"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Annual loss cost exceeds USD 50,000: evaluate amorphous core transformer (P0 reduction ~70%) — typically pays back in 3–5 years",
+        "condition": "loss_cost_usd_yr > 50000",
+        "source": "IEC 60076-1:2011"
+      }
+    ]
+  }
+}

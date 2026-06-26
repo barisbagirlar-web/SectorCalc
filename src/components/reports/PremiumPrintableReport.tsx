@@ -85,7 +85,7 @@ export function PremiumPrintableReport({
   isSample = false,
 }: PremiumPrintableReportProps) {
   const formatLocale = normalizeLocale(locale);
-  const labels = PRINT_LABELS[formatLocale === "tr" ? "tr" : "en"];
+  const labels = PRINT_LABELS.en;
   const generatedLabel = formatLocalizedDate(payload.generatedAt, formatLocale);
   const verdictStatusLabel = statusLabel(payload.executiveVerdict.status, labels);
 

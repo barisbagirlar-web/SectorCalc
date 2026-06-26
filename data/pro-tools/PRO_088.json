@@ -115,54 +115,12 @@
     }
   ],
   "formulas": [
-    {
-      "id": "F1",
-      "name": "Factored Panel Point Load (P_u) — LRFD / ULS",
-      "expression": "w_dead_kn_m = dead_load_kn_m2 * tributary_width_m; w_live_kn_m = live_load_kn_m2 * tributary_width_m; w_factored_kn_m = 1.2 * w_dead_kn_m + 1.6 * w_live_kn_m; panel_length_m = truss_span_m / num_panels; P_u_kn = w_factored_kn_m * panel_length_m",
-      "output": "P_u_kn",
-      "unit": "kN",
-      "reference": "ASCE 7-22 §2.3.1 LRFD: 1.2D + 1.6L; EN 1990 ULS: 1.35G + 1.5Q"
-    },
-    {
-      "id": "F2",
-      "name": "End Reactions (R_A = R_B) — Symmetric Loading",
-      "expression": "n_joints = num_panels - 1; R_kn = (n_joints + 2) * P_u_kn / 2",
-      "output": "R_kn",
-      "unit": "kN",
-      "reference": "Simple truss with symmetric loading: R = n_panel_points × P_u / 2"
-    },
-    {
-      "id": "F3",
-      "name": "Maximum Bottom Chord Tension (F_BChord) — Mid-Span",
-      "expression": "M_max_knm = R_kn * truss_span_m / 2 - P_u_kn * panel_length_m * num_panels / 4; F_BChord_kn = M_max_knm / truss_height_m",
-      "output": "F_BChord_kn",
-      "unit": "kN",
-      "reference": "Method of sections: F_BC = M_max / h; maximum mid-span moment for symmetric loading"
-    },
-    {
-      "id": "F4",
-      "name": "Maximum Top Chord Compression (F_TChord)",
-      "expression": "panel_diagonal_m = Math.sqrt(Math.pow(panel_length_m, 2) + Math.pow(truss_height_m, 2)); theta_rad = Math.atan(truss_height_m / panel_length_m); F_TChord_kn = F_BChord_kn / Math.cos(theta_rad) * (-1)",
-      "output": "F_TChord_kn",
-      "unit": "kN",
-      "reference": "Top chord compression = −F_BC / cosθ at mid-span panel; θ = roof pitch angle"
-    },
-    {
-      "id": "F5",
-      "name": "Maximum Web Diagonal Force (F_diag) — Near Support",
-      "expression": "V_max_kn = R_kn - P_u_kn; F_diag_kn = V_max_kn / Math.sin(theta_rad)",
-      "output": "F_diag_kn",
-      "unit": "kN",
-      "reference": "Maximum shear occurs at first interior panel; F_diag = V_max / sinθ"
-    },
-    {
-      "id": "F6",
-      "name": "Required Section Area — Bottom Chord Tension (A_req)",
-      "expression": "phi_t = 0.90; A_req_mm2 = F_BChord_kn * 1000 / (phi_t * steel_grade_fy_mpa); wind_uplift_factor = wind_uplift_kn_m2 * tributary_width_m * panel_length_m",
-      "output": "A_req_mm2, wind_uplift_factor",
-      "unit": "mm², kN/panel",
-      "reference": "AISC 360-22 D2-1: φP_n = φ_t·F_y·A_g; φ_t=0.90 for yielding; wind uplift checked separately"
-    }
+    "w_dead_kn_m = dead_load_kn_m2 * tributary_width_m; w_live_kn_m = live_load_kn_m2 * tributary_width_m; w_factored_kn_m = 1.2 * w_dead_kn_m + 1.6 * w_live_kn_m; panel_length_m = truss_span_m / num_panels; P_u_kn = w_factored_kn_m * panel_length_m   // [kN] Factored Panel Point Load (P_u) — LRFD / ULS Reference: ASCE 7-22 §2.3.1 LRFD: 1.2D + 1.6L; EN 1990 ULS: 1.35G + 1.5Q",
+    "n_joints = num_panels - 1; R_kn = (n_joints + 2) * P_u_kn / 2   // [kN] End Reactions (R_A = R_B) — Symmetric Loading Reference: Simple truss with symmetric loading: R = n_panel_points × P_u / 2",
+    "M_max_knm = R_kn * truss_span_m / 2 - P_u_kn * panel_length_m * num_panels / 4; F_BChord_kn = M_max_knm / truss_height_m   // [kN] Maximum Bottom Chord Tension (F_BChord) — Mid-Span Reference: Method of sections: F_BC = M_max / h; maximum mid-span moment for symmetric loading",
+    "panel_diagonal_m = Math.sqrt(Math.pow(panel_length_m, 2) + Math.pow(truss_height_m, 2)); theta_rad = Math.atan(truss_height_m / panel_length_m); F_TChord_kn = F_BChord_kn / Math.cos(theta_rad) * (-1)   // [kN] Maximum Top Chord Compression (F_TChord) Reference: Top chord compression = −F_BC / cosθ at mid-span panel; θ = roof pitch angle",
+    "V_max_kn = R_kn - P_u_kn; F_diag_kn = V_max_kn / Math.sin(theta_rad)   // [kN] Maximum Web Diagonal Force (F_diag) — Near Support Reference: Maximum shear occurs at first interior panel; F_diag = V_max / sinθ",
+    "phi_t = 0.90; A_req_mm2 = F_BChord_kn * 1000 / (phi_t * steel_grade_fy_mpa); wind_uplift_factor = wind_uplift_kn_m2 * tributary_width_m * panel_length_m   // [mm², kN/panel] Required Section Area — Bottom Chord Tension (A_req) Reference: AISC 360-22 D2-1: φP_n = φ_t·F_y·A_g; φ_t=0.90 for yielding; wind uplift checked separately"
   ],
   "engine_rules": {
     "standards": [
@@ -172,57 +130,54 @@
       "EN 1990:2002 ULS combinations"
     ],
     "validation": {
-      "rules": [
-        {
-          "id": "V1",
-          "condition": "truss_height_m / truss_span_m < 0.05",
-          "action": "WARN",
-          "message": "Truss depth-to-span ratio < 1:20: very shallow truss — deflection and chord force will be excessive; minimum h/L = 1/10 recommended per AISC DG11"
-        },
-        {
-          "id": "V2",
-          "condition": "wind_uplift_kn_m2 > dead_load_kn_m2 * 0.9",
-          "action": "WARN",
-          "message": "Wind uplift > 90% of dead load: net uplift possible under 0.9D + 1.0W — bottom chord becomes compression; verify buckling capacity and purlin connections"
-        },
-        {
-          "id": "V3",
-          "condition": "num_panels < 4",
-          "action": "WARN",
-          "message": "Less than 4 panels: very steep diagonal angle — excessive web member forces; use minimum 6 panels for efficient truss geometry"
-        }
-      ]
+      "V1": {
+        "condition": "truss_height_m / truss_span_m < 0.05",
+        "error_msg": "Truss depth-to-span ratio < 1:20: very shallow truss — deflection and chord force will be excessive; minimum h/L = 1/10 recommended per AISC DG11"
+      },
+      "V2": {
+        "condition": "wind_uplift_kn_m2 > dead_load_kn_m2 * 0.9",
+        "error_msg": "Wind uplift > 90% of dead load: net uplift possible under 0.9D + 1.0W — bottom chord becomes compression; verify buckling capacity and purlin connections"
+      },
+      "V3": {
+        "condition": "num_panels < 4",
+        "error_msg": "Less than 4 panels: very steep diagonal angle — excessive web member forces; use minimum 6 panels for efficient truss geometry"
+      }
     },
     "smart_warnings": [
       {
         "id": "W1",
-        "trigger": "truss_span_m > 40 && truss_height_m / truss_span_m < 0.08",
         "severity": "CRITICAL",
-        "message": "Long shallow truss: chord forces very large — chord section and connection design critical; camber ≥ L/500 required per AISC Code of Standard Practice"
+        "message": "Long shallow truss: chord forces very large — chord section and connection design critical; camber ≥ L/500 required per AISC Code of Standard Practice",
+        "condition": "truss_span_m > 40 && truss_height_m / truss_span_m < 0.08",
+        "source": "AISC 360-22 Chapters D, E, F"
       },
       {
         "id": "W2",
-        "trigger": "F_TChord_kn > 2000",
         "severity": "WARNING",
-        "message": "Top chord compression > 2000 kN: heavy member required — verify lateral buckling between purlin points per AISC 360-22 Chapter E; ensure continuous lateral restraint"
+        "message": "Top chord compression > 2000 kN: heavy member required — verify lateral buckling between purlin points per AISC 360-22 Chapter E; ensure continuous lateral restraint",
+        "condition": "F_TChord_kn > 2000",
+        "source": "AISC 360-22 Chapters D, E, F"
       },
       {
         "id": "W3",
-        "trigger": "steel_grade_fy_mpa > 355 && truss_span_m > 30",
         "severity": "INFO",
-        "message": "High-strength steel on long span: deflection (not strength) may govern — S460 reduces weight but deflection limit L/360 still applies; verify serviceability"
+        "message": "High-strength steel on long span: deflection (not strength) may govern — S460 reduces weight but deflection limit L/360 still applies; verify serviceability",
+        "condition": "steel_grade_fy_mpa > 355 && truss_span_m > 30",
+        "source": "AISC 360-22 Chapters D, E, F"
       },
       {
         "id": "W4",
-        "trigger": "dead_load_kn_m2 < 0.5 && live_load_kn_m2 > 1.5",
         "severity": "INFO",
-        "message": "Light dead load with heavy imposed load: dynamic amplification possible for crowds or machinery — check vibration criteria per SCI P354 or AISC DG11"
+        "message": "Light dead load with heavy imposed load: dynamic amplification possible for crowds or machinery — check vibration criteria per SCI P354 or AISC DG11",
+        "condition": "dead_load_kn_m2 < 0.5 && live_load_kn_m2 > 1.5",
+        "source": "AISC 360-22 Chapters D, E, F"
       },
       {
         "id": "W5",
-        "trigger": "A_req_mm2 > 15000",
         "severity": "WARNING",
-        "message": "Required bottom chord area > 15,000 mm²: very large section — consider HSS, built-up section, or reduce span with intermediate column; verify connection capacity at joints"
+        "message": "Required bottom chord area > 15,000 mm²: very large section — consider HSS, built-up section, or reduce span with intermediate column; verify connection capacity at joints",
+        "condition": "A_req_mm2 > 15000",
+        "source": "AISC 360-22 Chapters D, E, F"
       }
     ]
   }

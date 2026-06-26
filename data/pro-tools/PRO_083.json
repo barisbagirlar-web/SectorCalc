@@ -1,0 +1,168 @@
+{
+  "tool_id": "PRO_083",
+  "tool_name": "Industrial Heat Pump COP, Annual Energy Saving & Carbon Payback vs Steam Boiler",
+  "category": "Energy Management / Decarbonisation",
+  "scope": "process_agnostic",
+  "primary_operation": "industrial_heat_pump",
+  "inputs": [
+    {
+      "id": "Q_delivery_kw",
+      "name": "Required Process Heat Delivery (Q_H)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 10,
+      "absolute_max": 50000
+    },
+    {
+      "id": "T_source_c",
+      "name": "Heat Source Temperature (T_source) — Waste Heat / Ground",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": -10,
+      "absolute_max": 90,
+      "note": "Waste cooling water ≈ 25–40°C; ground loop ≈ 8–12°C; exhaust air ≈ 20–35°C"
+    },
+    {
+      "id": "T_delivery_c",
+      "name": "Process Heat Delivery Temperature (T_delivery)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 30,
+      "absolute_max": 160,
+      "note": "Low-temp drying ≈ 60–80°C; pasteurisation ≈ 85–95°C; HTHP steam ≈ 120–160°C"
+    },
+    {
+      "id": "Carnot_efficiency_fraction",
+      "name": "Heat Pump Carnot Efficiency Factor (η_Carnot)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 0.45,
+      "absolute_min": 0.3,
+      "absolute_max": 0.65,
+      "note": "Industrial heat pumps: η_Carnot ≈ 0.40–0.55; well-optimised: up to 0.60; VDI 4650 §4"
+    },
+    {
+      "id": "boiler_efficiency_pct",
+      "name": "Displaced Natural Gas Boiler Efficiency (η_boiler)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 88,
+      "absolute_min": 70,
+      "absolute_max": 98,
+      "note": "Condensing boiler ≈ 93–95%; conventional ≈ 82–88%; old steam boiler ≈ 75–82%"
+    },
+    {
+      "id": "gas_emission_factor_kg_kwh",
+      "name": "Natural Gas Carbon Emission Factor",
+      "unit": "kgCO₂/kWh",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 0.202,
+      "absolute_min": 0.15,
+      "absolute_max": 0.28,
+      "note": "UK BEIS 2024: 0.202 kgCO₂/kWh gas; EU average ≈ 0.198; US EIA ≈ 0.181 kgCO₂/kWh"
+    },
+    {
+      "id": "grid_emission_factor_kg_kwh",
+      "name": "Grid Electricity Carbon Emission Factor",
+      "unit": "kgCO₂/kWh",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.233,
+      "absolute_min": 0.05,
+      "absolute_max": 1,
+      "note": "UK grid 2024: 0.233 kgCO₂e/kWh; EU avg ≈ 0.275; US avg ≈ 0.386; decarbonised grid → < 0.10"
+    },
+    {
+      "id": "operating_hours_yr",
+      "name": "Annual Operating Hours",
+      "unit": "h/yr",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 6000,
+      "absolute_min": 100,
+      "absolute_max": 8760
+    }
+  ],
+  "formulas": [
+    "T_H_K = T_delivery_c + 273.15; T_L_K = T_source_c + 273.15; COP_Carnot = T_H_K / (T_H_K - T_L_K)   // [dimensionless] Theoretical (Carnot) COP_H Reference: Carnot COP_H = T_H / (T_H − T_L) — thermodynamic upper bound; EN 14511 §3.2",
+    "COP_HP = Carnot_efficiency_fraction * COP_Carnot   // [dimensionless] Actual Heat Pump COP (COP_HP) Reference: COP_act = η_Carnot × COP_Carnot; VDI 4650:2009 §4 — practical Carnot fraction",
+    "W_elec_kw = Q_delivery_kw / COP_HP; Q_source_kw = Q_delivery_kw - W_elec_kw   // [kW] Electrical Power Input & Heat Source Extraction Reference: First Law: Q_H = W_elec + Q_source; W = Q_H / COP — ASHRAE 90.1-2022 §6.4",
+    "E_elec_kwh_yr = W_elec_kw * operating_hours_yr; Q_heat_kwh_yr = Q_delivery_kw * operating_hours_yr; E_gas_saved_kwh_yr = Q_heat_kwh_yr / (boiler_efficiency_pct / 100)   // [kWh/yr] Annual Electrical Energy & Gas Equivalent Saved Reference: Annual gas displaced = Q_H / η_boiler; electricity consumed = W × h_op",
+    "CO2_gas_saved_t = E_gas_saved_kwh_yr * gas_emission_factor_kg_kwh / 1000; CO2_elec_consumed_t = E_elec_kwh_yr * grid_emission_factor_kg_kwh / 1000; CO2_net_saving_t = CO2_gas_saved_t - CO2_elec_consumed_t   // [tCO₂e/yr] Annual CO₂ Savings Reference: Scope 1 gas avoided minus Scope 2 electricity added — GHG Protocol §5",
+    "CI_breakeven_kg_kwh = CO2_gas_saved_t * 1000 / E_elec_kwh_yr   // [kgCO₂/kWh] Break-Even Grid Carbon Intensity (Grid Decarbonisation Threshold) Reference: If grid EF > CI_breakeven, heat pump increases net carbon; below CI_breakeven → net carbon saving"
+  ],
+  "engine_rules": {
+    "standards": [
+      "EN 14511:2018 (heat pump rating)",
+      "VDI 4650:2009 (COP approximation)",
+      "ISO 13600:1997 (rational energy use)",
+      "GHG Protocol Scope 1 & 2",
+      "ASHRAE 90.1-2022"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "T_delivery_c <= T_source_c + 5",
+        "error_msg": "Delivery temperature ≤ source temperature + 5 K: heat pump provides no thermodynamic lift — direct heat exchange is appropriate instead"
+      },
+      "V2": {
+        "condition": "COP_HP < 2.0",
+        "error_msg": "COP < 2.0: marginal heat pump benefit — evaluate if Carnot efficiency factor is correct; large temperature lift with low η may not justify capital investment"
+      },
+      "V3": {
+        "condition": "CO2_net_saving_t < 0",
+        "error_msg": "Net carbon saving is negative: current grid carbon intensity is too high — heat pump increases CO₂ vs gas boiler; revisit when grid decarbonises below CI_breakeven"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Delivery > 120°C: high-temperature heat pump (HTHP) territory — limited commercial units available; verify refrigerant rating (R245fa, R1234ze(Z)) per ASHRAE 34",
+        "condition": "T_delivery_c > 120",
+        "source": "EN 14511:2018 (heat pump rating)"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Low COP on high-carbon grid: net carbon reduction minimal — prioritise grid decarbonisation timeline in investment decision",
+        "condition": "COP_HP < 3 && grid_emission_factor_kg_kwh > 0.35",
+        "source": "EN 14511:2018 (heat pump rating)"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "Very high Carnot COP: small temperature lift — confirm source availability is reliable year-round; COP may fall significantly in winter if source temperature drops",
+        "condition": "COP_Carnot > 15",
+        "source": "EN 14511:2018 (heat pump rating)"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "Large heat source extraction (>70% of delivery): verify source stream capacity and minimum outlet temperature — excessive extraction degrades source quality",
+        "condition": "Q_source_kw > Q_delivery_kw * 0.7",
+        "source": "EN 14511:2018 (heat pump rating)"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Break-even grid intensity > 0.5 kgCO₂/kWh: project is carbon-positive now and in most future grid scenarios — strong decarbonisation case; proceed",
+        "condition": "CI_breakeven_kg_kwh > 0.5",
+        "source": "EN 14511:2018 (heat pump rating)"
+      }
+    ]
+  }
+}

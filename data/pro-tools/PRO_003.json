@@ -1,0 +1,146 @@
+{
+  "tool_id": "PRO_003",
+  "tool_name": "OEE & TPM Analysis — Availability, Performance, Quality & Six Big Loss Breakdown",
+  "category": "Manufacturing Operations / Lean / TPM",
+  "scope": "process_agnostic",
+  "primary_operation": "oee_tpm",
+  "inputs": [
+    {
+      "id": "planned_production_time_h",
+      "name": "Planned Production Time (PPT)",
+      "unit": "h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.1,
+      "absolute_max": 744
+    },
+    {
+      "id": "downtime_unplanned_h",
+      "name": "Unplanned Downtime — Breakdowns & Failures (D_u)",
+      "unit": "h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 744
+    },
+    {
+      "id": "downtime_setup_h",
+      "name": "Planned Downtime — Setups & Adjustments (D_s)",
+      "unit": "h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 744
+    },
+    {
+      "id": "ideal_cycle_time_s",
+      "name": "Ideal (Theoretical) Cycle Time per Part (t_ideal)",
+      "unit": "s/part",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "absolute_min": 0.1,
+      "absolute_max": 86400
+    },
+    {
+      "id": "total_parts_produced",
+      "name": "Total Parts Produced (including rejects) (N_total)",
+      "unit": "parts",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 10000000
+    },
+    {
+      "id": "rejected_parts",
+      "name": "Rejected / Defective Parts (N_reject)",
+      "unit": "parts",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0,
+      "absolute_max": 10000000
+    },
+    {
+      "id": "rework_parts",
+      "name": "Rework Parts (counted in total, N_rework)",
+      "unit": "parts",
+      "type": "number",
+      "required": false,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0,
+      "absolute_min": 0,
+      "absolute_max": 10000000
+    }
+  ],
+  "formulas": [
+    "OT_h = planned_production_time_h - downtime_unplanned_h - downtime_setup_h; A = OT_h / planned_production_time_h   // [h, dimensionless] Operating Time & Availability (A) Reference: ISO 22400-2:2014 §4.3.3 — Availability = Operating Time / Planned Production Time",
+    "P = (total_parts_produced * ideal_cycle_time_s / 3600) / OT_h   // [dimensionless] Performance Rate (P) Reference: ISO 22400-2 §4.3.4 — Performance = (Total Pieces × Ideal CT) / Operating Time",
+    "good_parts = total_parts_produced - rejected_parts - rework_parts; Q = good_parts / total_parts_produced   // [dimensionless, parts] Quality Rate (Q) Reference: ISO 22400-2 §4.3.5 — Quality = Good Parts / Total Parts; rework excluded from good count",
+    "OEE = A * P * Q   // [dimensionless] OEE Score Reference: OEE = A × P × Q — JIPM TPM standard; World Class benchmark: OEE ≥ 85%",
+    "WC_OEE = 0.85; actual_good = good_parts; wc_good = Math.round(total_parts_produced * WC_OEE / OEE); parts_lost = wc_good - actual_good   // [parts] Throughput Loss (Good Parts Lost vs World-Class) Reference: Gap to World Class benchmark (85% OEE per JIPM) — production loss quantification",
+    "calendar_hours = 24 * Math.ceil(planned_production_time_h / 8); utilisation = planned_production_time_h / calendar_hours; TEEP = OEE * utilisation   // [dimensionless] TEEP (Total Effective Equipment Performance) Reference: TEEP = OEE × Utilisation — SEMI E10-0304; full-time calendar basis"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 22400-2:2014",
+      "SEMI E10-0304",
+      "JIPM TPM Excellence Award Criteria"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "downtime_unplanned_h + downtime_setup_h > planned_production_time_h",
+        "error_msg": "Total downtime exceeds planned production time — check hours input"
+      },
+      "V2": {
+        "condition": "rejected_parts + rework_parts > total_parts_produced",
+        "error_msg": "Defect + rework count exceeds total production — verify part counts"
+      },
+      "V3": {
+        "condition": "P > 1.05",
+        "error_msg": "Performance rate > 105%: physically implausible — verify ideal cycle time; it may be set too conservative"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "OEE < 65%: below minimum acceptable threshold — initiate full Six Big Loss analysis; priority losses: breakdowns (Loss 1) and setup time (Loss 2)",
+        "condition": "OEE < 0.65",
+        "source": "ISO 22400-2:2014"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Availability < 80%: unplanned downtime dominant loss — implement Planned Maintenance (PM Step 3) and predictive maintenance programme",
+        "condition": "A < 0.80",
+        "source": "ISO 22400-2:2014"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Quality rate < 95%: >5% defect/rework — conduct root cause analysis per 8D; check tooling wear schedule and incoming material certification",
+        "condition": "Q < 0.95",
+        "source": "ISO 22400-2:2014"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Performance < 85%: speed loss and minor stoppages — install cycle time monitoring; target micro-stoppage elimination through Autonomous Maintenance (AM Step 2)",
+        "condition": "P < 0.85",
+        "source": "ISO 22400-2:2014"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "TEEP < 50%: significant unused capacity — evaluate shift extension or weekend running before CAPEX investment per JIPM TPM §6",
+        "condition": "TEEP < 0.50",
+        "source": "ISO 22400-2:2014"
+      }
+    ]
+  }
+}
