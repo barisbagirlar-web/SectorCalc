@@ -14,13 +14,29 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
   return response;
 }
 
+const SW_KILL_CODE = `self.addEventListener("install",()=>self.skipWaiting());self.addEventListener("activate",(e)=>{e.waitUntil(self.clients.claim().then(()=>self.registration.unregister()))});self.addEventListener("fetch",()=>{});`;
+const SW_KILL_HEADERS = {
+  "Content-Type": "application/javascript",
+  "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+  "Service-Worker-Allowed": "/",
+  "Pragma": "no-cache",
+  "Expires": "0",
+};
+
 export default function middleware(request: NextRequest) {
+  // Dev: intercept /sw.js and return self-destruct code with no-cache headers
+  // This runs BEFORE any registered service worker, so old SW cannot cache it
+  if (request.nextUrl.pathname === "/sw.js") {
+    return new NextResponse(SW_KILL_CODE, { headers: SW_KILL_HEADERS });
+  }
+
   return applyRegionHeaders(NextResponse.next(), request);
 }
 
 export const config = {
   matcher: [
     "/",
-    "/((?!admin|api|_next|_vercel|.*\\..*).*)",
+    "/sw.js",
+    "/((?!admin|api|_next|_vertech|.*\\..*).*)",
   ],
 };

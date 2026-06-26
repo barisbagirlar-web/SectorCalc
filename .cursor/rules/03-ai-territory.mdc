@@ -69,15 +69,21 @@ Aşağıdaki durumlarda brief ZORUNLUDUR:
 - Import path'ini değiştirmek veya dosyayı taşımak
 - Kullanıcıya görünen bir string/mesajı değiştirmek
 
-## Dev Server — SADECE `bash dev.sh`
+## Dev Server — Static Build + Serve (TEK KOMUT)
 
-Dev server başlatmak için TEK doğru komut:
 ```bash
-bash dev.sh
+sh dev.sh
 ```
-`npm run dev`, `npx next dev`, `next dev` **KULLANMA**. Port çakışması ve SW sorunları yaşarsın.
 
-Bir AI dev server'ı başlattıysa diğeri restart etmez. Hard refresh (Cmd+Shift+R) dene.
+**Yasak:** `npm run dev`, `next dev`, `npx next dev`, `npm start`
+
+`dev.sh` → `scripts/dev-static.mjs`:
+1. `next build` (production, 0 runtime error)
+2. `next start -p 3000` (serve)
+3. `fs.watch` ile auto-rebuild
+4. Build hatası = crash yok (eski build kalır)
+
+Bir AI server'ı başlattıysa diğeri restart etmez. Değişiklik görünmezse hard refresh (Cmd+Shift+R) + 5sn bekle (rebuild sürüyor olabilir).
 
 ## Her görev öncesi kontrol
 

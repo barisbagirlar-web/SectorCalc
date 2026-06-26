@@ -5,7 +5,7 @@ import { createContext, useContext, useEffect, useRef, useState, ReactNode } fro
 type PaddleInstance = {
   Checkout: { open: (opts: PaddleCheckoutOptions) => void }
   Environment: { set: (env: 'sandbox' | 'production') => void }
-  Initialize: (opts: { token: string; environment?: string; eventCallback?: (e: PaddleEvent) => void }) => Promise<void>
+  Initialize: (opts: { token: string; eventCallback?: (e: PaddleEvent) => void }) => Promise<void>
   Setup?: (opts: { vendor?: number; token?: string; eventCallback?: (e: PaddleEvent) => void }) => void
 }
 
@@ -65,13 +65,17 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
         if (e.name === 'checkout.completed') console.log('[Paddle] checkout completed', e.data)
       };
 
+      // Set environment to sandbox if configured
+      if (env === 'sandbox' && Paddle.Environment && typeof Paddle.Environment.set === 'function') {
+        Paddle.Environment.set('sandbox')
+      }
+
       if (typeof Paddle.Initialize === 'function') {
         try {
           const initResult = Paddle.Initialize({
             token,
-            environment: env,
             eventCallback,
-          } as any);
+          });
 
           if (initResult && typeof (initResult as any).then === 'function') {
             (initResult as any).then(() => {
@@ -89,9 +93,6 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
           console.error('[PaddleProvider] Initialize call failed:', innerErr)
         }
       } else if (typeof Paddle.Setup === 'function') {
-        if (env === 'sandbox' && Paddle.Environment && typeof Paddle.Environment.set === 'function') {
-          Paddle.Environment.set('sandbox')
-        }
         Paddle.Setup({ vendor: Number(token) || 0, eventCallback })
         paddleRef.current = Paddle
         setReady(true)

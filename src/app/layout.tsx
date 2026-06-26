@@ -36,8 +36,11 @@ export default async function RootLayout({
   
   return (
     <html lang="en" className={`${inter.variable} ${barlow.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        {/* Kill SW before anything else loads — runs before body renders */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(r){r.unregister();try{r.active&&r.active.postMessage("kill")}catch(e){}})})}catch(e){console.warn(e)}})()` }} />
+      </head>
       <body className="min-w-0 overflow-x-hidden font-sans antialiased">
-        <script dangerouslySetInnerHTML={{ __html: `(function(){if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(r){r.unregister()})})})()` }} />
         <NextIntlClientProvider messages={messages} locale="en">
           <PaddleProvider>{children}</PaddleProvider>
         </NextIntlClientProvider>

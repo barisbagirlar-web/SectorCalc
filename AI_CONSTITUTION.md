@@ -166,18 +166,39 @@ npm run lint
 npm run build
 ```
 
-### Kural 7: Dev Server Başlatma (Ortak)
+### Kural 7: Dev Server — Static Build + Serve (ÇİFT ONAYLI)
 
-Her iki AI da dev server'ı başlatmak için **sadece** `bash dev.sh` komutunu kullanır.
-`npx next dev`, `npm run dev`, `next dev` gibi alternatif komutlar **yasaktır**.
+**Kullanılacak TEK komut:**
+```bash
+sh dev.sh
+```
 
-`dev.sh` şunları otomatik yapar:
-1. Port 3000'deki eski process'i öldürür
-2. `.next` cache'ini temizler (gerekirse)
-3. Dev server'ı başlatır → http://localhost:3000
+**Kesinlikle yasak:** `npx next dev`, `npm run dev`, `next dev`, `npm start`
 
-**Bir AI dev server'ı başlattıysa, diğeri asla restart etmez.**
-Değişiklik görünmüyorsa tarayıcıda hard refresh (Cmd+Shift+R) yap, server'ı yeniden başlatma.
+#### Nasıl çalışır?
+
+`dev.sh` → `scripts/dev-static.mjs`'i çalıştırır:
+
+1. **`next build`** ile production build alır (0 runtime error)
+2. **`next start -p 3000`** ile built dosyaları sunar
+3. **`fs.watch`** ile `src/`, `data/`, `messages/`, `public/` klasörlerini izler
+4. Dosya değişince → rebuild → restart (hot swap)
+5. **Build hatası = crash yok** — eski build yayında kalır
+
+#### Neden %100 stabil?
+
+| next dev (ESKİ) | next build + serve (YENİ) |
+|---|---|
+| Runtime derleme → crash | Derleme bitti, sadece dosya sunar |
+| Fast Refresh hata üretir | Production code = 0 hata |
+| SW offline sorunu | Production build = doğru SW |
+| Bellek sızıntısı | Statik dosya sunar, sızıntı yok |
+
+#### Süreç kuralı
+
+- Bir AI server'ı başlattıysa diğeri restart etmez
+- Değişiklik görünmezse: **hard refresh (Cmd+Shift+R)** + 5 saniye bekle (rebuild sürüyor olabilir)
+- Gerçekten restart gerekiyorsa: `sh dev.sh` (eski port'u öldürür, rebuild + serve yapar)
 
 ---
 
