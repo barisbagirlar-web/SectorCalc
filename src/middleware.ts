@@ -37,6 +37,6 @@ export const config = {
   matcher: [
     "/",
     "/sw.js",
-    "/((?!admin|api|_next|_vertech|.*\\..*).*)",
+    "/((?!admin|api|_next|_vercel|.*\\..*).*)",
   ],
 };
