@@ -129,6 +129,7 @@ auth / payment / checkout
 admin / private routes
 152 premium seed içeriği
 mevcut route slugları (rastgele rename yok)
+data/pro-tools/ (Pro/Free araç veri dosyaları ve _merged.json asla silinmemeli/ezilmemeli)
 ```
 
 Detay: `.cursor/rules/01-sectorcalc-safety/RULE.md`
