@@ -7,28 +7,14 @@
 
 import { notFound } from "next/navigation";
 import ProToolClientWrapper from "@/components/calculators/ProToolClientWrapper";
-import fs from "fs";
-import path from "path";
-
-// JSON'ları buradan oku (pipeline çıktısı)
-const TOOLS_DIR = path.join(process.cwd(), "data", "pro-tools");
+import { PRO_TOOLS_MAP } from "@/lib/tools/pro-tools-registry";
 
 function loadTool(toolId: string) {
-  const filePath = path.join(TOOLS_DIR, `${toolId}.json`);
-  if (!fs.existsSync(filePath)) return null;
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  } catch {
-    return null;
-  }
+  return PRO_TOOLS_MAP[toolId] || null;
 }
 
 function loadAllTools(): string[] {
-  if (!fs.existsSync(TOOLS_DIR)) return [];
-  return fs
-    .readdirSync(TOOLS_DIR)
-    .filter(f => f.match(/^PRO_\d+\.json$/))
-    .map(f => f.replace(".json", ""));
+  return Object.keys(PRO_TOOLS_MAP);
 }
 
 // Static params — tüm araçlar için sayfa üret

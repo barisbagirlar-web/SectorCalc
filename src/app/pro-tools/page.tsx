@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
-import { PageLayout } from "@/components/layout/PageLayout";
 import { PremiumCatalogSearch } from "@/components/catalog/PremiumCatalogSearch";
+import { PageLayout } from "@/components/layout/PageLayout";
 import type {
   SearchablePremiumTool,
   SearchablePremiumCategory,
@@ -20,6 +18,7 @@ import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n"
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
 import { getGlobalCategoryBySlug } from "@/lib/catalog/global-tool-category-taxonomy";
+import { PRO_TOOLS_LIST } from "@/lib/tools/pro-tools-registry";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -29,13 +28,7 @@ export const revalidate = 3600;
 export const dynamic = "force-static";
 
 function loadToolList() {
-  const p = path.join(process.cwd(), "data", "pro-tools", "_merged.json");
-  if (!fs.existsSync(p)) return [];
-  try {
-    return JSON.parse(fs.readFileSync(p, "utf-8"));
-  } catch {
-    return [];
-  }
+  return PRO_TOOLS_LIST;
 }
 
 function buildCollectionPageJsonLd() {

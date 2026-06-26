@@ -5,7 +5,6 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  output: "standalone",
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -13,10 +12,6 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   serverExternalPackages: ["@react-pdf/renderer"],
-  outputFileTracingIncludes: {
-    "/pro-tools/[toolId]": ["./data/pro-tools/**/*"],
-    "/pro-tools": ["./data/pro-tools/_merged.json"],
-  },
   experimental: {
     staleTimes: {
       dynamic: 30,
