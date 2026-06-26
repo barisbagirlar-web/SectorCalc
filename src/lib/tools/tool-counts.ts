@@ -1,20 +1,16 @@
-/**
- * Dynamic tool counter — computes total tools at build/render time.
- * Uses static imports (resolved by Next.js/webpack at build time).
- */
-
-
-
-export function getTotalToolCount(): number {
-  return 552;
-}
+import { FREE_TRAFFIC_TOOLS } from "./free-traffic-catalog";
+import mergedTools from "../../../data/pro-tools/_merged.json";
 
 export function getFreeToolCount(): number {
-  return 359;
+  return FREE_TRAFFIC_TOOLS.length;
 }
 
 export function getPremiumToolCount(): number {
-  return 193;
+  return mergedTools.length;
+}
+
+export function getTotalToolCount(): number {
+  return getFreeToolCount() + getPremiumToolCount();
 }
 
 export function resetToolCountCache(): void {}
