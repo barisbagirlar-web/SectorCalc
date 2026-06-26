@@ -1,0 +1,86 @@
+---
+description: Dual-AI territory enforcement — Cursor (DeepSeek) bölgesi dışına çıkma yasağı
+globs: 
+alwaysApply: true
+---
+# AI Territory — Cursor (DeepSeek) Sınırları
+
+Bu kural, AI_CONSTITUTION.md'de tanımlanan bölge ayrımını Cursor içinde uygular.
+
+## ✅ Cursor'un SAHİP olduğu dizinler (tam yetki: oku + değiştir + sil)
+
+```
+src/lib/**
+src/config/**
+src/data/**
+messages/**
+functions/**
+scripts/**
+public/sw.js
+src/app/api/**
+next.config.ts          (ortak — sadece kendi alanını değiştir)
+src/middleware.ts       (ortak — sadece kendi alanını değiştir)
+```
+
+## 📖 Cursor'un Read-Only olduğu dizinler (sadece oku, asla değiştirme/silme)
+
+Bunlar Google Antigravity'nin bölgesidir. Anlamak ve referans almak için
+okuyabilirsin ama KESİNLİKLE değiştirme veya silme yapma.
+
+```
+src/components/**
+src/app/**             (api/ hariç — api/ Cursor'a ait)
+src/styles/**
+public/**              (sw.js hariç)
+src/config/brand.ts
+src/components/brand/**
+.cursor/rules/brand-assets-lock.mdc
+```
+
+## ❌ Korumalı alanlar (hiçbir AI dokunamaz)
+
+```
+src/app/admin/**
+src/components/admin/**
+.env.local
+firestore.rules
+*service-account*
+*firebase-adminsdk*
+```
+
+## Senkronizasyon Brief Zorunluluğu
+
+Kendi bölgende yaptığın bir değişiklik KARŞI bölgedeki bir dosyayı
+etkiliyorsa (API kontratı, veri tipi, import path, fonksiyon imzası
+değişikliği), kullanıcıya şu formatta brief bildir:
+
+```
+[SENKRONİZASYON BREFİ]
+AI: CURSOR
+Değişiklik: <özet>
+Etkilenen alan: <karşı bölgedeki hangi dosya>
+Yeni kontrat: <güncel API/imza/veri yapısı>
+```
+
+Aşağıdaki durumlarda brief ZORUNLUDUR:
+- Yeni API route eklemek veya mevcut route'u değiştirmek
+- Export edilen bir TypeScript tipini/interface'i değiştirmek
+- Bir fonksiyonun imzasını (parametre/dönüş tipi) değiştirmek
+- Import path'ini değiştirmek veya dosyayı taşımak
+- Kullanıcıya görünen bir string/mesajı değiştirmek
+
+## Her görev öncesi kontrol
+
+1. AI_CONSTITUTION.md'yi oku
+2. Yapılacak değişiklik kendi bölgende mi? Sadece Read-Only gerekiyor mu?
+3. `git status` ile çakışma var mı kontrol et
+4. Senkronizasyon brief'i gerekiyor mu? → Gerekiyorsa kullanıcıya bildir
+
+## Her görev sonrası
+
+```bash
+npm run lint
+npm run build
+git status --short
+git diff --stat
+```

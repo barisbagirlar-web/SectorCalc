@@ -8,6 +8,7 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
 });
 
 const barlow = Barlow({
@@ -15,6 +16,7 @@ const barlow = Barlow({
   weight: ["500", "600", "700"],
   variable: "--font-barlow",
   display: "swap",
+  preload: false,
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -22,6 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600"],
   variable: "--font-jetbrains",
   display: "swap",
+  preload: false,
 });
 
 export default async function RootLayout({
@@ -34,6 +37,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${barlow.variable} ${jetbrainsMono.variable}`}>
       <body className="min-w-0 overflow-x-hidden font-sans antialiased">
+        <script dangerouslySetInnerHTML={{ __html: `(function(){if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(r){r.unregister()})})})()` }} />
         <NextIntlClientProvider messages={messages} locale="en">
           <PaddleProvider>{children}</PaddleProvider>
         </NextIntlClientProvider>

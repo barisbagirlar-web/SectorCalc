@@ -1,184 +1,228 @@
 {
   "tool_id": "PRO_088",
-  "tool_name": "Gage R&R Measurement System Analysis (AIAG MSA 4th Ed.)",
-  "category": "Quality & Metrology",
+  "tool_name": "Roof Truss Member Force & Joint Reaction — Simple Warren / Pratt Configuration",
+  "category": "Structural Engineering / Steel Design",
   "scope": "single_operation",
-  "primary_operation": "measurement_system",
+  "primary_operation": "roof_truss",
   "inputs": [
     {
-      "id": "n_appraisers",
-      "name": "Number of Appraisers (k)",
-      "unit": "people",
+      "id": "truss_span_m",
+      "name": "Truss Clear Span (L)",
+      "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "EXACT",
-      "absolute_min": 2,
+      "confidence_label": "KESİN",
+      "absolute_min": 3,
+      "absolute_max": 120
+    },
+    {
+      "id": "truss_height_m",
+      "name": "Truss Depth at Mid-Span (h)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.3,
+      "absolute_max": 20
+    },
+    {
+      "id": "num_panels",
+      "name": "Number of Top Chord Panels (N)",
+      "unit": "count",
+      "type": "enum",
+      "options": [
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 6
+    },
+    {
+      "id": "dead_load_kn_m2",
+      "name": "Dead Load — Roof Cladding + Self-Weight (g_k)",
+      "unit": "kN/m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.8,
+      "absolute_min": 0.2,
       "absolute_max": 5,
-      "default": 3,
-      "hint": "AIAG MSA: minimum 3 appraisers recommended"
+      "note": "Metal deck + insulation ≈ 0.4–0.7 kN/m²; concrete slab ≈ 3–5 kN/m²"
     },
     {
-      "id": "n_parts",
-      "name": "Number of Parts (n)",
-      "unit": "pcs",
+      "id": "live_load_kn_m2",
+      "name": "Imposed / Snow Load (q_k)",
+      "unit": "kN/m²",
       "type": "number",
       "required": true,
-      "confidence_label": "EXACT",
-      "absolute_min": 5,
-      "absolute_max": 30,
-      "default": 10,
-      "hint": "AIAG MSA: minimum 10 parts recommended"
-    },
-    {
-      "id": "n_trials",
-      "name": "Number of Trials (r)",
-      "unit": "ölçüm/parça",
-      "type": "number",
-      "required": true,
-      "confidence_label": "EXACT",
-      "absolute_min": 2,
+      "confidence_label": "KESİN",
+      "absolute_min": 0.25,
       "absolute_max": 5,
-      "default": 2
+      "note": "EN 1991-1-3 snow or ASCE 7-22 §7 — regional ground snow × shape factor"
     },
     {
-      "id": "ev_equipment_variation",
-      "name": "Repeatability — EV (Equipment Variation)",
-      "unit": "μm veya birim",
+      "id": "wind_uplift_kn_m2",
+      "name": "Design Wind Uplift Pressure (w_u)",
+      "unit": "kN/m²",
       "type": "number",
       "required": true,
-      "confidence_label": "EXACT",
-      "absolute_min": 0.0001,
-      "hint": "Standard deviation of measurements taken by same operator on same part"
-    },
-    {
-      "id": "av_appraiser_variation",
-      "name": "Reproducibility — AV (Appraiser Variation)",
-      "unit": "μm veya birim",
-      "type": "number",
-      "required": true,
-      "confidence_label": "EXACT",
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.6,
       "absolute_min": 0,
-      "hint": "Standard deviation between average measurements of different operators"
+      "absolute_max": 5,
+      "note": "Negative (uplift) wind pressure; ASCE 7-22 §27 or EN 1991-1-4 Cp,e"
     },
     {
-      "id": "pv_part_variation",
-      "name": "Part Variation — PV (Part Variation)",
-      "unit": "μm veya birim",
+      "id": "tributary_width_m",
+      "name": "Tributary Width (Truss Spacing) (b_trib)",
+      "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "EXACT",
-      "absolute_min": 0.0001,
-      "hint": "True part-to-part variation of the production process"
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 15
     },
     {
-      "id": "tolerance_band",
-      "name": "Tolerance Band (USL - LSL)",
-      "unit": "μm veya birim",
-      "type": "number",
+      "id": "steel_grade_fy_mpa",
+      "name": "Steel Grade — Yield Strength (F_y)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "S235 / A36 — 235 MPa",
+          "value": 235
+        },
+        {
+          "label": "S275 — 275 MPa",
+          "value": 275
+        },
+        {
+          "label": "S355 / A572-50 — 355 MPa",
+          "value": 355
+        },
+        {
+          "label": "S460 — 460 MPa",
+          "value": 460
+        }
+      ],
       "required": true,
-      "confidence_label": "EXACT",
-      "absolute_min": 0.001,
-      "hint": "From product drawing: Upper Specification Limit - Lower Specification Limit"
-    },
-    {
-      "id": "sigma_multiplier",
-      "name": "Sigma Multiplier",
-      "unit": "—",
-      "type": "number",
-      "required": false,
-      "confidence_label": "ASSUMPTION",
-      "absolute_min": 4,
-      "absolute_max": 6,
-      "default": 6,
-      "hint": "AIAG MSA: 5.15 (99% coverage interval) or 6.00 (99.73% coverage)"
-    },
-    {
-      "id": "process_sigma",
-      "name": "Process Sigma Value (for Cpk estimation)",
-      "unit": "σ",
-      "type": "number",
-      "required": false,
-      "confidence_label": "ASSUMPTION",
-      "absolute_min": 0.5,
-      "absolute_max": 6,
-      "default": 1.33
+      "confidence_label": "KESİN",
+      "default": 355
     }
   ],
   "formulas": [
-    "GRR_Total = SQRT(POWER(ev_equipment_variation, 2) + POWER(av_appraiser_variation, 2))   // [unit] Total Gage R&R (GRR)",
-    "TV_Total_Variation = SQRT(POWER(GRR_Total, 2) + POWER(pv_part_variation, 2))   // [unit] Total Variation (TV)",
-    "GRR_Spread = sigma_multiplier * GRR_Total   // [unit] GRR spread (6σ or 5.15σ)",
-    "Pct_GRR_to_TV = (GRR_Total / TV_Total_Variation) * 100   // [%] GRR to TV ratio — primary metric",
-    "Pct_EV_to_TV = (ev_equipment_variation / TV_Total_Variation) * 100   // [%] Repeatability contribution (EV/TV)",
-    "Pct_AV_to_TV = (av_appraiser_variation / TV_Total_Variation) * 100   // [%] Reproducibility contribution (AV/TV)",
-    "Pct_PV_to_TV = (pv_part_variation / TV_Total_Variation) * 100   // [%] Part variation contribution (PV/TV)",
-    "Pct_GRR_to_Tolerance = (GRR_Spread / tolerance_band) * 100   // [%] GRR to Tolerance ratio — secondary metric | Source: AIAG MSA 4th Ed.",
-    "NDC = FLOOR(1.41 * (pv_part_variation / GRR_Total))   // [—] Number of Distinct Categories (NDC) — must be >= 5",
-    "False_Reject_Risk_Pct = 100 * (1 - (1 - 2 * (GRR_Total / tolerance_band)))   // [%] Estimated risk of false rejection",
-    "Cpk_Measurement_Bias = (tolerance_band / 2 - 3 * process_sigma * TV_Total_Variation) / (3 * GRR_Total)   // [—] Measurement system Cpk impact estimate"
+    {
+      "id": "F1",
+      "name": "Factored Panel Point Load (P_u) — LRFD / ULS",
+      "expression": "w_dead_kn_m = dead_load_kn_m2 * tributary_width_m; w_live_kn_m = live_load_kn_m2 * tributary_width_m; w_factored_kn_m = 1.2 * w_dead_kn_m + 1.6 * w_live_kn_m; panel_length_m = truss_span_m / num_panels; P_u_kn = w_factored_kn_m * panel_length_m",
+      "output": "P_u_kn",
+      "unit": "kN",
+      "reference": "ASCE 7-22 §2.3.1 LRFD: 1.2D + 1.6L; EN 1990 ULS: 1.35G + 1.5Q"
+    },
+    {
+      "id": "F2",
+      "name": "End Reactions (R_A = R_B) — Symmetric Loading",
+      "expression": "n_joints = num_panels - 1; R_kn = (n_joints + 2) * P_u_kn / 2",
+      "output": "R_kn",
+      "unit": "kN",
+      "reference": "Simple truss with symmetric loading: R = n_panel_points × P_u / 2"
+    },
+    {
+      "id": "F3",
+      "name": "Maximum Bottom Chord Tension (F_BChord) — Mid-Span",
+      "expression": "M_max_knm = R_kn * truss_span_m / 2 - P_u_kn * panel_length_m * num_panels / 4; F_BChord_kn = M_max_knm / truss_height_m",
+      "output": "F_BChord_kn",
+      "unit": "kN",
+      "reference": "Method of sections: F_BC = M_max / h; maximum mid-span moment for symmetric loading"
+    },
+    {
+      "id": "F4",
+      "name": "Maximum Top Chord Compression (F_TChord)",
+      "expression": "panel_diagonal_m = Math.sqrt(Math.pow(panel_length_m, 2) + Math.pow(truss_height_m, 2)); theta_rad = Math.atan(truss_height_m / panel_length_m); F_TChord_kn = F_BChord_kn / Math.cos(theta_rad) * (-1)",
+      "output": "F_TChord_kn",
+      "unit": "kN",
+      "reference": "Top chord compression = −F_BC / cosθ at mid-span panel; θ = roof pitch angle"
+    },
+    {
+      "id": "F5",
+      "name": "Maximum Web Diagonal Force (F_diag) — Near Support",
+      "expression": "V_max_kn = R_kn - P_u_kn; F_diag_kn = V_max_kn / Math.sin(theta_rad)",
+      "output": "F_diag_kn",
+      "unit": "kN",
+      "reference": "Maximum shear occurs at first interior panel; F_diag = V_max / sinθ"
+    },
+    {
+      "id": "F6",
+      "name": "Required Section Area — Bottom Chord Tension (A_req)",
+      "expression": "phi_t = 0.90; A_req_mm2 = F_BChord_kn * 1000 / (phi_t * steel_grade_fy_mpa); wind_uplift_factor = wind_uplift_kn_m2 * tributary_width_m * panel_length_m",
+      "output": "A_req_mm2, wind_uplift_factor",
+      "unit": "mm², kN/panel",
+      "reference": "AISC 360-22 D2-1: φP_n = φ_t·F_y·A_g; φ_t=0.90 for yielding; wind uplift checked separately"
+    }
   ],
   "engine_rules": {
     "standards": [
-      "AIAG MSA 4th Ed.",
-      "IATF 16949 Madde 7.1.5",
-      "ISO 22514-7",
-      "VDA 5",
-      "ISO 17025"
+      "AISC 360-22 Chapters D, E, F",
+      "ASCE 7-22 §2.3, §7, §27",
+      "EN 1993-1-1:2022 §6.2",
+      "EN 1990:2002 ULS combinations"
     ],
     "validation": {
-      "sample_minimum": {
-        "condition": "n_parts * n_appraisers * n_trials < 60",
-        "error_msg": "Insufficient data: Total measurements (n*k*r) is less than 60. AIAG MSA recommends minimum 10 parts * 3 appraisers * 2 trials = 60 measurements for statistical reliability."
-      },
-      "grr_zero_check": {
-        "condition": "ev_equipment_variation < 0.0001 && av_appraiser_variation < 0.0001",
-        "error_msg": "EV and AV are both equal to zero — physically impossible. Gauge resolution may be insufficient or data entered incorrectly."
-      },
-      "pv_dominance": {
-        "condition": "pv_part_variation < ev_equipment_variation",
-        "error_msg": "Part variation is smaller than gauge variation. Either parts are produced with identical dimensions (process too stable) or gauge resolution is insufficient. Review measurement scale."
-      },
-      "tolerance_min": {
-        "absolute_min": 0.001,
-        "error_msg": "Tolerance band cannot be zero or negative (division error)."
-      }
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "truss_height_m / truss_span_m < 0.05",
+          "action": "WARN",
+          "message": "Truss depth-to-span ratio < 1:20: very shallow truss — deflection and chord force will be excessive; minimum h/L = 1/10 recommended per AISC DG11"
+        },
+        {
+          "id": "V2",
+          "condition": "wind_uplift_kn_m2 > dead_load_kn_m2 * 0.9",
+          "action": "WARN",
+          "message": "Wind uplift > 90% of dead load: net uplift possible under 0.9D + 1.0W — bottom chord becomes compression; verify buckling capacity and purlin connections"
+        },
+        {
+          "id": "V3",
+          "condition": "num_panels < 4",
+          "action": "WARN",
+          "message": "Less than 4 panels: very steep diagonal angle — excessive web member forces; use minimum 6 panels for efficient truss geometry"
+        }
+      ]
     },
     "smart_warnings": [
       {
-        "condition": "NDC < 2",
+        "id": "W1",
+        "trigger": "truss_span_m > 40 && truss_height_m / truss_span_m < 0.08",
         "severity": "CRITICAL",
-        "source": "AIAG MSA 4th Ed. Bölüm 4",
-        "message": "SYSTEM REJECTED - NDC = 1: The gauge cannot distinguish between parts. Risk of false rejects/accepts is high. Gauge cannot be used for this tolerance. Calibration or replacement required."
+        "message": "Long shallow truss: chord forces very large — chord section and connection design critical; camber ≥ L/500 required per AISC Code of Standard Practice"
       },
       {
-        "condition": "NDC >= 2 && NDC < 5",
-        "severity": "CRITICAL",
-        "source": "AIAG MSA 4th Ed.",
-        "message": "UNACCEPTABLE - NDC < 5: System is insufficient to monitor the process. Does not meet IATF 16949 minimum NDC >= 5 requirement. Process control cannot be established; high risk of non-conformance."
-      },
-      {
-        "condition": "Pct_GRR_to_TV > 30",
-        "severity": "CRITICAL",
-        "source": "AIAG MSA 4th Ed. / IATF 16949",
-        "message": "GRR/TV > 30%: Measurement system is unacceptable. Gauge variation masks actual process variation. Reported Cpk is misleading. Gauge cannot be used for product acceptance."
-      },
-      {
-        "condition": "Pct_GRR_to_TV > 10 && Pct_GRR_to_TV <= 30",
+        "id": "W2",
+        "trigger": "F_TChord_kn > 2000",
         "severity": "WARNING",
-        "source": "AIAG MSA 4th Ed.",
-        "message": "GRR/TV 10-30%: Conditional acceptance. Insufficient for critical products or strict process capability studies. Gauge improvement or replacement should be scheduled."
+        "message": "Top chord compression > 2000 kN: heavy member required — verify lateral buckling between purlin points per AISC 360-22 Chapter E; ensure continuous lateral restraint"
       },
       {
-        "condition": "Pct_GRR_to_Tolerance > 30",
-        "severity": "CRITICAL",
-        "source": "AIAG MSA 4th Ed. Alternatif Metrik",
-        "message": "GRR/Tolerance > 30%: Gauge variation consumes >30% of the tolerance band. Specifications cannot be reliably verified. False acceptance/rejection rate is unacceptable."
+        "id": "W3",
+        "trigger": "steel_grade_fy_mpa > 355 && truss_span_m > 30",
+        "severity": "INFO",
+        "message": "High-strength steel on long span: deflection (not strength) may govern — S460 reduces weight but deflection limit L/360 still applies; verify serviceability"
       },
       {
-        "condition": "Pct_AV_to_TV > Pct_EV_to_TV",
+        "id": "W4",
+        "trigger": "dead_load_kn_m2 < 0.5 && live_load_kn_m2 > 1.5",
+        "severity": "INFO",
+        "message": "Light dead load with heavy imposed load: dynamic amplification possible for crowds or machinery — check vibration criteria per SCI P354 or AISC DG11"
+      },
+      {
+        "id": "W5",
+        "trigger": "A_req_mm2 > 15000",
         "severity": "WARNING",
-        "source": "AIAG MSA — Operatör Katkısı",
-        "message": "Appraiser variation (AV) exceeds equipment variation (EV). Problem is not the gauge itself, but the method or training. Establish a Standard Operating Procedure (SOP) and retrain appraisers."
+        "message": "Required bottom chord area > 15,000 mm²: very large section — consider HSS, built-up section, or reduce span with intermediate column; verify connection capacity at joints"
       }
     ]
   }

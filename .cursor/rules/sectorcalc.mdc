@@ -5,6 +5,9 @@ alwaysApply: true
 
 # SectorCalc Project Rules
 
+> **Üst belge:** `AI_CONSTITUTION.md` — Dual-AI bölge ayrımı, yetki kuralları ve senkronizasyon brief'i buradadır.
+> Bu dosya sektörel çalışma disiplinini tanımlar.
+
 ## Project Identity
 
 SectorCalc is a global sector-specific calculation and decision-tool platform.
@@ -32,7 +35,7 @@ SectorCalc is a global sector-specific calculation and decision-tool platform.
 ## Hard No (unless explicitly requested)
 
 - New repo, `npx create-next-app`, new domain
-- `src/app/api` routes
+- `src/app/api` routes **outside DeepSeek territory** (API route'ları `AI_CONSTITUTION.md`'de DeepSeek bölgesindedir)
 - Secrets in frontend, Stripe secret in `NEXT_PUBLIC_*`
 - Service account JSON in repo, commit `.env.local`
 - Whole-app rewrite, admin panel refactor during revenue work

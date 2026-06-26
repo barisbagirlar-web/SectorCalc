@@ -66,23 +66,33 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
       };
 
       if (typeof Paddle.Initialize === 'function') {
-        if (typeof Paddle.Environment?.set === 'function') {
-          Paddle.Environment.set(env)
+        try {
+          const initResult = Paddle.Initialize({
+            token,
+            environment: env,
+            eventCallback,
+          } as any);
+
+          if (initResult && typeof (initResult as any).then === 'function') {
+            (initResult as any).then(() => {
+              paddleRef.current = Paddle
+              setReady(true)
+            }).catch((err: any) => {
+              console.error('[PaddleProvider] Initialize promise rejected:', err)
+            })
+          } else {
+            console.warn('[PaddleProvider] Initialize did not return a promise, treating as success')
+            paddleRef.current = Paddle
+            setReady(true)
+          }
+        } catch (innerErr) {
+          console.error('[PaddleProvider] Initialize call failed:', innerErr)
         }
-        Paddle.Initialize({
-          token,
-          eventCallback,
-        }).then(() => {
-          paddleRef.current = Paddle
-          setReady(true)
-        }).catch(err => {
-          console.error('[PaddleProvider] Initialize promise rejected:', err)
-        })
       } else if (typeof Paddle.Setup === 'function') {
-        if (env === 'sandbox' && typeof Paddle.Environment?.set === 'function') {
+        if (env === 'sandbox' && Paddle.Environment && typeof Paddle.Environment.set === 'function') {
           Paddle.Environment.set('sandbox')
         }
-        Paddle.Setup({ token, eventCallback })
+        Paddle.Setup({ vendor: Number(token) || 0, eventCallback })
         paddleRef.current = Paddle
         setReady(true)
       }

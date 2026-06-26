@@ -201,7 +201,8 @@ export function SiteHeader({ isAuthenticated = false }) {
         .sc-logo-mark{width:30px;height:30px;flex-shrink:0;}
         .sc-logo-text{font-size:21px;font-weight:700;color:var(--text);letter-spacing:-0.01em;}
         .sc-logo-text .a{color:var(--accent);}
-        .sc-nav{display:flex;align-items:center;gap:6px;flex:1;justify-content:center;}
+        .sc-nav{display:flex;align-items:stretch;gap:6px;flex:1;justify-content:center;}
+        .sc-nav > div { display:flex; align-items:center; position:relative; }
         .sc-navbtn{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;padding:8px 12px;border-radius:8px;text-decoration:none;transition:background .12s,color .12s;white-space:nowrap;}
         .sc-navbtn:hover,.sc-navbtn.open{background:rgba(15,23,42,0.04);color:var(--accent);}
         .sc-navbtn .chev{font-size:8px;color:var(--hint);transition:transform .16s;}
@@ -225,8 +226,9 @@ export function SiteHeader({ isAuthenticated = false }) {
         .sc-getstarted{display:inline-flex;align-items:center;padding:9px 18px;border-radius:8px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .13s,transform .07s;}
         .sc-getstarted:hover{background:var(--accent-dk);}
         .sc-getstarted:active{transform:scale(.98);}
-        .sc-megawrap{position:absolute;top:100%;left:0;right:0;display:flex;justify-content:center;pointer-events:none;}
-        .sc-mega{pointer-events:auto;margin-top:6px;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--mega-shadow);padding:22px;}
+        .sc-megawrap{position:absolute;top:100%;left:50%;transform:translateX(-50%);display:flex;justify-content:center;pointer-events:none;}
+        .sc-mega{pointer-events:auto;margin-top:6px;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--mega-shadow);padding:22px;position:relative;}
+        .sc-mega::before{content:"";position:absolute;top:-24px;left:0;right:0;height:24px;background:transparent;}
         .sc-mega-products{width:600px;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
         .sc-mega-industries{width:720px;}
         .sc-mega-resources{width:340px;}

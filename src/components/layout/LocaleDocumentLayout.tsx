@@ -16,6 +16,7 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
 });
 
 const barlow = Barlow({
@@ -23,6 +24,7 @@ const barlow = Barlow({
   weight: ["500", "600", "700"],
   variable: "--font-barlow",
   display: "swap",
+  preload: false,
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -30,6 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600"],
   variable: "--font-jetbrains",
   display: "swap",
+  preload: false,
 });
 
 type LocaleDocumentLayoutProps = Readonly<{
@@ -51,6 +54,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
       data-region={region}
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(r){r.unregister()})})})()` }} />
         <SeoHeadLinks />
         <LlmsTxtLink />
         <link rel="manifest" href="/manifest.webmanifest" />

@@ -8,7 +8,7 @@ content = content.replace(
 );
 
 content = content.replace(
-  "Prices in USD · Paddle localizes currency at checkout · Tax included · Credits valid 12 months",
+  "Prices in USD · Tax included · Credits valid 12 months",
   "{t.rich('footer.pricingDisclaimer', { currency: 'USD' })}"
 );
 
