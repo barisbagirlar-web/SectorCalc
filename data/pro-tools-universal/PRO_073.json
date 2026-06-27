@@ -31,7 +31,7 @@
       "unit": {
         "ref": "units/yr"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 100000000
@@ -43,7 +43,7 @@
       "unit": {
         "ref": "USD/order"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "process",
       "min": 1,
       "max": 100000,
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "USD/unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.01,
       "max": 1000000
@@ -68,7 +68,7 @@
       "unit": {
         "ref": "% of unit cost/yr"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 5,
       "max": 60,
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "day"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1,
       "max": 365
@@ -93,7 +93,7 @@
       "unit": {
         "ref": "day"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "process",
       "min": 0,
       "max": 60,
@@ -106,7 +106,7 @@
       "unit": {
         "ref": "units/day"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "actions",
       "min": 0,
       "max": 100000
@@ -118,7 +118,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 95,
       "enum": [

@@ -19,9 +19,9 @@ export default function AdminCaseStudiesPage() {
   return (
     <PageLayout>
       <PageHero
-        eyebrow="Yönetici"
+        eyebrow="Admin"
         title="Case Study Editor"
-        subtitle="Mevcut ve yeni eklenecek saha analizleri için Featured Snippet uyumlu Q&A içerik üretme paneli."
+        subtitle="Panel for generating Featured Snippet-compatible Q&A content for current and upcoming field analyses."
       />
 
       <section className="bg-off-white py-10 md:py-14">

@@ -17,7 +17,7 @@ const COPY = {
   },
   tr: {
     badgeSector: "Sektör",
-    ctaCalculate: "Hesapla",
+    ctaCalculate: "Calculate",
     ctaOpen: "Hesaplayıcıyı aç",
     ctaOpenSector: "Sektörü aç",
     inputCount: "~{count} girdi",
@@ -52,13 +52,6 @@ const COPY = {
     resultsLabel: "<strong>{count}</strong> calculadoras mostradas",
   },
   ar: {
-    badgeSector: "قطاع",
-    ctaCalculate: "احسب",
-    ctaOpen: "افتح الحاسبة",
-    ctaOpenSector: "افتح القطاع",
-    inputCount: "~{count} مدخلات",
-    sectorToolCounts: "{free} مجاني · {premium} مميز",
-    resultsLabel: "عرض <strong>{count}</strong> حاسبة",
   },
 };
 

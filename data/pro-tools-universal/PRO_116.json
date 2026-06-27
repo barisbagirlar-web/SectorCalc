@@ -35,7 +35,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "actions",
       "default": "EN_1993_1_1",
       "uncertainty": {
@@ -62,7 +62,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "default": "RHS",
       "uncertainty": {
@@ -93,7 +93,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 20,
       "max": 2000,
@@ -111,7 +111,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 20,
       "max": 2000,
@@ -129,7 +129,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 20,
       "max": 2000,
@@ -148,7 +148,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 1,
       "max": 100,
@@ -166,7 +166,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "ORTA",
+      "confidence": "MODERATE",
       "group": "geometry",
       "min": 0,
       "max": 100,
@@ -186,7 +186,7 @@
       "unit": {
         "ref": "mm2"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "geometry",
       "min": 10,
       "max": 500000,
@@ -204,7 +204,7 @@
       "unit": {
         "ref": "mm4"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1000,
       "max": 1000000000000,
@@ -222,7 +222,7 @@
       "unit": {
         "ref": "mm4"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1000,
       "max": 1000000000000,
@@ -240,7 +240,7 @@
       "unit": {
         "ref": "mm3"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "materials",
       "min": 100,
       "max": 10000000000,
@@ -258,7 +258,7 @@
       "unit": {
         "ref": "mm3"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "materials",
       "min": 100,
       "max": 10000000000,
@@ -276,7 +276,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 960,
@@ -294,7 +294,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 180000,
       "max": 220000,
@@ -313,7 +313,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 1.25,
@@ -332,7 +332,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 1.25,
@@ -351,7 +351,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "code",
       "min": 0.5,
       "max": 1,
@@ -370,7 +370,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "code",
       "min": 0.5,
       "max": 1,
@@ -389,7 +389,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": -100000,
       "max": 100000,
@@ -406,7 +406,7 @@
       "unit": {
         "ref": "kNm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 100000,
@@ -423,7 +423,7 @@
       "unit": {
         "ref": "kNm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 100000,
@@ -440,7 +440,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "actions",
       "min": 0,
       "max": 100000,
@@ -459,7 +459,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "actions",
       "min": 0,
       "max": 100000,
@@ -478,7 +478,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 10,
       "max": 100000,
@@ -496,7 +496,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 10,
       "max": 100000,
@@ -514,7 +514,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.5,
       "max": 3,
@@ -533,7 +533,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.5,
       "max": 3,
@@ -552,7 +552,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "geometry",
       "min": 0.13,
       "max": 0.76,
@@ -571,7 +571,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "geometry",
       "min": 0.13,
       "max": 0.76,
@@ -590,7 +590,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "ORTA",
+      "confidence": "MODERATE",
       "group": "general",
       "min": 0.5,
       "max": 2,
@@ -609,7 +609,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "ORTA",
+      "confidence": "MODERATE",
       "group": "general",
       "min": 0.5,
       "max": 2,
@@ -628,7 +628,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "ORTA",
+      "confidence": "MODERATE",
       "group": "general",
       "min": 0.5,
       "max": 2,
@@ -647,7 +647,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "ORTA",
+      "confidence": "MODERATE",
       "group": "general",
       "min": 0.5,
       "max": 2,

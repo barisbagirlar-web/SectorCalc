@@ -32,7 +32,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "code",
       "enum": [
         {
@@ -52,7 +52,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 50,
       "max": 2000
@@ -64,7 +64,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 50,
       "max": 3000
@@ -76,7 +76,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "actions",
       "min": 20,
       "max": 2900
@@ -88,7 +88,7 @@
       "unit": {
         "ref": "mm2"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 50,
       "max": 50000
@@ -100,7 +100,7 @@
       "unit": {
         "ref": "mm2"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "actions",
       "min": 0,
       "max": 5000,
@@ -113,7 +113,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "actions",
       "min": 25,
       "max": 500,
@@ -126,7 +126,7 @@
       "unit": {
         "ref": "kNm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 0,
       "max": 50000
@@ -138,7 +138,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 0,
       "max": 50000
@@ -150,7 +150,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "min": 10,
       "max": 120,
@@ -171,7 +171,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "min": 200,
       "max": 700,
@@ -193,7 +193,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 2,
@@ -210,7 +210,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 2,
@@ -227,7 +227,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.5,
       "max": 1,
@@ -244,7 +244,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 3,
@@ -261,7 +261,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": -50000,
       "max": 50000,
@@ -278,7 +278,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "min": 10,
       "max": 100,
@@ -299,7 +299,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "min": 200,
       "max": 700,
@@ -316,7 +316,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 180000,
       "max": 220000,
@@ -333,7 +333,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.75,
       "max": 1,
@@ -350,7 +350,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "actions",
       "min": 0.5,
       "max": 1,

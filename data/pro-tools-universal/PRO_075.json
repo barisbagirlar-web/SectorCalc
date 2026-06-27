@@ -33,7 +33,7 @@
       "unit": {
         "ref": "kg/h"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 5000000
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "kJ/kg"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 10000,
       "max": 55000,
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 80,
       "max": 99.9,
@@ -71,7 +71,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.05,
       "max": 0.4,
@@ -84,7 +84,7 @@
       "unit": {
         "ref": "kW/m²"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 1.58,
       "enum": [
@@ -117,7 +117,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 5,
       "max": 200
@@ -129,7 +129,7 @@
       "unit": {
         "ref": "mps"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 40,

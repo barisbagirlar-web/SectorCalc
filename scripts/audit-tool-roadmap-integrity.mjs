@@ -24,8 +24,6 @@ const BANNED_PUBLIC = [
   /\bAnalysatoren?\b/i,
   /\bAnalizadores?\b/i,
   /\bAnálisis\b/i,
-  /\bتحليل\b/,
-  /\bمحلل\b/,
 ];
 
 const TRAFFIC_ALLOWED = new Set(["very-high", "high", "medium", "low"]);

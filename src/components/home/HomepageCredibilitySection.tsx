@@ -17,7 +17,7 @@ const REFERENCE_NAMES = [
   "Parker",
   "AP News",
   "AFP",
-  "ETH Zürich",
+  "ETH Zurich",
   "Honeywell",
   "Festo",
   "Manufacturing.net",

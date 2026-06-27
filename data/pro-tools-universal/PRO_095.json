@@ -34,7 +34,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "wood_chips",
       "enum": [
@@ -67,7 +67,7 @@
       "unit": {
         "ref": "% w/w"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 5,
       "max": 60
@@ -79,7 +79,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 3,
       "max": 8,
@@ -93,7 +93,7 @@
       "unit": {
         "ref": "kW"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 500000
@@ -105,7 +105,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 65,
       "max": 94,
@@ -118,7 +118,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 2,
       "max": 18,
@@ -131,7 +131,7 @@
       "unit": {
         "ref": "kg/m³"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "materials",
       "min": 100,
       "max": 750,

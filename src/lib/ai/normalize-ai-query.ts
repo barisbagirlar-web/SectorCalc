@@ -1,17 +1,6 @@
-const DIACRITICS = /[üÜöÖçÇ]/g;
-const DIACRITIC_MAP: Record<string, string> = {
-  ü: "u",
-  Ü: "u",
-  ö: "o",
-  Ö: "o",
-  ç: "c",
-  Ç: "c",
-};
-
 export function normalizeAiQuery(value: string): string {
   return value
     .trim()
-    .replace(DIACRITICS, (char) => DIACRITIC_MAP[char] ?? char)
     .toLowerCase()
     .replace(/[–—−-]/g, " ")
     .replace(/[^\p{L}\p{N}\s./+]/gu, " ")

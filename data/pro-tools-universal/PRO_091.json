@@ -32,7 +32,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 2,
       "max": 9
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 4,
       "max": 18,
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "K"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "environment",
       "min": 1,
       "max": 12,
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "K"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.5,
       "max": 8,
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "kW"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "actions",
       "min": 50,
       "max": 100000
@@ -95,7 +95,7 @@
       "unit": {
         "ref": "h"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 200,
       "max": 8760,
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "default": 3000,
       "enum": [
@@ -137,7 +137,7 @@
       "unit": {
         "ref": "USD/kWh"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.03,
       "max": 0.5,

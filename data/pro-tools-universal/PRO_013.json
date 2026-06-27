@@ -34,7 +34,7 @@
       "unit": {
         "ref": "measurement unit (μm / Pa / mA / °C)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -1000000,
       "hint": "Signed error: indicated value minus reference standard value. Can be negative."
@@ -46,7 +46,7 @@
       "unit": {
         "ref": "same measurement unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -1000000,
       "hint": "Error from the immediately preceding calibration certificate"
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "day"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 1825,
@@ -71,7 +71,7 @@
       "unit": {
         "ref": "day"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 1825,
@@ -85,7 +85,7 @@
       "unit": {
         "ref": "same measurement unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.0001,
       "hint": "Half-range of the bilateral tolerance band: |USL - LSL| / 2"
@@ -97,7 +97,7 @@
       "unit": {
         "ref": "same measurement unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "hint": "From calibration laboratory certificate — U at 95% confidence (k=2)"
@@ -109,7 +109,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 40,
@@ -123,7 +123,7 @@
       "unit": {
         "ref": "unit/°C"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "From manufacturer datasheet. Sensitivity to ambient temperature change."
@@ -135,7 +135,7 @@
       "unit": {
         "ref": "same measurement unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -149,7 +149,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "ILAC G8 Rule — w = U (full guard band)",
       "enum": [
@@ -174,7 +174,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 1,

@@ -33,7 +33,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "default": 16,
       "enum": [
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 500,
       "enum": [
@@ -86,7 +86,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 30,
       "enum": [
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 15,
       "max": 100,
@@ -121,7 +121,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 20,
       "max": 500,
@@ -134,7 +134,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "actions",
       "default": "tension",
       "enum": [
@@ -159,7 +159,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "actions",
       "default": "ties",
       "enum": [

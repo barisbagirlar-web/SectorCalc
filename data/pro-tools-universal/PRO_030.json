@@ -33,7 +33,7 @@
       "unit": {
         "ref": "USD/unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "hint": "Full cost: materials + machining + tooling + assembly + testing per build"
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "iterations"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 50,
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "iterations"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Virtual design cycles replacing physical builds — typically 5–15 per 1 physical"
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "iterations"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Even with DT, at least 1 physical validation build is typically required"
@@ -82,7 +82,7 @@
       "unit": {
         "ref": "USD"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Environmental, durability, regulatory testing costs per full programme"
@@ -94,7 +94,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 80,
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "USD/year"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "hint": "Ansys Twin Builder / Siemens Simcenter / MATLAB SimScape / PTC ThingWorx annual fee"
@@ -120,7 +120,7 @@
       "unit": {
         "ref": "USD/programme"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "AWS/Azure HPC instances for FEA, CFD, MBD simulations — per product programme"
@@ -132,7 +132,7 @@
       "unit": {
         "ref": "USD"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Sensors, edge devices, connectivity, historian — one-time or amortised per programme"
@@ -144,7 +144,7 @@
       "unit": {
         "ref": "hours"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "hint": "Engineer hours for model build, parameter identification, and validation"
@@ -156,7 +156,7 @@
       "unit": {
         "ref": "USD/hour"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 10,
       "default": 75
@@ -168,7 +168,7 @@
       "unit": {
         "ref": "day"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Calendar days saved by parallel virtual validation vs sequential physical build"
@@ -180,7 +180,7 @@
       "unit": {
         "ref": "USD/day"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Expected daily revenue from early market entry — opportunity value per day of acceleration"
@@ -192,7 +192,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 60,
@@ -207,7 +207,7 @@
       "unit": {
         "ref": "USD/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -220,7 +220,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "default": 12
@@ -232,7 +232,7 @@
       "unit": {
         "ref": "years"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 15,

@@ -32,7 +32,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 200000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 0.3,
       "max": 60
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 5,
       "max": 400
@@ -68,7 +68,7 @@
       "unit": {
         "ref": "mm2"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 200000
@@ -80,7 +80,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 355,
       "enum": [
@@ -109,7 +109,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "geometry",
       "default": 1,
       "optional": true,

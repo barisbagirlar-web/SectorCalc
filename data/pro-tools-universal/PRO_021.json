@@ -32,7 +32,7 @@
       "unit": {
         "ref": "mpmin"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 5,
       "max": 5000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "mmptooth"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.001,
       "max": 2
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "max": 500
@@ -68,7 +68,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 24
@@ -80,7 +80,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "hint": "Sum of all tool path cutting segments from NC program"
@@ -92,7 +92,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 10,
@@ -105,7 +105,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Non-cutting repositioning moves — from NC program or simulation"
@@ -117,7 +117,7 @@
       "unit": {
         "ref": "mmpmin"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 100000,
@@ -130,7 +130,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0
     },
@@ -141,7 +141,7 @@
       "unit": {
         "ref": "s"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "default": 6,
@@ -154,7 +154,7 @@
       "unit": {
         "ref": "min"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 1,
@@ -167,7 +167,7 @@
       "unit": {
         "ref": "min"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0.5,
@@ -180,7 +180,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "default": 1,
@@ -194,7 +194,7 @@
       "unit": {
         "ref": "USD/h"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 5,
       "hint": "Include depreciation, maintenance, energy, floor space, operator — typically $40–150/h"
@@ -206,7 +206,7 @@
       "unit": {
         "ref": "rpm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "default": 12000,

@@ -34,7 +34,7 @@
       "unit": {
         "ref": "m3ps"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.01,
       "max": 5000
@@ -46,7 +46,7 @@
       "unit": {
         "ref": "Pa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 50000
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "rpm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 10000
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 30,
       "max": 92,
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "kg/m³"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.5,
       "max": 2.5,
@@ -96,7 +96,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 5000
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "backward",
       "enum": [

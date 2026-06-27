@@ -31,9 +31,7 @@ const META_OVERRIDES = {
       "SectorCalc ofrece calculadoras sectoriales gratuitas y premium para fabricación, talleres, ingeniería, costes, merma, margen, energía, inventario, rutas, mano de obra y pérdidas operativas.",
   },
   ar: {
-    title: "SectorCalc | حاسبات قطاعية للصناعة والإنتاج والأعمال",
     description:
-      "SectorCalc يقدّم حاسبات قطاعية مجانية ومميزة للتصنيع والورش والهندسة وتكاليف الأعمال والهدر والهامش والطاقة والمخزون والمسارات والعمالة والخسائر التشغيلية.",
   },
 };
 
@@ -71,7 +69,6 @@ const HERO_OVERRIDES = {
     headline: "Vea los cálculos críticos de producción, empresa y técnica en un solo lugar",
   },
   ar: {
-    headline: "اعرض حسابات الإنتاج والأعمال والحسابات الفنية المهمة في مكان واحد",
   },
 };
 
@@ -112,7 +109,6 @@ for (const locale of Object.keys(PATCH)) {
     de: "Kostenlose und Premium-Branchenrechner für Produktion, Werkstätten, Technik und Unternehmensabläufe.",
     fr: "Calculateurs sectoriels gratuits et premium pour l'industrie, les ateliers, l'ingénierie et les opérations.",
     es: "Calculadoras sectoriales gratuitas y premium para fabricación, talleres, ingeniería y operaciones.",
-    ar: "حاسبات قطاعية مجانية ومميزة للتصنيع والورش والهندسة وعمليات الأعمال.",
   };
   if (footerTaglines[locale]) {
     data.enterpriseFooter.tagline = footerTaglines[locale];

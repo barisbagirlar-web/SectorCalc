@@ -33,7 +33,7 @@
       "unit": {
         "ref": "V"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 60
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "A"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 20,
       "max": 2000
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "mmpmin"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 50,
       "max": 3000
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 0.8,
       "enum": [
@@ -102,7 +102,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.1,
       "max": 0.8,
@@ -115,7 +115,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 3,
       "max": 300
@@ -127,7 +127,7 @@
       "unit": {
         "ref": "ml/100g"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 10,
       "enum": [

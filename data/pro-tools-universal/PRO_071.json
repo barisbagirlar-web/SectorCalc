@@ -33,7 +33,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "max": 100000
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 100000
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "bar"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 10,
       "max": 700
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "bar"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "reinforcement",
       "min": 0,
       "max": 100,
@@ -82,7 +82,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 20000
@@ -94,7 +94,7 @@
       "unit": {
         "ref": "mm/s"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 2000
@@ -106,7 +106,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 1,
       "enum": [
@@ -135,7 +135,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 650,
       "enum": [

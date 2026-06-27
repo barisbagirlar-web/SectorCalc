@@ -653,7 +653,6 @@ const I18N_DESC = {
   de: (title) => `${title} — sofortige Browser-Ergebnisse (nur zur Information).`,
   fr: (title) => `${title} — résultats instantanés dans le navigateur (informatif).`,
   es: (title) => `${title} — resultados instantáneos en el navegador (informativo).`,
-  ar: (title) => `${title} — نتائج فورية في المتصفح (للإرشاد فقط).`,
 };
 
 const roadmap = extractConstArray("src/data/free-traffic-tool-roadmap.ts", "FREE_TRAFFIC_TOOL_ROADMAP");

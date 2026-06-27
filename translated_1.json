@@ -1,646 +1,186 @@
 {
   "Customer return cost": {
-    "tr": "Müşteri iade maliyeti",
-    "de": "Kundenrücksendekosten",
-    "fr": "Coût de retour client",
-    "es": "Coste de devolución del cliente",
-    "ar": "تكلفة إرجاع العميل"
   },
   "Logistics, credit, or handling cost from customer returns linked to defects.": {
-    "tr": "Kusurlara bağlı müşteri iadelerinden kaynaklanan lojistik, kredi veya işlem maliyeti.",
-    "de": "Logistik-, Gutschrifts- oder Bearbeitungskosten aus durch Mängel bedingten Kundenrücksendungen.",
-    "fr": "Coûts de logistique, de crédit ou de manutention liés aux retours clients dus à des défauts.",
-    "es": "Costes de logística, crédito o manipulación derivados de las devoluciones de clientes relacionadas con defectos.",
-    "ar": "تكاليف الخدمات اللوجستية أو الائتمان أو المناولة الناتجة عن مرتجعات العملاء المرتبطة بالعيوب."
   },
   "Warranty cost": {
-    "tr": "Garanti maliyeti",
-    "de": "Garantiekosten",
-    "fr": "Coût de garantie",
-    "es": "Coste de garantía",
-    "ar": "تكلفة الضمان"
   },
   "Warranty claims or service cost attributed to defect waste in the period.": {
-    "tr": "Dönem içindeki kusur israfına atfedilen garanti talepleri veya servis maliyeti.",
-    "de": "Garantieansprüche oder Servicekosten, die im Berichtszeitraum auf Mängelausschuss zurückzuführen sind.",
-    "fr": "Réclamations au titre de la garantie ou coûts de service attribués aux déchets pour défauts au cours de la période.",
-    "es": "Reclamaciones de garantía o costes de servicio atribuidos a la merma por defectos en el período.",
-    "ar": "مطالبات الضمان أو تكلفة الخدمة المنسوبة إلى هدر العيوب خلال الفترة."
   },
   "Expedite cost": {
-    "tr": "Hızlandırma maliyeti",
-    "de": "Beschleunigungskosten",
-    "fr": "Coût d'expédition urgente",
-    "es": "Coste de agilización",
-    "ar": "تكلفة التعجيل"
   },
   "Premium freight, overtime, or rush fees triggered by defect fallout.": {
-    "tr": "Kusur kaynaklı firelerin tetiklediği özel navlun, fazla mesai veya aciliyet ücretleri.",
-    "de": "Sonderfracht-, Überstunden- oder Eilzuschläge, die durch fehlerhafte Produktion verursacht wurden.",
-    "fr": "Frais de fret prioritaire, d'heures supplémentaires ou d'urgence déclenchés par des défaillances dues à des défauts.",
-    "es": "Fletes urgentes, horas extras o recargos por prisas provocados por las repercusiones de los defectos.",
-    "ar": "رسوم الشحن الممتاز أو العمل الإضافي أو الرسوم المستعجلة الناتجة عن تداعيات العيوب."
   },
   "Data confidence": {
-    "tr": "Veri güvenilirliği",
-    "de": "Datenvertrauen",
-    "fr": "Fiabilité des données",
-    "es": "Fiabilidad de los datos",
-    "ar": "موثوقية البيانات"
   },
   "Your confidence that the entered waste drivers reflect actual shop-floor data.": {
-    "tr": "Girilen israf faktörlerinin gerçek saha verilerini yansıttığına dair güveniniz.",
-    "de": "Ihre Zuversicht, dass die eingegebenen Ausschussfaktoren die tatsächlichen Produktionsdaten widerspiegeln.",
-    "fr": "Votre certitude que les facteurs de gaspillage saisis reflètent les données réelles de l'atelier.",
-    "es": "Su nivel de confianza en que los factores de merma introducidos reflejan los datos reales de la planta de producción.",
-    "ar": "مدى ثقتك في أن عوامل الهدر المدخلة تعكس البيانات الفعلية لأرضية المصنع."
   },
   "Implementation difficulty": {
-    "tr": "Uygulama zorluğu",
-    "de": "Implementierungsschwierigkeit",
-    "fr": "Difficulté de mise en œuvre",
-    "es": "Dificultad de implementación",
-    "ar": "صعوبة التنفيذ"
   },
   "How hard it is to implement fixes: 1 = easy kaizen, 5 = major capital or layout change.": {
-    "tr": "Düzeltmelerin uygulanma zorluğu: 1 = kolay kaizen, 5 = büyük sermaye veya yerleşim değişikliği.",
-    "de": "Schwierigkeitsgrad der Umsetzung von Maßnahmen: 1 = einfaches Kaizen, 5 = größere Kapitalinvestition oder Layoutänderung.",
-    "fr": "Difficulté de mise en œuvre des corrections : 1 = kaizen facile, 5 = investissement majeur ou changement d'aménagement.",
-    "es": "Dificultad de implementar las correcciones: 1 = kaizen fácil, 5 = cambio importante de capital o distribución.",
-    "ar": "مدى صعوبة تنفيذ الإصلاحات: 1 = كايزن سهل، 5 = تغيير رئيسي في رأس المال أو التخطيط."
   },
   "Cultivated area in hectares.": {
-    "tr": "Hektar cinsinden ekili alan.",
-    "de": "Anbaufläche in Hektar.",
-    "fr": "Superficie cultivée en hectares.",
-    "es": "Área cultivada en hectáreas.",
-    "ar": "المساحة المزروعة بالهكتار."
   },
   "Expected yield": {
-    "tr": "Beklenen verim",
-    "de": "Erwarteter Ertrag",
-    "fr": "Rendement attendu",
-    "es": "Rendimiento esperado",
-    "ar": "العائد المتوقع"
   },
   "Target yield per hectare for the season.": {
-    "tr": "Sezon için hektar başına hedeflenen verim.",
-    "de": "Zielertrag pro Hektar für die Saison.",
-    "fr": "Rendement cible par hectare pour la saison.",
-    "es": "Rendimiento objetivo por hectárea para la temporada.",
-    "ar": "العائد المستهدف للهكتار الواحد خلال الموسم."
   },
   "Actual yield": {
-    "tr": "Gerçekleşen verim",
-    "de": "Tatsächlicher Ertrag",
-    "fr": "Rendement réel",
-    "es": "Rendimiento real",
-    "ar": "العائد الفعلي"
   },
   "Observed or projected yield per hectare.": {
-    "tr": "Gözlemlenen veya öngörülen hektar başına verim.",
-    "de": "Beobachteter oder prognostizierter Ertrag pro Hektar.",
-    "fr": "Rendement observé ou projeté par hectare.",
-    "es": "Rendimiento observado o proyectado por hectárea.",
-    "ar": "العائد الملاحظ أو المتوقع للهكتار الواحد."
   },
   "Price per ton": {
-    "tr": "Ton başına fiyat",
-    "de": "Preis pro Tonne",
-    "fr": "Prix par tonne",
-    "es": "Precio por tonelada",
-    "ar": "السعر لكل طن"
   },
   "Market or contract price per ton.": {
-    "tr": "Ton başına piyasa veya sözleşme fiyatı.",
-    "de": "Markt- oder Vertragspreis pro Tonne.",
-    "fr": "Prix de marché ou de contrat par tonne.",
-    "es": "Precio de mercado o de contrato por tonelada.",
-    "ar": "سعر السوق أو العقد لكل طن."
   },
   "Season irrigation energy and water spend.": {
-    "tr": "Sezonluk sulama enerjisi ve su harcaması.",
-    "de": "Kosten für Bewässerungsenergie und Wasser in der Saison.",
-    "fr": "Dépenses en énergie d'irrigation et en eau pour la saison.",
-    "es": "Gasto en energía de riego y agua de la temporada.",
-    "ar": "نفقات طاقة الري والمياه للموسم."
   },
   "Gross monthly salary": {
-    "tr": "Aylık brüt maaş",
-    "de": "Bruttomonatsgehalt",
-    "fr": "Salaire mensuel brut",
-    "es": "Salario mensual bruto",
-    "ar": "الراتب الشهري الإجمالي"
   },
   "Monthly gross pay used for screening.": {
-    "tr": "Değerlendirme için kullanılan aylık brüt ücret.",
-    "de": "Monatliches Bruttoentgelt, das für die Bewertung herangezogen wird.",
-    "fr": "Salaire brut mensuel utilisé pour l'évaluation.",
-    "es": "Salario bruto mensual utilizado para la evaluación.",
-    "ar": "الأجر الإجمالي الشهري المستخدم للتقييم."
   },
   "Employer burden": {
-    "tr": "İşveren yükü",
-    "de": "Arbeitgeberbelastung",
-    "fr": "Charges patronales",
-    "es": "Carga del empleador",
-    "ar": "عبء صاحب العمل"
   },
   "Payroll taxes and employer contributions.": {
-    "tr": "Bordro vergileri ve işveren primleri.",
-    "de": "Lohnsteuern und Arbeitgeberbeiträge.",
-    "fr": "Taxes sur les salaires et cotisations patronales.",
-    "es": "Impuestos sobre la nómina y cotizaciones del empleador.",
-    "ar": "ضرائب الرواتب ومساهمات صاحب العمل."
   },
   "Years of service": {
-    "tr": "Hizmet süresi",
-    "de": "Dienstjahre",
-    "fr": "Années de service",
-    "es": "Años de servicio",
-    "ar": "سنوات الخدمة"
   },
   "Completed service years for severance screening.": {
-    "tr": "Kıdem tazminatı değerlendirmesi için tamamlanmış hizmet yılları.",
-    "de": "Vollendete Dienstjahre für die Abfindungsprüfung.",
-    "fr": "Années de service complètes pour l'évaluation de l'indemnité de licenciement.",
-    "es": "Años de servicio cumplidos para la evaluación de indemnización.",
-    "ar": "سنوات الخدمة المكتملة لتقييم مكافأة نهاية الخدمة."
   },
   "Severance weeks per year": {
-    "tr": "Yıl başına kıdem haftası",
-    "de": "Abfindungswochen pro Jahr",
-    "fr": "Semaines d'indemnité par année",
-    "es": "Semanas de indemnización por año",
-    "ar": "أسابيع مكافأة نهاية الخدمة لكل سنة"
   },
   "Policy weeks credited per service year.": {
-    "tr": "Her hizmet yılı için tanınan poliçe haftası.",
-    "de": "Angerechnete Wochen gemäß Richtlinie pro Dienstjahr.",
-    "fr": "Semaines créditées selon la politique par année de service.",
-    "es": "Semanas acreditadas según la política por año de servicio.",
-    "ar": "أسابيع السياسة المعتمدة لكل سنة خدمة."
   },
   "Notice weeks": {
-    "tr": "İhbar haftası",
-    "de": "Kündigungsfrist in Wochen",
-    "fr": "Semaines de préavis",
-    "es": "Semanas de preaviso",
-    "ar": "أسابيع الإشعار"
   },
   "Notice period length in weeks.": {
-    "tr": "Hafta cinsinden ihbar süresi uzunluğu.",
-    "de": "Länge der Kündigungsfrist in Wochen.",
-    "fr": "Durée du délai de préavis en semaines.",
-    "es": "Duración del período de preaviso en semanas.",
-    "ar": "طول فترة الإشعار بالأسابيع."
   },
   "Monthly repair revenue": {
-    "tr": "Aylık onarım geliri",
-    "de": "Monatlicher Reparaturumsatz",
-    "fr": "Revenus de réparation mensuels",
-    "es": "Ingresos mensuales por reparación",
-    "ar": "إيرادات الإصلاح الشهرية"
   },
   "Total shop revenue for the period.": {
-    "tr": "Dönem için toplam atölye geliri.",
-    "de": "Gesamtumsatz der Werkstatt für den Berichtszeitraum.",
-    "fr": "Chiffre d'affaires total de l'atelier pour la période.",
-    "es": "Ingresos totales del taller durante el período.",
-    "ar": "إجمالي إيرادات الورشة للفترة."
   },
   "Comeback rate": {
-    "tr": "Geri dönüş oranı",
-    "de": "Rücklaufquote",
-    "fr": "Taux de retours (garantie)",
-    "es": "Tasa de retornos",
-    "ar": "معدل العودة (المرتجعات)"
   },
   "Comeback jobs as percent of revenue.": {
-    "tr": "Gelirin yüzdesi olarak geri dönen işler.",
-    "de": "Rücklaufaufträge als Prozentsatz des Umsatzes.",
-    "fr": "Interventions sous garantie en pourcentage des revenus.",
-    "es": "Trabajos de retorno como porcentaje de los ingresos.",
-    "ar": "أعمال العودة كنسبة مئوية من الإيرادات."
   },
   "Average job cost": {
-    "tr": "Ortalama iş maliyeti",
-    "de": "Durchschnittliche Auftragskosten",
-    "fr": "Coût moyen de l'intervention",
-    "es": "Coste medio del trabajo",
-    "ar": "متوسط تكلفة العمل"
   },
   "Average internal cost per comeback job.": {
-    "tr": "Geri dönen iş başına ortalama iç maliyet.",
-    "de": "Durchschnittliche interne Kosten pro Rücklaufauftrag.",
-    "fr": "Coût interne moyen par intervention sous garantie.",
-    "es": "Coste interno medio por trabajo de retorno.",
-    "ar": "متوسط التكلفة الداخلية لكل عمل عائد."
   },
   "Diagnostic hours": {
-    "tr": "Teşhis saatleri",
-    "de": "Diagnosestunden",
-    "fr": "Heures de diagnostic",
-    "es": "Horas de diagnóstico",
-    "ar": "ساعات التشخيص"
   },
   "Unbilled diagnostic labor hours per month.": {
-    "tr": "Aylık faturalandırılmamış teşhis işçilik saatleri.",
-    "de": "Nicht abgerechnete Diagnosearbeitsstunden pro Monat.",
-    "fr": "Heures de main-d'œuvre de diagnostic non facturées par mois.",
-    "es": "Horas de mano de obra de diagnóstico no facturadas por mes.",
-    "ar": "ساعات عمل التشخيص غير المفوترة شهريًا."
   },
   "Fully loaded technician rate.": {
-    "tr": "Tam yüklü teknisyen ücreti.",
-    "de": "Vollkosten-Stundensatz des Technikers.",
-    "fr": "Taux horaire technicien toutes charges comprises.",
-    "es": "Tarifa del técnico con costes totales.",
-    "ar": "معدل فني محمل بالكامل."
   },
   "Parts handling cost": {
-    "tr": "Parça işlem maliyeti",
-    "de": "Kosten für Teilehandling",
-    "fr": "Coût de manutention des pièces",
-    "es": "Coste de manipulación de piezas",
-    "ar": "تكلفة مناولة القطع"
   },
   "Core handling, returns and parts admin spend.": {
-    "tr": "Gövde işlemi, iadeler ve parça yönetim harcaması.",
-    "de": "Ausgaben für Altteileabwicklung, Rücksendungen und Teileverwaltung.",
-    "fr": "Dépenses liées à la gestion des consignes, aux retours et à l'administration des pièces.",
-    "es": "Gastos de manipulación de cascos, devoluciones y administración de piezas.",
-    "ar": "نفقات التعامل الأساسي والمرتجعات وإدارة القطع."
   },
   "Parts cost": {
-    "tr": "Parça maliyeti",
-    "de": "Teilekosten",
-    "fr": "Coût des pièces",
-    "es": "Coste de las piezas",
-    "ar": "تكلفة القطع"
   },
   "Wholesale parts cost for the repair order.": {
-    "tr": "Onarım emri için toptan parça maliyeti.",
-    "de": "Einkaufspreis der Teile für den Reparaturauftrag.",
-    "fr": "Coût de gros des pièces pour l'ordre de réparation.",
-    "es": "Coste mayorista de piezas para la orden de reparación.",
-    "ar": "تكلفة الجملة للقطع لأمر الإصلاح."
   },
   "Book time or estimated labor hours.": {
-    "tr": "Standart süre veya tahmini işçilik saatleri.",
-    "de": "Richtzeit oder geschätzte Arbeitsstunden.",
-    "fr": "Temps barème ou heures de main-d'œuvre estimées.",
-    "es": "Tiempo de manual o horas de mano de obra estimadas.",
-    "ar": "الوقت القياسي أو ساعات العمل المقدرة."
   },
   "Shop labor rate charged to customer.": {
-    "tr": "Müşteriye fatura edilen atölye işçilik ücreti.",
-    "de": "Dem Kunden berechneter Werkstatt-Stundensatz.",
-    "fr": "Taux horaire de main-d'œuvre facturé au client.",
-    "es": "Tarifa de mano de obra del taller cobrada al cliente.",
-    "ar": "معدل عمل الورشة المفروض على العميل."
   },
   "Shop supplies percent": {
-    "tr": "Atölye sarf malzemesi yüzdesi",
-    "de": "Prozentsatz Werkstattbedarf",
-    "fr": "Pourcentage de fournitures d'atelier",
-    "es": "Porcentaje de suministros del taller",
-    "ar": "نسبة مستلزمات الورشة"
   },
   "Shop supplies and consumables on parts subtotal.": {
-    "tr": "Parça ara toplamı üzerinden atölye sarf malzemeleri ve tüketim ürünleri.",
-    "de": "Werkstattbedarf und Verbrauchsmaterialien basierend auf der Teile-Zwischensumme.",
-    "fr": "Fournitures et consommables d'atelier sur le sous-total des pièces.",
-    "es": "Suministros y consumibles de taller sobre el subtotal de piezas.",
-    "ar": "مستلزمات ومستهلكات الورشة من الإجمالي الفرعي للقطع."
   },
   "Target margin rate": {
-    "tr": "Hedef marj oranı",
-    "de": "Zielmargenrate",
-    "fr": "Taux de marge cible",
-    "es": "Tasa de margen objetivo",
-    "ar": "معدل الهامش المستهدف"
   },
   "Target gross margin on the quoted price.": {
-    "tr": "Teklif edilen fiyat üzerinden hedeflenen brüt marj.",
-    "de": "Bruttozielmarge bezogen auf den Angebotspreis.",
-    "fr": "Marge brute cible sur le prix devisé.",
-    "es": "Margen bruto objetivo sobre el precio cotizado.",
-    "ar": "الهامش الإجمالي المستهدف على السعر المعروض."
   },
   "Driver RPM": {
-    "tr": "Sürücü devri (RPM)",
-    "de": "Antriebsdrehzahl (U/min)",
-    "fr": "Tr/min de l'entraînement",
-    "es": "RPM del conductor",
-    "ar": "سرعة دوران المحرك (دورة في الدقيقة)"
   },
   "Motor or driver shaft speed.": {
-    "tr": "Motor veya sürücü mili hızı.",
-    "de": "Drehzahl des Motors oder der Antriebswelle.",
-    "fr": "Vitesse du moteur ou de l'arbre d'entraînement.",
-    "es": "Velocidad del motor o del eje conductor.",
-    "ar": "سرعة المحرك أو عمود الإدارة."
   },
   "Driver diameter": {
-    "tr": "Sürücü çapı",
-    "de": "Antriebsdurchmesser",
-    "fr": "Diamètre d'entraînement",
-    "es": "Diámetro del conductor",
-    "ar": "قطر المحرك"
   },
   "Driver pulley pitch diameter.": {
-    "tr": "Sürücü kasnak adım çapı.",
-    "de": "Wirkdurchmesser der Antriebsriemenscheibe.",
-    "fr": "Diamètre primitif de la poulie d'entraînement.",
-    "es": "Diámetro primitivo de la polea conductora.",
-    "ar": "قطر خطوة بكرة المحرك."
   },
   "Driven diameter": {
-    "tr": "Sürülen çap",
-    "de": "Abtriebsdurchmesser",
-    "fr": "Diamètre entraîné",
-    "es": "Diámetro del conducido",
-    "ar": "القطر المدار"
   },
   "Driven pulley pitch diameter.": {
-    "tr": "Sürülen kasnak adım çapı.",
-    "de": "Wirkdurchmesser der Abtriebsriemenscheibe.",
-    "fr": "Diamètre primitif de la poulie entraînée.",
-    "es": "Diámetro primitivo de la polea conducida.",
-    "ar": "قطر خطوة البكرة المدارة."
   },
   "Center distance": {
-    "tr": "Eksenler arası mesafe",
-    "de": "Achsabstand",
-    "fr": "Entraxe",
-    "es": "Distancia entre centros",
-    "ar": "المسافة بين المركزين"
   },
   "Shaft center distance for open belt length.": {
-    "tr": "Açık kayış uzunluğu için mil eksenler arası mesafe.",
-    "de": "Wellenachsabstand für offene Riemenlänge.",
-    "fr": "Entraxe des arbres pour la longueur de courroie ouverte.",
-    "es": "Distancia entre centros de ejes para la longitud de correa abierta.",
-    "ar": "المسافة بين مركزي العمود لطول الحزام المفتوح."
   },
   "Target clamp or preload force for the joint.": {
-    "tr": "Bağlantı için hedeflenen sıkıştırma veya ön yük kuvveti.",
-    "de": "Ziel-Klemmkraft oder Vorspannkraft für die Verbindung.",
-    "fr": "Force de serrage ou de précharge cible pour le joint.",
-    "es": "Fuerza de sujeción o precarga objetivo para la unión.",
-    "ar": "قوة التثبيت أو التحميل المسبق المستهدفة للوصلة."
   },
   "Nominal bolt diameter.": {
-    "tr": "Nominal cıvata çapı.",
-    "de": "Nenn-Schraubendurchmesser.",
-    "fr": "Diamètre nominal du boulon.",
-    "es": "Diámetro nominal del tornillo.",
-    "ar": "القطر الاسمي للمسمار."
   },
   "Friction factor": {
-    "tr": "Sürtünme faktörü",
-    "de": "Reibungsfaktor",
-    "fr": "Facteur de frottement",
-    "es": "Factor de fricción",
-    "ar": "عامل الاحتكاك"
   },
   "Nut factor K for dry steel (typical 0.15–0.25).": {
-    "tr": "Kuru çelik için somun faktörü K (tipik 0,15–0,25).",
-    "de": "Mutterfaktor K für trockenen Stahl (typisch 0,15–0,25).",
-    "fr": "Facteur d'écrou K pour l'acier sec (typique 0,15–0,25).",
-    "es": "Factor de tuerca K para acero seco (típicamente 0,15–0,25).",
-    "ar": "عامل الصامولة K للصلب الجاف (النموذجي 0.15–0.25)."
   },
   "Monthly fixed overhead for the period.": {
-    "tr": "Dönem için aylık sabit genel gider.",
-    "de": "Monatliche Fixkosten für den Berichtszeitraum.",
-    "fr": "Frais généraux fixes mensuels pour la période.",
-    "es": "Gastos generales fijos mensuales durante el período.",
-    "ar": "النفقات العامة الثابتة الشهرية للفترة."
   },
   "Average selling price per unit.": {
-    "tr": "Birim başına ortalama satış fiyatı.",
-    "de": "Durchschnittlicher Verkaufspreis pro Einheit.",
-    "fr": "Prix de vente moyen par unité.",
-    "es": "Precio medio de venta por unidad.",
-    "ar": "متوسط سعر البيع للوحدة."
   },
   "Variable cost per unit": {
-    "tr": "Birim başına değişken maliyet",
-    "de": "Variable Kosten pro Einheit",
-    "fr": "Coût variable par unité",
-    "es": "Coste variable por unidad",
-    "ar": "التكلفة المتغيرة للوحدة"
   },
   "Direct variable cost per unit sold.": {
-    "tr": "Satılan birim başına doğrudan değişken maliyet.",
-    "de": "Direkte variable Kosten pro verkaufter Einheit.",
-    "fr": "Coût variable direct par unité vendue.",
-    "es": "Coste variable directo por unidad vendida.",
-    "ar": "التكلفة المتغيرة المباشرة لكل وحدة مباعة."
   },
   "Current volume": {
-    "tr": "Mevcut hacim",
-    "de": "Aktuelles Volumen",
-    "fr": "Volume actuel",
-    "es": "Volumen actual",
-    "ar": "الحجم الحالي"
   },
   "Units sold or produced in the period.": {
-    "tr": "Dönem içinde satılan veya üretilen birimler.",
-    "de": "Im Berichtszeitraum verkaufte oder produzierte Einheiten.",
-    "fr": "Unités vendues ou produites au cours de la période.",
-    "es": "Unidades vendidas o producidas en el período.",
-    "ar": "الوحدات المباعة أو المنتجة خلال الفترة."
   },
   "Energy emissions": {
-    "tr": "Enerji emisyonları",
-    "de": "Energieemissionen",
-    "fr": "Émissions d'énergie",
-    "es": "Emisiones de energía",
-    "ar": "انبعاثات الطاقة"
   },
   "Energy-related emissions tonnage for the period.": {
-    "tr": "Dönem için enerji kaynaklı emisyon tonajı.",
-    "de": "Tonnage der energiebedingten Emissionen im Berichtszeitraum.",
-    "fr": "Tonnage d'émissions liées à l'énergie pour la période.",
-    "es": "Tonelaje de emisiones relacionadas con la energía durante el período.",
-    "ar": "حمولة الانبعاثات المرتبطة بالطاقة للفترة."
   },
   "Fuel and transport emissions tonnage.": {
-    "tr": "Yakıt ve nakliye emisyon tonajı.",
-    "de": "Tonnage der Kraftstoff- und Transportemissionen.",
-    "fr": "Tonnage d'émissions de carburant et de transport.",
-    "es": "Tonelaje de emisiones de combustible y transporte.",
-    "ar": "حمولة انبعاثات الوقود والنقل."
   },
   "Assumed carbon price or CBAM reference rate.": {
-    "tr": "Varsayılan karbon fiyatı veya SKDM (CBAM) referans oranı.",
-    "de": "Angenommener CO2-Preis oder CBAM-Referenzsatz.",
-    "fr": "Prix du carbone ou taux de référence MACF supposé.",
-    "es": "Precio del carbono asumido o tasa de referencia del MAFC.",
-    "ar": "سعر الكربون المفترض أو السعر المرجعي لآلية تعديل حدود الكربون (CBAM)."
   },
   "Exposure percent": {
-    "tr": "Maruz kalma yüzdesi",
-    "de": "Expositionsgrad (Prozent)",
-    "fr": "Pourcentage d'exposition",
-    "es": "Porcentaje de exposición",
-    "ar": "نسبة التعرض"
   },
   "Share of emissions subject to compliance cost.": {
-    "tr": "Uyum maliyetine tabi emisyonların payı.",
-    "de": "Anteil der Emissionen, die den Compliance-Kosten unterliegen.",
-    "fr": "Part des émissions soumises au coût de conformité.",
-    "es": "Proporción de emisiones sujetas a costes de cumplimiento.",
-    "ar": "حصة الانبعاثات الخاضعة لتكلفة الامتثال."
   },
   "Embedded emissions": {
-    "tr": "Gömülü emisyonlar",
-    "de": "Eingebettete Emissionen",
-    "fr": "Émissions incorporées",
-    "es": "Emisiones implícitas",
-    "ar": "الانبعاثات المضمنة"
   },
   "Calculated or measured embedded emissions.": {
-    "tr": "Hesaplanan veya ölçülen gömülü emisyonlar.",
-    "de": "Berechnete oder gemessene eingebettete Emissionen.",
-    "fr": "Émissions incorporées calculées ou mesurées.",
-    "es": "Emisiones implícitas calculadas o medidas.",
-    "ar": "الانبعاثات المضمنة المحسوبة أو المقاسة."
   },
   "Declared emissions": {
-    "tr": "Beyan edilen emisyonlar",
-    "de": "Deklarierte Emissionen",
-    "fr": "Émissions déclarées",
-    "es": "Emisiones declaradas",
-    "ar": "الانبعاثات المصرح بها"
   },
   "Declared emissions in submitted data.": {
-    "tr": "Sunulan verilerde beyan edilen emisyonlar.",
-    "de": "Deklarierte Emissionen in den eingereichten Daten.",
-    "fr": "Émissions déclarées dans les données soumises.",
-    "es": "Emisiones declaradas en los datos presentados.",
-    "ar": "الانبعاثات المصرح بها في البيانات المقدمة."
   },
   "Certificate coverage": {
-    "tr": "Sertifika kapsamı",
-    "de": "Zertifikatsabdeckung",
-    "fr": "Couverture par les certificats",
-    "es": "Cobertura de certificados",
-    "ar": "تغطية الشهادة"
   },
   "Share of exposure covered by certificates.": {
-    "tr": "Sertifikalarla kapsanan maruz kalma payı.",
-    "de": "Anteil der Belastung, der durch Zertifikate abgedeckt ist.",
-    "fr": "Part de l'exposition couverte par des certificats.",
-    "es": "Proporción de exposición cubierta por certificados.",
-    "ar": "نسبة التعرض المغطاة بالشهادات."
   },
   "Data completeness": {
-    "tr": "Veri tamlığı",
-    "de": "Datenvollständigkeit",
-    "fr": "Exhaustivité des données",
-    "es": "Integridad de los datos",
-    "ar": "اكتمال البيانات"
   },
   "Completeness of required CBAM data fields.": {
-    "tr": "Gerekli SKDM (CBAM) veri alanlarının tamlığı.",
-    "de": "Vollständigkeit der erforderlichen CBAM-Datenfelder.",
-    "fr": "Exhaustivité des champs de données MACF requis.",
-    "es": "Integridad de los campos de datos requeridos por el MAFC.",
-    "ar": "اكتمال حقول بيانات آلية تعديل حدود الكربون (CBAM) المطلوبة."
   },
   "CBAM certificate price": {
-    "tr": "SKDM sertifika fiyatı",
-    "de": "CBAM-Zertifikatspreis",
-    "fr": "Prix du certificat MACF",
-    "es": "Precio del certificado MAFC",
-    "ar": "سعر شهادة CBAM"
   },
   "Assumed certificate price per tonne.": {
-    "tr": "Ton başına varsayılan sertifika fiyatı.",
-    "de": "Angenommener Zertifikatspreis pro Tonne.",
-    "fr": "Prix supposé du certificat par tonne.",
-    "es": "Precio asumido del certificado por tonelada.",
-    "ar": "سعر الشهادة المفترض لكل طن."
   },
   "EUR/TRY rate": {
-    "tr": "EUR/TRY kuru",
-    "de": "EUR/TRY-Wechselkurs",
-    "fr": "Taux de change EUR/TRY",
-    "es": "Tipo de cambio EUR/TRY",
-    "ar": "سعر صرف اليورو/الليرة التركية"
   },
   "Exchange rate for local currency exposure.": {
-    "tr": "Yerel para birimi riskine yönelik döviz kuru.",
-    "de": "Wechselkurs für die Belastung in lokaler Währung.",
-    "fr": "Taux de change pour l'exposition en devise locale.",
-    "es": "Tipo de cambio para la exposición en moneda local.",
-    "ar": "سعر الصرف للتعرض بالعملة المحلية."
   },
   "Embedded emissions tonnage for the shipment or batch.": {
-    "tr": "Sevkiyat veya parti için gömülü emisyon tonajı.",
-    "de": "Tonnage der eingebetteten Emissionen für die Lieferung oder Charge.",
-    "fr": "Tonnage d'émissions incorporées pour l'expédition ou le lot.",
-    "es": "Tonelaje de emisiones implícitas del envío o lote.",
-    "ar": "حمولة الانبعاثات المضمنة للشحنة أو الدفعة."
   },
   "Assumed CBAM certificate price per tonne.": {
-    "tr": "Ton başına varsayılan SKDM (CBAM) sertifika fiyatı.",
-    "de": "Angenommener CBAM-Zertifikatspreis pro Tonne.",
-    "fr": "Prix du certificat MACF supposé par tonne.",
-    "es": "Precio asumido del certificado MAFC por tonelada.",
-    "ar": "سعر شهادة CBAM المفترض لكل طن."
   },
   "Exchange rate used to convert EUR exposure to TRY.": {
-    "tr": "EUR riskini TRY'ye çevirmek için kullanılan döviz kuru.",
-    "de": "Verwendeter Wechselkurs zur Umrechnung der EUR-Belastung in TRY.",
-    "fr": "Taux de change utilisé pour convertir l'exposition en EUR vers le TRY.",
-    "es": "Tipo de cambio utilizado para convertir la exposición en EUR a TRY.",
-    "ar": "سعر الصرف المستخدم لتحويل التعرض باليورو إلى الليرة التركية."
   },
   "Product quantity": {
-    "tr": "Ürün miktarı",
-    "de": "Produktmenge",
-    "fr": "Quantité de produit",
-    "es": "Cantidad de producto",
-    "ar": "كمية المنتج"
   },
   "Units in the shipment or production batch.": {
-    "tr": "Sevkiyat veya üretim partisindeki birimler.",
-    "de": "Einheiten in der Lieferung oder Produktionscharge.",
-    "fr": "Unités dans l'expédition ou le lot de production.",
-    "es": "Unidades en el envío o lote de production.",
-    "ar": "الوحدات في الشحنة أو دفعة الإنتاج."
   },
   "Admin cost": {
-    "tr": "Yönetim maliyeti",
-    "de": "Verwaltungskosten",
-    "fr": "Coût administratif",
-    "es": "Coste administrativo",
-    "ar": "التكلفة الإدارية"
   },
   "Documentation and compliance admin overhead.": {
-    "tr": "Belgeleme ve uyum yönetimi genel gideri.",
-    "de": "Verwaltungsaufwand für Dokumentation und Compliance.",
-    "fr": "Frais généraux d'administration pour la documentation et la conformité.",
-    "es": "Gastos generales administrativos de documentación y cumplimiento.",
-    "ar": "النفقات الإدارية للتوثيق والامتثال."
   },
   "Energy-related emissions for the production batch.": {
-    "tr": "Üretim partisi için enerji kaynaklı emisyonlar.",
-    "de": "Energiebedingte Emissionen für die Produktionscharge.",
-    "fr": "Émissions liées à l'énergie pour le lot de production.",
-    "es": "Emisiones relacionadas con la energía del lote de producción.",
-    "ar": "الانبعاثات المرتبطة بالطاقة لدفعة الإنتاج."
   },
   "Fuel and transport emissions for the batch.": {
-    "tr": "Parti için yakıt ve nakliye emisyonları.",
-    "de": "Kraftstoff- und Transportemissionen für die Charge.",
-    "fr": "Émissions de carburant et de transport pour le lot.",
-    "es": "Emisiones de combustible y transporte del lote.",
-    "ar": "انبعاثات الوقود والنقل للدفعة."
   }
 }

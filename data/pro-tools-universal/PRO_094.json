@@ -32,7 +32,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 0.5,
       "max": 15
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 0.5,
       "max": 20
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "deg"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 20,
       "max": 45,
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "kN/m³"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 14,
       "max": 22,
@@ -82,7 +82,7 @@
       "unit": {
         "ref": "kPa"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 200,
@@ -95,7 +95,7 @@
       "unit": {
         "ref": "kN/m³"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 22,
       "max": 26,
@@ -109,7 +109,7 @@
       "unit": {
         "ref": "deg"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "geotech",
       "min": 10,
       "max": 40,
@@ -122,7 +122,7 @@
       "unit": {
         "ref": "kPa"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 50,
       "max": 1000

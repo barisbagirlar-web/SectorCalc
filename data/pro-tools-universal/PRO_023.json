@@ -34,7 +34,7 @@
       "unit": {
         "ref": "measurement unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -1000000,
       "hint": "From engineering drawing or customer specification"
@@ -46,7 +46,7 @@
       "unit": {
         "ref": "measurement unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -1000000,
       "hint": "From engineering drawing or customer specification"
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "measurement unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": -1000000,
       "hint": "Grand average of sample measurements — from SPC chart or data set"
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "measurement unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.000001,
       "hint": "σ̂ = R̄/d2 from X̄-R chart — represents inherent process variation only"
@@ -82,7 +82,7 @@
       "unit": {
         "ref": "measurement unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.000001,
       "optional": true,
@@ -95,7 +95,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 2,
       "max": 25,
@@ -109,7 +109,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 25,
       "hint": "AIAG SPC: minimum 25 subgroups × n samples for valid Cpk"
@@ -121,7 +121,7 @@
       "unit": {
         "ref": "parts/day"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1
     },
@@ -132,7 +132,7 @@
       "unit": {
         "ref": "USD"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.01,
       "hint": "Include: scrap material + rework labour + warranty + customer return penalty"
@@ -144,7 +144,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {
@@ -172,7 +172,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.5,
       "max": 3,

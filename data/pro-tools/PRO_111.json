@@ -162,12 +162,12 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "options": [
-        "0.80 — Çok temiz (temiz oda, hermetik)",
-        "0.60 — Temiz (kapalı rulman + yağ filtresi)",
-        "0.50 — Normal (kapalı rulman, standart yağlama)",
-        "0.30 — Kirli (açık rulman, gres)",
-        "0.10 — Çok kirli (inşaat, madencilik)",
-        "0.00 — Aşırı kirli (çimento, kum)"
+        "0.80 — Very clean (clean room, sealed)",
+        "0.60 — Clean (sealed bearing + oil filter)",
+        "0.50 — Normal (sealed bearing, standard lubrication)",
+        "0.30 — Dirty (open bearing, grease)",
+        "0.10 — Very dirty (construction, mining)",
+        "0.00 — Extremely dirty (cement, sand)"
       ],
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -250,7 +250,7 @@
       {
         "condition": "viscosity_ratio_kappa >= 0.4 && viscosity_ratio_kappa < 1.0",
         "severity": "WARNING",
-        "source": "ISO 281:2007 / SKF Yağlama",
+        "source": "ISO 281:2007 / SKF Lubrication",
         "message": "Insufficient oil film: kappa between 0.4 and 1.0. Partial EHD film. Fatigue life is significantly below theoretical values. Optimize oil selection or evaluate viscosity-enhancing additives."
       },
       {
@@ -262,7 +262,7 @@
       {
         "condition": "Lnm < target_life_hours * 0.5",
         "severity": "CRITICAL",
-        "source": "ISO 281 / Makina Bakım",
+        "source": "ISO 281 / Machinery Maintenance",
         "message": "INSUFFICIENT MODIFIED LIFE: Lnm is less than 50% of target life. Bearing will fail prematurely under current conditions. Larger series, better lubrication, or lower load is required."
       },
       {
@@ -274,7 +274,7 @@
       {
         "condition": "L10h < 20000 && target_life_hours >= 20000",
         "severity": "WARNING",
-        "source": "ISO 281 / Endüstri Benchmark",
+        "source": "ISO 281 / Industry Benchmark",
         "message": "L10h < 20,000 hours: This is the industrial minimum for electric motors. Current design is insufficient. Increase bearing size or reduce load."
       }
     ],
@@ -335,7 +335,7 @@
         "rpn": 80,
         "rpn_high": 80,
         "rpn_low": 48,
-        "control_measure": "ISO 281:2007 / SKF Yağlama"
+        "control_measure": "ISO 281:2007 / SKF Lubrication"
       },
       {
         "failureMode": "High contamination: eC < 0.30. Abrasive particles are destroying the raceways. Upgrade filter class to ISO 4406 <= 16/14/11. Evaluate shielded/sealed bearing types.",
@@ -357,7 +357,7 @@
         "rpn": 128,
         "rpn_high": 128,
         "rpn_low": 76,
-        "control_measure": "ISO 281 / Makina Bakım"
+        "control_measure": "ISO 281 / Machinery Maintenance"
       },
       {
         "failureMode": "P/C > 0.5: High load ratio. A larger bearing series should be evaluated. P/C <= 0.2 is ideal for long service life.",
@@ -379,7 +379,7 @@
         "rpn": 80,
         "rpn_high": 80,
         "rpn_low": 48,
-        "control_measure": "ISO 281 / Endüstri Benchmark"
+        "control_measure": "ISO 281 / Industry Benchmark"
       }
     ],
     "audit_log": true

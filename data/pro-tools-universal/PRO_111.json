@@ -33,7 +33,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 3,
       "max": 3.334,
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "max": 5000,
@@ -96,7 +96,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.001,
       "hint": "From bearing catalog — ISO 281 Annex A"
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.01,
       "hint": "P = X*Fr + Y*Fa (combined radial and axial force)"
@@ -120,7 +120,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -133,7 +133,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -146,7 +146,7 @@
       "unit": {
         "ref": "rpm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 100000
@@ -158,7 +158,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "hint": "ISO 281 Table 1 — a1 reliability factor",
       "enum": [
@@ -191,7 +191,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.21,
       "max": 1,
@@ -204,7 +204,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.1,
       "max": 4,
@@ -217,7 +217,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "enum": [
         {
@@ -253,7 +253,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 0.8,
@@ -266,7 +266,7 @@
       "unit": {
         "ref": "hours"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 100,
       "default": 20000,

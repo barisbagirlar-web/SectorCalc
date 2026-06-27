@@ -32,7 +32,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 1000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "reinforcement",
       "min": 1,
       "max": 8,
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 90,
       "enum": [
@@ -94,7 +94,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 3,
       "max": 5,
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "cycles"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1000,
       "max": 10000000000
@@ -120,7 +120,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": -500,
       "max": 700,
@@ -133,7 +133,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 200,
       "max": 2000
@@ -145,7 +145,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 5,
       "enum": [

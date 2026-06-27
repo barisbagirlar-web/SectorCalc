@@ -33,7 +33,7 @@
       "unit": {
         "ref": "min"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "hint": "From time study — time machine is non-productive during changeover"
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "min"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Preparation activities already done while machine is running previous job"
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 100,
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 80,
@@ -85,7 +85,7 @@
       "unit": {
         "ref": "changeovers/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1
     },
@@ -96,7 +96,7 @@
       "unit": {
         "ref": "USD/h"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "hint": "Cost of machine standing idle — includes depreciation, operator, overhead"
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "units/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1
     },
@@ -119,7 +119,7 @@
       "unit": {
         "ref": "USD/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.01
     },
@@ -130,7 +130,7 @@
       "unit": {
         "ref": "% of unit value/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 5,
       "max": 60,
@@ -144,7 +144,7 @@
       "unit": {
         "ref": "USD"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,

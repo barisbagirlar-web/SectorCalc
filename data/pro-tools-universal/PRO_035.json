@@ -34,7 +34,7 @@
       "unit": {
         "ref": "tonnes/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "General industrial waste, packaging, non-contaminated scrap — Annex III EU WFD"
@@ -46,7 +46,7 @@
       "unit": {
         "ref": "tonnes/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Oils, solvents, heavy metal swarf, contaminated rags, chemical waste — EU Directive 2008/98/EC Annex III"
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "m³/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -72,7 +72,7 @@
       "unit": {
         "ref": "tonnes/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Metal recycling, paper/cardboard, plastic, energy recovery — must not exceed total waste"
@@ -84,7 +84,7 @@
       "unit": {
         "ref": "USD/tonne"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Gate fee to licensed disposal facility. EU range: €50–150/t | Turkey: $30–80/t"
@@ -96,7 +96,7 @@
       "unit": {
         "ref": "USD/tonne"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Licensed hazardous waste contractor. EU range: €200–800/t depending on category"
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "USD/m³"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -121,7 +121,7 @@
       "unit": {
         "ref": "USD/tonne"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Average net scrap value — steel scrap: $200–400/t | Al: $800–1200/t | Cu: $5000–8000/t"
@@ -133,7 +133,7 @@
       "unit": {
         "ref": "kgCO₂e/tonne"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 467,
@@ -147,7 +147,7 @@
       "unit": {
         "ref": "USD"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "From local environmental regulation — EU ELD: up to €1M+ | Turkey: per CevKan tariff"
@@ -159,7 +159,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 100,
@@ -172,7 +172,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {

@@ -32,7 +32,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 5,
       "max": 10000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 5,
       "max": 5000
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1,
       "max": 500
@@ -68,7 +68,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 3,
       "max": 50
@@ -80,7 +80,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 3,
       "max": 25
@@ -92,7 +92,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "D",
       "enum": [
@@ -125,7 +125,7 @@
       "unit": {
         "ref": "cm⁴"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 10000000
@@ -137,7 +137,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 1000

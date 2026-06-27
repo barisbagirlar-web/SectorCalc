@@ -3433,7 +3433,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Birim",
+      primaryLabel: "Unit",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
       explanation: `Aviation Passenger Seat Cost calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,

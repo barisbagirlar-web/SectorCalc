@@ -6,15 +6,15 @@ import type {
 } from "./types";
 
 const INTENT_PATTERNS: Array<{ intent: SectorcalcAiIntent; patterns: RegExp[] }> = [
-  { intent: 'free_tool_lookup', patterns: [ /\b(free|free|kostenlos|gratuit|gratis|مجاني)\b/i, /\b(calculate|calculate|berechnen|calcular|calculer|احسب)\b/i ] },
-  { intent: 'premium_tool_lookup', patterns: [ /\b(premium|pro|paid|paid|bezahlt|pago|payant|مدفوع)\b/i, /\b(verdict|decision|entscheidung|veredicto|verdict|حكم)\b/i ] },
-  { intent: 'pricing_question', patterns: [ /\b(price|price|preis|precio|prix|سعر)\b/i, /\b(cost|cost|kosten|costo|coût|تكلفة)\b/i, /\b(quote|offer|angebot|cotización|devis|عرض سعر)\b/i ] },
-  { intent: 'legal_or_compliance_question', patterns: [ /\b(legal|legal|rechtlich|legal|jurídico|قانوني)\b/i, /\b(compliance|compliance|conformité|cumplimiento|امتثال)\b/i, /\b(cbam|carbon|carbon|emission|emission)\b/i ] },
-  { intent: 'energy_carbon_question', patterns: [ /\b(energy|energy|energie|energía|énergie|طاقة)\b/i, /\b(carbon|carbon|co2|emission|emission)\b/i, /\b(efficiency|efficiency|effizienz|eficiencia|efficacité|كفاءة)\b/i ] },
-  { intent: 'technical_engineering_question', patterns: [ /\b(tolerance|tolerance|tolerancia|tolérance|تفاوت)\b/i, /\b(weld|weld|schweißen|soldadura|soudure|لحام)\b/i, /\b(oee|overall equipment effectiveness|overall equipment effectiveness)\b/i ] },
-  { intent: 'sector_specific_question', patterns: [ /\b(industry|sector|branche|industria|secteur|قطاع)\b/i, /\b(manufacturing|manufacturing|fertigung|fabricación|fabrication|تصنيع)\b/i ] },
-  { intent: 'account_question', patterns: [ /\b(account|account|konto|cuenta|compte|حساب)\b/i, /\b(login|login|anmelden|iniciar sesión|connexion|تسجيل دخول)\b/i, /\b(subscription|subscription|abonnement|suscripción|اشتراك)\b/i ] },
-  { intent: 'general_platform_question', patterns: [ /\b(sectorcalc|sector calc)\b/i, /\b(what is|what is|was ist|qué es|qu'est-ce que|ما هو)\b/i, /\b(platform|site|website)\b/i ] },
+  { intent: 'free_tool_lookup', patterns: [ /\b(free)\b/i, /\b(calculate)\b/i ] },
+  { intent: 'premium_tool_lookup', patterns: [ /\b(premium|pro|paid)\b/i, /\b(verdict|decision)\b/i ] },
+  { intent: 'pricing_question', patterns: [ /\b(price)\b/i, /\b(cost)\b/i, /\b(quote|offer)\b/i ] },
+  { intent: 'legal_or_compliance_question', patterns: [ /\b(legal)\b/i, /\b(compliance)\b/i, /\b(cbam|carbon)\b/i ] },
+  { intent: 'energy_carbon_question', patterns: [ /\b(energy)\b/i, /\b(carbon|co2|emission)\b/i, /\b(efficiency)\b/i ] },
+  { intent: 'technical_engineering_question', patterns: [ /\b(tolerance)\b/i, /\b(weld)\b/i, /\b(oee|overall equipment effectiveness)\b/i ] },
+  { intent: 'sector_specific_question', patterns: [ /\b(industry|sector)\b/i, /\b(manufacturing)\b/i ] },
+  { intent: 'account_question', patterns: [ /\b(account)\b/i, /\b(login)\b/i, /\b(subscription)\b/i ] },
+  { intent: 'general_platform_question', patterns: [ /\b(sectorcalc|sector calc)\b/i, /\b(what is)\b/i, /\b(platform|site|website)\b/i ] },
 ];
 
 export function routeIntent(

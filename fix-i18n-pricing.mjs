@@ -81,17 +81,9 @@ const additions = {
   },
   ar: {
     "card": {
-      "calculationCredits": "{count} حسابات احترافية",
       "currency": "USD",
-      "perCredit": "{currency}{price} لكل رصيد",
-      "loading": "جاري التحميل..."
     },
     "plans": {
-      "starter": { "name": "جربه" },
-      "essentials": { "name": "الأساسيات" },
-      "popular": { "name": "الأكثر شعبية" },
-      "department": { "name": "قسم" },
-      "enterprise": { "name": "أفضل قيمة" }
     }
   }
 };

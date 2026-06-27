@@ -33,7 +33,7 @@
       "unit": {
         "ref": "min/shift"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 60,
       "max": 720,
@@ -46,7 +46,7 @@
       "unit": {
         "ref": "units/day"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1
     },
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "stations"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 200
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "min/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.001,
       "hint": "From time study, MTM-2, or MOST — includes allowances (fatigue, personal, delay)"
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "min/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -94,7 +94,7 @@
       "unit": {
         "ref": "min/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -107,7 +107,7 @@
       "unit": {
         "ref": "min/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -120,7 +120,7 @@
       "unit": {
         "ref": "min/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -133,7 +133,7 @@
       "unit": {
         "ref": "min/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -146,7 +146,7 @@
       "unit": {
         "ref": "min/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -159,7 +159,7 @@
       "unit": {
         "ref": "min/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -172,7 +172,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 5,
       "max": 30,
@@ -186,7 +186,7 @@
       "unit": {
         "ref": "persons"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1
     },
@@ -197,7 +197,7 @@
       "unit": {
         "ref": "USD/h"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1
     },
@@ -208,7 +208,7 @@
       "unit": {
         "ref": "shifts/day"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 3,

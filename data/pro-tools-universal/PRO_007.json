@@ -32,7 +32,7 @@
       "unit": {
         "ref": "bar(a)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 0.5,
       "max": 1.1,
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "bar(a)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 0.001,
       "max": 5
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -15,
       "max": 30
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 20
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.3,
       "max": 30
@@ -93,7 +93,7 @@
       "unit": {
         "ref": "kg/m³"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 400,
       "max": 2000,
@@ -106,7 +106,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 2000
@@ -118,7 +118,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 500

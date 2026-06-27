@@ -34,7 +34,7 @@
       "unit": {
         "ref": "um"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.001,
       "max": 400
@@ -46,7 +46,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "turning_finish",
       "enum": [
@@ -95,7 +95,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "default": 0.8,
       "enum": [
@@ -128,7 +128,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "default": 7,
       "optional": true,
@@ -190,7 +190,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "geometry",
       "min": 0.4,
       "max": 40,

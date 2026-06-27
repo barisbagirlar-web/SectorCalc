@@ -33,7 +33,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "M12",
       "enum": [
@@ -78,7 +78,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "6H",
       "enum": [
@@ -103,7 +103,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "default": "P",
       "enum": [
@@ -136,7 +136,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 2,
       "max": 150
@@ -148,7 +148,7 @@
       "unit": {
         "ref": "mpmin"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1,
       "max": 120,
@@ -161,7 +161,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "flood",
       "enum": [

@@ -17,38 +17,6 @@ const T = {
     metaTitle: "Engineering Guides & Reference Manuals | SectorCalc",
     metaDescription: "Step-by-step methodologies, formula breakdowns, and industrial calculations for operational decisions.",
   },
-  de: {
-    eyebrow: "RESSOURCEN",
-    title: "Technische Leitfäden & Handbücher",
-    subtitle: "Schritt-für-Schritt-Methoden, Formelaufschlüsselungen und industrielle Berechnungen für betriebliche Entscheidungen.",
-    viewGuide: "Leitfaden lesen →",
-    metaTitle: "Technische Leitfäden & Handbücher | SectorCalc",
-    metaDescription: "Schritt-für-Schritt-Methoden, Formelaufschlüsselungen und industrielle Berechnungen für betriebliche Entscheidungen.",
-  },
-  fr: {
-    eyebrow: "RESSOURCES",
-    title: "Guides d'ingénierie et manuels de référence",
-    subtitle: "Méthodologies étape par étape, ventilations de formules et calculs industriels pour les décisions opérationnelles.",
-    viewGuide: "Lire le guide →",
-    metaTitle: "Guides d'ingénierie et manuels de référence | SectorCalc",
-    metaDescription: "Méthodologies étape par étape, ventilations de formules et calculs industriels pour les décisions opérationnelles.",
-  },
-  es: {
-    eyebrow: "RECURSOS",
-    title: "Guías de ingeniería y manuales de referencia",
-    subtitle: "Metodologías paso a paso, desglose de fórmulas y cálculos industriales para decisiones operativas.",
-    viewGuide: "Leer guía →",
-    metaTitle: "Guías de ingeniería y manuales de referencia | SectorCalc",
-    metaDescription: "Metodologías paso a paso, desglose de fórmulas y cálculos industriales para decisiones operativas.",
-  },
-  ar: {
-    eyebrow: "الموارد",
-    title: "الأدلة الهندسية والكتيبات المرجعية",
-    subtitle: "منهجيات خطوة بخطوة، وتحليلات الصيغ، والحسابات الصناعية للقرارات التشغيلية.",
-    viewGuide: "اقرأ الدليل ←",
-    metaTitle: "الأدلة الهندسية والكتيبات المرجعية | SectorCalc",
-    metaDescription: "منهجيات خطوة بخطوة، وتحليلات الصيغ، والحسابات الصناعية للقرارات التشغيلية.",
-  }
 };
 
 export async function generateMetadata(): Promise<Metadata> {

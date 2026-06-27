@@ -274,7 +274,7 @@
       {
         "condition": "Power_Loss_Pct > 3",
         "severity": "WARNING",
-        "source": "IEEE 141 / Enerji Verimliliği",
+        "source": "IEEE 141 / Energy Efficiency",
         "message": "Cable heat dissipation loss > 3%: Annual energy cost is significant. Investment in cross-section upgrade typically pays back in 2-3 years. Run economic sizing optimization (Kelvin's Law)."
       },
       {
@@ -286,7 +286,7 @@
       {
         "condition": "cross_section_val < Recommended_Min_Section",
         "severity": "CRITICAL",
-        "source": "IEC 60364-5-52 Gerilim Düşümü Hesabı",
+        "source": "IEC 60364-5-52 Voltage Drop Calculation",
         "message": "Selected cross-section is insufficient: does not meet voltage drop limits. Calculated minimum cross-section is displayed. Choose next standard size up."
       },
       {
@@ -376,7 +376,7 @@
         "rpn": 80,
         "rpn_high": 80,
         "rpn_low": 48,
-        "control_measure": "IEEE 141 / Enerji Verimliliği"
+        "control_measure": "IEEE 141 / Energy Efficiency"
       },
       {
         "failureMode": "High ambient temperature: Cable ampacity derates. Apply correction factor (Ct) for ambient >40°C per IEC 60364. Standard catalog ratings assume 30°C.",
@@ -398,7 +398,7 @@
         "rpn": 128,
         "rpn_high": 128,
         "rpn_low": 76,
-        "control_measure": "IEC 60364-5-52 Gerilim Düşümü Hesabı"
+        "control_measure": "IEC 60364-5-52 Voltage Drop Calculation"
       },
       {
         "failureMode": "High current (>630A): Consider parallel cables or busbar duct system. Parallel cable routing can be complex; busduct is more reliable.",

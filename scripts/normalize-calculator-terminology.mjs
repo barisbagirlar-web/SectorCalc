@@ -168,10 +168,6 @@ const VALUE_REPLACEMENTS = {
     ["analysis", "calculation"],
     ["analyzers", "calculators"],
     ["analyzer", "calculator"],
-    ["افتح التحليل", "ابدأ الحساب"],
-    ["تحليل", "حساب"],
-    ["محلل", "حاسبة"],
-    ["يحلل", "يحسب"],
   ],
 };
 
@@ -225,20 +221,6 @@ const CATALOG_EXPLORER_PATCH = {
     "search.placeholder.homepage": "Buscar calculadoras…",
   },
   ar: {
-    "labels.categories.navLabel": "تصفح حسب الوظيفة",
-    "labels.categories.countLabel": "{count, plural, one {# أداة} other {# أدوات}}",
-    "labels.categories.viewCategory": "عرض الأدوات",
-    "labels.categories.viewCategoryOpen": "الأدوات معروضة",
-    "labels.free-tools.navLabel": "تصفح حسب الفئة",
-    "labels.premium-tools.navLabel": "تصفح حسب نوع التقرير",
-    "labels.premium-tools.countLabel": "{count, plural, one {# حاسبة} other {# حاسبات}}",
-    "labels.premium-tools.viewCategory": "عرض الحاسبات",
-    "labels.premium-tools.viewCategoryOpen": "الحاسبات معروضة",
-    "labels.premium-tools.openItem": "فتح الحاسبة →",
-    "labels.industries.navLabel": "تصفح حسب مجموعة القطاع",
-    "discoveryCards.ctaOpenAnalysis": "فتح الحساب",
-    "discoveryFooter.freeToolsLead": "هل تحتاج حسابًا أعمق؟",
-    "search.placeholder.homepage": "البحث في الحاسبات…",
   },
 };
 
@@ -443,7 +425,6 @@ const SOURCE_REPLACEMENTS = [
   ["Analyse öffnen", "Rechner öffnen"],
   ["Ouvrir l'analyse", "Ouvrir le calcul"],
   ["Abrir análisis", "Abrir cálculo"],
-  ["فتح التحليل", "فتح الحساب"],
   ["Need decision-level analysis?", "Need decision-level calculation?"],
   ["Change Order Impact Analyzer", "Change Order Impact Calculator"],
   ["Open Change Order Impact Analyzer", "Open Change Order Impact Calculator"],

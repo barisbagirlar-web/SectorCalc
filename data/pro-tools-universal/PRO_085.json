@@ -33,7 +33,7 @@
       "unit": {
         "ref": "m³/day"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 10000000
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "mg/L"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 2000
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "mg/L"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 100
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "mg N/L"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 200,
@@ -82,7 +82,7 @@
       "unit": {
         "ref": "day"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 3,
       "max": 30,
@@ -95,7 +95,7 @@
       "unit": {
         "ref": "mg/L"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1000,
       "max": 8000,
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "kgO₂/kWh"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.8,
       "max": 3.5,

@@ -30,7 +30,6 @@ const CATEGORY_META = [
     de: "Grundlegende Umrechner und Mathematik",
     fr: "Convertisseurs de base et mathématiques",
     es: "Convertidores básicos y matemáticas",
-    ar: "محولات أساسية ورياضيات",
   },
   {
     id: "construction-workshop-infrastructure",
@@ -39,7 +38,6 @@ const CATEGORY_META = [
     de: "Bau, Gebäude und Werkstattinfrastruktur",
     fr: "Construction, bâtiment et infrastructure d'atelier",
     es: "Construcción, edificación e infraestructura de taller",
-    ar: "البناء والهيكل وبنية الورشة",
   },
   {
     id: "electrical-energy-mechanical",
@@ -48,7 +46,6 @@ const CATEGORY_META = [
     de: "Elektrik, Energie und Mechanik",
     fr: "Électricité, énergie et mécanique",
     es: "Electricidad, energía y mecánica",
-    ar: "الكهرباء والطاقة والميكانيك",
   },
   {
     id: "manufacturing-material-inventory",
@@ -57,7 +54,6 @@ const CATEGORY_META = [
     de: "Fertigung, Material und Lager",
     fr: "Fabrication, matériaux et stock",
     es: "Fabricación, material e inventario",
-    ar: "التصنيع والمواد والمخزون",
   },
   {
     id: "finance-accounting-hr",
@@ -66,7 +62,6 @@ const CATEGORY_META = [
     de: "Finanzen, Buchhaltung und Personal",
     fr: "Finance, comptabilité et RH",
     es: "Finanzas, contabilidad y RR. HH.",
-    ar: "المالية والمحاسبة والموارد البشرية",
   },
   {
     id: "logistics-vehicle-shipping",
@@ -75,7 +70,6 @@ const CATEGORY_META = [
     de: "Logistik, Fahrzeuge und Versand",
     fr: "Logistique, véhicules et expédition",
     es: "Logística, vehículos y envíos",
-    ar: "اللوجستيات والمركبات والشحن",
   },
   {
     id: "business-daily-use",
@@ -84,7 +78,6 @@ const CATEGORY_META = [
     de: "Betrieb und tägliche Nutzung",
     fr: "Entreprise et usage quotidien",
     es: "Negocio y uso diario",
-    ar: "الأعمال والاستخدام اليومي",
   },
   {
     id: "engineering-technical",
@@ -93,7 +86,6 @@ const CATEGORY_META = [
     de: "Ingenieur- und Technikberechnungen",
     fr: "Calculs d'ingénierie et techniques",
     es: "Cálculos de ingeniería y técnicos",
-    ar: "حسابات هندسية وتقنية",
   },
 ];
 

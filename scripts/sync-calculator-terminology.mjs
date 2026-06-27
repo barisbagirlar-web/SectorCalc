@@ -92,25 +92,6 @@ const FREE_TOOL_UI = {
     calculationStepFormulaSummary: "Resumen de fórmula",
   },
   ar: {
-    premiumAnalyzer: "حاسبة مميزة",
-    runAnalysis: "بدء الحساب",
-    analysisBlockedTitle: "الحساب محظور",
-    contractFormEyebrow: "حساب قائم على العقد",
-    contractFormDecisionGoal: "ما النتيجة التي تنتجها هذه المدخلات وفق الصيغة الموثقة؟",
-    contractFormAssumptionsRules: "{assumptionCount} افتراض(ات) محكوم · {ruleCount} قاعدة تحقق",
-    contractFormRulesOnly: "{ruleCount} قاعدة تحقق نشطة",
-    contractFormTrustAria: "ملخص ثقة النموذج الذكي",
-    requiredInputsTitle: "المدخلات المطلوبة",
-    requiredInputsDescription: "مدخلات أساسية لمسار حساب صالح.",
-    optionalInputsTitle: "تحسينات اختيارية",
-    optionalInputsDescription: "تحسّن دقة التقدير دون كسر القيم الافتراضية.",
-    advancedInputsTitle: "مدخلات متقدمة",
-    advancedInputsDescription: "عمق احترافي عند التوفر.",
-    contractNotFound: "لم يُعثر على عقد النموذج الذكي لهذه الأداة.",
-    calculationSteps: "خطوات الحساب",
-    calculationStepsEmpty: "ستظهر خطوات الحساب عندما يعرض هذا العقد أثرًا حتميًا.",
-    calculationStepDecisionGoal: "هدف القرار",
-    calculationStepFormulaSummary: "ملخص الصيغة",
   },
 };
 
@@ -132,8 +113,6 @@ const PREMIUM_DECISION_PATCH = {
     runAnalysis: "Iniciar cálculo",
   },
   ar: {
-    runPrompt: "أدخل قيم التشغيل وابدأ الحساب.",
-    runAnalysis: "بدء الحساب",
   },
 };
 
@@ -183,15 +162,7 @@ const PREMIUM_SCHEMA_PAGE = {
     serviceType: "Cálculo de decisión operativa",
   },
   ar: {
-    eyebrow: "حاسبة مميزة",
-    featuredQuestion: "ماذا تحسب {name}؟",
-    bullet1: "محركات الخسارة الخفية وفحوصات العتبات",
-    bullet2: "إجراءات مقترحة للمراجعة التشغيلية",
-    bullet3: "PDF وCSV جاهزان للتصدير في الخطط المدفوعة",
-    legalQuestion: "هل هذه نصيحة مالية أو هندسية؟",
     legalAnswer:
-      "لا. حاسبات SectorCalc المميزة أدوات دعم قرار بافتراضات شفافة. لا تحل محل المشورة المالية أو القانونية أو الهندسية المهنية.",
-    serviceType: "حساب قرار تشغيلي",
   },
 };
 
@@ -255,17 +226,8 @@ const CONTENT_AUTHORITY_PREMIUM = {
     relatedPremiumCta: "Ver la calculadora premium relacionada",
   },
   ar: {
-    whenToUseTitle: "متى تستخدم هذه الحاسبة",
     whenToUseBody:
-      "استخدم هذه الحاسبة عندما تؤثر النتيجة على التسعير أو العمليات أو السعة أو التخطيط أو تقارير الإدارة.",
-    measuresTitle: "ما الذي تقيسه هذه الحاسبة",
-    decidesTitle: "ما القرار الذي تساعد هذه الحاسبة فيه",
-    faqMeasureTitle: "ماذا تقيس هذه الحاسبة؟",
-    faqPremiumTitle: "متى أستخدم حاسبة مميزة؟",
     faqPremiumAnswer:
-      "استخدم حاسبة مميزة عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى محركات خفية وعتبات وتقارير قابلة للتصدير.",
-    relatedPremiumTitle: "حاسبة مميزة ذات صلة",
-    relatedPremiumCta: "عرض الحاسبة المميزة ذات الصلة",
   },
 };
 
@@ -278,11 +240,7 @@ const CONTENT_AUTHORITY_FREE = {
     relatedPremiumCta: "Ver la calculadora premium relacionada",
   },
   ar: {
-    faqPremiumTitle: "متى أستخدم حاسبة مميزة؟",
     faqPremiumAnswer:
-      "استخدم حاسبة مميزة عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى محركات خفية وعتبات وتقارير قابلة للتصدير.",
-    relatedPremiumTitle: "حاسبة مميزة ذات صلة",
-    relatedPremiumCta: "عرض الحاسبة المميزة ذات الصلة",
   },
   en: {
     faqPremiumTitle: "When should I use a premium calculator?",

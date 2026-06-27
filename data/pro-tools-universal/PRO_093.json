@@ -32,7 +32,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "NG",
       "enum": [
@@ -61,7 +61,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.5,
       "max": 18
@@ -73,7 +73,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "environment",
       "min": 100,
       "max": 700
@@ -85,7 +85,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "environment",
       "min": -20,
       "max": 55,
@@ -98,7 +98,7 @@
       "unit": {
         "ref": "ppm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 5000,
@@ -111,7 +111,7 @@
       "unit": {
         "ref": "kW"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 500000
@@ -123,7 +123,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.1,
       "max": 3,

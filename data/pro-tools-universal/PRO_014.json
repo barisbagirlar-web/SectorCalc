@@ -34,7 +34,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "tonnes/year"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1
     },
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "tonnes/year"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0
     },
@@ -92,7 +92,7 @@
       "unit": {
         "ref": "GJ/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Natural gas: multiply m³ × 0.0377 GJ/m³ | LPG: × 0.0474 | Coal: × 0.0264 per kg"
@@ -104,7 +104,7 @@
       "unit": {
         "ref": "tCO₂e/GJ"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0.056,
@@ -117,7 +117,7 @@
       "unit": {
         "ref": "tCO₂e/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -130,7 +130,7 @@
       "unit": {
         "ref": "kWh/year"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0
     },
@@ -141,7 +141,7 @@
       "unit": {
         "ref": "kgCO₂/kWh"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 1.5,
@@ -155,7 +155,7 @@
       "unit": {
         "ref": "EUR/tCO₂e"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 10,
       "max": 200,
@@ -169,7 +169,7 @@
       "unit": {
         "ref": "tCO₂e/tonne product"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Steel (hot-rolled): 1.328 | Cement clinker: 0.766 | Aluminium: 1.514 | Ammonia: 1.600 — EU Reg. 2021/447"
@@ -181,7 +181,7 @@
       "unit": {
         "ref": "EUR/tCO₂e"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -194,7 +194,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 1,

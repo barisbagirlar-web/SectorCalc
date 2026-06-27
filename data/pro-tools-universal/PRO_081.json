@@ -32,7 +32,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 25,
       "max": 3000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -50,
       "max": 200,
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -200,
       "max": 800
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 500
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "µm/(m·K)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 11.7,
       "enum": [
@@ -118,7 +118,7 @@
       "unit": {
         "ref": "bar(g)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 400
@@ -130,7 +130,7 @@
       "unit": {
         "ref": "count"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "materials",
       "min": 1,
       "max": 30,
@@ -143,7 +143,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 800,

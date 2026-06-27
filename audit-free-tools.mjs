@@ -39,7 +39,7 @@ function scanTools() {
       finding.push('Formül tamamen eksik (result: 0).');
     } else if (!hasResultFormula) {
       status = 'FAIL';
-      finding.push('Hesaplama izi / Formül bulunamadı.');
+      finding.push('Calculation trace / Formula not found.');
     }
 
     if (status === 'PASS') {

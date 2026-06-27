@@ -51,7 +51,7 @@ Her input objesi ZORUNLU alanlar:
   "unit": "SI veya endüstriyel birim",
   "type": "number" | "enum",
   "required": true | false,
-  "confidence_label": "KESİN" | "GÜÇLÜ" | "VARSAYIM",
+  "confidence_label": "EXACT" | "STRONG" | "DEFAULT",
   "absolute_min": sayısal fiziksel alt sınır (zorunlu, number için),
   "absolute_max": sayısal fiziksel üst sınır (varsa)
 }

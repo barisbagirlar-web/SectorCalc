@@ -46,8 +46,6 @@ const BANNED_VISIBLE = [
   /\bAnalysatoren?\b/i,
   /\bAnalizadores?\b/i,
   /\bAnálisis\b/i,
-  /\bتحليل\b/,
-  /\bمحلل\b/,
 ];
 
 const EN_CARD_LEAKS = [

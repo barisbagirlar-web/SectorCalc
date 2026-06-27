@@ -33,7 +33,7 @@
       "unit": {
         "ref": "ha"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.01,
       "max": 10000
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.05,
       "max": 0.95,
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "mm/h"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 5,
       "max": 300
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "years"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 25,
       "enum": [
@@ -89,7 +89,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 10,
       "max": 50000
@@ -101,7 +101,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.1,
       "max": 60,
@@ -114,7 +114,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 900,
       "enum": [
@@ -139,7 +139,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "max": 20,
@@ -152,7 +152,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.009,
       "max": 0.03,

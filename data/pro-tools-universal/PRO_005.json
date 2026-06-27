@@ -33,7 +33,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 0.01,
       "max": 0.6
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 2.5
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 1,
@@ -71,7 +71,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 3,
@@ -85,7 +85,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 5,
@@ -99,7 +99,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 3,
       "max": 300
@@ -111,7 +111,7 @@
       "unit": {
         "ref": "kJ/mm"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.3,
       "max": 10,
@@ -124,7 +124,7 @@
       "unit": {
         "ref": "ml/100g"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 10,
       "enum": [

@@ -7,7 +7,6 @@ content = content.replace(/tools:'Tools',\n\s+tools:'Tools',/g, "tools:'Tools',"
 content = content.replace(/tools:'Araçlar',\n\s+tools:'Araçlar',/g, "tools:'Araçlar',");
 content = content.replace(/tools:'outils',\n\s+tools:'outils',/g, "tools:'outils',");
 content = content.replace(/tools:'herramientas',\n\s+tools:'herramientas',/g, "tools:'herramientas',");
-content = content.replace(/tools:'أدوات',\n\s+tools:'أدوات',/g, "tools:'أدوات',");
 
 // Also remove the one with `lang_note` next to it if it duplicated
 content = content.replace(/(grp_production.*?\n.*?\n.*?\n.*?\n.*?tools:'.*?'),\s*tools:'.*?',\s*lang_note/gs, "$1, lang_note");

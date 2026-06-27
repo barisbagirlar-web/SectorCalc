@@ -26,7 +26,7 @@ const KEY_MAP = {
   "tahvil": "bonds",
   "nakit": "cash",
   "dogustan": "inherentRisk",
-  "kontrol": "controlRisk",
+  "control": "controlRisk",
   "tespit": "detectionRisk",
   "yil": "years",
   "siklik": "frequency",
@@ -267,7 +267,7 @@ const KEY_MAP = {
   "cinsiyet": "gender",
   "kullanilabilirlik": "availability",
   "performans": "performance",
-  "kalite": "quality",
+  "qualityExpr": "quality",
   "icayar": "internalSetup",
   "disayar": "externalSetup",
   "donusum": "conversion",
@@ -1388,7 +1388,6 @@ for (const [slug, meta] of Object.entries(trCatalogTranslations)) {
   deI18n[slug] = { title: slug.replace(/-/g, " "), description: `Calculation for ${slug}` };
   frI18n[slug] = { title: slug.replace(/-/g, " "), description: `Calcul pour ${slug}` };
   esI18n[slug] = { title: slug.replace(/-/g, " "), description: `Cálculo de ${slug}` };
-  arI18n[slug] = { title: slug.replace(/-/g, " "), description: `حساب ${slug}` };
 }
 
 const catalogI18nObj = {

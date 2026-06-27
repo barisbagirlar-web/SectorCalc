@@ -23,7 +23,6 @@ function calcSuffix(locale) {
     de: "Rechner",
     fr: "Calculateur",
     es: "Calculadora",
-    ar: "حاسبة",
   };
   return map[locale];
 }
@@ -35,7 +34,6 @@ function toolSuffix(locale) {
     de: "Berechnungstool",
     fr: "Outil de calcul",
     es: "Herramienta de cálculo",
-    ar: "أداة حساب",
   };
   return toolSuffixInner(locale, map);
 }
@@ -70,8 +68,6 @@ function translateTitle(enTitle, locale) {
     return `Calculadora ${base.toLowerCase()}`;
   }
   if (locale === "ar") {
-    if (/Converter$/i.test(enTitle)) return `محول ${base}`;
-    return `حاسبة ${base}`;
   }
   return enTitle;
 }
@@ -120,18 +116,6 @@ function translateAudience(enAudience, trAudience, locale) {
       .replace(/Fleet managers/g, "Gestores de flota")
       .replace(/Office teams/g, "Equipos de oficina"),
     ar: enAudience
-      .replace(/Everyone/g, "الجميع")
-      .replace(/Business owners/g, "أصحاب الأعمال")
-      .replace(/Accountants/g, "المحاسبون")
-      .replace(/HR/g, "الموارد البشرية")
-      .replace(/Logistics/g, "اللوجستيات")
-      .replace(/Construction/g, "البناء")
-      .replace(/Maintenance/g, "الصيانة")
-      .replace(/Electricians/g, "الكهربائيون")
-      .replace(/Quality teams/g, "فرق الجودة")
-      .replace(/Finance teams/g, "الفرق المالية")
-      .replace(/Fleet managers/g, "مديرو الأساطيل")
-      .replace(/Office teams/g, "فرق المكاتب"),
   };
   return map[locale] ?? enAudience;
 }
@@ -144,7 +128,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie Angebotspreis, Marge, Ausschuss, Rüstzeit, Zahlungsziel und Energie auf einem Bildschirm.",
       "Calculez prix, marge, rebuts, réglage, délais de paiement et énergie sur un seul écran.",
       "Calcule precio, margen, merma, setup, plazo de pago y energía en una sola pantalla.",
-      "احسب سعر العرض والهامش والهدر والإعداد وشروط الدفع والطاقة في شاشة واحدة.",
     ),
     pain: toLocaleRecord(
       "Quotes often omit scrap, setup time, payment-term cost and utility load before margin is set.",
@@ -152,7 +135,6 @@ const PREMIUM_COPY = {
       "Angebote lassen oft Ausschuss, Rüstzeit, Zahlungszielkosten und Energie außer Acht.",
       "Les devis omettent souvent rebuts, temps de réglage, coût de délai et charge énergétique.",
       "Las cotizaciones suelen omitir merma, setup, coste de plazo y carga energética.",
-      "غالبًا ما تُهمَل الهدر ووقت الإعداد وتكلفة آجال الدفع والحمل الطاقي في العروض.",
     ),
     publicPromise: toLocaleRecord(
       "Structure every quote with the cost lines teams forget before margin is locked.",
@@ -160,7 +142,6 @@ const PREMIUM_COPY = {
       "Strukturieren Sie jedes Angebot mit vergessenen Kostenpositionen vor der Margenfixierung.",
       "Structurez chaque devis avec les postes de coût oubliés avant de figer la marge.",
       "Estructure cada cotización con las partidas olvidadas antes de fijar el margen.",
-      "نظّم كل عرض بالبنود التي تُنسى قبل تثبيت الهامش.",
     ),
     internalSourceNote: "Strategic report tool 1 — quote margin; safe copy replaces aggressive margin guarantee.",
   },
@@ -171,7 +152,6 @@ const PREMIUM_COPY = {
       "Sehen Sie den echten Maschinenstundensatz inkl. Abschreibung, Energie, Wartung und Flächenanteil.",
       "Voyez le coût horaire réel avec amortissement, énergie, maintenance et part de surface.",
       "Vea el coste horario real con amortización, energía, mantenimiento y espacio.",
-      "اعرض التكلفة الساعية الحقيقية مع الإهلاك والطاقة والصيانة وحصة المساحة.",
     ),
     pain: toLocaleRecord(
       "Most shops estimate shop rate from labor and power only, understating true hourly burden.",
@@ -179,7 +159,6 @@ const PREMIUM_COPY = {
       "Die meisten Werkstätten schätzen den Stundensatz nur aus Arbeit und Strom.",
       "La plupart des ateliers estiment le taux horaire avec main-d'œuvre et électricité seulement.",
       "La mayoría estima la tarifa horaria solo con mano de obra y electricidad.",
-      "تقدّر معظم الورش التكلفة الساعية من العمالة والكهرباء فقط.",
     ),
     publicPromise: toLocaleRecord(
       "Build a defensible shop-rate profile in minutes instead of guessing from power bills alone.",
@@ -187,7 +166,6 @@ const PREMIUM_COPY = {
       "Erstellen Sie in Minuten ein belastbares Shop-Rate-Profil statt zu schätzen.",
       "Construisez un profil de taux horaire défendable en quelques minutes.",
       "Construya un perfil de tarifa horaria defendible en minutos.",
-      "أنشئ ملف تكلفة ساعية موثوقًا في دقائق بدل التخمين.",
     ),
     internalSourceNote: "Strategic report tool 2 — shop rate.",
   },
@@ -198,7 +176,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie Break-even und Sicherheitsmarge auf einem Bildschirm.",
       "Calculez seuil de rentabilité et marge de sécurité sur un écran.",
       "Calcule punto de equilibrio y margen de seguridad en una pantalla.",
-      "احسب نقطة التعادل وهامش الأمان في شاشة واحدة.",
     ),
     pain: toLocaleRecord(
       "Owners often learn profit or loss only after month-end statements arrive.",
@@ -206,7 +183,6 @@ const PREMIUM_COPY = {
       "Unternehmer erfahren Gewinn oder Verlust oft erst nach Monatsabschluss.",
       "Les dirigeants découvrent profit ou perte seulement en fin de mois.",
       "Los dueños conocen ganancia o pérdida solo al cierre mensual.",
-      "يتعرّف أصحاب الأعمال الربح أو الخسارة غالبًا بعد إغلاق الشهر.",
     ),
     publicPromise: toLocaleRecord(
       "Track fixed and variable costs against revenue before the month closes.",
@@ -214,7 +190,6 @@ const PREMIUM_COPY = {
       "Verfolgen Sie Fix- und variable Kosten zum Umsatz vor Monatsende.",
       "Suivez coûts fixes et variables face au chiffre d'affaires avant la clôture.",
       "Siga costes fijos y variables frente a ingresos antes del cierre.",
-      "تتبّع التكاليف الثابتة والمتغيرة مقابل الإيراد قبل إغلاق الشهر.",
     ),
     internalSourceNote: "Strategic report tool 3 — break-even dashboard.",
   },
@@ -225,7 +200,6 @@ const PREMIUM_COPY = {
       "Standardisieren Sie Teile- und Arbeitszeilen für Werkstattangebote mobil.",
       "Standardisez pièces et main-d'œuvre pour devis d'atelier sur mobile.",
       "Estandarice piezas y mano de obra en cotizaciones de taller móvil.",
-      "وحّد بنود القطع والعمالة لعروض الورش على الجوال.",
     ),
     pain: toLocaleRecord(
       "Repair quotes vary by technician and format, making price consistency hard.",
@@ -233,7 +207,6 @@ const PREMIUM_COPY = {
       "Reparaturangebote variieren je Techniker und Format.",
       "Les devis de réparation varient selon le technicien.",
       "Las cotizaciones de reparación varían por técnico.",
-      "تختلف عروض الإصلاح حسب الفني والنموذج.",
     ),
     publicPromise: toLocaleRecord(
       "Issue repeatable repair quotes with shared labor-time and parts structure.",
@@ -241,7 +214,6 @@ const PREMIUM_COPY = {
       "Erstellen Sie wiederholbare Reparaturangebote mit gemeinsamer Struktur.",
       "Émettez des devis répétables avec structure commune.",
       "Emite cotizaciones repetibles con estructura común.",
-      "قدّم عروض إصلاح مت repeatable ببنية مشتركة.",
     ),
     internalSourceNote: "Strategic report tool 4 — auto repair quote; planned premium build.",
   },
@@ -252,7 +224,6 @@ const PREMIUM_COPY = {
       "Schätzen Sie eingebetteten Kohlenstoff pro Produkteinheit für Export-Compliance.",
       "Estimez le carbone incorporé par unité pour la conformité export.",
       "Estime carbono incorporado por unidad para cumplimiento exportador.",
-      "قدّر الكربون المدمج لكل وحدة منتج للامتثال التصديري.",
     ),
     pain: toLocaleRecord(
       "Exporters need product-level carbon evidence but lack affordable tooling.",
@@ -260,7 +231,6 @@ const PREMIUM_COPY = {
       "Exporteure brauchen Produkt-Kohlenstoffnachweise ohne teure Berater.",
       "Les exportateurs manquent d'outils abordables pour le carbone produit.",
       "Exportadores carecen de herramientas asequibles de carbono por producto.",
-      "يحتاج المصدرون أدوات ميسورة لكربون المنتج.",
     ),
     publicPromise: toLocaleRecord(
       "Document unit product carbon with traceable factors before customs review.",
@@ -268,7 +238,6 @@ const PREMIUM_COPY = {
       "Dokumentieren Sie Produkt-Kohlenstoff mit nachvollziehbaren Faktoren vor Zollprüfung.",
       "Documentez le carbone produit avec facteurs traçables avant douane.",
       "Documente carbono por unidad con factores trazables antes de aduana.",
-      "وثّق كربون المنتج بعوامل قابلة للتتبع قبل الجمارك.",
     ),
     internalSourceNote: "Strategic report tool 5 — CBAM unit carbon; mapped to free CBAM quick check.",
   },
@@ -279,7 +248,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie OEE aus Verfügbarkeit, Leistung und Qualität.",
       "Calculez l'OEE à partir de disponibilité, performance et qualité.",
       "Calcule OEE con disponibilidad, rendimiento y calidad.",
-      "احسب OEE من التوفر والأداء والجودة.",
     ),
     pain: toLocaleRecord(
       "Without OEE tracking, chronic downtime and quality loss stay invisible.",
@@ -287,7 +255,6 @@ const PREMIUM_COPY = {
       "Ohne OEE bleiben Stillstände und Qualitätsverlust unsichtbar.",
       "Sans OEE, arrêts chroniques et pertes qualité restent invisibles.",
       "Sin OEE, paradas crónicas y pérdida de calidad permanecen ocultas.",
-      "بدون OEE تبقى التوقفات المزمنة وخسائر الجودة مخفية.",
     ),
     publicPromise: toLocaleRecord(
       "Enter three shift numbers and see equipment effectiveness and loss split.",
@@ -295,7 +262,6 @@ const PREMIUM_COPY = {
       "Geben Sie drei Schichtwerte ein und sehen Sie Effektivität und Verluste.",
       "Saisissez trois valeurs de poste et voyez efficacité et répartition des pertes.",
       "Introduce tres valores de turno y ve eficacia y pérdidas.",
-      "أدخل ثلاث قيم نوبة واعرض الفعالية وتوزيع الخسائر.",
     ),
     internalSourceNote: "Strategic report tool 6 — OEE; live free calculator mapped.",
   },
@@ -306,7 +272,6 @@ const PREMIUM_COPY = {
       "Schätzen Sie jährliche Druckluftleckagekosten aus Öffnung, Druck und Laufzeit.",
       "Estimez le coût annuel des fuites d'air comprimé.",
       "Estime el coste anual de fugas de aire comprimido.",
-      "قدّر التكلفة السنوية لتسربات الهواء المضغوط.",
     ),
     pain: toLocaleRecord(
       "Compressed-air leaks are rarely quantified even though they inflate utility bills.",
@@ -314,7 +279,6 @@ const PREMIUM_COPY = {
       "Druckluftlecks werden selten beziffert, obwohl sie Kosten erhöhen.",
       "Les fuites d'air comprimé sont rarement chiffrées.",
       "Las fugas de aire comprimido rara vez se cuantifican.",
-      "نادرًا ما تُ quantified تسربات الهواء المضغوط.",
     ),
     publicPromise: toLocaleRecord(
       "Turn leak size and pressure into a yearly cost figure maintenance can act on.",
@@ -322,7 +286,6 @@ const PREMIUM_COPY = {
       "Wandeln Sie Leckgröße und Druck in jährliche Kosten für die Wartung um.",
       "Transformez taille de fuite et pression en coût annuel actionnable.",
       "Convierta tamaño de fuga y presión en coste anual accionable.",
-      "حوّل حجم التسرب والضغط إلى تكلفة سنوية قابلة للتنفيذ.",
     ),
     internalSourceNote: "Strategic report tool 7 — compressor leak cost.",
   },
@@ -333,7 +296,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie volle Arbeitgeberkosten über Nettogehalt inkl. Sozialabgaben.",
       "Calculez le coût employeur total au-delà du salaire net.",
       "Calcule el coste total del empleador más allá del salario neto.",
-      "احسب التكلفة الكاملة للEmployer beyond net salary.",
     ),
     pain: toLocaleRecord(
       "Hiring and pricing decisions often use net pay instead of loaded employer cost.",
@@ -341,7 +303,6 @@ const PREMIUM_COPY = {
       "Einstellungsentscheidungen nutzen oft Netto statt voller Arbeitgeberkosten.",
       "Les décisions d'embauche utilisent souvent le net au lieu du coût chargé.",
       "Las decisiones de contratación usan a menudo el neto en lugar del coste total.",
-      "قرارات التوظيف تستخدم غالبًا الصافي بدل التكلفة الكاملة.",
     ),
     publicPromise: toLocaleRecord(
       "See loaded headcount cost before hiring or quoting labor-heavy jobs.",
@@ -349,7 +310,6 @@ const PREMIUM_COPY = {
       "Sehen Sie belastete Personalkosten vor Einstellung oder Angebot.",
       "Voyez le coût personnel chargé avant embauche ou devis.",
       "Vea el coste laboral cargado antes de contratar o cotizar.",
-      "اعرض تكلفة الموظف المحمّلة قبل التوظيف أو العرض.",
     ),
     internalSourceNote: "Strategic report tool 8 — total employee cost.",
   },
@@ -360,7 +320,6 @@ const PREMIUM_COPY = {
       "Rechnen Sie Stillstandsminuten mit Shop-Rate in entgangenen Output um.",
       "Convertissez minutes d'arrêt en valeur perdue via taux horaire.",
       "Convierta minutos de parada en valor perdido con tarifa horaria.",
-      "حوّل دقائق التوقف إلى قيمة مفقودة باستخدام التكلفة الساعية.",
     ),
     pain: toLocaleRecord(
       "Maintenance budgets ignore opportunity cost of machines not producing.",
@@ -368,7 +327,6 @@ const PREMIUM_COPY = {
       "Wartungsbudgets ignorieren entgangene Produktion.",
       "Les budgets maintenance ignorent le coût d'opportunité.",
       "Los presupuestos de mantenimiento ignoran el coste de oportunidad.",
-      "تتجاهل ميزانيات الصيانة تكلفة الفرصة.",
     ),
     publicPromise: toLocaleRecord(
       "Quantify downtime in currency to justify preventive maintenance spend.",
@@ -376,7 +334,6 @@ const PREMIUM_COPY = {
       "Quantifizieren Sie Stillstand in Währung für präventive Wartung.",
       "Quantifiez les arrêts en devise pour justifier la maintenance préventive.",
       "Cuantifique paradas en moneda para justificar mantenimiento preventivo.",
-      "قِس التوقف بالعملة لتبرير الصيانة الوقائية.",
     ),
     internalSourceNote: "Strategic report tool 9 — downtime minute cost; planned.",
   },
@@ -387,7 +344,6 @@ const PREMIUM_COPY = {
       "Vergleichen Sie Produkt- und Kundenbeitrag nach versteckten Servicekosten.",
       "Comparez contribution produit et client après coûts de service cachés.",
       "Compare contribución de producto y cliente tras costes ocultos.",
-      "قارن مساهمة المنتج والعميل بعد التكاليف الخفية.",
     ),
     pain: toLocaleRecord(
       "High-revenue customers can destroy margin through returns, delays and rework.",
@@ -395,7 +351,6 @@ const PREMIUM_COPY = {
       "Umsatzstarke Kunden können Marge durch Retouren und Verzug zerstören.",
       "Les gros clients peuvent détruire la marge via retours et retards.",
       "Clientes de alto ingreso pueden destruir margen con devoluciones.",
-      "عملاء الإيرادات العالية قد يمحون الهامش بالمرتجعات.",
     ),
     publicPromise: toLocaleRecord(
       "Rank customers and SKUs by contribution instead of invoice total alone.",
@@ -403,7 +358,6 @@ const PREMIUM_COPY = {
       "Sortieren Sie nach Beitrag statt nur Rechnungssumme.",
       "Classez par contribution plutôt que total de facture seul.",
       "Ordene por contribución en lugar de solo factura total.",
-      "رتّب حسب المساهمة بدل إجمالي الفاتورة فقط.",
     ),
     internalSourceNote: "Strategic report tool 10 — customer profitability.",
   },
@@ -414,7 +368,6 @@ const PREMIUM_COPY = {
       "Modellieren Sie Lagerhaltungskosten und EOQ mit Branchen-Ausschussfaktoren.",
       "Modélisez coût de stockage et EOQ avec facteurs de rebut sectoriels.",
       "Modele coste de inventario y EOQ con factores de merma sectoriales.",
-      "نمذج تكلفة حمل المخزون وEOQ بمعاملات الهدر القطاعية.",
     ),
     pain: toLocaleRecord(
       "Inventory cost is underestimated when only warehouse rent is counted.",
@@ -422,7 +375,6 @@ const PREMIUM_COPY = {
       "Lagerkosten werden unterschätzt wenn nur Miete gezählt wird.",
       "Le coût stock est sous-estimé si seul le loyer est compté.",
       "El coste de inventario se subestima contando solo alquiler.",
-      "يُUnderestimated تكلفة المخزون عند احتساب الإيجار فقط.",
     ),
     publicPromise: toLocaleRecord(
       "Expose holding cost and order size trade-offs before stock decisions.",
@@ -430,7 +382,6 @@ const PREMIUM_COPY = {
       "Zeigen Sie Haltungskosten vor Bestellentscheidungen.",
       "Exposez coût de détention avant décisions de stock.",
       "Exponga coste de mantener stock antes de decidir.",
-      "اعرض تكلفة الاحتفاظ قبل قرارات المخزون.",
     ),
     internalSourceNote: "Strategic report tool 11 — inventory EOQ.",
   },
@@ -441,7 +392,6 @@ const PREMIUM_COPY = {
       "Prüfen Sie gängige Schweiß- und Bolzenverbindungen mit Werkstatt-Eingaben.",
       "Vérifiez connexions soudées et boulonnées avec entrées atelier.",
       "Verifique conexiones soldadas y atornilladas con entradas de taller.",
-      "تحقق من وصلات اللحام والبراغي بمدخلات الورشة.",
     ),
     pain: toLocaleRecord(
       "Connection sizing relies on guesswork without quick structural checks.",
@@ -449,7 +399,6 @@ const PREMIUM_COPY = {
       "Verbindungsdimensionierung erfolgt ohne schnelle Prüfung per Bauchgefühl.",
       "Le dimensionnement repose sur l'intuition sans contrôle rapide.",
       "El dimensionamiento depende de intuición sin chequeo rápido.",
-      "يعتمد تحديد حجم الوصلات على الحدس.",
     ),
     publicPromise: toLocaleRecord(
       "Screen weld and bolt capacity for common shop connections in minutes.",
@@ -457,7 +406,6 @@ const PREMIUM_COPY = {
       "Prüfen Sie Schweiß- und Bolzenkapazität in Minuten.",
       "Filtrez capacité soudure et boulons en minutes.",
       "Evalúe capacidad de soldadura y pernos en minutos.",
-      "افحص سعة اللحام والبراغي في دقائق.",
     ),
     internalSourceNote: "Strategic report tool 12 — weld/bolt; planned.",
   },
@@ -468,7 +416,6 @@ const PREMIUM_COPY = {
       "Führen Sie WC- und RSS-Toleranzstack-up für Montageketten aus.",
       "Exécutez empilement de tolérances WC et RSS pour assemblages.",
       "Ejecute acumulación de tolerancias WC y RSS en ensamblajes.",
-      "نفّذ تراكم التسامح WC وRSS لسلاسل التجميع.",
     ),
     pain: toLocaleRecord(
       "Fit issues often come from stacked tolerances without a documented chain check.",
@@ -476,7 +423,6 @@ const PREMIUM_COPY = {
       "Passungsprobleme entstehen durch gestapelte Toleranzen ohne Dokumentation.",
       "Les problèmes d'ajustement viennent de tolérances empilées non documentées.",
       "Problemas de ajuste vienen de tolerancias apiladas sin registro.",
-      "مشاكل الملاءمة من tolerances متراكمة دون توثيق.",
     ),
     publicPromise: toLocaleRecord(
       "Identify which part drives assembly risk before scrap accumulates.",
@@ -484,7 +430,6 @@ const PREMIUM_COPY = {
       "Identifizieren Sie das risikoträchtige Teil vor Ausschuss.",
       "Identifiez la pièce à risque avant rebuts.",
       "Identifique la pieza de riesgo antes de merma.",
-      "حدّد القطعة المسببة للمخاطر قبل الهدر.",
     ),
     internalSourceNote: "Strategic report tool 13 — tolerance stack-up.",
   },
@@ -495,7 +440,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie Anzugsdrehmoment mit Reibungs- und Gütebibliotheken.",
       "Calculez couple de serrage avec bibliothèques de frottement et classe.",
       "Calcule par de apriete con bibliotecas de fricción y clase.",
-      "احسب عزم شد البرغي بمكتبات الاحتكاك والدرجة.",
     ),
     pain: toLocaleRecord(
       "Critical fasteners are often tightened by feel instead of specified torque.",
@@ -503,7 +447,6 @@ const PREMIUM_COPY = {
       "Kritische Verbindungen werden oft nach Gefühl statt Drehmoment angezogen.",
       "Les fixations critiques sont souvent serrées au feeling.",
       "Fijaciones críticas se aprietan a menudo a ojo.",
-      "تُشد الوصلات الحرجة غالبًا بالحدس.",
     ),
     publicPromise: toLocaleRecord(
       "Set torque targets on mobile with grade and lubrication context.",
@@ -511,7 +454,6 @@ const PREMIUM_COPY = {
       "Setzen Sie Drehmomentziele mobil mit Güte und Schmierung.",
       "Définissez le couple cible sur mobile avec classe et lubrification.",
       "Ajuste par de apriete en móvil con clase y lubricación.",
-      "اضبط عزم الهدف على الجوال مع الدرجة والتزييت.",
     ),
     internalSourceNote: "Strategic report tool 14 — bolt torque; planned.",
   },
@@ -522,7 +464,6 @@ const PREMIUM_COPY = {
       "Vergleichen Sie Amortisation von LED-, Motor- und Kompressor-Upgrades.",
       "Comparez retour sur investissement LED, moteur et compresseur.",
       "Compare retorno de LED, motor y compresor.",
-      "قارن استرداد ترقيات LED والمحرك والضاغط.",
     ),
     pain: toLocaleRecord(
       "Energy upgrades stall when payback is unclear in monthly bill terms.",
@@ -530,7 +471,6 @@ const PREMIUM_COPY = {
       "Energie-Upgrades stocken ohne klare Amortisation.",
       "Les upgrades énergie stagnent sans retour clair.",
       "Mejoras energéticas se posponen sin retorno claro.",
-      "تتوقف ترقيات الطاقة بدون استرداد واضح.",
     ),
     publicPromise: toLocaleRecord(
       "See monthly savings and payback months before capex approval.",
@@ -538,7 +478,6 @@ const PREMIUM_COPY = {
       "Sehen Sie monatliche Einsparung und Amortisationsmonate vor Capex.",
       "Voyez économies mensuelles et mois de retour avant capex.",
       "Vea ahorro mensual y meses de retorno antes del capex.",
-      "اعرض التوفير الشهري وأشهر الاسترداد قبل الاستثمار.",
     ),
     internalSourceNote: "Strategic report tool 15 — energy savings package.",
   },
@@ -549,7 +488,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie Payback und NPV mit Branchen-Diskontierung.",
       "Calculez payback et VAN avec guide sectoriel d'actualisation.",
       "Calcule payback y VAN con guía de descuento sectorial.",
-      "احسب فترة الاسترداد وNPV مع إرشاد خصم قطاعي.",
     ),
     pain: toLocaleRecord(
       "Capex decisions skip discounted cash-flow checks in small businesses.",
@@ -557,7 +495,6 @@ const PREMIUM_COPY = {
       "KMU überspringen bei Investitionen DCF-Prüfungen.",
       "Les PME ignorent les flux actualisés pour le capex.",
       "Las pymes omiten flujos descontados en capex.",
-      "تتجاهل الشركات الصغيرة التدفقات المخصومة.",
     ),
     publicPromise: toLocaleRecord(
       "Compare investment options with payback and NPV on one decision summary.",
@@ -565,7 +502,6 @@ const PREMIUM_COPY = {
       "Vergleichen Sie Investitionen mit Payback und NPV in einer Übersicht.",
       "Comparez investissements avec payback et VAN en un résumé.",
       "Compare inversiones con payback y VAN en un resumen.",
-      "قارن الخيارات الاستثمارية بملخص قرار واحد.",
     ),
     internalSourceNote: "Strategic report tool 16 — payback NPV.",
   },
@@ -576,7 +512,6 @@ const PREMIUM_COPY = {
       "Schätzen Sie Brandfluss und Hydrantkapazität für Genehmigungsunterlagen.",
       "Estimez débit incendie et capacité hydrants pour permis.",
       "Estime caudal contra incendios e hidrantes para permisos.",
-      "قدّر تدفق نظام الإطفاء وسعة الحنفيات للتصاريح.",
     ),
     pain: toLocaleRecord(
       "Small facilities outsource basic fire hydraulic checks they could scope first.",
@@ -584,7 +519,6 @@ const PREMIUM_COPY = {
       "Kleine Betriebe outsourcen Brandhydraulik die vorab scoping braucht.",
       "Les petits sites externalisent l'hydraulique incendie évitable.",
       "Instalaciones pequeñas externalizan hidráulica evitable.",
-      "تexternalize المنشآت الصغيرة فحوصات الحريق.",
     ),
     publicPromise: toLocaleRecord(
       "Produce first-pass fire flow numbers aligned with local checklist inputs.",
@@ -592,7 +526,6 @@ const PREMIUM_COPY = {
       "Erzeugen Sie Erstberechnung Brandfluss passend zur lokalen Checkliste.",
       "Produisez un premier débit incendie aligné sur la checklist locale.",
       "Produzca primer caudal incendio alineado con checklist local.",
-      "أنتج أرقام تدفق أولية متوافقة مع قائمة التحقق.",
     ),
     internalSourceNote: "Strategic report tool 17 — fire system; planned.",
   },
@@ -603,7 +536,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie Urlaub, Abfindung und Kündigungsfrist nach aktuellen Regeln.",
       "Calculez congés, indemnités et préavis selon règles actuelles.",
       "Calcule vacaciones, indemnización y preaviso según reglas actuales.",
-      "احسب الإجازة والمكافأة والإشعار وفق القواعد الحالية.",
     ),
     pain: toLocaleRecord(
       "HR teams rework exit-cost math whenever regulations or ceilings change.",
@@ -611,7 +543,6 @@ const PREMIUM_COPY = {
       "HR muss Austrittskosten bei Regeländerungen neu rechnen.",
       "Les RH recalculent les coûts de sortie à chaque changement réglementaire.",
       "RR. HH. recalcula costes de salida con cada cambio normativo.",
-      "تعيد الموارد البشرية حساب تكلفة المغادرة عند تغيّر القواعد.",
     ),
     publicPromise: toLocaleRecord(
       "Model exit packages with gross and net views before signatures.",
@@ -619,7 +550,6 @@ const PREMIUM_COPY = {
       "Modellieren Sie Austrittspakete mit Brutto- und Nettosicht vor Unterschrift.",
       "Modélisez packages de sortie brut/net avant signature.",
       "Modele paquetes de salida bruto/neto antes de firmar.",
-      "نمذج حزم المغادرة brut/net قبل التوقيع.",
     ),
     internalSourceNote: "Strategic report tool 18 — leave severance notice.",
   },
@@ -630,7 +560,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie Druck- und Zugkraft für Hydraulik- und Pneumatikzylinder.",
       "Calculez force poussée/traction pour vérins hydrauliques et pneumatiques.",
       "Calcule fuerza empuje/tracción en cilindros hidráulicos y neumáticos.",
-      "احسب قوة الدفع والسحب للأسطوانات.",
     ),
     pain: toLocaleRecord(
       "Wrong bore or pressure leads to undersized actuators and rework.",
@@ -638,7 +567,6 @@ const PREMIUM_COPY = {
       "Falscher Bohrung/Druck führt zu unterdimensionierten Aktoren.",
       "Alésage ou pression erronés mènent à actionneurs sous-dimensionnés.",
       "Diámetro o presión incorrectos causan actuadores pequeños.",
-      "القطر أو الضغط الخاطئ يؤدي لمح actuators صغيرة.",
     ),
     publicPromise: toLocaleRecord(
       "Validate cylinder selection with standard bore library and safety factor.",
@@ -646,7 +574,6 @@ const PREMIUM_COPY = {
       "Validieren Sie Zylinderwahl mit Standardbohrungen und Sicherheitsfaktor.",
       "Validez le vérin avec bibliothèque d'alésages et facteur de sécurité.",
       "Valide cilindro con biblioteca de diámetros y factor de seguridad.",
-      "تحقق من اختيار الأسطوانة بمكتبة الأقطار وعامل الأمان.",
     ),
     internalSourceNote: "Strategic report tool 19 — cylinder force; planned.",
   },
@@ -657,7 +584,6 @@ const PREMIUM_COPY = {
       "Berechnen Sie Übersetzung und Riemenlänge für Keil- und Zahnriemen.",
       "Calculez rapport de vitesse et longueur de courroie.",
       "Calcule relación de velocidad y longitud de correa.",
-      "احسب نسبة السرعة وطول الحزام.",
     ),
     pain: toLocaleRecord(
       "Drive changes fail when speed ratio or belt length is mis-specified.",
@@ -665,7 +591,6 @@ const PREMIUM_COPY = {
       "Antriebswechsel scheitern bei falscher Übersetzung oder Riemenlänge.",
       "Les changements d'entraînement échouent si ratio ou longueur est faux.",
       "Cambios de transmisión fallan con ratio o longitud incorrectos.",
-      "تفشل تغييرات النقل عند خطأ النسبة أو الطول.",
     ),
     publicPromise: toLocaleRecord(
       "Size belt drives with pulley diameters and center distance in minutes.",
@@ -673,7 +598,6 @@ const PREMIUM_COPY = {
       "Dimensionieren Sie Riemenantriebe in Minuten.",
       "Dimensionnez courroies en minutes avec poulies et entraxe.",
       "Dimensiona correas en minutos con poleas y distancia.",
-      "حدّد أحزمة النقل في دقائق.",
     ),
     internalSourceNote: "Strategic report tool 20 — belt pulley; partial live mapping.",
   },
@@ -684,7 +608,6 @@ const PREMIUM_COPY = {
       "Teilen Sie Qualitätskosten in Prävention, Bewertung und Fehler (PAF).",
       "Répartissez coûts qualité en prévention, évaluation et échec (PAF).",
       "Separe costes de calidad en prevención, evaluación y fallo (PAF).",
-      "قسّم تكلفة الجودة إلى PAF.",
     ),
     pain: toLocaleRecord(
       "External failure cost is rarely tracked even though it dominates quality spend.",
@@ -692,7 +615,6 @@ const PREMIUM_COPY = {
       "Externe Fehlerkosten werden selten erfasst obwohl dominant.",
       "Le coût d'échec externe est rarement suivi.",
       "El coste de fallo externo rara vez se rastrea.",
-      "نادرًا ما تُ tracked تكاليف الفشل الخارجي.",
     ),
     publicPromise: toLocaleRecord(
       "Visualize PAF mix to prioritize prevention budget with evidence.",
@@ -700,7 +622,6 @@ const PREMIUM_COPY = {
       "Visualisieren Sie PAF-Mix für Präventionsbudget mit Beleg.",
       "Visualisez le mix PAF pour prioriser prévention.",
       "Visualice mix PAF para priorizar prevención.",
-      "اعرض mix PAF ل prioritize الميزانية.",
     ),
     internalSourceNote: "Strategic report tool 21 — quality PAF; planned.",
   },
@@ -711,7 +632,6 @@ const PREMIUM_COPY = {
       "Schätzen Sie Mindestwanddicke für gängige Druckbehältergeometrien.",
       "Estimez épaisseur paroi minimale pour géométries courantes.",
       "Estime espesor mínimo de pared para geometrías comunes.",
-      "قدّر最小 سمك الجدار للأشكال الشائعة.",
     ),
     pain: toLocaleRecord(
       "Fabricators risk unsafe tanks when thickness rules are applied from memory.",
@@ -719,7 +639,6 @@ const PREMIUM_COPY = {
       "Falscher Wanddicken-Gedächtniswert riskiert unsichere Behälter.",
       "L'épaisseur de mémoire risque des cuves dangereuses.",
       "Espesor de memoria arriesga tanques inseguros.",
-      "تطبيق السمك من الذاكرة يخاطر بالسلامة.",
     ),
     publicPromise: toLocaleRecord(
       "Screen cylindrical and spherical vessels with material and safety inputs.",
@@ -727,7 +646,6 @@ const PREMIUM_COPY = {
       "Prüfen Sie Zylinder- und Kugelbehälter mit Material und Sicherheit.",
       "Filtrez cuves cylindriques et sphériques avec matériau et sécurité.",
       "Evalúe vasijas cilíndricas y esféricas con material y seguridad.",
-      "افحص الأوعية الأسطوانية والكروية.",
     ),
     internalSourceNote: "Strategic report tool 22 — pressure vessel; planned.",
   },
@@ -738,7 +656,6 @@ const PREMIUM_COPY = {
       "Erstellen Sie Ist-Zustand-VSM-Metriken für Lean-Workshops.",
       "Construisez métriques VSM état actuel pour ateliers lean.",
       "Construya métricas VSM estado actual para talleres lean.",
-      "أنشئ مقاييس VSM للحالة الحالية.",
     ),
     pain: toLocaleRecord(
       "VSM work stays on whiteboards and cannot be compared week to week.",
@@ -746,7 +663,6 @@ const PREMIUM_COPY = {
       "VSM bleibt am Whiteboard ohne Wochenvergleich.",
       "Le VSM reste au tableau sans comparaison hebdomadaire.",
       "VSM permanece en pizarra sin comparación semanal.",
-      "VSM يبقى على السبورة دون مقارنة.",
     ),
     publicPromise: toLocaleRecord(
       "Capture value-added ratio and lead time in a repeatable digital template.",
@@ -754,7 +670,6 @@ const PREMIUM_COPY = {
       "Erfassen Sie VA-Ratio und Durchlaufzeit in digitaler Vorlage.",
       "Capturez ratio VA et lead time dans modèle digital.",
       "Capture ratio VA y lead time en plantilla digital.",
-      "سجّل نسبة القيمة المضافة وlead time.",
     ),
     internalSourceNote: "Strategic report tool 23 — VSM; planned.",
   },
@@ -768,7 +683,6 @@ function premiumTitle(item, locale) {
       "Angebotspreis- und Gewinnmargen-Rechner",
       "Calculateur de prix de devis et marge bénéficiaire",
       "Calculadora de precio de cotización y margen de beneficio",
-      "حاسبة سعر العرض وهامش الربح",
     ),
     "sp-002": toLocaleRecord(
       "Machine Hour Rate Calculator",
@@ -776,7 +690,6 @@ function premiumTitle(item, locale) {
       "Maschinenstundensatz-Rechner",
       "Calculateur de taux horaire machine",
       "Calculadora de tarifa horaria de máquina",
-      "حاسبة أجر الساعة للآلة",
     ),
     "sp-003": toLocaleRecord(
       "Break-Even and Safety Margin Calculator",
@@ -784,7 +697,6 @@ function premiumTitle(item, locale) {
       "Break-even- und Sicherheitsmargen-Rechner",
       "Calculateur de seuil de rentabilité et marge de sécurité",
       "Calculadora de punto de equilibrio y margen de seguridad",
-      "حاسبة نقطة التعادل وهامش الأمان",
     ),
     "sp-004": toLocaleRecord(
       "Auto Repair Parts and Labor Quote Calculator",
@@ -792,7 +704,6 @@ function premiumTitle(item, locale) {
       "Kfz-Teile- und Arbeitsangebots-Rechner",
       "Calculateur de devis pièces et main-d'œuvre garage",
       "Calculadora de cotización de piezas y mano de obra de taller",
-      "حاسبة عرض قطع الغيار والعمالة للإصلاح",
     ),
     "sp-005": toLocaleRecord(
       "CBAM Unit Product Carbon Footprint Calculator",
@@ -800,7 +711,6 @@ function premiumTitle(item, locale) {
       "CBAM-Produkt-CO₂-Fußabdruck-Rechner",
       "Calculateur d'empreinte carbone unitaire CBAM",
       "Calculadora de huella de carbono unitaria CBAM",
-      "حاسبة البصمة الكarbonية للوحدة CBAM",
     ),
     "sp-006": toLocaleRecord(
       "OEE Calculator",
@@ -808,7 +718,6 @@ function premiumTitle(item, locale) {
       "OEE-Rechner",
       "Calculateur OEE",
       "Calculadora OEE",
-      "حاسبة OEE",
     ),
     "sp-007": toLocaleRecord(
       "Compressor Leak Cost Calculator",
@@ -816,7 +725,6 @@ function premiumTitle(item, locale) {
       "Kompressor-Leckkosten-Rechner",
       "Calculateur de coût de fuite compresseur",
       "Calculadora de coste de fuga de compresor",
-      "حاسبة تكلفة تسرب الضاغط",
     ),
     "sp-008": toLocaleRecord(
       "Employee Total Cost Calculator",
@@ -824,7 +732,6 @@ function premiumTitle(item, locale) {
       "Personalkosten-Gesamtrechner",
       "Calculateur de coût total employé",
       "Calculadora de coste total del empleado",
-      "حاسبة التكلفة الكاملة للموظف",
     ),
     "sp-009": toLocaleRecord(
       "Downtime Minute Cost Calculator",
@@ -832,7 +739,6 @@ function premiumTitle(item, locale) {
       "Stillstandsminutenkosten-Rechner",
       "Calculateur de coût minute d'arrêt",
       "Calculadora de coste por minuto de parada",
-      "حاسبة تكلفة دقيقة التوقف",
     ),
     "sp-010": toLocaleRecord(
       "Product and Customer Profitability Calculator",
@@ -840,7 +746,6 @@ function premiumTitle(item, locale) {
       "Produkt- und Kundenrentabilitäts-Rechner",
       "Calculateur de rentabilité produit et client",
       "Calculadora de rentabilidad de producto y cliente",
-      "حاسبة ربحية المنتج والعميل",
     ),
     "sp-011": toLocaleRecord(
       "Inventory Carrying Cost and EOQ Calculator",
@@ -848,7 +753,6 @@ function premiumTitle(item, locale) {
       "Lagerhaltungs- und EOQ-Rechner",
       "Calculateur de coût de stockage et EOQ",
       "Calculadora de coste de inventario y EOQ",
-      "حاسبة تكلفة حمل المخzón وEOQ",
     ),
     "sp-012": toLocaleRecord(
       "Welded and Bolted Connection Calculator",
@@ -856,7 +760,6 @@ function premiumTitle(item, locale) {
       "Schweiß- und Bolzenverbindungs-Rechner",
       "Calculateur de connexion soudée et boulonnée",
       "Calculadora de conexión soldada y atornillada",
-      "حاسبة الوصلات الملحومة والم bolted",
     ),
     "sp-013": toLocaleRecord(
       "Tolerance Stack-Up Calculator",
@@ -864,7 +767,6 @@ function premiumTitle(item, locale) {
       "Toleranzstack-up-Rechner",
       "Calculateur d'empilement de tolérances",
       "Calculadora de acumulación de tolerancias",
-      "حاسبة تراكم التسامح",
     ),
     "sp-014": toLocaleRecord(
       "Bolt Tightening Torque Calculator",
@@ -872,7 +774,6 @@ function premiumTitle(item, locale) {
       "Anzugsdrehmoment-Rechner",
       "Calculateur de couple de serrage",
       "Calculadora de par de apriete",
-      "حاسبة عزم شد البرغي",
     ),
     "sp-015": toLocaleRecord(
       "Energy Savings Calculator",
@@ -880,7 +781,6 @@ function premiumTitle(item, locale) {
       "Energiespar-Rechner",
       "Calculateur d'économies d'énergie",
       "Calculadora de ahorro energético",
-      "حاسبة توفير الطاقة",
     ),
     "sp-016": toLocaleRecord(
       "Investment Payback and NPV Calculator",
@@ -888,7 +788,6 @@ function premiumTitle(item, locale) {
       "Investitions-Amortisations- und NPV-Rechner",
       "Calculateur de retour sur investissement et VAN",
       "Calculadora de retorno de inversión y VAN",
-      "حاسبة استرداد الاستثمار وNPV",
     ),
     "sp-017": toLocaleRecord(
       "Fire System Flow and Hydrant Calculator",
@@ -896,7 +795,6 @@ function premiumTitle(item, locale) {
       "Brandanlagen-Durchfluss- und Hydranten-Rechner",
       "Calculateur de débit incendie et hydrants",
       "Calculadora de caudal contra incendios e hidrantes",
-      "حاسبة تدفق نظام الإطفاء والhydrants",
     ),
     "sp-018": toLocaleRecord(
       "Annual Leave, Severance and Notice Calculator",
@@ -904,7 +802,6 @@ function premiumTitle(item, locale) {
       "Urlaubs-, Abfindungs- und Kündigungsfrist-Rechner",
       "Calculateur congés, indemnités et préavis",
       "Calculadora de vacaciones, indemnización y preaviso",
-      "حاسبة الإجازة والمكافأة والإشعار",
     ),
     "sp-019": toLocaleRecord(
       "Hydraulic and Pneumatic Cylinder Force Calculator",
@@ -912,7 +809,6 @@ function premiumTitle(item, locale) {
       "Hydraulik-/Pneumatikzylinder-Kraft-Rechner",
       "Calculateur de force vérin hydraulique/pneumatique",
       "Calculadora de fuerza de cilindro hidráulico/neumático",
-      "حاسبة قوة الأسطوانة الهيدraulique/ال neumática",
     ),
     "sp-020": toLocaleRecord(
       "Belt Pulley Speed and Length Calculator",
@@ -920,7 +816,6 @@ function premiumTitle(item, locale) {
       "Riemenscheiben-Drehzahl- und Längen-Rechner",
       "Calculateur vitesse et longueur courroie/poulie",
       "Calculadora de velocidad y longitud de correa/polea",
-      "حاسبة سرعة وطول الحزام/البكرة",
     ),
     "sp-021": toLocaleRecord(
       "Quality Cost PAF Calculator",
@@ -928,7 +823,6 @@ function premiumTitle(item, locale) {
       "Qualitätskosten-PAF-Rechner",
       "Calculateur coûts qualité PAF",
       "Calculadora de coste de calidad PAF",
-      "حاسبة تكلفة الجودة PAF",
     ),
     "sp-022": toLocaleRecord(
       "Pressure Vessel Wall Thickness Calculator",
@@ -936,7 +830,6 @@ function premiumTitle(item, locale) {
       "Druckbehälter-Wanddicken-Rechner",
       "Calculateur d'épaisseur paroi récipient pression",
       "Calculadora de espesor de pared de recipiente a presión",
-      "حاسبة سمك جدار الوعاء المضغوط",
     ),
     "sp-023": toLocaleRecord(
       "Value Stream Map VSM Calculator",
@@ -944,7 +837,6 @@ function premiumTitle(item, locale) {
       "Value-Stream-Map-VSM-Rechner",
       "Calculateur VSM carte de flux de valeur",
       "Calculadora VSM mapa de flujo de valor",
-      "حاسبة VSM خريطة تدفق القيمة",
     ),
   };
   return titles[item.id][locale];

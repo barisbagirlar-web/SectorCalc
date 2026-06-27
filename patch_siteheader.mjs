@@ -32,18 +32,12 @@ const tEs = `    grp_production:'Producción', grp_engineering:'Ingeniería', gr
     ind_supply_chain:'Cadena de Suministro', ind_energy_esg:'Energía y ESG', ind_technology_cloud:'Tecnología e IA',
     tools:'herramientas',`;
 
-const tAr = `    grp_production:'إنتاج', grp_engineering:'هندسة', grp_operations:'عمليات',
-    ind_manufacturing:'تصنيع', ind_lean_oee:'لين و OEE', ind_quality_spc:'جودة و SPC',
-    ind_mechanical_hvac:'ميكانيكا وتكييف', ind_electrical_power:'كهرباء وطاقة', ind_construction:'بناء',
-    ind_supply_chain:'سلسلة التوريد', ind_energy_esg:'طاقة و ESG', ind_technology_cloud:'تكنولوجيا وذكاء اصطناعي',
-    tools:'أدوات',`;
 
 content = content.replace(/tools:'Tools',/g, tEn);
 content = content.replace(/tools:'Araçlar',/g, tTr);
 content = content.replace(/tools:'Tools',/g, tDe);
 content = content.replace(/tools:'outils',/g, tFr);
 content = content.replace(/tools:'herramientas',/g, tEs);
-content = content.replace(/tools:'أدوات',/g, tAr);
 
 const newGroups = `const INDUSTRY_GROUPS = [
   { groupKey:'grp_production', items:[

@@ -151,7 +151,7 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
                           checked={!!values[field.id]}
                           onChange={(e) => handleInputChange(field.id, e.target.checked ? "1" : "0")}
                           className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" tabIndex={0} />
-                        <span className="ml-2 text-sm text-gray-600">{values[field.id] ? "Evet / True" : "Hayır / False"}</span>
+                        <span className="ml-2 text-sm text-gray-600">{values[field.id] ? "Yes / True" : "No / False"}</span>
                       </div>
                     ) : (
                       <input type="number" id={`input-${field.id}`}
@@ -167,7 +167,7 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
                     </div>
                   </div>
 
-                  {/* GAP 5: Reference Values — Hızlı Giriş Butonları */}
+                  {/* GAP 5: Reference Values — Quick Input Buttons */}
                   {field.referenceValues && field.referenceValues.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-1.5">
                       {field.referenceSource && (
@@ -201,9 +201,9 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
         </div>
       </div>
 
-      {/* ═══ SAĞ PANEL: RESULTS & AUDIT (lg:col-span-8) ═══ */}
+      {/* ═══ RIGHT PANEL: RESULTS & AUDIT (lg:col-span-8) ═══ */}
       <div className="lg:col-span-8 space-y-6">
-        {/* Hata / Uyarı */}
+        {/* Error / Warning */}
         {output && (output.errors.length > 0 || output.warnings.length > 0) && (
           <div className={`rounded-lg p-4 border-l-4 ${output.errors.length > 0 ? "bg-red-50 border-red-500" : "bg-yellow-50 border-yellow-500"}`} role="alert">
             {output.errors.map((e: string, i: number) => (
@@ -221,11 +221,11 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
           </div>
         )}
 
-        {/* Sonuçlar */}
+        {/* Results */}
         {output && output.errors.length === 0 && Object.keys(output.results).length > 0 && (
           <div className="bg-white shadow-sm rounded-lg p-6 border border-gray-200">
             <h3 className="text-lg font-bold mb-4 text-gray-800">
-              Sonuçlar
+              Results
               <span className="ml-2 text-xs font-normal text-gray-400">{new Date(output.timestamp).toLocaleString(locale)}</span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -255,7 +255,7 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
         {output?.uncertainty && (
           <div className="bg-white shadow-sm rounded-lg p-6 border border-gray-200">
             <h3 className="text-lg font-bold mb-4 text-gray-800">
-              Ölçüm Belirsizliği (GUM)
+              Measurement Uncertainty (GUM)
               <span className="ml-2 text-xs font-normal text-gray-400">JCGM 100:2008</span>
             </h3>
             <div className="grid grid-cols-3 gap-3">
@@ -266,13 +266,13 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
                 </div>
               </div>
               <div className="bg-gray-50 p-3 rounded border border-gray-100">
-                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">Genişletilmiş U (k={output.uncertainty.coverageFactor})</div>
+                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">Expanded U (k={output.uncertainty.coverageFactor})</div>
                 <div className="text-lg font-mono font-semibold text-gray-900 mt-1">
                   {output.uncertainty.expanded.toLocaleString(locale, { minimumFractionDigits: 4, maximumFractionDigits: 6 })}
                 </div>
               </div>
               <div className="bg-gray-50 p-3 rounded border border-gray-100">
-                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">Kapsam Faktörü k</div>
+                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">Coverage Factor k</div>
                 <div className="text-lg font-mono font-semibold text-gray-900 mt-1">
                   {output.uncertainty.coverageFactor}
                   <span className="text-xs text-gray-400 ml-1">(~%95 GA)</span>

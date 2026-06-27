@@ -32,7 +32,7 @@
       "unit": {
         "ref": "bar·m/s"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 1,
       "max": 800
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "bar(g)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 2,
       "max": 12
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "m3"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "max": 10000
@@ -68,7 +68,7 @@
       "unit": {
         "ref": "bar(g)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "min": 0.05,
       "max": 2,
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "bar(g)"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "reinforcement",
       "min": 0.01,
       "max": 0.5,
@@ -94,7 +94,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 20,
@@ -107,7 +107,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "St1",
       "enum": [

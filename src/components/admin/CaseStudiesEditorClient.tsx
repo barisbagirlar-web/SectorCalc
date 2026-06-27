@@ -296,9 +296,6 @@ export function CaseStudiesEditorClient() {
     if (!form.title) return;
     const clean = form.title
       .toLowerCase()
-      .replace(/ü/g, "u")
-      .replace(/ö/g, "o")
-      .replace(/ç/g, "c")
       .replace(/[^a-z0-9\s-]/g, "")
       .trim()
       .replace(/\s+/g, "-")

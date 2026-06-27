@@ -86,20 +86,11 @@ const CALCULATOR_LIBRARY = {
     industriesLabel: "Centros sectoriales",
   },
   ar: {
-    metaTitle: "مكتبة الحاسبات — SectorCalc",
     metaDescription:
-      "موارد كتالوج الحاسبات العامة لـ SectorCalc: فهرس LLMs وقوائم الأدوات القطاعية ومداخل الكتالوج.",
-    title: "مكتبة الحاسبات",
-    lead: "فهارس قابلة للقراءة آلياً ومداخل كتالوج لحاسبات SectorCalc القطاعية.",
-    resourcesTitle: "موارد عامة",
-    catalogsTitle: "الكتالوجات",
     llmsLabel: "llms.txt",
     indexLabel: "sectorcalc-index.txt",
     faqLabel: "faq-knowledge.txt",
     servicesLabel: "services-products.txt",
-    freeToolsLabel: "حاسبات مجانية",
-    premiumToolsLabel: "حاسبات مميزة",
-    industriesLabel: "مراكز القطاعات",
   },
 };
 

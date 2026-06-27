@@ -227,7 +227,7 @@
       {
         "condition": "Safety_Factor < 3.5",
         "severity": "CRITICAL",
-        "source": "ASME VIII Tasarım Felsefesi",
+        "source": "ASME VIII Design Philosophy",
         "message": "Factor of safety is below 3.5. ASME VIII targets minimum SF=4.0 for static design. Design should be re-evaluated."
       },
       {
@@ -329,7 +329,7 @@
         "rpn": 128,
         "rpn_high": 128,
         "rpn_low": 76,
-        "control_measure": "ASME VIII Tasarım Felsefesi"
+        "control_measure": "ASME VIII Design Philosophy"
       },
       {
         "failureMode": "Full RT inspection is not performed (E < 1.0). The calculated thickness requires 15-43% more material. Total cost may decrease with full RT.",

@@ -8,7 +8,6 @@ glossary.tr[text] = "Bu hesaplayıcı için motor entegrasyonu devam etmektedir.
 glossary.de[text] = "Die Engine-Integration für diesen Rechner ist in Arbeit.";
 glossary.fr[text] = "L'intégration du moteur est en cours pour ce calculateur.";
 glossary.es[text] = "La integración del motor está en curso para esta calculadora.";
-glossary.ar[text] = "تكامل المحرك قيد التقدم لهذه الحاسبة.";
 
 fs.writeFileSync('src/data/calculator-phrase-glossary.json', JSON.stringify(glossary, null, 2));
 console.log('Fixed engine msg.');

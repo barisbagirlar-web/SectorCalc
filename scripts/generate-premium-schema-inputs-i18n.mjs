@@ -22,7 +22,6 @@ const PLACEHOLDER_TEMPLATES = {
   de: (label) => `${label} eingeben`,
   fr: (label) => `Saisir ${label.toLowerCase()}`,
   es: (label) => `Introduzca ${label.toLowerCase()}`,
-  ar: (label) => `أدخل ${label}`,
 };
 
 const PREMIUM_MANUAL_TR = {
@@ -225,18 +224,6 @@ const PREMIUM_MANUAL = {
     "Design safety factor applied to allowable stress.": "Factor de seguridad aplicado al esfuerzo admisible.",
   },
   ar: {
-    "Weld throat": "حلق اللحام",
-    "Weld length": "طول اللحام",
-    "Bolt diameter": "قطر البرغي",
-    "Bolt count": "عدد البراغي",
-    "Allowable stress": "إجهاد مسموح",
-    "Safety factor": "معامل الأمان",
-    "Effective fillet weld throat thickness.": "سماكة حلق لحام الزاوية الفعالة.",
-    "Continuous weld length along the joint.": "طول اللحام المستمر على طول الوصلة.",
-    "Nominal bolt diameter.": "قطر البرغي الاسمي.",
-    "Number of bolts sharing the load path.": "عدد البراغي التي تشارك مسار الحمل.",
-    "Workshop reference allowable stress for screening.": "إجهاد مسموح مرجعي للورشة للفحص السريع.",
-    "Design safety factor applied to allowable stress.": "معامل الأمان المطبق على الإجهاد المسموح.",
   },
 };
 

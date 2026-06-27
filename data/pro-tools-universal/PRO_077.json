@@ -33,7 +33,7 @@
       "unit": {
         "ref": "kg/s"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.0001,
       "max": 1000
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "mps"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.5,
       "max": 30,
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "default": "D",
       "enum": [
@@ -95,7 +95,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 200,
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "ppm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.001,
       "max": 100000
@@ -120,7 +120,7 @@
       "unit": {
         "ref": "g/mol"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 2,
       "max": 200
@@ -132,7 +132,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "open",
       "enum": [

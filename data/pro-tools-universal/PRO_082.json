@@ -32,7 +32,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 2000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "m3ph"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.001,
       "max": 100000
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "kg/m³"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.5,
       "max": 3000,
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "mPa·s"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.01,
       "max": 1000000,
@@ -82,7 +82,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "code",
       "default": 6.3,
       "enum": [
@@ -111,7 +111,7 @@
       "unit": {
         "ref": "count"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1,
       "max": 40,
@@ -124,7 +124,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 0.05,
       "enum": [

@@ -32,7 +32,7 @@
       "unit": {
         "ref": "m3"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.000001,
       "hint": "Billet volume before machining — NOT finished part volume"
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "kg/m³"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 500,
       "max": 22000,
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "USD/kg"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.01,
       "hint": "Current market price — Al 6061: $2–4 | Steel 4140: $1–2 | Ti6Al4V: $25–45 | Inconel 718: $60–120"
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "m3"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1e-7,
       "hint": "Volume of finished part — used to calculate buy-to-fly ratio"
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "USD/h"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 5,
       "hint": "Depreciation + maintenance + energy + operator + floor space"
@@ -93,7 +93,7 @@
       "unit": {
         "ref": "min"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.1,
       "hint": "From PRO_021 output or time study"
@@ -105,7 +105,7 @@
       "unit": {
         "ref": "USD/insert"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "hint": "Purchase price per single insert (not per cutting edge)"
@@ -117,7 +117,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 16,
@@ -131,7 +131,7 @@
       "unit": {
         "ref": "min"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "hint": "Measured or from Taylor equation — change at VB=0.3mm (ISO 3685)"
@@ -143,7 +143,7 @@
       "unit": {
         "ref": "USD/h"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 2,
@@ -157,7 +157,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 30,
@@ -171,7 +171,7 @@
       "unit": {
         "ref": "% of direct cost"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 300,
@@ -185,7 +185,7 @@
       "unit": {
         "ref": "parts/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "optional": true

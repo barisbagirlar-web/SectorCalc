@@ -32,7 +32,7 @@
       "unit": {
         "ref": "m2"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 1,
       "max": 1000000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "reinforcement",
       "min": 1,
       "max": 100,
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "mA/m²"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "geotech",
       "min": 5,
       "max": 200,
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "year"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 50,
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "default": "AlIn",
       "enum": [
@@ -108,7 +108,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 50,
       "max": 95,
@@ -122,7 +122,7 @@
       "unit": {
         "ref": "mV"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": -850,
       "enum": [

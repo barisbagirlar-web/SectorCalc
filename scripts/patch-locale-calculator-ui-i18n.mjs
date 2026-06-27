@@ -128,27 +128,12 @@ const SMART_FORM = {
     },
   },
   ar: {
-    mode: { simple: "بسيط", advanced: "متقدم" },
     actions: {
-      calculate: "تشغيل الحساب",
-      fixMissing: "أكمل الحقول المطلوبة",
-      showAdvanced: "إظهار الحقول المتقدمة",
-      hideAdvanced: "إخفاء الحقول المتقدمة",
     },
     validation: {
-      required: "هذا الحقل مطلوب.",
-      invalidNumber: "أدخل رقماً صالحاً.",
-      min: "يجب أن تكون القيمة على الأقل {min}.",
-      max: "يجب ألا تتجاوز القيمة {max}.",
       missingInputs:
-        "{count, plural, one {حقل مطلوب واحد مفقود} other {# حقول مطلوبة مفقودة}}",
-      invalidCombination: "لا يمكن لهذه المدخلات إنتاج حساب صالح.",
     },
-    scenario: { label: "سيناريو العمل", placeholder: "اختر السيناريو" },
     notices: {
-      requiredInputReason: "كل حقل يطابق مدخل عقد موثق لهذه الحاسبة.",
-      calculationBlocked: "أكمل الحقول المطلوبة قبل تشغيل الحساب.",
-      validatedInputSet: "مجموعة المدخلات جاهزة — شغّل الحساب بعد تأكيد القيم.",
     },
   },
 };
@@ -161,7 +146,7 @@ const CALCULATOR = {
     validationNumber: "Enter a valid number.",
   },
   tr: {
-    calculate: "Hesapla",
+    calculate: "Calculate",
     awaiting: "Sonucu görmek için değerleri girin",
     validationRequired: "Lütfen bir değer seçin.",
     validationNumber: "Geçerli bir sayı girin.",
@@ -185,10 +170,6 @@ const CALCULATOR = {
     validationNumber: "Introduzca un número válido.",
   },
   ar: {
-    calculate: "احسب الآن",
-    awaiting: "أدخل القيم لرؤية النتيجة",
-    validationRequired: "يرجى اختيار قيمة.",
-    validationNumber: "أدخل رقماً صالحاً.",
   },
 };
 
@@ -224,10 +205,6 @@ const CATALOG_VALIDATION = {
     max: "Debe ser como máximo {max}.",
   },
   ar: {
-    required: "يرجى اختيار قيمة.",
-    number: "أدخل رقماً صالحاً.",
-    min: "يجب أن يكون على الأقل {min}.",
-    max: "يجب ألا يزيد عن {max}.",
   },
 };
 

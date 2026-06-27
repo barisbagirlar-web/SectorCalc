@@ -657,7 +657,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
             </div>
           </div>
           <div className="pro-hdr-badges">
-            <span className="pro-cert-badge pro-cert-tuv">TÜV-class</span>
+            <span className="pro-cert-badge pro-cert-tuv">TUV-class</span>
             <span className="pro-cert-badge pro-cert-iso">ISO 9001 §8.5.1</span>
             <span className="pro-cert-badge pro-cert-ecmi">ECMI</span>
           </div>

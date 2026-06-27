@@ -32,7 +32,7 @@
       "unit": {
         "ref": "USD/year"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "hint": "Rent, salaries, depreciation, insurance — costs that do not vary with output"
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "USD/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0
     },
@@ -55,7 +55,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 60,
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "USD/unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.01
     },
@@ -80,7 +80,7 @@
       "unit": {
         "ref": "USD/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0
     },
@@ -91,7 +91,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 99
@@ -103,7 +103,7 @@
       "unit": {
         "ref": "USD/unit"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.01
     },
@@ -114,7 +114,7 @@
       "unit": {
         "ref": "USD/unit"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0
     },
@@ -125,7 +125,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 99
@@ -137,7 +137,7 @@
       "unit": {
         "ref": "units"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1
     },
@@ -148,7 +148,7 @@
       "unit": {
         "ref": "USD/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,

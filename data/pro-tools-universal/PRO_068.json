@@ -32,7 +32,7 @@
       "unit": {
         "ref": "kPa"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "actions",
       "min": 0,
       "max": 500,
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "deg"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 50,
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "kN/m³"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 8,
       "max": 24,
@@ -71,7 +71,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.3,
       "max": 10
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.3,
       "max": 30
@@ -95,7 +95,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.3,
       "max": 100
@@ -107,7 +107,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 50,
@@ -120,7 +120,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 3,
       "enum": [

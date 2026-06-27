@@ -32,7 +32,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 3000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -200,
       "max": 600
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -40,
       "max": 60,
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 500
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "W/(m·K)"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.015,
       "max": 0.25,
@@ -94,7 +94,7 @@
       "unit": {
         "ref": "W/(m²·K)"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 2,
       "max": 100,
@@ -107,7 +107,7 @@
       "unit": {
         "ref": "USD/GJ"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 1,
       "max": 100,
@@ -120,7 +120,7 @@
       "unit": {
         "ref": "h/yr"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 100,
       "max": 8760,

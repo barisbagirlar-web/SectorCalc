@@ -33,7 +33,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {
@@ -69,7 +69,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 1400,
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 100,
@@ -96,7 +96,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.2,
       "max": 6,
@@ -109,7 +109,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.04,
       "max": 0.25,
@@ -123,7 +123,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.04,
       "max": 0.25,
@@ -137,7 +137,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "hint": "Hex bolt: dw ≈ 1.5×d | Socket head: dw ≈ 1.4×d | Washer used: washer OD"
@@ -149,7 +149,7 @@
       "unit": {
         "ref": "% of Rp0.2"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 50,
       "max": 95,
@@ -163,7 +163,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "hint": "VDI 2230 Table A7 — accounts for preload scatter",
       "enum": [
@@ -192,7 +192,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 2.5,
@@ -205,7 +205,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {

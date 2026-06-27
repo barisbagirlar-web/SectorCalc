@@ -31,7 +31,7 @@
       "unit": {
         "ref": "kNm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "max": 100000
@@ -43,7 +43,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "max": 50000
@@ -55,7 +55,7 @@
       "unit": {
         "ref": "cm³"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 1000000
@@ -67,7 +67,7 @@
       "unit": {
         "ref": "cm³"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 1200000
@@ -79,7 +79,7 @@
       "unit": {
         "ref": "cm²"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 5000
@@ -91,7 +91,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 355,
       "enum": [
@@ -112,7 +112,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.1,
       "max": 50
@@ -124,7 +124,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 0.1,
       "max": 20
@@ -136,7 +136,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 0.5,
       "max": 40

@@ -32,7 +32,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 3,
       "max": 120
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.3,
       "max": 20
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "count"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 6,
       "enum": [
@@ -74,7 +74,7 @@
       "unit": {
         "ref": "kNpm2"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.2,
       "max": 5,
@@ -87,7 +87,7 @@
       "unit": {
         "ref": "kNpm2"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "code",
       "min": 0.25,
       "max": 5
@@ -99,7 +99,7 @@
       "unit": {
         "ref": "kNpm2"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 5,
@@ -112,7 +112,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 15
@@ -124,7 +124,7 @@
       "unit": {
         "ref": "MPa"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 355,
       "enum": [

@@ -10,7 +10,7 @@ import { join, extname } from "path";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 
-const TURKISH_CONF_PATTERNS = [
+const TURKISH_PATTERNS = [
   '"confidence_label": "KESİN"',
   '"confidence_label": "GÜÇLÜ"',
   '"confidence_label": "ORTA"',
@@ -46,7 +46,7 @@ if (existsSync(dataDir)) {
   for (const f of jsonFiles) {
     const fp = join(dataDir, f);
     const content = readFileSync(fp, "utf-8");
-    for (const pat of TURKISH_CONF_PATTERNS) {
+    for (const pat of TURKISH_PATTERNS) {
       if (content.includes(pat)) {
         errors.push(`  ${fp}: contains ${pat}`);
       }

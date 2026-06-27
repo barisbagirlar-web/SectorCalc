@@ -1,7 +1,7 @@
 import type { IndustrialRegistryKey } from "@/lib/os/registry/industrial-registry";
 
-/** Locale keys aligned with next-intl routing (en, de, es, ar). */
-export type RegistryLocaleKey = "en" | "de" | "es" | "ar";
+/** Locale keys aligned with next-intl routing. */
+export type RegistryLocaleKey = "en";
 
 export type LocalizedSectorName = Partial<Record<RegistryLocaleKey, string>>;
 
@@ -10,111 +10,33 @@ export type LocalizedSectorName = Partial<Record<RegistryLocaleKey, string>>;
  * Fallback chain: locale → en → config string.
  */
 export const SECTOR_LOCALIZED_NAMES: Record<IndustrialRegistryKey, LocalizedSectorName> = {
-  cnc: { en: "CNC", de: "CNC" },
-  textile: {
-    en: "Textile Manufacturing",
-    de: "Textilfertigung",
-  },
-  plastics: {
-    en: "Plastic Injection",
-    de: "Kunststoffspritzguss",
-  },
-  food_bev: {
-    en: "Food & Beverage",
-    de: "Lebensmittel & Getränke",
-  },
-  automotive: {
-    en: "Automotive Assembly",
-    de: "Automobilmontage",
-  },
-  electronics: {
-    en: "Electronics PCB",
-    de: "Elektronik PCB",
-  },
-  metalworking: {
-    en: "Metal Fabrication",
-    de: "Metallbearbeitung",
-  },
-  pharma: {
-    en: "Pharmaceuticals",
-    de: "Pharmazeutik",
-  },
-  logistics: {
-    en: "Logistics & Routing",
-    de: "Logistik & Routing",
-  },
-  warehousing: {
-    en: "Warehouse Inventory",
-    de: "Lagerbestand",
-  },
-  marine: {
-    en: "Marine Shipping",
-    de: "Seeschifffahrt",
-  },
-  waste_mgmt: {
-    en: "Waste Management",
-    de: "Abfallwirtschaft",
-  },
-  water_utility: {
-    en: "Water Utility",
-    de: "Wasserversorgung",
-  },
-  construction: {
-    en: "Construction Project",
-    de: "Bauprojekt",
-  },
-  energy_plant: {
-    en: "Energy & Utilities",
-    de: "Energie & Versorgung",
-  },
-  hvac: {
-    en: "HVAC Facilities",
-    de: "HLK-Anlagen",
-  },
-  mining: {
-    en: "Mining Operations",
-    de: "Bergbau",
-  },
-  printing: {
-    en: "Printing & Packaging",
-    de: "Druck & Verpackung",
-  },
-  agriculture: {
-    en: "Crop Yield Management",
-    de: "Ertragsmanagement",
-  },
-  livestock: {
-    en: "Livestock & Dairy",
-    de: "Viehzucht & Milch",
-  },
-  hospitality: {
-    en: "Hospitality / F&B",
-    de: "Gastgewerbe / F&B",
-  },
-  retail: {
-    en: "Retail Operations",
-    de: "Einzelhandel",
-  },
-  finance: {
-    en: "Corporate Finance",
-    de: "Unternehmensfinanz",
-  },
-  legal_it: {
-    en: "IT & Software Services",
-    de: "IT & Software",
-  },
-  facility_mgmt: {
-    en: "Facility Maintenance",
-    de: "Facility Management",
-  },
-  aviation_mro: {
-    en: "Aviation MRO",
-    de: "Luftfahrt MRO",
-  },
-  paper_pkg: {
-    en: "Paper & Packaging",
-    de: "Papier & Verpackung",
-  },
+  cnc: { en: "CNC" },
+  textile: { en: "Textile Manufacturing" },
+  plastics: { en: "Plastic Injection" },
+  food_bev: { en: "Food & Beverage" },
+  automotive: { en: "Automotive Assembly" },
+  electronics: { en: "Electronics PCB" },
+  metalworking: { en: "Metal Fabrication" },
+  pharma: { en: "Pharmaceuticals" },
+  logistics: { en: "Logistics & Routing" },
+  warehousing: { en: "Warehouse Inventory" },
+  marine: { en: "Marine Shipping" },
+  waste_mgmt: { en: "Waste Management" },
+  water_utility: { en: "Water Utility" },
+  construction: { en: "Construction Project" },
+  energy_plant: { en: "Energy & Utilities" },
+  hvac: { en: "HVAC Facilities" },
+  mining: { en: "Mining Operations" },
+  printing: { en: "Printing & Packaging" },
+  agriculture: { en: "Crop Yield Management" },
+  livestock: { en: "Livestock & Dairy" },
+  hospitality: { en: "Hospitality / F&B" },
+  retail: { en: "Retail Operations" },
+  finance: { en: "Corporate Finance" },
+  legal_it: { en: "IT & Software Services" },
+  facility_mgmt: { en: "Facility Maintenance" },
+  aviation_mro: { en: "Aviation MRO" },
+  paper_pkg: { en: "Paper & Packaging" },
 };
 
 export function resolveLocalizedName(
@@ -136,7 +58,7 @@ export function mergeLocalizedNames(
 ): LocalizedSectorName {
   const base: LocalizedSectorName =
     typeof raw === "string"
-      ? { en: raw, de: raw, es: raw, ar: raw }
+      ? { en: raw }
       : { ...raw };
 
   const overlay = SECTOR_LOCALIZED_NAMES[key];

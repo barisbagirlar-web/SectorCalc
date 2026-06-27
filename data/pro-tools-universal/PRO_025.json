@@ -33,7 +33,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 1000
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 500
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "degrees"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 60,
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 3,
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {
@@ -119,7 +119,7 @@
       "unit": {
         "ref": "kNpm2"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.05,
       "max": 3,
@@ -133,7 +133,7 @@
       "unit": {
         "ref": "kNpm2"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.25,
       "max": 2,
@@ -147,7 +147,7 @@
       "unit": {
         "ref": "kNpm2"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 10,
@@ -160,7 +160,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.7,
       "max": 1.3,
@@ -174,7 +174,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 1,
       "max": 1.3,
@@ -188,7 +188,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.8,
       "max": 1.2,
@@ -202,7 +202,7 @@
       "unit": {
         "ref": "mps"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 80,
@@ -215,7 +215,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {
@@ -239,7 +239,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.5,
       "max": 1.5,
@@ -252,7 +252,7 @@
       "unit": {
         "ref": "USD/m²"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 5
     },
@@ -263,7 +263,7 @@
       "unit": {
         "ref": "USD/m²"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 15
@@ -275,7 +275,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 20,

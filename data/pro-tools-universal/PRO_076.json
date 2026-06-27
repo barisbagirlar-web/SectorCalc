@@ -31,7 +31,7 @@
       "unit": {
         "ref": "t/h"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "max": 5000
@@ -43,7 +43,7 @@
       "unit": {
         "ref": "kg/m³"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 100,
       "max": 3000
@@ -55,7 +55,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 300,
       "enum": [
@@ -79,7 +79,7 @@
       "unit": {
         "ref": "rpm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "min": 10,
       "max": 200
@@ -91,7 +91,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.5,
       "max": 100
@@ -103,7 +103,7 @@
       "unit": {
         "ref": "deg"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -20,
       "max": 45,
@@ -116,7 +116,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "materials",
       "default": 1.5,
       "enum": [
@@ -145,7 +145,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "materials",
       "default": 30,
       "enum": [

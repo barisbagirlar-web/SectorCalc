@@ -32,7 +32,7 @@
       "unit": {
         "ref": "kW"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 500000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -20,
       "max": 600
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -20,
       "max": 599
@@ -68,7 +68,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -50,
       "max": 500
@@ -80,7 +80,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -50,
       "max": 500
@@ -92,7 +92,7 @@
       "unit": {
         "ref": "W/m²·K"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 50,
       "max": 8000,
@@ -105,7 +105,7 @@
       "unit": {
         "ref": "m²·K/kW"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 2,
@@ -118,7 +118,7 @@
       "unit": {
         "ref": "m²·K/kW"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 2,
@@ -131,7 +131,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.6,
       "max": 1,

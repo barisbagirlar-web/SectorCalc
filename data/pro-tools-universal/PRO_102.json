@@ -34,7 +34,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 1,
       "max": 3150
@@ -46,7 +46,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 7,
       "enum": [
@@ -79,7 +79,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "H",
       "enum": [
@@ -116,7 +116,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "h6",
       "enum": [
@@ -157,7 +157,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "reaming",
       "enum": [
@@ -186,7 +186,7 @@
       "unit": {
         "ref": "mpmin"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "reinforcement",
       "min": 5,
       "max": 500,
@@ -199,7 +199,7 @@
       "unit": {
         "ref": "mmprev"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.005,
       "max": 2,

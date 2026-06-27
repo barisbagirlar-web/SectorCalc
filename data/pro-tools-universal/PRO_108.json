@@ -33,7 +33,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "reinforcement",
       "min": 100,
       "max": 3000
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "geometry",
       "min": 1,
       "max": 100
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "bored",
       "enum": [
@@ -86,7 +86,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "clay",
       "enum": [
@@ -111,7 +111,7 @@
       "unit": {
         "ref": "kPa or blows/0.3m"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "actions",
       "min": 5,
       "max": 500
@@ -123,7 +123,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.2,
       "max": 1,
@@ -136,7 +136,7 @@
       "unit": {
         "ref": "kPa"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 100,
       "max": 20000,
@@ -149,7 +149,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 1.5,
       "enum": [

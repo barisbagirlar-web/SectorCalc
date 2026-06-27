@@ -33,7 +33,7 @@
       "unit": {
         "ref": "kWh/yr"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 500000000
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "h/day"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "energy",
       "min": 1.5,
       "max": 8,
@@ -58,7 +58,7 @@
       "unit": {
         "ref": "Wp"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 700
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 8,
       "max": 40,
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "%/°C"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -0.6,
       "max": -0.1,
@@ -96,7 +96,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 20,
       "max": 80,
@@ -109,7 +109,7 @@
       "unit": {
         "ref": "USD/Wp"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.3,
       "max": 4,
@@ -122,7 +122,7 @@
       "unit": {
         "ref": "USD/kWh"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0.03,
       "max": 0.5,

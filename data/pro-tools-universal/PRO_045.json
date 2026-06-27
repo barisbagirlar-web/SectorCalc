@@ -33,7 +33,7 @@
       "unit": {
         "ref": "dB(A) re 1 pW"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 60,
       "max": 180
@@ -45,7 +45,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.5,
       "max": 2000
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "default": 2,
       "enum": [
@@ -86,7 +86,7 @@
       "unit": {
         "ref": "dB"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "reinforcement",
       "min": 0,
       "max": 40,
@@ -99,7 +99,7 @@
       "unit": {
         "ref": "h"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.25,
       "max": 12,
@@ -112,7 +112,7 @@
       "unit": {
         "ref": "dBA"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 85,
       "enum": [
@@ -137,7 +137,7 @@
       "unit": {
         "ref": "count"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 100,

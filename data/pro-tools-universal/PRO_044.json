@@ -32,7 +32,7 @@
       "unit": {
         "ref": "kW"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.5,
       "max": 50000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -60,
       "max": 15
@@ -56,7 +56,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 20,
       "max": 80
@@ -68,7 +68,7 @@
       "unit": {
         "ref": "K"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 40,
@@ -81,7 +81,7 @@
       "unit": {
         "ref": "K"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 0,
       "max": 20,
@@ -94,7 +94,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 40,
       "max": 92,
@@ -107,7 +107,7 @@
       "unit": {
         "ref": "kJ/kg"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 150,
       "max": 800
@@ -119,7 +119,7 @@
       "unit": {
         "ref": "kJ/kg"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 100,
       "max": 500
@@ -131,7 +131,7 @@
       "unit": {
         "ref": "kJ/kg"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 200,
       "max": 1000

@@ -228,13 +228,13 @@
       {
         "condition": "fluid_temp_c > 60 && static_suction_head_m < 0",
         "severity": "CRITICAL",
-        "source": "API 610 — Sıcak Akışkan",
+        "source": "API 610 — Hot Fluid",
         "message": "Hot fluid + negative suction lift: Vapor pressure increases exponentially with temperature, rapidly reducing NPSHa. This combination poses critical cavitation risk. Locate pump below tank level."
       },
       {
         "condition": "suction_pipe_losses_m > 2.0",
         "severity": "WARNING",
-        "source": "Hydraulic Institute Emme Hattı Tasarımı",
+        "source": "Hydraulic Institute Suction Line Design",
         "message": "Suction line friction losses > 2m: Directly subtracts from NPSHa. To reduce losses: increase pipe diameter, minimize valves, shorten pipe runs, and avoid tight elbows."
       },
       {
@@ -335,7 +335,7 @@
         "rpn": 128,
         "rpn_high": 128,
         "rpn_low": 76,
-        "control_measure": "API 610 — Sıcak Akışkan"
+        "control_measure": "API 610 — Hot Fluid"
       },
       {
         "failureMode": "Suction line friction losses > 2m: Directly subtracts from NPSHa. To reduce losses: increase pipe diameter, minimize valves, shorten pipe runs, and avoid tight elbows.",
@@ -346,7 +346,7 @@
         "rpn": 80,
         "rpn_high": 80,
         "rpn_low": 48,
-        "control_measure": "Hydraulic Institute Emme Hattı Tasarımı"
+        "control_measure": "Hydraulic Institute Suction Line Design"
       },
       {
         "failureMode": "NPSHa < 1.0m: Operating conditions are outside normal centrifugal pump limits. Evaluate special low-NPSH pump models (with inducer) or submersible pumps.",

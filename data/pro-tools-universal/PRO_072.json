@@ -32,7 +32,7 @@
       "unit": {
         "ref": "A"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 10000
@@ -44,7 +44,7 @@
       "unit": {
         "ref": "mm2"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 95,
       "enum": [
@@ -76,7 +76,7 @@
       "unit": {
         "ref": "A"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 10,
       "max": 5000
@@ -88,7 +88,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -20,
       "max": 60,
@@ -101,7 +101,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 90,
       "enum": [
@@ -126,7 +126,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "code",
       "default": 0.8,
       "enum": [
@@ -163,7 +163,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 1,
       "max": 50000
@@ -175,7 +175,7 @@
       "unit": {
         "ref": "V"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": 400,
       "enum": [

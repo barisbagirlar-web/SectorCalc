@@ -5478,14 +5478,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "finalError",
         "label": "Final Measured Deviation",
-        "unit": "Birim",
+        "unit": "Unit",
         "type": "number",
         "helper": "Enter final measured deviation"
       },
       {
         "key": "prevError",
         "label": "Previous Measured Deviation",
-        "unit": "Birim",
+        "unit": "Unit",
         "type": "number",
         "helper": "Enter previous measured deviation"
       },

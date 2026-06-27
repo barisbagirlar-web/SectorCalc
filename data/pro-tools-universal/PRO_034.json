@@ -34,7 +34,7 @@
       "unit": {
         "ref": "USD"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "hint": "Cost in today's money (base date). Include bulk materials, major equipment, vendor supply."
@@ -46,7 +46,7 @@
       "unit": {
         "ref": "USD"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0
     },
@@ -57,7 +57,7 @@
       "unit": {
         "ref": "USD"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "default": 0,
@@ -70,7 +70,7 @@
       "unit": {
         "ref": "%/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": -10,
       "max": 50,
@@ -83,7 +83,7 @@
       "unit": {
         "ref": "%/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": -5,
       "max": 50,
@@ -96,7 +96,7 @@
       "unit": {
         "ref": "%/year"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": -5,
       "max": 50,
@@ -110,7 +110,7 @@
       "unit": {
         "ref": "years"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.1,
       "max": 20
@@ -122,7 +122,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "enum": [
         {
@@ -150,7 +150,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.3,
       "max": 1,
@@ -164,7 +164,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 60
@@ -176,7 +176,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": -5,
       "max": 100,
@@ -189,7 +189,7 @@
       "unit": {
         "ref": "% of escalated base"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 50,
@@ -203,7 +203,7 @@
       "unit": {
         "ref": "% of contingency-inclusive budget"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 20,

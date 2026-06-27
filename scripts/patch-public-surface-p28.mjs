@@ -10,7 +10,6 @@ const PREMIUM_SUBTITLE = {
   de: "Premium-Branchenrechner für Produktion, Kosten, Energie, Bestand, Technik und operative Entscheidungen mit mehr Eingaben, Szenariovergleich und Entscheidungszusammenfassung.",
   fr: "Calculateurs sectoriels premium pour la production, les coûts, l'énergie, les stocks, la technique et les décisions opérationnelles nécessitant plus d'entrées, des scénarios et un résumé décisionnel.",
   es: "Calculadoras sectoriales premium para producción, costos, energía, inventario, técnica y decisiones operativas que requieren más entradas, escenarios y resumen de decisión.",
-  ar: "حاسبات قطاعية مميزة للإنتاج والتكلفة والطاقة والمخزون والقرارات التقنية والتشغيلية التي تحتاج مدخلات أكثر ومقارنة سيناريوهات وملخص قرار.",
 };
 
 const PREMIUM_TABS = {
@@ -65,14 +64,6 @@ const PREMIUM_TABS = {
     "engineering-technical": "Ingeniería y técnica",
   },
   ar: {
-    premiumToolsAll: "كل الحاسبات المميزة",
-    "cost-margin": "التكلفة والهامش",
-    "operations-oee": "العمليات وOEE",
-    "energy-carbon": "الطاقة والكربون",
-    "manufacturing-engineering": "التصنيع والهندسة",
-    "finance-hr": "المالية والموارد البشرية",
-    "quality-lean": "الجودة واللين",
-    "engineering-technical": "الهندسة والتقنية",
   },
 };
 
@@ -82,7 +73,6 @@ const FOOTER_META = {
   de: { metaReg: "REGION: GLOBAL", metaCur: "WÄHRUNG: EUR", metaCopyright: "© 2026 SECTORCALC" },
   fr: { metaReg: "RÉGION: GLOBAL", metaCur: "DEVISE: EUR", metaCopyright: "© 2026 SECTORCALC" },
   es: { metaReg: "REGIÓN: GLOBAL", metaCur: "MONEDA: USD", metaCopyright: "© 2026 SECTORCALC" },
-  ar: { metaReg: "المنطقة: عالمي", metaCur: "العملة: USD", metaCopyright: "© 2026 SECTORCALC" },
 };
 
 const CTA_OPEN = {
@@ -91,7 +81,6 @@ const CTA_OPEN = {
   de: "Rechner öffnen",
   fr: "Ouvrir le calculateur",
   es: "Abrir calculadora",
-  ar: "افتح الحاسبة",
 };
 
 for (const locale of ["en", "tr", "de", "fr", "es", "ar"]) {

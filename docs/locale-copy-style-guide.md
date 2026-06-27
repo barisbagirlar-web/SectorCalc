@@ -121,12 +121,6 @@ Tone:
 - concise
 
 Use:
-- احسب
-- قِس
-- تقرير القرار
-- الخسائر غير المرئية
-- حدود التنبيه
-- المخاطر التشغيلية
 
 Avoid:
 - literal English sentence order

@@ -32,7 +32,7 @@
       "unit": {
         "ref": "—"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "enum": [
         {
@@ -72,7 +72,7 @@
       "unit": {
         "ref": "degC"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -40,
       "max": 350
@@ -84,7 +84,7 @@
       "unit": {
         "ref": "kg/m³"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 500,
       "max": 1800,
@@ -98,7 +98,7 @@
       "unit": {
         "ref": "bar(a)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.01,
       "max": 50,
@@ -112,7 +112,7 @@
       "unit": {
         "ref": "bar(a)"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.001,
       "max": 50,
@@ -125,7 +125,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": -12,
       "max": 50,
@@ -138,7 +138,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 20,
@@ -151,7 +151,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0.1,
       "hint": "From pump performance curve (manufacturer datasheet)"
@@ -163,7 +163,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 10,
       "max": 2000,
@@ -176,7 +176,7 @@
       "unit": {
         "ref": "m3ph"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.01,
       "optional": true
@@ -188,7 +188,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0.5,
       "default": 0.5,
@@ -202,7 +202,7 @@
       "unit": {
         "ref": "m"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 0,
       "max": 5000,

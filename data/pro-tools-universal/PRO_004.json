@@ -31,7 +31,7 @@
       "unit": {
         "ref": "mm"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "M12",
       "enum": [
@@ -76,7 +76,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "default": "10.9",
       "enum": [
@@ -101,7 +101,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "reinforcement",
       "min": 0.06,
       "max": 0.35,
@@ -114,7 +114,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "GUCLU",
+      "confidence": "STRONG",
       "group": "general",
       "min": 50,
       "max": 100,
@@ -127,7 +127,7 @@
       "unit": {
         "ref": "pct"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "general",
       "min": 3,
       "max": 25,
@@ -140,7 +140,7 @@
       "unit": {
         "ref": "kN"
       },
-      "confidence": "KESIN",
+      "confidence": "EXACT",
       "group": "general",
       "min": 0,
       "max": 5000
@@ -152,7 +152,7 @@
       "unit": {
         "ref": "dimensionless"
       },
-      "confidence": "VARSAYIM",
+      "confidence": "DEFAULT",
       "group": "actions",
       "min": 0.1,
       "max": 1,

@@ -28,7 +28,6 @@ const PLACEHOLDER_TEMPLATES = {
   de: (label) => `${label} eingeben`,
   fr: (label) => `Saisir ${label.toLowerCase()}`,
   es: (label) => `Introduzca ${label.toLowerCase()}`,
-  ar: (label) => `أدخل ${label}`,
 };
 
 function loadCatalogTools() {
