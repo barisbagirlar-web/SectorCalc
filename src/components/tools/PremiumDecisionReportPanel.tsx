@@ -227,8 +227,8 @@ function StochasticMarginReportPanel({
 
  setParsed(parsePremiumVerdictTxt(txt));
 
- if (!txt.startsWith("HATA:")) {
- trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
+if (!txt.startsWith("HATA:") && !txt.startsWith("ERROR:")) {
+trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
  toolSlug,
  });
  }

@@ -10021,17 +10021,17 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
     "inputs": [
       {
         "key": "ortalamaguc",
-        "label": "ortalamaguc",
+        "label": "Average Power",
         "unit": "kW",
         "type": "number",
-        "helper": "Enter ortalamaguc"
+        "helper": "Enter average power consumption"
       },
       {
         "key": "pikguc",
-        "label": "pikguc",
+        "label": "Peak Power",
         "unit": "kW",
         "type": "number",
-        "helper": "Enter pikguc"
+        "helper": "Enter peak power demand"
       }
     ],
     "resultType": "quantity",
@@ -12673,10 +12673,10 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       },
       {
         "key": "hataliistek",
-        "label": "hataliistek",
+        "label": "Faulty Requests",
         "unit": "units",
         "type": "number",
-        "helper": "Enter hataliistek"
+        "helper": "Enter number of faulty requests"
       },
       {
         "key": "toplamgecikme",
@@ -12934,10 +12934,10 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       },
       {
         "key": "ortalamanabiz",
-        "label": "ortalamanabiz",
+        "label": "Average Heart Rate",
         "unit": "BPM",
         "type": "number",
-        "helper": "Enter ortalamanabiz"
+        "helper": "Enter average heart rate in BPM"
       },
       {
         "key": "restingHeartRate",
@@ -13195,17 +13195,17 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
     "inputs": [
       {
         "key": "kritikkazanc",
-        "label": "kritikkazanc",
+        "label": "Critical Gain",
         "unit": "Ku",
         "type": "number",
-        "helper": "Enter kritikkazanc"
+        "helper": "Enter critical gain value"
       },
       {
         "key": "kritikperiyot",
-        "label": "kritikperiyot",
+        "label": "Critical Period",
         "unit": "Tu",
         "type": "number",
-        "helper": "Enter kritikperiyot"
+        "helper": "Enter critical period value"
       }
     ],
     "resultType": "quantity",
@@ -13475,10 +13475,10 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       },
       {
         "key": "kesintidurumu",
-        "label": "kesintidurumu",
+        "label": "Interruption Status",
         "unit": "Number",
         "type": "number",
-        "helper": "Enter kesintidurumu"
+        "helper": "Enter interruption status indicator"
       }
     ],
     "resultType": "quantity",

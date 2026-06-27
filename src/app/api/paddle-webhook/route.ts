@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     // ── Buraya kendi DB call'unu ekle ──
     // await db.credits.upsert({ email, increment: credits, expiresAt: ... })
 
-    // ── Email gönder ──
+    // ── Send email ──
     // await resend.emails.send({ to: email, subject: `Your ${credits} credits are ready`, ... })
 
     console.log(`[webhook] ✅ ${credits} credits → ${email} (plan: ${planId})`)

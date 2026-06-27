@@ -44,10 +44,6 @@ export function sanitizeKnowledgeItem(item: SectorcalcAiKnowledgeItem): Sectorca
 export function buildDisclaimer(locale: string): string {
   const disclaimers: Record<string, string> = {
     en: "This is a technical simulation. Verify all results before making business decisions.",
-    de: "Dies ist eine technische Simulation. Prüfen Sie alle Ergebnisse vor Geschäftsentscheidungen.",
-    fr: "Ceci est une simulation technique. Vérifiez tous les résultats avant de prendre des décisions.",
-    es: "Esta es una simulación técnica. Verifique todos los resultados antes de tomar decisiones.",
-    ar: "هذا محاكاة فنية. تحقق من جميع النتائج قبل اتخاذ قرارات العمل.",
   };
 
   return disclaimers[locale] ?? disclaimers.en;

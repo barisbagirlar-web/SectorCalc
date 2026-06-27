@@ -954,7 +954,7 @@ export const sectorCalcPremium152Seed = {
       "slug": "spare-parts-stock-level-and-downtime-risk-optimization-calculator",
       "categorySlug": "maintenance-reliability",
       "tier": "premium",
-      "formulaNote": "Kritik_karar: Inventory_holding vs (Stockout_probability × Downtime_cost) | Safety_stock = Z × √(Lead_time) × σ",
+      "formulaNote": "Critical_decision: Inventory_holding vs (Stockout_probability × Downtime_cost) | Safety_stock = Z × √(Lead_time) × σ",
       "pain": "Critical spare parts stock is held by intuition, stockout downtime cost cannot be calculated.",
       "formulaStatus": "source-formula-provided",
       "publicStatus": "active-after-contract-validation"
@@ -984,7 +984,7 @@ export const sectorCalcPremium152Seed = {
       "slug": "criticality-risk-matrix-and-maintenance-strategy-selection-calculator",
       "categorySlug": "maintenance-reliability",
       "tier": "premium",
-      "formulaNote": "Kritiklik = Failure_probability × Consequence_severity | Strategy: High→predictive | Low→run_to_failure",
+      "formulaNote": "Criticality = Failure_probability × Consequence_severity | Strategy: High→predictive | Low→run_to_failure",
       "pain": "Which machine gets preventive vs. predictive maintenance is chosen without data.",
       "formulaStatus": "source-formula-provided",
       "publicStatus": "active-after-contract-validation"

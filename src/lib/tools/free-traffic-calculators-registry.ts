@@ -18,7 +18,7 @@ function PV(payment: number, ratePercent: number, months: number): number {
   return payment * ((1 - Math.pow(1 + r, -n)) / r);
 }
 
-function FV_HESAPLA(ratePercent: number, periods: number, payment: number): number {
+function FV_CALC(ratePercent: number, periods: number, payment: number): number {
   const r = (ratePercent || 0) / 100;
   const n = periods || 1;
   if (r === 0) return payment * n;
@@ -56,7 +56,7 @@ function YAS_CARPANI(retirementAge: number): number {
 function Mifflin_St_Jeor_Formulu(weight: number, height: number, age: number, gender: any): number {
   const base = 10 * weight + 6.25 * height - 5 * age;
   const gStr = String(gender || "").toLowerCase();
-  if (gStr === "female" || gStr === "kadin" || gStr === "kadın" || gStr === "2") {
+  if (gStr === "female" || gStr === "2") {
     return base - 161;
   }
   return base + 5;
@@ -547,8 +547,8 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
           { label: "Total PV of Flows", value: formatCurrency(cumPV) }
         ],
         explanation: payback >= 0 
-          ? `Yatırımın iskonto edilmiş nakit akışlarıyla amorti edilme süresi ${formatNumber(payback)} yıldır.` 
-          : "Nakit akışlarının bugünkü değerleri toplamı başlangıç yatırım maliyetini karşılamamaktadır.",
+          ? `Discounted payback period of the investment is ${formatNumber(payback)} years.`
+          : "Total present value of cash flows does not cover the initial investment cost.",
         missingFactors: ["Overhead shifts", "Post-payback cash flows"]
       };
     },
@@ -1107,7 +1107,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const annualRent = normalizeNumber(values.annualRent);
     const ratio = homePrice / Math.max(1, annualRent);
     const decision = ratio > 20 ? "Rent" : "Buy";
-    const decisionTr = ratio > 20 ? "KİRALA" : "SATIN AL";
+    const decisionTr = ratio > 20 ? "LEASE" : "BUY";
     return {
       headline: `Decision: ${decision} (Ratio: ${formatNumber(ratio)})`,
       primaryLabel: "Recommended Strategy",
@@ -2209,15 +2209,15 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "espp-discounted-stock-options": (values) => {
     const marketPrice = normalizeNumber(values.marketPrice);
-    const İskonto = normalizeNumber(values.discount);
+    const discount = normalizeNumber(values.discount);
     const contribution = normalizeNumber(values.contribution);
 
     const shares = values.shares !== undefined ? normalizeNumber(values.shares) : 1;
      
     let resultValue: any = 0;
     try {
-    const AlimFiyati = marketPrice * (1 - İskonto/100);
-    const sharesCount = contribution / Math.max(0.0001, AlimFiyati);
+    const purchasePrice = marketPrice * (1 - discount/100);
+    const sharesCount = contribution / Math.max(0.0001, purchasePrice);
     resultValue = sharesCount;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -2263,15 +2263,15 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "convertible-note-shares": (values) => {
     const investment = normalizeNumber(values.investment);
     const valuation = normalizeNumber(values.valuation);
-    const İskonto = normalizeNumber(values.discount);
+    const discount = normalizeNumber(values.discount);
     const interestRate = normalizeNumber(values.interestRate);
 
 
      
     let resultValue: any = 0;
     try {
-    const DonusumFiyati = valuation * (1 - İskonto/100);
-    const stocks = (investment * (1+interestRate/100)) / Math.max(0.0001, DonusumFiyati);
+    const conversionPrice = valuation * (1 - discount/100);
+    const stocks = (investment * (1+interestRate/100)) / Math.max(0.0001, conversionPrice);
     resultValue = stocks;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -2297,8 +2297,8 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
      
     let resultValue: any = 0;
     try {
-    const DonusumFiyati = capValue / Math.max(1, totalShares);
-    const newShares = investment / Math.max(0.0001, DonusumFiyati);
+    const conversionPrice = capValue / Math.max(1, totalShares);
+    const newShares = investment / Math.max(0.0001, conversionPrice);
     resultValue = newShares;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -5179,17 +5179,17 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "welding-heat-input": (values) => {
-    const Akim = normalizeNumber(values.akim);
-    const Gerilim = normalizeNumber(values.gerilim);
-    const IlerlemeHiz = normalizeNumber(values.ilerlemehiz);
-    const Verim = normalizeNumber(values.verim);
+    const current = normalizeNumber(values.akim);
+    const voltage = normalizeNumber(values.gerilim);
+    const advanceSpeed = normalizeNumber(values.ilerlemehiz);
+    const efficiency = normalizeNumber(values.verim);
 
 
      
     let resultValue: any = 0;
     try {
-    const Isı = (Akim * Gerilim * Verim) / Math.max(0.0001, IlerlemeHiz);
-    resultValue = Isı;
+    const heat = (current * voltage * efficiency) / Math.max(0.0001, advanceSpeed);
+    resultValue = heat;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
       }
@@ -5359,14 +5359,14 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "ridge-beam-calculator": (values) => {
-    const CatıYuk = normalizeNumber(values.ridgeLoad);
+    const ridgeLoad = normalizeNumber(values.ridgeLoad);
     const span = normalizeNumber(values.span);
 
 
      
     let resultValue: any = 0;
     try {
-    const moment = (CatıYuk * span**2) / 8;
+    const moment = (ridgeLoad * span**2) / 8;
     resultValue = moment;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -5524,8 +5524,8 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
 
     let resultValue: any = 0;
     try {
-    const Akı = (thermalConductivity * Alan * temperatureDifference) / Math.max(0.0001, thickness);
-    resultValue = Akı;
+    const heatFlow = (thermalConductivity * area * temperatureDifference) / Math.max(0.0001, thickness);
+    resultValue = heatFlow;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
       }

@@ -26,7 +26,7 @@
     "seo:authority-txt": "npx tsx scripts/generate-seo-authority-txt.ts",
     "seo:export-manifest": "npx tsx scripts/export-indexable-manifest.ts",
     "seo:indexnow": "node scripts/submit-indexnow.mjs",
-    "prebuild": "mkdir -p .next/server && echo '{}' > .next/server/pages-manifest.json && npm run lint:schemas && npm run seo:authority-txt && npm run seo:export-manifest",
+    "prebuild": "mkdir -p .next/server && echo '{}' > .next/server/pages-manifest.json && npm run check:i18n && npm run lint:schemas && npm run seo:authority-txt && npm run seo:export-manifest",
     "audit:campaign": "npx tsx scripts/audit-campaign-utm.ts",
     "audit:locale-catalog": "npx tsx scripts/audit-locale-catalog-smoke.ts",
     "audit:locale-messages": "npx tsx scripts/audit-locale-messages.ts",
@@ -177,7 +177,8 @@
     "audit:roadmap-debt": "npx tsx scripts/audit-roadmap-debt.ts",
     "inventory:formulas": "npx tsx scripts/inventory-formulas.ts",
     "test:formulas": "vitest run src/lib/formula-governance",
-    "check:secrets": "node scripts/check-commit-secrets.mjs",
+    "check:secrets": "node scripts/check-commit-secrets.mjs && node scripts/check-no-turkish-ui-strings.mjs",
+    "check:i18n": "node scripts/check-no-turkish-ui-strings.mjs",
     "admin:set-claim": "node scripts/set-admin-claim.mjs"
   },
   "dependencies": {

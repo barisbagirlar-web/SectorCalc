@@ -53,9 +53,9 @@ function isInputHidden(inp: any, values: Record<string, any>): boolean {
 function confidenceLabel(lbl?: string): string | undefined {
   if (!lbl) return undefined;
   const u = lbl.toUpperCase();
-  if (u === "KESİN" || u === "CERTAIN" || u === "HIGH" || u === "EXACT") return "EXACT";
-  if (u === "GÜÇLÜ" || u === "STRONG" || u === "MEDIUM") return "STRONG";
-  if (u === "ORTA" || u === "MODERATE") return "MODERATE";
+  if (u === "EXACT" || u === "CERTAIN" || u === "HIGH") return "EXACT";
+  if (u === "STRONG" || u === "MEDIUM") return "STRONG";
+  if (u === "MODERATE") return "MODERATE";
   return "DEFAULT";
 }
 

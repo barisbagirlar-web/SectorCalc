@@ -12,6 +12,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 interface ExpertAuthoritySectionProps {
   /** Optional tool name to show in the review statement. */
@@ -42,7 +43,7 @@ export function ExpertAuthoritySection({
                 NN
               </div>
             ) : (
-              <img
+              <Image
                 src="/img/experts/prof-neela-nataraj.svg"
                 alt="Prof. Dr. Neela Nataraj"
                 width={96}

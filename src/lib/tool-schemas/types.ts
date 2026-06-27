@@ -25,7 +25,7 @@ import type { CalculationEngine } from "./types-legacy";
 /* ─────────────────────────  PRIMITIVES  ───────────────────────── */
 
 /** Confidence label — your house standard. Drives the input badge. */
-export type Confidence = 'KESIN' | 'GUCLU' | 'ORTA' | 'VARSAYIM';
+export type Confidence = 'CERTAIN' | 'STRONG' | 'MEDIUM' | 'DEFAULT';
 
 /** Severity for warnings / decision banners. */
 export type Severity = 'CRITICAL' | 'WARNING' | 'INFO';

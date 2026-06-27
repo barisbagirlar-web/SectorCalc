@@ -5,8 +5,8 @@
  * fail-closed validation, immutable audit trail.
  */
 
-// 1. TEMEL PRIMITIVES
-export type ConfidenceLevel = 'KESIN' | 'GÜÇLÜ' | 'ORTA' | 'VARSAYIM';
+// 1. BASE PRIMITIVES
+export type ConfidenceLevel = 'CERTAIN' | 'STRONG' | 'MEDIUM' | 'DEFAULT';
 export type SeverityLevel = 'CRITICAL' | 'WARNING' | 'INFO';
 export type RuleAction = 'BLOCK' | 'WARN';
 
@@ -19,7 +19,7 @@ export type InputType = 'number' | 'select' | 'boolean';
 /** GUM uncertainty distribution type. */
 export type Distribution = 'normal' | 'rectangular' | 'triangular' | 'u-shaped';
 
-// 2. ISO 80000 BOYUTSAL ANALİZ
+// 2. ISO 80000 DIMENSIONAL ANALYSIS
 export type DimensionVector = [number, number, number, number, number, number, number];
 
 export const DIMENSIONS = {
@@ -52,7 +52,7 @@ export interface UnitDefinition {
   description?: string;
 }
 
-// 3. INPUT TANIMI
+// 3. INPUT DEFINITION
 
 export interface UncertaintySpec {
   value: number | `${number}%`;
@@ -80,7 +80,7 @@ export interface InputField {
   defaultValue?: number;
   description?: string;
 
-  // Referans Değerler (GAP 5)
+  // Reference Values (GAP 5)
   referenceValues?: (number | { label: string; value: number })[];
   referenceSource?: string;
 
@@ -89,7 +89,7 @@ export interface InputField {
   enum?: { value: number | string; label: string }[];
 }
 
-// 4. FORMÜL VE AST YAPISI
+// 4. FORMULA AND AST STRUCTURE
 
 export interface DomainGuard {
   condition: string;

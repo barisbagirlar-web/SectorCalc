@@ -1,5 +1,5 @@
 /**
- * Industrial OS — 27 sektör canonical registry.
+ * Industrial OS — 27-sector canonical registry.
  * JSON-config driven (sector-registry.config.json).
  * After config changes: npm run seo:llms && npm run seo:indexnow
  */

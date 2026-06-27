@@ -177,22 +177,22 @@ function scoreEmail(email: string): {
 } {
  const trimmed = email.trim();
  if (!trimmed) {
- return { points: 0, warning: "E-posta eksik" };
+ return { points: 0, warning: "Email missing" };
  }
 
  if (isInvalidEmail(trimmed)) {
- return {
- points: 0,
- warning: "E-posta geçersiz veya test görünüyor",
- };
+return {
+points: 0,
+warning: "Email invalid or appears to be test",
+};
  }
 
  const domain = extractEmailDomain(trimmed);
  if (!domain) {
- return {
- points: 0,
- warning: "E-posta geçersiz veya test görünüyor",
- };
+return {
+points: 0,
+warning: "Email invalid or appears to be test",
+};
  }
 
  if (PERSONAL_EMAIL_DOMAINS.has(domain)) {
